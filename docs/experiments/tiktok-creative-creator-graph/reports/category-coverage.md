@@ -1,6 +1,6 @@
 # Category Coverage
 
-Generated: 2026-06-13T03:50:56.591Z
+Generated: 2026-06-13T03:55:51.186Z
 
 Target useful creators: 50000
 Covered labels: 5/11
@@ -21,7 +21,7 @@ Total useful gap: 49993
 | Label | Target | Useful Primary | Excellent Primary | Secondary Mentions | Reviewed Primary | Gap | Priority |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | filmmaker | 8000 | 2 | 2 | 3 | 1 | 7998 | 2 |
-| director | 4000 | 0 | 0 | 2 | 0 | 4000 | 1 |
+| director | 4000 | 0 | 0 | 3 | 0 | 4000 | 1 |
 | cinematographer | 5000 | 1 | 1 | 0 | 0 | 4999 | 2 |
 | editor | 5000 | 0 | 0 | 2 | 0 | 5000 | 1 |
 | vfx_animation | 5000 | 1 | 1 | 1 | 0 | 4999 | 2 |

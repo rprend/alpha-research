@@ -1,0 +1,178 @@
+[
+  {
+    "id": "tiktok_newsroom_showbiz_2022",
+    "url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+    "source_name": "TikTok Newsroom Showbiz List 2022",
+    "source_query": "TikTok Showbiz List entertainment creators 2022",
+    "target_label": "filmmaker",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_discover_2026_global",
+    "url": "https://newsroom.tiktok.com/discover-list-2026-meet-the-creators-to-watch?lang=en",
+    "source_name": "TikTok Newsroom Discover List 2026 Global",
+    "source_query": "TikTok Discover List 2026 creators to watch",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_discover_2026_au",
+    "url": "https://newsroom.tiktok.com/discover-list-2026-au?lang=en-AU",
+    "source_name": "TikTok Newsroom Discover List 2026 Australia",
+    "source_query": "TikTok Discover List 2026 Australia creators to watch",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_discover_2026_ssa",
+    "url": "https://newsroom.tiktok.com/the-discover-list-meet-the-2026-sub-saharan-africa-tiktok-creators-to-watch?lang=en-ZA",
+    "source_name": "TikTok Newsroom Discover List 2026 Sub-Saharan Africa",
+    "source_query": "TikTok Discover List 2026 Sub-Saharan Africa creators to watch",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_discover_2025_global",
+    "url": "https://newsroom.tiktok.com/en-us/the-discover-list-meet-the-2025-tiktok-creators-to-watch",
+    "source_name": "TikTok Newsroom Discover List 2025 Global",
+    "source_query": "TikTok Discover List 2025 creators to watch",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_discover_2025_aunz",
+    "url": "https://newsroom.tiktok.com/the-discover-list-meet-the-2025-tiktok-creators-to-watch-aunz?lang=en-AU",
+    "source_name": "TikTok Newsroom Discover List 2025 Australia New Zealand",
+    "source_query": "TikTok Discover List 2025 AUNZ creators to watch",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_discover_2022",
+    "url": "https://newsroom.tiktok.com/en-us/the-discover-list-2022-highlighting-global-tiktok-creators",
+    "source_name": "TikTok Newsroom Discover List 2022",
+    "source_query": "TikTok Discover List 2022 creators",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_discover_2021",
+    "url": "https://newsroom.tiktok.com/en-us/the-discover-list-meet-the-tiktok-creators-of-2021",
+    "source_name": "TikTok Newsroom Discover List 2021",
+    "source_query": "TikTok Discover List 2021 creators",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_awards_us_2025_winners",
+    "url": "https://newsroom.tiktok.com/introducing-the-winners-of-the-tiktok-awards-us-2025-new-era-new-icons?lang=en",
+    "source_name": "TikTok Newsroom Awards US 2025 Winners",
+    "source_query": "TikTok Awards US 2025 winners",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_awards_uk_ie_2025_winners",
+    "url": "https://newsroom.tiktok.com/introducing-the-winners-of-the-tiktok-awards-uk-ireland-2025-with-headline-partner-sky?lang=en-GB",
+    "source_name": "TikTok Newsroom Awards UK Ireland 2025 Winners",
+    "source_query": "TikTok Awards UK Ireland 2025 winners",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_awards_uk_ie_2024_shortlist",
+    "url": "https://newsroom.tiktok.com/en-gb/shortlist-unveiled-and-voting-opens-for-first-ever-tiktok-awards-uk-and-ireland",
+    "source_name": "TikTok Newsroom Awards UK Ireland 2024 Shortlist",
+    "source_query": "TikTok Awards UK Ireland 2024 shortlist",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_awards_au_2025_nominees",
+    "url": "https://newsroom.tiktok.com/sophie-monk-to-host-2025-tiktok-awards-as-full-nominee-list-drops?lang=en-AU",
+    "source_name": "TikTok Newsroom Awards Australia 2025 Nominees",
+    "source_query": "TikTok Awards Australia 2025 nominees",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_awards_ssa_2025_nominees",
+    "url": "https://newsroom.tiktok.com/tiktok-awards-nominations-newsroom?lang=en-ZA",
+    "source_name": "TikTok Newsroom Awards Sub-Saharan Africa 2025 Nominees",
+    "source_query": "TikTok Awards Sub-Saharan Africa 2025 nominees",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_filmtok_98th_oscars",
+    "url": "https://newsroom.tiktok.com/filmtok-continues-to-spark-awards-season-buzz-ahead-of-the-98th-oscars?lang=en",
+    "source_name": "TikTok Newsroom FilmTok 98th Oscars",
+    "source_query": "FilmTok creators 98th Oscars TikTok Newsroom",
+    "target_label": "film_educator",
+    "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_filmtok_97th_oscars",
+    "url": "https://newsroom.tiktok.com/en-us/filmtok-97th-oscars",
+    "source_name": "TikTok Newsroom FilmTok 97th Oscars",
+    "source_query": "FilmTok creators 97th Oscars TikTok Newsroom",
+    "target_label": "film_educator",
+    "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_filmtok_96th_oscars",
+    "url": "https://newsroom.tiktok.com/en-us/filmtok-arrives-at-the-96th-oscars",
+    "source_name": "TikTok Newsroom FilmTok 96th Oscars",
+    "source_query": "FilmTok creators 96th Oscars TikTok Newsroom",
+    "target_label": "film_educator",
+    "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_filmtok_95th_oscars",
+    "url": "https://newsroom.tiktok.com/en-us/filmtok-shines-for-the-oscars",
+    "source_name": "TikTok Newsroom FilmTok 95th Oscars",
+    "source_query": "FilmTok creators 95th Oscars TikTok Newsroom",
+    "target_label": "film_educator",
+    "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_tiktokshortfilm_uk_winners",
+    "url": "https://newsroom.tiktok.com/en-gb/tiktok-announces-the-winners-of-its-international-short-film-competition-tiktokshortfilm-uk",
+    "source_name": "TikTok Newsroom TikTok Short Film UK Winners",
+    "source_query": "TikTok short film competition winners filmmakers",
+    "target_label": "filmmaker",
+    "fallback_label": "cinematographer"
+  },
+  {
+    "id": "tiktok_newsroom_fame_week_africa",
+    "url": "https://newsroom.tiktok.com/en-africa/celebrating-creatives-at-fame-week",
+    "source_name": "TikTok Newsroom FAME Week Africa",
+    "source_query": "FAME Week Africa TikTok filmmakers creators",
+    "target_label": "filmmaker",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_davidwma",
+    "url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-davidwma",
+    "source_name": "TikTok Newsroom Creator Spotlight David Ma",
+    "source_query": "creator spotlight commercial director filmmaker David Ma",
+    "target_label": "filmmaker",
+    "fallback_label": "director"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_sambafilms",
+    "url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-sambafilms",
+    "source_name": "TikTok Newsroom Creator Spotlight Samba Films",
+    "source_query": "creator spotlight filmmaker cinematography Samba Films",
+    "target_label": "filmmaker",
+    "fallback_label": "cinematographer"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_tunero",
+    "url": "https://newsroom.tiktok.com/african-all-stars-series-tuneroanimations?lang=en-ZA",
+    "source_name": "TikTok Newsroom Creator Spotlight Tunero Animations",
+    "source_query": "creator spotlight animation storyteller Tunero Animations",
+    "target_label": "vfx_animation",
+    "fallback_label": "filmmaker"
+  }
+]

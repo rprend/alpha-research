@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T03:50:55.045Z",
+  "generated_at": "2026-06-13T03:55:49.653Z",
   "mode": "preview",
-  "input_rows": 22954,
-  "normalized_rows": 22954,
+  "input_rows": 23498,
+  "normalized_rows": 23498,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 12855,
-  "output_accounts": 10099,
+  "duplicate_normalized_rows": 12912,
+  "output_accounts": 10586,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
@@ -22,11 +22,12 @@
     "2026-06-13T03-46-15-007Z-hf-tiktok-video-dataset.jsonl": 1,
     "2026-06-13T03-46-34-206Z-wikidata-tiktok-creators.jsonl": 7892,
     "2026-06-13T03-47-29-927Z-public-profile-enrichment.jsonl": 454,
+    "2026-06-13T03-55-33-949Z-public-editorial-pages.jsonl": 544,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 22948,
+  "mapped_lineage_rows": 23492,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -44,7 +45,8 @@
     "2026-06-13T03-33-34-362Z": 4741,
     "2026-06-13T03-46-15-007Z": 1,
     "2026-06-13T03-46-34-206Z": 7892,
-    "2026-06-13T03-47-29-927Z": 454
+    "2026-06-13T03-47-29-927Z": 454,
+    "2026-06-13T03-55-33-949Z": 544
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -1241,6 +1243,23 @@
     "wikidata_Q33999|wikidata_Q2045208|wikidata_Q10800557|wikidata_Q17125263": 1,
     "wikidata_Q33999|wikidata_Q1028181|wikidata_Q10800557": 1,
     "public_profile_enrichment_2026-06-13T03-47-29-927Z": 454,
+    "tiktok_newsroom_showbiz_2022": 37,
+    "tiktok_newsroom_discover_2026_global": 51,
+    "tiktok_newsroom_discover_2025_global": 51,
+    "tiktok_newsroom_discover_2025_aunz": 1,
+    "tiktok_newsroom_discover_2022": 49,
+    "tiktok_newsroom_discover_2021": 50,
+    "tiktok_newsroom_awards_us_2025_winners": 24,
+    "tiktok_newsroom_awards_uk_ie_2025_winners": 50,
+    "tiktok_newsroom_awards_uk_ie_2024_shortlist": 69,
+    "tiktok_newsroom_awards_au_2025_nominees": 69,
+    "tiktok_newsroom_awards_ssa_2025_nominees": 39,
+    "tiktok_newsroom_filmtok_98th_oscars": 5,
+    "tiktok_newsroom_filmtok_97th_oscars": 10,
+    "tiktok_newsroom_filmtok_96th_oscars": 14,
+    "tiktok_newsroom_filmtok_95th_oscars": 19,
+    "tiktok_newsroom_tiktokshortfilm_uk_winners": 5,
+    "tiktok_newsroom_fame_week_africa": 1,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
@@ -1251,14 +1270,15 @@
     "brightdata_public_github_sample": 29,
     "wikidata_sparql": 18966,
     "huggingface_dataset_viewer": 1,
+    "public_editorial_page": 544,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.5600331096976562,
-    "output_rate": 0.4399668903023438,
+    "duplicate_rate": 0.5494935739211848,
+    "output_rate": 0.4505064260788152,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.65,
@@ -1267,7 +1287,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "22954 input rows"
+        "evidence": "23498 input rows"
       },
       {
         "id": "handle_extraction",
@@ -1277,12 +1297,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "56.0% duplicate normalized rows, threshold 65.0% (metadata overlay)"
+        "evidence": "54.9% duplicate normalized rows, threshold 65.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "22948/22954 rows mapped to provider/wave lineage"
+        "evidence": "23492/23498 rows mapped to provider/wave lineage"
       }
     ]
   },
@@ -1509,11 +1529,13 @@
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
         "feedspot_comedy_tiktok_2026",
-        "public_profile_enrichment_2026-06-13T01-31-21-859Z"
+        "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+        "tiktok_newsroom_discover_2022"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
-        "tiktok_public_profile_html"
+        "tiktok_public_profile_html",
+        "public_editorial_page"
       ]
     },
     {
@@ -1525,11 +1547,13 @@
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
         "feedspot_comedy_tiktok_2026",
-        "public_profile_enrichment_2026-06-13T01-31-21-859Z"
+        "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+        "tiktok_newsroom_discover_2022"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
-        "tiktok_public_profile_html"
+        "tiktok_public_profile_html",
+        "public_editorial_page"
       ]
     },
     {
@@ -1653,11 +1677,13 @@
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
         "feedspot_comedy_tiktok_2026",
-        "public_profile_enrichment_2026-06-13T01-31-21-859Z"
+        "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+        "tiktok_newsroom_discover_2021"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
-        "tiktok_public_profile_html"
+        "tiktok_public_profile_html",
+        "public_editorial_page"
       ]
     },
     {

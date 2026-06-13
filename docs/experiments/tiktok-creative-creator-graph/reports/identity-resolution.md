@@ -1,11 +1,11 @@
 # Identity Resolution
 
-Generated: 2026-06-13T03:50:56.522Z
+Generated: 2026-06-13T03:55:51.121Z
 
-- Accounts: 10104
-- Identities: 9962
-- Duplicate risk clusters: 121
-- Identity evidence rows: 30769
+- Accounts: 10591
+- Identities: 10443
+- Duplicate risk clusters: 127
+- Identity evidence rows: 32230
 - High-confidence external links: 462
 
 ## Duplicate Risk Queue
@@ -18,6 +18,7 @@ Generated: 2026-06-13T03:50:56.522Z
 | creator_identity_aac9d4e45b46 | 4 | @finalgirl_jess; @justpeachyreads; @perusewithjess; @functioningwithjess | shared identity key |
 | creator_identity_c8db1f710936 | 2 | @kss_design; @iamksenia | shared identity key |
 | creator_identity_41fb8af0507a | 2 | @daylightillustrations; @thekidlitmama | shared identity key |
+| creator_identity_9c94e29da99d | 2 | @laladigitalart; @lala | shared identity key |
 | creator_identity_514229db8887 | 2 | @digitalartbyjuliette; @juliettefreire | shared identity key |
 | creator_identity_9b5bf099239b | 3 | @digitalart_queen; @livinglunacreations; @miss_ipkiss_reads | shared identity key |
 | creator_identity_41b057aa985c | 2 | @digitalartmpinsta; @marioworldwide | shared identity key |
@@ -36,4 +37,3 @@ Generated: 2026-06-13T03:50:56.522Z
 | creator_identity_caf5db861c57 | 2 | @kristinasensual; @astrokristina | shared identity key |
 | creator_identity_e0a5718622e1 | 2 | @laurens.little.library; @laurenzsideyt | shared identity key |
 | creator_identity_85bda95e29ec | 5 | @lidoffadaffodil; @polewithsam; @thenursesam1; @pizzaqueensam; @halloweenhappysam | shared identity key |
-| creator_identity_e6f0c1b6de06 | 2 | @charakem; @realbrown | shared identity key |

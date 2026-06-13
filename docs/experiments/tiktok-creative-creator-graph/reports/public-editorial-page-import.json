@@ -1,0 +1,701 @@
+{
+  "generated_at": "2026-06-13T03:55:41.794Z",
+  "execution_id": "2026-06-13T03-55-33-949Z",
+  "provider": "public_editorial_page",
+  "dry_run": false,
+  "source_config_path": "docs/experiments/tiktok-creative-creator-graph/config/public-editorial-page-sources.json",
+  "selected_sources": 22,
+  "output_rows": 544,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T03-55-33-949Z-public-editorial-pages.jsonl",
+  "succeeded_sources": 22,
+  "failed_sources": 0,
+  "target_label_counts": {
+    "filmmaker": 70,
+    "vfx_animation": 32,
+    "actor_performer": 86,
+    "sketch_comedian": 16,
+    "cinematographer": 2,
+    "editor": 5,
+    "director": 11,
+    "film_educator": 162,
+    "creative_technologist": 156,
+    "behind_the_scenes_creator": 4
+  },
+  "first_rows": [
+    {
+      "handle": "@actressbecc",
+      "profile_url": "https://www.tiktok.com/@actressbecc",
+      "display_name": "actressbecc",
+      "bio": "k: @actressbecc@julianburzynski@theejoshneal #TheShowbizList #acting ♬ original sound - TikTok Newsroom TikTok creators bring authentic emotion and joy to their performances. Here are three creators known for their outstanding performances in acting: @actressbecc (Brooklyn, NY): Becca Bastos is a trained actor and performer who found a love for creating characters and impressions on TikTok. She's most known for her relatable POVs , and original character sketches and impressions. @julianburzynsk",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 1
+    },
+    {
+      "handle": "@julianburzynski",
+      "profile_url": "https://www.tiktok.com/@julianburzynski",
+      "display_name": "Julian Burzynski is a quadruple-threat as an actor",
+      "bio": "ps://www.tiktok.com/@actressbecc\" target=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@actressbecc (Brooklyn, NY): Becca Bastos is a trained actor and performer who found a love for creating characters and impressions on TikTok. She's most known for her relatable POVs , and original character sketches and impressions. @julianburzynski (Los Angeles, CA): Julian Burzynski is a quadruple-threat as an actor, singer, dancer, and c",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 2
+    },
+    {
+      "handle": "@theejoshneal",
+      "profile_url": "https://www.tiktok.com/@theejoshneal",
+      "display_name": "Joshua Neal is a trained actor and writer who excels at giving his followers bot",
+      "bio": "ktok.com/@julianburzynski\" target=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@julianburzynski (Los Angeles, CA): Julian Burzynski is a quadruple-threat as an actor, singer, dancer, and comedian. He uses TikTok to share his one-man show where he reenacts popular movie and TV scenes , using his collection of epic wigs. @theejoshneal (Hayward, CA): Joshua Neal is a trained actor and writer who excels at giving his followers bo",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 3
+    },
+    {
+      "handle": "@andrea.animates",
+      "profile_url": "https://www.tiktok.com/@andrea.animates",
+      "display_name": "Andrea Love is an award-winning animator who creates unique",
+      "bio": ".off #TheShowbizList #Animation ♬ original sound - TikTok Newsroom Animation brings the fantastic worlds of our imagination to life with talent and artistic drive. Here are three animators known for their unique styles and eye-catching content: @andrea.animates (Port Townsend, WA): Andrea Love is an award-winning animator who creates unique, mind-bending stop motion with wool and felt. Using a technique called needle felting, she brings handmade, miniature felted worlds to life one frame at a ti",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 4
+    },
+    {
+      "handle": "@felleanimated",
+      "profile_url": "https://www.tiktok.com/@felleanimated",
+      "display_name": "Felle Animated uses his art to express himself by creating entertaining animatio",
+      "bio": "nimates\" target=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@andrea.animates (Port Townsend, WA): Andrea Love is an award-winning animator who creates unique, mind-bending stop motion with wool and felt. Using a technique called needle felting, she brings handmade, miniature felted worlds to life one frame at a time. @felleanimated (Garden Grove, CA): Felle Animated uses his art to express himself by creating entertaining an",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 5
+    },
+    {
+      "handle": "@lights.are.off",
+      "profile_url": "https://www.tiktok.com/@lights.are.off",
+      "display_name": "LIGHTS ARE OFF has captured the TikTok community with his computer-animated",
+      "bio": "ok.com/@felleanimated\" target=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@felleanimated (Garden Grove, CA): Felle Animated uses his art to express himself by creating entertaining animations related to pop culture , media, games and more. He hopes to inspire others to unleash their creativity and go after their dreams. @lights.are.off (Los Angeles, CA): LIGHTS ARE OFF has captured the TikTok community with his computer-anim",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "actor_performer",
+      "source_target_labels": [
+        "actor_performer"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 6
+    },
+    {
+      "handle": "@girlbosstown",
+      "profile_url": "https://www.tiktok.com/@girlbosstown",
+      "display_name": "girlbosstown",
+      "bio": "@girlbosstown @guywithamoviecamera @straw_hat_goofy #TheShowbizList ♬ original sound - TikTok Newsroom Audiences are captivated by a deeper look into their favorite films and television shows. These are the creators that show the behind-the-scenes world of film/tv, or share commentary on the industry overall: @girlbosstown (Boston, MA): After leaving her 9-5 job this summer, Robyn Delmonte turned making TikTok videos on her couch into a full-fledged consulting business — creating \" PR moves \" fo",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 7
+    },
+    {
+      "handle": "@guywithamoviecamera",
+      "profile_url": "https://www.tiktok.com/@guywithamoviecamera",
+      "display_name": "Reece Feldman has quickly become the Gen-Z aficionado of all things film",
+      "bio": "base-color-link_HVyq-\" style=\"margin:0;padding:0\">@girlbosstown (Boston, MA): After leaving her 9-5 job this summer, Robyn Delmonte turned making TikTok videos on her couch into a full-fledged consulting business — creating \" PR moves \" for some of the biggest brands in the industry. She's also a trend forecaster and provides her unique commentary on celebrity red carpet looks. @guywithamoviecamera (New York, NY): Reece Feldman has quickly become the Gen-Z aficionado of all things film, TV, and ",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 8
+    },
+    {
+      "handle": "@straw_hat_goofy",
+      "profile_url": "https://www.tiktok.com/@straw_hat_goofy",
+      "display_name": "Julian “Juju” Green is “Your TikTok Movie Guy",
+      "bio": "Reece Feldman has quickly become the Gen-Z aficionado of all things film, TV, and entertainment. His TikTok account took off as he was working on-set as a Production Assistant for Amazon’s, “The Marvelous Mrs. Maisel,” and he has since been tapped across major studios and streamers to create content for titles in-production, new releases, premieres , and award shows including the Oscars. @straw_hat_goofy (Los Angeles, CA): Julian “Juju” Green is “Your TikTok Movie Guy,” sharing his take on the l",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 9
+    },
+    {
+      "handle": "@arri.arii",
+      "profile_url": "https://www.tiktok.com/@arri.arii",
+      "display_name": "Ariana Taylor decided to bring her life-long love for dance and fashion to TikTo",
+      "bio": "a> #dancetok #choreography ♬ original sound - TikTok Newsroom Choreographers bring life and movement to TikTok, sparking trends and encouraging all of us to move to the beat. Here are three choreographers who represent the future of the dance industry: @arri.arii (New York, NY): Ariana Taylor decided to bring her life-long love for dance and fashion to TikTok to encourage others to dance along with her. Since then, dance has become her career and she's credited as the originator for several vira",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "actor_performer",
+      "source_target_labels": [
+        "actor_performer"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 10
+    },
+    {
+      "handle": "@cost_n_mayor",
+      "profile_url": "https://www.tiktok.com/@cost_n_mayor",
+      "display_name": "Cost n' Mayor are a dance and choreography duo whose routines are as synchronous",
+      "bio": "\" target=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@arri.arii (New York, NY): Ariana Taylor decided to bring her life-long love for dance and fashion to TikTok to encourage others to dance along with her. Since then, dance has become her career and she's credited as the originator for several viral dance challenges . @cost_n_mayor (Los Angeles, CA): Cost n' Mayor are a dance and choreography duo whose routines are as synch",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 11
+    },
+    {
+      "handle": "@keke.janajah",
+      "profile_url": "https://www.tiktok.com/@keke.janajah",
+      "display_name": "Keara \"Queen Keke\" Wilson is a lifestyle creator and dancer who uses TikTok to c",
+      "bio": "e_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@cost_n_mayor (Los Angeles, CA): Cost n' Mayor are a dance and choreography duo whose routines are as synchronous as their relationship. From falling in love as New York City performers to uniting their skills now as Los Angeles choreographers, the couple continues to spread their talent, humor and artistry on TikTok. @keke.janajah (Killeen, Texas): Keara \"Queen Keke\" Wilson is a lifestyle creator and dancer who uses TikTok to ",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 12
+    },
+    {
+      "handle": "@domenicaaq",
+      "profile_url": "https://www.tiktok.com/@domenicaaq",
+      "display_name": "Domenica Comai",
+      "bio": "e=\"filmtok\">#filmtok #cinematography ♬ original sound - TikTok Newsroom Coordinating the cinematography for a video by yourself is no easy task. From shot design to lighting and everything in between. These creators use their creativity and vision to bring professional quality production value to their work: @domenicaaq (Los Angeles, CA): Domenica Comai, also known as “Q,\" makes up one-half of the video artist duo PAX&Q. Taking her knowledge and passion from creating music videos & documentaries",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 13
+    },
+    {
+      "handle": "@recider",
+      "profile_url": "https://www.tiktok.com/@recider",
+      "display_name": "Nicholas Adams uses cinematography to create brief",
+      "bio": "target=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@domenicaaq (Los Angeles, CA): Domenica Comai, also known as “Q,\" makes up one-half of the video artist duo PAX&Q. Taking her knowledge and passion from creating music videos & documentaries, she showcases her love for unique edits & video art on TikTok. @recider (Corpus Christi, Texas): Nicholas Adams uses cinematography to create brief, miniature films that showcase emotio",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 14
+    },
+    {
+      "handle": "@zac.stracener",
+      "profile_url": "https://www.tiktok.com/@zac.stracener",
+      "display_name": "Zac Stracener",
+      "bio": "-base_b8SoO\"> @recider (Corpus Christi, Texas): Nicholas Adams uses cinematography to create brief, miniature films that showcase emotional stories ranging from zombie apocalypses, to going on a first date, all in a matter of seconds. @zac.stracener (Los Angeles, CA): Zac Stracener, an award-winning filmmaker originally from Louisiana, is passionate about shedding light on important mental health issues through striking and poignant vignettes. Through his short films he dives into dark subject m",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 15
+    },
+    {
+      "handle": "@davidwma",
+      "profile_url": "https://www.tiktok.com/@davidwma",
+      "display_name": "davidwma",
+      "bio": "ial storytelling on TikTok to an art form @davidwma @gracewellsphoto @noah.bowman #TheShowbizList ♬ original sound - TikTok Newsroom The subtle art of creating an entertaining commercial is never lost on an audience. Here are three creators who raise the level of commercial storytelling on TikTok to an art form: @davidwma (Brooklyn, NY): David Ma is a commercial director and filmmaker who creates short films, commercials, and viral content on TV and social media. He is known for taking people be",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 16
+    },
+    {
+      "handle": "@gracewellsphoto",
+      "profile_url": "https://www.tiktok.com/@gracewellsphoto",
+      "display_name": "As one of the initial creators to develop the DIY commercial niche on TikTok",
+      "bio": "-link_HVyq-\" style=\"margin:0;padding:0\">@davidwma (Brooklyn, NY): David Ma is a commercial director and filmmaker who creates short films, commercials, and viral content on TV and social media. He is known for taking people behind the scenes on his sets and sharing his creative process and unique approach to filmmaking, and most recently was named one of Adweek's Top 100 Creatives of 2021. @gracewellsphoto (New York, NY): As one of the initial creators to develop the DIY commercial niche on TikT",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "director",
+      "source_target_labels": [
+        "director"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 17
+    },
+    {
+      "handle": "@noah.bowman",
+      "profile_url": "https://www.tiktok.com/@noah.bowman",
+      "display_name": "Noah Bowman is a videographer who continues to refine his cinematic technique to",
+      "bio": "ial niche on TikTok, Grace Wells is known for her popular series \"Making Epic Commercials for Random Objects,\" where she creates high-quality commercial videos for everyday items. She was signed as a commercial director just one year after joining TikTok and has directed commercial content for global brands including Procter & Gamble, Samsonite, CELSIUS, and Amazon Prime Video. @noah.bowman (Las Vegas, NV): Noah Bowman is a videographer who continues to refine his cinematic technique to bring la",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "director",
+      "source_target_labels": [
+        "director"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 18
+    },
+    {
+      "handle": "@asta.darling",
+      "profile_url": "https://www.tiktok.com/@asta.darling",
+      "display_name": "Asta Darling is a costume designer who uses her degree in Costume History to bri",
+      "bio": "/tag/costumes\" title=\"costumes\">#costumes #cosplay #diy ♬ original sound - TikTok Newsroom The outfits we wear tell a story by themselves. By dawning splendid costumes, these creators transport us back in time or to a wonderful world full of color and imagination: @asta.darling (Memphis, TN): Asta Darling is a costume designer who uses her degree in Costume History to bring stories to life, one tale at a time. With an eye on fashion, she pops in and out of centuries and frolics through time with",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 19
+    },
+    {
+      "handle": "@cameronhughes",
+      "profile_url": "https://www.tiktok.com/@cameronhughes",
+      "display_name": "Cameron Hughes is a costume designer who combines engineering and fashion to cre",
+      "bio": "rget=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@asta.darling (Memphis, TN): Asta Darling is a costume designer who uses her degree in Costume History to bring stories to life, one tale at a time. With an eye on fashion, she pops in and out of centuries and frolics through time with historical pieces by her own design. @cameronhughes (New York, NY): Cameron Hughes is a costume designer who combines engineering and fashion t",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 20
+    },
+    {
+      "handle": "@jeremythetea",
+      "profile_url": "https://www.tiktok.com/@jeremythetea",
+      "display_name": "JeremyTheTea exudes all things wonderful and whimsical through his colorfully in",
+      "bio": "arget=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@cameronhughes (New York, NY): Cameron Hughes is a costume designer who combines engineering and fashion to create one of a kind, wearable art pieces. He uses TikTok to share his detailed process, and has worked with artists like Doja Cat, Charli XCX, Aquaria and Bosco. @jeremythetea (Orlando, FL): JeremyTheTea exudes all things wonderful and whimsical through his colorfully ",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 21
+    },
+    {
+      "handle": "@americanbaron",
+      "profile_url": "https://www.tiktok.com/@americanbaron",
+      "display_name": "Baron Ryan is a writer who makes amusing",
+      "bio": "lmmakers\">#Filmmakers ♬ original sound - TikTok Newsroom TikTok lets filmmakers share their vision with an audience. From start to finish, creators are free to follow their imagination. Pouring themselves into scripts that bring characters to life poetic language and hilarious quips. These filmmakers use their eye for cinematography and storytelling to elevate TikTok to Showbiz levels: @americanbaron (Austin, TX): Baron Ryan is a writer who makes amusing, occasionally surrealistic sketches on Ti",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "director",
+      "source_target_labels": [
+        "director"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 22
+    },
+    {
+      "handle": "@madelaineturner",
+      "profile_url": "https://www.tiktok.com/@madelaineturner",
+      "display_name": "Madelaine Turner is a writer",
+      "bio": "ricanbaron\" target=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@americanbaron (Austin, TX): Baron Ryan is a writer who makes amusing, occasionally surrealistic sketches on TikTok. He is originally from a small town in Missouri and recently wrote his first book, a short story collection, which is to be released in 2022. @madelaineturner (Los Angeles, CA): Madelaine Turner is a writer, director, and content creator known for h",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "director",
+      "source_target_labels": [
+        "director"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 23
+    },
+    {
+      "handle": "@sambafilms",
+      "profile_url": "https://www.tiktok.com/@sambafilms",
+      "display_name": "Samba Diop is a Senegalese-born director and filmmaker who combines his interest",
+      "bio": "madelaineturner\" target=\"_blank\" rel=\"noreferrer\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@madelaineturner (Los Angeles, CA): Madelaine Turner is a writer, director, and content creator known for her comedic film style using whimsical, retro aesthetics and bold color palettes who uses TikTok as a way to showcase her story-telling prowess. @sambafilms (Brooklyn, NY): Samba Diop is a Senegalese-born director and filmmaker who combines his interest ",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 24
+    },
+    {
+      "handle": "@cindychendesigns",
+      "profile_url": "https://www.tiktok.com/@cindychendesigns",
+      "display_name": "Cindy Chen is an avant-garde makeup and fashion creator who creates new worlds u",
+      "bio": "t\">#TheShowbizList #hair #makeup ♬ original sound - TikTok Newsroom With makeup and hair styling, creators can become creatures from another world or recreations of their favorite characters. These makeup artists show what can be done with a palate and makeup brush: @cindychendesigns (Los Angeles, CA): Cindy Chen is an avant-garde makeup and fashion creator who creates new worlds using art, storytelling, and humor. As a professional visual designer, she channels her love for high fashion, geomet",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Showbiz List 2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "source_query": "TikTok Showbiz List entertainment creators 2022",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T03-55-33-949Z",
+      "batch_id": "tiktok_newsroom_showbiz_2022",
+      "rank": 25
+    }
+  ],
+  "source_reports": [
+    {
+      "source_id": "tiktok_newsroom_showbiz_2022",
+      "source_url": "https://newsroom.tiktok.com/announcing-the-showbiz-list-tiktoks-entertainment-industry-creators-of-2022?lang=en",
+      "status": "succeeded",
+      "extracted_rows": 37,
+      "unique_rows_added": 37,
+      "started_at": "2026-06-13T03:55:33.950Z",
+      "finished_at": "2026-06-13T03:55:34.452Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_discover_2026_global",
+      "source_url": "https://newsroom.tiktok.com/discover-list-2026-meet-the-creators-to-watch?lang=en",
+      "status": "succeeded",
+      "extracted_rows": 54,
+      "unique_rows_added": 51,
+      "started_at": "2026-06-13T03:55:34.452Z",
+      "finished_at": "2026-06-13T03:55:34.739Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_discover_2026_au",
+      "source_url": "https://newsroom.tiktok.com/discover-list-2026-au?lang=en-AU",
+      "status": "succeeded",
+      "extracted_rows": 54,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T03:55:34.739Z",
+      "finished_at": "2026-06-13T03:55:35.011Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_discover_2026_ssa",
+      "source_url": "https://newsroom.tiktok.com/the-discover-list-meet-the-2026-sub-saharan-africa-tiktok-creators-to-watch?lang=en-ZA",
+      "status": "succeeded",
+      "extracted_rows": 54,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T03:55:35.011Z",
+      "finished_at": "2026-06-13T03:55:35.417Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_discover_2025_global",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-discover-list-meet-the-2025-tiktok-creators-to-watch",
+      "status": "succeeded",
+      "extracted_rows": 56,
+      "unique_rows_added": 51,
+      "started_at": "2026-06-13T03:55:35.417Z",
+      "finished_at": "2026-06-13T03:55:35.790Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_discover_2025_aunz",
+      "source_url": "https://newsroom.tiktok.com/the-discover-list-meet-the-2025-tiktok-creators-to-watch-aunz?lang=en-AU",
+      "status": "succeeded",
+      "extracted_rows": 57,
+      "unique_rows_added": 1,
+      "started_at": "2026-06-13T03:55:35.790Z",
+      "finished_at": "2026-06-13T03:55:36.074Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_discover_2022",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-discover-list-2022-highlighting-global-tiktok-creators",
+      "status": "succeeded",
+      "extracted_rows": 54,
+      "unique_rows_added": 49,
+      "started_at": "2026-06-13T03:55:36.074Z",
+      "finished_at": "2026-06-13T03:55:36.495Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_discover_2021",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-discover-list-meet-the-tiktok-creators-of-2021",
+      "status": "succeeded",
+      "extracted_rows": 54,
+      "unique_rows_added": 50,
+      "started_at": "2026-06-13T03:55:36.495Z",
+      "finished_at": "2026-06-13T03:55:37.059Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_awards_us_2025_winners",
+      "source_url": "https://newsroom.tiktok.com/introducing-the-winners-of-the-tiktok-awards-us-2025-new-era-new-icons?lang=en",
+      "status": "succeeded",
+      "extracted_rows": 29,
+      "unique_rows_added": 24,
+      "started_at": "2026-06-13T03:55:37.059Z",
+      "finished_at": "2026-06-13T03:55:37.360Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_awards_uk_ie_2025_winners",
+      "source_url": "https://newsroom.tiktok.com/introducing-the-winners-of-the-tiktok-awards-uk-ireland-2025-with-headline-partner-sky?lang=en-GB",
+      "status": "succeeded",
+      "extracted_rows": 55,
+      "unique_rows_added": 50,
+      "started_at": "2026-06-13T03:55:37.360Z",
+      "finished_at": "2026-06-13T03:55:37.644Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_awards_uk_ie_2024_shortlist",
+      "source_url": "https://newsroom.tiktok.com/en-gb/shortlist-unveiled-and-voting-opens-for-first-ever-tiktok-awards-uk-and-ireland",
+      "status": "succeeded",
+      "extracted_rows": 88,
+      "unique_rows_added": 69,
+      "started_at": "2026-06-13T03:55:37.644Z",
+      "finished_at": "2026-06-13T03:55:38.040Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_awards_au_2025_nominees",
+      "source_url": "https://newsroom.tiktok.com/sophie-monk-to-host-2025-tiktok-awards-as-full-nominee-list-drops?lang=en-AU",
+      "status": "succeeded",
+      "extracted_rows": 74,
+      "unique_rows_added": 69,
+      "started_at": "2026-06-13T03:55:38.040Z",
+      "finished_at": "2026-06-13T03:55:38.363Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_awards_ssa_2025_nominees",
+      "source_url": "https://newsroom.tiktok.com/tiktok-awards-nominations-newsroom?lang=en-ZA",
+      "status": "succeeded",
+      "extracted_rows": 45,
+      "unique_rows_added": 39,
+      "started_at": "2026-06-13T03:55:38.363Z",
+      "finished_at": "2026-06-13T03:55:38.603Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_filmtok_98th_oscars",
+      "source_url": "https://newsroom.tiktok.com/filmtok-continues-to-spark-awards-season-buzz-ahead-of-the-98th-oscars?lang=en",
+      "status": "succeeded",
+      "extracted_rows": 8,
+      "unique_rows_added": 5,
+      "started_at": "2026-06-13T03:55:38.603Z",
+      "finished_at": "2026-06-13T03:55:38.879Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_filmtok_97th_oscars",
+      "source_url": "https://newsroom.tiktok.com/en-us/filmtok-97th-oscars",
+      "status": "succeeded",
+      "extracted_rows": 16,
+      "unique_rows_added": 10,
+      "started_at": "2026-06-13T03:55:38.879Z",
+      "finished_at": "2026-06-13T03:55:39.324Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_filmtok_96th_oscars",
+      "source_url": "https://newsroom.tiktok.com/en-us/filmtok-arrives-at-the-96th-oscars",
+      "status": "succeeded",
+      "extracted_rows": 21,
+      "unique_rows_added": 14,
+      "started_at": "2026-06-13T03:55:39.324Z",
+      "finished_at": "2026-06-13T03:55:39.663Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_filmtok_95th_oscars",
+      "source_url": "https://newsroom.tiktok.com/en-us/filmtok-shines-for-the-oscars",
+      "status": "succeeded",
+      "extracted_rows": 25,
+      "unique_rows_added": 19,
+      "started_at": "2026-06-13T03:55:39.663Z",
+      "finished_at": "2026-06-13T03:55:39.999Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_tiktokshortfilm_uk_winners",
+      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-announces-the-winners-of-its-international-short-film-competition-tiktokshortfilm-uk",
+      "status": "succeeded",
+      "extracted_rows": 10,
+      "unique_rows_added": 5,
+      "started_at": "2026-06-13T03:55:39.999Z",
+      "finished_at": "2026-06-13T03:55:40.362Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_fame_week_africa",
+      "source_url": "https://newsroom.tiktok.com/en-africa/celebrating-creatives-at-fame-week",
+      "status": "succeeded",
+      "extracted_rows": 5,
+      "unique_rows_added": 1,
+      "started_at": "2026-06-13T03:55:40.362Z",
+      "finished_at": "2026-06-13T03:55:40.720Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_creator_spotlight_davidwma",
+      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-davidwma",
+      "status": "succeeded",
+      "extracted_rows": 4,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T03:55:40.720Z",
+      "finished_at": "2026-06-13T03:55:41.041Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_creator_spotlight_sambafilms",
+      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-sambafilms",
+      "status": "succeeded",
+      "extracted_rows": 4,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T03:55:41.041Z",
+      "finished_at": "2026-06-13T03:55:41.461Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_creator_spotlight_tunero",
+      "source_url": "https://newsroom.tiktok.com/african-all-stars-series-tuneroanimations?lang=en-ZA",
+      "status": "succeeded",
+      "extracted_rows": 4,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T03:55:41.461Z",
+      "finished_at": "2026-06-13T03:55:41.788Z"
+    }
+  ]
+}

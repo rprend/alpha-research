@@ -1,6 +1,6 @@
 # Learning Review Packet
 
-Generated: 2026-06-13T03:50:56.883Z
+Generated: 2026-06-13T03:55:51.526Z
 
 - Packet id: learning_review_20260613
 - Rows: 1000
@@ -14,14 +14,14 @@ This packet is sourced from `learning_candidate_shortlist` and is meant for fast
 ## Tiers
 
 - review_first: 140
-- strong_candidate: 709
-- medium_candidate: 151
+- strong_candidate: 710
+- medium_candidate: 150
 
 ## Suggested Decisions
 
 - excellent_benchmark: 5
-- keep: 844
-- maybe: 151
+- keep: 845
+- maybe: 150
 
 ## Batches
 

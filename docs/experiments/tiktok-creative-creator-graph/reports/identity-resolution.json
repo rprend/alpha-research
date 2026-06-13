@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-13T03:50:56.522Z",
-  "accounts": 10104,
-  "identities": 9962,
-  "duplicate_risks": 121,
-  "identity_evidence_rows": 30769,
+  "generated_at": "2026-06-13T03:55:51.121Z",
+  "accounts": 10591,
+  "identities": 10443,
+  "duplicate_risks": 127,
+  "identity_evidence_rows": 32230,
   "high_confidence_external_links": 462
 }

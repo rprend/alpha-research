@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Data Card
 
-Generated: 2026-06-13T03:50:57.541Z
+Generated: 2026-06-13T03:55:52.170Z
 
 ## Purpose
 
@@ -8,12 +8,12 @@ This release package contains TikTok-visible creative creator records for discov
 
 ## Counts
 
-- Accounts: 10104
-- Identities: 9962
+- Accounts: 10591
+- Identities: 10443
 - Useful creators: 2
 - Benchmark creators: 1
 - Rejected creators: 2
-- Review queue: 10100
+- Review queue: 10587
 
 ## Files
 
@@ -21,10 +21,10 @@ This release package contains TikTok-visible creative creator records for discov
 - `data/release/useful_creators.csv`: 2 rows, sha256 `30a417aaf23eb1eb675ab99db406f39278392b8682a11dda84892363025fc7d2`
 - `data/release/benchmark_creators.jsonl`: 1 rows, sha256 `2114aaef99a290160eaafb7ea7872118790ccf426e165af53e17265e339975ee`
 - `data/release/benchmark_creators.csv`: 1 rows, sha256 `48de7c6529d99ea818c46fa89363a688065b365664e21c2cd3b3dc9a77b401fd`
-- `data/release/rejected_creators.jsonl`: 2 rows, sha256 `6f9fa593e55d2d40cab710ee937025d3eab30b59ca5c47fbb7f36e4c4e825f95`
-- `data/release/rejected_creators.csv`: 2 rows, sha256 `8c27f21c33126b805bff8bfb00bf9ef9bcf7da391913dbb4be57d40d2441f07e`
-- `data/release/review_queue.csv`: 10100 rows, sha256 `4234524ad11847264425d4c98983dd6b905270fbe6f3ee31bbb4e003378bb5f6`
-- `data/release/all_scored_creators.csv`: 10104 rows, sha256 `334ae7abd53ee8a67d53ba07d1fd0eb504424076488d1bd594f533299f208267`
+- `data/release/rejected_creators.jsonl`: 2 rows, sha256 `1f5882b604b764ac8f7c3a7a4ab230d7e7062360c2497295c893ab924228df62`
+- `data/release/rejected_creators.csv`: 2 rows, sha256 `f71e08751efb5a6922fc3867c17e87ab7efc08cdfa01d338a1c57275ae008ae1`
+- `data/release/review_queue.csv`: 10587 rows, sha256 `dfe292ac2c6dddc2749cdc53ea69b99fef7204b28aaf05a0e50d21adbc570dbd`
+- `data/release/all_scored_creators.csv`: 10591 rows, sha256 `237d439c0a37e8aaf7aba6ad18570f5dbaab40aff5d65c9fe4256cff23f54459`
 
 ## Limits
 

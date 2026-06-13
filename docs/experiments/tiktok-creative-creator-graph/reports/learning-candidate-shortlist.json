@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-06-13T03:50:56.715Z",
+  "generated_at": "2026-06-13T03:55:51.364Z",
   "requested_rows": 5000,
   "output_rows": 5000,
   "reviewed_rows": 2,
   "unreviewed_rows": 4998,
   "tier_counts": {
     "review_first": 141,
-    "strong_candidate": 710,
-    "medium_candidate": 222,
-    "long_tail_candidate": 3927
+    "strong_candidate": 711,
+    "medium_candidate": 234,
+    "long_tail_candidate": 3914
   },
   "label_counts": {
-    "sketch_comedian": 469,
-    "vfx_animation": 509,
-    "filmmaker": 269,
-    "cinematographer": 67,
+    "sketch_comedian": 468,
+    "vfx_animation": 515,
+    "filmmaker": 271,
+    "cinematographer": 70,
     "standup_comedian": 96,
-    "creative_technologist": 1040,
-    "film_educator": 1157,
-    "actor_performer": 843,
+    "creative_technologist": 1035,
+    "film_educator": 1167,
+    "actor_performer": 827,
     "editor": 75,
-    "behind_the_scenes_creator": 262,
-    "director": 213
+    "behind_the_scenes_creator": 261,
+    "director": 215
   },
   "first_rows": [
     {
@@ -554,10 +554,10 @@
     },
     {
       "shortlist_rank": 25,
-      "creator_id": "gabbyb_music",
-      "handle": "@gabbyb_music",
-      "display_name": "Gabby B",
-      "primary_label": "creative_technologist",
+      "creator_id": "devonrodriguezart",
+      "handle": "@devonrodriguezart",
+      "display_name": "Devon Rodriguez",
+      "primary_label": "vfx_animation",
       "secondary_labels": "",
       "candidate_tier": "review_first",
       "learning_candidate_score": 235,
@@ -567,12 +567,12 @@
       "category_fit": 40,
       "creative_signal": 26,
       "public_source_evidence": 95,
-      "public_profile_video_count": 2296,
+      "public_profile_video_count": 1392,
       "source_count": 2,
-      "source_labels": "creative_technologist|actor_performer",
-      "source_names": "FeedSpot Music TikTokers|Wikidata TikTok username property P7085",
-      "source_queries": "FeedSpot Top Music TikTok Influencers 2026|actor",
-      "profile_url": "https://www.tiktok.com/@gabbyb_music"
+      "source_labels": "vfx_animation|actor_performer",
+      "source_names": "FeedSpot New York Art TikTokers|Wikidata TikTok username property P7085",
+      "source_queries": "FeedSpot Top New York Art TikTok Influencers 2026|painter",
+      "profile_url": "https://www.tiktok.com/@devonrodriguezart"
     }
   ]
 }
