@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T03:26:25.455Z
+Generated: 2026-06-13T03:34:01.959Z
 
 ## Targets
 
@@ -10,7 +10,7 @@ Generated: 2026-06-13T03:26:25.455Z
 
 ## Current
 
-- Accounts: 3634
+- Accounts: 7208
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4
@@ -24,7 +24,7 @@ Generated: 2026-06-13T03:26:25.455Z
 
 ## Planning Assumptions
 
-- Observed useful rate: 0.002
+- Observed useful rate: 0.001
 - Planning useful rate: 0.02
 - Observed excellent rate among useful: 0.857
 - Planning excellent rate among useful: 0.1
@@ -54,12 +54,12 @@ Candidate frontier targets: 87
 | 2 | 2 | 100 | 1 | search_index | cinematographer lighting breakdown |
 | 3 | 3 | 100 | 1 | search_index | sketch comedian character comedy |
 | 4 | 4 | 100 | 1 | search_index | vfx artist animation blender |
-| 5 | 5 | 86 | 1 | tiktok_hashtag_export | animation |
-| 6 | 6 | 86 | 1 | tiktok_hashtag_export | cinematography |
-| 7 | 7 | 86 | 1 | tiktok_hashtag_export | filmmaker |
-| 8 | 8 | 86 | 1 | tiktok_hashtag_export | shortfilm |
-| 9 | 9 | 86 | 1 | tiktok_hashtag_export | sketchcomedy |
-| 10 | 10 | 84 | 1 | tiktok_hashtag_export | actor |
+| 5 | 5 | 91 | 1 | tiktok_hashtag_export | filmmaker |
+| 6 | 6 | 86 | 1 | tiktok_hashtag_export | actor |
+| 7 | 7 | 86 | 1 | tiktok_hashtag_export | animation |
+| 8 | 8 | 86 | 1 | tiktok_hashtag_export | cinematography |
+| 9 | 9 | 86 | 1 | tiktok_hashtag_export | shortfilm |
+| 10 | 10 | 86 | 1 | tiktok_hashtag_export | sketchcomedy |
 | 11 | 11 | 83 | 1 | tiktok_hashtag_export | blender |
 | 12 | 12 | 83 | 1 | tiktok_hashtag_export | lighting |
 | 13 | 13 | 83 | 1 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" |

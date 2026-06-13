@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:26:25.854Z",
+  "generated_at": "2026-06-13T03:34:02.320Z",
   "templates": 511,
   "total_template_rows": 30000,
   "template_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates",
@@ -207,110 +207,110 @@
     {
       "work_item_id": "external_source_0005_01",
       "assignment_id": "external_packet_0005",
-      "target_label": "vfx_animation",
+      "target_label": "filmmaker",
       "source_kind": "tiktok_hashtag",
-      "source_url": "https://www.tiktok.com/tag/animation",
-      "source_query": "animation",
+      "source_url": "https://www.tiktok.com/tag/filmmaker",
+      "source_query": "filmmaker",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0005_01.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0005_01.csv",
-      "assignment_completed_file": "0005-vfx_animation.csv"
+      "assignment_completed_file": "0005-filmmaker.csv"
     },
     {
       "work_item_id": "external_source_0005_02",
       "assignment_id": "external_packet_0005",
-      "target_label": "vfx_animation",
+      "target_label": "filmmaker",
       "source_kind": "tiktok_user_search",
-      "source_url": "https://www.tiktok.com/search/user?q=animation",
-      "source_query": "animation",
+      "source_url": "https://www.tiktok.com/search/user?q=filmmaker",
+      "source_query": "filmmaker",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0005_02.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0005_02.csv",
-      "assignment_completed_file": "0005-vfx_animation.csv"
+      "assignment_completed_file": "0005-filmmaker.csv"
     },
     {
       "work_item_id": "external_source_0005_03",
       "assignment_id": "external_packet_0005",
-      "target_label": "vfx_animation",
+      "target_label": "filmmaker",
       "source_kind": "tiktok_video_search",
-      "source_url": "https://www.tiktok.com/search/video?q=animation",
-      "source_query": "animation",
+      "source_url": "https://www.tiktok.com/search/video?q=filmmaker",
+      "source_query": "filmmaker",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0005_03.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0005_03.csv",
-      "assignment_completed_file": "0005-vfx_animation.csv"
+      "assignment_completed_file": "0005-filmmaker.csv"
     },
     {
       "work_item_id": "external_source_0005_04",
       "assignment_id": "external_packet_0005",
-      "target_label": "vfx_animation",
+      "target_label": "filmmaker",
       "source_kind": "google_search",
-      "source_url": "https://www.google.com/search?q=animation",
-      "source_query": "animation",
+      "source_url": "https://www.google.com/search?q=filmmaker",
+      "source_query": "filmmaker",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0005_04.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0005_04.csv",
-      "assignment_completed_file": "0005-vfx_animation.csv"
+      "assignment_completed_file": "0005-filmmaker.csv"
     },
     {
       "work_item_id": "external_source_0005_05",
       "assignment_id": "external_packet_0005",
-      "target_label": "vfx_animation",
+      "target_label": "filmmaker",
       "source_kind": "bing_search",
-      "source_url": "https://www.bing.com/search?q=animation",
-      "source_query": "animation",
+      "source_url": "https://www.bing.com/search?q=filmmaker",
+      "source_query": "filmmaker",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0005_05.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0005_05.csv",
-      "assignment_completed_file": "0005-vfx_animation.csv"
+      "assignment_completed_file": "0005-filmmaker.csv"
     },
     {
       "work_item_id": "external_source_0006_01",
       "assignment_id": "external_packet_0006",
-      "target_label": "cinematographer",
+      "target_label": "actor_performer",
       "source_kind": "tiktok_hashtag",
-      "source_url": "https://www.tiktok.com/tag/cinematography",
-      "source_query": "cinematography",
+      "source_url": "https://www.tiktok.com/tag/actor",
+      "source_query": "actor",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0006_01.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0006_01.csv",
-      "assignment_completed_file": "0006-cinematographer.csv"
+      "assignment_completed_file": "0006-actor_performer.csv"
     },
     {
       "work_item_id": "external_source_0006_02",
       "assignment_id": "external_packet_0006",
-      "target_label": "cinematographer",
+      "target_label": "actor_performer",
       "source_kind": "tiktok_user_search",
-      "source_url": "https://www.tiktok.com/search/user?q=cinematography",
-      "source_query": "cinematography",
+      "source_url": "https://www.tiktok.com/search/user?q=actor",
+      "source_query": "actor",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0006_02.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0006_02.csv",
-      "assignment_completed_file": "0006-cinematographer.csv"
+      "assignment_completed_file": "0006-actor_performer.csv"
     },
     {
       "work_item_id": "external_source_0006_03",
       "assignment_id": "external_packet_0006",
-      "target_label": "cinematographer",
+      "target_label": "actor_performer",
       "source_kind": "tiktok_video_search",
-      "source_url": "https://www.tiktok.com/search/video?q=cinematography",
-      "source_query": "cinematography",
+      "source_url": "https://www.tiktok.com/search/video?q=actor",
+      "source_query": "actor",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0006_03.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0006_03.csv",
-      "assignment_completed_file": "0006-cinematographer.csv"
+      "assignment_completed_file": "0006-actor_performer.csv"
     },
     {
       "work_item_id": "external_source_0006_04",
       "assignment_id": "external_packet_0006",
-      "target_label": "cinematographer",
+      "target_label": "actor_performer",
       "source_kind": "google_search",
-      "source_url": "https://www.google.com/search?q=cinematography",
-      "source_query": "cinematography",
+      "source_url": "https://www.google.com/search?q=actor",
+      "source_query": "actor",
       "lead_quota": 50,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates/external_source_0006_04.csv",
       "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed/external_source_0006_04.csv",
-      "assignment_completed_file": "0006-cinematographer.csv"
+      "assignment_completed_file": "0006-actor_performer.csv"
     }
   ]
 }

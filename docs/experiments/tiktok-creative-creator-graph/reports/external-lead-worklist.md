@@ -1,6 +1,6 @@
 # External Lead Source Worklist
 
-Generated: 2026-06-13T03:26:25.727Z
+Generated: 2026-06-13T03:34:02.205Z
 
 This breaks the token-free acquisition packet into smaller source-level collection units. Work items point to a specific TikTok/search URL, a target label, a quota, and the completed file where accepted leads should land.
 
@@ -40,14 +40,14 @@ This breaks the token-free acquisition packet into smaller source-level collecti
 | external_source_0004_02 | external_packet_0004 | vfx_animation | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=vfx%20artist%20animation%20blender | 0004-vfx_animation.csv |
 | external_source_0004_03 | external_packet_0004 | vfx_animation | google_search | 62 | https://www.google.com/search?q=vfx%20artist%20animation%20blender | 0004-vfx_animation.csv |
 | external_source_0004_04 | external_packet_0004 | vfx_animation | bing_search | 62 | https://www.bing.com/search?q=vfx%20artist%20animation%20blender | 0004-vfx_animation.csv |
-| external_source_0005_01 | external_packet_0005 | vfx_animation | tiktok_hashtag | 50 | https://www.tiktok.com/tag/animation | 0005-vfx_animation.csv |
-| external_source_0005_02 | external_packet_0005 | vfx_animation | tiktok_user_search | 50 | https://www.tiktok.com/search/user?q=animation | 0005-vfx_animation.csv |
-| external_source_0005_03 | external_packet_0005 | vfx_animation | tiktok_video_search | 50 | https://www.tiktok.com/search/video?q=animation | 0005-vfx_animation.csv |
-| external_source_0005_04 | external_packet_0005 | vfx_animation | google_search | 50 | https://www.google.com/search?q=animation | 0005-vfx_animation.csv |
-| external_source_0005_05 | external_packet_0005 | vfx_animation | bing_search | 50 | https://www.bing.com/search?q=animation | 0005-vfx_animation.csv |
-| external_source_0006_01 | external_packet_0006 | cinematographer | tiktok_hashtag | 50 | https://www.tiktok.com/tag/cinematography | 0006-cinematographer.csv |
-| external_source_0006_02 | external_packet_0006 | cinematographer | tiktok_user_search | 50 | https://www.tiktok.com/search/user?q=cinematography | 0006-cinematographer.csv |
-| external_source_0006_03 | external_packet_0006 | cinematographer | tiktok_video_search | 50 | https://www.tiktok.com/search/video?q=cinematography | 0006-cinematographer.csv |
-| external_source_0006_04 | external_packet_0006 | cinematographer | google_search | 50 | https://www.google.com/search?q=cinematography | 0006-cinematographer.csv |
+| external_source_0005_01 | external_packet_0005 | filmmaker | tiktok_hashtag | 50 | https://www.tiktok.com/tag/filmmaker | 0005-filmmaker.csv |
+| external_source_0005_02 | external_packet_0005 | filmmaker | tiktok_user_search | 50 | https://www.tiktok.com/search/user?q=filmmaker | 0005-filmmaker.csv |
+| external_source_0005_03 | external_packet_0005 | filmmaker | tiktok_video_search | 50 | https://www.tiktok.com/search/video?q=filmmaker | 0005-filmmaker.csv |
+| external_source_0005_04 | external_packet_0005 | filmmaker | google_search | 50 | https://www.google.com/search?q=filmmaker | 0005-filmmaker.csv |
+| external_source_0005_05 | external_packet_0005 | filmmaker | bing_search | 50 | https://www.bing.com/search?q=filmmaker | 0005-filmmaker.csv |
+| external_source_0006_01 | external_packet_0006 | actor_performer | tiktok_hashtag | 50 | https://www.tiktok.com/tag/actor | 0006-actor_performer.csv |
+| external_source_0006_02 | external_packet_0006 | actor_performer | tiktok_user_search | 50 | https://www.tiktok.com/search/user?q=actor | 0006-actor_performer.csv |
+| external_source_0006_03 | external_packet_0006 | actor_performer | tiktok_video_search | 50 | https://www.tiktok.com/search/video?q=actor | 0006-actor_performer.csv |
+| external_source_0006_04 | external_packet_0006 | actor_performer | google_search | 50 | https://www.google.com/search?q=actor | 0006-actor_performer.csv |
 
 Full worklist: `data/raw/external-leads/source-worklist.csv`

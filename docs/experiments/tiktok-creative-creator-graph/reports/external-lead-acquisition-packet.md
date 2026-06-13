@@ -1,6 +1,6 @@
 # External Lead Acquisition Packet
 
-Generated: 2026-06-13T03:26:25.684Z
+Generated: 2026-06-13T03:34:02.167Z
 
 This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by `import-external-lead-list.mjs`.
 
@@ -38,12 +38,12 @@ Accept public TikTok profiles with original creative work and visible craft, pro
 | external_packet_0002 | cinematographer | 250 | search_index | cinematographer lighting breakdown | https://www.tiktok.com/search/user?q=cinematographer%20lighting%20breakdown |
 | external_packet_0003 | sketch_comedian | 250 | search_index | sketch comedian character comedy | https://www.tiktok.com/search/user?q=sketch%20comedian%20character%20comedy |
 | external_packet_0004 | vfx_animation | 250 | search_index | vfx artist animation blender | https://www.tiktok.com/search/user?q=vfx%20artist%20animation%20blender |
-| external_packet_0005 | vfx_animation | 250 | tiktok_hashtag_export | animation | https://www.tiktok.com/tag/animation |
-| external_packet_0006 | cinematographer | 250 | tiktok_hashtag_export | cinematography | https://www.tiktok.com/tag/cinematography |
-| external_packet_0007 | filmmaker | 250 | tiktok_hashtag_export | filmmaker | https://www.tiktok.com/tag/filmmaker |
-| external_packet_0008 | filmmaker | 250 | tiktok_hashtag_export | shortfilm | https://www.tiktok.com/tag/shortfilm |
-| external_packet_0009 | sketch_comedian | 250 | tiktok_hashtag_export | sketchcomedy | https://www.tiktok.com/tag/sketchcomedy |
-| external_packet_0010 | actor_performer | 250 | tiktok_hashtag_export | actor | https://www.tiktok.com/tag/actor |
+| external_packet_0005 | filmmaker | 250 | tiktok_hashtag_export | filmmaker | https://www.tiktok.com/tag/filmmaker |
+| external_packet_0006 | actor_performer | 250 | tiktok_hashtag_export | actor | https://www.tiktok.com/tag/actor |
+| external_packet_0007 | vfx_animation | 250 | tiktok_hashtag_export | animation | https://www.tiktok.com/tag/animation |
+| external_packet_0008 | cinematographer | 250 | tiktok_hashtag_export | cinematography | https://www.tiktok.com/tag/cinematography |
+| external_packet_0009 | filmmaker | 250 | tiktok_hashtag_export | shortfilm | https://www.tiktok.com/tag/shortfilm |
+| external_packet_0010 | sketch_comedian | 250 | tiktok_hashtag_export | sketchcomedy | https://www.tiktok.com/tag/sketchcomedy |
 | external_packet_0011 | vfx_animation | 250 | tiktok_hashtag_export | blender | https://www.tiktok.com/tag/blender |
 | external_packet_0012 | cinematographer | 250 | tiktok_hashtag_export | lighting | https://www.tiktok.com/tag/lighting |
 | external_packet_0013 | vfx_animation | 250 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | https://www.tiktok.com/search/user?q=site%3Abeacons.ai%20tiktok.com%2F%40%20vfx%20animation |

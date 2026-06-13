@@ -1,6 +1,6 @@
 # Wave Ledger
 
-Generated: 2026-06-13T03:26:25.589Z
+Generated: 2026-06-13T03:34:02.085Z
 
 - Waves: 10000
 - Planned: 10000
@@ -37,12 +37,12 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | 2 | scale_wave_0002 | planned | cinematographer | search_index | cinematographer lighting breakdown | 0 | n/a | 1 |
 | 3 | scale_wave_0003 | planned | sketch_comedian | search_index | sketch comedian character comedy | 0 | n/a | 1 |
 | 4 | scale_wave_0004 | planned | vfx_animation | search_index | vfx artist animation blender | 0 | n/a | 1 |
-| 5 | scale_wave_0005 | planned | vfx_animation | tiktok_hashtag_export | animation | 0 | n/a | 1 |
-| 6 | scale_wave_0006 | planned | cinematographer | tiktok_hashtag_export | cinematography | 0 | n/a | 1 |
-| 7 | scale_wave_0007 | planned | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
-| 8 | scale_wave_0008 | planned | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
-| 9 | scale_wave_0009 | planned | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
-| 10 | scale_wave_0010 | planned | actor_performer | tiktok_hashtag_export | actor | 0 | n/a | 1 |
+| 5 | scale_wave_0005 | planned | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
+| 6 | scale_wave_0006 | planned | actor_performer | tiktok_hashtag_export | actor | 0 | n/a | 1 |
+| 7 | scale_wave_0007 | planned | vfx_animation | tiktok_hashtag_export | animation | 0 | n/a | 1 |
+| 8 | scale_wave_0008 | planned | cinematographer | tiktok_hashtag_export | cinematography | 0 | n/a | 1 |
+| 9 | scale_wave_0009 | planned | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
+| 10 | scale_wave_0010 | planned | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
 | 11 | scale_wave_0011 | planned | vfx_animation | tiktok_hashtag_export | blender | 0 | n/a | 1 |
 | 12 | scale_wave_0012 | planned | cinematographer | tiktok_hashtag_export | lighting | 0 | n/a | 1 |
 | 13 | scale_wave_0013 | planned | vfx_animation | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | 0 | n/a | 1 |

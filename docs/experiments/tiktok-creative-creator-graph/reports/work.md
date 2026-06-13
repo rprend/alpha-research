@@ -1,40 +1,40 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T03:26:24.154Z
+Generated: 2026-06-13T03:34:00.594Z
 
 ## Summary
 
-- Accounts: 7208
-- Videos: 47
+- Accounts: 10104
+- Videos: 50
 - Graph edges: 395
 - Useful accounts: 7
 - Excellent accounts: 6
-- Review queue: 7208
+- Review queue: 10104
 - Expansion queue: 7
 - Target: 50000
 - Target status: 49993 more useful accounts needed
 
 ## Status Counts
 
-- needs_review: 7199
+- needs_review: 10095
 - excellent: 6
 - reject: 2
 - useful: 1
 
 ## Primary Labels
 
-- sketch_comedian: 566
-- standup_comedian: 124
-- actor_performer: 3979
-- cinematographer: 58
-- director: 288
-- editor: 88
-- filmmaker: 265
-- vfx_animation: 423
-- creative_technologist: 446
-- film_educator: 656
+- sketch_comedian: 586
+- standup_comedian: 118
+- actor_performer: 3713
+- cinematographer: 75
+- director: 262
+- editor: 84
+- filmmaker: 318
+- vfx_animation: 705
+- creative_technologist: 2063
+- film_educator: 1870
 - behind_the_scenes_creator: 268
-- unclear: 45
+- unclear: 40
 - reject: 2
 
 ## Top Accounts
@@ -48,7 +48,10 @@ Generated: 2026-06-13T03:26:24.154Z
 | @noahframes | cinematographer | 86 | excellent |
 | @lucybits | sketch_comedian | 85 | excellent |
 | @renderjules | creative_technologist | 78 | useful |
+| @jamesmarriott | cinematographer | 52 | needs_review |
 | @ben_brainard | standup_comedian | 50 | needs_review |
+| @kimberly.loaiza | creative_technologist | 50 | needs_review |
+| @morgannbook | film_educator | 50 | needs_review |
 | @authorcarriea | cinematographer | 50 | needs_review |
 | @comediandre | standup_comedian | 48 | needs_review |
 | @mycanimationsextra | vfx_animation | 48 | needs_review |
@@ -58,9 +61,6 @@ Generated: 2026-06-13T03:26:24.154Z
 | @luca.lego | vfx_animation | 48 | needs_review |
 | @thelegomommy | vfx_animation | 48 | needs_review |
 | @authortessabailey | film_educator | 48 | needs_review |
-| @kaileemcoleman | vfx_animation | 48 | needs_review |
-| @tuckercomedy | actor_performer | 47 | needs_review |
-| @maxcomedian | standup_comedian | 47 | needs_review |
 
 ## Next Expansion Targets
 
@@ -87,7 +87,10 @@ Generated: 2026-06-13T03:26:24.154Z
 | @dailyfilmclips | reject | 0 | repost_risk |
 | @clipvaultcinema | reject | 0 | repost_risk |
 | @renderjules | creative_technologist | 78 | strong_public_source_candidate |
+| @jamesmarriott | cinematographer | 52 | threshold_borderline; strong_public_source_candidate |
 | @ben_brainard | standup_comedian | 50 | threshold_borderline; strong_public_source_candidate |
+| @kimberly.loaiza | creative_technologist | 50 | threshold_borderline; strong_public_source_candidate |
+| @morgannbook | film_educator | 50 | threshold_borderline; strong_public_source_candidate |
 | @authorcarriea | cinematographer | 50 | threshold_borderline; strong_public_source_candidate |
 | @comediandre | standup_comedian | 48 | threshold_borderline; strong_public_source_candidate |
 | @mycanimationsextra | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
@@ -100,6 +103,3 @@ Generated: 2026-06-13T03:26:24.154Z
 | @kaileemcoleman | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
 | @tuckercomedy | actor_performer | 47 | threshold_borderline; strong_public_source_candidate |
 | @maxcomedian | standup_comedian | 47 | threshold_borderline; strong_public_source_candidate |
-| @lindamarric | cinematographer | 47 | threshold_borderline; strong_public_source_candidate |
-| @filmmakersworld | filmmaker | 47 | threshold_borderline; strong_public_source_candidate |
-| @jamesmarriott | cinematographer | 47 | threshold_borderline; strong_public_source_candidate |

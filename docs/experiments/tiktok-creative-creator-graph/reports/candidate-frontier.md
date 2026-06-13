@@ -1,6 +1,6 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T03:26:25.094Z
+Generated: 2026-06-13T03:34:01.556Z
 
 - Candidates: 87
 - Handle targets: 7
@@ -38,12 +38,12 @@ Generated: 2026-06-13T03:26:25.094Z
 | 2 | 100 | 1 | query | search_index | cinematographer | cinematographer lighting breakdown |
 | 3 | 100 | 1 | query | search_index | sketch_comedian | sketch comedian character comedy |
 | 4 | 100 | 1 | query | search_index | vfx_animation | vfx artist animation blender |
-| 5 | 86 | 1 | query | tiktok_hashtag_export | vfx_animation | animation |
-| 6 | 86 | 1 | query | tiktok_hashtag_export | cinematographer | cinematography |
-| 7 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
-| 8 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | shortfilm |
-| 9 | 86 | 1 | query | tiktok_hashtag_export | sketch_comedian | sketchcomedy |
-| 10 | 84 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
+| 5 | 91 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
+| 6 | 86 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
+| 7 | 86 | 1 | query | tiktok_hashtag_export | vfx_animation | animation |
+| 8 | 86 | 1 | query | tiktok_hashtag_export | cinematographer | cinematography |
+| 9 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | shortfilm |
+| 10 | 86 | 1 | query | tiktok_hashtag_export | sketch_comedian | sketchcomedy |
 | 11 | 83 | 1 | query | tiktok_hashtag_export | vfx_animation | blender |
 | 12 | 83 | 1 | query | tiktok_hashtag_export | cinematographer | lighting |
 | 13 | 83 | 1 | query | cross_platform_search | vfx_animation | site:beacons.ai "tiktok.com/@" "vfx animation" |

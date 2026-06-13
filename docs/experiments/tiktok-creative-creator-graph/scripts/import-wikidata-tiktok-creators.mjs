@@ -14,6 +14,7 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 const maxRows = Number(args.get('--max-rows') ?? 5000)
 const dryRun = args.has('--dry-run')
 const includeBroadPerformers = args.has('--include-broad-performers')
+const includeCreatorNative = args.has('--include-creator-native')
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
 const provider = 'wikidata_sparql'
 
@@ -37,6 +38,36 @@ const broadPerformerOccupationConfig = [
   { qid: 'Q10800557', label: 'film actor', target_label: 'actor_performer' },
   { qid: 'Q2259451', label: 'stage actor', target_label: 'actor_performer' },
   { qid: 'Q5716684', label: 'dancer', target_label: 'actor_performer' },
+]
+
+const creatorNativeOccupationConfig = [
+  { qid: 'Q17125263', label: 'YouTuber', target_label: 'film_educator' },
+  { qid: 'Q94791573', label: 'TikToker', target_label: 'creative_technologist' },
+  { qid: 'Q2045208', label: 'Internet celebrity', target_label: 'creative_technologist' },
+  { qid: 'Q2906862', label: 'influencer', target_label: 'creative_technologist' },
+  { qid: 'Q109459317', label: 'content creator', target_label: 'creative_technologist' },
+  { qid: 'Q111263847', label: 'digital creator', target_label: 'creative_technologist' },
+  { qid: 'Q4110598', label: 'vlogger', target_label: 'film_educator' },
+  { qid: 'Q50279140', label: 'Twitch streamer', target_label: 'creative_technologist' },
+  { qid: 'Q57414145', label: 'online streamer', target_label: 'creative_technologist' },
+  { qid: 'Q118371929', label: 'web video producer', target_label: 'filmmaker' },
+  { qid: 'Q1414443', label: 'filmmaker', target_label: 'filmmaker' },
+  { qid: 'Q2737906', label: 'videographer', target_label: 'cinematographer' },
+  { qid: 'Q1148872', label: 'impressionist', target_label: 'sketch_comedian' },
+  { qid: 'Q18810049', label: 'cosplayer', target_label: 'actor_performer' },
+  { qid: 'Q337084', label: 'drag queen', target_label: 'actor_performer' },
+  { qid: 'Q126912755', label: 'drag performer', target_label: 'actor_performer' },
+  { qid: 'Q483501', label: 'artist', target_label: 'vfx_animation' },
+  { qid: 'Q3391743', label: 'visual artist', target_label: 'vfx_animation' },
+  { qid: 'Q644687', label: 'illustrator', target_label: 'vfx_animation' },
+  { qid: 'Q627325', label: 'graphic designer', target_label: 'vfx_animation' },
+  { qid: 'Q5322166', label: 'designer', target_label: 'creative_technologist' },
+  { qid: 'Q3501317', label: 'fashion designer', target_label: 'creative_technologist' },
+  { qid: 'Q715301', label: 'comics artist', target_label: 'vfx_animation' },
+  { qid: 'Q1028181', label: 'painter', target_label: 'vfx_animation' },
+  { qid: 'Q15143191', label: 'science communicator', target_label: 'film_educator' },
+  { qid: 'Q974144', label: 'educator', target_label: 'film_educator' },
+  { qid: 'Q37226', label: 'teacher', target_label: 'film_educator' },
 ]
 
 const exclusionRules = [
@@ -69,9 +100,11 @@ function normalizeHandle(value) {
 }
 
 function occupationConfigs() {
-  return includeBroadPerformers
-    ? [...occupationConfig, ...broadPerformerOccupationConfig]
-    : occupationConfig
+  return [
+    ...occupationConfig,
+    ...(includeBroadPerformers ? broadPerformerOccupationConfig : []),
+    ...(includeCreatorNative ? creatorNativeOccupationConfig : []),
+  ].filter((occupation, index, occupations) => occupations.findIndex((item) => item.qid === occupation.qid) === index)
 }
 
 function sparqlQuery() {
@@ -186,6 +219,7 @@ async function main() {
     source_license: 'CC0-1.0',
     source_use_note: 'Wikidata statements are public structured leads; verify TikTok profile activity and creator fit before production release.',
     include_broad_performers: includeBroadPerformers,
+    include_creator_native: includeCreatorNative,
     occupation_qids: occupationConfigs().map((occupation) => occupation.qid),
     input_rows: bindings.length,
     output_rows: outputRows.length,
@@ -209,6 +243,7 @@ Generated: ${summary.generated_at}
 - Source license: ${summary.source_license}
 - Source use note: ${summary.source_use_note}
 - Broad performers included: ${summary.include_broad_performers}
+- Creator-native occupations included: ${summary.include_creator_native}
 - Input rows: ${summary.input_rows}
 - Output creator rows: ${summary.output_rows}
 - Skipped rows: ${summary.skipped_rows}

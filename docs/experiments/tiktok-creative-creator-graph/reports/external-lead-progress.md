@@ -1,6 +1,6 @@
 # External Lead Progress
 
-Generated: 2026-06-13T03:26:26.085Z
+Generated: 2026-06-13T03:34:02.580Z
 
 - Packet assignments: 120
 - Completed files seen: 0
@@ -23,12 +23,12 @@ Generated: 2026-06-13T03:26:26.085Z
 | external_packet_0002 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0002-cinematographer.csv |
 | external_packet_0003 | sketch_comedian | not_started | 0 | 250 | Create data/raw/external-leads/completed/0003-sketch_comedian.csv |
 | external_packet_0004 | vfx_animation | not_started | 0 | 250 | Create data/raw/external-leads/completed/0004-vfx_animation.csv |
-| external_packet_0005 | vfx_animation | not_started | 0 | 250 | Create data/raw/external-leads/completed/0005-vfx_animation.csv |
-| external_packet_0006 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0006-cinematographer.csv |
-| external_packet_0007 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0007-filmmaker.csv |
-| external_packet_0008 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0008-filmmaker.csv |
-| external_packet_0009 | sketch_comedian | not_started | 0 | 250 | Create data/raw/external-leads/completed/0009-sketch_comedian.csv |
-| external_packet_0010 | actor_performer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0010-actor_performer.csv |
+| external_packet_0005 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0005-filmmaker.csv |
+| external_packet_0006 | actor_performer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0006-actor_performer.csv |
+| external_packet_0007 | vfx_animation | not_started | 0 | 250 | Create data/raw/external-leads/completed/0007-vfx_animation.csv |
+| external_packet_0008 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0008-cinematographer.csv |
+| external_packet_0009 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0009-filmmaker.csv |
+| external_packet_0010 | sketch_comedian | not_started | 0 | 250 | Create data/raw/external-leads/completed/0010-sketch_comedian.csv |
 | external_packet_0011 | vfx_animation | not_started | 0 | 250 | Create data/raw/external-leads/completed/0011-vfx_animation.csv |
 | external_packet_0012 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0012-cinematographer.csv |
 | external_packet_0013 | vfx_animation | not_started | 0 | 250 | Create data/raw/external-leads/completed/0013-vfx_animation.csv |
