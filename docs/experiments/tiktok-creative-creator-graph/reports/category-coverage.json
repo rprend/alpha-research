@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:00:43.830Z",
+  "generated_at": "2026-06-13T04:04:49.526Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 5,
@@ -18,7 +18,7 @@
     {
       "label": "filmmaker",
       "target_useful_creators": 8000,
-      "current_primary_accounts": 406,
+      "current_primary_accounts": 442,
       "useful_primary_accounts": 2,
       "excellent_primary_accounts": 2,
       "secondary_mentions": 3,
@@ -29,7 +29,7 @@
     {
       "label": "director",
       "target_useful_creators": 4000,
-      "current_primary_accounts": 272,
+      "current_primary_accounts": 273,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 3,
@@ -40,7 +40,7 @@
     {
       "label": "cinematographer",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 87,
+      "current_primary_accounts": 88,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 0,
@@ -62,7 +62,7 @@
     {
       "label": "vfx_animation",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 739,
+      "current_primary_accounts": 742,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 1,

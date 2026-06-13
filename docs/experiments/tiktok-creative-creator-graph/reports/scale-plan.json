@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13T04:00:45.067Z",
+  "generated_at": "2026-06-13T04:04:50.780Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
     "review_decisions": 500
   },
   "current": {
-    "accounts": 10591,
+    "accounts": 10796,
     "useful_creators": 2,
     "excellent_creators": 1,
     "review_decisions": 4
@@ -129,8 +129,20 @@
   "next_batches": [
     {
       "sequence": 1,
-      "batch_id": "graph_0069",
+      "batch_id": "graph_0068|hashtag_0011",
       "frontier_rank": 1,
+      "frontier_score": 102,
+      "priority": 1,
+      "acquisition_surface": "tiktok_hashtag_export",
+      "query": "filmmaker",
+      "target_kind": "query",
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
+    },
+    {
+      "sequence": 2,
+      "batch_id": "graph_0069",
+      "frontier_rank": 2,
       "frontier_score": 102,
       "priority": 1,
       "acquisition_surface": "search_index",
@@ -140,9 +152,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 2,
+      "sequence": 3,
       "batch_id": "graph_0083",
-      "frontier_rank": 2,
+      "frontier_rank": 3,
       "frontier_score": 100,
       "priority": 1,
       "acquisition_surface": "search_index",
@@ -152,9 +164,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 3,
+      "sequence": 4,
       "batch_id": "graph_0088",
-      "frontier_rank": 3,
+      "frontier_rank": 4,
       "frontier_score": 100,
       "priority": 1,
       "acquisition_surface": "search_index",
@@ -164,27 +176,15 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 4,
+      "sequence": 5,
       "batch_id": "graph_0081",
-      "frontier_rank": 4,
+      "frontier_rank": 5,
       "frontier_score": 100,
       "priority": 1,
       "acquisition_surface": "search_index",
       "query": "vfx artist animation blender",
       "target_kind": "query",
       "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
-      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
-    },
-    {
-      "sequence": 5,
-      "batch_id": "graph_0068|hashtag_0011",
-      "frontier_rank": 5,
-      "frontier_score": 99,
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "filmmaker",
-      "target_kind": "query",
-      "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {

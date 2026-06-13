@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-13T04:00:45.751Z
+Generated: 2026-06-13T04:04:51.455Z
 
 - Provider: apify
 - Provider viability: missing_token
@@ -29,15 +29,15 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 
 | Wave | Batch | Surface | Query | Actor | Ready | Viability | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |
-| scale_wave_0001 | graph_0069 | search_index | filmmaker short film editing breakdown | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | graph_0068 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0001 | category_gap_0030 | category_gap_search | site:tiktok.com/@ "director" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | graph_0083 | search_index | cinematographer lighting breakdown | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0002 | graph_0069 | search_index | filmmaker short film editing breakdown | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0002 | category_gap_0040 | category_gap_search | site:tiktok.com/@ "performer" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0088 | search_index | sketch comedian character comedy | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | graph_0083 | search_index | cinematographer lighting breakdown | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0003 | category_gap_0035 | category_gap_search | site:tiktok.com/@ "stand-up" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0081 | search_index | vfx artist animation blender | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | graph_0088 | search_index | sketch comedian character comedy | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0004 | category_gap_0033 | category_gap_search | site:tiktok.com/@ "standup comedian" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0068 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | graph_0081 | search_index | vfx artist animation blender | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0005 | category_gap_0034 | category_gap_search | site:tiktok.com/@ "standup" | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0006 | graph_0073 | tiktok_hashtag_export | actor | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0006 | search_0004 | search_index | site:tiktok.com/@ comedian | apify/google-search-scraper | false | missing_token | 0 | $0 |

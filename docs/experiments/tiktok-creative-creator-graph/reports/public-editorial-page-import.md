@@ -1,37 +1,32 @@
 # Public Editorial Page Import
 
-Generated: 2026-06-13T04:00:37.402Z
+Generated: 2026-06-13T04:04:35.293Z
 
 - Provider: public_editorial_page
 - Dry run: false
-- Selected sources: 12
-- Output rows: 300
-- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T04-00-33-102Z-public-editorial-pages.jsonl
-- Succeeded sources: 12
+- Selected sources: 10
+- Output rows: 61
+- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T04-04-31-799Z-public-editorial-pages.jsonl
+- Succeeded sources: 10
 - Failed sources: 0
 
 ## Target Labels
 
-- creative_technologist: 121
-- actor_performer: 100
-- filmmaker: 44
-- behind_the_scenes_creator: 1
-- vfx_animation: 6
-- sketch_comedian: 17
-- film_educator: 7
-- cinematographer: 4
+- filmmaker: 49
+- vfx_animation: 7
+- editor: 1
+- director: 2
+- cinematographer: 2
 
 ## Sources
 
-- tiktok_newsroom_awards_us_2025_nominees: succeeded, 73 extracted, 73 added, https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en
-- tiktok_newsroom_awards_uk_ie_2025_nominees: succeeded, 86 extracted, 83 added, https://newsroom.tiktok.com/introducing-the-tiktok-awards-uk-and-ireland-2025-with-headline-partner-sky?lang=en-GB
-- tiktok_newsroom_awards_ie_2025_shortlist: succeeded, 86 extracted, 2 added, https://newsroom.tiktok.com/tiktok-awards-ireland-2025?lang=en-IE
-- tiktok_newsroom_awards_au_2024_finalists: succeeded, 73 extracted, 70 added, https://newsroom.tiktok.com/en-au/record-breaking-number-of-finalists-revealed-for-the-2024-tiktok-awards-presented-by-cerave
-- tiktok_newsroom_awards_au_2023_nominees: succeeded, 40 extracted, 32 added, https://newsroom.tiktok.com/en-au/tiktok-announces-new-end-of-year-show-the-tiktok-awards-presented-by-cerave-with-more-awards-and-creators-than-ever-before
-- tiktok_newsroom_creator_spotlight_charleymarlowe: succeeded, 5 extracted, 1 added, https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-charleymarlowe
-- tiktok_newsroom_creator_spotlight_kimberleycumberbatch: succeeded, 10 extracted, 7 added, https://newsroom.tiktok.com/en-gb/creator-spotlight-kimberleycumberbatch
-- tiktok_newsroom_creator_spotlight_chloecarterr: succeeded, 11 extracted, 7 added, https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chloe-carterr
-- tiktok_newsroom_creator_spotlight_lkbphotography: succeeded, 5 extracted, 1 added, https://newsroom.tiktok.com/en-us/creator-spotlight-series-lkbphotography
-- tiktok_newsroom_creator_spotlight_taylorcassidyj: succeeded, 7 extracted, 4 added, https://newsroom.tiktok.com/en-us/creator-spotlight-series-taylorcassidyj
-- tiktok_newsroom_black_history_ie_2024: succeeded, 22 extracted, 18 added, https://newsroom.tiktok.com/celebrating-black-history-month-on-tiktok-ie-2024?from_seo_redirect=1&lang=en-IE
-- tiktok_newsroom_booktoscreen_es: succeeded, 5 extracted, 2 added, https://newsroom.tiktok.com/booktoscreen-un-fenmeno-que-transforma-la-literatura-en-entretenimiento-e-impulsa-65-millones-de-publicaciones-diarias-sobre-cine-y-tv-en-tiktok?lang=es
+- tiktok_newsroom_creator_spotlight_chewkz: succeeded, 5 extracted, 5 added, https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chewkz
+- tiktok_newsroom_creator_spotlight_kukombo: succeeded, 1 extracted, 1 added, https://newsroom.tiktok.com/en-us/creator-spotlight-series-kukombo
+- tiktok_newsroom_oscars_live_2022: succeeded, 2 extracted, 2 added, https://newsroom.tiktok.com/en-us/creator-spotlight-series-live-from-the-2022-oscars
+- tiktok_newsroom_shortfilm_competition_2022_winners: succeeded, 4 extracted, 0 added, https://newsroom.tiktok.com/en-gb/announcing-the-winners-of-the-tiktokshortfilm-competition
+- tiktok_newsroom_shortfilm_2023_africa: succeeded, 9 extracted, 5 added, https://newsroom.tiktok.com/en-africa/shortfilm
+- tiktok_newsroom_shortfilm_2024_us: succeeded, 7 extracted, 5 added, https://newsroom.tiktok.com/en-us/the-tiktokshortfilm-competition-returns-for-a-third-year-now-open-to-us-creators
+- tiktok_newsroom_shortfilm_2024_singapore: succeeded, 4 extracted, 1 added, https://newsroom.tiktok.com/en-sg/tiktokshortfilm-returns-to-bring-together-a-new-generation-of-filmmakers-in-singapore-and-around-the-world
+- tiktok_newsroom_tiff_2024_filmtok: succeeded, 8 extracted, 8 added, https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival
+- tiktok_newsroom_cannes_2025: succeeded, 31 extracted, 28 added, https://newsroom.tiktok.com/78th-cannes-film-festival?lang=en
+- tiktok_newsroom_sundance_2026: succeeded, 9 extracted, 6 added, https://newsroom.tiktok.com/sundance-2026-how-tiktok-is-fueling-film-fandom?lang=en

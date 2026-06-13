@@ -1,6 +1,6 @@
 # Acquisition Batches
 
-Generated: 2026-06-13T04:00:44.459Z
+Generated: 2026-06-13T04:04:50.162Z
 
 - Tasks: 92
 - Useful creators available for expansion: 7
@@ -30,8 +30,8 @@ Generated: 2026-06-13T04:00:44.459Z
 
 ## Priority Counts
 
-- P1: 60
-- P2: 30
+- P1: 62
+- P2: 28
 - P3: 2
 
 Primary task file: `data/processed/acquisition/acquisition_tasks.csv`

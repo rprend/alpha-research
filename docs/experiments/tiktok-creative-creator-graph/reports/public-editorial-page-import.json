@@ -1,609 +1,588 @@
 {
-  "generated_at": "2026-06-13T04:00:37.402Z",
-  "execution_id": "2026-06-13T04-00-33-102Z",
+  "generated_at": "2026-06-13T04:04:35.293Z",
+  "execution_id": "2026-06-13T04-04-31-799Z",
   "provider": "public_editorial_page",
   "dry_run": false,
   "source_config_path": "docs/experiments/tiktok-creative-creator-graph/config/public-editorial-page-sources.json",
-  "selected_sources": 12,
-  "output_rows": 300,
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T04-00-33-102Z-public-editorial-pages.jsonl",
-  "succeeded_sources": 12,
+  "selected_sources": 10,
+  "output_rows": 61,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T04-04-31-799Z-public-editorial-pages.jsonl",
+  "succeeded_sources": 10,
   "failed_sources": 0,
   "target_label_counts": {
-    "creative_technologist": 121,
-    "actor_performer": 100,
-    "filmmaker": 44,
-    "behind_the_scenes_creator": 1,
-    "vfx_animation": 6,
-    "sketch_comedian": 17,
-    "film_educator": 7,
-    "cinematographer": 4
+    "filmmaker": 49,
+    "vfx_animation": 7,
+    "editor": 1,
+    "director": 2,
+    "cinematographer": 2
   },
   "first_rows": [
     {
-      "handle": "@adamw",
-      "profile_url": "https://www.tiktok.com/@adamw",
-      "display_name": "adamw",
-      "bio": "activations and creator-led moments throughout the night — bringing the For You Feed to life at the Hollywood Palladium. TikTok Shop will also deliver an immersive IRL experience with interactive moments and creator-led content opportunities. Meet the Nominees Creator of the Year adamw alixearle brookemonk_ keit",
+      "handle": "@claudia_cochet",
+      "profile_url": "https://www.tiktok.com/@claudia_cochet",
+      "display_name": "claudia_cochet",
+      "bio": "munity&lang=en-GB\"> Community TikTok Creator Spotlight @Chewkz In April, we launched our global #TikTokShortFilm competition celebrating our partnership with the Festival de Cannes and channeling the creativity of our community. Now, after much deliberation we are excited to announce our winners of the #TikTokShortFilm competition: @claudia_cochet , @tim.diddle , @rimanic and @lang_pictures . Congratulations to the four winners and thank you to the creators and our community for sharing your sto",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "creative_technologist",
+      "source_name": "TikTok Newsroom Creator Spotlight Chewkz",
+      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chewkz",
+      "source_query": "creator spotlight comedy filmmaker Cannes",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "creative_technologist"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_creator_spotlight_chewkz",
       "rank": 1
     },
     {
-      "handle": "@alixearle",
-      "profile_url": "https://www.tiktok.com/@alixearle",
-      "display_name": "alixearle",
-      "bio": "trong> Creator of the Year adamw alixearle brookemonk_ keith_lee125 <a href=\"https://www.tiktok.com/@kristy.sarah?lang=en\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timing\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;p",
+      "handle": "@tim.diddle",
+      "profile_url": "https://www.tiktok.com/@tim.diddle",
+      "display_name": "tim.diddle",
+      "bio": "hy-base_b8SoO typography-base-weight-medium_uOCpD\">TikTok Creator Spotlight @Chewkz In April, we launched our global #TikTokShortFilm competition celebrating our partnership with the Festival de Cannes and channeling the creativity of our community. Now, after much deliberation we are excited to announce our winners of the #TikTokShortFilm competition: @claudia_cochet , @tim.diddle , @rimanic and @lang_pictures . Congratulations to the four winners and thank you to the creators and our community",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "creative_technologist",
+      "source_name": "TikTok Newsroom Creator Spotlight Chewkz",
+      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chewkz",
+      "source_query": "creator spotlight comedy filmmaker Cannes",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "creative_technologist"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_creator_spotlight_chewkz",
       "rank": 2
     },
     {
-      "handle": "@brookemonk_",
-      "profile_url": "https://www.tiktok.com/@brookemonk_",
-      "display_name": "brookemonk_",
-      "bio": "gin:0;padding:0\"> adamw alixearle brookemonk_ keith_lee125 kristy.sarah Video of the Year <ul class=\"layout-space_6GsJx layout-space-gap-tight_-mMQk layout-space-direction-vertical_Bd64T layout-space-align-start_ASzuJ layout-spa",
+      "handle": "@rimanic",
+      "profile_url": "https://www.tiktok.com/@rimanic",
+      "display_name": "rimanic",
+      "bio": "graphy-base_b8SoO\" style=\"margin:0;padding:0\">In April, we launched our global #TikTokShortFilm competition celebrating our partnership with the Festival de Cannes and channeling the creativity of our community. Now, after much deliberation we are excited to announce our winners of the #TikTokShortFilm competition: @claudia_cochet , @tim.diddle , @rimanic and @lang_pictures . Congratulations to the four winners and thank you to the creators and our community for sharing your stories! Check out m",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom Creator Spotlight Chewkz",
+      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chewkz",
+      "source_query": "creator spotlight comedy filmmaker Cannes",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "actor_performer"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_creator_spotlight_chewkz",
       "rank": 3
     },
     {
-      "handle": "@keith_lee125",
-      "profile_url": "https://www.tiktok.com/@keith_lee125",
-      "display_name": "keith_lee125",
-      "bio": "g:0\"> alixearle brookemonk_ keith_lee125 kristy.sarah Video of the Year <a href=\"https://www.tiktok.com/@bretmanrock/video/7480290224631729439\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timing\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padd",
+      "handle": "@lang_pictures",
+      "profile_url": "https://www.tiktok.com/@lang_pictures",
+      "display_name": "lang_pictures",
+      "bio": "-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">#TikTokShortFilm competition celebrating our partnership with the Festival de Cannes and channeling the creativity of our community. Now, after much deliberation we are excited to announce our winners of the #TikTokShortFilm competition: @claudia_cochet , @tim.diddle , @rimanic and @lang_pictures . Congratulations to the four winners and thank you to the creators and our community for sharing your stories! Check out more de",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom Creator Spotlight Chewkz",
+      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chewkz",
+      "source_query": "creator spotlight comedy filmmaker Cannes",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "actor_performer"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_creator_spotlight_chewkz",
       "rank": 4
     },
     {
-      "handle": "@kristy.sarah",
-      "profile_url": "https://www.tiktok.com/@kristy.sarah",
-      "display_name": "kristy.sarah",
-      "bio": "span class=\"typography-base_b8SoO\"> brookemonk_ keith_lee125 kristy.sarah Video of the Year bretmanrock <a href=\"https://www.tiktok.com/@chrisandfinck/video/7509109661971303722\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timing\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" st",
+      "handle": "@chewkz",
+      "profile_url": "https://www.tiktok.com/@chewkz",
+      "display_name": "chewkz",
+      "bio": "b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">@rimanic and @lang_pictures . Congratulations to the four winners and thank you to the creators and our community for sharing your stories! Check out more details on our newsroom post here . For this week's creator spotlight, we're speaking to one of our incredible creators who was in attendance at this year's Festival de Cannes, @chewkz ! Best known for his entertaining content and vast variety of characters that he inhabits, fr",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom Creator Spotlight Chewkz",
+      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chewkz",
+      "source_query": "creator spotlight comedy filmmaker Cannes",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "actor_performer"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_creator_spotlight_chewkz",
       "rank": 5
     },
     {
-      "handle": "@bretmanrock",
-      "profile_url": "https://www.tiktok.com/@bretmanrock",
-      "display_name": "bretmanrock",
-      "bio": "yle=\"margin:0;padding:0\"> kristy.sarah Video of the Year bretmanrock chrisandfinck ronclark__ <a href=\"https://www.tiktok.com/@taylortiminskas/video/7455075254063369503\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timing\" class=\"typography-base_b8SoO typography-base-color-",
+      "handle": "@kukombo",
+      "profile_url": "https://www.tiktok.com/@kukombo",
+      "display_name": "kukombo",
+      "bio": "date-time_4iM-o\">May 25, 2022 • Community Creator Spotlight Series: @kukombo Kukombo is a Chinese-American creative based in New York City with an interdisciplinary artistic background in fashion design, filmmaking, music production, and photography. In his TikTok videos, Kukombo takes his audience on an unexpected adventure through his cinematic take on cosplay . <svg fill=\"currentColor\" width=\"1em\" height=\"1em\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom Creator Spotlight Kukombo",
+      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-kukombo",
+      "source_query": "creator spotlight filmmaker VFX fashion design performer",
+      "target_label": "vfx_animation",
       "source_target_labels": [
-        "actor_performer"
+        "vfx_animation"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_creator_spotlight_kukombo",
+      "rank": 1
+    },
+    {
+      "handle": "@emilyuuribe",
+      "profile_url": "https://www.tiktok.com/@emilyuuribe",
+      "display_name": "emilyuuribe",
+      "bio": "ypography-base-color-text2_SWzBr\">Community Creator Spotlight Series: LIVE from the 2022 Oscars Entertainment is at the heart of TikTok. It's the go-to spot for artists, filmmakers and creatives alike to share their talents, get discovered by new audiences, and connect with others in the industry. This year, TikTok has partnered with the Academy of Motion Picture Arts and Sciences to celebrate the Oscars through an in-app effect, a special TikTok LIVE, and featured hashtags #OscarsAtHome and #Os",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Oscars Live 2022 Creators",
+      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-live-from-the-2022-oscars",
+      "source_query": "Oscars red carpet FilmTok creators TikTok Live",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_oscars_live_2022",
+      "rank": 1
+    },
+    {
+      "handle": "@straw_hat_goofy",
+      "profile_url": "https://www.tiktok.com/@straw_hat_goofy",
+      "display_name": "straw_hat_goofy",
+      "bio": "otlight Series: LIVE from the 2022 Oscars Entertainment is at the heart of TikTok. It's the go-to spot for artists, filmmakers and creatives alike to share their talents, get discovered by new audiences, and connect with others in the industry. This year, TikTok has partnered with the Academy of Motion Picture Arts and Sciences to celebrate the Oscars through an in-app effect, a special TikTok LIVE, and featured hashtags #OscarsAtHome and #Oscars. We're thrilled to have two creator hosts and pop",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom Oscars Live 2022 Creators",
+      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-live-from-the-2022-oscars",
+      "source_query": "Oscars red carpet FilmTok creators TikTok Live",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_oscars_live_2022",
+      "rank": 2
+    },
+    {
+      "handle": "@anthonyhopkins",
+      "profile_url": "https://www.tiktok.com/@anthonyhopkins",
+      "display_name": "anthonyhopkins",
+      "bio": "unity , News Festival de Cannes 2023: TikTok Short Film Competition launch announcement From communities like #FilmTok to #MovieReview creators, TikTok brings together artists, filmmakers, and creatives to discover, create and share stories they love. Some of the biggest names in cinema, including Anthony Hopkins , Jessica Chastain , Pierre Niney , Jane Fonda and Baz Luhrmann , connect with our global community to share moments in their lives or to raise awareness for causes they care about. Las",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2023 Africa",
+      "source_url": "https://newsroom.tiktok.com/en-africa/shortfilm",
+      "source_query": "TikTokShortFilm competition emerging filmmakers winners",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2023_africa",
+      "rank": 1
+    },
+    {
+      "handle": "@jessicachastain",
+      "profile_url": "https://www.tiktok.com/@jessicachastain",
+      "display_name": "jessicachastain",
+      "bio": "\"> News Festival de Cannes 2023: TikTok Short Film Competition launch announcement From communities like #FilmTok to #MovieReview creators, TikTok brings together artists, filmmakers, and creatives to discover, create and share stories they love. Some of the biggest names in cinema, including Anthony Hopkins , Jessica Chastain , Pierre Niney , Jane Fonda and Baz Luhrmann , connect with our global community to share moments in their lives or to raise awareness for causes they care about. Last yea",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2023 Africa",
+      "source_url": "https://newsroom.tiktok.com/en-africa/shortfilm",
+      "source_query": "TikTokShortFilm competition emerging filmmakers winners",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2023_africa",
+      "rank": 2
+    },
+    {
+      "handle": "@pierreniney",
+      "profile_url": "https://www.tiktok.com/@pierreniney",
+      "display_name": "pierreniney",
+      "bio": "de Cannes 2023: TikTok Short Film Competition launch announcement From communities like #FilmTok to #MovieReview creators, TikTok brings together artists, filmmakers, and creatives to discover, create and share stories they love. Some of the biggest names in cinema, including Anthony Hopkins , Jessica Chastain , Pierre Niney , Jane Fonda and Baz Luhrmann , connect with our global community to share moments in their lives or to raise awareness for causes they care about. Last year, we welcomed Fe",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2023 Africa",
+      "source_url": "https://newsroom.tiktok.com/en-africa/shortfilm",
+      "source_query": "TikTokShortFilm competition emerging filmmakers winners",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2023_africa",
+      "rank": 3
+    },
+    {
+      "handle": "@janefonda",
+      "profile_url": "https://www.tiktok.com/@janefonda",
+      "display_name": "janefonda",
+      "bio": "ties like #FilmTok to #MovieReview creators, TikTok brings together artists, filmmakers, and creatives to discover, create and share stories they love. Some of the biggest names in cinema, including Anthony Hopkins , Jessica Chastain , Pierre Niney , Jane Fonda and Baz Luhrmann , connect with our global community to share moments in their lives or to raise awareness for causes they care about. Last year, we welcomed Festival de Cannes ( @festivaldecannes ) to TikTok, giving an inside look at the",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2023 Africa",
+      "source_url": "https://newsroom.tiktok.com/en-africa/shortfilm",
+      "source_query": "TikTokShortFilm competition emerging filmmakers winners",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2023_africa",
+      "rank": 4
+    },
+    {
+      "handle": "@bazluhrmann",
+      "profile_url": "https://www.tiktok.com/@bazluhrmann",
+      "display_name": "bazluhrmann",
+      "bio": "k.com/@anthonyhopkins?lang=fr\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timing\" class=\"typography-base_b8SoO typography-base-color-link_HVyq-\" style=\"margin:0;padding:0\">Anthony Hopkins , Jessica Chastain , Pierre Niney , Jane Fonda and Baz Luhrmann , connect with our global community to share moments in their lives or to raise awareness for causes they care about. Last year, we welcomed Festival de Cannes ( @festivaldecannes ) to TikTok, giving an inside look at the iconic moment",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2023 Africa",
+      "source_url": "https://newsroom.tiktok.com/en-africa/shortfilm",
+      "source_query": "TikTokShortFilm competition emerging filmmakers winners",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2023_africa",
+      "rank": 5
+    },
+    {
+      "handle": "@madalena_aragao_",
+      "profile_url": "https://www.tiktok.com/@madalena_aragao_",
+      "display_name": "madalena_aragao_",
+      "bio": "than 2 million videos have been created globally with the hashtag #TikTokShortFilm, which saw an increase of almost 180% in videos created compared to 2022. #TikTokShortFilm has helped define TikTok's role as a launchpad for both emerging and established filmmakers around the world. Since it first launched in 2022, the #TikTokShortFilm competition has empowered many creators to turn their passion into new career opportunities by helping them break into the entertainment industry. Here are some o",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2024 US",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-tiktokshortfilm-competition-returns-for-a-third-year-now-open-to-us-creators",
+      "source_query": "TikTokShortFilm competition filmmakers past winners",
+      "target_label": "director",
+      "source_target_labels": [
+        "director"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2024_us",
+      "rank": 1
+    },
+    {
+      "handle": "@picorelab",
+      "profile_url": "https://www.tiktok.com/@picorelab",
+      "display_name": "picorelab",
+      "bio": "tainment awards. Following these accolades, Lucas has also landed deals with leading Portuguese TV channels and is currently writing and directing a web-series for Channel 4. Claudia Cochet , winner of the 'Best Script' award at #TikTokShortFilm 2022, has gained credibility in the industry, thanks to her award. Following the competition, she has been invited to numerous short film festivals, having co-written two feature films and directed a pilot for a multi-platform series. Shinichiro Ueda , o",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2024 US",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-tiktokshortfilm-competition-returns-for-a-third-year-now-open-to-us-creators",
+      "source_query": "TikTokShortFilm competition filmmakers past winners",
+      "target_label": "director",
+      "source_target_labels": [
+        "director"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2024_us",
+      "rank": 3
+    },
+    {
+      "handle": "@evalongoria",
+      "profile_url": "https://www.tiktok.com/@evalongoria",
+      "display_name": "evalongoria",
+      "bio": "t just consume content - a world of opportunities await.\" A new window to the world of cinema The world of cinema fully unfolds on TikTok, offering creatives, entertainment enthusiasts and industry insiders an opportunity to express themselves and connect with a global community that includes everyone from costume designers to stunt coordinators and studios. Celebrated actors like Anthony Hopkins ( @anthonyhopkins ), Eva Longoria ( @evalongoria ), Lupita Nyong’o ( @lupitanyongo ) and Reese Withe",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2024 US",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-tiktokshortfilm-competition-returns-for-a-third-year-now-open-to-us-creators",
+      "source_query": "TikTokShortFilm competition filmmakers past winners",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2024_us",
+      "rank": 5
+    },
+    {
+      "handle": "@lupitanyongo",
+      "profile_url": "https://www.tiktok.com/@lupitanyongo",
+      "display_name": "lupitanyongo",
+      "bio": "g>A new window to the world of cinema The world of cinema fully unfolds on TikTok, offering creatives, entertainment enthusiasts and industry insiders an opportunity to express themselves and connect with a global community that includes everyone from costume designers to stunt coordinators and studios. Celebrated actors like Anthony Hopkins ( @anthonyhopkins ), Eva Longoria ( @evalongoria ), Lupita Nyong’o ( @lupitanyongo ) and Reese Witherspoon ( @reesewitherspoon ) are also engaging with fans",
+      "source_type": "public_editorial_page",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2024 US",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-tiktokshortfilm-competition-returns-for-a-third-year-now-open-to-us-creators",
+      "source_query": "TikTokShortFilm competition filmmakers past winners",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "acquisition_surface": "public_editorial_page",
+      "provider": "public_editorial_page",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2024_us",
       "rank": 6
     },
     {
-      "handle": "@chrisandfinck",
-      "profile_url": "https://www.tiktok.com/@chrisandfinck",
-      "display_name": "chrisandfinck",
-      "bio": "aphy-title_9cuu5 typography-title-heading-4_7Dulq typography-base_b8SoO\" style=\"margin:0;padding:0\"> Video of the Year bretmanrock chrisandfinck ronclark__ taylortiminskas <a href=\"https://www.tiktok.com/@turkuazkitchen/video/7458325738098363690\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timing\" class=\"typography-base_b8SoO typography-base",
+      "handle": "@reesewitherspoon",
+      "profile_url": "https://www.tiktok.com/@reesewitherspoon",
+      "display_name": "reesewitherspoon",
+      "bio": "press themselves and connect with a global community that includes everyone from costume designers to stunt coordinators and studios. Celebrated actors like Anthony Hopkins ( @anthonyhopkins ), Eva Longoria ( @evalongoria ), Lupita Nyong’o ( @lupitanyongo ) and Reese Witherspoon ( @reesewitherspoon ) are also engaging with fans by sharing elements of their lives and careers on set, favorite behind the scenes moments and so much more. The platform is also where trends are blooming. Recently in th",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2024 US",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-tiktokshortfilm-competition-returns-for-a-third-year-now-open-to-us-creators",
+      "source_query": "TikTokShortFilm competition filmmakers past winners",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "actor_performer"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2024_us",
       "rank": 7
     },
     {
-      "handle": "@ronclark__",
-      "profile_url": "https://www.tiktok.com/@ronclark__",
-      "display_name": "ronclark__",
-      "bio": ":0\"> bretmanrock chrisandfinck ronclark__ taylortiminskas turkuazkitchen Rising Star of the Year (sponsored by e.l.f. Cosmetics) <ul class=\"layout-space_6GsJx layout-space-ga",
+      "handle": "@denisdang",
+      "profile_url": "https://www.tiktok.com/@denisdang",
+      "display_name": "denisdang",
+      "bio": "es to evolve. Beyond this competition, TikTok has also forged partnerships with leading cultural institutions, schools and associations to continue harnessing the creativity of the next generation. The platform is also where trends are blooming. In France, a few weeks ago, a unique movie raised awareness and the curiosity of users, turning \"Le consentement\" directed by Vanessa Filho, into a success. The movie has become a veritable phenomenon on the platform, with users sharing their emotions af",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom TikTok ShortFilm 2024 Singapore",
+      "source_url": "https://newsroom.tiktok.com/en-sg/tiktokshortfilm-returns-to-bring-together-a-new-generation-of-filmmakers-in-singapore-and-around-the-world",
+      "source_query": "TikTokShortFilm new generation filmmakers visual effects",
+      "target_label": "vfx_animation",
       "source_target_labels": [
-        "actor_performer"
+        "vfx_animation"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 8
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_shortfilm_2024_singapore",
+      "rank": 4
     },
     {
-      "handle": "@taylortiminskas",
-      "profile_url": "https://www.tiktok.com/@taylortiminskas",
-      "display_name": "taylortiminskas",
-      "bio": "0;padding:0\"> chrisandfinck ronclark__ taylortiminskas turkuazkitchen Rising Star of the Year (sponsored by e.l.f. Cosmetics) <a href=\"https://www.tiktok.com/@calebsaysthings\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timing\" class=\"typography-bas",
+      "handle": "@cinema.joe",
+      "profile_url": "https://www.tiktok.com/@cinema.joe",
+      "display_name": "cinema.joe",
+      "bio": "ok Spotlight makes it easy for studios to maximize fan conversation for new releases and library catalogues alike. Celebrate Entertainment & Fandom on TikTok and Beyond The creativity of #FilmTok creators continues to build a global community of joyful fandom on TikTok that unlocks real-world impact and opportunities across the entertainment world. Follow along as film connoisseurs and superfans like @cinema.joe , @cvnela , @durafest2 , @jessthereporter , @jstoobs , @ladyyasmina1 , <a href=\"http",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom TIFF 2024 FilmTok",
+      "source_url": "https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival",
+      "source_query": "TIFF FilmTok filmmakers film educators creators",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "actor_performer"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 9
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_tiff_2024_filmtok",
+      "rank": 1
     },
     {
-      "handle": "@turkuazkitchen",
-      "profile_url": "https://www.tiktok.com/@turkuazkitchen",
-      "display_name": "turkuazkitchen",
-      "bio": "dding:0\"> ronclark__ taylortiminskas turkuazkitchen Rising Star of the Year (sponsored by e.l.f. Cosmetics) calebsaysthings <a href=\"https://www.tiktok.com/@drewkey5000\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timing\" class=\"typography-base_b8SoO typography-base-color-",
+      "handle": "@cvnela",
+      "profile_url": "https://www.tiktok.com/@cvnela",
+      "display_name": "cvnela",
+      "bio": "ngBreak\"/> Celebrate Entertainment & Fandom on TikTok and Beyond The creativity of #FilmTok creators continues to build a global community of joyful fandom on TikTok that unlocks real-world impact and opportunities across the entertainment world. Follow along as film connoisseurs and superfans like @cinema.joe , @cvnela , @durafest2 , @jessthereporter , @jstoobs , @ladyyasmina1 , @ohkairyn and <a href=\"https://www.tiktok.com/@yuvirayz\" target=\"_blank\" rel=\"noreferrer\" elementtiming=\"element-timi",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom TIFF 2024 FilmTok",
+      "source_url": "https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival",
+      "source_query": "TIFF FilmTok filmmakers film educators creators",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "actor_performer"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 10
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_tiff_2024_filmtok",
+      "rank": 2
     },
     {
-      "handle": "@calebsaysthings",
-      "profile_url": "https://www.tiktok.com/@calebsaysthings",
-      "display_name": "calebsaysthings",
-      "bio": "> turkuazkitchen Rising Star of the Year (sponsored by e.l.f. Cosmetics) calebsaysthings drewkey5000 findjeremiah soyeddynieblas <br class=\"ProseMirror-",
+      "handle": "@durafest2",
+      "profile_url": "https://www.tiktok.com/@durafest2",
+      "display_name": "durafest2",
+      "bio": ":0\">The creativity of #FilmTok creators continues to build a global community of joyful fandom on TikTok that unlocks real-world impact and opportunities across the entertainment world. Follow along as film connoisseurs and superfans like @cinema.joe , @cvnela , @durafest2 , @jessthereporter , @jstoobs , @ladyyasmina1 , @ohkairyn and @yuvirayz bring the magic of <a href=\"https://www.tiktok.com/tag/tiff24?_d=secCgYIASAHKAESPgo857L4THqmQCb6wnP8Q3sc2V6LuSIyP",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom TIFF 2024 FilmTok",
+      "source_url": "https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival",
+      "source_query": "TIFF FilmTok filmmakers film educators creators",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "actor_performer"
+        "filmmaker"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 11
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_tiff_2024_filmtok",
+      "rank": 3
     },
     {
-      "handle": "@drewkey5000",
-      "profile_url": "https://www.tiktok.com/@drewkey5000",
-      "display_name": "drewkey5000",
-      "bio": "ography-title-heading-4_7Dulq typography-base_b8SoO\" style=\"margin:0;padding:0\"> Rising Star of the Year (sponsored by e.l.f. Cosmetics) calebsaysthings drewkey5000 findjeremiah soyeddynieblas thatgirlsydjo <br class=\"ProseMirror-trai",
+      "handle": "@jessthereporter",
+      "profile_url": "https://www.tiktok.com/@jessthereporter",
+      "display_name": "jessthereporter",
+      "bio": "n:0;padding:0\">#FilmTok creators continues to build a global community of joyful fandom on TikTok that unlocks real-world impact and opportunities across the entertainment world. Follow along as film connoisseurs and superfans like @cinema.joe , @cvnela , @durafest2 , @jessthereporter , @jstoobs , @ladyyasmina1 , @ohkairyn and @yuvirayz bring the magic of <a href=\"https://www.tiktok.com/tag/tiff24?_d=secCgYIASAHKAESPgo857L4THqmQCb6wnP8Q3sc2V6LuSIyPiZ5ATxxQQMXp9YL%2FCQdoNz6w8L9MWA2TpoSrGVDoXD0OPm",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom TIFF 2024 FilmTok",
+      "source_url": "https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival",
+      "source_query": "TIFF FilmTok filmmakers film educators creators",
+      "target_label": "vfx_animation",
       "source_target_labels": [
-        "actor_performer"
+        "vfx_animation"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 12
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_tiff_2024_filmtok",
+      "rank": 4
     },
     {
-      "handle": "@findjeremiah",
-      "profile_url": "https://www.tiktok.com/@findjeremiah",
-      "display_name": "findjeremiah",
-      "bio": "dding:0\"> calebsaysthings drewkey5000 findjeremiah soyeddynieblas thatgirlsydjo Breakthrough Artist of the Year <ul class=\"layout-space_6GsJx layout-space-gap-tight_-mMQk layout-space-direction-vertical_Bd64T layout-space-align-start_ASzuJ layout-space-justify-start_uYvGO\" style=\"margin:0 var(--spacin",
+      "handle": "@jstoobs",
+      "profile_url": "https://www.tiktok.com/@jstoobs",
+      "display_name": "jstoobs",
+      "bio": "fans like @cinema.joe , @cvnela , @durafest2 , @jessthereporter , @jstoobs , @ladyyasmina1 , @ohkairyn and @yuvirayz bring the magic of <a href=\"https://www.tiktok.com/tag/tiff24?_d=secCgYIASAHKAESPgo857L4THqmQCb6wnP8Q3sc2V6LuSIyPiZ5ATxxQQMXp9YL%2FCQdoNz6w8L9MWA2TpoSrGVDoXD0OPmrbt2OGgA%3D&_r=1&checksum=4cd502d82a687a63bac4d4b28934dc89f0ea859b3b7864206d83098792ac7c30&name=tiff24&sec_user_id=MS4wLjABAAAAdSmIxhBxB69j-c_VPhdLO4xyHkzZdWKC3whToKO1DxEOtO8QGGs_eK7BVgbrFyrr&share_app_id=1233&share_challe",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom TIFF 2024 FilmTok",
+      "source_url": "https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival",
+      "source_query": "TIFF FilmTok filmmakers film educators creators",
+      "target_label": "vfx_animation",
       "source_target_labels": [
-        "actor_performer"
+        "vfx_animation"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 13
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_tiff_2024_filmtok",
+      "rank": 5
     },
     {
-      "handle": "@soyeddynieblas",
-      "profile_url": "https://www.tiktok.com/@soyeddynieblas",
-      "display_name": "soyeddynieblas",
-      "bio": "railingBreak\"/> drewkey5000 findjeremiah soyeddynieblas thatgirlsydjo Breakthrough Artist of the Year alexwarren <",
+      "handle": "@ladyyasmina1",
+      "profile_url": "https://www.tiktok.com/@ladyyasmina1",
+      "display_name": "ladyyasmina1",
+      "bio": "in:0;padding:0\">@cinema.joe , @cvnela , @durafest2 , @jessthereporter , @jstoobs , @ladyyasmina1 , @ohkairyn and @yuvirayz bring the magic of <a href=\"https://www.tiktok.com/tag/tiff24?_d=secCgYIASAHKAESPgo857L4THqmQCb6wnP8Q3sc2V6LuSIyPiZ5ATxxQQMXp9YL%2FCQdoNz6w8L9MWA2TpoSrGVDoXD0OPmrbt2OGgA%3D&_r=1&checksum=4cd502d82a687a63bac4d4b28934dc89f0ea859b3b7864206d83098792ac7c30&name=tiff24&sec_user_id=MS4wLjABAAAAdSmIxhBxB69j-c_VPhdLO4xyHkzZdWKC3whToKO1DxEOtO8QGGs_eK7BVgbrFyrr&share_app_id=1233&share_",
       "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
+      "source_name": "TikTok Newsroom TIFF 2024 FilmTok",
+      "source_url": "https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival",
+      "source_query": "TIFF FilmTok filmmakers film educators creators",
+      "target_label": "vfx_animation",
       "source_target_labels": [
-        "actor_performer"
+        "vfx_animation"
       ],
       "acquisition_surface": "public_editorial_page",
       "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 14
-    },
-    {
-      "handle": "@thatgirlsydjo",
-      "profile_url": "https://www.tiktok.com/@thatgirlsydjo",
-      "display_name": "thatgirlsydjo",
-      "bio": "trailingBreak\"/> findjeremiah soyeddynieblas thatgirlsydjo Breakthrough Artist of the Year alexwarren katsey",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 15
-    },
-    {
-      "handle": "@alexwarren",
-      "profile_url": "https://www.tiktok.com/@alexwarren",
-      "display_name": "alexwarren",
-      "bio": "gin:0;padding:0\"> thatgirlsydjo Breakthrough Artist of the Year alexwarren katseyeworld laufey ravynlenae <br class=\"ProseMir",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 16
-    },
-    {
-      "handle": "@katseyeworld",
-      "profile_url": "https://www.tiktok.com/@katseyeworld",
-      "display_name": "katseyeworld",
-      "bio": "typography-title_9cuu5 typography-title-heading-4_7Dulq typography-base_b8SoO\" style=\"margin:0;padding:0\"> Breakthrough Artist of the Year alexwarren katseyeworld laufey ravynlenae sombr <br class=\"ProseMirror-traili",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 17
-    },
-    {
-      "handle": "@laufey",
-      "profile_url": "https://www.tiktok.com/@laufey",
-      "display_name": "laufey",
-      "bio": ");padding:0\"> alexwarren katseyeworld laufey ravynlenae sombr Storyteller of the Year <ul class=\"layout-space_6GsJx layout-space-gap-tight_-mMQk layout-space-direction-vertical_Bd64T layout-space-align-start_ASzuJ layout-space-justify-start_uYvGO\" style",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 18
-    },
-    {
-      "handle": "@ravynlenae",
-      "profile_url": "https://www.tiktok.com/@ravynlenae",
-      "display_name": "ravynlenae",
-      "bio": "trailingBreak\"/> katseyeworld laufey ravynlenae sombr Storyteller of the Year jordan_the_sta",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 19
-    },
-    {
-      "handle": "@sombr",
-      "profile_url": "https://www.tiktok.com/@sombr",
-      "display_name": "sombr",
-      "bio": "ror-trailingBreak\"/> laufey ravynlenae sombr Storyteller of the Year jordan_the_stallion8 k",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 20
-    },
-    {
-      "handle": "@jordan_the_stallion8",
-      "profile_url": "https://www.tiktok.com/@jordan_the_stallion8",
-      "display_name": "jordan_the_stallion8",
-      "bio": "i> sombr Storyteller of the Year jordan_the_stallion8 katievanslyke logagm thelawntools <",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 21
-    },
-    {
-      "handle": "@katievanslyke",
-      "profile_url": "https://www.tiktok.com/@katievanslyke",
-      "display_name": "katievanslyke",
-      "bio": "itle_9cuu5 typography-title-heading-4_7Dulq typography-base_b8SoO\" style=\"margin:0;padding:0\"> Storyteller of the Year jordan_the_stallion8 katievanslyke logagm thelawntools tinekeyounger <br class=\"Pros",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 22
-    },
-    {
-      "handle": "@logagm",
-      "profile_url": "https://www.tiktok.com/@logagm",
-      "display_name": "logagm",
-      "bio": "=\"margin:0;padding:0\"> jordan_the_stallion8 katievanslyke logagm thelawntools tinekeyounger Muse of the Year <ul class=\"layout-space_6GsJx layout-space-gap-tight_-mMQk layout-space-direction-vertical_Bd64T layout-space-align-start_ASzuJ layout-space-justify-start_uYvGO\"",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 23
-    },
-    {
-      "handle": "@thelawntools",
-      "profile_url": "https://www.tiktok.com/@thelawntools",
-      "display_name": "thelawntools",
-      "bio": "irror-trailingBreak\"/> katievanslyke logagm thelawntools tinekeyounger Muse of the Year angelreese10 <",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 24
-    },
-    {
-      "handle": "@tinekeyounger",
-      "profile_url": "https://www.tiktok.com/@tinekeyounger",
-      "display_name": "tinekeyounger",
-      "bio": "eMirror-trailingBreak\"/> logagm thelawntools tinekeyounger Muse of the Year angelreese10 cocogauff </",
-      "source_type": "public_editorial_page",
-      "source_name": "TikTok Newsroom Awards US 2025 Nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
-      "source_query": "TikTok Awards US 2025 nominees",
-      "target_label": "actor_performer",
-      "source_target_labels": [
-        "actor_performer"
-      ],
-      "acquisition_surface": "public_editorial_page",
-      "provider": "public_editorial_page",
-      "provider_execution_id": "2026-06-13T04-00-33-102Z",
-      "batch_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "rank": 25
+      "provider_execution_id": "2026-06-13T04-04-31-799Z",
+      "batch_id": "tiktok_newsroom_tiff_2024_filmtok",
+      "rank": 6
     }
   ],
   "source_reports": [
     {
-      "source_id": "tiktok_newsroom_awards_us_2025_nominees",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
+      "source_id": "tiktok_newsroom_creator_spotlight_chewkz",
+      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chewkz",
       "status": "succeeded",
-      "extracted_rows": 73,
-      "unique_rows_added": 73,
-      "started_at": "2026-06-13T04:00:33.103Z",
-      "finished_at": "2026-06-13T04:00:33.837Z"
+      "extracted_rows": 5,
+      "unique_rows_added": 5,
+      "started_at": "2026-06-13T04:04:31.800Z",
+      "finished_at": "2026-06-13T04:04:32.272Z"
     },
     {
-      "source_id": "tiktok_newsroom_awards_uk_ie_2025_nominees",
-      "source_url": "https://newsroom.tiktok.com/introducing-the-tiktok-awards-uk-and-ireland-2025-with-headline-partner-sky?lang=en-GB",
+      "source_id": "tiktok_newsroom_creator_spotlight_kukombo",
+      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-kukombo",
       "status": "succeeded",
-      "extracted_rows": 86,
-      "unique_rows_added": 83,
-      "started_at": "2026-06-13T04:00:33.837Z",
-      "finished_at": "2026-06-13T04:00:34.132Z"
+      "extracted_rows": 1,
+      "unique_rows_added": 1,
+      "started_at": "2026-06-13T04:04:32.272Z",
+      "finished_at": "2026-06-13T04:04:32.588Z"
     },
     {
-      "source_id": "tiktok_newsroom_awards_ie_2025_shortlist",
-      "source_url": "https://newsroom.tiktok.com/tiktok-awards-ireland-2025?lang=en-IE",
+      "source_id": "tiktok_newsroom_oscars_live_2022",
+      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-live-from-the-2022-oscars",
       "status": "succeeded",
-      "extracted_rows": 86,
+      "extracted_rows": 2,
       "unique_rows_added": 2,
-      "started_at": "2026-06-13T04:00:34.132Z",
-      "finished_at": "2026-06-13T04:00:34.386Z"
+      "started_at": "2026-06-13T04:04:32.588Z",
+      "finished_at": "2026-06-13T04:04:32.859Z"
     },
     {
-      "source_id": "tiktok_newsroom_awards_au_2024_finalists",
-      "source_url": "https://newsroom.tiktok.com/en-au/record-breaking-number-of-finalists-revealed-for-the-2024-tiktok-awards-presented-by-cerave",
+      "source_id": "tiktok_newsroom_shortfilm_competition_2022_winners",
+      "source_url": "https://newsroom.tiktok.com/en-gb/announcing-the-winners-of-the-tiktokshortfilm-competition",
       "status": "succeeded",
-      "extracted_rows": 73,
-      "unique_rows_added": 70,
-      "started_at": "2026-06-13T04:00:34.386Z",
-      "finished_at": "2026-06-13T04:00:34.781Z"
+      "extracted_rows": 4,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T04:04:32.859Z",
+      "finished_at": "2026-06-13T04:04:33.135Z"
     },
     {
-      "source_id": "tiktok_newsroom_awards_au_2023_nominees",
-      "source_url": "https://newsroom.tiktok.com/en-au/tiktok-announces-new-end-of-year-show-the-tiktok-awards-presented-by-cerave-with-more-awards-and-creators-than-ever-before",
+      "source_id": "tiktok_newsroom_shortfilm_2023_africa",
+      "source_url": "https://newsroom.tiktok.com/en-africa/shortfilm",
       "status": "succeeded",
-      "extracted_rows": 40,
-      "unique_rows_added": 32,
-      "started_at": "2026-06-13T04:00:34.781Z",
-      "finished_at": "2026-06-13T04:00:35.109Z"
+      "extracted_rows": 9,
+      "unique_rows_added": 5,
+      "started_at": "2026-06-13T04:04:33.135Z",
+      "finished_at": "2026-06-13T04:04:33.376Z"
     },
     {
-      "source_id": "tiktok_newsroom_creator_spotlight_charleymarlowe",
-      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-charleymarlowe",
-      "status": "succeeded",
-      "extracted_rows": 5,
-      "unique_rows_added": 1,
-      "started_at": "2026-06-13T04:00:35.109Z",
-      "finished_at": "2026-06-13T04:00:35.430Z"
-    },
-    {
-      "source_id": "tiktok_newsroom_creator_spotlight_kimberleycumberbatch",
-      "source_url": "https://newsroom.tiktok.com/en-gb/creator-spotlight-kimberleycumberbatch",
-      "status": "succeeded",
-      "extracted_rows": 10,
-      "unique_rows_added": 7,
-      "started_at": "2026-06-13T04:00:35.430Z",
-      "finished_at": "2026-06-13T04:00:35.731Z"
-    },
-    {
-      "source_id": "tiktok_newsroom_creator_spotlight_chloecarterr",
-      "source_url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chloe-carterr",
-      "status": "succeeded",
-      "extracted_rows": 11,
-      "unique_rows_added": 7,
-      "started_at": "2026-06-13T04:00:35.731Z",
-      "finished_at": "2026-06-13T04:00:36.158Z"
-    },
-    {
-      "source_id": "tiktok_newsroom_creator_spotlight_lkbphotography",
-      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-lkbphotography",
-      "status": "succeeded",
-      "extracted_rows": 5,
-      "unique_rows_added": 1,
-      "started_at": "2026-06-13T04:00:36.158Z",
-      "finished_at": "2026-06-13T04:00:36.455Z"
-    },
-    {
-      "source_id": "tiktok_newsroom_creator_spotlight_taylorcassidyj",
-      "source_url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-taylorcassidyj",
+      "source_id": "tiktok_newsroom_shortfilm_2024_us",
+      "source_url": "https://newsroom.tiktok.com/en-us/the-tiktokshortfilm-competition-returns-for-a-third-year-now-open-to-us-creators",
       "status": "succeeded",
       "extracted_rows": 7,
-      "unique_rows_added": 4,
-      "started_at": "2026-06-13T04:00:36.455Z",
-      "finished_at": "2026-06-13T04:00:36.748Z"
+      "unique_rows_added": 5,
+      "started_at": "2026-06-13T04:04:33.376Z",
+      "finished_at": "2026-06-13T04:04:33.714Z"
     },
     {
-      "source_id": "tiktok_newsroom_black_history_ie_2024",
-      "source_url": "https://newsroom.tiktok.com/celebrating-black-history-month-on-tiktok-ie-2024?from_seo_redirect=1&lang=en-IE",
+      "source_id": "tiktok_newsroom_shortfilm_2024_singapore",
+      "source_url": "https://newsroom.tiktok.com/en-sg/tiktokshortfilm-returns-to-bring-together-a-new-generation-of-filmmakers-in-singapore-and-around-the-world",
       "status": "succeeded",
-      "extracted_rows": 22,
-      "unique_rows_added": 18,
-      "started_at": "2026-06-13T04:00:36.748Z",
-      "finished_at": "2026-06-13T04:00:37.126Z"
+      "extracted_rows": 4,
+      "unique_rows_added": 1,
+      "started_at": "2026-06-13T04:04:33.714Z",
+      "finished_at": "2026-06-13T04:04:33.981Z"
     },
     {
-      "source_id": "tiktok_newsroom_booktoscreen_es",
-      "source_url": "https://newsroom.tiktok.com/booktoscreen-un-fenmeno-que-transforma-la-literatura-en-entretenimiento-e-impulsa-65-millones-de-publicaciones-diarias-sobre-cine-y-tv-en-tiktok?lang=es",
+      "source_id": "tiktok_newsroom_tiff_2024_filmtok",
+      "source_url": "https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival",
       "status": "succeeded",
-      "extracted_rows": 5,
-      "unique_rows_added": 2,
-      "started_at": "2026-06-13T04:00:37.126Z",
-      "finished_at": "2026-06-13T04:00:37.399Z"
+      "extracted_rows": 8,
+      "unique_rows_added": 8,
+      "started_at": "2026-06-13T04:04:33.981Z",
+      "finished_at": "2026-06-13T04:04:34.432Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_cannes_2025",
+      "source_url": "https://newsroom.tiktok.com/78th-cannes-film-festival?lang=en",
+      "status": "succeeded",
+      "extracted_rows": 31,
+      "unique_rows_added": 28,
+      "started_at": "2026-06-13T04:04:34.432Z",
+      "finished_at": "2026-06-13T04:04:35.016Z"
+    },
+    {
+      "source_id": "tiktok_newsroom_sundance_2026",
+      "source_url": "https://newsroom.tiktok.com/sundance-2026-how-tiktok-is-fueling-film-fandom?lang=en",
+      "status": "succeeded",
+      "extracted_rows": 9,
+      "unique_rows_added": 6,
+      "started_at": "2026-06-13T04:04:35.016Z",
+      "finished_at": "2026-06-13T04:04:35.293Z"
     }
   ]
 }

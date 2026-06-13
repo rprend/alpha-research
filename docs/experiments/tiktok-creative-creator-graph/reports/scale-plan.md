@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T04:00:45.067Z
+Generated: 2026-06-13T04:04:50.780Z
 
 ## Targets
 
@@ -10,7 +10,7 @@ Generated: 2026-06-13T04:00:45.067Z
 
 ## Current
 
-- Accounts: 10591
+- Accounts: 10796
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4
@@ -50,11 +50,11 @@ Candidate frontier targets: 87
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |
-| 1 | 1 | 102 | 1 | search_index | filmmaker short film editing breakdown |
-| 2 | 2 | 100 | 1 | search_index | cinematographer lighting breakdown |
-| 3 | 3 | 100 | 1 | search_index | sketch comedian character comedy |
-| 4 | 4 | 100 | 1 | search_index | vfx artist animation blender |
-| 5 | 5 | 99 | 1 | tiktok_hashtag_export | filmmaker |
+| 1 | 1 | 102 | 1 | tiktok_hashtag_export | filmmaker |
+| 2 | 2 | 102 | 1 | search_index | filmmaker short film editing breakdown |
+| 3 | 3 | 100 | 1 | search_index | cinematographer lighting breakdown |
+| 4 | 4 | 100 | 1 | search_index | sketch comedian character comedy |
+| 5 | 5 | 100 | 1 | search_index | vfx artist animation blender |
 | 6 | 6 | 98 | 1 | tiktok_hashtag_export | actor |
 | 7 | 7 | 86 | 1 | tiktok_hashtag_export | animation |
 | 8 | 8 | 86 | 1 | tiktok_hashtag_export | cinematography |

@@ -1,9 +1,9 @@
 label,target_useful_creators,current_primary_accounts,useful_primary_accounts,excellent_primary_accounts,secondary_mentions,reviewed_primary_accounts,useful_gap,recommended_priority
-filmmaker,8000,406,2,2,3,1,7998,2
-director,4000,272,0,0,3,0,4000,1
-cinematographer,5000,87,1,1,0,0,4999,2
+filmmaker,8000,442,2,2,3,1,7998,2
+director,4000,273,0,0,3,0,4000,1
+cinematographer,5000,88,1,1,0,0,4999,2
 editor,5000,89,0,0,2,0,5000,1
-vfx_animation,5000,739,1,1,1,0,4999,2
+vfx_animation,5000,742,1,1,1,0,4999,2
 sketch_comedian,7000,611,2,2,1,0,6998,2
 standup_comedian,4000,119,0,0,1,0,4000,1
 actor_performer,4000,3855,0,0,2,0,4000,1

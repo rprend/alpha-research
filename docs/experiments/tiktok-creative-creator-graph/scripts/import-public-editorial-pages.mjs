@@ -23,13 +23,21 @@ const blockedHandles = new Set([
   'carlsjrofficial',
   'cerave',
   'elfyeah',
+  'festivaldecannes',
   'hrblock',
+  'nbcsnl',
   'oscars',
+  'remix-run',
   'sky',
+  'sundanceorg',
+  'tiff_net',
   'tiktok',
   'tiktokcreators',
+  'tiktok-marketing',
   'tiktoknewsroom',
+  'tiktoksg',
   'tiktokshop',
+  'ttark',
 ])
 
 const labelRules = [
@@ -89,6 +97,7 @@ function normalizeHandle(value) {
   const handle = (fromUrl ?? fromHandle ?? '').toLowerCase()
   if (!handle || handle.includes('@') || handle.includes('.com')) return ''
   if (blockedHandles.has(handle)) return ''
+  if (/^tiktok(?:[-_.]|$)/.test(handle)) return ''
   return `@${handle}`
 }
 

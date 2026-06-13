@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T04:00:42.070Z",
+  "generated_at": "2026-06-13T04:04:47.686Z",
   "mode": "preview",
-  "input_rows": 23798,
-  "normalized_rows": 23798,
+  "input_rows": 23859,
+  "normalized_rows": 23859,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 13007,
-  "output_accounts": 10791,
+  "duplicate_normalized_rows": 13027,
+  "output_accounts": 10832,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
@@ -24,11 +24,12 @@
     "2026-06-13T03-47-29-927Z-public-profile-enrichment.jsonl": 454,
     "2026-06-13T03-55-33-949Z-public-editorial-pages.jsonl": 544,
     "2026-06-13T04-00-33-102Z-public-editorial-pages.jsonl": 300,
+    "2026-06-13T04-04-31-799Z-public-editorial-pages.jsonl": 61,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 23792,
+  "mapped_lineage_rows": 23853,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -48,7 +49,8 @@
     "2026-06-13T03-46-34-206Z": 7892,
     "2026-06-13T03-47-29-927Z": 454,
     "2026-06-13T03-55-33-949Z": 544,
-    "2026-06-13T04-00-33-102Z": 300
+    "2026-06-13T04-00-33-102Z": 300,
+    "2026-06-13T04-04-31-799Z": 61
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -1274,6 +1276,15 @@
     "tiktok_newsroom_creator_spotlight_taylorcassidyj": 4,
     "tiktok_newsroom_black_history_ie_2024": 18,
     "tiktok_newsroom_booktoscreen_es": 2,
+    "tiktok_newsroom_creator_spotlight_chewkz": 5,
+    "tiktok_newsroom_creator_spotlight_kukombo": 1,
+    "tiktok_newsroom_oscars_live_2022": 2,
+    "tiktok_newsroom_shortfilm_2023_africa": 5,
+    "tiktok_newsroom_shortfilm_2024_us": 5,
+    "tiktok_newsroom_shortfilm_2024_singapore": 1,
+    "tiktok_newsroom_tiff_2024_filmtok": 8,
+    "tiktok_newsroom_cannes_2025": 28,
+    "tiktok_newsroom_sundance_2026": 6,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
@@ -1284,15 +1295,15 @@
     "brightdata_public_github_sample": 29,
     "wikidata_sparql": 18966,
     "huggingface_dataset_viewer": 1,
-    "public_editorial_page": 844,
+    "public_editorial_page": 905,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.546558534330616,
-    "output_rate": 0.453441465669384,
+    "duplicate_rate": 0.5459994132193302,
+    "output_rate": 0.4540005867806698,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.65,
@@ -1301,7 +1312,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "23798 input rows"
+        "evidence": "23859 input rows"
       },
       {
         "id": "handle_extraction",
@@ -1311,12 +1322,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "54.7% duplicate normalized rows, threshold 65.0% (metadata overlay)"
+        "evidence": "54.6% duplicate normalized rows, threshold 65.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "23792/23798 rows mapped to provider/wave lineage"
+        "evidence": "23853/23859 rows mapped to provider/wave lineage"
       }
     ]
   },

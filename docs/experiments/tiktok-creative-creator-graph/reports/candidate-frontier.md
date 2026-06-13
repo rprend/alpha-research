@@ -1,6 +1,6 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T04:00:44.536Z
+Generated: 2026-06-13T04:04:50.242Z
 
 - Candidates: 87
 - Handle targets: 7
@@ -9,8 +9,8 @@ Generated: 2026-06-13T04:00:44.536Z
 
 ## Surfaces
 
-- search_index: 16
 - tiktok_hashtag_export: 19
+- search_index: 16
 - cross_platform_search: 8
 - category_gap_search: 37
 - tiktok_creator_neighborhood_export: 7
@@ -34,11 +34,11 @@ Generated: 2026-06-13T04:00:44.536Z
 
 | Rank | Score | Priority | Kind | Surface | Label | Target |
 | ---: | ---: | ---: | --- | --- | --- | --- |
-| 1 | 102 | 1 | query | search_index | filmmaker | filmmaker short film editing breakdown |
-| 2 | 100 | 1 | query | search_index | cinematographer | cinematographer lighting breakdown |
-| 3 | 100 | 1 | query | search_index | sketch_comedian | sketch comedian character comedy |
-| 4 | 100 | 1 | query | search_index | vfx_animation | vfx artist animation blender |
-| 5 | 99 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
+| 1 | 102 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
+| 2 | 102 | 1 | query | search_index | filmmaker | filmmaker short film editing breakdown |
+| 3 | 100 | 1 | query | search_index | cinematographer | cinematographer lighting breakdown |
+| 4 | 100 | 1 | query | search_index | sketch_comedian | sketch comedian character comedy |
+| 5 | 100 | 1 | query | search_index | vfx_animation | vfx artist animation blender |
 | 6 | 98 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
 | 7 | 86 | 1 | query | tiktok_hashtag_export | vfx_animation | animation |
 | 8 | 86 | 1 | query | tiktok_hashtag_export | cinematographer | cinematography |

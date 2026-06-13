@@ -270,5 +270,85 @@
     "source_query": "BookToScreen FilmTok BookTok cine TV creators",
     "target_label": "film_educator",
     "fallback_label": "screenwriter"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_chewkz",
+    "url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chewkz",
+    "source_name": "TikTok Newsroom Creator Spotlight Chewkz",
+    "source_query": "creator spotlight comedy filmmaker Cannes",
+    "target_label": "sketch_comedian",
+    "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_kukombo",
+    "url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-kukombo",
+    "source_name": "TikTok Newsroom Creator Spotlight Kukombo",
+    "source_query": "creator spotlight filmmaker VFX fashion design performer",
+    "target_label": "vfx_animation",
+    "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_oscars_live_2022",
+    "url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-live-from-the-2022-oscars",
+    "source_name": "TikTok Newsroom Oscars Live 2022 Creators",
+    "source_query": "Oscars red carpet FilmTok creators TikTok Live",
+    "target_label": "behind_the_scenes_creator",
+    "fallback_label": "film_educator"
+  },
+  {
+    "id": "tiktok_newsroom_shortfilm_competition_2022_winners",
+    "url": "https://newsroom.tiktok.com/en-gb/announcing-the-winners-of-the-tiktokshortfilm-competition",
+    "source_name": "TikTok Newsroom TikTok ShortFilm 2022 Winners",
+    "source_query": "TikTokShortFilm Cannes competition winners filmmakers",
+    "target_label": "filmmaker",
+    "fallback_label": "editor"
+  },
+  {
+    "id": "tiktok_newsroom_shortfilm_2023_africa",
+    "url": "https://newsroom.tiktok.com/en-africa/shortfilm",
+    "source_name": "TikTok Newsroom TikTok ShortFilm 2023 Africa",
+    "source_query": "TikTokShortFilm competition emerging filmmakers winners",
+    "target_label": "filmmaker",
+    "fallback_label": "editor"
+  },
+  {
+    "id": "tiktok_newsroom_shortfilm_2024_us",
+    "url": "https://newsroom.tiktok.com/en-us/the-tiktokshortfilm-competition-returns-for-a-third-year-now-open-to-us-creators",
+    "source_name": "TikTok Newsroom TikTok ShortFilm 2024 US",
+    "source_query": "TikTokShortFilm competition filmmakers past winners",
+    "target_label": "filmmaker",
+    "fallback_label": "screenwriter"
+  },
+  {
+    "id": "tiktok_newsroom_shortfilm_2024_singapore",
+    "url": "https://newsroom.tiktok.com/en-sg/tiktokshortfilm-returns-to-bring-together-a-new-generation-of-filmmakers-in-singapore-and-around-the-world",
+    "source_name": "TikTok Newsroom TikTok ShortFilm 2024 Singapore",
+    "source_query": "TikTokShortFilm new generation filmmakers visual effects",
+    "target_label": "filmmaker",
+    "fallback_label": "vfx_animation"
+  },
+  {
+    "id": "tiktok_newsroom_tiff_2024_filmtok",
+    "url": "https://newsroom.tiktok.com/en-us/tiff-24-tiktok-celebrates-the-artistry-of-film-the-power-of-fandom-at-the-toronto-international-film-festival",
+    "source_name": "TikTok Newsroom TIFF 2024 FilmTok",
+    "source_query": "TIFF FilmTok filmmakers film educators creators",
+    "target_label": "film_educator",
+    "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_cannes_2025",
+    "url": "https://newsroom.tiktok.com/78th-cannes-film-festival?lang=en",
+    "source_name": "TikTok Newsroom Cannes 2025",
+    "source_query": "Cannes TikTok FilmTok creators filmmakers",
+    "target_label": "filmmaker",
+    "fallback_label": "behind_the_scenes_creator"
+  },
+  {
+    "id": "tiktok_newsroom_sundance_2026",
+    "url": "https://newsroom.tiktok.com/sundance-2026-how-tiktok-is-fueling-film-fandom?lang=en",
+    "source_name": "TikTok Newsroom Sundance 2026",
+    "source_query": "Sundance TikTok FilmTok creators filmmakers",
+    "target_label": "film_educator",
+    "fallback_label": "filmmaker"
   }
 ]
