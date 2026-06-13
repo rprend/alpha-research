@@ -11,6 +11,15 @@ The packet files are:
 - `acquisition-packet.csv`: row-by-row acquisition assignments with label, query, rubric, desired lead count, output file name, and import command.
 - `acquisition-packet.jsonl`: the same assignments for automation.
 - `category-targets.csv`: category gaps and search hints.
+- `source-worklist.csv`: one row per concrete TikTok/search URL with a smaller lead quota and the completed file where accepted leads should land.
+
+Break packet assignments into source-level work items with:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-worklist.mjs
+```
+
+Use `source-worklist.csv` for contractor/operator assignment. Each work item has a source URL, target label, quota, acceptance rubric, and completed-file path. Leads from multiple work items for the same assignment should be merged into the matching file under `data/raw/external-leads/completed/`.
 
 Generate fillable per-assignment CSV templates with:
 

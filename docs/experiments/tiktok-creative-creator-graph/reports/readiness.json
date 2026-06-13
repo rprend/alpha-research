@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:28:38.300Z",
+  "generated_at": "2026-06-13T02:32:45.433Z",
   "complete": false,
   "counts": {
     "accounts": 1900,
@@ -53,6 +53,8 @@
     "external_lead_packet_requested_leads": 30000,
     "external_lead_template_files": 120,
     "external_lead_template_rows": 30000,
+    "external_lead_worklist_items": 511,
+    "external_lead_worklist_lead_quota": 30000,
     "external_lead_packet_completed_files": 0,
     "external_lead_packet_import_ready_assignments": 0,
     "external_lead_packet_no_valid_handles_assignments": 0,
@@ -211,6 +213,11 @@
       "id": "external_lead_templates",
       "status": "pass",
       "evidence": "120 templates, 30000 rows"
+    },
+    {
+      "id": "external_lead_worklist",
+      "status": "pass",
+      "evidence": "511 source work items, 30000 lead quota"
     },
     {
       "id": "external_lead_progress",

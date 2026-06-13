@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:28:38.209Z",
+  "generated_at": "2026-06-13T02:32:45.351Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -69,6 +69,8 @@
     "external_lead_packet_assignments": 120,
     "external_lead_packet_requested_leads": 30000,
     "external_lead_packet_category_rows": 11,
+    "external_lead_worklist_items": 511,
+    "external_lead_worklist_lead_quota": 30000,
     "external_lead_template_files": 120,
     "external_lead_template_rows": 30000,
     "external_lead_packet_completed_files": 0,
@@ -150,6 +152,8 @@
     "external_lead_list_readme": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/README.md",
     "external_lead_list_importer": "docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs",
     "external_lead_acquisition_packet": "docs/experiments/tiktok-creative-creator-graph/reports/external-lead-acquisition-packet.json",
+    "external_lead_worklist": "docs/experiments/tiktok-creative-creator-graph/reports/external-lead-worklist.json",
+    "external_lead_worklist_csv": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/source-worklist.csv",
     "external_lead_templates": "docs/experiments/tiktok-creative-creator-graph/reports/external-lead-templates.json",
     "external_lead_template_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates",
     "external_lead_progress": "docs/experiments/tiktok-creative-creator-graph/reports/external-lead-progress.json",
@@ -226,6 +230,7 @@
   "next_actions": [
     "Acquire and import 49993 more useful creators through provider/search/graph batches.",
     "Use the external lead acquisition packet for token-free collection: 120 assignments requesting 30000 TikTok profile leads.",
+    "Assign source-level work from data/raw/external-leads/source-worklist.csv: 511 URL work items covering 30000 requested leads.",
     "Use data/raw/external-leads plus import-external-lead-list.mjs for contractor, directory, search-tool, or manually sourced TikTok profile lists.",
     "Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.",
     "Add 4994 more excellent creators for benchmark-quality coverage.",

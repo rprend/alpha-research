@@ -43,6 +43,7 @@ function main() {
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
   const acquisitionImportPreview = readJson(join(reportsDir, 'acquisition-import-preview.json'), null)
   const externalLeadAcquisitionPacket = readJson(join(reportsDir, 'external-lead-acquisition-packet.json'), null)
+  const externalLeadWorklist = readJson(join(reportsDir, 'external-lead-worklist.json'), null)
   const externalLeadTemplates = readJson(join(reportsDir, 'external-lead-templates.json'), null)
   const externalLeadProgress = readJson(join(reportsDir, 'external-lead-progress.json'), null)
   const externalLeadPacketImport = readJson(join(reportsDir, 'external-lead-packet-import.json'), null)
@@ -148,6 +149,8 @@ function main() {
       external_lead_packet_assignments: externalLeadAcquisitionPacket?.assignment_rows ?? 0,
       external_lead_packet_requested_leads: externalLeadAcquisitionPacket?.total_requested_leads ?? 0,
       external_lead_packet_category_rows: externalLeadAcquisitionPacket?.category_rows ?? 0,
+      external_lead_worklist_items: externalLeadWorklist?.work_items ?? counts.external_lead_worklist_items ?? 0,
+      external_lead_worklist_lead_quota: externalLeadWorklist?.total_lead_quota ?? counts.external_lead_worklist_lead_quota ?? 0,
       external_lead_template_files: externalLeadTemplates?.templates ?? 0,
       external_lead_template_rows: externalLeadTemplates?.total_template_rows ?? 0,
       external_lead_packet_completed_files: externalLeadProgress?.completed_files_seen ?? 0,
@@ -229,6 +232,8 @@ function main() {
       external_lead_list_readme: rel(join(experimentDir, 'data/raw/external-leads/README.md')),
       external_lead_list_importer: rel(join(experimentDir, 'scripts/import-external-lead-list.mjs')),
       external_lead_acquisition_packet: rel(join(reportsDir, 'external-lead-acquisition-packet.json')),
+      external_lead_worklist: rel(join(reportsDir, 'external-lead-worklist.json')),
+      external_lead_worklist_csv: rel(join(experimentDir, 'data/raw/external-leads/source-worklist.csv')),
       external_lead_templates: rel(join(reportsDir, 'external-lead-templates.json')),
       external_lead_template_dir: rel(join(experimentDir, 'data/raw/external-leads/templates')),
       external_lead_progress: rel(join(reportsDir, 'external-lead-progress.json')),
@@ -264,6 +269,7 @@ function main() {
     next_actions: [
       `Acquire and import ${Math.max(0, targetUseful - currentUseful)} more useful creators through provider/search/graph batches.`,
       `Use the external lead acquisition packet for token-free collection: ${externalLeadAcquisitionPacket?.assignment_rows ?? 0} assignments requesting ${externalLeadAcquisitionPacket?.total_requested_leads ?? 0} TikTok profile leads.`,
+      `Assign source-level work from data/raw/external-leads/source-worklist.csv: ${externalLeadWorklist?.work_items ?? counts.external_lead_worklist_items ?? 0} URL work items covering ${externalLeadWorklist?.total_lead_quota ?? counts.external_lead_worklist_lead_quota ?? 0} requested leads.`,
       'Use data/raw/external-leads plus import-external-lead-list.mjs for contractor, directory, search-tool, or manually sourced TikTok profile lists.',
       'Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.',
       `Add ${Math.max(0, targetExcellent - currentExcellent)} more excellent creators for benchmark-quality coverage.`,
@@ -328,6 +334,8 @@ ${handoff.objective}
 - External lead packet assignments: ${handoff.current_corpus.external_lead_packet_assignments}
 - External lead packet requested leads: ${handoff.current_corpus.external_lead_packet_requested_leads}
 - External lead packet category rows: ${handoff.current_corpus.external_lead_packet_category_rows}
+- External lead worklist items: ${handoff.current_corpus.external_lead_worklist_items}
+- External lead worklist lead quota: ${handoff.current_corpus.external_lead_worklist_lead_quota}
 - External lead template files: ${handoff.current_corpus.external_lead_template_files}
 - External lead template rows: ${handoff.current_corpus.external_lead_template_rows}
 - External lead packet completed files: ${handoff.current_corpus.external_lead_packet_completed_files}

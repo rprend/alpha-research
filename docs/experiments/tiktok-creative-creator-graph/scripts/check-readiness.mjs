@@ -122,6 +122,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const externalLeadWorklist = (() => {
+    const path = join(reportsDir, 'external-lead-worklist.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const externalLeadPacketImport = (() => {
     const path = join(reportsDir, 'external-lead-packet-import.json')
     if (!existsSync(path)) return null
@@ -267,6 +272,11 @@ function main() {
       evidence: externalLeadTemplates ? `${externalLeadTemplates.templates} templates, ${externalLeadTemplates.total_template_rows} rows` : 'external lead templates missing',
     },
     {
+      id: 'external_lead_worklist',
+      status: externalLeadWorklist?.work_items > 0 && externalLeadWorklist?.total_lead_quota === externalLeadAcquisitionPacket?.total_requested_leads ? 'pass' : 'fail',
+      evidence: externalLeadWorklist ? `${externalLeadWorklist.work_items} source work items, ${externalLeadWorklist.total_lead_quota} lead quota` : 'external lead worklist missing',
+    },
+    {
       id: 'external_lead_progress',
       status: externalLeadProgress?.packet_assignments > 0 ? 'pass' : 'fail',
       evidence: externalLeadProgress ? `${externalLeadProgress.import_ready_assignments}/${externalLeadProgress.packet_assignments} import-ready assignments, ${externalLeadProgress.valid_leads} valid leads` : 'external lead progress missing',
@@ -379,6 +389,8 @@ function main() {
       external_lead_packet_requested_leads: externalLeadAcquisitionPacket?.total_requested_leads ?? 0,
       external_lead_template_files: externalLeadTemplates?.templates ?? 0,
       external_lead_template_rows: externalLeadTemplates?.total_template_rows ?? 0,
+      external_lead_worklist_items: externalLeadWorklist?.work_items ?? 0,
+      external_lead_worklist_lead_quota: externalLeadWorklist?.total_lead_quota ?? 0,
       external_lead_packet_completed_files: externalLeadProgress?.completed_files_seen ?? 0,
       external_lead_packet_import_ready_assignments: externalLeadProgress?.import_ready_assignments ?? 0,
       external_lead_packet_no_valid_handles_assignments: externalLeadProgress?.no_valid_handles_assignments ?? 0,
@@ -474,6 +486,8 @@ Complete: ${summary.complete}
 - External lead packet requested leads: ${summary.counts.external_lead_packet_requested_leads}
 - External lead template files: ${summary.counts.external_lead_template_files}
 - External lead template rows: ${summary.counts.external_lead_template_rows}
+- External lead worklist items: ${summary.counts.external_lead_worklist_items}
+- External lead worklist lead quota: ${summary.counts.external_lead_worklist_lead_quota}
 - External lead packet completed files: ${summary.counts.external_lead_packet_completed_files}
 - External lead packet import-ready assignments: ${summary.counts.external_lead_packet_import_ready_assignments}
 - External lead packet no-valid-handles assignments: ${summary.counts.external_lead_packet_no_valid_handles_assignments}
