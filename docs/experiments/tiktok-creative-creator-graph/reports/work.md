@@ -1,12 +1,12 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T00:49:45.004Z
+Generated: 2026-06-13T01:27:44.595Z
 
 ## Summary
 
 - Accounts: 1900
-- Videos: 20
-- Graph edges: 52
+- Videos: 26
+- Graph edges: 102
 - Useful accounts: 7
 - Excellent accounts: 6
 - Review queue: 1900
@@ -42,25 +42,25 @@ Generated: 2026-06-13T00:49:45.004Z
 | Handle | Label | Score | Status |
 | --- | --- | ---: | --- |
 | @maya.shortcuts | filmmaker | 98 | excellent |
-| @basementbits | sketch_comedian | 92 | excellent |
-| @selahshoots | filmmaker | 91 | excellent |
+| @basementbits | sketch_comedian | 94 | excellent |
+| @selahshoots | filmmaker | 92 | excellent |
 | @ani.motionlab | vfx_animation | 87 | excellent |
 | @noahframes | cinematographer | 86 | excellent |
-| @lucybits | sketch_comedian | 83 | excellent |
+| @lucybits | sketch_comedian | 85 | excellent |
 | @renderjules | creative_technologist | 78 | useful |
-| @mycanimationsextra | vfx_animation | 41 | needs_review |
-| @vector_editing__ | editor | 41 | needs_review |
-| @manga.green.anima | vfx_animation | 40 | needs_review |
-| @joshvfx | vfx_animation | 39 | needs_review |
-| @kaileemcoleman | vfx_animation | 39 | needs_review |
-| @jonthecomedian | cinematographer | 38 | needs_review |
-| @lindamarric | cinematographer | 38 | needs_review |
-| @jamesmarriott | cinematographer | 38 | needs_review |
-| @darriangerard | cinematographer | 38 | needs_review |
-| @carrieannryan | cinematographer | 38 | needs_review |
-| @bravekidpress | cinematographer | 38 | needs_review |
-| @kyndallharrisofficial | cinematographer | 38 | needs_review |
-| @jawntybrown | cinematographer | 38 | needs_review |
+| @authorcarriea | cinematographer | 50 | needs_review |
+| @mycanimationsextra | vfx_animation | 48 | needs_review |
+| @joshvfx | vfx_animation | 48 | needs_review |
+| @clairefraiseauthor | film_educator | 48 | needs_review |
+| @luca.lego | vfx_animation | 48 | needs_review |
+| @thelegomommy | vfx_animation | 48 | needs_review |
+| @authortessabailey | film_educator | 48 | needs_review |
+| @kaileemcoleman | vfx_animation | 48 | needs_review |
+| @lindamarric | cinematographer | 47 | needs_review |
+| @jamesmarriott | cinematographer | 47 | needs_review |
+| @darriangerard | cinematographer | 46 | needs_review |
+| @ben_brainard | standup_comedian | 45 | needs_review |
+| @theofficialsambailey | sketch_comedian | 45 | needs_review |
 
 ## Next Expansion Targets
 
@@ -68,9 +68,9 @@ Generated: 2026-06-13T00:49:45.004Z
 | --- | --- | ---: | --- |
 | expand_from_creator | @selahshoots | 1 | high_usefulness_source |
 | expand_from_creator | @basementbits | 1 | high_usefulness_source |
+| expand_from_creator | @lucybits | 1 | high_usefulness_source |
 | expand_from_creator | @maya.shortcuts | 1 | high_usefulness_source |
 | expand_from_creator | @noahframes | 1 | high_usefulness_source |
-| expand_from_creator | @lucybits | 1 | high_usefulness_source |
 | expand_from_creator | @ani.motionlab | 1 | high_usefulness_source |
 | expand_from_creator | @renderjules | 1 | high_usefulness_source |
 
@@ -79,27 +79,27 @@ Generated: 2026-06-13T00:49:45.004Z
 | Handle | Label | Score | Reasons |
 | --- | --- | ---: | --- |
 | @maya.shortcuts | filmmaker | 98 | benchmark_candidate; strong_public_source_candidate |
-| @basementbits | sketch_comedian | 92 | benchmark_candidate; strong_public_source_candidate |
-| @selahshoots | filmmaker | 91 | benchmark_candidate; strong_public_source_candidate |
+| @basementbits | sketch_comedian | 94 | benchmark_candidate; strong_public_source_candidate |
+| @selahshoots | filmmaker | 92 | benchmark_candidate; strong_public_source_candidate |
 | @ani.motionlab | vfx_animation | 87 | benchmark_candidate; strong_public_source_candidate |
 | @noahframes | cinematographer | 86 | benchmark_candidate; strong_public_source_candidate |
-| @lucybits | sketch_comedian | 83 | benchmark_candidate; strong_public_source_candidate |
+| @lucybits | sketch_comedian | 85 | benchmark_candidate; strong_public_source_candidate |
 | @dailyfilmclips | reject | 0 | repost_risk |
 | @clipvaultcinema | reject | 0 | repost_risk |
 | @renderjules | creative_technologist | 78 | strong_public_source_candidate |
-| @mycanimationsextra | vfx_animation | 41 | threshold_borderline; strong_public_source_candidate |
-| @vector_editing__ | editor | 41 | threshold_borderline; strong_public_source_candidate |
-| @manga.green.anima | vfx_animation | 40 | threshold_borderline; strong_public_source_candidate |
-| @joshvfx | vfx_animation | 39 | threshold_borderline; strong_public_source_candidate |
-| @kaileemcoleman | vfx_animation | 39 | threshold_borderline; strong_public_source_candidate |
-| @jonthecomedian | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @lindamarric | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @jamesmarriott | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @darriangerard | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @carrieannryan | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @bravekidpress | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @kyndallharrisofficial | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @jawntybrown | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @authorcarriea | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @lab_shenanigans | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
-| @ben_brainard | standup_comedian | 36 | threshold_borderline; strong_public_source_candidate |
+| @authorcarriea | cinematographer | 50 | threshold_borderline; strong_public_source_candidate |
+| @mycanimationsextra | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
+| @joshvfx | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
+| @clairefraiseauthor | film_educator | 48 | threshold_borderline; strong_public_source_candidate |
+| @luca.lego | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
+| @thelegomommy | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
+| @authortessabailey | film_educator | 48 | threshold_borderline; strong_public_source_candidate |
+| @kaileemcoleman | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
+| @lindamarric | cinematographer | 47 | threshold_borderline; strong_public_source_candidate |
+| @jamesmarriott | cinematographer | 47 | threshold_borderline; strong_public_source_candidate |
+| @darriangerard | cinematographer | 46 | threshold_borderline; strong_public_source_candidate |
+| @ben_brainard | standup_comedian | 45 | threshold_borderline; strong_public_source_candidate |
+| @theofficialsambailey | sketch_comedian | 45 | threshold_borderline; strong_public_source_candidate |
+| @gigglysquad | sketch_comedian | 45 | threshold_borderline; strong_public_source_candidate |
+| @frankjamesbailey | filmmaker | 45 | threshold_borderline; strong_public_source_candidate |
+| @maurapaintsfood | vfx_animation | 45 | threshold_borderline; strong_public_source_candidate |

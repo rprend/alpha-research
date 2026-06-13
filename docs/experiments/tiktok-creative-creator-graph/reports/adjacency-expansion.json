@@ -1,15 +1,25 @@
 {
-  "generated_at": "2026-06-13T00:49:45.440Z",
+  "generated_at": "2026-06-13T01:27:44.804Z",
   "base_rows": 7,
-  "expansion_rows": 27,
-  "added_rows": 20,
+  "expansion_rows": 28,
+  "added_rows": 21,
   "type_counts": {
+    "yield_replay_search": 6,
     "expand_from_creator": 7,
     "hashtag_search": 12,
-    "yield_replay_search": 5,
     "cross_platform_search": 3
   },
   "top_rows": [
+    {
+      "expansion_type": "yield_replay_search",
+      "source_creator_id": "",
+      "target": "review_queue_priority_1",
+      "priority": 1,
+      "reason": "replay_high_yield_source:public_profile_enrichment",
+      "primary_label": "",
+      "overall_usefulness": 170,
+      "evidence_count": 1
+    },
     {
       "expansion_type": "expand_from_creator",
       "source_creator_id": "maya.shortcuts",
@@ -28,17 +38,17 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 5
+      "evidence_count": 7
     },
     {
       "expansion_type": "hashtag_search",
       "source_creator_id": "selahshoots",
       "target": "filmmaker",
       "priority": 1,
-      "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|useful_creator_hashtag:@lucybits",
+      "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 11
+      "evidence_count": 15
     },
     {
       "expansion_type": "yield_replay_search",
@@ -58,7 +68,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 5
+      "evidence_count": 7
     },
     {
       "expansion_type": "cross_platform_search",
@@ -77,7 +87,7 @@
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "sketch_comedian",
-      "overall_usefulness": 92,
+      "overall_usefulness": 94,
       "evidence_count": 1
     },
     {
@@ -87,8 +97,8 @@
       "priority": 1,
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
-      "overall_usefulness": 92,
-      "evidence_count": 5
+      "overall_usefulness": 94,
+      "evidence_count": 7
     },
     {
       "expansion_type": "hashtag_search",
@@ -97,8 +107,8 @@
       "priority": 1,
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
-      "overall_usefulness": 92,
-      "evidence_count": 5
+      "overall_usefulness": 94,
+      "evidence_count": 7
     },
     {
       "expansion_type": "expand_from_creator",
@@ -107,7 +117,7 @@
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "filmmaker",
-      "overall_usefulness": 91,
+      "overall_usefulness": 92,
       "evidence_count": 1
     },
     {
@@ -217,7 +227,7 @@
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "sketch_comedian",
-      "overall_usefulness": 83,
+      "overall_usefulness": 85,
       "evidence_count": 1
     },
     {
@@ -227,7 +237,7 @@
       "priority": 1,
       "reason": "cross_platform_adjacency:youtube.com",
       "primary_label": "sketch_comedian",
-      "overall_usefulness": 83,
+      "overall_usefulness": 85,
       "evidence_count": 1
     },
     {
@@ -237,7 +247,7 @@
       "priority": 1,
       "reason": "replay_high_yield_source:manual_seed",
       "primary_label": "",
-      "overall_usefulness": 83,
+      "overall_usefulness": 85,
       "evidence_count": 1
     },
     {
@@ -246,16 +256,6 @@
       "target": "@renderjules",
       "priority": 1,
       "reason": "high_usefulness_source",
-      "primary_label": "creative_technologist",
-      "overall_usefulness": 78,
-      "evidence_count": 1
-    },
-    {
-      "expansion_type": "hashtag_search",
-      "source_creator_id": "renderjules",
-      "target": "aftereffects",
-      "priority": 2,
-      "reason": "useful_creator_hashtag:@renderjules",
       "primary_label": "creative_technologist",
       "overall_usefulness": 78,
       "evidence_count": 1

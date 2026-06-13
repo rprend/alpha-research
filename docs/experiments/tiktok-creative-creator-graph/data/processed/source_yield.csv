@@ -1,51 +1,53 @@
 source_type,source_name,source_query,creators_seen,useful_creators,excellent_creators,rejected_creators,reviewed_creators,usefulness_rate,rejection_rate,average_usefulness,yield_score,top_labels
-provider_video_export,unknown,,3,2,2,1,1,0.667,0.333,183,100,filmmaker:3; sketch_comedian:3; reject:3
+provider_video_export,unknown,,3,2,2,1,1,0.667,0.333,310,100,filmmaker:5; sketch_comedian:5; reject:5
+public_profile_enrichment,TikTok public profile hydration,review_queue_priority_1,1,1,1,0,0,1,0,170,100,sketch_comedian:2
 manual_seed,smoke-seeds.jsonl,filmmaker short film editing breakdown,1,1,1,0,1,1,0,98,95,filmmaker:1
 manual_seed,smoke-seeds.jsonl,cinematographer lighting breakdown,1,1,1,0,0,1,0,86,87,cinematographer:1
 manual_seed,smoke-seeds.jsonl,vfx artist animation blender,1,1,1,0,0,1,0,87,87,vfx_animation:1
-manual_seed,smoke-seeds.jsonl,sketch comedian character comedy,1,1,1,0,0,1,0,83,85,sketch_comedian:1
+manual_seed,smoke-seeds.jsonl,sketch comedian character comedy,1,1,1,0,0,1,0,85,86,sketch_comedian:1
 graph_expansion_fixture,smoke-seeds.jsonl,mentioned by @ani.motionlab,1,1,0,0,1,1,0,78,78,creative_technologist:1
-provider_video_export,acquisition-import-2026-06-12.jsonl,,3,2,2,1,1,0.667,0.333,61,65,filmmaker:1; sketch_comedian:1; reject:1
-editorial_list,FeedSpot Digital Art TikTokers,FeedSpot Top Digital Art TikTok Influencers 2026,100,0,0,0,0,0,0,97.1,44,vfx_animation:297; editor:3
-editorial_list,FeedSpot New York Art TikTokers,FeedSpot Top New York Art TikTok Influencers 2026,41,0,0,0,0,0,0,97.2,44,vfx_animation:114; creative_technologist:3; sketch_comedian:3; editor:3
-editorial_list,FeedSpot Comedy TikTokers,FeedSpot Top Comedy TikTok Influencers 2026,99,0,0,0,0,0,0,96.5,43,sketch_comedian:192; standup_comedian:96; cinematographer:3; director:3; editor:3
-editorial_list,FeedSpot Movie TikTokers,FeedSpot Top Movie TikTok Influencers 2026,96,0,0,0,0,0,0,96.6,43,filmmaker:276; director:6; cinematographer:3; editor:3
-editorial_list,FeedSpot Horror TikTokers,FeedSpot Top Horror TikTok Influencers 2026,16,0,0,0,0,0,0,96,43,filmmaker:45; editor:3
-editorial_list,FeedSpot Music Technology TikTokers,FeedSpot Top Music Technology TikTok Influencers 2026,48,0,0,0,0,0,0,96.3,43,creative_technologist:123; film_educator:6; filmmaker:6; standup_comedian:3; actor_performer:3
-editorial_list,FeedSpot Barcelona Photography TikTokers,FeedSpot Top Barcelona Photography TikTok Influencers 2026,2,0,0,0,0,0,0,96,43,filmmaker:3; editor:3
-editorial_list,FeedSpot Aviation TikTokers,FeedSpot Top Aviation TikTok Influencers 2026,97,0,0,0,0,0,0,95.9,43,behind_the_scenes_creator:276; film_educator:6; creative_technologist:3; director:3; editor:3
-editorial_list_seed,unknown,Shutterstock TikTok filmmakers to follow,8,0,0,0,0,0,0,94.5,43,film_educator:9; filmmaker:9; cinematographer:3; vfx_animation:3
-editorial_list_seed,unknown,IZEA 10 Filmmakers to Follow on TikTok,8,0,0,0,0,0,0,89.3,40,filmmaker:9; cinematographer:6; vfx_animation:3; film_educator:3; behind_the_scenes_creator:3
-editorial_list_seed,unknown,SheSources women in film TikTok creators,5,0,0,0,0,0,0,84.6,38,behind_the_scenes_creator:6; editor:3; unclear:3; director:3
-editorial_list,FeedSpot Business Book Review TikTokers,FeedSpot Top Business Book Review TikTok Influencers 2026,4,0,0,0,0,0,0,68,31,film_educator:6; editor:2
-editorial_list,FeedSpot Mobile Gaming TikTokers,FeedSpot Top Mobile Gaming TikTok Influencers 2026,57,0,0,0,0,0,0,64.8,29,vfx_animation:104; filmmaker:4; editor:4; cinematographer:2
-editorial_list,FeedSpot Historical Fiction TikTokers,FeedSpot Top Historical Fiction TikTok Influencers 2026,25,0,0,0,0,0,0,64,29,film_educator:46; editor:4
-editorial_list,FeedSpot Pop Music TikTokers,FeedSpot Top Pop Music TikTok Influencers 2026,68,0,0,0,0,0,0,64.4,29,creative_technologist:120; standup_comedian:12; cinematographer:2; editor:2
-editorial_list,FeedSpot German Book TikTokers,FeedSpot Top German Book TikTok Influencers 2026,35,0,0,0,0,0,0,64.5,29,film_educator:68; editor:2
-editorial_list,FeedSpot LGBT Book TikTokers,FeedSpot Top LGBT Book TikTok Influencers 2026,21,0,0,0,0,0,0,64.3,29,film_educator:38; filmmaker:2; editor:2
-editorial_list,FeedSpot Middle Grade Book TikTokers,FeedSpot Top Middle Grade Book TikTok Influencers 2026,7,0,0,0,0,0,0,64,29,film_educator:12; editor:2
-editorial_list,FeedSpot Literary Fiction TikTokers,FeedSpot Top Literary Fiction TikTok Influencers 2026,47,0,0,0,0,0,0,64.2,29,film_educator:88; editor:4; filmmaker:2
-editorial_list,FeedSpot Classical Music TikTokers,FeedSpot Top Classical Music TikTok Influencers 2026,37,0,0,0,0,0,0,64,29,film_educator:62; standup_comedian:6; actor_performer:2; director:2; editor:2
-editorial_list,FeedSpot Christian Music TikTokers,FeedSpot Top Christian Music TikTok Influencers 2026,50,0,0,0,0,0,0,64.3,29,creative_technologist:90; standup_comedian:8; editor:2
-editorial_list,FeedSpot Latin Music TikTokers,FeedSpot Top Latin Music TikTok Influencers 2026,28,0,0,0,0,0,0,64.3,29,creative_technologist:46; standup_comedian:8; editor:2
-editorial_list,FeedSpot Independent Music TikTokers,FeedSpot Top Independent Music TikTok Influencers 2026,29,0,0,0,0,0,0,64,29,creative_technologist:56; editor:2
-editorial_list,FeedSpot Canadian Music TikTokers,FeedSpot Top Canadian Music TikTok Influencers 2026,47,0,0,0,0,0,0,64.3,29,creative_technologist:84; actor_performer:4; standup_comedian:2; cinematographer:2; editor:2
-editorial_list,FeedSpot Crime Fiction TikTokers,FeedSpot Top Crime Fiction TikTok Influencers 2026,28,0,0,0,0,0,0,65.4,29,film_educator:52; sketch_comedian:2; editor:2
-editorial_list,FeedSpot Thriller Book TikTokers,FeedSpot Top Thriller Book TikTok Influencers 2026,45,0,0,0,0,0,0,64.5,29,film_educator:82; filmmaker:4; sketch_comedian:2; editor:2
-editorial_list,FeedSpot Entertainment TikTokers,FeedSpot Top Entertainment TikTok Influencers 2026,38,0,0,0,0,0,0,64.4,29,sketch_comedian:70; filmmaker:4; editor:2
-editorial_list,FeedSpot Lego TikTokers,FeedSpot Top Lego TikTok Influencers 2026,59,0,0,0,0,0,0,64.7,29,vfx_animation:108; behind_the_scenes_creator:8; editor:2
-editorial_list,FeedSpot Romance Book TikTokers,FeedSpot Top Romance Book TikTok Influencers 2026,44,0,0,0,0,0,0,64.6,29,film_educator:82; actor_performer:2; cinematographer:2; editor:2
-editorial_list,FeedSpot Anime TikTokers,FeedSpot Top Anime TikTok Influencers 2026,50,0,0,0,0,0,0,64.8,29,film_educator:86; editor:12; vfx_animation:2
-editorial_list,FeedSpot Children Book TikTokers,FeedSpot Top Children Book TikTok Influencers 2026,57,0,0,0,0,0,0,65.4,29,vfx_animation:92; film_educator:8; editor:6; sketch_comedian:2; creative_technologist:2
-editorial_list,FeedSpot Dance TikTokers,FeedSpot Top Dance TikTok Influencers 2026,62,0,0,0,0,0,0,64.5,29,behind_the_scenes_creator:96; film_educator:10; actor_performer:6; cinematographer:4; standup_comedian:2
-editorial_list,FeedSpot Music TikTokers,FeedSpot Top Music TikTok Influencers 2026,87,0,0,0,0,0,0,64.4,29,creative_technologist:154; standup_comedian:10; editor:4; director:2; film_educator:2
-editorial_list,FeedSpot Gaming TikTokers,FeedSpot Top Gaming TikTok Influencers 2026,55,0,0,0,0,0,0,64.6,29,vfx_animation:98; behind_the_scenes_creator:6; sketch_comedian:2; filmmaker:2; editor:2
-editorial_list,FeedSpot Technology TikTokers,FeedSpot Top Technology TikTok Influencers 2026,51,0,0,0,0,0,0,64.6,29,creative_technologist:88; film_educator:8; sketch_comedian:2; filmmaker:2; editor:2
-editorial_list,FeedSpot BookTok Creators,FeedSpot Top BookTok Influencers 2026,75,0,0,0,0,0,0,64.5,29,film_educator:140; filmmaker:6; cinematographer:2; editor:2
-editorial_list,FeedSpot AI TikTokers,FeedSpot Top AI TikTok Influencers 2026,32,0,0,0,0,0,0,64.3,29,creative_technologist:54; film_educator:8; editor:2
-editorial_list,FeedSpot Illustrated Books TikTokers,FeedSpot Top Illustrated Books TikTok Influencers 2026,25,0,0,0,0,0,0,46.3,21,unclear:40; film_educator:4; vfx_animation:2; cinematographer:2; editor:2
-editorial_list,FeedSpot Virtual Reality TikTokers,FeedSpot Top 35 Virtual Reality TikTok Influencers in 2026,31,0,0,0,0,0,0,32.3,15,film_educator:30; editor:1
-editorial_list,FeedSpot Virtual TikTokers,FeedSpot Top 80 Virtual TikTok Influencers in 2026,72,0,0,0,0,0,0,32.6,15,film_educator:57; creative_technologist:10; editor:2; filmmaker:1; sketch_comedian:1
-editorial_list,FeedSpot Jazz TikTokers,FeedSpot Top 10 Jazz TikTok Influencers in 2026,8,0,0,0,0,0,0,32,14,behind_the_scenes_creator:6; film_educator:1; editor:1
-editorial_list,FeedSpot Stem TikTokers,FeedSpot Top 100 STEM TikTok Influencers in 2026,97,0,0,0,0,0,0,32.2,14,film_educator:89; creative_technologist:3; editor:2; filmmaker:1; cinematographer:1
+editorial_list,FeedSpot New York Art TikTokers,FeedSpot Top New York Art TikTok Influencers 2026,41,0,0,0,0,0,0,164.9,74,vfx_animation:190; creative_technologist:5; sketch_comedian:5; editor:5
+editorial_list,FeedSpot Comedy TikTokers,FeedSpot Top Comedy TikTok Influencers 2026,99,0,0,0,0,0,0,162.5,73,sketch_comedian:320; standup_comedian:160; cinematographer:5; director:5; editor:5
+editorial_list,FeedSpot Movie TikTokers,FeedSpot Top Movie TikTok Influencers 2026,96,0,0,0,0,0,0,162.4,73,filmmaker:460; director:10; cinematographer:5; editor:5
+editorial_list,FeedSpot Digital Art TikTokers,FeedSpot Top Digital Art TikTok Influencers 2026,100,0,0,0,0,0,0,162.8,73,vfx_animation:495; editor:5
+editorial_list,FeedSpot Horror TikTokers,FeedSpot Top Horror TikTok Influencers 2026,16,0,0,0,0,0,0,160,72,filmmaker:75; editor:5
+editorial_list,FeedSpot Music Technology TikTokers,FeedSpot Top Music Technology TikTok Influencers 2026,48,0,0,0,0,0,0,160.9,72,creative_technologist:205; film_educator:10; filmmaker:10; standup_comedian:5; actor_performer:5
+editorial_list,FeedSpot Barcelona Photography TikTokers,FeedSpot Top Barcelona Photography TikTok Influencers 2026,2,0,0,0,0,0,0,160,72,filmmaker:5; editor:5
+editorial_list,FeedSpot Aviation TikTokers,FeedSpot Top Aviation TikTok Influencers 2026,97,0,0,0,0,0,0,160.1,72,behind_the_scenes_creator:460; film_educator:10; creative_technologist:5; director:5; editor:5
+editorial_list_seed,unknown,Shutterstock TikTok filmmakers to follow,8,0,0,0,0,0,0,151.1,68,film_educator:15; filmmaker:15; cinematographer:5; vfx_animation:3
+editorial_list_seed,unknown,IZEA 10 Filmmakers to Follow on TikTok,8,0,0,0,0,0,0,148.8,67,filmmaker:15; cinematographer:10; vfx_animation:5; film_educator:5; behind_the_scenes_creator:5
+provider_video_export,acquisition-import-2026-06-12.jsonl,,3,2,2,1,1,0.667,0.333,62,65,filmmaker:1; sketch_comedian:1; reject:1
+editorial_list_seed,unknown,SheSources women in film TikTok creators,5,0,0,0,0,0,0,141,63,behind_the_scenes_creator:10; editor:5; unclear:5; director:5
+editorial_list,FeedSpot Business Book Review TikTokers,FeedSpot Top Business Book Review TikTok Influencers 2026,4,0,0,0,0,0,0,136,61,film_educator:12; editor:4
+editorial_list,FeedSpot Crime Fiction TikTokers,FeedSpot Top Crime Fiction TikTok Influencers 2026,28,0,0,0,0,0,0,133,60,film_educator:104; sketch_comedian:4; editor:4
+editorial_list,FeedSpot Children Book TikTokers,FeedSpot Top Children Book TikTok Influencers 2026,57,0,0,0,0,0,0,133.8,60,vfx_animation:184; film_educator:16; editor:12; sketch_comedian:4; creative_technologist:4
+editorial_list,FeedSpot Mobile Gaming TikTokers,FeedSpot Top Mobile Gaming TikTok Influencers 2026,57,0,0,0,0,0,0,131.9,59,vfx_animation:208; filmmaker:8; editor:8; cinematographer:4
+editorial_list,FeedSpot Pop Music TikTokers,FeedSpot Top Pop Music TikTok Influencers 2026,68,0,0,0,0,0,0,130,59,creative_technologist:240; standup_comedian:24; cinematographer:4; editor:4
+editorial_list,FeedSpot LGBT Book TikTokers,FeedSpot Top LGBT Book TikTok Influencers 2026,21,0,0,0,0,0,0,130.3,59,film_educator:76; filmmaker:4; editor:4
+editorial_list,FeedSpot Thriller Book TikTokers,FeedSpot Top Thriller Book TikTok Influencers 2026,45,0,0,0,0,0,0,131.1,59,film_educator:164; filmmaker:8; sketch_comedian:4; editor:4
+editorial_list,FeedSpot Lego TikTokers,FeedSpot Top Lego TikTok Influencers 2026,59,0,0,0,0,0,0,131.9,59,vfx_animation:216; behind_the_scenes_creator:16; editor:4
+editorial_list,FeedSpot Romance Book TikTokers,FeedSpot Top Romance Book TikTok Influencers 2026,44,0,0,0,0,0,0,131,59,film_educator:164; actor_performer:4; cinematographer:4; editor:4
+editorial_list,FeedSpot Anime TikTokers,FeedSpot Top Anime TikTok Influencers 2026,50,0,0,0,0,0,0,130.6,59,film_educator:172; editor:24; vfx_animation:4
+editorial_list,FeedSpot Dance TikTokers,FeedSpot Top Dance TikTok Influencers 2026,62,0,0,0,0,0,0,130.1,59,behind_the_scenes_creator:192; film_educator:20; actor_performer:12; cinematographer:8; standup_comedian:4
+editorial_list,FeedSpot Gaming TikTokers,FeedSpot Top Gaming TikTok Influencers 2026,55,0,0,0,0,0,0,131.6,59,vfx_animation:196; behind_the_scenes_creator:12; sketch_comedian:4; filmmaker:4; editor:4
+editorial_list,FeedSpot Technology TikTokers,FeedSpot Top Technology TikTok Influencers 2026,51,0,0,0,0,0,0,131.1,59,creative_technologist:176; film_educator:16; sketch_comedian:4; filmmaker:4; editor:4
+editorial_list,FeedSpot BookTok Creators,FeedSpot Top BookTok Influencers 2026,75,0,0,0,0,0,0,130.1,59,film_educator:280; filmmaker:12; cinematographer:4; editor:4
+editorial_list,FeedSpot Historical Fiction TikTokers,FeedSpot Top Historical Fiction TikTok Influencers 2026,25,0,0,0,0,0,0,128,58,film_educator:92; editor:8
+editorial_list,FeedSpot German Book TikTokers,FeedSpot Top German Book TikTok Influencers 2026,35,0,0,0,0,0,0,129.8,58,film_educator:136; editor:4
+editorial_list,FeedSpot Middle Grade Book TikTokers,FeedSpot Top Middle Grade Book TikTok Influencers 2026,7,0,0,0,0,0,0,128,58,film_educator:24; editor:4
+editorial_list,FeedSpot Literary Fiction TikTokers,FeedSpot Top Literary Fiction TikTok Influencers 2026,47,0,0,0,0,0,0,128.6,58,film_educator:176; editor:8; filmmaker:4
+editorial_list,FeedSpot Classical Music TikTokers,FeedSpot Top Classical Music TikTok Influencers 2026,37,0,0,0,0,0,0,128,58,film_educator:124; standup_comedian:12; actor_performer:4; director:4; editor:4
+editorial_list,FeedSpot Christian Music TikTokers,FeedSpot Top Christian Music TikTok Influencers 2026,50,0,0,0,0,0,0,129.8,58,creative_technologist:180; standup_comedian:16; editor:4
+editorial_list,FeedSpot Latin Music TikTokers,FeedSpot Top Latin Music TikTok Influencers 2026,28,0,0,0,0,0,0,129.9,58,creative_technologist:92; standup_comedian:16; editor:4
+editorial_list,FeedSpot Independent Music TikTokers,FeedSpot Top Independent Music TikTok Influencers 2026,29,0,0,0,0,0,0,128,58,creative_technologist:112; editor:4
+editorial_list,FeedSpot Canadian Music TikTokers,FeedSpot Top Canadian Music TikTok Influencers 2026,47,0,0,0,0,0,0,129.2,58,creative_technologist:168; actor_performer:8; standup_comedian:4; cinematographer:4; editor:4
+editorial_list,FeedSpot Entertainment TikTokers,FeedSpot Top Entertainment TikTok Influencers 2026,38,0,0,0,0,0,0,129.2,58,sketch_comedian:140; filmmaker:8; editor:4
+editorial_list,FeedSpot Music TikTokers,FeedSpot Top Music TikTok Influencers 2026,87,0,0,0,0,0,0,129.6,58,creative_technologist:308; standup_comedian:20; editor:8; director:4; film_educator:4
+editorial_list,FeedSpot AI TikTokers,FeedSpot Top AI TikTok Influencers 2026,32,0,0,0,0,0,0,129.4,58,creative_technologist:108; film_educator:16; editor:4
+editorial_list,FeedSpot Stem TikTokers,FeedSpot Top 100 STEM TikTok Influencers in 2026,97,0,0,0,0,0,0,96.7,44,film_educator:267; creative_technologist:9; editor:6; filmmaker:3; cinematographer:3
+editorial_list,FeedSpot Virtual TikTokers,FeedSpot Top 80 Virtual TikTok Influencers in 2026,72,0,0,0,0,0,0,97.4,44,film_educator:171; creative_technologist:30; editor:6; filmmaker:3; sketch_comedian:3
+editorial_list,FeedSpot Jazz TikTokers,FeedSpot Top 10 Jazz TikTok Influencers in 2026,8,0,0,0,0,0,0,96,43,behind_the_scenes_creator:18; film_educator:3; editor:3
+editorial_list,FeedSpot Virtual Reality TikTokers,FeedSpot Top 35 Virtual Reality TikTok Influencers in 2026,31,0,0,0,0,0,0,96.6,43,film_educator:90; editor:3
+public_profile_enrichment,TikTok public profile hydration,review_queue_priority_3,1,0,0,0,0,0,0,96,43,vfx_animation:2
+editorial_list,FeedSpot Illustrated Books TikTokers,FeedSpot Top Illustrated Books TikTok Influencers 2026,25,0,0,0,0,0,0,92.6,42,unclear:80; film_educator:8; vfx_animation:4; cinematographer:4; editor:4
 search_seed,smoke-seeds.jsonl,site:tiktok.com/@ short film,1,0,0,1,1,0,1,0,0,reject:1

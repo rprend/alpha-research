@@ -250,6 +250,7 @@ function canonicalFromProvider(row) {
     avatar_url: author.avatar ?? author.avatarThumb ?? row.avatar_url ?? '',
     follower_count: toNumber(author.fans ?? author.follower_count ?? row.follower_count ?? row.followers),
     likes_count: toNumber(author.heart ?? author.likes_count ?? row.likes_count ?? row.hearts),
+    video_count: toNumber(author.video ?? author.videoCount ?? row.public_profile_video_count ?? row.video_count ?? row.videos_count),
     verified: Boolean(author.verified ?? row.verified),
     bio_links: asArray(row.bio_links ?? row.external_links ?? row.link),
     source_type: sourceTypeFor(row),
@@ -295,6 +296,7 @@ function canonicalFromSearch(row) {
     avatar_url: row.avatar_url ?? '',
     follower_count: toNumber(row.follower_count ?? row.followers),
     likes_count: toNumber(row.likes_count ?? row.likes),
+    video_count: toNumber(row.public_profile_video_count ?? row.video_count ?? row.videos_count),
     verified: Boolean(row.verified === true || row.verified === 'true'),
     bio_links: asArray(row.bio_links ?? row.external_links),
     source_type: sourceTypeFor(row),
@@ -364,6 +366,7 @@ function mergeRows(rows) {
     existing.avatar_url ||= canonical.avatar_url
     existing.follower_count = Math.max(existing.follower_count, canonical.follower_count)
     existing.likes_count = Math.max(existing.likes_count, canonical.likes_count)
+    existing.video_count = Math.max(toNumber(existing.video_count), toNumber(canonical.video_count))
     existing.verified = existing.verified || canonical.verified
     existing.bio_links = Array.from(new Set([...existing.bio_links, ...canonical.bio_links]))
     existing.videos = [...existing.videos, ...canonical.videos]

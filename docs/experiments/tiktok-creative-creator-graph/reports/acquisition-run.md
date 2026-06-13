@@ -1,6 +1,6 @@
 # Acquisition Run
 
-Generated: 2026-06-13T00:49:47.444Z
+Generated: 2026-06-13T01:27:45.805Z
 
 - Provider: apify
 - Env file loaded: true
@@ -22,5 +22,5 @@ Generated: 2026-06-13T00:49:47.444Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| graph_0068 | search_index | filmmaker | filmmaker short film editing breakdown | dry_run | 0 |
-| category_gap_0040 | category_gap_search | actor_performer | site:tiktok.com/@ "performer" | dry_run | 0 |
+| graph_0069 | search_index | filmmaker | filmmaker short film editing breakdown | dry_run | 0 |
+| category_gap_0030 | category_gap_search | director | site:tiktok.com/@ "director" | dry_run | 0 |

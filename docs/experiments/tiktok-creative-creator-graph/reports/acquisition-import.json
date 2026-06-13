@@ -1,26 +1,28 @@
 {
-  "generated_at": "2026-06-13T00:49:44.776Z",
+  "generated_at": "2026-06-13T01:27:44.449Z",
   "mode": "import",
-  "input_rows": 2397,
-  "normalized_rows": 2397,
+  "input_rows": 2482,
+  "normalized_rows": 2482,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 503,
-  "output_accounts": 1894,
+  "duplicate_normalized_rows": 587,
+  "output_accounts": 1895,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
     "2026-06-13T00-39-23-080Z-editorial-list-import.jsonl": 209,
+    "2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl": 85,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 2391,
+  "mapped_lineage_rows": 2476,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
     "2026-06-12T22-10-19-433Z": 499,
     "2026-06-13T00-11-50-106Z": 1662,
-    "2026-06-13T00-39-23-080Z": 209
+    "2026-06-13T00-39-23-080Z": 209,
+    "2026-06-13T01-25-37-893Z": 85
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -62,27 +64,29 @@
     "feedspot_stem_tiktok_2026": 98,
     "feedspot_virtual_reality_tiktok_2026": 31,
     "feedspot_virtual_tiktok_2026": 72,
+    "public_profile_enrichment_2026-06-13T01-25-37-893Z": 85,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
     "editorial_list_public_web": 2370,
+    "tiktok_public_profile_html": 85,
     "editorial_web": 21
   },
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-13-008a1459d8f4.jsonl",
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-13-db0deb8d84f4.jsonl",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.2098456403838131,
-    "output_rate": 0.7901543596161869,
+    "duplicate_rate": 0.23650282030620468,
+    "output_rate": 0.7634971796937954,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "2397 input rows"
+        "evidence": "2482 input rows"
       },
       {
         "id": "handle_extraction",
@@ -92,57 +96,59 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "21.0% duplicate normalized rows, threshold 35.0%"
+        "evidence": "23.7% duplicate normalized rows, threshold 35.0%"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "2391/2397 rows mapped to provider/wave lineage"
+        "evidence": "2476/2482 rows mapped to provider/wave lineage"
       }
     ]
   },
   "wave": {
-    "wave_id": "import-2026-06-13T00-49-44-790Z",
-    "generated_at": "2026-06-13T00:49:44.776Z",
-    "input_rows": 2397,
-    "normalized_rows": 2397,
+    "wave_id": "import-2026-06-13T01-27-44-456Z",
+    "generated_at": "2026-06-13T01:27:44.449Z",
+    "input_rows": 2482,
+    "normalized_rows": 2482,
     "skipped_rows": 0,
-    "output_accounts": 1894,
-    "source_file_count": 6,
-    "source_files": "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl|2026-06-13T00-11-50-106Z-editorial-list-import.jsonl|2026-06-13T00-39-23-080Z-editorial-list-import.jsonl|editorial-list-seeds-2026-06-12.jsonl|smoke-provider-results.jsonl|smoke-search-results.jsonl",
-    "mapped_lineage_rows": 2391,
+    "output_accounts": 1895,
+    "source_file_count": 7,
+    "source_files": "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl|2026-06-13T00-11-50-106Z-editorial-list-import.jsonl|2026-06-13T00-39-23-080Z-editorial-list-import.jsonl|2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl|editorial-list-seeds-2026-06-12.jsonl|smoke-provider-results.jsonl|smoke-search-results.jsonl",
+    "mapped_lineage_rows": 2476,
     "unmapped_lineage_rows": 6,
     "scale_wave_ids": "",
-    "execution_ids": "2026-06-12T22-10-19-433Z|2026-06-13T00-11-50-106Z|2026-06-13T00-39-23-080Z",
-    "batch_ids": "feedspot_comedy_tiktok_2026|feedspot_movie_tiktok_2026|feedspot_horror_tiktok_2026|feedspot_digital_art_tiktok_2026|feedspot_new_york_art_tiktok_2026|feedspot_music_technology_tiktok_2026|feedspot_barcelona_photography_tiktok_2026|feedspot_aviation_tiktok_2026|feedspot_mobile_gaming_tiktok_2026|feedspot_historical_fiction_tiktok_2026|feedspot_pop_music_tiktok_2026|feedspot_german_book_tiktok_2026|feedspot_lgbt_book_tiktok_2026|feedspot_middle_grade_book_tiktok_2026|feedspot_illustrated_books_tiktok_2026|feedspot_business_book_review_tiktok_2026|feedspot_literary_fiction_tiktok_2026|feedspot_classical_music_tiktok_2026|feedspot_christian_music_tiktok_2026|feedspot_latin_music_tiktok_2026|feedspot_independent_music_tiktok_2026|feedspot_canadian_music_tiktok_2026|feedspot_crime_fiction_tiktok_2026|feedspot_thriller_book_tiktok_2026|feedspot_entertainment_tiktok_2026|feedspot_lego_tiktok_2026|feedspot_romance_book_tiktok_2026|feedspot_anime_tiktok_2026|feedspot_childrens_book_tiktok_2026|feedspot_dance_tiktok_2026|feedspot_music_tiktok_2026|feedspot_gaming_tiktok_2026|feedspot_technology_tiktok_2026|feedspot_book_tiktok_2026|feedspot_ai_tiktok_2026|feedspot_jazz_tiktok_2026|feedspot_stem_tiktok_2026|feedspot_virtual_reality_tiktok_2026|feedspot_virtual_tiktok_2026|editorial_izea_filmmakers_2026_06_12|editorial_shutterstock_filmmakers_2026_06_12|editorial_shesources_women_film_2026_06_12",
-    "lineage_providers": "editorial_list_public_web|editorial_web",
-    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-13-008a1459d8f4.jsonl",
+    "execution_ids": "2026-06-12T22-10-19-433Z|2026-06-13T00-11-50-106Z|2026-06-13T00-39-23-080Z|2026-06-13T01-25-37-893Z",
+    "batch_ids": "feedspot_comedy_tiktok_2026|feedspot_movie_tiktok_2026|feedspot_horror_tiktok_2026|feedspot_digital_art_tiktok_2026|feedspot_new_york_art_tiktok_2026|feedspot_music_technology_tiktok_2026|feedspot_barcelona_photography_tiktok_2026|feedspot_aviation_tiktok_2026|feedspot_mobile_gaming_tiktok_2026|feedspot_historical_fiction_tiktok_2026|feedspot_pop_music_tiktok_2026|feedspot_german_book_tiktok_2026|feedspot_lgbt_book_tiktok_2026|feedspot_middle_grade_book_tiktok_2026|feedspot_illustrated_books_tiktok_2026|feedspot_business_book_review_tiktok_2026|feedspot_literary_fiction_tiktok_2026|feedspot_classical_music_tiktok_2026|feedspot_christian_music_tiktok_2026|feedspot_latin_music_tiktok_2026|feedspot_independent_music_tiktok_2026|feedspot_canadian_music_tiktok_2026|feedspot_crime_fiction_tiktok_2026|feedspot_thriller_book_tiktok_2026|feedspot_entertainment_tiktok_2026|feedspot_lego_tiktok_2026|feedspot_romance_book_tiktok_2026|feedspot_anime_tiktok_2026|feedspot_childrens_book_tiktok_2026|feedspot_dance_tiktok_2026|feedspot_music_tiktok_2026|feedspot_gaming_tiktok_2026|feedspot_technology_tiktok_2026|feedspot_book_tiktok_2026|feedspot_ai_tiktok_2026|feedspot_jazz_tiktok_2026|feedspot_stem_tiktok_2026|feedspot_virtual_reality_tiktok_2026|feedspot_virtual_tiktok_2026|public_profile_enrichment_2026-06-13T01-25-37-893Z|editorial_izea_filmmakers_2026_06_12|editorial_shutterstock_filmmakers_2026_06_12|editorial_shesources_women_film_2026_06_12",
+    "lineage_providers": "editorial_list_public_web|tiktok_public_profile_html|editorial_web",
+    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-13-db0deb8d84f4.jsonl",
     "target_label_counts": {
-      "sketch_comedian": 173,
-      "standup_comedian": 90,
+      "sketch_comedian": 178,
+      "standup_comedian": 92,
       "director": 12,
-      "editor": 59,
-      "filmmaker": 243,
-      "vfx_animation": 483,
-      "creative_technologist": 449,
-      "film_educator": 596,
+      "editor": 63,
+      "filmmaker": 247,
+      "vfx_animation": 512,
+      "creative_technologist": 461,
+      "film_educator": 614,
       "actor_performer": 9,
-      "behind_the_scenes_creator": 250,
-      "cinematographer": 5,
+      "behind_the_scenes_creator": 252,
+      "cinematographer": 14,
       "screenwriter": 22,
       "unclassified": 6
     },
     "surface_counts": {
       "editorial_list": 2370,
+      "public_profile_enrichment": 85,
       "editorial_list_seed": 21,
       "provider_video_export": 3,
       "search_result_export": 3
     },
     "provider_counts": {
       "editorial_list_public_web": 2370,
+      "tiktok_public_profile_html": 85,
       "editorial_web": 21,
       "unknown": 6
     }
   },
-  "import_waves": 11
+  "import_waves": 13
 }

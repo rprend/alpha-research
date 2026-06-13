@@ -1,25 +1,26 @@
 # Adjacency Expansion
 
-Generated: 2026-06-13T00:49:45.440Z
+Generated: 2026-06-13T01:27:44.804Z
 
 - Base rows: 7
-- Expansion rows: 27
-- Added rows: 20
+- Expansion rows: 28
+- Added rows: 21
 
 ## Types
 
+- yield_replay_search: 6
 - expand_from_creator: 7
 - hashtag_search: 12
-- yield_replay_search: 5
 - cross_platform_search: 3
 
 ## Top Rows
 
 | Type | Priority | Target | Reason |
 | --- | ---: | --- | --- |
+| yield_replay_search | 1 | review_queue_priority_1 | replay_high_yield_source:public_profile_enrichment |
 | expand_from_creator | 1 | @maya.shortcuts | high_usefulness_source |
 | hashtag_search | 1 | bts | useful_creator_hashtag:@selahshoots; useful_creator_hashtag:@maya.shortcuts |
-| hashtag_search | 1 | filmmaker | useful_creator_hashtag:@selahshoots; useful_creator_hashtag:@basementbits; useful_creator_hashtag:@maya.shortcuts; useful_creator_hashtag:@noahframes; useful_creator_hashtag:@lucybits |
+| hashtag_search | 1 | filmmaker | useful_creator_hashtag:@selahshoots; useful_creator_hashtag:@basementbits; useful_creator_hashtag:@lucybits; useful_creator_hashtag:@maya.shortcuts; useful_creator_hashtag:@noahframes |
 | yield_replay_search | 1 | filmmaker short film editing breakdown | replay_high_yield_source:manual_seed |
 | hashtag_search | 1 | shortfilm | useful_creator_hashtag:@selahshoots; useful_creator_hashtag:@maya.shortcuts |
 | cross_platform_search | 1 | site:vimeo.com "tiktok.com/@" "filmmaker" | cross_platform_adjacency:vimeo.com |
@@ -41,4 +42,3 @@ Generated: 2026-06-13T00:49:45.440Z
 | cross_platform_search | 1 | site:youtube.com "tiktok.com/@" "sketch comedian" | cross_platform_adjacency:youtube.com |
 | yield_replay_search | 1 | sketch comedian character comedy | replay_high_yield_source:manual_seed |
 | expand_from_creator | 1 | @renderjules | high_usefulness_source |
-| hashtag_search | 2 | aftereffects | useful_creator_hashtag:@renderjules |

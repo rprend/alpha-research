@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T00:49:47.444Z",
-  "execution_id": "2026-06-13T00-49-47-443Z",
+  "generated_at": "2026-06-13T01:27:45.805Z",
+  "execution_id": "2026-06-13T01-27-45-804Z",
   "provider": "apify",
   "env_file_loaded": true,
   "provider_token_available": false,
@@ -19,9 +19,9 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-13T00-49-47-443Z",
+      "execution_id": "2026-06-13T01-27-45-804Z",
       "provider": "apify",
-      "batch_id": "graph_0068",
+      "batch_id": "graph_0069",
       "acquisition_surface": "search_index",
       "query": "filmmaker short film editing breakdown",
       "target_label": "filmmaker",
@@ -34,33 +34,33 @@
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-13T00:49:47.444Z",
+      "started_at": "2026-06-13T01:27:45.805Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-13T00:49:47.444Z"
+      "finished_at": "2026-06-13T01:27:45.805Z"
     },
     {
-      "execution_id": "2026-06-13T00-49-47-443Z",
+      "execution_id": "2026-06-13T01-27-45-804Z",
       "provider": "apify",
-      "batch_id": "category_gap_0040",
+      "batch_id": "category_gap_0030",
       "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"performer\"",
-      "target_label": "actor_performer",
+      "query": "site:tiktok.com/@ \"director\"",
+      "target_label": "director",
       "actor_id": "apify/google-search-scraper",
       "input": {
-        "queries": "site:tiktok.com/@ \"performer\"",
+        "queries": "site:tiktok.com/@ \"director\"",
         "maxPagesPerQuery": 1,
         "resultsPerPage": 100,
         "countryCode": "us",
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-13T00:49:47.444Z",
+      "started_at": "2026-06-13T01:27:45.805Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-13T00:49:47.444Z"
+      "finished_at": "2026-06-13T01:27:45.805Z"
     }
   ]
 }

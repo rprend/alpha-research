@@ -1,26 +1,28 @@
 {
-  "generated_at": "2026-06-13T00:49:44.605Z",
+  "generated_at": "2026-06-13T01:27:44.366Z",
   "mode": "preview",
-  "input_rows": 2397,
-  "normalized_rows": 2397,
+  "input_rows": 2482,
+  "normalized_rows": 2482,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 503,
-  "output_accounts": 1894,
+  "duplicate_normalized_rows": 587,
+  "output_accounts": 1895,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
     "2026-06-13T00-39-23-080Z-editorial-list-import.jsonl": 209,
+    "2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl": 85,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 2391,
+  "mapped_lineage_rows": 2476,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
     "2026-06-12T22-10-19-433Z": 499,
     "2026-06-13T00-11-50-106Z": 1662,
-    "2026-06-13T00-39-23-080Z": 209
+    "2026-06-13T00-39-23-080Z": 209,
+    "2026-06-13T01-25-37-893Z": 85
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -62,27 +64,29 @@
     "feedspot_stem_tiktok_2026": 98,
     "feedspot_virtual_reality_tiktok_2026": 31,
     "feedspot_virtual_tiktok_2026": 72,
+    "public_profile_enrichment_2026-06-13T01-25-37-893Z": 85,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
     "editorial_list_public_web": 2370,
+    "tiktok_public_profile_html": 85,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.2098456403838131,
-    "output_rate": 0.7901543596161869,
+    "duplicate_rate": 0.23650282030620468,
+    "output_rate": 0.7634971796937954,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "2397 input rows"
+        "evidence": "2482 input rows"
       },
       {
         "id": "handle_extraction",
@@ -92,12 +96,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "21.0% duplicate normalized rows, threshold 35.0%"
+        "evidence": "23.7% duplicate normalized rows, threshold 35.0%"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "2391/2397 rows mapped to provider/wave lineage"
+        "evidence": "2476/2482 rows mapped to provider/wave lineage"
       }
     ]
   },

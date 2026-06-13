@@ -1,0 +1,114 @@
+# Public Profile Enrichment
+
+Generated: 2026-06-13T01:26:11.139Z
+
+- Provider: tiktok_public_profile_html
+- Dry run: false
+- Selected profiles: 100
+- Output rows: 85
+- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl
+- Succeeded profiles: 85
+- Failed profiles: 15
+
+## Profiles
+
+- @maya.shortcuts: failed, review_queue_priority_1, prior 98
+- @basementbits: failed, review_queue_priority_1, prior 92
+- @selahshoots: failed, review_queue_priority_1, prior 91
+- @ani.motionlab: failed, review_queue_priority_1, prior 87
+- @noahframes: failed, review_queue_priority_1, prior 86
+- @lucybits: succeeded, review_queue_priority_1, prior 83
+- @renderjules: failed, review_queue_priority_3, prior 78
+- @mycanimationsextra: succeeded, review_queue_priority_3, prior 41
+- @vector_editing__: succeeded, review_queue_priority_3, prior 41
+- @manga.green.anima: failed, review_queue_priority_3, prior 40
+- @joshvfx: succeeded, review_queue_priority_3, prior 39
+- @kaileemcoleman: succeeded, review_queue_priority_3, prior 39
+- @jonthecomedian: succeeded, review_queue_priority_3, prior 38
+- @lindamarric: succeeded, review_queue_priority_3, prior 38
+- @jamesmarriott: succeeded, review_queue_priority_3, prior 38
+- @darriangerard: succeeded, review_queue_priority_3, prior 38
+- @carrieannryan: failed, review_queue_priority_3, prior 38
+- @bravekidpress: succeeded, review_queue_priority_3, prior 38
+- @kyndallharrisofficial: succeeded, review_queue_priority_3, prior 38
+- @jawntybrown: succeeded, review_queue_priority_3, prior 38
+- @authorcarriea: succeeded, review_queue_priority_3, prior 38
+- @lab_shenanigans: succeeded, review_queue_priority_3, prior 38
+- @ben_brainard: succeeded, review_queue_priority_3, prior 36
+- @theofficialsambailey: succeeded, review_queue_priority_3, prior 36
+- @gigglysquad: succeeded, review_queue_priority_3, prior 36
+- @frankjamesbailey: succeeded, review_queue_priority_3, prior 36
+- @aidantoksfilm: succeeded, review_queue_priority_3, prior 36
+- @priteshdesai41: succeeded, review_queue_priority_3, prior 36
+- @digitalartsai: succeeded, review_queue_priority_3, prior 36
+- @digital_archaeologist2.0: failed, review_queue_priority_3, prior 36
+- @artisticxdigitalart: succeeded, review_queue_priority_3, prior 36
+- @raiki.digitalart: failed, review_queue_priority_3, prior 36
+- @laianaisabel: succeeded, review_queue_priority_3, prior 36
+- @maurapaintsfood: succeeded, review_queue_priority_3, prior 36
+- @clairebuckleyart: succeeded, review_queue_priority_3, prior 36
+- @bluesoulartist: succeeded, review_queue_priority_3, prior 36
+- @artistsofnewyork: succeeded, review_queue_priority_3, prior 36
+- @electronicstandards: succeeded, review_queue_priority_3, prior 36
+- @life_of_zaire: succeeded, review_queue_priority_3, prior 36
+- @mo9ame: succeeded, review_queue_priority_3, prior 36
+- @gamereviewskvm: succeeded, review_queue_priority_3, prior 36
+- @rainykeyboard: succeeded, review_queue_priority_3, prior 36
+- @eddracergames: succeeded, review_queue_priority_3, prior 36
+- @_zaibuzai1: succeeded, review_queue_priority_3, prior 36
+- @mobileboomer365: succeeded, review_queue_priority_3, prior 36
+- @meghantrainor: succeeded, review_queue_priority_3, prior 36
+- @xxclairoxx: succeeded, review_queue_priority_3, prior 36
+- @a.villain_d.buehner: succeeded, review_queue_priority_3, prior 36
+- @hainwald: succeeded, review_queue_priority_3, prior 36
+- @nina.haines: succeeded, review_queue_priority_3, prior 36
+- @breakthroughbooks: failed, review_queue_priority_3, prior 36
+- @books4business: succeeded, review_queue_priority_3, prior 36
+- @smallcasualbooktok: succeeded, review_queue_priority_3, prior 36
+- @lauren_daigle: succeeded, review_queue_priority_3, prior 36
+- @officialblanca: succeeded, review_queue_priority_3, prior 36
+- @kimberly.loaiza: succeeded, review_queue_priority_3, prior 36
+- @findthrillerbooks: succeeded, review_queue_priority_3, prior 36
+- @spookycrimestory: succeeded, review_queue_priority_3, prior 36
+- @authorpatricklogan: succeeded, review_queue_priority_3, prior 36
+- @comedic.criming: succeeded, review_queue_priority_3, prior 36
+- @book.of.crime: succeeded, review_queue_priority_3, prior 36
+- @clairefraiseauthor: succeeded, review_queue_priority_3, prior 36
+- @iain.benson.author: succeeded, review_queue_priority_3, prior 36
+- @abigailkeam: succeeded, review_queue_priority_3, prior 36
+- @createchaosgossiptoo: failed, review_queue_priority_3, prior 36
+- @magic.maike: succeeded, review_queue_priority_3, prior 36
+- @earlefambuilds: failed, review_queue_priority_3, prior 36
+- @luca.lego: succeeded, review_queue_priority_3, prior 36
+- @carlylego: succeeded, review_queue_priority_3, prior 36
+- @thelegomommy: succeeded, review_queue_priority_3, prior 36
+- @lego.george: succeeded, review_queue_priority_3, prior 36
+- @authortessabailey: succeeded, review_queue_priority_3, prior 36
+- @serenityraine_author: succeeded, review_queue_priority_3, prior 36
+- @mangatoon_story: succeeded, review_queue_priority_3, prior 36
+- @yoshiro_senpai: succeeded, review_queue_priority_3, prior 36
+- @senpaisuperstar: succeeded, review_queue_priority_3, prior 36
+- @youcancallmekait: succeeded, review_queue_priority_3, prior 36
+- @forever_booked_: succeeded, review_queue_priority_3, prior 36
+- @alyssareads_books: succeeded, review_queue_priority_3, prior 36
+- @shhhmommysreading: succeeded, review_queue_priority_3, prior 36
+- @bookfoxpress: succeeded, review_queue_priority_3, prior 36
+- @inclusive_childrensbooks: succeeded, review_queue_priority_3, prior 36
+- @wittykidsclub: succeeded, review_queue_priority_3, prior 36
+- @fecundmaiden: succeeded, review_queue_priority_3, prior 36
+- @polespiritparis: succeeded, review_queue_priority_3, prior 36
+- @jarredjermaine: succeeded, review_queue_priority_3, prior 36
+- @sickickmusic: succeeded, review_queue_priority_3, prior 36
+- @wil.bailey: failed, review_queue_priority_3, prior 36
+- @sweeettails: succeeded, review_queue_priority_3, prior 36
+- @alia: succeeded, review_queue_priority_3, prior 36
+- @daisyymichelle: succeeded, review_queue_priority_3, prior 36
+- @tainoztv: succeeded, review_queue_priority_3, prior 36
+- @mrwhosetheboss: succeeded, review_queue_priority_3, prior 36
+- @insidersai: succeeded, review_queue_priority_3, prior 36
+- @caimarsalizi: succeeded, review_queue_priority_3, prior 36
+- @sbortztech: succeeded, review_queue_priority_3, prior 36
+- @morgannbook: succeeded, review_queue_priority_3, prior 36
+- @albixitobooks: failed, review_queue_priority_3, prior 36
+- @booktokvietnam: succeeded, review_queue_priority_3, prior 36
+- @aicenturyclips: succeeded, review_queue_priority_3, prior 36

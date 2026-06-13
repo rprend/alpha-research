@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13T00:49:46.162Z",
-  "candidates": 86,
+  "generated_at": "2026-06-13T01:27:45.192Z",
+  "candidates": 87,
   "handle_targets": 7,
-  "query_targets": 79,
+  "query_targets": 80,
   "known_account_targets": 7,
   "top_priority_candidates": 50,
   "surface_counts": {
-    "search_index": 15,
+    "search_index": 16,
     "tiktok_hashtag_export": 19,
     "cross_platform_search": 8,
     "category_gap_search": 37,
@@ -19,9 +19,9 @@
     "vfx_animation": 11,
     "editor": 3,
     "actor_performer": 6,
+    "unclassified": 15,
     "standup_comedian": 7,
     "director": 4,
-    "unclassified": 14,
     "behind_the_scenes_creator": 6,
     "film_educator": 4,
     "creative_technologist": 6
@@ -40,7 +40,7 @@
       "known_account": false,
       "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0068",
+      "source_batch_ids": "graph_0069",
       "source_reasons": "replay_high_yield_source:manual_seed",
       "yield_score": 95,
       "usefulness_rate": 1,
@@ -59,7 +59,7 @@
       "known_account": false,
       "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0082",
+      "source_batch_ids": "graph_0083",
       "source_reasons": "replay_high_yield_source:manual_seed",
       "yield_score": 87,
       "usefulness_rate": 1,
@@ -78,9 +78,9 @@
       "known_account": false,
       "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0087",
+      "source_batch_ids": "graph_0088",
       "source_reasons": "replay_high_yield_source:manual_seed",
-      "yield_score": 85,
+      "yield_score": 86,
       "usefulness_rate": 1,
       "rejection_rate": 0
     },
@@ -97,7 +97,7 @@
       "known_account": false,
       "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0080",
+      "source_batch_ids": "graph_0081",
       "source_reasons": "replay_high_yield_source:manual_seed",
       "yield_score": 87,
       "usefulness_rate": 1,
@@ -116,7 +116,7 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0076|hashtag_0021",
+      "source_batch_ids": "graph_0077|hashtag_0021",
       "source_reasons": "useful_creator_hashtag:@ani.motionlab|Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.",
       "yield_score": "",
       "usefulness_rate": "",
@@ -135,7 +135,7 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0083|hashtag_0014",
+      "source_batch_ids": "graph_0084|hashtag_0014",
       "source_reasons": "useful_creator_hashtag:@noahframes|Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.",
       "yield_score": "",
       "usefulness_rate": "",
@@ -154,8 +154,8 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0067|hashtag_0011",
-      "source_reasons": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|useful_creator_hashtag:@lucybits|Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.",
+      "source_batch_ids": "graph_0068|hashtag_0011",
+      "source_reasons": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.",
       "yield_score": "",
       "usefulness_rate": "",
       "rejection_rate": ""
@@ -173,7 +173,7 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0069|hashtag_0012",
+      "source_batch_ids": "graph_0070|hashtag_0012",
       "source_reasons": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts|Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.",
       "yield_score": "",
       "usefulness_rate": "",
@@ -192,7 +192,7 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0073|hashtag_0016",
+      "source_batch_ids": "graph_0074|hashtag_0016",
       "source_reasons": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.",
       "yield_score": "",
       "usefulness_rate": "",
@@ -211,7 +211,7 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0077",
+      "source_batch_ids": "graph_0078",
       "source_reasons": "useful_creator_hashtag:@ani.motionlab",
       "yield_score": "",
       "usefulness_rate": "",
@@ -230,7 +230,7 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0084",
+      "source_batch_ids": "graph_0085",
       "source_reasons": "useful_creator_hashtag:@noahframes",
       "yield_score": "",
       "usefulness_rate": "",
@@ -249,7 +249,7 @@
       "known_account": false,
       "expected_output": "external pages linking to adjacent TikTok creator profiles",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0078",
+      "source_batch_ids": "graph_0079",
       "source_reasons": "cross_platform_adjacency:beacons.ai",
       "yield_score": "",
       "usefulness_rate": "",
@@ -268,7 +268,7 @@
       "known_account": false,
       "expected_output": "external pages linking to adjacent TikTok creator profiles",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0070",
+      "source_batch_ids": "graph_0071",
       "source_reasons": "cross_platform_adjacency:vimeo.com",
       "yield_score": "",
       "usefulness_rate": "",
@@ -287,7 +287,7 @@
       "known_account": false,
       "expected_output": "external pages linking to adjacent TikTok creator profiles",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0086",
+      "source_batch_ids": "graph_0087",
       "source_reasons": "cross_platform_adjacency:youtube.com",
       "yield_score": "",
       "usefulness_rate": "",
@@ -306,7 +306,7 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0079",
+      "source_batch_ids": "graph_0080",
       "source_reasons": "useful_creator_hashtag:@ani.motionlab|useful_creator_hashtag:@renderjules",
       "yield_score": "",
       "usefulness_rate": "",
@@ -401,7 +401,7 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0072",
+      "source_batch_ids": "graph_0073",
       "source_reasons": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "yield_score": "",
       "usefulness_rate": "",
@@ -409,6 +409,25 @@
     },
     {
       "frontier_rank": 21,
+      "frontier_score": 78,
+      "target": "review_queue_priority_1",
+      "target_kind": "query",
+      "acquisition_surface": "search_index",
+      "priority": 1,
+      "target_label": "",
+      "source_type": "multi_source",
+      "evidence_count": 2,
+      "known_account": false,
+      "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl",
+      "source_batch_ids": "graph_0065",
+      "source_reasons": "replay_high_yield_source:public_profile_enrichment",
+      "yield_score": 100,
+      "usefulness_rate": 1,
+      "rejection_rate": 0
+    },
+    {
+      "frontier_rank": 22,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"actor performer\"",
       "target_kind": "search_query",
@@ -427,7 +446,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 22,
+      "frontier_rank": 23,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"actor\"",
       "target_kind": "search_query",
@@ -446,7 +465,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 23,
+      "frontier_rank": 24,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"actress\"",
       "target_kind": "search_query",
@@ -465,7 +484,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 24,
+      "frontier_rank": 25,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"comedian\"",
       "target_kind": "search_query",
@@ -484,7 +503,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 25,
+      "frontier_rank": 26,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"commercial director\"",
       "target_kind": "search_query",
@@ -503,7 +522,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 26,
+      "frontier_rank": 27,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"directed by\"",
       "target_kind": "search_query",
@@ -522,7 +541,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 27,
+      "frontier_rank": 28,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"director\"",
       "target_kind": "search_query",
@@ -541,7 +560,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 28,
+      "frontier_rank": 29,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"performer\"",
       "target_kind": "search_query",
@@ -560,7 +579,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 29,
+      "frontier_rank": 30,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"stand-up\"",
       "target_kind": "search_query",
@@ -579,7 +598,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 30,
+      "frontier_rank": 31,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"standup comedian\"",
       "target_kind": "search_query",
@@ -598,7 +617,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 31,
+      "frontier_rank": 32,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ \"standup\"",
       "target_kind": "search_query",
@@ -617,7 +636,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 32,
+      "frontier_rank": 33,
       "frontier_score": 75,
       "target": "site:tiktok.com/@ comedian",
       "target_kind": "search_query",
@@ -636,7 +655,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 33,
+      "frontier_rank": 34,
       "frontier_score": 75,
       "target": "standupcomedy",
       "target_kind": "query",
@@ -655,7 +674,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 34,
+      "frontier_rank": 35,
       "frontier_score": 74,
       "target": "mentioned by @ani.motionlab",
       "target_kind": "query",
@@ -667,14 +686,14 @@
       "known_account": false,
       "expected_output": "mentions, hashtags, collaborators, sounds, and recent videos",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0091",
+      "source_batch_ids": "graph_0092",
       "source_reasons": "replay_high_yield_source:graph_expansion_fixture",
       "yield_score": 78,
       "usefulness_rate": 1,
       "rejection_rate": 0
     },
     {
-      "frontier_rank": 35,
+      "frontier_rank": 36,
       "frontier_score": 73,
       "target": "bts",
       "target_kind": "query",
@@ -686,14 +705,14 @@
       "known_account": false,
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0066",
+      "source_batch_ids": "graph_0067",
       "source_reasons": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "yield_score": "",
       "usefulness_rate": "",
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 36,
+      "frontier_rank": 37,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"animation\"",
       "target_kind": "search_query",
@@ -712,7 +731,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 37,
+      "frontier_rank": 38,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"cinematographer\"",
       "target_kind": "search_query",
@@ -731,7 +750,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 38,
+      "frontier_rank": 39,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"comedy sketch\"",
       "target_kind": "search_query",
@@ -750,7 +769,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 39,
+      "frontier_rank": 40,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"dop\"",
       "target_kind": "search_query",
@@ -769,7 +788,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 40,
+      "frontier_rank": 41,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"dp\"",
       "target_kind": "search_query",
@@ -788,7 +807,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 41,
+      "frontier_rank": 42,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"filmmaker\"",
       "target_kind": "search_query",
@@ -807,7 +826,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 42,
+      "frontier_rank": 43,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"short film\"",
       "target_kind": "search_query",
@@ -826,7 +845,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 43,
+      "frontier_rank": 44,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"shortfilm\"",
       "target_kind": "search_query",
@@ -845,7 +864,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 44,
+      "frontier_rank": 45,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"sketch comedian\"",
       "target_kind": "search_query",
@@ -864,7 +883,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 45,
+      "frontier_rank": 46,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"sketch comedy\"",
       "target_kind": "search_query",
@@ -883,7 +902,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 46,
+      "frontier_rank": 47,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"sketch\"",
       "target_kind": "search_query",
@@ -902,7 +921,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 47,
+      "frontier_rank": 48,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"vfx animation\"",
       "target_kind": "search_query",
@@ -921,7 +940,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 48,
+      "frontier_rank": 49,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"vfx artist\"",
       "target_kind": "search_query",
@@ -940,7 +959,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 49,
+      "frontier_rank": 50,
       "frontier_score": 72,
       "target": "site:tiktok.com/@ \"vfx\"",
       "target_kind": "search_query",
@@ -953,25 +972,6 @@
       "expected_output": "candidate TikTok profile URLs for undercovered creator category",
       "import_target": "data/raw/imports/category-gap-search-export.jsonl",
       "source_batch_ids": "category_gap_0058",
-      "source_reasons": "Fill category coverage gap for vfx_animation: 1/5000 useful primary vfx_animation creators",
-      "yield_score": "",
-      "usefulness_rate": "",
-      "rejection_rate": ""
-    },
-    {
-      "frontier_rank": 50,
-      "frontier_score": 72,
-      "target": "site:tiktok.com/@ \"visual effects\"",
-      "target_kind": "search_query",
-      "acquisition_surface": "category_gap_search",
-      "priority": 2,
-      "target_label": "vfx_animation",
-      "source_type": "acquisition_task",
-      "evidence_count": 1,
-      "known_account": false,
-      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
-      "import_target": "data/raw/imports/category-gap-search-export.jsonl",
-      "source_batch_ids": "category_gap_0059",
       "source_reasons": "Fill category coverage gap for vfx_animation: 1/5000 useful primary vfx_animation creators",
       "yield_score": "",
       "usefulness_rate": "",

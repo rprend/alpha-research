@@ -1,14 +1,14 @@
 # Readiness
 
-Generated: 2026-06-13T00:49:47.895Z
+Generated: 2026-06-13T01:27:46.029Z
 
 Complete: false
 
 ## Counts
 
 - Accounts: 1900
-- Videos: 20
-- Graph edges: 52
+- Videos: 26
+- Graph edges: 102
 - Useful accounts: 7
 - Excellent accounts: 6
 - Rejected accounts: 2
@@ -23,21 +23,21 @@ Complete: false
 - Review blank decisions: 0
 - Accepted creators: 2
 - Benchmark creators: 1
-- Expansion queue: 27
-- Adjacency expansion rows: 27
-- Adjacency expansion added rows: 20
-- Acquisition tasks: 91
-- Candidate frontier: 86
+- Expansion queue: 28
+- Adjacency expansion rows: 28
+- Adjacency expansion added rows: 21
+- Acquisition tasks: 92
+- Candidate frontier: 87
 - Candidate frontier handles: 7
-- Candidate frontier queries: 79
-- Acquisition import preview accounts: 1894
+- Candidate frontier queries: 80
+- Acquisition import preview accounts: 1895
 - Acquisition import preview ready: true
-- Acquisition import waves: 11
+- Acquisition import waves: 13
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Acquisition run history: 15
-- Source yield rows: 50
+- Source yield rows: 52
 - Identities: 1870
 - Category coverage labels: 5/11
 - Release useful creators: 2
@@ -72,22 +72,22 @@ Complete: false
 ## Checks
 
 - seed_intake: pass (1900 accounts ingested)
-- video_metadata: pass (20 videos ingested)
-- graph_edges: pass (52 graph edges generated)
+- video_metadata: pass (26 videos ingested)
+- graph_edges: pass (102 graph edges generated)
 - scoring_coverage: pass (1900/1900 accounts scored)
 - review_queue: pass (1900 accounts queued for review)
 - review_sample: pass (250 sampled accounts ready for review)
 - review_packet: pass (250 review packet rows, 250 decision template rows, 1 batches)
 - review_plan: pass (11 category review plan rows generated)
-- expansion_queue: pass (27 expansion targets queued)
-- adjacency_expansion: pass (27 enriched expansion rows (20 added))
-- acquisition_batches: pass (91 acquisition tasks generated)
-- candidate_frontier: pass (86 ranked acquisition candidates generated)
-- acquisition_import_preview: pass (1894 preview accounts, import gate ready)
-- acquisition_import_waves: pass (11 acquisition import waves tracked)
+- expansion_queue: pass (28 expansion targets queued)
+- adjacency_expansion: pass (28 enriched expansion rows (21 added))
+- acquisition_batches: pass (92 acquisition tasks generated)
+- candidate_frontier: pass (87 ranked acquisition candidates generated)
+- acquisition_import_preview: pass (1895 preview accounts, import gate ready)
+- acquisition_import_waves: pass (13 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (15 acquisition run history rows persisted)
-- source_yield: pass (50 source/query yield rows generated)
+- source_yield: pass (52 source/query yield rows generated)
 - identity_resolution: pass (1870 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)
 - release_package: pass (2 useful creators exported for release)

@@ -1,15 +1,15 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T00:49:46.162Z
+Generated: 2026-06-13T01:27:45.192Z
 
-- Candidates: 86
+- Candidates: 87
 - Handle targets: 7
-- Query targets: 79
+- Query targets: 80
 - Known account targets: 7
 
 ## Surfaces
 
-- search_index: 15
+- search_index: 16
 - tiktok_hashtag_export: 19
 - cross_platform_search: 8
 - category_gap_search: 37
@@ -23,9 +23,9 @@ Generated: 2026-06-13T00:49:46.162Z
 - vfx_animation: 11
 - editor: 3
 - actor_performer: 6
+- unclassified: 15
 - standup_comedian: 7
 - director: 4
-- unclassified: 14
 - behind_the_scenes_creator: 6
 - film_educator: 4
 - creative_technologist: 6
@@ -54,8 +54,8 @@ Generated: 2026-06-13T00:49:46.162Z
 | 18 | 80 | 1 | search_query | search_index | editor | site:tiktok.com/@ "video editor" |
 | 19 | 80 | 1 | query | tiktok_hashtag_export | vfx_animation | vfxartist |
 | 20 | 78 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
-| 21 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actor performer" |
-| 22 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actor" |
-| 23 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actress" |
-| 24 | 75 | 1 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "comedian" |
-| 25 | 75 | 1 | search_query | category_gap_search | director | site:tiktok.com/@ "commercial director" |
+| 21 | 78 | 1 | query | search_index | unclassified | review_queue_priority_1 |
+| 22 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actor performer" |
+| 23 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actor" |
+| 24 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actress" |
+| 25 | 75 | 1 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "comedian" |

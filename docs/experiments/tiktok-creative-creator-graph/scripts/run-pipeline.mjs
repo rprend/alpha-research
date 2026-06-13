@@ -198,6 +198,7 @@ function normalizeRows(rows) {
       follower_count: toNumber(row.follower_count ?? row.followers),
       following_count: toNumber(row.following_count ?? row.following),
       likes_count: toNumber(row.likes_count ?? row.hearts ?? row.likes),
+      video_count: toNumber(row.video_count ?? row.public_profile_video_count ?? row.videos_count),
       verified: Boolean(row.verified === true || row.verified === 'true'),
       bio_links: asArray(row.bio_links ?? row.external_links ?? row.link),
       status: 'candidate',
@@ -215,6 +216,7 @@ function normalizeRows(rows) {
     account.avatar_url ||= row.avatar_url ?? row.avatar ?? ''
     account.follower_count = Math.max(account.follower_count, toNumber(row.follower_count ?? row.followers))
     account.likes_count = Math.max(account.likes_count, toNumber(row.likes_count ?? row.hearts ?? row.likes))
+    account.video_count = Math.max(toNumber(account.video_count), toNumber(row.video_count ?? row.public_profile_video_count ?? row.videos_count))
     account.bio_links = Array.from(new Set([...account.bio_links, ...asArray(row.bio_links ?? row.external_links ?? row.link)]))
     account.source_files.add(row._source_file)
     const sourceLabels = [
@@ -369,6 +371,8 @@ function classifyAndScore(accounts, videos, edges, rubric) {
     const highRankSource = rankedEditorialSource && bestSourceRank <= 25
     const midRankSource = rankedEditorialSource && bestSourceRank <= 75
     const hasAudienceEvidence = Number(account.follower_count ?? 0) > 0
+    const publicProfileVideoCount = toNumber(account.video_count)
+    const hasPublicProfileActivity = publicProfileVideoCount > 0
     const recentDays = account.last_post_at ? daysSince(account.last_post_at) : Infinity
     const videoCount = creatorVideos.length
     const uniqueHashtags = new Set(creatorVideos.flatMap((video) => video.hashtags).filter((tag) => !rubric.low_signal_hashtags.includes(tag))).size
@@ -410,13 +414,13 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       ? Math.max(0, 25 - rejectHits.length * 10)
       : Math.min(100, 45 + keywordHits(text, originalSignals).length * 12 + (creatorVideos.some((video) => String(video.sound_id).startsWith('original')) ? 12 : 0) + (highRankSource ? 8 : 0))
     const creativeSignal = primaryLabel === 'reject' ? 8 : Math.min(100, creativeHits.length * 12 + uniqueHashtags * 5 + Math.min(20, videoCount * 5) + (sourcePrimaryLabel ? 14 : 0) + (highRankSource ? 12 : midRankSource ? 6 : 0))
-    const consistency = Math.min(100, videoCount * 28 + (rankedEditorialSource ? 18 : 0) + (sourceCount > 1 ? 10 : 0))
+    const consistency = Math.min(100, videoCount * 28 + Math.min(42, publicProfileVideoCount / 12) + (rankedEditorialSource ? 18 : 0) + (sourceCount > 1 ? 10 : 0))
     const recency = recentDays === Infinity ? 0 : Math.max(0, Math.min(100, 100 - (recentDays / rubric.thresholds.recent_days) * 100))
     const graphValue = Math.min(100, creatorEdges.length * 11 + creatorVideos.flatMap((video) => video.mentions).length * 8 + (sourceCount > 1 ? 16 : 0))
     const crossPlatformEvidence = Math.min(100, crossPlatform * 35)
     const publicSourceEvidence = primaryLabel === 'reject'
       ? 0
-      : Math.min(100, (rankedEditorialSource ? 35 : 0) + (highRankSource ? 20 : 0) + Math.min(25, sourceCount * 8) + (hasAudienceEvidence ? 10 : 0))
+      : Math.min(100, (rankedEditorialSource ? 35 : 0) + (highRankSource ? 20 : 0) + Math.min(25, sourceCount * 8) + (hasAudienceEvidence ? 8 : 0) + (hasPublicProfileActivity ? 16 : 0))
     const repostRisk = Math.min(100, rejectHits.length * 35 + (text.includes('credit to owner') ? 45 : 0) + (/\bclips?\b/i.test(text) ? 30 : 0))
     const weighted = (
       creativeSignal * rubric.weights.creative_signal
@@ -463,6 +467,7 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       graph_value: Math.round(graphValue),
       cross_platform_evidence: Math.round(crossPlatformEvidence),
       public_source_evidence: Math.round(publicSourceEvidence),
+      public_profile_video_count: publicProfileVideoCount,
       repost_risk: Math.round(repostRisk),
       overall_usefulness: Math.round(overallUsefulness),
       status,

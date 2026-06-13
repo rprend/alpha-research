@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-13T00:49:46.061Z",
-  "tasks": 91,
+  "generated_at": "2026-06-13T01:27:45.143Z",
+  "tasks": 92,
   "useful_creators_available_for_expansion": 7,
-  "source_yield_rows": 50,
+  "source_yield_rows": 52,
   "category_coverage_rows": 11,
   "priority_counts": {
-    "1": 61,
+    "1": 62,
     "2": 28,
     "3": 2
   },
   "surface_counts": {
     "category_gap_search": 37,
+    "search_index": 16,
     "tiktok_creator_neighborhood_export": 7,
     "tiktok_hashtag_export": 24,
-    "search_index": 15,
     "cross_platform_search": 8
   },
   "target_label_counts": {
@@ -23,7 +23,7 @@
     "actor_performer": 6,
     "film_educator": 4,
     "behind_the_scenes_creator": 6,
-    "unclassified": 19,
+    "unclassified": 20,
     "filmmaker": 11,
     "sketch_comedian": 10,
     "vfx_animation": 12,

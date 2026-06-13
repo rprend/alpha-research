@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-13T00:49:47.895Z",
+  "generated_at": "2026-06-13T01:27:46.029Z",
   "complete": false,
   "counts": {
     "accounts": 1900,
-    "videos": 20,
-    "edges": 52,
+    "videos": 26,
+    "edges": 102,
     "useful_accounts": 7,
     "excellent_accounts": 6,
     "rejected_accounts": 2,
@@ -19,21 +19,21 @@
     "review_blank_decisions": 0,
     "accepted_creators": 2,
     "benchmark_creators": 1,
-    "expansion_queue": 27,
-    "adjacency_expansion_rows": 27,
-    "adjacency_expansion_added_rows": 20,
-    "acquisition_tasks": 91,
-    "candidate_frontier": 86,
+    "expansion_queue": 28,
+    "adjacency_expansion_rows": 28,
+    "adjacency_expansion_added_rows": 21,
+    "acquisition_tasks": 92,
+    "candidate_frontier": 87,
     "candidate_frontier_handles": 7,
-    "candidate_frontier_queries": 79,
-    "acquisition_import_preview_accounts": 1894,
+    "candidate_frontier_queries": 80,
+    "acquisition_import_preview_accounts": 1895,
     "acquisition_import_preview_ready": true,
-    "acquisition_import_waves": 11,
+    "acquisition_import_waves": 13,
     "acquisition_runner_tasks": 2,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 15,
-    "source_yield_rows": 50,
+    "source_yield_rows": 52,
     "identities": 1870,
     "category_coverage_labels": 11,
     "category_coverage_covered_labels": 5,
@@ -75,12 +75,12 @@
     {
       "id": "video_metadata",
       "status": "pass",
-      "evidence": "20 videos ingested"
+      "evidence": "26 videos ingested"
     },
     {
       "id": "graph_edges",
       "status": "pass",
-      "evidence": "52 graph edges generated"
+      "evidence": "102 graph edges generated"
     },
     {
       "id": "scoring_coverage",
@@ -110,32 +110,32 @@
     {
       "id": "expansion_queue",
       "status": "pass",
-      "evidence": "27 expansion targets queued"
+      "evidence": "28 expansion targets queued"
     },
     {
       "id": "adjacency_expansion",
       "status": "pass",
-      "evidence": "27 enriched expansion rows (20 added)"
+      "evidence": "28 enriched expansion rows (21 added)"
     },
     {
       "id": "acquisition_batches",
       "status": "pass",
-      "evidence": "91 acquisition tasks generated"
+      "evidence": "92 acquisition tasks generated"
     },
     {
       "id": "candidate_frontier",
       "status": "pass",
-      "evidence": "86 ranked acquisition candidates generated"
+      "evidence": "87 ranked acquisition candidates generated"
     },
     {
       "id": "acquisition_import_preview",
       "status": "pass",
-      "evidence": "1894 preview accounts, import gate ready"
+      "evidence": "1895 preview accounts, import gate ready"
     },
     {
       "id": "acquisition_import_waves",
       "status": "pass",
-      "evidence": "11 acquisition import waves tracked"
+      "evidence": "13 acquisition import waves tracked"
     },
     {
       "id": "acquisition_runner",
@@ -150,7 +150,7 @@
     {
       "id": "source_yield",
       "status": "pass",
-      "evidence": "50 source/query yield rows generated"
+      "evidence": "52 source/query yield rows generated"
     },
     {
       "id": "identity_resolution",

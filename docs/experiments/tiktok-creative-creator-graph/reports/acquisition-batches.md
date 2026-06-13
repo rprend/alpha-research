@@ -1,16 +1,16 @@
 # Acquisition Batches
 
-Generated: 2026-06-13T00:49:46.061Z
+Generated: 2026-06-13T01:27:45.143Z
 
-- Tasks: 91
+- Tasks: 92
 - Useful creators available for expansion: 7
 
 ## Surfaces
 
 - category_gap_search: 37
+- search_index: 16
 - tiktok_creator_neighborhood_export: 7
 - tiktok_hashtag_export: 24
-- search_index: 15
 - cross_platform_search: 8
 
 ## Target Labels
@@ -21,7 +21,7 @@ Generated: 2026-06-13T00:49:46.061Z
 - actor_performer: 6
 - film_educator: 4
 - behind_the_scenes_creator: 6
-- unclassified: 19
+- unclassified: 20
 - filmmaker: 11
 - sketch_comedian: 10
 - vfx_animation: 12
@@ -30,7 +30,7 @@ Generated: 2026-06-13T00:49:46.061Z
 
 ## Priority Counts
 
-- P1: 61
+- P1: 62
 - P2: 28
 - P3: 2
 

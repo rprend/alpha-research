@@ -1,0 +1,1510 @@
+{
+  "generated_at": "2026-06-13T01:26:11.139Z",
+  "execution_id": "2026-06-13T01-25-37-893Z",
+  "provider": "tiktok_public_profile_html",
+  "dry_run": false,
+  "selected_profiles": 100,
+  "output_rows": 85,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl",
+  "succeeded_profiles": 85,
+  "failed_profiles": 15,
+  "first_rows": [
+    {
+      "handle": "@lucybits",
+      "display_name": "Lucy Bits",
+      "bio": "",
+      "profile_url": "https://www.tiktok.com/@lucybits",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/7323954131071303685~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=a3f2735f&x-expires=1781485200&x-signature=LUy0CAKU9U%2FWVaVy6YcrfdeAWFw%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 0,
+      "following_count": 0,
+      "likes_count": 0,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_1",
+      "source_url": "https://www.tiktok.com/@lucybits",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 0,
+      "prior_usefulness": 83
+    },
+    {
+      "handle": "@mycanimationsextra",
+      "display_name": "mycanimations",
+      "bio": "Hi,welcome!😊❤Follow my insta: @_myca.mae\nFor New YouTube ⬇",
+      "profile_url": "https://www.tiktok.com/@mycanimationsextra",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/3c75f47b64506da65dccfafbdbd7aa48~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=cd82e8e2&x-expires=1781485200&x-signature=vSnBtRiUBQPBtLIYMyFYejr%2FSrk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 2430856,
+      "following_count": 141,
+      "likes_count": 141622908,
+      "verified": false,
+      "bio_links": [
+        "https://www.instagram.com/_myca.mae?igsh=MXU3bnl4czdnY2RsOA%3D%3D&utm_source=qr"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@mycanimationsextra",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 209,
+      "prior_usefulness": 41
+    },
+    {
+      "handle": "@vector_editing__",
+      "display_name": "vector art❤️",
+      "bio": "pubg logo ,manulplation\noutline❤vector art😍\nfollow me on Instagram ❤😍",
+      "profile_url": "https://www.tiktok.com/@vector_editing__",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/c95cf73d51a2bb260dd8b64bc0b5e07e~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=5805e782&x-expires=1781485200&x-signature=EeLlDNBTR05VZ3GdaHpSYp35gKs%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 4194,
+      "following_count": 502,
+      "likes_count": 6871,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@vector_editing__",
+      "target_label": "editor",
+      "source_target_labels": [
+        "editor"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 15,
+      "prior_usefulness": 41
+    },
+    {
+      "handle": "@joshvfx",
+      "display_name": "JoshVFX",
+      "bio": "VFX Artist",
+      "profile_url": "https://www.tiktok.com/@joshvfx",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/08c2035b89e3a4b75bd5a6dfe2513769~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=7f4d27f3&x-expires=1781485200&x-signature=h86YIk20q%2BrbYaILvNB1UM784Eg%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 9504835,
+      "following_count": 1087,
+      "likes_count": 188028915,
+      "verified": true,
+      "bio_links": [
+        "youtube.com/@JoshVFX"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@joshvfx",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 183,
+      "prior_usefulness": 39
+    },
+    {
+      "handle": "@kaileemcoleman",
+      "display_name": "Kailee Coleman Books",
+      "bio": "She/Her\nSelf-Published author! Buy Books here! ⬇",
+      "profile_url": "https://www.tiktok.com/@kaileemcoleman",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/17705cffec09392895749ae94a379c2e~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=add2308b&x-expires=1781485200&x-signature=kE2kvPo7A0a%2F%2FSLPHGNCablO9Bc%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 162299,
+      "following_count": 2000,
+      "likes_count": 7866832,
+      "verified": false,
+      "bio_links": [
+        "https://linktr.ee/Kcolemanbooks"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@kaileemcoleman",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 943,
+      "prior_usefulness": 39
+    },
+    {
+      "handle": "@jonthecomedian",
+      "display_name": "Jon",
+      "bio": "AND 👇🏽",
+      "profile_url": "https://www.tiktok.com/@jonthecomedian",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/e54ebe6b6303fe49cfed62696beaa8c5~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=b6b32b8f&x-expires=1781485200&x-signature=do6qApccD6UJkVrc6OlMe%2BH2EJE%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 736954,
+      "following_count": 518,
+      "likes_count": 27358089,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@jonthecomedian",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 1722,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@lindamarric",
+      "display_name": "Linda Marric | Film Critic",
+      "bio": "Journalist, writer , Film Critic and Broadcaster",
+      "profile_url": "https://www.tiktok.com/@lindamarric",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/7881983753dca52aa237fd3df2473c1c~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=53d1b0e7&x-expires=1781485200&x-signature=A4WtnR2KfQg4E0hGnvCRLYb6XpA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 3428,
+      "following_count": 1827,
+      "likes_count": 9483,
+      "verified": false,
+      "bio_links": [
+        "https://www.vinted.co.uk/member/83360339-lindamarric"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@lindamarric",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 503,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@jamesmarriott",
+      "display_name": "James Marriott",
+      "bio": "listen to my music",
+      "profile_url": "https://www.tiktok.com/@jamesmarriott",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/271a896344b47c6a9c745f68bc9b0ef9~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=f2f57014&x-expires=1781485200&x-signature=eT3W4eSVcJ4hSyE2BCvjRYLAZnk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1088692,
+      "following_count": 841,
+      "likes_count": 32826430,
+      "verified": true,
+      "bio_links": [
+        "lnk.to/jamesmarriottbio"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@jamesmarriott",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 540,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@darriangerard",
+      "display_name": "Darrian Gerard",
+      "bio": "BC 🇨🇦",
+      "profile_url": "https://www.tiktok.com/@darriangerard",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/c4427bc297bd701bec51314c3d6a1f83~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=a4f81a27&x-expires=1781485200&x-signature=0pA%2BJDuMIcdA4TQVJ109Hs%2F%2B8hY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 43002,
+      "following_count": 279,
+      "likes_count": 576049,
+      "verified": false,
+      "bio_links": [
+        "linktree.com/darriangerard"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@darriangerard",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 442,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@bravekidpress",
+      "display_name": "Children’s Author",
+      "bio": "Mom | Author | Advocate\nBuy Kid Books & Journals 👇🏽\nbravekidpressauthor.com",
+      "profile_url": "https://www.tiktok.com/@bravekidpress",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/7350538335430901802~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=d42de374&x-expires=1781485200&x-signature=9u3lcx0ioXiiTRLjBb9v6XLi%2Bik%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 365,
+      "following_count": 149,
+      "likes_count": 1036,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@bravekidpress",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 80,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@kyndallharrisofficial",
+      "display_name": "Kyndall Harris",
+      "bio": "Go For Your Dreams✨",
+      "profile_url": "https://www.tiktok.com/@kyndallharrisofficial",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/6c9bd19de35fe604d9f1d2703d5352f2~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=39b9cce9&x-expires=1781485200&x-signature=ejUSzFrxRtij%2FboxNoiZbmKgq3c%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 35631,
+      "following_count": 323,
+      "likes_count": 388075,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@kyndallharrisofficial",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 57,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@jawntybrown",
+      "display_name": "jawntybrown",
+      "bio": "Snapchat: musicalartist1\n\nLooking for more drummers in the state of Washington",
+      "profile_url": "https://www.tiktok.com/@jawntybrown",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/7350617439593300011~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=21eb7264&x-expires=1781485200&x-signature=XXRX%2BQxaNSPdXnO3noBvV%2B3UMAM%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 12476,
+      "following_count": 211,
+      "likes_count": 75313,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@jawntybrown",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 78,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@authorcarriea",
+      "display_name": "Carrie Aarons",
+      "bio": "Romance author who runs on vanilla lattes\nRead my spicy books👇🏻",
+      "profile_url": "https://www.tiktok.com/@authorcarriea",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e61cffcaa499217ee545ae065d242227~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=f9571d6b&x-expires=1781485200&x-signature=OTfk4qtg%2Bn4rvvlLZJcVO4%2BouIs%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 116496,
+      "following_count": 69,
+      "likes_count": 2588714,
+      "verified": false,
+      "bio_links": [
+        "https://linktr.ee/authorcarriea"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@authorcarriea",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 2508,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@lab_shenanigans",
+      "display_name": "Darrion Nguyen",
+      "bio": "former scientist turned fashion design student",
+      "profile_url": "https://www.tiktok.com/@lab_shenanigans",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/6dbcf4d826143f9897b8673aa4721761~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=5c6ace8b&x-expires=1781485200&x-signature=YjCacGg8Q%2BIU2gz6hW5c2uzU9jM%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 501675,
+      "following_count": 429,
+      "likes_count": 18169950,
+      "verified": true,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@lab_shenanigans",
+      "target_label": "cinematographer",
+      "source_target_labels": [
+        "cinematographer"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 430,
+      "prior_usefulness": 38
+    },
+    {
+      "handle": "@ben_brainard",
+      "display_name": "Ben Brainard",
+      "bio": "30 // L.A. // Comedian // “The States Guy”\n\nTour dates below:",
+      "profile_url": "https://www.tiktok.com/@ben_brainard",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/7319753794944761898~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=ce1c960a&x-expires=1781485200&x-signature=chirCb12vZO%2F4SRKgod%2F5P2MCRo%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 2947385,
+      "following_count": 1937,
+      "likes_count": 213890896,
+      "verified": true,
+      "bio_links": [
+        "View.ws/benbrainard"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@ben_brainard",
+      "target_label": "standup_comedian",
+      "source_target_labels": [
+        "standup_comedian"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 1508,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@theofficialsambailey",
+      "display_name": "Sam Bailey",
+      "bio": "❗2.4 Million Followers on Facebook ❗Over 5 Million Followers total!\nLumbee from Pembroke NC",
+      "profile_url": "https://www.tiktok.com/@theofficialsambailey",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/2e4c8bdac54cd0c37cfabdbf82f13883~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=c7d2d248&x-expires=1781485200&x-signature=ei5uHAsrK4PkFXTDPqPzgYGNFhY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1991028,
+      "following_count": 1334,
+      "likes_count": 21949774,
+      "verified": false,
+      "bio_links": [
+        "https://www.cameo.com/theofficialsambailey"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@theofficialsambailey",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 5262,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@gigglysquad",
+      "display_name": "GIGGLY SQUAD",
+      "bio": "giggling podcast pyramid scheme w/\nHannah Berner & Paige DeSorbo\n\n⬇LISTEN TO THE POD⬇",
+      "profile_url": "https://www.tiktok.com/@gigglysquad",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/d2c04ec884abffdfcda7a07b639351ca~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=bdf74c07&x-expires=1781485200&x-signature=CWzrNdPu2NxPNAug9JL%2FoCxunXk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 574801,
+      "following_count": 3,
+      "likes_count": 24754814,
+      "verified": false,
+      "bio_links": [
+        "https://linktr.ee/gigglysquad"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@gigglysquad",
+      "target_label": "sketch_comedian",
+      "source_target_labels": [
+        "sketch_comedian"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 720,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@frankjamesbailey",
+      "display_name": "Frank James Bailey",
+      "bio": "I'm a published author of 8 novels and 8 comics. One Author. Infinite Worlds!",
+      "profile_url": "https://www.tiktok.com/@frankjamesbailey",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/6571dda33015f7ee20efae24f0163fc5~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=4e31b404&x-expires=1781485200&x-signature=F7KNMAsMOn%2FOozfcd4qFIWgoFHk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 9299,
+      "following_count": 2142,
+      "likes_count": 105654,
+      "verified": false,
+      "bio_links": [
+        "www.linktr.ee/FrankJamesBailey"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@frankjamesbailey",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 2224,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@aidantoksfilm",
+      "display_name": "Aidan Toks Film",
+      "bio": "A place for me to discuss and recommend films",
+      "profile_url": "https://www.tiktok.com/@aidantoksfilm",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/805ab50471ab06957a1ac669d46194ea~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=ba4b1875&x-expires=1781485200&x-signature=ij5q3Z6qAfvfwra6%2BUVN%2FUg3JGo%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 7361,
+      "following_count": 84,
+      "likes_count": 469518,
+      "verified": false,
+      "bio_links": [
+        "https://boxd.it/2qrjv"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@aidantoksfilm",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 67,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@priteshdesai41",
+      "display_name": "PJ Cards & Breaks",
+      "bio": "Venmo: Pritesh_desai100",
+      "profile_url": "https://www.tiktok.com/@priteshdesai41",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/3c33a02536c15adc65b102d7afc0bc4f~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=b60803e1&x-expires=1781485200&x-signature=HOOBOIDo6NHKsUIgecgAMruI%2FUg%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1843,
+      "following_count": 2195,
+      "likes_count": 13282,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@priteshdesai41",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 441,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@digitalartsai",
+      "display_name": "The digital Artist",
+      "bio": "Je choisi vos commentaires pour qu'une IA la génère pour vous !\n🤖🧠💻",
+      "profile_url": "https://www.tiktok.com/@digitalartsai",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/1d90d388a556e99527c7a3396089f5f5~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=92186837&x-expires=1781485200&x-signature=i%2FDk73YC4oveZug5nz3HCkNY3pY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 28851,
+      "following_count": 660,
+      "likes_count": 682420,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@digitalartsai",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 65,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@artisticxdigitalart",
+      "display_name": "outlines",
+      "bio": "yes i trace, fight me\n\n(im open for commissions)",
+      "profile_url": "https://www.tiktok.com/@artisticxdigitalart",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/7323796216381177858~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=e31fa872&x-expires=1781485200&x-signature=WNtrTHDEZF3bPt8a%2FQOImFO6fBw%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 8402,
+      "following_count": 0,
+      "likes_count": 212246,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@artisticxdigitalart",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 66,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@laianaisabel",
+      "display_name": "laiisa | Design & Illustration",
+      "bio": "✨Graphic Design, Illustrations & Lifestyle✨",
+      "profile_url": "https://www.tiktok.com/@laianaisabel",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/c25e13ffc6ce4b4fb87543608e16d7df~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=7022abb0&x-expires=1781485200&x-signature=El3ubrm8WiYfQX33SZoaxuFSeZo%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 3316,
+      "following_count": 2774,
+      "likes_count": 52658,
+      "verified": false,
+      "bio_links": [
+        "https://contra.com/laiana_isabel"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@laianaisabel",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 457,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@maurapaintsfood",
+      "display_name": "maura! 🌟 IG: maurakspain",
+      "bio": "mpls & nyc\n23! art / food / small content\nshop and $7 print club ⇩",
+      "profile_url": "https://www.tiktok.com/@maurapaintsfood",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/d061e0646b375d5c936e2cfe435ede23~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=d5f38147&x-expires=1781485200&x-signature=6WB6iXRc5s955Nt22Cu0bOxBsaA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 155162,
+      "following_count": 546,
+      "likes_count": 3675813,
+      "verified": false,
+      "bio_links": [
+        "maurakspain.com/pages/links"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@maurapaintsfood",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 1509,
+      "prior_usefulness": 36
+    },
+    {
+      "handle": "@clairebuckleyart",
+      "display_name": "Claire Buckley",
+      "bio": "✿ brooklyn/catskills artist ✿\nprints and originals ↓",
+      "profile_url": "https://www.tiktok.com/@clairebuckleyart",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/7d77004228140cbea0537d75918eb1e2~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=471a29b1&x-expires=1781485200&x-signature=xfblAdBSTP7U8HNXRWanfQr848Y%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 42931,
+      "following_count": 170,
+      "likes_count": 1689640,
+      "verified": false,
+      "bio_links": [
+        "clairebuckley.com"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@clairebuckleyart",
+      "target_label": "vfx_animation",
+      "source_target_labels": [
+        "vfx_animation"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-25-37-893Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-25-37-893Z",
+      "videos": [],
+      "public_profile_video_count": 656,
+      "prior_usefulness": 36
+    }
+  ],
+  "profiles": [
+    {
+      "handle": "@maya.shortcuts",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_1",
+      "prior_usefulness": 98,
+      "started_at": "2026-06-13T01:25:37.909Z",
+      "finished_at": "2026-06-13T01:25:38.399Z"
+    },
+    {
+      "handle": "@basementbits",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_1",
+      "prior_usefulness": 92,
+      "started_at": "2026-06-13T01:25:38.399Z",
+      "finished_at": "2026-06-13T01:25:38.633Z"
+    },
+    {
+      "handle": "@selahshoots",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_1",
+      "prior_usefulness": 91,
+      "started_at": "2026-06-13T01:25:38.633Z",
+      "finished_at": "2026-06-13T01:25:38.882Z"
+    },
+    {
+      "handle": "@ani.motionlab",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_1",
+      "prior_usefulness": 87,
+      "started_at": "2026-06-13T01:25:38.882Z",
+      "finished_at": "2026-06-13T01:25:39.146Z"
+    },
+    {
+      "handle": "@noahframes",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_1",
+      "prior_usefulness": 86,
+      "started_at": "2026-06-13T01:25:39.146Z",
+      "finished_at": "2026-06-13T01:25:39.408Z"
+    },
+    {
+      "handle": "@lucybits",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_1",
+      "prior_usefulness": 83,
+      "started_at": "2026-06-13T01:25:39.408Z",
+      "finished_at": "2026-06-13T01:25:39.698Z"
+    },
+    {
+      "handle": "@renderjules",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 78,
+      "started_at": "2026-06-13T01:25:39.698Z",
+      "finished_at": "2026-06-13T01:25:39.931Z"
+    },
+    {
+      "handle": "@mycanimationsextra",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 41,
+      "started_at": "2026-06-13T01:25:39.931Z",
+      "finished_at": "2026-06-13T01:25:40.212Z"
+    },
+    {
+      "handle": "@vector_editing__",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 41,
+      "started_at": "2026-06-13T01:25:40.212Z",
+      "finished_at": "2026-06-13T01:25:40.565Z"
+    },
+    {
+      "handle": "@manga.green.anima",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 40,
+      "started_at": "2026-06-13T01:25:40.565Z",
+      "finished_at": "2026-06-13T01:25:40.769Z"
+    },
+    {
+      "handle": "@joshvfx",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 39,
+      "started_at": "2026-06-13T01:25:40.769Z",
+      "finished_at": "2026-06-13T01:25:41.072Z"
+    },
+    {
+      "handle": "@kaileemcoleman",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 39,
+      "started_at": "2026-06-13T01:25:41.072Z",
+      "finished_at": "2026-06-13T01:25:41.504Z"
+    },
+    {
+      "handle": "@jonthecomedian",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:41.504Z",
+      "finished_at": "2026-06-13T01:25:41.742Z"
+    },
+    {
+      "handle": "@lindamarric",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:41.742Z",
+      "finished_at": "2026-06-13T01:25:42.101Z"
+    },
+    {
+      "handle": "@jamesmarriott",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:42.101Z",
+      "finished_at": "2026-06-13T01:25:42.551Z"
+    },
+    {
+      "handle": "@darriangerard",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:42.551Z",
+      "finished_at": "2026-06-13T01:25:42.878Z"
+    },
+    {
+      "handle": "@carrieannryan",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:42.878Z",
+      "finished_at": "2026-06-13T01:25:43.139Z"
+    },
+    {
+      "handle": "@bravekidpress",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:43.139Z",
+      "finished_at": "2026-06-13T01:25:43.490Z"
+    },
+    {
+      "handle": "@kyndallharrisofficial",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:43.490Z",
+      "finished_at": "2026-06-13T01:25:43.784Z"
+    },
+    {
+      "handle": "@jawntybrown",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:43.784Z",
+      "finished_at": "2026-06-13T01:25:44.125Z"
+    },
+    {
+      "handle": "@authorcarriea",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:44.125Z",
+      "finished_at": "2026-06-13T01:25:44.466Z"
+    },
+    {
+      "handle": "@lab_shenanigans",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 38,
+      "started_at": "2026-06-13T01:25:44.466Z",
+      "finished_at": "2026-06-13T01:25:44.764Z"
+    },
+    {
+      "handle": "@ben_brainard",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:44.764Z",
+      "finished_at": "2026-06-13T01:25:45.060Z"
+    },
+    {
+      "handle": "@theofficialsambailey",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:45.060Z",
+      "finished_at": "2026-06-13T01:25:45.459Z"
+    },
+    {
+      "handle": "@gigglysquad",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:45.459Z",
+      "finished_at": "2026-06-13T01:25:45.756Z"
+    },
+    {
+      "handle": "@frankjamesbailey",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:45.756Z",
+      "finished_at": "2026-06-13T01:25:46.221Z"
+    },
+    {
+      "handle": "@aidantoksfilm",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:46.221Z",
+      "finished_at": "2026-06-13T01:25:46.549Z"
+    },
+    {
+      "handle": "@priteshdesai41",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:46.549Z",
+      "finished_at": "2026-06-13T01:25:46.895Z"
+    },
+    {
+      "handle": "@digitalartsai",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:46.895Z",
+      "finished_at": "2026-06-13T01:25:47.272Z"
+    },
+    {
+      "handle": "@digital_archaeologist2.0",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:47.272Z",
+      "finished_at": "2026-06-13T01:25:47.798Z"
+    },
+    {
+      "handle": "@artisticxdigitalart",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:47.799Z",
+      "finished_at": "2026-06-13T01:25:48.318Z"
+    },
+    {
+      "handle": "@raiki.digitalart",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:48.318Z",
+      "finished_at": "2026-06-13T01:25:48.573Z"
+    },
+    {
+      "handle": "@laianaisabel",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:48.573Z",
+      "finished_at": "2026-06-13T01:25:49.023Z"
+    },
+    {
+      "handle": "@maurapaintsfood",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:49.023Z",
+      "finished_at": "2026-06-13T01:25:49.369Z"
+    },
+    {
+      "handle": "@clairebuckleyart",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:49.369Z",
+      "finished_at": "2026-06-13T01:25:49.893Z"
+    },
+    {
+      "handle": "@bluesoulartist",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:49.893Z",
+      "finished_at": "2026-06-13T01:25:50.417Z"
+    },
+    {
+      "handle": "@artistsofnewyork",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:50.417Z",
+      "finished_at": "2026-06-13T01:25:50.774Z"
+    },
+    {
+      "handle": "@electronicstandards",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:50.774Z",
+      "finished_at": "2026-06-13T01:25:51.050Z"
+    },
+    {
+      "handle": "@life_of_zaire",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:51.050Z",
+      "finished_at": "2026-06-13T01:25:51.465Z"
+    },
+    {
+      "handle": "@mo9ame",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:51.465Z",
+      "finished_at": "2026-06-13T01:25:51.827Z"
+    },
+    {
+      "handle": "@gamereviewskvm",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:51.827Z",
+      "finished_at": "2026-06-13T01:25:52.138Z"
+    },
+    {
+      "handle": "@rainykeyboard",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:52.138Z",
+      "finished_at": "2026-06-13T01:25:52.513Z"
+    },
+    {
+      "handle": "@eddracergames",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:52.513Z",
+      "finished_at": "2026-06-13T01:25:52.792Z"
+    },
+    {
+      "handle": "@_zaibuzai1",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:52.792Z",
+      "finished_at": "2026-06-13T01:25:53.081Z"
+    },
+    {
+      "handle": "@mobileboomer365",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:53.081Z",
+      "finished_at": "2026-06-13T01:25:53.563Z"
+    },
+    {
+      "handle": "@meghantrainor",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:53.563Z",
+      "finished_at": "2026-06-13T01:25:53.877Z"
+    },
+    {
+      "handle": "@xxclairoxx",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:53.877Z",
+      "finished_at": "2026-06-13T01:25:54.210Z"
+    },
+    {
+      "handle": "@a.villain_d.buehner",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:54.210Z",
+      "finished_at": "2026-06-13T01:25:54.611Z"
+    },
+    {
+      "handle": "@hainwald",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:54.611Z",
+      "finished_at": "2026-06-13T01:25:54.926Z"
+    },
+    {
+      "handle": "@nina.haines",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:54.926Z",
+      "finished_at": "2026-06-13T01:25:55.176Z"
+    },
+    {
+      "handle": "@breakthroughbooks",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:55.176Z",
+      "finished_at": "2026-06-13T01:25:55.394Z"
+    },
+    {
+      "handle": "@books4business",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:55.394Z",
+      "finished_at": "2026-06-13T01:25:55.660Z"
+    },
+    {
+      "handle": "@smallcasualbooktok",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:55.660Z",
+      "finished_at": "2026-06-13T01:25:55.926Z"
+    },
+    {
+      "handle": "@lauren_daigle",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:55.926Z",
+      "finished_at": "2026-06-13T01:25:56.190Z"
+    },
+    {
+      "handle": "@officialblanca",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:56.190Z",
+      "finished_at": "2026-06-13T01:25:56.458Z"
+    },
+    {
+      "handle": "@kimberly.loaiza",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:56.458Z",
+      "finished_at": "2026-06-13T01:25:56.711Z"
+    },
+    {
+      "handle": "@findthrillerbooks",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:56.711Z",
+      "finished_at": "2026-06-13T01:25:56.941Z"
+    },
+    {
+      "handle": "@spookycrimestory",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:56.941Z",
+      "finished_at": "2026-06-13T01:25:57.232Z"
+    },
+    {
+      "handle": "@authorpatricklogan",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:57.232Z",
+      "finished_at": "2026-06-13T01:25:57.585Z"
+    },
+    {
+      "handle": "@comedic.criming",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:57.585Z",
+      "finished_at": "2026-06-13T01:25:57.887Z"
+    },
+    {
+      "handle": "@book.of.crime",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:57.887Z",
+      "finished_at": "2026-06-13T01:25:58.186Z"
+    },
+    {
+      "handle": "@clairefraiseauthor",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:58.186Z",
+      "finished_at": "2026-06-13T01:25:58.522Z"
+    },
+    {
+      "handle": "@iain.benson.author",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:58.522Z",
+      "finished_at": "2026-06-13T01:25:58.804Z"
+    },
+    {
+      "handle": "@abigailkeam",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:58.804Z",
+      "finished_at": "2026-06-13T01:25:59.078Z"
+    },
+    {
+      "handle": "@createchaosgossiptoo",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:59.078Z",
+      "finished_at": "2026-06-13T01:25:59.342Z"
+    },
+    {
+      "handle": "@magic.maike",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:59.342Z",
+      "finished_at": "2026-06-13T01:25:59.669Z"
+    },
+    {
+      "handle": "@earlefambuilds",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:59.669Z",
+      "finished_at": "2026-06-13T01:25:59.858Z"
+    },
+    {
+      "handle": "@luca.lego",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:25:59.858Z",
+      "finished_at": "2026-06-13T01:26:00.378Z"
+    },
+    {
+      "handle": "@carlylego",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:00.378Z",
+      "finished_at": "2026-06-13T01:26:00.635Z"
+    },
+    {
+      "handle": "@thelegomommy",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:00.635Z",
+      "finished_at": "2026-06-13T01:26:00.904Z"
+    },
+    {
+      "handle": "@lego.george",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:00.904Z",
+      "finished_at": "2026-06-13T01:26:01.171Z"
+    },
+    {
+      "handle": "@authortessabailey",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:01.171Z",
+      "finished_at": "2026-06-13T01:26:01.476Z"
+    },
+    {
+      "handle": "@serenityraine_author",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:01.476Z",
+      "finished_at": "2026-06-13T01:26:01.952Z"
+    },
+    {
+      "handle": "@mangatoon_story",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:01.952Z",
+      "finished_at": "2026-06-13T01:26:02.318Z"
+    },
+    {
+      "handle": "@yoshiro_senpai",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:02.318Z",
+      "finished_at": "2026-06-13T01:26:02.604Z"
+    },
+    {
+      "handle": "@senpaisuperstar",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:02.604Z",
+      "finished_at": "2026-06-13T01:26:02.857Z"
+    },
+    {
+      "handle": "@youcancallmekait",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:02.857Z",
+      "finished_at": "2026-06-13T01:26:03.173Z"
+    },
+    {
+      "handle": "@forever_booked_",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:03.173Z",
+      "finished_at": "2026-06-13T01:26:04.049Z"
+    },
+    {
+      "handle": "@alyssareads_books",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:04.049Z",
+      "finished_at": "2026-06-13T01:26:04.452Z"
+    },
+    {
+      "handle": "@shhhmommysreading",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:04.452Z",
+      "finished_at": "2026-06-13T01:26:04.767Z"
+    },
+    {
+      "handle": "@bookfoxpress",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:04.767Z",
+      "finished_at": "2026-06-13T01:26:05.160Z"
+    },
+    {
+      "handle": "@inclusive_childrensbooks",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:05.160Z",
+      "finished_at": "2026-06-13T01:26:05.464Z"
+    },
+    {
+      "handle": "@wittykidsclub",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:05.464Z",
+      "finished_at": "2026-06-13T01:26:05.864Z"
+    },
+    {
+      "handle": "@fecundmaiden",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:05.864Z",
+      "finished_at": "2026-06-13T01:26:06.146Z"
+    },
+    {
+      "handle": "@polespiritparis",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:06.146Z",
+      "finished_at": "2026-06-13T01:26:06.481Z"
+    },
+    {
+      "handle": "@jarredjermaine",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:06.481Z",
+      "finished_at": "2026-06-13T01:26:06.781Z"
+    },
+    {
+      "handle": "@sickickmusic",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:06.781Z",
+      "finished_at": "2026-06-13T01:26:07.049Z"
+    },
+    {
+      "handle": "@wil.bailey",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:07.049Z",
+      "finished_at": "2026-06-13T01:26:07.284Z"
+    },
+    {
+      "handle": "@sweeettails",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:07.284Z",
+      "finished_at": "2026-06-13T01:26:07.602Z"
+    },
+    {
+      "handle": "@alia",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:07.602Z",
+      "finished_at": "2026-06-13T01:26:07.933Z"
+    },
+    {
+      "handle": "@daisyymichelle",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:07.933Z",
+      "finished_at": "2026-06-13T01:26:08.244Z"
+    },
+    {
+      "handle": "@tainoztv",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:08.244Z",
+      "finished_at": "2026-06-13T01:26:08.598Z"
+    },
+    {
+      "handle": "@mrwhosetheboss",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:08.598Z",
+      "finished_at": "2026-06-13T01:26:08.894Z"
+    },
+    {
+      "handle": "@insidersai",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:08.894Z",
+      "finished_at": "2026-06-13T01:26:09.182Z"
+    },
+    {
+      "handle": "@caimarsalizi",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:09.182Z",
+      "finished_at": "2026-06-13T01:26:09.551Z"
+    },
+    {
+      "handle": "@sbortztech",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:09.551Z",
+      "finished_at": "2026-06-13T01:26:09.888Z"
+    },
+    {
+      "handle": "@morgannbook",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:09.888Z",
+      "finished_at": "2026-06-13T01:26:10.191Z"
+    },
+    {
+      "handle": "@albixitobooks",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:10.191Z",
+      "finished_at": "2026-06-13T01:26:10.537Z"
+    },
+    {
+      "handle": "@booktokvietnam",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:10.537Z",
+      "finished_at": "2026-06-13T01:26:10.924Z"
+    },
+    {
+      "handle": "@aicenturyclips",
+      "status": "succeeded",
+      "selection_reason": "review_queue_priority_3",
+      "prior_usefulness": 36,
+      "started_at": "2026-06-13T01:26:10.924Z",
+      "finished_at": "2026-06-13T01:26:11.137Z"
+    }
+  ]
+}

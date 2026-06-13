@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T00:49:46.575Z
+Generated: 2026-06-13T01:27:45.396Z
 
 ## Targets
 
@@ -34,19 +34,19 @@ Generated: 2026-06-13T00:49:46.575Z
 | Rank | Surface | Query | Yield | Useful rate | Rejection rate |
 | ---: | --- | --- | ---: | ---: | ---: |
 | 1 | provider_video_export |  | 100 | 0.667 | 0.333 |
-| 2 | manual_seed | filmmaker short film editing breakdown | 95 | 1 | 0 |
-| 3 | manual_seed | cinematographer lighting breakdown | 87 | 1 | 0 |
-| 4 | manual_seed | vfx artist animation blender | 87 | 1 | 0 |
-| 5 | manual_seed | sketch comedian character comedy | 85 | 1 | 0 |
-| 6 | graph_expansion_fixture | mentioned by @ani.motionlab | 78 | 1 | 0 |
-| 7 | provider_video_export |  | 65 | 0.667 | 0.333 |
-| 8 | editorial_list | FeedSpot Top Digital Art TikTok Influencers 2026 | 44 | 0 | 0 |
-| 9 | editorial_list | FeedSpot Top New York Art TikTok Influencers 2026 | 44 | 0 | 0 |
-| 10 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 43 | 0 | 0 |
+| 2 | public_profile_enrichment | review_queue_priority_1 | 100 | 1 | 0 |
+| 3 | manual_seed | filmmaker short film editing breakdown | 95 | 1 | 0 |
+| 4 | manual_seed | cinematographer lighting breakdown | 87 | 1 | 0 |
+| 5 | manual_seed | vfx artist animation blender | 87 | 1 | 0 |
+| 6 | manual_seed | sketch comedian character comedy | 86 | 1 | 0 |
+| 7 | graph_expansion_fixture | mentioned by @ani.motionlab | 78 | 1 | 0 |
+| 8 | editorial_list | FeedSpot Top New York Art TikTok Influencers 2026 | 74 | 0 | 0 |
+| 9 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 73 | 0 | 0 |
+| 10 | editorial_list | FeedSpot Top Movie TikTok Influencers 2026 | 73 | 0 | 0 |
 
 ## Next Batches
 
-Candidate frontier targets: 86
+Candidate frontier targets: 87
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |
@@ -70,8 +70,8 @@ Candidate frontier targets: 86
 | 18 | 18 | 80 | 1 | search_index | site:tiktok.com/@ "video editor" |
 | 19 | 19 | 80 | 1 | tiktok_hashtag_export | vfxartist |
 | 20 | 20 | 78 | 1 | tiktok_hashtag_export | actor |
-| 21 | 21 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor performer" |
-| 22 | 22 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor" |
-| 23 | 23 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actress" |
-| 24 | 24 | 75 | 1 | category_gap_search | site:tiktok.com/@ "comedian" |
-| 25 | 25 | 75 | 1 | category_gap_search | site:tiktok.com/@ "commercial director" |
+| 21 | 21 | 78 | 1 | search_index | review_queue_priority_1 |
+| 22 | 22 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor performer" |
+| 23 | 23 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor" |
+| 24 | 24 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actress" |
+| 25 | 25 | 75 | 1 | category_gap_search | site:tiktok.com/@ "comedian" |

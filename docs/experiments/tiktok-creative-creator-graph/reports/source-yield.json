@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T00:49:45.316Z",
-  "sources": 50,
+  "generated_at": "2026-06-13T01:27:44.747Z",
+  "sources": 52,
   "best_sources": [
     {
       "source_type": "provider_video_export",
@@ -13,9 +13,24 @@
       "reviewed_creators": 1,
       "usefulness_rate": 0.667,
       "rejection_rate": 0.333,
-      "average_usefulness": 183,
+      "average_usefulness": 310,
       "yield_score": 100,
-      "top_labels": "filmmaker:3; sketch_comedian:3; reject:3"
+      "top_labels": "filmmaker:5; sketch_comedian:5; reject:5"
+    },
+    {
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "review_queue_priority_1",
+      "creators_seen": 1,
+      "useful_creators": 1,
+      "excellent_creators": 1,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 1,
+      "rejection_rate": 0,
+      "average_usefulness": 170,
+      "yield_score": 100,
+      "top_labels": "sketch_comedian:2"
     },
     {
       "source_type": "manual_seed",
@@ -73,8 +88,8 @@
       "reviewed_creators": 0,
       "usefulness_rate": 1,
       "rejection_rate": 0,
-      "average_usefulness": 83,
-      "yield_score": 85,
+      "average_usefulness": 85,
+      "yield_score": 86,
       "top_labels": "sketch_comedian:1"
     },
     {
@@ -93,36 +108,6 @@
       "top_labels": "creative_technologist:1"
     },
     {
-      "source_type": "provider_video_export",
-      "source_name": "acquisition-import-2026-06-12.jsonl",
-      "source_query": "",
-      "creators_seen": 3,
-      "useful_creators": 2,
-      "excellent_creators": 2,
-      "rejected_creators": 1,
-      "reviewed_creators": 1,
-      "usefulness_rate": 0.667,
-      "rejection_rate": 0.333,
-      "average_usefulness": 61,
-      "yield_score": 65,
-      "top_labels": "filmmaker:1; sketch_comedian:1; reject:1"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Digital Art TikTokers",
-      "source_query": "FeedSpot Top Digital Art TikTok Influencers 2026",
-      "creators_seen": 100,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 97.1,
-      "yield_score": 44,
-      "top_labels": "vfx_animation:297; editor:3"
-    },
-    {
       "source_type": "editorial_list",
       "source_name": "FeedSpot New York Art TikTokers",
       "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
@@ -133,9 +118,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 97.2,
-      "yield_score": 44,
-      "top_labels": "vfx_animation:114; creative_technologist:3; sketch_comedian:3; editor:3"
+      "average_usefulness": 164.9,
+      "yield_score": 74,
+      "top_labels": "vfx_animation:190; creative_technologist:5; sketch_comedian:5; editor:5"
     },
     {
       "source_type": "editorial_list",
@@ -148,56 +133,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 96.5,
-      "yield_score": 43,
-      "top_labels": "sketch_comedian:192; standup_comedian:96; cinematographer:3; director:3; editor:3"
-    }
-  ],
-  "weak_sources": [
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Digital Art TikTokers",
-      "source_query": "FeedSpot Top Digital Art TikTok Influencers 2026",
-      "creators_seen": 100,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 97.1,
-      "yield_score": 44,
-      "top_labels": "vfx_animation:297; editor:3"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot New York Art TikTokers",
-      "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
-      "creators_seen": 41,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 97.2,
-      "yield_score": 44,
-      "top_labels": "vfx_animation:114; creative_technologist:3; sketch_comedian:3; editor:3"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Comedy TikTokers",
-      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
-      "creators_seen": 99,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 96.5,
-      "yield_score": 43,
-      "top_labels": "sketch_comedian:192; standup_comedian:96; cinematographer:3; director:3; editor:3"
+      "average_usefulness": 162.5,
+      "yield_score": 73,
+      "top_labels": "sketch_comedian:320; standup_comedian:160; cinematographer:5; director:5; editor:5"
     },
     {
       "source_type": "editorial_list",
@@ -210,9 +148,71 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 96.6,
-      "yield_score": 43,
-      "top_labels": "filmmaker:276; director:6; cinematographer:3; editor:3"
+      "average_usefulness": 162.4,
+      "yield_score": 73,
+      "top_labels": "filmmaker:460; director:10; cinematographer:5; editor:5"
+    }
+  ],
+  "weak_sources": [
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot New York Art TikTokers",
+      "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
+      "creators_seen": 41,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 164.9,
+      "yield_score": 74,
+      "top_labels": "vfx_animation:190; creative_technologist:5; sketch_comedian:5; editor:5"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "creators_seen": 99,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 162.5,
+      "yield_score": 73,
+      "top_labels": "sketch_comedian:320; standup_comedian:160; cinematographer:5; director:5; editor:5"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Movie TikTokers",
+      "source_query": "FeedSpot Top Movie TikTok Influencers 2026",
+      "creators_seen": 96,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 162.4,
+      "yield_score": 73,
+      "top_labels": "filmmaker:460; director:10; cinematographer:5; editor:5"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Digital Art TikTokers",
+      "source_query": "FeedSpot Top Digital Art TikTok Influencers 2026",
+      "creators_seen": 100,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 162.8,
+      "yield_score": 73,
+      "top_labels": "vfx_animation:495; editor:5"
     },
     {
       "source_type": "editorial_list",
@@ -225,9 +225,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 96,
-      "yield_score": 43,
-      "top_labels": "filmmaker:45; editor:3"
+      "average_usefulness": 160,
+      "yield_score": 72,
+      "top_labels": "filmmaker:75; editor:5"
     },
     {
       "source_type": "editorial_list",
@@ -240,9 +240,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 96.3,
-      "yield_score": 43,
-      "top_labels": "creative_technologist:123; film_educator:6; filmmaker:6; standup_comedian:3; actor_performer:3"
+      "average_usefulness": 160.9,
+      "yield_score": 72,
+      "top_labels": "creative_technologist:205; film_educator:10; filmmaker:10; standup_comedian:5; actor_performer:5"
     },
     {
       "source_type": "editorial_list",
@@ -255,9 +255,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 96,
-      "yield_score": 43,
-      "top_labels": "filmmaker:3; editor:3"
+      "average_usefulness": 160,
+      "yield_score": 72,
+      "top_labels": "filmmaker:5; editor:5"
     },
     {
       "source_type": "editorial_list",
@@ -270,9 +270,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 95.9,
-      "yield_score": 43,
-      "top_labels": "behind_the_scenes_creator:276; film_educator:6; creative_technologist:3; director:3; editor:3"
+      "average_usefulness": 160.1,
+      "yield_score": 72,
+      "top_labels": "behind_the_scenes_creator:460; film_educator:10; creative_technologist:5; director:5; editor:5"
     },
     {
       "source_type": "editorial_list_seed",
@@ -285,9 +285,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 94.5,
-      "yield_score": 43,
-      "top_labels": "film_educator:9; filmmaker:9; cinematographer:3; vfx_animation:3"
+      "average_usefulness": 151.1,
+      "yield_score": 68,
+      "top_labels": "film_educator:15; filmmaker:15; cinematographer:5; vfx_animation:3"
     },
     {
       "source_type": "editorial_list_seed",
@@ -300,9 +300,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 89.3,
-      "yield_score": 40,
-      "top_labels": "filmmaker:9; cinematographer:6; vfx_animation:3; film_educator:3; behind_the_scenes_creator:3"
+      "average_usefulness": 148.8,
+      "yield_score": 67,
+      "top_labels": "filmmaker:15; cinematographer:10; vfx_animation:5; film_educator:5; behind_the_scenes_creator:5"
     }
   ],
   "total_seen": 1900
