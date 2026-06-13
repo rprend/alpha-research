@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:32:47.665Z",
+  "generated_at": "2026-06-13T01:38:11.585Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
@@ -73,18 +73,18 @@
     },
     {
       "rank": 5,
-      "source_type": "manual_seed",
-      "source_query": "filmmaker short film editing breakdown",
-      "yield_score": 95,
-      "usefulness_rate": 1,
+      "source_type": "editorial_list",
+      "source_query": "FeedSpot Top Horror TikTok Influencers 2026",
+      "yield_score": 100,
+      "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.1
     },
     {
       "rank": 6,
       "source_type": "editorial_list",
-      "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
-      "yield_score": 89,
+      "source_query": "FeedSpot Top Digital Art TikTok Influencers 2026",
+      "yield_score": 100,
       "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.1
@@ -92,35 +92,35 @@
     {
       "rank": 7,
       "source_type": "editorial_list",
-      "source_query": "FeedSpot Top Digital Art TikTok Influencers 2026",
-      "yield_score": 88,
+      "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
+      "yield_score": 100,
       "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.05
     },
     {
       "rank": 8,
-      "source_type": "manual_seed",
-      "source_query": "cinematographer lighting breakdown",
-      "yield_score": 87,
-      "usefulness_rate": 1,
+      "source_type": "editorial_list",
+      "source_query": "FeedSpot Top Music Technology TikTok Influencers 2026",
+      "yield_score": 100,
+      "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.05
     },
     {
       "rank": 9,
-      "source_type": "manual_seed",
-      "source_query": "vfx artist animation blender",
-      "yield_score": 87,
-      "usefulness_rate": 1,
+      "source_type": "editorial_list",
+      "source_query": "FeedSpot Top Barcelona Photography TikTok Influencers 2026",
+      "yield_score": 100,
+      "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.05
     },
     {
       "rank": 10,
       "source_type": "editorial_list",
-      "source_query": "FeedSpot Top Music Technology TikTok Influencers 2026",
-      "yield_score": 87,
+      "source_query": "FeedSpot Top Aviation TikTok Influencers 2026",
+      "yield_score": 100,
       "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.05

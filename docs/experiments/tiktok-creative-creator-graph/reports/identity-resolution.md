@@ -1,12 +1,12 @@
 # Identity Resolution
 
-Generated: 2026-06-13T01:32:47.234Z
+Generated: 2026-06-13T01:38:11.140Z
 
 - Accounts: 1900
 - Identities: 1870
 - Duplicate risk clusters: 23
-- Identity evidence rows: 5847
-- High-confidence external links: 149
+- Identity evidence rows: 5967
+- High-confidence external links: 269
 
 ## Duplicate Risk Queue
 
@@ -20,8 +20,8 @@ Generated: 2026-06-13T01:32:47.234Z
 | creator_identity_9b5bf099239b | 3 | @digitalart_queen; @livinglunacreations; @miss_ipkiss_reads | shared identity key |
 | creator_identity_8cdaa8016926 | 2 | @twan_graphic_design; @twanmvsic | shared identity key |
 | creator_identity_34cfe18e1721 | 2 | @kellydigitaldrawing; @kellyandbooks | shared identity key |
-| creator_identity_92d816204e69 | 2 | @artbysmashley; @ashleynoellereads | shared identity key |
-| creator_identity_db678f788004 | 2 | @pilotmaria; @curlyysenpai | shared identity key |
+| creator_identity_650a679edb5c | 2 | @artbysmashley; @ashleynoellereads | shared identity key |
+| creator_identity_63ee06049a85 | 2 | @pilotmaria; @curlyysenpai | shared identity key |
 | creator_identity_8ac7a7c4eb61 | 2 | @pilotdanielav; @daniel.walker_ | shared identity key |
 | creator_identity_bf5e27c8547c | 2 | @danielmartinilo; @darksotmusician | shared identity key |
 | creator_identity_1fbfa20d1d44 | 2 | @thesommerset; @kayreadwhat | shared identity key |

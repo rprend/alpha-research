@@ -1,2315 +1,3143 @@
 {
-  "generated_at": "2026-06-13T01:32:27.488Z",
-  "execution_id": "2026-06-13T01-31-21-859Z",
+  "generated_at": "2026-06-13T01:37:31.368Z",
+  "execution_id": "2026-06-13T01-35-53-442Z",
   "provider": "tiktok_public_profile_html",
   "dry_run": false,
   "include_attempted": false,
-  "selected_profiles": 200,
-  "output_rows": 185,
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T01-31-21-859Z-public-profile-enrichment.jsonl",
-  "succeeded_profiles": 185,
-  "failed_profiles": 15,
+  "selection_mode": "missing_video_count",
+  "selected_profiles": 300,
+  "output_rows": 252,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T01-35-53-442Z-public-profile-enrichment.jsonl",
+  "succeeded_profiles": 252,
+  "failed_profiles": 48,
   "first_rows": [
     {
-      "handle": "@fulltimefilmmaker",
-      "display_name": "Full Time Filmmaker",
-      "bio": "The Ultimate Online Film School\n🎬 Learn filmmaking & build video 🎓 30,000+ Filmmakers trained\n👇 Watch our FREE 1 Hour Masterclass",
-      "profile_url": "https://www.tiktok.com/@fulltimefilmmaker",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/93abd556ae3ee608e9173e3abaa0c6e3~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=a45466fb&x-expires=1781485200&x-signature=O1SN0T9kmCvv7Rw%2FatErjIM6DAI%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 125710,
+      "handle": "@jarentalks",
+      "display_name": "Jaren Talks",
+      "bio": "",
+      "profile_url": "https://www.tiktok.com/@jarentalks",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/2bbaa8d39c15b2f06f23bc4176607554~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=c72a3b20&x-expires=1781485200&x-signature=YFLddx0T2E%2BMRvDkrcwsElKGjR8%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1972,
+      "following_count": 415,
+      "likes_count": 82857,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@jarentalks",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 0,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@classicfilmdetective",
+      "display_name": "Classic Film Detective",
+      "bio": "Examining classic film for a new generation.",
+      "profile_url": "https://www.tiktok.com/@classicfilmdetective",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/7351628690704302123~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=2ff68b1a&x-expires=1781485200&x-signature=0POVrEtvBJ0g95S66e7Adc1yGJ0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1591,
+      "following_count": 188,
+      "likes_count": 12588,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@classicfilmdetective",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 129,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@yaseenking523",
+      "display_name": "I m The Film Critic",
+      "bio": "",
+      "profile_url": "https://www.tiktok.com/@yaseenking523",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast2a-avt-0068-giso/53c3ad14ae65fbcd69b43943d8f0cab0~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=29a3dd6e&x-expires=1781485200&x-signature=lTydMg0hEsGSq1DMbtyMom%2BvhP8%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1547,
+      "following_count": 5667,
+      "likes_count": 13498,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@yaseenking523",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 443,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@jayfilms99",
+      "display_name": "Jay Films",
+      "bio": "Film Stuff",
+      "profile_url": "https://www.tiktok.com/@jayfilms99",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/31034aa6e0d5ec717a50b43e7b6ff605~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=a649dec7&x-expires=1781485200&x-signature=R0JexI39WAMwOrvcKz87osMD1WA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1406,
       "following_count": 0,
-      "likes_count": 1169442,
+      "likes_count": 79169,
       "verified": false,
-      "bio_links": [
-        "https://www.fulltimefilmmaker.com/10mistakesmasterclassog"
-      ],
+      "bio_links": [],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@fulltimefilmmaker",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@jayfilms99",
       "target_label": "filmmaker",
       "source_target_labels": [
         "filmmaker"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 130,
-      "prior_usefulness": 35
+      "public_profile_video_count": 486,
+      "prior_usefulness": 32
     },
     {
-      "handle": "@filmmakersworld",
-      "display_name": "filmmakersworld",
-      "bio": "The @filmmakersworld experience +3M friends in our communities 🙌 Magazine👇",
-      "profile_url": "https://www.tiktok.com/@filmmakersworld",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/ad911d2d74c0efe9291eb632f9d32f90~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=115455a4&x-expires=1781485200&x-signature=qd7Euk95qnDrVUiq6UAGQQakHdg%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 842102,
-      "following_count": 70,
-      "likes_count": 7404711,
+      "handle": "@kristenahawley",
+      "display_name": "Kristen Hawley",
+      "bio": "",
+      "profile_url": "https://www.tiktok.com/@kristenahawley",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/4c8ddb09f98aeb25c4e2e9240e2a3435~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=5659490a&x-expires=1781485200&x-signature=qLHv%2BYK9BdYsI2brA%2BvmbBjSwcA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1394,
+      "following_count": 215,
+      "likes_count": 624866,
       "verified": false,
-      "bio_links": [
-        "linktr.ee/filmmakersworld"
-      ],
+      "bio_links": [],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@filmmakersworld",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@kristenahawley",
       "target_label": "filmmaker",
       "source_target_labels": [
         "filmmaker"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 1660,
-      "prior_usefulness": 35
+      "public_profile_video_count": 0,
+      "prior_usefulness": 32
     },
     {
-      "handle": "@directoryoko",
-      "display_name": "Director Yoko Okumura 🎬💚",
-      "bio": "Writer + Director of Film + TV\nfilm•travel•crafts•fashion•bird•green\n🎬✈🌎💚🦜",
-      "profile_url": "https://www.tiktok.com/@directoryoko",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/65394c402849d2f8c7894b75afd42c0d~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=e8ae4b5a&x-expires=1781485200&x-signature=7h9m3BmB1Hgj1lPDuF6jXPaxlY0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 53719,
-      "following_count": 992,
-      "likes_count": 2944528,
-      "verified": false,
-      "bio_links": [
-        "https://linktr.ee/directoryoko"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@directoryoko",
-      "target_label": "director",
-      "source_target_labels": [
-        "director"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 346,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@hashem.alghaili",
-      "display_name": "Hashem Al-Ghaili",
-      "bio": "Science and tech updates 🧬⚛🧪🚀🌌",
-      "profile_url": "https://www.tiktok.com/@hashem.alghaili",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast2a-avt-0068-euttp/94cb718790ce097ad238461fb448f689~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=4bbc42df&x-expires=1781485200&x-signature=qEunaplG7xuEIUTojDYuyt3%2BDsQ%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 2587088,
-      "following_count": 83,
-      "likes_count": 58632084,
-      "verified": true,
-      "bio_links": [
-        "https://muse.io/hashemalghaili"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@hashem.alghaili",
-      "target_label": "film_educator",
-      "source_target_labels": [
-        "film_educator"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 2034,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@cybersecuritygirl",
-      "display_name": "Cybersecurity Girl",
-      "bio": "🔐Helping you stay safe online\n🧠 Simple Cyber & Privacy tips\n🌍#1 Cybersecurity creator in 🌎\n👇 Follow to Stay Safe",
-      "profile_url": "https://www.tiktok.com/@cybersecuritygirl",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/12520462e582aa4c8a503590d3140235~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=82665973&x-expires=1781485200&x-signature=eaJNAEnZrRH5mnFB%2BjDqsosBa%2FM%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 584098,
-      "following_count": 443,
-      "likes_count": 3816980,
-      "verified": true,
-      "bio_links": [
-        "Www.cybersecuritygirl.com/tools"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@cybersecuritygirl",
-      "target_label": "film_educator",
-      "source_target_labels": [
-        "film_educator"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 1908,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@riyamojaimi",
-      "display_name": "Riyam Ojaimi | Space Med🚀🧬",
-      "bio": "Space medicine 🚀\nig: riyamojaimi | 🇸🇪🇮🇶\n💌",
-      "profile_url": "https://www.tiktok.com/@riyamojaimi",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/66c017dbfe9b0dd668ef7497baca4ecf~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=bfff6865&x-expires=1781485200&x-signature=5Az%2BKKb4BXoHO0x4Lwl0HFC%2FYc0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 39032,
-      "following_count": 966,
-      "likes_count": 634373,
+      "handle": "@movieswithmorty",
+      "display_name": "MoviesWithMorty",
+      "bio": "Liverpool 🇬🇧\n\nEnquires-\n\nTV/Film Reviews & News 🎬",
+      "profile_url": "https://www.tiktok.com/@movieswithmorty",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/5dfc14b67cbd8cb34afbcfdf78b568c2~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=6dbddbeb&x-expires=1781485200&x-signature=wVXfizybaR%2BIzl3QCwgwCq5m0Ic%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 914,
+      "following_count": 57,
+      "likes_count": 105440,
       "verified": false,
       "bio_links": [],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@riyamojaimi",
-      "target_label": "film_educator",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@movieswithmorty",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "film_educator"
+        "filmmaker"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 66,
-      "prior_usefulness": 35
+      "public_profile_video_count": 480,
+      "prior_usefulness": 32
     },
     {
-      "handle": "@harrypair",
-      "display_name": "HarryPair",
-      "bio": "tiktok can suck a fart. follow me on Youtube @HarryPair91",
-      "profile_url": "https://www.tiktok.com/@harrypair",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/c2e81f8605474a19b3e44ee9e546a13b~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=3cd33142&x-expires=1781485200&x-signature=t2bZ4ut2KNr%2FnWuSQ%2FBiwtokSv0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 253803,
-      "following_count": 64,
-      "likes_count": 6754578,
+      "handle": "@fatmanonfilm",
+      "display_name": "Fatman On Film",
+      "bio": "your friendly neighbourhood chunky movie reviewer",
+      "profile_url": "https://www.tiktok.com/@fatmanonfilm",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/4bccbb01c348301431b52df13a6cc400~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=65808e7a&x-expires=1781485200&x-signature=roN0UOBjwMcmjCgSWEtq%2FGVjCPM%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 869,
+      "following_count": 819,
+      "likes_count": 5558,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@fatmanonfilm",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 181,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@cvnela",
+      "display_name": "monse",
+      "bio": "🇲🇽\nI like horror and movies :)",
+      "profile_url": "https://www.tiktok.com/@cvnela",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/99f262ddba1fce43f8ee7be57159f1cc~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=6f4b20b3&x-expires=1781485200&x-signature=zY%2FVUy5XnHYbmF6FsA1O%2FJq%2B%2Bm4%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 2686831,
+      "following_count": 385,
+      "likes_count": 105813048,
       "verified": false,
       "bio_links": [
-        "https://youtube.com/@harrypair91?si=deMZ4M3V3WXd3M12"
+        "https://youtube.com/@cvnela"
       ],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@harrypair",
-      "target_label": "film_educator",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@cvnela",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "film_educator"
+        "filmmaker"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 516,
-      "prior_usefulness": 35
+      "public_profile_video_count": 1191,
+      "prior_usefulness": 32
     },
     {
-      "handle": "@virtualrealityvibeso",
-      "display_name": "VRGamer",
-      "bio": "play the game with me,tap the link now\n!",
-      "profile_url": "https://www.tiktok.com/@virtualrealityvibeso",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/adeef3220f4e35df72c67af6f9866332~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=e89344fd&x-expires=1781485200&x-signature=Zax6%2FUaRwOJuqisZ9OK0sgdaIzc%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 23523,
-      "following_count": 59,
-      "likes_count": 600523,
-      "verified": false,
-      "bio_links": [
-        "https://tgen.onelink.me/en7d/dysn4ydm"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@virtualrealityvibeso",
-      "target_label": "film_educator",
-      "source_target_labels": [
-        "film_educator"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 91,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@realqaiqai",
-      "display_name": "Qai Qai",
-      "bio": "👉🏿Instagram.com/RealQaiQai\n👉🏿YouTube.com/@RealQaiQai\n👉🏿FB.com/RealQaiQai",
-      "profile_url": "https://www.tiktok.com/@realqaiqai",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/ac04fd3eb839ca39eca287e8b8fc3e50~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=93979979&x-expires=1781485200&x-signature=7yOAHYB42qeCXTSAyojVbMN0WSk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 4556615,
-      "following_count": 9,
-      "likes_count": 39508446,
+      "handle": "@stoney_tha_great",
+      "display_name": "Stoney Tha Great",
+      "bio": "🎬Your Unofficial Pop Culture Guru🍿\nAtlanta✈Los Angeles🌴",
+      "profile_url": "https://www.tiktok.com/@stoney_tha_great",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/35b5b6dc8f90ebbebb8ecf535242f96f~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=4d822c45&x-expires=1781485200&x-signature=D0KKKPA%2F0l2wQ66H1QTQVAd%2BlCI%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 961176,
+      "following_count": 490,
+      "likes_count": 46065847,
       "verified": true,
       "bio_links": [
-        "https://linkin.bio/qaiqai"
+        "https://linktr.ee/stoneythagreat"
       ],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@realqaiqai",
-      "target_label": "film_educator",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@stoney_tha_great",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "film_educator"
+        "filmmaker"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 482,
-      "prior_usefulness": 35
+      "public_profile_video_count": 2399,
+      "prior_usefulness": 32
     },
     {
-      "handle": "@kizunaai0630",
-      "display_name": "Kizuna AI / キズナアイ",
-      "bio": "Kizuna AI Official TikTok",
-      "profile_url": "https://www.tiktok.com/@kizunaai0630",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/34253967057e6a78e3227cc4cfb2dd6f~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=d17368ef&x-expires=1781485200&x-signature=rgqcS8fXmK23vf9%2BKWp0C%2F%2B7sSM%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 2917859,
-      "following_count": 5,
-      "likes_count": 30847962,
+      "handle": "@chelsearonniemurphy",
+      "display_name": "chelsea",
+      "bio": "cute face. disturbing taste.\nabolish ice.\nbay area.",
+      "profile_url": "https://www.tiktok.com/@chelsearonniemurphy",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/d15faf2cf2d30b20b71bb2bceb9047c3~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=6305a1bb&x-expires=1781485200&x-signature=SSTdf6ZYOHHQtelGxT34PF07YQs%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 382723,
+      "following_count": 1270,
+      "likes_count": 17066055,
       "verified": true,
-      "bio_links": [],
+      "bio_links": [
+        "https://chelseamurphy.store"
+      ],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@kizunaai0630",
-      "target_label": "creative_technologist",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@chelsearonniemurphy",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "creative_technologist"
+        "filmmaker"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 411,
-      "prior_usefulness": 35
+      "public_profile_video_count": 1250,
+      "prior_usefulness": 32
     },
     {
-      "handle": "@bum.bailey",
-      "display_name": "🌈📲 Bum.Bailey",
-      "bio": "🌈 strange is beautiful 🌈",
-      "profile_url": "https://www.tiktok.com/@bum.bailey",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/c0d90891e405493adf9e609709317b1b~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=e72250b9&x-expires=1781485200&x-signature=YpebRziL1dJLLNMvLZLT76wAsHw%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 1012642,
-      "following_count": 99,
-      "likes_count": 17208153,
+      "handle": "@spooksandghoulzz",
+      "display_name": "🔪🩸ALL THINGS HORROR🩸🔪",
+      "bio": "👻ᴍᴏᴠɪᴇꜱ. ᴛʀᴜᴇ ᴄʀɪᴍᴇ. ᴘᴀʀᴀɴᴏʀᴍᴀʟ.\n\n💌\n⬆⬆",
+      "profile_url": "https://www.tiktok.com/@spooksandghoulzz",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/38e54cc539c8583fb36207a055509779~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=970a8449&x-expires=1781485200&x-signature=tb%2FqqfCt4JFNpPeysg38qTGspF0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 331419,
+      "following_count": 3999,
+      "likes_count": 5159930,
       "verified": false,
       "bio_links": [
-        "https://instagram.com/bum_bailey"
+        "https://www.amazon.com/hz/wishlist/ls/3IO6X7M5Z4DE1?ref_=wl_share"
       ],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@bum.bailey",
-      "target_label": "film_educator",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@spooksandghoulzz",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "film_educator"
+        "filmmaker"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 174,
-      "prior_usefulness": 35
+      "public_profile_video_count": 3686,
+      "prior_usefulness": 32
     },
     {
-      "handle": "@.aixiameta",
-      "display_name": "愛夏META",
-      "bio": "META星球からの愛夏（18歳）です。tiktokでNO.1のバーチャルアイドルになりたい。皆さんに応援して頂きたいです⬇",
-      "profile_url": "https://www.tiktok.com/@.aixiameta",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/0af545732d9924f2a5d04184bc9cc575~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=03eb7205&x-expires=1781485200&x-signature=ksda25jPUrXTZ7c0gXqraeL2d6A%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 296045,
-      "following_count": 19,
-      "likes_count": 1052911,
-      "verified": false,
-      "bio_links": [
-        "https://discord.com/invite/J9UnCnjX9d"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@.aixiameta",
-      "target_label": "film_educator",
-      "source_target_labels": [
-        "film_educator"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 62,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@lentari.pagi",
-      "display_name": "Lentari van Lorainne",
-      "bio": "The 1st Virtual Idol from 🇮🇩\n🖥 Developed by Imagine8 Studio\n☎087760241655",
-      "profile_url": "https://www.tiktok.com/@lentari.pagi",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/8d755ec308eb92541858a07ad28c0524~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=774eb450&x-expires=1781485200&x-signature=wJC3g6GdbzRbjCVOMS4i8EgKKk0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 245645,
-      "following_count": 51,
-      "likes_count": 2357541,
-      "verified": false,
-      "bio_links": [
-        "instagram.com/lentaripagi"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@lentari.pagi",
-      "target_label": "film_educator",
-      "source_target_labels": [
-        "film_educator"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 280,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@albarenai",
-      "display_name": "albarenai",
-      "bio": "Influencer IA y Presentadora Virtual en Supervivientes 🌴",
-      "profile_url": "https://www.tiktok.com/@albarenai",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast2a-avt-0068-euttp/3ddcd69c41cd3cc47b5a2e4b7474b6fc~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=8d232838&x-expires=1781485200&x-signature=PqShubey1FZh6k1Eea8dpNvmrm0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 42530,
-      "following_count": 35,
-      "likes_count": 215993,
+      "handle": "@letswatchthat",
+      "display_name": "LetsWatchThat",
+      "bio": "My only hobby is consuming media of all forms. Then I talk to you guys about it.",
+      "profile_url": "https://www.tiktok.com/@letswatchthat",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/409e24e7250bcae1c80a10943cc0bf1a~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=476ae875&x-expires=1781485200&x-signature=c880GKXEnTc3UiFJmg5hY746Eik%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 214874,
+      "following_count": 573,
+      "likes_count": 6981486,
       "verified": false,
       "bio_links": [],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@albarenai",
-      "target_label": "film_educator",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@letswatchthat",
+      "target_label": "filmmaker",
       "source_target_labels": [
-        "film_educator"
+        "filmmaker"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 197,
-      "prior_usefulness": 35
+      "public_profile_video_count": 529,
+      "prior_usefulness": 32
     },
     {
-      "handle": "@whosthatlego",
-      "display_name": "LegoWhosThat",
-      "bio": "20k 🔜 30k💕\nDM for Personal Edit👨‍🍳",
-      "profile_url": "https://www.tiktok.com/@whosthatlego",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/360810c45948005e85f102ef63f8dd0b~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=2d7b7e3f&x-expires=1781485200&x-signature=VT7RoCEIAbyn3CQXrIcnQLU82iU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 24065,
-      "following_count": 29,
-      "likes_count": 2356635,
+      "handle": "@horrorwithme",
+      "display_name": "Horror with me",
+      "bio": "Need some horror movie suggestions? ⬇",
+      "profile_url": "https://www.tiktok.com/@horrorwithme",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/cd41e3967bf649c7026ab46ce00d49df~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=2876ba47&x-expires=1781485200&x-signature=mmLCKzcP7%2Bt%2F93Pdh7rucAsTceU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 206756,
+      "following_count": 890,
+      "likes_count": 12745745,
+      "verified": false,
+      "bio_links": [
+        "https://hoo.be/horrorwithme"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@horrorwithme",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 1012,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@justhauntr",
+      "display_name": "JustHauntr",
+      "bio": "horror host 🩸\ngames • films • dark stories\nnot everything you hear is fake\n🟣 live on Twitch\n• 🌴 LA",
+      "profile_url": "https://www.tiktok.com/@justhauntr",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e9d13a2a9165e2c8d5434cc0f0a793c2~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=b0f24997&x-expires=1781485200&x-signature=W3MJYaelWyTD4vpxuUrl17h33YU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 184889,
+      "following_count": 2547,
+      "likes_count": 2511081,
+      "verified": false,
+      "bio_links": [
+        "https://linktr.ee/JustHauntr"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@justhauntr",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 1043,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@roomforscream",
+      "display_name": "roomforscream",
+      "bio": "hi I’m GiGi. I love horror 🔪\n\n📍Nashville",
+      "profile_url": "https://www.tiktok.com/@roomforscream",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/5eb526098fa7ecffb96ec6e56eaa878b~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=063c7595&x-expires=1781485200&x-signature=B5d9HpDHzmLcKnQ7zK1zD1KrGQk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 160051,
+      "following_count": 320,
+      "likes_count": 9785330,
+      "verified": true,
+      "bio_links": [
+        "https://roomforscream.com"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@roomforscream",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 939,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@thenightmaremovies",
+      "display_name": "Nightmare Movies",
+      "bio": "Disturbing Media\n\nFollow My YouTube for More",
+      "profile_url": "https://www.tiktok.com/@thenightmaremovies",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/a993c77a84a8bcd246b1f3652b84bae5~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=927944ec&x-expires=1781485200&x-signature=fXm7XEXmloU8SILRzDXetZKLLhU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 94426,
+      "following_count": 3,
+      "likes_count": 1302749,
+      "verified": false,
+      "bio_links": [
+        "https://youtube.com/@nightmaremovies?si=nYNUFtpMFCP1i_BU"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@thenightmaremovies",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 151,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@sparkleinthedarkness",
+      "display_name": "Spooky Scary Sparkle ✨",
+      "bio": "✨Bi-Coastal Horror Movie Lover✨\n Central FL ✈Los Angeles",
+      "profile_url": "https://www.tiktok.com/@sparkleinthedarkness",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/7317686643752697898~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=105108a0&x-expires=1781485200&x-signature=uarp8y2Kusj4kjQxDnQd6yoFfB8%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 44804,
+      "following_count": 2110,
+      "likes_count": 3217637,
+      "verified": false,
+      "bio_links": [
+        "https://linktr.ee/sparklendarkness"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@sparkleinthedarkness",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 2185,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@maksmovieshack",
+      "display_name": "Makayla | MOVIES",
+      "bio": "🔪DAILY HORROR MOVIE REVIEWS & RECOMMENDATIONS\n📍 OKLAHOMA,🇺🇸\n⬇",
+      "profile_url": "https://www.tiktok.com/@maksmovieshack",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/4f2d577cc31d45b79a7420cfa5603f5b~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=a80bf8fa&x-expires=1781485200&x-signature=2Z2fU%2BFso%2BRQTEFkrDWyDeGyHIY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 34330,
+      "following_count": 995,
+      "likes_count": 848538,
+      "verified": false,
+      "bio_links": [
+        "https://linktr.ee/maksmovieshack"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@maksmovieshack",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 963,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@finalgirl_jess",
+      "display_name": "jess",
+      "bio": "what’s your favorite scary movie?\n💌\n🔪",
+      "profile_url": "https://www.tiktok.com/@finalgirl_jess",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/06e232e4616600d892ab692f8c90280c~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=c3cd8dca&x-expires=1781485200&x-signature=7DnYHpONTGeUS7n3IArCmis5ZbU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 32146,
+      "following_count": 549,
+      "likes_count": 2259311,
       "verified": false,
       "bio_links": [],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@whosthatlego",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@finalgirl_jess",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 212,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@mandymorgue87",
+      "display_name": "mandymorgue87",
+      "bio": "I talk about horror movies, shows, books & all things spooky 👻🦇🎃",
+      "profile_url": "https://www.tiktok.com/@mandymorgue87",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/bcc9fb622cabf1e44ebcb93e13d281ce~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=6d824f37&x-expires=1781485200&x-signature=zuLPlHu9mTBhoZWhRUDaaCEGrmQ%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 31145,
+      "following_count": 1032,
+      "likes_count": 1034397,
+      "verified": false,
+      "bio_links": [
+        "https://youtube.com/c/mandysmorgueofhorror"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@mandymorgue87",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 971,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@sinistertims6",
+      "display_name": "SinisterTims",
+      "bio": "🍉\nHorror lover ♡ 𖤐\n8,400 Deadites 🖤\nUT",
+      "profile_url": "https://www.tiktok.com/@sinistertims6",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/7310349131191435310~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=e670e4aa&x-expires=1781485200&x-signature=fmXWeSwB3TiN4g%2FIH5JE%2BDoXVlo%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 8376,
+      "following_count": 701,
+      "likes_count": 95365,
+      "verified": false,
+      "bio_links": [
+        "https://linktr.ee/6sinister6tims6"
+      ],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@sinistertims6",
+      "target_label": "filmmaker",
+      "source_target_labels": [
+        "filmmaker"
+      ],
+      "provider": "tiktok_public_profile_html",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
+      "videos": [],
+      "public_profile_video_count": 632,
+      "prior_usefulness": 32
+    },
+    {
+      "handle": "@haliexroxanne",
+      "display_name": "Halie Roxanne",
+      "bio": "Horror movies 🖤\nMakeup ❤‍🔥\nPlus size fashion 💗\nOregon 🌲",
+      "profile_url": "https://www.tiktok.com/@haliexroxanne",
+      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/74500ad633ba346cf5b30381a4abe90a~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=670ff13b&x-expires=1781485200&x-signature=BiaoxDBo1CZsqW%2FaPFQt64ipY7E%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 5031,
+      "following_count": 280,
+      "likes_count": 12963,
+      "verified": false,
+      "bio_links": [],
+      "source_type": "public_profile_enrichment",
+      "source_name": "TikTok public profile hydration",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@haliexroxanne",
       "target_label": "editor",
       "source_target_labels": [
         "editor"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 77,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@jlevaai",
-      "display_name": "Jleva AI",
-      "bio": "Te Regalo 20 Dólares y Respondo Tus Preguntas. 🤗",
-      "profile_url": "https://www.tiktok.com/@jlevaai",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/a4f9ea6676c12e31bd4ad680c0d3ecb6~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=2eb795bb&x-expires=1781485200&x-signature=iYE02wOqLbswUtQqgsCl4dYUfEE%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 7236,
-      "following_count": 0,
-      "likes_count": 20168,
-      "verified": false,
-      "bio_links": [
-        "https://linktr.ee/jlevaai"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@jlevaai",
-      "target_label": "creative_technologist",
-      "source_target_labels": [
-        "creative_technologist"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 158,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@cynthia__ai",
-      "display_name": "Cynthia AI",
-      "bio": "",
-      "profile_url": "https://www.tiktok.com/@cynthia__ai",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/c0a40d71b0a0958c98d6c3371c531a91~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=1a7980e9&x-expires=1781485200&x-signature=4QdHHdD4LlNnB%2BNzXzjiJGOWliw%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 6250,
-      "following_count": 0,
-      "likes_count": 17797,
-      "verified": false,
-      "bio_links": [],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@cynthia__ai",
-      "target_label": "creative_technologist",
-      "source_target_labels": [
-        "creative_technologist"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 8,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@be_zaira",
-      "display_name": "Be Zaira",
-      "bio": "Virtual Human (realer than u think)👾\nMixed reality ambassador💫\nExplorer 🌎",
-      "profile_url": "https://www.tiktok.com/@be_zaira",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast2a-avt-0068-euttp/d883b16e1b25af8919e591c04fead9f4~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=9d4398a1&x-expires=1781485200&x-signature=pVTKrWD%2B6YUVNahj0M0z8x%2Bu4JQ%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 4705,
-      "following_count": 65,
-      "likes_count": 8324,
-      "verified": false,
-      "bio_links": [],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@be_zaira",
-      "target_label": "film_educator",
-      "source_target_labels": [
-        "film_educator"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 12,
-      "prior_usefulness": 35
-    },
-    {
-      "handle": "@entertaintheelk",
-      "display_name": "Entertain The Elk",
-      "bio": "Thinking deeper about your favorite\nmovies and TV shows!",
-      "profile_url": "https://www.tiktok.com/@entertaintheelk",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/05f91d457ca99b49e17c0f796136967b~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=41b0e308&x-expires=1781485200&x-signature=Eykxs0x2cuIFU0BnivfSoE5D4ow%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 101920,
-      "following_count": 53,
-      "likes_count": 7107715,
-      "verified": false,
-      "bio_links": [],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@entertaintheelk",
-      "target_label": "film_educator",
-      "source_target_labels": [
-        "film_educator"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 1261,
-      "prior_usefulness": 33
-    },
-    {
-      "handle": "@kingbach",
-      "display_name": "KingBach",
-      "bio": "kingbach.com",
-      "profile_url": "https://www.tiktok.com/@kingbach",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/09a3cbfe2ce97f1bd111a762b03b61c2~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=6b041352&x-expires=1781485200&x-signature=%2Bo3YDldAHsWxb5XDAm1pyCNRZkY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 28366996,
-      "following_count": 1421,
-      "likes_count": 480840526,
-      "verified": true,
-      "bio_links": [
-        "https://www.youtube.com/watch?v=yQab2lm_Oqc"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@kingbach",
-      "target_label": "sketch_comedian",
-      "source_target_labels": [
-        "sketch_comedian"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 1278,
+      "public_profile_video_count": 150,
       "prior_usefulness": 32
     },
     {
-      "handle": "@adamw",
-      "display_name": "Adam W",
-      "bio": "@DOUBLE VIEW 🎥",
-      "profile_url": "https://www.tiktok.com/@adamw",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/7316584304203710469~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=eaf6f814&x-expires=1781485200&x-signature=jtcTf8a062ykFudzn1xJv3vfGFI%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 22952049,
-      "following_count": 87,
-      "likes_count": 628729700,
+      "handle": "@animalize21",
+      "display_name": "animalize21🔥",
+      "bio": "Represento situaciones cotidianas y escolares",
+      "profile_url": "https://www.tiktok.com/@animalize21",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/c265c6f2b6dbf65f6690248d55229922~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=6891259d&x-expires=1781485200&x-signature=upG2BKbm5XHfbHxugKJ%2FJnH6z8s%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 13373822,
+      "following_count": 202,
+      "likes_count": 239411681,
       "verified": true,
       "bio_links": [],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@adamw",
-      "target_label": "sketch_comedian",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@animalize21",
+      "target_label": "vfx_animation",
       "source_target_labels": [
-        "sketch_comedian"
+        "vfx_animation"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 1238,
+      "public_profile_video_count": 497,
       "prior_usefulness": 32
     },
     {
-      "handle": "@matt_rife",
-      "display_name": "Matt Rife",
-      "bio": "Comedian\nNEW NETFLIX SPECIAL 12/2/25!",
-      "profile_url": "https://www.tiktok.com/@matt_rife",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/7bfbef58fa9b804dda181dbb53a174a0~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=411bee86&x-expires=1781485200&x-signature=21XF8gTL2JyL9dX03afBEFAPDFA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 19975605,
-      "following_count": 109,
-      "likes_count": 491738945,
-      "verified": true,
-      "bio_links": [
-        "OfficialMattRifeComedy.com"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@matt_rife",
-      "target_label": "standup_comedian",
-      "source_target_labels": [
-        "standup_comedian"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 380,
-      "prior_usefulness": 32
-    },
-    {
-      "handle": "@real_madara_dusal",
-      "display_name": "Madara Dusal",
-      "bio": "My new song availabe on this Link 👇",
-      "profile_url": "https://www.tiktok.com/@real_madara_dusal",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/2339c753d536bbf59b674f65973ea630~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=5df80014&x-expires=1781485200&x-signature=HnLoZayIs3ocqVwkmTvdBuLE%2Fwc%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 16986262,
-      "following_count": 508,
-      "likes_count": 380773425,
+      "handle": "@mimielita",
+      "display_name": "Mimielita_Art 🎨",
+      "bio": "➡Chek my Brushes👇🎨",
+      "profile_url": "https://www.tiktok.com/@mimielita",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast2a-avt-0068-euttp/804cd7c4f99840522757c441da2f8830~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=c98247dd&x-expires=1781485200&x-signature=6x8Ns3KtzKodESKZTHAdcVQlFJs%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 5147603,
+      "following_count": 111,
+      "likes_count": 93731823,
       "verified": false,
       "bio_links": [
-        "https://musics.to/80602Pm5DL"
+        "https://direct.me/mimielita"
       ],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@real_madara_dusal",
-      "target_label": "sketch_comedian",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@mimielita",
+      "target_label": "vfx_animation",
       "source_target_labels": [
-        "sketch_comedian"
+        "vfx_animation"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 2214,
+      "public_profile_video_count": 195,
       "prior_usefulness": 32
     },
     {
-      "handle": "@jasonbankscomedy",
-      "display_name": "Jason Banks",
-      "bio": "",
-      "profile_url": "https://www.tiktok.com/@jasonbankscomedy",
-      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-avt-0068-tx2/1d9b92b8b65afb6b8e7ae96e5f1560d1~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=a2a27196&x-expires=1781485200&x-signature=3%2F4QHxUFs2fyXekcIncK6GUT%2FEs%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 9382477,
-      "following_count": 331,
-      "likes_count": 317845010,
-      "verified": true,
-      "bio_links": [
-        "https://www.youtube.com/@jasonbankscomedy"
-      ],
-      "source_type": "public_profile_enrichment",
-      "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@jasonbankscomedy",
-      "target_label": "sketch_comedian",
-      "source_target_labels": [
-        "sketch_comedian"
-      ],
-      "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
-      "videos": [],
-      "public_profile_video_count": 986,
-      "prior_usefulness": 32
-    },
-    {
-      "handle": "@xtheromanempire",
-      "display_name": "Nicolas Roman",
-      "bio": "EGGMAN🥚 👨🏽‍🦲\nIndia🇮🇳Czechia🇨🇿",
-      "profile_url": "https://www.tiktok.com/@xtheromanempire",
-      "avatar_url": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/e315cc675686419691b794cd527e5e58~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=c450ee8e&x-expires=1781485200&x-signature=GOD9S73aFky4%2Bfh%2BAya9KgYTWAM%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
-      "follower_count": 8665947,
-      "following_count": 1593,
-      "likes_count": 363683382,
+      "handle": "@marikaboniuk",
+      "display_name": "Marika Boniuk",
+      "bio": "author of JUST CASUAL on Webtoons\n💌 💌",
+      "profile_url": "https://www.tiktok.com/@marikaboniuk",
+      "avatar_url": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-avt-0068/0d61e0f2e8bccbdb180fdcd9b032a627~tplv-tiktokx-cropcenter:720:720.jpeg?dr=9640&refresh_token=1792cacb&x-expires=1781485200&x-signature=Hpv1mmy2%2F3toi2PbRIL%2BwduScMY%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+      "follower_count": 1258992,
+      "following_count": 93,
+      "likes_count": 16730916,
       "verified": false,
       "bio_links": [
-        "Linktr.ee/theromanempire"
+        "https://beacons.page/marikaboniuk"
       ],
       "source_type": "public_profile_enrichment",
       "source_name": "TikTok public profile hydration",
-      "source_query": "review_queue_priority_3",
-      "source_url": "https://www.tiktok.com/@xtheromanempire",
-      "target_label": "sketch_comedian",
+      "source_query": "missing_video_count_review_queue_priority_3",
+      "source_url": "https://www.tiktok.com/@marikaboniuk",
+      "target_label": "vfx_animation",
       "source_target_labels": [
-        "sketch_comedian"
+        "vfx_animation"
       ],
       "provider": "tiktok_public_profile_html",
-      "provider_execution_id": "2026-06-13T01-31-21-859Z",
-      "batch_id": "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+      "provider_execution_id": "2026-06-13T01-35-53-442Z",
+      "batch_id": "public_profile_enrichment_2026-06-13T01-35-53-442Z",
       "videos": [],
-      "public_profile_video_count": 4420,
+      "public_profile_video_count": 377,
       "prior_usefulness": 32
     }
   ],
   "profiles": [
     {
-      "handle": "@fulltimefilmmaker",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:21.872Z",
-      "finished_at": "2026-06-13T01:31:22.503Z"
-    },
-    {
-      "handle": "@filmmakersworld",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:22.503Z",
-      "finished_at": "2026-06-13T01:31:23.016Z"
-    },
-    {
-      "handle": "@directoryoko",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:23.016Z",
-      "finished_at": "2026-06-13T01:31:23.378Z"
-    },
-    {
-      "handle": "@anime_creator4621",
+      "handle": "@maya.shortcuts",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:23.378Z",
-      "finished_at": "2026-06-13T01:31:23.635Z"
+      "selection_reason": "missing_video_count_review_queue_priority_1",
+      "prior_usefulness": 98,
+      "started_at": "2026-06-13T01:35:53.457Z",
+      "finished_at": "2026-06-13T01:35:53.782Z"
     },
     {
-      "handle": "@hashem.alghaili",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:23.635Z",
-      "finished_at": "2026-06-13T01:31:23.946Z"
-    },
-    {
-      "handle": "@cybersecuritygirl",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:23.946Z",
-      "finished_at": "2026-06-13T01:31:24.246Z"
-    },
-    {
-      "handle": "@riyamojaimi",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:24.246Z",
-      "finished_at": "2026-06-13T01:31:24.588Z"
-    },
-    {
-      "handle": "@chefseraiah",
+      "handle": "@basementbits",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:24.588Z",
-      "finished_at": "2026-06-13T01:31:24.916Z"
+      "selection_reason": "missing_video_count_review_queue_priority_1",
+      "prior_usefulness": 94,
+      "started_at": "2026-06-13T01:35:53.782Z",
+      "finished_at": "2026-06-13T01:35:54.128Z"
     },
     {
-      "handle": "@harrypair",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:24.916Z",
-      "finished_at": "2026-06-13T01:31:25.456Z"
-    },
-    {
-      "handle": "@virtualrealityvibeso",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:25.456Z",
-      "finished_at": "2026-06-13T01:31:25.965Z"
-    },
-    {
-      "handle": "@realqaiqai",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:25.965Z",
-      "finished_at": "2026-06-13T01:31:26.236Z"
-    },
-    {
-      "handle": "@kizunaai0630",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:26.236Z",
-      "finished_at": "2026-06-13T01:31:26.487Z"
-    },
-    {
-      "handle": "@bum.bailey",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:26.487Z",
-      "finished_at": "2026-06-13T01:31:26.768Z"
-    },
-    {
-      "handle": "@.aixiameta",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:26.768Z",
-      "finished_at": "2026-06-13T01:31:27.028Z"
-    },
-    {
-      "handle": "@lentari.pagi",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:27.028Z",
-      "finished_at": "2026-06-13T01:31:27.354Z"
-    },
-    {
-      "handle": "@squishypaintvrc",
+      "handle": "@selahshoots",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_1",
+      "prior_usefulness": 92,
+      "started_at": "2026-06-13T01:35:54.128Z",
+      "finished_at": "2026-06-13T01:35:54.342Z"
+    },
+    {
+      "handle": "@ani.motionlab",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_1",
+      "prior_usefulness": 87,
+      "started_at": "2026-06-13T01:35:54.342Z",
+      "finished_at": "2026-06-13T01:35:54.605Z"
+    },
+    {
+      "handle": "@noahframes",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_1",
+      "prior_usefulness": 86,
+      "started_at": "2026-06-13T01:35:54.605Z",
+      "finished_at": "2026-06-13T01:35:54.855Z"
+    },
+    {
+      "handle": "@renderjules",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 78,
+      "started_at": "2026-06-13T01:35:54.855Z",
+      "finished_at": "2026-06-13T01:35:55.075Z"
+    },
+    {
+      "handle": "@manga.green.anima",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 40,
+      "started_at": "2026-06-13T01:35:55.075Z",
+      "finished_at": "2026-06-13T01:35:55.318Z"
+    },
+    {
+      "handle": "@carrieannryan",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 37,
+      "started_at": "2026-06-13T01:35:55.318Z",
+      "finished_at": "2026-06-13T01:35:55.711Z"
+    },
+    {
+      "handle": "@digital_archaeologist2.0",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:27.354Z",
-      "finished_at": "2026-06-13T01:31:27.581Z"
+      "started_at": "2026-06-13T01:35:55.711Z",
+      "finished_at": "2026-06-13T01:35:55.916Z"
     },
     {
-      "handle": "@albarenai",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "handle": "@raiki.digitalart",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:27.581Z",
-      "finished_at": "2026-06-13T01:31:27.838Z"
+      "started_at": "2026-06-13T01:35:55.916Z",
+      "finished_at": "2026-06-13T01:35:56.160Z"
     },
     {
-      "handle": "@whosthatlego",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "handle": "@breakthroughbooks",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:27.838Z",
-      "finished_at": "2026-06-13T01:31:28.256Z"
+      "started_at": "2026-06-13T01:35:56.160Z",
+      "finished_at": "2026-06-13T01:35:56.437Z"
     },
     {
-      "handle": "@jlevaai",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "handle": "@createchaosgossiptoo",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:28.256Z",
-      "finished_at": "2026-06-13T01:31:28.784Z"
+      "started_at": "2026-06-13T01:35:56.437Z",
+      "finished_at": "2026-06-13T01:35:56.702Z"
     },
     {
-      "handle": "@cynthia__ai",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "handle": "@earlefambuilds",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:28.784Z",
-      "finished_at": "2026-06-13T01:31:29.109Z"
+      "started_at": "2026-06-13T01:35:56.702Z",
+      "finished_at": "2026-06-13T01:35:56.889Z"
     },
     {
-      "handle": "@be_zaira",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "handle": "@wil.bailey",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 35,
-      "started_at": "2026-06-13T01:31:29.109Z",
-      "finished_at": "2026-06-13T01:31:29.401Z"
+      "started_at": "2026-06-13T01:35:56.889Z",
+      "finished_at": "2026-06-13T01:35:57.117Z"
     },
     {
-      "handle": "@entertaintheelk",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 33,
-      "started_at": "2026-06-13T01:31:29.401Z",
-      "finished_at": "2026-06-13T01:31:29.634Z"
-    },
-    {
-      "handle": "@kingbach",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:29.634Z",
-      "finished_at": "2026-06-13T01:31:29.933Z"
-    },
-    {
-      "handle": "@adamw",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:29.933Z",
-      "finished_at": "2026-06-13T01:31:30.435Z"
-    },
-    {
-      "handle": "@matt_rife",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:30.435Z",
-      "finished_at": "2026-06-13T01:31:30.881Z"
-    },
-    {
-      "handle": "@real_madara_dusal",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:30.881Z",
-      "finished_at": "2026-06-13T01:31:31.207Z"
-    },
-    {
-      "handle": "@jasonbankscomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:31.207Z",
-      "finished_at": "2026-06-13T01:31:31.502Z"
-    },
-    {
-      "handle": "@xtheromanempire",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:31.503Z",
-      "finished_at": "2026-06-13T01:31:31.937Z"
-    },
-    {
-      "handle": "@fluffyguy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:31.937Z",
-      "finished_at": "2026-06-13T01:31:32.340Z"
-    },
-    {
-      "handle": "@gingerbilly1",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:32.340Z",
-      "finished_at": "2026-06-13T01:31:32.777Z"
-    },
-    {
-      "handle": "@theovon",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:32.777Z",
-      "finished_at": "2026-06-13T01:31:33.070Z"
-    },
-    {
-      "handle": "@matt_mathews",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:33.070Z",
-      "finished_at": "2026-06-13T01:31:33.359Z"
-    },
-    {
-      "handle": "@elysemyers",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:33.359Z",
-      "finished_at": "2026-06-13T01:31:33.619Z"
-    },
-    {
-      "handle": "@dreaknowsbest",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:33.619Z",
-      "finished_at": "2026-06-13T01:31:34.355Z"
-    },
-    {
-      "handle": "@artbydemarcusshawn",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:34.355Z",
-      "finished_at": "2026-06-13T01:31:34.652Z"
-    },
-    {
-      "handle": "@nicholas_flannery",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:34.652Z",
-      "finished_at": "2026-06-13T01:31:34.924Z"
-    },
-    {
-      "handle": "@comedic_cody",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:34.924Z",
-      "finished_at": "2026-06-13T01:31:35.199Z"
-    },
-    {
-      "handle": "@khian.kb",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:35.199Z",
-      "finished_at": "2026-06-13T01:31:35.447Z"
-    },
-    {
-      "handle": "@theandrewschulz",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:35.447Z",
-      "finished_at": "2026-06-13T01:31:35.804Z"
-    },
-    {
-      "handle": "@mrnatejackson",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:35.804Z",
-      "finished_at": "2026-06-13T01:31:36.054Z"
-    },
-    {
-      "handle": "@jameshenry",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:36.054Z",
-      "finished_at": "2026-06-13T01:31:36.326Z"
-    },
-    {
-      "handle": "@octopusslover8",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:36.326Z",
-      "finished_at": "2026-06-13T01:31:36.604Z"
-    },
-    {
-      "handle": "@tuckercomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:36.604Z",
-      "finished_at": "2026-06-13T01:31:36.975Z"
-    },
-    {
-      "handle": "@leogonzall",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:36.975Z",
-      "finished_at": "2026-06-13T01:31:37.235Z"
-    },
-    {
-      "handle": "@blaucomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:37.235Z",
-      "finished_at": "2026-06-13T01:31:37.610Z"
-    },
-    {
-      "handle": "@taylortomlinsoncomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:37.610Z",
-      "finished_at": "2026-06-13T01:31:37.914Z"
-    },
-    {
-      "handle": "@jeffdunham",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:37.914Z",
-      "finished_at": "2026-06-13T01:31:38.279Z"
-    },
-    {
-      "handle": "@vincentmarcus",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:38.279Z",
-      "finished_at": "2026-06-13T01:31:38.613Z"
-    },
-    {
-      "handle": "@kevinjamesofficial",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:38.613Z",
-      "finished_at": "2026-06-13T01:31:38.866Z"
-    },
-    {
-      "handle": "@marcellohdz",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:38.866Z",
-      "finished_at": "2026-06-13T01:31:39.183Z"
-    },
-    {
-      "handle": "@bigtugg",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:39.183Z",
-      "finished_at": "2026-06-13T01:31:39.497Z"
-    },
-    {
-      "handle": "@andreaspoly",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:39.497Z",
-      "finished_at": "2026-06-13T01:31:39.775Z"
-    },
-    {
-      "handle": "@kendahllandreth",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:39.775Z",
-      "finished_at": "2026-06-13T01:31:40.122Z"
-    },
-    {
-      "handle": "@mitchell",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:40.122Z",
-      "finished_at": "2026-06-13T01:31:40.391Z"
-    },
-    {
-      "handle": "@joshjohnsoncomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:40.391Z",
-      "finished_at": "2026-06-13T01:31:40.664Z"
-    },
-    {
-      "handle": "@nathanhurdcomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:40.664Z",
-      "finished_at": "2026-06-13T01:31:41.224Z"
-    },
-    {
-      "handle": "@csapunch",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:41.224Z",
-      "finished_at": "2026-06-13T01:31:41.501Z"
-    },
-    {
-      "handle": "@chrisrock",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:41.501Z",
-      "finished_at": "2026-06-13T01:31:41.766Z"
-    },
-    {
-      "handle": "@roscoescomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:41.766Z",
-      "finished_at": "2026-06-13T01:31:42.219Z"
-    },
-    {
-      "handle": "@maxcomedian",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:42.219Z",
-      "finished_at": "2026-06-13T01:31:42.523Z"
-    },
-    {
-      "handle": "@troybond69",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:42.523Z",
-      "finished_at": "2026-06-13T01:31:42.820Z"
-    },
-    {
-      "handle": "@jibarone",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:42.820Z",
-      "finished_at": "2026-06-13T01:31:43.091Z"
-    },
-    {
-      "handle": "@bestfetchdog",
+      "handle": "@albixitobooks",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:43.091Z",
-      "finished_at": "2026-06-13T01:31:43.566Z"
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 35,
+      "started_at": "2026-06-13T01:35:57.117Z",
+      "finished_at": "2026-06-13T01:35:57.417Z"
     },
     {
-      "handle": "@johncristcomedian",
+      "handle": "@jarentalks",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:43.566Z",
-      "finished_at": "2026-06-13T01:31:43.827Z"
+      "started_at": "2026-06-13T01:35:57.417Z",
+      "finished_at": "2026-06-13T01:35:57.795Z"
     },
     {
-      "handle": "@sheisthet",
+      "handle": "@classicfilmdetective",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:43.827Z",
-      "finished_at": "2026-06-13T01:31:44.192Z"
+      "started_at": "2026-06-13T01:35:57.795Z",
+      "finished_at": "2026-06-13T01:35:58.009Z"
     },
     {
-      "handle": "@carterandersoncomedy",
+      "handle": "@yaseenking523",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:44.192Z",
-      "finished_at": "2026-06-13T01:31:44.453Z"
+      "started_at": "2026-06-13T01:35:58.009Z",
+      "finished_at": "2026-06-13T01:35:58.285Z"
     },
     {
-      "handle": "@matteolane",
+      "handle": "@jayfilms99",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:44.453Z",
-      "finished_at": "2026-06-13T01:31:44.658Z"
+      "started_at": "2026-06-13T01:35:58.285Z",
+      "finished_at": "2026-06-13T01:35:58.660Z"
     },
     {
-      "handle": "@natebargatze",
+      "handle": "@kristenahawley",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:44.658Z",
-      "finished_at": "2026-06-13T01:31:45.016Z"
+      "started_at": "2026-06-13T01:35:58.660Z",
+      "finished_at": "2026-06-13T01:35:58.988Z"
     },
     {
-      "handle": "@joshwolfcomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:45.016Z",
-      "finished_at": "2026-06-13T01:31:45.244Z"
-    },
-    {
-      "handle": "@findingnimesh",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:45.244Z",
-      "finished_at": "2026-06-13T01:31:45.544Z"
-    },
-    {
-      "handle": "@calebwfrancis",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:45.544Z",
-      "finished_at": "2026-06-13T01:31:45.889Z"
-    },
-    {
-      "handle": "@slamminsammyswank",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:45.889Z",
-      "finished_at": "2026-06-13T01:31:46.412Z"
-    },
-    {
-      "handle": "@ashgavscomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:46.412Z",
-      "finished_at": "2026-06-13T01:31:46.732Z"
-    },
-    {
-      "handle": "@shellybellycomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:46.732Z",
-      "finished_at": "2026-06-13T01:31:47.034Z"
-    },
-    {
-      "handle": "@erinhattamer",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:47.034Z",
-      "finished_at": "2026-06-13T01:31:47.526Z"
-    },
-    {
-      "handle": "@chrisdcomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:47.526Z",
-      "finished_at": "2026-06-13T01:31:47.830Z"
-    },
-    {
-      "handle": "@sebastiancomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:47.830Z",
-      "finished_at": "2026-06-13T01:31:48.212Z"
-    },
-    {
-      "handle": "@jessicakirson",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:48.212Z",
-      "finished_at": "2026-06-13T01:31:48.525Z"
-    },
-    {
-      "handle": "@noahyangcomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:48.525Z",
-      "finished_at": "2026-06-13T01:31:48.932Z"
-    },
-    {
-      "handle": "@christianjohnsoncomedy_",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:48.932Z",
-      "finished_at": "2026-06-13T01:31:49.268Z"
-    },
-    {
-      "handle": "@ralphbarbosa03",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:49.268Z",
-      "finished_at": "2026-06-13T01:31:49.558Z"
-    },
-    {
-      "handle": "@anita_lashay_",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:49.558Z",
-      "finished_at": "2026-06-13T01:31:49.791Z"
-    },
-    {
-      "handle": "@bsmithcomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:49.791Z",
-      "finished_at": "2026-06-13T01:31:50.079Z"
-    },
-    {
-      "handle": "@jeffarcuri",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:50.079Z",
-      "finished_at": "2026-06-13T01:31:50.464Z"
-    },
-    {
-      "handle": "@viennaayla",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:50.464Z",
-      "finished_at": "2026-06-13T01:31:50.773Z"
-    },
-    {
-      "handle": "@tacarrawilliamscomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:50.773Z",
-      "finished_at": "2026-06-13T01:31:51.038Z"
-    },
-    {
-      "handle": "@rockydaledavis",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:51.038Z",
-      "finished_at": "2026-06-13T01:31:51.458Z"
-    },
-    {
-      "handle": "@stephandkayls",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:51.458Z",
-      "finished_at": "2026-06-13T01:31:51.771Z"
-    },
-    {
-      "handle": "@ladyefron",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:51.771Z",
-      "finished_at": "2026-06-13T01:31:52.027Z"
-    },
-    {
-      "handle": "@gracekomalley",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:52.027Z",
-      "finished_at": "2026-06-13T01:31:52.307Z"
-    },
-    {
-      "handle": "@camthecomic",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:52.307Z",
-      "finished_at": "2026-06-13T01:31:52.569Z"
-    },
-    {
-      "handle": "@comediandre",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:52.569Z",
-      "finished_at": "2026-06-13T01:31:52.914Z"
-    },
-    {
-      "handle": "@fibulaa",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:52.914Z",
-      "finished_at": "2026-06-13T01:31:53.227Z"
-    },
-    {
-      "handle": "@raficomedian",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:53.227Z",
-      "finished_at": "2026-06-13T01:31:53.537Z"
-    },
-    {
-      "handle": "@renevacacomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:53.537Z",
-      "finished_at": "2026-06-13T01:31:53.855Z"
-    },
-    {
-      "handle": "@sammorril",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:53.855Z",
-      "finished_at": "2026-06-13T01:31:54.173Z"
-    },
-    {
-      "handle": "@sabrina.cinoman.brier",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:54.173Z",
-      "finished_at": "2026-06-13T01:31:54.559Z"
-    },
-    {
-      "handle": "@lucaszelnick",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:54.559Z",
-      "finished_at": "2026-06-13T01:31:54.859Z"
-    },
-    {
-      "handle": "@corporatenatalie",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:54.859Z",
-      "finished_at": "2026-06-13T01:31:55.110Z"
-    },
-    {
-      "handle": "@ventureswithmia",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:55.110Z",
-      "finished_at": "2026-06-13T01:31:55.446Z"
-    },
-    {
-      "handle": "@robynschallcomic",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:55.446Z",
-      "finished_at": "2026-06-13T01:31:55.848Z"
-    },
-    {
-      "handle": "@whatchugotforme",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:55.848Z",
-      "finished_at": "2026-06-13T01:31:56.107Z"
-    },
-    {
-      "handle": "@sayameads",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:56.107Z",
-      "finished_at": "2026-06-13T01:31:56.381Z"
-    },
-    {
-      "handle": "@concretecomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:56.381Z",
-      "finished_at": "2026-06-13T01:31:56.792Z"
-    },
-    {
-      "handle": "@thehofstetter",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:56.792Z",
-      "finished_at": "2026-06-13T01:31:57.063Z"
-    },
-    {
-      "handle": "@kreativecomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:57.063Z",
-      "finished_at": "2026-06-13T01:31:57.420Z"
-    },
-    {
-      "handle": "@comediankaution",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:57.420Z",
-      "finished_at": "2026-06-13T01:31:57.759Z"
-    },
-    {
-      "handle": "@washyourpillowcases",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:57.759Z",
-      "finished_at": "2026-06-13T01:31:58.050Z"
-    },
-    {
-      "handle": "@kenflores300",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:58.050Z",
-      "finished_at": "2026-06-13T01:31:58.364Z"
-    },
-    {
-      "handle": "@cearajane",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:58.364Z",
-      "finished_at": "2026-06-13T01:31:58.620Z"
-    },
-    {
-      "handle": "@heathharmison",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:58.620Z",
-      "finished_at": "2026-06-13T01:31:58.902Z"
-    },
-    {
-      "handle": "@nataliecuomo",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:58.902Z",
-      "finished_at": "2026-06-13T01:31:59.519Z"
-    },
-    {
-      "handle": "@ejhavingfun",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:59.519Z",
-      "finished_at": "2026-06-13T01:31:59.941Z"
-    },
-    {
-      "handle": "@aaliflorescomedy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:31:59.941Z",
-      "finished_at": "2026-06-13T01:32:00.294Z"
-    },
-    {
-      "handle": "@gabbyisbryan",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:00.294Z",
-      "finished_at": "2026-06-13T01:32:00.580Z"
-    },
-    {
-      "handle": "@heyfreesamples",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:00.580Z",
-      "finished_at": "2026-06-13T01:32:00.901Z"
-    },
-    {
-      "handle": "@julia.dicesare",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:00.901Z",
-      "finished_at": "2026-06-13T01:32:01.197Z"
-    },
-    {
-      "handle": "@maddikoch",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:01.197Z",
-      "finished_at": "2026-06-13T01:32:01.482Z"
-    },
-    {
-      "handle": "@imtropicaljoe",
+      "handle": "@marksminutemoviereviews",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:01.482Z",
-      "finished_at": "2026-06-13T01:32:01.722Z"
+      "started_at": "2026-06-13T01:35:58.988Z",
+      "finished_at": "2026-06-13T01:35:59.270Z"
     },
     {
-      "handle": "@kodak_cameron",
+      "handle": "@movieswithmorty",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:01.722Z",
-      "finished_at": "2026-06-13T01:32:02.036Z"
+      "started_at": "2026-06-13T01:35:59.270Z",
+      "finished_at": "2026-06-13T01:35:59.570Z"
     },
     {
-      "handle": "@cinema.joe",
+      "handle": "@fatmanonfilm",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:02.036Z",
-      "finished_at": "2026-06-13T01:32:02.454Z"
+      "started_at": "2026-06-13T01:35:59.570Z",
+      "finished_at": "2026-06-13T01:35:59.825Z"
     },
     {
-      "handle": "@lifeofdevint",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:02.454Z",
-      "finished_at": "2026-06-13T01:32:02.752Z"
-    },
-    {
-      "handle": "@movieshub059",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:02.752Z",
-      "finished_at": "2026-06-13T01:32:03.265Z"
-    },
-    {
-      "handle": "@moviesaretherapy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:03.265Z",
-      "finished_at": "2026-06-13T01:32:03.570Z"
-    },
-    {
-      "handle": "@tmi_7",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:03.570Z",
-      "finished_at": "2026-06-13T01:32:03.880Z"
-    },
-    {
-      "handle": "@jstoobs",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:03.880Z",
-      "finished_at": "2026-06-13T01:32:04.238Z"
-    },
-    {
-      "handle": "@alexcolemann",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:04.238Z",
-      "finished_at": "2026-06-13T01:32:04.562Z"
-    },
-    {
-      "handle": "@vetzmovies",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:04.562Z",
-      "finished_at": "2026-06-13T01:32:04.838Z"
-    },
-    {
-      "handle": "@jbuckstudios",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:04.838Z",
-      "finished_at": "2026-06-13T01:32:05.125Z"
-    },
-    {
-      "handle": "@moviesandstuff14",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:05.125Z",
-      "finished_at": "2026-06-13T01:32:05.423Z"
-    },
-    {
-      "handle": "@movie.review_man.man.man",
+      "handle": "@anasdeclassified",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:05.423Z",
-      "finished_at": "2026-06-13T01:32:05.625Z"
+      "started_at": "2026-06-13T01:35:59.825Z",
+      "finished_at": "2026-06-13T01:36:00.076Z"
     },
     {
-      "handle": "@sethsfilmreviews",
+      "handle": "@cvnela",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:05.625Z",
-      "finished_at": "2026-06-13T01:32:05.899Z"
+      "started_at": "2026-06-13T01:36:00.076Z",
+      "finished_at": "2026-06-13T01:36:00.340Z"
     },
     {
-      "handle": "@meggghughes",
+      "handle": "@stoney_tha_great",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:05.899Z",
-      "finished_at": "2026-06-13T01:32:06.147Z"
+      "started_at": "2026-06-13T01:36:00.340Z",
+      "finished_at": "2026-06-13T01:36:00.857Z"
     },
     {
-      "handle": "@scarymoviereview",
+      "handle": "@chelsearonniemurphy",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:06.147Z",
-      "finished_at": "2026-06-13T01:32:06.542Z"
+      "started_at": "2026-06-13T01:36:00.857Z",
+      "finished_at": "2026-06-13T01:36:01.282Z"
     },
     {
-      "handle": "@mrrogersreview",
+      "handle": "@spooksandghoulzz",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:06.542Z",
-      "finished_at": "2026-06-13T01:32:06.938Z"
+      "started_at": "2026-06-13T01:36:01.282Z",
+      "finished_at": "2026-06-13T01:36:01.654Z"
     },
     {
-      "handle": "@tylercwhitmore",
+      "handle": "@letswatchthat",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:06.938Z",
-      "finished_at": "2026-06-13T01:32:07.252Z"
+      "started_at": "2026-06-13T01:36:01.654Z",
+      "finished_at": "2026-06-13T01:36:02.002Z"
     },
     {
-      "handle": "@hugeasmammoth.films",
+      "handle": "@horrorwithme",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:07.252Z",
-      "finished_at": "2026-06-13T01:32:07.718Z"
+      "started_at": "2026-06-13T01:36:02.002Z",
+      "finished_at": "2026-06-13T01:36:02.330Z"
     },
     {
-      "handle": "@theotherwatchedlist",
+      "handle": "@justhauntr",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:07.718Z",
-      "finished_at": "2026-06-13T01:32:07.996Z"
+      "started_at": "2026-06-13T01:36:02.330Z",
+      "finished_at": "2026-06-13T01:36:02.660Z"
     },
     {
-      "handle": "@cinemanation",
+      "handle": "@roomforscream",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:07.996Z",
-      "finished_at": "2026-06-13T01:32:08.282Z"
+      "started_at": "2026-06-13T01:36:02.660Z",
+      "finished_at": "2026-06-13T01:36:03.194Z"
     },
     {
-      "handle": "@anton_films_",
+      "handle": "@thenightmaremovies",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:03.194Z",
+      "finished_at": "2026-06-13T01:36:03.471Z"
+    },
+    {
+      "handle": "@sparkleinthedarkness",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:03.471Z",
+      "finished_at": "2026-06-13T01:36:03.785Z"
+    },
+    {
+      "handle": "@livingdeaddelilah",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:08.282Z",
-      "finished_at": "2026-06-13T01:32:08.449Z"
+      "started_at": "2026-06-13T01:36:03.785Z",
+      "finished_at": "2026-06-13T01:36:04.056Z"
     },
     {
-      "handle": "@just_us_ghouls",
+      "handle": "@maksmovieshack",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:08.449Z",
-      "finished_at": "2026-06-13T01:32:08.744Z"
+      "started_at": "2026-06-13T01:36:04.056Z",
+      "finished_at": "2026-06-13T01:36:04.327Z"
     },
     {
-      "handle": "@literally_kathy_bates",
+      "handle": "@finalgirl_jess",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:04.327Z",
+      "finished_at": "2026-06-13T01:36:04.605Z"
+    },
+    {
+      "handle": "@mandymorgue87",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:04.605Z",
+      "finished_at": "2026-06-13T01:36:04.950Z"
+    },
+    {
+      "handle": "@sinistertims6",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:04.950Z",
+      "finished_at": "2026-06-13T01:36:05.282Z"
+    },
+    {
+      "handle": "@haliexroxanne",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:05.282Z",
+      "finished_at": "2026-06-13T01:36:05.555Z"
+    },
+    {
+      "handle": "@animalize21",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:05.555Z",
+      "finished_at": "2026-06-13T01:36:05.851Z"
+    },
+    {
+      "handle": "@mimielita",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:05.851Z",
+      "finished_at": "2026-06-13T01:36:06.170Z"
+    },
+    {
+      "handle": "@marikaboniuk",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:06.170Z",
+      "finished_at": "2026-06-13T01:36:06.526Z"
+    },
+    {
+      "handle": "@karen.daphne",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:06.526Z",
+      "finished_at": "2026-06-13T01:36:06.852Z"
+    },
+    {
+      "handle": "@digitalillusion",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:06.852Z",
+      "finished_at": "2026-06-13T01:36:07.126Z"
+    },
+    {
+      "handle": "@simplymindart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:07.126Z",
+      "finished_at": "2026-06-13T01:36:07.447Z"
+    },
+    {
+      "handle": "@mysweetchubs",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:07.447Z",
+      "finished_at": "2026-06-13T01:36:07.746Z"
+    },
+    {
+      "handle": "@viyaura",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:07.746Z",
+      "finished_at": "2026-06-13T01:36:08.096Z"
+    },
+    {
+      "handle": "@mypixelartworld",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:08.096Z",
+      "finished_at": "2026-06-13T01:36:08.455Z"
+    },
+    {
+      "handle": "@youkoda",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:08.455Z",
+      "finished_at": "2026-06-13T01:36:08.747Z"
+    },
+    {
+      "handle": "@katterineart",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:08.744Z",
-      "finished_at": "2026-06-13T01:32:08.957Z"
+      "started_at": "2026-06-13T01:36:08.747Z",
+      "finished_at": "2026-06-13T01:36:09.160Z"
     },
     {
-      "handle": "@marinamay",
+      "handle": "@philipsue_art",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:08.957Z",
-      "finished_at": "2026-06-13T01:32:09.241Z"
+      "started_at": "2026-06-13T01:36:09.160Z",
+      "finished_at": "2026-06-13T01:36:09.569Z"
     },
     {
-      "handle": "@ginger.boiii",
+      "handle": "@eldiesaert",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:09.241Z",
-      "finished_at": "2026-06-13T01:32:09.483Z"
+      "started_at": "2026-06-13T01:36:09.569Z",
+      "finished_at": "2026-06-13T01:36:09.847Z"
     },
     {
-      "handle": "@colinspencer05",
+      "handle": "@pixzli.art",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:09.483Z",
-      "finished_at": "2026-06-13T01:32:09.819Z"
+      "started_at": "2026-06-13T01:36:09.847Z",
+      "finished_at": "2026-06-13T01:36:10.144Z"
     },
     {
-      "handle": "@connorsmoviereviews",
+      "handle": "@digital.art.junky",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:09.819Z",
-      "finished_at": "2026-06-13T01:32:10.185Z"
+      "started_at": "2026-06-13T01:36:10.144Z",
+      "finished_at": "2026-06-13T01:36:10.524Z"
     },
     {
-      "handle": "@muny_rags",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:10.185Z",
-      "finished_at": "2026-06-13T01:32:10.433Z"
-    },
-    {
-      "handle": "@kashia_turner",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:10.433Z",
-      "finished_at": "2026-06-13T01:32:10.711Z"
-    },
-    {
-      "handle": "@tomreviewsfilms",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:10.711Z",
-      "finished_at": "2026-06-13T01:32:11.154Z"
-    },
-    {
-      "handle": "@movieswithleo",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:11.154Z",
-      "finished_at": "2026-06-13T01:32:11.969Z"
-    },
-    {
-      "handle": "@cinemonika",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:11.969Z",
-      "finished_at": "2026-06-13T01:32:12.250Z"
-    },
-    {
-      "handle": "@cianfilm",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:12.250Z",
-      "finished_at": "2026-06-13T01:32:12.725Z"
-    },
-    {
-      "handle": "@shivalry_inc",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:12.725Z",
-      "finished_at": "2026-06-13T01:32:12.948Z"
-    },
-    {
-      "handle": "@moviegoodormoviebad",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:12.948Z",
-      "finished_at": "2026-06-13T01:32:13.242Z"
-    },
-    {
-      "handle": "@joisarose",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:13.242Z",
-      "finished_at": "2026-06-13T01:32:13.675Z"
-    },
-    {
-      "handle": "@medicalmovieman",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:13.675Z",
-      "finished_at": "2026-06-13T01:32:13.935Z"
-    },
-    {
-      "handle": "@sydneyvolpe",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:13.935Z",
-      "finished_at": "2026-06-13T01:32:14.200Z"
-    },
-    {
-      "handle": "@eazye_32",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:14.200Z",
-      "finished_at": "2026-06-13T01:32:14.511Z"
-    },
-    {
-      "handle": "@kwamzen",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:14.511Z",
-      "finished_at": "2026-06-13T01:32:14.803Z"
-    },
-    {
-      "handle": "@j.moodz",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:14.803Z",
-      "finished_at": "2026-06-13T01:32:15.093Z"
-    },
-    {
-      "handle": "@officialkuwrb",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:15.093Z",
-      "finished_at": "2026-06-13T01:32:15.454Z"
-    },
-    {
-      "handle": "@davelikesmovies",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:15.454Z",
-      "finished_at": "2026-06-13T01:32:15.772Z"
-    },
-    {
-      "handle": "@knightoffun",
+      "handle": "@elsymayer",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:15.772Z",
-      "finished_at": "2026-06-13T01:32:15.979Z"
+      "started_at": "2026-06-13T01:36:10.524Z",
+      "finished_at": "2026-06-13T01:36:11.074Z"
     },
     {
-      "handle": "@asternopinion",
+      "handle": "@bonbonqiqi",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:11.074Z",
+      "finished_at": "2026-06-13T01:36:11.572Z"
+    },
+    {
+      "handle": "@janinedesigns",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:11.572Z",
+      "finished_at": "2026-06-13T01:36:12.092Z"
+    },
+    {
+      "handle": "@graphicdesignwizard",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:12.092Z",
+      "finished_at": "2026-06-13T01:36:12.362Z"
+    },
+    {
+      "handle": "@becca_a_hadley",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:12.362Z",
+      "finished_at": "2026-06-13T01:36:12.719Z"
+    },
+    {
+      "handle": "@jenrozuu",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:12.719Z",
+      "finished_at": "2026-06-13T01:36:13.001Z"
+    },
+    {
+      "handle": "@graphicsdesigning1",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:13.001Z",
+      "finished_at": "2026-06-13T01:36:13.366Z"
+    },
+    {
+      "handle": "@artejim",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:13.366Z",
+      "finished_at": "2026-06-13T01:36:13.671Z"
+    },
+    {
+      "handle": "@cherryidet",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:13.671Z",
+      "finished_at": "2026-06-13T01:36:14.001Z"
+    },
+    {
+      "handle": "@berrystrawnana",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:15.979Z",
-      "finished_at": "2026-06-13T01:32:16.295Z"
+      "started_at": "2026-06-13T01:36:14.001Z",
+      "finished_at": "2026-06-13T01:36:14.261Z"
     },
     {
-      "handle": "@filmlinds",
+      "handle": "@martin.graphic.design",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:16.295Z",
-      "finished_at": "2026-06-13T01:32:16.567Z"
+      "started_at": "2026-06-13T01:36:14.261Z",
+      "finished_at": "2026-06-13T01:36:14.573Z"
     },
     {
-      "handle": "@hunterdeutsch",
+      "handle": "@oriental.digital.art",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:16.567Z",
-      "finished_at": "2026-06-13T01:32:16.862Z"
+      "started_at": "2026-06-13T01:36:14.573Z",
+      "finished_at": "2026-06-13T01:36:14.914Z"
     },
     {
-      "handle": "@bassreview",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:16.862Z",
-      "finished_at": "2026-06-13T01:32:17.139Z"
-    },
-    {
-      "handle": "@tsips13",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:17.139Z",
-      "finished_at": "2026-06-13T01:32:17.417Z"
-    },
-    {
-      "handle": "@themovieguy.nam",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:17.417Z",
-      "finished_at": "2026-06-13T01:32:17.678Z"
-    },
-    {
-      "handle": "@that.movie_guy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:17.678Z",
-      "finished_at": "2026-06-13T01:32:17.914Z"
-    },
-    {
-      "handle": "@keshascastle",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:17.914Z",
-      "finished_at": "2026-06-13T01:32:18.214Z"
-    },
-    {
-      "handle": "@movieguyandrew",
+      "handle": "@newdigitalart",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:18.214Z",
-      "finished_at": "2026-06-13T01:32:18.507Z"
+      "started_at": "2026-06-13T01:36:14.914Z",
+      "finished_at": "2026-06-13T01:36:15.241Z"
     },
     {
-      "handle": "@tylerjwarren",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:18.507Z",
-      "finished_at": "2026-06-13T01:32:18.791Z"
-    },
-    {
-      "handle": "@only.leanna",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:18.791Z",
-      "finished_at": "2026-06-13T01:32:19.137Z"
-    },
-    {
-      "handle": "@filmlokalreview",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:19.137Z",
-      "finished_at": "2026-06-13T01:32:19.441Z"
-    },
-    {
-      "handle": "@offscreenwithjillian",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:19.441Z",
-      "finished_at": "2026-06-13T01:32:19.732Z"
-    },
-    {
-      "handle": "@kadhuramasamy",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:19.732Z",
-      "finished_at": "2026-06-13T01:32:20.032Z"
-    },
-    {
-      "handle": "@ratedwrong",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:20.032Z",
-      "finished_at": "2026-06-13T01:32:20.527Z"
-    },
-    {
-      "handle": "@jackknightleyboxd",
+      "handle": "@ar_graphic_designer",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:20.527Z",
-      "finished_at": "2026-06-13T01:32:20.798Z"
+      "started_at": "2026-06-13T01:36:15.241Z",
+      "finished_at": "2026-06-13T01:36:15.471Z"
     },
     {
-      "handle": "@owenhatesmovies",
+      "handle": "@anna_victoriart",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:20.798Z",
-      "finished_at": "2026-06-13T01:32:21.054Z"
+      "started_at": "2026-06-13T01:36:15.471Z",
+      "finished_at": "2026-06-13T01:36:15.766Z"
     },
     {
-      "handle": "@accordingtoseth",
+      "handle": "@jreamidesign",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:21.054Z",
-      "finished_at": "2026-06-13T01:32:21.331Z"
+      "started_at": "2026-06-13T01:36:15.766Z",
+      "finished_at": "2026-06-13T01:36:16.167Z"
     },
     {
-      "handle": "@fashionablemoviereviews",
+      "handle": "@digitalartbyharishsidd",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:21.331Z",
-      "finished_at": "2026-06-13T01:32:21.640Z"
+      "started_at": "2026-06-13T01:36:16.167Z",
+      "finished_at": "2026-06-13T01:36:16.460Z"
     },
     {
-      "handle": "@dylanapprovedfilms",
+      "handle": "@graphicdesignsbyerica",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:21.640Z",
-      "finished_at": "2026-06-13T01:32:22.107Z"
+      "started_at": "2026-06-13T01:36:16.460Z",
+      "finished_at": "2026-06-13T01:36:16.816Z"
     },
     {
-      "handle": "@dennyoleary",
+      "handle": "@jpartworks",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:22.107Z",
-      "finished_at": "2026-06-13T01:32:22.475Z"
+      "started_at": "2026-06-13T01:36:16.816Z",
+      "finished_at": "2026-06-13T01:36:17.071Z"
     },
     {
-      "handle": "@previewreview0",
+      "handle": "@lazykitemo",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:22.475Z",
-      "finished_at": "2026-06-13T01:32:22.773Z"
+      "started_at": "2026-06-13T01:36:17.071Z",
+      "finished_at": "2026-06-13T01:36:17.411Z"
     },
     {
-      "handle": "@dmbreviews",
+      "handle": "@lemartist",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:17.411Z",
+      "finished_at": "2026-06-13T01:36:17.732Z"
+    },
+    {
+      "handle": "@digital_art2.0",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:17.732Z",
+      "finished_at": "2026-06-13T01:36:18.038Z"
+    },
+    {
+      "handle": "@rednava3",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:18.038Z",
+      "finished_at": "2026-06-13T01:36:18.386Z"
+    },
+    {
+      "handle": "@originalillustration",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:18.386Z",
+      "finished_at": "2026-06-13T01:36:18.672Z"
+    },
+    {
+      "handle": "@nil_digitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:18.672Z",
+      "finished_at": "2026-06-13T01:36:18.924Z"
+    },
+    {
+      "handle": "@nurilyatiktok",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:18.924Z",
+      "finished_at": "2026-06-13T01:36:19.220Z"
+    },
+    {
+      "handle": "@by.annie.n",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:19.220Z",
+      "finished_at": "2026-06-13T01:36:19.702Z"
+    },
+    {
+      "handle": "@viki_digitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:19.702Z",
+      "finished_at": "2026-06-13T01:36:19.976Z"
+    },
+    {
+      "handle": "@dinesh_55",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:19.976Z",
+      "finished_at": "2026-06-13T01:36:20.289Z"
+    },
+    {
+      "handle": "@rdigitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:20.289Z",
+      "finished_at": "2026-06-13T01:36:20.579Z"
+    },
+    {
+      "handle": "@_roch_art_digital_2",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:22.773Z",
-      "finished_at": "2026-06-13T01:32:23.112Z"
+      "started_at": "2026-06-13T01:36:20.579Z",
+      "finished_at": "2026-06-13T01:36:20.825Z"
     },
     {
-      "handle": "@emansreviews",
+      "handle": "@goluchaurasia4568",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:23.112Z",
-      "finished_at": "2026-06-13T01:32:23.363Z"
+      "started_at": "2026-06-13T01:36:20.825Z",
+      "finished_at": "2026-06-13T01:36:21.120Z"
     },
     {
-      "handle": "@zachhpope",
+      "handle": "@ry.aoki",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:23.363Z",
-      "finished_at": "2026-06-13T01:32:23.635Z"
+      "started_at": "2026-06-13T01:36:21.120Z",
+      "finished_at": "2026-06-13T01:36:21.424Z"
     },
     {
-      "handle": "@andrewfreund",
+      "handle": "@kss_design",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:23.635Z",
-      "finished_at": "2026-06-13T01:32:23.933Z"
+      "started_at": "2026-06-13T01:36:21.424Z",
+      "finished_at": "2026-06-13T01:36:21.668Z"
     },
     {
-      "handle": "@dreuxsuave",
+      "handle": "@digital_drawing6949",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:23.933Z",
-      "finished_at": "2026-06-13T01:32:24.685Z"
+      "started_at": "2026-06-13T01:36:21.668Z",
+      "finished_at": "2026-06-13T01:36:22.056Z"
     },
     {
-      "handle": "@hannahkeefer47",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:24.685Z",
-      "finished_at": "2026-06-13T01:32:24.960Z"
-    },
-    {
-      "handle": "@johncalvry",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:24.960Z",
-      "finished_at": "2026-06-13T01:32:25.275Z"
-    },
-    {
-      "handle": "@guyatthemovies",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:25.275Z",
-      "finished_at": "2026-06-13T01:32:25.588Z"
-    },
-    {
-      "handle": "@la_madrina_g",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
-      "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:25.588Z",
-      "finished_at": "2026-06-13T01:32:25.883Z"
-    },
-    {
-      "handle": "@teejaymcfly",
+      "handle": "@inza.graphicdesign",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:25.883Z",
-      "finished_at": "2026-06-13T01:32:26.122Z"
+      "started_at": "2026-06-13T01:36:22.056Z",
+      "finished_at": "2026-06-13T01:36:22.312Z"
     },
     {
-      "handle": "@marottamedia",
+      "handle": "@ninodigital_art",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:26.122Z",
-      "finished_at": "2026-06-13T01:32:26.387Z"
+      "started_at": "2026-06-13T01:36:22.312Z",
+      "finished_at": "2026-06-13T01:36:22.766Z"
     },
     {
-      "handle": "@adamdoesmovies",
+      "handle": "@artnstuff18",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:26.387Z",
-      "finished_at": "2026-06-13T01:32:26.602Z"
+      "started_at": "2026-06-13T01:36:22.766Z",
+      "finished_at": "2026-06-13T01:36:23.104Z"
     },
     {
-      "handle": "@lamphead97",
+      "handle": "@stanke93",
       "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:26.602Z",
-      "finished_at": "2026-06-13T01:32:26.910Z"
+      "started_at": "2026-06-13T01:36:23.104Z",
+      "finished_at": "2026-06-13T01:36:23.469Z"
     },
     {
-      "handle": "@naturallybnicki",
+      "handle": "@thanat_digitalart",
       "status": "failed",
       "error": "profile hydration data missing userInfo",
-      "selection_reason": "review_queue_priority_3",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:26.910Z",
-      "finished_at": "2026-06-13T01:32:27.177Z"
+      "started_at": "2026-06-13T01:36:23.469Z",
+      "finished_at": "2026-06-13T01:36:23.661Z"
     },
     {
-      "handle": "@naro.film",
-      "status": "succeeded",
-      "selection_reason": "review_queue_priority_3",
+      "handle": "@artist_krishna",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
       "prior_usefulness": 32,
-      "started_at": "2026-06-13T01:32:27.177Z",
-      "finished_at": "2026-06-13T01:32:27.485Z"
+      "started_at": "2026-06-13T01:36:23.661Z",
+      "finished_at": "2026-06-13T01:36:24.257Z"
+    },
+    {
+      "handle": "@norawafikgraphicdesign",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:24.257Z",
+      "finished_at": "2026-06-13T01:36:24.439Z"
+    },
+    {
+      "handle": "@houseofvells",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:24.439Z",
+      "finished_at": "2026-06-13T01:36:25.010Z"
+    },
+    {
+      "handle": "@daylightillustrations",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:25.010Z",
+      "finished_at": "2026-06-13T01:36:25.345Z"
+    },
+    {
+      "handle": "@creativeli.nde",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:25.345Z",
+      "finished_at": "2026-06-13T01:36:25.726Z"
+    },
+    {
+      "handle": "@digital.arts_",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:25.726Z",
+      "finished_at": "2026-06-13T01:36:26.037Z"
+    },
+    {
+      "handle": "@echoartdigital",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:26.037Z",
+      "finished_at": "2026-06-13T01:36:26.327Z"
+    },
+    {
+      "handle": "@just.zimzak",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:26.327Z",
+      "finished_at": "2026-06-13T01:36:26.564Z"
+    },
+    {
+      "handle": "@justqualityart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:26.564Z",
+      "finished_at": "2026-06-13T01:36:26.863Z"
+    },
+    {
+      "handle": "@strangerthing.digitalart",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:26.863Z",
+      "finished_at": "2026-06-13T01:36:27.064Z"
+    },
+    {
+      "handle": "@ashira_designs",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:27.064Z",
+      "finished_at": "2026-06-13T01:36:27.299Z"
+    },
+    {
+      "handle": "@learn.procreate",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:27.299Z",
+      "finished_at": "2026-06-13T01:36:27.489Z"
+    },
+    {
+      "handle": "@zafardigitalartgallery",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:27.489Z",
+      "finished_at": "2026-06-13T01:36:27.853Z"
+    },
+    {
+      "handle": "@digital.drawsss",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:27.853Z",
+      "finished_at": "2026-06-13T01:36:28.134Z"
+    },
+    {
+      "handle": "@hos.digitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:28.134Z",
+      "finished_at": "2026-06-13T01:36:28.371Z"
+    },
+    {
+      "handle": "@digitalartdezign",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:28.371Z",
+      "finished_at": "2026-06-13T01:36:28.873Z"
+    },
+    {
+      "handle": "@karelysdigitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:28.873Z",
+      "finished_at": "2026-06-13T01:36:29.294Z"
+    },
+    {
+      "handle": "@laladigitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:29.294Z",
+      "finished_at": "2026-06-13T01:36:29.632Z"
+    },
+    {
+      "handle": "@digitalartbyjuliette",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:29.632Z",
+      "finished_at": "2026-06-13T01:36:29.978Z"
+    },
+    {
+      "handle": "@elliexdigitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:29.978Z",
+      "finished_at": "2026-06-13T01:36:30.561Z"
+    },
+    {
+      "handle": "@peace_rabbit",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:30.561Z",
+      "finished_at": "2026-06-13T01:36:30.845Z"
+    },
+    {
+      "handle": "@othniel.digitaldrawing",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:30.845Z",
+      "finished_at": "2026-06-13T01:36:31.073Z"
+    },
+    {
+      "handle": "@miguelmagaro",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:31.073Z",
+      "finished_at": "2026-06-13T01:36:31.306Z"
+    },
+    {
+      "handle": "@digitalart_queen",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:31.306Z",
+      "finished_at": "2026-06-13T01:36:31.591Z"
+    },
+    {
+      "handle": "@anudigitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:31.591Z",
+      "finished_at": "2026-06-13T01:36:31.846Z"
+    },
+    {
+      "handle": "@digitalart_bysofia",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:31.846Z",
+      "finished_at": "2026-06-13T01:36:32.204Z"
+    },
+    {
+      "handle": "@digitalartmpinsta",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:32.204Z",
+      "finished_at": "2026-06-13T01:36:32.543Z"
+    },
+    {
+      "handle": "@digital.x.art.rblx",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:32.543Z",
+      "finished_at": "2026-06-13T01:36:32.908Z"
+    },
+    {
+      "handle": "@artdiggital",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:32.908Z",
+      "finished_at": "2026-06-13T01:36:33.145Z"
+    },
+    {
+      "handle": "@twan_graphic_design",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:33.145Z",
+      "finished_at": "2026-06-13T01:36:33.408Z"
+    },
+    {
+      "handle": "@digit.art",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:33.408Z",
+      "finished_at": "2026-06-13T01:36:33.678Z"
+    },
+    {
+      "handle": "@saleemwrites05",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:33.678Z",
+      "finished_at": "2026-06-13T01:36:33.975Z"
+    },
+    {
+      "handle": "@eralidigitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:33.975Z",
+      "finished_at": "2026-06-13T01:36:34.292Z"
+    },
+    {
+      "handle": "@deku_artdigital012",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:34.292Z",
+      "finished_at": "2026-06-13T01:36:34.640Z"
+    },
+    {
+      "handle": "@_putuaryaa",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:34.640Z",
+      "finished_at": "2026-06-13T01:36:35.173Z"
+    },
+    {
+      "handle": "@indamoodgraphicdesign",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:35.173Z",
+      "finished_at": "2026-06-13T01:36:35.535Z"
+    },
+    {
+      "handle": "@kellydigitaldrawing",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:35.535Z",
+      "finished_at": "2026-06-13T01:36:35.846Z"
+    },
+    {
+      "handle": "@jeedigitalart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:35.846Z",
+      "finished_at": "2026-06-13T01:36:36.211Z"
+    },
+    {
+      "handle": "@devonrodriguezart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:36.211Z",
+      "finished_at": "2026-06-13T01:36:36.555Z"
+    },
+    {
+      "handle": "@kevinchampeny",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:36.555Z",
+      "finished_at": "2026-06-13T01:36:36.863Z"
+    },
+    {
+      "handle": "@lily.ting",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:36.863Z",
+      "finished_at": "2026-06-13T01:36:37.263Z"
+    },
+    {
+      "handle": "@mayrushart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:37.263Z",
+      "finished_at": "2026-06-13T01:36:37.597Z"
+    },
+    {
+      "handle": "@livinglunacreations",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:37.597Z",
+      "finished_at": "2026-06-13T01:36:37.945Z"
+    },
+    {
+      "handle": "@nicolebrennan.draws",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:37.945Z",
+      "finished_at": "2026-06-13T01:36:38.153Z"
+    },
+    {
+      "handle": "@cool_lookin_bug",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:38.153Z",
+      "finished_at": "2026-06-13T01:36:38.413Z"
+    },
+    {
+      "handle": "@karocrafts",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:38.413Z",
+      "finished_at": "2026-06-13T01:36:38.835Z"
+    },
+    {
+      "handle": "@angelbakednyc",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:38.835Z",
+      "finished_at": "2026-06-13T01:36:39.234Z"
+    },
+    {
+      "handle": "@thomminnickart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:39.234Z",
+      "finished_at": "2026-06-13T01:36:39.521Z"
+    },
+    {
+      "handle": "@hungryartistny",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:39.521Z",
+      "finished_at": "2026-06-13T01:36:39.951Z"
+    },
+    {
+      "handle": "@artbymichellemarie",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:39.951Z",
+      "finished_at": "2026-06-13T01:36:40.240Z"
+    },
+    {
+      "handle": "@courtneykinnare.art",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:40.240Z",
+      "finished_at": "2026-06-13T01:36:40.506Z"
+    },
+    {
+      "handle": "@celistudios",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:40.506Z",
+      "finished_at": "2026-06-13T01:36:40.931Z"
+    },
+    {
+      "handle": "@keannimation",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:40.931Z",
+      "finished_at": "2026-06-13T01:36:41.223Z"
+    },
+    {
+      "handle": "@anxiouschalker",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:41.223Z",
+      "finished_at": "2026-06-13T01:36:41.528Z"
+    },
+    {
+      "handle": "@artbymycha",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:41.528Z",
+      "finished_at": "2026-06-13T01:36:41.877Z"
+    },
+    {
+      "handle": "@jasonnaylornyc",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:41.877Z",
+      "finished_at": "2026-06-13T01:36:42.504Z"
+    },
+    {
+      "handle": "@mv.nyc",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:42.504Z",
+      "finished_at": "2026-06-13T01:36:42.772Z"
+    },
+    {
+      "handle": "@wilkes.studio",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:42.772Z",
+      "finished_at": "2026-06-13T01:36:43.028Z"
+    },
+    {
+      "handle": "@nicksiderart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:43.028Z",
+      "finished_at": "2026-06-13T01:36:43.387Z"
+    },
+    {
+      "handle": "@artwithmanasi",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:43.387Z",
+      "finished_at": "2026-06-13T01:36:43.639Z"
+    },
+    {
+      "handle": "@michaelalanalien",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:43.639Z",
+      "finished_at": "2026-06-13T01:36:44.077Z"
+    },
+    {
+      "handle": "@celina.gy",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:44.077Z",
+      "finished_at": "2026-06-13T01:36:44.306Z"
+    },
+    {
+      "handle": "@wisecarver",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:44.306Z",
+      "finished_at": "2026-06-13T01:36:44.599Z"
+    },
+    {
+      "handle": "@artbysmashley",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:44.599Z",
+      "finished_at": "2026-06-13T01:36:44.931Z"
+    },
+    {
+      "handle": "@tiffanybchanel",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:44.931Z",
+      "finished_at": "2026-06-13T01:36:45.321Z"
+    },
+    {
+      "handle": "@maggieantalek",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:45.321Z",
+      "finished_at": "2026-06-13T01:36:45.686Z"
+    },
+    {
+      "handle": "@timothygoodman",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:45.686Z",
+      "finished_at": "2026-06-13T01:36:45.995Z"
+    },
+    {
+      "handle": "@sonjaarroyoart",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:45.995Z",
+      "finished_at": "2026-06-13T01:36:46.281Z"
+    },
+    {
+      "handle": "@survivinglight",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:46.281Z",
+      "finished_at": "2026-06-13T01:36:46.765Z"
+    },
+    {
+      "handle": "@honorroller",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:46.765Z",
+      "finished_at": "2026-06-13T01:36:47.055Z"
+    },
+    {
+      "handle": "@kassidybkreations",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:47.055Z",
+      "finished_at": "2026-06-13T01:36:47.420Z"
+    },
+    {
+      "handle": "@itsgraceaki",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:47.420Z",
+      "finished_at": "2026-06-13T01:36:47.752Z"
+    },
+    {
+      "handle": "@travelwritedraw",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:47.752Z",
+      "finished_at": "2026-06-13T01:36:48.054Z"
+    },
+    {
+      "handle": "@macfacts",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:48.054Z",
+      "finished_at": "2026-06-13T01:36:48.337Z"
+    },
+    {
+      "handle": "@josie.woodss",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:48.337Z",
+      "finished_at": "2026-06-13T01:36:48.647Z"
+    },
+    {
+      "handle": "@imdjlivia",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:48.647Z",
+      "finished_at": "2026-06-13T01:36:49.037Z"
+    },
+    {
+      "handle": "@dormun",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:49.037Z",
+      "finished_at": "2026-06-13T01:36:49.356Z"
+    },
+    {
+      "handle": "@songpsych",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:49.356Z",
+      "finished_at": "2026-06-13T01:36:49.845Z"
+    },
+    {
+      "handle": "@ldrethegiant",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:49.845Z",
+      "finished_at": "2026-06-13T01:36:50.115Z"
+    },
+    {
+      "handle": "@its.queen.ife_",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:50.115Z",
+      "finished_at": "2026-06-13T01:36:50.389Z"
+    },
+    {
+      "handle": "@damoyee",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:50.389Z",
+      "finished_at": "2026-06-13T01:36:50.774Z"
+    },
+    {
+      "handle": "@99makaveli",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:50.774Z",
+      "finished_at": "2026-06-13T01:36:51.089Z"
+    },
+    {
+      "handle": "@prodbyocean",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:51.089Z",
+      "finished_at": "2026-06-13T01:36:51.416Z"
+    },
+    {
+      "handle": "@prod.by.iiinfinite",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:51.416Z",
+      "finished_at": "2026-06-13T01:36:51.770Z"
+    },
+    {
+      "handle": "@sowylie",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:51.770Z",
+      "finished_at": "2026-06-13T01:36:52.137Z"
+    },
+    {
+      "handle": "@musicindustrymentor",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:52.137Z",
+      "finished_at": "2026-06-13T01:36:52.466Z"
+    },
+    {
+      "handle": "@producelikeapro",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:52.466Z",
+      "finished_at": "2026-06-13T01:36:52.808Z"
+    },
+    {
+      "handle": "@sam.smyers",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:52.808Z",
+      "finished_at": "2026-06-13T01:36:53.186Z"
+    },
+    {
+      "handle": "@jaycactus",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:53.186Z",
+      "finished_at": "2026-06-13T01:36:53.514Z"
+    },
+    {
+      "handle": "@_buttonmasher",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:53.514Z",
+      "finished_at": "2026-06-13T01:36:53.791Z"
+    },
+    {
+      "handle": "@thomasvopstal",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:53.791Z",
+      "finished_at": "2026-06-13T01:36:54.042Z"
+    },
+    {
+      "handle": "@streaky_com",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:54.042Z",
+      "finished_at": "2026-06-13T01:36:54.390Z"
+    },
+    {
+      "handle": "@bradleyhd",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:54.390Z",
+      "finished_at": "2026-06-13T01:36:54.759Z"
+    },
+    {
+      "handle": "@uncle.kizzy",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:54.759Z",
+      "finished_at": "2026-06-13T01:36:55.090Z"
+    },
+    {
+      "handle": "@musicbyazuma",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:55.090Z",
+      "finished_at": "2026-06-13T01:36:55.343Z"
+    },
+    {
+      "handle": "@rani.adi",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:55.343Z",
+      "finished_at": "2026-06-13T01:36:55.620Z"
+    },
+    {
+      "handle": "@jeff.nang",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:55.620Z",
+      "finished_at": "2026-06-13T01:36:55.890Z"
+    },
+    {
+      "handle": "@duoalmanac",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:55.890Z",
+      "finished_at": "2026-06-13T01:36:56.159Z"
+    },
+    {
+      "handle": "@larryohh",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:56.159Z",
+      "finished_at": "2026-06-13T01:36:56.480Z"
+    },
+    {
+      "handle": "@jayrytthm",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:56.480Z",
+      "finished_at": "2026-06-13T01:36:56.856Z"
+    },
+    {
+      "handle": "@aubreyproducer",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:56.856Z",
+      "finished_at": "2026-06-13T01:36:57.269Z"
+    },
+    {
+      "handle": "@gnarly.music",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:57.269Z",
+      "finished_at": "2026-06-13T01:36:57.559Z"
+    },
+    {
+      "handle": "@quantizemusicproductions",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:57.559Z",
+      "finished_at": "2026-06-13T01:36:57.910Z"
+    },
+    {
+      "handle": "@beautifulbeats99",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:57.910Z",
+      "finished_at": "2026-06-13T01:36:58.244Z"
+    },
+    {
+      "handle": "@unorthodox.beats",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:58.244Z",
+      "finished_at": "2026-06-13T01:36:58.661Z"
+    },
+    {
+      "handle": "@ivanfromrnd",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:58.661Z",
+      "finished_at": "2026-06-13T01:36:59.013Z"
+    },
+    {
+      "handle": "@justus.west",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:59.013Z",
+      "finished_at": "2026-06-13T01:36:59.491Z"
+    },
+    {
+      "handle": "@wordsbykristin",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:59.491Z",
+      "finished_at": "2026-06-13T01:36:59.805Z"
+    },
+    {
+      "handle": "@mixedbyel_",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:36:59.805Z",
+      "finished_at": "2026-06-13T01:37:00.140Z"
+    },
+    {
+      "handle": "@thedavidfrick",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:00.140Z",
+      "finished_at": "2026-06-13T01:37:00.413Z"
+    },
+    {
+      "handle": "@dxt3r_lab",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:00.413Z",
+      "finished_at": "2026-06-13T01:37:00.758Z"
+    },
+    {
+      "handle": "@donyeamusic",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:00.758Z",
+      "finished_at": "2026-06-13T01:37:01.050Z"
+    },
+    {
+      "handle": "@michael.inthemix",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:01.050Z",
+      "finished_at": "2026-06-13T01:37:01.378Z"
+    },
+    {
+      "handle": "@nashoverstreet",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:01.378Z",
+      "finished_at": "2026-06-13T01:37:01.749Z"
+    },
+    {
+      "handle": "@thisisnalaa",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:01.749Z",
+      "finished_at": "2026-06-13T01:37:02.098Z"
+    },
+    {
+      "handle": "@violettazironi",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:02.098Z",
+      "finished_at": "2026-06-13T01:37:02.454Z"
+    },
+    {
+      "handle": "@chrisobrien_cataract",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:02.454Z",
+      "finished_at": "2026-06-13T01:37:02.641Z"
+    },
+    {
+      "handle": "@phonicbeats",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:02.641Z",
+      "finished_at": "2026-06-13T01:37:02.846Z"
+    },
+    {
+      "handle": "@andrewmastersmusic",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:02.846Z",
+      "finished_at": "2026-06-13T01:37:03.148Z"
+    },
+    {
+      "handle": "@legacybeats",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:03.148Z",
+      "finished_at": "2026-06-13T01:37:03.543Z"
+    },
+    {
+      "handle": "@twanmvsic",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:03.543Z",
+      "finished_at": "2026-06-13T01:37:03.746Z"
+    },
+    {
+      "handle": "@geekazine",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:03.746Z",
+      "finished_at": "2026-06-13T01:37:04.053Z"
+    },
+    {
+      "handle": "@jordi.koalitic",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:04.053Z",
+      "finished_at": "2026-06-13T01:37:04.347Z"
+    },
+    {
+      "handle": "@danielguti",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:04.347Z",
+      "finished_at": "2026-06-13T01:37:05.052Z"
+    },
+    {
+      "handle": "@planegirl",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:05.052Z",
+      "finished_at": "2026-06-13T01:37:05.339Z"
+    },
+    {
+      "handle": "@pilotilse",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:05.339Z",
+      "finished_at": "2026-06-13T01:37:05.595Z"
+    },
+    {
+      "handle": "@pilot_onthegram",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:05.595Z",
+      "finished_at": "2026-06-13T01:37:05.881Z"
+    },
+    {
+      "handle": "@pilotkaden",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:05.881Z",
+      "finished_at": "2026-06-13T01:37:06.150Z"
+    },
+    {
+      "handle": "@arturosauu",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:06.150Z",
+      "finished_at": "2026-06-13T01:37:06.422Z"
+    },
+    {
+      "handle": "@hermanmarkuswenas",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:06.422Z",
+      "finished_at": "2026-06-13T01:37:06.818Z"
+    },
+    {
+      "handle": "@mrturboprop",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:06.818Z",
+      "finished_at": "2026-06-13T01:37:07.147Z"
+    },
+    {
+      "handle": "@joeymiuccio",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:07.147Z",
+      "finished_at": "2026-06-13T01:37:07.439Z"
+    },
+    {
+      "handle": "@bryceangell",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:07.439Z",
+      "finished_at": "2026-06-13T01:37:07.867Z"
+    },
+    {
+      "handle": "@pilot.drew",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:07.867Z",
+      "finished_at": "2026-06-13T01:37:08.194Z"
+    },
+    {
+      "handle": "@machkhanh",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:08.194Z",
+      "finished_at": "2026-06-13T01:37:08.501Z"
+    },
+    {
+      "handle": "@garybpilot",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:08.501Z",
+      "finished_at": "2026-06-13T01:37:08.790Z"
+    },
+    {
+      "handle": "@pilotpete.fly",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:08.790Z",
+      "finished_at": "2026-06-13T01:37:09.135Z"
+    },
+    {
+      "handle": "@hasardleepilot",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:09.135Z",
+      "finished_at": "2026-06-13T01:37:09.475Z"
+    },
+    {
+      "handle": "@titusmeh",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:09.475Z",
+      "finished_at": "2026-06-13T01:37:09.768Z"
+    },
+    {
+      "handle": "@captainmattymo",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:09.768Z",
+      "finished_at": "2026-06-13T01:37:10.075Z"
+    },
+    {
+      "handle": "@moonflight72",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:10.075Z",
+      "finished_at": "2026-06-13T01:37:10.364Z"
+    },
+    {
+      "handle": "@airplane_a3501000_edits",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:10.364Z",
+      "finished_at": "2026-06-13T01:37:10.817Z"
+    },
+    {
+      "handle": "@helicoptom",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:10.817Z",
+      "finished_at": "2026-06-13T01:37:11.198Z"
+    },
+    {
+      "handle": "@soylapiloto",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:11.198Z",
+      "finished_at": "2026-06-13T01:37:11.537Z"
+    },
+    {
+      "handle": "@pilotfaby",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:11.537Z",
+      "finished_at": "2026-06-13T01:37:11.865Z"
+    },
+    {
+      "handle": "@pilotslimm",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:11.865Z",
+      "finished_at": "2026-06-13T01:37:12.144Z"
+    },
+    {
+      "handle": "@rich__rafferty",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:12.144Z",
+      "finished_at": "2026-06-13T01:37:12.471Z"
+    },
+    {
+      "handle": "@maanya.panday",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:12.471Z",
+      "finished_at": "2026-06-13T01:37:12.788Z"
+    },
+    {
+      "handle": "@nick_raisin",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:12.788Z",
+      "finished_at": "2026-06-13T01:37:13.110Z"
+    },
+    {
+      "handle": "@_delta_one",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:13.110Z",
+      "finished_at": "2026-06-13T01:37:13.485Z"
+    },
+    {
+      "handle": "@thecommercialpilot",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:13.485Z",
+      "finished_at": "2026-06-13T01:37:13.780Z"
+    },
+    {
+      "handle": "@anyatheaviator",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:13.780Z",
+      "finished_at": "2026-06-13T01:37:14.023Z"
+    },
+    {
+      "handle": "@nicvust",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:14.023Z",
+      "finished_at": "2026-06-13T01:37:14.309Z"
+    },
+    {
+      "handle": "@pilot_b737cl_ng",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:14.309Z",
+      "finished_at": "2026-06-13T01:37:14.683Z"
+    },
+    {
+      "handle": "@nickylately",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:14.683Z",
+      "finished_at": "2026-06-13T01:37:15.024Z"
+    },
+    {
+      "handle": "@oli_lohman",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:15.024Z",
+      "finished_at": "2026-06-13T01:37:15.221Z"
+    },
+    {
+      "handle": "@pilotsavannah",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:15.221Z",
+      "finished_at": "2026-06-13T01:37:15.578Z"
+    },
+    {
+      "handle": "@aviationzack",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:15.578Z",
+      "finished_at": "2026-06-13T01:37:15.871Z"
+    },
+    {
+      "handle": "@pilot_sibu",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:15.871Z",
+      "finished_at": "2026-06-13T01:37:16.255Z"
+    },
+    {
+      "handle": "@flywithnima",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:16.255Z",
+      "finished_at": "2026-06-13T01:37:16.583Z"
+    },
+    {
+      "handle": "@jonas_sofly_",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:16.583Z",
+      "finished_at": "2026-06-13T01:37:16.849Z"
+    },
+    {
+      "handle": "@pilotmaria",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:16.849Z",
+      "finished_at": "2026-06-13T01:37:17.201Z"
+    },
+    {
+      "handle": "@thepilottwins",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:17.201Z",
+      "finished_at": "2026-06-13T01:37:17.542Z"
+    },
+    {
+      "handle": "@pilotdanielav",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:17.542Z",
+      "finished_at": "2026-06-13T01:37:17.882Z"
+    },
+    {
+      "handle": "@pilotmadisonn",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:17.882Z",
+      "finished_at": "2026-06-13T01:37:18.209Z"
+    },
+    {
+      "handle": "@pilot.flying_felix",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:18.209Z",
+      "finished_at": "2026-06-13T01:37:18.551Z"
+    },
+    {
+      "handle": "@whiskeyflys",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:18.551Z",
+      "finished_at": "2026-06-13T01:37:18.877Z"
+    },
+    {
+      "handle": "@pilot.elon",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:18.877Z",
+      "finished_at": "2026-06-13T01:37:19.202Z"
+    },
+    {
+      "handle": "@flyingmath",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:19.202Z",
+      "finished_at": "2026-06-13T01:37:19.478Z"
+    },
+    {
+      "handle": "@avesbabes",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:19.478Z",
+      "finished_at": "2026-06-13T01:37:19.755Z"
+    },
+    {
+      "handle": "@the_flying_doc",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:19.755Z",
+      "finished_at": "2026-06-13T01:37:20.049Z"
+    },
+    {
+      "handle": "@ichbinvin",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:20.049Z",
+      "finished_at": "2026-06-13T01:37:20.453Z"
+    },
+    {
+      "handle": "@eyeinthesky28",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:20.453Z",
+      "finished_at": "2026-06-13T01:37:20.792Z"
+    },
+    {
+      "handle": "@joiridehigh",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:20.792Z",
+      "finished_at": "2026-06-13T01:37:21.499Z"
+    },
+    {
+      "handle": "@pilot_ehsan",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:21.499Z",
+      "finished_at": "2026-06-13T01:37:21.827Z"
+    },
+    {
+      "handle": "@samremcho",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:21.827Z",
+      "finished_at": "2026-06-13T01:37:22.114Z"
+    },
+    {
+      "handle": "@myaflys",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:22.114Z",
+      "finished_at": "2026-06-13T01:37:22.371Z"
+    },
+    {
+      "handle": "@aholmes825",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:22.371Z",
+      "finished_at": "2026-06-13T01:37:22.669Z"
+    },
+    {
+      "handle": "@pilotruilopes",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:22.669Z",
+      "finished_at": "2026-06-13T01:37:23.071Z"
+    },
+    {
+      "handle": "@pilotmajoaz",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:23.071Z",
+      "finished_at": "2026-06-13T01:37:23.399Z"
+    },
+    {
+      "handle": "@pilot_annabellee",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:23.399Z",
+      "finished_at": "2026-06-13T01:37:23.698Z"
+    },
+    {
+      "handle": "@luis_donado_",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:23.698Z",
+      "finished_at": "2026-06-13T01:37:23.969Z"
+    },
+    {
+      "handle": "@itspilotmikka",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:23.969Z",
+      "finished_at": "2026-06-13T01:37:24.256Z"
+    },
+    {
+      "handle": "@noemithepilot",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:24.256Z",
+      "finished_at": "2026-06-13T01:37:24.540Z"
+    },
+    {
+      "handle": "@mariathepilot",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:24.540Z",
+      "finished_at": "2026-06-13T01:37:24.832Z"
+    },
+    {
+      "handle": "@larissavculek0",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:24.832Z",
+      "finished_at": "2026-06-13T01:37:25.169Z"
+    },
+    {
+      "handle": "@ilikeflying112",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:25.169Z",
+      "finished_at": "2026-06-13T01:37:25.494Z"
+    },
+    {
+      "handle": "@spoke._aviation",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:25.494Z",
+      "finished_at": "2026-06-13T01:37:25.749Z"
+    },
+    {
+      "handle": "@thepeachonthebeach",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:25.749Z",
+      "finished_at": "2026-06-13T01:37:26.021Z"
+    },
+    {
+      "handle": "@carloscane",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:26.021Z",
+      "finished_at": "2026-06-13T01:37:26.319Z"
+    },
+    {
+      "handle": "@pilotpotattoo_",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:26.319Z",
+      "finished_at": "2026-06-13T01:37:26.745Z"
+    },
+    {
+      "handle": "@theflyingvin",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:26.745Z",
+      "finished_at": "2026-06-13T01:37:27.176Z"
+    },
+    {
+      "handle": "@pilot..robbie",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:27.176Z",
+      "finished_at": "2026-06-13T01:37:27.619Z"
+    },
+    {
+      "handle": "@highmaintenance_chels",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:27.619Z",
+      "finished_at": "2026-06-13T01:37:27.893Z"
+    },
+    {
+      "handle": "@daniel.walker_",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:27.893Z",
+      "finished_at": "2026-06-13T01:37:28.132Z"
+    },
+    {
+      "handle": "@pilotalexxandra",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:28.132Z",
+      "finished_at": "2026-06-13T01:37:28.383Z"
+    },
+    {
+      "handle": "@prp1995",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:28.383Z",
+      "finished_at": "2026-06-13T01:37:28.674Z"
+    },
+    {
+      "handle": "@mikegoulian",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:28.674Z",
+      "finished_at": "2026-06-13T01:37:28.969Z"
+    },
+    {
+      "handle": "@my.pilot_alterego",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:28.969Z",
+      "finished_at": "2026-06-13T01:37:29.440Z"
+    },
+    {
+      "handle": "@pilotvlogs",
+      "status": "failed",
+      "error": "profile hydration data missing userInfo",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:29.440Z",
+      "finished_at": "2026-06-13T01:37:29.690Z"
+    },
+    {
+      "handle": "@ej_morales",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:29.690Z",
+      "finished_at": "2026-06-13T01:37:29.976Z"
+    },
+    {
+      "handle": "@thepilotworld",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:29.976Z",
+      "finished_at": "2026-06-13T01:37:30.297Z"
+    },
+    {
+      "handle": "@flywithcptjoe",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:30.297Z",
+      "finished_at": "2026-06-13T01:37:30.738Z"
+    },
+    {
+      "handle": "@vilmaliona",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:30.738Z",
+      "finished_at": "2026-06-13T01:37:31.048Z"
+    },
+    {
+      "handle": "@flywithnix",
+      "status": "succeeded",
+      "selection_reason": "missing_video_count_review_queue_priority_3",
+      "prior_usefulness": 32,
+      "started_at": "2026-06-13T01:37:31.048Z",
+      "finished_at": "2026-06-13T01:37:31.359Z"
     }
   ]
 }

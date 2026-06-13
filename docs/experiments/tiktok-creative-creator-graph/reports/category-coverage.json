@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:32:47.272Z",
+  "generated_at": "2026-06-13T01:38:11.179Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 5,
@@ -40,7 +40,7 @@
     {
       "label": "cinematographer",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 17,
+      "current_primary_accounts": 18,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 0,
@@ -128,7 +128,7 @@
     {
       "label": "creative_technologist",
       "target_useful_creators": 2000,
-      "current_primary_accounts": 404,
+      "current_primary_accounts": 403,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 0,

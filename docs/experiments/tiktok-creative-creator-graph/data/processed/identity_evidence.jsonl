@@ -692,48 +692,60 @@
 {"creator_id":"cvnela","handle":"@cvnela","key_type":"tiktok_handle","key":"@cvnela","confidence":1,"evidence":"https://www.tiktok.com/@cvnela"}
 {"creator_id":"cvnela","handle":"@cvnela","key_type":"tiktok_profile_url","key":"https://tiktok.com/@cvnela","confidence":1,"evidence":"https://www.tiktok.com/@cvnela"}
 {"creator_id":"cvnela","handle":"@cvnela","key_type":"display_name_slug","key":"monsegutierrez","confidence":0.35,"evidence":"Monse Gutierrez"}
+{"creator_id":"cvnela","handle":"@cvnela","key_type":"external_link","key":"youtube.com/@cvnela","confidence":0.85,"evidence":"https://youtube.com/@cvnela"}
 {"creator_id":"stoney_tha_great","handle":"@stoney_tha_great","key_type":"tiktok_handle","key":"@stoney_tha_great","confidence":1,"evidence":"https://www.tiktok.com/@stoney_tha_great"}
 {"creator_id":"stoney_tha_great","handle":"@stoney_tha_great","key_type":"tiktok_profile_url","key":"https://tiktok.com/@stoney_tha_great","confidence":1,"evidence":"https://www.tiktok.com/@stoney_tha_great"}
 {"creator_id":"stoney_tha_great","handle":"@stoney_tha_great","key_type":"display_name_slug","key":"bryanlucious","confidence":0.35,"evidence":"Bryan Lucious"}
+{"creator_id":"stoney_tha_great","handle":"@stoney_tha_great","key_type":"external_link","key":"linktr.ee/stoneythagreat","confidence":0.85,"evidence":"https://linktr.ee/stoneythagreat"}
 {"creator_id":"chelsearonniemurphy","handle":"@chelsearonniemurphy","key_type":"tiktok_handle","key":"@chelsearonniemurphy","confidence":1,"evidence":"https://www.tiktok.com/@chelsearonniemurphy"}
 {"creator_id":"chelsearonniemurphy","handle":"@chelsearonniemurphy","key_type":"tiktok_profile_url","key":"https://tiktok.com/@chelsearonniemurphy","confidence":1,"evidence":"https://www.tiktok.com/@chelsearonniemurphy"}
 {"creator_id":"chelsearonniemurphy","handle":"@chelsearonniemurphy","key_type":"display_name_slug","key":"chelsearonniemurphy","confidence":0.35,"evidence":"Chelsea Ronnie Murphy"}
+{"creator_id":"chelsearonniemurphy","handle":"@chelsearonniemurphy","key_type":"external_link","key":"chelseamurphy.store/","confidence":0.85,"evidence":"https://chelseamurphy.store"}
 {"creator_id":"spooksandghoulzz","handle":"@spooksandghoulzz","key_type":"tiktok_handle","key":"@spooksandghoulzz","confidence":1,"evidence":"https://www.tiktok.com/@spooksandghoulzz"}
 {"creator_id":"spooksandghoulzz","handle":"@spooksandghoulzz","key_type":"tiktok_profile_url","key":"https://tiktok.com/@spooksandghoulzz","confidence":1,"evidence":"https://www.tiktok.com/@spooksandghoulzz"}
 {"creator_id":"spooksandghoulzz","handle":"@spooksandghoulzz","key_type":"display_name_slug","key":"spooksandghoulzz","confidence":0.35,"evidence":"Spooksandghoulzz"}
+{"creator_id":"spooksandghoulzz","handle":"@spooksandghoulzz","key_type":"external_link","key":"amazon.com/hz/wishlist/ls/3io6x7m5z4de1","confidence":0.85,"evidence":"https://www.amazon.com/hz/wishlist/ls/3IO6X7M5Z4DE1?ref_=wl_share"}
 {"creator_id":"letswatchthat","handle":"@letswatchthat","key_type":"tiktok_handle","key":"@letswatchthat","confidence":1,"evidence":"https://www.tiktok.com/@letswatchthat"}
 {"creator_id":"letswatchthat","handle":"@letswatchthat","key_type":"tiktok_profile_url","key":"https://tiktok.com/@letswatchthat","confidence":1,"evidence":"https://www.tiktok.com/@letswatchthat"}
 {"creator_id":"letswatchthat","handle":"@letswatchthat","key_type":"display_name_slug","key":"madyanderson","confidence":0.35,"evidence":"Mady Anderson"}
 {"creator_id":"horrorwithme","handle":"@horrorwithme","key_type":"tiktok_handle","key":"@horrorwithme","confidence":1,"evidence":"https://www.tiktok.com/@horrorwithme"}
 {"creator_id":"horrorwithme","handle":"@horrorwithme","key_type":"tiktok_profile_url","key":"https://tiktok.com/@horrorwithme","confidence":1,"evidence":"https://www.tiktok.com/@horrorwithme"}
 {"creator_id":"horrorwithme","handle":"@horrorwithme","key_type":"display_name_slug","key":"kara","confidence":0.35,"evidence":"Kara"}
+{"creator_id":"horrorwithme","handle":"@horrorwithme","key_type":"external_link","key":"hoo.be/horrorwithme","confidence":0.85,"evidence":"https://hoo.be/horrorwithme"}
 {"creator_id":"justhauntr","handle":"@justhauntr","key_type":"tiktok_handle","key":"@justhauntr","confidence":1,"evidence":"https://www.tiktok.com/@justhauntr"}
 {"creator_id":"justhauntr","handle":"@justhauntr","key_type":"tiktok_profile_url","key":"https://tiktok.com/@justhauntr","confidence":1,"evidence":"https://www.tiktok.com/@justhauntr"}
 {"creator_id":"justhauntr","handle":"@justhauntr","key_type":"display_name_slug","key":"justhauntr","confidence":0.35,"evidence":"JustHauntr"}
+{"creator_id":"justhauntr","handle":"@justhauntr","key_type":"external_link","key":"linktr.ee/justhauntr","confidence":0.85,"evidence":"https://linktr.ee/JustHauntr"}
 {"creator_id":"roomforscream","handle":"@roomforscream","key_type":"tiktok_handle","key":"@roomforscream","confidence":1,"evidence":"https://www.tiktok.com/@roomforscream"}
 {"creator_id":"roomforscream","handle":"@roomforscream","key_type":"tiktok_profile_url","key":"https://tiktok.com/@roomforscream","confidence":1,"evidence":"https://www.tiktok.com/@roomforscream"}
 {"creator_id":"roomforscream","handle":"@roomforscream","key_type":"display_name_slug","key":"gigi","confidence":0.35,"evidence":"GiGi"}
+{"creator_id":"roomforscream","handle":"@roomforscream","key_type":"external_link","key":"roomforscream.com/","confidence":0.85,"evidence":"https://roomforscream.com"}
 {"creator_id":"thenightmaremovies","handle":"@thenightmaremovies","key_type":"tiktok_handle","key":"@thenightmaremovies","confidence":1,"evidence":"https://www.tiktok.com/@thenightmaremovies"}
 {"creator_id":"thenightmaremovies","handle":"@thenightmaremovies","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thenightmaremovies","confidence":1,"evidence":"https://www.tiktok.com/@thenightmaremovies"}
 {"creator_id":"thenightmaremovies","handle":"@thenightmaremovies","key_type":"display_name_slug","key":"nightmaremovies","confidence":0.35,"evidence":"Nightmare Movies"}
+{"creator_id":"thenightmaremovies","handle":"@thenightmaremovies","key_type":"external_link","key":"youtube.com/@nightmaremovies","confidence":0.85,"evidence":"https://youtube.com/@nightmaremovies?si=nYNUFtpMFCP1i_BU"}
 {"creator_id":"sparkleinthedarkness","handle":"@sparkleinthedarkness","key_type":"tiktok_handle","key":"@sparkleinthedarkness","confidence":1,"evidence":"https://www.tiktok.com/@sparkleinthedarkness"}
 {"creator_id":"sparkleinthedarkness","handle":"@sparkleinthedarkness","key_type":"tiktok_profile_url","key":"https://tiktok.com/@sparkleinthedarkness","confidence":1,"evidence":"https://www.tiktok.com/@sparkleinthedarkness"}
 {"creator_id":"sparkleinthedarkness","handle":"@sparkleinthedarkness","key_type":"display_name_slug","key":"sparkleinthedarkness","confidence":0.35,"evidence":"SparkleInTheDarkness"}
+{"creator_id":"sparkleinthedarkness","handle":"@sparkleinthedarkness","key_type":"external_link","key":"linktr.ee/sparklendarkness","confidence":0.85,"evidence":"https://linktr.ee/sparklendarkness"}
 {"creator_id":"livingdeaddelilah","handle":"@livingdeaddelilah","key_type":"tiktok_handle","key":"@livingdeaddelilah","confidence":1,"evidence":"https://www.tiktok.com/@livingdeaddelilah"}
 {"creator_id":"livingdeaddelilah","handle":"@livingdeaddelilah","key_type":"tiktok_profile_url","key":"https://tiktok.com/@livingdeaddelilah","confidence":1,"evidence":"https://www.tiktok.com/@livingdeaddelilah"}
 {"creator_id":"livingdeaddelilah","handle":"@livingdeaddelilah","key_type":"display_name_slug","key":"delilah","confidence":0.35,"evidence":"Delilah"}
 {"creator_id":"maksmovieshack","handle":"@maksmovieshack","key_type":"tiktok_handle","key":"@maksmovieshack","confidence":1,"evidence":"https://www.tiktok.com/@maksmovieshack"}
 {"creator_id":"maksmovieshack","handle":"@maksmovieshack","key_type":"tiktok_profile_url","key":"https://tiktok.com/@maksmovieshack","confidence":1,"evidence":"https://www.tiktok.com/@maksmovieshack"}
 {"creator_id":"maksmovieshack","handle":"@maksmovieshack","key_type":"display_name_slug","key":"makayla","confidence":0.35,"evidence":"Makayla"}
+{"creator_id":"maksmovieshack","handle":"@maksmovieshack","key_type":"external_link","key":"linktr.ee/maksmovieshack","confidence":0.85,"evidence":"https://linktr.ee/maksmovieshack"}
 {"creator_id":"finalgirl_jess","handle":"@finalgirl_jess","key_type":"tiktok_handle","key":"@finalgirl_jess","confidence":1,"evidence":"https://www.tiktok.com/@finalgirl_jess"}
 {"creator_id":"finalgirl_jess","handle":"@finalgirl_jess","key_type":"tiktok_profile_url","key":"https://tiktok.com/@finalgirl_jess","confidence":1,"evidence":"https://www.tiktok.com/@finalgirl_jess"}
 {"creator_id":"finalgirl_jess","handle":"@finalgirl_jess","key_type":"display_name_slug","key":"jess","confidence":0.35,"evidence":"Jess"}
 {"creator_id":"mandymorgue87","handle":"@mandymorgue87","key_type":"tiktok_handle","key":"@mandymorgue87","confidence":1,"evidence":"https://www.tiktok.com/@mandymorgue87"}
 {"creator_id":"mandymorgue87","handle":"@mandymorgue87","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mandymorgue87","confidence":1,"evidence":"https://www.tiktok.com/@mandymorgue87"}
 {"creator_id":"mandymorgue87","handle":"@mandymorgue87","key_type":"display_name_slug","key":"amandamorgue","confidence":0.35,"evidence":"Amanda Morgue"}
+{"creator_id":"mandymorgue87","handle":"@mandymorgue87","key_type":"external_link","key":"youtube.com/c/mandysmorgueofhorror","confidence":0.85,"evidence":"https://youtube.com/c/mandysmorgueofhorror"}
 {"creator_id":"sinistertims6","handle":"@sinistertims6","key_type":"tiktok_handle","key":"@sinistertims6","confidence":1,"evidence":"https://www.tiktok.com/@sinistertims6"}
 {"creator_id":"sinistertims6","handle":"@sinistertims6","key_type":"tiktok_profile_url","key":"https://tiktok.com/@sinistertims6","confidence":1,"evidence":"https://www.tiktok.com/@sinistertims6"}
 {"creator_id":"sinistertims6","handle":"@sinistertims6","key_type":"display_name_slug","key":"andrewtims","confidence":0.35,"evidence":"Andrew Tims"}
+{"creator_id":"sinistertims6","handle":"@sinistertims6","key_type":"external_link","key":"linktr.ee/6sinister6tims6","confidence":0.85,"evidence":"https://linktr.ee/6sinister6tims6"}
 {"creator_id":"haliexroxanne","handle":"@haliexroxanne","key_type":"tiktok_handle","key":"@haliexroxanne","confidence":1,"evidence":"https://www.tiktok.com/@haliexroxanne"}
 {"creator_id":"haliexroxanne","handle":"@haliexroxanne","key_type":"tiktok_profile_url","key":"https://tiktok.com/@haliexroxanne","confidence":1,"evidence":"https://www.tiktok.com/@haliexroxanne"}
 {"creator_id":"haliexroxanne","handle":"@haliexroxanne","key_type":"display_name_slug","key":"halieroxanne","confidence":0.35,"evidence":"Halie Roxanne"}
@@ -743,6 +755,7 @@
 {"creator_id":"mimielita","handle":"@mimielita","key_type":"tiktok_handle","key":"@mimielita","confidence":1,"evidence":"https://www.tiktok.com/@mimielita"}
 {"creator_id":"mimielita","handle":"@mimielita","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mimielita","confidence":1,"evidence":"https://www.tiktok.com/@mimielita"}
 {"creator_id":"mimielita","handle":"@mimielita","key_type":"display_name_slug","key":"mimielita","confidence":0.35,"evidence":"Mimielita"}
+{"creator_id":"mimielita","handle":"@mimielita","key_type":"external_link","key":"direct.me/mimielita","confidence":0.85,"evidence":"https://direct.me/mimielita"}
 {"creator_id":"mycanimationsextra","handle":"@mycanimationsextra","key_type":"tiktok_handle","key":"@mycanimationsextra","confidence":1,"evidence":"https://www.tiktok.com/@mycanimationsextra"}
 {"creator_id":"mycanimationsextra","handle":"@mycanimationsextra","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mycanimationsextra","confidence":1,"evidence":"https://www.tiktok.com/@mycanimationsextra"}
 {"creator_id":"mycanimationsextra","handle":"@mycanimationsextra","key_type":"display_name_slug","key":"mycanimationsextra","confidence":0.35,"evidence":"mycanimationsextra"}
@@ -750,6 +763,7 @@
 {"creator_id":"marikaboniuk","handle":"@marikaboniuk","key_type":"tiktok_handle","key":"@marikaboniuk","confidence":1,"evidence":"https://www.tiktok.com/@marikaboniuk"}
 {"creator_id":"marikaboniuk","handle":"@marikaboniuk","key_type":"tiktok_profile_url","key":"https://tiktok.com/@marikaboniuk","confidence":1,"evidence":"https://www.tiktok.com/@marikaboniuk"}
 {"creator_id":"marikaboniuk","handle":"@marikaboniuk","key_type":"display_name_slug","key":"marikaboniuk","confidence":0.35,"evidence":"Marika Boniuk"}
+{"creator_id":"marikaboniuk","handle":"@marikaboniuk","key_type":"external_link","key":"beacons.page/marikaboniuk","confidence":0.85,"evidence":"https://beacons.page/marikaboniuk"}
 {"creator_id":"karen.daphne","handle":"@karen.daphne","key_type":"tiktok_handle","key":"@karen.daphne","confidence":1,"evidence":"https://www.tiktok.com/@karen.daphne"}
 {"creator_id":"karen.daphne","handle":"@karen.daphne","key_type":"tiktok_profile_url","key":"https://tiktok.com/@karen.daphne","confidence":1,"evidence":"https://www.tiktok.com/@karen.daphne"}
 {"creator_id":"karen.daphne","handle":"@karen.daphne","key_type":"display_name_slug","key":"karendaphne","confidence":0.35,"evidence":"Karen Daphne"}
@@ -762,21 +776,25 @@
 {"creator_id":"mysweetchubs","handle":"@mysweetchubs","key_type":"tiktok_handle","key":"@mysweetchubs","confidence":1,"evidence":"https://www.tiktok.com/@mysweetchubs"}
 {"creator_id":"mysweetchubs","handle":"@mysweetchubs","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mysweetchubs","confidence":1,"evidence":"https://www.tiktok.com/@mysweetchubs"}
 {"creator_id":"mysweetchubs","handle":"@mysweetchubs","key_type":"display_name_slug","key":"ashleigh","confidence":0.35,"evidence":"Ashleigh"}
+{"creator_id":"mysweetchubs","handle":"@mysweetchubs","key_type":"external_link","key":"liinks.co/mysweetchubs","confidence":0.85,"evidence":"https://www.liinks.co/mysweetchubs"}
 {"creator_id":"viyaura","handle":"@viyaura","key_type":"tiktok_handle","key":"@viyaura","confidence":1,"evidence":"https://www.tiktok.com/@viyaura"}
 {"creator_id":"viyaura","handle":"@viyaura","key_type":"tiktok_profile_url","key":"https://tiktok.com/@viyaura","confidence":1,"evidence":"https://www.tiktok.com/@viyaura"}
 {"creator_id":"viyaura","handle":"@viyaura","key_type":"display_name_slug","key":"viyaura","confidence":0.35,"evidence":"Viyaura"}
+{"creator_id":"viyaura","handle":"@viyaura","key_type":"external_link","key":"viyaura.com/","confidence":0.85,"evidence":"https://www.viyaura.com"}
 {"creator_id":"mypixelartworld","handle":"@mypixelartworld","key_type":"tiktok_handle","key":"@mypixelartworld","confidence":1,"evidence":"https://www.tiktok.com/@mypixelartworld"}
 {"creator_id":"mypixelartworld","handle":"@mypixelartworld","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mypixelartworld","confidence":1,"evidence":"https://www.tiktok.com/@mypixelartworld"}
 {"creator_id":"mypixelartworld","handle":"@mypixelartworld","key_type":"display_name_slug","key":"davidgemma","confidence":0.35,"evidence":"David & Gemma"}
 {"creator_id":"youkoda","handle":"@youkoda","key_type":"tiktok_handle","key":"@youkoda","confidence":1,"evidence":"https://www.tiktok.com/@youkoda"}
 {"creator_id":"youkoda","handle":"@youkoda","key_type":"tiktok_profile_url","key":"https://tiktok.com/@youkoda","confidence":1,"evidence":"https://www.tiktok.com/@youkoda"}
 {"creator_id":"youkoda","handle":"@youkoda","key_type":"display_name_slug","key":"youkoda","confidence":0.35,"evidence":"Youkoda"}
+{"creator_id":"youkoda","handle":"@youkoda","key_type":"external_link","key":"youkoda.carrd.co/","confidence":0.85,"evidence":"https://youkoda.carrd.co"}
 {"creator_id":"katterineart","handle":"@katterineart","key_type":"tiktok_handle","key":"@katterineart","confidence":1,"evidence":"https://www.tiktok.com/@katterineart"}
 {"creator_id":"katterineart","handle":"@katterineart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@katterineart","confidence":1,"evidence":"https://www.tiktok.com/@katterineart"}
 {"creator_id":"katterineart","handle":"@katterineart","key_type":"display_name_slug","key":"katterineart","confidence":0.35,"evidence":"Katterineart"}
 {"creator_id":"philipsue_art","handle":"@philipsue_art","key_type":"tiktok_handle","key":"@philipsue_art","confidence":1,"evidence":"https://www.tiktok.com/@philipsue_art"}
 {"creator_id":"philipsue_art","handle":"@philipsue_art","key_type":"tiktok_profile_url","key":"https://tiktok.com/@philipsue_art","confidence":1,"evidence":"https://www.tiktok.com/@philipsue_art"}
 {"creator_id":"philipsue_art","handle":"@philipsue_art","key_type":"display_name_slug","key":"philipsue","confidence":0.35,"evidence":"Philip Sue"}
+{"creator_id":"philipsue_art","handle":"@philipsue_art","key_type":"external_link","key":"portaly.cc/philipsueart","confidence":0.85,"evidence":"https://portaly.cc/philipsueart"}
 {"creator_id":"eldiesaert","handle":"@eldiesaert","key_type":"tiktok_handle","key":"@eldiesaert","confidence":1,"evidence":"https://www.tiktok.com/@eldiesaert"}
 {"creator_id":"eldiesaert","handle":"@eldiesaert","key_type":"tiktok_profile_url","key":"https://tiktok.com/@eldiesaert","confidence":1,"evidence":"https://www.tiktok.com/@eldiesaert"}
 {"creator_id":"eldiesaert","handle":"@eldiesaert","key_type":"display_name_slug","key":"eldiesaert","confidence":0.35,"evidence":"eldiesaert"}
@@ -786,27 +804,32 @@
 {"creator_id":"digital.art.junky","handle":"@digital.art.junky","key_type":"tiktok_handle","key":"@digital.art.junky","confidence":1,"evidence":"https://www.tiktok.com/@digital.art.junky"}
 {"creator_id":"digital.art.junky","handle":"@digital.art.junky","key_type":"tiktok_profile_url","key":"https://tiktok.com/@digital.art.junky","confidence":1,"evidence":"https://www.tiktok.com/@digital.art.junky"}
 {"creator_id":"digital.art.junky","handle":"@digital.art.junky","key_type":"display_name_slug","key":"annamarkowitz","confidence":0.35,"evidence":"Anna Markowitz"}
+{"creator_id":"digital.art.junky","handle":"@digital.art.junky","key_type":"external_link","key":"linktr.ee/digitalartjunky","confidence":0.85,"evidence":"https://linktr.ee/digitalartjunky"}
 {"creator_id":"elsymayer","handle":"@elsymayer","key_type":"tiktok_handle","key":"@elsymayer","confidence":1,"evidence":"https://www.tiktok.com/@elsymayer"}
 {"creator_id":"elsymayer","handle":"@elsymayer","key_type":"tiktok_profile_url","key":"https://tiktok.com/@elsymayer","confidence":1,"evidence":"https://www.tiktok.com/@elsymayer"}
 {"creator_id":"elsymayer","handle":"@elsymayer","key_type":"display_name_slug","key":"elsymayer","confidence":0.35,"evidence":"Elsy Mayer"}
 {"creator_id":"bonbonqiqi","handle":"@bonbonqiqi","key_type":"tiktok_handle","key":"@bonbonqiqi","confidence":1,"evidence":"https://www.tiktok.com/@bonbonqiqi"}
 {"creator_id":"bonbonqiqi","handle":"@bonbonqiqi","key_type":"tiktok_profile_url","key":"https://tiktok.com/@bonbonqiqi","confidence":1,"evidence":"https://www.tiktok.com/@bonbonqiqi"}
 {"creator_id":"bonbonqiqi","handle":"@bonbonqiqi","key_type":"display_name_slug","key":"bonbonqiqi","confidence":0.35,"evidence":"bonbonqiqi"}
+{"creator_id":"bonbonqiqi","handle":"@bonbonqiqi","key_type":"external_link","key":"linktr.ee/bonbonqiqi","confidence":0.85,"evidence":"https://linktr.ee/bonbonqiqi"}
 {"creator_id":"janinedesigns","handle":"@janinedesigns","key_type":"tiktok_handle","key":"@janinedesigns","confidence":1,"evidence":"https://www.tiktok.com/@janinedesigns"}
 {"creator_id":"janinedesigns","handle":"@janinedesigns","key_type":"tiktok_profile_url","key":"https://tiktok.com/@janinedesigns","confidence":1,"evidence":"https://www.tiktok.com/@janinedesigns"}
 {"creator_id":"janinedesigns","handle":"@janinedesigns","key_type":"display_name_slug","key":"janinedesigns","confidence":0.35,"evidence":"janinedesigns"}
 {"creator_id":"graphicdesignwizard","handle":"@graphicdesignwizard","key_type":"tiktok_handle","key":"@graphicdesignwizard","confidence":1,"evidence":"https://www.tiktok.com/@graphicdesignwizard"}
 {"creator_id":"graphicdesignwizard","handle":"@graphicdesignwizard","key_type":"tiktok_profile_url","key":"https://tiktok.com/@graphicdesignwizard","confidence":1,"evidence":"https://www.tiktok.com/@graphicdesignwizard"}
 {"creator_id":"graphicdesignwizard","handle":"@graphicdesignwizard","key_type":"display_name_slug","key":"mitchelloglesby","confidence":0.35,"evidence":"Mitchell Oglesby"}
+{"creator_id":"graphicdesignwizard","handle":"@graphicdesignwizard","key_type":"external_link","key":"youtu.be/acwjillzrtc","confidence":0.85,"evidence":"https://youtu.be/acWjIllzrTc"}
 {"creator_id":"becca_a_hadley","handle":"@becca_a_hadley","key_type":"tiktok_handle","key":"@becca_a_hadley","confidence":1,"evidence":"https://www.tiktok.com/@becca_a_hadley"}
 {"creator_id":"becca_a_hadley","handle":"@becca_a_hadley","key_type":"tiktok_profile_url","key":"https://tiktok.com/@becca_a_hadley","confidence":1,"evidence":"https://www.tiktok.com/@becca_a_hadley"}
 {"creator_id":"becca_a_hadley","handle":"@becca_a_hadley","key_type":"display_name_slug","key":"beccaahadley","confidence":0.35,"evidence":"Becca A Hadley"}
 {"creator_id":"jenrozuu","handle":"@jenrozuu","key_type":"tiktok_handle","key":"@jenrozuu","confidence":1,"evidence":"https://www.tiktok.com/@jenrozuu"}
 {"creator_id":"jenrozuu","handle":"@jenrozuu","key_type":"tiktok_profile_url","key":"https://tiktok.com/@jenrozuu","confidence":1,"evidence":"https://www.tiktok.com/@jenrozuu"}
 {"creator_id":"jenrozuu","handle":"@jenrozuu","key_type":"display_name_slug","key":"jeninarose","confidence":0.35,"evidence":"Jenina Rose"}
+{"creator_id":"jenrozuu","handle":"@jenrozuu","key_type":"external_link","key":"instagram.com/jenrozuudraws","confidence":0.85,"evidence":"https://www.instagram.com/jenrozuudraws"}
 {"creator_id":"graphicsdesigning1","handle":"@graphicsdesigning1","key_type":"tiktok_handle","key":"@graphicsdesigning1","confidence":1,"evidence":"https://www.tiktok.com/@graphicsdesigning1"}
 {"creator_id":"graphicsdesigning1","handle":"@graphicsdesigning1","key_type":"tiktok_profile_url","key":"https://tiktok.com/@graphicsdesigning1","confidence":1,"evidence":"https://www.tiktok.com/@graphicsdesigning1"}
 {"creator_id":"graphicsdesigning1","handle":"@graphicsdesigning1","key_type":"display_name_slug","key":"princefarhan","confidence":0.35,"evidence":"Prince Farhan"}
+{"creator_id":"graphicsdesigning1","handle":"@graphicsdesigning1","key_type":"external_link","key":"youtube.com/@farhangraphics05","confidence":0.85,"evidence":"https://youtube.com/@farhangraphics05?si=lo1B5BsUm8efxy4O"}
 {"creator_id":"artejim","handle":"@artejim","key_type":"tiktok_handle","key":"@artejim","confidence":1,"evidence":"https://www.tiktok.com/@artejim"}
 {"creator_id":"artejim","handle":"@artejim","key_type":"tiktok_profile_url","key":"https://tiktok.com/@artejim","confidence":1,"evidence":"https://www.tiktok.com/@artejim"}
 {"creator_id":"artejim","handle":"@artejim","key_type":"display_name_slug","key":"jim","confidence":0.35,"evidence":"Jim"}
@@ -819,9 +842,11 @@
 {"creator_id":"martin.graphic.design","handle":"@martin.graphic.design","key_type":"tiktok_handle","key":"@martin.graphic.design","confidence":1,"evidence":"https://www.tiktok.com/@martin.graphic.design"}
 {"creator_id":"martin.graphic.design","handle":"@martin.graphic.design","key_type":"tiktok_profile_url","key":"https://tiktok.com/@martin.graphic.design","confidence":1,"evidence":"https://www.tiktok.com/@martin.graphic.design"}
 {"creator_id":"martin.graphic.design","handle":"@martin.graphic.design","key_type":"display_name_slug","key":"martin","confidence":0.35,"evidence":"Martin"}
+{"creator_id":"martin.graphic.design","handle":"@martin.graphic.design","key_type":"external_link","key":"martingraphicdesign.it/","confidence":0.85,"evidence":"https://www.martingraphicdesign.it/"}
 {"creator_id":"oriental.digital.art","handle":"@oriental.digital.art","key_type":"tiktok_handle","key":"@oriental.digital.art","confidence":1,"evidence":"https://www.tiktok.com/@oriental.digital.art"}
 {"creator_id":"oriental.digital.art","handle":"@oriental.digital.art","key_type":"tiktok_profile_url","key":"https://tiktok.com/@oriental.digital.art","confidence":1,"evidence":"https://www.tiktok.com/@oriental.digital.art"}
 {"creator_id":"oriental.digital.art","handle":"@oriental.digital.art","key_type":"display_name_slug","key":"orientaldigitalart","confidence":0.35,"evidence":"Oriental Digital Art"}
+{"creator_id":"oriental.digital.art","handle":"@oriental.digital.art","key_type":"external_link","key":"fadwaloubna.com/","confidence":0.85,"evidence":"https://fadwaloubna.com"}
 {"creator_id":"newdigitalart","handle":"@newdigitalart","key_type":"tiktok_handle","key":"@newdigitalart","confidence":1,"evidence":"https://www.tiktok.com/@newdigitalart"}
 {"creator_id":"newdigitalart","handle":"@newdigitalart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@newdigitalart","confidence":1,"evidence":"https://www.tiktok.com/@newdigitalart"}
 {"creator_id":"newdigitalart","handle":"@newdigitalart","key_type":"display_name_slug","key":"newdigitalart","confidence":0.35,"evidence":"Newdigitalart"}
@@ -831,6 +856,7 @@
 {"creator_id":"anna_victoriart","handle":"@anna_victoriart","key_type":"tiktok_handle","key":"@anna_victoriart","confidence":1,"evidence":"https://www.tiktok.com/@anna_victoriart"}
 {"creator_id":"anna_victoriart","handle":"@anna_victoriart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@anna_victoriart","confidence":1,"evidence":"https://www.tiktok.com/@anna_victoriart"}
 {"creator_id":"anna_victoriart","handle":"@anna_victoriart","key_type":"display_name_slug","key":"annavictor","confidence":0.35,"evidence":"Anna Victor"}
+{"creator_id":"anna_victoriart","handle":"@anna_victoriart","key_type":"external_link","key":"linktr.ee/anna_victoriart","confidence":0.85,"evidence":"https://linktr.ee/anna_victoriart"}
 {"creator_id":"jreamidesign","handle":"@jreamidesign","key_type":"tiktok_handle","key":"@jreamidesign","confidence":1,"evidence":"https://www.tiktok.com/@jreamidesign"}
 {"creator_id":"jreamidesign","handle":"@jreamidesign","key_type":"tiktok_profile_url","key":"https://tiktok.com/@jreamidesign","confidence":1,"evidence":"https://www.tiktok.com/@jreamidesign"}
 {"creator_id":"jreamidesign","handle":"@jreamidesign","key_type":"display_name_slug","key":"jordy","confidence":0.35,"evidence":"Jordy"}
@@ -843,12 +869,15 @@
 {"creator_id":"jpartworks","handle":"@jpartworks","key_type":"tiktok_handle","key":"@jpartworks","confidence":1,"evidence":"https://www.tiktok.com/@jpartworks"}
 {"creator_id":"jpartworks","handle":"@jpartworks","key_type":"tiktok_profile_url","key":"https://tiktok.com/@jpartworks","confidence":1,"evidence":"https://www.tiktok.com/@jpartworks"}
 {"creator_id":"jpartworks","handle":"@jpartworks","key_type":"display_name_slug","key":"jpartworks","confidence":0.35,"evidence":"jpartworks"}
+{"creator_id":"jpartworks","handle":"@jpartworks","key_type":"external_link","key":"instagram.com/jp.digitalart","confidence":0.85,"evidence":"https://www.instagram.com/jp.digitalart?igsh=dm0zNDM3bXV0b3l0"}
 {"creator_id":"lazykitemo","handle":"@lazykitemo","key_type":"tiktok_handle","key":"@lazykitemo","confidence":1,"evidence":"https://www.tiktok.com/@lazykitemo"}
 {"creator_id":"lazykitemo","handle":"@lazykitemo","key_type":"tiktok_profile_url","key":"https://tiktok.com/@lazykitemo","confidence":1,"evidence":"https://www.tiktok.com/@lazykitemo"}
 {"creator_id":"lazykitemo","handle":"@lazykitemo","key_type":"display_name_slug","key":"kitemochan","confidence":0.35,"evidence":"Kitemo Chan"}
+{"creator_id":"lazykitemo","handle":"@lazykitemo","key_type":"external_link","key":"vgen.co/kitemo_","confidence":0.85,"evidence":"https://vgen.co/Kitemo_"}
 {"creator_id":"lemartist","handle":"@lemartist","key_type":"tiktok_handle","key":"@lemartist","confidence":1,"evidence":"https://www.tiktok.com/@lemartist"}
 {"creator_id":"lemartist","handle":"@lemartist","key_type":"tiktok_profile_url","key":"https://tiktok.com/@lemartist","confidence":1,"evidence":"https://www.tiktok.com/@lemartist"}
 {"creator_id":"lemartist","handle":"@lemartist","key_type":"display_name_slug","key":"enmanuelmartinez","confidence":0.35,"evidence":"Enmanuel Martinez"}
+{"creator_id":"lemartist","handle":"@lemartist","key_type":"external_link","key":"youtube.com/@lemaartist","confidence":0.85,"evidence":"https://youtube.com/@lemaartist?si=c8-k98dNUrJvzN8X"}
 {"creator_id":"digitalartsai","handle":"@digitalartsai","key_type":"tiktok_handle","key":"@digitalartsai","confidence":1,"evidence":"https://www.tiktok.com/@digitalartsai"}
 {"creator_id":"digitalartsai","handle":"@digitalartsai","key_type":"tiktok_profile_url","key":"https://tiktok.com/@digitalartsai","confidence":1,"evidence":"https://www.tiktok.com/@digitalartsai"}
 {"creator_id":"digitalartsai","handle":"@digitalartsai","key_type":"display_name_slug","key":"digitalartsai","confidence":0.35,"evidence":"digitalartsai"}
@@ -870,6 +899,7 @@
 {"creator_id":"by.annie.n","handle":"@by.annie.n","key_type":"tiktok_handle","key":"@by.annie.n","confidence":1,"evidence":"https://www.tiktok.com/@by.annie.n"}
 {"creator_id":"by.annie.n","handle":"@by.annie.n","key_type":"tiktok_profile_url","key":"https://tiktok.com/@by.annie.n","confidence":1,"evidence":"https://www.tiktok.com/@by.annie.n"}
 {"creator_id":"by.annie.n","handle":"@by.annie.n","key_type":"display_name_slug","key":"annie","confidence":0.35,"evidence":"Annie"}
+{"creator_id":"by.annie.n","handle":"@by.annie.n","key_type":"external_link","key":"webbyannie.com/annies-link-in-bio","confidence":0.85,"evidence":"https://webbyannie.com/annies-link-in-bio/?s=tt"}
 {"creator_id":"viki_digitalart","handle":"@viki_digitalart","key_type":"tiktok_handle","key":"@viki_digitalart","confidence":1,"evidence":"https://www.tiktok.com/@viki_digitalart"}
 {"creator_id":"viki_digitalart","handle":"@viki_digitalart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@viki_digitalart","confidence":1,"evidence":"https://www.tiktok.com/@viki_digitalart"}
 {"creator_id":"viki_digitalart","handle":"@viki_digitalart","key_type":"display_name_slug","key":"viki","confidence":0.35,"evidence":"Viki"}
@@ -909,6 +939,7 @@
 {"creator_id":"stanke93","handle":"@stanke93","key_type":"tiktok_handle","key":"@stanke93","confidence":1,"evidence":"https://www.tiktok.com/@stanke93"}
 {"creator_id":"stanke93","handle":"@stanke93","key_type":"tiktok_profile_url","key":"https://tiktok.com/@stanke93","confidence":1,"evidence":"https://www.tiktok.com/@stanke93"}
 {"creator_id":"stanke93","handle":"@stanke93","key_type":"display_name_slug","key":"stanke93","confidence":0.35,"evidence":"stanke93"}
+{"creator_id":"stanke93","handle":"@stanke93","key_type":"external_link","key":"lazar.works/","confidence":0.85,"evidence":"https://lazar.works"}
 {"creator_id":"thanat_digitalart","handle":"@thanat_digitalart","key_type":"tiktok_handle","key":"@thanat_digitalart","confidence":1,"evidence":"https://www.tiktok.com/@thanat_digitalart"}
 {"creator_id":"thanat_digitalart","handle":"@thanat_digitalart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thanat_digitalart","confidence":1,"evidence":"https://www.tiktok.com/@thanat_digitalart"}
 {"creator_id":"thanat_digitalart","handle":"@thanat_digitalart","key_type":"display_name_slug","key":"thanattha","confidence":0.35,"evidence":"Thanat Tha"}
@@ -921,12 +952,14 @@
 {"creator_id":"houseofvells","handle":"@houseofvells","key_type":"tiktok_handle","key":"@houseofvells","confidence":1,"evidence":"https://www.tiktok.com/@houseofvells"}
 {"creator_id":"houseofvells","handle":"@houseofvells","key_type":"tiktok_profile_url","key":"https://tiktok.com/@houseofvells","confidence":1,"evidence":"https://www.tiktok.com/@houseofvells"}
 {"creator_id":"houseofvells","handle":"@houseofvells","key_type":"display_name_slug","key":"houseofvells","confidence":0.35,"evidence":"houseofvells"}
+{"creator_id":"houseofvells","handle":"@houseofvells","key_type":"external_link","key":"znap.link/houseofvells","confidence":0.85,"evidence":"https://znap.link/houseofvells"}
 {"creator_id":"daylightillustrations","handle":"@daylightillustrations","key_type":"tiktok_handle","key":"@daylightillustrations","confidence":1,"evidence":"https://www.tiktok.com/@daylightillustrations"}
 {"creator_id":"daylightillustrations","handle":"@daylightillustrations","key_type":"tiktok_profile_url","key":"https://tiktok.com/@daylightillustrations","confidence":1,"evidence":"https://www.tiktok.com/@daylightillustrations"}
 {"creator_id":"daylightillustrations","handle":"@daylightillustrations","key_type":"display_name_slug","key":"elizabeth","confidence":0.35,"evidence":"Elizabeth"}
 {"creator_id":"creativeli.nde","handle":"@creativeli.nde","key_type":"tiktok_handle","key":"@creativeli.nde","confidence":1,"evidence":"https://www.tiktok.com/@creativeli.nde"}
 {"creator_id":"creativeli.nde","handle":"@creativeli.nde","key_type":"tiktok_profile_url","key":"https://tiktok.com/@creativeli.nde","confidence":1,"evidence":"https://www.tiktok.com/@creativeli.nde"}
 {"creator_id":"creativeli.nde","handle":"@creativeli.nde","key_type":"display_name_slug","key":"creativelinde","confidence":0.35,"evidence":"creativeli.nde"}
+{"creator_id":"creativeli.nde","handle":"@creativeli.nde","key_type":"external_link","key":"canva.com/design/dafcoduvuva/lqmbuolmxiwzf9gse4m98q/view","confidence":0.85,"evidence":"https://www.canva.com/design/DAFCoduvUVA/lqmbuOlMXiwZf9gSE4M98Q/view"}
 {"creator_id":"digital.arts_","handle":"@digital.arts_","key_type":"tiktok_handle","key":"@digital.arts_","confidence":1,"evidence":"https://www.tiktok.com/@digital.arts_"}
 {"creator_id":"digital.arts_","handle":"@digital.arts_","key_type":"tiktok_profile_url","key":"https://tiktok.com/@digital.arts_","confidence":1,"evidence":"https://www.tiktok.com/@digital.arts_"}
 {"creator_id":"digital.arts_","handle":"@digital.arts_","key_type":"display_name_slug","key":"digitalarts","confidence":0.35,"evidence":"digital.arts_"}
@@ -939,6 +972,7 @@
 {"creator_id":"justqualityart","handle":"@justqualityart","key_type":"tiktok_handle","key":"@justqualityart","confidence":1,"evidence":"https://www.tiktok.com/@justqualityart"}
 {"creator_id":"justqualityart","handle":"@justqualityart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@justqualityart","confidence":1,"evidence":"https://www.tiktok.com/@justqualityart"}
 {"creator_id":"justqualityart","handle":"@justqualityart","key_type":"display_name_slug","key":"justqualityart","confidence":0.35,"evidence":"justqualityart"}
+{"creator_id":"justqualityart","handle":"@justqualityart","key_type":"external_link","key":"linktr.ee/justqualityart","confidence":0.85,"evidence":"https://linktr.ee/Justqualityart"}
 {"creator_id":"strangerthing.digitalart","handle":"@strangerthing.digitalart","key_type":"tiktok_handle","key":"@strangerthing.digitalart","confidence":1,"evidence":"https://www.tiktok.com/@strangerthing.digitalart"}
 {"creator_id":"strangerthing.digitalart","handle":"@strangerthing.digitalart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@strangerthing.digitalart","confidence":1,"evidence":"https://www.tiktok.com/@strangerthing.digitalart"}
 {"creator_id":"strangerthing.digitalart","handle":"@strangerthing.digitalart","key_type":"display_name_slug","key":"mia","confidence":0.35,"evidence":"Mia"}
@@ -957,9 +991,11 @@
 {"creator_id":"hos.digitalart","handle":"@hos.digitalart","key_type":"tiktok_handle","key":"@hos.digitalart","confidence":1,"evidence":"https://www.tiktok.com/@hos.digitalart"}
 {"creator_id":"hos.digitalart","handle":"@hos.digitalart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@hos.digitalart","confidence":1,"evidence":"https://www.tiktok.com/@hos.digitalart"}
 {"creator_id":"hos.digitalart","handle":"@hos.digitalart","key_type":"display_name_slug","key":"hosvolusiavictoria","confidence":0.35,"evidence":"Hos Volusia Victoria"}
+{"creator_id":"hos.digitalart","handle":"@hos.digitalart","key_type":"external_link","key":"opensea.io/hos21","confidence":0.85,"evidence":"https://opensea.io/HOS21"}
 {"creator_id":"digitalartdezign","handle":"@digitalartdezign","key_type":"tiktok_handle","key":"@digitalartdezign","confidence":1,"evidence":"https://www.tiktok.com/@digitalartdezign"}
 {"creator_id":"digitalartdezign","handle":"@digitalartdezign","key_type":"tiktok_profile_url","key":"https://tiktok.com/@digitalartdezign","confidence":1,"evidence":"https://www.tiktok.com/@digitalartdezign"}
 {"creator_id":"digitalartdezign","handle":"@digitalartdezign","key_type":"display_name_slug","key":"digitalartdezign","confidence":0.35,"evidence":"digitalartdezign"}
+{"creator_id":"digitalartdezign","handle":"@digitalartdezign","key_type":"external_link","key":"stock.adobe.com/fi/contributor/211410212/digitalart","confidence":0.85,"evidence":"https://stock.adobe.com/fi/contributor/211410212/DigitalArt"}
 {"creator_id":"karelysdigitalart","handle":"@karelysdigitalart","key_type":"tiktok_handle","key":"@karelysdigitalart","confidence":1,"evidence":"https://www.tiktok.com/@karelysdigitalart"}
 {"creator_id":"karelysdigitalart","handle":"@karelysdigitalart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@karelysdigitalart","confidence":1,"evidence":"https://www.tiktok.com/@karelysdigitalart"}
 {"creator_id":"karelysdigitalart","handle":"@karelysdigitalart","key_type":"display_name_slug","key":"karelysmichelle","confidence":0.35,"evidence":"Karelys Michelle"}
@@ -993,6 +1029,7 @@
 {"creator_id":"digitalart_bysofia","handle":"@digitalart_bysofia","key_type":"tiktok_handle","key":"@digitalart_bysofia","confidence":1,"evidence":"https://www.tiktok.com/@digitalart_bysofia"}
 {"creator_id":"digitalart_bysofia","handle":"@digitalart_bysofia","key_type":"tiktok_profile_url","key":"https://tiktok.com/@digitalart_bysofia","confidence":1,"evidence":"https://www.tiktok.com/@digitalart_bysofia"}
 {"creator_id":"digitalart_bysofia","handle":"@digitalart_bysofia","key_type":"display_name_slug","key":"sofia","confidence":0.35,"evidence":"Sofia"}
+{"creator_id":"digitalart_bysofia","handle":"@digitalart_bysofia","key_type":"external_link","key":"linktr.ee/digitalartbysofia","confidence":0.85,"evidence":"https://linktr.ee/digitalartbysofia"}
 {"creator_id":"digitalartmpinsta","handle":"@digitalartmpinsta","key_type":"tiktok_handle","key":"@digitalartmpinsta","confidence":1,"evidence":"https://www.tiktok.com/@digitalartmpinsta"}
 {"creator_id":"digitalartmpinsta","handle":"@digitalartmpinsta","key_type":"tiktok_profile_url","key":"https://tiktok.com/@digitalartmpinsta","confidence":1,"evidence":"https://www.tiktok.com/@digitalartmpinsta"}
 {"creator_id":"digitalartmpinsta","handle":"@digitalartmpinsta","key_type":"display_name_slug","key":"mario","confidence":0.35,"evidence":"Mario"}
@@ -1042,12 +1079,14 @@
 {"creator_id":"devonrodriguezart","handle":"@devonrodriguezart","key_type":"tiktok_handle","key":"@devonrodriguezart","confidence":1,"evidence":"https://www.tiktok.com/@devonrodriguezart"}
 {"creator_id":"devonrodriguezart","handle":"@devonrodriguezart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@devonrodriguezart","confidence":1,"evidence":"https://www.tiktok.com/@devonrodriguezart"}
 {"creator_id":"devonrodriguezart","handle":"@devonrodriguezart","key_type":"display_name_slug","key":"devonrodriguez","confidence":0.35,"evidence":"Devon Rodriguez"}
+{"creator_id":"devonrodriguezart","handle":"@devonrodriguezart","key_type":"external_link","key":"linktr.ee/devonrodriguezart","confidence":0.85,"evidence":"http://linktr.ee/devonrodriguezart"}
 {"creator_id":"kevinchampeny","handle":"@kevinchampeny","key_type":"tiktok_handle","key":"@kevinchampeny","confidence":1,"evidence":"https://www.tiktok.com/@kevinchampeny"}
 {"creator_id":"kevinchampeny","handle":"@kevinchampeny","key_type":"tiktok_profile_url","key":"https://tiktok.com/@kevinchampeny","confidence":1,"evidence":"https://www.tiktok.com/@kevinchampeny"}
 {"creator_id":"kevinchampeny","handle":"@kevinchampeny","key_type":"display_name_slug","key":"kevinchampeny","confidence":0.35,"evidence":"Kevin Champeny"}
 {"creator_id":"lily.ting","handle":"@lily.ting","key_type":"tiktok_handle","key":"@lily.ting","confidence":1,"evidence":"https://www.tiktok.com/@lily.ting"}
 {"creator_id":"lily.ting","handle":"@lily.ting","key_type":"tiktok_profile_url","key":"https://tiktok.com/@lily.ting","confidence":1,"evidence":"https://www.tiktok.com/@lily.ting"}
 {"creator_id":"lily.ting","handle":"@lily.ting","key_type":"display_name_slug","key":"lilyting","confidence":0.35,"evidence":"Lily Ting"}
+{"creator_id":"lily.ting","handle":"@lily.ting","key_type":"external_link","key":"linktr.ee/lilyting5","confidence":0.85,"evidence":"https://linktr.ee/lilyting5"}
 {"creator_id":"mayrushart","handle":"@mayrushart","key_type":"tiktok_handle","key":"@mayrushart","confidence":1,"evidence":"https://www.tiktok.com/@mayrushart"}
 {"creator_id":"mayrushart","handle":"@mayrushart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mayrushart","confidence":1,"evidence":"https://www.tiktok.com/@mayrushart"}
 {"creator_id":"mayrushart","handle":"@mayrushart","key_type":"display_name_slug","key":"mayrush","confidence":0.35,"evidence":"May Rush"}
@@ -1063,33 +1102,40 @@
 {"creator_id":"karocrafts","handle":"@karocrafts","key_type":"tiktok_handle","key":"@karocrafts","confidence":1,"evidence":"https://www.tiktok.com/@karocrafts"}
 {"creator_id":"karocrafts","handle":"@karocrafts","key_type":"tiktok_profile_url","key":"https://tiktok.com/@karocrafts","confidence":1,"evidence":"https://www.tiktok.com/@karocrafts"}
 {"creator_id":"karocrafts","handle":"@karocrafts","key_type":"display_name_slug","key":"anyakarolyn","confidence":0.35,"evidence":"Anya Karolyn"}
+{"creator_id":"karocrafts","handle":"@karocrafts","key_type":"external_link","key":"linktr.ee/karocrafts","confidence":0.85,"evidence":"https://linktr.ee/karocrafts"}
 {"creator_id":"angelbakednyc","handle":"@angelbakednyc","key_type":"tiktok_handle","key":"@angelbakednyc","confidence":1,"evidence":"https://www.tiktok.com/@angelbakednyc"}
 {"creator_id":"angelbakednyc","handle":"@angelbakednyc","key_type":"tiktok_profile_url","key":"https://tiktok.com/@angelbakednyc","confidence":1,"evidence":"https://www.tiktok.com/@angelbakednyc"}
 {"creator_id":"angelbakednyc","handle":"@angelbakednyc","key_type":"display_name_slug","key":"abbeykowalec","confidence":0.35,"evidence":"Abbey Kowalec"}
+{"creator_id":"angelbakednyc","handle":"@angelbakednyc","key_type":"external_link","key":"angelbakednyc.com/order","confidence":0.85,"evidence":"https://www.angelbakednyc.com/order"}
 {"creator_id":"thomminnickart","handle":"@thomminnickart","key_type":"tiktok_handle","key":"@thomminnickart","confidence":1,"evidence":"https://www.tiktok.com/@thomminnickart"}
 {"creator_id":"thomminnickart","handle":"@thomminnickart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thomminnickart","confidence":1,"evidence":"https://www.tiktok.com/@thomminnickart"}
 {"creator_id":"thomminnickart","handle":"@thomminnickart","key_type":"display_name_slug","key":"thomminnick","confidence":0.35,"evidence":"Thom Minnick"}
+{"creator_id":"thomminnickart","handle":"@thomminnickart","key_type":"external_link","key":"youtu.be/inuw-sdr6tk","confidence":0.85,"evidence":"https://youtu.be/INUW-SDr6tk?si=bkfkovpYbm8RVXLg"}
 {"creator_id":"maurapaintsfood","handle":"@maurapaintsfood","key_type":"tiktok_handle","key":"@maurapaintsfood","confidence":1,"evidence":"https://www.tiktok.com/@maurapaintsfood"}
 {"creator_id":"maurapaintsfood","handle":"@maurapaintsfood","key_type":"tiktok_profile_url","key":"https://tiktok.com/@maurapaintsfood","confidence":1,"evidence":"https://www.tiktok.com/@maurapaintsfood"}
 {"creator_id":"maurapaintsfood","handle":"@maurapaintsfood","key_type":"display_name_slug","key":"maurakspain","confidence":0.35,"evidence":"Maura K Spain"}
 {"creator_id":"hungryartistny","handle":"@hungryartistny","key_type":"tiktok_handle","key":"@hungryartistny","confidence":1,"evidence":"https://www.tiktok.com/@hungryartistny"}
 {"creator_id":"hungryartistny","handle":"@hungryartistny","key_type":"tiktok_profile_url","key":"https://tiktok.com/@hungryartistny","confidence":1,"evidence":"https://www.tiktok.com/@hungryartistny"}
 {"creator_id":"hungryartistny","handle":"@hungryartistny","key_type":"display_name_slug","key":"justin","confidence":0.35,"evidence":"Justin"}
+{"creator_id":"hungryartistny","handle":"@hungryartistny","key_type":"external_link","key":"hungryartistny.com/products/painted-pinstripes","confidence":0.85,"evidence":"https://hungryartistny.com/products/painted-pinstripes"}
 {"creator_id":"artbymichellemarie","handle":"@artbymichellemarie","key_type":"tiktok_handle","key":"@artbymichellemarie","confidence":1,"evidence":"https://www.tiktok.com/@artbymichellemarie"}
 {"creator_id":"artbymichellemarie","handle":"@artbymichellemarie","key_type":"tiktok_profile_url","key":"https://tiktok.com/@artbymichellemarie","confidence":1,"evidence":"https://www.tiktok.com/@artbymichellemarie"}
 {"creator_id":"artbymichellemarie","handle":"@artbymichellemarie","key_type":"display_name_slug","key":"michellemarie","confidence":0.35,"evidence":"Michelle Marie"}
 {"creator_id":"courtneykinnare.art","handle":"@courtneykinnare.art","key_type":"tiktok_handle","key":"@courtneykinnare.art","confidence":1,"evidence":"https://www.tiktok.com/@courtneykinnare.art"}
 {"creator_id":"courtneykinnare.art","handle":"@courtneykinnare.art","key_type":"tiktok_profile_url","key":"https://tiktok.com/@courtneykinnare.art","confidence":1,"evidence":"https://www.tiktok.com/@courtneykinnare.art"}
 {"creator_id":"courtneykinnare.art","handle":"@courtneykinnare.art","key_type":"display_name_slug","key":"courtneykinnare","confidence":0.35,"evidence":"Courtney Kinnare"}
+{"creator_id":"courtneykinnare.art","handle":"@courtneykinnare.art","key_type":"external_link","key":"courtneykinnare.com/collections/purse-hooks","confidence":0.85,"evidence":"https://courtneykinnare.com/collections/purse-hooks"}
 {"creator_id":"celistudios","handle":"@celistudios","key_type":"tiktok_handle","key":"@celistudios","confidence":1,"evidence":"https://www.tiktok.com/@celistudios"}
 {"creator_id":"celistudios","handle":"@celistudios","key_type":"tiktok_profile_url","key":"https://tiktok.com/@celistudios","confidence":1,"evidence":"https://www.tiktok.com/@celistudios"}
 {"creator_id":"celistudios","handle":"@celistudios","key_type":"display_name_slug","key":"celi","confidence":0.35,"evidence":"Celi"}
+{"creator_id":"celistudios","handle":"@celistudios","key_type":"external_link","key":"linktr.ee/celistudiosart","confidence":0.85,"evidence":"https://linktr.ee/celistudiosart"}
 {"creator_id":"keannimation","handle":"@keannimation","key_type":"tiktok_handle","key":"@keannimation","confidence":1,"evidence":"https://www.tiktok.com/@keannimation"}
 {"creator_id":"keannimation","handle":"@keannimation","key_type":"tiktok_profile_url","key":"https://tiktok.com/@keannimation","confidence":1,"evidence":"https://www.tiktok.com/@keannimation"}
 {"creator_id":"keannimation","handle":"@keannimation","key_type":"display_name_slug","key":"keannagregorios","confidence":0.35,"evidence":"Keanna Gregorios"}
 {"creator_id":"anxiouschalker","handle":"@anxiouschalker","key_type":"tiktok_handle","key":"@anxiouschalker","confidence":1,"evidence":"https://www.tiktok.com/@anxiouschalker"}
 {"creator_id":"anxiouschalker","handle":"@anxiouschalker","key_type":"tiktok_profile_url","key":"https://tiktok.com/@anxiouschalker","confidence":1,"evidence":"https://www.tiktok.com/@anxiouschalker"}
 {"creator_id":"anxiouschalker","handle":"@anxiouschalker","key_type":"display_name_slug","key":"sophiesandberg","confidence":0.35,"evidence":"Sophie Sandberg"}
+{"creator_id":"anxiouschalker","handle":"@anxiouschalker","key_type":"external_link","key":"linktr.ee/sophiesandberg","confidence":0.85,"evidence":"https://linktr.ee/sophiesandberg"}
 {"creator_id":"artbymycha","handle":"@artbymycha","key_type":"tiktok_handle","key":"@artbymycha","confidence":1,"evidence":"https://www.tiktok.com/@artbymycha"}
 {"creator_id":"artbymycha","handle":"@artbymycha","key_type":"tiktok_profile_url","key":"https://tiktok.com/@artbymycha","confidence":1,"evidence":"https://www.tiktok.com/@artbymycha"}
 {"creator_id":"artbymycha","handle":"@artbymycha","key_type":"display_name_slug","key":"mychaelabuech","confidence":0.35,"evidence":"Mychaela Bueché"}
@@ -1099,6 +1145,7 @@
 {"creator_id":"mv.nyc","handle":"@mv.nyc","key_type":"tiktok_handle","key":"@mv.nyc","confidence":1,"evidence":"https://www.tiktok.com/@mv.nyc"}
 {"creator_id":"mv.nyc","handle":"@mv.nyc","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mv.nyc","confidence":1,"evidence":"https://www.tiktok.com/@mv.nyc"}
 {"creator_id":"mv.nyc","handle":"@mv.nyc","key_type":"display_name_slug","key":"massimovendola","confidence":0.35,"evidence":"Massimo Vendola"}
+{"creator_id":"mv.nyc","handle":"@mv.nyc","key_type":"external_link","key":"linktr.ee/mv.nyc","confidence":0.85,"evidence":"http://linktr.ee/mv.nyc"}
 {"creator_id":"wilkes.studio","handle":"@wilkes.studio","key_type":"tiktok_handle","key":"@wilkes.studio","confidence":1,"evidence":"https://www.tiktok.com/@wilkes.studio"}
 {"creator_id":"wilkes.studio","handle":"@wilkes.studio","key_type":"tiktok_profile_url","key":"https://tiktok.com/@wilkes.studio","confidence":1,"evidence":"https://www.tiktok.com/@wilkes.studio"}
 {"creator_id":"wilkes.studio","handle":"@wilkes.studio","key_type":"display_name_slug","key":"vanessawilkes","confidence":0.35,"evidence":"Vanessa Wilkes"}
@@ -1108,6 +1155,7 @@
 {"creator_id":"artwithmanasi","handle":"@artwithmanasi","key_type":"tiktok_handle","key":"@artwithmanasi","confidence":1,"evidence":"https://www.tiktok.com/@artwithmanasi"}
 {"creator_id":"artwithmanasi","handle":"@artwithmanasi","key_type":"tiktok_profile_url","key":"https://tiktok.com/@artwithmanasi","confidence":1,"evidence":"https://www.tiktok.com/@artwithmanasi"}
 {"creator_id":"artwithmanasi","handle":"@artwithmanasi","key_type":"display_name_slug","key":"manasiarya","confidence":0.35,"evidence":"Manasi Arya"}
+{"creator_id":"artwithmanasi","handle":"@artwithmanasi","key_type":"external_link","key":"linktr.ee/artwithmanasi","confidence":0.85,"evidence":"https://linktr.ee/Artwithmanasi"}
 {"creator_id":"michaelalanalien","handle":"@michaelalanalien","key_type":"tiktok_handle","key":"@michaelalanalien","confidence":1,"evidence":"https://www.tiktok.com/@michaelalanalien"}
 {"creator_id":"michaelalanalien","handle":"@michaelalanalien","key_type":"tiktok_profile_url","key":"https://tiktok.com/@michaelalanalien","confidence":1,"evidence":"https://www.tiktok.com/@michaelalanalien"}
 {"creator_id":"michaelalanalien","handle":"@michaelalanalien","key_type":"display_name_slug","key":"michaelalan","confidence":0.35,"evidence":"Michael Alan"}
@@ -1123,18 +1171,22 @@
 {"creator_id":"artbysmashley","handle":"@artbysmashley","key_type":"tiktok_handle","key":"@artbysmashley","confidence":1,"evidence":"https://www.tiktok.com/@artbysmashley"}
 {"creator_id":"artbysmashley","handle":"@artbysmashley","key_type":"tiktok_profile_url","key":"https://tiktok.com/@artbysmashley","confidence":1,"evidence":"https://www.tiktok.com/@artbysmashley"}
 {"creator_id":"artbysmashley","handle":"@artbysmashley","key_type":"display_name_slug","key":"ashley","confidence":0.35,"evidence":"Ashley"}
+{"creator_id":"artbysmashley","handle":"@artbysmashley","key_type":"external_link","key":"artbysmashley.carrd.co/","confidence":0.85,"evidence":"https://artbysmashley.carrd.co"}
 {"creator_id":"tiffanybchanel","handle":"@tiffanybchanel","key_type":"tiktok_handle","key":"@tiffanybchanel","confidence":1,"evidence":"https://www.tiktok.com/@tiffanybchanel"}
 {"creator_id":"tiffanybchanel","handle":"@tiffanybchanel","key_type":"tiktok_profile_url","key":"https://tiktok.com/@tiffanybchanel","confidence":1,"evidence":"https://www.tiktok.com/@tiffanybchanel"}
 {"creator_id":"tiffanybchanel","handle":"@tiffanybchanel","key_type":"display_name_slug","key":"tiffanybchanel","confidence":0.35,"evidence":"Tiffany B Chanel"}
 {"creator_id":"maggieantalek","handle":"@maggieantalek","key_type":"tiktok_handle","key":"@maggieantalek","confidence":1,"evidence":"https://www.tiktok.com/@maggieantalek"}
 {"creator_id":"maggieantalek","handle":"@maggieantalek","key_type":"tiktok_profile_url","key":"https://tiktok.com/@maggieantalek","confidence":1,"evidence":"https://www.tiktok.com/@maggieantalek"}
 {"creator_id":"maggieantalek","handle":"@maggieantalek","key_type":"display_name_slug","key":"maggieantalek","confidence":0.35,"evidence":"Maggie Antalek"}
+{"creator_id":"maggieantalek","handle":"@maggieantalek","key_type":"external_link","key":"bio.site/maggiebeckett","confidence":0.85,"evidence":"https://bio.site/maggiebeckett"}
 {"creator_id":"timothygoodman","handle":"@timothygoodman","key_type":"tiktok_handle","key":"@timothygoodman","confidence":1,"evidence":"https://www.tiktok.com/@timothygoodman"}
 {"creator_id":"timothygoodman","handle":"@timothygoodman","key_type":"tiktok_profile_url","key":"https://tiktok.com/@timothygoodman","confidence":1,"evidence":"https://www.tiktok.com/@timothygoodman"}
 {"creator_id":"timothygoodman","handle":"@timothygoodman","key_type":"display_name_slug","key":"timothygoodman","confidence":0.35,"evidence":"Timothy Goodman"}
+{"creator_id":"timothygoodman","handle":"@timothygoodman","key_type":"external_link","key":"tgoodman.com/product-page/knicks-legends","confidence":0.85,"evidence":"https://www.tgoodman.com/product-page/knicks-legends?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleAR8AWVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeNo3C7GvFCxzifoyyJjVqycWmbFWRP6EN58EIQuleiBlLb8fcfJM0IiJ4E9w_aem_SE9gSWulahX03e45yWPlWw"}
 {"creator_id":"sonjaarroyoart","handle":"@sonjaarroyoart","key_type":"tiktok_handle","key":"@sonjaarroyoart","confidence":1,"evidence":"https://www.tiktok.com/@sonjaarroyoart"}
 {"creator_id":"sonjaarroyoart","handle":"@sonjaarroyoart","key_type":"tiktok_profile_url","key":"https://tiktok.com/@sonjaarroyoart","confidence":1,"evidence":"https://www.tiktok.com/@sonjaarroyoart"}
 {"creator_id":"sonjaarroyoart","handle":"@sonjaarroyoart","key_type":"display_name_slug","key":"sonjaarroyo","confidence":0.35,"evidence":"Sonja Arroyo"}
+{"creator_id":"sonjaarroyoart","handle":"@sonjaarroyoart","key_type":"external_link","key":"linktr.ee/sonjaarroyoart","confidence":0.85,"evidence":"https://linktr.ee/sonjaarroyoart"}
 {"creator_id":"bluesoulartist","handle":"@bluesoulartist","key_type":"tiktok_handle","key":"@bluesoulartist","confidence":1,"evidence":"https://www.tiktok.com/@bluesoulartist"}
 {"creator_id":"bluesoulartist","handle":"@bluesoulartist","key_type":"tiktok_profile_url","key":"https://tiktok.com/@bluesoulartist","confidence":1,"evidence":"https://www.tiktok.com/@bluesoulartist"}
 {"creator_id":"bluesoulartist","handle":"@bluesoulartist","key_type":"display_name_slug","key":"bluesoulartist","confidence":0.35,"evidence":"Blue Soul Artist"}
@@ -1144,15 +1196,18 @@
 {"creator_id":"honorroller","handle":"@honorroller","key_type":"tiktok_handle","key":"@honorroller","confidence":1,"evidence":"https://www.tiktok.com/@honorroller"}
 {"creator_id":"honorroller","handle":"@honorroller","key_type":"tiktok_profile_url","key":"https://tiktok.com/@honorroller","confidence":1,"evidence":"https://www.tiktok.com/@honorroller"}
 {"creator_id":"honorroller","handle":"@honorroller","key_type":"display_name_slug","key":"christopherchan","confidence":0.35,"evidence":"Christopher Chan"}
+{"creator_id":"honorroller","handle":"@honorroller","key_type":"external_link","key":"honorroller.com/","confidence":0.85,"evidence":"https://honorroller.com"}
 {"creator_id":"kassidybkreations","handle":"@kassidybkreations","key_type":"tiktok_handle","key":"@kassidybkreations","confidence":1,"evidence":"https://www.tiktok.com/@kassidybkreations"}
 {"creator_id":"kassidybkreations","handle":"@kassidybkreations","key_type":"tiktok_profile_url","key":"https://tiktok.com/@kassidybkreations","confidence":1,"evidence":"https://www.tiktok.com/@kassidybkreations"}
 {"creator_id":"kassidybkreations","handle":"@kassidybkreations","key_type":"display_name_slug","key":"myra","confidence":0.35,"evidence":"Myra"}
+{"creator_id":"kassidybkreations","handle":"@kassidybkreations","key_type":"external_link","key":"linktr.ee/kassidybkreations","confidence":0.85,"evidence":"https://linktr.ee/kassidybkreations"}
 {"creator_id":"itsgraceaki","handle":"@itsgraceaki","key_type":"tiktok_handle","key":"@itsgraceaki","confidence":1,"evidence":"https://www.tiktok.com/@itsgraceaki"}
 {"creator_id":"itsgraceaki","handle":"@itsgraceaki","key_type":"tiktok_profile_url","key":"https://tiktok.com/@itsgraceaki","confidence":1,"evidence":"https://www.tiktok.com/@itsgraceaki"}
 {"creator_id":"itsgraceaki","handle":"@itsgraceaki","key_type":"display_name_slug","key":"graceaki","confidence":0.35,"evidence":"Grace Aki"}
 {"creator_id":"travelwritedraw","handle":"@travelwritedraw","key_type":"tiktok_handle","key":"@travelwritedraw","confidence":1,"evidence":"https://www.tiktok.com/@travelwritedraw"}
 {"creator_id":"travelwritedraw","handle":"@travelwritedraw","key_type":"tiktok_profile_url","key":"https://tiktok.com/@travelwritedraw","confidence":1,"evidence":"https://www.tiktok.com/@travelwritedraw"}
 {"creator_id":"travelwritedraw","handle":"@travelwritedraw","key_type":"display_name_slug","key":"meaganmorrison","confidence":0.35,"evidence":"Meagan Morrison"}
+{"creator_id":"travelwritedraw","handle":"@travelwritedraw","key_type":"external_link","key":"linktr.ee/travelwritedraw","confidence":0.85,"evidence":"https://linktr.ee/TravelWriteDraw"}
 {"creator_id":"macfacts","handle":"@macfacts","key_type":"tiktok_handle","key":"@macfacts","confidence":1,"evidence":"https://www.tiktok.com/@macfacts"}
 {"creator_id":"macfacts","handle":"@macfacts","key_type":"tiktok_profile_url","key":"https://tiktok.com/@macfacts","confidence":1,"evidence":"https://www.tiktok.com/@macfacts"}
 {"creator_id":"macfacts","handle":"@macfacts","key_type":"display_name_slug","key":"maccumpian","confidence":0.35,"evidence":"Mac Cumpian"}
@@ -1165,129 +1220,163 @@
 {"creator_id":"imdjlivia","handle":"@imdjlivia","key_type":"tiktok_handle","key":"@imdjlivia","confidence":1,"evidence":"https://www.tiktok.com/@imdjlivia"}
 {"creator_id":"imdjlivia","handle":"@imdjlivia","key_type":"tiktok_profile_url","key":"https://tiktok.com/@imdjlivia","confidence":1,"evidence":"https://www.tiktok.com/@imdjlivia"}
 {"creator_id":"imdjlivia","handle":"@imdjlivia","key_type":"display_name_slug","key":"livia","confidence":0.35,"evidence":"Livia"}
+{"creator_id":"imdjlivia","handle":"@imdjlivia","key_type":"external_link","key":"iamdjlivia.com/","confidence":0.85,"evidence":"https://www.iamdjlivia.com"}
 {"creator_id":"dormun","handle":"@dormun","key_type":"tiktok_handle","key":"@dormun","confidence":1,"evidence":"https://www.tiktok.com/@dormun"}
 {"creator_id":"dormun","handle":"@dormun","key_type":"tiktok_profile_url","key":"https://tiktok.com/@dormun","confidence":1,"evidence":"https://www.tiktok.com/@dormun"}
 {"creator_id":"dormun","handle":"@dormun","key_type":"display_name_slug","key":"dormun","confidence":0.35,"evidence":"Dormun"}
+{"creator_id":"dormun","handle":"@dormun","key_type":"external_link","key":"linktr.ee/dormun","confidence":0.85,"evidence":"https://linktr.ee/dormun"}
 {"creator_id":"songpsych","handle":"@songpsych","key_type":"tiktok_handle","key":"@songpsych","confidence":1,"evidence":"https://www.tiktok.com/@songpsych"}
 {"creator_id":"songpsych","handle":"@songpsych","key_type":"tiktok_profile_url","key":"https://tiktok.com/@songpsych","confidence":1,"evidence":"https://www.tiktok.com/@songpsych"}
 {"creator_id":"songpsych","handle":"@songpsych","key_type":"display_name_slug","key":"devlemons","confidence":0.35,"evidence":"Dev Lemons"}
+{"creator_id":"songpsych","handle":"@songpsych","key_type":"external_link","key":"youtu.be/pa2zqwvoqjq","confidence":0.85,"evidence":"https://youtu.be/PA2zqwvOqJQ"}
 {"creator_id":"ldrethegiant","handle":"@ldrethegiant","key_type":"tiktok_handle","key":"@ldrethegiant","confidence":1,"evidence":"https://www.tiktok.com/@ldrethegiant"}
 {"creator_id":"ldrethegiant","handle":"@ldrethegiant","key_type":"tiktok_profile_url","key":"https://tiktok.com/@ldrethegiant","confidence":1,"evidence":"https://www.tiktok.com/@ldrethegiant"}
 {"creator_id":"ldrethegiant","handle":"@ldrethegiant","key_type":"display_name_slug","key":"ldre","confidence":0.35,"evidence":"L.Dre"}
+{"creator_id":"ldrethegiant","handle":"@ldrethegiant","key_type":"external_link","key":"beacons.ai/l.dre","confidence":0.85,"evidence":"https://beacons.ai/l.dre"}
 {"creator_id":"its.queen.ife_","handle":"@its.queen.ife_","key_type":"tiktok_handle","key":"@its.queen.ife_","confidence":1,"evidence":"https://www.tiktok.com/@its.queen.ife_"}
 {"creator_id":"its.queen.ife_","handle":"@its.queen.ife_","key_type":"tiktok_profile_url","key":"https://tiktok.com/@its.queen.ife_","confidence":1,"evidence":"https://www.tiktok.com/@its.queen.ife_"}
 {"creator_id":"its.queen.ife_","handle":"@its.queen.ife_","key_type":"display_name_slug","key":"queenife","confidence":0.35,"evidence":"Queen Ife"}
+{"creator_id":"its.queen.ife_","handle":"@its.queen.ife_","key_type":"external_link","key":"ffm.bio/xd9bvmx","confidence":0.85,"evidence":"https://ffm.bio/xd9bvmx?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleASNTg5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadKMibT5r_KJwW0_DFHh_Aur95UsvuzAopHhGDrgdP6eqiXzeJOtbSJlvzcng_aem_l7Y03YxA_i99uOD-mmEnuw"}
 {"creator_id":"damoyee","handle":"@damoyee","key_type":"tiktok_handle","key":"@damoyee","confidence":1,"evidence":"https://www.tiktok.com/@damoyee"}
 {"creator_id":"damoyee","handle":"@damoyee","key_type":"tiktok_profile_url","key":"https://tiktok.com/@damoyee","confidence":1,"evidence":"https://www.tiktok.com/@damoyee"}
 {"creator_id":"damoyee","handle":"@damoyee","key_type":"display_name_slug","key":"damoyee","confidence":0.35,"evidence":"Damoyee"}
+{"creator_id":"damoyee","handle":"@damoyee","key_type":"external_link","key":"damoyee.com/","confidence":0.85,"evidence":"https://www.damoyee.com"}
 {"creator_id":"99makaveli","handle":"@99makaveli","key_type":"tiktok_handle","key":"@99makaveli","confidence":1,"evidence":"https://www.tiktok.com/@99makaveli"}
 {"creator_id":"99makaveli","handle":"@99makaveli","key_type":"tiktok_profile_url","key":"https://tiktok.com/@99makaveli","confidence":1,"evidence":"https://www.tiktok.com/@99makaveli"}
 {"creator_id":"99makaveli","handle":"@99makaveli","key_type":"display_name_slug","key":"makennaedissi","confidence":0.35,"evidence":"Makenna Edissi"}
+{"creator_id":"99makaveli","handle":"@99makaveli","key_type":"external_link","key":"linktr.ee/99makaveli","confidence":0.85,"evidence":"https://linktr.ee/99makaveli"}
 {"creator_id":"prodbyocean","handle":"@prodbyocean","key_type":"tiktok_handle","key":"@prodbyocean","confidence":1,"evidence":"https://www.tiktok.com/@prodbyocean"}
 {"creator_id":"prodbyocean","handle":"@prodbyocean","key_type":"tiktok_profile_url","key":"https://tiktok.com/@prodbyocean","confidence":1,"evidence":"https://www.tiktok.com/@prodbyocean"}
 {"creator_id":"prodbyocean","handle":"@prodbyocean","key_type":"display_name_slug","key":"ocean","confidence":0.35,"evidence":"Ocean"}
+{"creator_id":"prodbyocean","handle":"@prodbyocean","key_type":"external_link","key":"linktr.ee/prodbyocean","confidence":0.85,"evidence":"https://linktr.ee/prodbyocean"}
 {"creator_id":"prod.by.iiinfinite","handle":"@prod.by.iiinfinite","key_type":"tiktok_handle","key":"@prod.by.iiinfinite","confidence":1,"evidence":"https://www.tiktok.com/@prod.by.iiinfinite"}
 {"creator_id":"prod.by.iiinfinite","handle":"@prod.by.iiinfinite","key_type":"tiktok_profile_url","key":"https://tiktok.com/@prod.by.iiinfinite","confidence":1,"evidence":"https://www.tiktok.com/@prod.by.iiinfinite"}
 {"creator_id":"prod.by.iiinfinite","handle":"@prod.by.iiinfinite","key_type":"display_name_slug","key":"devinmitchell","confidence":0.35,"evidence":"Devin Mitchell"}
+{"creator_id":"prod.by.iiinfinite","handle":"@prod.by.iiinfinite","key_type":"external_link","key":"linktr.ee/iiinfinite","confidence":0.85,"evidence":"https://linktr.ee/iiinfinite"}
 {"creator_id":"sowylie","handle":"@sowylie","key_type":"tiktok_handle","key":"@sowylie","confidence":1,"evidence":"https://www.tiktok.com/@sowylie"}
 {"creator_id":"sowylie","handle":"@sowylie","key_type":"tiktok_profile_url","key":"https://tiktok.com/@sowylie","confidence":1,"evidence":"https://www.tiktok.com/@sowylie"}
 {"creator_id":"sowylie","handle":"@sowylie","key_type":"display_name_slug","key":"wylie","confidence":0.35,"evidence":"Wylie"}
 {"creator_id":"musicindustrymentor","handle":"@musicindustrymentor","key_type":"tiktok_handle","key":"@musicindustrymentor","confidence":1,"evidence":"https://www.tiktok.com/@musicindustrymentor"}
 {"creator_id":"musicindustrymentor","handle":"@musicindustrymentor","key_type":"tiktok_profile_url","key":"https://tiktok.com/@musicindustrymentor","confidence":1,"evidence":"https://www.tiktok.com/@musicindustrymentor"}
 {"creator_id":"musicindustrymentor","handle":"@musicindustrymentor","key_type":"display_name_slug","key":"atlantacobb","confidence":0.35,"evidence":"Atlanta Cobb"}
+{"creator_id":"musicindustrymentor","handle":"@musicindustrymentor","key_type":"external_link","key":"beacons.ai/musicindustrymentor","confidence":0.85,"evidence":"https://beacons.ai/musicindustrymentor"}
 {"creator_id":"producelikeapro","handle":"@producelikeapro","key_type":"tiktok_handle","key":"@producelikeapro","confidence":1,"evidence":"https://www.tiktok.com/@producelikeapro"}
 {"creator_id":"producelikeapro","handle":"@producelikeapro","key_type":"tiktok_profile_url","key":"https://tiktok.com/@producelikeapro","confidence":1,"evidence":"https://www.tiktok.com/@producelikeapro"}
 {"creator_id":"producelikeapro","handle":"@producelikeapro","key_type":"display_name_slug","key":"warrenhuart","confidence":0.35,"evidence":"Warren Huart"}
+{"creator_id":"producelikeapro","handle":"@producelikeapro","key_type":"external_link","key":"linktr.ee/producelikeapro","confidence":0.85,"evidence":"https://linktr.ee/producelikeapro"}
 {"creator_id":"sam.smyers","handle":"@sam.smyers","key_type":"tiktok_handle","key":"@sam.smyers","confidence":1,"evidence":"https://www.tiktok.com/@sam.smyers"}
 {"creator_id":"sam.smyers","handle":"@sam.smyers","key_type":"tiktok_profile_url","key":"https://tiktok.com/@sam.smyers","confidence":1,"evidence":"https://www.tiktok.com/@sam.smyers"}
 {"creator_id":"sam.smyers","handle":"@sam.smyers","key_type":"display_name_slug","key":"samsmyers","confidence":0.35,"evidence":"Sam Smyers"}
 {"creator_id":"jaycactus","handle":"@jaycactus","key_type":"tiktok_handle","key":"@jaycactus","confidence":1,"evidence":"https://www.tiktok.com/@jaycactus"}
 {"creator_id":"jaycactus","handle":"@jaycactus","key_type":"tiktok_profile_url","key":"https://tiktok.com/@jaycactus","confidence":1,"evidence":"https://www.tiktok.com/@jaycactus"}
 {"creator_id":"jaycactus","handle":"@jaycactus","key_type":"display_name_slug","key":"jaycactus","confidence":0.35,"evidence":"Jay Cactus"}
+{"creator_id":"jaycactus","handle":"@jaycactus","key_type":"external_link","key":"linktr.ee/jaycactus","confidence":0.85,"evidence":"https://linktr.ee/JayCactus?utm_source=linktree_profile_share&ltsid=0a79a674-5cb6-4bd1-8804-fe1ad64020b9"}
 {"creator_id":"_buttonmasher","handle":"@_buttonmasher","key_type":"tiktok_handle","key":"@_buttonmasher","confidence":1,"evidence":"https://www.tiktok.com/@_buttonmasher"}
 {"creator_id":"_buttonmasher","handle":"@_buttonmasher","key_type":"tiktok_profile_url","key":"https://tiktok.com/@_buttonmasher","confidence":1,"evidence":"https://www.tiktok.com/@_buttonmasher"}
 {"creator_id":"_buttonmasher","handle":"@_buttonmasher","key_type":"display_name_slug","key":"jakesilverman","confidence":0.35,"evidence":"Jake Silverman"}
+{"creator_id":"_buttonmasher","handle":"@_buttonmasher","key_type":"external_link","key":"linktr.ee/_buttonmasher","confidence":0.85,"evidence":"https://linktr.ee/_buttonmasher?fbclid=PAAaanbjCtq-qdcZIHpd0mvL05XIBJPdtFEX0TKwIw9hqRFUWBDlmfJT6vLhs_aem_Aa9iLt9_hVDtKIYM1SVwPEAUGwYybMd_gG2q5Is7H5inXPsPUT_IuzUTknzF8PPGavI"}
 {"creator_id":"thomasvopstal","handle":"@thomasvopstal","key_type":"tiktok_handle","key":"@thomasvopstal","confidence":1,"evidence":"https://www.tiktok.com/@thomasvopstal"}
 {"creator_id":"thomasvopstal","handle":"@thomasvopstal","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thomasvopstal","confidence":1,"evidence":"https://www.tiktok.com/@thomasvopstal"}
 {"creator_id":"thomasvopstal","handle":"@thomasvopstal","key_type":"display_name_slug","key":"thomasvanopstal","confidence":0.35,"evidence":"Thomas Van Opstal"}
+{"creator_id":"thomasvopstal","handle":"@thomasvopstal","key_type":"external_link","key":"linktr.ee/thomasvanopstal","confidence":0.85,"evidence":"https://linktr.ee/thomasvanopstal"}
 {"creator_id":"streaky_com","handle":"@streaky_com","key_type":"tiktok_handle","key":"@streaky_com","confidence":1,"evidence":"https://www.tiktok.com/@streaky_com"}
 {"creator_id":"streaky_com","handle":"@streaky_com","key_type":"tiktok_profile_url","key":"https://tiktok.com/@streaky_com","confidence":1,"evidence":"https://www.tiktok.com/@streaky_com"}
 {"creator_id":"streaky_com","handle":"@streaky_com","key_type":"display_name_slug","key":"streaky","confidence":0.35,"evidence":"Streaky"}
 {"creator_id":"bradleyhd","handle":"@bradleyhd","key_type":"tiktok_handle","key":"@bradleyhd","confidence":1,"evidence":"https://www.tiktok.com/@bradleyhd"}
 {"creator_id":"bradleyhd","handle":"@bradleyhd","key_type":"tiktok_profile_url","key":"https://tiktok.com/@bradleyhd","confidence":1,"evidence":"https://www.tiktok.com/@bradleyhd"}
 {"creator_id":"bradleyhd","handle":"@bradleyhd","key_type":"display_name_slug","key":"bradleydenniston","confidence":0.35,"evidence":"Bradley Denniston"}
+{"creator_id":"bradleyhd","handle":"@bradleyhd","key_type":"external_link","key":"bradleyhd.page/","confidence":0.85,"evidence":"https://bradleyhd.page"}
 {"creator_id":"uncle.kizzy","handle":"@uncle.kizzy","key_type":"tiktok_handle","key":"@uncle.kizzy","confidence":1,"evidence":"https://www.tiktok.com/@uncle.kizzy"}
 {"creator_id":"uncle.kizzy","handle":"@uncle.kizzy","key_type":"tiktok_profile_url","key":"https://tiktok.com/@uncle.kizzy","confidence":1,"evidence":"https://www.tiktok.com/@uncle.kizzy"}
 {"creator_id":"uncle.kizzy","handle":"@uncle.kizzy","key_type":"display_name_slug","key":"unclekizzy","confidence":0.35,"evidence":"Uncle Kizzy"}
+{"creator_id":"uncle.kizzy","handle":"@uncle.kizzy","key_type":"external_link","key":"linktr.ee/kaixander2","confidence":0.85,"evidence":"https://linktr.ee/kaixander2"}
 {"creator_id":"musicbyazuma","handle":"@musicbyazuma","key_type":"tiktok_handle","key":"@musicbyazuma","confidence":1,"evidence":"https://www.tiktok.com/@musicbyazuma"}
 {"creator_id":"musicbyazuma","handle":"@musicbyazuma","key_type":"tiktok_profile_url","key":"https://tiktok.com/@musicbyazuma","confidence":1,"evidence":"https://www.tiktok.com/@musicbyazuma"}
 {"creator_id":"musicbyazuma","handle":"@musicbyazuma","key_type":"display_name_slug","key":"zuma","confidence":0.35,"evidence":"Zuma"}
+{"creator_id":"musicbyazuma","handle":"@musicbyazuma","key_type":"external_link","key":"flow.page/musicbyazuma","confidence":0.85,"evidence":"https://flow.page/musicbyazuma"}
 {"creator_id":"rani.adi","handle":"@rani.adi","key_type":"tiktok_handle","key":"@rani.adi","confidence":1,"evidence":"https://www.tiktok.com/@rani.adi"}
 {"creator_id":"rani.adi","handle":"@rani.adi","key_type":"tiktok_profile_url","key":"https://tiktok.com/@rani.adi","confidence":1,"evidence":"https://www.tiktok.com/@rani.adi"}
 {"creator_id":"rani.adi","handle":"@rani.adi","key_type":"display_name_slug","key":"raniadi","confidence":0.35,"evidence":"Rani Adi"}
+{"creator_id":"rani.adi","handle":"@rani.adi","key_type":"external_link","key":"linktr.ee/raniadi","confidence":0.85,"evidence":"https://linktr.ee/raniadi"}
 {"creator_id":"jeff.nang","handle":"@jeff.nang","key_type":"tiktok_handle","key":"@jeff.nang","confidence":1,"evidence":"https://www.tiktok.com/@jeff.nang"}
 {"creator_id":"jeff.nang","handle":"@jeff.nang","key_type":"tiktok_profile_url","key":"https://tiktok.com/@jeff.nang","confidence":1,"evidence":"https://www.tiktok.com/@jeff.nang"}
 {"creator_id":"jeff.nang","handle":"@jeff.nang","key_type":"display_name_slug","key":"jeffnang","confidence":0.35,"evidence":"Jeff Nang"}
+{"creator_id":"jeff.nang","handle":"@jeff.nang","key_type":"external_link","key":"youtu.be/dlubuacinmi","confidence":0.85,"evidence":"https://youtu.be/DLUBuAcInMI?si=mP1rbpFmeDM2OsJi"}
 {"creator_id":"duoalmanac","handle":"@duoalmanac","key_type":"tiktok_handle","key":"@duoalmanac","confidence":1,"evidence":"https://www.tiktok.com/@duoalmanac"}
 {"creator_id":"duoalmanac","handle":"@duoalmanac","key_type":"tiktok_profile_url","key":"https://tiktok.com/@duoalmanac","confidence":1,"evidence":"https://www.tiktok.com/@duoalmanac"}
 {"creator_id":"duoalmanac","handle":"@duoalmanac","key_type":"display_name_slug","key":"lesterdav","confidence":0.35,"evidence":"Lester & Dav"}
 {"creator_id":"larryohh","handle":"@larryohh","key_type":"tiktok_handle","key":"@larryohh","confidence":1,"evidence":"https://www.tiktok.com/@larryohh"}
 {"creator_id":"larryohh","handle":"@larryohh","key_type":"tiktok_profile_url","key":"https://tiktok.com/@larryohh","confidence":1,"evidence":"https://www.tiktok.com/@larryohh"}
 {"creator_id":"larryohh","handle":"@larryohh","key_type":"display_name_slug","key":"larryohh","confidence":0.35,"evidence":"Larry Ohh"}
+{"creator_id":"larryohh","handle":"@larryohh","key_type":"external_link","key":"skool.com/fl-studio-fluency-9018/about","confidence":0.85,"evidence":"https://www.skool.com/fl-studio-fluency-9018/about?ref=670b2e07e5e74fcca9e44a9138fe84d9"}
 {"creator_id":"jayrytthm","handle":"@jayrytthm","key_type":"tiktok_handle","key":"@jayrytthm","confidence":1,"evidence":"https://www.tiktok.com/@jayrytthm"}
 {"creator_id":"jayrytthm","handle":"@jayrytthm","key_type":"tiktok_profile_url","key":"https://tiktok.com/@jayrytthm","confidence":1,"evidence":"https://www.tiktok.com/@jayrytthm"}
 {"creator_id":"jayrytthm","handle":"@jayrytthm","key_type":"display_name_slug","key":"jayrytthmakins","confidence":0.35,"evidence":"JayRytthm Akins"}
 {"creator_id":"aubreyproducer","handle":"@aubreyproducer","key_type":"tiktok_handle","key":"@aubreyproducer","confidence":1,"evidence":"https://www.tiktok.com/@aubreyproducer"}
 {"creator_id":"aubreyproducer","handle":"@aubreyproducer","key_type":"tiktok_profile_url","key":"https://tiktok.com/@aubreyproducer","confidence":1,"evidence":"https://www.tiktok.com/@aubreyproducer"}
 {"creator_id":"aubreyproducer","handle":"@aubreyproducer","key_type":"display_name_slug","key":"aubreywhitfield","confidence":0.35,"evidence":"Aubrey Whitfield"}
+{"creator_id":"aubreyproducer","handle":"@aubreyproducer","key_type":"external_link","key":"bio.aubreywhitfield.com/","confidence":0.85,"evidence":"https://bio.aubreywhitfield.com/"}
 {"creator_id":"gnarly.music","handle":"@gnarly.music","key_type":"tiktok_handle","key":"@gnarly.music","confidence":1,"evidence":"https://www.tiktok.com/@gnarly.music"}
 {"creator_id":"gnarly.music","handle":"@gnarly.music","key_type":"tiktok_profile_url","key":"https://tiktok.com/@gnarly.music","confidence":1,"evidence":"https://www.tiktok.com/@gnarly.music"}
 {"creator_id":"gnarly.music","handle":"@gnarly.music","key_type":"display_name_slug","key":"gnarly","confidence":0.35,"evidence":"Gnarly"}
+{"creator_id":"gnarly.music","handle":"@gnarly.music","key_type":"external_link","key":"linktr.ee/gnarly","confidence":0.85,"evidence":"https://linktr.ee/gnarly"}
 {"creator_id":"quantizemusicproductions","handle":"@quantizemusicproductions","key_type":"tiktok_handle","key":"@quantizemusicproductions","confidence":1,"evidence":"https://www.tiktok.com/@quantizemusicproductions"}
 {"creator_id":"quantizemusicproductions","handle":"@quantizemusicproductions","key_type":"tiktok_profile_url","key":"https://tiktok.com/@quantizemusicproductions","confidence":1,"evidence":"https://www.tiktok.com/@quantizemusicproductions"}
 {"creator_id":"quantizemusicproductions","handle":"@quantizemusicproductions","key_type":"display_name_slug","key":"johnathanrempert","confidence":0.35,"evidence":"Johnathan Rempert"}
+{"creator_id":"quantizemusicproductions","handle":"@quantizemusicproductions","key_type":"external_link","key":"linktr.ee/quantizemusic","confidence":0.85,"evidence":"https://linktr.ee/quantizemusic"}
 {"creator_id":"beautifulbeats99","handle":"@beautifulbeats99","key_type":"tiktok_handle","key":"@beautifulbeats99","confidence":1,"evidence":"https://www.tiktok.com/@beautifulbeats99"}
 {"creator_id":"beautifulbeats99","handle":"@beautifulbeats99","key_type":"tiktok_profile_url","key":"https://tiktok.com/@beautifulbeats99","confidence":1,"evidence":"https://www.tiktok.com/@beautifulbeats99"}
 {"creator_id":"beautifulbeats99","handle":"@beautifulbeats99","key_type":"display_name_slug","key":"eddieanders","confidence":0.35,"evidence":"Eddie Anders"}
+{"creator_id":"beautifulbeats99","handle":"@beautifulbeats99","key_type":"external_link","key":"linktr.ee/beautifulbeats99","confidence":0.85,"evidence":"https://linktr.ee/beautifulbeats99"}
 {"creator_id":"unorthodox.beats","handle":"@unorthodox.beats","key_type":"tiktok_handle","key":"@unorthodox.beats","confidence":1,"evidence":"https://www.tiktok.com/@unorthodox.beats"}
 {"creator_id":"unorthodox.beats","handle":"@unorthodox.beats","key_type":"tiktok_profile_url","key":"https://tiktok.com/@unorthodox.beats","confidence":1,"evidence":"https://www.tiktok.com/@unorthodox.beats"}
 {"creator_id":"unorthodox.beats","handle":"@unorthodox.beats","key_type":"display_name_slug","key":"axelcruz","confidence":0.35,"evidence":"Axel Cruz"}
+{"creator_id":"unorthodox.beats","handle":"@unorthodox.beats","key_type":"external_link","key":"linktr.ee/unorthodoxmusic","confidence":0.85,"evidence":"https://linktr.ee/UnorthodoxMusic"}
 {"creator_id":"ivanfromrnd","handle":"@ivanfromrnd","key_type":"tiktok_handle","key":"@ivanfromrnd","confidence":1,"evidence":"https://www.tiktok.com/@ivanfromrnd"}
 {"creator_id":"ivanfromrnd","handle":"@ivanfromrnd","key_type":"tiktok_profile_url","key":"https://tiktok.com/@ivanfromrnd","confidence":1,"evidence":"https://www.tiktok.com/@ivanfromrnd"}
 {"creator_id":"ivanfromrnd","handle":"@ivanfromrnd","key_type":"display_name_slug","key":"ivanmeshcheriakov","confidence":0.35,"evidence":"Ivan Meshcheriakov"}
 {"creator_id":"justus.west","handle":"@justus.west","key_type":"tiktok_handle","key":"@justus.west","confidence":1,"evidence":"https://www.tiktok.com/@justus.west"}
 {"creator_id":"justus.west","handle":"@justus.west","key_type":"tiktok_profile_url","key":"https://tiktok.com/@justus.west","confidence":1,"evidence":"https://www.tiktok.com/@justus.west"}
 {"creator_id":"justus.west","handle":"@justus.west","key_type":"display_name_slug","key":"justuswest","confidence":0.35,"evidence":"Justus West"}
+{"creator_id":"justus.west","handle":"@justus.west","key_type":"external_link","key":"linktr.ee/justus.west","confidence":0.85,"evidence":"https://linktr.ee/justus.west"}
 {"creator_id":"electronicstandards","handle":"@electronicstandards","key_type":"tiktok_handle","key":"@electronicstandards","confidence":1,"evidence":"https://www.tiktok.com/@electronicstandards"}
 {"creator_id":"electronicstandards","handle":"@electronicstandards","key_type":"tiktok_profile_url","key":"https://tiktok.com/@electronicstandards","confidence":1,"evidence":"https://www.tiktok.com/@electronicstandards"}
 {"creator_id":"electronicstandards","handle":"@electronicstandards","key_type":"display_name_slug","key":"alainpatrick","confidence":0.35,"evidence":"Alain Patrick"}
 {"creator_id":"wordsbykristin","handle":"@wordsbykristin","key_type":"tiktok_handle","key":"@wordsbykristin","confidence":1,"evidence":"https://www.tiktok.com/@wordsbykristin"}
 {"creator_id":"wordsbykristin","handle":"@wordsbykristin","key_type":"tiktok_profile_url","key":"https://tiktok.com/@wordsbykristin","confidence":1,"evidence":"https://www.tiktok.com/@wordsbykristin"}
 {"creator_id":"wordsbykristin","handle":"@wordsbykristin","key_type":"display_name_slug","key":"kristinrobinson","confidence":0.35,"evidence":"Kristin Robinson"}
+{"creator_id":"wordsbykristin","handle":"@wordsbykristin","key_type":"external_link","key":"linktr.ee/wordsbykristin","confidence":0.85,"evidence":"https://linktr.ee/wordsbykristin"}
 {"creator_id":"mixedbyel_","handle":"@mixedbyel_","key_type":"tiktok_handle","key":"@mixedbyel_","confidence":1,"evidence":"https://www.tiktok.com/@mixedbyel_"}
 {"creator_id":"mixedbyel_","handle":"@mixedbyel_","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mixedbyel_","confidence":1,"evidence":"https://www.tiktok.com/@mixedbyel_"}
 {"creator_id":"mixedbyel_","handle":"@mixedbyel_","key_type":"display_name_slug","key":"chriselghaly","confidence":0.35,"evidence":"Chris Elghaly"}
+{"creator_id":"mixedbyel_","handle":"@mixedbyel_","key_type":"external_link","key":"mixedbyel.com/","confidence":0.85,"evidence":"https://www.mixedbyel.com"}
 {"creator_id":"thedavidfrick","handle":"@thedavidfrick","key_type":"tiktok_handle","key":"@thedavidfrick","confidence":1,"evidence":"https://www.tiktok.com/@thedavidfrick"}
 {"creator_id":"thedavidfrick","handle":"@thedavidfrick","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thedavidfrick","confidence":1,"evidence":"https://www.tiktok.com/@thedavidfrick"}
 {"creator_id":"thedavidfrick","handle":"@thedavidfrick","key_type":"display_name_slug","key":"davidfrick","confidence":0.35,"evidence":"David Frick"}
+{"creator_id":"thedavidfrick","handle":"@thedavidfrick","key_type":"external_link","key":"linktr.ee/frickmadeit","confidence":0.85,"evidence":"https://linktr.ee/FrickMadeIt"}
 {"creator_id":"dxt3r_lab","handle":"@dxt3r_lab","key_type":"tiktok_handle","key":"@dxt3r_lab","confidence":1,"evidence":"https://www.tiktok.com/@dxt3r_lab"}
 {"creator_id":"dxt3r_lab","handle":"@dxt3r_lab","key_type":"tiktok_profile_url","key":"https://tiktok.com/@dxt3r_lab","confidence":1,"evidence":"https://www.tiktok.com/@dxt3r_lab"}
 {"creator_id":"dxt3r_lab","handle":"@dxt3r_lab","key_type":"display_name_slug","key":"dxt3r","confidence":0.35,"evidence":"Dxt3r"}
+{"creator_id":"dxt3r_lab","handle":"@dxt3r_lab","key_type":"external_link","key":"youtube.com/c/dxt3r_lab","confidence":0.85,"evidence":"https://www.youtube.com/c/Dxt3r_Lab"}
 {"creator_id":"donyeamusic","handle":"@donyeamusic","key_type":"tiktok_handle","key":"@donyeamusic","confidence":1,"evidence":"https://www.tiktok.com/@donyeamusic"}
 {"creator_id":"donyeamusic","handle":"@donyeamusic","key_type":"tiktok_profile_url","key":"https://tiktok.com/@donyeamusic","confidence":1,"evidence":"https://www.tiktok.com/@donyeamusic"}
 {"creator_id":"donyeamusic","handle":"@donyeamusic","key_type":"display_name_slug","key":"dwightdonyeagoodman","confidence":0.35,"evidence":"Dwight Donyea Goodman"}
+{"creator_id":"donyeamusic","handle":"@donyeamusic","key_type":"external_link","key":"donyeamusic.net/","confidence":0.85,"evidence":"https://DonyeaMusic.net"}
 {"creator_id":"michael.inthemix","handle":"@michael.inthemix","key_type":"tiktok_handle","key":"@michael.inthemix","confidence":1,"evidence":"https://www.tiktok.com/@michael.inthemix"}
 {"creator_id":"michael.inthemix","handle":"@michael.inthemix","key_type":"tiktok_profile_url","key":"https://tiktok.com/@michael.inthemix","confidence":1,"evidence":"https://www.tiktok.com/@michael.inthemix"}
 {"creator_id":"michael.inthemix","handle":"@michael.inthemix","key_type":"display_name_slug","key":"michaelwynne","confidence":0.35,"evidence":"Michael Wynne"}
+{"creator_id":"michael.inthemix","handle":"@michael.inthemix","key_type":"external_link","key":"linktr.ee/inthemixlinks","confidence":0.85,"evidence":"https://linktr.ee/inthemixlinks"}
 {"creator_id":"nashoverstreet","handle":"@nashoverstreet","key_type":"tiktok_handle","key":"@nashoverstreet","confidence":1,"evidence":"https://www.tiktok.com/@nashoverstreet"}
 {"creator_id":"nashoverstreet","handle":"@nashoverstreet","key_type":"tiktok_profile_url","key":"https://tiktok.com/@nashoverstreet","confidence":1,"evidence":"https://www.tiktok.com/@nashoverstreet"}
 {"creator_id":"nashoverstreet","handle":"@nashoverstreet","key_type":"display_name_slug","key":"nashoverstreet","confidence":0.35,"evidence":"Nash Overstreet"}
 {"creator_id":"thisisnalaa","handle":"@thisisnalaa","key_type":"tiktok_handle","key":"@thisisnalaa","confidence":1,"evidence":"https://www.tiktok.com/@thisisnalaa"}
 {"creator_id":"thisisnalaa","handle":"@thisisnalaa","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thisisnalaa","confidence":1,"evidence":"https://www.tiktok.com/@thisisnalaa"}
 {"creator_id":"thisisnalaa","handle":"@thisisnalaa","key_type":"display_name_slug","key":"nala","confidence":0.35,"evidence":"Nala"}
+{"creator_id":"thisisnalaa","handle":"@thisisnalaa","key_type":"external_link","key":"empire.ffm.to/placelikethis","confidence":0.85,"evidence":"https://empire.ffm.to/placelikethis"}
 {"creator_id":"violettazironi","handle":"@violettazironi","key_type":"tiktok_handle","key":"@violettazironi","confidence":1,"evidence":"https://www.tiktok.com/@violettazironi"}
 {"creator_id":"violettazironi","handle":"@violettazironi","key_type":"tiktok_profile_url","key":"https://tiktok.com/@violettazironi","confidence":1,"evidence":"https://www.tiktok.com/@violettazironi"}
 {"creator_id":"violettazironi","handle":"@violettazironi","key_type":"display_name_slug","key":"violettazironi","confidence":0.35,"evidence":"Violetta Zironi"}
+{"creator_id":"violettazironi","handle":"@violettazironi","key_type":"external_link","key":"violettazironi.com/","confidence":0.85,"evidence":"http://violettazironi.com/"}
 {"creator_id":"chrisobrien_cataract","handle":"@chrisobrien_cataract","key_type":"tiktok_handle","key":"@chrisobrien_cataract","confidence":1,"evidence":"https://www.tiktok.com/@chrisobrien_cataract"}
 {"creator_id":"chrisobrien_cataract","handle":"@chrisobrien_cataract","key_type":"tiktok_profile_url","key":"https://tiktok.com/@chrisobrien_cataract","confidence":1,"evidence":"https://www.tiktok.com/@chrisobrien_cataract"}
 {"creator_id":"chrisobrien_cataract","handle":"@chrisobrien_cataract","key_type":"display_name_slug","key":"christopherkobrien","confidence":0.35,"evidence":"Christopher Kobrien"}
@@ -1300,15 +1389,18 @@
 {"creator_id":"legacybeats","handle":"@legacybeats","key_type":"tiktok_handle","key":"@legacybeats","confidence":1,"evidence":"https://www.tiktok.com/@legacybeats"}
 {"creator_id":"legacybeats","handle":"@legacybeats","key_type":"tiktok_profile_url","key":"https://tiktok.com/@legacybeats","confidence":1,"evidence":"https://www.tiktok.com/@legacybeats"}
 {"creator_id":"legacybeats","handle":"@legacybeats","key_type":"display_name_slug","key":"lukealderson","confidence":0.35,"evidence":"Luke Alderson"}
+{"creator_id":"legacybeats","handle":"@legacybeats","key_type":"external_link","key":"producers.wavgrind.com/free-legacy-sample-pack5849054893-1694515165","confidence":0.85,"evidence":"https://producers.wavgrind.com/free-legacy-sample-pack5849054893-1694515165?el=LBTT"}
 {"creator_id":"twanmvsic","handle":"@twanmvsic","key_type":"tiktok_handle","key":"@twanmvsic","confidence":1,"evidence":"https://www.tiktok.com/@twanmvsic"}
 {"creator_id":"twanmvsic","handle":"@twanmvsic","key_type":"tiktok_profile_url","key":"https://tiktok.com/@twanmvsic","confidence":1,"evidence":"https://www.tiktok.com/@twanmvsic"}
 {"creator_id":"twanmvsic","handle":"@twanmvsic","key_type":"display_name_slug","key":"twan","confidence":0.35,"evidence":"Twan"}
 {"creator_id":"geekazine","handle":"@geekazine","key_type":"tiktok_handle","key":"@geekazine","confidence":1,"evidence":"https://www.tiktok.com/@geekazine"}
 {"creator_id":"geekazine","handle":"@geekazine","key_type":"tiktok_profile_url","key":"https://tiktok.com/@geekazine","confidence":1,"evidence":"https://www.tiktok.com/@geekazine"}
 {"creator_id":"geekazine","handle":"@geekazine","key_type":"display_name_slug","key":"jeffreypowers","confidence":0.35,"evidence":"Jeffrey Powers"}
+{"creator_id":"geekazine","handle":"@geekazine","key_type":"external_link","key":"mylinks.ai/geekazine","confidence":0.85,"evidence":"HTTPS://mylinks.ai/geekazine"}
 {"creator_id":"jordi.koalitic","handle":"@jordi.koalitic","key_type":"tiktok_handle","key":"@jordi.koalitic","confidence":1,"evidence":"https://www.tiktok.com/@jordi.koalitic"}
 {"creator_id":"jordi.koalitic","handle":"@jordi.koalitic","key_type":"tiktok_profile_url","key":"https://tiktok.com/@jordi.koalitic","confidence":1,"evidence":"https://www.tiktok.com/@jordi.koalitic"}
 {"creator_id":"jordi.koalitic","handle":"@jordi.koalitic","key_type":"display_name_slug","key":"jordikoalitic","confidence":0.35,"evidence":"@Jordi.koalitic"}
+{"creator_id":"jordi.koalitic","handle":"@jordi.koalitic","key_type":"external_link","key":"shorturl.at/knimk","confidence":0.85,"evidence":"https://shorturl.at/Knimk"}
 {"creator_id":"danielguti","handle":"@danielguti","key_type":"tiktok_handle","key":"@danielguti","confidence":1,"evidence":"https://www.tiktok.com/@danielguti"}
 {"creator_id":"danielguti","handle":"@danielguti","key_type":"tiktok_profile_url","key":"https://tiktok.com/@danielguti","confidence":1,"evidence":"https://www.tiktok.com/@danielguti"}
 {"creator_id":"danielguti","handle":"@danielguti","key_type":"display_name_slug","key":"danielguti","confidence":0.35,"evidence":"Daniel Guti"}
@@ -1321,15 +1413,18 @@
 {"creator_id":"pilot_onthegram","handle":"@pilot_onthegram","key_type":"tiktok_handle","key":"@pilot_onthegram","confidence":1,"evidence":"https://www.tiktok.com/@pilot_onthegram"}
 {"creator_id":"pilot_onthegram","handle":"@pilot_onthegram","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilot_onthegram","confidence":1,"evidence":"https://www.tiktok.com/@pilot_onthegram"}
 {"creator_id":"pilot_onthegram","handle":"@pilot_onthegram","key_type":"display_name_slug","key":"pilotonthegram","confidence":0.35,"evidence":"Pilot_onthegram"}
+{"creator_id":"pilot_onthegram","handle":"@pilot_onthegram","key_type":"external_link","key":"instagram.com/pilot_onthegram/profilecard","confidence":0.85,"evidence":"https://www.instagram.com/pilot_onthegram/profilecard/?igsh=dWttcDl5cmVjcTZt"}
 {"creator_id":"pilotkaden","handle":"@pilotkaden","key_type":"tiktok_handle","key":"@pilotkaden","confidence":1,"evidence":"https://www.tiktok.com/@pilotkaden"}
 {"creator_id":"pilotkaden","handle":"@pilotkaden","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotkaden","confidence":1,"evidence":"https://www.tiktok.com/@pilotkaden"}
 {"creator_id":"pilotkaden","handle":"@pilotkaden","key_type":"display_name_slug","key":"kadenthaddeus","confidence":0.35,"evidence":"Kaden Thaddeus"}
 {"creator_id":"arturosauu","handle":"@arturosauu","key_type":"tiktok_handle","key":"@arturosauu","confidence":1,"evidence":"https://www.tiktok.com/@arturosauu"}
 {"creator_id":"arturosauu","handle":"@arturosauu","key_type":"tiktok_profile_url","key":"https://tiktok.com/@arturosauu","confidence":1,"evidence":"https://www.tiktok.com/@arturosauu"}
 {"creator_id":"arturosauu","handle":"@arturosauu","key_type":"display_name_slug","key":"arturosaucedo","confidence":0.35,"evidence":"Arturo Saucedo"}
+{"creator_id":"arturosauu","handle":"@arturosauu","key_type":"external_link","key":"linktr.ee/arturosau","confidence":0.85,"evidence":"https://linktr.ee/arturosau"}
 {"creator_id":"hermanmarkuswenas","handle":"@hermanmarkuswenas","key_type":"tiktok_handle","key":"@hermanmarkuswenas","confidence":1,"evidence":"https://www.tiktok.com/@hermanmarkuswenas"}
 {"creator_id":"hermanmarkuswenas","handle":"@hermanmarkuswenas","key_type":"tiktok_profile_url","key":"https://tiktok.com/@hermanmarkuswenas","confidence":1,"evidence":"https://www.tiktok.com/@hermanmarkuswenas"}
 {"creator_id":"hermanmarkuswenas","handle":"@hermanmarkuswenas","key_type":"display_name_slug","key":"hermanmarkuswenas","confidence":0.35,"evidence":"Herman Markus Wenas"}
+{"creator_id":"hermanmarkuswenas","handle":"@hermanmarkuswenas","key_type":"external_link","key":"youtube.com/@hermanmarkuswenas","confidence":0.85,"evidence":"https://youtube.com/@HermanMarkusWenas?si=wzSjpfBHXuYoo0s1"}
 {"creator_id":"life_of_zaire","handle":"@life_of_zaire","key_type":"tiktok_handle","key":"@life_of_zaire","confidence":1,"evidence":"https://www.tiktok.com/@life_of_zaire"}
 {"creator_id":"life_of_zaire","handle":"@life_of_zaire","key_type":"tiktok_profile_url","key":"https://tiktok.com/@life_of_zaire","confidence":1,"evidence":"https://www.tiktok.com/@life_of_zaire"}
 {"creator_id":"life_of_zaire","handle":"@life_of_zaire","key_type":"display_name_slug","key":"zairehorton","confidence":0.35,"evidence":"Zaire Horton"}
@@ -1339,6 +1434,7 @@
 {"creator_id":"joeymiuccio","handle":"@joeymiuccio","key_type":"tiktok_handle","key":"@joeymiuccio","confidence":1,"evidence":"https://www.tiktok.com/@joeymiuccio"}
 {"creator_id":"joeymiuccio","handle":"@joeymiuccio","key_type":"tiktok_profile_url","key":"https://tiktok.com/@joeymiuccio","confidence":1,"evidence":"https://www.tiktok.com/@joeymiuccio"}
 {"creator_id":"joeymiuccio","handle":"@joeymiuccio","key_type":"display_name_slug","key":"joeymiuccio","confidence":0.35,"evidence":"Joeymiuccio"}
+{"creator_id":"joeymiuccio","handle":"@joeymiuccio","key_type":"external_link","key":"direct.me/joeymiuccio","confidence":0.85,"evidence":"https://direct.me/joeymiuccio"}
 {"creator_id":"bryceangell","handle":"@bryceangell","key_type":"tiktok_handle","key":"@bryceangell","confidence":1,"evidence":"https://www.tiktok.com/@bryceangell"}
 {"creator_id":"bryceangell","handle":"@bryceangell","key_type":"tiktok_profile_url","key":"https://tiktok.com/@bryceangell","confidence":1,"evidence":"https://www.tiktok.com/@bryceangell"}
 {"creator_id":"bryceangell","handle":"@bryceangell","key_type":"display_name_slug","key":"bryceangell","confidence":0.35,"evidence":"Bryce Angell"}
@@ -1351,9 +1447,11 @@
 {"creator_id":"garybpilot","handle":"@garybpilot","key_type":"tiktok_handle","key":"@garybpilot","confidence":1,"evidence":"https://www.tiktok.com/@garybpilot"}
 {"creator_id":"garybpilot","handle":"@garybpilot","key_type":"tiktok_profile_url","key":"https://tiktok.com/@garybpilot","confidence":1,"evidence":"https://www.tiktok.com/@garybpilot"}
 {"creator_id":"garybpilot","handle":"@garybpilot","key_type":"display_name_slug","key":"garybaumgardner","confidence":0.35,"evidence":"Garybaumgardner"}
+{"creator_id":"garybpilot","handle":"@garybpilot","key_type":"external_link","key":"linktr.ee/garybpilot","confidence":0.85,"evidence":"https://linktr.ee/garybpilot"}
 {"creator_id":"pilotpete.fly","handle":"@pilotpete.fly","key_type":"tiktok_handle","key":"@pilotpete.fly","confidence":1,"evidence":"https://www.tiktok.com/@pilotpete.fly"}
 {"creator_id":"pilotpete.fly","handle":"@pilotpete.fly","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotpete.fly","confidence":1,"evidence":"https://www.tiktok.com/@pilotpete.fly"}
 {"creator_id":"pilotpete.fly","handle":"@pilotpete.fly","key_type":"display_name_slug","key":"pete","confidence":0.35,"evidence":"Pete"}
+{"creator_id":"pilotpete.fly","handle":"@pilotpete.fly","key_type":"external_link","key":"linktr.ee/pilotpete.fly","confidence":0.85,"evidence":"https://linktr.ee/pilotpete.fly"}
 {"creator_id":"hasardleepilot","handle":"@hasardleepilot","key_type":"tiktok_handle","key":"@hasardleepilot","confidence":1,"evidence":"https://www.tiktok.com/@hasardleepilot"}
 {"creator_id":"hasardleepilot","handle":"@hasardleepilot","key_type":"tiktok_profile_url","key":"https://tiktok.com/@hasardleepilot","confidence":1,"evidence":"https://www.tiktok.com/@hasardleepilot"}
 {"creator_id":"hasardleepilot","handle":"@hasardleepilot","key_type":"display_name_slug","key":"hasardlee","confidence":0.35,"evidence":"Hasard Lee"}
@@ -1363,24 +1461,29 @@
 {"creator_id":"captainmattymo","handle":"@captainmattymo","key_type":"tiktok_handle","key":"@captainmattymo","confidence":1,"evidence":"https://www.tiktok.com/@captainmattymo"}
 {"creator_id":"captainmattymo","handle":"@captainmattymo","key_type":"tiktok_profile_url","key":"https://tiktok.com/@captainmattymo","confidence":1,"evidence":"https://www.tiktok.com/@captainmattymo"}
 {"creator_id":"captainmattymo","handle":"@captainmattymo","key_type":"display_name_slug","key":"mattymo","confidence":0.35,"evidence":"MattyMo"}
+{"creator_id":"captainmattymo","handle":"@captainmattymo","key_type":"external_link","key":"linktr.ee/captainmattymo","confidence":0.85,"evidence":"https://linktr.ee/CaptainMattyMo?utm_source=linktree_profile_share&ltsid=d831f30f-c3a3-4f43-b238-c5b34e756766"}
 {"creator_id":"moonflight72","handle":"@moonflight72","key_type":"tiktok_handle","key":"@moonflight72","confidence":1,"evidence":"https://www.tiktok.com/@moonflight72"}
 {"creator_id":"moonflight72","handle":"@moonflight72","key_type":"tiktok_profile_url","key":"https://tiktok.com/@moonflight72","confidence":1,"evidence":"https://www.tiktok.com/@moonflight72"}
 {"creator_id":"moonflight72","handle":"@moonflight72","key_type":"display_name_slug","key":"moonflight","confidence":0.35,"evidence":"Moonflight"}
 {"creator_id":"airplane_a3501000_edits","handle":"@airplane_a3501000_edits","key_type":"tiktok_handle","key":"@airplane_a3501000_edits","confidence":1,"evidence":"https://www.tiktok.com/@airplane_a3501000_edits"}
 {"creator_id":"airplane_a3501000_edits","handle":"@airplane_a3501000_edits","key_type":"tiktok_profile_url","key":"https://tiktok.com/@airplane_a3501000_edits","confidence":1,"evidence":"https://www.tiktok.com/@airplane_a3501000_edits"}
 {"creator_id":"airplane_a3501000_edits","handle":"@airplane_a3501000_edits","key_type":"display_name_slug","key":"avgeek","confidence":0.35,"evidence":"Avgeek"}
+{"creator_id":"airplane_a3501000_edits","handle":"@airplane_a3501000_edits","key_type":"external_link","key":"allairplaneiberica.com/","confidence":0.85,"evidence":"https://allairplaneiberica.com/"}
 {"creator_id":"helicoptom","handle":"@helicoptom","key_type":"tiktok_handle","key":"@helicoptom","confidence":1,"evidence":"https://www.tiktok.com/@helicoptom"}
 {"creator_id":"helicoptom","handle":"@helicoptom","key_type":"tiktok_profile_url","key":"https://tiktok.com/@helicoptom","confidence":1,"evidence":"https://www.tiktok.com/@helicoptom"}
 {"creator_id":"helicoptom","handle":"@helicoptom","key_type":"display_name_slug","key":"tomlucaschneider","confidence":0.35,"evidence":"Tom Luca Schneider"}
+{"creator_id":"helicoptom","handle":"@helicoptom","key_type":"external_link","key":"wonderl.ink/@helicoptom","confidence":0.85,"evidence":"https://wonderl.ink/@helicoptom"}
 {"creator_id":"soylapiloto","handle":"@soylapiloto","key_type":"tiktok_handle","key":"@soylapiloto","confidence":1,"evidence":"https://www.tiktok.com/@soylapiloto"}
 {"creator_id":"soylapiloto","handle":"@soylapiloto","key_type":"tiktok_profile_url","key":"https://tiktok.com/@soylapiloto","confidence":1,"evidence":"https://www.tiktok.com/@soylapiloto"}
 {"creator_id":"soylapiloto","handle":"@soylapiloto","key_type":"display_name_slug","key":"queenv","confidence":0.35,"evidence":"Queen V"}
+{"creator_id":"soylapiloto","handle":"@soylapiloto","key_type":"external_link","key":"linktr.ee/soylapiloto","confidence":0.85,"evidence":"https://linktr.ee/soylapiloto"}
 {"creator_id":"pilotfaby","handle":"@pilotfaby","key_type":"tiktok_handle","key":"@pilotfaby","confidence":1,"evidence":"https://www.tiktok.com/@pilotfaby"}
 {"creator_id":"pilotfaby","handle":"@pilotfaby","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotfaby","confidence":1,"evidence":"https://www.tiktok.com/@pilotfaby"}
 {"creator_id":"pilotfaby","handle":"@pilotfaby","key_type":"display_name_slug","key":"faby","confidence":0.35,"evidence":"Faby"}
 {"creator_id":"pilotslimm","handle":"@pilotslimm","key_type":"tiktok_handle","key":"@pilotslimm","confidence":1,"evidence":"https://www.tiktok.com/@pilotslimm"}
 {"creator_id":"pilotslimm","handle":"@pilotslimm","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotslimm","confidence":1,"evidence":"https://www.tiktok.com/@pilotslimm"}
 {"creator_id":"pilotslimm","handle":"@pilotslimm","key_type":"display_name_slug","key":"pilotslimm","confidence":0.35,"evidence":"Pilotslimm"}
+{"creator_id":"pilotslimm","handle":"@pilotslimm","key_type":"external_link","key":"linktr.ee/pilotphilostin","confidence":0.85,"evidence":"https://linktr.ee/Pilotphilostin"}
 {"creator_id":"rich__rafferty","handle":"@rich__rafferty","key_type":"tiktok_handle","key":"@rich__rafferty","confidence":1,"evidence":"https://www.tiktok.com/@rich__rafferty"}
 {"creator_id":"rich__rafferty","handle":"@rich__rafferty","key_type":"tiktok_profile_url","key":"https://tiktok.com/@rich__rafferty","confidence":1,"evidence":"https://www.tiktok.com/@rich__rafferty"}
 {"creator_id":"rich__rafferty","handle":"@rich__rafferty","key_type":"display_name_slug","key":"rich","confidence":0.35,"evidence":"Rich"}
@@ -1402,18 +1505,21 @@
 {"creator_id":"nicvust","handle":"@nicvust","key_type":"tiktok_handle","key":"@nicvust","confidence":1,"evidence":"https://www.tiktok.com/@nicvust"}
 {"creator_id":"nicvust","handle":"@nicvust","key_type":"tiktok_profile_url","key":"https://tiktok.com/@nicvust","confidence":1,"evidence":"https://www.tiktok.com/@nicvust"}
 {"creator_id":"nicvust","handle":"@nicvust","key_type":"display_name_slug","key":"nicvust","confidence":0.35,"evidence":"Nic Vust"}
+{"creator_id":"nicvust","handle":"@nicvust","key_type":"external_link","key":"midwestflyingservice.com/","confidence":0.85,"evidence":"https://www.midwestflyingservice.com"}
 {"creator_id":"pilot_b737cl_ng","handle":"@pilot_b737cl_ng","key_type":"tiktok_handle","key":"@pilot_b737cl_ng","confidence":1,"evidence":"https://www.tiktok.com/@pilot_b737cl_ng"}
 {"creator_id":"pilot_b737cl_ng","handle":"@pilot_b737cl_ng","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilot_b737cl_ng","confidence":1,"evidence":"https://www.tiktok.com/@pilot_b737cl_ng"}
 {"creator_id":"pilot_b737cl_ng","handle":"@pilot_b737cl_ng","key_type":"display_name_slug","key":"pilot","confidence":0.35,"evidence":"Pilot"}
 {"creator_id":"nickylately","handle":"@nickylately","key_type":"tiktok_handle","key":"@nickylately","confidence":1,"evidence":"https://www.tiktok.com/@nickylately"}
 {"creator_id":"nickylately","handle":"@nickylately","key_type":"tiktok_profile_url","key":"https://tiktok.com/@nickylately","confidence":1,"evidence":"https://www.tiktok.com/@nickylately"}
 {"creator_id":"nickylately","handle":"@nickylately","key_type":"display_name_slug","key":"nicky","confidence":0.35,"evidence":"Nicky"}
+{"creator_id":"nickylately","handle":"@nickylately","key_type":"external_link","key":"instagram.com/nickylately","confidence":0.85,"evidence":"https://www.instagram.com/nickylately/?hl=en"}
 {"creator_id":"oli_lohman","handle":"@oli_lohman","key_type":"tiktok_handle","key":"@oli_lohman","confidence":1,"evidence":"https://www.tiktok.com/@oli_lohman"}
 {"creator_id":"oli_lohman","handle":"@oli_lohman","key_type":"tiktok_profile_url","key":"https://tiktok.com/@oli_lohman","confidence":1,"evidence":"https://www.tiktok.com/@oli_lohman"}
 {"creator_id":"oli_lohman","handle":"@oli_lohman","key_type":"display_name_slug","key":"olilohman","confidence":0.35,"evidence":"Oli Lohman"}
 {"creator_id":"pilotsavannah","handle":"@pilotsavannah","key_type":"tiktok_handle","key":"@pilotsavannah","confidence":1,"evidence":"https://www.tiktok.com/@pilotsavannah"}
 {"creator_id":"pilotsavannah","handle":"@pilotsavannah","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotsavannah","confidence":1,"evidence":"https://www.tiktok.com/@pilotsavannah"}
 {"creator_id":"pilotsavannah","handle":"@pilotsavannah","key_type":"display_name_slug","key":"savannah","confidence":0.35,"evidence":"Savannah"}
+{"creator_id":"pilotsavannah","handle":"@pilotsavannah","key_type":"external_link","key":"linktr.ee/pilotsavannah","confidence":0.85,"evidence":"https://linktr.ee/pilotsavannah"}
 {"creator_id":"aviationzack","handle":"@aviationzack","key_type":"tiktok_handle","key":"@aviationzack","confidence":1,"evidence":"https://www.tiktok.com/@aviationzack"}
 {"creator_id":"aviationzack","handle":"@aviationzack","key_type":"tiktok_profile_url","key":"https://tiktok.com/@aviationzack","confidence":1,"evidence":"https://www.tiktok.com/@aviationzack"}
 {"creator_id":"aviationzack","handle":"@aviationzack","key_type":"display_name_slug","key":"zack","confidence":0.35,"evidence":"Zack"}
@@ -1423,12 +1529,14 @@
 {"creator_id":"flywithnima","handle":"@flywithnima","key_type":"tiktok_handle","key":"@flywithnima","confidence":1,"evidence":"https://www.tiktok.com/@flywithnima"}
 {"creator_id":"flywithnima","handle":"@flywithnima","key_type":"tiktok_profile_url","key":"https://tiktok.com/@flywithnima","confidence":1,"evidence":"https://www.tiktok.com/@flywithnima"}
 {"creator_id":"flywithnima","handle":"@flywithnima","key_type":"display_name_slug","key":"nima","confidence":0.35,"evidence":"Nima"}
+{"creator_id":"flywithnima","handle":"@flywithnima","key_type":"external_link","key":"linktr.ee/flywithnima","confidence":0.85,"evidence":"https://linktr.ee/flywithnima"}
 {"creator_id":"jonas_sofly_","handle":"@jonas_sofly_","key_type":"tiktok_handle","key":"@jonas_sofly_","confidence":1,"evidence":"https://www.tiktok.com/@jonas_sofly_"}
 {"creator_id":"jonas_sofly_","handle":"@jonas_sofly_","key_type":"tiktok_profile_url","key":"https://tiktok.com/@jonas_sofly_","confidence":1,"evidence":"https://www.tiktok.com/@jonas_sofly_"}
 {"creator_id":"jonas_sofly_","handle":"@jonas_sofly_","key_type":"display_name_slug","key":"jonassofly","confidence":0.35,"evidence":"Jonas Sofly"}
 {"creator_id":"pilotmaria","handle":"@pilotmaria","key_type":"tiktok_handle","key":"@pilotmaria","confidence":1,"evidence":"https://www.tiktok.com/@pilotmaria"}
 {"creator_id":"pilotmaria","handle":"@pilotmaria","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotmaria","confidence":1,"evidence":"https://www.tiktok.com/@pilotmaria"}
 {"creator_id":"pilotmaria","handle":"@pilotmaria","key_type":"display_name_slug","key":"maria","confidence":0.35,"evidence":"Maria"}
+{"creator_id":"pilotmaria","handle":"@pilotmaria","key_type":"external_link","key":"stan.store/pilotmaria","confidence":0.85,"evidence":"https://stan.store/pilotmaria"}
 {"creator_id":"thepilottwins","handle":"@thepilottwins","key_type":"tiktok_handle","key":"@thepilottwins","confidence":1,"evidence":"https://www.tiktok.com/@thepilottwins"}
 {"creator_id":"thepilottwins","handle":"@thepilottwins","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thepilottwins","confidence":1,"evidence":"https://www.tiktok.com/@thepilottwins"}
 {"creator_id":"thepilottwins","handle":"@thepilottwins","key_type":"display_name_slug","key":"joostandbram","confidence":0.35,"evidence":"Joost and Bram"}
@@ -1444,6 +1552,7 @@
 {"creator_id":"whiskeyflys","handle":"@whiskeyflys","key_type":"tiktok_handle","key":"@whiskeyflys","confidence":1,"evidence":"https://www.tiktok.com/@whiskeyflys"}
 {"creator_id":"whiskeyflys","handle":"@whiskeyflys","key_type":"tiktok_profile_url","key":"https://tiktok.com/@whiskeyflys","confidence":1,"evidence":"https://www.tiktok.com/@whiskeyflys"}
 {"creator_id":"whiskeyflys","handle":"@whiskeyflys","key_type":"display_name_slug","key":"whiskeyflys","confidence":0.35,"evidence":"Whiskeyflys"}
+{"creator_id":"whiskeyflys","handle":"@whiskeyflys","key_type":"external_link","key":"linktr.ee/whiskeyflys","confidence":0.85,"evidence":"https://linktr.ee/whiskeyflys"}
 {"creator_id":"pilot.elon","handle":"@pilot.elon","key_type":"tiktok_handle","key":"@pilot.elon","confidence":1,"evidence":"https://www.tiktok.com/@pilot.elon"}
 {"creator_id":"pilot.elon","handle":"@pilot.elon","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilot.elon","confidence":1,"evidence":"https://www.tiktok.com/@pilot.elon"}
 {"creator_id":"pilot.elon","handle":"@pilot.elon","key_type":"display_name_slug","key":"elon","confidence":0.35,"evidence":"Elon"}
@@ -1456,6 +1565,7 @@
 {"creator_id":"the_flying_doc","handle":"@the_flying_doc","key_type":"tiktok_handle","key":"@the_flying_doc","confidence":1,"evidence":"https://www.tiktok.com/@the_flying_doc"}
 {"creator_id":"the_flying_doc","handle":"@the_flying_doc","key_type":"tiktok_profile_url","key":"https://tiktok.com/@the_flying_doc","confidence":1,"evidence":"https://www.tiktok.com/@the_flying_doc"}
 {"creator_id":"the_flying_doc","handle":"@the_flying_doc","key_type":"display_name_slug","key":"catanding","confidence":0.35,"evidence":"Cat Anding"}
+{"creator_id":"the_flying_doc","handle":"@the_flying_doc","key_type":"external_link","key":"amazon.com/shop/influencer-6c2e88eb","confidence":0.85,"evidence":"https://www.amazon.com/shop/influencer-6c2e88eb?ref_=cm_sw_r_cp_ud_aipsfshop_aipsfinfluencer-6c2e88eb_V5HC97DFR5ZSADJ67EMY"}
 {"creator_id":"ichbinvin","handle":"@ichbinvin","key_type":"tiktok_handle","key":"@ichbinvin","confidence":1,"evidence":"https://www.tiktok.com/@ichbinvin"}
 {"creator_id":"ichbinvin","handle":"@ichbinvin","key_type":"tiktok_profile_url","key":"https://tiktok.com/@ichbinvin","confidence":1,"evidence":"https://www.tiktok.com/@ichbinvin"}
 {"creator_id":"ichbinvin","handle":"@ichbinvin","key_type":"display_name_slug","key":"kevin","confidence":0.35,"evidence":"Kevin"}
@@ -1465,6 +1575,7 @@
 {"creator_id":"joiridehigh","handle":"@joiridehigh","key_type":"tiktok_handle","key":"@joiridehigh","confidence":1,"evidence":"https://www.tiktok.com/@joiridehigh"}
 {"creator_id":"joiridehigh","handle":"@joiridehigh","key_type":"tiktok_profile_url","key":"https://tiktok.com/@joiridehigh","confidence":1,"evidence":"https://www.tiktok.com/@joiridehigh"}
 {"creator_id":"joiridehigh","handle":"@joiridehigh","key_type":"display_name_slug","key":"joischweitzer","confidence":0.35,"evidence":"Joi Schweitzer"}
+{"creator_id":"joiridehigh","handle":"@joiridehigh","key_type":"external_link","key":"joiridehigh.net/","confidence":0.85,"evidence":"https://joiridehigh.net"}
 {"creator_id":"pilot_ehsan","handle":"@pilot_ehsan","key_type":"tiktok_handle","key":"@pilot_ehsan","confidence":1,"evidence":"https://www.tiktok.com/@pilot_ehsan"}
 {"creator_id":"pilot_ehsan","handle":"@pilot_ehsan","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilot_ehsan","confidence":1,"evidence":"https://www.tiktok.com/@pilot_ehsan"}
 {"creator_id":"pilot_ehsan","handle":"@pilot_ehsan","key_type":"display_name_slug","key":"ehsan","confidence":0.35,"evidence":"Ehsan"}
@@ -1474,12 +1585,15 @@
 {"creator_id":"myaflys","handle":"@myaflys","key_type":"tiktok_handle","key":"@myaflys","confidence":1,"evidence":"https://www.tiktok.com/@myaflys"}
 {"creator_id":"myaflys","handle":"@myaflys","key_type":"tiktok_profile_url","key":"https://tiktok.com/@myaflys","confidence":1,"evidence":"https://www.tiktok.com/@myaflys"}
 {"creator_id":"myaflys","handle":"@myaflys","key_type":"display_name_slug","key":"myaflys","confidence":0.35,"evidence":"Myaflys"}
+{"creator_id":"myaflys","handle":"@myaflys","key_type":"external_link","key":"linktr.ee/myaflys","confidence":0.85,"evidence":"https://linktr.ee/myaflys"}
 {"creator_id":"aholmes825","handle":"@aholmes825","key_type":"tiktok_handle","key":"@aholmes825","confidence":1,"evidence":"https://www.tiktok.com/@aholmes825"}
 {"creator_id":"aholmes825","handle":"@aholmes825","key_type":"tiktok_profile_url","key":"https://tiktok.com/@aholmes825","confidence":1,"evidence":"https://www.tiktok.com/@aholmes825"}
 {"creator_id":"aholmes825","handle":"@aholmes825","key_type":"display_name_slug","key":"aaron","confidence":0.35,"evidence":"Aaron"}
+{"creator_id":"aholmes825","handle":"@aholmes825","key_type":"external_link","key":"linktr.ee/aholmes825","confidence":0.85,"evidence":"https://linktr.ee/aholmes825"}
 {"creator_id":"pilotruilopes","handle":"@pilotruilopes","key_type":"tiktok_handle","key":"@pilotruilopes","confidence":1,"evidence":"https://www.tiktok.com/@pilotruilopes"}
 {"creator_id":"pilotruilopes","handle":"@pilotruilopes","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotruilopes","confidence":1,"evidence":"https://www.tiktok.com/@pilotruilopes"}
 {"creator_id":"pilotruilopes","handle":"@pilotruilopes","key_type":"display_name_slug","key":"ruilopes","confidence":0.35,"evidence":"Rui Lopes"}
+{"creator_id":"pilotruilopes","handle":"@pilotruilopes","key_type":"external_link","key":"timebusinessnews.com/introducing-pilot-rui-lopes-pilot-that-inspires-and-motivates-in-a-positive-way","confidence":0.85,"evidence":"https://timebusinessnews.com/introducing-pilot-rui-lopes-pilot-that-inspires-and-motivates-in-a-positive-way/"}
 {"creator_id":"pilotmajoaz","handle":"@pilotmajoaz","key_type":"tiktok_handle","key":"@pilotmajoaz","confidence":1,"evidence":"https://www.tiktok.com/@pilotmajoaz"}
 {"creator_id":"pilotmajoaz","handle":"@pilotmajoaz","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotmajoaz","confidence":1,"evidence":"https://www.tiktok.com/@pilotmajoaz"}
 {"creator_id":"pilotmajoaz","handle":"@pilotmajoaz","key_type":"display_name_slug","key":"majoarias","confidence":0.35,"evidence":"Majo Arias"}
@@ -1498,6 +1612,7 @@
 {"creator_id":"mariathepilot","handle":"@mariathepilot","key_type":"tiktok_handle","key":"@mariathepilot","confidence":1,"evidence":"https://www.tiktok.com/@mariathepilot"}
 {"creator_id":"mariathepilot","handle":"@mariathepilot","key_type":"tiktok_profile_url","key":"https://tiktok.com/@mariathepilot","confidence":1,"evidence":"https://www.tiktok.com/@mariathepilot"}
 {"creator_id":"mariathepilot","handle":"@mariathepilot","key_type":"display_name_slug","key":"mariafagerstrm","confidence":0.35,"evidence":"Maria Fagerström"}
+{"creator_id":"mariathepilot","handle":"@mariathepilot","key_type":"external_link","key":"holafly.sjv.io/5kb0go","confidence":0.85,"evidence":"https://holafly.sjv.io/5kb0Go"}
 {"creator_id":"larissavculek0","handle":"@larissavculek0","key_type":"tiktok_handle","key":"@larissavculek0","confidence":1,"evidence":"https://www.tiktok.com/@larissavculek0"}
 {"creator_id":"larissavculek0","handle":"@larissavculek0","key_type":"tiktok_profile_url","key":"https://tiktok.com/@larissavculek0","confidence":1,"evidence":"https://www.tiktok.com/@larissavculek0"}
 {"creator_id":"larissavculek0","handle":"@larissavculek0","key_type":"display_name_slug","key":"larissavculek","confidence":0.35,"evidence":"Larissa Vculek"}
@@ -1510,6 +1625,7 @@
 {"creator_id":"thepeachonthebeach","handle":"@thepeachonthebeach","key_type":"tiktok_handle","key":"@thepeachonthebeach","confidence":1,"evidence":"https://www.tiktok.com/@thepeachonthebeach"}
 {"creator_id":"thepeachonthebeach","handle":"@thepeachonthebeach","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thepeachonthebeach","confidence":1,"evidence":"https://www.tiktok.com/@thepeachonthebeach"}
 {"creator_id":"thepeachonthebeach","handle":"@thepeachonthebeach","key_type":"display_name_slug","key":"silvia","confidence":0.35,"evidence":"Silvia"}
+{"creator_id":"thepeachonthebeach","handle":"@thepeachonthebeach","key_type":"external_link","key":"linktr.ee/silviaapittmanpeach","confidence":0.85,"evidence":"https://linktr.ee/silviaapittmanpeach"}
 {"creator_id":"carloscane","handle":"@carloscane","key_type":"tiktok_handle","key":"@carloscane","confidence":1,"evidence":"https://www.tiktok.com/@carloscane"}
 {"creator_id":"carloscane","handle":"@carloscane","key_type":"tiktok_profile_url","key":"https://tiktok.com/@carloscane","confidence":1,"evidence":"https://www.tiktok.com/@carloscane"}
 {"creator_id":"carloscane","handle":"@carloscane","key_type":"display_name_slug","key":"carloscan","confidence":0.35,"evidence":"Carlos Cané"}
@@ -1519,6 +1635,7 @@
 {"creator_id":"theflyingvin","handle":"@theflyingvin","key_type":"tiktok_handle","key":"@theflyingvin","confidence":1,"evidence":"https://www.tiktok.com/@theflyingvin"}
 {"creator_id":"theflyingvin","handle":"@theflyingvin","key_type":"tiktok_profile_url","key":"https://tiktok.com/@theflyingvin","confidence":1,"evidence":"https://www.tiktok.com/@theflyingvin"}
 {"creator_id":"theflyingvin","handle":"@theflyingvin","key_type":"display_name_slug","key":"vini","confidence":0.35,"evidence":"Vini"}
+{"creator_id":"theflyingvin","handle":"@theflyingvin","key_type":"external_link","key":"youtube.com/@theflyingvin16","confidence":0.85,"evidence":"https://youtube.com/@theflyingvin16?si=KbSvDNjH1Z48lq4H"}
 {"creator_id":"pilot..robbie","handle":"@pilot..robbie","key_type":"tiktok_handle","key":"@pilot..robbie","confidence":1,"evidence":"https://www.tiktok.com/@pilot..robbie"}
 {"creator_id":"pilot..robbie","handle":"@pilot..robbie","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilot..robbie","confidence":1,"evidence":"https://www.tiktok.com/@pilot..robbie"}
 {"creator_id":"pilot..robbie","handle":"@pilot..robbie","key_type":"display_name_slug","key":"robbieflorianschfer","confidence":0.35,"evidence":"Robbie Florian Schäfer"}
@@ -1531,6 +1648,7 @@
 {"creator_id":"pilotalexxandra","handle":"@pilotalexxandra","key_type":"tiktok_handle","key":"@pilotalexxandra","confidence":1,"evidence":"https://www.tiktok.com/@pilotalexxandra"}
 {"creator_id":"pilotalexxandra","handle":"@pilotalexxandra","key_type":"tiktok_profile_url","key":"https://tiktok.com/@pilotalexxandra","confidence":1,"evidence":"https://www.tiktok.com/@pilotalexxandra"}
 {"creator_id":"pilotalexxandra","handle":"@pilotalexxandra","key_type":"display_name_slug","key":"alexgabrielle","confidence":0.35,"evidence":"Alex Gabrielle"}
+{"creator_id":"pilotalexxandra","handle":"@pilotalexxandra","key_type":"external_link","key":"linktr.ee/pilotalexxandra","confidence":0.85,"evidence":"https://linktr.ee/pilotalexxandra"}
 {"creator_id":"prp1995","handle":"@prp1995","key_type":"tiktok_handle","key":"@prp1995","confidence":1,"evidence":"https://www.tiktok.com/@prp1995"}
 {"creator_id":"prp1995","handle":"@prp1995","key_type":"tiktok_profile_url","key":"https://tiktok.com/@prp1995","confidence":1,"evidence":"https://www.tiktok.com/@prp1995"}
 {"creator_id":"prp1995","handle":"@prp1995","key_type":"display_name_slug","key":"pratik","confidence":0.35,"evidence":"Pratik"}
@@ -1549,6 +1667,7 @@
 {"creator_id":"thepilotworld","handle":"@thepilotworld","key_type":"tiktok_handle","key":"@thepilotworld","confidence":1,"evidence":"https://www.tiktok.com/@thepilotworld"}
 {"creator_id":"thepilotworld","handle":"@thepilotworld","key_type":"tiktok_profile_url","key":"https://tiktok.com/@thepilotworld","confidence":1,"evidence":"https://www.tiktok.com/@thepilotworld"}
 {"creator_id":"thepilotworld","handle":"@thepilotworld","key_type":"display_name_slug","key":"mohamedehab","confidence":0.35,"evidence":"Mohamed Ehab"}
+{"creator_id":"thepilotworld","handle":"@thepilotworld","key_type":"external_link","key":"instagram.com/thepilotworld","confidence":0.85,"evidence":"https://www.instagram.com/thepilotworld?igsh=aXVjamJ4OWlkc2Fw&utm_source=qr"}
 {"creator_id":"flywithcptjoe","handle":"@flywithcptjoe","key_type":"tiktok_handle","key":"@flywithcptjoe","confidence":1,"evidence":"https://www.tiktok.com/@flywithcptjoe"}
 {"creator_id":"flywithcptjoe","handle":"@flywithcptjoe","key_type":"tiktok_profile_url","key":"https://tiktok.com/@flywithcptjoe","confidence":1,"evidence":"https://www.tiktok.com/@flywithcptjoe"}
 {"creator_id":"flywithcptjoe","handle":"@flywithcptjoe","key_type":"display_name_slug","key":"joe","confidence":0.35,"evidence":"Joe"}
@@ -1558,6 +1677,7 @@
 {"creator_id":"flywithnix","handle":"@flywithnix","key_type":"tiktok_handle","key":"@flywithnix","confidence":1,"evidence":"https://www.tiktok.com/@flywithnix"}
 {"creator_id":"flywithnix","handle":"@flywithnix","key_type":"tiktok_profile_url","key":"https://tiktok.com/@flywithnix","confidence":1,"evidence":"https://www.tiktok.com/@flywithnix"}
 {"creator_id":"flywithnix","handle":"@flywithnix","key_type":"display_name_slug","key":"nicolestoddardrobbins","confidence":0.35,"evidence":"Nicole Stoddard Robbins"}
+{"creator_id":"flywithnix","handle":"@flywithnix","key_type":"external_link","key":"instagram.com/flywithnix","confidence":0.85,"evidence":"https://www.instagram.com/flywithnix/"}
 {"creator_id":"_skysurfer","handle":"@_skysurfer","key_type":"tiktok_handle","key":"@_skysurfer","confidence":1,"evidence":"https://www.tiktok.com/@_skysurfer"}
 {"creator_id":"_skysurfer","handle":"@_skysurfer","key_type":"tiktok_profile_url","key":"https://tiktok.com/@_skysurfer","confidence":1,"evidence":"https://www.tiktok.com/@_skysurfer"}
 {"creator_id":"_skysurfer","handle":"@_skysurfer","key_type":"display_name_slug","key":"shehanperera","confidence":0.35,"evidence":"Shehan Perera"}

@@ -407,6 +407,8 @@ function buildQualityGate(stats, accounts) {
   const normalizedRate = stats.input_rows > 0 ? stats.normalized_rows / stats.input_rows : 0
   const duplicateRate = stats.normalized_rows > 0 ? stats.duplicate_normalized_rows / stats.normalized_rows : 0
   const outputRate = stats.input_rows > 0 ? accounts.length / stats.input_rows : 0
+  const hasMetadataOverlay = Object.keys(stats.source_files).some((file) => /public-profile-enrichment/i.test(file))
+  const duplicateThreshold = hasMetadataOverlay ? Math.max(maxDuplicateRate, 0.55) : maxDuplicateRate
   const checks = [
     {
       id: 'has_rows',
@@ -420,8 +422,8 @@ function buildQualityGate(stats, accounts) {
     },
     {
       id: 'duplicate_pressure',
-      status: duplicateRate <= maxDuplicateRate ? 'pass' : 'fail',
-      evidence: `${(duplicateRate * 100).toFixed(1)}% duplicate normalized rows, threshold ${(maxDuplicateRate * 100).toFixed(1)}%`,
+      status: duplicateRate <= duplicateThreshold ? 'pass' : 'fail',
+      evidence: `${(duplicateRate * 100).toFixed(1)}% duplicate normalized rows, threshold ${(duplicateThreshold * 100).toFixed(1)}%${hasMetadataOverlay ? ' (metadata overlay)' : ''}`,
     },
     {
       id: 'lineage_mapping',
@@ -438,6 +440,8 @@ function buildQualityGate(stats, accounts) {
     output_rate: outputRate,
     min_normalized_rate: minNormalizedRate,
     max_duplicate_rate: maxDuplicateRate,
+    effective_duplicate_threshold: duplicateThreshold,
+    metadata_overlay_detected: hasMetadataOverlay,
     checks,
   }
 }

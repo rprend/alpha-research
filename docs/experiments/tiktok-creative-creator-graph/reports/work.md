@@ -1,12 +1,12 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T01:32:46.977Z
+Generated: 2026-06-13T01:38:10.862Z
 
 ## Summary
 
 - Accounts: 1900
-- Videos: 29
-- Graph edges: 245
+- Videos: 32
+- Graph edges: 395
 - Useful accounts: 7
 - Excellent accounts: 6
 - Review queue: 1900
@@ -26,12 +26,12 @@ Generated: 2026-06-13T01:32:46.977Z
 - sketch_comedian: 106
 - standup_comedian: 58
 - actor_performer: 9
-- cinematographer: 17
+- cinematographer: 18
 - director: 8
 - editor: 53
 - filmmaker: 135
 - vfx_animation: 344
-- creative_technologist: 404
+- creative_technologist: 403
 - film_educator: 586
 - behind_the_scenes_creator: 157
 - unclear: 21
@@ -51,6 +51,7 @@ Generated: 2026-06-13T01:32:46.977Z
 | @authorcarriea | cinematographer | 50 | needs_review |
 | @comediandre | standup_comedian | 48 | needs_review |
 | @mycanimationsextra | vfx_animation | 48 | needs_review |
+| @hungryartistny | vfx_animation | 48 | needs_review |
 | @joshvfx | vfx_animation | 48 | needs_review |
 | @clairefraiseauthor | film_educator | 48 | needs_review |
 | @luca.lego | vfx_animation | 48 | needs_review |
@@ -60,7 +61,6 @@ Generated: 2026-06-13T01:32:46.977Z
 | @tuckercomedy | actor_performer | 47 | needs_review |
 | @maxcomedian | standup_comedian | 47 | needs_review |
 | @lindamarric | cinematographer | 47 | needs_review |
-| @filmmakersworld | filmmaker | 47 | needs_review |
 
 ## Next Expansion Targets
 
@@ -90,6 +90,7 @@ Generated: 2026-06-13T01:32:46.977Z
 | @authorcarriea | cinematographer | 50 | threshold_borderline; strong_public_source_candidate |
 | @comediandre | standup_comedian | 48 | threshold_borderline; strong_public_source_candidate |
 | @mycanimationsextra | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
+| @hungryartistny | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
 | @joshvfx | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
 | @clairefraiseauthor | film_educator | 48 | threshold_borderline; strong_public_source_candidate |
 | @luca.lego | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
@@ -101,5 +102,4 @@ Generated: 2026-06-13T01:32:46.977Z
 | @lindamarric | cinematographer | 47 | threshold_borderline; strong_public_source_candidate |
 | @filmmakersworld | filmmaker | 47 | threshold_borderline; strong_public_source_candidate |
 | @jamesmarriott | cinematographer | 47 | threshold_borderline; strong_public_source_candidate |
-| @darriangerard | cinematographer | 46 | threshold_borderline; strong_public_source_candidate |
-| @ben_brainard | standup_comedian | 45 | threshold_borderline; strong_public_source_candidate |
+| @its.queen.ife_ | cinematographer | 46 | threshold_borderline; strong_public_source_candidate |

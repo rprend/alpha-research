@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:32:48.149Z",
+  "generated_at": "2026-06-13T01:38:12.106Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -32,8 +32,8 @@
   "current_corpus": {
     "accounts": 1900,
     "identities": 1870,
-    "videos": 26,
-    "graph_edges": 102,
+    "videos": 32,
+    "graph_edges": 395,
     "useful_creators": 7,
     "release_useful_creators": 2,
     "excellent_creators": 6,
@@ -56,10 +56,10 @@
     "candidate_frontier_handles": 7,
     "candidate_frontier_queries": 80,
     "acquisition_import_preview_accounts": 1895,
-    "acquisition_import_preview_ready": true,
-    "acquisition_import_waves": 13,
-    "acquisition_import_lineage_rows": 14829,
-    "acquisition_import_untraced_rows": 84,
+    "acquisition_import_preview_ready": false,
+    "acquisition_import_waves": 15,
+    "acquisition_import_lineage_rows": 17742,
+    "acquisition_import_untraced_rows": 90,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 15,
@@ -168,22 +168,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "7b634bf3038610f691558f872d372ebb1b8d3ed970994d7e17ef107abacb7a1e"
+      "sha256": "5923083196f02e4dc12bcb90a0ff9ccf5b41ce9bb79f55fa7301c39527d5481b"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "3ec733462dd1b70eb57ebb2916018d687e2c76fac164c8787c0ac8f645979e66"
+      "sha256": "514c796dd3140ad4eb0890d1f995258b25bd9f9c050c8d68f441c37511f052ed"
     },
     {
       "path": "data/release/review_queue.csv",
       "rows": 1896,
-      "sha256": "2b53342bfcba18946f8169739835075dbc37a40f249a5814092e74d2ce35b2e0"
+      "sha256": "a258f97f1a4080eff9db3f28284309042a13494d62aafa0bc9996f2ee92921c2"
     },
     {
       "path": "data/release/all_scored_creators.csv",
       "rows": 1900,
-      "sha256": "d2ec6fe78789d6d8e5f68a2ebf57230e4d4d64aef60d5e28fafa65ca8a67e0b4"
+      "sha256": "2d3b2dcd5d320045792e6c85bbcb21b0f4c0cfe61f6bcbe693d26c626264dfd2"
     }
   ],
   "registration_constraints": [

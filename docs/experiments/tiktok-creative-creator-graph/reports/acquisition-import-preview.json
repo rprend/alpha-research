@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-13T01:32:46.769Z",
+  "generated_at": "2026-06-13T01:38:10.646Z",
   "mode": "preview",
-  "input_rows": 2667,
-  "normalized_rows": 2667,
+  "input_rows": 2919,
+  "normalized_rows": 2919,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 772,
+  "duplicate_normalized_rows": 1024,
   "output_accounts": 1895,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
@@ -12,11 +12,12 @@
     "2026-06-13T00-39-23-080Z-editorial-list-import.jsonl": 209,
     "2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl": 85,
     "2026-06-13T01-31-21-859Z-public-profile-enrichment.jsonl": 185,
+    "2026-06-13T01-35-53-442Z-public-profile-enrichment.jsonl": 252,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 2661,
+  "mapped_lineage_rows": 2913,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -24,7 +25,8 @@
     "2026-06-13T00-11-50-106Z": 1662,
     "2026-06-13T00-39-23-080Z": 209,
     "2026-06-13T01-25-37-893Z": 85,
-    "2026-06-13T01-31-21-859Z": 185
+    "2026-06-13T01-31-21-859Z": 185,
+    "2026-06-13T01-35-53-442Z": 252
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -68,28 +70,31 @@
     "feedspot_virtual_tiktok_2026": 72,
     "public_profile_enrichment_2026-06-13T01-25-37-893Z": 85,
     "public_profile_enrichment_2026-06-13T01-31-21-859Z": 185,
+    "public_profile_enrichment_2026-06-13T01-35-53-442Z": 252,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
     "editorial_list_public_web": 2370,
-    "tiktok_public_profile_html": 270,
+    "tiktok_public_profile_html": 522,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.28946381702287216,
-    "output_rate": 0.7105361829771278,
+    "duplicate_rate": 0.35080507022953067,
+    "output_rate": 0.6491949297704693,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
+    "effective_duplicate_threshold": 0.55,
+    "metadata_overlay_detected": true,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "2667 input rows"
+        "evidence": "2919 input rows"
       },
       {
         "id": "handle_extraction",
@@ -99,12 +104,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "28.9% duplicate normalized rows, threshold 35.0%"
+        "evidence": "35.1% duplicate normalized rows, threshold 55.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "2661/2667 rows mapped to provider/wave lineage"
+        "evidence": "2913/2919 rows mapped to provider/wave lineage"
       }
     ]
   },

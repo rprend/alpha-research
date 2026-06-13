@@ -16,6 +16,7 @@ const maxProfiles = Number(args.get('--max-profiles') ?? 100)
 const minUsefulness = Number(args.get('--min-usefulness') ?? 35)
 const dryRun = args.has('--dry-run')
 const includeAttempted = args.has('--include-attempted')
+const selectionMode = String(args.get('--selection-mode') ?? 'review_priority')
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
 const provider = 'tiktok_public_profile_html'
 
@@ -122,7 +123,15 @@ function selectedProfiles() {
 
   const reviewRows = reviewQueue
     .filter((row) => toNumber(row.overall_usefulness) >= minUsefulness)
-    .sort((a, b) => toNumber(a.review_priority, 9) - toNumber(b.review_priority, 9) || toNumber(b.overall_usefulness) - toNumber(a.overall_usefulness))
+    .sort((a, b) => {
+      const accountA = accountByHandle.get(normalizeHandle(a.handle))
+      const accountB = accountByHandle.get(normalizeHandle(b.handle))
+      if (selectionMode === 'missing_video_count') {
+        const missingDelta = Number(toNumber(accountA?.video_count) > 0) - Number(toNumber(accountB?.video_count) > 0)
+        if (missingDelta !== 0) return missingDelta
+      }
+      return toNumber(a.review_priority, 9) - toNumber(b.review_priority, 9) || toNumber(b.overall_usefulness) - toNumber(a.overall_usefulness)
+    })
 
   for (const row of reviewRows) {
     const handle = normalizeHandle(row.handle)
@@ -135,7 +144,9 @@ function selectedProfiles() {
       profile_url: account.profile_url || `https://www.tiktok.com/${handle}`,
       target_label: classifications.get(account.id)?.primary_label ?? row.primary_label ?? '',
       prior_usefulness: toNumber(row.overall_usefulness),
-      selection_reason: `review_queue_priority_${row.review_priority}`,
+      selection_reason: selectionMode === 'missing_video_count' && !toNumber(account.video_count)
+        ? `missing_video_count_review_queue_priority_${row.review_priority}`
+        : `review_queue_priority_${row.review_priority}`,
     })
     if (selected.size >= maxProfiles) return Array.from(selected.values())
   }
@@ -262,6 +273,7 @@ async function main() {
     provider,
     dry_run: dryRun,
     include_attempted: includeAttempted,
+    selection_mode: selectionMode,
     selected_profiles: profiles.length,
     output_rows: outputRows.length,
     output_path: dryRun || !outputRows.length ? '' : outputPath.replace(`${root}/`, ''),
