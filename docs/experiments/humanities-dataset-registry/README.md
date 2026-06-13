@@ -43,12 +43,19 @@ Probe file-level access and redistribution risk for the highest-ranked ready-now
 
 ```bash
 node docs/experiments/humanities-dataset-registry/scripts/probe-file-level-sources.mjs --strict
+node docs/experiments/humanities-dataset-registry/scripts/promote-derived-dataset.mjs
 ```
 
 The scripts write:
 
 - `data/raw/candidate-pages/<run-date>/`
 - `data/raw/file-level-probes/<run-date>/`
+- `derived-datasets/wikidata-humanities-authors/manifest.json`
+- `derived-datasets/wikidata-humanities-authors/schema.json`
+- `derived-datasets/wikidata-humanities-authors/records.json`
+- `derived-datasets/wikidata-humanities-authors/records.csv`
+- `derived-datasets/wikidata-humanities-authors/sample_rows.json`
+- `derived-datasets/wikidata-humanities-authors/rights.md`
 - `data/processed/candidates.json`
 - `data/processed/dataset-rankings.csv`
 - `data/processed/study-specs.json`
@@ -84,8 +91,17 @@ The output should be a practical field guide, not a listicle.
 
 The latest file-level probe checked five ready-now routes: Wikidata SPARQL, Library of Congress collections JSON, Met Collection object list plus detail samples, Project Gutenberg RDF catalog samples, and Chronicling America page search JSON.
 
-Current status: `file-level-probed`.
+Current status: `artifact-ready`.
 
 - 4 of 5 probes returned accessible structured records or files.
 - Chronicling America returned a 404 on the configured sample route and should stay caveated until a replacement route is verified.
 - Wikidata, Library of Congress, Met Collection, and Project Gutenberg are ready to promote into derived dataset design work, subject to item-level rights fields and source-specific normalization notes.
+
+## Derived Dataset Promotion
+
+The first promoted registry artifact is `derived-datasets/wikidata-humanities-authors/`.
+
+- 25 Wikidata humanities-author records from the file-level SPARQL probe.
+- Files include a manifest, schema, JSON records, CSV records, sample rows, and rights memo.
+- Rights status: CC0 source metadata with redistribution marked `derived-metadata-ok`.
+- Caveat: this is a bounded sample artifact, not a full Wikidata dump or publication-ready longitudinal study.

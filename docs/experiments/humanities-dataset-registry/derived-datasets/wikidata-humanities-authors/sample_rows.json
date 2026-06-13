@@ -1,0 +1,112 @@
+[
+  {
+    "qid": "Q5749",
+    "entity_uri": "http://www.wikidata.org/entity/Q5749",
+    "label": "Pierre-Joseph Proudhon",
+    "label_language": "en",
+    "birth_date": "1809-01-15T00:00:00Z",
+    "birth_year": "1809",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q5752",
+    "entity_uri": "http://www.wikidata.org/entity/Q5752",
+    "label": "Peter Kropotkin",
+    "label_language": "en",
+    "birth_date": "1842-12-09T00:00:00Z",
+    "birth_year": "1842",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q5816",
+    "entity_uri": "http://www.wikidata.org/entity/Q5816",
+    "label": "Mao Zedong",
+    "label_language": "en",
+    "birth_date": "1893-12-26T00:00:00Z",
+    "birth_year": "1893",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q5878",
+    "entity_uri": "http://www.wikidata.org/entity/Q5878",
+    "label": "Q5878",
+    "label_language": "",
+    "birth_date": "1927-03-06T00:00:00Z",
+    "birth_year": "1927",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q5879",
+    "entity_uri": "http://www.wikidata.org/entity/Q5879",
+    "label": "Johann Wolfgang von Goethe",
+    "label_language": "en",
+    "birth_date": "1749-08-28T00:00:00Z",
+    "birth_year": "1749",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q5959",
+    "entity_uri": "http://www.wikidata.org/entity/Q5959",
+    "label": "Quintus Curtius Rufus",
+    "label_language": "en",
+    "birth_date": "0100-01-01T00:00:00Z",
+    "birth_year": "0100",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q6013",
+    "entity_uri": "http://www.wikidata.org/entity/Q6013",
+    "label": "James Heneghan",
+    "label_language": "en",
+    "birth_date": "1930-01-01T00:00:00Z",
+    "birth_year": "1930",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q6050",
+    "entity_uri": "http://www.wikidata.org/entity/Q6050",
+    "label": "Anna de Noailles",
+    "label_language": "en",
+    "birth_date": "1876-11-15T00:00:00Z",
+    "birth_year": "1876",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q6101",
+    "entity_uri": "http://www.wikidata.org/entity/Q6101",
+    "label": "Marco Polo",
+    "label_language": "en",
+    "birth_date": "1254-09-22T00:00:00Z",
+    "birth_year": "1254",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  },
+  {
+    "qid": "Q6184",
+    "entity_uri": "http://www.wikidata.org/entity/Q6184",
+    "label": "Plotius Tucca",
+    "label_language": "en",
+    "birth_date": "-0050-01-01T00:00:00Z",
+    "birth_year": "-0050",
+    "source_dataset": "Wikidata",
+    "source_query": "Wikidata humanities author SPARQL sample",
+    "rights": "CC0 metadata; source contributor and ontology-bias caveats required"
+  }
+]

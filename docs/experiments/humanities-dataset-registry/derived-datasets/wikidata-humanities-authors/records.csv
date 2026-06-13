@@ -1,0 +1,26 @@
+qid,entity_uri,label,label_language,birth_date,birth_year,source_dataset,source_query,rights
+Q5749,http://www.wikidata.org/entity/Q5749,Pierre-Joseph Proudhon,en,1809-01-15T00:00:00Z,1809,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q5752,http://www.wikidata.org/entity/Q5752,Peter Kropotkin,en,1842-12-09T00:00:00Z,1842,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q5816,http://www.wikidata.org/entity/Q5816,Mao Zedong,en,1893-12-26T00:00:00Z,1893,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q5878,http://www.wikidata.org/entity/Q5878,Q5878,,1927-03-06T00:00:00Z,1927,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q5879,http://www.wikidata.org/entity/Q5879,Johann Wolfgang von Goethe,en,1749-08-28T00:00:00Z,1749,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q5959,http://www.wikidata.org/entity/Q5959,Quintus Curtius Rufus,en,0100-01-01T00:00:00Z,0100,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6013,http://www.wikidata.org/entity/Q6013,James Heneghan,en,1930-01-01T00:00:00Z,1930,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6050,http://www.wikidata.org/entity/Q6050,Anna de Noailles,en,1876-11-15T00:00:00Z,1876,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6101,http://www.wikidata.org/entity/Q6101,Marco Polo,en,1254-09-22T00:00:00Z,1254,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6184,http://www.wikidata.org/entity/Q6184,Plotius Tucca,en,-0050-01-01T00:00:00Z,-0050,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6197,http://www.wikidata.org/entity/Q6197,Horace,en,-0064-12-06T00:00:00Z,-0064,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6240,http://www.wikidata.org/entity/Q6240,Hafez,en,1325-01-01T00:00:00Z,1325,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6279,http://www.wikidata.org/entity/Q6279,Joe Biden,en,1942-11-20T00:00:00Z,1942,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6353,http://www.wikidata.org/entity/Q6353,Gerardus Mercator,en,1512-03-15T00:00:00Z,1512,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6512,http://www.wikidata.org/entity/Q6512,Søren Kierkegaard,en,1813-05-05T00:00:00Z,1813,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6515,http://www.wikidata.org/entity/Q6515,Mervyn Peake,en,1911-07-09T00:00:00Z,1911,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6519,http://www.wikidata.org/entity/Q6519,Wolf Haas,en,1960-12-14T00:00:00Z,1960,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6527,http://www.wikidata.org/entity/Q6527,Jean-Jacques Rousseau,en,1712-06-28T00:00:00Z,1712,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6530,http://www.wikidata.org/entity/Q6530,Stanisław Lem,en,1921-09-12T00:00:00Z,1921,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6538,http://www.wikidata.org/entity/Q6538,Günter Grass,en,1927-10-16T00:00:00Z,1927,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6694,http://www.wikidata.org/entity/Q6694,Alexander von Humboldt,en,1769-09-14T00:00:00Z,1769,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6701,http://www.wikidata.org/entity/Q6701,Jacob Grimm,en,1785-01-04T00:00:00Z,1785,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6711,http://www.wikidata.org/entity/Q6711,Allen Ginsberg,en,1926-06-03T00:00:00Z,1926,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6714,http://www.wikidata.org/entity/Q6714,Wilhelm Grimm,en,1786-02-24T00:00:00Z,1786,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required
+Q6882,http://www.wikidata.org/entity/Q6882,James Joyce,en,1882-02-02T00:00:00Z,1882,Wikidata,Wikidata humanities author SPARQL sample,CC0 metadata; source contributor and ontology-bias caveats required

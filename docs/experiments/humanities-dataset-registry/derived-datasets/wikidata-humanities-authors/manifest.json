@@ -1,0 +1,28 @@
+{
+  "datasetId": "wikidata-humanities-authors",
+  "generatedAt": "2026-06-13T01:59:54.814Z",
+  "status": "artifact-ready",
+  "sourceProbe": "reports/file-level-probes.json#wikidata-humanities-authors",
+  "rawInput": "data/raw/file-level-probes/2026-06-12/wikidata-humanities-authors/response.json",
+  "recordCount": 25,
+  "source": {
+    "name": "Wikidata",
+    "accessRoute": "SPARQL JSON sample",
+    "license": "CC0",
+    "sourceUrl": "https://query.wikidata.org/",
+    "redistribution": "derived-metadata-ok"
+  },
+  "rightsAndCaveats": [
+    "Wikidata data is CC0, but contributor attention and ontology coverage are uneven.",
+    "This is a bounded file-level sample from the registry probe, not a full Wikidata author dump.",
+    "Labels can fall back to QIDs when English labels are missing.",
+    "Birth dates are source metadata and may need calendar, precision, and BCE handling before analysis."
+  ],
+  "files": {
+    "recordsJson": "records.json",
+    "recordsCsv": "records.csv",
+    "schema": "schema.json",
+    "sampleRows": "sample_rows.json",
+    "rights": "rights.md"
+  }
+}

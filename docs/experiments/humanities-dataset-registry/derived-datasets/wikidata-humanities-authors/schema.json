@@ -1,0 +1,51 @@
+{
+  "datasetId": "wikidata-humanities-authors",
+  "title": "Wikidata Humanities Authors Derived Dataset",
+  "fields": [
+    {
+      "name": "qid",
+      "type": "string",
+      "description": "Wikidata entity identifier."
+    },
+    {
+      "name": "entity_uri",
+      "type": "url",
+      "description": "Canonical Wikidata entity URI."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "English label when available, otherwise Wikidata fallback label."
+    },
+    {
+      "name": "label_language",
+      "type": "string",
+      "description": "Label language code when provided by Wikidata."
+    },
+    {
+      "name": "birth_date",
+      "type": "dateTime|string",
+      "description": "Raw Wikidata birth date value from the probe."
+    },
+    {
+      "name": "birth_year",
+      "type": "integer|string",
+      "description": "Year parsed from birth_date, including BCE signed years where present."
+    },
+    {
+      "name": "source_dataset",
+      "type": "string",
+      "description": "Source corpus name."
+    },
+    {
+      "name": "source_query",
+      "type": "string",
+      "description": "Probe/query description used to create this derived sample."
+    },
+    {
+      "name": "rights",
+      "type": "string",
+      "description": "Redistribution and caveat note attached to each record."
+    }
+  ]
+}

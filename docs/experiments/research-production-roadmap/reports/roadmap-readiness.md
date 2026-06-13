@@ -1,8 +1,8 @@
 # Research Production Roadmap Readiness
 
-Generated at: 2026-06-13T01:55:36.888Z
-Status: active
-Complete tracks: 5/6
+Generated at: 2026-06-13T02:00:41.609Z
+Status: complete
+Complete tracks: 6/6
 
 | Priority | Track | Status | Complete | Source Experiment |
 | ---: | --- | --- | --- | --- |
@@ -11,8 +11,8 @@ Complete tracks: 5/6
 | 3 | Humanities Literature Radar Broad Backfill | artifact-ready | yes | `docs/experiments/humanities-literature-radar/` |
 | 4 | Cleveland Museum Full-Collection Backfill | artifact-ready | yes | `docs/experiments/cleveland-museum-collection-shape/` |
 | 5 | Canon Drift Narrow Signal Pilot | artifact-ready | yes | `docs/experiments/canon-drift-feasibility/` |
-| 6 | Humanities Dataset Registry File-Level Probes | file-level-probed | no | `docs/experiments/humanities-dataset-registry/` |
+| 6 | Humanities Dataset Registry File-Level Probes | artifact-ready | yes | `docs/experiments/humanities-dataset-registry/` |
 
 ## Next Implementation Queue
 
-1. Humanities Dataset Registry File-Level Probes (file-level-probed)
+No remaining roadmap tracks.

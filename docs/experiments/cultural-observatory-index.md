@@ -402,7 +402,7 @@ Next implementation moves:
 
 Path: `docs/experiments/humanities-dataset-registry/`
 
-Status: source-probed research-agenda artifact with file-level access probes for ready-now corpora.
+Status: source-probed research-agenda artifact with a promoted file-level derived dataset packet.
 
 Implemented:
 
@@ -410,12 +410,19 @@ Implemented:
 - access and metadata probe
 - file-level probe config for ready-now source routes
 - file-level probe runner with strict readiness status
+- promoted Wikidata humanities-authors derived dataset packet
 - readiness scoring model
 - ranked dataset table
 - generated study specs for ready-now candidates
 - source inventory
 - `file-level-probes.md`
 - `file-level-probes.json`
+- `derived-datasets/wikidata-humanities-authors/manifest.json`
+- `derived-datasets/wikidata-humanities-authors/schema.json`
+- `derived-datasets/wikidata-humanities-authors/records.json`
+- `derived-datasets/wikidata-humanities-authors/records.csv`
+- `derived-datasets/wikidata-humanities-authors/sample_rows.json`
+- `derived-datasets/wikidata-humanities-authors/rights.md`
 - `report.html`
 - `result.json`
 - `work.md`
@@ -435,7 +442,8 @@ Current corpus:
 - 5 ready-now study specs generated
 - 5 file-level probes configured for Wikidata, Library of Congress, Met Collection, Project Gutenberg, and Chronicling America
 - 4 accessible file-level routes; Chronicling America returned 404 for the configured sample route
-- file-level status: `file-level-probed`
+- file-level status: `artifact-ready`
+- promoted derived dataset: 25 Wikidata humanities-author records with manifest, schema, sample rows, CSV/JSON records, and CC0 rights memo
 - domains represented: museum collections, linked open data, archives/library, teaching syllabi, books/literature, newspapers, data repositories, scholarly repositories, books/library, books/media/web, aggregated archives
 - publication handoff: ready for copyedit as a research-agenda piece
 - publication post: `reports/post.md`, a polished research-agenda draft
@@ -446,7 +454,7 @@ Next implementation moves:
 
 - final editorial review for `reports/post.md`
 - replace the failed Chronicling America sample route or move it into a blocked-source memo
-- promote Wikidata, Library of Congress, Met Collection, or Project Gutenberg into a derived dataset folder with manifest, schema, and rights fields
+- retain the Wikidata derived dataset as the first registry artifact and promote Library of Congress, Met Collection, or Project Gutenberg as the next comparative packet
 - turn one ready-now corpus into the next public essay after Cleveland
 
 ### Cleveland Museum Collection Shape

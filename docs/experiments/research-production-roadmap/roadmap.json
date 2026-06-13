@@ -138,7 +138,7 @@
       "id": "dataset-registry-file-level-probes",
       "title": "Humanities Dataset Registry File-Level Probes",
       "priority": 6,
-      "status": "file-level-probed",
+      "status": "artifact-ready",
       "sourceExperiment": "docs/experiments/humanities-dataset-registry/",
       "why": "The registry identifies ready-now corpora, but licensing, file-level access, and pagination must be checked before derived datasets are published.",
       "requiredSources": [
@@ -157,7 +157,7 @@
       ],
       "nextActions": [
         "Replace the failed Chronicling America sample route with a verified newspaper API route or move it to a blocked-source memo.",
-        "Promote one accessible file-level corpus into a derived dataset folder with manifest, schema, and rights fields.",
+        "Retain the promoted Wikidata humanities-authors derived dataset with manifest, schema, records, sample rows, and rights fields.",
         "Launch one additional ready-now study after Cleveland from Wikidata, Library of Congress, Met Collection, or Project Gutenberg.",
         "Keep explicit redistribution and source-bias notes attached to every derived dataset."
       ]
