@@ -1,6 +1,6 @@
 # Scale Waves
 
-Generated: 2026-06-13T04:15:23.808Z
+Generated: 2026-06-13T04:21:03.464Z
 
 - Planned waves: 10000
 - Candidate accounts per wave: 250
@@ -19,7 +19,7 @@ Generated: 2026-06-13T04:15:23.808Z
 
 | Seq | Wave | Category | Candidates | Expected useful | Review target | Rank | Score | Surface | Query |
 | ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| 1 | scale_wave_0001 | filmmaker | 250 | 5 | 1 | 1 | 102 | tiktok_hashtag_export | filmmaker |
+| 1 | scale_wave_0001 | filmmaker | 250 | 5 | 1 | 1 | 104 | tiktok_hashtag_export | filmmaker |
 | 2 | scale_wave_0002 | filmmaker | 250 | 5 | 1 | 2 | 102 | search_index | filmmaker short film editing breakdown |
 | 3 | scale_wave_0003 | cinematographer | 250 | 5 | 1 | 3 | 100 | search_index | cinematographer lighting breakdown |
 | 4 | scale_wave_0004 | sketch_comedian | 250 | 5 | 1 | 4 | 100 | search_index | sketch comedian character comedy |

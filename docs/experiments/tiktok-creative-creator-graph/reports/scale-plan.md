@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T04:15:23.763Z
+Generated: 2026-06-13T04:21:03.424Z
 
 ## Targets
 
@@ -50,7 +50,7 @@ Candidate frontier targets: 87
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |
-| 1 | 1 | 102 | 1 | tiktok_hashtag_export | filmmaker |
+| 1 | 1 | 104 | 1 | tiktok_hashtag_export | filmmaker |
 | 2 | 2 | 102 | 1 | search_index | filmmaker short film editing breakdown |
 | 3 | 3 | 100 | 1 | search_index | cinematographer lighting breakdown |
 | 4 | 4 | 100 | 1 | search_index | sketch comedian character comedy |

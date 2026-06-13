@@ -1,6 +1,6 @@
 # External Lead Acquisition Packet
 
-Generated: 2026-06-13T04:15:24.028Z
+Generated: 2026-06-13T04:21:03.639Z
 
 This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by `import-external-lead-list.mjs`. The default packet is sized to request at least the 50,000-lead discovery target before downstream quality filtering.
 

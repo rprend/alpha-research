@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:15:23.808Z",
+  "generated_at": "2026-06-13T04:21:03.464Z",
   "target_useful_creators": 50000,
   "current_useful_creators": 7,
   "useful_gap": 49993,
@@ -29,7 +29,7 @@
       "primary_surface": "tiktok_hashtag_export",
       "primary_query": "filmmaker",
       "primary_frontier_rank": 1,
-      "primary_frontier_score": 102,
+      "primary_frontier_score": 104,
       "primary_target_kind": "query",
       "secondary_task_id": "category_gap_0030",
       "secondary_surface": "category_gap_search",

@@ -1,6 +1,6 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T04:15:23.214Z
+Generated: 2026-06-13T04:21:02.924Z
 
 - Candidates: 87
 - Handle targets: 7
@@ -34,7 +34,7 @@ Generated: 2026-06-13T04:15:23.214Z
 
 | Rank | Score | Priority | Kind | Surface | Label | Target |
 | ---: | ---: | ---: | --- | --- | --- | --- |
-| 1 | 102 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
+| 1 | 104 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
 | 2 | 102 | 1 | query | search_index | filmmaker | filmmaker short film editing breakdown |
 | 3 | 100 | 1 | query | search_index | cinematographer | cinematographer lighting breakdown |
 | 4 | 100 | 1 | query | search_index | sketch_comedian | sketch comedian character comedy |

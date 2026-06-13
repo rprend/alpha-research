@@ -1,13 +1,13 @@
 # Readiness
 
-Generated: 2026-06-13T04:15:33.510Z
+Generated: 2026-06-13T04:21:56.018Z
 
 Complete: false
 
 ## Counts
 
 - Accounts: 10837
-- Videos: 65
+- Videos: 68
 - Graph edges: 639
 - Useful accounts: 7
 - Excellent accounts: 6
@@ -31,8 +31,8 @@ Complete: false
 - Candidate frontier handles: 7
 - Candidate frontier queries: 80
 - Acquisition import preview accounts: 10832
-- Acquisition import preview ready: true
-- Acquisition import waves: 34
+- Acquisition import preview ready: false
+- Acquisition import waves: 35
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
@@ -55,6 +55,9 @@ Complete: false
 - Wave ledger under-yield imports: 0
 - External lead packet assignments: 200
 - External lead packet requested leads: 50000
+- External lead auto-complete files written: 0
+- External lead auto-complete existing files skipped: 50
+- External lead auto-complete routed rows: 10808
 - External lead template files: 200
 - External lead template rows: 50000
 - External lead worklist items: 850
@@ -65,12 +68,13 @@ Complete: false
 - External lead work-item merge output files: 0
 - External lead work-item merge unique valid rows: 0
 - External lead work-item merge unknown files: 0
-- External lead packet completed files: 0
-- External lead packet import-ready assignments: 0
+- External lead packet completed files: 50
+- External lead packet import-ready assignments: 50
 - External lead packet no-valid-handles assignments: 0
-- External lead packet valid leads: 0
-- External lead packet lead fill ratio: 0
-- External lead packet ready files: 0
+- External lead packet valid leads: 10808
+- External lead packet lead fill ratio: 0.216
+- External lead packet ready files: 50
+- External lead packet already-imported ready files: 50
 - External lead packet pending import files: 0
 - External lead packet imported files: 0
 - External lead packet import failed files: 0
@@ -95,7 +99,7 @@ Complete: false
 ## Checks
 
 - seed_intake: pass (10837 accounts ingested)
-- video_metadata: pass (65 videos ingested)
+- video_metadata: pass (68 videos ingested)
 - graph_edges: pass (639 graph edges generated)
 - scoring_coverage: pass (10837/10837 accounts scored)
 - review_queue: pass (10837 accounts queued for review)
@@ -108,8 +112,8 @@ Complete: false
 - adjacency_expansion: pass (28 enriched expansion rows (21 added))
 - acquisition_batches: pass (92 acquisition tasks generated)
 - candidate_frontier: pass (87 ranked acquisition candidates generated)
-- acquisition_import_preview: pass (10832 preview accounts, import gate ready)
-- acquisition_import_waves: pass (34 acquisition import waves tracked)
+- acquisition_import_preview: pass (10832 preview accounts, import gate not ready)
+- acquisition_import_waves: pass (35 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (17 acquisition run history rows persisted)
 - source_yield: pass (905 source/query yield rows generated)
@@ -123,19 +127,20 @@ Complete: false
 - wave_ledger: pass (10000 wave execution ledger rows generated)
 - external_lead_packet: pass (200 assignments requesting 50000 leads)
 - external_lead_packet_scale: pass (50000/50000 requested leads across 200/200 assignments)
+- external_lead_auto_complete: pass (0 files written, 50 existing files skipped, 10808 routed rows)
 - external_lead_templates: pass (200 templates, 50000 rows)
 - external_lead_worklist: pass (850 source work items, 50000 lead quota)
 - external_lead_work_item_templates: pass (850 work-item templates, 50000 rows)
 - external_lead_work_item_merge: pass (0 work-item files, 0 assignment files, 0 unique valid rows)
-- external_lead_progress: pass (0/200 import-ready assignments, 0 valid leads)
-- external_lead_packet_import: pass (0 imported, 0 pending, 0 failed)
+- external_lead_progress: pass (50/200 import-ready assignments, 10808 valid leads)
+- external_lead_packet_import: pass (0 imported this run, 50 already imported, 0 pending, 0 failed)
 - provider_preflight: fail (0/20 ready provider tasks, budget ok)
 - live_run_manifest: fail (0/10 runnable live waves, estimated cost $0)
 - live_manifest_runner: fail (0 dry_run wave(s) executed through manifest runner)
 - scale_campaign_runner: pass (1 dry_run iteration(s), stop reason dry_run_complete)
 - refresh_plan: pass (10837 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
-- publication_handoff_freshness: pass (handoff accounts 10837/10837, identities 10686/10686, videos 65/65, import waves 34/34, source yield 905/905)
+- publication_handoff_freshness: pass (handoff accounts 10837/10837, identities 10686/10686, videos 68/68, import waves 35/35, source yield 905/905)
 - useful_account_target: incomplete (7/50000 useful accounts)
 - excellent_account_target: incomplete (6/5000 excellent accounts)
 - human_review_target: incomplete (4/500 review decisions applied)

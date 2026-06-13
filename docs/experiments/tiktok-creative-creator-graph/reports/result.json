@@ -1,11 +1,11 @@
 {
-  "run_id": "2026-06-13T04-15-20-912Z",
-  "generated_at": "2026-06-13T04:15:21.573Z",
+  "run_id": "2026-06-13T04-21-00-715Z",
+  "generated_at": "2026-06-13T04:21:01.384Z",
   "target_useful_accounts": 50000,
   "smoke": false,
   "counts": {
     "accounts": 10837,
-    "videos": 65,
+    "videos": 68,
     "edges": 639,
     "useful_accounts": 7,
     "excellent_accounts": 6,
@@ -28,9 +28,9 @@
     "filmmaker": 442,
     "vfx_animation": 742,
     "creative_technologist": 2288,
-    "film_educator": 2016,
+    "film_educator": 2055,
     "behind_the_scenes_creator": 272,
-    "unclear": 40,
+    "unclear": 1,
     "reject": 2
   },
   "readiness": {

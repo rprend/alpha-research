@@ -48,6 +48,7 @@ function main() {
   const externalLeadWorkItemMerge = readJson(join(reportsDir, 'external-lead-work-item-merge.json'), null)
   const externalLeadTemplates = readJson(join(reportsDir, 'external-lead-templates.json'), null)
   const externalLeadProgress = readJson(join(reportsDir, 'external-lead-progress.json'), null)
+  const externalLeadAutoComplete = readJson(join(reportsDir, 'external-lead-auto-complete.json'), null)
   const externalLeadPacketImport = readJson(join(reportsDir, 'external-lead-packet-import.json'), null)
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
@@ -151,6 +152,9 @@ function main() {
       external_lead_packet_assignments: externalLeadAcquisitionPacket?.assignment_rows ?? 0,
       external_lead_packet_requested_leads: externalLeadAcquisitionPacket?.total_requested_leads ?? 0,
       external_lead_packet_category_rows: externalLeadAcquisitionPacket?.category_rows ?? 0,
+      external_lead_auto_complete_files_written: externalLeadAutoComplete?.files_written ?? counts.external_lead_auto_complete_files_written ?? 0,
+      external_lead_auto_complete_existing_files_skipped: externalLeadAutoComplete?.existing_files_skipped ?? counts.external_lead_auto_complete_existing_files_skipped ?? 0,
+      external_lead_auto_complete_routed_rows: externalLeadAutoComplete?.routed_rows ?? counts.external_lead_auto_complete_routed_rows ?? 0,
       external_lead_worklist_items: externalLeadWorklist?.work_items ?? counts.external_lead_worklist_items ?? 0,
       external_lead_worklist_lead_quota: externalLeadWorklist?.total_lead_quota ?? counts.external_lead_worklist_lead_quota ?? 0,
       external_lead_work_item_template_files: externalLeadWorkItemTemplates?.templates ?? counts.external_lead_work_item_template_files ?? 0,
@@ -166,6 +170,7 @@ function main() {
       external_lead_packet_no_valid_handles_assignments: externalLeadProgress?.no_valid_handles_assignments ?? 0,
       external_lead_packet_valid_leads: externalLeadProgress?.valid_leads ?? 0,
       external_lead_packet_ready_files: externalLeadPacketImport?.ready_files ?? 0,
+      external_lead_packet_already_imported_ready_files: externalLeadPacketImport?.already_imported_ready_files ?? counts.external_lead_packet_already_imported_ready_files ?? 0,
       external_lead_packet_pending_import_files: externalLeadPacketImport?.pending_files ?? 0,
       external_lead_packet_imported_files: externalLeadPacketImport?.imported_files ?? 0,
       external_lead_packet_import_failed_files: externalLeadPacketImport?.failed_files ?? 0,
@@ -241,6 +246,8 @@ function main() {
       external_lead_list_readme: rel(join(experimentDir, 'data/raw/external-leads/README.md')),
       external_lead_list_importer: rel(join(experimentDir, 'scripts/import-external-lead-list.mjs')),
       external_lead_acquisition_packet: rel(join(reportsDir, 'external-lead-acquisition-packet.json')),
+      external_lead_auto_complete: rel(join(reportsDir, 'external-lead-auto-complete.json')),
+      external_lead_auto_complete_rows: rel(join(processedDir, 'external_lead_auto_complete_rows.jsonl')),
       external_lead_worklist: rel(join(reportsDir, 'external-lead-worklist.json')),
       external_lead_worklist_csv: rel(join(experimentDir, 'data/raw/external-leads/source-worklist.csv')),
       external_lead_work_item_templates: rel(join(reportsDir, 'external-lead-work-item-templates.json')),
@@ -282,6 +289,7 @@ function main() {
     next_actions: [
       `Acquire and import ${Math.max(0, targetUseful - currentUseful)} more useful creators through provider/search/graph batches.`,
       `Use the external lead acquisition packet for token-free collection: ${externalLeadAcquisitionPacket?.assignment_rows ?? 0} assignments requesting ${externalLeadAcquisitionPacket?.total_requested_leads ?? 0} TikTok profile leads.`,
+      `Auto-complete routed ${externalLeadAutoComplete?.routed_rows ?? counts.external_lead_auto_complete_routed_rows ?? 0} existing public acquisition leads into ${externalLeadProgress?.completed_files_seen ?? counts.external_lead_packet_completed_files ?? 0} completed packet files.`,
       `Assign source-level work from data/raw/external-leads/source-worklist.csv: ${externalLeadWorklist?.work_items ?? counts.external_lead_worklist_items ?? 0} URL work items covering ${externalLeadWorklist?.total_lead_quota ?? counts.external_lead_worklist_lead_quota ?? 0} requested leads.`,
       `Use data/raw/external-leads/work-item-templates/ for fillable per-URL CSVs: ${externalLeadWorkItemTemplates?.templates ?? counts.external_lead_work_item_template_files ?? 0} templates covering ${externalLeadWorkItemTemplates?.total_template_rows ?? counts.external_lead_work_item_template_rows ?? 0} rows.`,
       'Save completed source work items as data/raw/external-leads/work-items-completed/<work_item_id>.csv, then run merge-external-lead-work-items.mjs to assemble assignment-level completed files.',
@@ -349,6 +357,9 @@ ${handoff.objective}
 - External lead packet assignments: ${handoff.current_corpus.external_lead_packet_assignments}
 - External lead packet requested leads: ${handoff.current_corpus.external_lead_packet_requested_leads}
 - External lead packet category rows: ${handoff.current_corpus.external_lead_packet_category_rows}
+- External lead auto-complete files written: ${handoff.current_corpus.external_lead_auto_complete_files_written}
+- External lead auto-complete existing files skipped: ${handoff.current_corpus.external_lead_auto_complete_existing_files_skipped}
+- External lead auto-complete routed rows: ${handoff.current_corpus.external_lead_auto_complete_routed_rows}
 - External lead worklist items: ${handoff.current_corpus.external_lead_worklist_items}
 - External lead worklist lead quota: ${handoff.current_corpus.external_lead_worklist_lead_quota}
 - External lead work-item template files: ${handoff.current_corpus.external_lead_work_item_template_files}
@@ -364,6 +375,7 @@ ${handoff.objective}
 - External lead packet no-valid-handles assignments: ${handoff.current_corpus.external_lead_packet_no_valid_handles_assignments}
 - External lead packet valid leads: ${handoff.current_corpus.external_lead_packet_valid_leads}
 - External lead packet ready files: ${handoff.current_corpus.external_lead_packet_ready_files}
+- External lead packet already-imported ready files: ${handoff.current_corpus.external_lead_packet_already_imported_ready_files}
 - External lead packet pending import files: ${handoff.current_corpus.external_lead_packet_pending_import_files}
 - External lead packet imported files: ${handoff.current_corpus.external_lead_packet_imported_files}
 - External lead packet import failed files: ${handoff.current_corpus.external_lead_packet_import_failed_files}

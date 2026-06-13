@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:15:23.492Z",
+  "generated_at": "2026-06-13T04:21:03.181Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 10837,
@@ -10,11 +10,11 @@
     "review_queue": 10833
   },
   "readiness": {
-    "generated_at": "2026-06-13T04:13:48.554Z",
+    "generated_at": "2026-06-13T04:20:03.305Z",
     "complete": false,
     "counts": {
       "accounts": 10837,
-      "videos": 65,
+      "videos": 68,
       "edges": 639,
       "useful_accounts": 7,
       "excellent_accounts": 6,
@@ -41,8 +41,8 @@
       "candidate_frontier_handles": 7,
       "candidate_frontier_queries": 80,
       "acquisition_import_preview_accounts": 10832,
-      "acquisition_import_preview_ready": true,
-      "acquisition_import_waves": 34,
+      "acquisition_import_preview_ready": false,
+      "acquisition_import_waves": 35,
       "acquisition_runner_tasks": 2,
       "acquisition_runner_runnable_tasks": 2,
       "acquisition_runner_skipped_tasks": 0,
@@ -64,28 +64,28 @@
       "wave_ledger_failed": 0,
       "wave_ledger_imported_output_accounts": 0,
       "wave_ledger_under_yield_imports": 0,
-      "external_lead_packet_assignments": 120,
-      "external_lead_packet_requested_leads": 30000,
-      "external_lead_template_files": 120,
-      "external_lead_template_rows": 30000,
-      "external_lead_worklist_items": 511,
-      "external_lead_worklist_lead_quota": 30000,
-      "external_lead_work_item_template_files": 511,
-      "external_lead_work_item_template_rows": 30000,
+      "external_lead_packet_assignments": 200,
+      "external_lead_packet_requested_leads": 50000,
+      "external_lead_template_files": 200,
+      "external_lead_template_rows": 50000,
+      "external_lead_worklist_items": 850,
+      "external_lead_worklist_lead_quota": 50000,
+      "external_lead_work_item_template_files": 850,
+      "external_lead_work_item_template_rows": 50000,
       "external_lead_work_item_merge_input_files": 0,
       "external_lead_work_item_merge_output_files": 0,
       "external_lead_work_item_merge_unique_valid_rows": 0,
       "external_lead_work_item_merge_unknown_files": 0,
-      "external_lead_packet_completed_files": 0,
-      "external_lead_packet_import_ready_assignments": 0,
+      "external_lead_packet_completed_files": 50,
+      "external_lead_packet_import_ready_assignments": 50,
       "external_lead_packet_no_valid_handles_assignments": 0,
-      "external_lead_packet_valid_leads": 0,
-      "external_lead_packet_lead_fill_ratio": 0,
-      "external_lead_packet_ready_files": 0,
-      "external_lead_packet_pending_import_files": 0,
-      "external_lead_packet_imported_files": 0,
+      "external_lead_packet_valid_leads": 10808,
+      "external_lead_packet_lead_fill_ratio": 0.216,
+      "external_lead_packet_ready_files": 50,
+      "external_lead_packet_pending_import_files": 50,
+      "external_lead_packet_imported_files": 50,
       "external_lead_packet_import_failed_files": 0,
-      "external_lead_packet_import_output_rows": 0,
+      "external_lead_packet_import_output_rows": 10808,
       "provider_preflight_tasks": 20,
       "provider_preflight_ready_tasks": 0,
       "provider_preflight_blocked_tasks": 20,
@@ -113,7 +113,7 @@
       {
         "id": "video_metadata",
         "status": "pass",
-        "evidence": "65 videos ingested"
+        "evidence": "68 videos ingested"
       },
       {
         "id": "graph_edges",
@@ -178,12 +178,12 @@
       {
         "id": "acquisition_import_preview",
         "status": "pass",
-        "evidence": "10832 preview accounts, import gate ready"
+        "evidence": "10832 preview accounts, import gate not ready"
       },
       {
         "id": "acquisition_import_waves",
         "status": "pass",
-        "evidence": "34 acquisition import waves tracked"
+        "evidence": "35 acquisition import waves tracked"
       },
       {
         "id": "acquisition_runner",
@@ -243,22 +243,27 @@
       {
         "id": "external_lead_packet",
         "status": "pass",
-        "evidence": "120 assignments requesting 30000 leads"
+        "evidence": "200 assignments requesting 50000 leads"
+      },
+      {
+        "id": "external_lead_packet_scale",
+        "status": "pass",
+        "evidence": "50000/50000 requested leads across 200/200 assignments"
       },
       {
         "id": "external_lead_templates",
         "status": "pass",
-        "evidence": "120 templates, 30000 rows"
+        "evidence": "200 templates, 50000 rows"
       },
       {
         "id": "external_lead_worklist",
         "status": "pass",
-        "evidence": "511 source work items, 30000 lead quota"
+        "evidence": "850 source work items, 50000 lead quota"
       },
       {
         "id": "external_lead_work_item_templates",
         "status": "pass",
-        "evidence": "511 work-item templates, 30000 rows"
+        "evidence": "850 work-item templates, 50000 rows"
       },
       {
         "id": "external_lead_work_item_merge",
@@ -268,12 +273,12 @@
       {
         "id": "external_lead_progress",
         "status": "pass",
-        "evidence": "0/120 import-ready assignments, 0 valid leads"
+        "evidence": "50/200 import-ready assignments, 10808 valid leads"
       },
       {
         "id": "external_lead_packet_import",
         "status": "pass",
-        "evidence": "0 imported, 0 pending, 0 failed"
+        "evidence": "50 imported, 50 pending, 0 failed"
       },
       {
         "id": "provider_preflight",
@@ -308,7 +313,7 @@
       {
         "id": "publication_handoff_freshness",
         "status": "pass",
-        "evidence": "handoff accounts 10837/10837, identities 10686/10686, videos 65/65, import waves 34/34, source yield 905/905"
+        "evidence": "handoff accounts 10837/10837, identities 10686/10686, videos 68/68, import waves 35/35, source yield 905/905"
       },
       {
         "id": "useful_account_target",
@@ -356,22 +361,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "d34d45df923cf8876bb88702f69dc9c59b9e08efeabfd6719d5f3b663ed10ccf"
+      "sha256": "5fe06c6419bf6e37179ae7cb349a726ab557c20fad6236795f0d1913c166c867"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "de65348786998e19a575df6ffb97fe68605d075dcd7c2e0d052cef71bfedc07d"
+      "sha256": "47abc5e27e31ae2ec14bf822cb6acdcf0c2818924caba897c99d7e008b72b054"
     },
     {
       "path": "data/release/review_queue.csv",
       "rows": 10833,
-      "sha256": "bf90dfb3d4327bcf3886e11600fb29ff2b91773c5465f828a1abac71a92f27af"
+      "sha256": "bfb88379800392a7cae4ef62b4b025641479535e3ebe5a0c650c3e683e8e0c83"
     },
     {
       "path": "data/release/all_scored_creators.csv",
       "rows": 10837,
-      "sha256": "f59858f47e725fdd7fd651c126d77ad8994e5f2a616c09b5c94dab6f87e6c1c7"
+      "sha256": "20356f23c24e290216be87aef13c987c00eed718602132d51ec59e55cb40dfea"
     }
   ]
 }

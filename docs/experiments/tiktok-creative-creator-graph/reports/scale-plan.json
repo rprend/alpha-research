@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:15:23.763Z",
+  "generated_at": "2026-06-13T04:21:03.424Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
@@ -131,7 +131,7 @@
       "sequence": 1,
       "batch_id": "graph_0068|hashtag_0011",
       "frontier_rank": 1,
-      "frontier_score": 102,
+      "frontier_score": 104,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
       "query": "filmmaker",

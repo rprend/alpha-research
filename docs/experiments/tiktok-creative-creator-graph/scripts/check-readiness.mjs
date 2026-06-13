@@ -121,6 +121,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const externalLeadAutoComplete = (() => {
+    const path = join(reportsDir, 'external-lead-auto-complete.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const externalLeadTemplates = (() => {
     const path = join(reportsDir, 'external-lead-templates.json')
     if (!existsSync(path)) return null
@@ -321,6 +326,11 @@ function main() {
       evidence: externalLeadAcquisitionPacket ? `${externalLeadPacketRequestedLeads}/${targetUsefulAccounts} requested leads across ${externalLeadPacketAssignments}/${externalLeadPacketTargetAssignments} assignments` : 'external lead acquisition packet missing',
     },
     {
+      id: 'external_lead_auto_complete',
+      status: externalLeadAutoComplete?.files_written > 0 || externalLeadAutoComplete?.existing_files_skipped > 0 ? 'pass' : 'fail',
+      evidence: externalLeadAutoComplete ? `${externalLeadAutoComplete.files_written} files written, ${externalLeadAutoComplete.existing_files_skipped} existing files skipped, ${externalLeadAutoComplete.routed_rows} routed rows` : 'external lead auto-complete missing',
+    },
+    {
       id: 'external_lead_templates',
       status: externalLeadTemplates?.templates === externalLeadAcquisitionPacket?.assignment_rows ? 'pass' : 'fail',
       evidence: externalLeadTemplates ? `${externalLeadTemplates.templates} templates, ${externalLeadTemplates.total_template_rows} rows` : 'external lead templates missing',
@@ -348,7 +358,7 @@ function main() {
     {
       id: 'external_lead_packet_import',
       status: externalLeadPacketImport && Number(externalLeadPacketImport.failed_files ?? 0) === 0 ? 'pass' : 'fail',
-      evidence: externalLeadPacketImport ? `${externalLeadPacketImport.imported_files} imported, ${externalLeadPacketImport.pending_files} pending, ${externalLeadPacketImport.failed_files} failed` : 'external lead packet import missing',
+      evidence: externalLeadPacketImport ? `${externalLeadPacketImport.imported_files} imported this run, ${externalLeadPacketImport.already_imported_ready_files ?? 0} already imported, ${externalLeadPacketImport.pending_files} pending, ${externalLeadPacketImport.failed_files} failed` : 'external lead packet import missing',
     },
     {
       id: 'provider_preflight',
@@ -460,6 +470,9 @@ function main() {
       wave_ledger_under_yield_imports: waveLedger.filter((row) => row.import_yield_status === 'under_yield').length,
       external_lead_packet_assignments: externalLeadAcquisitionPacket?.assignment_rows ?? 0,
       external_lead_packet_requested_leads: externalLeadAcquisitionPacket?.total_requested_leads ?? 0,
+      external_lead_auto_complete_files_written: externalLeadAutoComplete?.files_written ?? 0,
+      external_lead_auto_complete_existing_files_skipped: externalLeadAutoComplete?.existing_files_skipped ?? 0,
+      external_lead_auto_complete_routed_rows: externalLeadAutoComplete?.routed_rows ?? 0,
       external_lead_template_files: externalLeadTemplates?.templates ?? 0,
       external_lead_template_rows: externalLeadTemplates?.total_template_rows ?? 0,
       external_lead_worklist_items: externalLeadWorklist?.work_items ?? 0,
@@ -476,6 +489,7 @@ function main() {
       external_lead_packet_valid_leads: externalLeadProgress?.valid_leads ?? 0,
       external_lead_packet_lead_fill_ratio: externalLeadProgress?.lead_fill_ratio ?? 0,
       external_lead_packet_ready_files: externalLeadPacketImport?.ready_files ?? 0,
+      external_lead_packet_already_imported_ready_files: externalLeadPacketImport?.already_imported_ready_files ?? 0,
       external_lead_packet_pending_import_files: externalLeadPacketImport?.pending_files ?? 0,
       external_lead_packet_imported_files: externalLeadPacketImport?.imported_files ?? 0,
       external_lead_packet_import_failed_files: externalLeadPacketImport?.failed_files ?? 0,
@@ -564,6 +578,9 @@ Complete: ${summary.complete}
 - Wave ledger under-yield imports: ${summary.counts.wave_ledger_under_yield_imports}
 - External lead packet assignments: ${summary.counts.external_lead_packet_assignments}
 - External lead packet requested leads: ${summary.counts.external_lead_packet_requested_leads}
+- External lead auto-complete files written: ${summary.counts.external_lead_auto_complete_files_written}
+- External lead auto-complete existing files skipped: ${summary.counts.external_lead_auto_complete_existing_files_skipped}
+- External lead auto-complete routed rows: ${summary.counts.external_lead_auto_complete_routed_rows}
 - External lead template files: ${summary.counts.external_lead_template_files}
 - External lead template rows: ${summary.counts.external_lead_template_rows}
 - External lead worklist items: ${summary.counts.external_lead_worklist_items}
@@ -580,6 +597,7 @@ Complete: ${summary.complete}
 - External lead packet valid leads: ${summary.counts.external_lead_packet_valid_leads}
 - External lead packet lead fill ratio: ${summary.counts.external_lead_packet_lead_fill_ratio}
 - External lead packet ready files: ${summary.counts.external_lead_packet_ready_files}
+- External lead packet already-imported ready files: ${summary.counts.external_lead_packet_already_imported_ready_files}
 - External lead packet pending import files: ${summary.counts.external_lead_packet_pending_import_files}
 - External lead packet imported files: ${summary.counts.external_lead_packet_imported_files}
 - External lead packet import failed files: ${summary.counts.external_lead_packet_import_failed_files}

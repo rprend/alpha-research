@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T03:25:29.913Z",
-  "execution_id": "2026-06-13T03-25-21-025Z",
+  "generated_at": "2026-06-13T04:17:43.535Z",
+  "execution_id": "2026-06-13T04-17-37-528Z",
   "provider": "bing_rss",
   "provider_use_note": "Bing RSS results are for discovery triage only; confirm applicable search-result terms before production use.",
   "dry_run": false,
@@ -18,8 +18,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:21.026Z",
-      "finished_at": "2026-06-13T03:25:21.271Z"
+      "started_at": "2026-06-13T04:17:37.529Z",
+      "finished_at": "2026-06-13T04:17:37.710Z"
     },
     {
       "query_id": "tiktok_short_film_profiles",
@@ -28,8 +28,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:21.271Z",
-      "finished_at": "2026-06-13T03:25:21.438Z"
+      "started_at": "2026-06-13T04:17:37.710Z",
+      "finished_at": "2026-06-13T04:17:37.918Z"
     },
     {
       "query_id": "tiktok_cinematography_profiles",
@@ -38,8 +38,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:21.438Z",
-      "finished_at": "2026-06-13T03:25:21.767Z"
+      "started_at": "2026-06-13T04:17:37.918Z",
+      "finished_at": "2026-06-13T04:17:38.037Z"
     },
     {
       "query_id": "tiktok_video_editor_profiles",
@@ -48,8 +48,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:21.767Z",
-      "finished_at": "2026-06-13T03:25:21.896Z"
+      "started_at": "2026-06-13T04:17:38.037Z",
+      "finished_at": "2026-06-13T04:17:38.225Z"
     },
     {
       "query_id": "tiktok_vfx_animation_profiles",
@@ -58,8 +58,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:21.896Z",
-      "finished_at": "2026-06-13T03:25:22.307Z"
+      "started_at": "2026-06-13T04:17:38.225Z",
+      "finished_at": "2026-06-13T04:17:38.381Z"
     },
     {
       "query_id": "tiktok_sketch_comedy_profiles",
@@ -68,8 +68,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:22.307Z",
-      "finished_at": "2026-06-13T03:25:22.434Z"
+      "started_at": "2026-06-13T04:17:38.381Z",
+      "finished_at": "2026-06-13T04:17:38.532Z"
     },
     {
       "query_id": "tiktok_standup_profiles",
@@ -78,8 +78,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:22.434Z",
-      "finished_at": "2026-06-13T03:25:22.648Z"
+      "started_at": "2026-06-13T04:17:38.532Z",
+      "finished_at": "2026-06-13T04:17:38.639Z"
     },
     {
       "query_id": "tiktok_actor_performer_profiles",
@@ -88,8 +88,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:22.648Z",
-      "finished_at": "2026-06-13T03:25:22.816Z"
+      "started_at": "2026-06-13T04:17:38.639Z",
+      "finished_at": "2026-06-13T04:17:38.767Z"
     },
     {
       "query_id": "linktree_filmmaker_tiktok_links",
@@ -98,8 +98,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:22.816Z",
-      "finished_at": "2026-06-13T03:25:23.099Z"
+      "started_at": "2026-06-13T04:17:38.767Z",
+      "finished_at": "2026-06-13T04:17:38.907Z"
     },
     {
       "query_id": "beacons_creator_tiktok_links",
@@ -108,8 +108,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:23.099Z",
-      "finished_at": "2026-06-13T03:25:23.336Z"
+      "started_at": "2026-06-13T04:17:38.907Z",
+      "finished_at": "2026-06-13T04:17:39.080Z"
     },
     {
       "query_id": "youtube_creator_tiktok_links",
@@ -118,8 +118,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:23.336Z",
-      "finished_at": "2026-06-13T03:25:23.550Z"
+      "started_at": "2026-06-13T04:17:39.080Z",
+      "finished_at": "2026-06-13T04:17:39.190Z"
     },
     {
       "query_id": "portfolio_tiktok_creator_links",
@@ -128,8 +128,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:23.550Z",
-      "finished_at": "2026-06-13T03:25:23.691Z"
+      "started_at": "2026-06-13T04:17:39.190Z",
+      "finished_at": "2026-06-13T04:17:39.563Z"
     },
     {
       "query_id": "tiktok_director_music_video_profiles",
@@ -138,8 +138,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:23.691Z",
-      "finished_at": "2026-06-13T03:25:23.901Z"
+      "started_at": "2026-06-13T04:17:39.563Z",
+      "finished_at": "2026-06-13T04:17:39.686Z"
     },
     {
       "query_id": "tiktok_director_writer_profiles",
@@ -148,8 +148,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:23.901Z",
-      "finished_at": "2026-06-13T03:25:24.084Z"
+      "started_at": "2026-06-13T04:17:39.686Z",
+      "finished_at": "2026-06-13T04:17:39.955Z"
     },
     {
       "query_id": "tiktok_director_reel_profiles",
@@ -158,8 +158,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:24.084Z",
-      "finished_at": "2026-06-13T03:25:24.210Z"
+      "started_at": "2026-06-13T04:17:39.955Z",
+      "finished_at": "2026-06-13T04:17:40.070Z"
     },
     {
       "query_id": "tiktok_editor_breakdown_profiles",
@@ -168,8 +168,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:24.210Z",
-      "finished_at": "2026-06-13T03:25:24.388Z"
+      "started_at": "2026-06-13T04:17:40.070Z",
+      "finished_at": "2026-06-13T04:17:40.227Z"
     },
     {
       "query_id": "tiktok_editor_davinci_profiles",
@@ -178,8 +178,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:24.388Z",
-      "finished_at": "2026-06-13T03:25:25.114Z"
+      "started_at": "2026-06-13T04:17:40.227Z",
+      "finished_at": "2026-06-13T04:17:40.340Z"
     },
     {
       "query_id": "tiktok_editor_after_effects_profiles",
@@ -188,8 +188,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:25.114Z",
-      "finished_at": "2026-06-13T03:25:25.264Z"
+      "started_at": "2026-06-13T04:17:40.340Z",
+      "finished_at": "2026-06-13T04:17:40.481Z"
     },
     {
       "query_id": "tiktok_standup_open_mic_profiles",
@@ -198,8 +198,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:25.264Z",
-      "finished_at": "2026-06-13T03:25:25.657Z"
+      "started_at": "2026-06-13T04:17:40.481Z",
+      "finished_at": "2026-06-13T04:17:40.679Z"
     },
     {
       "query_id": "tiktok_standup_clip_profiles",
@@ -208,8 +208,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:25.657Z",
-      "finished_at": "2026-06-13T03:25:25.774Z"
+      "started_at": "2026-06-13T04:17:40.679Z",
+      "finished_at": "2026-06-13T04:17:40.796Z"
     },
     {
       "query_id": "tiktok_comedian_tour_profiles",
@@ -218,8 +218,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:25.774Z",
-      "finished_at": "2026-06-13T03:25:26.154Z"
+      "started_at": "2026-06-13T04:17:40.796Z",
+      "finished_at": "2026-06-13T04:17:41.004Z"
     },
     {
       "query_id": "tiktok_actor_monologue_profiles",
@@ -228,8 +228,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:26.154Z",
-      "finished_at": "2026-06-13T03:25:26.326Z"
+      "started_at": "2026-06-13T04:17:41.004Z",
+      "finished_at": "2026-06-13T04:17:41.107Z"
     },
     {
       "query_id": "tiktok_actor_character_profiles",
@@ -238,8 +238,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:26.326Z",
-      "finished_at": "2026-06-13T03:25:26.783Z"
+      "started_at": "2026-06-13T04:17:41.107Z",
+      "finished_at": "2026-06-13T04:17:41.572Z"
     },
     {
       "query_id": "tiktok_performer_improv_profiles",
@@ -248,8 +248,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:26.783Z",
-      "finished_at": "2026-06-13T03:25:27.009Z"
+      "started_at": "2026-06-13T04:17:41.572Z",
+      "finished_at": "2026-06-13T04:17:41.676Z"
     },
     {
       "query_id": "tiktok_film_educator_tutorial_profiles",
@@ -258,8 +258,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:27.009Z",
-      "finished_at": "2026-06-13T03:25:27.347Z"
+      "started_at": "2026-06-13T04:17:41.676Z",
+      "finished_at": "2026-06-13T04:17:42.053Z"
     },
     {
       "query_id": "tiktok_film_educator_breakdown_profiles",
@@ -268,8 +268,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:27.347Z",
-      "finished_at": "2026-06-13T03:25:27.539Z"
+      "started_at": "2026-06-13T04:17:42.053Z",
+      "finished_at": "2026-06-13T04:17:42.189Z"
     },
     {
       "query_id": "tiktok_film_school_profiles",
@@ -278,8 +278,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:27.539Z",
-      "finished_at": "2026-06-13T03:25:27.807Z"
+      "started_at": "2026-06-13T04:17:42.189Z",
+      "finished_at": "2026-06-13T04:17:42.354Z"
     },
     {
       "query_id": "tiktok_bts_on_set_profiles",
@@ -288,8 +288,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:27.807Z",
-      "finished_at": "2026-06-13T03:25:27.948Z"
+      "started_at": "2026-06-13T04:17:42.354Z",
+      "finished_at": "2026-06-13T04:17:42.460Z"
     },
     {
       "query_id": "tiktok_bts_production_profiles",
@@ -298,8 +298,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:27.948Z",
-      "finished_at": "2026-06-13T03:25:28.133Z"
+      "started_at": "2026-06-13T04:17:42.460Z",
+      "finished_at": "2026-06-13T04:17:42.596Z"
     },
     {
       "query_id": "tiktok_bts_short_film_profiles",
@@ -308,8 +308,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:28.133Z",
-      "finished_at": "2026-06-13T03:25:28.320Z"
+      "started_at": "2026-06-13T04:17:42.596Z",
+      "finished_at": "2026-06-13T04:17:42.698Z"
     },
     {
       "query_id": "youtube_director_tiktok_links",
@@ -318,8 +318,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:28.320Z",
-      "finished_at": "2026-06-13T03:25:28.619Z"
+      "started_at": "2026-06-13T04:17:42.698Z",
+      "finished_at": "2026-06-13T04:17:43.006Z"
     },
     {
       "query_id": "youtube_editor_tiktok_links",
@@ -328,8 +328,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:28.619Z",
-      "finished_at": "2026-06-13T03:25:28.846Z"
+      "started_at": "2026-06-13T04:17:43.006Z",
+      "finished_at": "2026-06-13T04:17:43.128Z"
     },
     {
       "query_id": "linktree_actor_tiktok_links",
@@ -338,8 +338,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:28.846Z",
-      "finished_at": "2026-06-13T03:25:29.290Z"
+      "started_at": "2026-06-13T04:17:43.128Z",
+      "finished_at": "2026-06-13T04:17:43.255Z"
     },
     {
       "query_id": "beacons_standup_tiktok_links",
@@ -348,8 +348,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:29.290Z",
-      "finished_at": "2026-06-13T03:25:29.504Z"
+      "started_at": "2026-06-13T04:17:43.255Z",
+      "finished_at": "2026-06-13T04:17:43.367Z"
     },
     {
       "query_id": "portfolio_bts_tiktok_links",
@@ -358,8 +358,8 @@
       "status": "succeeded",
       "extracted_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T03:25:29.504Z",
-      "finished_at": "2026-06-13T03:25:29.912Z"
+      "started_at": "2026-06-13T04:17:43.367Z",
+      "finished_at": "2026-06-13T04:17:43.535Z"
     }
   ]
 }

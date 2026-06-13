@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:15:22.471Z",
+  "generated_at": "2026-06-13T04:21:02.255Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 5,
@@ -106,7 +106,7 @@
     {
       "label": "film_educator",
       "target_useful_creators": 3000,
-      "current_primary_accounts": 2016,
+      "current_primary_accounts": 2055,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 3,
