@@ -75,6 +75,10 @@ function writeCsv(path, rows, headers = Object.keys(rows[0] ?? {})) {
 function templateRows(assignment) {
   const rows = []
   const targetRows = Number(assignment.lead_target || 250)
+  const sourceUrls = String(assignment.source_urls || assignment.primary_source_url || assignment.source_target || '')
+    .split('|')
+    .map((url) => url.trim())
+    .filter(Boolean)
   for (let index = 0; index < targetRows; index += 1) {
     rows.push({
       handle: '',
@@ -83,7 +87,7 @@ function templateRows(assignment) {
       bio: '',
       target_label: assignment.target_label,
       source_name: `External lead packet ${assignment.assignment_id}`,
-      source_url: assignment.source_target,
+      source_url: sourceUrls[index % Math.max(1, sourceUrls.length)] || assignment.source_target,
       source_query: assignment.source_query,
       follower_count: '',
       likes_count: '',
@@ -107,6 +111,7 @@ function main() {
       assignment_id: assignment.assignment_id,
       target_label: assignment.target_label,
       source_query: assignment.source_query,
+      primary_source_url: assignment.primary_source_url || '',
       lead_target: Number(assignment.lead_target || 0),
       minimum_accepted_leads: Number(assignment.minimum_accepted_leads || 0),
       template_path: outputPath.replace(`${root}/`, ''),
@@ -140,6 +145,8 @@ Copy a template from \`data/raw/external-leads/templates/\` to \`data/raw/extern
 | Assignment | Label | Rows | Template | Completed file |
 | --- | --- | ---: | --- | --- |
 ${summary.first_templates.map((row) => `| ${row.assignment_id} | ${row.target_label} | ${row.lead_target} | \`${row.template_path}\` | \`${row.completed_path}\` |`).join('\n')}
+
+Each blank row pre-fills \`target_label\`, \`source_name\`, \`source_query\`, and a rotating \`source_url\` from the assignment's generated TikTok/search URLs.
 `)
 
   console.log(JSON.stringify(summary, null, 2))

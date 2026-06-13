@@ -1,6 +1,6 @@
 # External Lead Templates
 
-Generated: 2026-06-13T02:25:09.636Z
+Generated: 2026-06-13T02:28:37.911Z
 
 - Templates: 120
 - Total template rows: 30000
@@ -33,3 +33,5 @@ Copy a template from `data/raw/external-leads/templates/` to `data/raw/external-
 | external_packet_0018 | editor | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0018-editor.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0018-editor.csv` |
 | external_packet_0019 | vfx_animation | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-vfx_animation.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-vfx_animation.csv` |
 | external_packet_0020 | actor_performer | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0020-actor_performer.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-actor_performer.csv` |
+
+Each blank row pre-fills `target_label`, `source_name`, `source_query`, and a rotating `source_url` from the assignment's generated TikTok/search URLs.
