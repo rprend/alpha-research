@@ -1,11 +1,11 @@
 {"label":"editor","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":5000,"priority":1}
 {"label":"film_educator","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3000,"priority":1}
 {"label":"behind_the_scenes_creator","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3000,"priority":1}
-{"label":"filmmaker","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":7993,"priority":2}
+{"label":"filmmaker","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":7967,"priority":2}
 {"label":"sketch_comedian","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":6996,"priority":2}
 {"label":"cinematographer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":4999,"priority":2}
-{"label":"vfx_animation","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":4966,"priority":2}
-{"label":"director","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3994,"priority":2}
-{"label":"standup_comedian","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3986,"priority":2}
-{"label":"actor_performer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3960,"priority":2}
+{"label":"vfx_animation","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":4816,"priority":2}
+{"label":"director","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3988,"priority":2}
+{"label":"standup_comedian","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3961,"priority":2}
+{"label":"actor_performer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3911,"priority":2}
 {"label":"creative_technologist","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":0,"review_gap":25,"useful_gap":1999,"priority":2}

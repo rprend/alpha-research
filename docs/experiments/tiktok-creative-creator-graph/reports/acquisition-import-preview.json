@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-13T05:51:16.764Z",
+  "generated_at": "2026-06-13T06:07:50.822Z",
   "mode": "preview",
-  "input_rows": 53665,
-  "normalized_rows": 53665,
+  "input_rows": 62658,
+  "normalized_rows": 62658,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 42833,
+  "duplicate_normalized_rows": 51826,
   "output_accounts": 10832,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
@@ -125,11 +125,48 @@
     "2026-06-13T04-25-30-530Z-external-lead-list.jsonl": 47,
     "2026-06-13T04-53-21-209Z-wikidata-tiktok-creators.jsonl": 7892,
     "2026-06-13T05-11-57-659Z-public-editorial-pages.jsonl": 798,
+    "2026-06-13T05-59-15-953Z-public-profile-enrichment.jsonl": 458,
+    "2026-06-13T06-02-10-832Z-external-lead-list.jsonl": 154,
+    "2026-06-13T06-02-10-868Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-10-900Z-external-lead-list.jsonl": 119,
+    "2026-06-13T06-02-10-933Z-external-lead-list.jsonl": 229,
+    "2026-06-13T06-02-10-964Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-10-996Z-external-lead-list.jsonl": 39,
+    "2026-06-13T06-02-11-026Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-058Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-091Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-123Z-external-lead-list.jsonl": 192,
+    "2026-06-13T06-02-11-156Z-external-lead-list.jsonl": 18,
+    "2026-06-13T06-02-11-186Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-220Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-254Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-286Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-320Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-353Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-385Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-416Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-448Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-480Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-512Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-543Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-576Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-609Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-641Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-674Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-706Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-737Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-770Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-803Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-835Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-868Z-external-lead-list.jsonl": 122,
+    "2026-06-13T06-02-11-901Z-external-lead-list.jsonl": 250,
+    "2026-06-13T06-02-11-936Z-external-lead-list.jsonl": 10,
+    "2026-06-13T06-02-24-395Z-public-profile-enrichment.jsonl": 902,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 53659,
+  "mapped_lineage_rows": 62652,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -250,7 +287,44 @@
     "2026-06-13T04-25-30-491Z": 250,
     "2026-06-13T04-25-30-530Z": 47,
     "2026-06-13T04-53-21-209Z": 7892,
-    "2026-06-13T05-11-57-659Z": 798
+    "2026-06-13T05-11-57-659Z": 798,
+    "2026-06-13T05-59-15-953Z": 458,
+    "2026-06-13T06-02-10-832Z": 154,
+    "2026-06-13T06-02-10-868Z": 250,
+    "2026-06-13T06-02-10-900Z": 119,
+    "2026-06-13T06-02-10-933Z": 229,
+    "2026-06-13T06-02-10-964Z": 250,
+    "2026-06-13T06-02-10-996Z": 39,
+    "2026-06-13T06-02-11-026Z": 250,
+    "2026-06-13T06-02-11-058Z": 250,
+    "2026-06-13T06-02-11-091Z": 250,
+    "2026-06-13T06-02-11-123Z": 192,
+    "2026-06-13T06-02-11-156Z": 18,
+    "2026-06-13T06-02-11-186Z": 250,
+    "2026-06-13T06-02-11-220Z": 250,
+    "2026-06-13T06-02-11-254Z": 250,
+    "2026-06-13T06-02-11-286Z": 250,
+    "2026-06-13T06-02-11-320Z": 250,
+    "2026-06-13T06-02-11-353Z": 250,
+    "2026-06-13T06-02-11-385Z": 250,
+    "2026-06-13T06-02-11-416Z": 250,
+    "2026-06-13T06-02-11-448Z": 250,
+    "2026-06-13T06-02-11-480Z": 250,
+    "2026-06-13T06-02-11-512Z": 250,
+    "2026-06-13T06-02-11-543Z": 250,
+    "2026-06-13T06-02-11-576Z": 250,
+    "2026-06-13T06-02-11-609Z": 250,
+    "2026-06-13T06-02-11-641Z": 250,
+    "2026-06-13T06-02-11-674Z": 250,
+    "2026-06-13T06-02-11-706Z": 250,
+    "2026-06-13T06-02-11-737Z": 250,
+    "2026-06-13T06-02-11-770Z": 250,
+    "2026-06-13T06-02-11-803Z": 250,
+    "2026-06-13T06-02-11-835Z": 250,
+    "2026-06-13T06-02-11-868Z": 122,
+    "2026-06-13T06-02-11-901Z": 250,
+    "2026-06-13T06-02-11-936Z": 10,
+    "2026-06-13T06-02-24-395Z": 902
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -1587,26 +1661,63 @@
     "wikidata_Q644687|wikidata_Q2906862|wikidata_Q18810049|wikidata_Q3501317": 1,
     "wikidata_Q3501317|wikidata_Q33999": 1,
     "wikidata_Q974144|wikidata_Q33999": 1,
+    "public_profile_enrichment_2026-06-13T05-59-15-953Z": 458,
+    "external_leads_2026-06-13T06-02-10-832Z": 154,
+    "external_leads_2026-06-13T06-02-10-868Z": 250,
+    "external_leads_2026-06-13T06-02-10-900Z": 119,
+    "external_leads_2026-06-13T06-02-10-933Z": 229,
+    "external_leads_2026-06-13T06-02-10-964Z": 250,
+    "external_leads_2026-06-13T06-02-10-996Z": 39,
+    "external_leads_2026-06-13T06-02-11-026Z": 250,
+    "external_leads_2026-06-13T06-02-11-058Z": 250,
+    "external_leads_2026-06-13T06-02-11-091Z": 250,
+    "external_leads_2026-06-13T06-02-11-123Z": 192,
+    "external_leads_2026-06-13T06-02-11-156Z": 18,
+    "external_leads_2026-06-13T06-02-11-186Z": 250,
+    "external_leads_2026-06-13T06-02-11-220Z": 250,
+    "external_leads_2026-06-13T06-02-11-254Z": 250,
+    "external_leads_2026-06-13T06-02-11-286Z": 250,
+    "external_leads_2026-06-13T06-02-11-320Z": 250,
+    "external_leads_2026-06-13T06-02-11-353Z": 250,
+    "external_leads_2026-06-13T06-02-11-385Z": 250,
+    "external_leads_2026-06-13T06-02-11-416Z": 250,
+    "external_leads_2026-06-13T06-02-11-448Z": 250,
+    "external_leads_2026-06-13T06-02-11-480Z": 250,
+    "external_leads_2026-06-13T06-02-11-512Z": 250,
+    "external_leads_2026-06-13T06-02-11-543Z": 250,
+    "external_leads_2026-06-13T06-02-11-576Z": 250,
+    "external_leads_2026-06-13T06-02-11-609Z": 250,
+    "external_leads_2026-06-13T06-02-11-641Z": 250,
+    "external_leads_2026-06-13T06-02-11-674Z": 250,
+    "external_leads_2026-06-13T06-02-11-706Z": 250,
+    "external_leads_2026-06-13T06-02-11-737Z": 250,
+    "external_leads_2026-06-13T06-02-11-770Z": 250,
+    "external_leads_2026-06-13T06-02-11-803Z": 250,
+    "external_leads_2026-06-13T06-02-11-835Z": 250,
+    "external_leads_2026-06-13T06-02-11-868Z": 122,
+    "external_leads_2026-06-13T06-02-11-901Z": 250,
+    "external_leads_2026-06-13T06-02-11-936Z": 10,
+    "public_profile_enrichment_2026-06-13T06-02-24-395Z": 902,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
     "editorial_list_public_web": 2955,
-    "tiktok_public_profile_html": 976,
+    "tiktok_public_profile_html": 2336,
     "brightdata_public_github_sample": 29,
     "wikidata_sparql": 26858,
     "huggingface_dataset_viewer": 1,
     "public_editorial_page": 1703,
-    "external_lead_list": 21116,
+    "external_lead_list": 28749,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": false,
     "normalized_rate": 1,
-    "duplicate_rate": 0.79815522221187,
-    "output_rate": 0.20184477778813006,
+    "duplicate_rate": 0.8271250279293945,
+    "output_rate": 0.1728749720706055,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.65,
@@ -1615,7 +1726,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "53665 input rows"
+        "evidence": "62658 input rows"
       },
       {
         "id": "handle_extraction",
@@ -1625,12 +1736,12 @@
       {
         "id": "duplicate_pressure",
         "status": "fail",
-        "evidence": "79.8% duplicate normalized rows, threshold 65.0% (metadata overlay)"
+        "evidence": "82.7% duplicate normalized rows, threshold 65.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "53659/53665 rows mapped to provider/wave lineage"
+        "evidence": "62652/62658 rows mapped to provider/wave lineage"
       }
     ]
   },
@@ -1649,7 +1760,8 @@
         "wikidata_Q2045208",
         "wikidata_Q109459317",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1670,7 +1782,8 @@
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "tiktok_newsroom_awards_us_2025_nominees",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1693,7 +1806,8 @@
         "wikidata_Q33999",
         "wikidata_Q10800557",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1713,7 +1827,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1732,7 +1847,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1751,7 +1867,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1777,7 +1894,8 @@
         "wikidata_Q33999",
         "wikidata_Q5716684",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1797,7 +1915,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1818,7 +1937,8 @@
         "wikidata_Q245068",
         "wikidata_Q33999",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1839,7 +1959,8 @@
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "wikidata_Q245068",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1859,7 +1980,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1878,7 +2000,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1898,7 +2021,8 @@
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "tiktok_newsroom_discover_2022",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1919,7 +2043,8 @@
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "tiktok_newsroom_discover_2022",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1939,7 +2064,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1958,7 +2084,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1977,7 +2104,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -1996,7 +2124,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -2015,7 +2144,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -2034,7 +2164,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -2053,7 +2184,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -2073,7 +2205,8 @@
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "tiktok_newsroom_discover_2021",
         "external_leads_2026-06-13T04-19-44-336Z",
-        "external_leads_2026-06-13T04-25-29-157Z"
+        "external_leads_2026-06-13T04-25-29-157Z",
+        "external_leads_2026-06-13T06-02-11-026Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -2093,7 +2226,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -2112,7 +2246,8 @@
         "feedspot_comedy_tiktok_2026",
         "public_profile_enrichment_2026-06-13T01-31-21-859Z",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -2134,7 +2269,8 @@
         "wikidata_Q2405480",
         "wikidata_Q33999",
         "external_leads_2026-06-13T04-19-44-727Z",
-        "external_leads_2026-06-13T04-25-28-941Z"
+        "external_leads_2026-06-13T04-25-28-941Z",
+        "external_leads_2026-06-13T06-02-10-900Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",

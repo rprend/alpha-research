@@ -1,23 +1,23 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T05:51:18.135Z
+Generated: 2026-06-13T06:07:52.343Z
 
 ## Summary
 
 - Accounts: 10837
-- Videos: 77
-- Graph edges: 639
-- Useful accounts: 107
+- Videos: 83
+- Graph edges: 1465
+- Useful accounts: 363
 - Excellent accounts: 6
 - Review queue: 10837
-- Expansion queue: 38
+- Expansion queue: 101
 - Target: 50000
-- Target status: 49893 more useful accounts needed
+- Target status: 49637 more useful accounts needed
 
 ## Status Counts
 
-- useful: 101
-- needs_review: 10728
+- useful: 357
+- needs_review: 10472
 - excellent: 6
 - reject: 2
 
@@ -48,18 +48,18 @@ Generated: 2026-06-13T05:51:18.135Z
 | @lucybits | sketch_comedian | 85 | excellent |
 | @renderjules | creative_technologist | 78 | useful |
 | @fluffyguy | standup_comedian | 77 | useful |
+| @butchhartman | vfx_animation | 75 | useful |
 | @kevinjamesofficial | filmmaker | 73 | useful |
+| @paulmccartney | filmmaker | 73 | useful |
+| @bobdylan | director | 73 | useful |
+| @davidbowie | vfx_animation | 73 | useful |
+| @anthonyhopkins | filmmaker | 73 | useful |
+| @louisckx | standup_comedian | 73 | useful |
+| @xirimpi | vfx_animation | 73 | useful |
 | @ben_brainard | standup_comedian | 72 | useful |
 | @devonrodriguezart | vfx_animation | 72 | useful |
 | @jlo | actor_performer | 72 | useful |
-| @jalaiahharmon | vfx_animation | 72 | useful |
-| @xtina | director | 70 | useful |
-| @kingbach | actor_performer | 69 | useful |
-| @jeffdunham | standup_comedian | 69 | useful |
-| @joshjohnsoncomedy | standup_comedian | 69 | useful |
-| @jessicakirson | standup_comedian | 69 | useful |
-| @itsjojosiwa | standup_comedian | 69 | useful |
-| @matt_rife | standup_comedian | 68 | useful |
+| @chaokomaker | vfx_animation | 72 | useful |
 
 ## Next Expansion Targets
 
@@ -82,14 +82,14 @@ Generated: 2026-06-13T05:51:18.135Z
 | expand_from_creator | @xtina | 1 | high_usefulness_source |
 | expand_from_creator | @kesha | 1 | high_usefulness_source |
 | expand_from_creator | @anitta | 1 | high_usefulness_source |
+| expand_from_creator | @matticusbricks | 1 | high_usefulness_source |
 | expand_from_creator | @luca.lego | 1 | high_usefulness_source |
 | expand_from_creator | @thelegomommy | 1 | high_usefulness_source |
+| expand_from_creator | @taylormadebricks | 1 | high_usefulness_source |
+| expand_from_creator | @thecontouredlibrarian | 1 | high_usefulness_source |
 | expand_from_creator | @youcancallmekait | 1 | high_usefulness_source |
 | expand_from_creator | @kaileemcoleman | 1 | high_usefulness_source |
 | expand_from_creator | @itsjojosiwa | 1 | high_usefulness_source |
-| expand_from_creator | @ninja | 1 | high_usefulness_source |
-| expand_from_creator | @poki | 1 | high_usefulness_source |
-| expand_from_creator | @myth | 1 | high_usefulness_source |
 
 ## Human Review Queue
 
@@ -105,18 +105,18 @@ Generated: 2026-06-13T05:51:18.135Z
 | @clipvaultcinema | reject | 0 | repost_risk |
 | @renderjules | creative_technologist | 78 | strong_public_source_candidate |
 | @fluffyguy | standup_comedian | 77 | strong_public_source_candidate |
+| @butchhartman | vfx_animation | 75 | strong_public_source_candidate |
 | @kevinjamesofficial | filmmaker | 73 | strong_public_source_candidate |
+| @paulmccartney | filmmaker | 73 | strong_public_source_candidate |
+| @bobdylan | director | 73 | strong_public_source_candidate |
+| @davidbowie | vfx_animation | 73 | strong_public_source_candidate |
+| @anthonyhopkins | filmmaker | 73 | strong_public_source_candidate |
+| @louisckx | standup_comedian | 73 | strong_public_source_candidate |
+| @xirimpi | vfx_animation | 73 | strong_public_source_candidate |
 | @ben_brainard | standup_comedian | 72 | strong_public_source_candidate |
 | @devonrodriguezart | vfx_animation | 72 | strong_public_source_candidate |
 | @jlo | actor_performer | 72 | strong_public_source_candidate |
-| @jalaiahharmon | vfx_animation | 72 | strong_public_source_candidate |
-| @xtina | director | 70 | strong_public_source_candidate |
-| @kingbach | actor_performer | 69 | strong_public_source_candidate |
-| @jeffdunham | standup_comedian | 69 | strong_public_source_candidate |
-| @joshjohnsoncomedy | standup_comedian | 69 | strong_public_source_candidate |
-| @jessicakirson | standup_comedian | 69 | strong_public_source_candidate |
-| @itsjojosiwa | standup_comedian | 69 | strong_public_source_candidate |
-| @matt_rife | standup_comedian | 68 | strong_public_source_candidate |
-| @anitta | actor_performer | 68 | strong_public_source_candidate |
-| @ninja | vfx_animation | 68 | strong_public_source_candidate |
-| @myth | vfx_animation | 68 | strong_public_source_candidate |
+| @chaokomaker | vfx_animation | 72 | strong_public_source_candidate |
+| @jaufibla | vfx_animation | 72 | strong_public_source_candidate |
+| @ilizas | standup_comedian | 72 | strong_public_source_candidate |
+| @chrissandersart | vfx_animation | 72 | strong_public_source_candidate |

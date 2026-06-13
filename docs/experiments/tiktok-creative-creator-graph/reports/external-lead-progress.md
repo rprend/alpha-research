@@ -1,18 +1,18 @@
 # External Lead Progress
 
-Generated: 2026-06-13T05:51:21.127Z
+Generated: 2026-06-13T06:07:55.841Z
 
 - Packet assignments: 200
-- Completed files seen: 98
-- Import-ready assignments: 50
-- Not started assignments: 150
+- Completed files seen: 143
+- Import-ready assignments: 49
+- Not started assignments: 151
 - Needs-fix assignments: 0
 - No-valid-handles assignments: 0
-- Under-minimum ready assignments: 8
-- Ready-to-import assignments: 42
-- Valid leads: 10808
+- Under-minimum ready assignments: 9
+- Ready-to-import assignments: 40
+- Valid leads: 10314
 - Requested leads: 50000
-- Lead fill ratio: 0.216
+- Lead fill ratio: 0.206
 - Duplicate handles: 0
 
 ## Next Assignments
@@ -26,18 +26,18 @@ Generated: 2026-06-13T05:51:21.127Z
 | external_packet_0007 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0007-editor.csv |
 | external_packet_0008 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0008-editor.csv |
 | external_packet_0009 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0009-editor.csv |
-| external_packet_0010 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0010-editor.csv |
-| external_packet_0011 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0011-editor.csv |
-| external_packet_0012 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0012-editor.csv |
-| external_packet_0013 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0013-editor.csv |
-| external_packet_0015 | standup_comedian | under_minimum_ready | 119 | 250 | node docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0015-standup_comedian.csv |
+| external_packet_0011 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0011-filmmaker.csv |
+| external_packet_0013 | standup_comedian | under_minimum_ready | 119 | 250 | node docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0013-standup_comedian.csv |
+| external_packet_0014 | standup_comedian | not_started | 0 | 250 | Create data/raw/external-leads/completed/0014-standup_comedian.csv |
 | external_packet_0016 | standup_comedian | not_started | 0 | 250 | Create data/raw/external-leads/completed/0016-standup_comedian.csv |
-| external_packet_0017 | standup_comedian | not_started | 0 | 250 | Create data/raw/external-leads/completed/0017-standup_comedian.csv |
-| external_packet_0019 | director | not_started | 0 | 250 | Create data/raw/external-leads/completed/0019-director.csv |
-| external_packet_0022 | cinematographer | under_minimum_ready | 39 | 250 | node docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0022-cinematographer.csv |
-| external_packet_0026 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0026-cinematographer.csv |
-| external_packet_0028 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0028-filmmaker.csv |
-| external_packet_0030 | vfx_animation | not_started | 0 | 250 | Create data/raw/external-leads/completed/0030-vfx_animation.csv |
+| external_packet_0017 | director | not_started | 0 | 250 | Create data/raw/external-leads/completed/0017-director.csv |
+| external_packet_0020 | cinematographer | under_minimum_ready | 39 | 250 | node docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-cinematographer.csv |
+| external_packet_0021 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0021-filmmaker.csv |
+| external_packet_0024 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0024-cinematographer.csv |
+| external_packet_0025 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0025-filmmaker.csv |
+| external_packet_0029 | vfx_animation | not_started | 0 | 250 | Create data/raw/external-leads/completed/0029-vfx_animation.csv |
+| external_packet_0030 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0030-editor.csv |
 | external_packet_0031 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0031-editor.csv |
+| external_packet_0032 | editor | not_started | 0 | 250 | Create data/raw/external-leads/completed/0032-editor.csv |
 
 Status CSV: `data/processed/external_lead_packet_status.csv`

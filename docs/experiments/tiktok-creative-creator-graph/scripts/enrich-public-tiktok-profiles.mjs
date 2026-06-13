@@ -14,6 +14,8 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 
 const maxProfiles = Number(args.get('--max-profiles') ?? 100)
 const minUsefulness = Number(args.get('--min-usefulness') ?? 35)
+const requestTimeoutMs = Number(args.get('--request-timeout-ms') ?? 15000)
+const progressEvery = Number(args.get('--progress-every') ?? 50)
 const dryRun = args.has('--dry-run')
 const includeAttempted = args.has('--include-attempted')
 const selectionMode = String(args.get('--selection-mode') ?? 'review_priority')
@@ -184,12 +186,15 @@ function profileInfoFromUniversalData(data) {
 }
 
 async function fetchProfile(profile) {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), requestTimeoutMs)
   const response = await fetch(profile.profile_url, {
+    signal: controller.signal,
     headers: {
       'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/125 Safari/537.36',
       accept: 'text/html,application/xhtml+xml',
     },
-  })
+  }).finally(() => clearTimeout(timeout))
   if (!response.ok) throw new Error(`profile request failed ${response.status}`)
   const html = await response.text()
   const info = profileInfoFromUniversalData(extractUniversalData(html))
@@ -236,7 +241,7 @@ async function main() {
   const outputRows = []
   const profileReports = []
 
-  for (const profile of profiles) {
+  for (const [index, profile] of profiles.entries()) {
     const startedAt = new Date().toISOString()
     try {
       const info = dryRun ? null : await fetchProfile(profile)
@@ -260,6 +265,9 @@ async function main() {
         finished_at: new Date().toISOString(),
       })
     }
+    if (progressEvery > 0 && ((index + 1) % progressEvery === 0 || index + 1 === profiles.length)) {
+      console.error(`public-profile-enrichment progress ${index + 1}/${profiles.length}: ${outputRows.length} succeeded, ${profileReports.filter((row) => row.status === 'failed').length} failed`)
+    }
   }
 
   const outputPath = join(acquisitionResultsDir, `${executionId}-public-profile-enrichment.jsonl`)
@@ -274,6 +282,7 @@ async function main() {
     dry_run: dryRun,
     include_attempted: includeAttempted,
     selection_mode: selectionMode,
+    request_timeout_ms: requestTimeoutMs,
     selected_profiles: profiles.length,
     output_rows: outputRows.length,
     output_path: dryRun || !outputRows.length ? '' : outputPath.replace(`${root}/`, ''),

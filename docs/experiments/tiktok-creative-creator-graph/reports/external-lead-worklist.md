@@ -1,20 +1,20 @@
 # External Lead Source Worklist
 
-Generated: 2026-06-13T05:51:20.388Z
+Generated: 2026-06-13T06:07:54.749Z
 
 This breaks the token-free acquisition packet into smaller source-level collection units. Work items point to a specific TikTok/search URL, a target label, a quota, and the completed file where accepted leads should land.
 
 ## Summary
 
 - Assignment rows: 200
-- Work items: 833
+- Work items: 831
 - Total lead quota: 50000
 - Source worklist CSV: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/source-worklist.csv`
 - Source worklist JSONL: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/source-worklist.jsonl`
 
 ## Source Kinds
 
-- tiktok_hashtag: 33
+- tiktok_hashtag: 31
 - tiktok_user_search: 200
 - tiktok_video_search: 200
 - google_search: 200
@@ -42,12 +42,12 @@ This breaks the token-free acquisition packet into smaller source-level collecti
 | external_source_0004_02 | external_packet_0004 | editor | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=FeedSpot%20Top%20Comedy%20TikTok%20Influencers%202026 | 0004-editor.csv |
 | external_source_0004_03 | external_packet_0004 | editor | google_search | 62 | https://www.google.com/search?q=FeedSpot%20Top%20Comedy%20TikTok%20Influencers%202026 | 0004-editor.csv |
 | external_source_0004_04 | external_packet_0004 | editor | bing_search | 62 | https://www.bing.com/search?q=FeedSpot%20Top%20Comedy%20TikTok%20Influencers%202026 | 0004-editor.csv |
-| external_source_0005_01 | external_packet_0005 | editor | tiktok_user_search | 63 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Dance%20TikTok%20Influencers%202026 | 0005-editor.csv |
-| external_source_0005_02 | external_packet_0005 | editor | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=FeedSpot%20Top%20Dance%20TikTok%20Influencers%202026 | 0005-editor.csv |
-| external_source_0005_03 | external_packet_0005 | editor | google_search | 62 | https://www.google.com/search?q=FeedSpot%20Top%20Dance%20TikTok%20Influencers%202026 | 0005-editor.csv |
-| external_source_0005_04 | external_packet_0005 | editor | bing_search | 62 | https://www.bing.com/search?q=FeedSpot%20Top%20Dance%20TikTok%20Influencers%202026 | 0005-editor.csv |
-| external_source_0006_01 | external_packet_0006 | editor | tiktok_user_search | 63 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Entertainment%20TikTok%20Influencers%202026 | 0006-editor.csv |
-| external_source_0006_02 | external_packet_0006 | editor | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=FeedSpot%20Top%20Entertainment%20TikTok%20Influencers%202026 | 0006-editor.csv |
-| external_source_0006_03 | external_packet_0006 | editor | google_search | 62 | https://www.google.com/search?q=FeedSpot%20Top%20Entertainment%20TikTok%20Influencers%202026 | 0006-editor.csv |
+| external_source_0005_01 | external_packet_0005 | editor | tiktok_user_search | 63 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Gaming%20TikTok%20Influencers%202026 | 0005-editor.csv |
+| external_source_0005_02 | external_packet_0005 | editor | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=FeedSpot%20Top%20Gaming%20TikTok%20Influencers%202026 | 0005-editor.csv |
+| external_source_0005_03 | external_packet_0005 | editor | google_search | 62 | https://www.google.com/search?q=FeedSpot%20Top%20Gaming%20TikTok%20Influencers%202026 | 0005-editor.csv |
+| external_source_0005_04 | external_packet_0005 | editor | bing_search | 62 | https://www.bing.com/search?q=FeedSpot%20Top%20Gaming%20TikTok%20Influencers%202026 | 0005-editor.csv |
+| external_source_0006_01 | external_packet_0006 | editor | tiktok_user_search | 63 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Latin%20Music%20TikTok%20Influencers%202026 | 0006-editor.csv |
+| external_source_0006_02 | external_packet_0006 | editor | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=FeedSpot%20Top%20Latin%20Music%20TikTok%20Influencers%202026 | 0006-editor.csv |
+| external_source_0006_03 | external_packet_0006 | editor | google_search | 62 | https://www.google.com/search?q=FeedSpot%20Top%20Latin%20Music%20TikTok%20Influencers%202026 | 0006-editor.csv |
 
 Full worklist: `data/raw/external-leads/source-worklist.csv`

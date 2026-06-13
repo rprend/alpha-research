@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-13T05:51:21.374Z",
+  "generated_at": "2026-06-13T06:07:56.080Z",
   "accounts": 10837,
   "refresh_tasks": 10837,
-  "due_or_high_value_tasks": 107,
+  "due_or_high_value_tasks": 363,
   "cadence_counts": {
     "weekly": 6,
     "monthly": 10829,
@@ -10,7 +10,7 @@
   },
   "priority_counts": {
     "1": 6,
-    "2": 101,
-    "4": 10730
+    "2": 357,
+    "4": 10474
   }
 }

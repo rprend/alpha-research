@@ -1,10 +1,10 @@
 # Refresh Plan
 
-Generated: 2026-06-13T05:51:21.374Z
+Generated: 2026-06-13T06:07:56.080Z
 
 - Accounts: 10837
 - Refresh tasks: 10837
-- Due or high-value tasks: 107
+- Due or high-value tasks: 363
 
 ## Cadence Counts
 
@@ -15,7 +15,7 @@ Generated: 2026-06-13T05:51:21.374Z
 ## Priority Counts
 
 - P1: 6
-- P2: 101
-- P4: 10730
+- P2: 357
+- P4: 10474
 
 Task files: `data/processed/refresh_tasks.jsonl`, `data/processed/refresh_tasks.csv`

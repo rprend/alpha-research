@@ -1,17 +1,17 @@
 # Adjacency Expansion
 
-Generated: 2026-06-13T05:51:18.690Z
+Generated: 2026-06-13T06:07:52.979Z
 
-- Base rows: 38
-- Expansion rows: 83
-- Added rows: 45
+- Base rows: 101
+- Expansion rows: 154
+- Added rows: 53
 
 ## Types
 
-- expand_from_creator: 38
+- expand_from_creator: 101
 - hashtag_search: 12
-- cross_platform_search: 9
-- yield_replay_search: 24
+- cross_platform_search: 16
+- yield_replay_search: 25
 
 ## Top Rows
 
@@ -38,7 +38,7 @@ Generated: 2026-06-13T05:51:18.690Z
 | cross_platform_search | 1 | site:youtube.com "tiktok.com/@" "sketch comedian" | cross_platform_adjacency:youtube.com |
 | expand_from_creator | 1 | @renderjules | high_usefulness_source |
 | expand_from_creator | 1 | @fluffyguy | high_usefulness_source |
-| expand_from_creator | 1 | @kevinjamesofficial | high_usefulness_source |
-| expand_from_creator | 1 | @ben_brainard | high_usefulness_source |
-| expand_from_creator | 1 | @devonrodriguezart | high_usefulness_source |
-| expand_from_creator | 1 | @jalaiahharmon | high_usefulness_source |
+| expand_from_creator | 1 | @butchhartman | high_usefulness_source |
+| expand_from_creator | 1 | @anthonyhopkins | high_usefulness_source |
+| expand_from_creator | 1 | @bobdylan | high_usefulness_source |
+| expand_from_creator | 1 | @davidbowie | high_usefulness_source |

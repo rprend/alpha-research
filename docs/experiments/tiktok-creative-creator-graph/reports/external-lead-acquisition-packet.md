@@ -1,14 +1,14 @@
 # External Lead Acquisition Packet
 
-Generated: 2026-06-13T05:51:20.346Z
+Generated: 2026-06-13T06:07:54.707Z
 
 This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by `import-external-lead-list.mjs`. The default packet is sized to request at least the 50,000-lead discovery target before downstream quality filtering.
 
 ## Current Gap
 
 - Target useful creators: 50000
-- Current useful creators: 107
-- Useful gap: 49893
+- Current useful creators: 363
+- Useful gap: 49637
 - Assignment rows: 200
 - Requested leads in this packet: 50000
 - Category rows: 11
@@ -38,22 +38,22 @@ Accept public TikTok profiles with original creative work and visible craft, pro
 | external_packet_0002 | actor_performer | 250 | tiktok_hashtag_export | actor | https://www.tiktok.com/tag/actor |
 | external_packet_0003 | editor | 250 | search_index | FeedSpot Top Children Book TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Children%20Book%20TikTok%20Influencers%202026 |
 | external_packet_0004 | editor | 250 | search_index | FeedSpot Top Comedy TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Comedy%20TikTok%20Influencers%202026 |
-| external_packet_0005 | editor | 250 | search_index | FeedSpot Top Dance TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Dance%20TikTok%20Influencers%202026 |
-| external_packet_0006 | editor | 250 | search_index | FeedSpot Top Entertainment TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Entertainment%20TikTok%20Influencers%202026 |
-| external_packet_0007 | editor | 250 | search_index | FeedSpot Top Gaming TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Gaming%20TikTok%20Influencers%202026 |
-| external_packet_0008 | editor | 250 | search_index | FeedSpot Top Latin Music TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Latin%20Music%20TikTok%20Influencers%202026 |
-| external_packet_0009 | editor | 250 | search_index | FeedSpot Top Lego TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Lego%20TikTok%20Influencers%202026 |
-| external_packet_0010 | editor | 250 | search_index | FeedSpot Top Mobile Gaming TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Mobile%20Gaming%20TikTok%20Influencers%202026 |
-| external_packet_0011 | editor | 250 | search_index | FeedSpot Top Music TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Music%20TikTok%20Influencers%202026 |
-| external_packet_0012 | editor | 250 | search_index | FeedSpot Top New York Art TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20New%20York%20Art%20TikTok%20Influencers%202026 |
-| external_packet_0013 | editor | 250 | search_index | FeedSpot Top Pop Music TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Pop%20Music%20TikTok%20Influencers%202026 |
-| external_packet_0014 | actor_performer | 250 | search_index | actor|dancer | https://www.tiktok.com/search/user?q=actor%7Cdancer |
-| external_packet_0015 | standup_comedian | 250 | search_index | comedian | https://www.tiktok.com/search/user?q=comedian |
-| external_packet_0016 | standup_comedian | 250 | search_index | comedian|stand-up comedian | https://www.tiktok.com/search/user?q=comedian%7Cstand-up%20comedian |
-| external_packet_0017 | standup_comedian | 250 | search_index | comedian|voice actor | https://www.tiktok.com/search/user?q=comedian%7Cvoice%20actor |
-| external_packet_0018 | director | 250 | search_index | film director | https://www.tiktok.com/search/user?q=film%20director |
-| external_packet_0019 | director | 250 | search_index | screenwriter|comedian|voice actor|film director|film producer|stand-up comedian | https://www.tiktok.com/search/user?q=screenwriter%7Ccomedian%7Cvoice%20actor%7Cfilm%20director%7Cfilm%20producer%7Cstand-up%20comedian |
-| external_packet_0020 | actor_performer | 250 | search_index | voice actor | https://www.tiktok.com/search/user?q=voice%20actor |
+| external_packet_0005 | editor | 250 | search_index | FeedSpot Top Gaming TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Gaming%20TikTok%20Influencers%202026 |
+| external_packet_0006 | editor | 250 | search_index | FeedSpot Top Latin Music TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Latin%20Music%20TikTok%20Influencers%202026 |
+| external_packet_0007 | editor | 250 | search_index | FeedSpot Top Lego TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Lego%20TikTok%20Influencers%202026 |
+| external_packet_0008 | editor | 250 | search_index | FeedSpot Top Mobile Gaming TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Mobile%20Gaming%20TikTok%20Influencers%202026 |
+| external_packet_0009 | editor | 250 | search_index | FeedSpot Top Pop Music TikTok Influencers 2026 | https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Pop%20Music%20TikTok%20Influencers%202026 |
+| external_packet_0010 | filmmaker | 250 | search_index | screenwriter|comedian | https://www.tiktok.com/search/user?q=screenwriter%7Ccomedian |
+| external_packet_0011 | filmmaker | 250 | search_index | screenwriter|film producer | https://www.tiktok.com/search/user?q=screenwriter%7Cfilm%20producer |
+| external_packet_0012 | actor_performer | 250 | search_index | actor|dancer | https://www.tiktok.com/search/user?q=actor%7Cdancer |
+| external_packet_0013 | standup_comedian | 250 | search_index | comedian | https://www.tiktok.com/search/user?q=comedian |
+| external_packet_0014 | standup_comedian | 250 | search_index | comedian|stand-up comedian | https://www.tiktok.com/search/user?q=comedian%7Cstand-up%20comedian |
+| external_packet_0015 | director | 250 | search_index | film director | https://www.tiktok.com/search/user?q=film%20director |
+| external_packet_0016 | standup_comedian | 250 | search_index | screenwriter|comedian|stand-up comedian | https://www.tiktok.com/search/user?q=screenwriter%7Ccomedian%7Cstand-up%20comedian |
+| external_packet_0017 | director | 250 | search_index | screenwriter|film director | https://www.tiktok.com/search/user?q=screenwriter%7Cfilm%20director |
+| external_packet_0018 | director | 250 | search_index | screenwriter|film director|film producer | https://www.tiktok.com/search/user?q=screenwriter%7Cfilm%20director%7Cfilm%20producer |
+| external_packet_0019 | actor_performer | 250 | search_index | voice actor | https://www.tiktok.com/search/user?q=voice%20actor |
+| external_packet_0020 | cinematographer | 250 | tiktok_hashtag_export | cinematography | https://www.tiktok.com/tag/cinematography |
 
 Full assignment CSV: `data/raw/external-leads/acquisition-packet.csv`
 Category target CSV: `data/raw/external-leads/category-targets.csv`

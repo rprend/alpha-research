@@ -1,12 +1,12 @@
 # Identity Resolution
 
-Generated: 2026-06-13T05:51:18.881Z
+Generated: 2026-06-13T06:07:53.183Z
 
 - Accounts: 10837
-- Identities: 10686
-- Duplicate risk clusters: 130
-- Identity evidence rows: 32968
-- High-confidence external links: 462
+- Identities: 10684
+- Duplicate risk clusters: 131
+- Identity evidence rows: 33563
+- High-confidence external links: 1057
 
 ## Duplicate Risk Queue
 
@@ -30,10 +30,10 @@ Generated: 2026-06-13T05:51:18.881Z
 | creator_identity_63ee06049a85 | 2 | @pilotmaria; @curlyysenpai | shared identity key |
 | creator_identity_8ac7a7c4eb61 | 2 | @pilotdanielav; @daniel.walker_ | shared identity key |
 | creator_identity_bf5e27c8547c | 2 | @danielmartinilo; @darksotmusician | shared identity key |
-| creator_identity_1fbfa20d1d44 | 2 | @thesommerset; @kayreadwhat | shared identity key |
-| creator_identity_af741baee68c | 2 | @meesesgaming; @emilybookedup | shared identity key |
+| creator_identity_6e7e0b52aa4c | 2 | @thesommerset; @kayreadwhat | shared identity key |
+| creator_identity_47db64d293df | 3 | @aerithyt; @vampyro111; @leeannavamp | shared identity key |
+| creator_identity_891e56559307 | 2 | @meesesgaming; @emilybookedup | shared identity key |
 | creator_identity_2131063926c4 | 3 | @annas.books; @milkfeddd; @notannareportsnews | shared identity key |
 | creator_identity_f1ef17755c13 | 2 | @giselles.library; @giselleweddingplanner | shared identity key |
 | creator_identity_caf5db861c57 | 2 | @kristinasensual; @astrokristina | shared identity key |
-| creator_identity_e0a5718622e1 | 2 | @laurens.little.library; @laurenzsideyt | shared identity key |
-| creator_identity_85bda95e29ec | 5 | @lidoffadaffodil; @polewithsam; @thenursesam1; @pizzaqueensam; @halloweenhappysam | shared identity key |
+| creator_identity_b447be276c79 | 2 | @laurens.little.library; @laurenzsideyt | shared identity key |

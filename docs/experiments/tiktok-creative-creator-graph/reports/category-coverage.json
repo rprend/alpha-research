@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T05:51:18.945Z",
+  "generated_at": "2026-06-13T06:07:53.249Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 8,
@@ -9,29 +9,29 @@
     "behind_the_scenes_creator"
   ],
   "review_decisions": 4,
-  "total_useful_primary_accounts": 107,
-  "total_useful_gap": 49893,
+  "total_useful_primary_accounts": 363,
+  "total_useful_gap": 49637,
   "rows": [
     {
       "label": "filmmaker",
       "target_useful_creators": 8000,
       "current_primary_accounts": 583,
-      "useful_primary_accounts": 7,
+      "useful_primary_accounts": 33,
       "excellent_primary_accounts": 2,
       "secondary_mentions": 287,
       "reviewed_primary_accounts": 1,
-      "useful_gap": 7993,
+      "useful_gap": 7967,
       "recommended_priority": 2
     },
     {
       "label": "director",
       "target_useful_creators": 4000,
       "current_primary_accounts": 283,
-      "useful_primary_accounts": 6,
+      "useful_primary_accounts": 12,
       "excellent_primary_accounts": 0,
-      "secondary_mentions": 120,
+      "secondary_mentions": 121,
       "reviewed_primary_accounts": 0,
-      "useful_gap": 3994,
+      "useful_gap": 3988,
       "recommended_priority": 2
     },
     {
@@ -40,7 +40,7 @@
       "current_primary_accounts": 53,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
-      "secondary_mentions": 46,
+      "secondary_mentions": 52,
       "reviewed_primary_accounts": 0,
       "useful_gap": 4999,
       "recommended_priority": 2
@@ -60,11 +60,11 @@
       "label": "vfx_animation",
       "target_useful_creators": 5000,
       "current_primary_accounts": 748,
-      "useful_primary_accounts": 34,
+      "useful_primary_accounts": 184,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 25,
       "reviewed_primary_accounts": 0,
-      "useful_gap": 4966,
+      "useful_gap": 4816,
       "recommended_priority": 2
     },
     {
@@ -82,22 +82,22 @@
       "label": "standup_comedian",
       "target_useful_creators": 4000,
       "current_primary_accounts": 184,
-      "useful_primary_accounts": 14,
+      "useful_primary_accounts": 39,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 580,
       "reviewed_primary_accounts": 0,
-      "useful_gap": 3986,
+      "useful_gap": 3961,
       "recommended_priority": 2
     },
     {
       "label": "actor_performer",
       "target_useful_creators": 4000,
       "current_primary_accounts": 4553,
-      "useful_primary_accounts": 40,
+      "useful_primary_accounts": 89,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 408,
       "reviewed_primary_accounts": 0,
-      "useful_gap": 3960,
+      "useful_gap": 3911,
       "recommended_priority": 2
     },
     {
@@ -128,7 +128,7 @@
       "current_primary_accounts": 1941,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 0,
-      "secondary_mentions": 1,
+      "secondary_mentions": 2,
       "reviewed_primary_accounts": 1,
       "useful_gap": 1999,
       "recommended_priority": 2

@@ -1,17 +1,17 @@
 expansion_type,source_creator_id,target,priority,reason,primary_label,overall_usefulness,evidence_count
 expand_from_creator,maya.shortcuts,@maya.shortcuts,1,high_usefulness_source,filmmaker,98,1
-hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,24
-hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes,filmmaker,98,49
-hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,24
+hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,26
+hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes,filmmaker,98,53
+hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,26
 cross_platform_search,maya.shortcuts,"site:vimeo.com ""tiktok.com/@"" ""filmmaker""",1,cross_platform_adjacency:vimeo.com,filmmaker,98,1
 expand_from_creator,basementbits,@basementbits,1,high_usefulness_source,sketch_comedian,94,1
-hashtag_search,basementbits,actor,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,24
-hashtag_search,basementbits,sketchcomedy,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,24
+hashtag_search,basementbits,actor,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,26
+hashtag_search,basementbits,sketchcomedy,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,26
 expand_from_creator,selahshoots,@selahshoots,1,high_usefulness_source,filmmaker,92,1
 expand_from_creator,ani.motionlab,@ani.motionlab,1,high_usefulness_source,vfx_animation,87,1
 hashtag_search,ani.motionlab,animation,1,useful_creator_hashtag:@ani.motionlab,vfx_animation,87,1
 hashtag_search,ani.motionlab,blender,1,useful_creator_hashtag:@ani.motionlab,vfx_animation,87,1
-cross_platform_search,ani.motionlab,"site:beacons.ai ""tiktok.com/@"" ""vfx animation""",1,cross_platform_adjacency:beacons.ai,vfx_animation,87,1
+cross_platform_search,agreyno_gaming,"site:beacons.ai ""tiktok.com/@"" ""vfx animation""",1,cross_platform_adjacency:beacons.ai,vfx_animation,87,4
 hashtag_search,ani.motionlab,vfx,1,useful_creator_hashtag:@ani.motionlab|useful_creator_hashtag:@renderjules,vfx_animation,87,2
 expand_from_creator,noahframes,@noahframes,1,high_usefulness_source,cinematographer,86,1
 hashtag_search,noahframes,cinematography,1,useful_creator_hashtag:@noahframes,cinematographer,86,1
@@ -20,65 +20,136 @@ expand_from_creator,lucybits,@lucybits,1,high_usefulness_source,sketch_comedian,
 cross_platform_search,lucybits,"site:youtube.com ""tiktok.com/@"" ""sketch comedian""",1,cross_platform_adjacency:youtube.com,sketch_comedian,85,1
 expand_from_creator,renderjules,@renderjules,1,high_usefulness_source,creative_technologist,78,1
 expand_from_creator,fluffyguy,@fluffyguy,1,high_usefulness_source,standup_comedian,77,1
+expand_from_creator,butchhartman,@butchhartman,1,high_usefulness_source,vfx_animation,75,1
+expand_from_creator,anthonyhopkins,@anthonyhopkins,1,high_usefulness_source,filmmaker,73,1
+expand_from_creator,bobdylan,@bobdylan,1,high_usefulness_source,director,73,1
+expand_from_creator,davidbowie,@davidbowie,1,high_usefulness_source,vfx_animation,73,1
 expand_from_creator,kevinjamesofficial,@kevinjamesofficial,1,high_usefulness_source,filmmaker,73,1
+expand_from_creator,louisckx,@louisckx,1,high_usefulness_source,standup_comedian,73,1
+expand_from_creator,paulmccartney,@paulmccartney,1,high_usefulness_source,filmmaker,73,1
+expand_from_creator,xirimpi,@xirimpi,1,high_usefulness_source,vfx_animation,73,1
 expand_from_creator,ben_brainard,@ben_brainard,1,high_usefulness_source,standup_comedian,72,1
+expand_from_creator,bingcrosbyofficial,@bingcrosbyofficial,1,high_usefulness_source,filmmaker,72,1
+expand_from_creator,carrottoplive,@carrottoplive,1,high_usefulness_source,standup_comedian,72,1
+expand_from_creator,chaokomaker,@chaokomaker,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,chrissandersart,@chrissandersart,1,high_usefulness_source,vfx_animation,72,1
 expand_from_creator,devonrodriguezart,@devonrodriguezart,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,ilizas,@ilizas,1,high_usefulness_source,standup_comedian,72,1
 expand_from_creator,jalaiahharmon,@jalaiahharmon,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,jaredleto,@jaredleto,1,high_usefulness_source,director,72,1
+expand_from_creator,jaufibla,@jaufibla,1,high_usefulness_source,vfx_animation,72,1
 expand_from_creator,jlo,@jlo,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,ranakhadimofficial,@ranakhadimofficial,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,lewishancoxfilms,@lewishancoxfilms,1,high_usefulness_source,vfx_animation,71,1
+expand_from_creator,nickkroll,@nickkroll,1,high_usefulness_source,filmmaker,71,1
+expand_from_creator,roger_g_,@roger_g_,1,high_usefulness_source,vfx_animation,71,1
+expand_from_creator,kasiababa,@kasiababa,1,high_usefulness_source,vfx_animation,70,1
+expand_from_creator,pacohdez77,@pacohdez77,1,high_usefulness_source,vfx_animation,70,1
 expand_from_creator,xtina,@xtina,1,high_usefulness_source,director,70,1
+expand_from_creator,art_p3rry,@art_p3rry,1,high_usefulness_source,vfx_animation,69,1
+expand_from_creator,dabakerboy,@dabakerboy,1,high_usefulness_source,vfx_animation,69,1
+expand_from_creator,drseuss,@drseuss,1,high_usefulness_source,vfx_animation,69,1
 expand_from_creator,itsjojosiwa,@itsjojosiwa,1,high_usefulness_source,standup_comedian,69,1
 expand_from_creator,jeffdunham,@jeffdunham,1,high_usefulness_source,standup_comedian,69,1
 expand_from_creator,jessicakirson,@jessicakirson,1,high_usefulness_source,standup_comedian,69,1
 expand_from_creator,joshjohnsoncomedy,@joshjohnsoncomedy,1,high_usefulness_source,standup_comedian,69,1
 expand_from_creator,kingbach,@kingbach,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,treaclychild,@treaclychild,1,high_usefulness_source,standup_comedian,69,1
 expand_from_creator,anitta,@anitta,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,barakhardley,@barakhardley,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,danpovenmire,@danpovenmire,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,ellendegeneres,@ellendegeneres,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,georgelopez,@georgelopez,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,jacintcasademont,@jacintcasademont,1,high_usefulness_source,director,68,1
+expand_from_creator,jackwhitehall,@jackwhitehall,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,jimgaffigan,@jimgaffigan,1,high_usefulness_source,filmmaker,68,1
+expand_from_creator,jimmycarr,@jimmycarr,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,laetitiaky,@laetitiaky,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,matt_rife,@matt_rife,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,mirceabravo,@mirceabravo,1,high_usefulness_source,filmmaker,68,1
+expand_from_creator,monlaferte,@monlaferte,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,myth,@myth,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,nimrodreshef,@nimrodreshef,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,ninja,@ninja,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,oreltsabari,@oreltsabari,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,realwhitneycummings,@realwhitneycummings,1,high_usefulness_source,filmmaker,68,1
+expand_from_creator,siya_kakkar,@siya_kakkar,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,sonypicturesspain,@sonypicturesspain,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,ssavaart,@ssavaart,1,high_usefulness_source,director,68,1
+expand_from_creator,steveharvey,@steveharvey,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,steven_he,@steven_he,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,thechrismarchese,@thechrismarchese,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,theurigeller,@theurigeller,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,trevornoah,@trevornoah,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,verbalase,@verbalase,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,victorbaissait,@victorbaissait,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,wincentweiss,@wincentweiss,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,yarushinstanislav,@yarushinstanislav,1,high_usefulness_source,standup_comedian,68,1
 expand_from_creator,aiotsuka_official,@aiotsuka_official,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,andreacheong_,@andreacheong_,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,asta.darling,@asta.darling,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,charatsioli,@charatsioli,1,high_usefulness_source,standup_comedian,67,1
 expand_from_creator,dyantai,@dyantai,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,erikarichardo,@erikarichardo,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,hungryartistny,@hungryartistny,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,kaileemcoleman,@kaileemcoleman,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,kesha,@kesha,1,high_usefulness_source,director,67,1
 expand_from_creator,luca.lego,@luca.lego,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,mackenzieziegler,@mackenzieziegler,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,matticusbricks,@matticusbricks,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,maurihaze,@maurihaze,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,michaelavonoeming,@michaelavonoeming,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,poki,@poki,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,prince,@prince,1,high_usefulness_source,filmmaker,67,1
+expand_from_creator,taylormadebricks,@taylormadebricks,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,terrycrews,@terrycrews,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,thaiscarlaa_,@thaiscarlaa_,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,thecontouredlibrarian,@thecontouredlibrarian,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,thelegomommy,@thelegomommy,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,youcancallmekait,@youcancallmekait,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,zachking,@zachking,1,high_usefulness_source,filmmaker,67,1
-expand_from_creator,bobdylan,@bobdylan,1,high_usefulness_source,director,66,1
+expand_from_creator,eupholie_,@eupholie_,1,high_usefulness_source,vfx_animation,66,1
+expand_from_creator,jossstone,@jossstone,1,high_usefulness_source,vfx_animation,66,1
 expand_from_creator,kumailn,@kumailn,1,high_usefulness_source,standup_comedian,66,1
+expand_from_creator,nikitasemplicemente,@nikitasemplicemente,1,high_usefulness_source,actor_performer,66,1
 expand_from_creator,pauldesaintsernin,@pauldesaintsernin,1,high_usefulness_source,actor_performer,66,1
-yield_replay_search,,FeedSpot Top New York Art TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1252.4,4
-yield_replay_search,,FeedSpot Top Comedy TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1207.8,10
-yield_replay_search,,FeedSpot Top Lego TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1116.9,3
-yield_replay_search,,FeedSpot Top Children Book TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1101.2,3
-yield_replay_search,,FeedSpot Top Gaming TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1085.1,8
-yield_replay_search,,FeedSpot Top Mobile Gaming TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1047.8,2
-yield_replay_search,,FeedSpot Top Entertainment TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1019.6,2
-yield_replay_search,,FeedSpot Top Pop Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1005.8,17
-yield_replay_search,,FeedSpot Top Latin Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1004.3,7
-yield_replay_search,,screenwriter|comedian|voice actor|film director|film producer|stand-up comedian,2,replay_high_yield_source:wikidata_profile,,877.5,2
-yield_replay_search,,FeedSpot Top Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,784,2
-yield_replay_search,,comedian|stand-up comedian,2,replay_high_yield_source:wikidata_profile,,746.6,2
-yield_replay_search,,FeedSpot Top Dance TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,741.4,3
-yield_replay_search,,film producer,2,replay_high_yield_source:wikidata_profile,,677.1,3
-yield_replay_search,,comedian|voice actor,2,replay_high_yield_source:wikidata_profile,,673.8,2
-yield_replay_search,,comedian,2,replay_high_yield_source:wikidata_profile,,668.7,6
-yield_replay_search,,voice actor,2,replay_high_yield_source:wikidata_profile,,651.1,5
-yield_replay_search,,film director,2,replay_high_yield_source:wikidata_profile,,639.8,4
-yield_replay_search,,dancer,2,replay_high_yield_source:wikidata_profile,,597.8,9
-yield_replay_search,,actor|dancer,2,replay_high_yield_source:wikidata_profile,,573.8,6
-yield_replay_search,,actor,2,replay_high_yield_source:wikidata_profile,,558.5,14
-yield_replay_search,,influencer,2,replay_high_yield_source:wikidata_profile,,337.6,2
-yield_replay_search,,Internet celebrity,2,replay_high_yield_source:wikidata_profile,,323.6,3
-yield_replay_search,,vlogger|online streamer,2,replay_high_yield_source:wikidata_profile,,305.1,2
+yield_replay_search,,FeedSpot Top Lego TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1354.7,27
+yield_replay_search,,FeedSpot Top Comedy TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1317.6,10
+yield_replay_search,,FeedSpot Top Gaming TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1307.2,9
+yield_replay_search,,FeedSpot Top Children Book TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1304.9,17
+yield_replay_search,,FeedSpot Top Mobile Gaming TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1267,6
+yield_replay_search,,FeedSpot Top Pop Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1104.3,17
+yield_replay_search,,FeedSpot Top Latin Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1099.9,7
+yield_replay_search,,screenwriter|film director|film producer,2,replay_high_yield_source:wikidata_profile,,958.4,6
+yield_replay_search,,screenwriter|comedian|stand-up comedian,2,replay_high_yield_source:wikidata_profile,,955.1,6
+yield_replay_search,,screenwriter|comedian,2,replay_high_yield_source:wikidata_profile,,954.6,9
+yield_replay_search,,screenwriter|film producer,2,replay_high_yield_source:wikidata_profile,,949.7,6
+yield_replay_search,,comedian|stand-up comedian,2,replay_high_yield_source:wikidata_profile,,942.7,8
+yield_replay_search,,screenwriter|film director,2,replay_high_yield_source:wikidata_profile,,888.4,5
+yield_replay_search,,film producer,2,replay_high_yield_source:wikidata_profile,,833.2,7
+yield_replay_search,,comedian,2,replay_high_yield_source:wikidata_profile,,804.8,22
+yield_replay_search,,voice actor,2,replay_high_yield_source:wikidata_profile,,758.4,8
+yield_replay_search,,film director,2,replay_high_yield_source:wikidata_profile,,738.2,6
+yield_replay_search,,dancer,2,replay_high_yield_source:wikidata_profile,,710.7,15
+yield_replay_search,,artist,2,replay_high_yield_source:wikidata_profile,,695.9,18
+yield_replay_search,,actor|dancer,2,replay_high_yield_source:wikidata_profile,,681.7,14
+yield_replay_search,,painter,2,replay_high_yield_source:wikidata_profile,,670,9
+yield_replay_search,,illustrator,2,replay_high_yield_source:wikidata_profile,,661.1,8
+yield_replay_search,,actor,2,replay_high_yield_source:wikidata_profile,,659.2,28
+yield_replay_search,,influencer,2,replay_high_yield_source:wikidata_profile,,399.4,5
+yield_replay_search,,Internet celebrity,2,replay_high_yield_source:wikidata_profile,,382.3,7
 hashtag_search,renderjules,aftereffects,2,useful_creator_hashtag:@renderjules,creative_technologist,78,1
 hashtag_search,renderjules,aivideo,2,useful_creator_hashtag:@renderjules,creative_technologist,78,1
-cross_platform_search,devonrodriguezart,"site:linktr.ee ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:linktr.ee,vfx_animation,72,5
-cross_platform_search,kingbach,"site:youtube.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:youtube.com,actor_performer,69,4
-cross_platform_search,youcancallmekait,"site:instagram.com ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:instagram.com,vfx_animation,67,1
-cross_platform_search,shakira,"site:linktr.ee ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:linktr.ee,actor_performer,66,10
-cross_platform_search,matt_mathews,"site:linktr.ee ""tiktok.com/@"" ""standup comedian""",2,cross_platform_adjacency:linktr.ee,standup_comedian,65,1
-cross_platform_search,gamereviewskvm,"site:youtube.com ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:youtube.com,vfx_animation,63,2
+cross_platform_search,devonrodriguezart,"site:linktr.ee ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:linktr.ee,vfx_animation,73,43
+cross_platform_search,bingcrosbyofficial,"site:beacons.ai ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:beacons.ai,filmmaker,72,1
+cross_platform_search,gamereviewskvm,"site:youtube.com ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:youtube.com,vfx_animation,72,4
+cross_platform_search,kingbach,"site:youtube.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:youtube.com,actor_performer,69,7
+cross_platform_search,youcancallmekait,"site:instagram.com ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:instagram.com,vfx_animation,68,2
+cross_platform_search,bravemarkvins,"site:linktr.ee ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:linktr.ee,filmmaker,68,5
+cross_platform_search,matt_mathews,"site:linktr.ee ""tiktok.com/@"" ""standup comedian""",2,cross_platform_adjacency:linktr.ee,standup_comedian,68,5
+cross_platform_search,nikitasemplicemente,"site:beacons.ai ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:beacons.ai,actor_performer,66,2
+cross_platform_search,shakira,"site:linktr.ee ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:linktr.ee,actor_performer,66,17
+cross_platform_search,tanyaleedavis,"site:beacons.ai ""tiktok.com/@"" ""standup comedian""",2,cross_platform_adjacency:beacons.ai,standup_comedian,65,1
+cross_platform_search,sbezrukov,"site:instagram.com ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:instagram.com,filmmaker,65,1
+cross_platform_search,rebeccazamolo,"site:youtube.com ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:youtube.com,filmmaker,65,1
+cross_platform_search,raulroco_,"site:instagram.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:instagram.com,actor_performer,63,2

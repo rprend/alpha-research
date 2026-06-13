@@ -2,11 +2,11 @@ target_label,target_useful_creators,current_primary_accounts,useful_primary_acco
 editor,5000,89,0,5000,1,video editor | editing breakdown | DaVinci Resolve | Premiere Pro | color grading
 film_educator,3000,1807,0,3000,1,film tutorial | shot breakdown | film school | cinema analysis | camera tutorial
 behind_the_scenes_creator,3000,265,0,3000,1,behind the scenes | on set | set life | production diary | film crew
-filmmaker,8000,583,7,7993,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
+filmmaker,8000,583,33,7967,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
 sketch_comedian,7000,329,4,6996,2,sketch comedy | character comedy | improv | comedy sketch | original sketch
 cinematographer,5000,53,1,4999,2,cinematographer | dp | dop | lighting breakdown | camera test | #cinematography
-vfx_animation,5000,748,34,4966,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
-director,4000,283,6,3994,2,director reel | music video director | commercial director | directed by | writer director
-standup_comedian,4000,184,14,3986,2,standup comedian | stand-up | open mic | crowd work | comedy club
-actor_performer,4000,4553,40,3960,2,actor | performer | monologue | self tape | improv
+vfx_animation,5000,748,184,4816,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
+director,4000,283,12,3988,2,director reel | music video director | commercial director | directed by | writer director
+standup_comedian,4000,184,39,3961,2,standup comedian | stand-up | open mic | crowd work | comedy club
+actor_performer,4000,4553,89,3911,2,actor | performer | monologue | self tape | improv
 creative_technologist,2000,1941,1,1999,2,ai video | Runway | Pika | creative coding | generative ai filmmaker

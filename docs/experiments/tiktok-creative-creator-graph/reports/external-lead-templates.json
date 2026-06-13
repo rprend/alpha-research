@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T05:51:20.626Z",
+  "generated_at": "2026-06-13T06:07:54.988Z",
   "templates": 200,
   "total_template_rows": 50000,
   "template_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates",
@@ -48,8 +48,8 @@
     {
       "assignment_id": "external_packet_0005",
       "target_label": "editor",
-      "source_query": "FeedSpot Top Dance TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Dance%20TikTok%20Influencers%202026",
+      "source_query": "FeedSpot Top Gaming TikTok Influencers 2026",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Gaming%20TikTok%20Influencers%202026",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0005-editor.csv",
@@ -58,8 +58,8 @@
     {
       "assignment_id": "external_packet_0006",
       "target_label": "editor",
-      "source_query": "FeedSpot Top Entertainment TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Entertainment%20TikTok%20Influencers%202026",
+      "source_query": "FeedSpot Top Latin Music TikTok Influencers 2026",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Latin%20Music%20TikTok%20Influencers%202026",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0006-editor.csv",
@@ -68,8 +68,8 @@
     {
       "assignment_id": "external_packet_0007",
       "target_label": "editor",
-      "source_query": "FeedSpot Top Gaming TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Gaming%20TikTok%20Influencers%202026",
+      "source_query": "FeedSpot Top Lego TikTok Influencers 2026",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Lego%20TikTok%20Influencers%202026",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0007-editor.csv",
@@ -78,8 +78,8 @@
     {
       "assignment_id": "external_packet_0008",
       "target_label": "editor",
-      "source_query": "FeedSpot Top Latin Music TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Latin%20Music%20TikTok%20Influencers%202026",
+      "source_query": "FeedSpot Top Mobile Gaming TikTok Influencers 2026",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Mobile%20Gaming%20TikTok%20Influencers%202026",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0008-editor.csv",
@@ -88,8 +88,8 @@
     {
       "assignment_id": "external_packet_0009",
       "target_label": "editor",
-      "source_query": "FeedSpot Top Lego TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Lego%20TikTok%20Influencers%202026",
+      "source_query": "FeedSpot Top Pop Music TikTok Influencers 2026",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Pop%20Music%20TikTok%20Influencers%202026",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0009-editor.csv",
@@ -97,69 +97,69 @@
     },
     {
       "assignment_id": "external_packet_0010",
-      "target_label": "editor",
-      "source_query": "FeedSpot Top Mobile Gaming TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Mobile%20Gaming%20TikTok%20Influencers%202026",
+      "target_label": "filmmaker",
+      "source_query": "screenwriter|comedian",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=screenwriter%7Ccomedian",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0010-editor.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0010-editor.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0010-filmmaker.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0010-filmmaker.csv"
     },
     {
       "assignment_id": "external_packet_0011",
-      "target_label": "editor",
-      "source_query": "FeedSpot Top Music TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Music%20TikTok%20Influencers%202026",
+      "target_label": "filmmaker",
+      "source_query": "screenwriter|film producer",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=screenwriter%7Cfilm%20producer",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0011-editor.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0011-editor.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0011-filmmaker.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0011-filmmaker.csv"
     },
     {
       "assignment_id": "external_packet_0012",
-      "target_label": "editor",
-      "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20New%20York%20Art%20TikTok%20Influencers%202026",
-      "lead_target": 250,
-      "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0012-editor.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0012-editor.csv"
-    },
-    {
-      "assignment_id": "external_packet_0013",
-      "target_label": "editor",
-      "source_query": "FeedSpot Top Pop Music TikTok Influencers 2026",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=FeedSpot%20Top%20Pop%20Music%20TikTok%20Influencers%202026",
-      "lead_target": 250,
-      "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0013-editor.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0013-editor.csv"
-    },
-    {
-      "assignment_id": "external_packet_0014",
       "target_label": "actor_performer",
       "source_query": "actor|dancer",
       "primary_source_url": "https://www.tiktok.com/search/user?q=actor%7Cdancer",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0014-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0014-actor_performer.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0012-actor_performer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0012-actor_performer.csv"
     },
     {
-      "assignment_id": "external_packet_0015",
+      "assignment_id": "external_packet_0013",
       "target_label": "standup_comedian",
       "source_query": "comedian",
       "primary_source_url": "https://www.tiktok.com/search/user?q=comedian",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0015-standup_comedian.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0015-standup_comedian.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0013-standup_comedian.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0013-standup_comedian.csv"
+    },
+    {
+      "assignment_id": "external_packet_0014",
+      "target_label": "standup_comedian",
+      "source_query": "comedian|stand-up comedian",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=comedian%7Cstand-up%20comedian",
+      "lead_target": 250,
+      "minimum_accepted_leads": 150,
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0014-standup_comedian.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0014-standup_comedian.csv"
+    },
+    {
+      "assignment_id": "external_packet_0015",
+      "target_label": "director",
+      "source_query": "film director",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=film%20director",
+      "lead_target": 250,
+      "minimum_accepted_leads": 150,
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0015-director.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0015-director.csv"
     },
     {
       "assignment_id": "external_packet_0016",
       "target_label": "standup_comedian",
-      "source_query": "comedian|stand-up comedian",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=comedian%7Cstand-up%20comedian",
+      "source_query": "screenwriter|comedian|stand-up comedian",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=screenwriter%7Ccomedian%7Cstand-up%20comedian",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0016-standup_comedian.csv",
@@ -167,19 +167,19 @@
     },
     {
       "assignment_id": "external_packet_0017",
-      "target_label": "standup_comedian",
-      "source_query": "comedian|voice actor",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=comedian%7Cvoice%20actor",
+      "target_label": "director",
+      "source_query": "screenwriter|film director",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=screenwriter%7Cfilm%20director",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0017-standup_comedian.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0017-standup_comedian.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0017-director.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0017-director.csv"
     },
     {
       "assignment_id": "external_packet_0018",
       "target_label": "director",
-      "source_query": "film director",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=film%20director",
+      "source_query": "screenwriter|film director|film producer",
+      "primary_source_url": "https://www.tiktok.com/search/user?q=screenwriter%7Cfilm%20director%7Cfilm%20producer",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0018-director.csv",
@@ -187,23 +187,23 @@
     },
     {
       "assignment_id": "external_packet_0019",
-      "target_label": "director",
-      "source_query": "screenwriter|comedian|voice actor|film director|film producer|stand-up comedian",
-      "primary_source_url": "https://www.tiktok.com/search/user?q=screenwriter%7Ccomedian%7Cvoice%20actor%7Cfilm%20director%7Cfilm%20producer%7Cstand-up%20comedian",
-      "lead_target": 250,
-      "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-director.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-director.csv"
-    },
-    {
-      "assignment_id": "external_packet_0020",
       "target_label": "actor_performer",
       "source_query": "voice actor",
       "primary_source_url": "https://www.tiktok.com/search/user?q=voice%20actor",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0020-actor_performer.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-actor_performer.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-actor_performer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-actor_performer.csv"
+    },
+    {
+      "assignment_id": "external_packet_0020",
+      "target_label": "cinematographer",
+      "source_query": "cinematography",
+      "primary_source_url": "https://www.tiktok.com/tag/cinematography",
+      "lead_target": 250,
+      "minimum_accepted_leads": 150,
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0020-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-cinematographer.csv"
     }
   ]
 }

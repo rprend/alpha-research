@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T05:51:19.518Z",
+  "generated_at": "2026-06-13T06:07:53.891Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -43,7 +43,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 7993,
+      "useful_gap": 7967,
       "priority": 2
     },
     {
@@ -70,7 +70,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 4966,
+      "useful_gap": 4816,
       "priority": 2
     },
     {
@@ -79,7 +79,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3994,
+      "useful_gap": 3988,
       "priority": 2
     },
     {
@@ -88,7 +88,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3986,
+      "useful_gap": 3961,
       "priority": 2
     },
     {
@@ -97,7 +97,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3960,
+      "useful_gap": 3911,
       "priority": 2
     },
     {

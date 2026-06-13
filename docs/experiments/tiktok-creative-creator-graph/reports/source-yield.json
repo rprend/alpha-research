@@ -1,7 +1,67 @@
 {
-  "generated_at": "2026-06-13T05:51:18.582Z",
+  "generated_at": "2026-06-13T06:07:52.861Z",
   "sources": 905,
   "best_sources": [
+    {
+      "source_type": "wikidata_profile",
+      "source_name": "Wikidata TikTok username property P7085",
+      "source_query": "actor",
+      "creators_seen": 2656,
+      "useful_creators": 28,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0.011,
+      "rejection_rate": 0,
+      "average_usefulness": 659.2,
+      "yield_score": 100,
+      "top_labels": "actor_performer:36601; vfx_animation:238; cinematographer:84; standup_comedian:1"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Lego TikTokers",
+      "source_query": "FeedSpot Top Lego TikTok Influencers 2026",
+      "creators_seen": 59,
+      "useful_creators": 27,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0.458,
+      "rejection_rate": 0,
+      "average_usefulness": 1354.7,
+      "yield_score": 100,
+      "top_labels": "vfx_animation:1242; behind_the_scenes_creator:92; editor:23"
+    },
+    {
+      "source_type": "wikidata_profile",
+      "source_name": "Wikidata TikTok username property P7085",
+      "source_query": "comedian",
+      "creators_seen": 316,
+      "useful_creators": 22,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0.07,
+      "rejection_rate": 0,
+      "average_usefulness": 804.8,
+      "yield_score": 100,
+      "top_labels": "sketch_comedian:2923; actor_performer:2058; vfx_animation:47; standup_comedian:25; filmmaker:16"
+    },
+    {
+      "source_type": "wikidata_profile",
+      "source_name": "Wikidata TikTok username property P7085",
+      "source_query": "artist",
+      "creators_seen": 75,
+      "useful_creators": 18,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0.24,
+      "rejection_rate": 0,
+      "average_usefulness": 695.9,
+      "yield_score": 100,
+      "top_labels": "vfx_animation:891"
+    },
     {
       "source_type": "editorial_list",
       "source_name": "FeedSpot Pop Music TikTokers",
@@ -13,24 +73,54 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0.25,
       "rejection_rate": 0,
-      "average_usefulness": 1005.8,
+      "average_usefulness": 1104.3,
       "yield_score": 100,
-      "top_labels": "creative_technologist:714; actor_performer:483; standup_comedian:105; director:84; cinematographer:21"
+      "top_labels": "creative_technologist:782; actor_performer:529; standup_comedian:115; director:92; cinematographer:23"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Children Book TikTokers",
+      "source_query": "FeedSpot Top Children Book TikTok Influencers 2026",
+      "creators_seen": 57,
+      "useful_creators": 17,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0.298,
+      "rejection_rate": 0,
+      "average_usefulness": 1304.9,
+      "yield_score": 100,
+      "top_labels": "vfx_animation:1058; film_educator:92; editor:69; sketch_comedian:23; creative_technologist:23"
     },
     {
       "source_type": "wikidata_profile",
       "source_name": "Wikidata TikTok username property P7085",
-      "source_query": "actor",
-      "creators_seen": 2656,
+      "source_query": "dancer",
+      "creators_seen": 273,
+      "useful_creators": 15,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0.055,
+      "rejection_rate": 0,
+      "average_usefulness": 710.7,
+      "yield_score": 100,
+      "top_labels": "actor_performer:3754; vfx_animation:42"
+    },
+    {
+      "source_type": "wikidata_profile",
+      "source_name": "Wikidata TikTok username property P7085",
+      "source_query": "actor|dancer",
+      "creators_seen": 160,
       "useful_creators": 14,
       "excellent_creators": 0,
       "rejected_creators": 0,
       "reviewed_creators": 0,
-      "usefulness_rate": 0.005,
+      "usefulness_rate": 0.087,
       "rejection_rate": 0,
-      "average_usefulness": 558.5,
+      "average_usefulness": 681.7,
       "yield_score": 100,
-      "top_labels": "actor_performer:31375; vfx_animation:204; cinematographer:72; standup_comedian:1"
+      "top_labels": "actor_performer:2135; vfx_animation:14"
     },
     {
       "source_type": "editorial_list",
@@ -43,114 +133,24 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0.101,
       "rejection_rate": 0,
-      "average_usefulness": 1207.8,
+      "average_usefulness": 1317.6,
       "yield_score": 100,
-      "top_labels": "sketch_comedian:1298; standup_comedian:704; actor_performer:88; filmmaker:22; cinematographer:22"
-    },
-    {
-      "source_type": "wikidata_profile",
-      "source_name": "Wikidata TikTok username property P7085",
-      "source_query": "dancer",
-      "creators_seen": 273,
-      "useful_creators": 9,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0.033,
-      "rejection_rate": 0,
-      "average_usefulness": 597.8,
-      "yield_score": 100,
-      "top_labels": "actor_performer:3218; vfx_animation:36"
+      "top_labels": "sketch_comedian:1416; standup_comedian:768; actor_performer:96; filmmaker:24; cinematographer:24"
     },
     {
       "source_type": "editorial_list",
       "source_name": "FeedSpot Gaming TikTokers",
       "source_query": "FeedSpot Top Gaming TikTok Influencers 2026",
       "creators_seen": 55,
-      "useful_creators": 8,
+      "useful_creators": 9,
       "excellent_creators": 0,
       "rejected_creators": 0,
       "reviewed_creators": 0,
-      "usefulness_rate": 0.145,
+      "usefulness_rate": 0.164,
       "rejection_rate": 0,
-      "average_usefulness": 1085.1,
+      "average_usefulness": 1307.2,
       "yield_score": 100,
-      "top_labels": "vfx_animation:1029; behind_the_scenes_creator:63; sketch_comedian:21; filmmaker:21; editor:21"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Latin Music TikTokers",
-      "source_query": "FeedSpot Top Latin Music TikTok Influencers 2026",
-      "creators_seen": 28,
-      "useful_creators": 7,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0.25,
-      "rejection_rate": 0,
-      "average_usefulness": 1004.3,
-      "yield_score": 100,
-      "top_labels": "creative_technologist:273; actor_performer:210; standup_comedian:84; editor:21"
-    },
-    {
-      "source_type": "wikidata_profile",
-      "source_name": "Wikidata TikTok username property P7085",
-      "source_query": "comedian",
-      "creators_seen": 316,
-      "useful_creators": 6,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0.019,
-      "rejection_rate": 0,
-      "average_usefulness": 668.7,
-      "yield_score": 100,
-      "top_labels": "sketch_comedian:2573; actor_performer:1798; vfx_animation:41; standup_comedian:23; filmmaker:14"
-    },
-    {
-      "source_type": "wikidata_profile",
-      "source_name": "Wikidata TikTok username property P7085",
-      "source_query": "actor|dancer",
-      "creators_seen": 160,
-      "useful_creators": 6,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0.037,
-      "rejection_rate": 0,
-      "average_usefulness": 573.8,
-      "yield_score": 100,
-      "top_labels": "actor_performer:1831; vfx_animation:12"
-    },
-    {
-      "source_type": "wikidata_profile",
-      "source_name": "Wikidata TikTok username property P7085",
-      "source_query": "voice actor",
-      "creators_seen": 245,
-      "useful_creators": 5,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0.02,
-      "rejection_rate": 0,
-      "average_usefulness": 651.1,
-      "yield_score": 100,
-      "top_labels": "actor_performer:3366; cinematographer:14; vfx_animation:14"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot New York Art TikTokers",
-      "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
-      "creators_seen": 41,
-      "useful_creators": 4,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0.098,
-      "rejection_rate": 0,
-      "average_usefulness": 1252.4,
-      "yield_score": 100,
-      "top_labels": "vfx_animation:836; creative_technologist:22; sketch_comedian:22; editor:22"
+      "top_labels": "vfx_animation:1127; behind_the_scenes_creator:69; sketch_comedian:23; filmmaker:23; editor:23"
     }
   ],
   "weak_sources": [
@@ -165,9 +165,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 974.6,
+      "average_usefulness": 1063.3,
       "yield_score": 100,
-      "top_labels": "filmmaker:2002; director:44; vfx_animation:22; cinematographer:22; editor:22"
+      "top_labels": "filmmaker:2184; director:48; vfx_animation:24; cinematographer:24; editor:24"
     },
     {
       "source_type": "editorial_list",
@@ -180,9 +180,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 992.8,
+      "average_usefulness": 1083,
       "yield_score": 100,
-      "top_labels": "filmmaker:330; editor:22"
+      "top_labels": "filmmaker:360; editor:24"
     },
     {
       "source_type": "editorial_list",
@@ -195,9 +195,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 985.9,
+      "average_usefulness": 1075.5,
       "yield_score": 100,
-      "top_labels": "creative_technologist:880; film_educator:44; filmmaker:44; cinematographer:22; standup_comedian:22"
+      "top_labels": "creative_technologist:960; film_educator:48; filmmaker:48; cinematographer:24; standup_comedian:24"
     },
     {
       "source_type": "editorial_list",
@@ -210,9 +210,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 990,
+      "average_usefulness": 1080,
       "yield_score": 100,
-      "top_labels": "filmmaker:22; editor:22"
+      "top_labels": "filmmaker:24; editor:24"
     },
     {
       "source_type": "editorial_list",
@@ -225,9 +225,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 794.5,
+      "average_usefulness": 866.7,
       "yield_score": 100,
-      "top_labels": "behind_the_scenes_creator:2024; film_educator:44; creative_technologist:22; director:22; editor:22"
+      "top_labels": "behind_the_scenes_creator:2208; film_educator:48; creative_technologist:24; director:24; editor:24"
     },
     {
       "source_type": "editorial_list_seed",
@@ -240,9 +240,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 570,
+      "average_usefulness": 614.5,
       "yield_score": 100,
-      "top_labels": "filmmaker:120; vfx_animation:3"
+      "top_labels": "filmmaker:130; vfx_animation:3"
     },
     {
       "source_type": "editorial_list_seed",
@@ -255,9 +255,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 577.4,
+      "average_usefulness": 625.8,
       "yield_score": 100,
-      "top_labels": "behind_the_scenes_creator:44; editor:22; filmmaker:22; director:5"
+      "top_labels": "behind_the_scenes_creator:48; editor:24; filmmaker:24; director:5"
     },
     {
       "source_type": "editorial_list",
@@ -270,9 +270,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 680.4,
+      "average_usefulness": 745.2,
       "yield_score": 100,
-      "top_labels": "film_educator:483; editor:42"
+      "top_labels": "film_educator:529; editor:46"
     },
     {
       "source_type": "editorial_list",
@@ -285,9 +285,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 748.8,
+      "average_usefulness": 820.1,
       "yield_score": 100,
-      "top_labels": "film_educator:714; editor:21"
+      "top_labels": "film_educator:782; editor:23"
     },
     {
       "source_type": "editorial_list",
@@ -300,9 +300,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 759,
+      "average_usefulness": 831.3,
       "yield_score": 100,
-      "top_labels": "film_educator:399; filmmaker:21; editor:21"
+      "top_labels": "film_educator:437; filmmaker:23; editor:23"
     }
   ],
   "total_seen": 10837
