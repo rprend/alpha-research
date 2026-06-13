@@ -46,6 +46,7 @@ const requiredPackageScripts = [
   'kb:import:experiments',
   'kb:search',
   'kb:audit',
+  'kb:audit:blocked',
   'kb:refresh',
   'qa:dashboard',
   'journey:dashboard:capture',
@@ -129,6 +130,7 @@ assert(existsSync(join(root, 'scripts/kb-ingest-web-metadata.mjs')), 'Missing lo
 assert(existsSync(join(root, 'scripts/kb-import-experiment-seeds.mjs')), 'Missing local humanities KB experiment seed import script.')
 assert(existsSync(join(root, 'scripts/kb-search.mjs')), 'Missing local humanities KB search script.')
 assert(existsSync(join(root, 'scripts/kb-audit-coverage.mjs')), 'Missing local humanities KB coverage audit script.')
+assert(existsSync(join(root, 'scripts/kb-audit-blocked-sources.mjs')), 'Missing local humanities KB blocked-source audit script.')
 assert(existsSync(join(root, 'scripts/kb-refresh.mjs')), 'Missing local humanities KB refresh script.')
 assert(existsSync(join(root, 'data/knowledge-base/config/department-pages.json')), 'Missing local humanities KB department page targets.')
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')

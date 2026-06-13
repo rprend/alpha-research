@@ -39,6 +39,7 @@
     "kb:import:experiments": "node scripts/kb-import-experiment-seeds.mjs",
     "kb:search": "node scripts/kb-search.mjs",
     "kb:audit": "node scripts/kb-audit-coverage.mjs",
+    "kb:audit:blocked": "node scripts/kb-audit-blocked-sources.mjs",
     "kb:refresh": "node scripts/kb-refresh.mjs",
     "modal:deploy": "modal deploy modal_workers/agent_worker.py",
     "modal:submit": "python scripts/submit_modal_job.py",

@@ -126,7 +126,7 @@
       "research_use_cases": ["bibliographic coverage", "edition normalization", "library corpus discovery"],
       "known_risks": ["rights filtering required", "multi-volume normalization", "access restrictions"],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "blocked"
     },
     {
       "source_id": "library-of-congress",
@@ -342,7 +342,7 @@
       "research_use_cases": ["history field-topic radar", "conference discourse trends", "institutional participation"],
       "known_risks": ["program format changes", "rights review required", "topic normalization"],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "blocked"
     },
     {
       "source_id": "dh-conference-programs",
@@ -468,7 +468,7 @@
       "research_use_cases": ["public literary discourse", "review topic radar", "culture essay trends"],
       "known_risks": ["copyrighted article text", "site changes", "author normalization"],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "blocked"
     },
     {
       "source_id": "open-syllabus",
@@ -522,7 +522,7 @@
       "research_use_cases": ["working paper radar", "cultural policy and legal humanities", "preprint trend tracking"],
       "known_risks": ["terms review required", "paper rights vary", "field filtering noise"],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "blocked"
     },
     {
       "source_id": "wayback-machine-cdx",

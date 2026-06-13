@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-06-13T16:41:52.590Z",
+  "blocked_source_count": 5,
+  "blocked_sources": [
+    {
+      "source_id": "hathitrust-bibliographic-metadata",
+      "name": "HathiTrust Bibliographic Metadata",
+      "source_class": "open-text-metadata",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "failure_count": 1,
+      "latest_failure": {
+        "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+        "access_route": "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true",
+        "completed_at": "2026-06-13T16:37:21.021Z",
+        "errors": [
+          "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden"
+        ]
+      },
+      "next_decision": "Requires route replacement, manual export, permissioned API access, or terms review; do not bypass access controls.",
+      "known_risks": [
+        "rights filtering required",
+        "multi-volume normalization",
+        "access restrictions"
+      ]
+    },
+    {
+      "source_id": "aha-annual-meeting-programs",
+      "name": "American Historical Association Annual Meeting Programs",
+      "source_class": "conference-programs",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "failure_count": 1,
+      "latest_failure": {
+        "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+        "access_route": "https://www.historians.org/events/annual-meeting/",
+        "completed_at": "2026-06-13T16:37:20.977Z",
+        "errors": [
+          "https://www.historians.org/events/annual-meeting/: HTTP 403 Forbidden"
+        ]
+      },
+      "next_decision": "Requires route replacement, manual export, permissioned API access, or terms review; do not bypass access controls.",
+      "known_risks": [
+        "program format changes",
+        "rights review required",
+        "topic normalization"
+      ]
+    },
+    {
+      "source_id": "lareviewofbooks",
+      "name": "Los Angeles Review of Books",
+      "source_class": "journals-and-reviews",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "failure_count": 4,
+      "latest_failure": {
+        "run_id": "web-metadata-2026-06-13T16-41-32-897Z",
+        "access_route": "https://lareviewofbooks.org/feed/",
+        "completed_at": "2026-06-13T16:41:51.214Z",
+        "errors": [
+          "HTTP 404 Not Found"
+        ]
+      },
+      "next_decision": "Find a current feed, sitemap, archive route, or alternate metadata source before retrying.",
+      "known_risks": [
+        "copyrighted article text",
+        "site changes",
+        "author normalization"
+      ]
+    },
+    {
+      "source_id": "open-syllabus",
+      "name": "Open Syllabus",
+      "source_class": "syllabi-teaching-corpora",
+      "redistribution_status": "blocked-or-needs-review",
+      "metadata_allowed": false,
+      "full_text_allowed": false,
+      "failure_count": 0,
+      "latest_failure": null,
+      "next_decision": "Do not ingest until export/access terms are reviewed and a permitted metadata route is identified.",
+      "known_risks": [
+        "access restrictions",
+        "redistribution limits",
+        "coverage bias",
+        "institution anonymization"
+      ]
+    },
+    {
+      "source_id": "ssrn-humanities-adjacent",
+      "name": "SSRN Humanities-Adjacent Metadata",
+      "source_class": "humanities-adjacent-policy-history",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "failure_count": 1,
+      "latest_failure": {
+        "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+        "access_route": "https://api.ssrn.com/content/v1/papers?query=humanities",
+        "completed_at": "2026-06-13T16:37:21.118Z",
+        "errors": [
+          "https://api.ssrn.com/content/v1/papers?query=humanities: HTTP 401 Unauthorized"
+        ]
+      },
+      "next_decision": "Requires authorized API access or a different metadata provider; do not retry anonymously.",
+      "known_risks": [
+        "terms review required",
+        "paper rights vary",
+        "field filtering noise"
+      ]
+    }
+  ]
+}

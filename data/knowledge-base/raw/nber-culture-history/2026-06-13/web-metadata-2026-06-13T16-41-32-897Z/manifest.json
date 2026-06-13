@@ -1,0 +1,19 @@
+{
+  "run_id": "web-metadata-2026-06-13T16-41-32-897Z",
+  "source_id": "nber-culture-history",
+  "started_at": "2026-06-13T16:41:35.062Z",
+  "completed_at": "2026-06-13T16:41:35.407Z",
+  "status": "success",
+  "access_route": "https://www.nber.org/api/v1/working_page_listing/contentType/working_paper/_/_/search?search=culture%20history&page=1&perPage=10",
+  "raw_outputs": [
+    "data/knowledge-base/raw/nber-culture-history/2026-06-13/web-metadata-2026-06-13T16-41-32-897Z/response.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 10,
+  "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
+  "errors": []
+}

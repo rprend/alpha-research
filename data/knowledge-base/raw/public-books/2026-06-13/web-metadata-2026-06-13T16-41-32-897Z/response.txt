@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Public Books</title>
+	<atom:link href="https://www.publicbooks.org/feed/" rel="self" type="application/rss+xml" />
+	<link>https://www.publicbooks.org/</link>
+	<description>a magazine of ideas, arts, and scholarship</description>
+	<lastBuildDate>Fri, 12 Jun 2026 15:02:50 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=7.0</generator>
+
+<image>
+	<url>https://www.publicbooks.org/wp-content/uploads/2020/09/cropped-favicon-2-300x300.png</url>
+	<title>Public Books</title>
+	<link>https://www.publicbooks.org/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Resistance Disguised as a History Lesson: Fascism and the University</title>
+		<link>https://www.publicbooks.org/resistance-disguised-as-a-history-lesson-fascism-and-the-university/</link>
+		
+		<dc:creator><![CDATA[Imani Radney]]></dc:creator>
+		<pubDate>Fri, 12 Jun 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Reviews]]></category>
+		<category><![CDATA[Back Bay]]></category>
+		<category><![CDATA[Biography]]></category>
+		<category><![CDATA[Culture]]></category>
+		<category><![CDATA[Fascism]]></category>
+		<category><![CDATA[Germany]]></category>
+		<category><![CDATA[Higher Education]]></category>
+		<category><![CDATA[History]]></category>
+		<category><![CDATA[Nazism]]></category>
+		<category><![CDATA[Penguin Press]]></category>
+		<category><![CDATA[Politics]]></category>
+		<category><![CDATA[Universities]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66469</guid>
+
+					<description><![CDATA[<p>Her student—a former Nazi stormtrooper—was proof that no one was lost to the new regime, that every person might choose to refuse.</p>
+<p>The post <a href="https://www.publicbooks.org/resistance-disguised-as-a-history-lesson-fascism-and-the-university/">Resistance Disguised as a History Lesson: Fascism and the University</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Who Owns Argentine Football?</title>
+		<link>https://www.publicbooks.org/who-owns-argentine-football/</link>
+		
+		<dc:creator><![CDATA[Morgan Barry]]></dc:creator>
+		<pubDate>Thu, 11 Jun 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Reviews]]></category>
+		<category><![CDATA[Anarchism]]></category>
+		<category><![CDATA[Argentina]]></category>
+		<category><![CDATA[Authoritarianism]]></category>
+		<category><![CDATA[History]]></category>
+		<category><![CDATA[Latin America]]></category>
+		<category><![CDATA[PM Press]]></category>
+		<category><![CDATA[Politics]]></category>
+		<category><![CDATA[Soccer]]></category>
+		<category><![CDATA[Sports]]></category>
+		<category><![CDATA[University of New Mexico Press]]></category>
+		<category><![CDATA[World Cup]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66296</guid>
+
+					<description><![CDATA[<p>In early 20th century Buenos Aires, football clubs emerged as institutions of sociability and mutual aid, but also of anarchist resistance, immigrant solidarity, and antifascist organizing.</p>
+<p>The post <a href="https://www.publicbooks.org/who-owns-argentine-football/">Who Owns Argentine Football?</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Ada Ferrer on “Keeper of My Kin: Memoir of an Immigrant Daughter”</title>
+		<link>https://www.publicbooks.org/ada-ferrer-on-keeper-of-my-kin-memoir-of-an-immigrant-daughter/</link>
+		
+		<dc:creator><![CDATA[Megan Cummins]]></dc:creator>
+		<pubDate>Wed, 10 Jun 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Podcast]]></category>
+		<category><![CDATA[Writing Latinos]]></category>
+		<category><![CDATA[Cuba]]></category>
+		<category><![CDATA[Memoir]]></category>
+		<category><![CDATA[Migration]]></category>
+		<category><![CDATA[Scribner]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66742</guid>
+
+					<description><![CDATA[<p>“People are buffeted byhistory sometimes in ways that they don't realize. Ourfamily was buffeted by these forces that were much greater than us.”</p>
+<p>The post <a href="https://www.publicbooks.org/ada-ferrer-on-keeper-of-my-kin-memoir-of-an-immigrant-daughter/">Ada Ferrer on “Keeper of My Kin: Memoir of an Immigrant Daughter”</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Rash Reading, Slow Watching with Virginia Woolf and Chantal Akerman</title>
+		<link>https://www.publicbooks.org/rash-reading-slow-watching-with-virginia-woolf-and-chantal-akerman/</link>
+		
+		<dc:creator><![CDATA[Morgan Barry]]></dc:creator>
+		<pubDate>Tue, 09 Jun 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Essays]]></category>
+		<category><![CDATA[Feminism]]></category>
+		<category><![CDATA[Fiction]]></category>
+		<category><![CDATA[Film]]></category>
+		<category><![CDATA[Literature]]></category>
+		<category><![CDATA[MOMA]]></category>
+		<category><![CDATA[Reading]]></category>
+		<category><![CDATA[Virginia Woolf]]></category>
+		<category><![CDATA[Women’s Rights]]></category>
+		<category><![CDATA[Women’s Studies]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66270</guid>
+
+					<description><![CDATA[<p>In the hands of this writer and this filmmaker, “the mother” is someone with whom to have a lifelong conversation, a contested perspective through which to read the world. </p>
+<p>The post <a href="https://www.publicbooks.org/rash-reading-slow-watching-with-virginia-woolf-and-chantal-akerman/">Rash Reading, Slow Watching with Virginia Woolf and Chantal Akerman</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>To Reach Beyond Ourselves Is Key to Our Survival</title>
+		<link>https://www.publicbooks.org/to-reach-beyond-ourselves-is-key-to-our-survival/</link>
+		
+		<dc:creator><![CDATA[Megan Cummins]]></dc:creator>
+		<pubDate>Fri, 05 Jun 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Essays]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66713</guid>
+
+					<description><![CDATA[<p>“We wanted to make a book that began to answer the questions Muriel Rukeyser asked. We wanted to make a book that continued to ask the questions she asked, of ourselves, of each other.”</p>
+<p>The post <a href="https://www.publicbooks.org/to-reach-beyond-ourselves-is-key-to-our-survival/">To Reach Beyond Ourselves Is Key to Our Survival</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>“I use the story to do the thinking”: Ann Leckie on Writing “Radiant Star”</title>
+		<link>https://www.publicbooks.org/i-use-the-story-to-do-the-thinking-ann-leckie-on-writing-radiant-star/</link>
+		
+		<dc:creator><![CDATA[Imani Radney]]></dc:creator>
+		<pubDate>Thu, 04 Jun 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Interviews]]></category>
+		<category><![CDATA[Gender]]></category>
+		<category><![CDATA[Interview]]></category>
+		<category><![CDATA[Orbit]]></category>
+		<category><![CDATA[Religion]]></category>
+		<category><![CDATA[Science Fiction]]></category>
+		<category><![CDATA[Writing]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66511</guid>
+
+					<description><![CDATA[<p>“Panicking never helps. Building a new model of how things work (in your mind, and in the world) is going to take time and will be the result of many small, inglorious acts.”</p>
+<p>The post <a href="https://www.publicbooks.org/i-use-the-story-to-do-the-thinking-ann-leckie-on-writing-radiant-star/">“I use the story to do the thinking”: Ann Leckie on Writing “Radiant Star”</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>France’s Art Museums Remain Silent on Haiti</title>
+		<link>https://www.publicbooks.org/frances-art-museums-remain-silent-on-haiti/</link>
+		
+		<dc:creator><![CDATA[Megan Cummins]]></dc:creator>
+		<pubDate>Wed, 03 Jun 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Essays]]></category>
+		<category><![CDATA[Art]]></category>
+		<category><![CDATA[Colonialism]]></category>
+		<category><![CDATA[France]]></category>
+		<category><![CDATA[Haiti]]></category>
+		<category><![CDATA[Haitian Indemnities]]></category>
+		<category><![CDATA[Haitian Revolution]]></category>
+		<category><![CDATA[Museums]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66613</guid>
+
+					<description><![CDATA[<p>“It wasn’t that we expected an exhibition on Charles X’s coronation to be turned into an exhibition on the double debt. But we did expect the show to complicate the narrative around France’s last king.”</p>
+<p>The post <a href="https://www.publicbooks.org/frances-art-museums-remain-silent-on-haiti/">France’s Art Museums Remain Silent on Haiti</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Against American Cistory</title>
+		<link>https://www.publicbooks.org/against-american-cistory/</link>
+		
+		<dc:creator><![CDATA[Morgan Barry]]></dc:creator>
+		<pubDate>Tue, 02 Jun 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Reviews]]></category>
+		<category><![CDATA[Gender]]></category>
+		<category><![CDATA[History]]></category>
+		<category><![CDATA[Queer Studies]]></category>
+		<category><![CDATA[Racism]]></category>
+		<category><![CDATA[Settler Colonialism]]></category>
+		<category><![CDATA[Sex]]></category>
+		<category><![CDATA[Sexuality]]></category>
+		<category><![CDATA[Transgender]]></category>
+		<category><![CDATA[W. W. Norton]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66198</guid>
+
+					<description><![CDATA[<p>“Stories that merely include queer and trans people are not enough. Our existence should shake the foundations of the historiography.”</p>
+<p>The post <a href="https://www.publicbooks.org/against-american-cistory/">Against American Cistory</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Diaspora, Indebted: On &#8220;Industry&#8221;</title>
+		<link>https://www.publicbooks.org/diaspora-indebted-on-industry/</link>
+		
+		<dc:creator><![CDATA[Morgan Barry]]></dc:creator>
+		<pubDate>Thu, 28 May 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Reviews]]></category>
+		<category><![CDATA[Capitalism]]></category>
+		<category><![CDATA[Debt]]></category>
+		<category><![CDATA[Drama]]></category>
+		<category><![CDATA[Finance]]></category>
+		<category><![CDATA[Financial Crisis]]></category>
+		<category><![CDATA[HBO]]></category>
+		<category><![CDATA[Television]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=65740</guid>
+
+					<description><![CDATA[<p>“Gambling with big bets against challenging odds, regarded warily by moneylenders, questioned about your ability to balance your books, needing to take on more debt to pay back older debt. Whom exactly are we talking about here: Rishi or Britain?”</p>
+<p>The post <a href="https://www.publicbooks.org/diaspora-indebted-on-industry/">Diaspora, Indebted: On &#8220;Industry&#8221;</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Mary E. Mendoza on “Deadly Divide: How Insects, Pathogens, and People Defied the US-Mexico Border”</title>
+		<link>https://www.publicbooks.org/mary-e-mendoza-on-deadly-divide-how-insects-pathogens-and-people-defied-the-us-mexico-border/</link>
+		
+		<dc:creator><![CDATA[Megan Cummins]]></dc:creator>
+		<pubDate>Wed, 27 May 2026 15:00:00 +0000</pubDate>
+				<category><![CDATA[Podcast]]></category>
+		<category><![CDATA[Writing Latinos]]></category>
+		<category><![CDATA[Borderlands]]></category>
+		<category><![CDATA[Environment]]></category>
+		<category><![CDATA[Envrionmental History]]></category>
+		<category><![CDATA[US-Mexico Border]]></category>
+		<guid isPermaLink="false">https://www.publicbooks.org/?p=66483</guid>
+
+					<description><![CDATA[<p>“Environmental history at its best really thinks about the ways in which various environments mediate and change dynamic, diverse human relationships.”</p>
+<p>The post <a href="https://www.publicbooks.org/mary-e-mendoza-on-deadly-divide-how-insects-pathogens-and-people-defied-the-us-mexico-border/">Mary E. Mendoza on “Deadly Divide: How Insects, Pathogens, and People Defied the US-Mexico Border”</a> appeared first on <a href="https://www.publicbooks.org">Public Books</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+	</channel>
+</rss>

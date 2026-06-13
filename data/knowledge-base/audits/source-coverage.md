@@ -1,6 +1,6 @@
 # KB Source Coverage
 
-Generated at: 2026-06-13T16:37:29.783Z
+Generated at: 2026-06-13T16:41:52.551Z
 Sources with local documents: 28/33
 Unregistered local source IDs: 0
 
@@ -18,8 +18,8 @@ No unregistered local source IDs.
 
 ## Sources Without Local Documents
 
-- hathitrust-bibliographic-metadata (open-text-metadata, planned, metadata-only)
-- aha-annual-meeting-programs (conference-programs, planned, metadata-only)
-- lareviewofbooks (journals-and-reviews, planned, local-analysis-only)
+- hathitrust-bibliographic-metadata (open-text-metadata, blocked, metadata-only)
+- aha-annual-meeting-programs (conference-programs, blocked, metadata-only)
+- lareviewofbooks (journals-and-reviews, blocked, local-analysis-only)
 - open-syllabus (syllabi-teaching-corpora, blocked, blocked-or-needs-review)
-- ssrn-humanities-adjacent (humanities-adjacent-policy-history, planned, metadata-only)
+- ssrn-humanities-adjacent (humanities-adjacent-policy-history, blocked, metadata-only)

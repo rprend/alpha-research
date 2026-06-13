@@ -7,6 +7,7 @@ const commands = [
   ["node", ["scripts/kb-import-experiment-seeds.mjs"]],
   ["node", ["scripts/kb-build-analytical-tables.mjs"]],
   ["node", ["scripts/kb-audit-coverage.mjs"]],
+  ["node", ["scripts/kb-audit-blocked-sources.mjs"]],
   ["node", ["scripts/kb-build-search-index.mjs"]],
   ["node", ["scripts/kb-status.mjs"]],
 ];

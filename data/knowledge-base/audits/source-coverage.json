@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T16:37:29.783Z",
+  "generated_at": "2026-06-13T16:41:52.551Z",
   "source_count": 33,
   "source_classes": {
     "conference-programs": 3,
@@ -59,19 +59,19 @@
     {
       "source_id": "hathitrust-bibliographic-metadata",
       "source_class": "open-text-metadata",
-      "ingest_status": "planned",
+      "ingest_status": "blocked",
       "redistribution_status": "metadata-only"
     },
     {
       "source_id": "aha-annual-meeting-programs",
       "source_class": "conference-programs",
-      "ingest_status": "planned",
+      "ingest_status": "blocked",
       "redistribution_status": "metadata-only"
     },
     {
       "source_id": "lareviewofbooks",
       "source_class": "journals-and-reviews",
-      "ingest_status": "planned",
+      "ingest_status": "blocked",
       "redistribution_status": "local-analysis-only"
     },
     {
@@ -83,7 +83,7 @@
     {
       "source_id": "ssrn-humanities-adjacent",
       "source_class": "humanities-adjacent-policy-history",
-      "ingest_status": "planned",
+      "ingest_status": "blocked",
       "redistribution_status": "metadata-only"
     }
   ]
