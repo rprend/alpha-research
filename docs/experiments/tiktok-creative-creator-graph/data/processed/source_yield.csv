@@ -1,435 +1,452 @@
 source_type,source_name,source_query,creators_seen,useful_creators,excellent_creators,rejected_creators,reviewed_creators,usefulness_rate,rejection_rate,average_usefulness,yield_score,top_labels
-provider_video_export,unknown,,3,2,2,1,1,0.667,0.333,992,100,filmmaker:16; sketch_comedian:16; reject:16
-public_profile_enrichment,TikTok public profile hydration,review_queue_priority_1,1,1,1,0,0,1,0,1105,100,sketch_comedian:13
-editorial_list,FeedSpot Comedy TikTokers,FeedSpot Top Comedy TikTok Influencers 2026,99,0,0,0,0,0,0,656,100,sketch_comedian:992; standup_comedian:528; actor_performer:16; cinematographer:16; director:16
-editorial_list,FeedSpot Movie TikTokers,FeedSpot Top Movie TikTok Influencers 2026,96,0,0,0,0,0,0,617.3,100,filmmaker:1472; director:32; cinematographer:16; editor:16
-editorial_list,FeedSpot Horror TikTokers,FeedSpot Top Horror TikTok Influencers 2026,16,0,0,0,0,0,0,629,100,filmmaker:240; editor:16
-editorial_list,FeedSpot Digital Art TikTokers,FeedSpot Top Digital Art TikTok Influencers 2026,100,0,0,0,0,0,0,576.8,100,vfx_animation:1584; editor:16
-editorial_list,FeedSpot New York Art TikTokers,FeedSpot Top New York Art TikTok Influencers 2026,41,0,0,0,0,0,0,629.1,100,vfx_animation:608; creative_technologist:16; sketch_comedian:16; editor:16
-editorial_list,FeedSpot Music Technology TikTokers,FeedSpot Top Music Technology TikTok Influencers 2026,48,0,0,0,0,0,0,642.7,100,creative_technologist:640; film_educator:32; filmmaker:32; cinematographer:16; standup_comedian:16
-editorial_list,FeedSpot Barcelona Photography TikTokers,FeedSpot Top Barcelona Photography TikTok Influencers 2026,2,0,0,0,0,0,0,632,100,filmmaker:16; editor:16
-editorial_list,FeedSpot Aviation TikTokers,FeedSpot Top Aviation TikTok Influencers 2026,97,0,0,0,0,0,0,575.3,100,behind_the_scenes_creator:1472; film_educator:32; creative_technologist:16; director:16; editor:16
-editorial_list_seed,unknown,IZEA 10 Filmmakers to Follow on TikTok,8,0,0,0,0,0,0,416.8,100,filmmaker:37; cinematographer:32; film_educator:16; behind_the_scenes_creator:16; vfx_animation:10
-editorial_list_seed,unknown,Shutterstock TikTok filmmakers to follow,8,0,0,0,0,0,0,363,100,film_educator:37; filmmaker:37; cinematographer:16; vfx_animation:3
-editorial_list_seed,unknown,SheSources women in film TikTok creators,5,0,0,0,0,0,0,384.2,100,behind_the_scenes_creator:32; editor:16; unclear:16; director:5
-editorial_list,FeedSpot Mobile Gaming TikTokers,FeedSpot Top Mobile Gaming TikTok Influencers 2026,57,0,0,0,0,0,0,494.7,100,vfx_animation:780; filmmaker:30; editor:30; cinematographer:15
-editorial_list,FeedSpot Historical Fiction TikTokers,FeedSpot Top Historical Fiction TikTok Influencers 2026,25,0,0,0,0,0,0,480,100,film_educator:345; editor:30
-editorial_list,FeedSpot Pop Music TikTokers,FeedSpot Top Pop Music TikTok Influencers 2026,68,0,0,0,0,0,0,555.2,100,creative_technologist:900; standup_comedian:90; cinematographer:15; editor:15
-editorial_list,FeedSpot German Book TikTokers,FeedSpot Top German Book TikTok Influencers 2026,35,0,0,0,0,0,0,486.9,100,film_educator:510; editor:15
-editorial_list,FeedSpot LGBT Book TikTokers,FeedSpot Top LGBT Book TikTok Influencers 2026,21,0,0,0,0,0,0,488.6,100,film_educator:285; filmmaker:15; editor:15
-editorial_list,FeedSpot Middle Grade Book TikTokers,FeedSpot Top Middle Grade Book TikTok Influencers 2026,7,0,0,0,0,0,0,480,100,film_educator:90; editor:15
-editorial_list,FeedSpot Illustrated Books TikTokers,FeedSpot Top Illustrated Books TikTok Influencers 2026,25,0,0,0,0,0,0,347.4,100,unclear:300; film_educator:30; vfx_animation:15; cinematographer:15; editor:15
-editorial_list,FeedSpot Business Book Review TikTokers,FeedSpot Top Business Book Review TikTok Influencers 2026,4,0,0,0,0,0,0,510,100,film_educator:45; editor:15
-editorial_list,FeedSpot Literary Fiction TikTokers,FeedSpot Top Literary Fiction TikTok Influencers 2026,47,0,0,0,0,0,0,486.7,100,film_educator:660; editor:30; filmmaker:15
-editorial_list,FeedSpot Classical Music TikTokers,FeedSpot Top Classical Music TikTok Influencers 2026,37,0,0,0,0,0,0,480,100,film_educator:465; standup_comedian:45; actor_performer:15; director:15; editor:15
-editorial_list,FeedSpot Christian Music TikTokers,FeedSpot Top Christian Music TikTok Influencers 2026,50,0,0,0,0,0,0,486.9,100,creative_technologist:675; standup_comedian:60; editor:15
-editorial_list,FeedSpot Latin Music TikTokers,FeedSpot Top Latin Music TikTok Influencers 2026,28,0,0,0,0,0,0,560.4,100,creative_technologist:345; standup_comedian:60; editor:15
-editorial_list,FeedSpot Independent Music TikTokers,FeedSpot Top Independent Music TikTok Influencers 2026,29,0,0,0,0,0,0,495,100,creative_technologist:405; cinematographer:15; editor:15
-editorial_list,FeedSpot Canadian Music TikTokers,FeedSpot Top Canadian Music TikTok Influencers 2026,47,0,0,0,0,0,0,484.5,100,creative_technologist:630; actor_performer:30; standup_comedian:15; cinematographer:15; editor:15
-editorial_list,FeedSpot Crime Fiction TikTokers,FeedSpot Top Crime Fiction TikTok Influencers 2026,28,0,0,0,0,0,0,498.8,100,film_educator:390; sketch_comedian:15; editor:15
-editorial_list,FeedSpot Thriller Book TikTokers,FeedSpot Top Thriller Book TikTok Influencers 2026,45,0,0,0,0,0,0,491.7,100,film_educator:615; filmmaker:30; sketch_comedian:15; editor:15
-editorial_list,FeedSpot Entertainment TikTokers,FeedSpot Top Entertainment TikTok Influencers 2026,38,0,0,0,0,0,0,494.2,100,sketch_comedian:525; filmmaker:30; editor:15
-editorial_list,FeedSpot Lego TikTokers,FeedSpot Top Lego TikTok Influencers 2026,59,0,0,0,0,0,0,494.5,100,vfx_animation:810; behind_the_scenes_creator:60; editor:15
-editorial_list,FeedSpot Romance Book TikTokers,FeedSpot Top Romance Book TikTok Influencers 2026,44,0,0,0,0,0,0,491.3,100,film_educator:615; actor_performer:15; cinematographer:15; editor:15
-editorial_list,FeedSpot Anime TikTokers,FeedSpot Top Anime TikTok Influencers 2026,50,0,0,0,0,0,0,489.6,100,film_educator:645; editor:90; vfx_animation:15
-editorial_list,FeedSpot Children Book TikTokers,FeedSpot Top Children Book TikTok Influencers 2026,57,0,0,0,0,0,0,501.6,100,vfx_animation:690; film_educator:60; editor:45; sketch_comedian:15; creative_technologist:15
-editorial_list,FeedSpot Dance TikTokers,FeedSpot Top Dance TikTok Influencers 2026,62,0,0,0,0,0,0,497.4,100,behind_the_scenes_creator:720; film_educator:75; actor_performer:45; cinematographer:30; standup_comedian:15
-editorial_list,FeedSpot Music TikTokers,FeedSpot Top Music TikTok Influencers 2026,87,0,0,0,0,0,0,494.7,100,creative_technologist:1155; standup_comedian:75; editor:30; director:15; film_educator:15
-editorial_list,FeedSpot Gaming TikTokers,FeedSpot Top Gaming TikTok Influencers 2026,55,0,0,0,0,0,0,519.5,100,vfx_animation:735; behind_the_scenes_creator:45; sketch_comedian:15; filmmaker:15; editor:15
-editorial_list,FeedSpot Technology TikTokers,FeedSpot Top Technology TikTok Influencers 2026,51,0,0,0,0,0,0,511.2,100,creative_technologist:660; film_educator:60; sketch_comedian:15; filmmaker:15; editor:15
-editorial_list,FeedSpot BookTok Creators,FeedSpot Top BookTok Influencers 2026,75,0,0,0,0,0,0,488.8,100,film_educator:1050; filmmaker:45; cinematographer:15; editor:15
-editorial_list,FeedSpot AI TikTokers,FeedSpot Top AI TikTok Influencers 2026,32,0,0,0,0,0,0,485.2,100,creative_technologist:405; film_educator:60; editor:15
-editorial_list,FeedSpot Jazz TikTokers,FeedSpot Top 10 Jazz TikTok Influencers in 2026,8,0,0,0,0,0,0,448,100,behind_the_scenes_creator:84; film_educator:14; editor:14
-editorial_list,FeedSpot Stem TikTokers,FeedSpot Top 100 STEM TikTok Influencers in 2026,97,0,0,0,0,0,0,470.9,100,film_educator:1246; creative_technologist:42; editor:28; filmmaker:14; cinematographer:14
-editorial_list,FeedSpot Virtual Reality TikTokers,FeedSpot Top 35 Virtual Reality TikTok Influencers in 2026,31,0,0,0,0,0,0,457.9,100,film_educator:420; editor:14
-editorial_list,FeedSpot Virtual TikTokers,FeedSpot Top 80 Virtual TikTok Influencers in 2026,72,0,0,0,0,0,0,464.7,100,film_educator:798; creative_technologist:140; editor:28; filmmaker:14; sketch_comedian:14
-wikidata_profile,Wikidata TikTok username property P7085,film director,169,0,0,0,0,0,0,254,100,director:1209; filmmaker:63; vfx_animation:47; creative_technologist:26; cinematographer:10
-wikidata_profile,Wikidata TikTok username property P7085,voice actor|film director,10,0,0,0,0,0,0,244.9,100,actor_performer:79
-wikidata_profile,Wikidata TikTok username property P7085,voice actor,245,0,0,0,0,0,0,252.1,100,actor_performer:1902; creative_technologist:27; film_educator:15; cinematographer:8; sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian,29,0,0,0,0,0,0,256.7,100,sketch_comedian:237
-wikidata_profile,Wikidata TikTok username property P7085,voice actor|film producer,20,0,0,0,0,0,0,231.7,100,actor_performer:134; filmmaker:7; vfx_animation:7; creative_technologist:1
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|voice actor|film director,2,0,0,0,0,0,0,263.5,100,vfx_animation:17
-wikidata_profile,Wikidata TikTok username property P7085,video editor,10,0,0,0,0,0,0,256.8,100,editor:72; creative_technologist:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film producer,21,0,0,0,0,0,0,253.2,100,director:155; creative_technologist:8; vfx_animation:7
-wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor,12,0,0,0,0,0,0,242.5,100,sketch_comedian:78; cinematographer:8; standup_comedian:2
-wikidata_profile,Wikidata TikTok username property P7085,comedian,316,0,0,0,0,0,0,258.1,100,sketch_comedian:2563; standup_comedian:17; film_educator:8; vfx_animation:1
-wikidata_profile,Wikidata TikTok username property P7085,film director|film producer,22,0,0,0,0,0,0,256.9,100,director:164; vfx_animation:8; filmmaker:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film producer,15,0,0,0,0,0,0,245.9,100,filmmaker:112; sketch_comedian:7
-wikidata_profile,Wikidata TikTok username property P7085,film producer,66,0,0,0,0,0,0,251.9,100,filmmaker:515; creative_technologist:8; cinematographer:8
-wikidata_profile,Wikidata TikTok username property P7085,comedian|stand-up comedian,27,0,0,0,0,0,0,258,100,sketch_comedian:218; standup_comedian:2
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|stand-up comedian,4,0,0,0,0,0,0,240.3,100,standup_comedian:24; vfx_animation:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director,37,0,0,0,0,0,0,254.4,100,director:270; vfx_animation:23; behind_the_scenes_creator:8
-wikidata_profile,Wikidata TikTok username property P7085,comedian|film producer,4,0,0,0,0,0,0,255.8,100,sketch_comedian:33
-wikidata_profile,Wikidata TikTok username property P7085,stand-up comedian,61,0,0,0,0,0,0,266.7,100,standup_comedian:470; film_educator:23; creative_technologist:8; vfx_animation:8; sketch_comedian:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter,54,0,0,0,0,0,0,222.2,100,actor_performer:200; unclear:171; film_educator:44; vfx_animation:15; cinematographer:8
-wikidata_profile,Wikidata TikTok username property P7085,television director,8,0,0,0,0,0,0,255.8,100,director:66
-wikidata_profile,Wikidata TikTok username property P7085,comedian|film director,20,0,0,0,0,0,0,241.8,100,sketch_comedian:140; director:15
-wikidata_profile,Wikidata TikTok username property P7085,television director|film director|film producer,3,0,0,0,0,0,0,248,100,director:24
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|film director|film producer,2,0,0,0,0,0,0,232.5,100,cinematographer:15
-wikidata_profile,Wikidata TikTok username property P7085,animator,22,0,0,0,0,0,0,260.7,100,vfx_animation:185
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film editor,1,0,0,0,0,0,0,279,100,director:9
-wikidata_profile,Wikidata TikTok username property P7085,voice actor|stand-up comedian,5,0,0,0,0,0,0,248,100,actor_performer:33; standup_comedian:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film producer,4,0,0,0,0,0,0,240.3,100,sketch_comedian:31
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor,17,0,0,0,0,0,0,255.3,100,actor_performer:140
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film director,2,0,0,0,0,0,0,263.5,100,cinematographer:17
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|video editor|stand-up comedian,1,0,0,0,0,0,0,248,100,editor:8
-wikidata_profile,Wikidata TikTok username property P7085,film director|stand-up comedian,2,0,0,0,0,0,0,248,100,director:16
-wikidata_profile,Wikidata TikTok username property P7085,animator|voice actor,5,0,0,0,0,0,0,254.2,100,vfx_animation:41
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|stand-up comedian,7,0,0,0,0,0,0,245.6,100,sketch_comedian:51; standup_comedian:3
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|film director,1,0,0,0,0,0,0,279,100,vfx_animation:9
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer,9,0,0,0,0,0,0,261.8,100,cinematographer:76
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film producer,4,0,0,0,0,0,0,240.3,100,sketch_comedian:24; filmmaker:7
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film director|film producer,1,0,0,0,0,0,0,248,100,cinematographer:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film producer|stand-up comedian,2,0,0,0,0,0,0,232.5,100,sketch_comedian:15
-wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|stand-up comedian,3,0,0,0,0,0,0,237.7,100,sketch_comedian:23
-wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film director|film producer,1,0,0,0,0,0,0,248,100,sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film producer,2,0,0,0,0,0,0,248,100,actor_performer:16
-wikidata_profile,Wikidata TikTok username property P7085,television director|voice actor,3,0,0,0,0,0,0,237.7,100,director:16; actor_performer:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer,1,0,0,0,0,0,0,279,100,cinematographer:9
-wikidata_profile,Wikidata TikTok username property P7085,comedian|television director,3,0,0,0,0,0,0,248,100,sketch_comedian:24
-wikidata_profile,Wikidata TikTok username property P7085,film editor,9,0,0,0,0,0,0,251.4,100,editor:57; cinematographer:16
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director,3,0,0,0,0,0,0,237.7,100,actor_performer:16; director:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film editor,1,0,0,0,0,0,0,248,100,actor_performer:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director|film producer,3,0,0,0,0,0,0,248,100,actor_performer:24
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|comedian|television director|voice actor|film director|film producer|film editor,1,0,0,0,0,0,0,248,100,cinematographer:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director,3,0,0,0,0,0,0,248,100,director:24
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|voice actor,2,0,0,0,0,0,0,248,100,director:16
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director|film producer|stand-up comedian,1,0,0,0,0,0,0,279,100,actor_performer:9
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film director|film producer,2,0,0,0,0,0,0,248,100,sketch_comedian:16
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film producer|stand-up comedian,2,0,0,0,0,0,0,263.5,100,filmmaker:17
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor,6,0,0,0,0,0,0,242.8,100,sketch_comedian:47
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|film director|stand-up comedian,1,0,0,0,0,0,0,248,100,sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,television director|film producer,1,0,0,0,0,0,0,248,100,director:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|film director|stand-up comedian,1,0,0,0,0,0,0,248,100,sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film producer,1,0,0,0,0,0,0,248,100,sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|stand-up comedian,1,0,0,0,0,0,0,336,100,actor_performer:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|stand-up comedian,1,0,0,0,0,0,0,248,100,sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,television director|stand-up comedian,2,0,0,0,0,0,0,263.5,100,director:17
-wikidata_profile,Wikidata TikTok username property P7085,comedian|film director|stand-up comedian,1,0,0,0,0,0,0,279,100,sketch_comedian:9
-wikidata_profile,Wikidata TikTok username property P7085,television director|voice actor|film director,1,0,0,0,0,0,0,279,100,director:9
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director,1,0,0,0,0,0,0,279,100,cinematographer:9
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|film director,1,0,0,0,0,0,0,248,100,cinematographer:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|television director|voice actor|film director,1,0,0,0,0,0,0,248,100,vfx_animation:8
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|animator|television director|voice actor|film director|film producer|film editor,1,0,0,0,0,0,0,248,100,cinematographer:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film producer|film editor,4,0,0,0,0,0,0,243.8,100,director:17; vfx_animation:7; filmmaker:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|stand-up comedian,1,0,0,0,0,0,0,248,100,sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,film director|film editor,1,0,0,0,0,0,0,279,100,director:9
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film editor|video editor,1,0,0,0,0,0,0,248,100,cinematographer:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator,2,0,0,0,0,0,0,263.5,100,vfx_animation:17
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film director|film producer|stand-up comedian,2,0,0,0,0,0,0,232.5,100,sketch_comedian:8; director:7
-wikidata_profile,Wikidata TikTok username property P7085,animator|film director,2,0,0,0,0,0,0,279,100,vfx_animation:18
-wikidata_profile,Wikidata TikTok username property P7085,educator|content creator,1,0,0,0,0,0,0,225,100,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film director,2,0,0,0,0,0,0,232.5,100,sketch_comedian:15
-public_profile_enrichment,TikTok public profile hydration,review_queue_priority_3,5,0,0,0,0,0,0,514.2,100,filmmaker:22; vfx_animation:13; director:11; film_educator:11
-public_dataset_sample,Bright Data TikTok profiles GitHub sample,null,29,0,0,0,0,0,0,317.8,100,actor_performer:81; sketch_comedian:45; vfx_animation:36; film_educator:27; filmmaker:27
-editorial_list,FeedSpot Audiophile TikTokers,FeedSpot Audiophile TikTok Influencers 2026,11,0,0,0,0,0,0,256,100,film_educator:80; editor:8
-editorial_list,FeedSpot DnD TikTokers,FeedSpot DnD TikTok Influencers 2026,60,0,0,0,0,0,0,257.5,100,actor_performer:448; film_educator:16; sketch_comedian:8; editor:8
-editorial_list,FeedSpot Flight Simulation TikTokers,FeedSpot Flight Simulation TikTok Influencers 2026,40,0,0,0,0,0,0,261.4,100,filmmaker:304; standup_comedian:8; editor:8
-editorial_list,FeedSpot Halloween TikTokers,FeedSpot Halloween TikTok Influencers 2026,33,0,0,0,0,0,0,258.7,100,behind_the_scenes_creator:224; filmmaker:32; editor:8
-editorial_list,FeedSpot Opera TikTokers,FeedSpot Opera TikTok Influencers 2026,20,0,0,0,0,0,0,261.6,100,film_educator:128; actor_performer:16; creative_technologist:8; editor:8
-editorial_list,FeedSpot Quilting TikTokers,FeedSpot Quilting TikTok Influencers 2026,40,0,0,0,0,0,0,258.6,100,vfx_animation:280; film_educator:32; editor:8
-editorial_list,FeedSpot Robotics TikTokers,FeedSpot Robotics TikTok Influencers 2026,25,0,0,0,0,0,0,251.8,100,film_educator:168; creative_technologist:9; sketch_comedian:8; editor:8
-editorial_list,FeedSpot RPG TikTokers,FeedSpot RPG TikTok Influencers 2026,16,0,0,0,0,0,0,261,100,creative_technologist:120; editor:8
-editorial_list,FeedSpot Wedding TikTokers,FeedSpot Wedding TikTok Influencers 2026,100,0,0,0,0,0,0,260.5,100,behind_the_scenes_creator:632; film_educator:112; creative_technologist:16; filmmaker:16; cinematographer:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|video editor,1,0,0,0,0,0,0,248,100,sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|animator,2,0,0,0,0,0,0,248,100,cinematographer:16
-wikidata_profile,Wikidata TikTok username property P7085,animator|video editor,1,0,0,0,0,0,0,248,100,vfx_animation:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|television director|film director|film producer|film editor,2,0,0,0,0,0,0,232.5,100,cinematographer:8; film_educator:7
-wikidata_profile,Wikidata TikTok username property P7085,animator|voice actor|film director,1,0,0,0,0,0,0,248,100,vfx_animation:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film editor,1,0,0,0,0,0,0,248,100,creative_technologist:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|special effects artist,1,0,0,0,0,0,0,248,100,director:8
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|voice actor,2,0,0,0,0,0,0,248,100,vfx_animation:16
-wikidata_profile,Wikidata TikTok username property P7085,film director|comedian|film producer,1,0,0,0,0,0,0,217,98,sketch_comedian:7
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director|film editor,1,0,0,0,0,0,0,217,98,cinematographer:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|video editor,1,0,0,0,0,0,0,217,98,editor:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|comedian,1,0,0,0,0,0,0,217,98,sketch_comedian:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|television director,1,0,0,0,0,0,0,217,98,cinematographer:7
-wikidata_profile,Wikidata TikTok username property P7085,film producer|stand-up comedian,1,0,0,0,0,0,0,217,98,film_educator:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|film director|film producer,1,0,0,0,0,0,0,217,98,vfx_animation:7
-wikidata_profile,Wikidata TikTok username property P7085,comedian|television director|voice actor|film director|film producer,1,0,0,0,0,0,0,217,98,sketch_comedian:7
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|film director|voice actor|film producer,1,0,0,0,0,0,0,217,98,vfx_animation:7
-wikidata_profile,Wikidata TikTok username property P7085,film director|video editor,1,0,0,0,0,0,0,217,98,filmmaker:7
-wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director|film producer,1,0,0,0,0,0,0,217,98,cinematographer:7
-editorial_list,FeedSpot Space TikTokers,FeedSpot Space TikTok Influencers 2026,31,0,0,0,0,0,0,215.1,97,creative_technologist:185; sketch_comedian:8; editor:8; film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,voice actor|film director|film producer,13,0,0,0,0,0,0,214.2,96,actor_performer:66; director:14; vfx_animation:7; creative_technologist:2
+provider_video_export,unknown,,3,2,2,1,1,0.667,0.333,1054,100,filmmaker:17; sketch_comedian:17; reject:17
+public_profile_enrichment,TikTok public profile hydration,review_queue_priority_1,1,1,1,0,0,1,0,1190,100,sketch_comedian:14
+editorial_list,FeedSpot Comedy TikTokers,FeedSpot Top Comedy TikTok Influencers 2026,99,0,0,0,0,0,0,697,100,sketch_comedian:1054; standup_comedian:561; actor_performer:17; cinematographer:17; director:17
+editorial_list,FeedSpot Movie TikTokers,FeedSpot Top Movie TikTok Influencers 2026,96,0,0,0,0,0,0,655.9,100,filmmaker:1564; director:34; cinematographer:17; editor:17
+editorial_list,FeedSpot Horror TikTokers,FeedSpot Top Horror TikTok Influencers 2026,16,0,0,0,0,0,0,668.3,100,filmmaker:255; editor:17
+editorial_list,FeedSpot Digital Art TikTokers,FeedSpot Top Digital Art TikTok Influencers 2026,100,0,0,0,0,0,0,612.9,100,vfx_animation:1683; editor:17
+editorial_list,FeedSpot New York Art TikTokers,FeedSpot Top New York Art TikTok Influencers 2026,41,0,0,0,0,0,0,668.4,100,vfx_animation:646; creative_technologist:17; sketch_comedian:17; editor:17
+editorial_list,FeedSpot Music Technology TikTokers,FeedSpot Top Music Technology TikTok Influencers 2026,48,0,0,0,0,0,0,682.8,100,creative_technologist:680; film_educator:34; filmmaker:34; cinematographer:17; standup_comedian:17
+editorial_list,FeedSpot Barcelona Photography TikTokers,FeedSpot Top Barcelona Photography TikTok Influencers 2026,2,0,0,0,0,0,0,671.5,100,filmmaker:17; editor:17
+editorial_list,FeedSpot Aviation TikTokers,FeedSpot Top Aviation TikTok Influencers 2026,97,0,0,0,0,0,0,611.3,100,behind_the_scenes_creator:1564; film_educator:34; creative_technologist:17; director:17; editor:17
+editorial_list_seed,unknown,IZEA 10 Filmmakers to Follow on TikTok,8,0,0,0,0,0,0,438.5,100,filmmaker:39; cinematographer:34; film_educator:17; behind_the_scenes_creator:17; vfx_animation:10
+editorial_list_seed,unknown,Shutterstock TikTok filmmakers to follow,8,0,0,0,0,0,0,381.1,100,film_educator:39; filmmaker:39; cinematographer:17; vfx_animation:3
+editorial_list_seed,unknown,SheSources women in film TikTok creators,5,0,0,0,0,0,0,405.4,100,behind_the_scenes_creator:34; editor:17; unclear:17; director:5
+editorial_list,FeedSpot Mobile Gaming TikTokers,FeedSpot Top Mobile Gaming TikTok Influencers 2026,57,0,0,0,0,0,0,527.7,100,vfx_animation:832; filmmaker:32; editor:32; cinematographer:16
+editorial_list,FeedSpot Historical Fiction TikTokers,FeedSpot Top Historical Fiction TikTok Influencers 2026,25,0,0,0,0,0,0,512,100,film_educator:368; editor:32
+editorial_list,FeedSpot Pop Music TikTokers,FeedSpot Top Pop Music TikTok Influencers 2026,68,0,0,0,0,0,0,592.2,100,creative_technologist:960; standup_comedian:96; cinematographer:16; editor:16
+editorial_list,FeedSpot German Book TikTokers,FeedSpot Top German Book TikTok Influencers 2026,35,0,0,0,0,0,0,519.3,100,film_educator:544; editor:16
+editorial_list,FeedSpot LGBT Book TikTokers,FeedSpot Top LGBT Book TikTok Influencers 2026,21,0,0,0,0,0,0,521.1,100,film_educator:304; filmmaker:16; editor:16
+editorial_list,FeedSpot Middle Grade Book TikTokers,FeedSpot Top Middle Grade Book TikTok Influencers 2026,7,0,0,0,0,0,0,512,100,film_educator:96; editor:16
+editorial_list,FeedSpot Illustrated Books TikTokers,FeedSpot Top Illustrated Books TikTok Influencers 2026,25,0,0,0,0,0,0,370.6,100,unclear:320; film_educator:32; vfx_animation:16; cinematographer:16; editor:16
+editorial_list,FeedSpot Business Book Review TikTokers,FeedSpot Top Business Book Review TikTok Influencers 2026,4,0,0,0,0,0,0,544,100,film_educator:48; editor:16
+editorial_list,FeedSpot Literary Fiction TikTokers,FeedSpot Top Literary Fiction TikTok Influencers 2026,47,0,0,0,0,0,0,519.1,100,film_educator:704; editor:32; filmmaker:16
+editorial_list,FeedSpot Classical Music TikTokers,FeedSpot Top Classical Music TikTok Influencers 2026,37,0,0,0,0,0,0,512,100,film_educator:496; standup_comedian:48; actor_performer:16; director:16; editor:16
+editorial_list,FeedSpot Christian Music TikTokers,FeedSpot Top Christian Music TikTok Influencers 2026,50,0,0,0,0,0,0,519.4,100,creative_technologist:720; standup_comedian:64; editor:16
+editorial_list,FeedSpot Latin Music TikTokers,FeedSpot Top Latin Music TikTok Influencers 2026,28,0,0,0,0,0,0,597.7,100,creative_technologist:368; standup_comedian:64; editor:16
+editorial_list,FeedSpot Independent Music TikTokers,FeedSpot Top Independent Music TikTok Influencers 2026,29,0,0,0,0,0,0,528,100,creative_technologist:432; cinematographer:16; editor:16
+editorial_list,FeedSpot Canadian Music TikTokers,FeedSpot Top Canadian Music TikTok Influencers 2026,47,0,0,0,0,0,0,516.8,100,creative_technologist:672; actor_performer:32; standup_comedian:16; cinematographer:16; editor:16
+editorial_list,FeedSpot Crime Fiction TikTokers,FeedSpot Top Crime Fiction TikTok Influencers 2026,28,0,0,0,0,0,0,532,100,film_educator:416; sketch_comedian:16; editor:16
+editorial_list,FeedSpot Thriller Book TikTokers,FeedSpot Top Thriller Book TikTok Influencers 2026,45,0,0,0,0,0,0,524.4,100,film_educator:656; filmmaker:32; sketch_comedian:16; editor:16
+editorial_list,FeedSpot Entertainment TikTokers,FeedSpot Top Entertainment TikTok Influencers 2026,38,0,0,0,0,0,0,527.2,100,sketch_comedian:560; filmmaker:32; editor:16
+editorial_list,FeedSpot Lego TikTokers,FeedSpot Top Lego TikTok Influencers 2026,59,0,0,0,0,0,0,527.5,100,vfx_animation:864; behind_the_scenes_creator:64; editor:16
+editorial_list,FeedSpot Romance Book TikTokers,FeedSpot Top Romance Book TikTok Influencers 2026,44,0,0,0,0,0,0,524,100,film_educator:656; actor_performer:16; cinematographer:16; editor:16
+editorial_list,FeedSpot Anime TikTokers,FeedSpot Top Anime TikTok Influencers 2026,50,0,0,0,0,0,0,522.2,100,film_educator:688; editor:96; vfx_animation:16
+editorial_list,FeedSpot Children Book TikTokers,FeedSpot Top Children Book TikTok Influencers 2026,57,0,0,0,0,0,0,535,100,vfx_animation:736; film_educator:64; editor:48; sketch_comedian:16; creative_technologist:16
+editorial_list,FeedSpot Dance TikTokers,FeedSpot Top Dance TikTok Influencers 2026,62,0,0,0,0,0,0,530.6,100,behind_the_scenes_creator:768; film_educator:80; actor_performer:48; cinematographer:32; standup_comedian:16
+editorial_list,FeedSpot Music TikTokers,FeedSpot Top Music TikTok Influencers 2026,87,0,0,0,0,0,0,527.6,100,creative_technologist:1232; standup_comedian:80; editor:32; director:16; film_educator:16
+editorial_list,FeedSpot Gaming TikTokers,FeedSpot Top Gaming TikTok Influencers 2026,55,0,0,0,0,0,0,554.2,100,vfx_animation:784; behind_the_scenes_creator:48; sketch_comedian:16; filmmaker:16; editor:16
+editorial_list,FeedSpot Technology TikTokers,FeedSpot Top Technology TikTok Influencers 2026,51,0,0,0,0,0,0,545.3,100,creative_technologist:704; film_educator:64; sketch_comedian:16; filmmaker:16; editor:16
+editorial_list,FeedSpot BookTok Creators,FeedSpot Top BookTok Influencers 2026,75,0,0,0,0,0,0,521.4,100,film_educator:1120; filmmaker:48; cinematographer:16; editor:16
+editorial_list,FeedSpot AI TikTokers,FeedSpot Top AI TikTok Influencers 2026,32,0,0,0,0,0,0,517.5,100,creative_technologist:432; film_educator:64; editor:16
+editorial_list,FeedSpot Jazz TikTokers,FeedSpot Top 10 Jazz TikTok Influencers in 2026,8,0,0,0,0,0,0,480,100,behind_the_scenes_creator:90; film_educator:15; editor:15
+editorial_list,FeedSpot Stem TikTokers,FeedSpot Top 100 STEM TikTok Influencers in 2026,97,0,0,0,0,0,0,504.6,100,film_educator:1335; creative_technologist:45; editor:30; filmmaker:15; cinematographer:15
+editorial_list,FeedSpot Virtual Reality TikTokers,FeedSpot Top 35 Virtual Reality TikTok Influencers in 2026,31,0,0,0,0,0,0,490.6,100,film_educator:450; editor:15
+editorial_list,FeedSpot Virtual TikTokers,FeedSpot Top 80 Virtual TikTok Influencers in 2026,72,0,0,0,0,0,0,497.9,100,film_educator:855; creative_technologist:150; editor:30; filmmaker:15; sketch_comedian:15
+wikidata_profile,Wikidata TikTok username property P7085,film director,169,0,0,0,0,0,0,284.7,100,director:1355; filmmaker:71; vfx_animation:53; creative_technologist:29; cinematographer:11
+wikidata_profile,Wikidata TikTok username property P7085,voice actor|film director,10,0,0,0,0,0,0,275.9,100,actor_performer:89
+wikidata_profile,Wikidata TikTok username property P7085,voice actor,245,0,0,0,0,0,0,282.7,100,actor_performer:2135; creative_technologist:29; film_educator:17; cinematographer:9; sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian,29,0,0,0,0,0,0,288.1,100,sketch_comedian:266
+wikidata_profile,Wikidata TikTok username property P7085,voice actor|film producer,20,0,0,0,0,0,0,261.1,100,actor_performer:151; filmmaker:8; vfx_animation:8; creative_technologist:1
+wikidata_profile,Wikidata TikTok username property P7085,voice actor|film director|film producer,13,0,0,0,0,0,0,240.5,100,actor_performer:74; director:16; vfx_animation:8; creative_technologist:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|voice actor|film director,2,0,0,0,0,0,0,294.5,100,vfx_animation:19
+wikidata_profile,Wikidata TikTok username property P7085,video editor,10,0,0,0,0,0,0,288.9,100,editor:81; creative_technologist:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film producer,21,0,0,0,0,0,0,284.5,100,director:174; creative_technologist:9; vfx_animation:8
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor,12,0,0,0,0,0,0,272.5,100,sketch_comedian:88; cinematographer:9; standup_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,comedian,316,0,0,0,0,0,0,289,100,sketch_comedian:2871; standup_comedian:18; film_educator:9; vfx_animation:1
+wikidata_profile,Wikidata TikTok username property P7085,film director|film producer,22,0,0,0,0,0,0,288.4,100,director:184; vfx_animation:9; filmmaker:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film producer,15,0,0,0,0,0,0,276.9,100,filmmaker:126; sketch_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,film producer,66,0,0,0,0,0,0,282.7,100,filmmaker:578; creative_technologist:9; cinematographer:9
+wikidata_profile,Wikidata TikTok username property P7085,comedian|stand-up comedian,27,0,0,0,0,0,0,288.3,100,sketch_comedian:244; standup_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|stand-up comedian,4,0,0,0,0,0,0,271.3,100,standup_comedian:27; vfx_animation:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director,37,0,0,0,0,0,0,285.6,100,director:303; vfx_animation:26; behind_the_scenes_creator:9
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film producer,4,0,0,0,0,0,0,286.8,100,sketch_comedian:37
+wikidata_profile,Wikidata TikTok username property P7085,stand-up comedian,61,0,0,0,0,0,0,298.2,100,standup_comedian:525; film_educator:26; creative_technologist:9; vfx_animation:9; sketch_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter,54,0,0,0,0,0,0,249.5,100,actor_performer:225; unclear:190; film_educator:50; vfx_animation:17; cinematographer:9
+wikidata_profile,Wikidata TikTok username property P7085,television director,8,0,0,0,0,0,0,286.8,100,director:74
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film director,20,0,0,0,0,0,0,271.5,100,sketch_comedian:157; director:17
+wikidata_profile,Wikidata TikTok username property P7085,influencer|Twitch streamer|online streamer,2,0,0,0,0,0,0,246,100,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,television director|film director|film producer,3,0,0,0,0,0,0,279,100,director:27
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|film director|film producer,2,0,0,0,0,0,0,263.5,100,cinematographer:17
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer|TikToker,2,0,0,0,0,0,0,228,100,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,animator,22,0,0,0,0,0,0,291.7,100,vfx_animation:207
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film editor,1,0,0,0,0,0,0,310,100,director:10
+wikidata_profile,Wikidata TikTok username property P7085,voice actor|stand-up comedian,5,0,0,0,0,0,0,279,100,actor_performer:37; standup_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film producer,4,0,0,0,0,0,0,271.3,100,sketch_comedian:35
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor,17,0,0,0,0,0,0,286.3,100,actor_performer:157
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film director,2,0,0,0,0,0,0,294.5,100,cinematographer:19
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|video editor|stand-up comedian,1,0,0,0,0,0,0,279,100,editor:9
+wikidata_profile,Wikidata TikTok username property P7085,film director|stand-up comedian,2,0,0,0,0,0,0,279,100,director:18
+wikidata_profile,Wikidata TikTok username property P7085,animator|voice actor,5,0,0,0,0,0,0,285.2,100,vfx_animation:46
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|stand-up comedian,7,0,0,0,0,0,0,272.1,100,sketch_comedian:57; standup_comedian:3
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|film director,1,0,0,0,0,0,0,310,100,vfx_animation:10
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer,9,0,0,0,0,0,0,292.8,100,cinematographer:85
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film producer,4,0,0,0,0,0,0,271.3,100,sketch_comedian:27; filmmaker:8
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film director|film producer,1,0,0,0,0,0,0,279,100,cinematographer:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film producer|stand-up comedian,2,0,0,0,0,0,0,263.5,100,sketch_comedian:17
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|stand-up comedian,3,0,0,0,0,0,0,268.7,100,sketch_comedian:26
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film director|film producer,1,0,0,0,0,0,0,279,100,sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film producer,2,0,0,0,0,0,0,279,100,actor_performer:18
+wikidata_profile,Wikidata TikTok username property P7085,television director|voice actor,3,0,0,0,0,0,0,268.7,100,director:18; actor_performer:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer,1,0,0,0,0,0,0,310,100,cinematographer:10
+wikidata_profile,Wikidata TikTok username property P7085,comedian|television director,3,0,0,0,0,0,0,279,100,sketch_comedian:27
+wikidata_profile,Wikidata TikTok username property P7085,film editor,9,0,0,0,0,0,0,282.4,100,editor:64; cinematographer:18
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director,3,0,0,0,0,0,0,268.7,100,actor_performer:18; director:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film editor,1,0,0,0,0,0,0,279,100,actor_performer:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director|film producer,3,0,0,0,0,0,0,279,100,actor_performer:27
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|comedian|television director|voice actor|film director|film producer|film editor,1,0,0,0,0,0,0,279,100,cinematographer:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director,3,0,0,0,0,0,0,279,100,director:27
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|voice actor,2,0,0,0,0,0,0,279,100,director:18
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director|film producer|stand-up comedian,1,0,0,0,0,0,0,310,100,actor_performer:10
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film director|film producer,2,0,0,0,0,0,0,279,100,sketch_comedian:18
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film producer|stand-up comedian,2,0,0,0,0,0,0,294.5,100,filmmaker:19
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor,6,0,0,0,0,0,0,273.8,100,sketch_comedian:53
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|film director|stand-up comedian,1,0,0,0,0,0,0,279,100,sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,television director|film producer,1,0,0,0,0,0,0,279,100,director:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|film director|stand-up comedian,1,0,0,0,0,0,0,279,100,sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film producer,1,0,0,0,0,0,0,279,100,sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|stand-up comedian,1,0,0,0,0,0,0,378,100,actor_performer:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|stand-up comedian,1,0,0,0,0,0,0,279,100,sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,television director|stand-up comedian,2,0,0,0,0,0,0,294.5,100,director:19
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film director|stand-up comedian,1,0,0,0,0,0,0,310,100,sketch_comedian:10
+wikidata_profile,Wikidata TikTok username property P7085,television director|voice actor|film director,1,0,0,0,0,0,0,310,100,director:10
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director,1,0,0,0,0,0,0,310,100,cinematographer:10
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|film director,1,0,0,0,0,0,0,279,100,cinematographer:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|television director|voice actor|film director,1,0,0,0,0,0,0,279,100,vfx_animation:9
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|animator|television director|voice actor|film director|film producer|film editor,1,0,0,0,0,0,0,279,100,cinematographer:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film producer|film editor,4,0,0,0,0,0,0,275.3,100,director:19; vfx_animation:8; filmmaker:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|stand-up comedian,1,0,0,0,0,0,0,279,100,sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,film director|film editor,1,0,0,0,0,0,0,310,100,director:10
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film editor|video editor,1,0,0,0,0,0,0,279,100,cinematographer:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator,2,0,0,0,0,0,0,294.5,100,vfx_animation:19
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film director|film producer|stand-up comedian,2,0,0,0,0,0,0,263.5,100,sketch_comedian:9; director:8
+wikidata_profile,Wikidata TikTok username property P7085,animator|film director,2,0,0,0,0,0,0,310,100,vfx_animation:20
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|vlogger|Twitch streamer,1,0,0,0,0,0,0,234,100,cinematographer:6
+wikidata_profile,Wikidata TikTok username property P7085,educator|content creator,1,0,0,0,0,0,0,270,100,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film director,2,0,0,0,0,0,0,263.5,100,sketch_comedian:17
+public_profile_enrichment,TikTok public profile hydration,review_queue_priority_3,5,0,0,0,0,0,0,559.2,100,filmmaker:24; vfx_animation:14; director:12; film_educator:12
+public_dataset_sample,Bright Data TikTok profiles GitHub sample,null,29,0,0,0,0,0,0,353.1,100,actor_performer:90; sketch_comedian:50; vfx_animation:40; film_educator:30; filmmaker:30
+editorial_list,FeedSpot Audiophile TikTokers,FeedSpot Audiophile TikTok Influencers 2026,11,0,0,0,0,0,0,288,100,film_educator:90; editor:9
+editorial_list,FeedSpot DnD TikTokers,FeedSpot DnD TikTok Influencers 2026,60,0,0,0,0,0,0,289.6,100,actor_performer:504; film_educator:18; sketch_comedian:9; editor:9
+editorial_list,FeedSpot Flight Simulation TikTokers,FeedSpot Flight Simulation TikTok Influencers 2026,40,0,0,0,0,0,0,294.1,100,filmmaker:342; standup_comedian:9; editor:9
+editorial_list,FeedSpot Halloween TikTokers,FeedSpot Halloween TikTok Influencers 2026,33,0,0,0,0,0,0,291,100,behind_the_scenes_creator:252; filmmaker:36; editor:9
+editorial_list,FeedSpot Opera TikTokers,FeedSpot Opera TikTok Influencers 2026,20,0,0,0,0,0,0,294.3,100,film_educator:144; actor_performer:18; creative_technologist:9; editor:9
+editorial_list,FeedSpot Quilting TikTokers,FeedSpot Quilting TikTok Influencers 2026,40,0,0,0,0,0,0,290.9,100,vfx_animation:315; film_educator:36; editor:9
+editorial_list,FeedSpot Robotics TikTokers,FeedSpot Robotics TikTok Influencers 2026,25,0,0,0,0,0,0,283,100,film_educator:189; creative_technologist:10; sketch_comedian:9; editor:9
+editorial_list,FeedSpot RPG TikTokers,FeedSpot RPG TikTok Influencers 2026,16,0,0,0,0,0,0,293.6,100,creative_technologist:135; editor:9
+editorial_list,FeedSpot Space TikTokers,FeedSpot Space TikTok Influencers 2026,31,0,0,0,0,0,0,240.9,100,creative_technologist:208; sketch_comedian:9; editor:9; film_educator:5
+editorial_list,FeedSpot Wedding TikTokers,FeedSpot Wedding TikTok Influencers 2026,100,0,0,0,0,0,0,293,100,behind_the_scenes_creator:711; film_educator:126; creative_technologist:18; filmmaker:18; cinematographer:9
+wikidata_profile,Wikidata TikTok username property P7085,film director|comedian|film producer,1,0,0,0,0,0,0,248,100,sketch_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|video editor,1,0,0,0,0,0,0,279,100,sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director|film editor,1,0,0,0,0,0,0,248,100,cinematographer:8
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|animator,2,0,0,0,0,0,0,279,100,cinematographer:18
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|video editor,1,0,0,0,0,0,0,248,100,editor:8
+wikidata_profile,Wikidata TikTok username property P7085,animator|video editor,1,0,0,0,0,0,0,279,100,vfx_animation:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|television director|film director|film producer|film editor,2,0,0,0,0,0,0,263.5,100,cinematographer:9; film_educator:8
+wikidata_profile,Wikidata TikTok username property P7085,animator|voice actor|film director,1,0,0,0,0,0,0,279,100,vfx_animation:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|comedian,1,0,0,0,0,0,0,248,100,sketch_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film editor,1,0,0,0,0,0,0,279,100,creative_technologist:9
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|television director,1,0,0,0,0,0,0,248,100,cinematographer:8
+wikidata_profile,Wikidata TikTok username property P7085,film producer|stand-up comedian,1,0,0,0,0,0,0,248,100,film_educator:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|film director|film producer,1,0,0,0,0,0,0,248,100,vfx_animation:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|special effects artist,1,0,0,0,0,0,0,279,100,director:9
+wikidata_profile,Wikidata TikTok username property P7085,comedian|television director|voice actor|film director|film producer,1,0,0,0,0,0,0,248,100,sketch_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|film director|voice actor|film producer,1,0,0,0,0,0,0,248,100,vfx_animation:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|voice actor,2,0,0,0,0,0,0,279,100,vfx_animation:18
+wikidata_profile,Wikidata TikTok username property P7085,film director|video editor,1,0,0,0,0,0,0,248,100,filmmaker:8
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director|film producer,1,0,0,0,0,0,0,248,100,cinematographer:8
+wikidata_profile,Wikidata TikTok username property P7085,actor|dancer|film actor,26,0,0,0,0,0,0,222.4,100,actor_performer:168; creative_technologist:14
+wikidata_profile,Wikidata TikTok username property P7085,actor,2656,0,0,0,0,0,0,219.6,99,actor_performer:16044; creative_technologist:1270; film_educator:903; vfx_animation:105; cinematographer:70
+wikidata_profile,Wikidata TikTok username property P7085,actor|film actor,273,0,0,0,0,0,0,220.3,99,actor_performer:1708; film_educator:105; creative_technologist:64; vfx_animation:21; cinematographer:7
+wikidata_profile,Wikidata TikTok username property P7085,dancer,273,0,0,0,0,0,0,219.9,99,actor_performer:1652; creative_technologist:183; film_educator:63; behind_the_scenes_creator:1
+wikidata_profile,Wikidata TikTok username property P7085,actor|stage actor,36,0,0,0,0,0,0,219.2,99,actor_performer:231; creative_technologist:8; film_educator:7
+wikidata_profile,Wikidata TikTok username property P7085,stage actor|dancer|film actor,2,0,0,0,0,0,0,217,98,actor_performer:7; creative_technologist:7
+wikidata_profile,Wikidata TikTok username property P7085,film actor,79,0,0,0,0,0,0,218.1,98,actor_performer:497; creative_technologist:28; film_educator:14; cinematographer:7; vfx_animation:7
+wikidata_profile,Wikidata TikTok username property P7085,stage actor,27,0,0,0,0,0,0,217,98,actor_performer:154; creative_technologist:14; film_educator:14; vfx_animation:7
+wikidata_profile,Wikidata TikTok username property P7085,actor|stage actor|film actor,51,0,0,0,0,0,0,218.8,98,actor_performer:343; cinematographer:7; creative_technologist:7
+wikidata_profile,Wikidata TikTok username property P7085,stage actor|film actor,13,0,0,0,0,0,0,217,98,actor_performer:77; filmmaker:7; creative_technologist:7
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|digital creator,2,0,0,0,0,0,0,216,97,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film producer|stand-up comedian,3,0,0,0,0,0,0,215.3,97,sketch_comedian:18; standup_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,online streamer|TikToker,3,0,0,0,0,0,0,214,96,creative_technologist:18
 manual_seed,smoke-seeds.jsonl,filmmaker short film editing breakdown,1,1,1,0,1,1,0,98,95,filmmaker:1
-wikidata_profile,Wikidata TikTok username property P7085,influencer|Twitch streamer|online streamer,2,0,0,0,0,0,0,205,92,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film producer|stand-up comedian,3,0,0,0,0,0,0,194.7,88,sketch_comedian:16; standup_comedian:2
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|vlogger|Twitch streamer,1,0,0,0,0,0,0,195,88,cinematographer:5
+wikidata_profile,Wikidata TikTok username property P7085,actor|dancer,160,0,0,0,0,0,0,211.3,95,actor_performer:931; creative_technologist:97; film_educator:42; vfx_animation:7; behind_the_scenes_creator:1
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film producer|stand-up comedian,2,0,0,0,0,0,0,208.5,94,sketch_comedian:12
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|Twitch streamer|online streamer,2,0,0,0,0,0,0,207,93,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer,3,0,0,0,0,0,0,204,92,creative_technologist:18
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|TikToker,6,0,0,0,0,0,0,202,91,film_educator:36
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film director,4,0,0,0,0,0,0,201.5,91,sketch_comedian:26
+wikidata_profile,Wikidata TikTok username property P7085,comics artist,4,0,0,0,0,0,0,201,90,vfx_animation:24
+wikidata_profile,Wikidata TikTok username property P7085,online streamer|content creator,3,0,0,0,0,0,0,198,89,creative_technologist:18
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer,12,0,0,0,0,0,0,196,88,vfx_animation:72
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|Twitch streamer,6,0,0,0,0,0,0,196,88,creative_technologist:36
+wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|online streamer,10,0,0,0,0,0,0,196.2,88,creative_technologist:60
+wikidata_profile,Wikidata TikTok username property P7085,influencer|digital creator,8,0,0,0,0,0,0,196.5,88,creative_technologist:48
+wikidata_profile,Wikidata TikTok username property P7085,artist|painter,6,0,0,0,0,0,0,195,88,vfx_animation:36
 manual_seed,smoke-seeds.jsonl,cinematographer lighting breakdown,1,1,1,0,0,1,0,86,87,cinematographer:1
 manual_seed,smoke-seeds.jsonl,vfx artist animation blender,1,1,1,0,0,1,0,87,87,vfx_animation:1
-wikidata_profile,Wikidata TikTok username property P7085,comedian|film producer|stand-up comedian,2,0,0,0,0,0,0,193,87,sketch_comedian:11
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|vlogger|YouTuber,3,0,0,0,0,0,0,194,87,creative_technologist:18
+wikidata_profile,Wikidata TikTok username property P7085,dancer|film actor,7,0,0,0,0,0,0,192.6,87,actor_performer:42; standup_comedian:1
 manual_seed,smoke-seeds.jsonl,sketch comedian character comedy,1,1,1,0,0,1,0,85,86,sketch_comedian:1
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer|TikToker,2,0,0,0,0,0,0,190,86,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,actor|dancer|film actor,26,0,0,0,0,0,0,190.6,86,actor_performer:144; creative_technologist:12
-wikidata_profile,Wikidata TikTok username property P7085,actor,2656,0,0,0,0,0,0,188.3,85,actor_performer:13752; creative_technologist:1091; film_educator:774; vfx_animation:90; cinematographer:60
-wikidata_profile,Wikidata TikTok username property P7085,actor|film actor,273,0,0,0,0,0,0,188.8,85,actor_performer:1464; film_educator:90; creative_technologist:55; vfx_animation:18; cinematographer:6
-wikidata_profile,Wikidata TikTok username property P7085,dancer,273,0,0,0,0,0,0,188.5,85,actor_performer:1416; creative_technologist:157; film_educator:54; behind_the_scenes_creator:1
-wikidata_profile,Wikidata TikTok username property P7085,actor|stage actor,36,0,0,0,0,0,0,188.1,85,actor_performer:198; creative_technologist:7; film_educator:6
-wikidata_profile,Wikidata TikTok username property P7085,stage actor|dancer|film actor,2,0,0,0,0,0,0,186,84,actor_performer:6; creative_technologist:6
-wikidata_profile,Wikidata TikTok username property P7085,film actor,79,0,0,0,0,0,0,186.9,84,actor_performer:426; creative_technologist:24; film_educator:12; cinematographer:6; vfx_animation:6
-wikidata_profile,Wikidata TikTok username property P7085,stage actor,27,0,0,0,0,0,0,186,84,actor_performer:132; creative_technologist:12; film_educator:12; vfx_animation:6
-wikidata_profile,Wikidata TikTok username property P7085,actor|stage actor|film actor,51,0,0,0,0,0,0,187.5,84,actor_performer:294; cinematographer:6; creative_technologist:6
-wikidata_profile,Wikidata TikTok username property P7085,stage actor|film actor,13,0,0,0,0,0,0,186,84,actor_performer:66; filmmaker:6; creative_technologist:6
-wikidata_profile,Wikidata TikTok username property P7085,actor|dancer,160,0,0,0,0,0,0,181.4,82,actor_performer:798; creative_technologist:84; film_educator:36; vfx_animation:6; behind_the_scenes_creator:1
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|digital creator,2,0,0,0,0,0,0,180,81,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,online streamer|TikToker,3,0,0,0,0,0,0,178.3,80,creative_technologist:15
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film director,4,0,0,0,0,0,0,178.3,80,sketch_comedian:23
+wikidata_profile,Wikidata TikTok username property P7085,painter|visual artist,4,0,0,0,0,0,0,192,86,vfx_animation:24
+wikidata_profile,Wikidata TikTok username property P7085,visual artist,20,0,0,0,0,0,0,186,84,vfx_animation:120
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|TikToker,3,0,0,0,0,0,0,186,84,film_educator:18
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|TikToker|influencer,2,0,0,0,0,0,0,186,84,film_educator:12
+wikidata_profile,Wikidata TikTok username property P7085,cosplayer|online streamer,1,0,0,0,0,0,0,186,84,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|Internet celebrity|YouTuber,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,filmmaker|Internet celebrity|influencer,1,0,0,0,0,0,0,186,84,filmmaker:6
+wikidata_profile,Wikidata TikTok username property P7085,science communicator|TikToker|content creator|digital creator,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|Internet celebrity,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,science communicator|YouTuber,4,0,0,0,0,0,0,186,84,film_educator:24
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|Twitch streamer|online streamer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,drag queen|artist,2,0,0,0,0,0,0,186,84,actor_performer:12
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|YouTuber|TikToker,4,0,0,0,0,0,0,186,84,creative_technologist:24
+wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|online streamer|YouTuber,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,drag queen|fashion designer,2,0,0,0,0,0,0,186,84,actor_performer:12
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|comics artist,8,0,0,0,0,0,0,186,84,vfx_animation:48
+wikidata_profile,Wikidata TikTok username property P7085,web video producer,18,0,0,0,0,0,0,186,84,filmmaker:108
+wikidata_profile,Wikidata TikTok username property P7085,painter|online streamer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|online streamer|TikToker,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|cosplayer,2,0,0,0,0,0,0,186,84,vfx_animation:12
+wikidata_profile,Wikidata TikTok username property P7085,cosplayer|Twitch streamer|online streamer,1,0,0,0,0,0,0,186,84,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|online streamer,2,0,0,0,0,0,0,186,84,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|TikToker|cosplayer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|visual artist,5,0,0,0,0,0,0,186,84,vfx_animation:30
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|online streamer|content creator,3,0,0,0,0,0,0,186,84,film_educator:18
+wikidata_profile,Wikidata TikTok username property P7085,artist|Internet celebrity,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|TikToker|content creator,2,0,0,0,0,0,0,186,84,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,impressionist|Internet celebrity|TikToker,1,0,0,0,0,0,0,186,84,sketch_comedian:6
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|Twitch streamer,2,0,0,0,0,0,0,186,84,film_educator:12
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|cosplayer|Twitch streamer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|Twitch streamer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,painter|YouTuber,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,impressionist|YouTuber,4,0,0,0,0,0,0,186,84,sketch_comedian:24
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|videographer|Twitch streamer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|Twitch streamer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|illustrator|filmmaker|cosplayer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,fashion designer|YouTuber,2,0,0,0,0,0,0,186,84,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|influencer|YouTuber|online streamer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,TikToker|digital creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|educator,2,0,0,0,0,0,0,186,84,film_educator:12
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|YouTuber|Twitch streamer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger,7,0,0,0,0,0,0,186,84,creative_technologist:42
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|YouTuber|Twitch streamer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|videographer,2,0,0,0,0,0,0,186,84,vfx_animation:12
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|influencer|vlogger,2,0,0,0,0,0,0,186,84,film_educator:12
+wikidata_profile,Wikidata TikTok username property P7085,drag queen|influencer,1,0,0,0,0,0,0,186,84,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|TikToker|content creator,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,online streamer|cosplayer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|digital creator,7,0,0,0,0,0,0,186,84,film_educator:42
+wikidata_profile,Wikidata TikTok username property P7085,teacher|TikToker,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker|content creator|digital creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,educator|TikToker,2,0,0,0,0,0,0,186,84,film_educator:12
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|painter|visual artist,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|influencer|fashion designer|cosplayer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|teacher,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|videographer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|content creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|cosplayer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|TikToker,2,0,0,0,0,0,0,186,84,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker|designer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,fashion designer|digital creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer|content creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|cosplayer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|Twitch streamer,2,0,0,0,0,0,0,186,84,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|content creator,4,0,0,0,0,0,0,186,84,creative_technologist:24
+wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker|content creator,3,0,0,0,0,0,0,186,84,creative_technologist:18
+wikidata_profile,Wikidata TikTok username property P7085,cosplayer|content creator,1,0,0,0,0,0,0,186,84,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|illustrator,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|influencer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,cosplayer|Twitch streamer,3,0,0,0,0,0,0,186,84,actor_performer:18
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|content creator,4,0,0,0,0,0,0,186,84,film_educator:24
+wikidata_profile,Wikidata TikTok username property P7085,artist|vlogger|digital creator|YouTuber|TikToker,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|influencer,2,0,0,0,0,0,0,186,84,vfx_animation:12
+wikidata_profile,Wikidata TikTok username property P7085,influencer|science communicator,2,0,0,0,0,0,0,186,84,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,comics artist|influencer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|Twitch streamer|TikToker,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|fashion designer|TikToker,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|Twitch streamer|TikToker,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|online streamer|TikToker,3,0,0,0,0,0,0,186,84,film_educator:18
+wikidata_profile,Wikidata TikTok username property P7085,artist|graphic designer|illustrator|Twitch streamer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,fashion designer|YouTuber|TikToker,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,educator|influencer|digital creator,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,fashion designer|YouTuber|Twitch streamer|TikToker,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,drag queen|influencer|TikToker,1,0,0,0,0,0,0,186,84,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|digital creator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|cosplayer,4,0,0,0,0,0,0,186,84,creative_technologist:24
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|online streamer|TikToker,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,drag queen|drag performer,3,0,0,0,0,0,0,186,84,actor_performer:18
+wikidata_profile,Wikidata TikTok username property P7085,TikToker|web video producer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|vlogger,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|painter,3,0,0,0,0,0,0,186,84,vfx_animation:18
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|online streamer|TikToker,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,educator|influencer|TikToker,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|illustrator,4,0,0,0,0,0,0,186,84,vfx_animation:24
+wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|online streamer|content creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,fashion designer|designer,2,0,0,0,0,0,0,186,84,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,filmmaker|TikToker,1,0,0,0,0,0,0,186,84,filmmaker:6
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|TikToker,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|influencer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker|fashion designer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|educator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|educator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Internet celebrity|Twitch streamer|online streamer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|fashion designer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|content creator|teacher,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,online streamer|TikToker|web video producer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|Internet celebrity,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|content creator|educator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|videographer|painter,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,drag performer,22,0,0,0,0,0,0,186,84,actor_performer:132
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|influencer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|painter,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,designer|YouTuber,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer|digital creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|comics artist|painter|YouTuber,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,videographer|YouTuber,1,0,0,0,0,0,0,186,84,cinematographer:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|illustrator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|vlogger|content creator|digital creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|science communicator,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|science communicator|YouTuber,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,painter|fashion designer|designer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|cosplayer|content creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|Internet celebrity|vlogger|YouTuber,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,educator|YouTuber,3,0,0,0,0,0,0,186,84,film_educator:18
+wikidata_profile,Wikidata TikTok username property P7085,artist|science communicator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|TikToker|Internet celebrity,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|web video producer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,educator|influencer|YouTuber,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,TikToker|influencer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,painter|cosplayer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|vlogger|designer|online streamer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|graphic designer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,painter|YouTuber|content creator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|drag queen,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|fashion designer,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|cosplayer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|influencer|TikToker,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|drag performer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|Internet celebrity|TikToker|digital creator,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|content creator,2,0,0,0,0,0,0,186,84,film_educator:12
+wikidata_profile,Wikidata TikTok username property P7085,artist|visual artist,2,0,0,0,0,0,0,186,84,vfx_animation:12
+wikidata_profile,Wikidata TikTok username property P7085,content creator|digital creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|drag performer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|YouTuber|content creator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,drag queen|Internet celebrity,1,0,0,0,0,0,0,186,84,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|science communicator|YouTuber,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|illustrator|painter,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,content creator|Twitch streamer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|fashion designer,2,0,0,0,0,0,0,186,84,vfx_animation:12
+wikidata_profile,Wikidata TikTok username property P7085,educator|visual artist,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,illustrator|content creator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|online streamer|content creator,2,0,0,0,0,0,0,186,84,creative_technologist:12
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|Twitch streamer|content creator,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|educator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|online streamer,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,painter|visual artist|fashion designer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|graphic designer|illustrator,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|online streamer|content creator,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,teacher|Internet celebrity,1,0,0,0,0,0,0,186,84,film_educator:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|YouTuber|content creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|online streamer|TikToker|content creator,2,0,0,0,0,0,0,186,84,film_educator:12
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|TikToker|content creator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,influencer|illustrator|comics artist,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,content creator|educator,1,0,0,0,0,0,0,186,84,creative_technologist:6
+wikidata_profile,Wikidata TikTok username property P7085,filmmaker|YouTuber,1,0,0,0,0,0,0,186,84,filmmaker:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|illustrator|comics artist|YouTuber,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|comics artist|designer,1,0,0,0,0,0,0,186,84,vfx_animation:6
+wikidata_profile,Wikidata TikTok username property P7085,artist|fashion designer|cosplayer,2,0,0,0,0,0,0,186,84,vfx_animation:12
+wikidata_profile,Wikidata TikTok username property P7085,cosplayer,52,0,0,0,0,0,0,181.3,82,actor_performer:297
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film director|film producer,2,0,0,0,0,0,0,182.5,82,sketch_comedian:9; standup_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|online streamer,41,0,0,0,0,0,0,180.6,81,film_educator:236
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|content creator,23,0,0,0,0,0,0,181.1,81,film_educator:133
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|online streamer,18,0,0,0,0,0,0,177.4,80,film_educator:103
+wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer,70,0,0,0,0,0,0,177.2,80,creative_technologist:389; sketch_comedian:6
+wikidata_profile,Wikidata TikTok username property P7085,content creator,115,0,0,0,0,0,0,176.7,80,creative_technologist:644; sketch_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,science communicator,15,0,0,0,0,0,0,176.7,80,film_educator:85
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer,39,0,0,0,0,0,0,175.8,79,creative_technologist:214
+wikidata_profile,Wikidata TikTok username property P7085,influencer|content creator,14,0,0,0,0,0,0,174.9,79,creative_technologist:79
+wikidata_profile,Wikidata TikTok username property P7085,videographer,9,0,0,0,0,0,0,175.4,79,cinematographer:49
 graph_expansion_fixture,smoke-seeds.jsonl,mentioned by @ani.motionlab,1,1,0,0,1,1,0,78,78,creative_technologist:1
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|Twitch streamer|online streamer,2,0,0,0,0,0,0,172.5,78,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer,3,0,0,0,0,0,0,170,77,creative_technologist:15
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|TikToker,6,0,0,0,0,0,0,168.3,76,film_educator:30
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film director|film producer,2,0,0,0,0,0,0,167,75,sketch_comedian:8; standup_comedian:2
-wikidata_profile,Wikidata TikTok username property P7085,comics artist,4,0,0,0,0,0,0,167.5,75,vfx_animation:20
-wikidata_profile,Wikidata TikTok username property P7085,dancer|film actor,7,0,0,0,0,0,0,166,75,actor_performer:36; standup_comedian:1
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer,12,0,0,0,0,0,0,163.3,74,vfx_animation:60
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|Twitch streamer,6,0,0,0,0,0,0,163.3,74,creative_technologist:30
-wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|online streamer,10,0,0,0,0,0,0,163.5,74,creative_technologist:50
-wikidata_profile,Wikidata TikTok username property P7085,influencer|digital creator,8,0,0,0,0,0,0,163.8,74,creative_technologist:40
-wikidata_profile,Wikidata TikTok username property P7085,online streamer|content creator,3,0,0,0,0,0,0,165,74,creative_technologist:15
-wikidata_profile,Wikidata TikTok username property P7085,artist|painter,6,0,0,0,0,0,0,162.5,73,vfx_animation:30
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|vlogger|YouTuber,3,0,0,0,0,0,0,161.7,73,creative_technologist:15
-wikidata_profile,Wikidata TikTok username property P7085,painter|visual artist,4,0,0,0,0,0,0,160,72,vfx_animation:20
-wikidata_profile,Wikidata TikTok username property P7085,visual artist,20,0,0,0,0,0,0,155,70,vfx_animation:100
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|TikToker,3,0,0,0,0,0,0,155,70,film_educator:15
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|TikToker|influencer,2,0,0,0,0,0,0,155,70,film_educator:10
-wikidata_profile,Wikidata TikTok username property P7085,cosplayer|online streamer,1,0,0,0,0,0,0,155,70,actor_performer:5
-wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|Internet celebrity|YouTuber,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,filmmaker|Internet celebrity|influencer,1,0,0,0,0,0,0,155,70,filmmaker:5
-wikidata_profile,Wikidata TikTok username property P7085,science communicator|TikToker|content creator|digital creator,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|Internet celebrity,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,science communicator|YouTuber,4,0,0,0,0,0,0,155,70,film_educator:20
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|Twitch streamer|online streamer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,drag queen|artist,2,0,0,0,0,0,0,155,70,actor_performer:10
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|YouTuber|TikToker,4,0,0,0,0,0,0,155,70,creative_technologist:20
-wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|online streamer|YouTuber,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,drag queen|fashion designer,2,0,0,0,0,0,0,155,70,actor_performer:10
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|comics artist,8,0,0,0,0,0,0,155,70,vfx_animation:40
-wikidata_profile,Wikidata TikTok username property P7085,web video producer,18,0,0,0,0,0,0,155,70,filmmaker:90
-wikidata_profile,Wikidata TikTok username property P7085,painter|online streamer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|online streamer|TikToker,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|cosplayer,2,0,0,0,0,0,0,155,70,vfx_animation:10
-wikidata_profile,Wikidata TikTok username property P7085,cosplayer|Twitch streamer|online streamer,1,0,0,0,0,0,0,155,70,actor_performer:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|online streamer,2,0,0,0,0,0,0,155,70,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|TikToker|cosplayer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|visual artist,5,0,0,0,0,0,0,155,70,vfx_animation:25
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|online streamer|content creator,3,0,0,0,0,0,0,155,70,film_educator:15
-wikidata_profile,Wikidata TikTok username property P7085,artist|Internet celebrity,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|TikToker|content creator,2,0,0,0,0,0,0,155,70,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,impressionist|Internet celebrity|TikToker,1,0,0,0,0,0,0,155,70,sketch_comedian:5
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|Twitch streamer,2,0,0,0,0,0,0,155,70,film_educator:10
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|cosplayer|Twitch streamer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|Twitch streamer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,painter|YouTuber,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,impressionist|YouTuber,4,0,0,0,0,0,0,155,70,sketch_comedian:20
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|videographer|Twitch streamer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|Twitch streamer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|illustrator|filmmaker|cosplayer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,fashion designer|YouTuber,2,0,0,0,0,0,0,155,70,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|influencer|YouTuber|online streamer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,TikToker|digital creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|educator,2,0,0,0,0,0,0,155,70,film_educator:10
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|YouTuber|Twitch streamer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger,7,0,0,0,0,0,0,155,70,creative_technologist:35
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|YouTuber|Twitch streamer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|videographer,2,0,0,0,0,0,0,155,70,vfx_animation:10
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|influencer|vlogger,2,0,0,0,0,0,0,155,70,film_educator:10
-wikidata_profile,Wikidata TikTok username property P7085,drag queen|influencer,1,0,0,0,0,0,0,155,70,actor_performer:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|TikToker|content creator,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,online streamer|cosplayer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|digital creator,7,0,0,0,0,0,0,155,70,film_educator:35
-wikidata_profile,Wikidata TikTok username property P7085,teacher|TikToker,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker|content creator|digital creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,educator|TikToker,2,0,0,0,0,0,0,155,70,film_educator:10
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|painter|visual artist,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|influencer|fashion designer|cosplayer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|teacher,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|videographer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|content creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|cosplayer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|TikToker,2,0,0,0,0,0,0,155,70,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker|designer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,fashion designer|digital creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer|content creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|cosplayer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|Twitch streamer,2,0,0,0,0,0,0,155,70,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|content creator,4,0,0,0,0,0,0,155,70,creative_technologist:20
-wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker|content creator,3,0,0,0,0,0,0,155,70,creative_technologist:15
-wikidata_profile,Wikidata TikTok username property P7085,cosplayer|content creator,1,0,0,0,0,0,0,155,70,actor_performer:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|illustrator,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|influencer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,cosplayer|Twitch streamer,3,0,0,0,0,0,0,155,70,actor_performer:15
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|content creator,4,0,0,0,0,0,0,155,70,film_educator:20
-wikidata_profile,Wikidata TikTok username property P7085,artist|vlogger|digital creator|YouTuber|TikToker,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|influencer,2,0,0,0,0,0,0,155,70,vfx_animation:10
-wikidata_profile,Wikidata TikTok username property P7085,influencer|science communicator,2,0,0,0,0,0,0,155,70,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,comics artist|influencer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|Twitch streamer|TikToker,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|fashion designer|TikToker,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|Twitch streamer|TikToker,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|online streamer|TikToker,3,0,0,0,0,0,0,155,70,film_educator:15
-wikidata_profile,Wikidata TikTok username property P7085,artist|graphic designer|illustrator|Twitch streamer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,fashion designer|YouTuber|TikToker,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,educator|influencer|digital creator,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,fashion designer|YouTuber|Twitch streamer|TikToker,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,drag queen|influencer|TikToker,1,0,0,0,0,0,0,155,70,actor_performer:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|digital creator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|cosplayer,4,0,0,0,0,0,0,155,70,creative_technologist:20
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|online streamer|TikToker,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,drag queen|drag performer,3,0,0,0,0,0,0,155,70,actor_performer:15
-wikidata_profile,Wikidata TikTok username property P7085,TikToker|web video producer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|vlogger,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|painter,3,0,0,0,0,0,0,155,70,vfx_animation:15
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|online streamer|TikToker,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,educator|influencer|TikToker,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|illustrator,4,0,0,0,0,0,0,155,70,vfx_animation:20
-wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer|online streamer|content creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,fashion designer|designer,2,0,0,0,0,0,0,155,70,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,filmmaker|TikToker,1,0,0,0,0,0,0,155,70,filmmaker:5
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|TikToker,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|influencer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker|fashion designer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|educator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|educator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Internet celebrity|Twitch streamer|online streamer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|fashion designer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|content creator|teacher,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,online streamer|TikToker|web video producer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|Internet celebrity,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|content creator|educator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|videographer|painter,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,drag performer,22,0,0,0,0,0,0,155,70,actor_performer:110
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|influencer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|painter,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,designer|YouTuber,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|online streamer|digital creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|comics artist|painter|YouTuber,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,videographer|YouTuber,1,0,0,0,0,0,0,155,70,cinematographer:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|illustrator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|vlogger|content creator|digital creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|science communicator,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|science communicator|YouTuber,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,painter|fashion designer|designer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|cosplayer|content creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|Internet celebrity|vlogger|YouTuber,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,educator|YouTuber,3,0,0,0,0,0,0,155,70,film_educator:15
-wikidata_profile,Wikidata TikTok username property P7085,artist|science communicator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|TikToker|Internet celebrity,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|web video producer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,educator|influencer|YouTuber,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,TikToker|influencer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,painter|cosplayer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|vlogger|designer|online streamer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|graphic designer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,painter|YouTuber|content creator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|drag queen,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|fashion designer,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|cosplayer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|influencer|TikToker,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|drag performer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|Internet celebrity|TikToker|digital creator,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|content creator,2,0,0,0,0,0,0,155,70,film_educator:10
-wikidata_profile,Wikidata TikTok username property P7085,artist|visual artist,2,0,0,0,0,0,0,155,70,vfx_animation:10
-wikidata_profile,Wikidata TikTok username property P7085,content creator|digital creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|drag performer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|YouTuber|content creator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,drag queen|Internet celebrity,1,0,0,0,0,0,0,155,70,actor_performer:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|science communicator|YouTuber,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|illustrator|painter,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,content creator|Twitch streamer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|fashion designer,2,0,0,0,0,0,0,155,70,vfx_animation:10
-wikidata_profile,Wikidata TikTok username property P7085,educator|visual artist,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,illustrator|content creator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|online streamer|content creator,2,0,0,0,0,0,0,155,70,creative_technologist:10
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|Twitch streamer|content creator,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|educator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|online streamer,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,painter|visual artist|fashion designer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|graphic designer|illustrator,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|online streamer|content creator,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,teacher|Internet celebrity,1,0,0,0,0,0,0,155,70,film_educator:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|YouTuber|content creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|online streamer|TikToker|content creator,2,0,0,0,0,0,0,155,70,film_educator:10
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|TikToker|content creator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,influencer|illustrator|comics artist,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,content creator|educator,1,0,0,0,0,0,0,155,70,creative_technologist:5
-wikidata_profile,Wikidata TikTok username property P7085,filmmaker|YouTuber,1,0,0,0,0,0,0,155,70,filmmaker:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|illustrator|comics artist|YouTuber,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|comics artist|designer,1,0,0,0,0,0,0,155,70,vfx_animation:5
-wikidata_profile,Wikidata TikTok username property P7085,artist|fashion designer|cosplayer,2,0,0,0,0,0,0,155,70,vfx_animation:10
-wikidata_profile,Wikidata TikTok username property P7085,cosplayer,52,0,0,0,0,0,0,151.4,68,actor_performer:248
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|online streamer,41,0,0,0,0,0,0,150.8,68,film_educator:197
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|content creator,23,0,0,0,0,0,0,151.1,68,film_educator:111
-wikidata_profile,Wikidata TikTok username property P7085,actor|stage actor|dancer|film actor,4,0,0,0,0,0,0,151,68,actor_performer:18; film_educator:1
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer|online streamer,18,0,0,0,0,0,0,148.1,67,film_educator:86
-wikidata_profile,Wikidata TikTok username property P7085,Twitch streamer,70,0,0,0,0,0,0,148,67,creative_technologist:325; sketch_comedian:5
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer,39,0,0,0,0,0,0,147,66,creative_technologist:179
-wikidata_profile,Wikidata TikTok username property P7085,content creator,115,0,0,0,0,0,0,147.7,66,creative_technologist:538; sketch_comedian:1
-wikidata_profile,Wikidata TikTok username property P7085,influencer|content creator,14,0,0,0,0,0,0,146.1,66,creative_technologist:66
-wikidata_profile,Wikidata TikTok username property P7085,videographer,9,0,0,0,0,0,0,146.8,66,cinematographer:41
-wikidata_profile,Wikidata TikTok username property P7085,science communicator,15,0,0,0,0,0,0,147.7,66,film_educator:71
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer,56,0,0,0,0,0,0,173.8,78,film_educator:309; vfx_animation:1; cinematographer:1
+wikidata_profile,Wikidata TikTok username property P7085,drag queen,107,0,0,0,0,0,0,173.4,78,actor_performer:587
+wikidata_profile,Wikidata TikTok username property P7085,artist,75,0,0,0,0,0,0,173.6,78,vfx_animation:415
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|TikToker,21,0,0,0,0,0,0,173.5,78,creative_technologist:116
+wikidata_profile,Wikidata TikTok username property P7085,actor|stage actor|dancer|film actor,4,0,0,0,0,0,0,174.3,78,actor_performer:21; film_educator:1
+wikidata_profile,Wikidata TikTok username property P7085,TikToker,185,0,0,0,0,0,0,171.1,77,creative_technologist:988; cinematographer:12
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|TikToker,16,0,0,0,0,0,0,171.9,77,creative_technologist:86
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber,40,0,0,0,0,0,0,171.7,77,creative_technologist:220
+wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker,46,0,0,0,0,0,0,170.5,77,creative_technologist:251
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|content creator,14,0,0,0,0,0,0,169.2,76,creative_technologist:73; sketch_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,TikToker|content creator,7,0,0,0,0,0,0,169,76,creative_technologist:37
+wikidata_profile,Wikidata TikTok username property P7085,teacher,47,0,0,0,0,0,0,167.1,75,film_educator:252
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|TikToker,59,0,0,0,0,0,0,165.7,75,film_educator:308; behind_the_scenes_creator:1
+wikidata_profile,Wikidata TikTok username property P7085,painter,40,0,0,0,0,0,0,167,75,vfx_animation:215
+wikidata_profile,Wikidata TikTok username property P7085,influencer,424,0,0,0,0,0,0,163.8,74,creative_technologist:2214
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber,73,0,0,0,0,0,0,163.5,74,creative_technologist:383
+wikidata_profile,Wikidata TikTok username property P7085,illustrator,28,0,0,0,0,0,0,164.2,74,vfx_animation:148
+wikidata_profile,Wikidata TikTok username property P7085,online streamer,42,0,0,0,0,0,0,163.9,74,creative_technologist:222
+wikidata_profile,Wikidata TikTok username property P7085,influencer|web video producer,7,0,0,0,0,0,0,163.9,74,creative_technologist:37
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber,699,0,0,0,0,0,0,163.1,73,film_educator:3608; editor:6; cinematographer:6; creative_technologist:2; sketch_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|YouTuber|TikToker,4,0,0,0,0,0,0,162.3,73,creative_technologist:19
+wikidata_profile,Wikidata TikTok username property P7085,vlogger,67,0,0,0,0,0,0,160.7,72,film_educator:341; creative_technologist:1
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|online streamer,6,0,0,0,0,0,0,160.2,72,film_educator:31
+wikidata_profile,Wikidata TikTok username property P7085,online streamer|web video producer,6,0,0,0,0,0,0,160.2,72,creative_technologist:31
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber,44,0,0,0,0,0,0,158.8,71,film_educator:221; creative_technologist:3
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity,180,0,0,0,0,0,0,157.8,71,creative_technologist:899; sketch_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|YouTuber,5,0,0,0,0,0,0,158.8,71,creative_technologist:25
+wikidata_profile,Wikidata TikTok username property P7085,influencer|fashion designer,5,0,0,0,0,0,0,155,70,creative_technologist:25
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|TikToker|content creator,5,0,0,0,0,0,0,155,70,film_educator:25
+wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|TikToker,5,0,0,0,0,0,0,155,70,creative_technologist:25
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film director|film producer,2,0,0,0,0,0,0,155,70,sketch_comedian:10
+wikidata_profile,Wikidata TikTok username property P7085,digital creator,49,0,0,0,0,0,0,152.6,69,creative_technologist:234
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|TikToker,13,0,0,0,0,0,0,150.2,68,film_educator:63
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|online streamer,8,0,0,0,0,0,0,150.4,68,film_educator:36; vfx_animation:2
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|TikToker,9,0,0,0,0,0,0,151.6,68,creative_technologist:44
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|online streamer,4,0,0,0,0,0,0,151,68,creative_technologist:18; editor:1
+wikidata_profile,Wikidata TikTok username property P7085,filmmaker,21,0,0,0,0,0,0,149.1,67,filmmaker:101
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|content creator,4,0,0,0,0,0,0,148.8,67,creative_technologist:19
+wikidata_profile,Wikidata TikTok username property P7085,designer,21,0,0,0,0,0,0,146.3,66,creative_technologist:96
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|web video producer,8,0,0,0,0,0,0,147.3,66,film_educator:38
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|content creator,4,0,0,0,0,0,0,147.3,66,creative_technologist:19
 provider_video_export,acquisition-import-2026-06-12.jsonl,,3,2,2,1,1,0.667,0.333,62,65,filmmaker:1; sketch_comedian:1; reject:1
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|Twitch streamer,56,0,0,0,0,0,0,145.4,65,film_educator:258; vfx_animation:1; cinematographer:1
-wikidata_profile,Wikidata TikTok username property P7085,drag queen,107,0,0,0,0,0,0,145.1,65,actor_performer:491
-wikidata_profile,Wikidata TikTok username property P7085,artist,75,0,0,0,0,0,0,145.2,65,vfx_animation:347
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|TikToker,16,0,0,0,0,0,0,143.9,65,creative_technologist:72
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|TikToker,21,0,0,0,0,0,0,145.1,65,creative_technologist:97
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber,40,0,0,0,0,0,0,143.6,65,creative_technologist:184
-wikidata_profile,Wikidata TikTok username property P7085,TikToker,185,0,0,0,0,0,0,143.2,64,creative_technologist:827; cinematographer:10
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|content creator,14,0,0,0,0,0,0,141.9,64,creative_technologist:61; sketch_comedian:1
-wikidata_profile,Wikidata TikTok username property P7085,influencer|TikToker,46,0,0,0,0,0,0,142.6,64,creative_technologist:210
-wikidata_profile,Wikidata TikTok username property P7085,TikToker|content creator,7,0,0,0,0,0,0,141.6,64,creative_technologist:31
-wikidata_profile,Wikidata TikTok username property P7085,teacher,47,0,0,0,0,0,0,139.9,63,film_educator:211
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|TikToker,59,0,0,0,0,0,0,139,63,film_educator:258; behind_the_scenes_creator:1
-wikidata_profile,Wikidata TikTok username property P7085,painter,40,0,0,0,0,0,0,139.9,63,vfx_animation:180
-wikidata_profile,Wikidata TikTok username property P7085,comedian|film director|film producer,2,0,0,0,0,0,0,139.5,63,sketch_comedian:9
-wikidata_profile,Wikidata TikTok username property P7085,influencer,424,0,0,0,0,0,0,137.3,62,creative_technologist:1856
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber,699,0,0,0,0,0,0,136.8,62,film_educator:3025; editor:5; cinematographer:5; creative_technologist:2; sketch_comedian:1
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber,73,0,0,0,0,0,0,137,62,creative_technologist:321
-wikidata_profile,Wikidata TikTok username property P7085,illustrator,28,0,0,0,0,0,0,137.6,62,vfx_animation:124
-wikidata_profile,Wikidata TikTok username property P7085,online streamer,42,0,0,0,0,0,0,137.3,62,creative_technologist:186
-wikidata_profile,Wikidata TikTok username property P7085,influencer|web video producer,7,0,0,0,0,0,0,137.3,62,creative_technologist:31
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|YouTuber|TikToker,4,0,0,0,0,0,0,136.5,61,creative_technologist:16
-wikidata_profile,Wikidata TikTok username property P7085,vlogger,67,0,0,0,0,0,0,134.9,61,film_educator:286; creative_technologist:1
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber,44,0,0,0,0,0,0,133.4,60,film_educator:185; creative_technologist:3
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity,180,0,0,0,0,0,0,132.5,60,creative_technologist:755; sketch_comedian:1
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|YouTuber,5,0,0,0,0,0,0,134,60,creative_technologist:21
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|online streamer,6,0,0,0,0,0,0,134.3,60,film_educator:26
-wikidata_profile,Wikidata TikTok username property P7085,online streamer|web video producer,6,0,0,0,0,0,0,134.3,60,creative_technologist:26
-wikidata_profile,Wikidata TikTok username property P7085,influencer|fashion designer,5,0,0,0,0,0,0,130.2,59,creative_technologist:21
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|TikToker|content creator,5,0,0,0,0,0,0,130.2,59,film_educator:21
-wikidata_profile,Wikidata TikTok username property P7085,influencer|vlogger|TikToker,5,0,0,0,0,0,0,130.2,59,creative_technologist:21
-wikidata_profile,Wikidata TikTok username property P7085,digital creator,49,0,0,0,0,0,0,128.4,58,creative_technologist:197
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|TikToker,13,0,0,0,0,0,0,126.4,57,film_educator:53
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|online streamer,8,0,0,0,0,0,0,127.1,57,film_educator:30; vfx_animation:2
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|TikToker,9,0,0,0,0,0,0,127.4,57,creative_technologist:37
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|online streamer,4,0,0,0,0,0,0,127.8,57,creative_technologist:15; editor:1
-wikidata_profile,Wikidata TikTok username property P7085,filmmaker,21,0,0,0,0,0,0,125.5,56,filmmaker:85
-wikidata_profile,Wikidata TikTok username property P7085,designer,21,0,0,0,0,0,0,123.4,56,creative_technologist:81
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|web video producer,8,0,0,0,0,0,0,124,56,film_educator:32
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|content creator,4,0,0,0,0,0,0,124,56,creative_technologist:16
-wikidata_profile,Wikidata TikTok username property P7085,film director|voice actor|film producer,2,0,0,0,0,0,0,124,56,actor_performer:7; director:1
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|film director|film producer,2,0,0,0,0,0,0,124,56,director:7; sketch_comedian:1
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|content creator,4,0,0,0,0,0,0,125.5,56,creative_technologist:16
-wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|film director|comedian|voice actor|film producer,2,0,0,0,0,0,0,124,56,sketch_comedian:7; director:1
-wikidata_profile,Wikidata TikTok username property P7085,film director|comedian,2,0,0,0,0,0,0,124,56,sketch_comedian:8
-wikidata_profile,Wikidata TikTok username property P7085,educator,14,0,0,0,0,0,0,122.8,55,film_educator:54
-wikidata_profile,Wikidata TikTok username property P7085,impressionist,13,0,0,0,0,0,0,121.8,55,sketch_comedian:49
-wikidata_profile,Wikidata TikTok username property P7085,influencer|online streamer,7,0,0,0,0,0,0,119.6,54,creative_technologist:27
-wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|Twitch streamer|online streamer,3,0,0,0,0,0,0,118.3,53,film_educator:10; vfx_animation:1
-wikidata_profile,Wikidata TikTok username property P7085,teacher|influencer,3,0,0,0,0,0,0,118.3,53,film_educator:11
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|science communicator,3,0,0,0,0,0,0,118.3,53,film_educator:11
-wikidata_profile,Wikidata TikTok username property P7085,artist|YouTuber,3,0,0,0,0,0,0,113.7,51,vfx_animation:11
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|cosplayer,3,0,0,0,0,0,0,113.7,51,film_educator:11
-wikidata_profile,Wikidata TikTok username property P7085,cosplayer|TikToker,2,0,0,0,0,0,0,113,51,actor_performer:6
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|TikToker,4,0,0,0,0,0,0,93,42,creative_technologist:12
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|fashion designer,2,0,0,0,0,0,0,93,42,creative_technologist:6
-wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|content creator,2,0,0,0,0,0,0,93,42,creative_technologist:6
-wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|TikToker|content creator,2,0,0,0,0,0,0,93,42,creative_technologist:6
-wikidata_profile,Wikidata TikTok username property P7085,graphic designer|YouTuber,2,0,0,0,0,0,0,93,42,vfx_animation:6
-wikidata_profile,Wikidata TikTok username property P7085,YouTuber|vlogger,2,0,0,0,0,0,0,93,42,film_educator:6
-wikidata_profile,Wikidata TikTok username property P7085,painter|designer,2,0,0,0,0,0,0,93,42,vfx_animation:6
-wikidata_profile,Wikidata TikTok username property P7085,fashion designer,55,0,0,0,0,0,0,91.9,41,creative_technologist:163
+wikidata_profile,Wikidata TikTok username property P7085,educator,14,0,0,0,0,0,0,145.4,65,film_educator:64
+wikidata_profile,Wikidata TikTok username property P7085,impressionist,13,0,0,0,0,0,0,144.3,65,sketch_comedian:58
+wikidata_profile,Wikidata TikTok username property P7085,influencer|online streamer,7,0,0,0,0,0,0,141.7,64,creative_technologist:32
+wikidata_profile,Wikidata TikTok username property P7085,vlogger|YouTuber|Twitch streamer|online streamer,3,0,0,0,0,0,0,139,63,film_educator:12; vfx_animation:1
+wikidata_profile,Wikidata TikTok username property P7085,teacher|influencer,3,0,0,0,0,0,0,139,63,film_educator:13
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|science communicator,3,0,0,0,0,0,0,139,63,film_educator:13
+wikidata_profile,Wikidata TikTok username property P7085,film director|voice actor|film producer,2,0,0,0,0,0,0,139.5,63,actor_performer:8; director:1
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|film director|film producer,2,0,0,0,0,0,0,139.5,63,director:8; sketch_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|film director|comedian|voice actor|film producer,2,0,0,0,0,0,0,139.5,63,sketch_comedian:8; director:1
+wikidata_profile,Wikidata TikTok username property P7085,film director|comedian,2,0,0,0,0,0,0,139.5,63,sketch_comedian:9
+wikidata_profile,Wikidata TikTok username property P7085,artist|YouTuber,3,0,0,0,0,0,0,134.3,60,vfx_animation:13
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|cosplayer,3,0,0,0,0,0,0,134.3,60,film_educator:13
+wikidata_profile,Wikidata TikTok username property P7085,cosplayer|TikToker,2,0,0,0,0,0,0,132.5,60,actor_performer:7
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|influencer|TikToker,4,0,0,0,0,0,0,108.5,49,creative_technologist:14
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|fashion designer,2,0,0,0,0,0,0,108.5,49,creative_technologist:7
+wikidata_profile,Wikidata TikTok username property P7085,Internet celebrity|YouTuber|content creator,2,0,0,0,0,0,0,108.5,49,creative_technologist:7
+wikidata_profile,Wikidata TikTok username property P7085,influencer|YouTuber|TikToker|content creator,2,0,0,0,0,0,0,108.5,49,creative_technologist:7
+wikidata_profile,Wikidata TikTok username property P7085,graphic designer|YouTuber,2,0,0,0,0,0,0,108.5,49,vfx_animation:7
+wikidata_profile,Wikidata TikTok username property P7085,YouTuber|vlogger,2,0,0,0,0,0,0,108.5,49,film_educator:7
+wikidata_profile,Wikidata TikTok username property P7085,painter|designer,2,0,0,0,0,0,0,108.5,49,vfx_animation:7
+wikidata_profile,Wikidata TikTok username property P7085,fashion designer,55,0,0,0,0,0,0,107.1,48,creative_technologist:190
+public_editorial_page,TikTok Newsroom Showbiz List 2022,TikTok Showbiz List entertainment creators 2022,36,0,0,0,0,0,0,66.7,30,vfx_animation:22; actor_performer:18; filmmaker:14; director:8; sketch_comedian:4
+public_editorial_page,TikTok Newsroom Discover List 2026 Global,TikTok Discover List 2026 creators to watch,48,0,0,0,0,0,0,63.5,29,film_educator:84; filmmaker:6; creative_technologist:6
+public_editorial_page,TikTok Newsroom Discover List 2021,TikTok Discover List 2021 creators,39,0,0,0,0,0,0,63.5,29,vfx_animation:24; film_educator:22; actor_performer:14; sketch_comedian:6; creative_technologist:6
+public_editorial_page,TikTok Newsroom Discover List 2025 Global,TikTok Discover List 2025 creators to watch,46,0,0,0,0,0,0,63,28,film_educator:78; creative_technologist:10; filmmaker:4
+public_editorial_page,TikTok Newsroom Discover List 2025 Australia New Zealand,TikTok Discover List 2025 AUNZ creators to watch,1,0,0,0,0,0,0,62,28,film_educator:2
+public_editorial_page,TikTok Newsroom Discover List 2022,TikTok Discover List 2022 creators,35,0,0,0,0,0,0,62.5,28,film_educator:64; creative_technologist:4; vfx_animation:2
+public_editorial_page,TikTok Newsroom Awards US 2025 Winners,TikTok Awards US 2025 winners,20,0,0,0,0,0,0,62,28,actor_performer:22; creative_technologist:12; filmmaker:4; behind_the_scenes_creator:2
+public_editorial_page,TikTok Newsroom Awards UK Ireland 2025 Winners,TikTok Awards UK Ireland 2025 winners,47,0,0,0,0,0,0,62.5,28,creative_technologist:52; actor_performer:38; behind_the_scenes_creator:4
+public_editorial_page,TikTok Newsroom Awards UK Ireland 2024 Shortlist,TikTok Awards UK Ireland 2024 shortlist,64,0,0,0,0,0,0,62.4,28,creative_technologist:88; actor_performer:38; cinematographer:2
+public_editorial_page,TikTok Newsroom Awards Australia 2025 Nominees,TikTok Awards Australia 2025 nominees,67,0,0,0,0,0,0,62.7,28,creative_technologist:70; actor_performer:20; sketch_comedian:18; film_educator:12; filmmaker:12
+public_editorial_page,TikTok Newsroom Awards Sub-Saharan Africa 2025 Nominees,TikTok Awards Sub-Saharan Africa 2025 nominees,39,0,0,0,0,0,0,62.5,28,creative_technologist:42; film_educator:20; actor_performer:10; filmmaker:4; vfx_animation:2
+public_editorial_page,TikTok Newsroom FilmTok 98th Oscars,FilmTok creators 98th Oscars TikTok Newsroom,3,0,0,0,0,0,0,62,28,filmmaker:4; director:2
+public_editorial_page,TikTok Newsroom FilmTok 97th Oscars,FilmTok creators 97th Oscars TikTok Newsroom,10,0,0,0,0,0,0,62,28,filmmaker:20
+public_editorial_page,TikTok Newsroom FilmTok 96th Oscars,FilmTok creators 96th Oscars TikTok Newsroom,11,0,0,0,0,0,0,62,28,filmmaker:16; vfx_animation:6
+public_editorial_page,TikTok Newsroom FilmTok 95th Oscars,FilmTok creators 95th Oscars TikTok Newsroom,16,0,0,0,0,0,0,62,28,filmmaker:26; director:6
+public_editorial_page,TikTok Newsroom TikTok Short Film UK Winners,TikTok short film competition winners filmmakers,4,0,0,0,0,0,0,62,28,director:4; vfx_animation:4
+public_editorial_page,TikTok Newsroom FAME Week Africa,FAME Week Africa TikTok filmmakers creators,1,0,0,0,0,0,0,62,28,vfx_animation:2
 wikidata_profile,Wikidata TikTok username property P7085,science communicator|content creator,1,0,0,0,0,0,0,50,23,film_educator:1
 wikidata_profile,Wikidata TikTok username property P7085,comedian|Internet celebrity|stand-up comedian,1,0,0,0,0,0,0,50,23,standup_comedian:1
 wikidata_profile,Wikidata TikTok username property P7085,actor|comedian|voice actor|film actor,1,0,0,0,0,0,0,50,23,cinematographer:1
@@ -456,7 +473,7 @@ wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor|dance
 wikidata_profile,Wikidata TikTok username property P7085,comedian|influencer,9,0,0,0,0,0,0,32.6,15,sketch_comedian:9
 wikidata_profile,Wikidata TikTok username property P7085,filmmaker|film director,6,0,0,0,0,0,0,33.3,15,filmmaker:6
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|artist|filmmaker|film director|film producer|film editor|YouTuber,1,0,0,0,0,0,0,33,15,vfx_animation:1
-public_editorial_page,TikTok Newsroom Showbiz List 2022,TikTok Showbiz List entertainment creators 2022,36,0,0,0,0,0,0,33.4,15,vfx_animation:11; actor_performer:9; filmmaker:7; director:4; sketch_comedian:2
+public_editorial_page,TikTok Newsroom BookToScreen Spanish,BookToScreen FilmTok BookTok cine TV creators,2,0,0,0,0,0,0,33,15,vfx_animation:2
 wikidata_profile,Wikidata TikTok username property P7085,actor|film director,46,0,0,0,0,0,0,32.9,15,director:40; creative_technologist:5; standup_comedian:1
 wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor|film actor,45,0,0,0,0,0,0,32.6,15,actor_performer:43; creative_technologist:2
 wikidata_profile,Wikidata TikTok username property P7085,voice actor|film actor,5,0,0,0,0,0,0,33.4,15,actor_performer:4; creative_technologist:1
@@ -684,22 +701,16 @@ wikidata_profile,Wikidata TikTok username property P7085,illustrator|film direct
 wikidata_profile,Wikidata TikTok username property P7085,influencer|content creator|artist,1,0,0,0,0,0,0,31,14,creative_technologist:1
 wikidata_profile,Wikidata TikTok username property P7085,comedian|artist|influencer|vlogger,1,0,0,0,0,0,0,31,14,sketch_comedian:1
 wikidata_profile,Wikidata TikTok username property P7085,screenwriter|influencer,1,0,0,0,0,0,0,31,14,creative_technologist:1
-public_editorial_page,TikTok Newsroom Discover List 2026 Global,TikTok Discover List 2026 creators to watch,48,0,0,0,0,0,0,31.7,14,film_educator:42; filmmaker:3; creative_technologist:3
-public_editorial_page,TikTok Newsroom Discover List 2025 Global,TikTok Discover List 2025 creators to watch,46,0,0,0,0,0,0,31.5,14,film_educator:39; creative_technologist:5; filmmaker:2
-public_editorial_page,TikTok Newsroom Discover List 2025 Australia New Zealand,TikTok Discover List 2025 AUNZ creators to watch,1,0,0,0,0,0,0,31,14,film_educator:1
-public_editorial_page,TikTok Newsroom Discover List 2022,TikTok Discover List 2022 creators,35,0,0,0,0,0,0,31.2,14,film_educator:32; creative_technologist:2; vfx_animation:1
-public_editorial_page,TikTok Newsroom Discover List 2021,TikTok Discover List 2021 creators,39,0,0,0,0,0,0,31.7,14,vfx_animation:12; film_educator:11; actor_performer:7; sketch_comedian:3; creative_technologist:3
-public_editorial_page,TikTok Newsroom Awards US 2025 Winners,TikTok Awards US 2025 winners,20,0,0,0,0,0,0,31,14,actor_performer:11; creative_technologist:6; filmmaker:2; behind_the_scenes_creator:1
-public_editorial_page,TikTok Newsroom Awards UK Ireland 2025 Winners,TikTok Awards UK Ireland 2025 winners,47,0,0,0,0,0,0,31.3,14,creative_technologist:26; actor_performer:19; behind_the_scenes_creator:2
-public_editorial_page,TikTok Newsroom Awards UK Ireland 2024 Shortlist,TikTok Awards UK Ireland 2024 shortlist,64,0,0,0,0,0,0,31.2,14,creative_technologist:44; actor_performer:19; cinematographer:1
-public_editorial_page,TikTok Newsroom Awards Australia 2025 Nominees,TikTok Awards Australia 2025 nominees,67,0,0,0,0,0,0,31.3,14,creative_technologist:35; actor_performer:10; sketch_comedian:9; film_educator:6; filmmaker:6
-public_editorial_page,TikTok Newsroom Awards Sub-Saharan Africa 2025 Nominees,TikTok Awards Sub-Saharan Africa 2025 nominees,39,0,0,0,0,0,0,31.2,14,creative_technologist:21; film_educator:10; actor_performer:5; filmmaker:2; vfx_animation:1
-public_editorial_page,TikTok Newsroom FilmTok 98th Oscars,FilmTok creators 98th Oscars TikTok Newsroom,3,0,0,0,0,0,0,31,14,filmmaker:2; director:1
-public_editorial_page,TikTok Newsroom FilmTok 97th Oscars,FilmTok creators 97th Oscars TikTok Newsroom,10,0,0,0,0,0,0,31,14,filmmaker:10
-public_editorial_page,TikTok Newsroom FilmTok 96th Oscars,FilmTok creators 96th Oscars TikTok Newsroom,11,0,0,0,0,0,0,31,14,filmmaker:8; vfx_animation:3
-public_editorial_page,TikTok Newsroom FilmTok 95th Oscars,FilmTok creators 95th Oscars TikTok Newsroom,16,0,0,0,0,0,0,31,14,filmmaker:13; director:3
-public_editorial_page,TikTok Newsroom TikTok Short Film UK Winners,TikTok short film competition winners filmmakers,4,0,0,0,0,0,0,31,14,director:2; vfx_animation:2
-public_editorial_page,TikTok Newsroom FAME Week Africa,FAME Week Africa TikTok filmmakers creators,1,0,0,0,0,0,0,31,14,vfx_animation:1
+public_editorial_page,TikTok Newsroom Awards US 2025 Nominees,TikTok Awards US 2025 nominees,42,0,0,0,0,0,0,31.1,14,actor_performer:31; creative_technologist:7; filmmaker:3; behind_the_scenes_creator:1
+public_editorial_page,TikTok Newsroom Awards UK Ireland 2025 Nominees,TikTok Awards UK Ireland 2025 nominees,43,0,0,0,0,0,0,31.3,14,creative_technologist:29; actor_performer:10; filmmaker:4
+public_editorial_page,TikTok Newsroom Awards Australia 2024 Finalists,TikTok Awards Australia 2024 finalists,61,0,0,0,0,0,0,31.1,14,creative_technologist:36; actor_performer:14; film_educator:5; sketch_comedian:4; filmmaker:2
+public_editorial_page,TikTok Newsroom Awards Australia 2023 Nominees,TikTok Awards Australia 2023 nominees,23,0,0,0,0,0,0,31.3,14,creative_technologist:9; actor_performer:7; sketch_comedian:4; filmmaker:2; cinematographer:1
+public_editorial_page,TikTok Newsroom Creator Spotlight Charley Marlowe,creator spotlight BAFTA red carpet FilmTok presenter,1,0,0,0,0,0,0,31,14,filmmaker:1
+public_editorial_page,TikTok Newsroom Creator Spotlight Kimberley Cumberbatch,creator spotlight comedy performer TikTok,6,0,0,0,0,0,0,31,14,sketch_comedian:5; vfx_animation:1
+public_editorial_page,TikTok Newsroom Creator Spotlight Chloe Carter,creator spotlight spoken word poetry writertok performer,7,0,0,0,0,0,0,31,14,cinematographer:3; actor_performer:2; filmmaker:1; film_educator:1
+public_editorial_page,TikTok Newsroom Creator Spotlight LKB Photography,creator spotlight photographer visual storytelling,1,0,0,0,0,0,0,31,14,cinematographer:1
+public_editorial_page,TikTok Newsroom Creator Spotlight Taylor Cassidy,creator spotlight educational series storytelling creator,3,0,0,0,0,0,0,31,14,filmmaker:3
+public_editorial_page,TikTok Newsroom Black History Month Ireland 2024,Black History Month FilmTok BookTok creator spotlight,16,0,0,0,0,0,0,31.3,14,filmmaker:16
 wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor,71,0,0,0,0,0,0,31.5,14,actor_performer:66; creative_technologist:3; cinematographer:1; film_educator:1
 wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor|film director|dancer|film actor,4,0,0,0,0,0,0,31,14,actor_performer:4
 wikidata_profile,Wikidata TikTok username property P7085,actor|voice actor|dancer|film actor,11,0,0,0,0,0,0,31,14,actor_performer:11

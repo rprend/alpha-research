@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:55:51.526Z",
+  "generated_at": "2026-06-13T04:00:44.136Z",
   "packet_id": "learning_review_20260613",
   "requested_rows": 1000,
   "rows": 1000,
@@ -9,12 +9,12 @@
   "decision_template_csv": "data/processed/learning_review_packets/learning_review_20260613-decision-template.csv",
   "tier_counts": {
     "review_first": 140,
-    "strong_candidate": 710,
-    "medium_candidate": 150
+    "strong_candidate": 711,
+    "medium_candidate": 149
   },
   "suggested_decision_counts": {
     "excellent_benchmark": 5,
-    "keep": 845,
-    "maybe": 150
+    "keep": 846,
+    "maybe": 149
   }
 }

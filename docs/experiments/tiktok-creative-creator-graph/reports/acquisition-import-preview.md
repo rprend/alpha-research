@@ -1,24 +1,24 @@
 # Acquisition Import Preview
 
-Generated: 2026-06-13T03:55:49.653Z
+Generated: 2026-06-13T04:00:42.070Z
 
-- Input rows: 23498
-- Normalized rows: 23498
+- Input rows: 23798
+- Normalized rows: 23798
 - Skipped rows: 0
-- Duplicate normalized rows: 12912
-- Output accounts if imported: 10586
+- Duplicate normalized rows: 13007
+- Output accounts if imported: 10791
 - Ready to import: yes
 - Normalized rate: 100.0%
-- Duplicate rate: 54.9%
-- Mapped lineage rows: 23492
+- Duplicate rate: 54.7%
+- Mapped lineage rows: 23792
 - Unmapped lineage rows: 6
 
 ## Checks
 
-- has_rows: pass - 23498 input rows
+- has_rows: pass - 23798 input rows
 - handle_extraction: pass - 100.0% normalized, threshold 75.0%
-- duplicate_pressure: pass - 54.9% duplicate normalized rows, threshold 65.0% (metadata overlay)
-- lineage_mapping: pass - 23492/23498 rows mapped to provider/wave lineage
+- duplicate_pressure: pass - 54.7% duplicate normalized rows, threshold 65.0% (metadata overlay)
+- lineage_mapping: pass - 23792/23798 rows mapped to provider/wave lineage
 
 ## Source Files
 
@@ -38,6 +38,7 @@ Generated: 2026-06-13T03:55:49.653Z
 - 2026-06-13T03-46-34-206Z-wikidata-tiktok-creators.jsonl: 7892
 - 2026-06-13T03-47-29-927Z-public-profile-enrichment.jsonl: 454
 - 2026-06-13T03-55-33-949Z-public-editorial-pages.jsonl: 544
+- 2026-06-13T04-00-33-102Z-public-editorial-pages.jsonl: 300
 - editorial-list-seeds-2026-06-12.jsonl: 21
 - smoke-provider-results.jsonl: 3
 - smoke-search-results.jsonl: 3

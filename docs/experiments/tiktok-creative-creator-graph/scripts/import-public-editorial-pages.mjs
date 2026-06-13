@@ -18,6 +18,20 @@ const sourceConfigPath = args.get('--source-config') ? join(root, String(args.ge
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
 const provider = 'public_editorial_page'
 
+const blockedHandles = new Set([
+  'abcnetwork',
+  'carlsjrofficial',
+  'cerave',
+  'elfyeah',
+  'hrblock',
+  'oscars',
+  'sky',
+  'tiktok',
+  'tiktokcreators',
+  'tiktoknewsroom',
+  'tiktokshop',
+])
+
 const labelRules = [
   ['cinematographer', /\b(cinematograph|photograph|camera|lighting|videograph|shot|visual storytelling|commercial video)\b/i],
   ['vfx_animation', /\b(vfx|visual effects|animation|animator|stop motion|cgi|3d|effects|motion|illustrat|design)\b/i],
@@ -74,7 +88,7 @@ function normalizeHandle(value) {
   const fromHandle = raw.match(/^@([A-Za-z0-9._-]+)$/)?.[1]
   const handle = (fromUrl ?? fromHandle ?? '').toLowerCase()
   if (!handle || handle.includes('@') || handle.includes('.com')) return ''
-  if (['tiktok', 'tiktokcreators', 'tiktoknewsroom', 'oscars', 'abcnetwork'].includes(handle)) return ''
+  if (blockedHandles.has(handle)) return ''
   return `@${handle}`
 }
 

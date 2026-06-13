@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T03:55:52.414Z
+Generated: 2026-06-13T04:00:45.067Z
 
 ## Targets
 
@@ -10,7 +10,7 @@ Generated: 2026-06-13T03:55:52.414Z
 
 ## Current
 
-- Accounts: 10104
+- Accounts: 10591
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4
@@ -54,8 +54,8 @@ Candidate frontier targets: 87
 | 2 | 2 | 100 | 1 | search_index | cinematographer lighting breakdown |
 | 3 | 3 | 100 | 1 | search_index | sketch comedian character comedy |
 | 4 | 4 | 100 | 1 | search_index | vfx artist animation blender |
-| 5 | 5 | 97 | 1 | tiktok_hashtag_export | filmmaker |
-| 6 | 6 | 95 | 1 | tiktok_hashtag_export | actor |
+| 5 | 5 | 99 | 1 | tiktok_hashtag_export | filmmaker |
+| 6 | 6 | 98 | 1 | tiktok_hashtag_export | actor |
 | 7 | 7 | 86 | 1 | tiktok_hashtag_export | animation |
 | 8 | 8 | 86 | 1 | tiktok_hashtag_export | cinematography |
 | 9 | 9 | 86 | 1 | tiktok_hashtag_export | shortfilm |

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T03:55:49.653Z",
+  "generated_at": "2026-06-13T04:00:42.070Z",
   "mode": "preview",
-  "input_rows": 23498,
-  "normalized_rows": 23498,
+  "input_rows": 23798,
+  "normalized_rows": 23798,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 12912,
-  "output_accounts": 10586,
+  "duplicate_normalized_rows": 13007,
+  "output_accounts": 10791,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
@@ -23,11 +23,12 @@
     "2026-06-13T03-46-34-206Z-wikidata-tiktok-creators.jsonl": 7892,
     "2026-06-13T03-47-29-927Z-public-profile-enrichment.jsonl": 454,
     "2026-06-13T03-55-33-949Z-public-editorial-pages.jsonl": 544,
+    "2026-06-13T04-00-33-102Z-public-editorial-pages.jsonl": 300,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 23492,
+  "mapped_lineage_rows": 23792,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -46,7 +47,8 @@
     "2026-06-13T03-46-15-007Z": 1,
     "2026-06-13T03-46-34-206Z": 7892,
     "2026-06-13T03-47-29-927Z": 454,
-    "2026-06-13T03-55-33-949Z": 544
+    "2026-06-13T03-55-33-949Z": 544,
+    "2026-06-13T04-00-33-102Z": 300
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -1260,6 +1262,18 @@
     "tiktok_newsroom_filmtok_95th_oscars": 19,
     "tiktok_newsroom_tiktokshortfilm_uk_winners": 5,
     "tiktok_newsroom_fame_week_africa": 1,
+    "tiktok_newsroom_awards_us_2025_nominees": 73,
+    "tiktok_newsroom_awards_uk_ie_2025_nominees": 83,
+    "tiktok_newsroom_awards_ie_2025_shortlist": 2,
+    "tiktok_newsroom_awards_au_2024_finalists": 70,
+    "tiktok_newsroom_awards_au_2023_nominees": 32,
+    "tiktok_newsroom_creator_spotlight_charleymarlowe": 1,
+    "tiktok_newsroom_creator_spotlight_kimberleycumberbatch": 7,
+    "tiktok_newsroom_creator_spotlight_chloecarterr": 7,
+    "tiktok_newsroom_creator_spotlight_lkbphotography": 1,
+    "tiktok_newsroom_creator_spotlight_taylorcassidyj": 4,
+    "tiktok_newsroom_black_history_ie_2024": 18,
+    "tiktok_newsroom_booktoscreen_es": 2,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
@@ -1270,15 +1284,15 @@
     "brightdata_public_github_sample": 29,
     "wikidata_sparql": 18966,
     "huggingface_dataset_viewer": 1,
-    "public_editorial_page": 544,
+    "public_editorial_page": 844,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.5494935739211848,
-    "output_rate": 0.4505064260788152,
+    "duplicate_rate": 0.546558534330616,
+    "output_rate": 0.453441465669384,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.65,
@@ -1287,7 +1301,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "23498 input rows"
+        "evidence": "23798 input rows"
       },
       {
         "id": "handle_extraction",
@@ -1297,12 +1311,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "54.9% duplicate normalized rows, threshold 65.0% (metadata overlay)"
+        "evidence": "54.7% duplicate normalized rows, threshold 65.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "23492/23498 rows mapped to provider/wave lineage"
+        "evidence": "23792/23798 rows mapped to provider/wave lineage"
       }
     ]
   },
@@ -1336,11 +1350,13 @@
       "acquisition_wave_ids": [],
       "acquisition_batch_ids": [
         "feedspot_comedy_tiktok_2026",
-        "public_profile_enrichment_2026-06-13T01-31-21-859Z"
+        "public_profile_enrichment_2026-06-13T01-31-21-859Z",
+        "tiktok_newsroom_awards_us_2025_nominees"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
-        "tiktok_public_profile_html"
+        "tiktok_public_profile_html",
+        "public_editorial_page"
       ]
     },
     {

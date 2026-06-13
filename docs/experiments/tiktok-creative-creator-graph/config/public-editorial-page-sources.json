@@ -174,5 +174,101 @@
     "source_query": "creator spotlight animation storyteller Tunero Animations",
     "target_label": "vfx_animation",
     "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_awards_us_2025_nominees",
+    "url": "https://newsroom.tiktok.com/tiktok-awards-us-2025?lang=en",
+    "source_name": "TikTok Newsroom Awards US 2025 Nominees",
+    "source_query": "TikTok Awards US 2025 nominees",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_awards_uk_ie_2025_nominees",
+    "url": "https://newsroom.tiktok.com/introducing-the-tiktok-awards-uk-and-ireland-2025-with-headline-partner-sky?lang=en-GB",
+    "source_name": "TikTok Newsroom Awards UK Ireland 2025 Nominees",
+    "source_query": "TikTok Awards UK Ireland 2025 nominees",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_awards_ie_2025_shortlist",
+    "url": "https://newsroom.tiktok.com/tiktok-awards-ireland-2025?lang=en-IE",
+    "source_name": "TikTok Newsroom Awards Ireland 2025 Shortlist",
+    "source_query": "TikTok Awards Ireland 2025 shortlist",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_awards_au_2024_finalists",
+    "url": "https://newsroom.tiktok.com/en-au/record-breaking-number-of-finalists-revealed-for-the-2024-tiktok-awards-presented-by-cerave",
+    "source_name": "TikTok Newsroom Awards Australia 2024 Finalists",
+    "source_query": "TikTok Awards Australia 2024 finalists",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_awards_au_2023_nominees",
+    "url": "https://newsroom.tiktok.com/en-au/tiktok-announces-new-end-of-year-show-the-tiktok-awards-presented-by-cerave-with-more-awards-and-creators-than-ever-before",
+    "source_name": "TikTok Newsroom Awards Australia 2023 Nominees",
+    "source_query": "TikTok Awards Australia 2023 nominees",
+    "target_label": "creative_technologist",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_charleymarlowe",
+    "url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-charleymarlowe",
+    "source_name": "TikTok Newsroom Creator Spotlight Charley Marlowe",
+    "source_query": "creator spotlight BAFTA red carpet FilmTok presenter",
+    "target_label": "film_educator",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_kimberleycumberbatch",
+    "url": "https://newsroom.tiktok.com/en-gb/creator-spotlight-kimberleycumberbatch",
+    "source_name": "TikTok Newsroom Creator Spotlight Kimberley Cumberbatch",
+    "source_query": "creator spotlight comedy performer TikTok",
+    "target_label": "sketch_comedian",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_chloecarterr",
+    "url": "https://newsroom.tiktok.com/en-gb/tiktok-creator-spotlight-chloe-carterr",
+    "source_name": "TikTok Newsroom Creator Spotlight Chloe Carter",
+    "source_query": "creator spotlight spoken word poetry writertok performer",
+    "target_label": "actor_performer",
+    "fallback_label": "screenwriter"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_lkbphotography",
+    "url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-lkbphotography",
+    "source_name": "TikTok Newsroom Creator Spotlight LKB Photography",
+    "source_query": "creator spotlight photographer visual storytelling",
+    "target_label": "cinematographer",
+    "fallback_label": "filmmaker"
+  },
+  {
+    "id": "tiktok_newsroom_creator_spotlight_taylorcassidyj",
+    "url": "https://newsroom.tiktok.com/en-us/creator-spotlight-series-taylorcassidyj",
+    "source_name": "TikTok Newsroom Creator Spotlight Taylor Cassidy",
+    "source_query": "creator spotlight educational series storytelling creator",
+    "target_label": "film_educator",
+    "fallback_label": "creative_technologist"
+  },
+  {
+    "id": "tiktok_newsroom_black_history_ie_2024",
+    "url": "https://newsroom.tiktok.com/celebrating-black-history-month-on-tiktok-ie-2024?from_seo_redirect=1&lang=en-IE",
+    "source_name": "TikTok Newsroom Black History Month Ireland 2024",
+    "source_query": "Black History Month FilmTok BookTok creator spotlight",
+    "target_label": "film_educator",
+    "fallback_label": "actor_performer"
+  },
+  {
+    "id": "tiktok_newsroom_booktoscreen_es",
+    "url": "https://newsroom.tiktok.com/booktoscreen-un-fenmeno-que-transforma-la-literatura-en-entretenimiento-e-impulsa-65-millones-de-publicaciones-diarias-sobre-cine-y-tv-en-tiktok?lang=es",
+    "source_name": "TikTok Newsroom BookToScreen Spanish",
+    "source_query": "BookToScreen FilmTok BookTok cine TV creators",
+    "target_label": "film_educator",
+    "fallback_label": "screenwriter"
   }
 ]

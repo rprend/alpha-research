@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T03:55:50.818Z",
-  "sources": 886,
+  "generated_at": "2026-06-13T04:00:43.424Z",
+  "sources": 897,
   "best_sources": [
     {
       "source_type": "provider_video_export",
@@ -13,9 +13,9 @@
       "reviewed_creators": 1,
       "usefulness_rate": 0.667,
       "rejection_rate": 0.333,
-      "average_usefulness": 992,
+      "average_usefulness": 1054,
       "yield_score": 100,
-      "top_labels": "filmmaker:16; sketch_comedian:16; reject:16"
+      "top_labels": "filmmaker:17; sketch_comedian:17; reject:17"
     },
     {
       "source_type": "public_profile_enrichment",
@@ -28,9 +28,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 1,
       "rejection_rate": 0,
-      "average_usefulness": 1105,
+      "average_usefulness": 1190,
       "yield_score": 100,
-      "top_labels": "sketch_comedian:13"
+      "top_labels": "sketch_comedian:14"
     },
     {
       "source_type": "editorial_list",
@@ -43,9 +43,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 656,
+      "average_usefulness": 697,
       "yield_score": 100,
-      "top_labels": "sketch_comedian:992; standup_comedian:528; actor_performer:16; cinematographer:16; director:16"
+      "top_labels": "sketch_comedian:1054; standup_comedian:561; actor_performer:17; cinematographer:17; director:17"
     },
     {
       "source_type": "editorial_list",
@@ -58,9 +58,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 617.3,
+      "average_usefulness": 655.9,
       "yield_score": 100,
-      "top_labels": "filmmaker:1472; director:32; cinematographer:16; editor:16"
+      "top_labels": "filmmaker:1564; director:34; cinematographer:17; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -73,9 +73,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 629,
+      "average_usefulness": 668.3,
       "yield_score": 100,
-      "top_labels": "filmmaker:240; editor:16"
+      "top_labels": "filmmaker:255; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -88,9 +88,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 576.8,
+      "average_usefulness": 612.9,
       "yield_score": 100,
-      "top_labels": "vfx_animation:1584; editor:16"
+      "top_labels": "vfx_animation:1683; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -103,9 +103,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 629.1,
+      "average_usefulness": 668.4,
       "yield_score": 100,
-      "top_labels": "vfx_animation:608; creative_technologist:16; sketch_comedian:16; editor:16"
+      "top_labels": "vfx_animation:646; creative_technologist:17; sketch_comedian:17; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -118,9 +118,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 642.7,
+      "average_usefulness": 682.8,
       "yield_score": 100,
-      "top_labels": "creative_technologist:640; film_educator:32; filmmaker:32; cinematographer:16; standup_comedian:16"
+      "top_labels": "creative_technologist:680; film_educator:34; filmmaker:34; cinematographer:17; standup_comedian:17"
     },
     {
       "source_type": "editorial_list",
@@ -133,9 +133,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 632,
+      "average_usefulness": 671.5,
       "yield_score": 100,
-      "top_labels": "filmmaker:16; editor:16"
+      "top_labels": "filmmaker:17; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -148,9 +148,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 575.3,
+      "average_usefulness": 611.3,
       "yield_score": 100,
-      "top_labels": "behind_the_scenes_creator:1472; film_educator:32; creative_technologist:16; director:16; editor:16"
+      "top_labels": "behind_the_scenes_creator:1564; film_educator:34; creative_technologist:17; director:17; editor:17"
     }
   ],
   "weak_sources": [
@@ -165,9 +165,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 656,
+      "average_usefulness": 697,
       "yield_score": 100,
-      "top_labels": "sketch_comedian:992; standup_comedian:528; actor_performer:16; cinematographer:16; director:16"
+      "top_labels": "sketch_comedian:1054; standup_comedian:561; actor_performer:17; cinematographer:17; director:17"
     },
     {
       "source_type": "editorial_list",
@@ -180,9 +180,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 617.3,
+      "average_usefulness": 655.9,
       "yield_score": 100,
-      "top_labels": "filmmaker:1472; director:32; cinematographer:16; editor:16"
+      "top_labels": "filmmaker:1564; director:34; cinematographer:17; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -195,9 +195,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 629,
+      "average_usefulness": 668.3,
       "yield_score": 100,
-      "top_labels": "filmmaker:240; editor:16"
+      "top_labels": "filmmaker:255; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -210,9 +210,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 576.8,
+      "average_usefulness": 612.9,
       "yield_score": 100,
-      "top_labels": "vfx_animation:1584; editor:16"
+      "top_labels": "vfx_animation:1683; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -225,9 +225,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 629.1,
+      "average_usefulness": 668.4,
       "yield_score": 100,
-      "top_labels": "vfx_animation:608; creative_technologist:16; sketch_comedian:16; editor:16"
+      "top_labels": "vfx_animation:646; creative_technologist:17; sketch_comedian:17; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -240,9 +240,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 642.7,
+      "average_usefulness": 682.8,
       "yield_score": 100,
-      "top_labels": "creative_technologist:640; film_educator:32; filmmaker:32; cinematographer:16; standup_comedian:16"
+      "top_labels": "creative_technologist:680; film_educator:34; filmmaker:34; cinematographer:17; standup_comedian:17"
     },
     {
       "source_type": "editorial_list",
@@ -255,9 +255,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 632,
+      "average_usefulness": 671.5,
       "yield_score": 100,
-      "top_labels": "filmmaker:16; editor:16"
+      "top_labels": "filmmaker:17; editor:17"
     },
     {
       "source_type": "editorial_list",
@@ -270,9 +270,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 575.3,
+      "average_usefulness": 611.3,
       "yield_score": 100,
-      "top_labels": "behind_the_scenes_creator:1472; film_educator:32; creative_technologist:16; director:16; editor:16"
+      "top_labels": "behind_the_scenes_creator:1564; film_educator:34; creative_technologist:17; director:17; editor:17"
     },
     {
       "source_type": "editorial_list_seed",
@@ -285,9 +285,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 416.8,
+      "average_usefulness": 438.5,
       "yield_score": 100,
-      "top_labels": "filmmaker:37; cinematographer:32; film_educator:16; behind_the_scenes_creator:16; vfx_animation:10"
+      "top_labels": "filmmaker:39; cinematographer:34; film_educator:17; behind_the_scenes_creator:17; vfx_animation:10"
     },
     {
       "source_type": "editorial_list_seed",
@@ -300,10 +300,10 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 363,
+      "average_usefulness": 381.1,
       "yield_score": 100,
-      "top_labels": "film_educator:37; filmmaker:37; cinematographer:16; vfx_animation:3"
+      "top_labels": "film_educator:39; filmmaker:39; cinematographer:17; vfx_animation:3"
     }
   ],
-  "total_seen": 10591
+  "total_seen": 10796
 }
