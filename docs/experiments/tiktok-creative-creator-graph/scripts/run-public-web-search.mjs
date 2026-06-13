@@ -17,6 +17,9 @@ const maxQueries = Number(args.get('--max-queries') ?? 12)
 const maxResultsPerQuery = Number(args.get('--max-results-per-query') ?? 25)
 const dryRun = args.has('--dry-run')
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
+const providerUseNotes = {
+  bing_rss: 'Bing RSS results are for discovery triage only; confirm applicable search-result terms before production use.',
+}
 
 function ensureDir(path) {
   mkdirSync(path, { recursive: true })
@@ -84,8 +87,14 @@ function normalizeProfileUrl(value) {
 
 function extractTikTokUrls(text) {
   const urls = []
+  let decodedText = String(text ?? '')
+  try {
+    decodedText = decodeURIComponent(decodedText)
+  } catch {
+    decodedText = String(text ?? '')
+  }
   const pattern = /https?:\/\/(?:www\.)?tiktok\.com\/@[A-Za-z0-9._-]+/gi
-  for (const match of String(text ?? '').matchAll(pattern)) {
+  for (const match of decodedText.matchAll(pattern)) {
     const url = match[0].replace(/[),.;]+$/g, '')
     const profileUrl = normalizeProfileUrl(url)
     if (profileUrl) urls.push(profileUrl)
@@ -188,20 +197,39 @@ function extractBingResults(html) {
   return rows
 }
 
+function extractBingRssResults(xml) {
+  const rows = []
+  const items = String(xml ?? '').matchAll(/<item>([\s\S]*?)<\/item>/gi)
+  for (const itemMatch of items) {
+    const item = itemMatch[1]
+    const title = decodeEntities(item.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? '')
+    const snippet = stripTags(item.match(/<description>([\s\S]*?)<\/description>/i)?.[1] ?? '')
+    const url = decodeEntities(item.match(/<link>([\s\S]*?)<\/link>/i)?.[1] ?? '')
+    rows.push({ title, snippet, url })
+  }
+  return rows
+}
+
 function extractResults(html, queryConfig) {
   assertSearchResponseUsable(html, queryConfig.query)
-  const searchRows = provider === 'bing_html' ? extractBingResults(html) : extractDuckDuckGoResults(html)
+  const searchRows = provider === 'bing_html'
+    ? extractBingResults(html)
+    : provider === 'bing_rss'
+      ? extractBingRssResults(html)
+      : extractDuckDuckGoResults(html)
   return searchRows.flatMap((result) => resultRowsFromCandidate(queryConfig, result))
 }
 
 async function search(queryConfig) {
   const url = provider === 'bing_html'
     ? `https://www.bing.com/search?q=${encodeURIComponent(queryConfig.query)}`
+    : provider === 'bing_rss'
+      ? `https://www.bing.com/search?format=rss&q=${encodeURIComponent(queryConfig.query)}`
     : `https://duckduckgo.com/html/?q=${encodeURIComponent(queryConfig.query)}`
   const response = await fetch(url, {
     headers: {
       'user-agent': 'Mozilla/5.0 (compatible; alpha-research-public-web-search/1.0)',
-      accept: 'text/html,application/xhtml+xml',
+      accept: provider === 'bing_rss' ? 'application/rss+xml,text/xml' : 'text/html,application/xhtml+xml',
     },
   })
   if (!response.ok) throw new Error(`${provider} request failed ${response.status}`)
@@ -272,6 +300,7 @@ async function main() {
     generated_at: new Date().toISOString(),
     execution_id: executionId,
     provider,
+    provider_use_note: providerUseNotes[provider] ?? '',
     dry_run: dryRun,
     selected_queries: queries.length,
     output_rows: outputRows.length,
@@ -288,6 +317,7 @@ async function main() {
 Generated: ${summary.generated_at}
 
 - Provider: ${summary.provider}
+- Provider use note: ${summary.provider_use_note || 'none'}
 - Dry run: ${summary.dry_run}
 - Selected queries: ${summary.selected_queries}
 - Output rows: ${summary.output_rows}
