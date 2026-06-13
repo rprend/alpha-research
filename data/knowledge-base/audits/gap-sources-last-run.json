@@ -1,0 +1,208 @@
+{
+  "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+  "generated_at": "2026-06-13T16:37:21.264Z",
+  "source_count": 11,
+  "success_count": 7,
+  "failed_count": 4,
+  "total_records": 127,
+  "records": [
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "smithsonian-open-access",
+      "started_at": "2026-06-13T16:37:13.323Z",
+      "completed_at": "2026-06-13T16:37:15.451Z",
+      "status": "success",
+      "access_route": "https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=25 | https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=25",
+      "raw_outputs": [
+        "data/knowledge-base/raw/smithsonian-open-access/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.json",
+        "data/knowledge-base/raw/smithsonian-open-access/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-002.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl",
+        "data/knowledge-base/processed/objects.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+      "errors": []
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "columbia-humanities-departments",
+      "started_at": "2026-06-13T16:37:15.451Z",
+      "completed_at": "2026-06-13T16:37:15.557Z",
+      "status": "success",
+      "access_route": "https://history.columbia.edu/",
+      "raw_outputs": [
+        "data/knowledge-base/raw/columbia-humanities-departments/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.txt"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl",
+        "data/knowledge-base/processed/pages.jsonl",
+        "data/knowledge-base/processed/departments.jsonl"
+      ],
+      "record_count": 1,
+      "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+      "errors": []
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "dh-conference-programs",
+      "started_at": "2026-06-13T16:37:15.557Z",
+      "completed_at": "2026-06-13T16:37:18.201Z",
+      "status": "success",
+      "access_route": "https://dh2026.adho.org/wp-json/wp/v2/pages?per_page=25 | https://dh2026.adho.org/wp-json/wp/v2/posts?per_page=25",
+      "raw_outputs": [
+        "data/knowledge-base/raw/dh-conference-programs/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.json",
+        "data/knowledge-base/raw/dh-conference-programs/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-002.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl",
+        "data/knowledge-base/processed/works.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+      "errors": []
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "journal-new-literary-history",
+      "started_at": "2026-06-13T16:37:18.202Z",
+      "completed_at": "2026-06-13T16:37:18.949Z",
+      "status": "success",
+      "access_route": "https://api.crossref.org/journals/1080-661X/works?rows=25",
+      "raw_outputs": [
+        "data/knowledge-base/raw/journal-new-literary-history/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl",
+        "data/knowledge-base/processed/works.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+      "errors": []
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "journal-critical-inquiry",
+      "started_at": "2026-06-13T16:37:18.949Z",
+      "completed_at": "2026-06-13T16:37:19.641Z",
+      "status": "success",
+      "access_route": "https://api.crossref.org/journals/0093-1896/works?rows=25 | https://api.crossref.org/works?query.container-title=Critical%20Inquiry&rows=25",
+      "raw_outputs": [
+        "data/knowledge-base/raw/journal-critical-inquiry/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.json",
+        "data/knowledge-base/raw/journal-critical-inquiry/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-002.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl",
+        "data/knowledge-base/processed/works.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+      "errors": []
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "journal-pmla",
+      "started_at": "2026-06-13T16:37:19.642Z",
+      "completed_at": "2026-06-13T16:37:20.464Z",
+      "status": "success",
+      "access_route": "https://api.crossref.org/journals/0030-8129/works?rows=25 | https://api.crossref.org/works?query.container-title=PMLA&rows=25",
+      "raw_outputs": [
+        "data/knowledge-base/raw/journal-pmla/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.json",
+        "data/knowledge-base/raw/journal-pmla/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-002.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl",
+        "data/knowledge-base/processed/works.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+      "errors": []
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "mla-convention-programs",
+      "started_at": "2026-06-13T16:37:20.465Z",
+      "completed_at": "2026-06-13T16:37:20.829Z",
+      "status": "success",
+      "access_route": "https://www.mla.org/Events/2027-MLA-Convention",
+      "raw_outputs": [
+        "data/knowledge-base/raw/mla-convention-programs/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.txt"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl",
+        "data/knowledge-base/processed/works.jsonl"
+      ],
+      "record_count": 1,
+      "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+      "errors": []
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "aha-annual-meeting-programs",
+      "started_at": "2026-06-13T16:37:20.830Z",
+      "completed_at": "2026-06-13T16:37:20.977Z",
+      "status": "failed",
+      "access_route": "https://www.historians.org/events/annual-meeting/",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "No local records created; route replacement or terms review required.",
+      "errors": [
+        "https://www.historians.org/events/annual-meeting/: HTTP 403 Forbidden"
+      ]
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "hathitrust-bibliographic-metadata",
+      "started_at": "2026-06-13T16:37:20.978Z",
+      "completed_at": "2026-06-13T16:37:21.021Z",
+      "status": "failed",
+      "access_route": "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "No local records created; route replacement or terms review required.",
+      "errors": [
+        "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden"
+      ]
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "ssrn-humanities-adjacent",
+      "started_at": "2026-06-13T16:37:21.021Z",
+      "completed_at": "2026-06-13T16:37:21.118Z",
+      "status": "failed",
+      "access_route": "https://api.ssrn.com/content/v1/papers?query=humanities",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "No local records created; route replacement or terms review required.",
+      "errors": [
+        "https://api.ssrn.com/content/v1/papers?query=humanities: HTTP 401 Unauthorized"
+      ]
+    },
+    {
+      "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+      "source_id": "lareviewofbooks",
+      "started_at": "2026-06-13T16:37:21.118Z",
+      "completed_at": "2026-06-13T16:37:21.230Z",
+      "status": "failed",
+      "access_route": "https://lareviewofbooks.org/feed/",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "No local records created; route replacement or terms review required.",
+      "errors": [
+        "https://lareviewofbooks.org/feed/: HTTP 404 Not Found"
+      ]
+    }
+  ]
+}

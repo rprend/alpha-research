@@ -1,0 +1,20 @@
+{
+  "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+  "source_id": "journal-critical-inquiry",
+  "started_at": "2026-06-13T16:37:18.949Z",
+  "completed_at": "2026-06-13T16:37:19.641Z",
+  "status": "success",
+  "access_route": "https://api.crossref.org/journals/0093-1896/works?rows=25 | https://api.crossref.org/works?query.container-title=Critical%20Inquiry&rows=25",
+  "raw_outputs": [
+    "data/knowledge-base/raw/journal-critical-inquiry/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.json",
+    "data/knowledge-base/raw/journal-critical-inquiry/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-002.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/works.jsonl"
+  ],
+  "record_count": 25,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

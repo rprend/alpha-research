@@ -1,0 +1,20 @@
+{
+  "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+  "source_id": "smithsonian-open-access",
+  "started_at": "2026-06-13T16:37:13.323Z",
+  "completed_at": "2026-06-13T16:37:15.451Z",
+  "status": "success",
+  "access_route": "https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=25 | https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=25",
+  "raw_outputs": [
+    "data/knowledge-base/raw/smithsonian-open-access/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-001.json",
+    "data/knowledge-base/raw/smithsonian-open-access/2026-06-13/gap-sources-2026-06-13T16-37-13-226Z/response-002.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/objects.jsonl"
+  ],
+  "record_count": 25,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

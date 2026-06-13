@@ -1,0 +1,2712 @@
+{
+  "status": 200,
+  "responseCode": 1,
+  "response": {
+    "rows": [
+      {
+        "id": "ld1-1646149545906-1646150144199-1",
+        "title": "The human odyssey : four million years of human evolution / Ian Tattersall ; foreword by Donald C. Johanson",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_461013",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1993"
+              },
+              {
+                "label": "Date",
+                "content": "C1993"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Tattersall, Ian"
+              },
+              {
+                "label": "Author",
+                "content": "American Museum of Natural History"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Based on the acclaimed Hall of Human Biology and Evolution at the American Museum of Natural History."
+              },
+              {
+                "label": "Contents",
+                "content": "In the beginning -- Humans are vertebrates -- Humans are mammals -- Primate evolution -- Human evolution -- The earliest human relatives -- The mystery of Olduvai Gorge: \"handy man\" -- The great leap forward -- Toward modern humans -- The Neanderthals -- The origin of modern humans -- The human spirit"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human evolution"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xiii, 191 p. : ill. (some col.), maps ; 29 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Tattersall, Ian",
+              "American Museum of Natural History"
+            ],
+            "topic": [
+              "Evolution"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The human odyssey : four million years of human evolution / Ian Tattersall ; foreword by Donald C. Johanson"
+            },
+            "record_ID": "siris_sil_461013",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN ODYSSEY : FOUR MILLION YEARS OF HUMAN EVOLUTION IAN TATTERSALL FOREWORD BY DONALD C JOHANSON",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!461013~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "d5525a5fa97787d9ebab432ba3be21161609a564",
+        "docSignature": "9815a29cd3a466eb00c7febd435d0e40",
+        "timestamp": "1498154178",
+        "lastTimeUpdated": "1661969920",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149891347-1",
+        "title": "The human genome",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_769168",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2001"
+              },
+              {
+                "label": "Date",
+                "content": "[c2001]"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Special titled issue of Science, v. 291, no. 5507 (16 February, 2001)."
+              },
+              {
+                "label": "Notes",
+                "content": "Includes \"Science genome maps 11: The human genome,\" a detatchable chart explaining the human genome project, and \"Annotation of the celera human genome assembly,\" a separate wall chart."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human genome"
+              },
+              {
+                "label": "Topic",
+                "content": "Human chromosomes--Analysis"
+              },
+              {
+                "label": "Topic",
+                "content": "Human gene mapping"
+              },
+              {
+                "label": "Topic",
+                "content": "Biotechnology"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "QH431 .H8373 2001"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "p. 1148-1432 : ill. ; 27 cm. + 2 charts"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "topic": [
+              "Biotechnology",
+              "Human genome",
+              "Human chromosomes",
+              "Human gene mapping"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The human genome"
+            },
+            "record_ID": "siris_sil_769168",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN GENOME",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!769168~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "3297c6fba02945722af726ec75cfc2fe6a7f61a3",
+        "docSignature": "b850104176026d8712e51e88ecbedec0",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661964003",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150915119-2",
+        "title": "Human evolution : a Mosaic special report",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_901047",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1988"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Fisher, Arthur"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "In Mosaic, vol. 19, no. 1, Spring 1988."
+              },
+              {
+                "label": "Notes",
+                "content": "Cover title."
+              },
+              {
+                "label": "Contents",
+                "content": "Pt. 1. Human origins (I-Evolution): The more things change -- Pt. 2. Human origins (II-Culture): On the emergence of humanness"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Human origins"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human beings--Origin"
+              },
+              {
+                "label": "Topic",
+                "content": "Human evolution"
+              },
+              {
+                "label": "Topic",
+                "content": "Human genetics"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "GN281 .F57 1988"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "p. [22]-45 : ill., ports. ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Fisher, Arthur"
+            ],
+            "topic": [
+              "Origin",
+              "Human beings",
+              "Evolution",
+              "Genetics"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Human evolution : a Mosaic special report"
+            },
+            "record_ID": "siris_sil_901047",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN EVOLUTION : A MOSAIC SPECIAL REPORT",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!901047~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "d2bb6c6a92348237466bcc6a661588043a59b6b7",
+        "docSignature": "e8977e0f3ed094a2ec606a4ceaa36a51",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661975498",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150493592-0",
+        "title": "[Technical reports on human engineering]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_474381",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1958"
+              },
+              {
+                "label": "Date",
+                "content": "1958-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "U.S. Army Human Engineering Laboratories"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human engineering"
+              },
+              {
+                "label": "Topic",
+                "content": "Aeronautics--Human factors"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "TL507 .U5113hum"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "<39> v. : ill"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1950s"
+            ],
+            "name": [
+              "U.S. Army Human Engineering Laboratories"
+            ],
+            "topic": [
+              "Human engineering",
+              "Aeronautics",
+              "Human factors"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "[Technical reports on human engineering]"
+            },
+            "record_ID": "siris_sil_474381",
+            "unit_code": "SIL",
+            "title_sort": "TECHNICAL REPORTS ON HUMAN ENGINEERING",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!474381~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "64eed70a9090308cca7ee80db55778616034a539",
+        "docSignature": "634215d62a3b331ecbae816435e05adb",
+        "timestamp": "1498154178",
+        "lastTimeUpdated": "1661970185",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149809730-1",
+        "title": "Human adaptability : an introduction to ecological anthropology / Emilio F. Moran",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_607522",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2000"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Moran, Emilio F"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "People in ecosystems -- Theories of human-habitat interaction up to the 1950s -- From cultural ecology to environmental anthropology -- Fundamental concepts and methods -- Human adaptability to Arctic zones -- Human adaptability to high altitudes -- Human adaptability to arid lands -- Human adaptability to grasslands -- Human adaptability to the humid tropics -- New direction in environmental anthropology"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human beings--Effect of environment on"
+              },
+              {
+                "label": "Topic",
+                "content": "Adaptation (Physiology)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxvi, 446 p. : ill., maps ; 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Moran, Emilio F"
+            ],
+            "topic": [
+              "Human beings",
+              "Adaptation (Physiology)"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Human adaptability : an introduction to ecological anthropology / Emilio F. Moran"
+            },
+            "record_ID": "siris_sil_607522",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN ADAPTABILITY : AN INTRODUCTION TO ECOLOGICAL ANTHROPOLOGY EMILIO F MORAN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!607522~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "a4b2b9ea7e62efd9644c6ff9932b4a712dfe900e",
+        "docSignature": "fbf4cb90bc578d738e5da9beeffa028f",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661962163",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149705721-1",
+        "title": "The human impact on the natural environment : past, present, and future / Andrew Goudie",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_766939",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2006"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Goudie, Andrew"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Introduction -- The human impact on vegetation -- Human influence on animals -- The human impact on the soil -- The human impact on the waters -- Human agency in geomorphology -- The human impact on climate and the atmosphere -- The future : introduction -- The future : coastal environments -- The future : hydrological impacts -- The future : the cryosphere -- The future : drylands -- Conclusion"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Nature--Effect of human beings on"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xv, 357 p. : ill., maps ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Goudie, Andrew"
+            ],
+            "topic": [
+              "Nature",
+              "Effect of human beings on"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The human impact on the natural environment : past, present, and future / Andrew Goudie"
+            },
+            "record_ID": "siris_sil_766939",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN IMPACT ON THE NATURAL ENVIRONMENT : PAST PRESENT AND FUTURE ANDREW GOUDIE",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!766939~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "b4efd871456ff11ada9e302ae2bd4cf72aaad191",
+        "docSignature": "d0dffadf5dbe51ee67d3c32da19b8db6",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661963816",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149889798-0",
+        "title": "Darwin's legacy : scenarios in human evolution / Sue Taylor Parker and Karin Enstam Jaffe",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_941836",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2008"
+              },
+              {
+                "label": "Date",
+                "content": "C2008"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Parker, Sue Taylor"
+              },
+              {
+                "label": "Author",
+                "content": "Jaffe, Karin Enstam 1971-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Scenarios in human evolution : science or fiction? -- Guidelines for modeling human evolution -- Who were our ancestors? -- Origins of human subsistence -- Origins of bipedalism -- Origins of human life history -- Origins of human bodily displays -- Origins of language -- Origins of human mentality -- Origins of cultures -- Epilogue : what about bonobos?"
+              },
+              {
+                "label": "Summary",
+                "content": "Darwin's Legacy provides a fascinating history of ideas about human evolution, which have been developed and debated since Darwin published The Descent of Man, and Selection in Relation to Sex in 1871."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human evolution"
+              },
+              {
+                "label": "Topic",
+                "content": "Human beings--Evolution"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xi, 250 p. : ill ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Parker, Sue Taylor",
+              "Jaffe, Karin Enstam"
+            ],
+            "topic": [
+              "Human beings",
+              "Evolution"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Darwin's legacy : scenarios in human evolution / Sue Taylor Parker and Karin Enstam Jaffe"
+            },
+            "record_ID": "siris_sil_941836",
+            "unit_code": "SIL",
+            "title_sort": "DARWINS LEGACY : SCENARIOS IN HUMAN EVOLUTION SUE TAYLOR PARKER AND KARIN ENSTAM JAFFE",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!941836~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "fd4f36d871e5c248c1dee8739ddefc1ac1bd8846",
+        "docSignature": "bec4cf3c3de4002cc51bd7cec8a65a5f",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962470",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149698488-0",
+        "title": "Primate and human evolution / Susan Cachel",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_899482",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2006"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Cachel, Susan 1949-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Introduction -- A brief history of primatology and human evolution -- The catarrhine fossil record -- Primate speciation and extinction -- Anatomical primatology -- Captive studies of non-human primates -- What can non-human primate anatomy, physiology, and development reveal about human evolution? -- Natural history intelligence and human evolution -- Why be social? : the advantages and disadvantages of social life -- Evolution and behavior -- The implications of body size for evolutionary ecology -- The nature of the fossil record -- The bipedal breakthrough -- The hominid radiation -- Modeling human evolution -- Archeological evidence and models of human evolution -- What does evolutionary anthropology reveal about human evolution? -- Final thoughts on primate and human evolution"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Primates--Evolution"
+              },
+              {
+                "label": "Topic",
+                "content": "Fossil hominids"
+              },
+              {
+                "label": "Topic",
+                "content": "Human evolution"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xvii, 469 p. : ill. ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Cachel, Susan"
+            ],
+            "topic": [
+              "Fossil hominids",
+              "Primates",
+              "Evolution"
+            ],
+            "language": [
+              "English language"
+            ],
+            "tax_class": [
+              "Mammalia"
+            ],
+            "tax_order": [
+              "Primates"
+            ],
+            "tax_phylum": [
+              "Chordata"
+            ],
+            "object_type": [
+              "Books"
+            ],
+            "tax_kingdom": [
+              "Animalia"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Primate and human evolution / Susan Cachel"
+            },
+            "record_ID": "siris_sil_899482",
+            "unit_code": "SIL",
+            "title_sort": "PRIMATE AND HUMAN EVOLUTION SUSAN CACHEL",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!899482~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "5102468175e63848a695ce5db965e0e8756c54a8",
+        "docSignature": "f4f95adf84b932c2f2fcd6c749c42cdd",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661975771",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150533816-1",
+        "title": "Genes, culture, and human evolution : a synthesis / Linda Stone, Paul F. Lurquin ; with an introduction by L. Luca Cavalli-Sforza",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_821205",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2007"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Stone, Linda 1947-"
+              },
+              {
+                "label": "Author",
+                "content": "Lurquin, Paul F"
+              },
+              {
+                "label": "Author",
+                "content": "Cavalli-Sforza, L. L (Luigi Luca) 1922-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Genetic and cultural theory : a brief overview -- Human descent and paleoanthropology -- Foundations of classical and molecular genetics -- Genetics as a key to human origins and prehistory -- Fundamentals of human evolution : mutation and natural selection -- Fundamentals of human evolution : drift, migration, and quantitative analysis of human genetic diversity -- Cultural evolution -- Geography of human genes and correlation with languages -- The prehistory of human genes -- Voyages : prehistoric human expansions -- The neolithic transition in Europe and the peopling of the Americas -- Genes, kinship, and human identity -- Cultural clines, clades, cycles, and waves -- Genes and culture in medicine"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human population genetics"
+              },
+              {
+                "label": "Topic",
+                "content": "Human evolution"
+              },
+              {
+                "label": "Topic",
+                "content": "Evolutionary genetics"
+              },
+              {
+                "label": "Topic",
+                "content": "Paleoanthropology"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxi, 314 p., [12] p. of plates : ill. (some col.), maps (some col.) ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Stone, Linda",
+              "Lurquin, Paul F",
+              "Cavalli-Sforza, L. L"
+            ],
+            "topic": [
+              "Evolution",
+              "Evolutionary genetics",
+              "Human population genetics",
+              "Paleoanthropology"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Genes, culture, and human evolution : a synthesis / Linda Stone, Paul F. Lurquin ; with an introduction by L. Luca Cavalli-Sforza"
+            },
+            "record_ID": "siris_sil_821205",
+            "unit_code": "SIL",
+            "title_sort": "GENES CULTURE AND HUMAN EVOLUTION : A SYNTHESIS LINDA STONE PAUL F LURQUIN WITH AN INTRODUCTION BY L LUCA CAVALLISFORZA",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!821205~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "39f529303d4e9a9e3d65a94db2a217d2952cc8d1",
+        "docSignature": "ac9406ecf56861c74dc4dcdb9d1e90b6",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661964005",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149645168-1",
+        "title": "The evolution of human life history / edited by Kristen Hawkes and Richard Paine",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_820381",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2006"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Hawkes, Kristen 1944-"
+              },
+              {
+                "label": "Author",
+                "content": "Paine, Richard R"
+              },
+              {
+                "label": "Author",
+                "content": "School of American Research (Santa Fe, N.M.)"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Introduction / Richard R. Paine and Kristen Hawkes -- The derived features of human life history / Shannen L. Robson, Carel P. van Schaik, and Kristen Hawkes -- Life history theory and human evolution : a chronicle of ideas and findings / Kristen Hawkes -- Slow life histories and human evolution / Kristen Hawkes -- Primate life histories and the role of brains / Carel P. van Schaik ... [et al.] -- Lactation, complementary feeding, and human life history / Daniel W. Sellen -- Modern human life history : the evolution of human childhood and fertility / Barry Bogin -- Contemporary hunter-gatherers and human life history evolution / Nicholas Blurton Jones -- The osteological evidence for human longevity in the recent past / Lyle W. Konigsberg and Nicholas P. Herrmann -- Paleodemographic data and why understanding Holocene demography is essential to understanding human life history evolution in the Pleistocene / Richard R. Paine and Jesper L. Boldsen -- The evolution of modern human life history : a paleontological perspective / Matthew M. Skinner and Bernard Wood"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human evolution"
+              },
+              {
+                "label": "Topic",
+                "content": "Human beings--Origin"
+              },
+              {
+                "label": "Topic",
+                "content": "Fossil hominids"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xiii, 505 p. : ill. ; 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Paine, Richard R",
+              "Hawkes, Kristen",
+              "School of American Research (Santa Fe, N.M.)"
+            ],
+            "topic": [
+              "Origin",
+              "Fossil hominids",
+              "Human beings",
+              "Evolution"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The evolution of human life history / edited by Kristen Hawkes and Richard Paine"
+            },
+            "record_ID": "siris_sil_820381",
+            "unit_code": "SIL",
+            "title_sort": "EVOLUTION OF HUMAN LIFE HISTORY EDITED BY KRISTEN HAWKES AND RICHARD PAINE",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!820381~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "891932ce92c2f395e88dc7b973ed9e6c529edb35",
+        "docSignature": "ac009efbfb12132d3c7d00c3fcbeb606",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661964333",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150328422-0",
+        "title": "Humanities and human sciences in Nigeria",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_795811",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1980"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Brann, Conrad Max Benedict"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries African Art Index Project DSI"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Includes critiques of C. C. Aguolu, Nigeria: a comprehensive bibliography in the humanities and social sciences 1900-1971 (1973) and B. O. Aboyade, Nigerian contribution to humanistic studies (1978)."
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Nigeria"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Humanities--Research"
+              },
+              {
+                "label": "Topic",
+                "content": "Humanities--Study and teaching (Higher)"
+              },
+              {
+                "label": "Topic",
+                "content": "Humanities"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "DT1 .J8585"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Bibliography"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Brann, Conrad Max Benedict",
+              "Smithsonian Libraries"
+            ],
+            "place": [
+              "Nigeria"
+            ],
+            "topic": [
+              "Humanities",
+              "Study and teaching (Higher)"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Bibliographies"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Humanities and human sciences in Nigeria"
+            },
+            "record_ID": "siris_sil_795811",
+            "unit_code": "SIL",
+            "title_sort": "HUMANITIES AND HUMAN SCIENCES IN NIGERIA",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!795811~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "a6f19546f852200d239a2d8bcb9982c5d48cc40f",
+        "docSignature": "f1b553f1ae207fb912bf2b8647a85e90",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661964052",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150760636-0",
+        "title": "Humanities / National Endowment for the Humanities",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_128840",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1980"
+              },
+              {
+                "label": "Date",
+                "content": "1980-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "National Endowment for the Humanities"
+              },
+              {
+                "label": "Subject",
+                "content": "National Endowment for the Humanities"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Latest issue consulted: Vol. 25, no. 4 (July/Aug. 2004)."
+              },
+              {
+                "label": "Notes",
+                "content": "No longer distributed to depository libraries in a physical form after FY 2000."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Humanities"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "HN51 .H917"
+              },
+              {
+                "label": "Call number",
+                "content": "AP1 .H912"
+              },
+              {
+                "label": "Call number",
+                "content": "HN51.H917 AP1.H912"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Periodicals"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "v. : ill. ; 31-38 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "National Endowment for the Humanities"
+            ],
+            "topic": [
+              "Humanities"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Periodicals"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Humanities / National Endowment for the Humanities"
+            },
+            "record_ID": "siris_sil_128840",
+            "unit_code": "SIL",
+            "title_sort": "HUMANITIES NATIONAL ENDOWMENT FOR THE HUMANITIES",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!128840~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "bfa9fbc616f12f0b2324eabc9244703cb8ecc7e4",
+        "docSignature": "017198337daba643309f63a4a5c8dac4",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661962664",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1643399116748-1643399121792-1",
+        "title": "Human Spinal Column (replica)",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_737605",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Medicine and Science: Medicine"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "ZZ.RSN83574U16"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Spinal Column, Human"
+              },
+              {
+                "label": "Object Name",
+                "content": "spinal column, human, replica"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Spinal Column, Human; Medicine"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Measurements",
+                "content": "overall: 33 in x 11 in x 6 in; 83.82 cm x 27.94 cm x 15.24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "spinal column, human, replica",
+              "Spinal Column, Human",
+              "Spinal Column, Human; Medicine"
+            ],
+            "online_media_type": [
+              "Images"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-4fcf-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Title",
+              "content": "Human Spinal Column (replica)"
+            },
+            "record_ID": "nmah_737605",
+            "unit_code": "NMAH",
+            "title_sort": "HUMAN SPINAL COLUMN (REPLICA)",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "5f9e27a726dbd082b5209edaa1c449c07b2c505d",
+        "docSignature": "810dbb97d2eb449d3c1963b8612c4c1c",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1732287347",
+        "version": "1732271913"
+      },
+      {
+        "id": "ld1-1646149545906-1646150594434-0",
+        "title": "[Technical reports on research on the human body, man/machine information systems, placement of aircraft controls, atmospheric contamination, sonic booms, radar, flight simulators, fire protection, anthropometry, human engineering and water reclamation]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_552343",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1962"
+              },
+              {
+                "label": "Date",
+                "content": "1962-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Aerospace Medical Research Laboratories (U.S.)"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human body"
+              },
+              {
+                "label": "Topic",
+                "content": "Human-machine systems"
+              },
+              {
+                "label": "Topic",
+                "content": "Airplanes--Design and construction--Human factors"
+              },
+              {
+                "label": "Topic",
+                "content": "Radar"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "TL507 .A25284"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "<39> v. : ill"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1960s"
+            ],
+            "name": [
+              "Aerospace Medical Research Laboratories (U.S.)"
+            ],
+            "topic": [
+              "Airplanes",
+              "Human body",
+              "Human-machine systems",
+              "Human factors",
+              "Radar",
+              "Design and construction"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "[Technical reports on research on the human body, man/machine information systems, placement of aircraft controls, atmospheric contamination, sonic booms, radar, flight simulators, fire protection, anthropometry, human engineering and water reclamation]"
+            },
+            "record_ID": "siris_sil_552343",
+            "unit_code": "SIL",
+            "title_sort": "TECHNICAL REPORTS ON RESEARCH ON THE HUMAN BODY MANMACHINE INFORMATION SYSTEMS PLACEMENT OF AIRCRAFT CONTROLS ATMOSPHERIC CONTAMINATION SONIC BOOMS RADAR FLIGHT SIMULATORS FIRE PROTECTION ANTHROPOMETRY HUMAN ENGINEERING AND WATER RECLAMATION",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!552343~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "010388185813607d075df751f9e10d9164a67264",
+        "docSignature": "ca42b52c17c5454768cb6d62d95f4499",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961849",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150427701-0",
+        "title": "The human strategy : an evolutionary perspective on human anatomy / John H. Langdon",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_786390",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2005"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Langdon, John H (John Howard)"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human evolution"
+              },
+              {
+                "label": "Topic",
+                "content": "Human anatomy"
+              },
+              {
+                "label": "Topic",
+                "content": "Human skeleton--Evolution"
+              },
+              {
+                "label": "Topic",
+                "content": "Physical anthropology"
+              },
+              {
+                "label": "Topic",
+                "content": "Evolution (Biology)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xix, 358 p. : ill. ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Langdon, John H"
+            ],
+            "topic": [
+              "Human skeleton",
+              "Evolution",
+              "Evolution (Biology)",
+              "Anatomy",
+              "Physical anthropology"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The human strategy : an evolutionary perspective on human anatomy / John H. Langdon"
+            },
+            "record_ID": "siris_sil_786390",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN STRATEGY : AN EVOLUTIONARY PERSPECTIVE ON HUMAN ANATOMY JOHN H LANGDON",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!786390~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "16a928c8d05754ffc4e4165cbab1143e7b2758a9",
+        "docSignature": "79e728510e6ecee0160fe211879d81d1",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661963836",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150005666-0",
+        "title": "Maryland humanities",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_692770",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1980"
+              },
+              {
+                "label": "Date",
+                "content": "1980-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Maryland Humanities Council"
+              },
+              {
+                "label": "Author",
+                "content": "Maryland Committee for the Humanities"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Maryland"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Humanities--Periodicals"
+              },
+              {
+                "label": "Topic",
+                "content": "Social life and customs"
+              },
+              {
+                "label": "Topic",
+                "content": "Periodicals"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Periodicals"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "v. : ill. ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Maryland Humanities Council",
+              "Maryland Committee for the Humanities"
+            ],
+            "place": [
+              "Maryland"
+            ],
+            "topic": [
+              "Humanities",
+              "Periodicals",
+              "Society"
+            ],
+            "language": [
+              "English language"
+            ],
+            "geoLocation": [
+              {
+                "L1": {
+                  "type": "Continent",
+                  "content": "North America"
+                },
+                "L2": {
+                  "type": "Country",
+                  "content": "United States of America"
+                },
+                "L3": {
+                  "type": "State",
+                  "content": "Maryland"
+                }
+              }
+            ],
+            "object_type": [
+              "Periodicals"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Maryland humanities"
+            },
+            "record_ID": "siris_sil_692770",
+            "unit_code": "SIL",
+            "title_sort": "MARYLAND HUMANITIES",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!692770~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "431c82db2fa1dfa91ba660df6e714c67e422136b",
+        "docSignature": "f3ff5d9d91bb4413ef5151bd9eb2ddeb",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661962401",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150760321-0",
+        "title": "What science offers the humanities : integrating body and culture / Edward Slingerland",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_904479",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2008"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Slingerland, Edward G (Edward Gilman)"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Exorcising the ghost in the machine -- Embodying culture -- Defending vertical integration"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Philosophy"
+              },
+              {
+                "label": "Topic",
+                "content": "Science and the humanities"
+              },
+              {
+                "label": "Topic",
+                "content": "Humanity"
+              },
+              {
+                "label": "Topic",
+                "content": "Human body"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xv, 370 p. : ill ; 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Slingerland, Edward G"
+            ],
+            "topic": [
+              "Human body",
+              "Science and the humanities",
+              "Humanity",
+              "Philosophy"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "What science offers the humanities : integrating body and culture / Edward Slingerland"
+            },
+            "record_ID": "siris_sil_904479",
+            "unit_code": "SIL",
+            "title_sort": "WHAT SCIENCE OFFERS THE HUMANITIES : INTEGRATING BODY AND CULTURE EDWARD SLINGERLAND",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!904479~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "f215934e4bce3c55dd40b8a0a7e01a73b338dd76",
+        "docSignature": "3a5aa424734988ba34de0c95c95fb31e",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661976236",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150921285-0",
+        "title": "Human adaptability : an introduction to ecological anthropology / Emilio F. Moran",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_252218",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1982"
+              },
+              {
+                "label": "Date",
+                "content": "1979"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Moran, Emilio F"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Includes indexes."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human beings--Effect of environment on"
+              },
+              {
+                "label": "Topic",
+                "content": "Adaptation (Physiology)"
+              },
+              {
+                "label": "Topic",
+                "content": "Human ecology"
+              },
+              {
+                "label": "Topic",
+                "content": "Human geography"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "GF51.M58 1982X"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xii, 404 p. : ill. ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s",
+              "1970s"
+            ],
+            "name": [
+              "Moran, Emilio F"
+            ],
+            "topic": [
+              "Human geography",
+              "Human beings",
+              "Adaptation (Physiology)",
+              "Human ecology"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Human adaptability : an introduction to ecological anthropology / Emilio F. Moran"
+            },
+            "record_ID": "siris_sil_252218",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN ADAPTABILITY : AN INTRODUCTION TO ECOLOGICAL ANTHROPOLOGY EMILIO F MORAN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!252218~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "873a049305432ed7502fce014603529dd54719b7",
+        "docSignature": "789dfcca07c49f93be34cefca842324c",
+        "timestamp": "1498154026",
+        "lastTimeUpdated": "1661961921",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149784141-0",
+        "title": "Human rights and anthropology / Theodore E. Downing and Gilbert Kushner, editors ; with Jennifer Schirmer, Alison Dundes Renteln and Laurie Wiseberg of Human Rights Internet",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_380307",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1988"
+              },
+              {
+                "label": "Date",
+                "content": "C1988"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Downing, Theodore E"
+              },
+              {
+                "label": "Author",
+                "content": "Kushner, Gilbert"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Part 1. Introduction / Theodore E. Downing and Gilbert Kushner. Human rights research, the challenge for anthropologists / Theodore E. Downing. Is there a scientific basis in anthropology for the ethics of human rights? / Clifford R. Barnett. Powerless people / Gilbert Kushner. Crossroads for anthropology, human rights in Latin America / Paul L. Doughty. The human rights of undocmented workers in the United States-Mexico border region / Thomas Weaver. The dilemma of cultural diversity and equivalency in universal human rights standards / Jennifer Schirmer. \"Human rights\", commentary / Sybil Wolfram. Anthropologists and human rights, activists by default? / Jason W. Clay -- Part 2. Anthropology and human rights, a selected bibliography"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Anthropological ethics"
+              },
+              {
+                "label": "Topic",
+                "content": "Human rights"
+              },
+              {
+                "label": "Topic",
+                "content": "Anthropology--Methodology"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "GN33.6 .H918 1988"
+              },
+              {
+                "label": "Call number",
+                "content": "GN33.6.H918 1988"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "200 p. ; 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Downing, Theodore E",
+              "Kushner, Gilbert"
+            ],
+            "topic": [
+              "Ethics",
+              "Methodology",
+              "Anthropology",
+              "Anthropolgy",
+              "Civil rights"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Human rights and anthropology / Theodore E. Downing and Gilbert Kushner, editors ; with Jennifer Schirmer, Alison Dundes Renteln and Laurie Wiseberg of Human Rights Internet"
+            },
+            "record_ID": "siris_sil_380307",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN RIGHTS AND ANTHROPOLOGY THEODORE E DOWNING AND GILBERT KUSHNER EDITORS WITH JENNIFER SCHIRMER ALISON DUNDES RENTELN AND LAURIE WISEBERG OF HUMAN RIGHTS INTERNET",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!380307~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "2ac2730e3f55a9a3d7814547566838425c35e8c7",
+        "docSignature": "821ef8412695a700c1d7ed1300a61b74",
+        "timestamp": "1498154099",
+        "lastTimeUpdated": "1661976144",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149714404-1",
+        "title": "Handbook of human rights / edited by Thomas Cushman",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_987253",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2012"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Cushman, Thomas 1959-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Summary",
+                "content": "\"In mapping out the field of human rights for those studying and researching within both humanities and social science disciplines, the Handbook of Human Rights provides not only a solid foundation for the reader who wants to learn the basic parameters of the field, but also promotes new thinking and frameworks for the study of human rights in the twenty-first century. The Handbook comprises of nearly sixty individual contributions from key figures around the world, which are grouped according to eight key areas of discussion: - foundations and critiques - new frameworks for understanding human rights - world religious traditions and human rights - social, economic, group and collective rights - critical perspectives on human rights organizations, institutions, and practices - law and human rights - narrative and aesthetic dimension of rights - geographies of rights In its presentation and analysis of the traditional core history and topics, critical perspectives, human rights culture, and current practice, this Handbook proves a valuable resource for all students and researchers with an interest in human rights\"-- Provided by publisher."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human rights"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Handbooks, manuals, etc"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxiii, 744 p. : ill. ; 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              "Cushman, Thomas"
+            ],
+            "topic": [
+              "Civil rights"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Manuals (instructional materials)"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Handbook of human rights / edited by Thomas Cushman"
+            },
+            "record_ID": "siris_sil_987253",
+            "unit_code": "SIL",
+            "title_sort": "HANDBOOK OF HUMAN RIGHTS EDITED BY THOMAS CUSHMAN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!987253~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "d543b498cf2e5c87a2f5f5723affc198b33f09e7",
+        "docSignature": "6ace3439e5da0de238ed4afcd69ddc4f",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661961829",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150926498-0",
+        "title": "Human biology : an evolutionary and biocultural perspective / edited by Sara Stinson ... [et al.]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_720541",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2000"
+              },
+              {
+                "label": "Date",
+                "content": "C2000"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Stinson, Sara"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Theory in human biology : evolution, ecology, adaptability, and variation / Rebecca Huss-Ashmore -- History of human biology in the United States of America / Francis E. Johnston and Michael A. Little -- An introduction to genetics / Mark L. Weiss -- Genetics, geography, and human variation / Dennis H. O'Rourke -- Quantitative variation and genetics / Lyle W. Konigsberg -- Human adaptation to climate : temperature, ultraviolet radiation, and altitude / Cynthia M. Beall and A. Theodore Steegmann, Jr. -- The epidemiology of human disease / Lisa Sattenspiel -- Human adaptations to infectious disease / Fatimah L.C. Jackson -- Human nutritional evolution / William R. Leonard -- Work and energetics / Stanley J. Ulijaszek -- Evolution of the human life cycle / Barry Bogin and B. Holly Smith -- Growth variation : biological and cultural factors / Sara Stinson -- Aging, senescence, and human variation / Gillian J. Harper and Douglas E. Crews -- Demography / Timothy B. Gage -- Population growth and fertility regulation / Peter T. Ellison and Mary T. O'Rourke"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Physical anthropology"
+              },
+              {
+                "label": "Topic",
+                "content": "Human biology"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xii, 639 p. : ill. ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Stinson, Sara"
+            ],
+            "topic": [
+              "Human biology",
+              "Physical anthropology"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Human biology : an evolutionary and biocultural perspective / edited by Sara Stinson ... [et al.]"
+            },
+            "record_ID": "siris_sil_720541",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN BIOLOGY : AN EVOLUTIONARY AND BIOCULTURAL PERSPECTIVE EDITED BY SARA STINSON ET AL",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!720541~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "fd64f14211cc17e793a8ea3886aee84b71f8f0c2",
+        "docSignature": "cc05d214bd4697093201f74d09cb5e3d",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661976135",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149640117-1",
+        "title": "Human biology : an exhibition of ourselves",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_117293",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1977"
+              },
+              {
+                "label": "Date",
+                "content": "C1977"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human physiology"
+              },
+              {
+                "label": "Topic",
+                "content": "Human behavior"
+              },
+              {
+                "label": "Topic",
+                "content": "Human anatomy"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "QP34.5 .H918"
+              },
+              {
+                "label": "Call number",
+                "content": "QP34.5.H918"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "120 p. : ill. (some col.) ; 22 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1970s"
+            ],
+            "topic": [
+              "Human physiology",
+              "Human behavior",
+              "Anatomy"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Human biology : an exhibition of ourselves"
+            },
+            "record_ID": "siris_sil_117293",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN BIOLOGY : AN EXHIBITION OF OURSELVES",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!117293~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "76fab2280040358f402b15375dd4a8ed18225596",
+        "docSignature": "1175f9a247c469919d1db7163c6be3fd",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661962463",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150857464-2",
+        "title": "The human career : human biological and cultural origins / Richard G. Klein",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_933945",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2009"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Klein, Richard G"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Evolution, classification, and nomenclature -- The geologic time frame -- The primate background -- The Australopiths and Homo habilis -- Evolution of the genus Homo -- The Neanderthals and their contemporaries -- Anatomically modern humans -- Synopsis : anatomy, behavior, and modern human origins"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human beings--Origin"
+              },
+              {
+                "label": "Topic",
+                "content": "Fossil hominids"
+              },
+              {
+                "label": "Topic",
+                "content": "Human evolution"
+              },
+              {
+                "label": "Topic",
+                "content": "Culture--Origin"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxx, 989 p. : ill., maps ; 27 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Klein, Richard G"
+            ],
+            "topic": [
+              "Origin",
+              "Fossil hominids",
+              "Human beings",
+              "Evolution"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The human career : human biological and cultural origins / Richard G. Klein"
+            },
+            "record_ID": "siris_sil_933945",
+            "unit_code": "SIL",
+            "title_sort": "HUMAN CAREER : HUMAN BIOLOGICAL AND CULTURAL ORIGINS RICHARD G KLEIN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!933945~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "93d64183ed02e03d9f2ea197233d3f1359cfc4b5",
+        "docSignature": "82d60a35deed95dd99cd4d1776536029",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962084",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149878843-2",
+        "title": "Skulls and skeletons : human bone collections and accumulations / by Christine Quigley",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_627547",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2001"
+              },
+              {
+                "label": "Date",
+                "content": "C2001"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Quigley, Christine 1963-"
+              },
+              {
+                "label": "Subject",
+                "content": "United States Native American Graves Protection and Repatriation Act"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Human skeleton--Identification"
+              },
+              {
+                "label": "Topic",
+                "content": "Human skeleton--Analysis"
+              },
+              {
+                "label": "Topic",
+                "content": "Human skeleton--Collectors and collecting"
+              },
+              {
+                "label": "Topic",
+                "content": "Museums--Collection management"
+              },
+              {
+                "label": "Topic",
+                "content": "Human remains (Archaeology)--Repatriation"
+              },
+              {
+                "label": "Topic",
+                "content": "Human remains (Archaeology)--Law and legislation"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "viii, 263 p. : ill. ; 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "United States",
+              "Quigley, Christine"
+            ],
+            "topic": [
+              "Law and legislation",
+              "Human skeleton",
+              "Collectors and collecting",
+              "Repatriation",
+              "Human remains (Archaeology)",
+              "Museums"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Skulls and skeletons : human bone collections and accumulations / by Christine Quigley"
+            },
+            "record_ID": "siris_sil_627547",
+            "unit_code": "SIL",
+            "title_sort": "SKULLS AND SKELETONS : HUMAN BONE COLLECTIONS AND ACCUMULATIONS BY CHRISTINE QUIGLEY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!627547~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "6d897fb8eddb2f091f9ec032ca602ebd1453f904",
+        "docSignature": "38acf7b21ec5351df72cd4c42073ecf5",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661961902",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149825927-0",
+        "title": "The Humanities in America / from the report of the Commission on the Humanities",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_702529",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1980"
+              },
+              {
+                "label": "Date",
+                "content": "C1980"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Commission on the Humanities (1978- )"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Thirty-two distinguished Americans rethink the place of the humanities in our culture--from a national survey for the 1980s."
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "United States"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Humanities"
+              },
+              {
+                "label": "Topic",
+                "content": "Intellectual life"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "AZ103 .C54 1980b"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "24 p. ; 22 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Commission on the Humanities (1978- )"
+            ],
+            "place": [
+              "United States"
+            ],
+            "topic": [
+              "Humanities",
+              "Intellectual life"
+            ],
+            "language": [
+              "English language"
+            ],
+            "geoLocation": [
+              {
+                "L1": {
+                  "type": "Continent",
+                  "content": "North America"
+                },
+                "L2": {
+                  "type": "Country",
+                  "content": "United States of America"
+                }
+              }
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The Humanities in America / from the report of the Commission on the Humanities"
+            },
+            "record_ID": "siris_sil_702529",
+            "unit_code": "SIL",
+            "title_sort": "HUMANITIES IN AMERICA FROM THE REPORT OF THE COMMISSION ON THE HUMANITIES",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!702529~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "9c7f2a2a57124c2a75742dd0c2f0ad2ae4c8db1d",
+        "docSignature": "2b6c57efa4b5a3f5e1d0c47a2d4cec70",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661962643",
+        "version": "0"
+      }
+    ],
+    "facets": {},
+    "rowCount": 29515,
+    "message": "content found"
+  }
+}

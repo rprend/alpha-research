@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T16:32:04.916Z",
+  "generated_at": "2026-06-13T16:37:29.344Z",
   "tables": [
     {
       "table": "works",
       "source": "data/knowledge-base/processed/works.jsonl",
       "csv": "data/knowledge-base/processed/works.csv",
-      "rows": 1182,
+      "rows": 1283,
       "columns": [
         "local_id",
         "source_id",
@@ -25,7 +25,7 @@
       "table": "objects",
       "source": "data/knowledge-base/processed/objects.jsonl",
       "csv": "data/knowledge-base/processed/objects.csv",
-      "rows": 482,
+      "rows": 507,
       "columns": [
         "local_id",
         "source_id",
@@ -46,7 +46,7 @@
       "table": "pages",
       "source": "data/knowledge-base/processed/pages.jsonl",
       "csv": "data/knowledge-base/processed/pages.csv",
-      "rows": 33,
+      "rows": 34,
       "columns": [
         "local_id",
         "source_id",
@@ -65,7 +65,7 @@
       "table": "departments",
       "source": "data/knowledge-base/processed/departments.jsonl",
       "csv": "data/knowledge-base/processed/departments.csv",
-      "rows": 4,
+      "rows": 5,
       "columns": [
         "local_id",
         "source_id",
@@ -81,7 +81,7 @@
       "table": "source_documents",
       "source": "data/knowledge-base/processed/source_documents.jsonl",
       "csv": "data/knowledge-base/processed/source_documents.csv",
-      "rows": 1718,
+      "rows": 1845,
       "columns": [
         "local_id",
         "source_id",
@@ -104,7 +104,7 @@
       "table": "rights",
       "source": "data/knowledge-base/processed/rights.jsonl",
       "csv": "data/knowledge-base/processed/rights.csv",
-      "rows": 1718,
+      "rows": 1845,
       "columns": [
         "local_id",
         "source_id",
@@ -127,43 +127,43 @@
       "file": "works.csv",
       "path": "data/knowledge-base/processed/works.csv",
       "exists": true,
-      "bytes": 424470
+      "bytes": 452006
     },
     {
       "file": "objects.csv",
       "path": "data/knowledge-base/processed/objects.csv",
       "exists": true,
-      "bytes": 114821
+      "bytes": 122663
     },
     {
       "file": "pages.csv",
       "path": "data/knowledge-base/processed/pages.csv",
       "exists": true,
-      "bytes": 10895
+      "bytes": 11141
     },
     {
       "file": "departments.csv",
       "path": "data/knowledge-base/processed/departments.csv",
       "exists": true,
-      "bytes": 887
+      "bytes": 1089
     },
     {
       "file": "source_documents.csv",
       "path": "data/knowledge-base/processed/source_documents.csv",
       "exists": true,
-      "bytes": 1444818
+      "bytes": 1490334
     },
     {
       "file": "rights.csv",
       "path": "data/knowledge-base/processed/rights.csv",
       "exists": true,
-      "bytes": 438232
+      "bytes": 470644
     },
     {
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 3506176
+      "bytes": 3645440
     }
   ]
 }

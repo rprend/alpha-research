@@ -1,0 +1,4852 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 3580,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              9
+            ]
+          ],
+          "date-time": "2023-06-09T18:13:56Z",
+          "timestamp": 1686334436019
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1989,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1086/448520",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2005,
+              7,
+              13
+            ]
+          ],
+          "date-time": "2005-07-13T21:29:41Z",
+          "timestamp": 1121290181000
+        },
+        "page": "797-803",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "The Responsibilities of Friendship: Jacques Derrida on Paul de Man's Collaboration"
+        ],
+        "prefix": "10.1086",
+        "volume": "15",
+        "author": [
+          {
+            "given": "Jon",
+            "family": "Wiener",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/448520",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T04:41:31Z",
+          "timestamp": 1523076091000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/448520"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1989,
+              7
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1989,
+                7
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/448520"
+        ],
+        "URL": "https://doi.org/10.1086/448520",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1989,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2022-04-03T10:40:47Z",
+          "timestamp": 1648982447136
+        },
+        "reference-count": 1,
+        "publisher": "University of Chicago Press",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2018,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/695371",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2017,
+              12,
+              15
+            ]
+          ],
+          "date-time": "2017-12-15T21:25:44Z",
+          "timestamp": 1513373144000
+        },
+        "page": "400-401",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Benjamin Balthaser. <i>Anti-Imperialist Modernism: Race and Transnational Radical Culture from the Great Depression to the Cold War</i>. Ann Arbor: University of Michigan Press, 2016. 320 pp."
+        ],
+        "prefix": "10.1086",
+        "volume": "44",
+        "author": [
+          {
+            "given": "Wendy",
+            "family": "Kozol",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "reference": [
+          {
+            "key": "p_n_1",
+            "volume-title": "Making White Supremacy Respectable. Again",
+            "author": "Franke Katherine",
+            "year": "2016"
+          }
+        ],
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/695371",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T03:57:23Z",
+          "timestamp": 1523073443000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/695371"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2018,
+              1
+            ]
+          ]
+        },
+        "references-count": 1,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                2018,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/695371"
+        ],
+        "URL": "https://doi.org/10.1086/695371",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T20:39:20Z",
+          "timestamp": 1649104760735
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1990,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.1086/448555",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2005,
+              7,
+              13
+            ]
+          ],
+          "date-time": "2005-07-13T17:31:55Z",
+          "timestamp": 1121275915000
+        },
+        "page": "690-698",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Editorial Notes"
+        ],
+        "prefix": "10.1086",
+        "volume": "16",
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/448555",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              6
+            ]
+          ],
+          "date-time": "2018-04-06T21:09:38Z",
+          "timestamp": 1523048978000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/448555"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1990,
+              4
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1990,
+                4
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/448555"
+        ],
+        "URL": "https://doi.org/10.1086/448555",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1990,
+              4
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              1
+            ]
+          ],
+          "date-time": "2022-04-01T02:03:32Z",
+          "timestamp": 1648778612123
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2001,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.1086/ci.27.3.1344222",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2016,
+              1,
+              7
+            ]
+          ],
+          "date-time": "2016-01-07T17:54:32Z",
+          "timestamp": 1452189272000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Back Matter"
+        ],
+        "prefix": "10.1086",
+        "volume": "27",
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/ci.27.3.1344222",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T01:26:39Z",
+          "timestamp": 1523064399000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/ci.27.3.1344222"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2001,
+              4
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2001,
+                4
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/ci.27.3.1344222"
+        ],
+        "URL": "https://doi.org/10.1086/ci.27.3.1344222",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2001,
+              4
+            ]
+          ]
+        },
+        "article-number": "ci.27.3.1344222"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T06:24:37Z",
+          "timestamp": 1649053477681
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2018,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.1086/698179",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              6,
+              13
+            ]
+          ],
+          "date-time": "2018-06-13T15:36:40Z",
+          "timestamp": 1528904200000
+        },
+        "page": "806-807",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Branden W. Joseph. <i>Experimentations: John Cage in Music, Art, and Architecture</i>. New York: Bloomsbury Academic, 2016. 217 pp."
+        ],
+        "prefix": "10.1086",
+        "volume": "44",
+        "author": [
+          {
+            "given": "Jeffrey",
+            "family": "Saletnik",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.journals.uchicago.edu/doi/pdf/10.1086/698179",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              6,
+              13
+            ]
+          ],
+          "date-time": "2018-06-13T15:42:49Z",
+          "timestamp": 1528904569000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/698179"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2018,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                2018,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/698179"
+        ],
+        "URL": "https://doi.org/10.1086/698179",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              10
+            ]
+          ],
+          "date-time": "2023-06-10T04:30:54Z",
+          "timestamp": 1686371454935
+        },
+        "reference-count": 2,
+        "publisher": "University of Chicago Press",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/725025",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              9
+            ]
+          ],
+          "date-time": "2023-06-09T11:28:33Z",
+          "timestamp": 1686310113000
+        },
+        "page": "691-693",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          ":<i>Radium of the Word: A Poetics of Materiality</i>"
+        ],
+        "prefix": "10.1086",
+        "volume": "49",
+        "author": [
+          {
+            "given": "Virginia",
+            "family": "Jackson",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "reference": [
+          {
+            "key": "p_n_1",
+            "volume-title": "Calif.",
+            "author": "Makdisi Ussama",
+            "year": "2021"
+          },
+          {
+            "key": "p_n_2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2307/25528035"
+          }
+        ],
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.journals.uchicago.edu/doi/pdf/10.1086/725025",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              9
+            ]
+          ],
+          "date-time": "2023-06-09T11:29:45Z",
+          "timestamp": 1686310185000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/725025"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              1
+            ]
+          ]
+        },
+        "references-count": 2,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                2023,
+                6,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/725025"
+        ],
+        "URL": "https://doi.org/10.1086/725025",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              6,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T14:30:28Z",
+          "timestamp": 1649082628468
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2011,
+              3
+            ]
+          ]
+        },
+        "DOI": "10.1086/659352",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2011,
+              4,
+              28
+            ]
+          ],
+          "date-time": "2011-04-28T21:29:09Z",
+          "timestamp": 1304026149000
+        },
+        "page": "419-433",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A European in China"
+        ],
+        "prefix": "10.1086",
+        "volume": "37",
+        "author": [
+          {
+            "given": "Julia",
+            "family": "Kristeva",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/659352",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              6
+            ]
+          ],
+          "date-time": "2018-04-06T23:26:57Z",
+          "timestamp": 1523057217000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/659352"
+          }
+        },
+        "translator": [
+          {
+            "given": "Vernon",
+            "family": "Cisney",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "translator",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Nicolae",
+            "family": "Morar",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "translator",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              2011,
+              3
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2011,
+                3
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/659352"
+        ],
+        "URL": "https://doi.org/10.1086/659352",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2011,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              3,
+              25
+            ]
+          ],
+          "date-time": "2024-03-25T18:24:35Z",
+          "timestamp": 1711391075186
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1979,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1086/448021",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2005,
+              7,
+              13
+            ]
+          ],
+          "date-time": "2005-07-13T21:49:25Z",
+          "timestamp": 1121291365000
+        },
+        "page": "761-791",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Farewell to Jokes: The Last \"Capricci\" of Giovanni Domenico Tiepolo and the Tradition of Irony in Venetian Painting"
+        ],
+        "prefix": "10.1086",
+        "volume": "5",
+        "author": [
+          {
+            "given": "Philipp P.",
+            "family": "Fehl",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/448021",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T04:36:01Z",
+          "timestamp": 1523075761000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/448021"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1979,
+              7
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1979,
+                7
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/448021"
+        ],
+        "URL": "https://doi.org/10.1086/448021",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1979,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              25
+            ]
+          ],
+          "date-time": "2022-04-25T17:12:24Z",
+          "timestamp": 1650906744146
+        },
+        "reference-count": 94,
+        "publisher": "University of Chicago Press",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2015,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/679102",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2014,
+              12,
+              30
+            ]
+          ],
+          "date-time": "2014-12-30T19:58:33Z",
+          "timestamp": 1419969513000
+        },
+        "page": "512-517",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Books of Critical Interest"
+        ],
+        "prefix": "10.1086",
+        "volume": "41",
+        "member": "200",
+        "reference": [
+          {
+            "key": "b1",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Abbas, Sadia.At Freedom’s Limit: Islam and the Postcolonial Predicament.New York.: Fordham University Press, 2014. 247 pp. $65.00.",
+            "DOI": "10.5422/fordham/9780823257850.001.0001"
+          },
+          {
+            "key": "b2",
+            "volume-title": "Madeline and Miriam Fendius Elman. Jerusalem: Conflict and Cooperation in a Contested City",
+            "author": "Adelman",
+            "year": "2014"
+          },
+          {
+            "key": "b3",
+            "volume-title": "Giorgio and Monica Ferrando. The Unspeakable Girl: The Myth and Mystery of Kore. Trans. Leland de la Durantaye and Annie Julia Wyman",
+            "author": "Agamben",
+            "year": "2014"
+          },
+          {
+            "key": "b4",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.2307/j.ctt1d9nm18",
+            "volume-title": "Ethos and Narrative Interpretation: The Negotiation of Values in Fiction",
+            "author": "Altes Liesbeth Korthals",
+            "year": "2014"
+          },
+          {
+            "key": "b5",
+            "volume-title": "The Zone of Interest",
+            "author": "Amis Martin",
+            "year": "2014"
+          },
+          {
+            "key": "b6",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.5406/illinois/9780252038402.001.0001",
+            "volume-title": "Digital Critical Editions",
+            "author": "Apollon Daniel",
+            "year": "2014"
+          },
+          {
+            "key": "b7",
+            "unstructured": "Barbieri, William A., Jr., ed.At the Limits of the Secular: Reflections on Faith and Public Life. Grand Rapids, MI: Wm. B. Eerdmans Publishing Co., 2014. 374 pp. $35.00."
+          },
+          {
+            "key": "b8",
+            "volume-title": "The Disarticulate: Language, Disability, and the Narratives of Modernity",
+            "author": "Berger James",
+            "year": "2015"
+          },
+          {
+            "key": "b9",
+            "first-page": "29",
+            "volume": "432",
+            "author": "Birmingham Kevin",
+            "year": "2014",
+            "journal-title": "New York: Penguin"
+          },
+          {
+            "key": "b10",
+            "volume-title": "Architecture and the Historical Imagination: Eugéne-Emmanuel Viollet-Le-Duc",
+            "author": "Bressani Martin",
+            "year": "1814"
+          },
+          {
+            "key": "b11",
+            "volume-title": "Dear Alain",
+            "author": "Bohinc Katy",
+            "year": "2014"
+          },
+          {
+            "key": "b12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.7208/chicago/9780226114835.001.0001"
+          },
+          {
+            "key": "b13",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Bryant, Levi R.Onto-Cartography: An Ontology of Machines and Media.Edinburgh: Edinburgh University Press, 2014. 300 pp. $35.00.",
+            "DOI": "10.1515/9780748679980"
+          },
+          {
+            "key": "b14",
+            "volume-title": "Home",
+            "author": "Chawla Devika",
+            "year": "2014"
+          },
+          {
+            "key": "b15",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.7312/chow15144",
+            "volume-title": "Not Like a Native Speaker: On Languaging as a Postcolonial Experience",
+            "author": "Chow Rey",
+            "year": "2014"
+          },
+          {
+            "key": "b16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.7208/chicago/9780226135564.001.0001"
+          },
+          {
+            "key": "b17",
+            "unstructured": "Colman, Felicity.Film Theory: Creating a Cinematic Grammar.New York: Wallflower Press, 2014. 136 pp. $20.00 paperback."
+          },
+          {
+            "key": "b18",
+            "unstructured": "Combs, C. Scott.Deathwatch: American Film, Technology, and the End of Life.New York: Columbia University Press, 2014. 276 pp. $30.00 paperback."
+          },
+          {
+            "key": "b19",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Connolly, Brian.Domestic Intimacies: Incest and the Liberal Subject in Nineteenth-Century America.Philadelphia: University of Pennsylvania Press, 2014. 294 pp. $45.00 hardcover.",
+            "DOI": "10.9783/9780812209853"
+          },
+          {
+            "key": "b20",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Critchley, Simon.The Ethics of Deconstruction: Derrida and Levinas. Edinburgh: Edinburgh University Press, 2014. 324 pp. $31.54.",
+            "DOI": "10.1515/9780748689330"
+          },
+          {
+            "key": "b21",
+            "volume-title": "Consumed",
+            "author": "Cronenberg David",
+            "year": "2014"
+          },
+          {
+            "key": "b22",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5749/minnesota/9780816689644.001.0001"
+          },
+          {
+            "key": "b23",
+            "volume-title": "Circulation, Politics.",
+            "author": "Davila Arlene",
+            "year": "2014"
+          },
+          {
+            "key": "b24",
+            "volume-title": "Ned Lukacher",
+            "author": "Derrida Jacques",
+            "year": "2014"
+          },
+          {
+            "key": "b25",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1215/9780822376675"
+          },
+          {
+            "key": "b26",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.18574/nyu/9781479871674.001.0001"
+          },
+          {
+            "key": "b27",
+            "volume-title": "New York",
+            "author": "Dupuis Margaret",
+            "year": "2014"
+          },
+          {
+            "key": "b28",
+            "volume-title": "Civil Society",
+            "author": "Edwards Michael",
+            "year": "2014"
+          },
+          {
+            "key": "b29",
+            "volume-title": "Femen",
+            "author": "Galia Ackerman",
+            "year": "2014"
+          },
+          {
+            "key": "b30",
+            "volume-title": "Nancy Ann Roth",
+            "author": "Flusser Vilém",
+            "year": "2014"
+          },
+          {
+            "key": "b31",
+            "unstructured": "Frakes, Jerold C., ed. and trans.Early Yiddish Epic.Syracuse, NY: Syracuse University Press, 2014. 464 pp. $40.42."
+          },
+          {
+            "key": "b32",
+            "volume-title": "Disagreement",
+            "author": "Frances Bryan",
+            "year": "2014"
+          },
+          {
+            "key": "b33",
+            "volume-title": "Adorno’s Practical Philosophy: Living Less Wrongly",
+            "author": "Freyenhagen Fabian",
+            "year": "2014"
+          },
+          {
+            "key": "b34",
+            "unstructured": "Friedman, Andrea.Citizenship in Cold War America: The National Security State and the Possibilities of Dissent. Amherst, MA: University of Massachusetts Press, 2014. 274 pp. $24.95."
+          },
+          {
+            "key": "b35",
+            "volume-title": "Ill.",
+            "author": "Garcia-Caro Pedro",
+            "year": "2014"
+          },
+          {
+            "key": "b36",
+            "volume-title": "On the New. Trans. G. M. Goshgarian",
+            "author": "Groys Boris",
+            "year": "2014"
+          },
+          {
+            "key": "b37",
+            "first-page": "36",
+            "volume": "240",
+            "author": "Gaston Sean",
+            "year": "2014",
+            "journal-title": "New York: Rowman & Littlefield"
+          },
+          {
+            "key": "b38",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1515/9780804792608",
+            "volume-title": "The Far Reaches: Phenomenology, Ethics, and Social Renewal in Central Europe",
+            "author": "Gubser Michael",
+            "year": "2014"
+          },
+          {
+            "key": "b39",
+            "volume-title": "Heidegger and the Media",
+            "author": "Gunkel David J",
+            "year": "2014"
+          },
+          {
+            "key": "b40",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.5406/illinois/9780252038457.001.0001",
+            "volume-title": "The Europeanization of Cinema: Interzones and Imaginative Communities",
+            "author": "Halle Randall",
+            "year": "2014"
+          },
+          {
+            "key": "b41",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.2307/j.ctt1d9nkx7",
+            "volume-title": "Bar Mitzvah: A History",
+            "author": "Hilton Michael",
+            "year": "2014"
+          },
+          {
+            "key": "b42",
+            "volume-title": "The Causes of Structural Unemployment",
+            "author": "Janoski Thomas",
+            "year": "2014"
+          },
+          {
+            "key": "b43",
+            "volume-title": "Melissa Feuerstein et al",
+            "author": "Johnson Barbara",
+            "year": "2014"
+          },
+          {
+            "key": "b44",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Johnston, Adrian. Adventures in Transcendental Materialism: Dialogues with Contemporary Thinkers. Edinburgh: Edinburgh University Press, 2014. 358 pp. $35.00.",
+            "DOI": "10.1515/9780748673308"
+          },
+          {
+            "key": "b45",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5749/minnesota/9780816687411.001.0001"
+          },
+          {
+            "key": "b46",
+            "volume-title": "McBride. The Delectable Negro: Human Consuption and Honoeroticism within U.S. Slave Culture",
+            "author": "Joyce Justin A",
+            "year": "2014"
+          },
+          {
+            "key": "b47",
+            "volume-title": "On The Universal, the Uniform, the Common and Dialogue Between Cultures",
+            "author": "Jullien Francois",
+            "year": "2014"
+          },
+          {
+            "key": "b48",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1093/acprof:oso/9780199359653.001.0001"
+          },
+          {
+            "key": "b49",
+            "first-page": "27.95",
+            "volume-title": "Calif.",
+            "author": "Kittler Friedrich A",
+            "year": "2014"
+          },
+          {
+            "key": "b50",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.9783/9780812290745"
+          },
+          {
+            "key": "b51",
+            "volume-title": "The Phantom of the Ego: Modernism and the Mimetic Unconscious",
+            "author": "Lawtoo Nidesh",
+            "year": "2014"
+          },
+          {
+            "key": "b52",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5422/fordham/9780823255962.001.0001"
+          },
+          {
+            "key": "b53",
+            "volume-title": "Listening",
+            "author": "Lipari Lisbeth",
+            "year": "2014"
+          },
+          {
+            "key": "b54",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5744/florida/9780813049915.001.0001"
+          },
+          {
+            "key": "b55",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5749/minnesota/9780816677191.001.0001"
+          },
+          {
+            "key": "b56",
+            "first-page": "21.95",
+            "volume-title": "Calif.",
+            "author": "Ludeman Susanne",
+            "year": "2014"
+          },
+          {
+            "key": "b57",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1215/9780822376705"
+          },
+          {
+            "key": "b58",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Massumi, Brian.What Animals Teach Us about Politics.Durham, N.C.: Duke University Press, 2014. 137 pp. $17.23 paperback.",
+            "DOI": "10.1215/9780822376057"
+          },
+          {
+            "key": "b59",
+            "volume-title": "Reading Celebrity Gossip Magazines",
+            "author": "McDonnell Andrea",
+            "year": "2014"
+          },
+          {
+            "key": "b60",
+            "volume-title": "The Misguided Search for the Political",
+            "author": "McNay Lois",
+            "year": "2014"
+          },
+          {
+            "key": "b61",
+            "volume-title": "The Bone Clocks",
+            "author": "Mitchell David",
+            "year": "2014"
+          },
+          {
+            "key": "b62",
+            "volume-title": "Colorless Tsukuru Tazaki and His Years of Pilgrimage",
+            "author": "Murakami Haruki",
+            "year": "2014"
+          },
+          {
+            "key": "b63",
+            "volume-title": "Amber Jamilla. Sensational Flesh: Race, Power, and Masochism",
+            "author": "Musser"
+          },
+          {
+            "key": "b64",
+            "volume-title": "Lubitsch Can’t Wait: A Theoretical Examination",
+            "author": "Novak Ivana",
+            "year": "2013"
+          },
+          {
+            "key": "b65",
+            "volume-title": "José Antonio Piqueras, and Amparo Sanchez Cobos, eds. State of Ambiguity: Civic Life and Culture in Cuba’s First Republic",
+            "author": "Palmer Steven",
+            "year": "2014"
+          },
+          {
+            "key": "b66",
+            "volume-title": "Assimilated Jews in the Warsaw Ghetto",
+            "author": "Person Katarzyna",
+            "year": "1940"
+          },
+          {
+            "key": "b67",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Peterson, Kristin.Speculative Markets: Drug Circuits and Derivative Life in Nigeria.Durham, N.C.: Duke University Press, 2014. 238 pp. $18.80 paperback.",
+            "DOI": "10.1215/9780822376477"
+          },
+          {
+            "key": "b68",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1215/9780822376637"
+          },
+          {
+            "key": "b69",
+            "volume-title": "Sensational Religion: Sensory Cultures in Material Practice",
+            "author": "Promey Sally M",
+            "year": "2014"
+          },
+          {
+            "key": "b70",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1515/9780748676224",
+            "volume-title": "Agamben and Politics: A Critical Introduction",
+            "author": "Prozorov Sergei",
+            "year": "2014"
+          },
+          {
+            "key": "b71",
+            "volume-title": "New York",
+            "author": "Richards Cynthia",
+            "year": "2014"
+          },
+          {
+            "key": "b72",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1215/9780822376712"
+          },
+          {
+            "key": "b73",
+            "unstructured": "Rubinstein, Ernest.From Ecclesiastes to Simone Weil: Varieties of Philosophical Spirituality. Teaneck, N.J.: Farleigh Dickinson University Press, 2014. 281 pp. $76.50."
+          },
+          {
+            "key": "b74",
+            "volume-title": "Marie-Laure and Jan-Nöel Thon. Storyworlds across Media: Toward a Media-Conscious Narratology",
+            "author": "Ryan",
+            "year": "2014"
+          },
+          {
+            "key": "b75",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Schechter, Kate.Illusions of a Future: Psychoanalysis and the Biopolitics of Desire. Durham, N.C.: Duke University Press, 2014. 277 pp.18.80 paperback.",
+            "DOI": "10.1215/9780822376422"
+          },
+          {
+            "key": "b76",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1215/9780822376613"
+          },
+          {
+            "key": "b77",
+            "volume-title": "Ill.",
+            "author": "Siskind Mariano",
+            "year": "2014"
+          },
+          {
+            "key": "b78",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1215/9780822376408"
+          },
+          {
+            "key": "b79",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1515/9780748684847",
+            "volume-title": "The End of Phenomenology: Metaphysics and the New Realism",
+            "author": "Sparrow Tom",
+            "year": "2014"
+          },
+          {
+            "key": "b80",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Stephens, Michelle Ann.Skin Acts: Race, Psychoanalysis, and the Black Male Performer.Durham, N.C.: Duke University Press, 2014. 282 pp. $22.46 paperback.",
+            "DOI": "10.1215/9780822376651"
+          },
+          {
+            "key": "b81",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Stoetzler, Marcel, ed.Antisemitism and the Constitution of Sociology. Lincoln, NE: University of Nebraska Press, 2014. 379 pp. $65.00 hardcover.",
+            "DOI": "10.2307/j.ctt1d9nnbd"
+          },
+          {
+            "key": "b82",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1215/9780822376606",
+            "volume-title": "A View From the Bottom: Asian American Masculinity and Sexual Representation",
+            "author": "Tan Hoang Nguyen",
+            "year": "2014"
+          },
+          {
+            "key": "b83",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.7551/mitpress/9587.001.0001",
+            "volume-title": "Biopolitical Screens: Image, Power, and the Neoliberal Brain",
+            "author": "Valiaho Pasi",
+            "year": "2014"
+          },
+          {
+            "key": "b84",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5422/fordham/9780823256013.001.0001"
+          },
+          {
+            "key": "b85",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1057/9781137428837"
+          },
+          {
+            "key": "b86",
+            "volume-title": "Last Stories and Other Stories",
+            "author": "Vollmann William T",
+            "year": "2014"
+          },
+          {
+            "key": "b87",
+            "unstructured": "Waisbord, Silvio, ed.Media Sociology: A Reappraisal.New York: Polity Press, 2014. 298 pp. $69.95/$24.95."
+          },
+          {
+            "key": "b88",
+            "first-page": "54",
+            "volume": "339",
+            "author": "Walter Christina",
+            "year": "2014",
+            "journal-title": "Baltimore: Johns Hopkins University"
+          },
+          {
+            "key": "b89",
+            "unstructured": "Warren-Crow, Heather.Girlhood and the Plastic Image. Hanover, N.H.: Dartmouth College Press, 2014. 213 pp. $45.00."
+          },
+          {
+            "key": "b90",
+            "first-page": "32",
+            "volume": "297",
+            "author": "Watkin William",
+            "year": "2014",
+            "journal-title": "New York: Rowman & Littlefield"
+          },
+          {
+            "key": "b91",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Weheliye, Alexander G.Habeas Viscus: Racializing Assemblages, Biopolitics, and Black Feminist Theories of the Human.Durham, N.C.: Duke University Press, 2014. 209 pp. $21.56 paperback.",
+            "DOI": "10.1215/9780822376491"
+          },
+          {
+            "key": "b92",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1215/9780822376446"
+          },
+          {
+            "key": "b93",
+            "unstructured": "Zamir, Shamoon.The Gift of the Face: Portraiture and Time in Edward S. Curtis’sThe North American Indian. Chapel Hill: The University of North Carolina Press, 2014. 334 pp. $39.95 cloth."
+          },
+          {
+            "key": "b94",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5749/minnesota/9780816683345.001.0001"
+          }
+        ],
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/679102",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              25
+            ]
+          ],
+          "date-time": "2022-04-25T16:45:01Z",
+          "timestamp": 1650905101000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/679102"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2015,
+              1
+            ]
+          ]
+        },
+        "references-count": 94,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                2015,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/679102"
+        ],
+        "URL": "https://doi.org/10.1086/679102",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2015,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              5
+            ]
+          ],
+          "date-time": "2022-04-05T05:52:22Z",
+          "timestamp": 1649137942117
+        },
+        "reference-count": 18,
+        "publisher": "University of Chicago Press",
+        "issue": "1",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2010,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1086/656471",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2010,
+              10,
+              20
+            ]
+          ],
+          "date-time": "2010-10-20T16:40:17Z",
+          "timestamp": 1287592817000
+        },
+        "page": "131-162",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Why Does Mickey Rourke Give Pleasure?"
+        ],
+        "prefix": "10.1086",
+        "volume": "37",
+        "author": [
+          {
+            "given": "Keri",
+            "family": "Walsh",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "reference": [
+          {
+            "key": "p_n_4",
+            "volume-title": "Salon",
+            "author": "Wilson Cintra",
+            "year": "2002"
+          },
+          {
+            "key": "p_n_5",
+            "volume-title": "Body Heat",
+            "author": "Kael Pauline",
+            "year": "1991"
+          },
+          {
+            "key": "p_n_7",
+            "first-page": "11",
+            "author": "Roach Joseph",
+            "year": "2007",
+            "journal-title": "Mich."
+          },
+          {
+            "key": "p_n_9",
+            "first-page": "202",
+            "volume-title": "Tessa Boffin and Jean Fraser",
+            "author": "Golding Sue",
+            "year": "1991"
+          },
+          {
+            "key": "p_n_11",
+            "volume-title": "Bukowski writes about Rourke under the name Jack Bledsoe: \"The door to the room opened and Jack Bledsoe weaved in. Shit, it was the young Chinaski! It was me! I felt a tender aching within me",
+            "author": "el Hollywood In",
+            "year": "1989"
+          },
+          {
+            "key": "p_n_12",
+            "first-page": "14",
+            "volume": "27",
+            "author": "Miller Leslie Adrienne",
+            "year": "1998",
+            "journal-title": "Mississippi Review"
+          },
+          {
+            "key": "p_n_14",
+            "volume-title": "Salon",
+            "author": "Zacharek Stephanie",
+            "year": "2009"
+          },
+          {
+            "key": "p_n_15",
+            "first-page": "291",
+            "volume-title": "Against Interpretation",
+            "author": "Sontag Susan",
+            "year": "1966"
+          },
+          {
+            "key": "p_n_16",
+            "first-page": "198",
+            "volume-title": "Colo.",
+            "author": "Raab Scott",
+            "year": "2008"
+          },
+          {
+            "key": "p_n_17",
+            "volume-title": "Independent",
+            "author": "Quoted",
+            "year": "2009"
+          },
+          {
+            "key": "p_n_20",
+            "first-page": "931",
+            "volume-title": "For Keeps",
+            "author": "Kael",
+            "year": "1994"
+          },
+          {
+            "key": "p_n_23",
+            "volume-title": "Isthmus",
+            "author": "Williams Kent",
+            "year": "2009"
+          },
+          {
+            "key": "p_n_26",
+            "first-page": "19",
+            "volume": "25",
+            "author": "Miriam",
+            "journal-title": "Cinema Journal"
+          },
+          {
+            "key": "p_n_28",
+            "volume-title": "Nine and a Half Weeks: A Memoir of a Love Affair (1978",
+            "author": "McNeill Elizabeth",
+            "year": "2005"
+          },
+          {
+            "key": "p_n_29",
+            "volume-title": "Mickey Rourke",
+            "author": "Raab"
+          },
+          {
+            "key": "p_n_30",
+            "volume-title": "There's nothing standard about Rourke-he has an off-kilter look, like Louis Hayward, but with depth"
+          },
+          {
+            "key": "p_n_31",
+            "volume-title": "The Maids",
+            "author": "Genet Jean",
+            "year": "1994"
+          },
+          {
+            "key": "p_n_32",
+            "volume-title": "Kiss Kiss Bang Bang",
+            "author": "Kael",
+            "year": "1968"
+          }
+        ],
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/656471",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              6
+            ]
+          ],
+          "date-time": "2018-04-06T19:21:29Z",
+          "timestamp": 1523042489000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/656471"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2010,
+              9
+            ]
+          ]
+        },
+        "references-count": 18,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                2010,
+                9
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/656471"
+        ],
+        "URL": "https://doi.org/10.1086/656471",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2010,
+              9
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              5
+            ]
+          ],
+          "date-time": "2022-04-05T12:11:14Z",
+          "timestamp": 1649160674291
+        },
+        "reference-count": 24,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2010,
+              3
+            ]
+          ]
+        },
+        "DOI": "10.1086/653413",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2010,
+              4,
+              8
+            ]
+          ],
+          "date-time": "2010-04-08T15:44:27Z",
+          "timestamp": 1270741467000
+        },
+        "page": "563-594",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "II“The Architecture of Erasure”—Fantasy or Reality?"
+        ],
+        "prefix": "10.1086",
+        "volume": "36",
+        "author": [
+          {
+            "given": "Raphael",
+            "family": "Israeli",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Shmuel",
+            "family": "Berkovits",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Jacques",
+            "family": "Neriah",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Marvin",
+            "family": "Hier",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "reference": [
+          {
+            "key": "p_n_4",
+            "first-page": "2",
+            "author": "Dershowitz Alan",
+            "year": "2008",
+            "journal-title": "N.J."
+          },
+          {
+            "key": "p_n_6",
+            "volume-title": "Arabs in Israel: Friends or Foes [Hebrew] (Jerusalem",
+            "author": "Israeli Raphael",
+            "year": "2008"
+          },
+          {
+            "key": "p_n_8",
+            "volume-title": "www.museumoftolerance.com and SWC internal, unpublished planning documents entitled \"The Museum of Tolerance",
+            "author": "Museum"
+          },
+          {
+            "key": "p_n_9",
+            "volume-title": "v. Simon Wiesenthal Center Museum Corporation, et al",
+            "author": "Al-Aqsa Corporation for the Development of Properties of the Muslim Endowment Ltd., et al.",
+            "year": "2008"
+          },
+          {
+            "key": "p_n_10",
+            "volume-title": "following a judgment of the Shari'a Court of Appeals approving the project. Makdisi incorrectly states that it was established by city officials",
+            "author": "Independence Park",
+            "year": "1992"
+          },
+          {
+            "key": "p_n_12",
+            "volume-title": "which has set itself the task of preserving and maintaining Muslim and Christian holy sites in the State of Israel",
+            "author": "Israel Muslim",
+            "year": "2008"
+          },
+          {
+            "key": "p_n_18",
+            "volume-title": "The Muslim Waqf in Jerusalem in the Mandate Time",
+            "author": "Reiter"
+          },
+          {
+            "key": "p_n_19",
+            "unstructured": "Wahaba al-Zuhayli and Khalifa ba Bakr al-Hasan, Studies in the Shari'a Law and the Proofs Agreed upon by the Jurists of Islamic Legal Methodology [Arabic], 2 vols. (Kuwait, 1989), and M. Duchan,Land Lawsin the State of Israel [Hebrew], 2d ed.(Jerusalem, 1953), pp.85-86."
+          },
+          {
+            "key": "p_n_25",
+            "volume-title": "Expert Opinion of Dr. Shmuel Berkovits"
+          },
+          {
+            "key": "p_n_27",
+            "unstructured": "SeeShabi, \"Islamic Land and Religious Land as a Tool in the Israeli-Palestinian National Conflict,\" pp.40-41."
+          },
+          {
+            "key": "p_n_30",
+            "volume-title": "City of the Dead [Hebrew] (Jerusalem",
+            "author": "Benvenisti Meron",
+            "year": "1990"
+          },
+          {
+            "key": "p_n_34",
+            "volume-title": "EO"
+          },
+          {
+            "key": "p_n_36",
+            "volume-title": "Expert Opinion of Dr. Shmuel Berkovits"
+          },
+          {
+            "key": "p_n_39",
+            "volume-title": "Green Crescent over Nazareth: The Displacement of Christians by Muslims in the Holy Land (London",
+            "author": "Israeli",
+            "year": "2002"
+          },
+          {
+            "key": "p_n_40",
+            "volume-title": "prior to",
+            "author": "Indeed",
+            "year": "1948"
+          },
+          {
+            "key": "p_n_41",
+            "volume-title": "but coauthor Neriah was at the museum site during the period from",
+            "author": "These",
+            "year": "2008"
+          },
+          {
+            "key": "p_n_43",
+            "doi-asserted-by": "crossref",
+            "first-page": "279",
+            "DOI": "10.1017/S0021223700001436",
+            "volume": "3",
+            "author": "Blum Yehuda Z.",
+            "year": "1968",
+            "journal-title": "Israel Law Review"
+          },
+          {
+            "key": "p_n_44",
+            "volume-title": "No Peace-No War in the Middle East: Legal Problems of the First Year (Sydney",
+            "author": "Stone J.",
+            "year": "1969"
+          },
+          {
+            "key": "p_n_45",
+            "first-page": "264",
+            "volume": "1",
+            "author": "Shamgar Meir",
+            "year": "1971",
+            "journal-title": "Israel Yearbook on Human Rights"
+          },
+          {
+            "key": "p_n_47",
+            "volume-title": "Saving Lives-Israel's Security Fence",
+            "author": "Affairs Foreign",
+            "year": "2003"
+          },
+          {
+            "key": "p_n_55",
+            "volume-title": "apartheid",
+            "author": "West Makdisi"
+          },
+          {
+            "key": "p_n_58",
+            "volume-title": "Bat Ye'or",
+            "author": "In",
+            "year": "1985"
+          },
+          {
+            "key": "p_n_59",
+            "volume-title": "The Legacy of Jihad: Islamic Holy War and the Fate of Non-Muslims (New York",
+            "author": "Bostom Andrew",
+            "year": "2005"
+          },
+          {
+            "key": "p_n_60",
+            "volume-title": "N.J.",
+            "author": "Israeli",
+            "year": "2009"
+          }
+        ],
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/653413",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              6
+            ]
+          ],
+          "date-time": "2018-04-06T20:38:15Z",
+          "timestamp": 1523047095000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/653413"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2010,
+              3
+            ]
+          ]
+        },
+        "references-count": 24,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2010,
+                3
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/653413"
+        ],
+        "URL": "https://doi.org/10.1086/653413",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2010,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T22:20:25Z",
+          "timestamp": 1649110825026
+        },
+        "reference-count": 0,
+        "publisher": "JSTOR",
+        "issue": "5",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2008
+            ]
+          ]
+        },
+        "DOI": "10.2307/20184420",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2017,
+              1,
+              6
+            ]
+          ],
+          "date-time": "2017-01-06T01:17:33Z",
+          "timestamp": 1483665453000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Front Matter"
+        ],
+        "prefix": "10.2307",
+        "volume": "34",
+        "member": "1121",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              5,
+              9
+            ]
+          ],
+          "date-time": "2018-05-09T04:13:28Z",
+          "timestamp": 1525839208000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/10.2307/20184420"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2008
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                2008
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.2307/20184420"
+        ],
+        "URL": "https://doi.org/10.2307/20184420",
+        "ISSN": [
+          "0093-1896"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2008
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              2
+            ]
+          ],
+          "date-time": "2022-04-02T01:37:17Z",
+          "timestamp": 1648863437831
+        },
+        "reference-count": 3,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2009,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/598807",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2009,
+              4,
+              30
+            ]
+          ],
+          "date-time": "2009-04-30T15:35:58Z",
+          "timestamp": 1241105758000
+        },
+        "page": "375-379",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Introduction: Holy by Special Application"
+        ],
+        "prefix": "10.1086",
+        "volume": "35",
+        "author": [
+          {
+            "given": "Françoise",
+            "family": "Meltzer",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Jas'",
+            "family": "Elsner",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "reference": [
+          {
+            "key": "p_n_2",
+            "first-page": "71",
+            "author": "Agamben Giorgio",
+            "year": "1998",
+            "journal-title": "Calif."
+          },
+          {
+            "key": "p_n_5",
+            "unstructured": "Mary Douglas, Purity and Danger: An Analysis of Concepts of Pollution and Taboo (Harmondsworth, 1970), pp.186-187."
+          },
+          {
+            "key": "p_n_8",
+            "first-page": "3e",
+            "author": "Wittgenstein Ludwig",
+            "year": "1979",
+            "journal-title": "N.J."
+          }
+        ],
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/598807",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              6
+            ]
+          ],
+          "date-time": "2018-04-06T20:21:30Z",
+          "timestamp": 1523046090000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/598807"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2009,
+              1
+            ]
+          ]
+        },
+        "references-count": 3,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2009,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/598807"
+        ],
+        "URL": "https://doi.org/10.1086/598807",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2009,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              5
+            ]
+          ],
+          "date-time": "2022-04-05T23:03:25Z",
+          "timestamp": 1649199805705
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "CRIT INQUIRY"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1989,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/ci.1989.15.issue-3",
+        "type": "journal-issue",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              12,
+              27
+            ]
+          ],
+          "date-time": "2007-12-27T15:35:44Z",
+          "timestamp": 1198769744000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "prefix": "10.1086",
+        "volume": "15",
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2007,
+              12,
+              27
+            ]
+          ],
+          "date-time": "2007-12-27T15:35:44Z",
+          "timestamp": 1198769744000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "http://www.journals.uchicago.edu/toc/ci/15/3"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1989,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1989,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1086/ci.1989.15.issue-3",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1989,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              1
+            ]
+          ],
+          "date-time": "2022-04-01T22:59:58Z",
+          "timestamp": 1648853998184
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1978,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.1086/447956",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2005,
+              7,
+              13
+            ]
+          ],
+          "date-time": "2005-07-13T17:47:12Z",
+          "timestamp": 1121276832000
+        },
+        "page": "597-606",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Rethinking Aristotle's \"Thought\": A Response to James E. Ford"
+        ],
+        "prefix": "10.1086",
+        "volume": "4",
+        "author": [
+          {
+            "given": "Leon",
+            "family": "Rosenstein",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/447956",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T07:56:40Z",
+          "timestamp": 1523087800000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/447956"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1978,
+              4
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1978,
+                4
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/447956"
+        ],
+        "URL": "https://doi.org/10.1086/447956",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1978,
+              4
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2022-04-03T23:09:09Z",
+          "timestamp": 1649027349840
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "1",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1980,
+              10
+            ]
+          ]
+        },
+        "DOI": "10.1086/ci.7.1.1343172",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2016,
+              1,
+              7
+            ]
+          ],
+          "date-time": "2016-01-07T12:16:02Z",
+          "timestamp": 1452168962000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Front Matter"
+        ],
+        "prefix": "10.1086",
+        "volume": "7",
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/ci.7.1.1343172",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              6
+            ]
+          ],
+          "date-time": "2018-04-06T20:51:53Z",
+          "timestamp": 1523047913000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/ci.7.1.1343172"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1980,
+              10
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1980,
+                10
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/ci.7.1.1343172"
+        ],
+        "URL": "https://doi.org/10.1086/ci.7.1.1343172",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1980,
+              10
+            ]
+          ]
+        },
+        "article-number": "ci.7.1.1343172"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2023-04-04T05:38:42Z",
+          "timestamp": 1680586722478
+        },
+        "reference-count": 2,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/723674",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2023-04-03T20:36:43Z",
+          "timestamp": 1680554203000
+        },
+        "page": "497-499",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          ":<i>Meir Kahane: The Public Life and Political Thought of an American Jewish Radical</i>"
+        ],
+        "prefix": "10.1086",
+        "volume": "49",
+        "author": [
+          {
+            "given": "Paul",
+            "family": "Mendes-Flohr",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "reference": [
+          {
+            "key": "p_n_1",
+            "first-page": "36",
+            "volume": "199",
+            "author": "Mann Thomas",
+            "journal-title": "New York"
+          },
+          {
+            "key": "p_n_2",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Immanuel Kant, Religion and Rational Theology, trans. Allen W. Wood and George Di Giovanni (New York, 1996), pp.276, 275.",
+            "DOI": "10.1017/CBO9780511814433"
+          }
+        ],
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.journals.uchicago.edu/doi/pdf/10.1086/723674",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2023-04-03T20:42:21Z",
+          "timestamp": 1680554541000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/723674"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              1
+            ]
+          ]
+        },
+        "references-count": 2,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2023,
+                3,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/723674"
+        ],
+        "URL": "https://doi.org/10.1086/723674",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T03:08:33Z",
+          "timestamp": 1649041713828
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2018,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.1086/698190",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              6,
+              13
+            ]
+          ],
+          "date-time": "2018-06-13T15:36:40Z",
+          "timestamp": 1528904200000
+        },
+        "page": "807-809",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Miki Kratsman and Ariella Azoulay. <i>The Resolution of the Suspect</i>. Cambridge, Mass.: Radius Books, 2016. 216 pp."
+        ],
+        "prefix": "10.1086",
+        "volume": "44",
+        "author": [
+          {
+            "given": "Stephen",
+            "family": "Sheehi",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.journals.uchicago.edu/doi/pdf/10.1086/698190",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              6,
+              13
+            ]
+          ],
+          "date-time": "2018-06-13T15:42:49Z",
+          "timestamp": 1528904569000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/698190"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2018,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                2018,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/698190"
+        ],
+        "URL": "https://doi.org/10.1086/698190",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              29
+            ]
+          ],
+          "date-time": "2022-03-29T07:09:07Z",
+          "timestamp": 1648537747123
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1981,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1086/ci.7.4.1343140",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2016,
+              1,
+              7
+            ]
+          ],
+          "date-time": "2016-01-07T17:17:06Z",
+          "timestamp": 1452187026000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Front Matter"
+        ],
+        "prefix": "10.1086",
+        "volume": "7",
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/ci.7.4.1343140",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T02:50:52Z",
+          "timestamp": 1523069452000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/ci.7.4.1343140"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1981,
+              7
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1981,
+                7
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/ci.7.4.1343140"
+        ],
+        "URL": "https://doi.org/10.1086/ci.7.4.1343140",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1981,
+              7
+            ]
+          ]
+        },
+        "article-number": "ci.7.4.1343140"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              29
+            ]
+          ],
+          "date-time": "2022-03-29T04:04:49Z",
+          "timestamp": 1648526689056
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1991,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/448591",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2005,
+              7,
+              13
+            ]
+          ],
+          "date-time": "2005-07-13T21:30:14Z",
+          "timestamp": 1121290214000
+        },
+        "page": "449-455",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Books of Critical Interest"
+        ],
+        "prefix": "10.1086",
+        "volume": "17",
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/448591",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T04:41:37Z",
+          "timestamp": 1523076097000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/448591"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1991,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1991,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/448591"
+        ],
+        "URL": "https://doi.org/10.1086/448591",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1991,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              31
+            ]
+          ],
+          "date-time": "2022-03-31T08:21:43Z",
+          "timestamp": 1648714903265
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1975,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.1086/447844",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2005,
+              7,
+              13
+            ]
+          ],
+          "date-time": "2005-07-13T21:36:05Z",
+          "timestamp": 1121290565000
+        },
+        "page": "345-368",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Being Perfect: Lawrence, Sartre, and \"Women in Love\""
+        ],
+        "prefix": "10.1086",
+        "volume": "2",
+        "author": [
+          {
+            "given": "T. H.",
+            "family": "Adamowski",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/447844",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T04:45:41Z",
+          "timestamp": 1523076341000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/447844"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1975,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1975,
+                12
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/447844"
+        ],
+        "URL": "https://doi.org/10.1086/447844",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1975,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              31
+            ]
+          ],
+          "date-time": "2022-03-31T08:33:23Z",
+          "timestamp": 1648715603465
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1984,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.1086/ci.11.2.1343389",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2016,
+              1,
+              7
+            ]
+          ],
+          "date-time": "2016-01-07T17:27:21Z",
+          "timestamp": 1452187641000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Front Matter"
+        ],
+        "prefix": "10.1086",
+        "volume": "11",
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/ci.11.2.1343389",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T09:38:14Z",
+          "timestamp": 1523093894000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/ci.11.2.1343389"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1984,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1984,
+                12
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/ci.11.2.1343389"
+        ],
+        "URL": "https://doi.org/10.1086/ci.11.2.1343389",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1984,
+              12
+            ]
+          ]
+        },
+        "article-number": "ci.11.2.1343389"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T03:35:05Z",
+          "timestamp": 1649043305784
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1996,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/448796",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2005,
+              7,
+              13
+            ]
+          ],
+          "date-time": "2005-07-13T17:36:10Z",
+          "timestamp": 1121276170000
+        },
+        "page": "383-392",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Look Who's Talking, or If Looks Could Kill"
+        ],
+        "prefix": "10.1086",
+        "volume": "22",
+        "author": [
+          {
+            "given": "Diana",
+            "family": "Fuss",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/448796",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              7
+            ]
+          ],
+          "date-time": "2018-04-07T07:55:37Z",
+          "timestamp": 1523087737000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/448796"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1996,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1996,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/448796"
+        ],
+        "URL": "https://doi.org/10.1086/448796",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1996,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              6
+            ]
+          ],
+          "date-time": "2022-04-06T01:21:10Z",
+          "timestamp": 1649208070307
+        },
+        "reference-count": 0,
+        "publisher": "University of Chicago Press",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2011,
+              3
+            ]
+          ]
+        },
+        "DOI": "10.1086/660794",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2011,
+              4,
+              28
+            ]
+          ],
+          "date-time": "2011-04-28T21:29:09Z",
+          "timestamp": 1304026149000
+        },
+        "page": "582-582",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Notice to Contributors"
+        ],
+        "prefix": "10.1086",
+        "volume": "37",
+        "member": "200",
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "http://www.journals.uchicago.edu/doi/pdf/10.1086/660794",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              6
+            ]
+          ],
+          "date-time": "2018-04-06T23:26:56Z",
+          "timestamp": 1523057216000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/660794"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2011,
+              3
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2011,
+                3
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/660794"
+        ],
+        "URL": "https://doi.org/10.1086/660794",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2011,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              20
+            ]
+          ],
+          "date-time": "2022-11-20T05:29:42Z",
+          "timestamp": 1668922182368
+        },
+        "reference-count": 86,
+        "publisher": "University of Chicago Press",
+        "issue": "1",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Critical Inquiry"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2020,
+              9,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1086/710908",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              9,
+              22
+            ]
+          ],
+          "date-time": "2020-09-22T21:37:10Z",
+          "timestamp": 1600810630000
+        },
+        "page": "28-48",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "In 1837/1838: World Literature and Law"
+        ],
+        "prefix": "10.1086",
+        "volume": "47",
+        "author": [
+          {
+            "given": "César",
+            "family": "Domínguez",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "200",
+        "reference": [
+          {
+            "key": "p_n_1",
+            "first-page": "22",
+            "volume-title": "Manliang Wang and Fangjun Li",
+            "author": "Jiang Lan",
+            "year": "2018"
+          },
+          {
+            "key": "p_n_2",
+            "doi-asserted-by": "crossref",
+            "first-page": "269",
+            "DOI": "10.1179/chi.1997.20.1.269",
+            "volume": "20",
+            "author": "Leung K. C.",
+            "year": "1999",
+            "journal-title": "CHINOPERL Papers"
+          },
+          {
+            "key": "p_n_3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1057/9781403982490"
+          },
+          {
+            "key": "p_n_4",
+            "volume-title": "Among them, external nature is always associated with the human figures. You always hear the goldfishes plashing in the pond, and the birds singing on the bough",
+            "author": "Chinese Courtship As"
+          },
+          {
+            "key": "p_n_6",
+            "volume-title": "Javier Blasco (Madrid",
+            "author": "de Avellaneda Alonso Fernández",
+            "year": "2007"
+          },
+          {
+            "key": "p_n_7",
+            "first-page": "617",
+            "volume-title": "Francisco Rico (Barcelona",
+            "author": "de Cervantes Miguel",
+            "year": "1998"
+          },
+          {
+            "key": "p_n_8",
+            "volume-title": "trans. Edith Grossman (New York",
+            "author": "Quixote Don",
+            "year": "2003"
+          },
+          {
+            "key": "p_n_10",
+            "unstructured": "What Cervantes literally asks for is an \"ayuda de costa\" (Cervantes, Don Quijote de la Mancha, p. 622) which Grossman translates as \"anything that would help me to defray my expenses\" (Cervantes,Don Quixote, pp.453-454). \"Ayuda de costa\" makes reference to a bonus an employee is paid by his master."
+          },
+          {
+            "key": "p_n_11",
+            "volume-title": "such as James Wilkinson and Thomas Percy's Hau kiou choaan, or The Pleasing History (1761) and Jean-Pierre Abel-Rémusat's Iu-kiao-li, ou les deux cousines",
+            "author": "My",
+            "year": "1826"
+          },
+          {
+            "key": "p_n_12",
+            "volume-title": "N.J.",
+            "author": "Damrosch David",
+            "year": "2003"
+          },
+          {
+            "key": "p_n_13",
+            "first-page": "2",
+            "author": "Read World How",
+            "year": "2009",
+            "journal-title": "Mass."
+          },
+          {
+            "key": "p_n_14",
+            "unstructured": "Damrosch, What Is World Literature?pp.6, 281."
+          },
+          {
+            "key": "p_n_15",
+            "first-page": "13",
+            "volume-title": "Joachim Küpper",
+            "author": "David Jérôme",
+            "year": "2013"
+          },
+          {
+            "key": "p_n_17",
+            "volume-title": "N.C.",
+            "author": "Cheah Pheng",
+            "year": "2016"
+          },
+          {
+            "key": "p_n_18",
+            "volume-title": "on or about December, 1910, human character changed",
+            "author": "Virginia Woolf's My",
+            "year": "1996"
+          },
+          {
+            "key": "p_n_20",
+            "volume-title": "International Copyright and Neighbouring Rights: The Berne Convention and Beyond, 2 vols.",
+            "author": "Ricketson Sam",
+            "year": "2006"
+          },
+          {
+            "key": "p_n_21",
+            "first-page": "9",
+            "author": "Bently Lionel",
+            "year": "2010",
+            "journal-title": "Mass."
+          },
+          {
+            "key": "p_n_25",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3790/978-3-428-50289-9"
+          },
+          {
+            "key": "p_n_29",
+            "unstructured": "Henry Morley, Of English Literature in the Reign of Victoria (Leipzig, 1881); Simon Nowell-Smith,International CopyrightLaw and thePublisherin the Reign of Queen Victoria (Oxford, 1968), pp.41-63, hereafter abbreviated I;"
+          },
+          {
+            "key": "p_n_30",
+            "volume-title": "Tauchnitz International Editions in English 1841-1955: A Bibliographical History (New York",
+            "author": "William",
+            "year": "1988"
+          },
+          {
+            "key": "p_n_31",
+            "first-page": "117",
+            "volume-title": "Mass.",
+            "author": "Williams Susan",
+            "year": "1996"
+          },
+          {
+            "key": "p_n_32",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1515/9783110222715.2.161"
+          },
+          {
+            "key": "p_n_34",
+            "volume-title": "The Transatlantic Circulation of Novels Between Europe and Brazil, 1789-1914, ed. Márcia Abreu (Cham",
+            "author": "British There",
+            "year": "2017"
+          },
+          {
+            "key": "p_n_36",
+            "volume-title": "Schmid",
+            "author": "Schmid Susanne",
+            "year": "2019"
+          },
+          {
+            "key": "p_n_37",
+            "first-page": "133",
+            "author": "Barnes James J.",
+            "year": "1974",
+            "journal-title": "Ohio"
+          },
+          {
+            "key": "p_n_40",
+            "volume-title": "(T",
+            "author": "Warren Samuel"
+          },
+          {
+            "key": "p_n_41",
+            "volume-title": "Der Verlag Bernhard Tauchnitz 1837-1912 (Leipzig",
+            "author": "Otto Curt",
+            "year": "1912"
+          },
+          {
+            "key": "p_n_42",
+            "series-title": "Collection of British Authors: Tauchnitz Edition (Leipzig",
+            "volume-title": "frontpiece in The Sketchbook of Wash. Irving",
+            "volume": "33",
+            "author": "Tauchnitz",
+            "year": "1843"
+          },
+          {
+            "key": "p_n_44",
+            "first-page": "587",
+            "volume-title": "Conn., 2017",
+            "author": "Franklin Wayne",
+            "year": "1842"
+          },
+          {
+            "key": "p_n_46",
+            "volume-title": "letter to Johann Gottfried Flügel",
+            "author": "Cooper James Fenimore",
+            "year": "1844"
+          },
+          {
+            "key": "p_n_47",
+            "volume-title": "W. Harrison Ainsworth wrote: \"And I engage not to enter into a similar arrangement with any other publisher in Germany",
+            "author": "Mar In",
+            "year": "1844"
+          },
+          {
+            "key": "p_n_49",
+            "volume-title": "letter to Tauchnitz",
+            "author": "Twain Mark",
+            "year": "1900"
+          },
+          {
+            "key": "p_n_51",
+            "volume-title": "On the continent Tauchnitz's use of the railways for distributing his books was now [from 1860 onwards] efficiently organized: direct to Switzerland and Italy",
+            "author": "al Europe Tauchnitz"
+          },
+          {
+            "key": "p_n_52",
+            "volume-title": "Tauchnitz even paid his writers additional fees. In a",
+            "author": "When",
+            "year": "1867"
+          },
+          {
+            "key": "p_n_53",
+            "first-page": "27",
+            "volume": "1837",
+            "author": "Reece John Holroyd",
+            "year": "1937",
+            "journal-title": "Being the Record of One Hundred Years of Publishing"
+          },
+          {
+            "key": "p_n_55",
+            "series-title": "The Oxford History of the Novel in English (New York",
+            "first-page": "202",
+            "volume-title": "The American Novel to",
+            "volume": "5",
+            "author": "Cohen Lara Langer",
+            "year": "1870"
+          },
+          {
+            "key": "p_n_61",
+            "first-page": "460",
+            "volume": "1837",
+            "year": "1838",
+            "journal-title": "A Collection of the Public General Statutes Passed in the First and Second Year of the Reign of Queen Victoria"
+          },
+          {
+            "key": "p_n_62",
+            "volume-title": "An Act for Securing to Authors"
+          },
+          {
+            "key": "p_n_63",
+            "volume-title": "The Mirror of Parliament, ed. John Henry Barrow, 2 ser., 60 vols. (London",
+            "author": "Thomson",
+            "year": "1838"
+          },
+          {
+            "key": "p_n_64",
+            "volume-title": "Pike, Communication and Empire: Media, Markets, and Globalization",
+            "author": "Winseck Dwayne R.",
+            "year": "1860"
+          },
+          {
+            "key": "p_n_66",
+            "volume-title": "The Making of Modern Intellectual Property Law: The British Experience, 1760-1911 (New York",
+            "author": "Sherman Brad",
+            "year": "2003"
+          },
+          {
+            "key": "p_n_68",
+            "unstructured": "\"An Act for Securing to Authors,\" pp.462-463."
+          },
+          {
+            "key": "p_n_69",
+            "volume-title": "The protection granted by the Convention which was concluded between the High Contracting Parties on the 13th of May, 1846, to original works, is extended to translations"
+          },
+          {
+            "key": "p_n_70",
+            "volume-title": "Frances Trollope: Her Life and Literary Work from George III to Victoria, 2 vols. (London",
+            "author": "Trollope Frances Eleanor",
+            "year": "1895"
+          },
+          {
+            "key": "p_n_71",
+            "volume": "13",
+            "author": "Trollope's",
+            "year": "1833",
+            "journal-title": "The British Critic: Quarterly Theological Review and Ecclesiastical Record"
+          },
+          {
+            "key": "p_n_73",
+            "volume-title": "Domestic Manners of the Americans",
+            "author": "Smalley",
+            "year": "1949"
+          },
+          {
+            "key": "p_n_75",
+            "volume-title": "A Publisher and His Friends: Memoir and Correspondence of the Late John Murray, 2 vols. (London",
+            "author": "Smiles Samuel",
+            "year": "1891"
+          },
+          {
+            "key": "p_n_76",
+            "volume-title": "A Subaltern's Furlough: Descriptive of Scenes in Various Parts of the United States, Upper and Lower Canada, New Brunswick and Nova Scotia during the Summer and Autumn of",
+            "author": "Coke E. T.",
+            "year": "1832"
+          },
+          {
+            "key": "p_n_77",
+            "volume-title": "Domestic Manners of the Americans",
+            "author": "Mrs American Criticisms",
+            "year": "1833"
+          },
+          {
+            "key": "p_n_78",
+            "volume-title": "Domestic Manners of the Americans",
+            "author": "Trollope",
+            "year": "1832"
+          },
+          {
+            "key": "p_n_79",
+            "volume-title": "Domestic Manners of the Americans",
+            "author": "Trollope",
+            "year": "1830"
+          },
+          {
+            "key": "p_n_80",
+            "first-page": "656",
+            "volume": "24",
+            "year": "1972",
+            "journal-title": "American Quarterly"
+          },
+          {
+            "key": "p_n_84",
+            "first-page": "3",
+            "volume-title": "Buccaneers and the Black Flag in the Nineteenth Century",
+            "author": "Seville Catherine",
+            "year": "2006"
+          },
+          {
+            "key": "p_n_85",
+            "volume-title": "Joseph Skinner Treacher, and David Gale Arnot until it was dissolved with Arnot (in 1835) and Treacher (in",
+            "author": "George Byron Whittaker Company",
+            "year": "1838"
+          },
+          {
+            "key": "p_n_86",
+            "volume-title": "Dictionary of National Biography, ed. Lee, 63 vols. (London",
+            "author": "Lee Sidney",
+            "year": "1900"
+          },
+          {
+            "key": "p_n_88",
+            "first-page": "377",
+            "author": "Freeman Arthur",
+            "year": "2004",
+            "journal-title": "Conn."
+          },
+          {
+            "key": "p_n_90",
+            "volume-title": "The Romance of Book Selling: A History from the Earliest Times to the Twentieth Century (Boston",
+            "author": "Mumby Frank Arthur",
+            "year": "1911"
+          },
+          {
+            "key": "p_n_92",
+            "unstructured": "Seville, The Internationalisation of Copyright Law, p.29."
+          },
+          {
+            "key": "p_n_93",
+            "unstructured": "M. G. Devonshire, The English Novel in France, 1830-1870 (New York, 1967), pp.56-59."
+          },
+          {
+            "key": "p_n_94",
+            "volume-title": "Annonces bibliographiques et industrielles",
+            "author": "étrangères Librairie",
+            "year": "1828"
+          },
+          {
+            "key": "p_n_95",
+            "volume-title": "Étrennes pour",
+            "author": "étrangères Librairie",
+            "year": "1829"
+          },
+          {
+            "key": "p_n_97",
+            "volume-title": "The Reading Nation in the Romantic Period (New York",
+            "author": "Clair William St",
+            "year": "2005"
+          },
+          {
+            "key": "p_n_98",
+            "first-page": "454",
+            "volume-title": "Domestic Manners of the Americans",
+            "author": "Smalley",
+            "year": "1949"
+          },
+          {
+            "key": "p_n_99",
+            "volume-title": "cols. 1098, 1108",
+            "author": "Hansard",
+            "year": "1838"
+          },
+          {
+            "key": "p_n_101",
+            "unstructured": "Sherman and Bently, The Making of Modern Intellectual Property Law, p.114."
+          },
+          {
+            "key": "p_n_102",
+            "volume-title": "Convention between"
+          },
+          {
+            "key": "p_n_104",
+            "unstructured": "ternational Copyright, inThe Annual Register, or A View of the History and Politics of the Year 1852, vol.94(London,1853), p.442. See also"
+          },
+          {
+            "key": "p_n_105",
+            "unstructured": "Seville, The Internationalisation of Copyright Law, pp.51-52."
+          },
+          {
+            "key": "p_n_107",
+            "unstructured": "St Clair, The Reading Nation, p.301. See also"
+          },
+          {
+            "key": "p_n_108",
+            "first-page": "13",
+            "volume-title": "Commerce",
+            "author": "Cheshire Jim",
+            "year": "2016"
+          },
+          {
+            "key": "p_n_112",
+            "unstructured": "Seville, The Internationalisation of Copyright Law, p.3."
+          },
+          {
+            "key": "p_n_114",
+            "unstructured": "Jean Cavalli, La Genèse de la Convention de Berne pour la protection des œuvres littéraires et artistiques du 9 septembre 1886 (Lausanne, 1986), pp.73-75."
+          },
+          {
+            "key": "p_n_116",
+            "volume-title": "Fünfzig Jahre der Verlagshandlung"
+          },
+          {
+            "key": "p_n_117",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-1-137-08738-6"
+          },
+          {
+            "key": "p_n_118",
+            "first-page": "294",
+            "volume": "1",
+            "author": "Farrer Thomas Henry",
+            "year": "1879",
+            "journal-title": "A. Macfie"
+          },
+          {
+            "key": "p_n_119",
+            "volume-title": "A World History of Literature, ed. D'haen (Brussels",
+            "author": "Pettersson Anders",
+            "year": "2012"
+          },
+          {
+            "key": "p_n_120",
+            "unstructured": "Jules Lermina et al., Association littéraire & artistique internationale: son histoire, ses travaux 1878-1889 (Paris, 1889), pp.120, 129."
+          },
+          {
+            "key": "p_n_121",
+            "volume-title": "Colonial Copyright: Intellectual Property in Mandate Palestine",
+            "year": "2012"
+          },
+          {
+            "key": "p_n_124",
+            "volume-title": "The World Republic of Letters, trans",
+            "author": "Casanova Pascale",
+            "year": "2004"
+          },
+          {
+            "key": "p_n_125",
+            "first-page": "54",
+            "volume": "1",
+            "author": "Moretti Franco",
+            "journal-title": "New Left Review"
+          },
+          {
+            "key": "p_n_126",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Gayatri Chakravorty Spivak, Death of a Discipline (New York, 2003) and \"The Stakes of World Literature,\" An Aesthetic Education in the Era of Globalization (Cambridge,Mass., 2012), pp.455-466.",
+            "DOI": "10.4159/9780674257931-024"
+          },
+          {
+            "key": "p_n_127",
+            "first-page": "13",
+            "author": "Rose Mark",
+            "year": "2002",
+            "journal-title": "Mass."
+          },
+          {
+            "key": "p_n_128",
+            "unstructured": "Cheah, What Is a World?p.2. For Cheah, literature of the postcolonial South is a \"literature that worlds and makes a world because the sharp inequalities created by capitalist globalization and their devastating consequences for the masses of postcolonial societies make the opening of other worlds a matter of the greatest imperativity\" (p. 11). And yet, such literature is entangled in a Eurocentric history of circulation."
+          },
+          {
+            "key": "p_n_129",
+            "volume-title": "Chinese Courtship: In Verse. To Which Is Added an Appendix Treating of the Revenue of China (London",
+            "author": "Thoms",
+            "year": "1824"
+          },
+          {
+            "key": "p_n_130",
+            "first-page": "5",
+            "author": "Dussel Enrique",
+            "year": "1998",
+            "journal-title": "N.C."
+          },
+          {
+            "key": "p_n_131",
+            "first-page": "294",
+            "volume": "20",
+            "year": "1825",
+            "journal-title": "The Asiatic Journal and Monthly Register for British India and Its Dependencies"
+          }
+        ],
+        "container-title": [
+          "Critical Inquiry"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.journals.uchicago.edu/doi/pdf/10.1086/710908",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              11,
+              19
+            ]
+          ],
+          "date-time": "2022-11-19T23:50:07Z",
+          "timestamp": 1668901807000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.journals.uchicago.edu/doi/10.1086/710908"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2020,
+              9,
+              1
+            ]
+          ]
+        },
+        "references-count": 86,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                2020,
+                9,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1086/710908"
+        ],
+        "URL": "https://doi.org/10.1086/710908",
+        "ISSN": [
+          "0093-1896",
+          "1539-7858"
+        ],
+        "issn-type": [
+          {
+            "value": "0093-1896",
+            "type": "print"
+          },
+          {
+            "value": "1539-7858",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2020,
+              9,
+              1
+            ]
+          ]
+        }
+      }
+    ],
+    "items-per-page": 25,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}
