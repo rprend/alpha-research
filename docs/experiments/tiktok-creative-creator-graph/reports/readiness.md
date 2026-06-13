@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T02:32:45.433Z
+Generated: 2026-06-13T02:36:46.007Z
 
 Complete: false
 
@@ -58,6 +58,10 @@ Complete: false
 - External lead template rows: 30000
 - External lead worklist items: 511
 - External lead worklist lead quota: 30000
+- External lead work-item merge input files: 0
+- External lead work-item merge output files: 0
+- External lead work-item merge unique valid rows: 0
+- External lead work-item merge unknown files: 0
 - External lead packet completed files: 0
 - External lead packet import-ready assignments: 0
 - External lead packet no-valid-handles assignments: 0
@@ -114,6 +118,7 @@ Complete: false
 - external_lead_packet: pass (120 assignments requesting 30000 leads)
 - external_lead_templates: pass (120 templates, 30000 rows)
 - external_lead_worklist: pass (511 source work items, 30000 lead quota)
+- external_lead_work_item_merge: pass (0 work-item files, 0 assignment files, 0 unique valid rows)
 - external_lead_progress: pass (0/120 import-ready assignments, 0 valid leads)
 - external_lead_packet_import: pass (0 imported, 0 pending, 0 failed)
 - provider_preflight: fail (0/20 ready provider tasks, budget ok)

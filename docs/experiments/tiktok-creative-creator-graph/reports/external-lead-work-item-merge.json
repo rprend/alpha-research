@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-06-13T02:36:44.232Z",
+  "work_item_completed_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed",
+  "completed_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed",
+  "known_work_items": 511,
+  "input_files": 0,
+  "merged_input_files": 0,
+  "unknown_work_item_files": 0,
+  "no_valid_handle_files": 0,
+  "output_files": 0,
+  "input_rows": 0,
+  "valid_rows": 0,
+  "unique_valid_rows": 0,
+  "duplicate_rows": 0,
+  "output_files_detail": [],
+  "file_results": []
+}

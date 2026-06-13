@@ -1,11 +1,12 @@
 # Full Workflow
 
-Generated: 2026-06-13T02:32:45.441Z
+Generated: 2026-06-13T02:36:46.013Z
 
 Complete: true
 
 ## Steps
 
+- merge_external_lead_work_items: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/merge-external-lead-work-items.mjs`)
 - build_external_lead_progress_preimport: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs`)
 - import_ready_external_lead_packet: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/import-ready-external-lead-packet.mjs`)
 - preview_acquisition_import: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs --preview`)

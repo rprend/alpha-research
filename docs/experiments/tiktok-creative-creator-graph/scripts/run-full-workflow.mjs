@@ -49,6 +49,7 @@ function main() {
   ensureDir(reportsDir)
 
   const steps = []
+  steps.push(['merge_external_lead_work_items', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/merge-external-lead-work-items.mjs']])
   steps.push(['build_external_lead_progress_preimport', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs']])
   steps.push(['import_ready_external_lead_packet', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/import-ready-external-lead-packet.mjs']])
 

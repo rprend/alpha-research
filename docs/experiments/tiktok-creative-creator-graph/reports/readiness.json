@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:32:45.433Z",
+  "generated_at": "2026-06-13T02:36:46.007Z",
   "complete": false,
   "counts": {
     "accounts": 1900,
@@ -55,6 +55,10 @@
     "external_lead_template_rows": 30000,
     "external_lead_worklist_items": 511,
     "external_lead_worklist_lead_quota": 30000,
+    "external_lead_work_item_merge_input_files": 0,
+    "external_lead_work_item_merge_output_files": 0,
+    "external_lead_work_item_merge_unique_valid_rows": 0,
+    "external_lead_work_item_merge_unknown_files": 0,
     "external_lead_packet_completed_files": 0,
     "external_lead_packet_import_ready_assignments": 0,
     "external_lead_packet_no_valid_handles_assignments": 0,
@@ -218,6 +222,11 @@
       "id": "external_lead_worklist",
       "status": "pass",
       "evidence": "511 source work items, 30000 lead quota"
+    },
+    {
+      "id": "external_lead_work_item_merge",
+      "status": "pass",
+      "evidence": "0 work-item files, 0 assignment files, 0 unique valid rows"
     },
     {
       "id": "external_lead_progress",
