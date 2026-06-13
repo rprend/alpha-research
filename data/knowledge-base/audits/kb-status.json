@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T16:02:52.069Z",
+  "generated_at": "2026-06-13T16:09:39.448Z",
   "status": "phase-2-staging-active",
   "source_count": 31,
   "source_classes": {
@@ -52,15 +52,15 @@
     "available": []
   },
   "staging_tables": {
-    "expected_count": 4,
-    "existing_count": 4,
+    "expected_count": 6,
+    "existing_count": 6,
     "missing": [],
     "available": [
       {
         "file": "works.jsonl",
         "path": "data/knowledge-base/processed/works.jsonl",
         "exists": true,
-        "bytes": 8901
+        "bytes": 22433
       },
       {
         "file": "objects.jsonl",
@@ -69,22 +69,83 @@
         "bytes": 11770
       },
       {
+        "file": "pages.jsonl",
+        "path": "data/knowledge-base/processed/pages.jsonl",
+        "exists": true,
+        "bytes": 2030
+      },
+      {
+        "file": "departments.jsonl",
+        "path": "data/knowledge-base/processed/departments.jsonl",
+        "exists": true,
+        "bytes": 1279
+      },
+      {
         "file": "source_documents.jsonl",
         "path": "data/knowledge-base/processed/source_documents.jsonl",
         "exists": true,
-        "bytes": 24445
+        "bytes": 39994
       },
       {
         "file": "rights.jsonl",
         "path": "data/knowledge-base/processed/rights.jsonl",
         "exists": true,
-        "bytes": 20049
+        "bytes": 30275
+      }
+    ]
+  },
+  "analytical_tables": {
+    "expected_count": 7,
+    "existing_count": 7,
+    "missing": [],
+    "available": [
+      {
+        "file": "works.csv",
+        "path": "data/knowledge-base/processed/works.csv",
+        "exists": true,
+        "bytes": 10150
+      },
+      {
+        "file": "objects.csv",
+        "path": "data/knowledge-base/processed/objects.csv",
+        "exists": true,
+        "bytes": 6608
+      },
+      {
+        "file": "pages.csv",
+        "path": "data/knowledge-base/processed/pages.csv",
+        "exists": true,
+        "bytes": 1545
+      },
+      {
+        "file": "departments.csv",
+        "path": "data/knowledge-base/processed/departments.csv",
+        "exists": true,
+        "bytes": 887
+      },
+      {
+        "file": "source_documents.csv",
+        "path": "data/knowledge-base/processed/source_documents.csv",
+        "exists": true,
+        "bytes": 20855
+      },
+      {
+        "file": "rights.csv",
+        "path": "data/knowledge-base/processed/rights.csv",
+        "exists": true,
+        "bytes": 19788
+      },
+      {
+        "file": "knowledge-base.sqlite",
+        "path": "data/knowledge-base/processed/knowledge-base.sqlite",
+        "exists": true,
+        "bytes": 163840
       }
     ]
   },
   "local_files": {
-    "raw_count": 12,
-    "text_count": 0,
+    "raw_count": 20,
+    "text_count": 24,
     "index_count": 1
   },
   "validation_errors": []

@@ -1,6 +1,7 @@
 import path from "node:path";
 import {
   auditsDir,
+  analyticalAvailability,
   countBy,
   indexesDir,
   listFilesRecursive,
@@ -20,6 +21,7 @@ const { registry, errors } = await validateRegistry();
 const sources = registry.sources ?? [];
 const tables = tableAvailability();
 const stagingTables = processedStagingAvailability();
+const analyticalTables = analyticalAvailability();
 const freshness = sourceFreshness(sources);
 const rawFiles = listFilesRecursive(rawDir).filter((file) => !file.endsWith(".gitkeep"));
 const textFiles = listFilesRecursive(textDir).filter((file) => !file.endsWith(".gitkeep"));
@@ -48,6 +50,12 @@ const status = {
     missing: stagingTables.filter((table) => !table.exists).map((table) => table.file),
     available: stagingTables.filter((table) => table.exists),
   },
+  analytical_tables: {
+    expected_count: analyticalTables.length,
+    existing_count: analyticalTables.filter((table) => table.exists).length,
+    missing: analyticalTables.filter((table) => !table.exists).map((table) => table.file),
+    available: analyticalTables.filter((table) => table.exists),
+  },
   local_files: {
     raw_count: rawFiles.length,
     text_count: textFiles.length,
@@ -64,6 +72,7 @@ console.log(`Sources: ${status.source_count}`);
 console.log(`Rights coverage: ${Object.entries(status.redistribution_statuses).map(([key, value]) => `${key}=${value}`).join(", ")}`);
 console.log(`Processed tables: ${status.tables.existing_count}/${status.tables.expected_count}`);
 console.log(`Processed staging JSONL: ${status.staging_tables.existing_count}/${status.staging_tables.expected_count}`);
+console.log(`Analytical CSV/SQLite: ${status.analytical_tables.existing_count}/${status.analytical_tables.expected_count}`);
 console.log(`Raw files: ${status.local_files.raw_count}; text files: ${status.local_files.text_count}; index files: ${status.local_files.index_count}`);
 if (errors.length) {
   process.exitCode = 1;
@@ -99,6 +108,7 @@ function renderMarkdown(status) {
     "",
     `- Processed tables: ${status.tables.existing_count}/${status.tables.expected_count}`,
     `- Processed staging JSONL: ${status.staging_tables.existing_count}/${status.staging_tables.expected_count}`,
+    `- Analytical CSV/SQLite: ${status.analytical_tables.existing_count}/${status.analytical_tables.expected_count}`,
     `- Raw files: ${status.local_files.raw_count}`,
     `- Text files: ${status.local_files.text_count}`,
     `- Index files: ${status.local_files.index_count}`,
@@ -110,6 +120,10 @@ function renderMarkdown(status) {
     "## Missing Staging Tables",
     "",
     status.staging_tables.missing.length ? status.staging_tables.missing.map((file) => `- ${file}`).join("\n") : "No missing staging tables.",
+    "",
+    "## Missing Analytical Tables",
+    "",
+    status.analytical_tables.missing.length ? status.analytical_tables.missing.map((file) => `- ${file}`).join("\n") : "No missing analytical tables.",
     "",
     "## Stale Sources",
     "",

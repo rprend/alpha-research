@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "updated_at": "2026-06-13",
+  "targets": [
+    {
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.fas.harvard.edu/"
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.fas.harvard.edu/"
+    },
+    {
+      "source_id": "yale-humanities-departments",
+      "school": "Yale University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.yale.edu/"
+    },
+    {
+      "source_id": "yale-humanities-departments",
+      "school": "Yale University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.yale.edu/"
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "school": "Princeton University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.princeton.edu/"
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "school": "Princeton University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.princeton.edu/"
+    },
+    {
+      "source_id": "stanford-humanities-departments",
+      "school": "Stanford University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.stanford.edu/"
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "school": "University of Chicago",
+      "department": "Humanities Division",
+      "page_type": "division-home",
+      "url": "https://humanities.uchicago.edu/"
+    }
+  ]
+}

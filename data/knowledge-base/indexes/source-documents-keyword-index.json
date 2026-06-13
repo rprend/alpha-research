@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-13T15:58:23.437Z",
+  "generated_at": "2026-06-13T16:09:39.406Z",
   "source": "data/knowledge-base/processed/source_documents.jsonl",
-  "document_count": 60,
-  "term_count": 252,
+  "document_count": 88,
+  "term_count": 316,
   "documents": {
     "openalex-humanities:https://openalex.org/W2488845447": {
       "source_id": "openalex-humanities",
@@ -363,9 +363,156 @@
       "title": "The Large Plane Trees (Road Menders at Saint-Rémy)",
       "source_url": "https://clevelandart.org/art/1947.209",
       "type": "museum-object"
+    },
+    "yale-humanities-departments:yale-university-english-department-home": {
+      "source_id": "yale-humanities-departments",
+      "title": "Welcome | English",
+      "source_url": "https://english.yale.edu/",
+      "type": "department-home"
+    },
+    "yale-humanities-departments:yale-university-history-department-home": {
+      "source_id": "yale-humanities-departments",
+      "title": "Department of History |",
+      "source_url": "https://history.yale.edu/",
+      "type": "department-home"
+    },
+    "stanford-humanities-departments:stanford-university-english-department-home": {
+      "source_id": "stanford-humanities-departments",
+      "title": "Department of English",
+      "source_url": "https://english.stanford.edu/",
+      "type": "department-home"
+    },
+    "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home": {
+      "source_id": "uchicago-humanities-departments",
+      "title": "Division of the Humanities",
+      "source_url": "https://humanities.uchicago.edu/",
+      "type": "division-home"
+    },
+    "project-gutenberg:pg-2572": {
+      "source_id": "project-gutenberg",
+      "title": "On the Decay of the Art of Lying",
+      "source_url": "https://www.gutenberg.org/ebooks/2572",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-4399": {
+      "source_id": "project-gutenberg",
+      "title": "A Few Figs from Thistles",
+      "source_url": "https://www.gutenberg.org/ebooks/4399",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-1063": {
+      "source_id": "project-gutenberg",
+      "title": "The Cask of Amontillado",
+      "source_url": "https://www.gutenberg.org/ebooks/1063",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-2589": {
+      "source_id": "project-gutenberg",
+      "title": "The Experiences of a Bandmaster",
+      "source_url": "https://www.gutenberg.org/ebooks/2589",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-1064": {
+      "source_id": "project-gutenberg",
+      "title": "The Masque of the Red Death",
+      "source_url": "https://www.gutenberg.org/ebooks/1064",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-235": {
+      "source_id": "project-gutenberg",
+      "title": "William Gibson Interviewed",
+      "source_url": "https://www.gutenberg.org/ebooks/235",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-870": {
+      "source_id": "project-gutenberg",
+      "title": "The Love of Ulrich Nebendahl",
+      "source_url": "https://www.gutenberg.org/ebooks/870",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-1137": {
+      "source_id": "project-gutenberg",
+      "title": "A Lover's Complaint",
+      "source_url": "https://www.gutenberg.org/ebooks/1137",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-1543": {
+      "source_id": "project-gutenberg",
+      "title": "A Lover's Complaint",
+      "source_url": "https://www.gutenberg.org/ebooks/1543",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-396": {
+      "source_id": "project-gutenberg",
+      "title": "The Lady, or the Tiger?",
+      "source_url": "https://www.gutenberg.org/ebooks/396",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-727": {
+      "source_id": "project-gutenberg",
+      "title": "The Star-Spangled Banner",
+      "source_url": "https://www.gutenberg.org/ebooks/727",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-1330": {
+      "source_id": "project-gutenberg",
+      "title": "The Story of Little Black Sambo, and The Story of Little Black Mingo",
+      "source_url": "https://www.gutenberg.org/ebooks/1330",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-2817": {
+      "source_id": "project-gutenberg",
+      "title": "Chamber Music",
+      "source_url": "https://www.gutenberg.org/ebooks/2817",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-5276": {
+      "source_id": "project-gutenberg",
+      "title": "Tales and Novels of J. de La Fontaine — Volume 02",
+      "source_url": "https://www.gutenberg.org/ebooks/5276",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-739": {
+      "source_id": "project-gutenberg",
+      "title": "Henry Clay's Remarks in House and Senate",
+      "source_url": "https://www.gutenberg.org/ebooks/739",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-5299": {
+      "source_id": "project-gutenberg",
+      "title": "Tales and Novels of J. de La Fontaine — Volume 25",
+      "source_url": "https://www.gutenberg.org/ebooks/5299",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-5287": {
+      "source_id": "project-gutenberg",
+      "title": "Tales and Novels of J. de La Fontaine — Volume 13",
+      "source_url": "https://www.gutenberg.org/ebooks/5287",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-1544": {
+      "source_id": "project-gutenberg",
+      "title": "The Passionate Pilgrim",
+      "source_url": "https://www.gutenberg.org/ebooks/1544",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-879": {
+      "source_id": "project-gutenberg",
+      "title": "The Boy Captives: An Incident of the Indian War of 1695",
+      "source_url": "https://www.gutenberg.org/ebooks/879",
+      "type": "public-domain-book"
+    },
+    "project-gutenberg:pg-2878": {
+      "source_id": "project-gutenberg",
+      "title": "The Disguising at Hertford",
+      "source_url": "https://www.gutenberg.org/ebooks/2878",
+      "type": "public-domain-book"
     }
   },
   "postings": {
+    "1695": [
+      "project-gutenberg:pg-879"
+    ],
     "1732": [
       "wikidata-cultural-entities:Q23"
     ],
@@ -483,12 +630,18 @@
       "cleveland-museum-open-access:141639",
       "cleveland-museum-open-access:149112"
     ],
+    "amontillado": [
+      "project-gutenberg:pg-1063"
+    ],
     "argentina": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/",
       "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
     ],
     "arnulfo": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "art": [
+      "project-gutenberg:pg-2572"
     ],
     "aspects": [
       "library-of-congress:http://lccn.loc.gov/2017279491"
@@ -512,6 +665,12 @@
     "aztecs": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
     ],
+    "bandmaster": [
+      "project-gutenberg:pg-2589"
+    ],
+    "banner": [
+      "project-gutenberg:pg-727"
+    ],
     "beitra": [
       "library-of-congress:http://lccn.loc.gov/2013497896"
     ],
@@ -531,11 +690,36 @@
     "biglin": [
       "cleveland-museum-open-access:151904"
     ],
+    "black": [
+      "project-gutenberg:pg-1330"
+    ],
     "blackwell": [
       "openalex-humanities:https://openalex.org/W1564237561"
     ],
     "bob": [
       "wikidata-cultural-entities:Q392"
+    ],
+    "book": [
+      "project-gutenberg:pg-2572",
+      "project-gutenberg:pg-4399",
+      "project-gutenberg:pg-1063",
+      "project-gutenberg:pg-2589",
+      "project-gutenberg:pg-1064",
+      "project-gutenberg:pg-235",
+      "project-gutenberg:pg-870",
+      "project-gutenberg:pg-1137",
+      "project-gutenberg:pg-1543",
+      "project-gutenberg:pg-396",
+      "project-gutenberg:pg-727",
+      "project-gutenberg:pg-1330",
+      "project-gutenberg:pg-2817",
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-739",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287",
+      "project-gutenberg:pg-1544",
+      "project-gutenberg:pg-879",
+      "project-gutenberg:pg-2878"
     ],
     "born": [
       "wikidata-cultural-entities:Q360",
@@ -543,6 +727,9 @@
     ],
     "borreau": [
       "cleveland-museum-open-access:137259"
+    ],
+    "boy": [
+      "project-gutenberg:pg-879"
     ],
     "brazil": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
@@ -559,18 +746,33 @@
     "canada": [
       "wikidata-cultural-entities:Q206"
     ],
+    "captives": [
+      "project-gutenberg:pg-879"
+    ],
     "carl": [
       "wikidata-cultural-entities:Q410"
     ],
     "carlos": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
     ],
+    "cask": [
+      "project-gutenberg:pg-1063"
+    ],
     "challenges": [
       "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "chamber": [
+      "project-gutenberg:pg-2817"
+    ],
+    "chicago": [
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
     ],
     "church": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/",
       "cleveland-museum-open-access:149112"
+    ],
+    "clay": [
+      "project-gutenberg:pg-739"
     ],
     "close": [
       "openalex-humanities:https://openalex.org/W2339562889"
@@ -578,6 +780,10 @@
     "companion": [
       "openalex-humanities:https://openalex.org/W2488845447",
       "openalex-humanities:https://openalex.org/W1564237561"
+    ],
+    "complaint": [
+      "project-gutenberg:pg-1137",
+      "project-gutenberg:pg-1543"
     ],
     "computational": [
       "openalex-humanities:https://openalex.org/W62784252"
@@ -628,21 +834,63 @@
     ],
     "death": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/",
-      "cleveland-museum-open-access:110180"
+      "cleveland-museum-open-access:110180",
+      "project-gutenberg:pg-1064"
     ],
     "debates": [
       "openalex-humanities:https://openalex.org/W4245219258",
       "openalex-humanities:https://openalex.org/W419149097",
       "openalex-humanities:https://openalex.org/W2729097583"
     ],
+    "decay": [
+      "project-gutenberg:pg-2572"
+    ],
     "del": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "department": [
+      "yale-humanities-departments:yale-university-english-department-home",
+      "yale-humanities-departments:yale-university-history-department-home",
+      "stanford-humanities-departments:stanford-university-english-department-home",
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home",
+      "yale-humanities-departments:yale-university-english-department-home",
+      "yale-humanities-departments:yale-university-history-department-home",
+      "stanford-humanities-departments:stanford-university-english-department-home"
     ],
     "der": [
       "library-of-congress:http://lccn.loc.gov/2013497896"
     ],
+    "disguising": [
+      "project-gutenberg:pg-2878"
+    ],
     "distant": [
       "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "division": [
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home",
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
+    ],
+    "domain": [
+      "project-gutenberg:pg-2572",
+      "project-gutenberg:pg-4399",
+      "project-gutenberg:pg-1063",
+      "project-gutenberg:pg-2589",
+      "project-gutenberg:pg-1064",
+      "project-gutenberg:pg-235",
+      "project-gutenberg:pg-870",
+      "project-gutenberg:pg-1137",
+      "project-gutenberg:pg-1543",
+      "project-gutenberg:pg-396",
+      "project-gutenberg:pg-727",
+      "project-gutenberg:pg-1330",
+      "project-gutenberg:pg-2817",
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-739",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287",
+      "project-gutenberg:pg-1544",
+      "project-gutenberg:pg-879",
+      "project-gutenberg:pg-2878"
     ],
     "dora": [
       "cleveland-museum-open-access:102578"
@@ -661,6 +909,12 @@
     ],
     "educational": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "english": [
+      "yale-humanities-departments:yale-university-english-department-home",
+      "stanford-humanities-departments:stanford-university-english-department-home",
+      "yale-humanities-departments:yale-university-english-department-home",
+      "stanford-humanities-departments:stanford-university-english-department-home"
     ],
     "ensino": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
@@ -692,11 +946,17 @@
       "cleveland-museum-open-access:149410",
       "cleveland-museum-open-access:125249"
     ],
+    "experiences": [
+      "project-gutenberg:pg-2589"
+    ],
     "fallas": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
     ],
     "father": [
       "wikidata-cultural-entities:Q23"
+    ],
+    "few": [
+      "project-gutenberg:pg-4399"
     ],
     "fiction": [
       "wikidata-cultural-entities:Q42",
@@ -705,8 +965,16 @@
     "field": [
       "crossref-humanities:10.2307/j.ctv65sx0t.6"
     ],
+    "figs": [
+      "project-gutenberg:pg-4399"
+    ],
     "first": [
       "wikidata-cultural-entities:Q23"
+    ],
+    "fontaine": [
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287"
     ],
     "founding": [
       "wikidata-cultural-entities:Q23"
@@ -723,23 +991,65 @@
     "george": [
       "wikidata-cultural-entities:Q23"
     ],
+    "gibson": [
+      "project-gutenberg:pg-235"
+    ],
     "globalization": [
       "library-of-congress:http://www.loc.gov/item/2016030194/"
     ],
+    "gutenberg": [
+      "project-gutenberg:pg-2572",
+      "project-gutenberg:pg-4399",
+      "project-gutenberg:pg-1063",
+      "project-gutenberg:pg-2589",
+      "project-gutenberg:pg-1064",
+      "project-gutenberg:pg-235",
+      "project-gutenberg:pg-870",
+      "project-gutenberg:pg-1137",
+      "project-gutenberg:pg-1543",
+      "project-gutenberg:pg-396",
+      "project-gutenberg:pg-727",
+      "project-gutenberg:pg-1330",
+      "project-gutenberg:pg-2817",
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-739",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287",
+      "project-gutenberg:pg-1544",
+      "project-gutenberg:pg-879",
+      "project-gutenberg:pg-2878"
+    ],
     "harper": [
       "wikidata-cultural-entities:Q206"
+    ],
+    "henry": [
+      "project-gutenberg:pg-739"
+    ],
+    "hertford": [
+      "project-gutenberg:pg-2878"
     ],
     "history": [
       "library-of-congress:http://lccn.loc.gov/2017279491",
       "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/",
       "library-of-congress:http://www.loc.gov/item/2016030194/",
-      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/",
+      "yale-humanities-departments:yale-university-history-department-home",
+      "yale-humanities-departments:yale-university-history-department-home"
+    ],
+    "home": [
+      "yale-humanities-departments:yale-university-english-department-home",
+      "yale-humanities-departments:yale-university-history-department-home",
+      "stanford-humanities-departments:stanford-university-english-department-home",
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
     ],
     "horse": [
       "cleveland-museum-open-access:110180"
     ],
     "host": [
       "wikidata-cultural-entities:Q186"
+    ],
+    "house": [
+      "project-gutenberg:pg-739"
     ],
     "humanities": [
       "openalex-humanities:https://openalex.org/W2488845447",
@@ -761,7 +1071,9 @@
       "crossref-humanities:10.2307/j.ctv65sx0t.7",
       "crossref-humanities:10.1007/978-3-031-16950-2_1",
       "crossref-humanities:10.1057/9780230371934.0020",
-      "crossref-humanities:10.2307/j.ctv65sx0t.8"
+      "crossref-humanities:10.2307/j.ctv65sx0t.8",
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home",
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
     ],
     "humorist": [
       "wikidata-cultural-entities:Q42"
@@ -769,17 +1081,26 @@
     "hurd": [
       "cleveland-museum-open-access:94979"
     ],
+    "incident": [
+      "project-gutenberg:pg-879"
+    ],
     "inclusion": [
       "crossref-humanities:10.5744/florida/9781683401476.003.0008"
     ],
     "independence": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
     ],
+    "indian": [
+      "project-gutenberg:pg-879"
+    ],
     "infrastructure": [
       "crossref-humanities:10.2307/j.ctv65sx0t.8"
     ],
     "interpretation": [
       "library-of-congress:http://lccn.loc.gov/2017279491"
+    ],
+    "interviewed": [
+      "project-gutenberg:pg-235"
     ],
     "introducing": [
       "crossref-humanities:10.2307/j.ctv65sx0t.5"
@@ -813,6 +1134,9 @@
     ],
     "kupala": [
       "wikidata-cultural-entities:Q377"
+    ],
+    "lady": [
+      "project-gutenberg:pg-396"
     ],
     "lane": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/"
@@ -878,6 +1202,9 @@
       "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/",
       "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
     ],
+    "little": [
+      "project-gutenberg:pg-1330"
+    ],
     "loc": [
       "library-of-congress:http://lccn.loc.gov/2013497896",
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/",
@@ -893,6 +1220,13 @@
     "lockouts": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
     ],
+    "love": [
+      "project-gutenberg:pg-870"
+    ],
+    "lover": [
+      "project-gutenberg:pg-1137",
+      "project-gutenberg:pg-1543"
+    ],
     "ltd": [
       "openalex-humanities:https://openalex.org/W1564237561"
     ],
@@ -901,6 +1235,9 @@
     ],
     "luis": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "lying": [
+      "project-gutenberg:pg-2572"
     ],
     "macmillan": [
       "openalex-humanities:https://openalex.org/W1520193715"
@@ -913,6 +1250,9 @@
     ],
     "martirio": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "masque": [
+      "project-gutenberg:pg-1064"
     ],
     "menders": [
       "cleveland-museum-open-access:125249"
@@ -934,6 +1274,9 @@
     ],
     "mexico": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
+    ],
+    "mingo": [
+      "project-gutenberg:pg-1330"
     ],
     "minister": [
       "wikidata-cultural-entities:Q206"
@@ -975,6 +1318,9 @@
       "cleveland-museum-open-access:149112",
       "cleveland-museum-open-access:125249"
     ],
+    "music": [
+      "project-gutenberg:pg-2817"
+    ],
     "myth": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
     ],
@@ -993,11 +1339,19 @@
     "nea": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/"
     ],
+    "nebendahl": [
+      "project-gutenberg:pg-870"
+    ],
     "new": [
       "openalex-humanities:https://openalex.org/W2488845447"
     ],
     "ngua": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "novels": [
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287"
     ],
     "object": [
       "met-collection-api:488660",
@@ -1039,6 +1393,12 @@
     "owner": [
       "wikidata-cultural-entities:Q23"
     ],
+    "page": [
+      "yale-humanities-departments:yale-university-english-department-home",
+      "yale-humanities-departments:yale-university-history-department-home",
+      "stanford-humanities-departments:stanford-university-english-department-home",
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
+    ],
     "painting": [
       "cleveland-museum-open-access:94979",
       "cleveland-museum-open-access:102578",
@@ -1057,6 +1417,9 @@
     "palgrave": [
       "openalex-humanities:https://openalex.org/W1520193715"
     ],
+    "passionate": [
+      "project-gutenberg:pg-1544"
+    ],
     "pastor": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
     ],
@@ -1068,6 +1431,9 @@
     ],
     "philosophy": [
       "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "pilgrim": [
+      "project-gutenberg:pg-1544"
     ],
     "plane": [
       "cleveland-museum-open-access:125249"
@@ -1101,11 +1467,55 @@
     "primera": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/"
     ],
+    "project": [
+      "project-gutenberg:pg-2572",
+      "project-gutenberg:pg-4399",
+      "project-gutenberg:pg-1063",
+      "project-gutenberg:pg-2589",
+      "project-gutenberg:pg-1064",
+      "project-gutenberg:pg-235",
+      "project-gutenberg:pg-870",
+      "project-gutenberg:pg-1137",
+      "project-gutenberg:pg-1543",
+      "project-gutenberg:pg-396",
+      "project-gutenberg:pg-727",
+      "project-gutenberg:pg-1330",
+      "project-gutenberg:pg-2817",
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-739",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287",
+      "project-gutenberg:pg-1544",
+      "project-gutenberg:pg-879",
+      "project-gutenberg:pg-2878"
+    ],
     "psychological": [
       "library-of-congress:http://lccn.loc.gov/2017279491"
     ],
     "psychology": [
       "library-of-congress:http://lccn.loc.gov/2017279491"
+    ],
+    "public": [
+      "project-gutenberg:pg-2572",
+      "project-gutenberg:pg-4399",
+      "project-gutenberg:pg-1063",
+      "project-gutenberg:pg-2589",
+      "project-gutenberg:pg-1064",
+      "project-gutenberg:pg-235",
+      "project-gutenberg:pg-870",
+      "project-gutenberg:pg-1137",
+      "project-gutenberg:pg-1543",
+      "project-gutenberg:pg-396",
+      "project-gutenberg:pg-727",
+      "project-gutenberg:pg-1330",
+      "project-gutenberg:pg-2817",
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-739",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287",
+      "project-gutenberg:pg-1544",
+      "project-gutenberg:pg-879",
+      "project-gutenberg:pg-2878"
     ],
     "publisher": [
       "wikidata-cultural-entities:Q360"
@@ -1126,11 +1536,17 @@
     "reading": [
       "openalex-humanities:https://openalex.org/W2339562889"
     ],
+    "red": [
+      "project-gutenberg:pg-1064"
+    ],
     "reform": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
     ],
     "reforma": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "remarks": [
+      "project-gutenberg:pg-739"
     ],
     "rethinking": [
       "crossref-humanities:10.5744/florida/9781683401476.003.0008"
@@ -1153,6 +1569,9 @@
     ],
     "salvador": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "sambo": [
+      "project-gutenberg:pg-1330"
     ],
     "scar": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
@@ -1194,6 +1613,9 @@
       "cleveland-museum-open-access:149112",
       "cleveland-museum-open-access:125249"
     ],
+    "senate": [
+      "project-gutenberg:pg-739"
+    ],
     "sharkey": [
       "cleveland-museum-open-access:92937"
     ],
@@ -1212,17 +1634,29 @@
     "songwriter": [
       "wikidata-cultural-entities:Q392"
     ],
+    "spangled": [
+      "project-gutenberg:pg-727"
+    ],
     "stag": [
       "cleveland-museum-open-access:92937"
     ],
     "stake": [
       "cleveland-museum-open-access:151904"
     ],
+    "stanford": [
+      "stanford-humanities-departments:stanford-university-english-department-home"
+    ],
+    "star": [
+      "project-gutenberg:pg-727"
+    ],
     "states": [
       "wikidata-cultural-entities:Q91"
     ],
     "stephen": [
       "wikidata-cultural-entities:Q206"
+    ],
+    "story": [
+      "project-gutenberg:pg-1330"
     ],
     "street": [
       "cleveland-museum-open-access:149112"
@@ -1251,6 +1685,11 @@
     "swansea": [
       "openalex-humanities:https://openalex.org/W62784252"
     ],
+    "tales": [
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287"
+    ],
     "theory": [
       "library-of-congress:http://lccn.loc.gov/2013497896",
       "library-of-congress:http://www.loc.gov/item/2016030194/"
@@ -1258,8 +1697,14 @@
     "thinking": [
       "openalex-humanities:https://openalex.org/W62784252"
     ],
+    "thistles": [
+      "project-gutenberg:pg-4399"
+    ],
     "three": [
       "crossref-humanities:10.2307/j.ctv65sx0t.7"
+    ],
+    "tiger": [
+      "project-gutenberg:pg-396"
     ],
     "torture": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/"
@@ -1291,6 +1736,9 @@
     "twilight": [
       "cleveland-museum-open-access:141639"
     ],
+    "ulrich": [
+      "project-gutenberg:pg-870"
+    ],
     "und": [
       "library-of-congress:http://lccn.loc.gov/2013497896"
     ],
@@ -1304,16 +1752,26 @@
     "university": [
       "openalex-humanities:https://openalex.org/W419149097",
       "openalex-humanities:https://openalex.org/W62784252",
-      "openalex-humanities:https://openalex.org/W2729097583"
+      "openalex-humanities:https://openalex.org/W2729097583",
+      "yale-humanities-departments:yale-university-english-department-home",
+      "yale-humanities-departments:yale-university-history-department-home",
+      "stanford-humanities-departments:stanford-university-english-department-home",
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
     ],
     "vagues": [
       "cleveland-museum-open-access:149410"
+    ],
+    "volume": [
+      "project-gutenberg:pg-5276",
+      "project-gutenberg:pg-5299",
+      "project-gutenberg:pg-5287"
     ],
     "wahrheit": [
       "library-of-congress:http://lccn.loc.gov/2013497896"
     ],
     "war": [
-      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/",
+      "project-gutenberg:pg-879"
     ],
     "wars": [
       "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
@@ -1324,11 +1782,18 @@
     "waves": [
       "cleveland-museum-open-access:149410"
     ],
+    "welcome": [
+      "yale-humanities-departments:yale-university-english-department-home",
+      "yale-humanities-departments:yale-university-english-department-home"
+    ],
     "wheeler": [
       "cleveland-museum-open-access:102578"
     ],
     "wilderness": [
       "cleveland-museum-open-access:141639"
+    ],
+    "william": [
+      "project-gutenberg:pg-235"
     ],
     "wissen": [
       "library-of-congress:http://lccn.loc.gov/2013497896"
@@ -1360,6 +1825,10 @@
       "wikidata-cultural-entities:Q186",
       "wikidata-cultural-entities:Q272",
       "wikidata-cultural-entities:Q377"
+    ],
+    "yale": [
+      "yale-humanities-departments:yale-university-english-department-home",
+      "yale-humanities-departments:yale-university-history-department-home"
     ],
     "yanka": [
       "wikidata-cultural-entities:Q377"

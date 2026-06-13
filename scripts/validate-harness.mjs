@@ -37,6 +37,12 @@ const requiredPackageScripts = [
   'kb:question',
   'kb:ingest:core',
   'kb:index',
+  'kb:tables',
+  'kb:ingest:departments',
+  'kb:import:gutenberg',
+  'kb:search',
+  'kb:audit',
+  'kb:refresh',
   'qa:dashboard',
   'journey:dashboard:capture',
   'journey:dashboard:judge',
@@ -110,6 +116,13 @@ assert(existsSync(join(root, 'scripts/kb-inventory-existing.mjs')), 'Missing loc
 assert(existsSync(join(root, 'scripts/kb-question.mjs')), 'Missing local humanities KB question script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-core-samples.mjs')), 'Missing local humanities KB core ingest script.')
 assert(existsSync(join(root, 'scripts/kb-build-search-index.mjs')), 'Missing local humanities KB search index script.')
+assert(existsSync(join(root, 'scripts/kb-build-analytical-tables.mjs')), 'Missing local humanities KB analytical table script.')
+assert(existsSync(join(root, 'scripts/kb-ingest-department-pages.mjs')), 'Missing local humanities KB department page ingest script.')
+assert(existsSync(join(root, 'scripts/kb-import-gutenberg-local.mjs')), 'Missing local humanities KB Gutenberg local import script.')
+assert(existsSync(join(root, 'scripts/kb-search.mjs')), 'Missing local humanities KB search script.')
+assert(existsSync(join(root, 'scripts/kb-audit-coverage.mjs')), 'Missing local humanities KB coverage audit script.')
+assert(existsSync(join(root, 'scripts/kb-refresh.mjs')), 'Missing local humanities KB refresh script.')
+assert(existsSync(join(root, 'data/knowledge-base/config/department-pages.json')), 'Missing local humanities KB department page targets.')
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')

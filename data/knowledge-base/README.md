@@ -20,7 +20,13 @@ pnpm kb:validate
 pnpm kb:status
 pnpm kb:inventory
 pnpm kb:ingest:core
+pnpm kb:ingest:departments
+pnpm kb:import:gutenberg
+pnpm kb:tables
 pnpm kb:index
+pnpm kb:audit
+pnpm kb:refresh
+pnpm kb:search "public humanities"
 pnpm kb:question "How has public humanities language changed in top university departments since 2000?"
 ```
 
@@ -42,7 +48,13 @@ Current normalized staging outputs:
 - `processed/source_documents.jsonl`
 - `processed/works.jsonl`
 - `processed/objects.jsonl`
+- `processed/pages.jsonl`
+- `processed/departments.jsonl`
 - `processed/rights.jsonl`
+- `processed/*.csv`
+- `processed/knowledge-base.sqlite`
 - `indexes/source-documents-keyword-index.json`
 
-This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL files are the bridge to later Parquet/DuckDB tables.
+The KB also imports a bounded local Project Gutenberg text sample from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
+
+This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL/CSV/SQLite files are the current local analytical layer. Parquet/DuckDB output still requires adding a Parquet writer or DuckDB dependency.

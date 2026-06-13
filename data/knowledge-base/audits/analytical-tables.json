@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-06-13T16:09:39.319Z",
+  "tables": [
+    {
+      "table": "works",
+      "source": "data/knowledge-base/processed/works.jsonl",
+      "csv": "data/knowledge-base/processed/works.csv",
+      "rows": 40,
+      "columns": [
+        "local_id",
+        "source_id",
+        "source_native_id",
+        "source_url",
+        "title",
+        "fetched_at",
+        "type",
+        "publication_year",
+        "venue",
+        "doi",
+        "open_access",
+        "publisher"
+      ]
+    },
+    {
+      "table": "objects",
+      "source": "data/knowledge-base/processed/objects.jsonl",
+      "csv": "data/knowledge-base/processed/objects.csv",
+      "rows": 30,
+      "columns": [
+        "local_id",
+        "source_id",
+        "source_native_id",
+        "source_url",
+        "title",
+        "fetched_at",
+        "type",
+        "date",
+        "creation_date",
+        "department",
+        "culture",
+        "share_license_status",
+        "rights"
+      ]
+    },
+    {
+      "table": "pages",
+      "source": "data/knowledge-base/processed/pages.jsonl",
+      "csv": "data/knowledge-base/processed/pages.csv",
+      "rows": 4,
+      "columns": [
+        "local_id",
+        "source_id",
+        "school",
+        "department",
+        "page_type",
+        "source_url",
+        "title",
+        "fetched_at",
+        "text_path",
+        "text_chars",
+        "status"
+      ]
+    },
+    {
+      "table": "departments",
+      "source": "data/knowledge-base/processed/departments.jsonl",
+      "csv": "data/knowledge-base/processed/departments.csv",
+      "rows": 4,
+      "columns": [
+        "local_id",
+        "source_id",
+        "school",
+        "department",
+        "homepage_url",
+        "page_count",
+        "first_seen_at",
+        "last_seen_at"
+      ]
+    },
+    {
+      "table": "source_documents",
+      "source": "data/knowledge-base/processed/source_documents.jsonl",
+      "csv": "data/knowledge-base/processed/source_documents.csv",
+      "rows": 84,
+      "columns": [
+        "local_id",
+        "source_id",
+        "source_native_id",
+        "source_url",
+        "title",
+        "fetched_at",
+        "type",
+        "publication_year",
+        "venue",
+        "doi",
+        "open_access",
+        "department",
+        "description",
+        "text_path",
+        "text_chars"
+      ]
+    },
+    {
+      "table": "rights",
+      "source": "data/knowledge-base/processed/rights.jsonl",
+      "csv": "data/knowledge-base/processed/rights.csv",
+      "rows": 84,
+      "columns": [
+        "local_id",
+        "source_id",
+        "license",
+        "redistribution_status",
+        "full_text_allowed",
+        "metadata_allowed",
+        "rights_note",
+        "quote_status"
+      ]
+    }
+  ],
+  "sqlite": {
+    "path": "data/knowledge-base/processed/knowledge-base.sqlite",
+    "created": true,
+    "fts_created": true
+  },
+  "analytical_files": [
+    {
+      "file": "works.csv",
+      "path": "data/knowledge-base/processed/works.csv",
+      "exists": true,
+      "bytes": 10150
+    },
+    {
+      "file": "objects.csv",
+      "path": "data/knowledge-base/processed/objects.csv",
+      "exists": true,
+      "bytes": 6608
+    },
+    {
+      "file": "pages.csv",
+      "path": "data/knowledge-base/processed/pages.csv",
+      "exists": true,
+      "bytes": 1545
+    },
+    {
+      "file": "departments.csv",
+      "path": "data/knowledge-base/processed/departments.csv",
+      "exists": true,
+      "bytes": 887
+    },
+    {
+      "file": "source_documents.csv",
+      "path": "data/knowledge-base/processed/source_documents.csv",
+      "exists": true,
+      "bytes": 20855
+    },
+    {
+      "file": "rights.csv",
+      "path": "data/knowledge-base/processed/rights.csv",
+      "exists": true,
+      "bytes": 19788
+    },
+    {
+      "file": "knowledge-base.sqlite",
+      "path": "data/knowledge-base/processed/knowledge-base.sqlite",
+      "exists": true,
+      "bytes": 163840
+    }
+  ]
+}

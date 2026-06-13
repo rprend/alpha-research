@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T15:53:59.676Z",
+  "generated_at": "2026-06-13T16:09:39.282Z",
   "experiment_count": 13,
   "inventory": [
     {
@@ -239,7 +239,7 @@
       "readme": "docs/experiments/tiktok-creative-creator-graph/README.md",
       "readiness_report": "docs/experiments/tiktok-creative-creator-graph/reports/readiness.json",
       "result_report": "docs/experiments/tiktok-creative-creator-graph/reports/result.json",
-      "data_file_count": 3881,
+      "data_file_count": 3882,
       "report_file_count": 101,
       "derived_file_count": 0,
       "script_file_count": 50,

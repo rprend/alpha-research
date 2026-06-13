@@ -3,6 +3,7 @@ import path from "node:path";
 import {
   indexesDir,
   processedDir,
+  readJsonl,
   writeJson,
 } from "./kb-lib.mjs";
 
@@ -26,6 +27,7 @@ const stopwords = new Set([
 ]);
 
 const rows = await readJsonl(sourceDocumentsPath);
+const pages = await readJsonl(path.join(processedDir, "pages.jsonl"));
 const documents = rows.map((row, index) => ({
   doc_id: row.local_id || `doc-${index}`,
   source_id: row.source_id || "",
@@ -35,7 +37,14 @@ const documents = rows.map((row, index) => ({
   text: [row.title, row.type, row.venue, row.department, row.description, row.subjects?.join?.(" ")]
     .filter(Boolean)
     .join(" "),
-}));
+})).concat(pages.map((row, index) => ({
+  doc_id: row.local_id || `page-${index}`,
+  source_id: row.source_id || "",
+  title: row.title || "",
+  source_url: row.source_url || "",
+  type: row.page_type || "department-page",
+  text: [row.school, row.department, row.page_type, row.title].filter(Boolean).join(" "),
+})));
 
 const postings = new Map();
 for (const doc of documents) {
@@ -62,11 +71,6 @@ const index = {
 
 await writeJson(path.join(indexesDir, "source-documents-keyword-index.json"), index);
 console.log(`Built KB keyword index: ${documents.length} documents, ${postings.size} terms.`);
-
-async function readJsonl(file) {
-  const text = await fs.readFile(file, "utf8");
-  return text.split("\n").filter(Boolean).map((line) => JSON.parse(line));
-}
 
 function tokenize(value) {
   return String(value)

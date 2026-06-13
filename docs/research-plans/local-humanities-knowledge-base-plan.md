@@ -432,14 +432,17 @@ Started on 2026-06-13:
 - Phase 0 is implemented: the plan exists, `data/knowledge-base/` exists, and existing experiments are inventoried in `data/knowledge-base/audits/existing-experiment-inventory.md`.
 - Phase 1 is implemented: the source registry has 31 sources, registry/schema validation exists, rights taxonomy exists, ingest manifest schema exists, and `pnpm kb:status` reports local KB state.
 - Phase 2 has a bounded starter ingest: `pnpm kb:ingest:core` fetches OpenAlex, Crossref, Wikidata, Library of Congress, Met, and Cleveland Museum samples into raw run folders and normalized JSONL staging tables.
-- Phase 4 has a bounded starter index: `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` from local staging documents.
+- Phase 2 also imports a bounded Project Gutenberg public-domain text sample from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
+- Phase 3 has a bounded department-page corpus: `pnpm kb:ingest:departments` fetches selected public humanities department pages, stores raw HTML and extracted local-analysis text, and writes `pages`/`departments` staging rows. Harvard and Princeton routes returned 403 and are logged in `failed-routes.jsonl`.
+- Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json`; `pnpm kb:search "<terms>"` queries the local keyword index.
 - Phase 5 has a bounded starter workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, query sketch, and missing-data memo under `docs/research-briefs/`.
+- Phase 6 has starter maintenance automation: `pnpm kb:refresh` validates, inventories, rebuilds analytical tables, refreshes coverage/rights/stale-source audits, rebuilds the index, and updates KB status.
 
 Remaining before the full knowledge-base goal is complete:
 
-- Replace JSONL staging tables with durable Parquet/DuckDB analytical tables.
+- Replace JSONL/CSV/SQLite staging tables with durable Parquet/DuckDB analytical tables once a Parquet writer or DuckDB dependency is available.
 - Add broad, source-specific ingest jobs rather than bounded samples.
-- Add university/department web corpus acquisition.
-- Add full text storage only for public-domain or clearly licensed sources.
-- Add SQLite FTS or equivalent local query tooling over stored text.
-- Add refresh/staleness automation for all active source routes.
+- Expand university/department web corpus acquisition beyond the first successful routes.
+- Expand full text storage only for public-domain or clearly licensed sources.
+- Add richer SQLite FTS or semantic retrieval over stored text contents, not just document metadata.
+- Add refresh/staleness automation for every active source route, including route replacement for 403/failed department pages.

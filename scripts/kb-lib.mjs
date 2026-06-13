@@ -33,6 +33,44 @@ export async function appendText(file, value) {
   await fs.appendFile(file, value);
 }
 
+export async function readJsonl(file) {
+  if (!existsSync(file)) return [];
+  const text = await fs.readFile(file, "utf8");
+  return text.split("\n").filter(Boolean).map((line) => JSON.parse(line));
+}
+
+export async function writeJsonl(file, rows) {
+  await writeText(file, rows.map((row) => JSON.stringify(row)).join("\n") + (rows.length ? "\n" : ""));
+}
+
+export function toCsv(rows, columns) {
+  const escape = (value) => {
+    const text = value == null ? "" : Array.isArray(value) ? value.join("; ") : String(value);
+    return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+  };
+  return `${[columns.join(","), ...rows.map((row) => columns.map((column) => escape(row[column])).join(","))].join("\n")}\n`;
+}
+
+export function cleanHtml(html) {
+  return String(html)
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<nav[\s\S]*?<\/nav>/gi, " ")
+    .replace(/<footer[\s\S]*?<\/footer>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+export function extractTitle(html) {
+  const match = String(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  return match ? cleanHtml(match[1]) : "";
+}
+
 export function slug(value) {
   return String(value)
     .toLowerCase()
@@ -166,8 +204,31 @@ export function processedStagingAvailability() {
   const expected = [
     "works.jsonl",
     "objects.jsonl",
+    "pages.jsonl",
+    "departments.jsonl",
     "source_documents.jsonl",
     "rights.jsonl",
+  ];
+  return expected.map((file) => {
+    const full = path.join(processedDir, file);
+    return {
+      file,
+      path: relative(full),
+      exists: existsSync(full),
+      bytes: existsSync(full) ? statSync(full).size : 0,
+    };
+  });
+}
+
+export function analyticalAvailability() {
+  const expected = [
+    "works.csv",
+    "objects.csv",
+    "pages.csv",
+    "departments.csv",
+    "source_documents.csv",
+    "rights.csv",
+    "knowledge-base.sqlite",
   ];
   return expected.map((file) => {
     const full = path.join(processedDir, file);

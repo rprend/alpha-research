@@ -1,6 +1,6 @@
 # Existing Experiment Inventory
 
-Generated at: 2026-06-13T15:53:59.676Z
+Generated at: 2026-06-13T16:09:39.282Z
 Experiments inventoried: 13
 
 | Experiment | Seed Potential | Data Files | Report Files | Derived Files | Scripts |
@@ -16,7 +16,7 @@ Experiments inventoried: 13
 | research-backlog | documentation-only | 0 | 0 | 0 | 0 |
 | research-production-roadmap | artifact-seed | 0 | 2 | 0 | 1 |
 | research-scouts | documentation-only | 0 | 0 | 0 | 1 |
-| tiktok-creative-creator-graph | pipeline-seed | 3881 | 101 | 0 | 50 |
+| tiktok-creative-creator-graph | pipeline-seed | 3882 | 101 | 0 | 50 |
 | university-mission-statement-drift | pipeline-seed | 115 | 22 | 0 | 15 |
 
 ## Candidate Seed Paths
