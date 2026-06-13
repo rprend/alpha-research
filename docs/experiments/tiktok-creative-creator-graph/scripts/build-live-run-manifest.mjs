@@ -70,6 +70,7 @@ function main() {
   const waveLedger = readJsonl(join(processedDir, 'wave_ledger.jsonl'))
   const readiness = readJson(join(reportsDir, 'readiness.json'), {})
   const provider = preflight.provider ?? 'apify'
+  const providerViability = preflight.provider_viability ?? 'unknown'
   const readyByWave = groupByWave(preflightRows.filter((row) => row.ready))
   const blockedByWave = groupByWave(preflightRows.filter((row) => !row.ready))
   const ledgerByWave = new Map(waveLedger.map((row) => [row.wave_id, row]))
@@ -85,6 +86,7 @@ function main() {
       wave_id: waveId,
       sequence: ledger.sequence ?? tasks[0]?.sequence ?? '',
       provider,
+      provider_viability: providerViability,
       ready: blockedTasks.length === 0 && tasks.length > 0,
       blocked_tasks: blockedTasks.length,
       task_count: tasks.length,
@@ -105,28 +107,35 @@ function main() {
   const totalCost = rows.reduce((sum, row) => sum + Number(row.estimated_cost_usd), 0)
   const totalRows = rows.reduce((sum, row) => sum + Number(row.estimated_result_rows), 0)
   const runnableRows = rows.filter((row) => row.ready)
+  const providerBlocked = providerViability !== 'ready' && providerViability !== 'zero_yield_observed'
   const summary = {
     generated_at: new Date().toISOString(),
     provider,
+    provider_viability: providerViability,
+    provider_token_available: preflight.provider_token_available ?? null,
+    provider_zero_yield_runs: preflight.provider_zero_yield_runs ?? 0,
     readiness_complete: Boolean(readiness.complete),
     preflight_within_budget: Boolean(preflight.within_budget),
     preflight_blocked_tasks: Number(preflight.blocked_tasks ?? 0),
-    manifest_waves: rows.length,
-    runnable_waves: runnableRows.length,
-    blocked_waves: rows.length - runnableRows.length,
-    task_rows: rows.reduce((sum, row) => sum + Number(row.task_count), 0),
-    estimated_result_rows: totalRows,
+    manifest_waves: rows.length || Number(preflight.selected_waves ?? 0),
+    runnable_waves: providerBlocked ? 0 : runnableRows.length,
+    blocked_waves: providerBlocked ? Number(preflight.selected_waves ?? rows.length) : rows.length - runnableRows.length,
+    task_rows: rows.reduce((sum, row) => sum + Number(row.task_count), 0) || Number(preflight.task_rows ?? 0),
+    estimated_result_rows: providerBlocked ? 0 : totalRows,
     estimated_cost_usd: Number(totalCost.toFixed(2)),
     budget_usd: preflight.pricing_assumption?.budget_usd ?? '',
     within_budget: preflight.within_budget === true && totalCost <= Number(preflight.pricing_assumption?.budget_usd ?? Number.POSITIVE_INFINITY),
-    next_wave: runnableRows[0]?.wave_id ?? '',
-    next_dry_run_command: runnableRows[0]?.dry_run_command ?? '',
-    next_live_command: runnableRows[0]?.live_command ?? '',
+    next_wave: providerViability === 'ready' || providerViability === 'zero_yield_observed' ? runnableRows[0]?.wave_id ?? '' : '',
+    next_dry_run_command: providerViability === 'ready' || providerViability === 'zero_yield_observed' ? runnableRows[0]?.dry_run_command ?? '' : '',
+    next_live_command: providerViability === 'ready' || providerViability === 'zero_yield_observed' ? runnableRows[0]?.live_command ?? '' : '',
     after_live_commands: [
       'node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs',
       'node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs',
     ],
-    rows,
+    rows: rows.map((row) => ({
+      ...row,
+      ready: row.ready && (providerViability === 'ready' || providerViability === 'zero_yield_observed'),
+    })),
   }
 
   writeJson(join(reportsDir, 'live-run-manifest.json'), summary)
@@ -137,6 +146,9 @@ function main() {
 Generated: ${summary.generated_at}
 
 - Provider: ${summary.provider}
+- Provider viability: ${summary.provider_viability}
+- Provider token available: ${summary.provider_token_available}
+- Provider zero-yield runs: ${summary.provider_zero_yield_runs}
 - Runnable waves: ${summary.runnable_waves}
 - Blocked waves: ${summary.blocked_waves}
 - Task rows: ${summary.task_rows}
@@ -164,7 +176,7 @@ Queue: \`data/processed/live_run_manifest.csv\`
 `)
 
   console.log(JSON.stringify(summary, null, 2))
-  if (!summary.within_budget || summary.blocked_waves > 0) process.exitCode = 1
+  if (!summary.within_budget) process.exitCode = 1
 }
 
 main()

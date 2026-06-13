@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:54:13.386Z",
+  "generated_at": "2026-06-13T01:59:16.062Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 1900,
@@ -10,7 +10,7 @@
     "review_queue": 1896
   },
   "readiness": {
-    "generated_at": "2026-06-13T01:53:40.144Z",
+    "generated_at": "2026-06-13T01:58:57.325Z",
     "complete": false,
     "counts": {
       "accounts": 1900,
@@ -61,14 +61,15 @@
       "wave_ledger_imported_output_accounts": 0,
       "wave_ledger_under_yield_imports": 0,
       "provider_preflight_tasks": 20,
-      "provider_preflight_ready_tasks": 20,
-      "provider_preflight_blocked_tasks": 0,
-      "provider_preflight_estimated_cost_usd": 5,
+      "provider_preflight_ready_tasks": 0,
+      "provider_preflight_blocked_tasks": 20,
+      "provider_preflight_estimated_cost_usd": 0,
       "live_run_manifest_waves": 10,
-      "live_run_manifest_runnable_waves": 10,
-      "live_run_manifest_estimated_cost_usd": 5,
-      "live_manifest_runner_steps": 1,
-      "live_manifest_runner_selected_waves": 1,
+      "live_run_manifest_runnable_waves": 0,
+      "live_run_manifest_blocked_waves": 10,
+      "live_run_manifest_estimated_cost_usd": 0,
+      "live_manifest_runner_steps": 0,
+      "live_manifest_runner_selected_waves": 0,
       "live_manifest_runner_mode": "dry_run",
       "scale_campaign_iterations": 1,
       "scale_campaign_mode": "dry_run",
@@ -200,18 +201,18 @@
       },
       {
         "id": "provider_preflight",
-        "status": "pass",
-        "evidence": "20/20 ready provider tasks, budget ok"
+        "status": "fail",
+        "evidence": "0/20 ready provider tasks, budget ok"
       },
       {
         "id": "live_run_manifest",
-        "status": "pass",
-        "evidence": "10/10 runnable live waves, estimated cost $5"
+        "status": "fail",
+        "evidence": "0/10 runnable live waves, estimated cost $0"
       },
       {
         "id": "live_manifest_runner",
-        "status": "pass",
-        "evidence": "1 dry_run wave(s) executed through manifest runner"
+        "status": "fail",
+        "evidence": "0 dry_run wave(s) executed through manifest runner"
       },
       {
         "id": "scale_campaign_runner",

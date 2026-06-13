@@ -116,9 +116,6 @@ function assertRunAllowed(manifest, selectedRows) {
   if (!manifest?.within_budget) {
     throw new Error('Live manifest execution requires a passing live-run manifest within budget.')
   }
-  if (!selectedRows.length) {
-    throw new Error('No ready manifest rows selected. Rebuild provider preflight/live manifest or raise --max-cost-usd.')
-  }
   if (wantsLive && !confirmedLive) {
     throw new Error('Live manifest execution requires --confirm-live. Omit --live for guarded dry-run sequencing.')
   }
@@ -170,7 +167,8 @@ function main() {
     estimated_cost_usd: Number(selectedRows.reduce((sum, row) => sum + Number(row.estimated_cost_usd ?? 0), 0).toFixed(2)),
     max_cost_usd: maxCostUsd,
     selected_wave_ids: selectedRows.map((row) => row.wave_id),
-    complete: waveStepsPassed && postSteps.every((step) => step.status === 'pass'),
+    skipped_reason: selectedRows.length ? '' : 'no_ready_manifest_rows',
+    complete: selectedRows.length === 0 || (waveStepsPassed && postSteps.every((step) => step.status === 'pass')),
     import_ran: postSteps.some((step) => step.id === 'import_acquisition_results'),
     rebuild_ran: postSteps.some((step) => step.id === 'run_full_workflow'),
     steps,
@@ -209,6 +207,7 @@ Generated: ${summary.generated_at}
 - Env file loaded: ${summary.env_file_loaded}
 - Provider token available: ${summary.provider_token_available}
 - Selected waves: ${summary.selected_waves}
+- Skipped reason: ${summary.skipped_reason || 'none'}
 - Estimated cost: $${summary.estimated_cost_usd}
 - Max cost: $${summary.max_cost_usd}
 - Complete: ${summary.complete}

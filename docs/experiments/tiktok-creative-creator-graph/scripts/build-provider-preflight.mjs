@@ -1,4 +1,5 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { homedir } from 'node:os'
 import { join } from 'node:path'
 
 const root = process.cwd()
@@ -13,6 +14,7 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 }))
 
 const provider = String(args.get('--provider') ?? 'apify')
+const envFile = String(args.get('--env-file') ?? join(homedir(), '.codex/secrets.env'))
 const maxWaves = Number(args.get('--max-waves') ?? 10)
 const limit = Number(args.get('--limit') ?? 100)
 const targetCostPerTaskUsd = Number(args.get('--cost-per-task-usd') ?? 0.25)
@@ -25,6 +27,21 @@ function readJson(path) {
 function readJsonl(path) {
   if (!existsSync(path)) return []
   return readFileSync(path, 'utf8').split('\n').filter(Boolean).map((line) => JSON.parse(line))
+}
+
+function loadEnvFile(path) {
+  if (!existsSync(path)) return false
+  const lines = readFileSync(path, 'utf8').split('\n')
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#')) continue
+    const match = trimmed.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/)
+    if (!match) continue
+    const [, key, rawValue] = match
+    if (process.env[key]) continue
+    process.env[key] = rawValue.replace(/^['"]|['"]$/g, '')
+  }
+  return true
 }
 
 function writeJson(path, value) {
@@ -64,6 +81,17 @@ function main() {
   const adapters = readJson(join(configDir, 'provider-adapters.json'))
   const adapter = adapters[provider]
   if (!adapter) throw new Error(`No provider adapter configured for ${provider}`)
+  const envFileLoaded = loadEnvFile(envFile)
+  const providerTokenAvailable = provider === 'apify' ? Boolean(process.env.APIFY_TOKEN) : true
+  const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
+  const providerHistory = acquisitionRunHistory.filter((row) => row.provider === provider && !row.dry_run)
+  const providerZeroYieldRuns = providerHistory.filter((row) => Number(row.output_rows ?? 0) === 0 && Number(row.failed ?? 0) === 0)
+  const latestProviderRun = providerHistory.at(-1)
+  const providerViability = provider === 'apify' && !providerTokenAvailable
+    ? 'missing_token'
+    : providerZeroYieldRuns.length > 0 && !providerHistory.some((row) => Number(row.output_rows ?? 0) > 0)
+      ? 'zero_yield_observed'
+      : 'ready'
 
   const tasks = readJsonl(join(processedDir, 'acquisition/acquisition_tasks.jsonl'))
   const taskById = new Map(tasks.map((task) => [task.batch_id, task]))
@@ -75,7 +103,7 @@ function main() {
     const waveTasks = [taskById.get(wave.primary_task_id), taskById.get(wave.secondary_task_id)].filter(Boolean)
     for (const task of waveTasks) {
       const actor = adapter.actors[task.acquisition_surface]
-      const ready = Boolean(actor)
+      const ready = Boolean(actor) && providerViability !== 'missing_token'
       rows.push({
         wave_id: wave.wave_id,
         sequence: wave.sequence,
@@ -86,7 +114,8 @@ function main() {
         query: task.query,
         actor_id: actor?.actor_id ?? '',
         ready,
-        block_reason: ready ? '' : `No ${provider} actor configured for ${task.acquisition_surface}`,
+        provider_viability: providerViability,
+        block_reason: ready ? '' : !actor ? `No ${provider} actor configured for ${task.acquisition_surface}` : `Provider ${provider} blocked: ${providerViability}`,
         requested_limit: limit,
         estimated_result_rows: ready ? limit : 0,
         estimated_cost_usd: ready ? Number(targetCostPerTaskUsd.toFixed(2)) : 0,
@@ -101,6 +130,12 @@ function main() {
   const summary = {
     generated_at: new Date().toISOString(),
     provider,
+    env_file_loaded: envFileLoaded,
+    provider_token_available: providerTokenAvailable,
+    provider_viability: providerViability,
+    provider_live_runs: providerHistory.length,
+    provider_zero_yield_runs: providerZeroYieldRuns.length,
+    latest_provider_output_rows: latestProviderRun?.output_rows ?? '',
     max_waves: maxWaves,
     selected_waves: selectedWaves.length,
     task_rows: rows.length,
@@ -128,6 +163,11 @@ function main() {
 Generated: ${summary.generated_at}
 
 - Provider: ${summary.provider}
+- Provider viability: ${summary.provider_viability}
+- Provider token available: ${summary.provider_token_available}
+- Provider live runs: ${summary.provider_live_runs}
+- Provider zero-yield runs: ${summary.provider_zero_yield_runs}
+- Latest provider output rows: ${summary.latest_provider_output_rows === '' ? 'n/a' : summary.latest_provider_output_rows}
 - Selected waves: ${summary.selected_waves}
 - Task rows: ${summary.task_rows}
 - Ready tasks: ${summary.ready_tasks}
@@ -147,15 +187,15 @@ ${summary.next_command || 'No planned waves available.'}
 
 ## First Rows
 
-| Wave | Batch | Surface | Query | Actor | Ready | Est. rows | Est. cost |
-| --- | --- | --- | --- | --- | --- | ---: | ---: |
-${summary.first_rows.map((row) => `| ${row.wave_id} | ${row.batch_id} | ${row.acquisition_surface} | ${row.query} | ${row.actor_id} | ${row.ready} | ${row.estimated_result_rows} | $${row.estimated_cost_usd} |`).join('\n')}
+| Wave | Batch | Surface | Query | Actor | Ready | Viability | Est. rows | Est. cost |
+| --- | --- | --- | --- | --- | --- | --- | ---: | ---: |
+${summary.first_rows.map((row) => `| ${row.wave_id} | ${row.batch_id} | ${row.acquisition_surface} | ${row.query} | ${row.actor_id} | ${row.ready} | ${row.provider_viability} | ${row.estimated_result_rows} | $${row.estimated_cost_usd} |`).join('\n')}
 
 Full preflight: \`data/processed/provider_preflight.csv\`
 `)
 
   console.log(JSON.stringify(summary, null, 2))
-  if (blockedRows.length || estimatedCost > budgetUsd) process.exitCode = 1
+  if (estimatedCost > budgetUsd) process.exitCode = 1
 }
 
 main()

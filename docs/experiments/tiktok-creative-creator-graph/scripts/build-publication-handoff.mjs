@@ -153,9 +153,10 @@ function main() {
       provider_preflight_ready_tasks: counts.provider_preflight_ready_tasks ?? providerPreflightReport?.ready_tasks ?? 0,
       provider_preflight_blocked_tasks: counts.provider_preflight_blocked_tasks ?? providerPreflightReport?.blocked_tasks ?? 0,
       provider_preflight_estimated_cost_usd: counts.provider_preflight_estimated_cost_usd ?? providerPreflightReport?.estimated_cost_usd ?? 0,
-      live_run_manifest_waves: counts.live_run_manifest_waves ?? liveRunManifest.length,
-      live_run_manifest_runnable_waves: counts.live_run_manifest_runnable_waves ?? liveRunManifestReport?.runnable_waves ?? 0,
-      live_run_manifest_estimated_cost_usd: counts.live_run_manifest_estimated_cost_usd ?? liveRunManifestReport?.estimated_cost_usd ?? 0,
+      live_run_manifest_waves: liveRunManifestReport?.manifest_waves ?? counts.live_run_manifest_waves ?? liveRunManifest.length,
+      live_run_manifest_runnable_waves: liveRunManifestReport?.runnable_waves ?? counts.live_run_manifest_runnable_waves ?? 0,
+      live_run_manifest_blocked_waves: liveRunManifestReport?.blocked_waves ?? counts.live_run_manifest_blocked_waves ?? 0,
+      live_run_manifest_estimated_cost_usd: liveRunManifestReport?.estimated_cost_usd ?? counts.live_run_manifest_estimated_cost_usd ?? 0,
       live_manifest_runner_steps: counts.live_manifest_runner_steps ?? liveManifestRunSteps.length,
       live_manifest_runner_selected_waves: counts.live_manifest_runner_selected_waves ?? liveManifestRunReport?.selected_waves ?? 0,
       live_manifest_runner_mode: counts.live_manifest_runner_mode ?? liveManifestRunReport?.mode ?? '',
@@ -307,6 +308,7 @@ ${handoff.objective}
 - Provider preflight estimated cost: $${handoff.current_corpus.provider_preflight_estimated_cost_usd}
 - Live run manifest waves: ${handoff.current_corpus.live_run_manifest_waves}
 - Live run manifest runnable waves: ${handoff.current_corpus.live_run_manifest_runnable_waves}
+- Live run manifest blocked waves: ${handoff.current_corpus.live_run_manifest_blocked_waves}
 - Live run manifest estimated cost: $${handoff.current_corpus.live_run_manifest_estimated_cost_usd}
 - Live manifest runner steps: ${handoff.current_corpus.live_manifest_runner_steps}
 - Live manifest runner selected waves: ${handoff.current_corpus.live_manifest_runner_selected_waves}

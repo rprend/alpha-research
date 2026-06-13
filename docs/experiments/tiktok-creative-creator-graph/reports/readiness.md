@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T01:54:14.047Z
+Generated: 2026-06-13T01:59:16.677Z
 
 Complete: false
 
@@ -53,14 +53,14 @@ Complete: false
 - Wave ledger imported output accounts: 0
 - Wave ledger under-yield imports: 0
 - Provider preflight tasks: 20
-- Provider preflight ready tasks: 20
-- Provider preflight blocked tasks: 0
-- Provider preflight estimated cost: $5
+- Provider preflight ready tasks: 0
+- Provider preflight blocked tasks: 20
+- Provider preflight estimated cost: $0
 - Live run manifest waves: 10
-- Live run manifest runnable waves: 10
-- Live run manifest estimated cost: $5
-- Live manifest runner steps: 1
-- Live manifest runner selected waves: 1
+- Live run manifest runnable waves: 0
+- Live run manifest estimated cost: $0
+- Live manifest runner steps: 0
+- Live manifest runner selected waves: 0
 - Live manifest runner mode: dry_run
 - Scale campaign iterations: 1
 - Scale campaign mode: dry_run
@@ -95,9 +95,9 @@ Complete: false
 - scale_plan: pass (10000 estimated import batches)
 - scale_waves: pass (10000 executable acquisition waves planned)
 - wave_ledger: pass (10000 wave execution ledger rows generated)
-- provider_preflight: pass (20/20 ready provider tasks, budget ok)
-- live_run_manifest: pass (10/10 runnable live waves, estimated cost $5)
-- live_manifest_runner: pass (1 dry_run wave(s) executed through manifest runner)
+- provider_preflight: fail (0/20 ready provider tasks, budget ok)
+- live_run_manifest: fail (0/10 runnable live waves, estimated cost $0)
+- live_manifest_runner: fail (0 dry_run wave(s) executed through manifest runner)
 - scale_campaign_runner: pass (1 dry_run iteration(s), stop reason dry_run_complete)
 - refresh_plan: pass (1900 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)

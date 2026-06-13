@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T01:54:13.965Z
+Generated: 2026-06-13T01:59:16.596Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -53,14 +53,15 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Wave ledger imported output accounts: 0
 - Wave ledger under-yield imports: 0
 - Provider preflight tasks: 20
-- Provider preflight ready tasks: 20
-- Provider preflight blocked tasks: 0
-- Provider preflight estimated cost: $5
+- Provider preflight ready tasks: 0
+- Provider preflight blocked tasks: 20
+- Provider preflight estimated cost: $0
 - Live run manifest waves: 10
-- Live run manifest runnable waves: 10
-- Live run manifest estimated cost: $5
-- Live manifest runner steps: 1
-- Live manifest runner selected waves: 1
+- Live run manifest runnable waves: 0
+- Live run manifest blocked waves: 10
+- Live run manifest estimated cost: $0
+- Live manifest runner steps: 0
+- Live manifest runner selected waves: 0
 - Live manifest runner mode: dry_run
 - Refresh tasks: 1900
 
@@ -123,9 +124,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - scale_plan_available: pass
 - scale_waves_available: pass
 - wave_ledger_available: pass
-- provider_preflight_available: pass
-- live_run_manifest_available: pass
-- live_manifest_runner_exercised: pass
+- provider_preflight_available: incomplete
+- live_run_manifest_available: incomplete
+- live_manifest_runner_exercised: incomplete
 - latest_live_public_web_attempt_zero_yield: pass
 - refresh_plan_available: pass
 

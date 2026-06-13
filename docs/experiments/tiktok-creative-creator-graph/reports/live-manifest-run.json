@@ -1,57 +1,19 @@
 {
-  "generated_at": "2026-06-13T01:54:13.848Z",
+  "generated_at": "2026-06-13T01:59:16.482Z",
   "mode": "dry_run",
   "live_confirmed": false,
   "provider": "apify",
   "env_file_loaded": true,
   "provider_token_available": false,
-  "selected_waves": 1,
+  "selected_waves": 0,
   "max_waves": 1,
-  "estimated_cost_usd": 0.5,
+  "estimated_cost_usd": 0,
   "max_cost_usd": 1,
-  "selected_wave_ids": [
-    "scale_wave_0001"
-  ],
+  "selected_wave_ids": [],
+  "skipped_reason": "no_ready_manifest_rows",
   "complete": true,
   "import_ran": false,
   "rebuild_ran": false,
-  "steps": [
-    {
-      "kind": "dry_run_wave",
-      "wave_id": "scale_wave_0001",
-      "sequence": 1,
-      "estimated_cost_usd": 0.5,
-      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=1",
-      "result": {
-        "id": "dry_scale_wave_0001",
-        "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=1",
-        "status": "pass",
-        "started_at": "2026-06-13T01:54:13.798Z",
-        "finished_at": "2026-06-13T01:54:13.848Z",
-        "output_tail": [
-          "      \"acquisition_surface\": \"category_gap_search\",",
-          "      \"query\": \"site:tiktok.com/@ \\\"director\\\"\",",
-          "      \"target_label\": \"director\",",
-          "      \"actor_id\": \"apify/google-search-scraper\",",
-          "      \"input\": {",
-          "        \"queries\": \"site:tiktok.com/@ \\\"director\\\"\",",
-          "        \"maxPagesPerQuery\": 1,",
-          "        \"resultsPerPage\": 100,",
-          "        \"countryCode\": \"us\",",
-          "        \"languageCode\": \"en\"",
-          "      },",
-          "      \"dry_run\": true,",
-          "      \"started_at\": \"2026-06-13T01:54:13.844Z\",",
-          "      \"status\": \"dry_run\",",
-          "      \"output_rows\": 0,",
-          "      \"output_path\": \"\",",
-          "      \"finished_at\": \"2026-06-13T01:54:13.844Z\"",
-          "    }",
-          "  ]",
-          "}"
-        ]
-      }
-    }
-  ],
+  "steps": [],
   "post_steps": []
 }
