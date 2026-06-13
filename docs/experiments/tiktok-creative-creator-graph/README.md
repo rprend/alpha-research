@@ -60,6 +60,15 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mj
 
 The editorial list importer fetches configured public list pages from `config/editorial-list-sources.json`, extracts TikTok account handles from source-local TikTok account fields, writes raw rows to `data/raw/acquisition-results/`, and preserves source URL, source query, rank, target label, provider, execution id, and batch id. It is intended for no-secret seed expansion and provenance capture; it does not emulate the TikTok app. Use `--sources=feedspot_movie_tiktok_2026,feedspot_comedy_tiktok_2026` to run a subset or `--source-config=path/to/sources.json` to test a new registry.
 
+Run public dataset sample acquisition when a source has usable public rows and the source terms are acceptable for candidate intake:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/import-brightdata-profile-sample.mjs
+node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/<execution-id>-brightdata-profile-sample.jsonl
+```
+
+The Bright Data GitHub sample adapter parses a public profile CSV, filters rows to creative-category signals, strips direct contact details from bio text, and writes normalized candidate rows with `source_license=not_declared_in_github_repo_metadata` in the report. Treat those rows as candidate expansion only until source terms are reviewed.
+
 Execute or dry-run provider acquisition batches:
 
 ```bash

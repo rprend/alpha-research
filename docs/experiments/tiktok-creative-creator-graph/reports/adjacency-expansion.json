@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:45:34.654Z",
+  "generated_at": "2026-06-13T02:52:14.019Z",
   "base_rows": 7,
   "expansion_rows": 28,
   "added_rows": 21,
@@ -17,7 +17,7 @@
       "priority": 1,
       "reason": "replay_high_yield_source:public_profile_enrichment",
       "primary_label": "",
-      "overall_usefulness": 425,
+      "overall_usefulness": 595,
       "evidence_count": 1
     },
     {
@@ -38,7 +38,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 10
+      "evidence_count": 12
     },
     {
       "expansion_type": "hashtag_search",
@@ -48,7 +48,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 21
+      "evidence_count": 25
     },
     {
       "expansion_type": "yield_replay_search",
@@ -68,7 +68,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 10
+      "evidence_count": 12
     },
     {
       "expansion_type": "cross_platform_search",
@@ -98,7 +98,7 @@
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
       "overall_usefulness": 94,
-      "evidence_count": 10
+      "evidence_count": 12
     },
     {
       "expansion_type": "hashtag_search",
@@ -108,7 +108,7 @@
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
       "overall_usefulness": 94,
-      "evidence_count": 10
+      "evidence_count": 12
     },
     {
       "expansion_type": "expand_from_creator",

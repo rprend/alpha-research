@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-13T02:45:34.807Z",
+  "generated_at": "2026-06-13T02:52:14.183Z",
   "requested_rows": 250,
   "selected_rows": 250,
-  "available_unreviewed_rows": 1896,
-  "latest_wave_id": "import-2026-06-13T02-45-34-338Z",
+  "available_unreviewed_rows": 1925,
+  "latest_wave_id": "import-2026-06-13T02-52-13-637Z",
   "category_counts": {
     "sketch_comedian": 25,
     "filmmaker": 25,
@@ -11,12 +11,12 @@
     "cinematographer": 18,
     "editor": 25,
     "standup_comedian": 25,
-    "actor_performer": 9,
+    "actor_performer": 18,
     "director": 8,
     "film_educator": 25,
     "behind_the_scenes_creator": 25,
     "unclear": 21,
-    "creative_technologist": 19
+    "creative_technologist": 10
   },
   "band_counts": {
     "benchmark_check": 5,

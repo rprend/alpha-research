@@ -1,39 +1,39 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T02:45:34.478Z
+Generated: 2026-06-13T02:52:13.811Z
 
 ## Summary
 
-- Accounts: 1900
-- Videos: 35
+- Accounts: 1929
+- Videos: 41
 - Graph edges: 395
 - Useful accounts: 7
 - Excellent accounts: 6
-- Review queue: 1900
+- Review queue: 1929
 - Expansion queue: 7
 - Target: 50000
 - Target status: 49993 more useful accounts needed
 
 ## Status Counts
 
-- needs_review: 1891
+- needs_review: 1920
 - excellent: 6
 - reject: 2
 - useful: 1
 
 ## Primary Labels
 
-- sketch_comedian: 106
+- sketch_comedian: 111
 - standup_comedian: 58
-- actor_performer: 9
+- actor_performer: 18
 - cinematographer: 18
 - director: 8
-- editor: 53
-- filmmaker: 135
-- vfx_animation: 344
+- editor: 56
+- filmmaker: 138
+- vfx_animation: 348
 - creative_technologist: 403
-- film_educator: 586
-- behind_the_scenes_creator: 157
+- film_educator: 589
+- behind_the_scenes_creator: 159
 - unclear: 21
 - reject: 2
 

@@ -1,11 +1,11 @@
 {"label":"editor","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":5000,"priority":1}
 {"label":"director","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":8,"review_gap":25,"useful_gap":4000,"priority":1}
 {"label":"standup_comedian","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":4000,"priority":1}
-{"label":"actor_performer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":9,"review_gap":25,"useful_gap":4000,"priority":1}
+{"label":"actor_performer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":18,"review_gap":25,"useful_gap":4000,"priority":1}
 {"label":"film_educator","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3000,"priority":1}
 {"label":"behind_the_scenes_creator","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":3000,"priority":1}
 {"label":"filmmaker","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":7998,"priority":2}
 {"label":"sketch_comedian","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":6998,"priority":2}
 {"label":"cinematographer","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":18,"review_gap":25,"useful_gap":4999,"priority":2}
 {"label":"vfx_animation","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":25,"review_gap":25,"useful_gap":4999,"priority":2}
-{"label":"creative_technologist","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":19,"review_gap":25,"useful_gap":1999,"priority":2}
+{"label":"creative_technologist","target_review_decisions":25,"reviewed_decisions":0,"current_sample_rows":10,"review_gap":25,"useful_gap":1999,"priority":2}

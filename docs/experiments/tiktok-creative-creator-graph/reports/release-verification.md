@@ -1,6 +1,6 @@
 # Release Verification
 
-Generated: 2026-06-13T02:45:35.130Z
+Generated: 2026-06-13T02:52:14.566Z
 
 Complete: true
 
@@ -9,7 +9,7 @@ Complete: true
 - Useful creators: 2
 - Benchmark creators: 1
 - Rejected creators: 2
-- All scored creators: 1900
+- All scored creators: 1929
 
 ## Checks
 
@@ -31,14 +31,14 @@ Complete: true
 - row_count:data/release/benchmark_creators.jsonl: pass (expected 1, actual 1)
 - sha256:data/release/benchmark_creators.csv: pass (expected 48de7c6529d99ea818c46fa89363a688065b365664e21c2cd3b3dc9a77b401fd, actual 48de7c6529d99ea818c46fa89363a688065b365664e21c2cd3b3dc9a77b401fd)
 - row_count:data/release/benchmark_creators.csv: pass (expected 1, actual 1)
-- sha256:data/release/rejected_creators.jsonl: pass (expected 5ee8d5b0d2a77335ba325572df9cd227a81369476f2a66f88de6e2fc9f98e33b, actual 5ee8d5b0d2a77335ba325572df9cd227a81369476f2a66f88de6e2fc9f98e33b)
+- sha256:data/release/rejected_creators.jsonl: pass (expected 4fd3be8f9e475a130d01795c71be21a34ddc92ba219c07af4dde3c952f180a7c, actual 4fd3be8f9e475a130d01795c71be21a34ddc92ba219c07af4dde3c952f180a7c)
 - row_count:data/release/rejected_creators.jsonl: pass (expected 2, actual 2)
-- sha256:data/release/rejected_creators.csv: pass (expected 999f24476371bb57471326a4e77a0a20851a22f593456d0da7c98af4096b1e1d, actual 999f24476371bb57471326a4e77a0a20851a22f593456d0da7c98af4096b1e1d)
+- sha256:data/release/rejected_creators.csv: pass (expected fa85c45655a294cbdae0fe9568d41f2947c82ae59c62ca3f538fad79777f844c, actual fa85c45655a294cbdae0fe9568d41f2947c82ae59c62ca3f538fad79777f844c)
 - row_count:data/release/rejected_creators.csv: pass (expected 2, actual 2)
-- sha256:data/release/review_queue.csv: pass (expected d05761d0a9e4659f7223c8692e22c613b19557f3b62bd3a5b44c278cb123e4c6, actual d05761d0a9e4659f7223c8692e22c613b19557f3b62bd3a5b44c278cb123e4c6)
-- row_count:data/release/review_queue.csv: pass (expected 1896, actual 1896)
-- sha256:data/release/all_scored_creators.csv: pass (expected 360c148adcaaf794f99539392374702b664e4a9d27ca807b4d470790500b7af6, actual 360c148adcaaf794f99539392374702b664e4a9d27ca807b4d470790500b7af6)
-- row_count:data/release/all_scored_creators.csv: pass (expected 1900, actual 1900)
+- sha256:data/release/review_queue.csv: pass (expected 5b478257d417f9103a4b4fc74194cd108115b0644205fc371a81b7fe53574c09, actual 5b478257d417f9103a4b4fc74194cd108115b0644205fc371a81b7fe53574c09)
+- row_count:data/release/review_queue.csv: pass (expected 1925, actual 1925)
+- sha256:data/release/all_scored_creators.csv: pass (expected aa545fd0d54b5adf1864de2371f8ffad5468e553c605aaf94a13babfee40100a, actual aa545fd0d54b5adf1864de2371f8ffad5468e553c605aaf94a13babfee40100a)
+- row_count:data/release/all_scored_creators.csv: pass (expected 1929, actual 1929)
 - required_column:identity_id: pass (all_scored_creators.csv includes identity_id)
 - required_column:creator_id: pass (all_scored_creators.csv includes creator_id)
 - required_column:handle: pass (all_scored_creators.csv includes handle)
