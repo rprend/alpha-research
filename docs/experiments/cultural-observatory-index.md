@@ -168,6 +168,7 @@ Implemented:
 - `post.md`
 - `post-evidence-audit.json`
 - `publication-handoff.md`
+- `representative-audit-packet.json`
 - `dataset_briefing.md`
 - `dataset-bundle/` Alpha Research dataset bundle
 - `registration/control-plane-registration.json`
@@ -187,6 +188,7 @@ Current corpus:
 - remote proof counts: 7,362 total works, 5,025 works dated 2024-present, 1,997 quantitative/computational candidates, and 5,418 DOAJ OAI records recomputed from `/data/datasets/humanities-literature-radar/processed/works.json`
 - publication post: `reports/post.md`, a polished field-map draft titled `AI Is Now A Humanities Object`
 - post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 4/4 representative citations matched processed source records
+- representative audit packet: `reports/representative-audit-packet.json`, status `pending-review`, 100/100 representative rows queued, 98 OpenAlex rows, 100 flagged rows
 - readiness: ready for editorial review with source-coverage caveats
 
 Next implementation moves:
@@ -197,7 +199,7 @@ Next implementation moves:
 - improve NBER extraction or switch to an official metadata route if available
 - expand OSF/SocArXiv beyond bounded title search
 - expand Knowledge Commons Works / Humanities Commons beyond bounded keyword search
-- manually audit representative works
+- use `reports/representative-audit-packet.json` to manually mark field-claim-safe representative works
 - rebuild, sync, and remotely verify the Alpha Research dataset bundle after the full harvest
 
 ### University Mission Statement Drift

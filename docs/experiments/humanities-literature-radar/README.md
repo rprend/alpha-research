@@ -49,6 +49,7 @@ Normalize and report:
 node docs/experiments/humanities-literature-radar/scripts/normalize-works.mjs
 node docs/experiments/humanities-literature-radar/scripts/build-report.mjs
 node docs/experiments/humanities-literature-radar/scripts/build-publication-handoff.mjs
+node docs/experiments/humanities-literature-radar/scripts/build-representative-audit-packet.mjs
 node docs/experiments/humanities-literature-radar/scripts/check-readiness.mjs
 ```
 
@@ -88,6 +89,9 @@ The scripts write:
 - `reports/public-draft.md`
 - `reports/publication-handoff.md`
 - `reports/publication-handoff.json`
+- `reports/representative-audit-packet.md`
+- `reports/representative-audit-packet.csv`
+- `reports/representative-audit-packet.json`
 - `reports/readiness.md`
 - `reports/readiness.json`
 - `runs/YYYY-MM-DD/manifest.json`
@@ -138,6 +142,18 @@ data/raw/doaj-oai/YYYY-MM-DD/
 ```
 
 The current committed run is a 100-page broad backfill, not the full DOAJ harvest. It preserves 30,000 raw OAI records, writes `data/raw/doaj-oai/YYYY-MM-DD/checkpoint.json` for resume/audit, promotes only records with at least one humanities/method relevance signal into the processed works table, and records the comparison in `reports/broad-backfill-comparison.md`.
+
+## Representative Review
+
+The representative audit packet is written to:
+
+```text
+reports/representative-audit-packet.md
+reports/representative-audit-packet.csv
+reports/representative-audit-packet.json
+```
+
+The current packet queues 100 representative works for manual review. It is an artifact-ready review queue, not publication approval: all rows are `pending`, all rows are flagged for source or field-scope review, and the sample is heavily weighted toward OpenAlex rows. Use it to decide which records can support field-map examples before making stronger public claims.
 
 ## Dataset Registration
 

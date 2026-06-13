@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-13T01:46:14.138Z",
+  "generatedAt": "2026-06-13T01:50:53.248Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
-  "completeTrackCount": 3,
-  "incompleteTrackCount": 3,
+  "completeTrackCount": 4,
+  "incompleteTrackCount": 2,
   "tracks": [
     {
       "id": "university-second-layer-corpus",
@@ -34,8 +34,8 @@
       "id": "literature-radar-broad-backfill",
       "title": "Humanities Literature Radar Broad Backfill",
       "priority": 3,
-      "status": "remote-verified-broad-backfill",
-      "complete": false,
+      "status": "artifact-ready",
+      "complete": true,
       "sourceExperiment": "docs/experiments/humanities-literature-radar/",
       "requiredEvidenceCount": 5,
       "nextActionCount": 3,
@@ -80,12 +80,6 @@
     }
   ],
   "nextImplementationQueue": [
-    {
-      "id": "literature-radar-broad-backfill",
-      "title": "Humanities Literature Radar Broad Backfill",
-      "status": "remote-verified-broad-backfill",
-      "sourceExperiment": "docs/experiments/humanities-literature-radar/"
-    },
     {
       "id": "canon-narrow-pilot",
       "title": "Canon Drift Narrow Signal Pilot",

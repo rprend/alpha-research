@@ -62,7 +62,7 @@
       "id": "literature-radar-broad-backfill",
       "title": "Humanities Literature Radar Broad Backfill",
       "priority": 3,
-      "status": "remote-verified-broad-backfill",
+      "status": "artifact-ready",
       "sourceExperiment": "docs/experiments/humanities-literature-radar/",
       "why": "The refreshed 7,362-work dataset has been built, synced, promoted, and remote-verified, but source coverage is still imbalanced toward DOAJ OAI and bounded for HCommons, OSF/SocArXiv, and NBER.",
       "requiredSources": [
@@ -81,7 +81,7 @@
       ],
       "nextActions": [
         "Continue the DOAJ OAI harvester with --resume=true beyond the 100-page checkpoint if a fuller source harvest is needed.",
-        "Manually audit representative works before stronger field claims.",
+        "Use reports/representative-audit-packet.json to manually mark field_claim_safe rows before stronger field claims.",
         "Expand Knowledge Commons Works, OSF/SocArXiv, and NBER routes to reduce source-family imbalance."
       ]
     },
