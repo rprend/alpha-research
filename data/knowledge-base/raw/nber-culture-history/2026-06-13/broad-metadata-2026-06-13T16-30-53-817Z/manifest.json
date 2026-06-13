@@ -1,0 +1,21 @@
+{
+  "run_id": "broad-metadata-2026-06-13T16-30-53-817Z",
+  "source_id": "nber-culture-history",
+  "started_at": "2026-06-13T16:31:56.273Z",
+  "completed_at": "2026-06-13T16:31:57.325Z",
+  "status": "success",
+  "access_route": "https://www.nber.org/api/v1/working_page_listing/contentType/working_paper/_/_/search?search=culture%20history&page=1&perPage=50 | https://www.nber.org/api/v1/working_page_listing/contentType/working_paper/_/_/search?search=art%20culture&page=1&perPage=50 | https://www.nber.org/api/v1/working_page_listing/contentType/working_paper/_/_/search?search=education%20history&page=1&perPage=50 | https://www.nber.org/api/v1/working_page_listing/contentType/working_paper/_/_/search?search=religion%20history&page=1&perPage=50 | https://www.nber.org/api/v1/working_page_listing/contentType/working_paper/_/_/search?search=media%20culture&page=1&perPage=50",
+  "raw_outputs": [
+    "data/knowledge-base/raw/nber-culture-history/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-001.json",
+    "data/knowledge-base/raw/nber-culture-history/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-002.json",
+    "data/knowledge-base/raw/nber-culture-history/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-003.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/works.jsonl"
+  ],
+  "record_count": 50,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

@@ -1,0 +1,21 @@
+{
+  "run_id": "broad-metadata-2026-06-13T16-30-53-817Z",
+  "source_id": "met-collection-api",
+  "started_at": "2026-06-13T16:31:52.414Z",
+  "completed_at": "2026-06-13T16:31:56.273Z",
+  "status": "success",
+  "access_route": "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=painting | https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=sculpture | https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=photograph | https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=textile | https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=drawing",
+  "raw_outputs": [
+    "data/knowledge-base/raw/met-collection-api/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-001.json",
+    "data/knowledge-base/raw/met-collection-api/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-002.json",
+    "data/knowledge-base/raw/met-collection-api/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-003.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/objects.jsonl"
+  ],
+  "record_count": 150,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

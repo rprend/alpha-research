@@ -1,0 +1,603 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 47,
+    "params": {
+      "query": "subject:philosophy AND mediatype:texts",
+      "qin": "subject:(philosophy) AND mediatype:(texts)",
+      "fields": "identifier,title,creator,date,collection,licenseurl",
+      "wt": "json",
+      "rows": 50,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 278674,
+    "start": 0,
+    "docs": [
+      {
+        "collection": [
+          "pub_presbyterian",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1838-12-29T00:00:00Z",
+        "identifier": "sim_presbyterian_the-presbyterian_1838-12-29_8_52",
+        "title": "The Presbyterian 1838-12-29: Vol 8 Iss 52"
+      },
+      {
+        "collection": [
+          "pub_presbyterian",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1839-01-26T00:00:00Z",
+        "identifier": "sim_presbyterian_the-presbyterian_1839-01-26_9_4",
+        "title": "The Presbyterian 1839-01-26: Vol 9 Iss 4"
+      },
+      {
+        "collection": [
+          "pub_presbyterian",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1864-05-14T00:00:00Z",
+        "identifier": "sim_presbyterian_the-presbyterian_1864-05-14_34_20",
+        "title": "The Presbyterian. 1864-05-14: Vol 34 Iss 20"
+      },
+      {
+        "collection": [
+          "pub_presbyterian",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1843-02-25T00:00:00Z",
+        "identifier": "sim_presbyterian_the-presbyterian_1843-02-25_13_8",
+        "title": "The Presbyterian. 1843-02-25: Vol 13 Iss 8"
+      },
+      {
+        "collection": [
+          "pub_presbyterian",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1845-10-25T00:00:00Z",
+        "identifier": "sim_presbyterian_the-presbyterian_1845-10-25_15_43",
+        "title": "The Presbyterian. 1845-10-25: Vol 15 Iss 43"
+      },
+      {
+        "collection": [
+          "pub_moody",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1928-09-01T00:00:00Z",
+        "identifier": "sim_moody_1928-09_29_1",
+        "title": "Moody Monthly 1928-09: Vol 29 Iss 1"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "inlibrary"
+        ],
+        "creator": "Grützmacher, Richard H",
+        "date": "1932-01-01T00:00:00Z",
+        "identifier": "diesseitsundjens0000grut",
+        "title": "Diesseits und jenseits in der geistesgeschichte der menschheit"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-ajbaker5",
+          "fav-booklovegdub",
+          "fav-violetmckenzie",
+          "cua-ol"
+        ],
+        "creator": "Halberstam, Joshua, 1946-",
+        "date": "1988-01-01T00:00:00Z",
+        "identifier": "virtuesvalues00josh",
+        "title": "Virtues and values : an introduction to ethics"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-pen_teller"
+        ],
+        "creator": "Lewis, Albert Micah",
+        "date": "2009-01-01T00:00:00Z",
+        "identifier": "soulsoundsreflec0000lewi",
+        "title": "Soul sounds : reflections on life"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "nationaluniversity",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "date": "2014-01-01T00:00:00Z",
+        "identifier": "isbn_9780415500210",
+        "title": "Multicultural education : major themes in education"
+      },
+      {
+        "collection": [
+          "inlibrary",
+          "printdisabled",
+          "universitypressofmissouri",
+          "americana",
+          "fav-zinelh5014",
+          "johnshopkins-ol",
+          "riceuniversity-ol"
+        ],
+        "creator": "Leibniz, Gottfried Wilhelm, Frèiherr von, 1646-1716",
+        "date": "1975-01-01T00:00:00Z",
+        "identifier": "lettresetopuscul00leib",
+        "title": "Lettres et opuscules inédits"
+      },
+      {
+        "collection": [
+          "pub_manas",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1951-04-25T00:00:00Z",
+        "identifier": "sim_manas_1951-04-25_4_17",
+        "title": "Manas 1951-04-25: Vol 4 Iss 17"
+      },
+      {
+        "collection": [
+          "pub_quiver",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1871-01-28T00:00:00Z",
+        "identifier": "sim_quiver_1871-01-28_6_280",
+        "title": "Quiver 1871-01-28: Vol 6 Iss 280"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-mrk_h"
+        ],
+        "date": "2013-01-01T00:00:00Z",
+        "identifier": "isbn_9781466620773",
+        "title": "Complexity science, living systems, and reflexing interfaces : new models and perspectives"
+      },
+      {
+        "collection": [
+          "pub_manifesto",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1883-07-01T00:00:00Z",
+        "identifier": "sim_manifesto_1883-07_13_7",
+        "title": "The Manifesto 1883-07: Vol 13 Iss 7"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "americanuniversity-ol",
+          "dartmouthlibrary-ol",
+          "georgetown-university-law-library-ol",
+          "gwulibraries-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol",
+          "wilsoncollege-ol"
+        ],
+        "creator": "Dan-Cohen, Meir",
+        "date": "2002-01-01T00:00:00Z",
+        "identifier": "harmfulthoughtse0000danc",
+        "title": "Harmful thoughts : essays on law, self, and morality"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled"
+        ],
+        "creator": "Ortega, George, author",
+        "date": "2014-01-01T00:00:00Z",
+        "identifier": "freewillitsrefut0000orte",
+        "title": "Free will : its refutation, societal cost and role in climate change denial"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "date": "1770-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_the-drunkards-legacy-i_1770",
+        "title": "The drunkard's legacy. In four parts, giving an account first, of a gentleman's having a wild son, and foreseeing he would come to poverty, ... 1770"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "creator": "Burgess, D., A.M.",
+        "date": "1759-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_the-entertainer-or-you_burgess-d-am_1759",
+        "title": "The entertainer; or, youth's delightful preceptor, containing a collection of the most curious and remarkable pieces of natural and civil history, ... To which is prefixed, a plan of education, ... By D. Burgess, A.M. 1759"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-general_consumer"
+        ],
+        "creator": "Malaterre, Christophe",
+        "date": "2010-01-01T00:00:00Z",
+        "identifier": "lesoriginesdelav0000mala",
+        "title": "Les origines de la vie : émergence ou explication réductive"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled"
+        ],
+        "creator": "Davis, John Bryan",
+        "date": "1994-01-01T00:00:00Z",
+        "identifier": "keynessphilosoph0000davi",
+        "title": "Keynes's philosophical development"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-bwarnee"
+        ],
+        "date": "1994-01-01T00:00:00Z",
+        "identifier": "marginsinclassro0000unse_p4y1",
+        "title": "Margins in the classroom : teaching literature"
+      },
+      {
+        "collection": [
+          "claremont_school_of_theology",
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-aubisque"
+        ],
+        "creator": "Biser, Eugen",
+        "date": "1988-01-01T00:00:00Z",
+        "identifier": "glaubensimpulseb0000bise",
+        "title": "Glaubensimpulse : Beiträge zur Glaubenstheorie und Religionsphilosophie"
+      },
+      {
+        "collection": [
+          "pub_journal-of-philosophical-logic",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1988-01-01T00:00:00Z",
+        "identifier": "sim_journal-of-philosophical-logic_1988_17_contents",
+        "title": "Journal of Philosophical Logic 1988: Vol 17 Table of Contents"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-jojobared",
+          "americanuniversity-ol",
+          "binghamton-ol",
+          "dartmouthlibrary-ol",
+          "drakeuniversity-ol",
+          "gwulibraries-ol",
+          "johnshopkins-ol",
+          "marymount-ol",
+          "riceuniversity-ol",
+          "rochester-ol",
+          "uni-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol",
+          "wilsoncollege-ol"
+        ],
+        "creator": "Ross, Stephen David",
+        "date": "1999-01-01T00:00:00Z",
+        "identifier": "giftofkindsgoodi0000ross",
+        "title": "The gift of kinds : the good in abundance : an ethic of the Earth"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-grebe37",
+          "fav-shruti26"
+        ],
+        "creator": "Reiners, William A",
+        "date": "2009-01-01T00:00:00Z",
+        "identifier": "philosophicalfou0000rein",
+        "title": "Philosophical foundations for the practices of ecology"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled"
+        ],
+        "creator": "Morris, Thomas V",
+        "date": "2015-01-01T00:00:00Z",
+        "identifier": "oasiswithinjourn0000morr",
+        "title": "The oasis within : a journey of preparation"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-2022mark",
+          "fav-alliodorus",
+          "fav-axionamon",
+          "fav-daniel_catte",
+          "fav-fernandoauf94",
+          "fav-greendotcreations",
+          "fav-jgallain34",
+          "fav-kclb666",
+          "fav-marbella_alexei_beer_vilansky",
+          "fav-melanie826",
+          "fav-mork_johnson",
+          "fav-sresser59"
+        ],
+        "creator": "Paskow, Alan, 1939-",
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "paradoxesofartph0000pask_i3l9",
+        "title": "The paradoxes of art : a phenomenological investigation"
+      },
+      {
+        "collection": [
+          "pub_presbyterian",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1952-05-22T00:00:00Z",
+        "identifier": "sim_presbyterian_the-presbyterian_1952-05-22_22_21",
+        "title": "The Presbyterian. 1952-05-22: Vol 22 Iss 21"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "unb-ol"
+        ],
+        "creator": "Cronin, Patricia, 1959-",
+        "date": "2003-01-01T00:00:00Z",
+        "identifier": "knowledgeforcont0000cron",
+        "title": "Knowledge for contemporary nursing practice"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-alankrita_datta",
+          "fav-david_montblanc",
+          "fav-kel62",
+          "barryuniversity-ol",
+          "binghamton-ol",
+          "gwulibraries-ol",
+          "johnshopkins-ol",
+          "occidentalcollegelibrary-ol",
+          "rochester-ol",
+          "uni-ol",
+          "wrlc-ol"
+        ],
+        "creator": "Erwin, Edward, 1937-",
+        "date": "1978-01-01T00:00:00Z",
+        "identifier": "behaviortherapys0000erwi",
+        "title": "Behavior therapy : scientific, philosophical, and moral foundations"
+      },
+      {
+        "collection": [
+          "pub_british-and-foreign-evangelical-review",
+          "sim_microfilm",
+          "periodicals",
+          "fav-michreader"
+        ],
+        "date": "1869-01-01T00:00:00Z",
+        "identifier": "sim_british-and-foreign-evangelical-review_1869-01_18_67",
+        "title": "British and Foreign Evangelical Review 1869-01: Vol 18 Iss 67"
+      },
+      {
+        "collection": [
+          "pub_presbyterian",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1848-03-18T00:00:00Z",
+        "identifier": "sim_presbyterian_the-presbyterian_1848-03-18_18_12",
+        "title": "The Presbyterian. 1848-03-18: Vol 18 Iss 12"
+      },
+      {
+        "collection": [
+          "pub_presbyterian",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1860-09-01T00:00:00Z",
+        "identifier": "sim_presbyterian_the-presbyterian_1860-09-01_30_35",
+        "title": "The Presbyterian. 1860-09-01: Vol 30 Iss 35"
+      },
+      {
+        "collection": [
+          "opensource",
+          "community"
+        ],
+        "creator": "Erinn Shaughnessy",
+        "date": "2020-02-09T00:00:00Z",
+        "identifier": "WantForOthers",
+        "title": "02: 09: 2020"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "creator": "Chambre, Richard",
+        "date": "1710-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_the-duty-of-being-public_chambre-richard_1710",
+        "title": "The duty of being publick-spirited. A sermon preach'd at St. Paul's Cathedral, the 25th of January, 1709/10, before the gentlemen educated at St. Paul's School. By Richard Chambre, ... 1710"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm",
+          "fav-joseph_gerken613"
+        ],
+        "creator": "Witherspoon, John",
+        "date": "1790-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_the-religious-education-_witherspoon-john_1790",
+        "title": "The religious education of children. A sermon, ... Preached in the Old Presbyterian Church in New-York, on the second Sabbath in May, 1789. By the Rev. John Witherspoon, ... 1790"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "creator": "Bradshaigh, Thomas",
+        "date": "1747-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_a-sermon-preached-at-str_bradshaigh-thomas_1747",
+        "title": "A sermon preached at Stratford in Suffolk, on January the 30th, 1746-7. ... By Thomas Bradshaigh ... 1747"
+      },
+      {
+        "collection": [
+          "opensource"
+        ],
+        "identifier": "al-kharida-al-bahia_202506",
+        "title": "Al Kharida Al Bahia"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Rumpf, Horst, 1930-",
+        "date": "1987-01-01T00:00:00Z",
+        "identifier": "belebungsversuch0000rump",
+        "title": "Belebungsversuche : Ausgrabungen gegen die Verödung der Lernkultur"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "creator": "Weddred, John",
+        "date": "1787-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_thoughts-on-various-caus_weddred-john_1787",
+        "title": "Thoughts on various causes of error, particularly with regard to modern Unitarian writers. By the Rev. John Weddred, ... 1787"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "creator": "Burke, Edmund",
+        "date": "1797-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_a-letter-from-the-rt-ho_burke-edmund_1797_0",
+        "title": "A letter from the Rt. Honourable Edmund Burke to His Grace the Duke of Portland, on the conduct of the minority in Parliament. Containing fifty-four articles of impeachment against the Rt. Hon. C. J. Fox. From the original copy, in the possesion [sic"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "creator": "Hoadly, Benjamin",
+        "date": "1721-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_a-sermon-preachd-before_hoadly-benjamin_1721",
+        "title": "A sermon preach'd before the Lords spiritual and temporal in Parliament assembled, at the collegiate church of St. Peter's Westminster, on Monday January 30, 1720-21. ... By Benjamin, Lord Bishop of Bangor. 1721"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm",
+          "fav-mlmoore57"
+        ],
+        "date": "1721-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_an-answer-to-mr-peirce_1721",
+        "title": "An answer to Mr. Peirce's Western inquisition, &c. 1721"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "creator": "Savile, Sir George, Bart. (8th).",
+        "date": "1762-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_an-argument-concerning-t_savile-sir-george-bart_1762",
+        "title": "An argument concerning the militia. 1762"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm",
+          "fav-lstclair"
+        ],
+        "creator": "Curll, Edmund",
+        "date": "1735-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_books-printed-for-e-cur_curll-edmund_1735",
+        "title": "Books printed for E. Curll, at Pope's-Head, in Rose-Street, Covent-Garden. 1735"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "creator": "Gavin, Antonio",
+        "date": "1726-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_a-master-key-to-popery-_gavin-antonio_1726_0",
+        "title": "A master-key to popery. In two parts. Containing I. The lives and transactions of several Bishops of Rome, ... II. The lives and abominable intrigues of several priests ... of the Church of Rome. Volume the second. By D. Antonio Gavin, ... 1726"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm",
+          "fav-mlmoore57"
+        ],
+        "date": "1788-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_anecdotes-and-other-curi_1788",
+        "title": "Anecdotes and other curious informations concerning William Brodie & George Smith; also, of James Falconer and Peter Bruce, for breaking into and robbing the Dundee Banking Company's Office, in Dundee; with other occurrences, since they received thei"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "date": "1772-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_joe-millers-jests-or-_1772",
+        "title": "Joe Miller's jests: or, the wits vade-mecum. Being a collection of the most brilliant jests, ... To which are added, choice collections of moral sentences, and ... epigrams in the British tongue; ... 1772"
+      },
+      {
+        "collection": [
+          "pub_eighteenth-century",
+          "bim_microfilm",
+          "microfilm"
+        ],
+        "date": "1735-01-01T00:00:00Z",
+        "identifier": "bim_eighteenth-century_1735_3",
+        "title": "The account of the behaviour, confessions, and dying words, of the malefactors, who were executed at Kennington-Common. 1735"
+      }
+    ]
+  }
+}

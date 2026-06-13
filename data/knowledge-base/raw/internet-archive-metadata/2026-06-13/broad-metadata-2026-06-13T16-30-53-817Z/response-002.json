@@ -1,0 +1,636 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 75,
+    "params": {
+      "query": "subject:literature AND mediatype:texts",
+      "qin": "subject:(literature) AND mediatype:(texts)",
+      "fields": "identifier,title,creator,date,collection,licenseurl",
+      "wt": "json",
+      "rows": 50,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 711356,
+    "start": 0,
+    "docs": [
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Perry, Phyllis Jean",
+        "date": "1968-01-01T00:00:00Z",
+        "identifier": "1dozenswimmers0000perr",
+        "title": "1 dozen swimmers"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Nagle, Jeanne",
+        "date": "2011-01-01T00:00:00Z",
+        "identifier": "workinghorses0000nagl",
+        "title": "Working horses"
+      },
+      {
+        "collection": [
+          "trent_university",
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-brdownes94",
+          "binghamton-ol",
+          "johnshopkins-ol",
+          "universityofarizona-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol"
+        ],
+        "creator": "Hanson, Elizabeth I",
+        "date": "1991-01-01T00:00:00Z",
+        "identifier": "thoreausindianof0000hans",
+        "title": "Thoreau's Indian of the mind"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-ian_cunningham"
+        ],
+        "creator": "Hopkins, Therese",
+        "date": "2009-01-01T00:00:00Z",
+        "identifier": "underwaterhomes0000hopk_s1m6",
+        "title": "Underwater homes"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-thaborinnng"
+        ],
+        "creator": "Bograd, Larry",
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "uniquelywyoming0000bogr",
+        "title": "Uniquely Wyoming"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-inflatablefox101",
+          "fav-kararkiy_1990",
+          "fav-my_utube_lists",
+          "fav-schwenkstar"
+        ],
+        "creator": "Munro, Roxie",
+        "date": "2006-01-01T00:00:00Z",
+        "identifier": "wildwesttrailrid0000munr",
+        "title": "The Wild West trail ride maze"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-lovetoreadtheory",
+          "bpljordan-ol"
+        ],
+        "creator": "Gay, Kathlyn",
+        "date": "1998-01-01T00:00:00Z",
+        "identifier": "whosrunningnatio0000gayk",
+        "title": "Who's running the nation? : how corporate power threatens democracy"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Lamar, Sharon, 1953-",
+        "date": "2014-01-01T00:00:00Z",
+        "identifier": "westernbutterfli0000lama",
+        "title": "Western butterflies for young explorers : an A to Z guide"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "worthingtonlibraries-ol"
+        ],
+        "creator": "Waldron, Melanie",
+        "date": "2013-01-01T00:00:00Z",
+        "identifier": "typesofmaps0000wald",
+        "title": "Types of maps"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-kuli70",
+          "fav-retiredscholar"
+        ],
+        "creator": "Nadeau, Isaac",
+        "date": "2003-01-01T00:00:00Z",
+        "identifier": "waterunderground0000nade",
+        "title": "Water under ground"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-bookaholicholly"
+        ],
+        "creator": "Scheunemann, Pam, 1955-",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "wendywally0000sche",
+        "title": "Wendy and Wally"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Waldeck, Aaron",
+        "date": "2003-01-01T00:00:00Z",
+        "identifier": "spacerockslookat0000wald",
+        "title": "Space rocks : a look at asteroids and comets"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-calleduponmisc",
+          "fav-jabp8220",
+          "fav-thaborinnng",
+          "bpljordan-ol",
+          "cnusd-ol"
+        ],
+        "creator": "Robinson, Fay",
+        "date": "1994-01-01T00:00:00Z",
+        "identifier": "soundallaround0000robi",
+        "title": "Sound all around"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-scampo98",
+          "denverpubliclibrary-ol",
+          "miltonpubliclibrary-ol"
+        ],
+        "creator": "Wiseman, Blaine",
+        "date": "2011-01-01T00:00:00Z",
+        "identifier": "stanleycup0000wise",
+        "title": "Stanley Cup"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-lectora_flower",
+          "universityofarizona-ol"
+        ],
+        "creator": "Gaffney, Kathleen, 1948-",
+        "date": "1993-01-01T00:00:00Z",
+        "identifier": "takeitfromtopmon0000gaff",
+        "title": "Take it from the top : monologues from the multicultural experience"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Dell, Pamela",
+        "date": "2008-01-01T00:00:00Z",
+        "identifier": "survivingdeathva0000dell",
+        "title": "Surviving Death Valley : desert adaptation"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-molly_perlmutter"
+        ],
+        "date": "2001-01-01T00:00:00Z",
+        "identifier": "tendermomentsinw0000unse",
+        "title": "Tender moments in the wild : animals and their babies"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Champion, Neil",
+        "date": "2006-01-01T00:00:00Z",
+        "identifier": "temperatewoodlan0000cham_a5t6",
+        "title": "Temperate woodlands"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-zhaohuxi"
+        ],
+        "date": "1992-01-01T00:00:00Z",
+        "identifier": "toveryspecialfri0000unse_y4f4",
+        "title": "To a very special friend"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-retiredscholar",
+          "delawarecountydistrictlibrary-ol",
+          "worthingtonlibraries-ol"
+        ],
+        "creator": "Challen, Paul C. (Paul Clarence), 1967-",
+        "date": "2015-01-01T00:00:00Z",
+        "identifier": "whatdoesrunningb0000chal",
+        "title": "What does a running back do?"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Colby, Jennifer, 1971-",
+        "date": "2014-01-01T00:00:00Z",
+        "identifier": "whatisplant0000colb",
+        "title": "What is a plant?"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Zimin, author",
+        "date": "1997-01-01T00:00:00Z",
+        "identifier": "xiaotaiyang00008800",
+        "title": "Xiao tai yang"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled"
+        ],
+        "creator": "Baker, Theo, author",
+        "date": "2017-01-01T00:00:00Z",
+        "identifier": "warningwildweath0000bake",
+        "title": "Warning : wild weather ahead"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Parker, Victoria",
+        "date": "2003-01-01T00:00:00Z",
+        "identifier": "whattoolsdoweuse0000park_c0i3",
+        "title": "What tools do we use -? : in the garden"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "bpljordan-ol",
+          "cnusd-ol"
+        ],
+        "creator": "Nelson, Robin, 1971-",
+        "date": "2001-01-01T00:00:00Z",
+        "identifier": "whereismytown0000nels",
+        "title": "Where is my town?"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Saunders, Bruce",
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "talkingaboutalco0000saun",
+        "title": "Talking about alcohol : asks and answers the questions"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-robotcarp"
+        ],
+        "creator": "Klepeis, Alicia, 1971- author",
+        "date": "2015-01-01T00:00:00Z",
+        "identifier": "worldsstrangestf0000klep",
+        "title": "The world's strangest foods"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-andrew_amp_sarah_gordon",
+          "fav-lisa0608"
+        ],
+        "creator": "Oxlade, Chris",
+        "date": "2003-01-01T00:00:00Z",
+        "identifier": "visitnorthernire0000oxla",
+        "title": "Visit Northern Ireland"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "belmont-ol",
+          "worthingtonlibraries-ol"
+        ],
+        "creator": "Gaarder-Juntti, Oona, 1979-",
+        "date": "2011-01-01T00:00:00Z",
+        "identifier": "whatinworldisgre0000gaar_v8k5",
+        "title": "What in the world is green energy?"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Royston, Angela",
+        "date": "1998-01-01T00:00:00Z",
+        "identifier": "transport0000roys",
+        "title": "Transport"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "bpljordan-ol",
+          "cnusd-ol"
+        ],
+        "creator": "Gerholdt, Pamela J",
+        "date": "1996-01-01T00:00:00Z",
+        "identifier": "wrinklefacedbats0000gerh",
+        "title": "Wrinkle-faced bats"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-retiredscholar",
+          "cnusd-ol",
+          "openlibrary-d-ol"
+        ],
+        "creator": "Keedle, Jayne",
+        "date": "2009-01-01T00:00:00Z",
+        "identifier": "tsunamisfloods0000keed",
+        "title": "Tsunamis and floods"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Campbell, Andrew, 1974-",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "whoeatswhoindese0000camp_m7p5",
+        "title": "Who eats who in the desert?"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-petk0616"
+        ],
+        "creator": "Nunn, Daniel",
+        "date": "2012-01-01T00:00:00Z",
+        "identifier": "whylivingthingsn0000nunn_v2a6",
+        "title": "Why living things need food"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-bookaholicholly",
+          "fav-dharr5"
+        ],
+        "creator": "Dungworth, Richard",
+        "date": "2003-01-01T00:00:00Z",
+        "identifier": "whenistartschool0000dung",
+        "title": "When I start school"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "bpljordan-ol"
+        ],
+        "creator": "Rappoport, Ken",
+        "date": "1999-01-01T00:00:00Z",
+        "identifier": "scottiepippensta0000rapp",
+        "title": "Scottie Pippen : star forward"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "delawarecountydistrictlibrary-ol",
+          "miltonpubliclibrary-ol",
+          "worthingtonlibraries-ol"
+        ],
+        "creator": "Mlynowski, Sarah",
+        "date": "2013-01-01T00:00:00Z",
+        "identifier": "silapantoufletev0000mlyn",
+        "title": "Si la pantoufle te va"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "openlibrary-d-ol"
+        ],
+        "creator": "Weatherill, Stephen, 1951-",
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "shapeupgoz0000weat_h1n0",
+        "title": "Shape up Goz"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-hpog",
+          "fav-mamashima",
+          "fav-my_utube_lists",
+          "unb-ol"
+        ],
+        "date": "2007-01-01T00:00:00Z",
+        "identifier": "shareincelebrati0000unse",
+        "title": "Share in the celebration! : learning and activity guide"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-614swerve"
+        ],
+        "creator": "Coleman, Miriam",
+        "date": "2013-01-01T00:00:00Z",
+        "identifier": "shareitusingdigi0000cole",
+        "title": "SHARE IT : USING DIGITAL TOOLS AND MEDIA"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-my_utube_lists"
+        ],
+        "creator": "Starke, John",
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "speedmachines0000star_m5c1",
+        "title": "Speed machines"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "goffstownlibrary-ol"
+        ],
+        "creator": "Norman, Tony",
+        "date": "2006-01-01T00:00:00Z",
+        "identifier": "skydiving0000norm",
+        "title": "Skydiving"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Fontes, Justine",
+        "date": "2015-01-01T00:00:00Z",
+        "identifier": "pledgeofallegian0000font",
+        "title": "The Pledge of Allegiance"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-my_utube_lists"
+        ],
+        "creator": "Texidor, Dee",
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "toytimecounting0000texi",
+        "title": "Toy time counting"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-hallam667",
+          "fav-xojennychen",
+          "worthingtonlibraries-ol"
+        ],
+        "creator": "Parker, Steve, 1952-",
+        "date": "2011-01-01T00:00:00Z",
+        "identifier": "robotsinsciencem0000park",
+        "title": "Robots in science and medicine"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "cnusd-ol"
+        ],
+        "creator": "Kjelle, Marylou Morano",
+        "date": "2007-01-01T00:00:00Z",
+        "identifier": "propertiesofmeta0000kjel",
+        "title": "The properties of metals"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Timblin, Stephen",
+        "date": "2009-01-01T00:00:00Z",
+        "identifier": "raceweeksevencra0000timb",
+        "title": "Race week : seven crazy days"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-dadadeniavlr"
+        ],
+        "creator": "Rothaus, James R",
+        "date": "1987-01-01T00:00:00Z",
+        "identifier": "pontiac0000roth",
+        "title": "Pontiac"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Egorova, Olʹga",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "rozovaiapantera0000egor",
+        "title": "Rozovai͡a pantera"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-vtalys",
+          "cnusd-ol",
+          "hamiltonpubliclibrary-ol"
+        ],
+        "creator": "Simon Beecroft",
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "releaseofnelsonm00beec",
+        "title": "The release of Nelson Mandela"
+      }
+    ]
+  }
+}

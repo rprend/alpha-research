@@ -1,0 +1,21 @@
+{
+  "run_id": "broad-metadata-2026-06-13T16-30-53-817Z",
+  "source_id": "cleveland-museum-open-access",
+  "started_at": "2026-06-13T16:31:48.995Z",
+  "completed_at": "2026-06-13T16:31:52.413Z",
+  "status": "success",
+  "access_route": "https://openaccess-api.clevelandart.org/api/artworks/?limit=50&skip=0&has_image=1 | https://openaccess-api.clevelandart.org/api/artworks/?limit=50&skip=50&has_image=1 | https://openaccess-api.clevelandart.org/api/artworks/?limit=50&skip=100&has_image=1 | https://openaccess-api.clevelandart.org/api/artworks/?limit=50&skip=150&has_image=1 | https://openaccess-api.clevelandart.org/api/artworks/?limit=50&skip=200&has_image=1",
+  "raw_outputs": [
+    "data/knowledge-base/raw/cleveland-museum-open-access/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-001.json",
+    "data/knowledge-base/raw/cleveland-museum-open-access/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-002.json",
+    "data/knowledge-base/raw/cleveland-museum-open-access/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-003.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/objects.jsonl"
+  ],
+  "record_count": 150,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

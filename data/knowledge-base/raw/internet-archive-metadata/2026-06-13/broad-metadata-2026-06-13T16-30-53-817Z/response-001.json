@@ -1,0 +1,637 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 44,
+    "params": {
+      "query": "subject:humanities AND mediatype:texts",
+      "qin": "subject:(humanities) AND mediatype:(texts)",
+      "fields": "identifier,title,creator,date,collection,licenseurl",
+      "wt": "json",
+      "rows": 50,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 18503,
+    "start": 0,
+    "docs": [
+      {
+        "collection": [
+          "internetarchivebooks",
+          "americana",
+          "printdisabled",
+          "bpljordan-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol",
+          "uslprototype"
+        ],
+        "creator": "Moore, Martha (Martha A.)",
+        "date": "1995-01-01T00:00:00Z",
+        "identifier": "undermermaidange00moor",
+        "title": "Under the mermaid angel"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Egorova, Olʹga",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "rozovaiapantera0000egor",
+        "title": "Rozovai͡a pantera"
+      },
+      {
+        "collection": [
+          "opensource"
+        ],
+        "identifier": "at-this-college-the-english-dept.-is-out.-human-narratives-is-in.-the-new-york-times",
+        "title": "At This College, The English Dept. Is Out. ‘ Human Narratives’ Is In. The New York Times"
+      },
+      {
+        "collection": [
+          "trent_university",
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-a29",
+          "fav-hae89",
+          "fav-mmos",
+          "fav-stratbot",
+          "ambslibrary-ol",
+          "barryuniversity-ol",
+          "binghamton-ol",
+          "cua-ol",
+          "dartmouthlibrary-ol",
+          "drakeuniversity-ol",
+          "framingham-ol",
+          "gwulibraries-ol",
+          "ithacacollege-ol",
+          "johnshopkins-ol",
+          "kalamazoocollege-ol",
+          "randolph-macon-college-ol",
+          "riceuniversity-ol",
+          "rochester-ol",
+          "unb-ol",
+          "uni-ol",
+          "universityofarizona-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol"
+        ],
+        "creator": "Natanson, Maurice Alexander, 1924-",
+        "date": "1973-01-01T00:00:00Z",
+        "identifier": "phenomenologysoc0000nata",
+        "title": "Phenomenology and the social sciences"
+      },
+      {
+        "collection": [
+          "pub_american-academy-of-religion-journal",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1942-05-01T00:00:00Z",
+        "identifier": "sim_american-academy-of-religion-journal_1942-05_10_2",
+        "title": "The Journal of Bible and Religion 1942-05: Vol 10 Iss 2"
+      },
+      {
+        "collection": [
+          "pub_american-scholar",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "2006-01-01T00:00:00Z",
+        "identifier": "sim_american-scholar_2006_75_index",
+        "title": "The American Scholar 2006: Vol 75 Index"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Roshchina, Natalii͡a",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "plachpalacha0000rosh",
+        "title": "Plach palacha"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "americana",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Edited by Reference",
+        "date": "2000-01-01T00:00:00Z",
+        "identifier": "grantfindercompl00edit",
+        "title": "GrantFinder : the complete guide to postgraduate funding worldwide"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-acrz",
+          "delawarecountydistrictlibrary-ol",
+          "openlibrary-d-ol",
+          "uslprototype"
+        ],
+        "creator": "Marina Endicott",
+        "date": "2010-01-01T00:00:00Z",
+        "identifier": "goodtofault00endi",
+        "title": "Good to a fault"
+      },
+      {
+        "collection": [
+          "pub_daedalus",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1957-05-01T00:00:00Z",
+        "identifier": "sim_daedalus_1957-05_86_3",
+        "title": "Daedalus 1957-05: Vol 86 Iss 3"
+      },
+      {
+        "collection": [
+          "pub_modern-fiction-studies",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1958-01-01T00:00:00Z",
+        "identifier": "sim_modern-fiction-studies_1958_4_index",
+        "title": "Modern Fiction Studies 1958: Vol 4 Index"
+      },
+      {
+        "collection": [
+          "opensource",
+          "community"
+        ],
+        "identifier": "China_201603",
+        "title": "China"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-lovetoreadtheory",
+          "binghamton-ol",
+          "johnshopkins-ol",
+          "marymount-ol",
+          "riceuniversity-ol",
+          "rochester-ol",
+          "unb-ol",
+          "uni-ol",
+          "universityofarizona-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol"
+        ],
+        "date": "1995-01-01T00:00:00Z",
+        "identifier": "afterpoliticalco0002unse",
+        "title": "After political correctness : the humanities and society in the 1990s"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1917-08-23T00:00:00Z",
+        "identifier": "sim_christian-century_1917-08-23_34_34",
+        "title": "The Christian Century 1917-08-23: Vol 34 Iss 34"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1911-10-05T00:00:00Z",
+        "identifier": "sim_christian-century_1911-10-05_28_40",
+        "title": "The Christian Century 1911-10-05: Vol 28 Iss 40"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1930-03-26T00:00:00Z",
+        "identifier": "sim_christian-century_1930-03-26_47_13",
+        "title": "The Christian Century 1930-03-26: Vol 47 Iss 13"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1905-02-09T00:00:00Z",
+        "identifier": "sim_christian-century_1905-02-09_22_6",
+        "title": "The Christian Century 1905-02-09: Vol 22 Iss 6"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1901-03-07T00:00:00Z",
+        "identifier": "sim_christian-century_1901-03-07_18_10",
+        "title": "The Christian Century 1901-03-07: Vol 18 Iss 10"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1925-10-15T00:00:00Z",
+        "identifier": "sim_christian-century_1925-10-15_42_42",
+        "title": "The Christian Century 1925-10-15: Vol 42 Iss 42"
+      },
+      {
+        "collection": [
+          "trent_university",
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-swswswswsw",
+          "unb-ol"
+        ],
+        "creator": "Hobson, G. D",
+        "date": "1983-01-01T00:00:00Z",
+        "identifier": "trent_0116401275536",
+        "title": "Polar Continental Shelf Project : titles and abstracts of scientific papers supported by PCSP"
+      },
+      {
+        "collection": [
+          "trent_university",
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-rip_thorn"
+        ],
+        "date": "1971-01-01T00:00:00Z",
+        "identifier": "essaysinhonorofd0000unse",
+        "title": "Essays in honor of David Lyall Patrick"
+      },
+      {
+        "collection": [
+          "pub_georgia-review",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "sim_georgia-review_2004_58_index",
+        "title": "The Georgia Review 2004: Vol 58 Index"
+      },
+      {
+        "collection": [
+          "pub_daedalus",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1880-05-01T00:00:00Z",
+        "identifier": "sim_daedalus_may-1880-june-1881_16",
+        "title": "Proceedings of the American Academy of Arts and Sciences May 1880-June 1881: Vol 16"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-gragon_ponn",
+          "fav-marlize_van_niekerk",
+          "uslprototype"
+        ],
+        "creator": "Fletcher, Susan, 1951-",
+        "date": "2008-01-01T00:00:00Z",
+        "identifier": "alphabetofdreams00susa",
+        "title": "Alphabet of dreams"
+      },
+      {
+        "collection": [
+          "opensource",
+          "fav-haight1968",
+          "fav-marieke_kuypers"
+        ],
+        "creator": "Bernard Sharratt",
+        "date": "2015-05-01T00:00:00Z",
+        "identifier": "critical-paranoia",
+        "title": "CRITICAL PARANOIA"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1955-02-09T00:00:00Z",
+        "identifier": "sim_christian-century_1955-02-09_72_6",
+        "title": "The Christian Century 1955-02-09: Vol 72 Iss 6"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1954-08-04T00:00:00Z",
+        "identifier": "sim_christian-century_1954-08-04_71_31",
+        "title": "The Christian Century 1954-08-04: Vol 71 Iss 31"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1939-02-22T00:00:00Z",
+        "identifier": "sim_christian-century_1939-02-22_56_8",
+        "title": "The Christian Century: A Journal of Religion 1939-02-22: Vol 56 Iss 8"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1940-05-08T00:00:00Z",
+        "identifier": "sim_christian-century_1940-05-08_57_19",
+        "title": "The Christian Century: A Journal of Religion 1940-05-08: Vol 57 Iss 19"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1938-02-02T00:00:00Z",
+        "identifier": "sim_christian-century_1938-02-02_55_5",
+        "title": "The Christian Century: A Journal of Religion 1938-02-02: Vol 55 Iss 5"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1944-07-19T00:00:00Z",
+        "identifier": "sim_christian-century_1944-07-19_61_29",
+        "title": "The Christian Century: A Journal of Religion 1944-07-19: Vol 61 Iss 29"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1946-02-13T00:00:00Z",
+        "identifier": "sim_christian-century_1946-02-13_63_7",
+        "title": "The Christian Century 1946-02-13: Vol 63 Iss 7"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1945-12-12T00:00:00Z",
+        "identifier": "sim_christian-century_1945-12-12_62_50",
+        "title": "The Christian Century 1945-12-12: Vol 62 Iss 50"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana",
+          "fav-jane6591"
+        ],
+        "date": "1945-10-10T00:00:00Z",
+        "identifier": "sim_christian-century_1945-10-10_62_41",
+        "title": "The Christian Century 1945-10-10: Vol 62 Iss 41"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1946-07-17T00:00:00Z",
+        "identifier": "sim_christian-century_1946-07-17_63_29",
+        "title": "The Christian Century 1946-07-17: Vol 63 Iss 29"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1945-05-16T00:00:00Z",
+        "identifier": "sim_christian-century_1945-05-16_62_20",
+        "title": "The Christian Century 1945-05-16: Vol 62 Iss 20"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1949-04-13T00:00:00Z",
+        "identifier": "sim_christian-century_1949-04-13_66_15",
+        "title": "The Christian Century 1949-04-13: Vol 66 Iss 15"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1948-03-17T00:00:00Z",
+        "identifier": "sim_christian-century_1948-03-17_65_11",
+        "title": "The Christian Century 1948-03-17: Vol 65 Iss 11"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1949-04-06T00:00:00Z",
+        "identifier": "sim_christian-century_1949-04-06_66_14",
+        "title": "The Christian Century 1949-04-06: Vol 66 Iss 14"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1953-07-08T00:00:00Z",
+        "identifier": "sim_christian-century_1953-07-08_70_27",
+        "title": "The Christian Century 1953-07-08: Vol 70 Iss 27"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1954-02-10T00:00:00Z",
+        "identifier": "sim_christian-century_1954-02-10_71_6",
+        "title": "The Christian Century 1954-02-10: Vol 71 Iss 6"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1954-09-01T00:00:00Z",
+        "identifier": "sim_christian-century_1954-09-01_71_35",
+        "title": "The Christian Century 1954-09-01: Vol 71 Iss 35"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1954-10-06T00:00:00Z",
+        "identifier": "sim_christian-century_1954-10-06_71_40",
+        "title": "The Christian Century 1954-10-06: Vol 71 Iss 40"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1955-09-07T00:00:00Z",
+        "identifier": "sim_christian-century_1955-09-07_72_36",
+        "title": "The Christian Century 1955-09-07: Vol 72 Iss 36"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1931-03-18T00:00:00Z",
+        "identifier": "sim_christian-century_1931-03-18_48_11",
+        "title": "The Christian Century 1931-03-18: Vol 48 Iss 11"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1932-03-16T00:00:00Z",
+        "identifier": "sim_christian-century_1932-03-16_49_11",
+        "title": "The Christian Century 1932-03-16: Vol 49 Iss 11"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1936-02-19T00:00:00Z",
+        "identifier": "sim_christian-century_1936-02-19_53_8",
+        "title": "The Christian Century: A Journal of Religion 1936-02-19: Vol 53 Iss 8"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1936-10-07T00:00:00Z",
+        "identifier": "sim_christian-century_1936-10-07_53_41",
+        "title": "The Christian Century: A Journal of Religion 1936-10-07: Vol 53 Iss 41"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1935-07-17T00:00:00Z",
+        "identifier": "sim_christian-century_1935-07-17_52_29",
+        "title": "The Christian Century: A Journal of Religion 1935-07-17: Vol 52 Iss 29"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1937-07-28T00:00:00Z",
+        "identifier": "sim_christian-century_1937-07-28_54_30",
+        "title": "The Christian Century: A Journal of Religion 1937-07-28: Vol 54 Iss 30"
+      }
+    ]
+  }
+}

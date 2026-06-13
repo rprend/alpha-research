@@ -36,6 +36,7 @@ const requiredPackageScripts = [
   'kb:inventory',
   'kb:question',
   'kb:ingest:core',
+  'kb:ingest:broad',
   'kb:index',
   'kb:tables',
   'kb:ingest:departments',
@@ -117,6 +118,7 @@ assert(existsSync(join(root, 'scripts/kb-status.mjs')), 'Missing local humanitie
 assert(existsSync(join(root, 'scripts/kb-inventory-existing.mjs')), 'Missing local humanities KB inventory script.')
 assert(existsSync(join(root, 'scripts/kb-question.mjs')), 'Missing local humanities KB question script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-core-samples.mjs')), 'Missing local humanities KB core ingest script.')
+assert(existsSync(join(root, 'scripts/kb-ingest-broad-metadata.mjs')), 'Missing local humanities KB broad metadata ingest script.')
 assert(existsSync(join(root, 'scripts/kb-build-search-index.mjs')), 'Missing local humanities KB search index script.')
 assert(existsSync(join(root, 'scripts/kb-build-analytical-tables.mjs')), 'Missing local humanities KB analytical table script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-department-pages.mjs')), 'Missing local humanities KB department page ingest script.')

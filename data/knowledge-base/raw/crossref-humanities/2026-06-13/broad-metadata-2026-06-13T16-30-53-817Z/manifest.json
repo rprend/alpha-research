@@ -1,0 +1,21 @@
+{
+  "run_id": "broad-metadata-2026-06-13T16-30-53-817Z",
+  "source_id": "crossref-humanities",
+  "started_at": "2026-06-13T16:30:57.144Z",
+  "completed_at": "2026-06-13T16:31:00.795Z",
+  "status": "success",
+  "access_route": "https://api.crossref.org/works?query.bibliographic=digital%20humanities&rows=50&offset=0 | https://api.crossref.org/works?query.bibliographic=literary%20criticism&rows=50&offset=50 | https://api.crossref.org/works?query.bibliographic=art%20history&rows=50&offset=100 | https://api.crossref.org/works?query.bibliographic=cultural%20history&rows=50&offset=150 | https://api.crossref.org/works?query.bibliographic=public%20humanities&rows=50&offset=200",
+  "raw_outputs": [
+    "data/knowledge-base/raw/crossref-humanities/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-001.json",
+    "data/knowledge-base/raw/crossref-humanities/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-002.json",
+    "data/knowledge-base/raw/crossref-humanities/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-003.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/works.jsonl"
+  ],
+  "record_count": 150,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

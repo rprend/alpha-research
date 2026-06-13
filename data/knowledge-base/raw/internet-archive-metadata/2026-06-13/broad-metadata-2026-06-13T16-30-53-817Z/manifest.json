@@ -1,0 +1,21 @@
+{
+  "run_id": "broad-metadata-2026-06-13T16-30-53-817Z",
+  "source_id": "internet-archive-metadata",
+  "started_at": "2026-06-13T16:31:00.795Z",
+  "completed_at": "2026-06-13T16:31:02.302Z",
+  "status": "success",
+  "access_route": "https://archive.org/advancedsearch.php?q=subject%3A(humanities)%20AND%20mediatype%3A(texts)&fl[]=identifier&fl[]=title&fl[]=creator&fl[]=date&fl[]=collection&fl[]=licenseurl&rows=50&page=1&output=json | https://archive.org/advancedsearch.php?q=subject%3A(literature)%20AND%20mediatype%3A(texts)&fl[]=identifier&fl[]=title&fl[]=creator&fl[]=date&fl[]=collection&fl[]=licenseurl&rows=50&page=1&output=json | https://archive.org/advancedsearch.php?q=subject%3A(philosophy)%20AND%20mediatype%3A(texts)&fl[]=identifier&fl[]=title&fl[]=creator&fl[]=date&fl[]=collection&fl[]=licenseurl&rows=50&page=1&output=json",
+  "raw_outputs": [
+    "data/knowledge-base/raw/internet-archive-metadata/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-001.json",
+    "data/knowledge-base/raw/internet-archive-metadata/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-002.json",
+    "data/knowledge-base/raw/internet-archive-metadata/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-003.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/works.jsonl"
+  ],
+  "record_count": 149,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

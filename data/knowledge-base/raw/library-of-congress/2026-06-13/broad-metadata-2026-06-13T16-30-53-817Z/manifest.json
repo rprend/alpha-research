@@ -1,0 +1,23 @@
+{
+  "run_id": "broad-metadata-2026-06-13T16-30-53-817Z",
+  "source_id": "library-of-congress",
+  "started_at": "2026-06-13T16:31:02.302Z",
+  "completed_at": "2026-06-13T16:31:48.995Z",
+  "status": "success",
+  "access_route": "https://www.loc.gov/books/?fo=json&c=50&fa=subject:literature | https://www.loc.gov/books/?fo=json&c=50&fa=subject:history | https://www.loc.gov/books/?fo=json&c=50&fa=subject:art | https://www.loc.gov/books/?fo=json&c=50&fa=subject:philosophy | https://www.loc.gov/books/?fo=json&c=50&fa=subject:music",
+  "raw_outputs": [
+    "data/knowledge-base/raw/library-of-congress/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-001.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-002.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-13/broad-metadata-2026-06-13T16-30-53-817Z/response-004.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/objects.jsonl"
+  ],
+  "record_count": 148,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": [
+    "https://www.loc.gov/books/?fo=json&c=50&fa=subject:art: HTTP 520 "
+  ]
+}

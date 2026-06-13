@@ -29,6 +29,7 @@
     "kb:inventory": "node scripts/kb-inventory-existing.mjs",
     "kb:question": "node scripts/kb-question.mjs",
     "kb:ingest:core": "node scripts/kb-ingest-core-samples.mjs",
+    "kb:ingest:broad": "node scripts/kb-ingest-broad-metadata.mjs",
     "kb:index": "node scripts/kb-build-search-index.mjs",
     "kb:tables": "node scripts/kb-build-analytical-tables.mjs",
     "kb:ingest:departments": "node scripts/kb-ingest-department-pages.mjs",

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T16:25:38.537Z",
+  "generated_at": "2026-06-13T16:32:04.916Z",
   "tables": [
     {
       "table": "works",
       "source": "data/knowledge-base/processed/works.jsonl",
       "csv": "data/knowledge-base/processed/works.csv",
-      "rows": 699,
+      "rows": 1182,
       "columns": [
         "local_id",
         "source_id",
@@ -25,7 +25,7 @@
       "table": "objects",
       "source": "data/knowledge-base/processed/objects.jsonl",
       "csv": "data/knowledge-base/processed/objects.csv",
-      "rows": 54,
+      "rows": 482,
       "columns": [
         "local_id",
         "source_id",
@@ -81,7 +81,7 @@
       "table": "source_documents",
       "source": "data/knowledge-base/processed/source_documents.jsonl",
       "csv": "data/knowledge-base/processed/source_documents.csv",
-      "rows": 816,
+      "rows": 1718,
       "columns": [
         "local_id",
         "source_id",
@@ -104,7 +104,7 @@
       "table": "rights",
       "source": "data/knowledge-base/processed/rights.jsonl",
       "csv": "data/knowledge-base/processed/rights.csv",
-      "rows": 816,
+      "rows": 1718,
       "columns": [
         "local_id",
         "source_id",
@@ -127,13 +127,13 @@
       "file": "works.csv",
       "path": "data/knowledge-base/processed/works.csv",
       "exists": true,
-      "bytes": 265054
+      "bytes": 424470
     },
     {
       "file": "objects.csv",
       "path": "data/knowledge-base/processed/objects.csv",
       "exists": true,
-      "bytes": 14560
+      "bytes": 114821
     },
     {
       "file": "pages.csv",
@@ -151,19 +151,19 @@
       "file": "source_documents.csv",
       "path": "data/knowledge-base/processed/source_documents.csv",
       "exists": true,
-      "bytes": 1180287
+      "bytes": 1444818
     },
     {
       "file": "rights.csv",
       "path": "data/knowledge-base/processed/rights.csv",
       "exists": true,
-      "bytes": 220027
+      "bytes": 438232
     },
     {
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 2514944
+      "bytes": 3506176
     }
   ]
 }
