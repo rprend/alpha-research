@@ -40,6 +40,7 @@ node docs/experiments/museum-language-drift/scripts/check-readiness.mjs
 node docs/experiments/museum-language-drift/scripts/probe-second-layer-sources.mjs --strict
 node docs/experiments/museum-language-drift/scripts/fetch-second-layer-wayback-snapshots.mjs --years=2015,2020 --max-snapshots=12
 node docs/experiments/museum-language-drift/scripts/build-second-layer-corpus.mjs
+node docs/experiments/museum-language-drift/scripts/build-second-layer-audit-packet.mjs
 ```
 
 The scripts write:
@@ -71,6 +72,9 @@ The scripts write:
 - `data/processed/second-layer-term-family-by-source-layer-year.csv`
 - `reports/second-layer-source-inventory.md`
 - `reports/second-layer-corpus-readiness.md`
+- `reports/second-layer-audit-packet.md`
+- `reports/second-layer-audit-packet.csv`
+- `reports/second-layer-audit-packet.json`
 
 ## Publication Standard
 
@@ -83,3 +87,15 @@ This study becomes publishable only after:
 - source genre differences are separated from temporal change
 
 Until then, use this folder as a source-probe and corpus-design artifact.
+
+## Second-Layer Historical Review
+
+The current second-layer corpus contains 24 pages:
+
+- 19 current pages across annual-report, provenance, repatriation, exhibition, and collection-note page types
+- 5 Wayback historical snapshots across annual-report and exhibition page types
+- source-layer status: `historical-source-probed`
+- corpus tier: `longitudinal-source-probe`
+- audit packet: `reports/second-layer-audit-packet.md`, `reports/second-layer-audit-packet.csv`, and `reports/second-layer-audit-packet.json`
+
+Historical second-layer snapshots are intentionally source-layered. Public claims should not compare annual reports, provenance/repatriation pages, exhibition pages, and collection notes as one stable genre. The next coverage step is manual quote review of the five historical records and expansion of historical provenance, repatriation, and collection-note page routes.

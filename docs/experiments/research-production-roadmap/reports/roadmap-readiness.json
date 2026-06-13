@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-13T01:42:31.933Z",
+  "generatedAt": "2026-06-13T01:46:14.138Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
-  "completeTrackCount": 2,
-  "incompleteTrackCount": 4,
+  "completeTrackCount": 3,
+  "incompleteTrackCount": 3,
   "tracks": [
     {
       "id": "university-second-layer-corpus",
@@ -22,11 +22,11 @@
       "id": "museum-second-layer-corpus",
       "title": "Museum Annual Report And Provenance Source Layers",
       "priority": 2,
-      "status": "historical-source-probed",
-      "complete": false,
+      "status": "artifact-ready",
+      "complete": true,
       "sourceExperiment": "docs/experiments/museum-language-drift/",
       "requiredEvidenceCount": 5,
-      "nextActionCount": 3,
+      "nextActionCount": 4,
       "missingRequiredEvidenceList": false,
       "missingNextActions": false
     },
@@ -80,12 +80,6 @@
     }
   ],
   "nextImplementationQueue": [
-    {
-      "id": "museum-second-layer-corpus",
-      "title": "Museum Annual Report And Provenance Source Layers",
-      "status": "historical-source-probed",
-      "sourceExperiment": "docs/experiments/museum-language-drift/"
-    },
     {
       "id": "literature-radar-broad-backfill",
       "title": "Humanities Literature Radar Broad Backfill",

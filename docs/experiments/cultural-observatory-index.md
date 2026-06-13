@@ -307,6 +307,7 @@ Implemented:
 - second-layer page-term counts
 - second-layer term-family-by-page-type table
 - second-layer term-family-by-source-layer-year table
+- second-layer audit packet for historical page-type quote review
 - readiness gate
 
 Current corpus:
@@ -325,6 +326,7 @@ Current corpus:
 - second-layer page-type counts: 9 annual-report, 6 provenance, 5 exhibition, 2 collection-note, 2 repatriation
 - second-layer historical page-type counts: 3 annual-report, 2 exhibition
 - second-layer historical year counts: 2 in 2015, 3 in 2020
+- second-layer audit packet: `reports/second-layer-audit-packet.json`, status `pending-review`, 5/5 historical rows queued
 - audit packet: 0 flagged rows after weak-page exclusions
 - publication handoff: ready for copyedit as a source-caveated longitudinal post
 - publication post: `reports/post.md`, a polished source-layer methods draft
@@ -335,6 +337,7 @@ Next implementation moves:
 
 - final editorial review for `reports/post.md`
 - retain the five-page-type current source mix plus 5 captured historical second-layer snapshots
+- manually quote-review the 5 historical second-layer snapshots before public comparison
 - expand curated historical snapshots for provenance, repatriation, and collection-note page types
 - join second-layer page-type outputs into the main readiness gate after manual quote review
 - review source snippets by hand before quoting
