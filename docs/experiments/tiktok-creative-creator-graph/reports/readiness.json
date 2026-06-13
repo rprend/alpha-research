@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:11:50.955Z",
+  "generated_at": "2026-06-13T04:15:33.510Z",
   "complete": false,
   "counts": {
     "accounts": 10837,
@@ -53,14 +53,14 @@
     "wave_ledger_failed": 0,
     "wave_ledger_imported_output_accounts": 0,
     "wave_ledger_under_yield_imports": 0,
-    "external_lead_packet_assignments": 120,
-    "external_lead_packet_requested_leads": 30000,
-    "external_lead_template_files": 120,
-    "external_lead_template_rows": 30000,
-    "external_lead_worklist_items": 511,
-    "external_lead_worklist_lead_quota": 30000,
-    "external_lead_work_item_template_files": 511,
-    "external_lead_work_item_template_rows": 30000,
+    "external_lead_packet_assignments": 200,
+    "external_lead_packet_requested_leads": 50000,
+    "external_lead_template_files": 200,
+    "external_lead_template_rows": 50000,
+    "external_lead_worklist_items": 850,
+    "external_lead_worklist_lead_quota": 50000,
+    "external_lead_work_item_template_files": 850,
+    "external_lead_work_item_template_rows": 50000,
     "external_lead_work_item_merge_input_files": 0,
     "external_lead_work_item_merge_output_files": 0,
     "external_lead_work_item_merge_unique_valid_rows": 0,
@@ -232,22 +232,27 @@
     {
       "id": "external_lead_packet",
       "status": "pass",
-      "evidence": "120 assignments requesting 30000 leads"
+      "evidence": "200 assignments requesting 50000 leads"
+    },
+    {
+      "id": "external_lead_packet_scale",
+      "status": "pass",
+      "evidence": "50000/50000 requested leads across 200/200 assignments"
     },
     {
       "id": "external_lead_templates",
       "status": "pass",
-      "evidence": "120 templates, 30000 rows"
+      "evidence": "200 templates, 50000 rows"
     },
     {
       "id": "external_lead_worklist",
       "status": "pass",
-      "evidence": "511 source work items, 30000 lead quota"
+      "evidence": "850 source work items, 50000 lead quota"
     },
     {
       "id": "external_lead_work_item_templates",
       "status": "pass",
-      "evidence": "511 work-item templates, 30000 rows"
+      "evidence": "850 work-item templates, 50000 rows"
     },
     {
       "id": "external_lead_work_item_merge",
@@ -257,7 +262,7 @@
     {
       "id": "external_lead_progress",
       "status": "pass",
-      "evidence": "0/120 import-ready assignments, 0 valid leads"
+      "evidence": "0/200 import-ready assignments, 0 valid leads"
     },
     {
       "id": "external_lead_packet_import",

@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-06-13T04:11:49.888Z",
+  "generated_at": "2026-06-13T04:15:24.079Z",
   "purpose": "Per-source external lead collection worklist derived from the token-free acquisition packet.",
-  "assignment_rows": 120,
-  "work_items": 511,
-  "total_lead_quota": 30000,
+  "assignment_rows": 200,
+  "work_items": 850,
+  "total_lead_quota": 50000,
   "source_kind_counts": {
-    "tiktok_hashtag": 31,
-    "tiktok_user_search": 120,
-    "tiktok_video_search": 120,
-    "google_search": 120,
-    "bing_search": 120
+    "tiktok_hashtag": 50,
+    "tiktok_user_search": 200,
+    "tiktok_video_search": 200,
+    "google_search": 200,
+    "bing_search": 200
   },
   "label_lead_quotas": {
-    "filmmaker": 3250,
-    "cinematographer": 3250,
-    "sketch_comedian": 3250,
-    "vfx_animation": 5000,
-    "actor_performer": 2750,
-    "editor": 1750,
-    "standup_comedian": 3500,
-    "director": 2500,
-    "behind_the_scenes_creator": 1750,
-    "film_educator": 1250,
-    "creative_technologist": 1750
+    "filmmaker": 5500,
+    "cinematographer": 5000,
+    "sketch_comedian": 5750,
+    "vfx_animation": 7750,
+    "actor_performer": 4500,
+    "editor": 2750,
+    "standup_comedian": 5500,
+    "director": 3750,
+    "behind_the_scenes_creator": 3500,
+    "film_educator": 2750,
+    "creative_technologist": 3250
   },
   "outputs": {
     "source_worklist_csv": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/source-worklist.csv",

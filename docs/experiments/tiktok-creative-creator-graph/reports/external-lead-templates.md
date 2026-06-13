@@ -1,9 +1,9 @@
 # External Lead Templates
 
-Generated: 2026-06-13T04:11:50.104Z
+Generated: 2026-06-13T04:15:24.357Z
 
-- Templates: 120
-- Total template rows: 30000
+- Templates: 200
+- Total template rows: 50000
 - Template directory: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates`
 - Completed directory: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed`
 

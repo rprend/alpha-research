@@ -1,87 +1,87 @@
 {
-  "generated_at": "2026-06-13T04:11:50.253Z",
-  "packet_assignments": 120,
+  "generated_at": "2026-06-13T04:15:24.506Z",
+  "packet_assignments": 200,
   "completed_files_seen": 0,
   "import_ready_assignments": 0,
-  "not_started_assignments": 120,
+  "not_started_assignments": 200,
   "needs_fix_assignments": 0,
   "no_valid_handles_assignments": 0,
   "under_minimum_ready_assignments": 0,
   "ready_to_import_assignments": 0,
   "valid_leads": 0,
   "duplicate_handles": 0,
-  "requested_leads": 30000,
+  "requested_leads": 50000,
   "completion_ratio": 0,
   "lead_fill_ratio": 0,
   "status_counts": {
-    "not_started": 120
+    "not_started": 200
   },
   "label_progress": {
     "filmmaker": {
-      "assignments": 13,
+      "assignments": 22,
       "import_ready_assignments": 0,
       "valid_rows": 0,
-      "lead_target": 3250
+      "lead_target": 5500
     },
     "cinematographer": {
-      "assignments": 13,
-      "import_ready_assignments": 0,
-      "valid_rows": 0,
-      "lead_target": 3250
-    },
-    "sketch_comedian": {
-      "assignments": 13,
-      "import_ready_assignments": 0,
-      "valid_rows": 0,
-      "lead_target": 3250
-    },
-    "vfx_animation": {
       "assignments": 20,
       "import_ready_assignments": 0,
       "valid_rows": 0,
       "lead_target": 5000
     },
+    "sketch_comedian": {
+      "assignments": 23,
+      "import_ready_assignments": 0,
+      "valid_rows": 0,
+      "lead_target": 5750
+    },
+    "vfx_animation": {
+      "assignments": 31,
+      "import_ready_assignments": 0,
+      "valid_rows": 0,
+      "lead_target": 7750
+    },
     "actor_performer": {
+      "assignments": 18,
+      "import_ready_assignments": 0,
+      "valid_rows": 0,
+      "lead_target": 4500
+    },
+    "editor": {
       "assignments": 11,
       "import_ready_assignments": 0,
       "valid_rows": 0,
       "lead_target": 2750
     },
-    "editor": {
-      "assignments": 7,
+    "standup_comedian": {
+      "assignments": 22,
       "import_ready_assignments": 0,
       "valid_rows": 0,
-      "lead_target": 1750
+      "lead_target": 5500
     },
-    "standup_comedian": {
+    "director": {
+      "assignments": 15,
+      "import_ready_assignments": 0,
+      "valid_rows": 0,
+      "lead_target": 3750
+    },
+    "behind_the_scenes_creator": {
       "assignments": 14,
       "import_ready_assignments": 0,
       "valid_rows": 0,
       "lead_target": 3500
     },
-    "director": {
-      "assignments": 10,
-      "import_ready_assignments": 0,
-      "valid_rows": 0,
-      "lead_target": 2500
-    },
-    "behind_the_scenes_creator": {
-      "assignments": 7,
-      "import_ready_assignments": 0,
-      "valid_rows": 0,
-      "lead_target": 1750
-    },
     "film_educator": {
-      "assignments": 5,
+      "assignments": 11,
       "import_ready_assignments": 0,
       "valid_rows": 0,
-      "lead_target": 1250
+      "lead_target": 2750
     },
     "creative_technologist": {
-      "assignments": 7,
+      "assignments": 13,
       "import_ready_assignments": 0,
       "valid_rows": 0,
-      "lead_target": 1750
+      "lead_target": 3250
     }
   },
   "next_assignments": [

@@ -168,6 +168,9 @@ function main() {
     handoffCorpus.acquisition_import_waves === acquisitionImportWaves.length &&
     handoffCorpus.source_yield_rows === sourceYield.length
   )
+  const externalLeadPacketRequestedLeads = Number(externalLeadAcquisitionPacket?.total_requested_leads ?? 0)
+  const externalLeadPacketAssignments = Number(externalLeadAcquisitionPacket?.assignment_rows ?? 0)
+  const externalLeadPacketTargetAssignments = Math.ceil(targetUsefulAccounts / Number(externalLeadAcquisitionPacket?.lead_target_per_assignment ?? 250))
 
   const checks = [
     {
@@ -311,6 +314,11 @@ function main() {
       id: 'external_lead_packet',
       status: externalLeadAcquisitionPacket?.assignment_rows > 0 ? 'pass' : 'fail',
       evidence: externalLeadAcquisitionPacket ? `${externalLeadAcquisitionPacket.assignment_rows} assignments requesting ${externalLeadAcquisitionPacket.total_requested_leads} leads` : 'external lead acquisition packet missing',
+    },
+    {
+      id: 'external_lead_packet_scale',
+      status: externalLeadPacketRequestedLeads >= targetUsefulAccounts && externalLeadPacketAssignments >= externalLeadPacketTargetAssignments ? 'pass' : 'fail',
+      evidence: externalLeadAcquisitionPacket ? `${externalLeadPacketRequestedLeads}/${targetUsefulAccounts} requested leads across ${externalLeadPacketAssignments}/${externalLeadPacketTargetAssignments} assignments` : 'external lead acquisition packet missing',
     },
     {
       id: 'external_lead_templates',

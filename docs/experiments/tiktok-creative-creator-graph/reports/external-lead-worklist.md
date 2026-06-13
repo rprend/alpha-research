@@ -1,24 +1,24 @@
 # External Lead Source Worklist
 
-Generated: 2026-06-13T04:11:49.888Z
+Generated: 2026-06-13T04:15:24.079Z
 
 This breaks the token-free acquisition packet into smaller source-level collection units. Work items point to a specific TikTok/search URL, a target label, a quota, and the completed file where accepted leads should land.
 
 ## Summary
 
-- Assignment rows: 120
-- Work items: 511
-- Total lead quota: 30000
+- Assignment rows: 200
+- Work items: 850
+- Total lead quota: 50000
 - Source worklist CSV: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/source-worklist.csv`
 - Source worklist JSONL: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/source-worklist.jsonl`
 
 ## Source Kinds
 
-- tiktok_hashtag: 31
-- tiktok_user_search: 120
-- tiktok_video_search: 120
-- google_search: 120
-- bing_search: 120
+- tiktok_hashtag: 50
+- tiktok_user_search: 200
+- tiktok_video_search: 200
+- google_search: 200
+- bing_search: 200
 
 ## First Work Items
 

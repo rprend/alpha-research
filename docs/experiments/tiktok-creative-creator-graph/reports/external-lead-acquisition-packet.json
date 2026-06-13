@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13T04:11:49.841Z",
-  "purpose": "Token-free external acquisition packet for TikTok creative creator leads.",
+  "generated_at": "2026-06-13T04:15:24.028Z",
+  "purpose": "Token-free external acquisition packet for target-scale TikTok creative creator leads.",
   "target_useful_creators": 50000,
   "current_useful_creators": 7,
   "useful_gap": 49993,
-  "assignment_rows": 120,
+  "assignment_rows": 200,
   "lead_target_per_assignment": 250,
-  "total_requested_leads": 30000,
+  "total_requested_leads": 50000,
   "category_rows": 11,
   "uncovered_labels": [
     "director",

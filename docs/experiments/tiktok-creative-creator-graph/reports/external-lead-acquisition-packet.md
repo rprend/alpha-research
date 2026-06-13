@@ -1,16 +1,16 @@
 # External Lead Acquisition Packet
 
-Generated: 2026-06-13T04:11:49.841Z
+Generated: 2026-06-13T04:15:24.028Z
 
-This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by `import-external-lead-list.mjs`.
+This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by `import-external-lead-list.mjs`. The default packet is sized to request at least the 50,000-lead discovery target before downstream quality filtering.
 
 ## Current Gap
 
 - Target useful creators: 50000
 - Current useful creators: 7
 - Useful gap: 49993
-- Assignment rows: 120
-- Requested leads in this packet: 30000
+- Assignment rows: 200
+- Requested leads in this packet: 50000
 - Category rows: 11
 - Uncovered labels: director, editor, standup_comedian, actor_performer, film_educator, behind_the_scenes_creator
 

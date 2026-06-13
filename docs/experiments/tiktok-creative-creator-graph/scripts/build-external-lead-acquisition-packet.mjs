@@ -7,7 +7,7 @@ const reportsDir = join(experimentDir, 'reports')
 const processedDir = join(experimentDir, 'data/processed')
 const externalLeadsDir = join(experimentDir, 'data/raw/external-leads')
 
-const defaultAssignments = 120
+const defaultAssignments = 200
 const defaultLeadTarget = 250
 const requiredLeadColumns = [
   'handle',
@@ -190,7 +190,7 @@ function main() {
 
   const summary = {
     generated_at: new Date().toISOString(),
-    purpose: 'Token-free external acquisition packet for TikTok creative creator leads.',
+    purpose: 'Token-free external acquisition packet for target-scale TikTok creative creator leads.',
     target_useful_creators: Number(categoryCoverage.target_useful_creators ?? 50000),
     current_useful_creators: Number(categoryCoverage.total_useful_primary_accounts ?? 0),
     useful_gap: Number(categoryCoverage.total_useful_gap ?? 0),
@@ -214,7 +214,7 @@ function main() {
 
 Generated: ${summary.generated_at}
 
-This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by \`import-external-lead-list.mjs\`.
+This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by \`import-external-lead-list.mjs\`. The default packet is sized to request at least the 50,000-lead discovery target before downstream quality filtering.
 
 ## Current Gap
 
