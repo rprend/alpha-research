@@ -1,5 +1,7 @@
 # Local Humanities Knowledge Base Plan
 
+Status: active plan, saved in repository on 2026-06-13.
+
 ## Goal
 
 Build a local research substrate for empirical humanities work: source registries, metadata, full text where legal and available, snapshots, embeddings, provenance, and update routines. Future research questions should start by querying data already present on the laptop, not by scraping the internet from scratch.
@@ -15,6 +17,18 @@ The desired workflow is:
 
 This plan supersedes ad hoc question-first scraping. Individual studies should become test cases for the knowledge base, not the foundation of the system.
 
+The editorial goal is a durable publication engine for a Substack or site about empirical humanities research. The name does not need to be "Quantitative Humanities"; possible working titles include:
+
+- Culture Ledger
+- The Humanities Observatory
+- Archive Mechanics
+- The Canon Lab
+- Cultural Drift
+- Field Notes From The Humanities
+- The Empirical Humanist
+
+The product of this system should be a steady stream of evidence-backed essays: longitudinal studies of language, canon formation, institutions, museums, journals, departments, syllabi, and public culture, plus AI-assisted proposals for study directions that expand what can be measured or compared.
+
 ## Non-Goals
 
 - Do not treat a few example experiments as a complete knowledge base.
@@ -22,6 +36,32 @@ This plan supersedes ad hoc question-first scraping. Individual studies should b
 - Do not store copyrighted full text unless the source terms clearly allow it.
 - Do not collapse provenance and rights into generic notes. Every record should carry source and rights metadata.
 - Do not optimize first for public essays. Optimize first for reusable local research capacity.
+- Do not artificially limit the system to small slices. Use samples only as validation passes before broad acquisition jobs.
+
+## Storage Contract
+
+All knowledge-base data lives under:
+
+```text
+data/knowledge-base/
+```
+
+Planned subdirectories:
+
+```text
+data/knowledge-base/
+  source-registry.json
+  rights-taxonomy.json
+  config/
+  schemas/
+  raw/
+  processed/
+  text/
+  indexes/
+  audits/
+```
+
+The working rule is simple: if a future question needs humanities evidence, first query `data/knowledge-base/`. Internet access should be used to refresh, repair, or expand the local base, not to rebuild context from zero each time.
 
 ## Core Design
 
@@ -242,6 +282,8 @@ docs/research-briefs/<slug>/missing-data.md
 
 ## Phased Implementation
 
+The implementation uses broad acquisition with controlled validation. Each ingest should start with a smoke run, then move to a wider run once schema, rights, and failure logging are correct. "Bounded sample" means "test run," not "final scope."
+
 ### Phase 0: Reframe Existing Work
 
 Purpose: separate the knowledge base from the individual experiments already created.
@@ -284,7 +326,7 @@ Outputs:
 
 Purpose: collect broad metadata that can answer many future questions.
 
-Initial priority:
+Initial acquisition priorities:
 
 1. OpenAlex works/authors/institutions for humanities-like concepts and venues.
 2. Crossref/DOAJ metadata for journals and open-access article records.
@@ -292,6 +334,15 @@ Initial priority:
 4. Project Gutenberg catalog metadata and public-domain text manifest.
 5. Library of Congress collection/item metadata samples.
 6. Museum API metadata for Met, Cleveland, Smithsonian, and other open APIs.
+
+Broad-run expectation:
+
+- OpenAlex: pull all records matching selected humanities concepts, venues, institutions, and year ranges feasible under API limits.
+- Crossref/DOAJ: pull journal and article metadata for target venues and subject categories, not only named examples.
+- Wikidata: export reusable entity tables for people, works, institutions, movements, places, genres, and occupations.
+- Project Gutenberg: import catalog metadata broadly and store allowed full text for public-domain works.
+- Cultural collections: expand from smoke samples to collection-wide metadata where APIs and terms allow.
+- NBER and adjacent sources: include only records with clear culture/history/humanities relevance and keep them labeled as adjacent, not core humanities.
 
 Outputs:
 
@@ -311,6 +362,13 @@ Actions:
 3. Add Wayback discovery for selected high-value pages.
 4. Store raw HTML and extracted text.
 5. Normalize page metadata: school, department, page type, date, source URL, archive URL.
+
+Broad-run expectation:
+
+- Start with top research universities, then expand to liberal arts colleges, public universities, HBCUs, religious colleges, art schools, and international comparators.
+- Capture departments in English, history, philosophy, classics, art history, languages, comparative literature, religion, area studies, media studies, musicology, theater, and related interdisciplinary centers.
+- Use current-page crawls plus Wayback CDX discovery for historical drift.
+- Keep crawl limits and robots/terms compliance per domain, but do not reduce the research ambition to one or two schools.
 
 Outputs:
 
@@ -358,6 +416,15 @@ Outputs:
 - missing data report
 - reusable study-design template
 
+The workbench should also generate publication concepts:
+
+- essay title options
+- candidate charts/tables
+- claim strength rating
+- missing evidence list
+- suggested follow-up acquisition
+- "why this matters" note for non-specialist readers
+
 ### Phase 6: Refresh And Maintenance
 
 Purpose: keep the local knowledge base alive.
@@ -404,6 +471,26 @@ Priority 3:
 - NBER and other humanities-adjacent policy/economics/history sources
 - publisher pages where metadata is accessible and terms allow
 
+## Publication Program
+
+The knowledge base should support recurring essay families:
+
+- Language drift: how departments, museums, journals, centers, and programs change their self-description over time.
+- Canon drift: which works, authors, periods, and concepts become more or less central across syllabi, scholarship, reference works, and public institutions.
+- Institution drift: how universities, museums, publishers, and conferences allocate attention across fields and topics.
+- Concept diffusion: how terms such as AI, ethics, race, climate, empire, public humanities, interdisciplinarity, archives, data, and care spread across sources.
+- Field maps: AI-assisted surveys of a field that propose measurable open questions and identify data gaps.
+- Comparative institutions: differences between elite/private/public/liberal-arts/international humanities ecosystems.
+- Public culture: relationships among reviews, museum language, public talks, books, and scholarship.
+
+Each essay should leave behind reusable assets in the repository:
+
+```text
+docs/research-briefs/<slug>/
+docs/experiments/<slug>/
+data/knowledge-base/audits/
+```
+
 ## Success Criteria
 
 The knowledge base is useful when:
@@ -414,6 +501,19 @@ The knowledge base is useful when:
 - rights and provenance are visible for every source
 - at least five distinct study directions can be supported from local data
 - new experiments consume KB tables instead of building one-off scrapers first
+
+The full local knowledge-base goal is complete only when:
+
+- source coverage includes broad local metadata from the main source classes, not just smoke samples
+- the source registry distinguishes planned, active, blocked, and retired routes
+- failed routes have replacement plans or explicit blocked-source memos
+- a question can produce a local-data brief without internet access
+- at least one longitudinal corpus exists for university/department pages
+- at least one broad scholarly metadata corpus exists for works/venues/authors/institutions
+- at least one cultural-collections corpus exists for objects/descriptions/acquisitions
+- public-domain or openly licensed full text is stored where allowed
+- provenance and rights audits cover every local record
+- refresh commands can rebuild indexes and audits reproducibly
 
 ## Immediate Next Step
 
@@ -439,6 +539,21 @@ Started on 2026-06-13:
 - Phase 5 has a bounded starter workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, query sketch, and missing-data memo under `docs/research-briefs/`.
 - Phase 6 has starter maintenance automation: `pnpm kb:refresh` validates, inventories, rebuilds analytical tables, refreshes coverage/rights/stale-source audits, rebuilds the index, and updates KB status.
 
+Current local footprint as of the latest committed status:
+
+- 31 registered sources.
+- 15 registered sources with local documents.
+- 134 source documents.
+- 80 works.
+- 30 cultural objects.
+- 4 department/web pages.
+- 134 rights rows.
+- 24 local text files.
+- SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
+- Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
+
+This is a foundation and harness, not the complete knowledge base.
+
 Remaining before the full knowledge-base goal is complete:
 
 - Replace JSONL/CSV/SQLite staging tables with durable Parquet/DuckDB analytical tables once a Parquet writer or DuckDB dependency is available.
@@ -448,3 +563,11 @@ Remaining before the full knowledge-base goal is complete:
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add richer SQLite FTS or semantic retrieval over stored text contents, not just document metadata.
 - Add refresh/staleness automation for every active source route, including route replacement for 403/failed department pages.
+
+Next build steps:
+
+1. Import existing experiment outputs as seed records, while marking them as experiment-derived and not confusing them with broad source coverage.
+2. Fix Wayback CDX route shape and add replacement plans for blocked LARB/403 department routes.
+3. Convert the current source registry into broad acquisition batches by source class.
+4. Run broad metadata acquisition for OpenAlex, DOAJ/Crossref, Project Gutenberg, Wikidata, and cultural-collection APIs.
+5. Build the first no-internet question brief from local data only.
