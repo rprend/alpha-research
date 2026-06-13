@@ -176,6 +176,10 @@ ${manifest.files.map((file) => `- \`${file.path}\`: ${file.rows} rows, sha256 \`
 ## Limits
 
 The current fixture release proves the export contract. The full target is 50,000 useful creators, and readiness remains incomplete until production-scale public metadata imports satisfy that target.
+
+## Source Policy
+
+Collection, release-field, safety, and retention rules are defined in \`SOURCE_POLICY.md\`. Release exports must not include raw video files, raw comments, private data, source HTML, direct contact details, or provider credentials.
 `)
 
   writeJson(join(reportsDir, 'release-package.json'), manifest)

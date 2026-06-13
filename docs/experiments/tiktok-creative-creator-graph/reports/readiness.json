@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:08:52.152Z",
+  "generated_at": "2026-06-13T04:11:50.955Z",
   "complete": false,
   "counts": {
     "accounts": 10837,
@@ -41,6 +41,7 @@
     "category_coverage_labels": 11,
     "category_coverage_covered_labels": 5,
     "release_useful_creators": 2,
+    "source_policy": 1,
     "release_verification_checks": 44,
     "scale_plan_import_batches": 10000,
     "scale_waves": 10000,
@@ -202,6 +203,11 @@
       "id": "release_package",
       "status": "pass",
       "evidence": "2 useful creators exported for release"
+    },
+    {
+      "id": "source_policy",
+      "status": "pass",
+      "evidence": "source policy covers sources, release fields, safety, retention, and provenance"
     },
     {
       "id": "release_verification",

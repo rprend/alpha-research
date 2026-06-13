@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T04:08:42.479Z
+Generated: 2026-06-13T04:11:50.790Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -96,6 +96,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 ## Key Paths
 
 - phase_plan: `docs/experiments/tiktok-creative-creator-graph/PHASE_PLAN.md`
+- source_policy: `docs/experiments/tiktok-creative-creator-graph/SOURCE_POLICY.md`
 - readme: `docs/experiments/tiktok-creative-creator-graph/README.md`
 - readiness: `docs/experiments/tiktok-creative-creator-graph/reports/readiness.json`
 - full_workflow: `docs/experiments/tiktok-creative-creator-graph/reports/full-workflow.json`

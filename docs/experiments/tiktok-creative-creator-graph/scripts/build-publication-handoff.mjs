@@ -215,6 +215,7 @@ function main() {
     },
     paths: {
       phase_plan: rel(join(experimentDir, 'PHASE_PLAN.md')),
+      source_policy: rel(join(experimentDir, 'SOURCE_POLICY.md')),
       readme: rel(join(experimentDir, 'README.md')),
       readiness: rel(join(reportsDir, 'readiness.json')),
       full_workflow: rel(join(reportsDir, 'full-workflow.json')),

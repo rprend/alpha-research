@@ -5,6 +5,7 @@ const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/tiktok-creative-creator-graph')
 const processedDir = join(experimentDir, 'data/processed')
 const reportsDir = join(experimentDir, 'reports')
+const sourcePolicyPath = join(experimentDir, 'SOURCE_POLICY.md')
 
 const targetUsefulAccounts = 50000
 const targetExcellentAccounts = 5000
@@ -151,6 +152,14 @@ function main() {
   const rejectedAccounts = scores.filter((row) => row.status === 'reject').length
   const scoredAccounts = new Set(scores.map((row) => row.creator_id)).size
   const handoffCorpus = publicationHandoff?.current_corpus ?? {}
+  const sourcePolicy = existsSync(sourcePolicyPath) ? readFileSync(sourcePolicyPath, 'utf8') : ''
+  const sourcePolicyReady = [
+    'Allowed Source Classes',
+    'Release Field Policy',
+    'Safety And Exclusion Filters',
+    'Retention Rules',
+    'Required Provenance',
+  ].every((section) => sourcePolicy.includes(section))
   const handoffFresh = Boolean(
     publicationHandoff?.dataset_id === 'tiktok-creative-creator-graph' &&
     handoffCorpus.accounts === accounts.length &&
@@ -272,6 +281,11 @@ function main() {
       id: 'release_package',
       status: releaseUseful.length > 0 ? 'pass' : 'fail',
       evidence: `${releaseUseful.length} useful creators exported for release`,
+    },
+    {
+      id: 'source_policy',
+      status: sourcePolicyReady ? 'pass' : 'fail',
+      evidence: sourcePolicyReady ? 'source policy covers sources, release fields, safety, retention, and provenance' : 'SOURCE_POLICY.md missing required sections',
     },
     {
       id: 'release_verification',
@@ -424,6 +438,7 @@ function main() {
       category_coverage_labels: categoryCoverage?.labels ?? 0,
       category_coverage_covered_labels: categoryCoverage?.covered_labels ?? 0,
       release_useful_creators: releaseUseful.length,
+      source_policy: sourcePolicyReady ? 1 : 0,
       release_verification_checks: releaseVerification?.checks?.length ?? 0,
       scale_plan_import_batches: scalePlan?.estimated_work?.import_batches_needed ?? 0,
       scale_waves: scaleWaves.length,
@@ -527,6 +542,7 @@ Complete: ${summary.complete}
 - Identities: ${summary.counts.identities}
 - Category coverage labels: ${summary.counts.category_coverage_covered_labels}/${summary.counts.category_coverage_labels}
 - Release useful creators: ${summary.counts.release_useful_creators}
+- Source policy: ${summary.counts.source_policy ? 'present' : 'missing'}
 - Release verification checks: ${summary.counts.release_verification_checks}
 - Scale plan import batches: ${summary.counts.scale_plan_import_batches}
 - Scale waves: ${summary.counts.scale_waves}

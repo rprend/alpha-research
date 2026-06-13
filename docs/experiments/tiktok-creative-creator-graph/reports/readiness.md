@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T04:08:52.152Z
+Generated: 2026-06-13T04:11:50.955Z
 
 Complete: false
 
@@ -41,6 +41,7 @@ Complete: false
 - Identities: 10686
 - Category coverage labels: 5/11
 - Release useful creators: 2
+- Source policy: present
 - Release verification checks: 44
 - Scale plan import batches: 10000
 - Scale waves: 10000
@@ -115,6 +116,7 @@ Complete: false
 - identity_resolution: pass (10686 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)
 - release_package: pass (2 useful creators exported for release)
+- source_policy: pass (source policy covers sources, release fields, safety, retention, and provenance)
 - release_verification: pass (44 release checks evaluated)
 - scale_plan: pass (10000 estimated import batches)
 - scale_waves: pass (10000 executable acquisition waves planned)

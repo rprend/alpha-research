@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Data Card
 
-Generated: 2026-06-13T04:08:41.002Z
+Generated: 2026-06-13T04:11:49.319Z
 
 ## Purpose
 
@@ -29,3 +29,7 @@ This release package contains TikTok-visible creative creator records for discov
 ## Limits
 
 The current fixture release proves the export contract. The full target is 50,000 useful creators, and readiness remains incomplete until production-scale public metadata imports satisfy that target.
+
+## Source Policy
+
+Collection, release-field, safety, and retention rules are defined in `SOURCE_POLICY.md`. Release exports must not include raw video files, raw comments, private data, source HTML, direct contact details, or provider credentials.
