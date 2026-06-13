@@ -12,6 +12,128 @@ The first corpus build still matters, but it serves a larger goal: a Substack/si
 
 The default posture is full-scale collection where a source permits it. Small pulls are only for schema probes, smoke tests, and cost/rate-limit validation. Public conclusions should come from broad backfills, recurring monitors, or clearly bounded corpora, not deliberately tiny slices.
 
+## 2026-06-12 Update: Holistic Plan
+
+The project goal is now explicit: build a publication and research archive for evidence-backed essays about cultural change. Alpha Research is the machinery underneath it, not the story itself.
+
+The public product should be:
+
+```text
+Archive Signals
+Essays and datasets on how culture changes.
+```
+
+The research-system wrapper should be:
+
+```text
+The Cultural Observatory
+The source inventories, datasets, monitors, and AI-scouted study briefs behind the publication.
+```
+
+`Quantitative humanities` remains useful as a descriptive tag, but it is not the best masthead. It describes the method. The publication should lead with the reader benefit: seeing changes in ideas, institutions, canons, scholarship, archives, and public memory that are hard to see by ordinary reading alone.
+
+The program has two primary research motions:
+
+1. Longitudinal studies.
+   - Track how language, topics, canons, institutions, and cultural categories change across years or decades.
+   - Default examples: university mission language, museum language, syllabus and anthology canon drift, library/archive description drift, concept drift around terms such as `democracy`, `civilization`, `empire`, `labor`, `race`, `nature`, `AI`, and `the human`.
+
+2. AI-assisted field expansion.
+   - Ask agents to inspect a field, map available sources, propose studies, state failure modes, and identify what would actually add knowledge.
+   - Treat agent output as a research-scout artifact, not as authority.
+   - Human-audit every proposed study before it enters the production roadmap.
+
+The plan is intentionally not small-slice. Every source family should move through this sequence:
+
+```text
+schema-probe -> broad backfill -> normalization -> audit -> publication artifact -> monitor
+```
+
+Where data goes:
+
+- raw downloaded or fetched source records: `docs/experiments/<study-slug>/data/raw/<source>/<run-date>/`
+- run manifests: `docs/experiments/<study-slug>/data/raw/<source>/<run-date>/manifest.json`
+- source inventories: `docs/experiments/<study-slug>/reports/source-inventory.md` and `.csv`
+- normalized intermediate records: `docs/experiments/<study-slug>/data/interim/`
+- processed reusable tables: `docs/experiments/<study-slug>/data/processed/`
+- publication artifacts: `docs/experiments/<study-slug>/reports/`
+- recurring monitor outputs: `docs/experiments/<study-slug>/runs/YYYY-MM-DD/`
+- Alpha Research dataset bundles: `docs/experiments/<study-slug>/dataset-bundle/`
+- deployed Alpha Research dataset mirror: `/data/datasets/<dataset-id>/`
+- cross-project editorial index: `docs/experiments/cultural-observatory-index.md`
+- implementation roadmap: `docs/experiments/research-production-roadmap/`
+
+The first operating portfolio should cover five source families at real scale:
+
+1. Scholarly literature and preprints.
+   - OpenAlex, Crossref, DOAJ OAI-PMH, Humanities Commons/CORE, SocArXiv, arXiv, NBER, and selected humanities journal or repository metadata.
+   - Purpose: field maps such as `AI Is Now A Humanities Object` and `Where The Quantitative Humanities Already Exists`.
+   - Target state: publication corpus plus monthly monitor.
+
+2. Institutional public language.
+   - University mission/about pages, catalogs, strategic plans, president messages, commencement speeches, museum annual reports, exhibition pages, provenance/repatriation pages, and archive/library public descriptions.
+   - Purpose: `What Changed?` essays about institutions, culture, public values, and professional vocabularies.
+   - Target state: longitudinal corpus with current pages and Wayback snapshots.
+
+3. Canon and curriculum signals.
+   - Public syllabi, course catalogs, anthology tables of contents, reading lists, library holdings, citation metadata, and edition histories.
+   - Purpose: canon drift and reception-history essays.
+   - Target state: source-layer feasibility first, then broad backfills for whichever routes can support defensible claims.
+
+4. Cultural collections and memory infrastructure.
+   - Open museum APIs, archive finding aids, collection metadata, public-library or institutional repository metadata where access terms permit.
+   - Purpose: essays about what gets described, digitized, classified, exhibited, and made searchable.
+   - Target state: full-source corpora where APIs expose complete collections.
+
+5. Research-scout generated corpora.
+   - Agent-proposed study briefs that identify underused data sources and measurable questions.
+   - Purpose: expand the publication beyond obvious literature reviews.
+   - Target state: each accepted scout brief becomes an experiment folder with exact source routes and a first broad backfill command.
+
+Phase sequencing from here:
+
+1. Stabilize the Season One package.
+   - Make existing article-ready folders copyedit-ready.
+   - Preserve caveats and source-tier labels.
+   - Publish from artifacts that already exist, not from vague claims.
+
+2. Scale the literature radar.
+   - Continue DOAJ OAI-PMH beyond the current broad backfill checkpoint when needed.
+   - Add or improve OpenAlex, Crossref, Humanities Commons/CORE, SocArXiv, arXiv, and NBER routes.
+   - Store each source in its own raw directory and preserve manifests.
+   - Rebuild `data/interim/`, `data/processed/`, `reports/`, and `dataset-bundle/` after each broad source expansion.
+
+3. Upgrade longitudinal studies.
+   - Expand university and museum corpora from current-page probes into source-layered historical corpora.
+   - Add Wayback snapshots and second-layer sources before making strong change-over-time claims.
+   - Keep source genres separate so catalog language is not confused with mission-page language or annual-report language.
+
+4. Build canon-drift infrastructure.
+   - Treat this as a hard source problem first.
+   - Compare Open Syllabus, public syllabi, course catalogs, anthology TOCs, citations, and library holdings as separate signal layers.
+   - Publish a feasibility map before claiming canon movement.
+
+5. Run AI research scouts as a standing workflow.
+   - Each scout run gets `prompt.md`, `source-context.md`, `proposals.json`, `audit.md`, and `selected-briefs.md`.
+   - Accepted briefs must name exact datasets, storage paths, transformations, failure modes, and the first broad collection command.
+   - Rejected briefs should be preserved, because the audit itself is useful editorial material.
+
+6. Register and remote-verify reusable datasets.
+   - Promote mature corpora into Alpha Research dataset bundles.
+   - Sync bundles to the dataset mount.
+   - Register them with stable dataset ids.
+   - Run remote smoke analyses that prove an agent can answer questions from the mounted data and cite records.
+
+7. Convert broad corpora into monitors.
+   - Store monitor runs under `runs/YYYY-MM-DD/`.
+   - Separate genuinely new publications from newly discovered old records.
+   - Use monitor deltas as a recurring source of posts and field updates.
+
+8. Publish with an evidence contract.
+   - Every public post must include a corpus note, method note, caveats, representative records, and reusable artifact paths.
+   - Every strong trend claim must be backed by a publication corpus, monitor corpus, or full-source corpus.
+   - Probe-level results can be published only as methods or feasibility notes.
+
 ## Scale Doctrine
 
 This program should not optimize for toy demonstrations. It should optimize for publishable empirical leverage. A dataset is allowed to be small only when the world is small, the source is bounded, or the essay is explicitly a feasibility note. Otherwise, the expected path is:
