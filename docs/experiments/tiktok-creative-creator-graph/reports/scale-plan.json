@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13T03:21:49.437Z",
+  "generated_at": "2026-06-13T03:26:25.455Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
     "review_decisions": 500
   },
   "current": {
-    "accounts": 2298,
+    "accounts": 3634,
     "useful_creators": 2,
     "excellent_creators": 1,
     "review_decisions": 4
@@ -17,7 +17,7 @@
     "review_decisions": 496
   },
   "planning_assumptions": {
-    "observed_useful_rate": 0.003,
+    "observed_useful_rate": 0.002,
     "planning_useful_rate": 0.02,
     "observed_excellent_rate_among_useful": 0.857,
     "planning_excellent_rate_among_useful": 0.1,
@@ -237,8 +237,20 @@
     },
     {
       "sequence": 10,
-      "batch_id": "graph_0078",
+      "batch_id": "graph_0073",
       "frontier_rank": 10,
+      "frontier_score": 84,
+      "priority": 1,
+      "acquisition_surface": "tiktok_hashtag_export",
+      "query": "actor",
+      "target_kind": "query",
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
+    },
+    {
+      "sequence": 11,
+      "batch_id": "graph_0078",
+      "frontier_rank": 11,
       "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
@@ -248,9 +260,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 11,
+      "sequence": 12,
       "batch_id": "graph_0085",
-      "frontier_rank": 11,
+      "frontier_rank": 12,
       "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
@@ -260,9 +272,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 12,
+      "sequence": 13,
       "batch_id": "graph_0079",
-      "frontier_rank": 12,
+      "frontier_rank": 13,
       "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "cross_platform_search",
@@ -272,9 +284,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 13,
+      "sequence": 14,
       "batch_id": "graph_0071",
-      "frontier_rank": 13,
+      "frontier_rank": 14,
       "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "cross_platform_search",
@@ -284,9 +296,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 14,
+      "sequence": 15,
       "batch_id": "graph_0087",
-      "frontier_rank": 14,
+      "frontier_rank": 15,
       "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "cross_platform_search",
@@ -296,9 +308,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 15,
+      "sequence": 16,
       "batch_id": "graph_0080",
-      "frontier_rank": 15,
+      "frontier_rank": 16,
       "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
@@ -308,9 +320,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 16,
+      "sequence": 17,
       "batch_id": "category_gap_0029",
-      "frontier_rank": 16,
+      "frontier_rank": 17,
       "frontier_score": 80,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
@@ -320,9 +332,9 @@
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
     },
     {
-      "sequence": 17,
+      "sequence": 18,
       "batch_id": "category_gap_0028",
-      "frontier_rank": 17,
+      "frontier_rank": 18,
       "frontier_score": 80,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
@@ -332,9 +344,9 @@
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
     },
     {
-      "sequence": 18,
+      "sequence": 19,
       "batch_id": "search_0006",
-      "frontier_rank": 18,
+      "frontier_rank": 19,
       "frontier_score": 80,
       "priority": 1,
       "acquisition_surface": "search_index",
@@ -344,9 +356,9 @@
       "import_target": "data/raw/imports/search-index-export.jsonl"
     },
     {
-      "sequence": 19,
+      "sequence": 20,
       "batch_id": "hashtag_0020",
-      "frontier_rank": 19,
+      "frontier_rank": 20,
       "frontier_score": 80,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
@@ -354,18 +366,6 @@
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for hashtag",
       "import_target": "data/raw/imports/hashtag-export.jsonl"
-    },
-    {
-      "sequence": 20,
-      "batch_id": "graph_0073",
-      "frontier_rank": 20,
-      "frontier_score": 78,
-      "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "actor",
-      "target_kind": "query",
-      "expected_output": "recent public videos and author profiles for adjacent hashtag",
-      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
       "sequence": 21,

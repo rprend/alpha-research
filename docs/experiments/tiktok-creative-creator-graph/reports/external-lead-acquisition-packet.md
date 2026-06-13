@@ -1,6 +1,6 @@
 # External Lead Acquisition Packet
 
-Generated: 2026-06-13T03:21:49.652Z
+Generated: 2026-06-13T03:26:25.684Z
 
 This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by `import-external-lead-list.mjs`.
 
@@ -43,17 +43,17 @@ Accept public TikTok profiles with original creative work and visible craft, pro
 | external_packet_0007 | filmmaker | 250 | tiktok_hashtag_export | filmmaker | https://www.tiktok.com/tag/filmmaker |
 | external_packet_0008 | filmmaker | 250 | tiktok_hashtag_export | shortfilm | https://www.tiktok.com/tag/shortfilm |
 | external_packet_0009 | sketch_comedian | 250 | tiktok_hashtag_export | sketchcomedy | https://www.tiktok.com/tag/sketchcomedy |
-| external_packet_0010 | vfx_animation | 250 | tiktok_hashtag_export | blender | https://www.tiktok.com/tag/blender |
-| external_packet_0011 | cinematographer | 250 | tiktok_hashtag_export | lighting | https://www.tiktok.com/tag/lighting |
-| external_packet_0012 | vfx_animation | 250 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | https://www.tiktok.com/search/user?q=site%3Abeacons.ai%20tiktok.com%2F%40%20vfx%20animation |
-| external_packet_0013 | filmmaker | 250 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | https://www.tiktok.com/search/user?q=site%3Avimeo.com%20tiktok.com%2F%40%20filmmaker |
-| external_packet_0014 | sketch_comedian | 250 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | https://www.tiktok.com/search/user?q=site%3Ayoutube.com%20tiktok.com%2F%40%20sketch%20comedian |
-| external_packet_0015 | vfx_animation | 250 | tiktok_hashtag_export | vfx | https://www.tiktok.com/tag/vfx |
-| external_packet_0016 | editor | 250 | category_gap_search | site:tiktok.com/@ "editing" | https://www.tiktok.com/search/user?q=editing |
-| external_packet_0017 | editor | 250 | category_gap_search | site:tiktok.com/@ "editor" | https://www.tiktok.com/search/user?q=editor |
-| external_packet_0018 | editor | 250 | search_index | site:tiktok.com/@ "video editor" | https://www.tiktok.com/search/user?q=video%20editor |
-| external_packet_0019 | vfx_animation | 250 | tiktok_hashtag_export | vfxartist | https://www.tiktok.com/tag/vfxartist |
-| external_packet_0020 | actor_performer | 250 | tiktok_hashtag_export | actor | https://www.tiktok.com/tag/actor |
+| external_packet_0010 | actor_performer | 250 | tiktok_hashtag_export | actor | https://www.tiktok.com/tag/actor |
+| external_packet_0011 | vfx_animation | 250 | tiktok_hashtag_export | blender | https://www.tiktok.com/tag/blender |
+| external_packet_0012 | cinematographer | 250 | tiktok_hashtag_export | lighting | https://www.tiktok.com/tag/lighting |
+| external_packet_0013 | vfx_animation | 250 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | https://www.tiktok.com/search/user?q=site%3Abeacons.ai%20tiktok.com%2F%40%20vfx%20animation |
+| external_packet_0014 | filmmaker | 250 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | https://www.tiktok.com/search/user?q=site%3Avimeo.com%20tiktok.com%2F%40%20filmmaker |
+| external_packet_0015 | sketch_comedian | 250 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | https://www.tiktok.com/search/user?q=site%3Ayoutube.com%20tiktok.com%2F%40%20sketch%20comedian |
+| external_packet_0016 | vfx_animation | 250 | tiktok_hashtag_export | vfx | https://www.tiktok.com/tag/vfx |
+| external_packet_0017 | editor | 250 | category_gap_search | site:tiktok.com/@ "editing" | https://www.tiktok.com/search/user?q=editing |
+| external_packet_0018 | editor | 250 | category_gap_search | site:tiktok.com/@ "editor" | https://www.tiktok.com/search/user?q=editor |
+| external_packet_0019 | editor | 250 | search_index | site:tiktok.com/@ "video editor" | https://www.tiktok.com/search/user?q=video%20editor |
+| external_packet_0020 | vfx_animation | 250 | tiktok_hashtag_export | vfxartist | https://www.tiktok.com/tag/vfxartist |
 
 Full assignment CSV: `data/raw/external-leads/acquisition-packet.csv`
 Category target CSV: `data/raw/external-leads/category-targets.csv`

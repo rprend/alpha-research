@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:21:48.951Z",
+  "generated_at": "2026-06-13T03:26:24.771Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 5,
@@ -40,7 +40,7 @@
     {
       "label": "cinematographer",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 48,
+      "current_primary_accounts": 58,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 0,
@@ -95,7 +95,7 @@
     {
       "label": "actor_performer",
       "target_useful_creators": 4000,
-      "current_primary_accounts": 387,
+      "current_primary_accounts": 3979,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 2,
@@ -117,7 +117,7 @@
     {
       "label": "behind_the_scenes_creator",
       "target_useful_creators": 3000,
-      "current_primary_accounts": 267,
+      "current_primary_accounts": 268,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 1,
@@ -128,7 +128,7 @@
     {
       "label": "creative_technologist",
       "target_useful_creators": 2000,
-      "current_primary_accounts": 445,
+      "current_primary_accounts": 446,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 0,

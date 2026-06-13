@@ -1,6 +1,6 @@
 # Wave Ledger
 
-Generated: 2026-06-13T03:21:49.567Z
+Generated: 2026-06-13T03:26:25.589Z
 
 - Waves: 10000
 - Planned: 10000
@@ -42,16 +42,16 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | 7 | scale_wave_0007 | planned | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
 | 8 | scale_wave_0008 | planned | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
 | 9 | scale_wave_0009 | planned | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
-| 10 | scale_wave_0010 | planned | vfx_animation | tiktok_hashtag_export | blender | 0 | n/a | 1 |
-| 11 | scale_wave_0011 | planned | cinematographer | tiktok_hashtag_export | lighting | 0 | n/a | 1 |
-| 12 | scale_wave_0012 | planned | vfx_animation | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | 0 | n/a | 1 |
-| 13 | scale_wave_0013 | planned | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
-| 14 | scale_wave_0014 | planned | sketch_comedian | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | 0 | n/a | 1 |
-| 15 | scale_wave_0015 | planned | vfx_animation | tiktok_hashtag_export | vfx | 0 | n/a | 1 |
-| 16 | scale_wave_0016 | planned | editor | category_gap_search | site:tiktok.com/@ "editing" | 0 | n/a | 1 |
-| 17 | scale_wave_0017 | planned | editor | category_gap_search | site:tiktok.com/@ "editor" | 0 | n/a | 1 |
-| 18 | scale_wave_0018 | planned | editor | search_index | site:tiktok.com/@ "video editor" | 0 | n/a | 1 |
-| 19 | scale_wave_0019 | planned | vfx_animation | tiktok_hashtag_export | vfxartist | 0 | n/a | 1 |
-| 20 | scale_wave_0020 | planned | actor_performer | tiktok_hashtag_export | actor | 0 | n/a | 1 |
+| 10 | scale_wave_0010 | planned | actor_performer | tiktok_hashtag_export | actor | 0 | n/a | 1 |
+| 11 | scale_wave_0011 | planned | vfx_animation | tiktok_hashtag_export | blender | 0 | n/a | 1 |
+| 12 | scale_wave_0012 | planned | cinematographer | tiktok_hashtag_export | lighting | 0 | n/a | 1 |
+| 13 | scale_wave_0013 | planned | vfx_animation | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | 0 | n/a | 1 |
+| 14 | scale_wave_0014 | planned | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
+| 15 | scale_wave_0015 | planned | sketch_comedian | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | 0 | n/a | 1 |
+| 16 | scale_wave_0016 | planned | vfx_animation | tiktok_hashtag_export | vfx | 0 | n/a | 1 |
+| 17 | scale_wave_0017 | planned | editor | category_gap_search | site:tiktok.com/@ "editing" | 0 | n/a | 1 |
+| 18 | scale_wave_0018 | planned | editor | category_gap_search | site:tiktok.com/@ "editor" | 0 | n/a | 1 |
+| 19 | scale_wave_0019 | planned | editor | search_index | site:tiktok.com/@ "video editor" | 0 | n/a | 1 |
+| 20 | scale_wave_0020 | planned | vfx_animation | tiktok_hashtag_export | vfxartist | 0 | n/a | 1 |
 
 Full ledger: `data/processed/wave_ledger.csv`

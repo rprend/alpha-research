@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:21:49.693Z",
+  "generated_at": "2026-06-13T03:26:25.727Z",
   "purpose": "Per-source external lead collection worklist derived from the token-free acquisition packet.",
   "assignment_rows": 120,
   "work_items": 511,
@@ -16,8 +16,8 @@
     "cinematographer": 3250,
     "sketch_comedian": 3250,
     "vfx_animation": 5000,
-    "editor": 1750,
     "actor_performer": 2750,
+    "editor": 1750,
     "standup_comedian": 3500,
     "director": 2500,
     "behind_the_scenes_creator": 1750,

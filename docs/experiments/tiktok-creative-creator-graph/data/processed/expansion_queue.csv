@@ -1,14 +1,14 @@
 expansion_type,source_creator_id,target,priority,reason,primary_label,overall_usefulness,evidence_count
-yield_replay_search,,review_queue_priority_1,1,replay_high_yield_source:public_profile_enrichment,,680,1
+yield_replay_search,,review_queue_priority_1,1,replay_high_yield_source:public_profile_enrichment,,765,1
 expand_from_creator,maya.shortcuts,@maya.shortcuts,1,high_usefulness_source,filmmaker,98,1
-hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,13
-hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes,filmmaker,98,27
+hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,14
+hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes,filmmaker,98,29
 yield_replay_search,,filmmaker short film editing breakdown,1,replay_high_yield_source:manual_seed,,98,1
-hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,13
+hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,14
 cross_platform_search,maya.shortcuts,"site:vimeo.com ""tiktok.com/@"" ""filmmaker""",1,cross_platform_adjacency:vimeo.com,filmmaker,98,1
 expand_from_creator,basementbits,@basementbits,1,high_usefulness_source,sketch_comedian,94,1
-hashtag_search,basementbits,actor,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,13
-hashtag_search,basementbits,sketchcomedy,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,13
+hashtag_search,basementbits,actor,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,14
+hashtag_search,basementbits,sketchcomedy,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,14
 expand_from_creator,selahshoots,@selahshoots,1,high_usefulness_source,filmmaker,92,1
 expand_from_creator,ani.motionlab,@ani.motionlab,1,high_usefulness_source,vfx_animation,87,1
 hashtag_search,ani.motionlab,animation,1,useful_creator_hashtag:@ani.motionlab,vfx_animation,87,1

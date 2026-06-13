@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T03:21:49.437Z
+Generated: 2026-06-13T03:26:25.455Z
 
 ## Targets
 
@@ -10,7 +10,7 @@ Generated: 2026-06-13T03:21:49.437Z
 
 ## Current
 
-- Accounts: 2298
+- Accounts: 3634
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4
@@ -24,7 +24,7 @@ Generated: 2026-06-13T03:21:49.437Z
 
 ## Planning Assumptions
 
-- Observed useful rate: 0.003
+- Observed useful rate: 0.002
 - Planning useful rate: 0.02
 - Observed excellent rate among useful: 0.857
 - Planning excellent rate among useful: 0.1
@@ -59,17 +59,17 @@ Candidate frontier targets: 87
 | 7 | 7 | 86 | 1 | tiktok_hashtag_export | filmmaker |
 | 8 | 8 | 86 | 1 | tiktok_hashtag_export | shortfilm |
 | 9 | 9 | 86 | 1 | tiktok_hashtag_export | sketchcomedy |
-| 10 | 10 | 83 | 1 | tiktok_hashtag_export | blender |
-| 11 | 11 | 83 | 1 | tiktok_hashtag_export | lighting |
-| 12 | 12 | 83 | 1 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" |
-| 13 | 13 | 83 | 1 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
-| 14 | 14 | 83 | 1 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" |
-| 15 | 15 | 83 | 1 | tiktok_hashtag_export | vfx |
-| 16 | 16 | 80 | 1 | category_gap_search | site:tiktok.com/@ "editing" |
-| 17 | 17 | 80 | 1 | category_gap_search | site:tiktok.com/@ "editor" |
-| 18 | 18 | 80 | 1 | search_index | site:tiktok.com/@ "video editor" |
-| 19 | 19 | 80 | 1 | tiktok_hashtag_export | vfxartist |
-| 20 | 20 | 78 | 1 | tiktok_hashtag_export | actor |
+| 10 | 10 | 84 | 1 | tiktok_hashtag_export | actor |
+| 11 | 11 | 83 | 1 | tiktok_hashtag_export | blender |
+| 12 | 12 | 83 | 1 | tiktok_hashtag_export | lighting |
+| 13 | 13 | 83 | 1 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" |
+| 14 | 14 | 83 | 1 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 15 | 15 | 83 | 1 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" |
+| 16 | 16 | 83 | 1 | tiktok_hashtag_export | vfx |
+| 17 | 17 | 80 | 1 | category_gap_search | site:tiktok.com/@ "editing" |
+| 18 | 18 | 80 | 1 | category_gap_search | site:tiktok.com/@ "editor" |
+| 19 | 19 | 80 | 1 | search_index | site:tiktok.com/@ "video editor" |
+| 20 | 20 | 80 | 1 | tiktok_hashtag_export | vfxartist |
 | 21 | 21 | 78 | 1 | search_index | review_queue_priority_1 |
 | 22 | 22 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor performer" |
 | 23 | 23 | 75 | 1 | category_gap_search | site:tiktok.com/@ "actor" |

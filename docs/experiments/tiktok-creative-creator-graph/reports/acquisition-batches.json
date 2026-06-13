@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13T03:21:49.143Z",
+  "generated_at": "2026-06-13T03:26:25.031Z",
   "tasks": 92,
   "useful_creators_available_for_expansion": 7,
-  "source_yield_rows": 168,
+  "source_yield_rows": 383,
   "category_coverage_rows": 11,
   "priority_counts": {
-    "1": 62,
-    "2": 28,
+    "1": 61,
+    "2": 29,
     "3": 2
   },
   "surface_counts": {

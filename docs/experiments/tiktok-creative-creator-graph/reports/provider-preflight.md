@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-13T03:21:50.054Z
+Generated: 2026-06-13T03:26:26.143Z
 
 - Provider: apify
 - Provider viability: missing_token
@@ -47,7 +47,7 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | scale_wave_0008 | graph_0092 | search_index | mentioned by @ani.motionlab | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0009 | graph_0074 | tiktok_hashtag_export | sketchcomedy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0009 | graph_0067 | tiktok_hashtag_export | bts | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0078 | tiktok_hashtag_export | blender | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | graph_0073 | tiktok_hashtag_export | actor | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0010 | category_gap_0060 | category_gap_search | site:tiktok.com/@ "animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
 
 Full preflight: `data/processed/provider_preflight.csv`

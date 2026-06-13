@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:21:49.193Z",
+  "generated_at": "2026-06-13T03:26:25.094Z",
   "candidates": 87,
   "handle_targets": 7,
   "query_targets": 80,
@@ -17,8 +17,8 @@
     "cinematographer": 7,
     "sketch_comedian": 9,
     "vfx_animation": 11,
-    "editor": 3,
     "actor_performer": 6,
+    "editor": 3,
     "unclassified": 15,
     "standup_comedian": 7,
     "director": 4,
@@ -200,6 +200,25 @@
     },
     {
       "frontier_rank": 10,
+      "frontier_score": 84,
+      "target": "actor",
+      "target_kind": "query",
+      "acquisition_surface": "tiktok_hashtag_export",
+      "priority": 1,
+      "target_label": "actor_performer",
+      "source_type": "multi_source",
+      "evidence_count": 2,
+      "known_account": false,
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl",
+      "source_batch_ids": "graph_0073",
+      "source_reasons": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
+      "yield_score": 28,
+      "usefulness_rate": 0,
+      "rejection_rate": 0
+    },
+    {
+      "frontier_rank": 11,
       "frontier_score": 83,
       "target": "blender",
       "target_kind": "query",
@@ -218,7 +237,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 11,
+      "frontier_rank": 12,
       "frontier_score": 83,
       "target": "lighting",
       "target_kind": "query",
@@ -237,7 +256,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 12,
+      "frontier_rank": 13,
       "frontier_score": 83,
       "target": "site:beacons.ai \"tiktok.com/@\" \"vfx animation\"",
       "target_kind": "query",
@@ -256,7 +275,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 13,
+      "frontier_rank": 14,
       "frontier_score": 83,
       "target": "site:vimeo.com \"tiktok.com/@\" \"filmmaker\"",
       "target_kind": "query",
@@ -275,7 +294,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 14,
+      "frontier_rank": 15,
       "frontier_score": 83,
       "target": "site:youtube.com \"tiktok.com/@\" \"sketch comedian\"",
       "target_kind": "query",
@@ -294,7 +313,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 15,
+      "frontier_rank": 16,
       "frontier_score": 83,
       "target": "vfx",
       "target_kind": "query",
@@ -313,7 +332,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 16,
+      "frontier_rank": 17,
       "frontier_score": 80,
       "target": "site:tiktok.com/@ \"editing\"",
       "target_kind": "search_query",
@@ -332,7 +351,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 17,
+      "frontier_rank": 18,
       "frontier_score": 80,
       "target": "site:tiktok.com/@ \"editor\"",
       "target_kind": "search_query",
@@ -351,7 +370,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 18,
+      "frontier_rank": 19,
       "frontier_score": 80,
       "target": "site:tiktok.com/@ \"video editor\"",
       "target_kind": "search_query",
@@ -370,7 +389,7 @@
       "rejection_rate": ""
     },
     {
-      "frontier_rank": 19,
+      "frontier_rank": 20,
       "frontier_score": 80,
       "target": "vfxartist",
       "target_kind": "query",
@@ -384,25 +403,6 @@
       "import_target": "data/raw/imports/hashtag-export.jsonl",
       "source_batch_ids": "hashtag_0020",
       "source_reasons": "Export public hashtag results with author, caption, posted_at, metrics, hashtags, mentions, and sound metadata.",
-      "yield_score": "",
-      "usefulness_rate": "",
-      "rejection_rate": ""
-    },
-    {
-      "frontier_rank": 20,
-      "frontier_score": 78,
-      "target": "actor",
-      "target_kind": "query",
-      "acquisition_surface": "tiktok_hashtag_export",
-      "priority": 1,
-      "target_label": "actor_performer",
-      "source_type": "multi_source",
-      "evidence_count": 2,
-      "known_account": false,
-      "expected_output": "recent public videos and author profiles for adjacent hashtag",
-      "import_target": "data/raw/imports/graph-expansion-export.jsonl",
-      "source_batch_ids": "graph_0073",
-      "source_reasons": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "yield_score": "",
       "usefulness_rate": "",
       "rejection_rate": ""

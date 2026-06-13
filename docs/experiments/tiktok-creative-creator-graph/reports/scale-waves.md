@@ -1,6 +1,6 @@
 # Scale Waves
 
-Generated: 2026-06-13T03:21:49.477Z
+Generated: 2026-06-13T03:26:25.497Z
 
 - Planned waves: 10000
 - Candidate accounts per wave: 250
@@ -28,16 +28,16 @@ Generated: 2026-06-13T03:21:49.477Z
 | 7 | scale_wave_0007 | filmmaker | 250 | 5 | 1 | 7 | 86 | tiktok_hashtag_export | filmmaker |
 | 8 | scale_wave_0008 | filmmaker | 250 | 5 | 1 | 8 | 86 | tiktok_hashtag_export | shortfilm |
 | 9 | scale_wave_0009 | sketch_comedian | 250 | 5 | 1 | 9 | 86 | tiktok_hashtag_export | sketchcomedy |
-| 10 | scale_wave_0010 | vfx_animation | 250 | 5 | 1 | 10 | 83 | tiktok_hashtag_export | blender |
-| 11 | scale_wave_0011 | cinematographer | 250 | 5 | 1 | 11 | 83 | tiktok_hashtag_export | lighting |
-| 12 | scale_wave_0012 | vfx_animation | 250 | 5 | 1 | 12 | 83 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" |
-| 13 | scale_wave_0013 | filmmaker | 250 | 5 | 1 | 13 | 83 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
-| 14 | scale_wave_0014 | sketch_comedian | 250 | 5 | 1 | 14 | 83 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" |
-| 15 | scale_wave_0015 | vfx_animation | 250 | 5 | 1 | 15 | 83 | tiktok_hashtag_export | vfx |
-| 16 | scale_wave_0016 | editor | 250 | 5 | 1 | 16 | 80 | category_gap_search | site:tiktok.com/@ "editing" |
-| 17 | scale_wave_0017 | editor | 250 | 5 | 1 | 17 | 80 | category_gap_search | site:tiktok.com/@ "editor" |
-| 18 | scale_wave_0018 | editor | 250 | 5 | 1 | 18 | 80 | search_index | site:tiktok.com/@ "video editor" |
-| 19 | scale_wave_0019 | vfx_animation | 250 | 5 | 1 | 19 | 80 | tiktok_hashtag_export | vfxartist |
-| 20 | scale_wave_0020 | actor_performer | 250 | 5 | 1 | 20 | 78 | tiktok_hashtag_export | actor |
+| 10 | scale_wave_0010 | actor_performer | 250 | 5 | 1 | 10 | 84 | tiktok_hashtag_export | actor |
+| 11 | scale_wave_0011 | vfx_animation | 250 | 5 | 1 | 11 | 83 | tiktok_hashtag_export | blender |
+| 12 | scale_wave_0012 | cinematographer | 250 | 5 | 1 | 12 | 83 | tiktok_hashtag_export | lighting |
+| 13 | scale_wave_0013 | vfx_animation | 250 | 5 | 1 | 13 | 83 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" |
+| 14 | scale_wave_0014 | filmmaker | 250 | 5 | 1 | 14 | 83 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 15 | scale_wave_0015 | sketch_comedian | 250 | 5 | 1 | 15 | 83 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" |
+| 16 | scale_wave_0016 | vfx_animation | 250 | 5 | 1 | 16 | 83 | tiktok_hashtag_export | vfx |
+| 17 | scale_wave_0017 | editor | 250 | 5 | 1 | 17 | 80 | category_gap_search | site:tiktok.com/@ "editing" |
+| 18 | scale_wave_0018 | editor | 250 | 5 | 1 | 18 | 80 | category_gap_search | site:tiktok.com/@ "editor" |
+| 19 | scale_wave_0019 | editor | 250 | 5 | 1 | 19 | 80 | search_index | site:tiktok.com/@ "video editor" |
+| 20 | scale_wave_0020 | vfx_animation | 250 | 5 | 1 | 20 | 80 | tiktok_hashtag_export | vfxartist |
 
 Full queue: `data/processed/scale_waves.csv`

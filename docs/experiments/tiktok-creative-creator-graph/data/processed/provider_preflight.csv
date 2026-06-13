@@ -17,5 +17,5 @@ scale_wave_0008,8,apify,graph_0070,tiktok_hashtag_export,filmmaker,shortfilm,clo
 scale_wave_0008,8,apify,graph_0092,search_index,,mentioned by @ani.motionlab,apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
 scale_wave_0009,9,apify,graph_0074,tiktok_hashtag_export,sketch_comedian,sketchcomedy,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
 scale_wave_0009,9,apify,graph_0067,tiktok_hashtag_export,behind_the_scenes_creator,bts,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0010,10,apify,graph_0078,tiktok_hashtag_export,vfx_animation,blender,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
+scale_wave_0010,10,apify,graph_0073,tiktok_hashtag_export,actor_performer,actor,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
 scale_wave_0010,10,apify,category_gap_0060,category_gap_search,vfx_animation,"site:tiktok.com/@ ""animation""",apify/google-search-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,

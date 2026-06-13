@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:21:50.275Z",
+  "generated_at": "2026-06-13T03:26:26.398Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -30,15 +30,15 @@
     ]
   },
   "current_corpus": {
-    "accounts": 2298,
-    "identities": 2242,
-    "videos": 41,
+    "accounts": 3634,
+    "identities": 3573,
+    "videos": 44,
     "graph_edges": 395,
     "useful_creators": 7,
     "release_useful_creators": 2,
     "excellent_creators": 6,
     "rejected_creators": 2,
-    "review_queue": 2298,
+    "review_queue": 3634,
     "review_sample": 250,
     "review_packet_rows": 250,
     "review_decision_template_rows": 250,
@@ -47,7 +47,7 @@
     "review_plan_categories": 11,
     "review_decisions": 4,
     "review_blank_decisions": 0,
-    "source_yield_rows": 63,
+    "source_yield_rows": 168,
     "adjacency_expansion_rows": 28,
     "adjacency_expansion_added_rows": 21,
     "category_coverage": "5/11",
@@ -55,11 +55,11 @@
     "candidate_frontier": 87,
     "candidate_frontier_handles": 7,
     "candidate_frontier_queries": 80,
-    "acquisition_import_preview_accounts": 2293,
+    "acquisition_import_preview_accounts": 3629,
     "acquisition_import_preview_ready": true,
-    "acquisition_import_waves": 23,
-    "acquisition_import_lineage_rows": 46083,
-    "acquisition_import_untraced_rows": 126,
+    "acquisition_import_waves": 25,
+    "acquisition_import_lineage_rows": 60913,
+    "acquisition_import_untraced_rows": 132,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 17,
@@ -107,7 +107,7 @@
     "live_manifest_runner_steps": 0,
     "live_manifest_runner_selected_waves": 0,
     "live_manifest_runner_mode": "dry_run",
-    "refresh_tasks": 2298
+    "refresh_tasks": 3634
   },
   "target_gaps": {
     "useful_creators": 49993,
@@ -212,22 +212,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "90b7de2d60d5f10cd2c4f6b69eb3223f182094de9ae19b74685a7d9656c5faad"
+      "sha256": "3949f4c6c4da891aaae761b2fa4bf5fcb52933b18b4659c2899bee336191bd44"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "17398c4f9bb436c37bda348b132a72e4938e767615bec2c58131fdd488bf08eb"
+      "sha256": "d68a7088eab8a5a288f24b1703905922106c04e4d025063034ce1b41b9c452e6"
     },
     {
       "path": "data/release/review_queue.csv",
-      "rows": 3630,
-      "sha256": "b62d00195ee3f1aa50296bf1c60190f1fbc64151cb9982818170d78c46276a89"
+      "rows": 7204,
+      "sha256": "4dbf77a75ab77a2a55eff90ec75d427231be84b44e5a6a1400023d2cf3d9a303"
     },
     {
       "path": "data/release/all_scored_creators.csv",
-      "rows": 3634,
-      "sha256": "f967cf761ec1f1eec5bfcbf7596d6f6d4e0c78019dac38010c6d5bfb5e58035c"
+      "rows": 7208,
+      "sha256": "c47cbbd8e5335e2916a3b6d0a991dc45ee80793a07fd674f902297dd35d6f2c9"
     }
   ],
   "registration_constraints": [
