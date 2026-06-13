@@ -1,12 +1,12 @@
 # External Lead Auto Complete
 
-Generated: 2026-06-13T07:25:56.843Z
+Generated: 2026-06-13T07:48:26.663Z
 
 - Dry run: false
 - Overwrite: false
 - Assignments seen: 200
-- Completed files written: 5
-- Existing files skipped: 30
+- Completed files written: 0
+- Existing files skipped: 39
 - Routed rows: 6187
 
 ## Labels
@@ -27,11 +27,11 @@ Generated: 2026-06-13T07:25:56.843Z
 
 - external_packet_0001: 250/250 filmmaker rows -> 0001-filmmaker.csv (existing)
 - external_packet_0002: 157/250 filmmaker rows -> 0002-filmmaker.csv (existing)
-- external_packet_0003: 250/250 sketch_comedian rows -> 0003-sketch_comedian.csv
+- external_packet_0003: 250/250 sketch_comedian rows -> 0003-sketch_comedian.csv (existing)
 - external_packet_0004: 0/250 filmmaker rows -> 0004-filmmaker.csv (existing)
 - external_packet_0005: 0/250 filmmaker rows -> 0005-filmmaker.csv (not written)
 - external_packet_0006: 250/250 sketch_comedian rows -> 0006-sketch_comedian.csv (existing)
-- external_packet_0007: 125/250 sketch_comedian rows -> 0007-sketch_comedian.csv
+- external_packet_0007: 125/250 sketch_comedian rows -> 0007-sketch_comedian.csv (existing)
 - external_packet_0008: 0/250 filmmaker rows -> 0008-filmmaker.csv (not written)
 - external_packet_0009: 0/250 filmmaker rows -> 0009-filmmaker.csv (not written)
 - external_packet_0010: 0/250 sketch_comedian rows -> 0010-sketch_comedian.csv (existing)
@@ -43,24 +43,24 @@ Generated: 2026-06-13T07:25:56.843Z
 - external_packet_0016: 0/250 filmmaker rows -> 0016-filmmaker.csv (not written)
 - external_packet_0017: 0/250 sketch_comedian rows -> 0017-sketch_comedian.csv (existing)
 - external_packet_0018: 0/250 filmmaker rows -> 0018-filmmaker.csv (not written)
-- external_packet_0019: 0/250 sketch_comedian rows -> 0019-sketch_comedian.csv (not written)
-- external_packet_0020: 88/250 cinematographer rows -> 0020-cinematographer.csv (existing)
+- external_packet_0019: 88/250 cinematographer rows -> 0019-cinematographer.csv (existing)
+- external_packet_0020: 0/250 cinematographer rows -> 0020-cinematographer.csv (existing)
 - external_packet_0021: 0/250 cinematographer rows -> 0021-cinematographer.csv (not written)
 - external_packet_0022: 0/250 cinematographer rows -> 0022-cinematographer.csv (existing)
 - external_packet_0023: 0/250 cinematographer rows -> 0023-cinematographer.csv (not written)
-- external_packet_0024: 0/250 cinematographer rows -> 0024-cinematographer.csv (not written)
-- external_packet_0025: 233/250 director rows -> 0025-director.csv
+- external_packet_0024: 233/250 director rows -> 0024-director.csv (existing)
+- external_packet_0025: 0/250 cinematographer rows -> 0025-cinematographer.csv (not written)
 - external_packet_0026: 0/250 cinematographer rows -> 0026-cinematographer.csv (not written)
 - external_packet_0027: 0/250 cinematographer rows -> 0027-cinematographer.csv (not written)
-- external_packet_0028: 0/250 cinematographer rows -> 0028-cinematographer.csv (not written)
-- external_packet_0029: 250/250 behind_the_scenes_creator rows -> 0029-behind_the_scenes_creator.csv
-- external_packet_0030: 0/250 sketch_comedian rows -> 0030-sketch_comedian.csv (existing)
+- external_packet_0028: 250/250 behind_the_scenes_creator rows -> 0028-behind_the_scenes_creator.csv (existing)
+- external_packet_0029: 0/250 sketch_comedian rows -> 0029-sketch_comedian.csv (existing)
+- external_packet_0030: 0/250 director rows -> 0030-director.csv (not written)
 - external_packet_0031: 0/250 director rows -> 0031-director.csv (not written)
-- external_packet_0032: 0/250 director rows -> 0032-director.csv (not written)
-- external_packet_0033: 119/250 standup_comedian rows -> 0033-standup_comedian.csv (existing)
+- external_packet_0032: 119/250 standup_comedian rows -> 0032-standup_comedian.csv (existing)
+- external_packet_0033: 250/250 vfx_animation rows -> 0033-vfx_animation.csv (existing)
 - external_packet_0034: 250/250 vfx_animation rows -> 0034-vfx_animation.csv (existing)
-- external_packet_0035: 250/250 vfx_animation rows -> 0035-vfx_animation.csv (existing)
-- external_packet_0036: 192/250 vfx_animation rows -> 0036-vfx_animation.csv
+- external_packet_0035: 192/250 vfx_animation rows -> 0035-vfx_animation.csv (existing)
+- external_packet_0036: 0/250 vfx_animation rows -> 0036-vfx_animation.csv (existing)
 - external_packet_0037: 0/250 vfx_animation rows -> 0037-vfx_animation.csv (not written)
 - external_packet_0038: 0/250 vfx_animation rows -> 0038-vfx_animation.csv (existing)
 - external_packet_0039: 0/250 vfx_animation rows -> 0039-vfx_animation.csv (not written)

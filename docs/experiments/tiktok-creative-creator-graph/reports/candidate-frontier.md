@@ -1,32 +1,32 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T07:25:54.371Z
+Generated: 2026-06-13T07:48:24.155Z
 
-- Candidates: 413
-- Handle targets: 88
-- Query targets: 325
-- Known account targets: 88
+- Candidates: 412
+- Handle targets: 89
+- Query targets: 323
+- Known account targets: 89
 
 ## Surfaces
 
-- tiktok_hashtag_export: 261
+- tiktok_hashtag_export: 259
 - cross_platform_search: 16
 - search_index: 11
 - category_gap_search: 37
-- tiktok_creator_neighborhood_export: 88
+- tiktok_creator_neighborhood_export: 89
 
 ## Target Labels
 
-- filmmaker: 28
+- filmmaker: 27
 - sketch_comedian: 16
 - cinematographer: 14
-- unclassified: 92
+- unclassified: 93
 - standup_comedian: 11
 - vfx_animation: 30
 - director: 6
 - behind_the_scenes_creator: 135
 - editor: 42
-- film_educator: 28
+- film_educator: 27
 - actor_performer: 6
 - creative_technologist: 5
 
@@ -40,11 +40,11 @@ Generated: 2026-06-13T07:25:54.371Z
 | 4 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | artistsoftiktok |
 | 5 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | black |
 | 6 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | core |
-| 7 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | danceinstructor |
-| 8 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | delancy |
-| 9 | 92 | 1 | query | cross_platform_search | filmmaker | site:vimeo.com "tiktok.com/@" "filmmaker" |
-| 10 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | swag |
-| 11 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | tiktoker |
+| 7 | 92 | 1 | query | cross_platform_search | filmmaker | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 8 | 92 | 1 | query | tiktok_hashtag_export | sketch_comedian | skitok |
+| 9 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | swag |
+| 10 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | tiktoker |
+| 11 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | tistheseasoning |
 | 12 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | top10 |
 | 13 | 92 | 1 | query | tiktok_hashtag_export | filmmaker | trippledipper |
 | 14 | 90 | 1 | query | tiktok_hashtag_export | cinematographer | couple |

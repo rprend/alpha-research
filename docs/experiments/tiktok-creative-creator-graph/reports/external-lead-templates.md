@@ -1,6 +1,6 @@
 # External Lead Templates
 
-Generated: 2026-06-13T07:25:56.264Z
+Generated: 2026-06-13T07:48:26.071Z
 
 - Templates: 200
 - Total template rows: 50000
@@ -31,7 +31,7 @@ Copy a template from `data/raw/external-leads/templates/` to `data/raw/external-
 | external_packet_0016 | filmmaker | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0016-filmmaker.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0016-filmmaker.csv` |
 | external_packet_0017 | sketch_comedian | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0017-sketch_comedian.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0017-sketch_comedian.csv` |
 | external_packet_0018 | filmmaker | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0018-filmmaker.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0018-filmmaker.csv` |
-| external_packet_0019 | sketch_comedian | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-sketch_comedian.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-sketch_comedian.csv` |
+| external_packet_0019 | cinematographer | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-cinematographer.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-cinematographer.csv` |
 | external_packet_0020 | cinematographer | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0020-cinematographer.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-cinematographer.csv` |
 
 Each blank row pre-fills `target_label`, `source_name`, `source_query`, and a rotating `source_url` from the assignment's generated TikTok/search URLs.

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T07:25:56.190Z",
-  "templates": 957,
+  "generated_at": "2026-06-13T07:48:25.998Z",
+  "templates": 956,
   "total_template_rows": 50000,
   "template_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates",
   "completed_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed",
   "source_kind_counts": {
-    "tiktok_hashtag": 157,
+    "tiktok_hashtag": 156,
     "tiktok_user_search": 200,
     "tiktok_video_search": 200,
     "google_search": 200,

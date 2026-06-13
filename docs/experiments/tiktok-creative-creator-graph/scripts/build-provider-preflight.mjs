@@ -13,7 +13,7 @@ const args = new Map(process.argv.slice(2).map((arg) => {
   return [key, rest.length ? rest.join('=') : true]
 }))
 
-const provider = String(args.get('--provider') ?? 'apify')
+const provider = String(args.get('--provider') ?? 'public_web')
 const envFile = String(args.get('--env-file') ?? join(homedir(), '.codex/secrets.env'))
 const maxWaves = Number(args.get('--max-waves') ?? 10)
 const limit = Number(args.get('--limit') ?? 100)

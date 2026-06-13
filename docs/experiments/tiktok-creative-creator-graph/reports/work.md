@@ -1,24 +1,24 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T07:25:50.490Z
+Generated: 2026-06-13T07:48:20.056Z
 
 ## Summary
 
 - Accounts: 39576
-- Videos: 58353
-- Graph edges: 61177
+- Videos: 73453
+- Graph edges: 61995
 - Useful accounts: 7595
-- Excellent accounts: 4829
+- Excellent accounts: 4963
 - Review queue: 39576
-- Expansion queue: 7417
+- Expansion queue: 7418
 - Target: 50000
 - Target status: 42405 more useful accounts needed
 
 ## Status Counts
 
-- useful: 2766
+- useful: 2632
 - needs_review: 31942
-- excellent: 4829
+- excellent: 4963
 - reject: 39
 
 ## Primary Labels

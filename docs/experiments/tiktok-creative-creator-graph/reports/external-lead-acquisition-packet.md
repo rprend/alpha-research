@@ -1,6 +1,6 @@
 # External Lead Acquisition Packet
 
-Generated: 2026-06-13T07:25:56.020Z
+Generated: 2026-06-13T07:48:25.827Z
 
 This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by `import-external-lead-list.mjs`. The default packet is sized to request at least the 50,000-lead discovery target before downstream quality filtering.
 
@@ -52,8 +52,8 @@ Accept public TikTok profiles with original creative work and visible craft, pro
 | external_packet_0016 | filmmaker | 250 | cross_platform_search | site:linktr.ee "tiktok.com/@" "filmmaker" | https://www.tiktok.com/search/user?q=site%3Alinktr.ee%20tiktok.com%2F%40%20filmmaker |
 | external_packet_0017 | sketch_comedian | 250 | cross_platform_search | site:linktr.ee "tiktok.com/@" "sketch comedian" | https://www.tiktok.com/search/user?q=site%3Alinktr.ee%20tiktok.com%2F%40%20sketch%20comedian |
 | external_packet_0018 | filmmaker | 250 | cross_platform_search | site:youtube.com "tiktok.com/@" "filmmaker" | https://www.tiktok.com/search/user?q=site%3Ayoutube.com%20tiktok.com%2F%40%20filmmaker |
-| external_packet_0019 | sketch_comedian | 250 | tiktok_hashtag_export | skitok | https://www.tiktok.com/tag/skitok |
-| external_packet_0020 | cinematographer | 250 | tiktok_hashtag_export | basketball | https://www.tiktok.com/tag/basketball |
+| external_packet_0019 | cinematographer | 250 | tiktok_hashtag_export | basketball | https://www.tiktok.com/tag/basketball |
+| external_packet_0020 | cinematographer | 250 | tiktok_hashtag_export | capcut | https://www.tiktok.com/tag/capcut |
 
 Full assignment CSV: `data/raw/external-leads/acquisition-packet.csv`
 Category target CSV: `data/raw/external-leads/category-targets.csv`

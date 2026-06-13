@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-13T07:25:42.700Z",
+  "generated_at": "2026-06-13T07:48:11.735Z",
   "mode": "preview",
-  "input_rows": 168937,
-  "normalized_rows": 168937,
+  "input_rows": 173409,
+  "normalized_rows": 173409,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 129366,
+  "duplicate_normalized_rows": 133838,
   "output_accounts": 39571,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
@@ -414,11 +414,23 @@
     "2026-06-13T07-25-07-733Z-hf-tiktok-video-dataset.jsonl": 6,
     "2026-06-13T07-25-15-616Z-hf-tiktok-video-dataset.jsonl": 4,
     "2026-06-13T07-25-20-172Z-hf-tiktok-video-dataset.jsonl": 4,
+    "2026-06-13T07-25-56-978Z-external-lead-list.jsonl": 250,
+    "2026-06-13T07-25-57-011Z-external-lead-list.jsonl": 125,
+    "2026-06-13T07-25-57-043Z-external-lead-list.jsonl": 233,
+    "2026-06-13T07-25-57-075Z-external-lead-list.jsonl": 250,
+    "2026-06-13T07-25-57-108Z-external-lead-list.jsonl": 192,
+    "2026-06-13T07-29-25-338Z-public-profile-enrichment.jsonl": 2194,
+    "2026-06-13T07-41-45-416Z-external-lead-list.jsonl": 119,
+    "2026-06-13T07-41-45-447Z-external-lead-list.jsonl": 250,
+    "2026-06-13T07-41-45-479Z-external-lead-list.jsonl": 186,
+    "2026-06-13T07-41-45-511Z-external-lead-list.jsonl": 87,
+    "2026-06-13T07-41-45-541Z-external-lead-list.jsonl": 250,
+    "2026-06-13T07-41-56-628Z-public-profile-enrichment.jsonl": 336,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 168931,
+  "mapped_lineage_rows": 173403,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -828,7 +840,19 @@
     "2026-06-13T07-22-59-305Z": 1,
     "2026-06-13T07-25-07-733Z": 6,
     "2026-06-13T07-25-15-616Z": 4,
-    "2026-06-13T07-25-20-172Z": 4
+    "2026-06-13T07-25-20-172Z": 4,
+    "2026-06-13T07-25-56-978Z": 250,
+    "2026-06-13T07-25-57-011Z": 125,
+    "2026-06-13T07-25-57-043Z": 233,
+    "2026-06-13T07-25-57-075Z": 250,
+    "2026-06-13T07-25-57-108Z": 192,
+    "2026-06-13T07-29-25-338Z": 2194,
+    "2026-06-13T07-41-45-416Z": 119,
+    "2026-06-13T07-41-45-447Z": 250,
+    "2026-06-13T07-41-45-479Z": 186,
+    "2026-06-13T07-41-45-511Z": 87,
+    "2026-06-13T07-41-45-541Z": 250,
+    "2026-06-13T07-41-56-628Z": 336
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -5192,18 +5216,30 @@
     "hf_subashdvorak_tiktok_formatted_story_v2_default_train": 6,
     "hf_subashdvorak_tiktok_formatted_story_default_train": 4,
     "hf_subashdvorak_tiktok_agentic_story_default_train": 4,
+    "external_leads_2026-06-13T07-25-56-978Z": 250,
+    "external_leads_2026-06-13T07-25-57-011Z": 125,
+    "external_leads_2026-06-13T07-25-57-043Z": 233,
+    "external_leads_2026-06-13T07-25-57-075Z": 250,
+    "external_leads_2026-06-13T07-25-57-108Z": 192,
+    "public_profile_enrichment_2026-06-13T07-29-25-338Z": 2194,
+    "external_leads_2026-06-13T07-41-45-416Z": 119,
+    "external_leads_2026-06-13T07-41-45-447Z": 250,
+    "external_leads_2026-06-13T07-41-45-479Z": 186,
+    "external_leads_2026-06-13T07-41-45-511Z": 87,
+    "external_leads_2026-06-13T07-41-45-541Z": 250,
+    "public_profile_enrichment_2026-06-13T07-41-56-628Z": 336,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
     "editorial_list_public_web": 2955,
-    "tiktok_public_profile_html": 5690,
+    "tiktok_public_profile_html": 8220,
     "brightdata_public_github_sample": 29,
     "wikidata_sparql": 49466,
     "huggingface_dataset_viewer": 17,
     "public_editorial_page": 1753,
-    "external_lead_list": 83314,
+    "external_lead_list": 85256,
     "huggingface_dataset": 19888,
     "huggingface_dataset_parquet": 5798,
     "editorial_web": 21
@@ -5212,8 +5248,8 @@
   "quality_gate": {
     "ready_to_import": false,
     "normalized_rate": 1,
-    "duplicate_rate": 0.765764752540888,
-    "output_rate": 0.23423524745911198,
+    "duplicate_rate": 0.7718053849569515,
+    "output_rate": 0.22819461504304853,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.65,
@@ -5222,7 +5258,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "168937 input rows"
+        "evidence": "173409 input rows"
       },
       {
         "id": "handle_extraction",
@@ -5232,12 +5268,12 @@
       {
         "id": "duplicate_pressure",
         "status": "fail",
-        "evidence": "76.6% duplicate normalized rows, threshold 65.0% (metadata overlay)"
+        "evidence": "77.2% duplicate normalized rows, threshold 65.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "168931/168937 rows mapped to provider/wave lineage"
+        "evidence": "173403/173409 rows mapped to provider/wave lineage"
       }
     ]
   },
@@ -5260,7 +5296,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5285,7 +5322,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5317,7 +5355,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5342,7 +5381,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5365,7 +5405,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5388,7 +5429,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5425,7 +5467,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5450,7 +5493,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5476,7 +5520,8 @@
         "wikidata_Q15077007",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5509,7 +5554,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5535,7 +5581,8 @@
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
         "hf_tikfly_screenwriter",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5560,7 +5607,8 @@
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
         "hf_shofo_sketch_comedian",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5585,7 +5633,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5610,7 +5659,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5638,7 +5688,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5666,7 +5717,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5695,7 +5747,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5723,7 +5776,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5746,7 +5800,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5769,7 +5824,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5793,7 +5849,8 @@
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
         "hf_tikfly_sketch_comedian",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5818,7 +5875,8 @@
         "external_leads_2026-06-13T06-02-11-026Z",
         "external_leads_2026-06-13T06-13-35-073Z",
         "external_leads_2026-06-13T06-19-02-458Z",
-        "external_leads_2026-06-13T07-10-30-459Z"
+        "external_leads_2026-06-13T07-10-30-459Z",
+        "external_leads_2026-06-13T07-25-56-978Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5846,7 +5904,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5873,7 +5932,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",
@@ -5904,7 +5964,8 @@
         "external_leads_2026-06-13T06-50-17-595Z",
         "external_leads_2026-06-13T06-52-46-340Z",
         "external_leads_2026-06-13T06-55-05-536Z",
-        "external_leads_2026-06-13T07-10-30-652Z"
+        "external_leads_2026-06-13T07-10-30-652Z",
+        "external_leads_2026-06-13T07-41-45-416Z"
       ],
       "acquisition_providers": [
         "editorial_list_public_web",

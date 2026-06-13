@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T07:25:56.264Z",
+  "generated_at": "2026-06-13T07:48:26.071Z",
   "templates": 200,
   "total_template_rows": 50000,
   "template_dir": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates",
@@ -187,19 +187,19 @@
     },
     {
       "assignment_id": "external_packet_0019",
-      "target_label": "sketch_comedian",
-      "source_query": "skitok",
-      "primary_source_url": "https://www.tiktok.com/tag/skitok",
+      "target_label": "cinematographer",
+      "source_query": "basketball",
+      "primary_source_url": "https://www.tiktok.com/tag/basketball",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
-      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-sketch_comedian.csv",
-      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-sketch_comedian.csv"
+      "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0019-cinematographer.csv",
+      "completed_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-cinematographer.csv"
     },
     {
       "assignment_id": "external_packet_0020",
       "target_label": "cinematographer",
-      "source_query": "basketball",
-      "primary_source_url": "https://www.tiktok.com/tag/basketball",
+      "source_query": "capcut",
+      "primary_source_url": "https://www.tiktok.com/tag/capcut",
       "lead_target": 250,
       "minimum_accepted_leads": 150,
       "template_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0020-cinematographer.csv",

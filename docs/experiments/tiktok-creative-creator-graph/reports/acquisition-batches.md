@@ -1,14 +1,14 @@
 # Acquisition Batches
 
-Generated: 2026-06-13T07:25:54.173Z
+Generated: 2026-06-13T07:48:23.961Z
 
 - Tasks: 314
 - Useful creators available for expansion: 7595
 
 ## Surfaces
 
-- tiktok_creator_neighborhood_export: 88
-- tiktok_hashtag_export: 163
+- tiktok_creator_neighborhood_export: 89
+- tiktok_hashtag_export: 162
 - cross_platform_search: 16
 - category_gap_search: 37
 - search_index: 10

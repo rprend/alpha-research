@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T07:25:54.173Z",
+  "generated_at": "2026-06-13T07:48:23.961Z",
   "tasks": 314,
   "useful_creators_available_for_expansion": 7595,
   "source_yield_rows": 1566,
@@ -10,8 +10,8 @@
     "3": 5
   },
   "surface_counts": {
-    "tiktok_creator_neighborhood_export": 88,
-    "tiktok_hashtag_export": 163,
+    "tiktok_creator_neighborhood_export": 89,
+    "tiktok_hashtag_export": 162,
     "cross_platform_search": 16,
     "category_gap_search": 37,
     "search_index": 10

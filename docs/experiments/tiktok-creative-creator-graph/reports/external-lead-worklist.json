@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T07:25:56.060Z",
+  "generated_at": "2026-06-13T07:48:25.868Z",
   "purpose": "Per-source external lead collection worklist derived from the token-free acquisition packet.",
   "assignment_rows": 200,
-  "work_items": 957,
+  "work_items": 956,
   "total_lead_quota": 50000,
   "source_kind_counts": {
-    "tiktok_hashtag": 157,
+    "tiktok_hashtag": 156,
     "tiktok_user_search": 200,
     "tiktok_video_search": 200,
     "google_search": 200,
@@ -13,10 +13,10 @@
   },
   "label_lead_quotas": {
     "filmmaker": 4000,
-    "sketch_comedian": 3750,
+    "sketch_comedian": 3500,
     "cinematographer": 3000,
     "director": 1500,
-    "behind_the_scenes_creator": 22250,
+    "behind_the_scenes_creator": 22500,
     "standup_comedian": 1750,
     "vfx_animation": 6750,
     "actor_performer": 1250,

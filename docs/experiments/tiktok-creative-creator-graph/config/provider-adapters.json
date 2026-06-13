@@ -69,6 +69,27 @@
     "base_url": "",
     "default_actor_id": "bing_rss",
     "actors": {
+      "tiktok_hashtag_export": {
+        "actor_id": "bing_rss",
+        "input_template": {
+          "query": "site:tiktok.com/@ {{query}}",
+          "limit": "{{limit}}"
+        }
+      },
+      "tiktok_creator_neighborhood_export": {
+        "actor_id": "bing_rss",
+        "input_template": {
+          "query": "site:tiktok.com/@ {{query}}",
+          "limit": "{{limit}}"
+        }
+      },
+      "tiktok_profile_export": {
+        "actor_id": "bing_rss",
+        "input_template": {
+          "query": "site:tiktok.com/@ {{query}}",
+          "limit": "{{limit}}"
+        }
+      },
       "search_index": {
         "actor_id": "bing_rss",
         "input_template": {

@@ -1,9 +1,9 @@
 # Wave Ledger
 
-Generated: 2026-06-13T07:25:55.979Z
+Generated: 2026-06-13T07:48:25.786Z
 
-- Waves: 1042
-- Planned: 1042
+- Waves: 1043
+- Planned: 1043
 - Dry-run: 0
 - Dry-run only: 11
 - Succeeded: 0
@@ -51,7 +51,7 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | 16 | scale_wave_0016 | planned | filmmaker | cross_platform_search | site:linktr.ee "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
 | 17 | scale_wave_0017 | planned | sketch_comedian | cross_platform_search | site:linktr.ee "tiktok.com/@" "sketch comedian" | 0 | n/a | 1 |
 | 18 | scale_wave_0018 | planned | filmmaker | cross_platform_search | site:youtube.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
-| 19 | scale_wave_0019 | planned | sketch_comedian | tiktok_hashtag_export | skitok | 0 | n/a | 1 |
-| 20 | scale_wave_0020 | planned | cinematographer | tiktok_hashtag_export | basketball | 0 | n/a | 1 |
+| 19 | scale_wave_0019 | planned | cinematographer | tiktok_hashtag_export | basketball | 0 | n/a | 1 |
+| 20 | scale_wave_0020 | planned | cinematographer | tiktok_hashtag_export | capcut | 0 | n/a | 1 |
 
 Full ledger: `data/processed/wave_ledger.csv`

@@ -1,20 +1,20 @@
 # Provider Preflight
 
-Generated: 2026-06-13T07:25:57.299Z
+Generated: 2026-06-13T07:48:26.979Z
 
-- Provider: apify
-- Provider viability: missing_token
-- Provider token available: false
-- Provider live runs: 0
-- Provider zero-yield runs: 0
-- Latest provider output rows: n/a
+- Provider: public_web
+- Provider viability: zero_yield_observed
+- Provider token available: true
+- Provider live runs: 4
+- Provider zero-yield runs: 4
+- Latest provider output rows: 0
 - Selected waves: 10
 - Task rows: 20
-- Ready tasks: 0
-- Blocked tasks: 20
+- Ready tasks: 20
+- Blocked tasks: 0
 - Requested limit per task: 100
-- Estimated result rows: 0
-- Estimated cost: $0
+- Estimated result rows: 2000
+- Estimated cost: $5
 - Budget: $25
 - Within budget: true
 - Next wave: scale_wave_0001
@@ -29,25 +29,25 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 
 | Wave | Batch | Surface | Query | Actor | Ready | Viability | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |
-| scale_wave_0001 | hashtag_0011 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0001 | graph_0222 | tiktok_hashtag_export | bangtan | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | graph_0096 | tiktok_hashtag_export | behindthescenes | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | graph_0223 | tiktok_hashtag_export | batangquiapo | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0208 | tiktok_hashtag_export | apartment | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0224 | tiktok_hashtag_export | beeswaxwraps | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0230 | tiktok_hashtag_export | chilis | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0097 | tiktok_hashtag_export | bts | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0231 | tiktok_hashtag_export | chilistripledipper | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0225 | tiktok_hashtag_export | btsarmy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | graph_0239 | tiktok_hashtag_export | doctor | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | graph_0226 | tiktok_hashtag_export | burrata | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | graph_0277 | tiktok_hashtag_export | lgbt | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | graph_0227 | tiktok_hashtag_export | ceramicafria | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0280 | tiktok_hashtag_export | lukadoncic | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0228 | tiktok_hashtag_export | charcoaldrawing | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0283 | tiktok_hashtag_export | mavericks | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0229 | tiktok_hashtag_export | charosantos | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0290 | tiktok_hashtag_export | organization | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0232 | tiktok_hashtag_export | cocomartin | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | hashtag_0011 | tiktok_hashtag_export | filmmaker | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0001 | graph_0224 | tiktok_hashtag_export | batangquiapo | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0002 | graph_0096 | tiktok_hashtag_export | behindthescenes | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0002 | graph_0225 | tiktok_hashtag_export | beeswaxwraps | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0003 | graph_0209 | tiktok_hashtag_export | apartment | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0003 | graph_0097 | tiktok_hashtag_export | bts | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0004 | graph_0231 | tiktok_hashtag_export | chilis | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0004 | graph_0226 | tiktok_hashtag_export | btsarmy | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0005 | graph_0232 | tiktok_hashtag_export | chilistripledipper | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0005 | graph_0227 | tiktok_hashtag_export | burrata | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0006 | graph_0240 | tiktok_hashtag_export | doctor | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0006 | graph_0228 | tiktok_hashtag_export | ceramicafria | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0007 | graph_0278 | tiktok_hashtag_export | lgbt | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0007 | graph_0229 | tiktok_hashtag_export | charcoaldrawing | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0008 | graph_0281 | tiktok_hashtag_export | lukadoncic | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0008 | graph_0230 | tiktok_hashtag_export | charosantos | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0009 | graph_0284 | tiktok_hashtag_export | mavericks | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0009 | graph_0233 | tiktok_hashtag_export | cocomartin | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0010 | graph_0291 | tiktok_hashtag_export | organization | bing_rss | true | zero_yield_observed | 100 | $0.25 |
+| scale_wave_0010 | graph_0234 | tiktok_hashtag_export | coreanoylatina | bing_rss | true | zero_yield_observed | 100 | $0.25 |
 
 Full preflight: `data/processed/provider_preflight.csv`

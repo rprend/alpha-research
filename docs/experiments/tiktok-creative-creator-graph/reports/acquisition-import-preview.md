@@ -1,24 +1,24 @@
 # Acquisition Import Preview
 
-Generated: 2026-06-13T07:25:42.700Z
+Generated: 2026-06-13T07:48:11.735Z
 
-- Input rows: 168937
-- Normalized rows: 168937
+- Input rows: 173409
+- Normalized rows: 173409
 - Skipped rows: 0
-- Duplicate normalized rows: 129366
+- Duplicate normalized rows: 133838
 - Output accounts if imported: 39571
 - Ready to import: no
 - Normalized rate: 100.0%
-- Duplicate rate: 76.6%
-- Mapped lineage rows: 168931
+- Duplicate rate: 77.2%
+- Mapped lineage rows: 173403
 - Unmapped lineage rows: 6
 
 ## Checks
 
-- has_rows: pass - 168937 input rows
+- has_rows: pass - 173409 input rows
 - handle_extraction: pass - 100.0% normalized, threshold 75.0%
-- duplicate_pressure: fail - 76.6% duplicate normalized rows, threshold 65.0% (metadata overlay)
-- lineage_mapping: pass - 168931/168937 rows mapped to provider/wave lineage
+- duplicate_pressure: fail - 77.2% duplicate normalized rows, threshold 65.0% (metadata overlay)
+- lineage_mapping: pass - 173403/173409 rows mapped to provider/wave lineage
 
 ## Source Files
 
@@ -429,6 +429,18 @@ Generated: 2026-06-13T07:25:42.700Z
 - 2026-06-13T07-25-07-733Z-hf-tiktok-video-dataset.jsonl: 6
 - 2026-06-13T07-25-15-616Z-hf-tiktok-video-dataset.jsonl: 4
 - 2026-06-13T07-25-20-172Z-hf-tiktok-video-dataset.jsonl: 4
+- 2026-06-13T07-25-56-978Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-25-57-011Z-external-lead-list.jsonl: 125
+- 2026-06-13T07-25-57-043Z-external-lead-list.jsonl: 233
+- 2026-06-13T07-25-57-075Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-25-57-108Z-external-lead-list.jsonl: 192
+- 2026-06-13T07-29-25-338Z-public-profile-enrichment.jsonl: 2194
+- 2026-06-13T07-41-45-416Z-external-lead-list.jsonl: 119
+- 2026-06-13T07-41-45-447Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-41-45-479Z-external-lead-list.jsonl: 186
+- 2026-06-13T07-41-45-511Z-external-lead-list.jsonl: 87
+- 2026-06-13T07-41-45-541Z-external-lead-list.jsonl: 250
+- 2026-06-13T07-41-56-628Z-public-profile-enrichment.jsonl: 336
 - editorial-list-seeds-2026-06-12.jsonl: 21
 - smoke-provider-results.jsonl: 3
 - smoke-search-results.jsonl: 3

@@ -1,17 +1,17 @@
 # External Lead Work Item Templates
 
-Generated: 2026-06-13T07:25:56.190Z
+Generated: 2026-06-13T07:48:25.998Z
 
 These are small, source-specific templates derived from `source-worklist.csv`. Fill a template and save it with the same filename under `data/raw/external-leads/work-items-completed/`; the merge step will assemble assignment-level completed files.
 
-- Templates: 957
+- Templates: 956
 - Total template rows: 50000
 - Template directory: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-item-templates`
 - Completed directory: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/work-items-completed`
 
 ## Source Kinds
 
-- tiktok_hashtag: 157
+- tiktok_hashtag: 156
 - tiktok_user_search: 200
 - tiktok_video_search: 200
 - google_search: 200

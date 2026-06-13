@@ -119,6 +119,24 @@ function profileUrlFor(value) {
   return handle ? `https://www.tiktok.com/${handle}` : ''
 }
 
+function publicWebQueryForTask(task) {
+  const rawQuery = String(task.query ?? '').trim()
+  const query = rawQuery.replace(/^#/, '').replace(/^@/, '').trim()
+  if (!query) return 'site:tiktok.com/@ filmmaker OR comedian'
+
+  if (task.acquisition_surface === 'tiktok_hashtag_export') {
+    return `site:tiktok.com/@ "${query}" TikTok`
+  }
+
+  if (['tiktok_creator_neighborhood_export', 'tiktok_profile_export'].includes(task.acquisition_surface)) {
+    const handle = normalizeHandle(rawQuery)
+    if (handle) return `site:tiktok.com/${handle} OR site:tiktok.com/@ "${handle.slice(1)}"`
+    return `site:tiktok.com/@ "${query}" TikTok creator`
+  }
+
+  return rawQuery
+}
+
 function extractTikTokUrls(text) {
   const urls = []
   const candidates = [String(text ?? '')]
@@ -239,9 +257,10 @@ function publicSearchRowsFromRss(xml, task) {
 async function runPublicWebSearch(task) {
   const actorId = adapter.actors[task.acquisition_surface]?.actor_id ?? adapter.default_actor_id ?? 'bing_html'
   const rssMode = actorId === 'bing_rss'
+  const searchQuery = publicWebQueryForTask(task)
   const url = rssMode
-    ? `https://www.bing.com/search?format=rss&q=${encodeURIComponent(task.query)}`
-    : `https://www.bing.com/search?q=${encodeURIComponent(task.query)}`
+    ? `https://www.bing.com/search?format=rss&q=${encodeURIComponent(searchQuery)}`
+    : `https://www.bing.com/search?q=${encodeURIComponent(searchQuery)}`
   const response = await fetch(url, {
     headers: {
       'user-agent': 'Mozilla/5.0 (compatible; alpha-research-public-web-acquisition/1.0)',
@@ -250,7 +269,8 @@ async function runPublicWebSearch(task) {
   })
   if (!response.ok) throw new Error(`public_web request failed ${response.status}`)
   const body = await response.text()
-  const items = rssMode ? publicSearchRowsFromRss(body, task) : publicSearchRowsFromHtml(body, task)
+  const taskWithSearchQuery = { ...task, search_query: searchQuery }
+  const items = rssMode ? publicSearchRowsFromRss(body, taskWithSearchQuery) : publicSearchRowsFromHtml(body, taskWithSearchQuery)
   return {
     run_id: `public_web:${actorId}:${task.batch_id}:${Date.now()}`,
     dataset_id: '',

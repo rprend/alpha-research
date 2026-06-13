@@ -1,15 +1,15 @@
 # Adjacency Expansion
 
-Generated: 2026-06-13T07:25:52.114Z
+Generated: 2026-06-13T07:48:21.857Z
 
-- Base rows: 7417
+- Base rows: 7418
 - Expansion rows: 500
 - Added rows: 0
 
 ## Types
 
-- expand_from_creator: 234
-- hashtag_search: 253
+- expand_from_creator: 236
+- hashtag_search: 251
 - cross_platform_search: 12
 - yield_replay_search: 1
 

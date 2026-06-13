@@ -1,21 +1,21 @@
 {
-  "run_id": "2026-06-13T07-25-44-143Z",
-  "generated_at": "2026-06-13T07:25:50.490Z",
+  "run_id": "2026-06-13T07-48-13-206Z",
+  "generated_at": "2026-06-13T07:48:20.056Z",
   "target_useful_accounts": 50000,
   "smoke": false,
   "counts": {
     "accounts": 39576,
-    "videos": 58353,
-    "edges": 61177,
+    "videos": 73453,
+    "edges": 61995,
     "useful_accounts": 7595,
-    "excellent_accounts": 4829,
+    "excellent_accounts": 4963,
     "review_queue": 39576,
-    "expansion_queue": 7417
+    "expansion_queue": 7418
   },
   "status_counts": {
-    "useful": 2766,
+    "useful": 2632,
     "needs_review": 31942,
-    "excellent": 4829,
+    "excellent": 4963,
     "reject": 39
   },
   "primary_label_counts": {

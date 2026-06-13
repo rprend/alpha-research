@@ -1,17 +1,17 @@
 # Scale Waves
 
-Generated: 2026-06-13T07:25:55.904Z
+Generated: 2026-06-13T07:48:25.710Z
 
-- Planned waves: 1042
+- Planned waves: 1043
 - Candidate accounts per wave: 250
-- Total candidate accounts: 260500
+- Total candidate accounts: 260750
 - Estimated useful creators per wave: 48
-- Estimated total useful creators: 49993
+- Estimated total useful creators: 50037
 - Review gap: 496
 - Review rows per wave: 1
 - Source tasks available: 314
-- Frontier targets available: 413
-- Frontier targets used: 224
+- Frontier targets available: 412
+- Frontier targets used: 223
 - High-priority source tasks: 309
 - Category focus rows: 11
 
@@ -37,7 +37,7 @@ Generated: 2026-06-13T07:25:55.904Z
 | 16 | scale_wave_0016 | filmmaker | 250 | 48 | 1 | 38 | 83 | cross_platform_search | site:linktr.ee "tiktok.com/@" "filmmaker" |
 | 17 | scale_wave_0017 | sketch_comedian | 250 | 48 | 1 | 39 | 83 | cross_platform_search | site:linktr.ee "tiktok.com/@" "sketch comedian" |
 | 18 | scale_wave_0018 | filmmaker | 250 | 48 | 1 | 40 | 83 | cross_platform_search | site:youtube.com "tiktok.com/@" "filmmaker" |
-| 19 | scale_wave_0019 | sketch_comedian | 250 | 48 | 1 | 41 | 83 | tiktok_hashtag_export | skitok |
-| 20 | scale_wave_0020 | cinematographer | 250 | 48 | 1 | 42 | 81 | tiktok_hashtag_export | basketball |
+| 19 | scale_wave_0019 | cinematographer | 250 | 48 | 1 | 41 | 81 | tiktok_hashtag_export | basketball |
+| 20 | scale_wave_0020 | cinematographer | 250 | 48 | 1 | 42 | 81 | tiktok_hashtag_export | capcut |
 
 Full queue: `data/processed/scale_waves.csv`

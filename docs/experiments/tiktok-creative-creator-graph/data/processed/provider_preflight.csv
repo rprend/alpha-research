@@ -1,21 +1,21 @@
 wave_id,sequence,provider,batch_id,acquisition_surface,target_label,query,actor_id,ready,provider_viability,block_reason,requested_limit,estimated_result_rows,estimated_cost_usd,input_json
-scale_wave_0001,1,apify,hashtag_0011,tiktok_hashtag_export,filmmaker,filmmaker,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0001,1,apify,graph_0222,tiktok_hashtag_export,,bangtan,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0002,2,apify,graph_0096,tiktok_hashtag_export,,behindthescenes,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0002,2,apify,graph_0223,tiktok_hashtag_export,behind_the_scenes_creator,batangquiapo,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0003,3,apify,graph_0208,tiktok_hashtag_export,,apartment,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0003,3,apify,graph_0224,tiktok_hashtag_export,,beeswaxwraps,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0004,4,apify,graph_0230,tiktok_hashtag_export,,chilis,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0004,4,apify,graph_0097,tiktok_hashtag_export,behind_the_scenes_creator,bts,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0005,5,apify,graph_0231,tiktok_hashtag_export,,chilistripledipper,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0005,5,apify,graph_0225,tiktok_hashtag_export,behind_the_scenes_creator,btsarmy,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0006,6,apify,graph_0239,tiktok_hashtag_export,,doctor,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0006,6,apify,graph_0226,tiktok_hashtag_export,,burrata,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0007,7,apify,graph_0277,tiktok_hashtag_export,,lgbt,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0007,7,apify,graph_0227,tiktok_hashtag_export,,ceramicafria,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0008,8,apify,graph_0280,tiktok_hashtag_export,,lukadoncic,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0008,8,apify,graph_0228,tiktok_hashtag_export,,charcoaldrawing,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0009,9,apify,graph_0283,tiktok_hashtag_export,,mavericks,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0009,9,apify,graph_0229,tiktok_hashtag_export,behind_the_scenes_creator,charosantos,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0010,10,apify,graph_0290,tiktok_hashtag_export,,organization,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
-scale_wave_0010,10,apify,graph_0232,tiktok_hashtag_export,behind_the_scenes_creator,cocomartin,clockworks/tiktok-scraper,false,missing_token,Provider apify blocked: missing_token,100,0,0,
+scale_wave_0001,1,public_web,hashtag_0011,tiktok_hashtag_export,filmmaker,filmmaker,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ filmmaker"",""limit"":100}"
+scale_wave_0001,1,public_web,graph_0224,tiktok_hashtag_export,behind_the_scenes_creator,batangquiapo,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ batangquiapo"",""limit"":100}"
+scale_wave_0002,2,public_web,graph_0096,tiktok_hashtag_export,,behindthescenes,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ behindthescenes"",""limit"":100}"
+scale_wave_0002,2,public_web,graph_0225,tiktok_hashtag_export,,beeswaxwraps,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ beeswaxwraps"",""limit"":100}"
+scale_wave_0003,3,public_web,graph_0209,tiktok_hashtag_export,,apartment,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ apartment"",""limit"":100}"
+scale_wave_0003,3,public_web,graph_0097,tiktok_hashtag_export,behind_the_scenes_creator,bts,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ bts"",""limit"":100}"
+scale_wave_0004,4,public_web,graph_0231,tiktok_hashtag_export,,chilis,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ chilis"",""limit"":100}"
+scale_wave_0004,4,public_web,graph_0226,tiktok_hashtag_export,behind_the_scenes_creator,btsarmy,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ btsarmy"",""limit"":100}"
+scale_wave_0005,5,public_web,graph_0232,tiktok_hashtag_export,,chilistripledipper,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ chilistripledipper"",""limit"":100}"
+scale_wave_0005,5,public_web,graph_0227,tiktok_hashtag_export,,burrata,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ burrata"",""limit"":100}"
+scale_wave_0006,6,public_web,graph_0240,tiktok_hashtag_export,,doctor,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ doctor"",""limit"":100}"
+scale_wave_0006,6,public_web,graph_0228,tiktok_hashtag_export,,ceramicafria,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ ceramicafria"",""limit"":100}"
+scale_wave_0007,7,public_web,graph_0278,tiktok_hashtag_export,,lgbt,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ lgbt"",""limit"":100}"
+scale_wave_0007,7,public_web,graph_0229,tiktok_hashtag_export,,charcoaldrawing,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ charcoaldrawing"",""limit"":100}"
+scale_wave_0008,8,public_web,graph_0281,tiktok_hashtag_export,,lukadoncic,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ lukadoncic"",""limit"":100}"
+scale_wave_0008,8,public_web,graph_0230,tiktok_hashtag_export,behind_the_scenes_creator,charosantos,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ charosantos"",""limit"":100}"
+scale_wave_0009,9,public_web,graph_0284,tiktok_hashtag_export,,mavericks,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ mavericks"",""limit"":100}"
+scale_wave_0009,9,public_web,graph_0233,tiktok_hashtag_export,behind_the_scenes_creator,cocomartin,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ cocomartin"",""limit"":100}"
+scale_wave_0010,10,public_web,graph_0291,tiktok_hashtag_export,,organization,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ organization"",""limit"":100}"
+scale_wave_0010,10,public_web,graph_0234,tiktok_hashtag_export,,coreanoylatina,bing_rss,true,zero_yield_observed,,100,100,0.25,"{""query"":""site:tiktok.com/@ coreanoylatina"",""limit"":100}"

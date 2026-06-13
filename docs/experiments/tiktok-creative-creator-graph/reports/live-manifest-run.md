@@ -1,14 +1,14 @@
 # Live Manifest Run
 
-Generated: 2026-06-13T07:25:57.360Z
+Generated: 2026-06-13T07:48:27.076Z
 
 - Mode: dry_run
-- Provider: apify
+- Provider: public_web
 - Env file loaded: true
-- Provider token available: false
-- Selected waves: 0
-- Skipped reason: no_ready_manifest_rows
-- Estimated cost: $0
+- Provider token available: true
+- Selected waves: 1
+- Skipped reason: none
+- Estimated cost: $0.5
 - Max cost: $1
 - Complete: true
 - Import ran: false
@@ -16,7 +16,7 @@ Generated: 2026-06-13T07:25:57.360Z
 
 ## Wave Steps
 
-- None
+- scale_wave_0001: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --dry-run --max-tasks=2 --priority-max=2 --wave=1`)
 
 ## Post Steps
 

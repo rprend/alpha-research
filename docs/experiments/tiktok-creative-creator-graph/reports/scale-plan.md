@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T07:25:55.864Z
+Generated: 2026-06-13T07:48:25.670Z
 
 ## Targets
 
@@ -10,15 +10,15 @@ Generated: 2026-06-13T07:25:55.864Z
 
 ## Current
 
-- Accounts: 39570
+- Accounts: 39576
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4
 
 ## Estimated Work
 
-- Candidate accounts needed: 260490
-- Import batches needed at 250 candidates per batch: 1042
+- Candidate accounts needed: 260530
+- Import batches needed at 250 candidates per batch: 1043
 - Useful creators needed for excellent target: 49990
 - Review batches needed: 2
 
@@ -26,7 +26,7 @@ Generated: 2026-06-13T07:25:55.864Z
 
 - Observed useful rate: 0.192
 - Planning useful rate: 0.192
-- Observed excellent rate among useful: 0.636
+- Observed excellent rate among useful: 0.653
 - Planning excellent rate among useful: 0.1
 
 ## Top Surfaces
@@ -46,7 +46,7 @@ Generated: 2026-06-13T07:25:55.864Z
 
 ## Next Batches
 
-Candidate frontier targets: 413
+Candidate frontier targets: 412
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |
@@ -56,11 +56,11 @@ Candidate frontier targets: 413
 | 4 | 4 | 92 | 1 | tiktok_hashtag_export | artistsoftiktok |
 | 5 | 5 | 92 | 1 | tiktok_hashtag_export | black |
 | 6 | 6 | 92 | 1 | tiktok_hashtag_export | core |
-| 7 | 7 | 92 | 1 | tiktok_hashtag_export | danceinstructor |
-| 8 | 8 | 92 | 1 | tiktok_hashtag_export | delancy |
-| 9 | 9 | 92 | 1 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
-| 10 | 10 | 92 | 1 | tiktok_hashtag_export | swag |
-| 11 | 11 | 92 | 1 | tiktok_hashtag_export | tiktoker |
+| 7 | 7 | 92 | 1 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 8 | 8 | 92 | 1 | tiktok_hashtag_export | skitok |
+| 9 | 9 | 92 | 1 | tiktok_hashtag_export | swag |
+| 10 | 10 | 92 | 1 | tiktok_hashtag_export | tiktoker |
+| 11 | 11 | 92 | 1 | tiktok_hashtag_export | tistheseasoning |
 | 12 | 12 | 92 | 1 | tiktok_hashtag_export | top10 |
 | 13 | 13 | 92 | 1 | tiktok_hashtag_export | trippledipper |
 | 14 | 14 | 90 | 1 | tiktok_hashtag_export | couple |

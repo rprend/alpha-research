@@ -1,18 +1,18 @@
 # External Lead Progress
 
-Generated: 2026-06-13T07:25:57.261Z
+Generated: 2026-06-13T07:48:26.938Z
 
 - Packet assignments: 200
-- Completed files seen: 374
-- Import-ready assignments: 35
-- Not started assignments: 165
+- Completed files seen: 379
+- Import-ready assignments: 39
+- Not started assignments: 161
 - Needs-fix assignments: 0
 - No-valid-handles assignments: 0
-- Under-minimum ready assignments: 8
-- Ready-to-import assignments: 27
-- Valid leads: 6997
+- Under-minimum ready assignments: 10
+- Ready-to-import assignments: 29
+- Valid leads: 7619
 - Requested leads: 50000
-- Lead fill ratio: 0.14
+- Lead fill ratio: 0.152
 - Duplicate handles: 0
 
 ## Next Assignments
@@ -32,12 +32,12 @@ Generated: 2026-06-13T07:25:57.261Z
 | external_packet_0016 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0016-filmmaker.csv |
 | external_packet_0017 | sketch_comedian | under_minimum_ready | 125 | 250 | node docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0017-sketch_comedian.csv |
 | external_packet_0018 | filmmaker | not_started | 0 | 250 | Create data/raw/external-leads/completed/0018-filmmaker.csv |
-| external_packet_0019 | sketch_comedian | not_started | 0 | 250 | Create data/raw/external-leads/completed/0019-sketch_comedian.csv |
+| external_packet_0019 | cinematographer | under_minimum_ready | 87 | 250 | node docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0019-cinematographer.csv |
 | external_packet_0020 | cinematographer | under_minimum_ready | 39 | 250 | node docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0020-cinematographer.csv |
 | external_packet_0021 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0021-cinematographer.csv |
 | external_packet_0022 | cinematographer | under_minimum_ready | 39 | 250 | node docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs --input=docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0022-cinematographer.csv |
 | external_packet_0023 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0023-cinematographer.csv |
-| external_packet_0024 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0024-cinematographer.csv |
+| external_packet_0025 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0025-cinematographer.csv |
 | external_packet_0026 | cinematographer | not_started | 0 | 250 | Create data/raw/external-leads/completed/0026-cinematographer.csv |
 
 Status CSV: `data/processed/external_lead_packet_status.csv`

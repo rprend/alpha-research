@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13T07:25:55.864Z",
+  "generated_at": "2026-06-13T07:48:25.670Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
     "review_decisions": 500
   },
   "current": {
-    "accounts": 39570,
+    "accounts": 39576,
     "useful_creators": 2,
     "excellent_creators": 1,
     "review_decisions": 4
@@ -19,20 +19,20 @@
   "planning_assumptions": {
     "observed_useful_rate": 0.192,
     "planning_useful_rate": 0.192,
-    "observed_excellent_rate_among_useful": 0.636,
+    "observed_excellent_rate_among_useful": 0.653,
     "planning_excellent_rate_among_useful": 0.1,
     "import_batch_size": 250
   },
   "estimated_work": {
-    "candidate_accounts_needed": 260490,
-    "import_batches_needed": 1042,
+    "candidate_accounts_needed": 260530,
+    "import_batches_needed": 1043,
     "useful_creators_needed_for_excellent_target": 49990,
     "review_batches_needed": 2
   },
   "candidate_frontier": {
-    "targets": 413,
-    "handle_targets": 88,
-    "query_targets": 325
+    "targets": 412,
+    "handle_targets": 89,
+    "query_targets": 323
   },
   "ranked_surfaces": [
     {
@@ -205,10 +205,10 @@
       "frontier_rank": 7,
       "frontier_score": 92,
       "priority": 1,
-      "acquisition_surface": "tiktok_hashtag_export",
-      "query": "danceinstructor",
+      "acquisition_surface": "cross_platform_search",
+      "query": "site:vimeo.com \"tiktok.com/@\" \"filmmaker\"",
       "target_kind": "query",
-      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "expected_output": "external pages linking to adjacent TikTok creator profiles",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
@@ -218,7 +218,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "delancy",
+      "query": "skitok",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -229,10 +229,10 @@
       "frontier_rank": 9,
       "frontier_score": 92,
       "priority": 1,
-      "acquisition_surface": "cross_platform_search",
-      "query": "site:vimeo.com \"tiktok.com/@\" \"filmmaker\"",
+      "acquisition_surface": "tiktok_hashtag_export",
+      "query": "swag",
       "target_kind": "query",
-      "expected_output": "external pages linking to adjacent TikTok creator profiles",
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
@@ -242,7 +242,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "swag",
+      "query": "tiktoker",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -254,7 +254,7 @@
       "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
-      "query": "tiktoker",
+      "query": "tistheseasoning",
       "target_kind": "query",
       "expected_output": "recent public videos and author profiles for adjacent hashtag",
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
@@ -417,7 +417,7 @@
     },
     {
       "sequence": 25,
-      "batch_id": "graph_0208",
+      "batch_id": "graph_0209",
       "frontier_rank": 25,
       "frontier_score": 83,
       "priority": 1,

@@ -1,19 +1,58 @@
 {
-  "generated_at": "2026-06-13T07:25:57.360Z",
+  "generated_at": "2026-06-13T07:48:27.076Z",
   "mode": "dry_run",
   "live_confirmed": false,
-  "provider": "apify",
+  "provider": "public_web",
   "env_file_loaded": true,
-  "provider_token_available": false,
-  "selected_waves": 0,
+  "provider_token_available": true,
+  "selected_waves": 1,
   "max_waves": 1,
-  "estimated_cost_usd": 0,
+  "estimated_cost_usd": 0.5,
   "max_cost_usd": 1,
-  "selected_wave_ids": [],
-  "skipped_reason": "no_ready_manifest_rows",
+  "selected_wave_ids": [
+    "scale_wave_0001"
+  ],
+  "skipped_reason": "",
   "complete": true,
   "import_ran": false,
   "rebuild_ran": false,
-  "steps": [],
+  "steps": [
+    {
+      "kind": "dry_run_wave",
+      "wave_id": "scale_wave_0001",
+      "sequence": 1,
+      "estimated_cost_usd": 0.5,
+      "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --dry-run --max-tasks=2 --priority-max=2 --wave=1",
+      "result": {
+        "id": "dry_scale_wave_0001",
+        "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --dry-run --max-tasks=2 --priority-max=2 --wave=1",
+        "status": "pass",
+        "started_at": "2026-06-13T07:48:27.043Z",
+        "finished_at": "2026-06-13T07:48:27.076Z",
+        "output_tail": [
+          "      \"execution_id\": \"2026-06-13T07-48-27-073Z\",",
+          "      \"provider\": \"public_web\",",
+          "      \"batch_id\": \"graph_0224\",",
+          "      \"acquisition_surface\": \"tiktok_hashtag_export\",",
+          "      \"query\": \"batangquiapo\",",
+          "      \"target_label\": \"behind_the_scenes_creator\",",
+          "      \"actor_id\": \"bing_rss\",",
+          "      \"input\": {",
+          "        \"query\": \"site:tiktok.com/@ batangquiapo\",",
+          "        \"limit\": 100",
+          "      },",
+          "      \"dry_run\": true,",
+          "      \"started_at\": \"2026-06-13T07:48:27.073Z\",",
+          "      \"status\": \"dry_run\",",
+          "      \"output_rows\": 0,",
+          "      \"output_path\": \"\",",
+          "      \"finished_at\": \"2026-06-13T07:48:27.073Z\"",
+          "    }",
+          "  ]",
+          "}"
+        ]
+      }
+    }
+  ],
   "post_steps": []
 }

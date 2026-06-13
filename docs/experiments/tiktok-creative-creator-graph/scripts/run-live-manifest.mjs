@@ -119,7 +119,7 @@ function assertRunAllowed(manifest, selectedRows) {
   if (wantsLive && !confirmedLive) {
     throw new Error('Live manifest execution requires --confirm-live. Omit --live for guarded dry-run sequencing.')
   }
-  if (wantsLive && !process.env.APIFY_TOKEN) {
+  if (wantsLive && manifest.provider === 'apify' && !process.env.APIFY_TOKEN) {
     throw new Error('Live manifest execution requires APIFY_TOKEN in the environment.')
   }
 }
@@ -161,7 +161,7 @@ function main() {
     live_confirmed: confirmedLive,
     provider: manifest.provider ?? '',
     env_file_loaded: envFileLoaded,
-    provider_token_available: Boolean(process.env.APIFY_TOKEN),
+    provider_token_available: manifest.provider === 'apify' ? Boolean(process.env.APIFY_TOKEN) : true,
     selected_waves: selectedRows.length,
     max_waves: maxWaves,
     estimated_cost_usd: Number(selectedRows.reduce((sum, row) => sum + Number(row.estimated_cost_usd ?? 0), 0).toFixed(2)),

@@ -1,0 +1,1 @@
+{"kind":"dry_run_wave","wave_id":"scale_wave_0001","sequence":1,"estimated_cost_usd":0.5,"command":"node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --provider=public_web --dry-run --max-tasks=2 --priority-max=2 --wave=1","status":"pass","started_at":"2026-06-13T07:48:27.043Z","finished_at":"2026-06-13T07:48:27.076Z"}
