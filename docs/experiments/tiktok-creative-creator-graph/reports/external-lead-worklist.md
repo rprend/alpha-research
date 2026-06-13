@@ -1,6 +1,6 @@
 # External Lead Source Worklist
 
-Generated: 2026-06-13T02:52:14.879Z
+Generated: 2026-06-13T02:55:51.181Z
 
 This breaks the token-free acquisition packet into smaller source-level collection units. Work items point to a specific TikTok/search URL, a target label, a quota, and the completed file where accepted leads should land.
 

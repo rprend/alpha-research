@@ -1,11 +1,11 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T02:52:13.811Z
+Generated: 2026-06-13T02:55:50.132Z
 
 ## Summary
 
 - Accounts: 1929
-- Videos: 41
+- Videos: 38
 - Graph edges: 395
 - Useful accounts: 7
 - Excellent accounts: 6

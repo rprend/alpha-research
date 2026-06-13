@@ -1,11 +1,11 @@
 {
-  "run_id": "2026-06-13T02-52-13-673Z",
-  "generated_at": "2026-06-13T02:52:13.811Z",
+  "run_id": "2026-06-13T02-55-50-028Z",
+  "generated_at": "2026-06-13T02:55:50.132Z",
   "target_useful_accounts": 50000,
   "smoke": false,
   "counts": {
     "accounts": 1929,
-    "videos": 41,
+    "videos": 38,
     "edges": 395,
     "useful_accounts": 7,
     "excellent_accounts": 6,

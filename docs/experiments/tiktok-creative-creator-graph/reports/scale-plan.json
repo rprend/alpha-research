@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13T02:52:14.606Z",
+  "generated_at": "2026-06-13T02:55:50.897Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
     "review_decisions": 500
   },
   "current": {
-    "accounts": 1900,
+    "accounts": 1929,
     "useful_creators": 2,
     "excellent_creators": 1,
     "review_decisions": 4

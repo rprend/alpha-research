@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-13T02:52:15.592Z",
+  "generated_at": "2026-06-13T02:55:51.854Z",
   "complete": false,
   "counts": {
     "accounts": 1929,
-    "videos": 41,
+    "videos": 38,
     "edges": 395,
     "useful_accounts": 7,
     "excellent_accounts": 6,
@@ -27,8 +27,8 @@
     "candidate_frontier_handles": 7,
     "candidate_frontier_queries": 80,
     "acquisition_import_preview_accounts": 1924,
-    "acquisition_import_preview_ready": false,
-    "acquisition_import_waves": 20,
+    "acquisition_import_preview_ready": true,
+    "acquisition_import_waves": 21,
     "acquisition_runner_tasks": 2,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
@@ -98,7 +98,7 @@
     {
       "id": "video_metadata",
       "status": "pass",
-      "evidence": "41 videos ingested"
+      "evidence": "38 videos ingested"
     },
     {
       "id": "graph_edges",
@@ -153,12 +153,12 @@
     {
       "id": "acquisition_import_preview",
       "status": "pass",
-      "evidence": "1924 preview accounts, import gate not ready"
+      "evidence": "1924 preview accounts, import gate ready"
     },
     {
       "id": "acquisition_import_waves",
       "status": "pass",
-      "evidence": "20 acquisition import waves tracked"
+      "evidence": "21 acquisition import waves tracked"
     },
     {
       "id": "acquisition_runner",
