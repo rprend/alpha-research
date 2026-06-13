@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T03:01:57.642Z
+Generated: 2026-06-13T03:21:49.437Z
 
 ## Targets
 
@@ -10,7 +10,7 @@ Generated: 2026-06-13T03:01:57.642Z
 
 ## Current
 
-- Accounts: 1929
+- Accounts: 2298
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4
@@ -24,7 +24,7 @@ Generated: 2026-06-13T03:01:57.642Z
 
 ## Planning Assumptions
 
-- Observed useful rate: 0.004
+- Observed useful rate: 0.003
 - Planning useful rate: 0.02
 - Observed excellent rate among useful: 0.857
 - Planning excellent rate among useful: 0.1

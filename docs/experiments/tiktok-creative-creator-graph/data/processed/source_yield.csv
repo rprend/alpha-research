@@ -1,64 +1,169 @@
 source_type,source_name,source_query,creators_seen,useful_creators,excellent_creators,rejected_creators,reviewed_creators,usefulness_rate,rejection_rate,average_usefulness,yield_score,top_labels
-provider_video_export,unknown,,3,2,2,1,1,0.667,0.333,620,100,filmmaker:10; sketch_comedian:10; reject:10
-public_profile_enrichment,TikTok public profile hydration,review_queue_priority_1,1,1,1,0,0,1,0,595,100,sketch_comedian:7
-editorial_list,FeedSpot Comedy TikTokers,FeedSpot Top Comedy TikTok Influencers 2026,99,0,0,0,0,0,0,403.4,100,sketch_comedian:620; standup_comedian:330; actor_performer:10; cinematographer:10; director:10
-editorial_list,FeedSpot Movie TikTokers,FeedSpot Top Movie TikTok Influencers 2026,96,0,0,0,0,0,0,385.8,100,filmmaker:920; director:20; cinematographer:10; editor:10
-editorial_list,FeedSpot Horror TikTokers,FeedSpot Top Horror TikTok Influencers 2026,16,0,0,0,0,0,0,393.1,100,filmmaker:150; editor:10
-editorial_list,FeedSpot Digital Art TikTokers,FeedSpot Top Digital Art TikTok Influencers 2026,100,0,0,0,0,0,0,360.5,100,vfx_animation:990; editor:10
-editorial_list,FeedSpot New York Art TikTokers,FeedSpot Top New York Art TikTok Influencers 2026,41,0,0,0,0,0,0,392,100,vfx_animation:380; creative_technologist:10; sketch_comedian:10; editor:10
-editorial_list,FeedSpot Music Technology TikTokers,FeedSpot Top Music Technology TikTok Influencers 2026,48,0,0,0,0,0,0,401.7,100,creative_technologist:400; film_educator:20; filmmaker:20; cinematographer:10; standup_comedian:10
-editorial_list,FeedSpot Barcelona Photography TikTokers,FeedSpot Top Barcelona Photography TikTok Influencers 2026,2,0,0,0,0,0,0,395,100,filmmaker:10; editor:10
-editorial_list,FeedSpot Aviation TikTokers,FeedSpot Top Aviation TikTok Influencers 2026,97,0,0,0,0,0,0,359.6,100,behind_the_scenes_creator:920; film_educator:20; creative_technologist:10; director:10; editor:10
-editorial_list_seed,unknown,IZEA 10 Filmmakers to Follow on TikTok,8,0,0,0,0,0,0,281.3,100,filmmaker:25; cinematographer:20; vfx_animation:10; film_educator:10; behind_the_scenes_creator:10
-editorial_list_seed,unknown,Shutterstock TikTok filmmakers to follow,8,0,0,0,0,0,0,254.3,100,film_educator:25; filmmaker:25; cinematographer:10; vfx_animation:3
-editorial_list_seed,unknown,SheSources women in film TikTok creators,5,0,0,0,0,0,0,257,100,behind_the_scenes_creator:20; editor:10; unclear:10; director:5
-editorial_list,FeedSpot Mobile Gaming TikTokers,FeedSpot Top Mobile Gaming TikTok Influencers 2026,57,0,0,0,0,0,0,296.8,100,vfx_animation:468; filmmaker:18; editor:18; cinematographer:9
-editorial_list,FeedSpot Historical Fiction TikTokers,FeedSpot Top Historical Fiction TikTok Influencers 2026,25,0,0,0,0,0,0,288,100,film_educator:207; editor:18
-editorial_list,FeedSpot Pop Music TikTokers,FeedSpot Top Pop Music TikTok Influencers 2026,68,0,0,0,0,0,0,292.5,100,creative_technologist:540; standup_comedian:54; cinematographer:9; editor:9
-editorial_list,FeedSpot German Book TikTokers,FeedSpot Top German Book TikTok Influencers 2026,35,0,0,0,0,0,0,292.1,100,film_educator:306; editor:9
-editorial_list,FeedSpot LGBT Book TikTokers,FeedSpot Top LGBT Book TikTok Influencers 2026,21,0,0,0,0,0,0,293.1,100,film_educator:171; filmmaker:9; editor:9
-editorial_list,FeedSpot Middle Grade Book TikTokers,FeedSpot Top Middle Grade Book TikTok Influencers 2026,7,0,0,0,0,0,0,288,100,film_educator:54; editor:9
-editorial_list,FeedSpot Business Book Review TikTokers,FeedSpot Top Business Book Review TikTok Influencers 2026,4,0,0,0,0,0,0,306,100,film_educator:27; editor:9
-editorial_list,FeedSpot Literary Fiction TikTokers,FeedSpot Top Literary Fiction TikTok Influencers 2026,47,0,0,0,0,0,0,289.3,100,film_educator:396; editor:18; filmmaker:9
-editorial_list,FeedSpot Classical Music TikTokers,FeedSpot Top Classical Music TikTok Influencers 2026,37,0,0,0,0,0,0,288,100,film_educator:279; standup_comedian:27; actor_performer:9; director:9; editor:9
-editorial_list,FeedSpot Christian Music TikTokers,FeedSpot Top Christian Music TikTok Influencers 2026,50,0,0,0,0,0,0,292.1,100,creative_technologist:405; standup_comedian:36; editor:9
-editorial_list,FeedSpot Latin Music TikTokers,FeedSpot Top Latin Music TikTok Influencers 2026,28,0,0,0,0,0,0,292.2,100,creative_technologist:207; standup_comedian:36; editor:9
-editorial_list,FeedSpot Independent Music TikTokers,FeedSpot Top Independent Music TikTok Influencers 2026,29,0,0,0,0,0,0,288,100,creative_technologist:252; editor:9
-editorial_list,FeedSpot Canadian Music TikTokers,FeedSpot Top Canadian Music TikTok Influencers 2026,47,0,0,0,0,0,0,290.7,100,creative_technologist:378; actor_performer:18; standup_comedian:9; cinematographer:9; editor:9
-editorial_list,FeedSpot Crime Fiction TikTokers,FeedSpot Top Crime Fiction TikTok Influencers 2026,28,0,0,0,0,0,0,299.3,100,film_educator:234; sketch_comedian:9; editor:9
-editorial_list,FeedSpot Thriller Book TikTokers,FeedSpot Top Thriller Book TikTok Influencers 2026,45,0,0,0,0,0,0,295,100,film_educator:369; filmmaker:18; sketch_comedian:9; editor:9
-editorial_list,FeedSpot Entertainment TikTokers,FeedSpot Top Entertainment TikTok Influencers 2026,38,0,0,0,0,0,0,290.6,100,sketch_comedian:315; filmmaker:18; editor:9
-editorial_list,FeedSpot Lego TikTokers,FeedSpot Top Lego TikTok Influencers 2026,59,0,0,0,0,0,0,296.7,100,vfx_animation:486; behind_the_scenes_creator:36; editor:9
-editorial_list,FeedSpot Romance Book TikTokers,FeedSpot Top Romance Book TikTok Influencers 2026,44,0,0,0,0,0,0,294.8,100,film_educator:369; actor_performer:9; cinematographer:9; editor:9
-editorial_list,FeedSpot Anime TikTokers,FeedSpot Top Anime TikTok Influencers 2026,50,0,0,0,0,0,0,293.8,100,film_educator:387; editor:54; vfx_animation:9
-editorial_list,FeedSpot Children Book TikTokers,FeedSpot Top Children Book TikTok Influencers 2026,57,0,0,0,0,0,0,300.9,100,vfx_animation:414; film_educator:36; editor:27; sketch_comedian:9; creative_technologist:9
-editorial_list,FeedSpot Dance TikTokers,FeedSpot Top Dance TikTok Influencers 2026,62,0,0,0,0,0,0,292.8,100,behind_the_scenes_creator:432; film_educator:45; actor_performer:27; cinematographer:18; standup_comedian:9
-editorial_list,FeedSpot Music TikTokers,FeedSpot Top Music TikTok Influencers 2026,87,0,0,0,0,0,0,291.6,100,creative_technologist:693; standup_comedian:45; editor:18; director:9; film_educator:9
-editorial_list,FeedSpot Gaming TikTokers,FeedSpot Top Gaming TikTok Influencers 2026,55,0,0,0,0,0,0,296,100,vfx_animation:441; behind_the_scenes_creator:27; sketch_comedian:9; filmmaker:9; editor:9
-editorial_list,FeedSpot Technology TikTokers,FeedSpot Top Technology TikTok Influencers 2026,51,0,0,0,0,0,0,296.8,100,creative_technologist:396; film_educator:36; sketch_comedian:9; filmmaker:9; editor:9
-editorial_list,FeedSpot BookTok Creators,FeedSpot Top BookTok Influencers 2026,75,0,0,0,0,0,0,292.7,100,film_educator:630; filmmaker:27; cinematographer:9; editor:9
-editorial_list,FeedSpot AI TikTokers,FeedSpot Top AI TikTok Influencers 2026,32,0,0,0,0,0,0,291.1,100,creative_technologist:243; film_educator:36; editor:9
-editorial_list,FeedSpot Jazz TikTokers,FeedSpot Top 10 Jazz TikTok Influencers in 2026,8,0,0,0,0,0,0,256,100,behind_the_scenes_creator:48; film_educator:8; editor:8
-editorial_list,FeedSpot Stem TikTokers,FeedSpot Top 100 STEM TikTok Influencers in 2026,97,0,0,0,0,0,0,261.8,100,film_educator:712; creative_technologist:24; editor:16; filmmaker:8; cinematographer:8
-editorial_list,FeedSpot Virtual Reality TikTokers,FeedSpot Top 35 Virtual Reality TikTok Influencers in 2026,31,0,0,0,0,0,0,261.7,100,film_educator:240; editor:8
-editorial_list,FeedSpot Virtual TikTokers,FeedSpot Top 80 Virtual TikTok Influencers in 2026,72,0,0,0,0,0,0,265.6,100,film_educator:456; creative_technologist:80; editor:16; filmmaker:8; sketch_comedian:8
-public_profile_enrichment,TikTok public profile hydration,review_queue_priority_3,5,0,0,0,0,0,0,244.2,100,filmmaker:10; vfx_animation:7; director:5; film_educator:5
+provider_video_export,unknown,,3,2,2,1,1,0.667,0.333,682,100,filmmaker:11; sketch_comedian:11; reject:11
+public_profile_enrichment,TikTok public profile hydration,review_queue_priority_1,1,1,1,0,0,1,0,680,100,sketch_comedian:8
+editorial_list,FeedSpot Comedy TikTokers,FeedSpot Top Comedy TikTok Influencers 2026,99,0,0,0,0,0,0,449.9,100,sketch_comedian:682; standup_comedian:363; actor_performer:11; cinematographer:11; director:11
+editorial_list,FeedSpot Movie TikTokers,FeedSpot Top Movie TikTok Influencers 2026,96,0,0,0,0,0,0,424.4,100,filmmaker:1012; director:22; cinematographer:11; editor:11
+editorial_list,FeedSpot Horror TikTokers,FeedSpot Top Horror TikTok Influencers 2026,16,0,0,0,0,0,0,432.4,100,filmmaker:165; editor:11
+editorial_list,FeedSpot Digital Art TikTokers,FeedSpot Top Digital Art TikTok Influencers 2026,100,0,0,0,0,0,0,396.6,100,vfx_animation:1089; editor:11
+editorial_list,FeedSpot New York Art TikTokers,FeedSpot Top New York Art TikTok Influencers 2026,41,0,0,0,0,0,0,431.1,100,vfx_animation:418; creative_technologist:11; sketch_comedian:11; editor:11
+editorial_list,FeedSpot Music Technology TikTokers,FeedSpot Top Music Technology TikTok Influencers 2026,48,0,0,0,0,0,0,441.8,100,creative_technologist:440; film_educator:22; filmmaker:22; cinematographer:11; standup_comedian:11
+editorial_list,FeedSpot Barcelona Photography TikTokers,FeedSpot Top Barcelona Photography TikTok Influencers 2026,2,0,0,0,0,0,0,434.5,100,filmmaker:11; editor:11
+editorial_list,FeedSpot Aviation TikTokers,FeedSpot Top Aviation TikTok Influencers 2026,97,0,0,0,0,0,0,395.5,100,behind_the_scenes_creator:1012; film_educator:22; creative_technologist:11; director:11; editor:11
+editorial_list_seed,unknown,IZEA 10 Filmmakers to Follow on TikTok,8,0,0,0,0,0,0,305.5,100,filmmaker:27; cinematographer:22; film_educator:11; behind_the_scenes_creator:11; vfx_animation:10
+editorial_list_seed,unknown,Shutterstock TikTok filmmakers to follow,8,0,0,0,0,0,0,272.4,100,film_educator:27; filmmaker:27; cinematographer:11; vfx_animation:3
+editorial_list_seed,unknown,SheSources women in film TikTok creators,5,0,0,0,0,0,0,278.2,100,behind_the_scenes_creator:22; editor:11; unclear:11; director:5
+editorial_list,FeedSpot Mobile Gaming TikTokers,FeedSpot Top Mobile Gaming TikTok Influencers 2026,57,0,0,0,0,0,0,329.8,100,vfx_animation:520; filmmaker:20; editor:20; cinematographer:10
+editorial_list,FeedSpot Historical Fiction TikTokers,FeedSpot Top Historical Fiction TikTok Influencers 2026,25,0,0,0,0,0,0,320,100,film_educator:230; editor:20
+editorial_list,FeedSpot Pop Music TikTokers,FeedSpot Top Pop Music TikTok Influencers 2026,68,0,0,0,0,0,0,333.8,100,creative_technologist:600; standup_comedian:60; cinematographer:10; editor:10
+editorial_list,FeedSpot German Book TikTokers,FeedSpot Top German Book TikTok Influencers 2026,35,0,0,0,0,0,0,324.6,100,film_educator:340; editor:10
+editorial_list,FeedSpot LGBT Book TikTokers,FeedSpot Top LGBT Book TikTok Influencers 2026,21,0,0,0,0,0,0,325.7,100,film_educator:190; filmmaker:10; editor:10
+editorial_list,FeedSpot Middle Grade Book TikTokers,FeedSpot Top Middle Grade Book TikTok Influencers 2026,7,0,0,0,0,0,0,320,100,film_educator:60; editor:10
+editorial_list,FeedSpot Illustrated Books TikTokers,FeedSpot Top Illustrated Books TikTok Influencers 2026,25,0,0,0,0,0,0,231.6,100,unclear:200; film_educator:20; vfx_animation:10; cinematographer:10; editor:10
+editorial_list,FeedSpot Business Book Review TikTokers,FeedSpot Top Business Book Review TikTok Influencers 2026,4,0,0,0,0,0,0,340,100,film_educator:30; editor:10
+editorial_list,FeedSpot Literary Fiction TikTokers,FeedSpot Top Literary Fiction TikTok Influencers 2026,47,0,0,0,0,0,0,321.5,100,film_educator:440; editor:20; filmmaker:10
+editorial_list,FeedSpot Classical Music TikTokers,FeedSpot Top Classical Music TikTok Influencers 2026,37,0,0,0,0,0,0,320,100,film_educator:310; standup_comedian:30; actor_performer:10; director:10; editor:10
+editorial_list,FeedSpot Christian Music TikTokers,FeedSpot Top Christian Music TikTok Influencers 2026,50,0,0,0,0,0,0,324.6,100,creative_technologist:450; standup_comedian:40; editor:10
+editorial_list,FeedSpot Latin Music TikTokers,FeedSpot Top Latin Music TikTok Influencers 2026,28,0,0,0,0,0,0,324.6,100,creative_technologist:230; standup_comedian:40; editor:10
+editorial_list,FeedSpot Independent Music TikTokers,FeedSpot Top Independent Music TikTok Influencers 2026,29,0,0,0,0,0,0,321.7,100,creative_technologist:280; editor:10
+editorial_list,FeedSpot Canadian Music TikTokers,FeedSpot Top Canadian Music TikTok Influencers 2026,47,0,0,0,0,0,0,323,100,creative_technologist:420; actor_performer:20; standup_comedian:10; cinematographer:10; editor:10
+editorial_list,FeedSpot Crime Fiction TikTokers,FeedSpot Top Crime Fiction TikTok Influencers 2026,28,0,0,0,0,0,0,332.5,100,film_educator:260; sketch_comedian:10; editor:10
+editorial_list,FeedSpot Thriller Book TikTokers,FeedSpot Top Thriller Book TikTok Influencers 2026,45,0,0,0,0,0,0,327.8,100,film_educator:410; filmmaker:20; sketch_comedian:10; editor:10
+editorial_list,FeedSpot Entertainment TikTokers,FeedSpot Top Entertainment TikTok Influencers 2026,38,0,0,0,0,0,0,322.9,100,sketch_comedian:350; filmmaker:20; editor:10
+editorial_list,FeedSpot Lego TikTokers,FeedSpot Top Lego TikTok Influencers 2026,59,0,0,0,0,0,0,329.7,100,vfx_animation:540; behind_the_scenes_creator:40; editor:10
+editorial_list,FeedSpot Romance Book TikTokers,FeedSpot Top Romance Book TikTok Influencers 2026,44,0,0,0,0,0,0,327.5,100,film_educator:410; actor_performer:10; cinematographer:10; editor:10
+editorial_list,FeedSpot Anime TikTokers,FeedSpot Top Anime TikTok Influencers 2026,50,0,0,0,0,0,0,326.4,100,film_educator:430; editor:60; vfx_animation:10
+editorial_list,FeedSpot Children Book TikTokers,FeedSpot Top Children Book TikTok Influencers 2026,57,0,0,0,0,0,0,334.4,100,vfx_animation:460; film_educator:40; editor:30; sketch_comedian:10; creative_technologist:10
+editorial_list,FeedSpot Dance TikTokers,FeedSpot Top Dance TikTok Influencers 2026,62,0,0,0,0,0,0,325.3,100,behind_the_scenes_creator:480; film_educator:50; actor_performer:30; cinematographer:20; standup_comedian:10
+editorial_list,FeedSpot Music TikTokers,FeedSpot Top Music TikTok Influencers 2026,87,0,0,0,0,0,0,324.6,100,creative_technologist:770; standup_comedian:50; editor:20; director:10; film_educator:10
+editorial_list,FeedSpot Gaming TikTokers,FeedSpot Top Gaming TikTok Influencers 2026,55,0,0,0,0,0,0,329.8,100,vfx_animation:490; behind_the_scenes_creator:30; sketch_comedian:10; filmmaker:10; editor:10
+editorial_list,FeedSpot Technology TikTokers,FeedSpot Top Technology TikTok Influencers 2026,51,0,0,0,0,0,0,329.8,100,creative_technologist:440; film_educator:40; sketch_comedian:10; filmmaker:10; editor:10
+editorial_list,FeedSpot BookTok Creators,FeedSpot Top BookTok Influencers 2026,75,0,0,0,0,0,0,325.2,100,film_educator:700; filmmaker:30; cinematographer:10; editor:10
+editorial_list,FeedSpot AI TikTokers,FeedSpot Top AI TikTok Influencers 2026,32,0,0,0,0,0,0,323.4,100,creative_technologist:270; film_educator:40; editor:10
+editorial_list,FeedSpot Jazz TikTokers,FeedSpot Top 10 Jazz TikTok Influencers in 2026,8,0,0,0,0,0,0,288,100,behind_the_scenes_creator:54; film_educator:9; editor:9
+editorial_list,FeedSpot Stem TikTokers,FeedSpot Top 100 STEM TikTok Influencers in 2026,97,0,0,0,0,0,0,294.5,100,film_educator:801; creative_technologist:27; editor:18; filmmaker:9; cinematographer:9
+editorial_list,FeedSpot Virtual Reality TikTokers,FeedSpot Top 35 Virtual Reality TikTok Influencers in 2026,31,0,0,0,0,0,0,294.4,100,film_educator:270; editor:9
+editorial_list,FeedSpot Virtual TikTokers,FeedSpot Top 80 Virtual TikTok Influencers in 2026,72,0,0,0,0,0,0,298.8,100,film_educator:513; creative_technologist:90; editor:18; filmmaker:9; sketch_comedian:9
+public_profile_enrichment,TikTok public profile hydration,review_queue_priority_3,5,0,0,0,0,0,0,289.2,100,filmmaker:12; vfx_animation:8; director:6; film_educator:6
 manual_seed,smoke-seeds.jsonl,filmmaker short film editing breakdown,1,1,1,0,1,1,0,98,95,filmmaker:1
-editorial_list,FeedSpot Illustrated Books TikTokers,FeedSpot Top Illustrated Books TikTok Influencers 2026,25,0,0,0,0,0,0,208.4,94,unclear:180; film_educator:18; vfx_animation:9; cinematographer:9; editor:9
 manual_seed,smoke-seeds.jsonl,cinematographer lighting breakdown,1,1,1,0,0,1,0,86,87,cinematographer:1
 manual_seed,smoke-seeds.jsonl,vfx artist animation blender,1,1,1,0,0,1,0,87,87,vfx_animation:1
 manual_seed,smoke-seeds.jsonl,sketch comedian character comedy,1,1,1,0,0,1,0,85,86,sketch_comedian:1
 graph_expansion_fixture,smoke-seeds.jsonl,mentioned by @ani.motionlab,1,1,0,0,1,1,0,78,78,creative_technologist:1
 provider_video_export,acquisition-import-2026-06-12.jsonl,,3,2,2,1,1,0.667,0.333,62,65,filmmaker:1; sketch_comedian:1; reject:1
-public_dataset_sample,Bright Data TikTok profiles GitHub sample,null,29,0,0,0,0,0,0,105.1,47,actor_performer:27; sketch_comedian:15; vfx_animation:12; film_educator:9; filmmaker:9
-editorial_list,FeedSpot Audiophile TikTokers,FeedSpot Audiophile TikTok Influencers 2026,11,0,0,0,0,0,0,64,29,film_educator:20; editor:2
-editorial_list,FeedSpot DnD TikTokers,FeedSpot DnD TikTok Influencers 2026,60,0,0,0,0,0,0,63.9,29,actor_performer:112; film_educator:4; sketch_comedian:2; editor:2
-editorial_list,FeedSpot Flight Simulation TikTokers,FeedSpot Flight Simulation TikTok Influencers 2026,40,0,0,0,0,0,0,64.5,29,filmmaker:76; standup_comedian:2; editor:2
-editorial_list,FeedSpot Halloween TikTokers,FeedSpot Halloween TikTok Influencers 2026,33,0,0,0,0,0,0,64.1,29,behind_the_scenes_creator:56; filmmaker:8; editor:2
-editorial_list,FeedSpot Opera TikTokers,FeedSpot Opera TikTok Influencers 2026,20,0,0,0,0,0,0,64,29,film_educator:32; actor_performer:4; creative_technologist:2; editor:2
-editorial_list,FeedSpot Quilting TikTokers,FeedSpot Quilting TikTok Influencers 2026,40,0,0,0,0,0,0,64.2,29,vfx_animation:70; film_educator:8; editor:2
-editorial_list,FeedSpot RPG TikTokers,FeedSpot RPG TikTok Influencers 2026,16,0,0,0,0,0,0,64.4,29,creative_technologist:30; editor:2
-editorial_list,FeedSpot Wedding TikTokers,FeedSpot Wedding TikTok Influencers 2026,100,0,0,0,0,0,0,64.3,29,behind_the_scenes_creator:158; film_educator:28; creative_technologist:4; filmmaker:4; cinematographer:2
-editorial_list,FeedSpot Robotics TikTokers,FeedSpot Robotics TikTok Influencers 2026,25,0,0,0,0,0,0,63.2,28,film_educator:42; creative_technologist:3; sketch_comedian:2; editor:2
-editorial_list,FeedSpot Space TikTokers,FeedSpot Space TikTok Influencers 2026,31,0,0,0,0,0,0,58.8,26,creative_technologist:47; film_educator:5; sketch_comedian:2; editor:2
+public_dataset_sample,Bright Data TikTok profiles GitHub sample,null,29,0,0,0,0,0,0,140.1,63,actor_performer:36; sketch_comedian:20; vfx_animation:16; film_educator:12; filmmaker:12
+editorial_list,FeedSpot Flight Simulation TikTokers,FeedSpot Flight Simulation TikTok Influencers 2026,40,0,0,0,0,0,0,96.7,44,filmmaker:114; standup_comedian:3; editor:3
+editorial_list,FeedSpot Audiophile TikTokers,FeedSpot Audiophile TikTok Influencers 2026,11,0,0,0,0,0,0,96,43,film_educator:30; editor:3
+editorial_list,FeedSpot DnD TikTokers,FeedSpot DnD TikTok Influencers 2026,60,0,0,0,0,0,0,95.8,43,actor_performer:168; film_educator:6; sketch_comedian:3; editor:3
+editorial_list,FeedSpot Halloween TikTokers,FeedSpot Halloween TikTok Influencers 2026,33,0,0,0,0,0,0,96.1,43,behind_the_scenes_creator:84; filmmaker:12; editor:3
+editorial_list,FeedSpot Opera TikTokers,FeedSpot Opera TikTok Influencers 2026,20,0,0,0,0,0,0,96,43,film_educator:48; actor_performer:6; creative_technologist:3; editor:3
+editorial_list,FeedSpot Quilting TikTokers,FeedSpot Quilting TikTok Influencers 2026,40,0,0,0,0,0,0,96.2,43,vfx_animation:105; film_educator:12; editor:3
+editorial_list,FeedSpot RPG TikTokers,FeedSpot RPG TikTok Influencers 2026,16,0,0,0,0,0,0,96.6,43,creative_technologist:45; editor:3
+editorial_list,FeedSpot Wedding TikTokers,FeedSpot Wedding TikTok Influencers 2026,100,0,0,0,0,0,0,96.5,43,behind_the_scenes_creator:237; film_educator:42; creative_technologist:6; filmmaker:6; cinematographer:3
+editorial_list,FeedSpot Robotics TikTokers,FeedSpot Robotics TikTok Influencers 2026,25,0,0,0,0,0,0,94,42,film_educator:63; creative_technologist:4; sketch_comedian:3; editor:3
+editorial_list,FeedSpot Space TikTokers,FeedSpot Space TikTok Influencers 2026,31,0,0,0,0,0,0,84.6,38,creative_technologist:70; film_educator:5; sketch_comedian:3; editor:3
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|stand-up comedian,1,0,0,0,0,0,0,70,32,actor_performer:2
+wikidata_profile,Wikidata TikTok username property P7085,voice actor,245,0,0,0,0,0,0,61.8,28,actor_performer:476; creative_technologist:6; cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,film director,169,0,0,0,0,0,0,61.7,28,director:326; creative_technologist:4; cinematographer:2; standup_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,voice actor|film director,10,0,0,0,0,0,0,62,28,actor_performer:20
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian,29,0,0,0,0,0,0,62.3,28,sketch_comedian:58
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor,12,0,0,0,0,0,0,61.3,28,sketch_comedian:22; standup_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,film director|voice actor|film producer,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|voice actor|film director,2,0,0,0,0,0,0,62,28,vfx_animation:4
+wikidata_profile,Wikidata TikTok username property P7085,video editor,10,0,0,0,0,0,0,62.8,28,editor:20
+wikidata_profile,Wikidata TikTok username property P7085,comedian,316,0,0,0,0,0,0,61.9,28,sketch_comedian:622; standup_comedian:3; vfx_animation:1
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film producer,15,0,0,0,0,0,0,62,28,filmmaker:30
+wikidata_profile,Wikidata TikTok username property P7085,film producer,66,0,0,0,0,0,0,61.9,28,filmmaker:130; creative_technologist:1
+wikidata_profile,Wikidata TikTok username property P7085,animator,22,0,0,0,0,0,0,62,28,vfx_animation:44
+wikidata_profile,Wikidata TikTok username property P7085,film director|film producer,22,0,0,0,0,0,0,62.7,28,director:44
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film producer,21,0,0,0,0,0,0,62.4,28,director:42
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film producer,4,0,0,0,0,0,0,62,28,sketch_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director,37,0,0,0,0,0,0,62.4,28,director:72; behind_the_scenes_creator:2
+wikidata_profile,Wikidata TikTok username property P7085,stand-up comedian,61,0,0,0,0,0,0,62.5,28,standup_comedian:122
+wikidata_profile,Wikidata TikTok username property P7085,comedian|stand-up comedian,27,0,0,0,0,0,0,61.9,28,sketch_comedian:52; standup_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,film editor,9,0,0,0,0,0,0,62,28,editor:18
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|stand-up comedian,4,0,0,0,0,0,0,62,28,standup_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,television director|film director|film producer,3,0,0,0,0,0,0,62,28,director:6
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film producer,4,0,0,0,0,0,0,62,28,sketch_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,television director,8,0,0,0,0,0,0,62,28,director:16
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film director,19,0,0,0,0,0,0,62.4,28,sketch_comedian:38
+wikidata_profile,Wikidata TikTok username property P7085,film director|comedian|film producer,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|video editor,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|film director|film producer,2,0,0,0,0,0,0,62,28,cinematographer:4
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director|film editor,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film producer,4,0,0,0,0,0,0,62,28,sketch_comedian:8
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|animator,2,0,0,0,0,0,0,62,28,cinematographer:4
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer,9,0,0,0,0,0,0,62,28,cinematographer:18
+wikidata_profile,Wikidata TikTok username property P7085,film director|comedian,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor,17,0,0,0,0,0,0,62,28,actor_performer:34
+wikidata_profile,Wikidata TikTok username property P7085,voice actor|stand-up comedian,5,0,0,0,0,0,0,62,28,actor_performer:10
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film editor,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film director,2,0,0,0,0,0,0,62,28,cinematographer:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|video editor,1,0,0,0,0,0,0,62,28,editor:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|video editor|stand-up comedian,1,0,0,0,0,0,0,62,28,editor:2
+wikidata_profile,Wikidata TikTok username property P7085,film director|stand-up comedian,2,0,0,0,0,0,0,62,28,director:4
+wikidata_profile,Wikidata TikTok username property P7085,animator|voice actor,5,0,0,0,0,0,0,62,28,vfx_animation:10
+wikidata_profile,Wikidata TikTok username property P7085,animator|video editor,1,0,0,0,0,0,0,62,28,vfx_animation:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|television director|film director|film producer|film editor,2,0,0,0,0,0,0,62,28,cinematographer:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|film director,1,0,0,0,0,0,0,62,28,vfx_animation:2
+wikidata_profile,Wikidata TikTok username property P7085,animator|voice actor|film director,1,0,0,0,0,0,0,62,28,vfx_animation:2
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film director|film producer,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|comedian,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film editor,1,0,0,0,0,0,0,62,28,editor:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film producer|stand-up comedian,2,0,0,0,0,0,0,62,28,sketch_comedian:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|film producer|film editor,4,0,0,0,0,0,0,62,28,director:6; vfx_animation:2
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|stand-up comedian,3,0,0,0,0,0,0,62,28,sketch_comedian:6
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film director|film producer,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film director|film producer,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film producer,2,0,0,0,0,0,0,62,28,actor_performer:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film director,3,0,0,0,0,0,0,62,28,sketch_comedian:6
+wikidata_profile,Wikidata TikTok username property P7085,television director|voice actor,3,0,0,0,0,0,0,62,28,director:6
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film director,2,0,0,0,0,0,0,62,28,sketch_comedian:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|television director,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director,3,0,0,0,0,0,0,62,28,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,film producer|stand-up comedian,1,0,0,0,0,0,0,62,28,filmmaker:2
+wikidata_profile,Wikidata TikTok username property P7085,comedian|television director,3,0,0,0,0,0,0,62,28,sketch_comedian:6
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|film director|comedian|voice actor|film producer,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|film director|film producer,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film editor,1,0,0,0,0,0,0,62,28,actor_performer:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director|film producer,3,0,0,0,0,0,0,62,28,actor_performer:6
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director|voice actor,2,0,0,0,0,0,0,62,28,director:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|voice actor|film director|film producer|stand-up comedian,1,0,0,0,0,0,0,62,28,actor_performer:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor,6,0,0,0,0,0,0,62,28,sketch_comedian:12
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|film director|film producer,2,0,0,0,0,0,0,62,28,sketch_comedian:4
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|comedian|television director|voice actor|film director|film producer|film editor,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|television director,3,0,0,0,0,0,0,62,28,director:6
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film director|film producer|stand-up comedian,2,0,0,0,0,0,0,62,28,sketch_comedian:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film producer|stand-up comedian,2,0,0,0,0,0,0,62,28,filmmaker:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|film director|special effects artist,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|film director|stand-up comedian,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,television director|film producer,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,comedian|television director|voice actor|film director|film producer,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|film director|voice actor|film producer,1,0,0,0,0,0,0,62,28,vfx_animation:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|film director|stand-up comedian,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,comedian|voice actor|film producer,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,television director|stand-up comedian,2,0,0,0,0,0,0,62,28,director:4
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film director|stand-up comedian,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|voice actor,2,0,0,0,0,0,0,62,28,vfx_animation:4
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|stand-up comedian,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,television director|voice actor|film director,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator|television director|voice actor|film director,1,0,0,0,0,0,0,62,28,vfx_animation:2
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|animator|television director|voice actor|film director|film producer|film editor,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|cinematographer|film director,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,film director|video editor,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|stand-up comedian,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|film editor|video editor,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,film director|film editor,1,0,0,0,0,0,0,62,28,director:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|animator,2,0,0,0,0,0,0,62,28,vfx_animation:4
+wikidata_profile,Wikidata TikTok username property P7085,cinematographer|television director|film director|film producer,1,0,0,0,0,0,0,62,28,cinematographer:2
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|television director|voice actor|film director|film producer,1,0,0,0,0,0,0,62,28,sketch_comedian:2
+wikidata_profile,Wikidata TikTok username property P7085,animator|film director,2,0,0,0,0,0,0,62,28,vfx_animation:4
+wikidata_profile,Wikidata TikTok username property P7085,voice actor|film producer,20,0,0,0,0,0,0,60.8,27,actor_performer:38; creative_technologist:1
+wikidata_profile,Wikidata TikTok username property P7085,voice actor|film director|film producer,12,0,0,0,0,0,0,59.9,27,actor_performer:22; creative_technologist:1
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|stand-up comedian,7,0,0,0,0,0,0,59.7,27,sketch_comedian:12; standup_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film producer|stand-up comedian,3,0,0,0,0,0,0,56,25,sketch_comedian:4; standup_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter|comedian|voice actor|film director|film producer,2,0,0,0,0,0,0,52.5,24,sketch_comedian:2; standup_comedian:1
+wikidata_profile,Wikidata TikTok username property P7085,comedian|film producer|stand-up comedian,2,0,0,0,0,0,0,54,24,sketch_comedian:3
+wikidata_profile,Wikidata TikTok username property P7085,screenwriter,54,0,0,0,0,0,0,40.1,18,unclear:108
 search_seed,smoke-seeds.jsonl,site:tiktok.com/@ short film,1,0,0,1,1,0,1,0,0,reject:1

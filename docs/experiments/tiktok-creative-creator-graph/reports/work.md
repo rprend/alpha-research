@@ -1,40 +1,40 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T03:01:56.776Z
+Generated: 2026-06-13T03:21:48.564Z
 
 ## Summary
 
-- Accounts: 2298
-- Videos: 41
+- Accounts: 3634
+- Videos: 44
 - Graph edges: 395
 - Useful accounts: 7
 - Excellent accounts: 6
-- Review queue: 2298
+- Review queue: 3634
 - Expansion queue: 7
 - Target: 50000
 - Target status: 49993 more useful accounts needed
 
 ## Status Counts
 
-- needs_review: 2289
+- needs_review: 3625
 - excellent: 6
 - reject: 2
 - useful: 1
 
 ## Primary Labels
 
-- sketch_comedian: 115
-- standup_comedian: 59
-- actor_performer: 76
-- cinematographer: 19
-- director: 8
-- editor: 66
-- filmmaker: 182
-- vfx_animation: 383
+- sketch_comedian: 566
+- standup_comedian: 124
+- actor_performer: 387
+- cinematographer: 48
+- director: 288
+- editor: 88
+- filmmaker: 265
+- vfx_animation: 423
 - creative_technologist: 445
 - film_educator: 656
-- behind_the_scenes_creator: 266
-- unclear: 21
+- behind_the_scenes_creator: 267
+- unclear: 75
 - reject: 2
 
 ## Top Accounts
@@ -48,6 +48,7 @@ Generated: 2026-06-13T03:01:56.776Z
 | @noahframes | cinematographer | 86 | excellent |
 | @lucybits | sketch_comedian | 85 | excellent |
 | @renderjules | creative_technologist | 78 | useful |
+| @ben_brainard | standup_comedian | 50 | needs_review |
 | @authorcarriea | cinematographer | 50 | needs_review |
 | @comediandre | standup_comedian | 48 | needs_review |
 | @mycanimationsextra | vfx_animation | 48 | needs_review |
@@ -60,7 +61,6 @@ Generated: 2026-06-13T03:01:56.776Z
 | @kaileemcoleman | vfx_animation | 48 | needs_review |
 | @tuckercomedy | actor_performer | 47 | needs_review |
 | @maxcomedian | standup_comedian | 47 | needs_review |
-| @lindamarric | cinematographer | 47 | needs_review |
 
 ## Next Expansion Targets
 
@@ -87,6 +87,7 @@ Generated: 2026-06-13T03:01:56.776Z
 | @dailyfilmclips | reject | 0 | repost_risk |
 | @clipvaultcinema | reject | 0 | repost_risk |
 | @renderjules | creative_technologist | 78 | strong_public_source_candidate |
+| @ben_brainard | standup_comedian | 50 | threshold_borderline; strong_public_source_candidate |
 | @authorcarriea | cinematographer | 50 | threshold_borderline; strong_public_source_candidate |
 | @comediandre | standup_comedian | 48 | threshold_borderline; strong_public_source_candidate |
 | @mycanimationsextra | vfx_animation | 48 | threshold_borderline; strong_public_source_candidate |
@@ -102,4 +103,3 @@ Generated: 2026-06-13T03:01:56.776Z
 | @lindamarric | cinematographer | 47 | threshold_borderline; strong_public_source_candidate |
 | @filmmakersworld | filmmaker | 47 | threshold_borderline; strong_public_source_candidate |
 | @jamesmarriott | cinematographer | 47 | threshold_borderline; strong_public_source_candidate |
-| @its.queen.ife_ | cinematographer | 46 | threshold_borderline; strong_public_source_candidate |

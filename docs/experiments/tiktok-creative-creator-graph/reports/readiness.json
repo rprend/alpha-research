@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-13T03:01:58.600Z",
+  "generated_at": "2026-06-13T03:21:50.366Z",
   "complete": false,
   "counts": {
-    "accounts": 2298,
-    "videos": 41,
+    "accounts": 3634,
+    "videos": 44,
     "edges": 395,
     "useful_accounts": 7,
     "excellent_accounts": 6,
     "rejected_accounts": 2,
-    "review_queue": 2298,
+    "review_queue": 3634,
     "review_sample": 250,
     "review_packet_rows": 250,
     "review_decision_template_rows": 250,
@@ -26,15 +26,15 @@
     "candidate_frontier": 87,
     "candidate_frontier_handles": 7,
     "candidate_frontier_queries": 80,
-    "acquisition_import_preview_accounts": 2293,
+    "acquisition_import_preview_accounts": 3629,
     "acquisition_import_preview_ready": true,
-    "acquisition_import_waves": 23,
+    "acquisition_import_waves": 25,
     "acquisition_runner_tasks": 2,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 17,
-    "source_yield_rows": 63,
-    "identities": 2242,
+    "source_yield_rows": 168,
+    "identities": 3573,
     "category_coverage_labels": 11,
     "category_coverage_covered_labels": 5,
     "release_useful_creators": 2,
@@ -86,19 +86,19 @@
     "scale_campaign_mode": "dry_run",
     "scale_campaign_stop_reason": "dry_run_complete",
     "scale_campaign_estimated_cost_usd": 0.5,
-    "refresh_tasks": 2298,
+    "refresh_tasks": 3634,
     "publication_handoff": 1
   },
   "checks": [
     {
       "id": "seed_intake",
       "status": "pass",
-      "evidence": "2298 accounts ingested"
+      "evidence": "3634 accounts ingested"
     },
     {
       "id": "video_metadata",
       "status": "pass",
-      "evidence": "41 videos ingested"
+      "evidence": "44 videos ingested"
     },
     {
       "id": "graph_edges",
@@ -108,12 +108,12 @@
     {
       "id": "scoring_coverage",
       "status": "pass",
-      "evidence": "2298/2298 accounts scored"
+      "evidence": "3634/3634 accounts scored"
     },
     {
       "id": "review_queue",
       "status": "pass",
-      "evidence": "2298 accounts queued for review"
+      "evidence": "3634 accounts queued for review"
     },
     {
       "id": "review_sample",
@@ -153,12 +153,12 @@
     {
       "id": "acquisition_import_preview",
       "status": "pass",
-      "evidence": "2293 preview accounts, import gate ready"
+      "evidence": "3629 preview accounts, import gate ready"
     },
     {
       "id": "acquisition_import_waves",
       "status": "pass",
-      "evidence": "23 acquisition import waves tracked"
+      "evidence": "25 acquisition import waves tracked"
     },
     {
       "id": "acquisition_runner",
@@ -173,12 +173,12 @@
     {
       "id": "source_yield",
       "status": "pass",
-      "evidence": "63 source/query yield rows generated"
+      "evidence": "168 source/query yield rows generated"
     },
     {
       "id": "identity_resolution",
       "status": "pass",
-      "evidence": "2242 creator identities resolved"
+      "evidence": "3573 creator identities resolved"
     },
     {
       "id": "category_coverage",
@@ -268,7 +268,7 @@
     {
       "id": "refresh_plan",
       "status": "pass",
-      "evidence": "2298 account refresh tasks generated"
+      "evidence": "3634 account refresh tasks generated"
     },
     {
       "id": "publication_handoff",

@@ -1,6 +1,6 @@
 # Review Packet
 
-Generated: 2026-06-13T03:01:57.312Z
+Generated: 2026-06-13T03:21:49.065Z
 
 - Packet id: review_packet_20260613
 - Rows: 250
@@ -15,7 +15,7 @@ Generated: 2026-06-13T03:01:57.312Z
 
 | Seq | Batch | Rows | Labels | Decision template |
 | ---: | --- | ---: | --- | --- |
-| 1 | review_batch_0001 | 250 | sketch_comedian|filmmaker|vfx_animation|cinematographer|editor|standup_comedian|actor_performer|director|film_educator|behind_the_scenes_creator|unclear|creative_technologist | `data/processed/review_packets/review_packet_20260613-review_batch_0001-decision-template.csv` |
+| 1 | review_batch_0001 | 250 | sketch_comedian|filmmaker|vfx_animation|cinematographer|editor|standup_comedian|actor_performer|director|film_educator|behind_the_scenes_creator|unclear | `data/processed/review_packets/review_packet_20260613-review_batch_0001-decision-template.csv` |
 
 ## Review Bands
 

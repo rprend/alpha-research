@@ -1,6 +1,6 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T03:01:57.441Z
+Generated: 2026-06-13T03:21:49.193Z
 
 - Candidates: 87
 - Handle targets: 7
