@@ -1,0 +1,13 @@
+{
+  "question": "How has the language of public humanities changed in university departments and humanities centers over time?",
+  "unit_of_analysis": "source page or institutional document",
+  "suggested_method": "compare term frequencies and framing across institution, department, source type, and capture/fetch year",
+  "time_handling": "local evidence includes year-like values from 2004 to 2020; verify dates before longitudinal claims",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "candidate_outputs": [
+    "source coverage table by source_id and rights status",
+    "top matching records with URLs and quote restrictions",
+    "time-series table after date normalization",
+    "missing-data memo for blocked, planned, and low-evidence sources"
+  ]
+}

@@ -1,7 +1,71 @@
 {
-  "generated_at": "2026-06-13T16:26:40.250Z",
+  "generated_at": "2026-06-13T16:51:20.942Z",
   "question": "How has the language of public humanities changed in university departments and humanities centers over time?",
+  "local_evidence_count": 12,
   "matched_sources": [
+    {
+      "source_id": "openalex-humanities",
+      "name": "OpenAlex Humanities Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 14,
+      "local_document_count": 273,
+      "ingest_status": "seeded-from-experiment",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "humanities literature radar",
+        "canon drift scholarly signal",
+        "venue and institution mapping"
+      ],
+      "known_risks": [
+        "concept filters can be noisy",
+        "biomedical false positives require exclusion terms",
+        "abstracts are inverted-index metadata, not always full text"
+      ]
+    },
+    {
+      "source_id": "crossref-humanities",
+      "name": "Crossref Humanities DOI Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 12,
+      "local_document_count": 208,
+      "ingest_status": "planned",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "journal publication radar",
+        "publisher and venue normalization",
+        "DOI joins"
+      ],
+      "known_risks": [
+        "subject metadata is uneven",
+        "not all humanities venues use DOIs",
+        "license fields vary by publisher"
+      ]
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "name": "University of Chicago Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "score": 12,
+      "local_document_count": 1,
+      "ingest_status": "planned",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "institutional language drift",
+        "humanities division language",
+        "disciplinary self-description"
+      ],
+      "known_risks": [
+        "site heterogeneity",
+        "page version ambiguity",
+        "copyright limits"
+      ]
+    },
     {
       "source_id": "yale-humanities-departments",
       "name": "Yale Humanities Department Public Pages",
@@ -24,24 +88,24 @@
       ]
     },
     {
-      "source_id": "openalex-humanities",
-      "name": "OpenAlex Humanities Metadata",
-      "source_class": "scholarly-metadata",
+      "source_id": "cleveland-museum-open-access",
+      "name": "Cleveland Museum of Art Open Access API",
+      "source_class": "cultural-collections",
       "score": 10,
-      "local_document_count": 129,
+      "local_document_count": 150,
       "ingest_status": "seeded-from-experiment",
       "redistribution_status": "metadata-ok",
       "metadata_allowed": true,
       "full_text_allowed": false,
       "research_use_cases": [
-        "humanities literature radar",
-        "canon drift scholarly signal",
-        "venue and institution mapping"
+        "first public museum essay",
+        "collection-shape analysis",
+        "license/image coverage"
       ],
       "known_risks": [
-        "concept filters can be noisy",
-        "biomedical false positives require exclusion terms",
-        "abstracts are inverted-index metadata, not always full text"
+        "accession year proxy risk",
+        "date normalization",
+        "provenance sparsity"
       ]
     },
     {
@@ -107,6 +171,48 @@
       ]
     },
     {
+      "source_id": "library-of-congress",
+      "name": "Library of Congress Collections",
+      "source_class": "cultural-collections",
+      "score": 9,
+      "local_document_count": 158,
+      "ingest_status": "seeded-from-experiment",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "archive collection mapping",
+        "visual/material culture metadata",
+        "historical source discovery"
+      ],
+      "known_risks": [
+        "rights vary by item",
+        "date fields are messy",
+        "collection coverage is uneven"
+      ]
+    },
+    {
+      "source_id": "met-collection-api",
+      "name": "Metropolitan Museum of Art Collection API",
+      "source_class": "cultural-collections",
+      "score": 9,
+      "local_document_count": 150,
+      "ingest_status": "seeded-from-experiment",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "museum collection shape",
+        "department and acquisition trends",
+        "object metadata comparison"
+      ],
+      "known_risks": [
+        "object detail calls required",
+        "rights vary",
+        "date normalization burden"
+      ]
+    },
+    {
       "source_id": "humanities-literature-radar",
       "name": "Humanities Literature Radar Experiment Seeds",
       "source_class": "experiment-derived",
@@ -148,111 +254,6 @@
         "copyrighted page text",
         "historical capture gaps",
         "should not be mistaken for collection-wide museum metadata"
-      ]
-    },
-    {
-      "source_id": "cleveland-museum-open-access",
-      "name": "Cleveland Museum of Art Open Access API",
-      "source_class": "cultural-collections",
-      "score": 9,
-      "local_document_count": 10,
-      "ingest_status": "seeded-from-experiment",
-      "redistribution_status": "metadata-ok",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "first public museum essay",
-        "collection-shape analysis",
-        "license/image coverage"
-      ],
-      "known_risks": [
-        "accession year proxy risk",
-        "date normalization",
-        "provenance sparsity"
-      ]
-    },
-    {
-      "source_id": "stanford-humanities-departments",
-      "name": "Stanford Humanities Department Public Pages",
-      "source_class": "university-department-web",
-      "score": 9,
-      "local_document_count": 6,
-      "ingest_status": "planned",
-      "redistribution_status": "local-analysis-only",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "institutional language drift",
-        "digital humanities and AI language tracking",
-        "department comparison"
-      ],
-      "known_risks": [
-        "site route diversity",
-        "copyrighted page text",
-        "historical snapshot gaps"
-      ]
-    },
-    {
-      "source_id": "princeton-humanities-departments",
-      "name": "Princeton Humanities Department Public Pages",
-      "source_class": "university-department-web",
-      "score": 9,
-      "local_document_count": 4,
-      "ingest_status": "planned",
-      "redistribution_status": "local-analysis-only",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "institutional language drift",
-        "elite humanities comparison",
-        "program framing"
-      ],
-      "known_risks": [
-        "robots and terms review required",
-        "page text redistribution limits",
-        "department taxonomy drift"
-      ]
-    },
-    {
-      "source_id": "humanities-centers-public-pages",
-      "name": "Humanities Center Public Pages",
-      "source_class": "university-department-web",
-      "score": 8,
-      "local_document_count": 12,
-      "ingest_status": "planned",
-      "redistribution_status": "local-analysis-only",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "public humanities discourse",
-        "event topic radar",
-        "institutional priorities"
-      ],
-      "known_risks": [
-        "site heterogeneity",
-        "copyrighted page text",
-        "center list maintenance"
-      ]
-    },
-    {
-      "source_id": "library-of-congress",
-      "name": "Library of Congress Collections",
-      "source_class": "cultural-collections",
-      "score": 8,
-      "local_document_count": 10,
-      "ingest_status": "seeded-from-experiment",
-      "redistribution_status": "metadata-ok",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "archive collection mapping",
-        "visual/material culture metadata",
-        "historical source discovery"
-      ],
-      "known_risks": [
-        "rights vary by item",
-        "date fields are messy",
-        "collection coverage is uneven"
       ]
     }
   ]

@@ -1,8 +1,15 @@
--- DuckDB sketch for this question once KB Parquet tables exist.
--- The source registry is JSON today; later phases should expose it as source_registry.parquet.
+-- SQLite queries over the local humanities KB.
 
--- Relevant source IDs: 'yale-humanities-departments', 'openalex-humanities', 'project-gutenberg', 'harvard-humanities-departments', 'doaj-humanities', 'humanities-literature-radar', 'museum-language-drift', 'cleveland-museum-open-access', 'stanford-humanities-departments', 'princeton-humanities-departments', 'humanities-centers-public-pages', 'library-of-congress'
+-- Relevant source IDs: 'openalex-humanities', 'crossref-humanities', 'uchicago-humanities-departments', 'yale-humanities-departments', 'cleveland-museum-open-access', 'project-gutenberg', 'harvard-humanities-departments', 'doaj-humanities', 'library-of-congress', 'met-collection-api', 'humanities-literature-radar', 'museum-language-drift'
 
 SELECT *
 FROM source_documents
-WHERE source_id IN ('yale-humanities-departments', 'openalex-humanities', 'project-gutenberg', 'harvard-humanities-departments', 'doaj-humanities', 'humanities-literature-radar', 'museum-language-drift', 'cleveland-museum-open-access', 'stanford-humanities-departments', 'princeton-humanities-departments', 'humanities-centers-public-pages', 'library-of-congress');
+WHERE source_id IN ('openalex-humanities', 'crossref-humanities', 'uchicago-humanities-departments', 'yale-humanities-departments', 'cleveland-museum-open-access', 'project-gutenberg', 'harvard-humanities-departments', 'doaj-humanities', 'library-of-congress', 'met-collection-api', 'humanities-literature-radar', 'museum-language-drift');
+
+SELECT local_id, source_id, source_url, title, type, venue, department,
+       snippet(source_documents_fts, 3, '[', ']', '...', 18) AS snippet,
+       bm25(source_documents_fts) AS rank
+FROM source_documents_fts
+WHERE source_documents_fts MATCH '"language" OR "public" OR "humanities" OR "university" OR "departments" OR "centers"'
+ORDER BY rank ASC
+LIMIT 25;
