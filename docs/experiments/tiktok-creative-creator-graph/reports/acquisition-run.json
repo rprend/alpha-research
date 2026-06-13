@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T01:27:45.805Z",
-  "execution_id": "2026-06-13T01-27-45-804Z",
+  "generated_at": "2026-06-13T01:32:48.026Z",
+  "execution_id": "2026-06-13T01-32-48-025Z",
   "provider": "apify",
   "env_file_loaded": true,
   "provider_token_available": false,
@@ -19,7 +19,7 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-13T01-27-45-804Z",
+      "execution_id": "2026-06-13T01-32-48-025Z",
       "provider": "apify",
       "batch_id": "graph_0069",
       "acquisition_surface": "search_index",
@@ -34,14 +34,14 @@
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-13T01:27:45.805Z",
+      "started_at": "2026-06-13T01:32:48.026Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-13T01:27:45.805Z"
+      "finished_at": "2026-06-13T01:32:48.026Z"
     },
     {
-      "execution_id": "2026-06-13T01-27-45-804Z",
+      "execution_id": "2026-06-13T01-32-48-025Z",
       "provider": "apify",
       "batch_id": "category_gap_0030",
       "acquisition_surface": "category_gap_search",
@@ -56,11 +56,11 @@
         "languageCode": "en"
       },
       "dry_run": true,
-      "started_at": "2026-06-13T01:27:45.805Z",
+      "started_at": "2026-06-13T01:32:48.026Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-13T01:27:45.805Z"
+      "finished_at": "2026-06-13T01:32:48.026Z"
     }
   ]
 }

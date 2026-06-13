@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T01:27:45.942Z
+Generated: 2026-06-13T01:32:48.149Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -12,7 +12,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 - Accounts: 1900
 - Identities: 1870
-- Videos: 23
+- Videos: 26
 - Graph edges: 102
 - Useful creators: 7
 - Release useful creators: 2
@@ -35,9 +35,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Candidate frontier queries: 80
 - Acquisition import preview accounts: 1895
 - Acquisition import preview ready: true
-- Acquisition import waves: 12
-- Acquisition import traced rows: 12168
-- Acquisition import untraced rows: 78
+- Acquisition import waves: 13
+- Acquisition import traced rows: 14829
+- Acquisition import untraced rows: 84
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Acquisition run history: 15

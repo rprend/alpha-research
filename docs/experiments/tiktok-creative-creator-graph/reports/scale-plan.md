@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T01:27:45.396Z
+Generated: 2026-06-13T01:32:47.665Z
 
 ## Targets
 
@@ -35,14 +35,14 @@ Generated: 2026-06-13T01:27:45.396Z
 | ---: | --- | --- | ---: | ---: | ---: |
 | 1 | provider_video_export |  | 100 | 0.667 | 0.333 |
 | 2 | public_profile_enrichment | review_queue_priority_1 | 100 | 1 | 0 |
-| 3 | manual_seed | filmmaker short film editing breakdown | 95 | 1 | 0 |
-| 4 | manual_seed | cinematographer lighting breakdown | 87 | 1 | 0 |
-| 5 | manual_seed | vfx artist animation blender | 87 | 1 | 0 |
-| 6 | manual_seed | sketch comedian character comedy | 86 | 1 | 0 |
-| 7 | graph_expansion_fixture | mentioned by @ani.motionlab | 78 | 1 | 0 |
-| 8 | editorial_list | FeedSpot Top New York Art TikTok Influencers 2026 | 74 | 0 | 0 |
-| 9 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 73 | 0 | 0 |
-| 10 | editorial_list | FeedSpot Top Movie TikTok Influencers 2026 | 73 | 0 | 0 |
+| 3 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 100 | 0 | 0 |
+| 4 | editorial_list | FeedSpot Top Movie TikTok Influencers 2026 | 100 | 0 | 0 |
+| 5 | manual_seed | filmmaker short film editing breakdown | 95 | 1 | 0 |
+| 6 | editorial_list | FeedSpot Top New York Art TikTok Influencers 2026 | 89 | 0 | 0 |
+| 7 | editorial_list | FeedSpot Top Digital Art TikTok Influencers 2026 | 88 | 0 | 0 |
+| 8 | manual_seed | cinematographer lighting breakdown | 87 | 1 | 0 |
+| 9 | manual_seed | vfx artist animation blender | 87 | 1 | 0 |
+| 10 | editorial_list | FeedSpot Top Music Technology TikTok Influencers 2026 | 87 | 0 | 0 |
 
 ## Next Batches
 

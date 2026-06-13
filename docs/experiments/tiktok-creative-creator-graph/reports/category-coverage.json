@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:27:44.935Z",
+  "generated_at": "2026-06-13T01:32:47.272Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 5,
@@ -73,7 +73,7 @@
     {
       "label": "sketch_comedian",
       "target_useful_creators": 7000,
-      "current_primary_accounts": 108,
+      "current_primary_accounts": 106,
       "useful_primary_accounts": 2,
       "excellent_primary_accounts": 2,
       "secondary_mentions": 1,
@@ -84,7 +84,7 @@
     {
       "label": "standup_comedian",
       "target_useful_creators": 4000,
-      "current_primary_accounts": 57,
+      "current_primary_accounts": 58,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 1,
@@ -95,7 +95,7 @@
     {
       "label": "actor_performer",
       "target_useful_creators": 4000,
-      "current_primary_accounts": 8,
+      "current_primary_accounts": 9,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 2,

@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const root = process.cwd()
@@ -15,6 +15,7 @@ const args = new Map(process.argv.slice(2).map((arg) => {
 const maxProfiles = Number(args.get('--max-profiles') ?? 100)
 const minUsefulness = Number(args.get('--min-usefulness') ?? 35)
 const dryRun = args.has('--dry-run')
+const includeAttempted = args.has('--include-attempted')
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
 const provider = 'tiktok_public_profile_html'
 
@@ -86,12 +87,38 @@ function publicBioLinks(user) {
     .filter((link) => !/[A-Z0-9._%+-]+@[A-Z0-9.-]+(?:\.[A-Z]{2,})?/i.test(String(link)))
 }
 
+function attemptedHandles() {
+  if (includeAttempted || !existsSync(acquisitionResultsDir)) return new Set()
+  const handles = new Set()
+  for (const file of readdirSync(acquisitionResultsDir)) {
+    if (!file.endsWith('-public-profile-enrichment.jsonl')) continue
+    for (const row of readJsonl(join(acquisitionResultsDir, file))) {
+      const handle = normalizeHandle(row.handle ?? row.profile_url)
+      if (handle) handles.add(handle)
+    }
+  }
+  const reportPath = join(reportsDir, 'public-profile-enrichment.json')
+  if (existsSync(reportPath)) {
+    try {
+      const report = JSON.parse(readFileSync(reportPath, 'utf8'))
+      for (const row of report.profiles ?? []) {
+        const handle = normalizeHandle(row.handle)
+        if (handle) handles.add(handle)
+      }
+    } catch {
+      // Ignore stale or partial reports; raw acquisition rows are authoritative.
+    }
+  }
+  return handles
+}
+
 function selectedProfiles() {
   const accounts = readJsonl(join(processedDir, 'creator_accounts.jsonl'))
   const reviewQueue = readJsonl(join(processedDir, 'review_queue.jsonl'))
   const classifications = new Map(readJsonl(join(processedDir, 'creator_classifications.jsonl')).map((row) => [row.creator_id, row]))
   const accountByHandle = new Map(accounts.map((account) => [normalizeHandle(account.handle), account]))
   const selected = new Map()
+  const attempted = attemptedHandles()
 
   const reviewRows = reviewQueue
     .filter((row) => toNumber(row.overall_usefulness) >= minUsefulness)
@@ -101,6 +128,7 @@ function selectedProfiles() {
     const handle = normalizeHandle(row.handle)
     const account = accountByHandle.get(handle)
     if (!handle || !account) continue
+    if (attempted.has(handle)) continue
     selected.set(handle, {
       handle,
       creator_id: account.id,
@@ -115,6 +143,7 @@ function selectedProfiles() {
   for (const account of accounts) {
     const handle = normalizeHandle(account.handle)
     if (!handle || selected.has(handle)) continue
+    if (attempted.has(handle)) continue
     if (account.bio && toNumber(account.follower_count) > 0) continue
     selected.set(handle, {
       handle,
@@ -232,6 +261,7 @@ async function main() {
     execution_id: executionId,
     provider,
     dry_run: dryRun,
+    include_attempted: includeAttempted,
     selected_profiles: profiles.length,
     output_rows: outputRows.length,
     output_path: dryRun || !outputRows.length ? '' : outputPath.replace(`${root}/`, ''),

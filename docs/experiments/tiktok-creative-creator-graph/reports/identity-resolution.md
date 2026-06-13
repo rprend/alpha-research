@@ -1,18 +1,18 @@
 # Identity Resolution
 
-Generated: 2026-06-13T01:27:44.890Z
+Generated: 2026-06-13T01:32:47.234Z
 
 - Accounts: 1900
 - Identities: 1870
 - Duplicate risk clusters: 23
-- Identity evidence rows: 5736
-- High-confidence external links: 38
+- Identity evidence rows: 5847
+- High-confidence external links: 149
 
 ## Duplicate Risk Queue
 
 | Identity | Accounts | Handles | Reason |
 | --- | ---: | --- | --- |
-| creator_identity_44472a95d711 | 3 | @ventureswithmia; @strangerthing.digitalart; @mias.bookcase | shared identity key |
+| creator_identity_326a70b5b9aa | 3 | @ventureswithmia; @strangerthing.digitalart; @mias.bookcase | shared identity key |
 | creator_identity_52ad7f7cf911 | 2 | @movieguyandrew; @pilot.drew | shared identity key |
 | creator_identity_6c3e38f4b161 | 2 | @ratedwrong; @ichbinvin | shared identity key |
 | creator_identity_aac9d4e45b46 | 4 | @finalgirl_jess; @justpeachyreads; @perusewithjess; @functioningwithjess | shared identity key |

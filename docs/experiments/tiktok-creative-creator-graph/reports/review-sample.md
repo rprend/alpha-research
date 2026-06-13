@@ -1,11 +1,11 @@
 # Review Sample
 
-Generated: 2026-06-13T01:27:44.997Z
+Generated: 2026-06-13T01:32:47.315Z
 
 - Requested rows: 250
 - Selected rows: 250
 - Available unreviewed rows: 1896
-- Latest wave id: import-2026-06-13T01-27-44-456Z
+- Latest wave id: import-2026-06-13T01-32-46-860Z
 
 ## Category Counts
 
@@ -15,12 +15,12 @@ Generated: 2026-06-13T01:27:44.997Z
 - cinematographer: 17
 - editor: 25
 - standup_comedian: 25
+- actor_performer: 9
+- director: 8
 - film_educator: 25
 - behind_the_scenes_creator: 25
-- director: 8
-- actor_performer: 8
 - unclear: 21
-- creative_technologist: 21
+- creative_technologist: 20
 
 ## Review Bands
 
