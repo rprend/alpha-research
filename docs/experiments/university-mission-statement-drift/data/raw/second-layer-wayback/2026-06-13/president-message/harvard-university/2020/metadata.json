@@ -1,0 +1,19 @@
+{
+  "institution": "Harvard University",
+  "source_genre": "president-message",
+  "source_layer": "wayback",
+  "url": "https://www.harvard.edu/president/",
+  "reason": "stable president route candidate",
+  "source_url": "https://www.harvard.edu/president/",
+  "year": 2020,
+  "timestamp": "20200310020518",
+  "originalStatus": "200",
+  "archiveUrl": "https://web.archive.org/web/20200310020518id_/https://www.harvard.edu/president/",
+  "httpStatus": 200,
+  "wordCount": 233,
+  "title": "Office of the President | Harvard University",
+  "responsePath": "data/raw/second-layer-wayback/2026-06-13/president-message/harvard-university/2020/index.html",
+  "status": 200,
+  "fetchedAt": "2026-06-13T00:47:36.980Z",
+  "bytes": 40070
+}

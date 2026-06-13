@@ -1,0 +1,114 @@
+[
+  {
+    "institution": "Harvard University",
+    "source_genre": "catalog",
+    "source_layer": "wayback",
+    "url": "https://handbook.fas.harvard.edu/book/mission-and-history",
+    "reason": "historical catalog/handbook mission route candidate"
+  },
+  {
+    "institution": "Harvard University",
+    "source_genre": "president-message",
+    "source_layer": "wayback",
+    "url": "https://www.harvard.edu/president/",
+    "reason": "stable president route candidate"
+  },
+  {
+    "institution": "Stanford University",
+    "source_genre": "catalog",
+    "source_layer": "wayback",
+    "url": "https://exploredegrees.stanford.edu/",
+    "reason": "older Stanford bulletin route candidate"
+  },
+  {
+    "institution": "Stanford University",
+    "source_genre": "strategic-plan",
+    "source_layer": "wayback",
+    "url": "https://longrangeplan.stanford.edu/",
+    "reason": "older Stanford long-range plan route candidate"
+  },
+  {
+    "institution": "Massachusetts Institute of Technology",
+    "source_genre": "catalog",
+    "source_layer": "wayback",
+    "url": "https://catalog.mit.edu/",
+    "reason": "stable MIT catalog route candidate"
+  },
+  {
+    "institution": "Massachusetts Institute of Technology",
+    "source_genre": "president-message",
+    "source_layer": "wayback",
+    "url": "https://president.mit.edu/",
+    "reason": "stable MIT president route candidate"
+  },
+  {
+    "institution": "Princeton University",
+    "source_genre": "catalog",
+    "source_layer": "wayback",
+    "url": "https://ua.princeton.edu/contents",
+    "reason": "older Princeton undergraduate announcement route candidate"
+  },
+  {
+    "institution": "Princeton University",
+    "source_genre": "strategic-plan",
+    "source_layer": "wayback",
+    "url": "https://www.princeton.edu/strategicplan/",
+    "reason": "older Princeton strategic plan route candidate"
+  },
+  {
+    "institution": "Yale University",
+    "source_genre": "catalog",
+    "source_layer": "wayback",
+    "url": "https://catalog.yale.edu/",
+    "reason": "stable Yale catalog route candidate"
+  },
+  {
+    "institution": "Yale University",
+    "source_genre": "president-message",
+    "source_layer": "wayback",
+    "url": "https://president.yale.edu/",
+    "reason": "stable Yale president route candidate"
+  },
+  {
+    "institution": "University of California, Berkeley",
+    "source_genre": "catalog",
+    "source_layer": "wayback",
+    "url": "https://guide.berkeley.edu/",
+    "reason": "stable Berkeley catalog route candidate"
+  },
+  {
+    "institution": "University of California, Berkeley",
+    "source_genre": "strategic-plan",
+    "source_layer": "wayback",
+    "url": "https://strategicplan.berkeley.edu/",
+    "reason": "stable Berkeley strategic plan route candidate"
+  },
+  {
+    "institution": "Cornell University",
+    "source_genre": "catalog",
+    "source_layer": "wayback",
+    "url": "https://courses.cornell.edu/",
+    "reason": "stable Cornell catalog route candidate"
+  },
+  {
+    "institution": "University of Pennsylvania",
+    "source_genre": "catalog",
+    "source_layer": "wayback",
+    "url": "https://catalog.upenn.edu/",
+    "reason": "stable Penn catalog route candidate"
+  },
+  {
+    "institution": "Duke University",
+    "source_genre": "strategic-plan",
+    "source_layer": "wayback",
+    "url": "https://strategicplan.duke.edu/",
+    "reason": "older Duke strategic plan route candidate"
+  },
+  {
+    "institution": "Duke University",
+    "source_genre": "commencement-speech",
+    "source_layer": "wayback",
+    "url": "https://president.duke.edu/commencement-address/",
+    "reason": "Duke commencement address route candidate"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "institution": "Harvard University",
+  "source_genre": "president-message",
+  "source_layer": "wayback",
+  "url": "https://www.harvard.edu/president/",
+  "source_url": "https://www.harvard.edu/president/",
+  "year": 2015,
+  "timestamp": "20150414012210",
+  "originalStatus": "200",
+  "archiveUrl": "https://web.archive.org/web/20150414012210id_/https://www.harvard.edu/president/",
+  "httpStatus": 200,
+  "wordCount": 706,
+  "title": "Office of the President | Harvard University",
+  "responsePath": "data/raw/second-layer-wayback/2026-06-13/president-message/harvard-university/2015/index.html",
+  "status": 200,
+  "fetchedAt": "2026-06-13T00:39:35.054Z",
+  "bytes": 40733
+}

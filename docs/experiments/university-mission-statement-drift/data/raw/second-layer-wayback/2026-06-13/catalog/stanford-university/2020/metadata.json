@@ -1,0 +1,19 @@
+{
+  "institution": "Stanford University",
+  "source_genre": "catalog",
+  "source_layer": "wayback",
+  "url": "https://exploredegrees.stanford.edu/",
+  "reason": "older Stanford bulletin route candidate",
+  "source_url": "https://exploredegrees.stanford.edu/",
+  "year": 2020,
+  "timestamp": "20200904225048",
+  "originalStatus": "200",
+  "archiveUrl": "https://web.archive.org/web/20200904225048id_/https://exploredegrees.stanford.edu/",
+  "httpStatus": 200,
+  "wordCount": 1774,
+  "title": "Stanford Bulletin 2020-21 | Stanford University",
+  "responsePath": "data/raw/second-layer-wayback/2026-06-13/catalog/stanford-university/2020/index.html",
+  "status": 200,
+  "fetchedAt": "2026-06-13T00:47:50.198Z",
+  "bytes": 36956
+}

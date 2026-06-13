@@ -1,22 +1,38 @@
 {
-  "generatedAt": "2026-06-12T21:50:47.113Z",
+  "generatedAt": "2026-06-13T00:51:14.500Z",
   "runDate": "2026-06-12",
-  "status": "source-probed",
-  "corpusTier": "schema-probe",
-  "pages": 21,
+  "waybackRunDate": "2026-06-13",
+  "status": "historical-source-probed",
+  "corpusTier": "longitudinal-source-probe",
+  "pages": 25,
+  "currentPages": 21,
+  "historicalPages": 4,
   "configuredSources": 21,
   "failedOrExcludedSources": 0,
   "genreCounts": {
-    "catalog": 8,
+    "catalog": 10,
     "commencement-speech": 6,
-    "strategic-plan": 4,
-    "president-message": 3
+    "president-message": 5,
+    "strategic-plan": 4
   },
+  "sourceLayerCounts": {
+    "current": 21,
+    "wayback": 4
+  },
+  "historicalGenreCounts": {
+    "catalog": 2,
+    "president-message": 2
+  },
+  "historicalYearCounts": {
+    "2015": 2,
+    "2020": 2
+  },
+  "historicalInstitutions": 2,
   "institutionCounts": {
-    "Harvard University": 3,
+    "Harvard University": 5,
+    "Stanford University": 5,
     "Massachusetts Institute of Technology": 3,
     "Princeton University": 3,
-    "Stanford University": 3,
     "Yale University": 3,
     "Duke University": 2,
     "University of California, Berkeley": 2,
@@ -27,7 +43,8 @@
   "processedFiles": [
     "data/processed/second-layer-pages.json",
     "data/processed/second-layer-page-term-counts.csv",
-    "data/processed/second-layer-term-family-by-genre.csv"
+    "data/processed/second-layer-term-family-by-genre.csv",
+    "data/processed/second-layer-term-family-by-source-layer-year.csv"
   ],
   "reportFiles": [
     "reports/second-layer-source-inventory.md",
@@ -37,65 +54,65 @@
     {
       "source_genre": "catalog",
       "family": "career_economy",
-      "pages": 8,
+      "pages": 10,
       "institutions": 8,
-      "count": 38,
-      "words": 12039,
-      "count_per_1000_words": 3.156
+      "count": 39,
+      "words": 15036,
+      "count_per_1000_words": 2.594
     },
     {
       "source_genre": "catalog",
       "family": "civic_public",
-      "pages": 8,
+      "pages": 10,
       "institutions": 8,
-      "count": 43,
-      "words": 12039,
-      "count_per_1000_words": 3.572
+      "count": 52,
+      "words": 15036,
+      "count_per_1000_words": 3.458
     },
     {
       "source_genre": "catalog",
       "family": "excellence_prestige",
-      "pages": 8,
+      "pages": 10,
       "institutions": 8,
       "count": 7,
-      "words": 12039,
-      "count_per_1000_words": 0.581
+      "words": 15036,
+      "count_per_1000_words": 0.466
     },
     {
       "source_genre": "catalog",
       "family": "global_leadership",
-      "pages": 8,
+      "pages": 10,
       "institutions": 8,
-      "count": 55,
-      "words": 12039,
-      "count_per_1000_words": 4.568
+      "count": 58,
+      "words": 15036,
+      "count_per_1000_words": 3.857
     },
     {
       "source_genre": "catalog",
       "family": "inclusion_belonging",
-      "pages": 8,
+      "pages": 10,
       "institutions": 8,
-      "count": 10,
-      "words": 12039,
-      "count_per_1000_words": 0.831
+      "count": 14,
+      "words": 15036,
+      "count_per_1000_words": 0.931
     },
     {
       "source_genre": "catalog",
       "family": "innovation_impact",
-      "pages": 8,
+      "pages": 10,
       "institutions": 8,
-      "count": 49,
-      "words": 12039,
-      "count_per_1000_words": 4.07
+      "count": 50,
+      "words": 15036,
+      "count_per_1000_words": 3.325
     },
     {
       "source_genre": "catalog",
       "family": "truth_knowledge",
-      "pages": 8,
+      "pages": 10,
       "institutions": 8,
-      "count": 40,
-      "words": 12039,
-      "count_per_1000_words": 3.323
+      "count": 41,
+      "words": 15036,
+      "count_per_1000_words": 2.727
     },
     {
       "source_genre": "commencement-speech",
@@ -163,65 +180,65 @@
     {
       "source_genre": "president-message",
       "family": "career_economy",
-      "pages": 3,
+      "pages": 5,
       "institutions": 3,
-      "count": 1,
-      "words": 1529,
-      "count_per_1000_words": 0.654
+      "count": 2,
+      "words": 2468,
+      "count_per_1000_words": 0.81
     },
     {
       "source_genre": "president-message",
       "family": "civic_public",
-      "pages": 3,
+      "pages": 5,
       "institutions": 3,
-      "count": 5,
-      "words": 1529,
-      "count_per_1000_words": 3.27
+      "count": 6,
+      "words": 2468,
+      "count_per_1000_words": 2.431
     },
     {
       "source_genre": "president-message",
       "family": "excellence_prestige",
-      "pages": 3,
+      "pages": 5,
       "institutions": 3,
-      "count": 1,
-      "words": 1529,
-      "count_per_1000_words": 0.654
+      "count": 2,
+      "words": 2468,
+      "count_per_1000_words": 0.81
     },
     {
       "source_genre": "president-message",
       "family": "global_leadership",
-      "pages": 3,
+      "pages": 5,
       "institutions": 3,
-      "count": 10,
-      "words": 1529,
-      "count_per_1000_words": 6.54
+      "count": 13,
+      "words": 2468,
+      "count_per_1000_words": 5.267
     },
     {
       "source_genre": "president-message",
       "family": "inclusion_belonging",
-      "pages": 3,
+      "pages": 5,
       "institutions": 3,
       "count": 1,
-      "words": 1529,
-      "count_per_1000_words": 0.654
+      "words": 2468,
+      "count_per_1000_words": 0.405
     },
     {
       "source_genre": "president-message",
       "family": "innovation_impact",
-      "pages": 3,
+      "pages": 5,
       "institutions": 3,
-      "count": 6,
-      "words": 1529,
-      "count_per_1000_words": 3.924
+      "count": 8,
+      "words": 2468,
+      "count_per_1000_words": 3.241
     },
     {
       "source_genre": "president-message",
       "family": "truth_knowledge",
-      "pages": 3,
+      "pages": 5,
       "institutions": 3,
-      "count": 6,
-      "words": 1529,
-      "count_per_1000_words": 3.924
+      "count": 9,
+      "words": 2468,
+      "count_per_1000_words": 3.647
     },
     {
       "source_genre": "strategic-plan",
@@ -287,13 +304,630 @@
       "count_per_1000_words": 2.627
     }
   ],
+  "layerYearTermRows": [
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "catalog",
+      "family": "career_economy",
+      "pages": 8,
+      "institutions": 8,
+      "count": 38,
+      "words": 12039,
+      "count_per_1000_words": 3.156
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "catalog",
+      "family": "civic_public",
+      "pages": 8,
+      "institutions": 8,
+      "count": 43,
+      "words": 12039,
+      "count_per_1000_words": 3.572
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "catalog",
+      "family": "excellence_prestige",
+      "pages": 8,
+      "institutions": 8,
+      "count": 7,
+      "words": 12039,
+      "count_per_1000_words": 0.581
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "catalog",
+      "family": "global_leadership",
+      "pages": 8,
+      "institutions": 8,
+      "count": 55,
+      "words": 12039,
+      "count_per_1000_words": 4.568
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "catalog",
+      "family": "inclusion_belonging",
+      "pages": 8,
+      "institutions": 8,
+      "count": 10,
+      "words": 12039,
+      "count_per_1000_words": 0.831
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "catalog",
+      "family": "innovation_impact",
+      "pages": 8,
+      "institutions": 8,
+      "count": 49,
+      "words": 12039,
+      "count_per_1000_words": 4.07
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "catalog",
+      "family": "truth_knowledge",
+      "pages": 8,
+      "institutions": 8,
+      "count": 40,
+      "words": 12039,
+      "count_per_1000_words": 3.323
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "commencement-speech",
+      "family": "career_economy",
+      "pages": 6,
+      "institutions": 6,
+      "count": 13,
+      "words": 7964,
+      "count_per_1000_words": 1.632
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "commencement-speech",
+      "family": "civic_public",
+      "pages": 6,
+      "institutions": 6,
+      "count": 30,
+      "words": 7964,
+      "count_per_1000_words": 3.767
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "commencement-speech",
+      "family": "excellence_prestige",
+      "pages": 6,
+      "institutions": 6,
+      "count": 5,
+      "words": 7964,
+      "count_per_1000_words": 0.628
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "commencement-speech",
+      "family": "global_leadership",
+      "pages": 6,
+      "institutions": 6,
+      "count": 44,
+      "words": 7964,
+      "count_per_1000_words": 5.525
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "commencement-speech",
+      "family": "inclusion_belonging",
+      "pages": 6,
+      "institutions": 6,
+      "count": 4,
+      "words": 7964,
+      "count_per_1000_words": 0.502
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "commencement-speech",
+      "family": "innovation_impact",
+      "pages": 6,
+      "institutions": 6,
+      "count": 18,
+      "words": 7964,
+      "count_per_1000_words": 2.26
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "commencement-speech",
+      "family": "truth_knowledge",
+      "pages": 6,
+      "institutions": 6,
+      "count": 17,
+      "words": 7964,
+      "count_per_1000_words": 2.135
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "president-message",
+      "family": "career_economy",
+      "pages": 3,
+      "institutions": 3,
+      "count": 1,
+      "words": 1529,
+      "count_per_1000_words": 0.654
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "president-message",
+      "family": "civic_public",
+      "pages": 3,
+      "institutions": 3,
+      "count": 5,
+      "words": 1529,
+      "count_per_1000_words": 3.27
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "president-message",
+      "family": "excellence_prestige",
+      "pages": 3,
+      "institutions": 3,
+      "count": 1,
+      "words": 1529,
+      "count_per_1000_words": 0.654
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "president-message",
+      "family": "global_leadership",
+      "pages": 3,
+      "institutions": 3,
+      "count": 10,
+      "words": 1529,
+      "count_per_1000_words": 6.54
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "president-message",
+      "family": "inclusion_belonging",
+      "pages": 3,
+      "institutions": 3,
+      "count": 1,
+      "words": 1529,
+      "count_per_1000_words": 0.654
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "president-message",
+      "family": "innovation_impact",
+      "pages": 3,
+      "institutions": 3,
+      "count": 6,
+      "words": 1529,
+      "count_per_1000_words": 3.924
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "president-message",
+      "family": "truth_knowledge",
+      "pages": 3,
+      "institutions": 3,
+      "count": 6,
+      "words": 1529,
+      "count_per_1000_words": 3.924
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "strategic-plan",
+      "family": "career_economy",
+      "pages": 4,
+      "institutions": 4,
+      "count": 1,
+      "words": 1903,
+      "count_per_1000_words": 0.525
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "strategic-plan",
+      "family": "civic_public",
+      "pages": 4,
+      "institutions": 4,
+      "count": 4,
+      "words": 1903,
+      "count_per_1000_words": 2.102
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "strategic-plan",
+      "family": "excellence_prestige",
+      "pages": 4,
+      "institutions": 4,
+      "count": 3,
+      "words": 1903,
+      "count_per_1000_words": 1.576
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "strategic-plan",
+      "family": "global_leadership",
+      "pages": 4,
+      "institutions": 4,
+      "count": 11,
+      "words": 1903,
+      "count_per_1000_words": 5.78
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "strategic-plan",
+      "family": "inclusion_belonging",
+      "pages": 4,
+      "institutions": 4,
+      "count": 7,
+      "words": 1903,
+      "count_per_1000_words": 3.678
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "strategic-plan",
+      "family": "innovation_impact",
+      "pages": 4,
+      "institutions": 4,
+      "count": 2,
+      "words": 1903,
+      "count_per_1000_words": 1.051
+    },
+    {
+      "source_layer": "current",
+      "year": 2026,
+      "source_genre": "strategic-plan",
+      "family": "truth_knowledge",
+      "pages": 4,
+      "institutions": 4,
+      "count": 5,
+      "words": 1903,
+      "count_per_1000_words": 2.627
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "catalog",
+      "family": "career_economy",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 1223,
+      "count_per_1000_words": 0.818
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "catalog",
+      "family": "civic_public",
+      "pages": 1,
+      "institutions": 1,
+      "count": 3,
+      "words": 1223,
+      "count_per_1000_words": 2.453
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "catalog",
+      "family": "excellence_prestige",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 1223,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "catalog",
+      "family": "global_leadership",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 1223,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "catalog",
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "institutions": 1,
+      "count": 2,
+      "words": 1223,
+      "count_per_1000_words": 1.635
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "catalog",
+      "family": "innovation_impact",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 1223,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "catalog",
+      "family": "truth_knowledge",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 1223,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "president-message",
+      "family": "career_economy",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 706,
+      "count_per_1000_words": 1.416
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "president-message",
+      "family": "civic_public",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 706,
+      "count_per_1000_words": 1.416
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "president-message",
+      "family": "excellence_prestige",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 706,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "president-message",
+      "family": "global_leadership",
+      "pages": 1,
+      "institutions": 1,
+      "count": 2,
+      "words": 706,
+      "count_per_1000_words": 2.833
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "president-message",
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 706,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "president-message",
+      "family": "innovation_impact",
+      "pages": 1,
+      "institutions": 1,
+      "count": 2,
+      "words": 706,
+      "count_per_1000_words": 2.833
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2015,
+      "source_genre": "president-message",
+      "family": "truth_knowledge",
+      "pages": 1,
+      "institutions": 1,
+      "count": 2,
+      "words": 706,
+      "count_per_1000_words": 2.833
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "catalog",
+      "family": "career_economy",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 1774,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "catalog",
+      "family": "civic_public",
+      "pages": 1,
+      "institutions": 1,
+      "count": 6,
+      "words": 1774,
+      "count_per_1000_words": 3.382
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "catalog",
+      "family": "excellence_prestige",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 1774,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "catalog",
+      "family": "global_leadership",
+      "pages": 1,
+      "institutions": 1,
+      "count": 3,
+      "words": 1774,
+      "count_per_1000_words": 1.691
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "catalog",
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "institutions": 1,
+      "count": 2,
+      "words": 1774,
+      "count_per_1000_words": 1.127
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "catalog",
+      "family": "innovation_impact",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 1774,
+      "count_per_1000_words": 0.564
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "catalog",
+      "family": "truth_knowledge",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 1774,
+      "count_per_1000_words": 0.564
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "president-message",
+      "family": "career_economy",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 233,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "president-message",
+      "family": "civic_public",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 233,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "president-message",
+      "family": "excellence_prestige",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 233,
+      "count_per_1000_words": 4.292
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "president-message",
+      "family": "global_leadership",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 233,
+      "count_per_1000_words": 4.292
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "president-message",
+      "family": "inclusion_belonging",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 233,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "president-message",
+      "family": "innovation_impact",
+      "pages": 1,
+      "institutions": 1,
+      "count": 0,
+      "words": 233,
+      "count_per_1000_words": 0
+    },
+    {
+      "source_layer": "wayback",
+      "year": 2020,
+      "source_genre": "president-message",
+      "family": "truth_knowledge",
+      "pages": 1,
+      "institutions": 1,
+      "count": 1,
+      "words": 233,
+      "count_per_1000_words": 4.292
+    }
+  ],
   "blockers": [
-    "Add historical snapshots or recurring current snapshots before claiming second-layer change over time.",
     "Keep catalog, strategic-plan, president-message, and commencement-speech language separate in public claims."
   ],
   "nextActions": [
     "Retain the current four-genre source mix for historical backfill.",
-    "Backfill historical snapshots for the retained second-layer routes.",
+    "Manually quote-review historical second-layer snapshots before publication-scale claims.",
     "Join second-layer source genres into the main readiness gate after manual quote review."
   ]
 }

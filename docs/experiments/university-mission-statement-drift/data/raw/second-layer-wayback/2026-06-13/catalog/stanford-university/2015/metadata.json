@@ -1,0 +1,19 @@
+{
+  "institution": "Stanford University",
+  "source_genre": "catalog",
+  "source_layer": "wayback",
+  "url": "https://exploredegrees.stanford.edu/",
+  "reason": "older Stanford bulletin route candidate",
+  "source_url": "https://exploredegrees.stanford.edu/",
+  "year": 2015,
+  "timestamp": "20150701214304",
+  "originalStatus": "200",
+  "archiveUrl": "https://web.archive.org/web/20150701214304id_/https://exploredegrees.stanford.edu/",
+  "httpStatus": 200,
+  "wordCount": 1223,
+  "title": "Stanford Bulletin 2015-16 | Stanford University",
+  "responsePath": "data/raw/second-layer-wayback/2026-06-13/catalog/stanford-university/2015/index.html",
+  "status": 200,
+  "fetchedAt": "2026-06-13T00:47:44.043Z",
+  "bytes": 27135
+}

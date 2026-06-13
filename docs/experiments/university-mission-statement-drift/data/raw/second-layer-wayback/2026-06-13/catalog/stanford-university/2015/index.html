@@ -1,0 +1,725 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Stanford Bulletin 2015-16 | Stanford University</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="google-site-verification" content="dZ2V0_stxtaAlid3eZ7WffcCBhFTm2sCI2K5q6WMjZI" />
+<meta name="keywords" content="Catalogs" />
+<link rel="search" type="application/opensearchdescription+xml"
+			href="/search/opensearch.xml" title="Stanford University Catalog" />
+<script type="text/javascript">
+<!--
+if ((window.screen.width < 640) || (window.screen.height < 640)){document.write('<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1" />')}
+//-->
+</script>
+<link href="/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" type="text/css" href="/css/stanfordmodern.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="only screen and (max-width: 640px)" />
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+<!--[if IEMobile]>
+<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/wp7.css" media="screen" />
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/css/custom.css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/lfjs.js"></script>
+<link rel="stylesheet" type="text/css" href="/js/lfjs.css" media="screen" />
+<script type="text/javascript" src="/js/courseleaf.js"></script>
+
+
+<script type="text/javascript">
+
+	//Last h2 anchor
+	//	Use this to distinguish header elements with the same (or similar) text in a tab
+	var last_h2 = '';
+
+	function processAnchorName(ele, section)
+	{
+		//Handle removing parentheses
+		var headerText = $(ele).text().replace(/\(|\)/g, '');
+
+		//Split the header on spaces - we will use this to build anchor
+		var splitHeader = headerText
+							.toLowerCase()
+							.split(' ');
+
+		var isH2 = (ele[0].nodeName.toLowerCase() == 'h2');
+
+		var splitLength;
+		//Special case: If this is not an h2 and we haven't set a last_h2, use 4
+		if (!isH2 && (! last_h2.length))
+		{
+			splitLength = 4;
+		}
+
+		//Otherwise, just split using normal logic
+		else
+		{
+			splitLength = (isH2) ? 4 : 3;
+		}
+
+		var anchorHeaderText = '';
+
+		//If there are multiple words in the header
+		if (splitHeader.length > 1)
+		{
+			for (var i = 0; i < splitHeader.length; i++)
+			{
+				var splitText = splitHeader[i];
+
+				if (splitText.length < 4)
+					continue;
+
+				anchorHeaderText += splitText
+										.replace(/[^a-zA-Z0-9]+/g,"")
+										.substr(0, splitLength);
+			}
+		}
+
+		//Special case: One word header, just use the whole word
+		else
+		{
+			anchorHeaderText += splitHeader[0].replace(/[^a-zA-Z0-9]+/g,"")
+		}
+
+		//Set the last h2 if necessary
+		if (isH2)
+		{
+			last_h2 = anchorHeaderText;
+		}
+
+		//Build the anchor name using section (and h2 if needed)
+		var anchorName = section + '-';
+
+		//Handle instances where there is no preceeding h2 to use
+		anchorName += ((isH2 || (!last_h2.length)) ? '' : last_h2 + '-');
+
+		anchorName += anchorHeaderText;
+		return { name : anchorName, text : headerText };
+	}
+
+	function processSectionHeaders(section)
+	{
+		//Before add headers to the "On This Page" list, remove previous items
+		$('#on_this_page')
+			.children()
+			.remove();
+
+		var sectionContainer = $('#' + section + 'container');
+		if (!sectionContainer)
+			return false;
+
+		$('#' + section + 'container')
+			.find('h2, h3, h4')		//Get all the headers
+			.filter(function() 		//Remove course tables, li elements, and nbsp entries
+			{
+				return ( ! ($(this).text() == String.fromCharCode(160)));
+			})
+			.each(function () 		//Display in the right side
+			{
+				var anchorDetails = processAnchorName($(this), section);
+
+				//Do we have an anchor for this element already?
+				if (! ($('a[name="' + anchorDetails.name + '"]').length))
+				{
+					$(this).prepend('<a name="' + anchorDetails.name + '"></a>');
+				}
+
+				if (this.nodeName.toLowerCase() == 'h2')
+				{
+					$('#on_this_page')
+						.append('<li><strong><a href="#' + anchorDetails.name + '">'
+						+ anchorDetails.text + "</a></strong></li>");
+				}
+				else
+				{
+					$('#on_this_page')
+						.append('<li><a href="#' + anchorDetails.name + '">'
+						+ anchorDetails.text + "</a></li>");
+				}
+
+			});
+
+		//Hide or show "On This Page", if we have results
+		($('#on_this_page').children().length == 0) ?
+					$('.sidebar-right-subnav').hide() :
+					$('.sidebar-right-subnav').show();
+
+		return true;
+	}
+
+	$(function()
+	{
+		//Proxy pattern: showSection
+		//	show/hide navigation on the right side based on section.
+		var original_showSection = window.showSection;
+		window.showSection = (function(section)
+		{
+			//Clear last h2 - this is set for each section/tab
+			last_h2 = '';
+			if (processSectionHeaders(section))
+			{
+				return original_showSection.apply(this, arguments);
+			}
+			else
+			{
+				processSectionHeaders('text');
+				return original_showSection.apply(this, 'text')
+			}
+		});
+
+		//Big picture here:
+		//1) Process a link directly to a tab/anchor on page
+		//2) Use the selected tab (or text default) to build section navigation
+		//3) If we have an anchor to click from step 1, "click" it
+
+		//Process link to tab/anchor on page.
+		var hash = cleanHash(document.location.hash);
+		var anchorToClick;
+		//debugger;
+		if (hash && hash.length)
+		{
+			var hashSplit = hash.split('-');
+			var section = hashSplit[0].replace("#", '');
+
+			//If we have a link, save it and click after anchors are built
+			if (hashSplit && hashSplit.length > 1)
+			{
+				var anchor = hashSplit
+								.slice(1)	//Skip the first element
+								.join('-'); //Join the remaining elements
+				anchorToClick = $('a[name="' + section + '-' + anchor + '"]');
+			}
+
+			showSection(section);
+		}
+
+		//We have tabs: use the selected tab to build section navigation
+		else if ($('#tabs > ul > li').length > 0)
+		{
+			//var section = $('li.active')
+			var section = $('#tabs li.active')
+							.attr('id') 		//Get the id, ex: texttab
+							.split('tab')[0]; 	//Split on "tab" to get section
+
+			showSection(section);
+		}
+
+		//No tabs - tab based navigation for default text "tab"
+		else
+		{
+			showSection('text');
+		}
+
+		//Scroll to anchor if found in hash
+		if (anchorToClick)
+		{
+			$('html,body').animate({
+				scrollTop: '+=' + (anchorToClick.offset().top - ($(window).height()/7)) + 'px'
+			}, 10);
+		}
+	});
+
+</script>
+
+</head>
+<!-- Stanford Modern Templates Version 2.3 -->
+<!-- CSS Instructions: Select a combination of the following body classes e.g. <body class="two-sidebars drawer wide ie6-3col">
+
+[two-sidebars] or [sidebar-left] or [sidebar-right]
+    Create a two or three column layout
+    Affected div(s): #sidebar-left or #sidebar-right
+
+[nav] or [drawer]
+    Add horizontal navigation or horizontal navigation with expandable drawer (5 item max limit)
+    Affected div(s): #nav, #nav_drawer, #toggle
+
+[wide]
+    Flexible width layout
+
+[topic] or [portal]
+    Enable styling for advanced templates such as portal or topic pages.
+-->
+<body class="two-sidebars stanav drawer">
+
+
+
+
+      <!--htdig_noindex-->
+<div id="skipnav"><a href="#content">Skip navigation</a></div>
+<!-- Start #layout -->
+<div id="layout">
+  <!-- Start #wrapper -->
+  <div id="wrapper">
+    <!-- Start #header -->
+    <div id="header">
+      <!-- Start #logo -->
+      <div id="logo"><!-- Place the code generated from the Stanford Banner Creator (http://www.stanford.edu/dept/its/cgi-bin/services/web/bannercreator/) here. After uploading the new banner, make sure that the src attribute of the img tag points to the correct location. -->
+        <img src="/images/explore_degrees_banner-1415.png" alt="Stanford University - Explore Degrees" border="0" usemap="#Map" />
+        <map name="Map" id="Map">
+          <area shape="rect" coords="-1,0,263,57" href="http://www.stanford.edu" alt="Stanford University" />
+          <area shape="rect" coords="275,4,700,57" href="/" alt="Explore Degrees" />
+        </map>
+      </div>
+      <!-- End #logo -->
+      <div id="web_search">
+        <form id="cse-search-box" action="/search/">
+          <div class="searchbox">
+            <input name="P" type="text" />
+            <input class="form-submit" type="submit" value="Search" />
+          </div>
+        </form>
+      </div>
+    </div>
+      <!--/htdig_noindex-->
+    <!-- End #header -->
+    <!-- Start #nav (Removable) -->
+    <!--htdig_noindex-->
+    <div id="nav">
+      <ul>
+        <li><a href="#">About Stanford</a>
+			<ul>
+				<li><a href="http://facts.stanford.edu/">Stanford Facts</a></li>
+				<li><a href="http://visitorinformation.stanford.edu/">Visitor Information</a></li>
+				<li><a href="http://admission.stanford.edu/place/tours.html">Virtual Tours</a></li>
+				<li><a href="http://www.stanford.edu/about/publications.html">News &amp; Publications</a></li>
+				<li><a href="http://www.stanford.edu/about/administration/">Offices &amp; Administration</a></li>
+			</ul>
+        </li>
+        <li><a href="#">Admission</a>
+			<ul>
+				<li><a href="http://admission.stanford.edu/">Undergraduate</a></li>
+				<li><a href="http://gradadmissions.stanford.edu/">Graduate</a></li>
+				<li><a href="http://financialaid.stanford.edu">Financial Aid</a></li>
+				<li><a href="http://www.stanford.edu/admission/continuing.html">Professional, Continuing, K-12</a></li>
+				<li><a href="http://summer.stanford.edu/">Summer Session</a></li>
+			</ul>
+        </li>
+        <li><a href="#">Academics</a>
+			<ul>
+				<li><a href="http://www.stanford.edu/academics/schools.html">Schools</a></li>
+				<li><a href="http://www.stanford.edu/academics/departments.html">Departments</a></li>
+				<li><a href="http://www.stanford.edu/academics/programs.html">Interdisciplinary Programs</a></li>
+				<li><a href="http://studentaffairs.stanford.edu/registrar/academic-calendar">Academic Calendar</a></li>
+				<li><a href="http://ual.stanford.edu/">Undergraduate Academic Life</a></li>
+			</ul>
+        </li>
+        <li><a href="#">Research</a>
+			<ul>
+				<li><a href="http://dor.stanford.edu/independent_labs.html">Independent Labs</a></li>
+				<li><a href="http://www.stanford.edu/research/centers.html">Research Centers</a></li>
+				<li><a href="http://library.stanford.edu/">Libraries</a></li>
+				<li><a href="http://www.stanford.edu/dept/undergrad/cgi-bin/drupal/research">Undergraduate Research</a></li>
+				<li><a href="http://www.slac.stanford.edu/">Accelerator Laboratory</a></li>
+			</ul>
+        </li>
+        <li><a href="#">Life on Campus</a>
+			<ul>
+				<li><a href="http://arts.stanford.edu">Arts &amp; Culture</a></li>
+				<li><a href="http://www.gostanford.com">Athletics &amp; Fitness</a></li>
+				<li><a href="http://studentaffairs.stanford.edu/">Student Life</a></li>
+				<li><a href="http://haas.stanford.edu/">Public Service</a></li>
+				<li><a href="http://transportation.stanford.edu">Getting Around</a></li>
+			</ul>
+        </li>
+      </ul>
+    </div>
+
+    <!--/htdig_noindex-->
+    <!-- End #nav (Removable) -->
+
+    <!-- Start #toggle (Removable) -->
+    <!--htdig_noindex-->
+    <div id="toggle">
+      <div id="menu_expand">Expand Menus</div>
+      <div id="menu_hide">Hide Menus</div>
+    </div>
+    <!--/htdig_noindex-->
+    <!-- End #toggle (Removable) -->
+
+    <!-- Start #container -->
+    <div id="container">
+
+      <!-- Start #content -->
+      <div id="content">
+
+        <!-- Start #center -->
+          <!--htdig_noindex-->
+        <div id="center">
+
+<h1 class="page-title">Stanford Bulletin 2015-16</h1>
+          <div class="breadcrumb">
+
+          	</div>
+          	<!--/htdig_noindex-->
+
+<div id="tabs">
+<script type="text/javascript">
+//<![CDATA[
+	var defshow = "text";
+	var bodycontainer = "#body";
+	var validhashes = ",text,";
+
+if(window.location.hash.length) {
+	var hash = cleanHash(window.location.hash);
+	if(validhashes.indexOf("," + hash + ",") != -1)
+		defshow = hash;
+}
+var ss = document.styleSheets;
+var workss = null;
+for(var i=0; i < ss.length; i++) {
+	var currmedia = "";
+	if (typeof ss[i].media == "string")
+		currmedia = ss[i].media
+	else if (typeof ss[i].media == "object" && ss[i].media.mediaText)
+		currmedia = ss[i].media.mediaText;
+
+	if((currmedia == "screen" || currmedia == "all") && (ss[i].href.indexOf("/") == 0 || ss[i].href.indexOf(document.location.host) >= 0)) {
+		workss = ss[i];
+		break;
+	}
+}
+if(workss.insertRule) {
+	workss.insertRule(".tab_content { display: none; }", workss.cssRules.length)
+	workss.insertRule(".sectionheader { display: none; }", workss.cssRules.length)
+	workss.insertRule("#" + defshow + "container { display: block; }", workss.cssRules.length)
+} else if(workss.addRule) {
+	workss.addRule(".tab_content", "display: none");
+	workss.addRule(".sectionheader", "display: none");
+	workss.addRule("#" + defshow + "container", "display: block");
+}
+//]]>
+</script>
+          <!--htdig_noindex-->
+			</div>
+
+          <!--/htdig_noindex-->
+
+			<div id="textcontainer" class="tab_content">
+
+
+<div align="center"> </div>
+
+
+
+
+<p>The Stanford Bulletin is Stanford University's official catalog of courses, degrees, policies, and University and degree requirements.</p>
+
+
+
+
+<ul>
+	<li><strong>ExploreDegrees</strong> publishes degree requirements, University requirements, and academic and nonacademic policies and regulations, as well as information on Stanford's schools, departments, and interdisciplinary programs.</li>
+	<li><a href="http://explorecourses.stanford.edu/"><strong>ExploreCourses</strong></a> publishes courses and class scheduling for the entire University.</li>
+</ul>
+
+
+
+
+<p class="bodytext">Use the links in the Table of Contents on the left to navigate through the bulletin. Or use the search box to look for specific material.</p>
+
+
+
+
+<ul>
+	<li class="listbullet">For degree requirements in the Graduate School of Business, see <a href="http://www.gsb.stanford.edu/" target="_blank">the GSB web site</a>.</li>
+	<li class="listbullet">For M.D. programs in the School of Medicine, see <a href="http://med.stanford.edu/education/" target="_blank">the School of Medicine web site</a>.</li>
+	<li class="listbullet">For Law degree programs, see <a href="http://www.law.stanford.edu/program/degrees/" target="_blank">the School of Law web site</a>.</li>
+</ul>
+
+
+
+
+<p class="bodytext">The material presented here was initially published on August 1, 2015.</p>
+
+
+
+
+<a name="governingdocumentreservationofrights"></a>
+<h2>Governing Document/Reservation of Rights</h2>
+
+
+
+
+<p>Every effort is made to ensure that the degree requirement and course information, applicable policies, and other materials contained in the Stanford Bulletin are accurate and current. The University reserves the right to make changes at any time without prior notice. The Bulletin in the form as it exists online at <a href="http://bulletin.stanford.edu" target="_blank">Stanford Bulletin</a> web site and <a href="http://explorecourses.stanford.edu" target="_blank">ExploreCourses</a> web site is therefore the governing document, and contains the then currently applicable policies and information. The University no longer produces an official hard copy version of the Bulletin.</p>
+
+
+
+
+<p>Courses of Instruction are available at the Stanford Bulletin's <a href="http://explorecourses.stanford.edu/" target="_blank" title="">ExploreCourses</a> web site.</p>
+
+
+
+
+<p>Your feedback is valuable. Send email to <a href="mailto:reg-webmaster@stanford.edu">reg-webmaster@stanford.edu</a>.</p>
+
+
+
+
+<a name="stanfordbulletinsfromearlieryears"></a>
+<h2>Stanford Bulletins<em> </em>from Earlier Years</h2>
+
+
+
+
+<p>See the <a href="/archive/#text" target="_blank">Previous Stanford Bulletins</a> page for Bulletins prior to 2015-16.</p>
+
+
+
+
+<a name="accreditation"></a>
+<h2>Accreditation</h2>
+
+
+
+
+<p class="titlepagetext"><a class="jumptemplate" href="http://www.stanford.edu/" target="_blank" title="">Stanford University</a> is accredited by the Accrediting Commission for Senior Colleges and Universities of the<a href="http://directory.wascsenior.org/stanford-university#zoom=15&amp;lat=37.42964&amp;lon=-122.17294&amp;layers=TF0BT"> <span class="jumptemplate">Western Association of Schools and Colleges (WASC)</span></a>, 985 Atlantic Avenue, Suite 100, Alameda, CA 94501; (510) 748-9001. In addition, certain programs of the University have specialized accreditation. For information, contact the <a class="jumptemplate" href="http://studentaffairs.stanford.edu/registrar" target="_blank" title="">Office of the University Registrar</a>.</p>
+
+
+
+
+<p class="titlepagetext">Stanford University is committed to complying with the following requirements enumerated by the Western Association of Schools and Colleges (WASC) in its accreditation process:</p>
+
+
+
+
+<p><em>&quot;Core Commitment to Institutional Capacity</em></p>
+
+
+
+
+<p class="titlepagetext">&quot;The institution functions with clear purposes, high levels of institutional integrity, fiscal stability, and organizational structures to fulfill its purposes.</p>
+
+
+
+
+<p><em>&quot;Commitment to Educational Effectiveness</em></p>
+
+
+
+
+<p class="titlepagetext">&quot;The institution evidences clear and appropriate educational objectives and design at the institutional and program level. The institution employs processes of review, including the collection and use of data, which ensure delivery of programs and learner accomplishments at a level of performance appropriate for the degree or certificate awarded.&quot;</p>
+
+
+
+
+<p class="titlepagetext">For more information, see the University's <a href="http://wasc.stanford.edu/" target="_blank" title="">WASC Accreditation</a> web site.</p>
+
+
+
+
+<p class="titlepagetext">Also, see <a href=" https://sites.stanford.edu/wasc2011/system/files/Institutional%2520Stipulations.pdf">President Hennessy's statement </a>(pdf) on Stanford's fulfillment of the Core Commitments to Institutional Capacity and Educational Effectiveness. </p>
+
+
+  
+
+<a name="nondiscriminationpolicy"></a>
+<h2>Nondiscrimination Policy</h2>
+
+ 
+
+<p>Stanford University admits qualified students of any race, color, national or ethnic origin, sex, age, disability, religion, sexual orientation, and gender identity to all the rights, privileges, programs, and activities generally accorded or made available to students at the University. Consistent with its obligations under the law, Stanford prohibits unlawful discrimination on the basis of race, color, national or ethnic origin, sex, age, disability, religion, sexual orientation, gender identity or expression, veteran status, or any other characteristic protected by applicable law in the administration of the University's programs and activities; Stanford also prohibits unlawful harassment including sexual harassment and sexual violence. The following person has been designated to handle inquiries regarding this nondiscrimination policy: Director of the Diversity and Access Office, Mariposa House, 585 Capistrano Way, Stanford University, Stanford, CA 94305-8230; (650) 723-0755 (voice), (650) 723-1791 (fax), <a href="http://relative.pagelegend.com/mailto:equal.opportunity@stanford.edu">equal.opportunity@stanford.edu</a> (email). Stanford’s Title IX Coordinator, Catherine Criswell Spear, has been designated to handle inquiries regarding sexual harassment and sexual violence: Mariposa House (2nd floor), 585 Capistrano Way, Stanford, CA 94305, (650) 497-4955 (voice), (650) 497-9257 (fax), <a href="http://relative.pagelegend.com/mailto:titleix@stanford.edu">titleix@stanford.edu</a> (email).</p>
+
+
+
+
+<a name="honorcodeandfundamentalstandard"></a>
+<h2>Honor Code and Fundamental Standard</h2>
+
+
+
+
+<p>Student life at Stanford is governed by the Honor Code and the Fundamental Standard. More information on these policies is available from the <a href="http://studentaffairs.stanford.edu/communitystandards" target="_blank">Office of Community Standards</a> and in the <a href="/studentaffairs/#text-officommstan">Student Affairs</a> section of this bulletin.</p>
+
+
+
+
+<a name="honorcode"></a>
+<h2>Honor Code</h2>
+
+
+  
+
+<p>&quot;1. The Honor Code is an undertaking of the students, individually and collectively:</p>
+
+ 
+
+<p style="margin-left:40px">a. that they will not give or receive aid in examinations; that they will not give or receive unpermitted aid in class work, in the preparation of reports, or in any other work that is to be used by the instructor as the basis of grading;</p>
+
+ 
+
+<p style="margin-left:40px">b. that they will do their share and take an active part in seeing to it that others as well as themselves uphold the spirit and letter of the Honor Code.</p>
+
+ 
+
+<p>2. The faculty on its part manifests its confidence in the honor of its students by refraining from proctoring examinations and from taking unusual and unreasonable precautions to prevent the forms of dishonesty mentioned above. The faculty will also avoid, as far as practicable, academic procedures that create temptations to violate the Honor Code.</p>
+
+ 
+
+<p>3. While the faculty alone has the right and obligation to set academic requirements, the students and faculty will work together to establish optimal conditions for honorable academic work.&quot;</p>
+
+
+
+
+<a name="fundamentalstandard"></a>
+<h3>Fundamental Standard</h3>
+
+
+  
+
+<p>&quot;Students are expected to show both within and without the University such respect for order, morality, personal honor, and the rights of others as is demanded of good citizens. Failure to do this will be sufficient cause for removal from the University.&quot;</p>
+
+
+
+
+<a name="registrarsoffice"></a>
+<h2>Registrar's Office</h2>
+
+
+
+
+<p>The Stanford Bulletin is an online publication of the <a href="http://registrar.stanford.edu/" target="_blank" title="">Office of the University Registrar</a>, Stanford University.</p>
+
+
+
+
+<blockquote>
+<p><em>Address:</em><br/>
+Office of the University Registrar<br/>
+482 Galvez Mall, Suite 120<br/>
+Stanford University<br/>
+Stanford, California 94305-6032</p>
+</blockquote>
+
+
+
+
+<p>Students with questions or issues should contact the <a href="http://studentservicescenter.stanford.edu/" target="_blank" title="">Student Services Center</a> or <a href="https://remedyweb.stanford.edu/helpsu/helpsu?pcat=ssc" target="_blank" title="">file a help ticket</a> with Stanford's HelpSU system. Alumni, staff, or the general public may also <a href="https://remedyweb.stanford.edu/helpsu/helpsu?pcat=ssc" target="_blank" title="">file a help ticket</a> to request the Registrar's Office assistance or to ask for information.</p>
+
+
+
+
+<p>Additional information on Stanford University can be obtained through <a href="http://www.stanford.edu" target="_blank">Stanford's</a> web site.</p>
+
+
+
+
+<p>Telephone number for all University departments: Area code: (650) 723-2300.</p>
+
+
+
+
+</div>
+
+
+
+        </div>
+        <!-- End #center -->
+
+        <!-- Start #sidebar-left (Removable) -->
+        <!--htdig_noindex-->
+        <div id="sidebar-left" class="sidebar">
+        		<div id="cl-search">
+					<form action="/search/">
+						<label for="search">Search:</label>
+						<input type="text" name="P" value="Search Bulletin" size="12" />
+						<input class="form-submit" type="submit" value="Go" name="sa" />
+					</form>
+				</div>
+
+<!-- Begin Nav -->
+<ul class="nav" id="/">
+	<li><a href="/academiccalendar/">Academic Calendar</a></li>
+	<li><a href="/stanfordsmission/">Stanford's Mission</a></li>
+	<li><a href="/universitygovernanceandorganization/">University Governance and Organization</a></li>
+	<li><a href="/universityrequirements/">University Requirements</a></li>
+	<li><a href="/undergraduateeducation/">Undergraduate Education (VPUE)</a></li>
+	<li><a href="/graduateeducation/">Graduate Education (VPGE)</a></li>
+	<li><a href="/graduateschoolofbusiness/">Graduate School of Business</a></li>
+	<li><a href="/schoolofearthsciences/">School of Earth, Energy and Environmental Sciences</a></li>
+	<li><a href="/schoolofeducation/">Graduate School of Education</a></li>
+	<li><a href="/schoolofengineering/">School of Engineering</a></li>
+	<li><a href="/schoolofhumanitiesandsciences/">School of Humanities and Sciences</a></li>
+	<li><a href="/schooloflaw/">School of Law</a></li>
+	<li><a href="/schoolofmedicine/">School of Medicine</a></li>
+	<li><a href="/otheroffices/">Other Offices</a></li>
+</ul>
+<!-- End Nav -->
+        </div>
+
+        <!--/htdig_noindex-->
+        <!-- End #sidebar-left (Removable) -->
+
+        <!-- Start #sidebar-right (Removable) -->
+        <div id="sidebar-right" class="sidebar">
+          <h2>See Also</h2>
+			<ul>
+				<li><a href="" onclick="showPrintDialog(); return false;" class="external">Print</a></li>
+				<li><a href="http://explorecourses.stanford.edu">ExploreCourses</a></li>
+				<li><a href="http://www.stanford.edu">Stanford University</a></li>
+				<li><a href="http://axess.stanford.edu">Axess (authentication required)</a></li>
+			</ul>
+			<div class="sidebar-right-subnav">
+					<h2>On This Page</h2>
+					<ul id="on_this_page"></ul>
+			</div>
+        </div>
+        <!-- End #sidebar-right (Removable) -->
+        <div class="content_clear"></div>
+      </div>
+      <!-- End #content -->
+
+      <!-- Start #footer-wrapper -->
+      <!--htdig_noindex-->
+      <div id="footer-wrapper">
+        <!-- Start #footer -->
+        <div id="footer">
+          <ul>
+            <li> <a href="http://www.stanford.edu/" title="Stanford University">Stanford University</a></li>
+            <li class="last"><a href="http://www.stanford.edu/contact/" title="Contact Stanford University">Contact Information</a></li>
+          </ul>
+        </div>
+        <!-- End #footer -->
+
+        <!-- Start #copyright -->
+        <div id="copyright" class="vcard">&copy; 2014-15 Stanford University. <a href="http://www.stanford.edu/site/terms.html">Terms of Use</a> | <a href="http://www.stanford.edu/site/copyright.html">Copyright Complaints</a></div>
+        <!-- End #copyright -->
+      </div>
+      <!--/htdig_noindex-->
+      <!-- End #footer-wrapper -->
+    </div>
+    <!-- End #container -->
+  </div>
+  <!-- End #wrapper -->
+</div>
+<!-- End #layout -->
+
+<div id="print-dialog" class="screen">
+
+
+
+			<div class="print-gutter">
+				<div class="print-header">Print Options</div>
+					<div class="print-option">
+							<div class="option-head"><a href="" onClick="hidePrintDialog();window.print();return false">Send Page to Printer</a></div>
+							<p><em>Print this page.</em></p>
+					</div>
+					<div class="print-option">
+
+<div class="option-head"><a href="homepage.pdf" target="_blank">Download PDF of this page</a></div>
+<p><em>The PDF will include all information unique to this page.</em></p>
+<!--
+					</div>
+					<div class="print-option">
+							<div class="option-head"><a href="/pdf/2013-14.pdf" target="_blank">Download PDF of the entire catalog</a></div>
+							<p><em>All pages in Academic Catalog.</em></p>
+					</div> -->
+
+					<div class="buttons">
+						<div class="cancel"><a href="" onclick="hidePrintDialog(); return false;">Cancel</a></div>
+					</div>
+			</div>
+		</div>
+</body>
+</html>
