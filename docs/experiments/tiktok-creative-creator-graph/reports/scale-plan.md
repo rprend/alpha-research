@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T11:01:41.359Z
+Generated: 2026-06-13T14:58:37.500Z
 
 ## Targets
 
@@ -10,7 +10,7 @@ Generated: 2026-06-13T11:01:41.359Z
 
 ## Current
 
-- Accounts: 39577
+- Accounts: 39579
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4
@@ -24,9 +24,9 @@ Generated: 2026-06-13T11:01:41.359Z
 
 ## Planning Assumptions
 
-- Observed useful rate: 0.469
+- Observed useful rate: 0.475
 - Planning useful rate: 0.2
-- Observed excellent rate among useful: 0.293
+- Observed excellent rate among useful: 0.29
 - Planning excellent rate among useful: 0.1
 
 ## Top Surfaces
@@ -50,7 +50,7 @@ Candidate frontier targets: 314
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |
-| 1 | 1 | 85 | 1 | tiktok_hashtag_export | filmmaker |
+| 1 | 1 | 86 | 1 | tiktok_hashtag_export | filmmaker |
 | 2 | 2 | 80 | 1 | tiktok_hashtag_export | shortfilm |
 | 3 | 3 | 76 | 1 | tiktok_hashtag_export | sketchcomedy |
 | 4 | 4 | 72 | 1 | tiktok_hashtag_export | standupcomedy |

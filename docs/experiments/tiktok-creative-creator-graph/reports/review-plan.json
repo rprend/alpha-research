@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T11:01:39.386Z",
+  "generated_at": "2026-06-13T14:58:35.231Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -16,7 +16,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 6275,
+      "useful_gap": 6150,
       "priority": 2
     },
     {
@@ -25,7 +25,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 4156,
+      "useful_gap": 4155,
       "priority": 2
     },
     {
@@ -34,7 +34,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3321,
+      "useful_gap": 3319,
       "priority": 2
     },
     {
@@ -43,7 +43,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3275,
+      "useful_gap": 3274,
       "priority": 2
     },
     {
@@ -52,7 +52,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3117,
+      "useful_gap": 3119,
       "priority": 2
     },
     {
@@ -106,7 +106,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 0,
       "review_gap": 25,
-      "useful_gap": 833,
+      "useful_gap": 719,
       "priority": 2
     }
   ],

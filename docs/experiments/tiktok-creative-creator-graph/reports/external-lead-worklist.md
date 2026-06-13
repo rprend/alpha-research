@@ -1,13 +1,13 @@
 # External Lead Source Worklist
 
-Generated: 2026-06-13T11:01:41.570Z
+Generated: 2026-06-13T14:58:37.731Z
 
 This breaks the token-free acquisition packet into smaller source-level collection units. Work items point to a specific TikTok/search URL, a target label, a quota, and the completed file where accepted leads should land.
 
 ## Summary
 
 - Assignment rows: 200
-- Work items: 837
+- Work items: 843
 - Total lead quota: 50000
 - Source worklist CSV: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/source-worklist.csv`
 - Source worklist JSONL: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/source-worklist.jsonl`
@@ -18,7 +18,7 @@ This breaks the token-free acquisition packet into smaller source-level collecti
 - tiktok_video_search: 200
 - google_search: 200
 - bing_search: 200
-- tiktok_hashtag: 37
+- tiktok_hashtag: 43
 
 ## First Work Items
 
@@ -32,10 +32,10 @@ This breaks the token-free acquisition packet into smaller source-level collecti
 | external_source_0002_02 | external_packet_0002 | behind_the_scenes_creator | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=bts | 0002-behind_the_scenes_creator.csv |
 | external_source_0002_03 | external_packet_0002 | behind_the_scenes_creator | google_search | 62 | https://www.google.com/search?q=site%3Atiktok.com%2F%40%20%22bts%22 | 0002-behind_the_scenes_creator.csv |
 | external_source_0002_04 | external_packet_0002 | behind_the_scenes_creator | bing_search | 62 | https://www.bing.com/search?q=site%3Atiktok.com%2F%40%20%22bts%22 | 0002-behind_the_scenes_creator.csv |
-| external_source_0003_01 | external_packet_0003 | filmmaker | tiktok_user_search | 63 | https://www.tiktok.com/search/user?q=shortfilm | 0003-filmmaker.csv |
-| external_source_0003_02 | external_packet_0003 | filmmaker | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=shortfilm | 0003-filmmaker.csv |
-| external_source_0003_03 | external_packet_0003 | filmmaker | google_search | 62 | https://www.google.com/search?q=site%3Atiktok.com%2F%40%20%22shortfilm%22 | 0003-filmmaker.csv |
-| external_source_0003_04 | external_packet_0003 | filmmaker | bing_search | 62 | https://www.bing.com/search?q=site%3Atiktok.com%2F%40%20%22shortfilm%22 | 0003-filmmaker.csv |
+| external_source_0003_01 | external_packet_0003 | filmmaker | tiktok_user_search | 63 | https://www.tiktok.com/search/user?q=filmmaker | 0003-filmmaker.csv |
+| external_source_0003_02 | external_packet_0003 | filmmaker | tiktok_video_search | 63 | https://www.tiktok.com/search/video?q=filmmaker | 0003-filmmaker.csv |
+| external_source_0003_03 | external_packet_0003 | filmmaker | google_search | 62 | https://www.google.com/search?q=site%3Atiktok.com%2F%40%20%22filmmaker%22 | 0003-filmmaker.csv |
+| external_source_0003_04 | external_packet_0003 | filmmaker | bing_search | 62 | https://www.bing.com/search?q=site%3Atiktok.com%2F%40%20%22filmmaker%22 | 0003-filmmaker.csv |
 | external_source_0004_01 | external_packet_0004 | filmmaker | tiktok_hashtag | 50 | https://www.tiktok.com/tag/filmmaker | 0004-filmmaker.csv |
 | external_source_0004_02 | external_packet_0004 | filmmaker | tiktok_user_search | 50 | https://www.tiktok.com/search/user?q=filmmaker | 0004-filmmaker.csv |
 | external_source_0004_03 | external_packet_0004 | filmmaker | tiktok_video_search | 50 | https://www.tiktok.com/search/video?q=filmmaker | 0004-filmmaker.csv |

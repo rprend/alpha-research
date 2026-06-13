@@ -104,9 +104,11 @@ function attemptedHandles() {
   if (existsSync(reportPath)) {
     try {
       const report = JSON.parse(readFileSync(reportPath, 'utf8'))
-      for (const row of report.profiles ?? []) {
-        const handle = normalizeHandle(row.handle)
-        if (handle) handles.add(handle)
+      if (!report.dry_run) {
+        for (const row of report.profiles ?? []) {
+          const handle = normalizeHandle(row.handle)
+          if (handle) handles.add(handle)
+        }
       }
     } catch {
       // Ignore stale or partial reports; raw acquisition rows are authoritative.
@@ -119,7 +121,15 @@ function selectedProfiles() {
   const accounts = readJsonl(join(processedDir, 'creator_accounts.jsonl'))
   const reviewQueue = readJsonl(join(processedDir, 'review_queue.jsonl'))
   const classifications = new Map(readJsonl(join(processedDir, 'creator_classifications.jsonl')).map((row) => [row.creator_id, row]))
-  const accountByHandle = new Map(accounts.map((account) => [normalizeHandle(account.handle), account]))
+  const accountByHandle = new Map()
+  for (const account of accounts) {
+    const handle = normalizeHandle(account.handle)
+    if (!handle) continue
+    const existing = accountByHandle.get(handle)
+    if (!existing || toNumber(account.video_count) > toNumber(existing.video_count)) {
+      accountByHandle.set(handle, account)
+    }
+  }
   const selected = new Map()
   const attempted = attemptedHandles()
 
@@ -140,6 +150,7 @@ function selectedProfiles() {
     const account = accountByHandle.get(handle)
     if (!handle || !account) continue
     if (attempted.has(handle)) continue
+    if (selectionMode === 'missing_video_count' && toNumber(account.video_count) > 0) continue
     selected.set(handle, {
       handle,
       creator_id: account.id,
@@ -157,6 +168,7 @@ function selectedProfiles() {
     const handle = normalizeHandle(account.handle)
     if (!handle || selected.has(handle)) continue
     if (attempted.has(handle)) continue
+    if (selectionMode === 'missing_video_count' && toNumber(account.video_count) > 0) continue
     if (account.bio && toNumber(account.follower_count) > 0) continue
     selected.set(handle, {
       handle,

@@ -1,9 +1,9 @@
 # Source Yield
 
-Generated: 2026-06-13T11:01:36.319Z
+Generated: 2026-06-13T14:58:31.774Z
 
 - Sources: 1566
-- Distinct creators seen through sources: 39579
+- Distinct creators seen through sources: 39580
 
 ## Best Sources
 
@@ -25,12 +25,12 @@ Generated: 2026-06-13T11:01:36.319Z
 | Source type | Query | Seen | Useful | Rejected | Yield |
 | --- | --- | ---: | ---: | ---: | ---: |
 | wikidata_profile | screenwriter|animator|film director | 1 | 0 | 0 | 28 |
-| wikidata_profile | science communicator|educator | 1 | 0 | 0 | 28 |
-| wikidata_profile | television director|impressionist | 1 | 0 | 0 | 28 |
-| wikidata_profile | comedian|film producer|vlogger|YouTuber | 1 | 0 | 0 | 28 |
 | wikidata_profile | cinematographer|comedian|television director|voice actor|film director|film producer|film editor | 1 | 0 | 0 | 28 |
-| wikidata_profile | drag queen|vlogger|YouTuber | 1 | 0 | 0 | 28 |
-| wikidata_profile | screenwriter|vlogger | 1 | 0 | 0 | 28 |
 | wikidata_profile | screenwriter|cinematographer|film director | 1 | 0 | 0 | 28 |
-| wikidata_profile | voice actor|YouTuber|TikToker | 1 | 0 | 0 | 28 |
 | public_editorial_page | TikTokShortFilm new generation filmmakers visual effects | 1 | 0 | 0 | 28 |
+| wikidata_profile | writer|television presenter|television personality | 1 | 0 | 0 | 28 |
+| wikidata_profile | musician|rapper|presenter | 1 | 0 | 0 | 28 |
+| wikidata_profile | singer|television personality | 2 | 0 | 0 | 28 |
+| wikidata_profile | singer-songwriter|songwriter|recording artist|pop singer | 1 | 0 | 0 | 28 |
+| wikidata_profile | singer|singer-songwriter|musician|television presenter | 1 | 0 | 0 | 28 |
+| wikidata_profile | musician|songwriter|guitarist|DJ producer | 1 | 0 | 0 | 28 |

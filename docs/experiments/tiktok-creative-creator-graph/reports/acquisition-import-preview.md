@@ -1,24 +1,24 @@
 # Acquisition Import Preview
 
-Generated: 2026-06-13T11:01:23.410Z
+Generated: 2026-06-13T14:58:12.904Z
 
-- Input rows: 191689
-- Normalized rows: 191689
+- Input rows: 194286
+- Normalized rows: 194286
 - Skipped rows: 0
-- Duplicate normalized rows: 152115
-- Output accounts if imported: 39574
+- Duplicate normalized rows: 154711
+- Output accounts if imported: 39575
 - Ready to import: no
 - Normalized rate: 100.0%
-- Duplicate rate: 79.4%
-- Mapped lineage rows: 191683
+- Duplicate rate: 79.6%
+- Mapped lineage rows: 194280
 - Unmapped lineage rows: 6
 
 ## Checks
 
-- has_rows: pass - 191689 input rows
+- has_rows: pass - 194286 input rows
 - handle_extraction: pass - 100.0% normalized, threshold 75.0%
-- duplicate_pressure: fail - 79.4% duplicate normalized rows, threshold 65.0% (metadata overlay)
-- lineage_mapping: pass - 191683/191689 rows mapped to provider/wave lineage
+- duplicate_pressure: fail - 79.6% duplicate normalized rows, threshold 65.0% (metadata overlay)
+- lineage_mapping: pass - 194280/194286 rows mapped to provider/wave lineage
 
 ## Source Files
 
@@ -502,6 +502,11 @@ Generated: 2026-06-13T11:01:23.410Z
 - 2026-06-13T08-12-28-135Z-external-lead-list.jsonl: 250
 - 2026-06-13T08-12-28-168Z-external-lead-list.jsonl: 250
 - 2026-06-13T08-12-39-866Z-public-profile-enrichment.jsonl: 2672
+- 2026-06-13T11-01-42-913Z-external-lead-list.jsonl: 250
+- 2026-06-13T11-01-42-946Z-external-lead-list.jsonl: 250
+- 2026-06-13T12-06-28-816Z-public-profile-enrichment.jsonl: 1923
+- 2026-06-13T14-38-36-754Z-public-profile-enrichment.jsonl: 100
+- 2026-06-13T14-53-16-796Z-public-profile-enrichment.jsonl: 74
 - editorial-list-seeds-2026-06-12.jsonl: 21
 - smoke-provider-results.jsonl: 3
 - smoke-search-results.jsonl: 3

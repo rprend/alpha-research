@@ -1,20 +1,20 @@
 # Identity Resolution
 
-Generated: 2026-06-13T11:01:37.787Z
+Generated: 2026-06-13T14:58:33.382Z
 
-- Accounts: 39579
-- Identities: 38651
-- Duplicate risk clusters: 581
-- Identity evidence rows: 123388
-- High-confidence external links: 5567
+- Accounts: 39580
+- Identities: 38639
+- Duplicate risk clusters: 584
+- Identity evidence rows: 124424
+- High-confidence external links: 6600
 
 ## Duplicate Risk Queue
 
 | Identity | Accounts | Handles | Reason |
 | --- | ---: | --- | --- |
-| creator_identity_c7dc0fe0aaf5 | 6 | @kingbach; @snowd4y; @michaeldcohen; @nuha_bahrin; @zionhwang; @victorianiro.official | shared identity key |
+| creator_identity_ad028b83bd60 | 11 | @kingbach; @snowd4y; @michaeldcohen; @lilmasti; @symfuhny; @lamyakaddor; @maxmarlow; @nuha_bahrin; @zionhwang; @victorianiro.official; @tonixxrei | shared identity key |
 | creator_identity_1acf1211b94d | 2 | @matt_rife; @matt_rifeprivatechatt | shared identity key |
-| creator_identity_0a698d9b43b6 | 5 | @ventureswithmia; @strangerthing.digitalart; @mias.bookcase; @miatroshyka; @floofysocials | shared identity key |
+| creator_identity_ccd4f8e249a6 | 5 | @ventureswithmia; @strangerthing.digitalart; @mias.bookcase; @miatroshyka; @floofysocials | shared identity key |
 | creator_identity_a921eec26d62 | 2 | @imtropicaljoe; @joseriverapayan | shared identity key |
 | creator_identity_c26c30d8810e | 2 | @theotherwatchedlist; @thewatchedlist | shared identity key |
 | creator_identity_7b796d6f1dce | 2 | @connorsmoviereviews; @notconnoragain | shared identity key |
@@ -25,11 +25,11 @@ Generated: 2026-06-13T11:01:37.787Z
 | creator_identity_f03c068bce05 | 4 | @marksminutemoviereviews; @markdoeslife; @6markedits6; @stunt_mark | shared identity key |
 | creator_identity_62c18b6467c1 | 3 | @roomforscream; @itsgigirobinson; @giselle.munoz | shared identity key |
 | creator_identity_6119532df063 | 2 | @maksmovieshack; @ml.aba | shared identity key |
-| creator_identity_0916c6e1d4ac | 6 | @finalgirl_jess; @justpeachyreads; @perusewithjess; @functioningwithjess; @jessae.au; @dylansbastard | shared identity key |
+| creator_identity_583e75ce40eb | 6 | @finalgirl_jess; @justpeachyreads; @perusewithjess; @functioningwithjess; @jessae.au; @dylansbastard | shared identity key |
 | creator_identity_eb66beff6ba2 | 2 | @artejim; @jimedlee | shared identity key |
 | creator_identity_f3d7a2794a25 | 3 | @by.annie.n; @typeskusuo; @urfavvvanniee | shared identity key |
 | creator_identity_e903baeabd24 | 3 | @kss_design; @iamksenia; @thatksenia | shared identity key |
-| creator_identity_0d20630c6e61 | 4 | @daylightillustrations; @thekidlitmama; @elilacz; @mizmaxie_ | shared identity key |
+| creator_identity_b1e36f0341bb | 4 | @daylightillustrations; @thekidlitmama; @elilacz; @mizmaxie_ | shared identity key |
 | creator_identity_720ddcb87b56 | 2 | @laladigitalart; @lala | shared identity key |
 | creator_identity_514229db8887 | 2 | @digitalartbyjuliette; @juliettefreire | shared identity key |
 | creator_identity_4d35f13f5c5c | 4 | @elliexdigitalart; @xellie.edits; @nodawt; @larueslvr | shared identity key |

@@ -1,6 +1,6 @@
 # Learning Candidate Shortlist
 
-Generated: 2026-06-13T11:01:38.386Z
+Generated: 2026-06-13T14:58:34.037Z
 
 - Requested rows: 5000
 - Output rows: 5000
@@ -15,9 +15,9 @@ This is a prioritization artifact, not a production release gate. A row means th
 
 ## Labels
 
-- standup_comedian: 92
-- filmmaker: 842
-- director: 44
+- standup_comedian: 93
+- filmmaker: 844
+- director: 41
 - editor: 2062
 - actor_performer: 66
 - vfx_animation: 610

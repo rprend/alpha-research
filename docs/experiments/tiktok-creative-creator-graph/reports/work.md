@@ -1,38 +1,38 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T11:01:34.730Z
+Generated: 2026-06-13T14:58:28.651Z
 
 ## Summary
 
-- Accounts: 39579
-- Videos: 111203
-- Graph edges: 64695
-- Useful accounts: 18573
+- Accounts: 39580
+- Videos: 141403
+- Graph edges: 66004
+- Useful accounts: 18814
 - Excellent accounts: 5451
-- Review queue: 39579
-- Expansion queue: 11744
+- Review queue: 39580
+- Expansion queue: 11801
 - Target: 50000
-- Target status: 31427 more useful accounts needed
+- Target status: 31186 more useful accounts needed
 
 ## Status Counts
 
-- useful: 13122
-- needs_review: 20967
+- useful: 13363
+- needs_review: 20727
 - excellent: 5451
 - reject: 39
 
 ## Primary Labels
 
 - actor_performer: 8665
-- sketch_comedian: 3687
-- standup_comedian: 858
-- filmmaker: 7821
-- cinematographer: 2013
+- sketch_comedian: 3685
+- standup_comedian: 860
+- filmmaker: 7826
+- cinematographer: 2022
 - vfx_animation: 2619
-- director: 1526
+- director: 1521
 - editor: 5588
-- creative_technologist: 1778
-- film_educator: 2297
+- creative_technologist: 1777
+- film_educator: 2290
 - behind_the_scenes_creator: 2688
 - reject: 39
 
@@ -48,12 +48,12 @@ Generated: 2026-06-13T11:01:34.730Z
 | @davinamichellemusic | actor_performer | 100 | excellent |
 | @nintendo.grl | vfx_animation | 100 | excellent |
 | @avani | actor_performer | 100 | excellent |
-| @youneszarou | film_educator | 100 | excellent |
 | @enola.bedard | actor_performer | 100 | excellent |
+| @theshilpashetty | actor_performer | 100 | excellent |
+| @youneszarou | film_educator | 100 | excellent |
 | @miniminuteman | filmmaker | 100 | excellent |
 | @david_fils_de_momone | actor_performer | 100 | excellent |
 | @jeffreestar | actor_performer | 100 | excellent |
-| @theshilpashetty | actor_performer | 100 | excellent |
 | @lights.are.off | vfx_animation | 100 | excellent |
 | @daphnedtle | vfx_animation | 100 | excellent |
 | @biteswithlily | sketch_comedian | 100 | excellent |
@@ -103,12 +103,12 @@ Generated: 2026-06-13T11:01:34.730Z
 | @davinamichellemusic | actor_performer | 100 | benchmark_candidate; strong_public_source_candidate |
 | @nintendo.grl | vfx_animation | 100 | benchmark_candidate; strong_public_source_candidate |
 | @avani | actor_performer | 100 | benchmark_candidate; strong_public_source_candidate |
-| @youneszarou | film_educator | 100 | benchmark_candidate; strong_public_source_candidate |
 | @enola.bedard | actor_performer | 100 | benchmark_candidate; strong_public_source_candidate |
+| @theshilpashetty | actor_performer | 100 | benchmark_candidate; strong_public_source_candidate |
+| @youneszarou | film_educator | 100 | benchmark_candidate; strong_public_source_candidate |
 | @miniminuteman | filmmaker | 100 | benchmark_candidate; strong_public_source_candidate |
 | @david_fils_de_momone | actor_performer | 100 | benchmark_candidate; strong_public_source_candidate |
 | @jeffreestar | actor_performer | 100 | benchmark_candidate; strong_public_source_candidate |
-| @theshilpashetty | actor_performer | 100 | benchmark_candidate; strong_public_source_candidate |
 | @lights.are.off | vfx_animation | 100 | benchmark_candidate; strong_public_source_candidate |
 | @daphnedtle | vfx_animation | 100 | benchmark_candidate; strong_public_source_candidate |
 | @biteswithlily | sketch_comedian | 100 | benchmark_candidate; strong_public_source_candidate |

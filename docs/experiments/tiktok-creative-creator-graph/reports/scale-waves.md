@@ -1,6 +1,6 @@
 # Scale Waves
 
-Generated: 2026-06-13T11:01:41.400Z
+Generated: 2026-06-13T14:58:37.543Z
 
 - Planned waves: 1000
 - Candidate accounts per wave: 250
@@ -21,15 +21,15 @@ Generated: 2026-06-13T11:01:41.400Z
 | ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
 | 1 | scale_wave_0001 | behind_the_scenes_creator | 250 | 50 | 1 | 54 | 53 | category_gap_search | site:tiktok.com/@ "behind the scenes creator" |
 | 2 | scale_wave_0002 | behind_the_scenes_creator | 250 | 50 | 1 | 57 | 53 | category_gap_search | site:tiktok.com/@ "bts" |
-| 3 | scale_wave_0003 | filmmaker | 250 | 50 | 1 | 7 | 72 | category_gap_search | site:tiktok.com/@ "shortfilm" |
-| 4 | scale_wave_0004 | filmmaker | 250 | 50 | 1 | 1 | 85 | tiktok_hashtag_export | filmmaker |
+| 3 | scale_wave_0003 | filmmaker | 250 | 50 | 1 | 5 | 72 | category_gap_search | site:tiktok.com/@ "filmmaker" |
+| 4 | scale_wave_0004 | filmmaker | 250 | 50 | 1 | 1 | 86 | tiktok_hashtag_export | filmmaker |
 | 5 | scale_wave_0005 | sketch_comedian | 250 | 50 | 1 | 11 | 68 | category_gap_search | site:tiktok.com/@ "comedy sketch" |
 | 6 | scale_wave_0006 | sketch_comedian | 250 | 50 | 1 | 14 | 68 | category_gap_search | site:tiktok.com/@ "sketch" |
 | 7 | scale_wave_0007 | standup_comedian | 250 | 50 | 1 | 17 | 64 | category_gap_search | site:tiktok.com/@ "stand-up" |
 | 8 | scale_wave_0008 | standup_comedian | 250 | 50 | 1 | 19 | 64 | category_gap_search | site:tiktok.com/@ "standup" |
-| 9 | scale_wave_0009 | cinematographer | 250 | 50 | 1 | 22 | 63 | category_gap_search | site:tiktok.com/@ "cinematographer" |
-| 10 | scale_wave_0010 | cinematographer | 250 | 50 | 1 | 27 | 63 | category_gap_search | site:tiktok.com/@ "dp" |
-| 11 | scale_wave_0011 | sketch_comedian | 250 | 50 | 1 | 34 | 60 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedy" |
+| 9 | scale_wave_0009 | cinematographer | 250 | 50 | 1 | 26 | 63 | category_gap_search | site:tiktok.com/@ "dop" |
+| 10 | scale_wave_0010 | behind_the_scenes_creator | 250 | 50 | 1 | 56 | 53 | search_index | site:tiktok.com/@ "behind the scenes" film |
+| 11 | scale_wave_0011 | filmmaker | 250 | 50 | 1 | 2 | 80 | tiktok_hashtag_export | shortfilm |
 | 12 | scale_wave_0012 | director | 250 | 50 | 1 | 24 | 63 | category_gap_search | site:tiktok.com/@ "directed by" |
 | 13 | scale_wave_0013 | vfx_animation | 250 | 50 | 1 | 29 | 60 | category_gap_search | site:tiktok.com/@ "animation" |
 | 14 | scale_wave_0014 | vfx_animation | 250 | 50 | 1 | 32 | 60 | category_gap_search | site:tiktok.com/@ "vfx" |

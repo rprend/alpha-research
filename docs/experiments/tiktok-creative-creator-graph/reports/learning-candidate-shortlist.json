@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T11:01:38.386Z",
+  "generated_at": "2026-06-13T14:58:34.037Z",
   "requested_rows": 5000,
   "output_rows": 5000,
   "reviewed_rows": 0,
@@ -8,9 +8,9 @@
     "review_first": 5000
   },
   "label_counts": {
-    "standup_comedian": 92,
-    "filmmaker": 842,
-    "director": 44,
+    "standup_comedian": 93,
+    "filmmaker": 844,
+    "director": 41,
     "editor": 2062,
     "actor_performer": 66,
     "vfx_animation": 610,
@@ -38,7 +38,7 @@
       "public_source_evidence": 95,
       "public_profile_video_count": 2973,
       "source_count": 2,
-      "source_labels": "standup_comedian|film_educator|actor_performer|filmmaker",
+      "source_labels": "standup_comedian|actor_performer|film_educator|filmmaker",
       "source_names": "FeedSpot Dance TikTokers|Wikidata TikTok username property P7085",
       "source_queries": "FeedSpot Top Dance TikTok Influencers 2026|YouTuber|dancer|film actor",
       "profile_url": "https://www.tiktok.com/@itsjojosiwa"
@@ -456,9 +456,9 @@
       "public_source_evidence": 87,
       "public_profile_video_count": 1305,
       "source_count": 1,
-      "source_labels": "creative_technologist|actor_performer|cinematographer",
+      "source_labels": "actor_performer|creative_technologist|cinematographer",
       "source_names": "Wikidata TikTok username property P7085",
-      "source_queries": "Internet celebrity|influencer|TikToker|actor",
+      "source_queries": "actor|Internet celebrity|influencer|TikToker",
       "profile_url": "https://www.tiktok.com/@avani"
     },
     {

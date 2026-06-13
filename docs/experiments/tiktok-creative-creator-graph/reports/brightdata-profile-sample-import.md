@@ -1,10 +1,10 @@
 # Bright Data Profile Sample Import
 
-Generated: 2026-06-13T02:53:11.185Z
+Generated: 2026-06-13T14:27:58.067Z
 
 - Provider: brightdata_public_github_sample
 - Dry run: true
-- Source URL: https://raw.githubusercontent.com/luminati-io/TikTok-dataset-samples/main/tiktok-profiles.csv
+- Source URL: https://raw.githubusercontent.com/luminati-io/Free-datasets/main/tiktok-profiles.csv
 - Source license: not_declared_in_github_repo_metadata
 - Source use note: Candidate acquisition only; confirm source terms before production release claims.
 - Input rows: 1000

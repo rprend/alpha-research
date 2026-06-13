@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-13T11:01:23.410Z",
+  "generated_at": "2026-06-13T14:58:12.904Z",
   "mode": "preview",
-  "input_rows": 191689,
-  "normalized_rows": 191689,
+  "input_rows": 194286,
+  "normalized_rows": 194286,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 152115,
-  "output_accounts": 39574,
+  "duplicate_normalized_rows": 154711,
+  "output_accounts": 39575,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
@@ -487,11 +487,16 @@
     "2026-06-13T08-12-28-135Z-external-lead-list.jsonl": 250,
     "2026-06-13T08-12-28-168Z-external-lead-list.jsonl": 250,
     "2026-06-13T08-12-39-866Z-public-profile-enrichment.jsonl": 2672,
+    "2026-06-13T11-01-42-913Z-external-lead-list.jsonl": 250,
+    "2026-06-13T11-01-42-946Z-external-lead-list.jsonl": 250,
+    "2026-06-13T12-06-28-816Z-public-profile-enrichment.jsonl": 1923,
+    "2026-06-13T14-38-36-754Z-public-profile-enrichment.jsonl": 100,
+    "2026-06-13T14-53-16-796Z-public-profile-enrichment.jsonl": 74,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 191683,
+  "mapped_lineage_rows": 194280,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -974,7 +979,12 @@
     "2026-06-13T07-58-13-728Z": 2511,
     "2026-06-13T08-12-28-135Z": 250,
     "2026-06-13T08-12-28-168Z": 250,
-    "2026-06-13T08-12-39-866Z": 2672
+    "2026-06-13T08-12-39-866Z": 2672,
+    "2026-06-13T11-01-42-913Z": 250,
+    "2026-06-13T11-01-42-946Z": 250,
+    "2026-06-13T12-06-28-816Z": 1923,
+    "2026-06-13T14-38-36-754Z": 100,
+    "2026-06-13T14-53-16-796Z": 74
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -5411,18 +5421,23 @@
     "external_leads_2026-06-13T08-12-28-135Z": 250,
     "external_leads_2026-06-13T08-12-28-168Z": 250,
     "public_profile_enrichment_2026-06-13T08-12-39-866Z": 2672,
+    "external_leads_2026-06-13T11-01-42-913Z": 250,
+    "external_leads_2026-06-13T11-01-42-946Z": 250,
+    "public_profile_enrichment_2026-06-13T12-06-28-816Z": 1923,
+    "public_profile_enrichment_2026-06-13T14-38-36-754Z": 100,
+    "public_profile_enrichment_2026-06-13T14-53-16-796Z": 74,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
     "editorial_list_public_web": 2955,
-    "tiktok_public_profile_html": 13403,
+    "tiktok_public_profile_html": 15500,
     "brightdata_public_github_sample": 29,
     "wikidata_sparql": 49466,
     "huggingface_dataset_viewer": 17,
     "public_editorial_page": 1753,
-    "external_lead_list": 98353,
+    "external_lead_list": 98853,
     "huggingface_dataset": 19888,
     "huggingface_dataset_parquet": 5798,
     "editorial_web": 21
@@ -5431,8 +5446,8 @@
   "quality_gate": {
     "ready_to_import": false,
     "normalized_rate": 1,
-    "duplicate_rate": 0.7935510123168257,
-    "output_rate": 0.2064489876831743,
+    "duplicate_rate": 0.7963054466096373,
+    "output_rate": 0.20369455339036266,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.65,
@@ -5441,7 +5456,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "191689 input rows"
+        "evidence": "194286 input rows"
       },
       {
         "id": "handle_extraction",
@@ -5451,12 +5466,12 @@
       {
         "id": "duplicate_pressure",
         "status": "fail",
-        "evidence": "79.4% duplicate normalized rows, threshold 65.0% (metadata overlay)"
+        "evidence": "79.6% duplicate normalized rows, threshold 65.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "191683/191689 rows mapped to provider/wave lineage"
+        "evidence": "194280/194286 rows mapped to provider/wave lineage"
       }
     ]
   },

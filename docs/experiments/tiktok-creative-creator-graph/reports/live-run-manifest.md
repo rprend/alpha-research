@@ -1,6 +1,6 @@
 # Live Run Manifest
 
-Generated: 2026-06-13T11:01:43.186Z
+Generated: 2026-06-13T14:58:39.409Z
 
 - Provider: public_web
 - Provider viability: zero_yield_observed

@@ -1,6 +1,6 @@
 # External Lead Templates
 
-Generated: 2026-06-13T11:01:41.810Z
+Generated: 2026-06-13T14:58:37.999Z
 
 - Templates: 200
 - Total template rows: 50000
@@ -22,8 +22,8 @@ Copy a template from `data/raw/external-leads/templates/` to `data/raw/external-
 | external_packet_0007 | standup_comedian | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0007-standup_comedian.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0007-standup_comedian.csv` |
 | external_packet_0008 | standup_comedian | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0008-standup_comedian.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0008-standup_comedian.csv` |
 | external_packet_0009 | cinematographer | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0009-cinematographer.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0009-cinematographer.csv` |
-| external_packet_0010 | cinematographer | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0010-cinematographer.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0010-cinematographer.csv` |
-| external_packet_0011 | sketch_comedian | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0011-sketch_comedian.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0011-sketch_comedian.csv` |
+| external_packet_0010 | behind_the_scenes_creator | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0010-behind_the_scenes_creator.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0010-behind_the_scenes_creator.csv` |
+| external_packet_0011 | filmmaker | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0011-filmmaker.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0011-filmmaker.csv` |
 | external_packet_0012 | director | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0012-director.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0012-director.csv` |
 | external_packet_0013 | vfx_animation | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0013-vfx_animation.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0013-vfx_animation.csv` |
 | external_packet_0014 | vfx_animation | 250 | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/templates/0014-vfx_animation.csv` | `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0014-vfx_animation.csv` |

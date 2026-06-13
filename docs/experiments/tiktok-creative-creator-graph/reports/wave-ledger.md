@@ -1,6 +1,6 @@
 # Wave Ledger
 
-Generated: 2026-06-13T11:01:41.485Z
+Generated: 2026-06-13T14:58:37.644Z
 
 - Waves: 1000
 - Planned: 980
@@ -35,15 +35,15 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | ---: | --- | --- | --- | --- | --- | ---: | --- | ---: |
 | 1 | scale_wave_0001 | zero_yield | behind_the_scenes_creator | category_gap_search | site:tiktok.com/@ "behind the scenes creator" | 0 | n/a | 1 |
 | 2 | scale_wave_0002 | zero_yield | behind_the_scenes_creator | category_gap_search | site:tiktok.com/@ "bts" | 0 | n/a | 1 |
-| 3 | scale_wave_0003 | zero_yield | filmmaker | category_gap_search | site:tiktok.com/@ "shortfilm" | 0 | n/a | 1 |
+| 3 | scale_wave_0003 | zero_yield | filmmaker | category_gap_search | site:tiktok.com/@ "filmmaker" | 0 | n/a | 1 |
 | 4 | scale_wave_0004 | zero_yield | filmmaker | tiktok_hashtag_export | filmmaker | 0 | n/a | 1 |
 | 5 | scale_wave_0005 | zero_yield | sketch_comedian | category_gap_search | site:tiktok.com/@ "comedy sketch" | 0 | n/a | 1 |
 | 6 | scale_wave_0006 | zero_yield | sketch_comedian | category_gap_search | site:tiktok.com/@ "sketch" | 0 | n/a | 1 |
 | 7 | scale_wave_0007 | zero_yield | standup_comedian | category_gap_search | site:tiktok.com/@ "stand-up" | 0 | n/a | 1 |
 | 8 | scale_wave_0008 | zero_yield | standup_comedian | category_gap_search | site:tiktok.com/@ "standup" | 0 | n/a | 1 |
-| 9 | scale_wave_0009 | zero_yield | cinematographer | category_gap_search | site:tiktok.com/@ "cinematographer" | 0 | n/a | 1 |
-| 10 | scale_wave_0010 | zero_yield | cinematographer | category_gap_search | site:tiktok.com/@ "dp" | 0 | n/a | 1 |
-| 11 | scale_wave_0011 | zero_yield | sketch_comedian | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedy" | 0 | n/a | 1 |
+| 9 | scale_wave_0009 | zero_yield | cinematographer | category_gap_search | site:tiktok.com/@ "dop" | 0 | n/a | 1 |
+| 10 | scale_wave_0010 | zero_yield | behind_the_scenes_creator | search_index | site:tiktok.com/@ "behind the scenes" film | 0 | n/a | 1 |
+| 11 | scale_wave_0011 | zero_yield | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
 | 12 | scale_wave_0012 | zero_yield | director | category_gap_search | site:tiktok.com/@ "directed by" | 0 | n/a | 1 |
 | 13 | scale_wave_0013 | zero_yield | vfx_animation | category_gap_search | site:tiktok.com/@ "animation" | 0 | n/a | 1 |
 | 14 | scale_wave_0014 | zero_yield | vfx_animation | category_gap_search | site:tiktok.com/@ "vfx" | 0 | n/a | 1 |

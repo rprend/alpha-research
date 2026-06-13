@@ -1,36 +1,264 @@
 {
-  "generated_at": "2026-06-13T00:12:23.056Z",
-  "execution_id": "2026-06-13T00-12-22-602Z",
+  "generated_at": "2026-06-13T14:28:43.528Z",
+  "execution_id": "2026-06-13T14-28-40-255Z",
   "provider": "duckduckgo_html",
   "dry_run": false,
-  "selected_queries": 2,
-  "max_queries": 2,
-  "max_results_per_query": 5,
+  "selected_queries": 25,
+  "max_queries": 25,
+  "max_results_per_query": 20,
   "output_rows": 0,
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T00-12-22-602Z-search-frontier.jsonl",
-  "succeeded_queries": 0,
-  "failed_queries": 2,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T14-28-40-255Z-search-frontier.jsonl",
+  "succeeded_queries": 2,
+  "failed_queries": 23,
   "first_rows": [],
   "queries": [
     {
-      "frontier_rank": 1,
-      "query": "filmmaker short film editing breakdown",
-      "status": "failed",
-      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ filmmaker short film editing breakdown",
+      "frontier_rank": 5,
+      "query": "site:tiktok.com/@ \"filmmaker\"",
+      "status": "succeeded",
       "result_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T00:12:22.602Z",
-      "finished_at": "2026-06-13T00:12:22.897Z"
+      "started_at": "2026-06-13T14:28:40.256Z",
+      "finished_at": "2026-06-13T14:28:41.233Z"
     },
     {
-      "frontier_rank": 2,
-      "query": "cinematographer lighting breakdown",
-      "status": "failed",
-      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ cinematographer lighting breakdown",
+      "frontier_rank": 6,
+      "query": "site:tiktok.com/@ \"short film\"",
+      "status": "succeeded",
       "result_rows": 0,
       "unique_rows_added": 0,
-      "started_at": "2026-06-13T00:12:22.897Z",
-      "finished_at": "2026-06-13T00:12:23.055Z"
+      "started_at": "2026-06-13T14:28:41.233Z",
+      "finished_at": "2026-06-13T14:28:41.745Z"
+    },
+    {
+      "frontier_rank": 7,
+      "query": "site:tiktok.com/@ \"shortfilm\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"shortfilm\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:41.745Z",
+      "finished_at": "2026-06-13T14:28:41.832Z"
+    },
+    {
+      "frontier_rank": 8,
+      "query": "site:tiktok.com/@ filmmaker",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ filmmaker",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:41.832Z",
+      "finished_at": "2026-06-13T14:28:41.900Z"
+    },
+    {
+      "frontier_rank": 11,
+      "query": "site:tiktok.com/@ \"comedy sketch\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"comedy sketch\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:41.900Z",
+      "finished_at": "2026-06-13T14:28:41.977Z"
+    },
+    {
+      "frontier_rank": 12,
+      "query": "site:tiktok.com/@ \"sketch comedian\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"sketch comedian\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:41.977Z",
+      "finished_at": "2026-06-13T14:28:42.049Z"
+    },
+    {
+      "frontier_rank": 13,
+      "query": "site:tiktok.com/@ \"sketch comedy\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"sketch comedy\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.049Z",
+      "finished_at": "2026-06-13T14:28:42.198Z"
+    },
+    {
+      "frontier_rank": 14,
+      "query": "site:tiktok.com/@ \"sketch\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"sketch\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.198Z",
+      "finished_at": "2026-06-13T14:28:42.260Z"
+    },
+    {
+      "frontier_rank": 15,
+      "query": "site:tiktok.com/@ actor \"sketch\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ actor \"sketch\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.260Z",
+      "finished_at": "2026-06-13T14:28:42.326Z"
+    },
+    {
+      "frontier_rank": 16,
+      "query": "site:tiktok.com/@ \"comedian\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"comedian\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.326Z",
+      "finished_at": "2026-06-13T14:28:42.395Z"
+    },
+    {
+      "frontier_rank": 17,
+      "query": "site:tiktok.com/@ \"stand-up\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"stand-up\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.396Z",
+      "finished_at": "2026-06-13T14:28:42.458Z"
+    },
+    {
+      "frontier_rank": 18,
+      "query": "site:tiktok.com/@ \"standup comedian\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"standup comedian\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.458Z",
+      "finished_at": "2026-06-13T14:28:42.520Z"
+    },
+    {
+      "frontier_rank": 19,
+      "query": "site:tiktok.com/@ \"standup\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"standup\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.520Z",
+      "finished_at": "2026-06-13T14:28:42.672Z"
+    },
+    {
+      "frontier_rank": 20,
+      "query": "site:tiktok.com/@ comedian",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ comedian",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.672Z",
+      "finished_at": "2026-06-13T14:28:42.736Z"
+    },
+    {
+      "frontier_rank": 21,
+      "query": "site:instagram.com \"tiktok.com/@\" \"filmmaker\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:instagram.com \"tiktok.com/@\" \"filmmaker\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.736Z",
+      "finished_at": "2026-06-13T14:28:42.797Z"
+    },
+    {
+      "frontier_rank": 22,
+      "query": "site:tiktok.com/@ \"cinematographer\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"cinematographer\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.797Z",
+      "finished_at": "2026-06-13T14:28:42.859Z"
+    },
+    {
+      "frontier_rank": 23,
+      "query": "site:tiktok.com/@ \"commercial director\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"commercial director\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.859Z",
+      "finished_at": "2026-06-13T14:28:42.925Z"
+    },
+    {
+      "frontier_rank": 24,
+      "query": "site:tiktok.com/@ \"directed by\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"directed by\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.925Z",
+      "finished_at": "2026-06-13T14:28:42.992Z"
+    },
+    {
+      "frontier_rank": 25,
+      "query": "site:tiktok.com/@ \"director\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"director\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:42.992Z",
+      "finished_at": "2026-06-13T14:28:43.049Z"
+    },
+    {
+      "frontier_rank": 26,
+      "query": "site:tiktok.com/@ \"dop\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"dop\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:43.050Z",
+      "finished_at": "2026-06-13T14:28:43.195Z"
+    },
+    {
+      "frontier_rank": 27,
+      "query": "site:tiktok.com/@ \"dp\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"dp\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:43.195Z",
+      "finished_at": "2026-06-13T14:28:43.265Z"
+    },
+    {
+      "frontier_rank": 28,
+      "query": "site:tiktok.com/@ cinematographer",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ cinematographer",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:43.265Z",
+      "finished_at": "2026-06-13T14:28:43.333Z"
+    },
+    {
+      "frontier_rank": 29,
+      "query": "site:tiktok.com/@ \"animation\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"animation\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:43.333Z",
+      "finished_at": "2026-06-13T14:28:43.406Z"
+    },
+    {
+      "frontier_rank": 30,
+      "query": "site:tiktok.com/@ \"vfx animation\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"vfx animation\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:43.406Z",
+      "finished_at": "2026-06-13T14:28:43.467Z"
+    },
+    {
+      "frontier_rank": 31,
+      "query": "site:tiktok.com/@ \"vfx artist\"",
+      "status": "failed",
+      "error": "duckduckgo_html blocked by anomaly challenge for query: site:tiktok.com/@ \"vfx artist\"",
+      "result_rows": 0,
+      "unique_rows_added": 0,
+      "started_at": "2026-06-13T14:28:43.467Z",
+      "finished_at": "2026-06-13T14:28:43.527Z"
     }
   ]
 }

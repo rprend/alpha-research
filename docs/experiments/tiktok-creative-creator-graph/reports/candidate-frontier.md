@@ -1,6 +1,6 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T11:01:39.699Z
+Generated: 2026-06-13T14:58:35.581Z
 
 - Candidates: 314
 - Handle targets: 250
@@ -34,7 +34,7 @@ Generated: 2026-06-13T11:01:39.699Z
 
 | Rank | Score | Priority | Kind | Surface | Label | Target |
 | ---: | ---: | ---: | --- | --- | --- | --- |
-| 1 | 85 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
+| 1 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
 | 2 | 80 | 1 | query | tiktok_hashtag_export | filmmaker | shortfilm |
 | 3 | 76 | 1 | query | tiktok_hashtag_export | sketch_comedian | sketchcomedy |
 | 4 | 72 | 1 | query | tiktok_hashtag_export | standup_comedian | standupcomedy |
