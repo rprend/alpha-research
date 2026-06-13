@@ -1,0 +1,7499 @@
+{
+  "meta": {
+    "count": 391558,
+    "db_response_time_ms": 247,
+    "page": 1,
+    "per_page": 10,
+    "groups_count": null,
+    "x_query": {
+      "oql": "works where full text contains (digital humanities)",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "default.search",
+            "value": "digital humanities",
+            "operator": "contains"
+          }
+        ],
+        "per_page": 10
+      },
+      "url": "/works?filter=default.search:digital humanities&per_page=10"
+    },
+    "cost_usd": 0.001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W2488845447",
+      "doi": "https://doi.org/10.1002/9781118680605",
+      "title": "A New Companion to Digital Humanities",
+      "display_name": "A New Companion to Digital Humanities",
+      "relevance_score": 2227.6824,
+      "publication_year": 2015,
+      "publication_date": "2015-11-27",
+      "ids": {
+        "openalex": "https://openalex.org/W2488845447",
+        "doi": "https://doi.org/10.1002/9781118680605",
+        "mag": "2488845447"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1002/9781118680605",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1002/9781118680605",
+        "pdf_url": null,
+        "source": null,
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": null,
+        "raw_type": "edited-book"
+      },
+      "type": "book",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 0,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 24.8544,
+      "has_fulltext": false,
+      "cited_by_count": 307,
+      "citation_normalized_percentile": {
+        "value": 0.99453232,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 90,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.980400025844574,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.980400025844574,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.8457040786743164
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.4755786955356598
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.3564547598361969
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.283862441778183
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.8457040786743164
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.4755786955356598
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.3564547598361969
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.283862441778183
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.1002/9781118680605",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1002/9781118680605",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": null,
+          "raw_type": "edited-book"
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.6700000166893005
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W2748952813",
+        "https://openalex.org/W3016750667",
+        "https://openalex.org/W2134911674",
+        "https://openalex.org/W2468691689",
+        "https://openalex.org/W2934626505",
+        "https://openalex.org/W2527879301",
+        "https://openalex.org/W1480800433",
+        "https://openalex.org/W170186150",
+        "https://openalex.org/W4255837503",
+        "https://openalex.org/W4366680058"
+      ],
+      "abstract_inverted_index": {
+        "This": [
+          0
+        ],
+        "highly-anticipated": [
+          1
+        ],
+        "volume": [
+          2
+        ],
+        "has": [
+          3
+        ],
+        "been": [
+          4
+        ],
+        "extensively": [
+          5
+        ],
+        "revised": [
+          6,
+          30
+        ],
+        "to": [
+          7
+        ],
+        "reflect": [
+          8
+        ],
+        "changes": [
+          9
+        ],
+        "in": [
+          10,
+          48,
+          86,
+          121
+        ],
+        "technology,": [
+          11
+        ],
+        "digital": [
+          12,
+          26,
+          88,
+          104,
+          131
+        ],
+        "humanities": [
+          13,
+          89,
+          105,
+          132
+        ],
+        "methods": [
+          14
+        ],
+        "and": [
+          15,
+          17,
+          23,
+          41,
+          58,
+          61,
+          71,
+          100,
+          110,
+          127
+        ],
+        "practices,": [
+          16
+        ],
+        "institutional": [
+          18
+        ],
+        "culture": [
+          19
+        ],
+        "surrounding": [
+          20
+        ],
+        "the": [
+          21,
+          38,
+          87,
+          101,
+          107,
+          113,
+          124,
+          130
+        ],
+        "valuation": [
+          22
+        ],
+        "publication": [
+          24
+        ],
+        "of": [
+          25,
+          32,
+          44,
+          78,
+          83,
+          103,
+          112,
+          129
+        ],
+        "scholarship.": [
+          27
+        ],
+        "A": [
+          28
+        ],
+        "fully": [
+          29
+        ],
+        "edition": [
+          31
+        ],
+        "a": [
+          33,
+          75
+        ],
+        "celebrated": [
+          34
+        ],
+        "reference": [
+          35
+        ],
+        "work,": [
+          36
+        ],
+        "offering": [
+          37,
+          115
+        ],
+        "most": [
+          39
+        ],
+        "comprehensive": [
+          40
+        ],
+        "up-to-date": [
+          42
+        ],
+        "collection": [
+          43
+        ],
+        "research": [
+          45,
+          85,
+          117
+        ],
+        "currently": [
+          46
+        ],
+        "available": [
+          47
+        ],
+        "this": [
+          49
+        ],
+        "rapidly": [
+          50
+        ],
+        "evolving": [
+          51
+        ],
+        "discipline": [
+          52
+        ],
+        "Includes": [
+          53
+        ],
+        "new": [
+          54
+        ],
+        "articles": [
+          55
+        ],
+        "addressing": [
+          56
+        ],
+        "topical": [
+          57
+        ],
+        "provocative": [
+          59
+        ],
+        "issues": [
+          60
+        ],
+        "ideas": [
+          62
+        ],
+        "such": [
+          63
+        ],
+        "as": [
+          64
+        ],
+        "retro": [
+          65
+        ],
+        "computing,": [
+          66
+        ],
+        "desktop": [
+          67
+        ],
+        "fabrication,": [
+          68
+        ],
+        "gender": [
+          69
+        ],
+        "dynamics,": [
+          70
+        ],
+        "globalization": [
+          72
+        ],
+        "Brings": [
+          73
+        ],
+        "together": [
+          74
+        ],
+        "global": [
+          76
+        ],
+        "team": [
+          77
+        ],
+        "authors": [
+          79
+        ],
+        "who": [
+          80
+        ],
+        "are": [
+          81
+        ],
+        "pioneers": [
+          82
+        ],
+        "innovative": [
+          84
+        ],
+        "Accessibly": [
+          90
+        ],
+        "structured": [
+          91
+        ],
+        "into": [
+          92
+        ],
+        "five": [
+          93
+        ],
+        "sections": [
+          94
+        ],
+        "exploring": [
+          95
+        ],
+        "infrastructures,": [
+          96
+        ],
+        "creation,": [
+          97
+        ],
+        "analysis,": [
+          98
+        ],
+        "dissemination,": [
+          99
+        ],
+        "future": [
+          102,
+          111
+        ],
+        "Surveys": [
+          106
+        ],
+        "past,": [
+          108
+        ],
+        "present,": [
+          109
+        ],
+        "field,": [
+          114
+        ],
+        "essential": [
+          116
+        ],
+        "for": [
+          118
+        ],
+        "anyone": [
+          119
+        ],
+        "interested": [
+          120
+        ],
+        "better": [
+          122
+        ],
+        "understanding": [
+          123
+        ],
+        "theory,": [
+          125
+        ],
+        "methods,": [
+          126
+        ],
+        "application": [
+          128
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 4
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 36
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 32
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 30
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 25
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 48
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 42
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 40
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 24
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 22
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 1
+        }
+      ],
+      "updated_date": "2026-05-26T13:28:51.108037",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W4245219258",
+      "doi": "https://doi.org/10.5749/9781452963754",
+      "title": "Debates in the Digital Humanities",
+      "display_name": "Debates in the Digital Humanities",
+      "relevance_score": 2218.9634,
+      "publication_year": 2012,
+      "publication_date": "2012-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W4245219258",
+        "doi": "https://doi.org/10.5749/9781452963754"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.5749/9781452963754",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.5749/9781452963754",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4210183673",
+          "display_name": "Debates in the digital humanities",
+          "issn_l": "2380-5927",
+          "issn": [
+            "2380-5927",
+            "2380-5935"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310320514",
+          "host_organization_name": "University of Minnesota Press",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320514"
+          ],
+          "host_organization_lineage_names": [
+            "University of Minnesota Press"
+          ],
+          "type": "ebook platform"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Debates in the Digital Humanities",
+        "raw_type": "monograph"
+      },
+      "type": "book",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5101556608",
+            "display_name": "Bryan Alexander",
+            "orcid": "https://orcid.org/0000-0002-0051-8032"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Bryan Alexander",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5103809248",
+            "display_name": "Rafael C. Alvarado",
+            "orcid": "https://orcid.org/0000-0002-7218-0114"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Rafael C. Alvarado",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5033245055",
+            "display_name": "Jamie Bianco",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Jamie Bianco",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5090689712",
+            "display_name": "Ian Bogost",
+            "orcid": "https://orcid.org/0000-0001-7723-660X"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Ian Bogost",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5000909390",
+            "display_name": "Stephen Brier",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Stephen Brier",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5056140491",
+            "display_name": "Daniel J. Cohen",
+            "orcid": "https://orcid.org/0000-0003-3381-9912"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Daniel J. Cohen",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5004590480",
+            "display_name": "Cathy N. Davidson",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Cathy N. Davidson",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5062607384",
+            "display_name": "Rebecca Frost Davis",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Rebecca Frost Davis",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5109813879",
+            "display_name": "Johanna Drucker",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Johanna Drucker",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5063649562",
+            "display_name": "Amy Earhart",
+            "orcid": "https://orcid.org/0000-0002-6090-674X"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Amy E. Earhart",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5054317405",
+            "display_name": "Charlie Edwards",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Charlie Edwards",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5056155053",
+            "display_name": "Kathleen Fitzpatrick",
+            "orcid": "https://orcid.org/0000-0002-5251-0307"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Kathleen Fitzpatrick",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5057619797",
+            "display_name": "Julia Flanders",
+            "orcid": "https://orcid.org/0000-0002-4199-0130"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Julia Flanders",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5002699691",
+            "display_name": "Neil Fraistat",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Neil Fraistat",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5004958999",
+            "display_name": "Paul Fyfe",
+            "orcid": "https://orcid.org/0000-0001-9481-0730"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Paul Fyfe",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5049970836",
+            "display_name": "Michael C. Gavin",
+            "orcid": "https://orcid.org/0000-0002-2169-4668"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Michael Gavin",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5058520772",
+            "display_name": "David Greetham",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "David Greetham",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5108746942",
+            "display_name": "Jim Groom",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Jim Groom",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5005075455",
+            "display_name": "Gary Hall",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Gary Hall",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5108789659",
+            "display_name": "Mills Kelly",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Mills Kelly",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5033963185",
+            "display_name": "Matthew Kirschenbaum",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Matthew Kirschenbaum",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5101726186",
+            "display_name": "Alan Liu",
+            "orcid": "https://orcid.org/0000-0003-2921-3037"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Alan Liu",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5034402987",
+            "display_name": "Elizabeth Losh",
+            "orcid": "https://orcid.org/0000-0002-2523-6904"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Elizabeth Losh",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5113822620",
+            "display_name": "Лев Манович",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Lev Manovich",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5076490754",
+            "display_name": "Willard McCarty",
+            "orcid": "https://orcid.org/0009-0006-5512-2517"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Willard Mccarty",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5000577198",
+            "display_name": "T. McPherson",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Tara Mcpherson",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5028971617",
+            "display_name": "Bethany Nowviskie",
+            "orcid": "https://orcid.org/0000-0002-1788-5154"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Bethany Nowviskie",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5042827302",
+            "display_name": "Trevor Owens",
+            "orcid": "https://orcid.org/0000-0001-8857-388X"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Trevor Owens",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5059045536",
+            "display_name": "William A Pannapacker",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "William Pannapacker",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5047883876",
+            "display_name": "Dave Parry",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Dave Parry",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5083136596",
+            "display_name": "Stephen Ramsay",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Stephen Ramsay",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5113985476",
+            "display_name": "Alexander Reid",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Alexander Reid",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5077549322",
+            "display_name": "Geoffrey Rockwell",
+            "orcid": "https://orcid.org/0000-0001-7430-4742"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Geoffrey Rockwell",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5066891428",
+            "display_name": "Mark Sample",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Mark L. Sample",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5000813240",
+            "display_name": "Tom Scheinfeldt",
+            "orcid": "https://orcid.org/0000-0002-0098-4500"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Tom Scheinfeldt",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5080174075",
+            "display_name": "Kathleen M. Smith",
+            "orcid": "https://orcid.org/0000-0002-2011-561X"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Kathleen Marie Smith",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5056626259",
+            "display_name": "Lisa Spiro",
+            "orcid": "https://orcid.org/0000-0003-0808-0490"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Lisa Spiro",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5110468591",
+            "display_name": "Patrik Svensson",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Patrik Svensson",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5035385821",
+            "display_name": "Luke Waltzer",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Luke Waltzer",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5038638955",
+            "display_name": "Matthew Wilkens",
+            "orcid": "https://orcid.org/0000-0001-6749-9318"
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Matthew Wilkens",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5103489295",
+            "display_name": "George Huntston Williams",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "George H. Williams",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5105473461",
+            "display_name": "Michael Witmore",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Michael Witmore",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 42,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 40.894,
+      "has_fulltext": false,
+      "cited_by_count": 273,
+      "citation_normalized_percentile": {
+        "value": 0.99800797,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 95,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.9872999787330627,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.9872999787330627,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.8661733865737915
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.5313571095466614
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.36707836389541626
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.8661733865737915
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.5313571095466614
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.36707836389541626
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.5749/9781452963754",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.5749/9781452963754",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4210183673",
+            "display_name": "Debates in the digital humanities",
+            "issn_l": "2380-5927",
+            "issn": [
+              "2380-5927",
+              "2380-5935"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/P4310320514",
+            "host_organization_name": "University of Minnesota Press",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320514"
+            ],
+            "host_organization_lineage_names": [
+              "University of Minnesota Press"
+            ],
+            "type": "ebook platform"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Debates in the Digital Humanities",
+          "raw_type": "monograph"
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.6000000238418579
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W2111865594",
+        "https://openalex.org/W2248387313",
+        "https://openalex.org/W3203105381",
+        "https://openalex.org/W1557907936",
+        "https://openalex.org/W3120330463",
+        "https://openalex.org/W1934311404",
+        "https://openalex.org/W2987111374",
+        "https://openalex.org/W2944012422",
+        "https://openalex.org/W174216691",
+        "https://openalex.org/W1485264017"
+      ],
+      "abstract_inverted_index": {
+        "*Debates": [
+          0
+        ],
+        "in": [
+          1,
+          9
+        ],
+        "the": [
+          2,
+          10,
+          28,
+          32,
+          41,
+          44
+        ],
+        "Digital": [
+          3
+        ],
+        "Humanities*": [
+          4
+        ],
+        "brings": [
+          5
+        ],
+        "together": [
+          6
+        ],
+        "leading": [
+          7
+        ],
+        "figures": [
+          8
+        ],
+        "field": [
+          11
+        ],
+        "to": [
+          12,
+          20,
+          38,
+          40
+        ],
+        "explore": [
+          13
+        ],
+        "its": [
+          14,
+          22
+        ],
+        "theories,": [
+          15
+        ],
+        "methods,": [
+          16
+        ],
+        "and": [
+          17,
+          19,
+          25,
+          46
+        ],
+        "practices": [
+          18
+        ],
+        "clarify": [
+          21
+        ],
+        "multiple": [
+          23
+        ],
+        "possibilities": [
+          24
+        ],
+        "tensions.": [
+          26
+        ],
+        "Together,": [
+          27
+        ],
+        "essays": [
+          29
+        ],
+        "suggest": [
+          30
+        ],
+        "that": [
+          31
+        ],
+        "digital": [
+          33
+        ],
+        "humanities": [
+          34,
+          45
+        ],
+        "is": [
+          35
+        ],
+        "uniquely": [
+          36
+        ],
+        "positioned": [
+          37
+        ],
+        "contribute": [
+          39
+        ],
+        "revival": [
+          42
+        ],
+        "of": [
+          43
+        ],
+        "academic": [
+          47
+        ],
+        "life.": [
+          48
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 18
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 13
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 13
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 19
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 21
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 26
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 12
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 32
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 18
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 29
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 36
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 21
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 9
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 5
+        }
+      ],
+      "updated_date": "2026-06-11T09:08:48.828518",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W419149097",
+      "doi": "https://doi.org/10.5749/j.ctvg251hk",
+      "title": "Debates in the Digital Humanities 2019",
+      "display_name": "Debates in the Digital Humanities 2019",
+      "relevance_score": 2211.3862,
+      "publication_year": 2019,
+      "publication_date": "2019-04-30",
+      "ids": {
+        "openalex": "https://openalex.org/W419149097",
+        "doi": "https://doi.org/10.5749/j.ctvg251hk",
+        "mag": "419149097"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.5749/j.ctvg251hk",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.5749/j.ctvg251hk",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306464182",
+          "display_name": "University of Minnesota Press eBooks",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310320514",
+          "host_organization_name": "University of Minnesota Press",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320514"
+          ],
+          "host_organization_lineage_names": [
+            "University of Minnesota Press"
+          ],
+          "type": "ebook platform"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": null,
+        "raw_type": "monograph"
+      },
+      "type": "book",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 0,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 49.5128,
+      "has_fulltext": false,
+      "cited_by_count": 336,
+      "citation_normalized_percentile": {
+        "value": 0.99888848,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 97,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.9488999843597412,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.9488999843597412,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.9351414442062378
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.7203071713447571
+        },
+        {
+          "id": "https://openalex.org/keywords/scholarship",
+          "display_name": "Scholarship",
+          "score": 0.48355647921562195
+        },
+        {
+          "id": "https://openalex.org/keywords/humanism",
+          "display_name": "Humanism",
+          "score": 0.42562156915664673
+        },
+        {
+          "id": "https://openalex.org/keywords/art-history",
+          "display_name": "Art history",
+          "score": 0.41561973094940186
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.3846254348754883
+        },
+        {
+          "id": "https://openalex.org/keywords/sociology",
+          "display_name": "Sociology",
+          "score": 0.3820919096469879
+        },
+        {
+          "id": "https://openalex.org/keywords/media-studies",
+          "display_name": "Media studies",
+          "score": 0.3646993637084961
+        },
+        {
+          "id": "https://openalex.org/keywords/political-science",
+          "display_name": "Political science",
+          "score": 0.1129395067691803
+        },
+        {
+          "id": "https://openalex.org/keywords/law",
+          "display_name": "Law",
+          "score": 0.0905943512916565
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.9351414442062378
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.7203071713447571
+        },
+        {
+          "id": "https://openalex.org/C2778061430",
+          "wikidata": "https://www.wikidata.org/wiki/Q188823",
+          "display_name": "Scholarship",
+          "level": 2,
+          "score": 0.48355647921562195
+        },
+        {
+          "id": "https://openalex.org/C153606108",
+          "wikidata": "https://www.wikidata.org/wiki/Q46158",
+          "display_name": "Humanism",
+          "level": 2,
+          "score": 0.42562156915664673
+        },
+        {
+          "id": "https://openalex.org/C52119013",
+          "wikidata": "https://www.wikidata.org/wiki/Q50637",
+          "display_name": "Art history",
+          "level": 1,
+          "score": 0.41561973094940186
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.3846254348754883
+        },
+        {
+          "id": "https://openalex.org/C144024400",
+          "wikidata": "https://www.wikidata.org/wiki/Q21201",
+          "display_name": "Sociology",
+          "level": 0,
+          "score": 0.3820919096469879
+        },
+        {
+          "id": "https://openalex.org/C29595303",
+          "wikidata": "https://www.wikidata.org/wiki/Q165650",
+          "display_name": "Media studies",
+          "level": 1,
+          "score": 0.3646993637084961
+        },
+        {
+          "id": "https://openalex.org/C17744445",
+          "wikidata": "https://www.wikidata.org/wiki/Q36442",
+          "display_name": "Political science",
+          "level": 0,
+          "score": 0.1129395067691803
+        },
+        {
+          "id": "https://openalex.org/C199539241",
+          "wikidata": "https://www.wikidata.org/wiki/Q7748",
+          "display_name": "Law",
+          "level": 1,
+          "score": 0.0905943512916565
+        }
+      ],
+      "mesh": [],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "doi:10.5749/j.ctvg251hk",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.5749/j.ctvg251hk",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306464182",
+            "display_name": "University of Minnesota Press eBooks",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/P4310320514",
+            "host_organization_name": "University of Minnesota Press",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320514"
+            ],
+            "host_organization_lineage_names": [
+              "University of Minnesota Press"
+            ],
+            "type": "ebook platform"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": null,
+          "raw_type": "monograph"
+        },
+        {
+          "id": "pmh:oai:directory.doabooks.org:20.500.12854/115838",
+          "is_oa": false,
+          "landing_page_url": "https://www.jstor.org/stable/10.5749/j.ctvg251hk",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400539",
+            "display_name": "Directory of Open access Books (OAPEN Foundation)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": ""
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.8399999737739563
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W2748952813",
+        "https://openalex.org/W2355650008",
+        "https://openalex.org/W4240762098",
+        "https://openalex.org/W1548588747",
+        "https://openalex.org/W2066005781",
+        "https://openalex.org/W2383304772",
+        "https://openalex.org/W2110621609",
+        "https://openalex.org/W230666287",
+        "https://openalex.org/W2260089286",
+        "https://openalex.org/W128268953"
+      ],
+      "abstract_inverted_index": {
+        "2016": [
+          15
+        ],
+        "2019": [
+          42
+        ],
+        "The": [
+          0,
+          136
+        ],
+        "latest": [
+          1
+        ],
+        "installment": [
+          2
+        ],
+        "of": [
+          3,
+          22,
+          32,
+          48,
+          61,
+          71,
+          97,
+          110,
+          115,
+          120,
+          132,
+          143,
+          151,
+          164,
+          170,
+          180,
+          186,
+          197,
+          207,
+          240,
+          245,
+          256,
+          272,
+          278,
+          289,
+          302,
+          307,
+          314,
+          319,
+          324,
+          329,
+          334,
+          340,
+          357,
+          367,
+          372,
+          387,
+          393
+        ],
+        "a": [
+          4,
+          45,
+          58,
+          94
+        ],
+        "digital": [
+          5,
+          73
+        ],
+        "humanities": [
+          6,
+          74
+        ],
+        "bellwether": [
+          7
+        ],
+        "Contending": [
+          8
+        ],
+        "with": [
+          9
+        ],
+        "recent": [
+          10
+        ],
+        "developments": [
+          11
+        ],
+        "like": [
+          12
+        ],
+        "the": [
+          13,
+          19,
+          23,
+          30,
+          39,
+          53,
+          69,
+          72,
+          98
+        ],
+        "shocking": [
+          14
+        ],
+        "U.S.": [
+          16
+        ],
+        "Presidential": [
+          17
+        ],
+        "election,": [
+          18
+        ],
+        "radical": [
+          20
+        ],
+        "transformation": [
+          21
+        ],
+        "social": [
+          24
+        ],
+        "web,": [
+          25
+        ],
+        "and": [
+          26,
+          88
+        ],
+        "passionate": [
+          27
+        ],
+        "debates": [
+          28
+        ],
+        "about": [
+          29
+        ],
+        "future": [
+          31
+        ],
+        "data": [
+          33
+        ],
+        "in": [
+          34,
+          38,
+          100
+        ],
+        "higher": [
+          35
+        ],
+        "education,": [
+          36
+        ],
+        "Debates": [
+          37
+        ],
+        "Digital": [
+          40
+        ],
+        "Humanities": [
+          41
+        ],
+        "brings": [
+          43
+        ],
+        "together": [
+          44
+        ],
+        "broad": [
+          46
+        ],
+        "array": [
+          47
+        ],
+        "important,": [
+          49
+        ],
+        "thought-provoking": [
+          50
+        ],
+        "perspectives": [
+          51
+        ],
+        "on": [
+          52
+        ],
+        "field's": [
+          54
+        ],
+        "many": [
+          55
+        ],
+        "sides.": [
+          56
+        ],
+        "With": [
+          57
+        ],
+        "wide": [
+          59
+        ],
+        "range": [
+          60
+        ],
+        "subjects": [
+          62
+        ],
+        "including": [
+          63
+        ],
+        "gender-based": [
+          64
+        ],
+        "assumptions": [
+          65
+        ],
+        "made": [
+          66
+        ],
+        "by": [
+          67
+        ],
+        "algorithms,": [
+          68
+        ],
+        "place": [
+          70
+        ],
+        "within": [
+          75
+        ],
+        "art": [
+          76
+        ],
+        "history,": [
+          77
+        ],
+        "data-based": [
+          78
+        ],
+        "methods": [
+          79
+        ],
+        "for": [
+          80
+        ],
+        "exhuming": [
+          81
+        ],
+        "forgotten": [
+          82
+        ],
+        "histories,": [
+          83
+        ],
+        "video": [
+          84
+        ],
+        "games,": [
+          85
+        ],
+        "three-dimensional": [
+          86
+        ],
+        "printing,": [
+          87
+        ],
+        "decolonial": [
+          89
+        ],
+        "work,": [
+          90
+        ],
+        "this": [
+          91
+        ],
+        "book": [
+          92
+        ],
+        "assembles": [
+          93
+        ],
+        "who's": [
+          95
+        ],
+        "who": [
+          96
+        ],
+        "field": [
+          99
+        ],
+        "more": [
+          101
+        ],
+        "than": [
+          102
+        ],
+        "thirty": [
+          103
+        ],
+        "impactful": [
+          104
+        ],
+        "essays.": [
+          105
+        ],
+        "Contributors:": [
+          106
+        ],
+        "Rafael": [
+          107
+        ],
+        "Alvarado,": [
+          108
+        ],
+        "U": [
+          109,
+          114,
+          119,
+          131,
+          142,
+          150,
+          169,
+          179,
+          185,
+          196,
+          206,
+          239,
+          244,
+          255,
+          271,
+          277,
+          288,
+          301,
+          306,
+          313,
+          318,
+          323,
+          328,
+          333,
+          339,
+          356,
+          366,
+          371,
+          386,
+          392
+        ],
+        "Virginia;": [
+          111,
+          290,
+          315
+        ],
+        "Taylor": [
+          112
+        ],
+        "Arnold,": [
+          113
+        ],
+        "Richmond;": [
+          116,
+          368
+        ],
+        "James": [
+          117,
+          140
+        ],
+        "Baker,": [
+          118
+        ],
+        "Sussex;": [
+          121,
+          133,
+          171,
+          335,
+          388
+        ],
+        "Kathi": [
+          122
+        ],
+        "Inman": [
+          123
+        ],
+        "Berens,": [
+          124
+        ],
+        "Portland": [
+          125
+        ],
+        "State": [
+          126,
+          192,
+          378
+        ],
+        "U;": [
+          127,
+          193,
+          203,
+          214,
+          218,
+          222,
+          227,
+          231,
+          236,
+          252,
+          268,
+          294,
+          353,
+          363,
+          379,
+          383
+        ],
+        "David": [
+          128,
+          336
+        ],
+        "M.": [
+          129,
+          166
+        ],
+        "Berry,": [
+          130
+        ],
+        "Claire": [
+          134,
+          380
+        ],
+        "Bishop,": [
+          135
+        ],
+        "Graduate": [
+          137
+        ],
+        "Center,": [
+          138
+        ],
+        "CUNY;": [
+          139
+        ],
+        "Coltrain,": [
+          141
+        ],
+        "Nebraska-Lincoln;": [
+          144,
+          320
+        ],
+        "Crunk": [
+          145
+        ],
+        "Feminist": [
+          146
+        ],
+        "Collective;": [
+          147
+        ],
+        "Johanna": [
+          148
+        ],
+        "Drucker,": [
+          149
+        ],
+        "California-Los": [
+          152
+        ],
+        "Angeles;": [
+          153
+        ],
+        "Jennifer": [
+          154
+        ],
+        "Edmond,": [
+          155
+        ],
+        "Trinity": [
+          156
+        ],
+        "College;": [
+          157,
+          262,
+          285,
+          298,
+          345
+        ],
+        "Marta": [
+          158
+        ],
+        "Effinger-Crichlow,": [
+          159
+        ],
+        "New": [
+          160,
+          351
+        ],
+        "York": [
+          161,
+          352
+        ],
+        "City": [
+          162
+        ],
+        "College": [
+          163
+        ],
+        "Technology-CUNY;": [
+          165
+        ],
+        "Beatrice": [
+          167
+        ],
+        "Fazi,": [
+          168
+        ],
+        "Kevin": [
+          172
+        ],
+        "L.": [
+          173,
+          360
+        ],
+        "Ferguson,": [
+          174
+        ],
+        "Queens": [
+          175
+        ],
+        "College-CUNY;": [
+          176
+        ],
+        "Curtis": [
+          177
+        ],
+        "Fletcher,": [
+          178
+        ],
+        "Southern": [
+          181,
+          279
+        ],
+        "California;": [
+          182,
+          280
+        ],
+        "Neil": [
+          183
+        ],
+        "Fraistat,": [
+          184
+        ],
+        "Maryland;": [
+          187,
+          241,
+          273
+        ],
+        "Radhika": [
+          188
+        ],
+        "Gajjala,": [
+          189
+        ],
+        "Bowling": [
+          190
+        ],
+        "Green": [
+          191
+        ],
+        "Michael": [
+          194
+        ],
+        "Gavin,": [
+          195
+        ],
+        "South": [
+          198,
+          257
+        ],
+        "Carolina;": [
+          199,
+          258
+        ],
+        "Andrew": [
+          200,
+          204
+        ],
+        "Goldstone,": [
+          201
+        ],
+        "Rutgers": [
+          202
+        ],
+        "Gomez,": [
+          205
+        ],
+        "Puget": [
+          208
+        ],
+        "Sound;": [
+          209
+        ],
+        "Elyse": [
+          210
+        ],
+        "Graham,": [
+          211
+        ],
+        "Stony": [
+          212
+        ],
+        "Brook": [
+          213
+        ],
+        "Brian": [
+          215
+        ],
+        "Greenspan,": [
+          216
+        ],
+        "Carleton": [
+          217
+        ],
+        "John": [
+          219
+        ],
+        "Hunter,": [
+          220
+        ],
+        "Bucknell": [
+          221
+        ],
+        "Steven": [
+          223
+        ],
+        "J.": [
+          224
+        ],
+        "Jackson,": [
+          225
+        ],
+        "Cornell": [
+          226
+        ],
+        "Collin": [
+          228
+        ],
+        "Jennings,": [
+          229
+        ],
+        "Miami": [
+          230
+        ],
+        "Lauren": [
+          232,
+          364
+        ],
+        "Kersey,": [
+          233
+        ],
+        "Saint": [
+          234
+        ],
+        "Louis": [
+          235
+        ],
+        "Kari": [
+          237
+        ],
+        "Kraus,": [
+          238
+        ],
+        "Seth": [
+          242
+        ],
+        "Long,": [
+          243
+        ],
+        "Nebraska,": [
+          246
+        ],
+        "Kearney;": [
+          247
+        ],
+        "Laura": [
+          248
+        ],
+        "Mandell,": [
+          249
+        ],
+        "Texas": [
+          250
+        ],
+        "A&amp;M": [
+          251
+        ],
+        "Rachel": [
+          253
+        ],
+        "Mann,": [
+          254
+        ],
+        "Jason": [
+          259
+        ],
+        "Mittell,": [
+          260
+        ],
+        "Middlebury": [
+          261
+        ],
+        "Lincoln": [
+          263
+        ],
+        "A.": [
+          264
+        ],
+        "Mullen,": [
+          265
+        ],
+        "George": [
+          266
+        ],
+        "Mason": [
+          267
+        ],
+        "Trevor": [
+          269
+        ],
+        "Muñoz,": [
+          270
+        ],
+        "Safiya": [
+          274
+        ],
+        "Umoja": [
+          275
+        ],
+        "Noble,": [
+          276
+        ],
+        "Jack": [
+          281
+        ],
+        "Norton,": [
+          282
+        ],
+        "Normandale": [
+          283
+        ],
+        "Community": [
+          284
+        ],
+        "Bethany": [
+          286
+        ],
+        "Nowviskie,": [
+          287
+        ],
+        "Élika": [
+          291
+        ],
+        "Ortega,": [
+          292
+        ],
+        "Northeastern": [
+          293
+        ],
+        "Marisa": [
+          295
+        ],
+        "Parham,": [
+          296
+        ],
+        "Amherst": [
+          297
+        ],
+        "Jussi": [
+          299
+        ],
+        "Parikka,": [
+          300
+        ],
+        "Southampton;": [
+          303
+        ],
+        "Kyle": [
+          304
+        ],
+        "Parry,": [
+          305
+        ],
+        "California,": [
+          308
+        ],
+        "Santa": [
+          309
+        ],
+        "Cruz;": [
+          310
+        ],
+        "Brad": [
+          311
+        ],
+        "Pasanek,": [
+          312
+        ],
+        "Stephen": [
+          316
+        ],
+        "Ramsay,": [
+          317
+        ],
+        "Matt": [
+          321
+        ],
+        "Ratto,": [
+          322
+        ],
+        "Toronto;": [
+          325
+        ],
+        "Katie": [
+          326
+        ],
+        "Rawson,": [
+          327
+        ],
+        "Pennsylvania;": [
+          330
+        ],
+        "Ben": [
+          331
+        ],
+        "Roberts,": [
+          332
+        ],
+        "S.": [
+          337,
+          390
+        ],
+        "Roh,": [
+          338
+        ],
+        "Utah;": [
+          341
+        ],
+        "Mark": [
+          342
+        ],
+        "Sample,": [
+          343
+        ],
+        "Davidson": [
+          344
+        ],
+        "Moacir": [
+          346
+        ],
+        "P.": [
+          347
+        ],
+        "de": [
+          348
+        ],
+        "Sá": [
+          349
+        ],
+        "Pereira,": [
+          350
+        ],
+        "Tim": [
+          354
+        ],
+        "Sherratt,": [
+          355
+        ],
+        "Canberra;": [
+          358
+        ],
+        "Bobby": [
+          359
+        ],
+        "Smiley,": [
+          361
+        ],
+        "Vanderbilt": [
+          362
+        ],
+        "Tilton,": [
+          365
+        ],
+        "Ted": [
+          369
+        ],
+        "Underwood,": [
+          370
+        ],
+        "Illinois,": [
+          373
+        ],
+        "Urbana-Champaign;": [
+          374
+        ],
+        "Megan": [
+          375
+        ],
+        "Ward,": [
+          376
+        ],
+        "Oregon": [
+          377
+        ],
+        "Warwick,": [
+          381
+        ],
+        "Durham": [
+          382
+        ],
+        "Alban": [
+          384
+        ],
+        "Webb,": [
+          385
+        ],
+        "Adrian": [
+          389
+        ],
+        "Wisnicki,": [
+          391
+        ],
+        "Nebraska-Lincoln.": [
+          394
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 8
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 20
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 24
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 19
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 21
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 31
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 23
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 33
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 29
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 35
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 34
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 36
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 17
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 5
+        }
+      ],
+      "updated_date": "2026-03-18T14:38:29.013473",
+      "created_date": "2016-06-24T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W1520193715",
+      "doi": "https://doi.org/10.1057/9780230371934",
+      "title": "Understanding Digital Humanities",
+      "display_name": "Understanding Digital Humanities",
+      "relevance_score": 2191.0515,
+      "publication_year": 2012,
+      "publication_date": "2012-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W1520193715",
+        "doi": "https://doi.org/10.1057/9780230371934",
+        "mag": "1520193715"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1057/9780230371934",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1057/9780230371934",
+        "pdf_url": "https://link.springer.com/content/pdf/bfm:978-0-230-37193-4/1?pdf=chapter%20toc",
+        "source": {
+          "id": "https://openalex.org/S4306463716",
+          "display_name": "Palgrave Macmillan UK eBooks",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310319703",
+          "host_organization_name": "Palgrave Macmillan",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310319703",
+            "https://openalex.org/P4310319965"
+          ],
+          "host_organization_lineage_names": [
+            "Palgrave Macmillan",
+            "Springer Nature"
+          ],
+          "type": "ebook platform"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": null,
+        "raw_type": "book"
+      },
+      "type": "book",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "bronze",
+        "oa_url": "https://link.springer.com/content/pdf/bfm:978-0-230-37193-4/1?pdf=chapter%20toc",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5104041649",
+            "display_name": "David M. Berry",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I39586589",
+              "display_name": "Swansea University",
+              "ror": "https://ror.org/053fq8t95",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I39586589"
+              ]
+            }
+          ],
+          "countries": [
+            "GB"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "David M. Berry",
+          "raw_affiliation_strings": [
+            "Swansea University, UK"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Swansea University, UK",
+              "institution_ids": [
+                "https://openalex.org/I39586589"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5104041649"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I39586589"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 42.5705,
+      "has_fulltext": true,
+      "cited_by_count": 320,
+      "citation_normalized_percentile": {
+        "value": 0.99818479,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 99,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.9350000023841858,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.9350000023841858,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.8864161968231201
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.44122904539108276
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.4074358642101288
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.23235130310058594
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.8864161968231201
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.44122904539108276
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.4074358642101288
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.23235130310058594
+        }
+      ],
+      "mesh": [],
+      "locations_count": 3,
+      "locations": [
+        {
+          "id": "doi:10.1057/9780230371934",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.1057/9780230371934",
+          "pdf_url": "https://link.springer.com/content/pdf/bfm:978-0-230-37193-4/1?pdf=chapter%20toc",
+          "source": {
+            "id": "https://openalex.org/S4306463716",
+            "display_name": "Palgrave Macmillan UK eBooks",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/P4310319703",
+            "host_organization_name": "Palgrave Macmillan",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310319703",
+              "https://openalex.org/P4310319965"
+            ],
+            "host_organization_lineage_names": [
+              "Palgrave Macmillan",
+              "Springer Nature"
+            ],
+            "type": "ebook platform"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": null,
+          "raw_type": "book"
+        },
+        {
+          "id": "pmh:oai:kultur.ucreative.ac.uk:1617",
+          "is_oa": false,
+          "landing_page_url": null,
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4377196599",
+            "display_name": "UCA Research Online (University for the Creative Arts)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I65106266",
+            "host_organization_name": "University for the Creative Arts",
+            "host_organization_lineage": [
+              "https://openalex.org/I65106266"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "acceptedVersion",
+          "is_accepted": true,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "Book Section"
+        },
+        {
+          "id": "pmh:oai:usir.salford.ac.uk:19304",
+          "is_oa": true,
+          "landing_page_url": "http://usir.salford.ac.uk/id/eprint/19304/4/Understanding_Digital_Humanities_Lin_accepted.pdf",
+          "pdf_url": "http://usir.salford.ac.uk/id/eprint/19304/1/Proof_DigitalHumanities_YuweiLin.pdf",
+          "source": {
+            "id": "https://openalex.org/S4306401501",
+            "display_name": "University of Salford Institutional Repository (University of Salford)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I54459138",
+            "host_organization_name": "University of Salford",
+            "host_organization_lineage": [
+              "https://openalex.org/I54459138"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "Book Section"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.1057/9780230371934",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1057/9780230371934",
+        "pdf_url": "https://link.springer.com/content/pdf/bfm:978-0-230-37193-4/1?pdf=chapter%20toc",
+        "source": {
+          "id": "https://openalex.org/S4306463716",
+          "display_name": "Palgrave Macmillan UK eBooks",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310319703",
+          "host_organization_name": "Palgrave Macmillan",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310319703",
+            "https://openalex.org/P4310319965"
+          ],
+          "host_organization_lineage_names": [
+            "Palgrave Macmillan",
+            "Springer Nature"
+          ],
+          "type": "ebook platform"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": null,
+        "raw_type": "book"
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.5400000214576721
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": true,
+        "pdf": true
+      },
+      "content_urls": {
+        "pdf": "https://content.openalex.org/works/W1520193715.pdf",
+        "grobid_xml": "https://content.openalex.org/works/W1520193715.grobid-xml"
+      },
+      "referenced_works_count": 65,
+      "referenced_works": [
+        "https://openalex.org/W618683768",
+        "https://openalex.org/W1934236210",
+        "https://openalex.org/W1966944120",
+        "https://openalex.org/W1967742762",
+        "https://openalex.org/W1969622859",
+        "https://openalex.org/W1980832696",
+        "https://openalex.org/W1981637744",
+        "https://openalex.org/W1985479696",
+        "https://openalex.org/W2000789542",
+        "https://openalex.org/W2008581691",
+        "https://openalex.org/W2010055302",
+        "https://openalex.org/W2012834639",
+        "https://openalex.org/W2017108196",
+        "https://openalex.org/W2022789433",
+        "https://openalex.org/W2028470267",
+        "https://openalex.org/W2033319677",
+        "https://openalex.org/W2034586341",
+        "https://openalex.org/W2041656516",
+        "https://openalex.org/W2043177067",
+        "https://openalex.org/W2049285399",
+        "https://openalex.org/W2050944586",
+        "https://openalex.org/W2058975761",
+        "https://openalex.org/W2061451796",
+        "https://openalex.org/W2062628932",
+        "https://openalex.org/W2065015434",
+        "https://openalex.org/W2070486188",
+        "https://openalex.org/W2074675432",
+        "https://openalex.org/W2075213419",
+        "https://openalex.org/W2084747841",
+        "https://openalex.org/W2098468322",
+        "https://openalex.org/W2102899079",
+        "https://openalex.org/W2115825262",
+        "https://openalex.org/W2120909761",
+        "https://openalex.org/W2135774626",
+        "https://openalex.org/W2153050064",
+        "https://openalex.org/W2155063192",
+        "https://openalex.org/W2159980428",
+        "https://openalex.org/W2163598528",
+        "https://openalex.org/W2179054377",
+        "https://openalex.org/W2252534299",
+        "https://openalex.org/W2334930053",
+        "https://openalex.org/W2776178130",
+        "https://openalex.org/W2963539583",
+        "https://openalex.org/W3015389658",
+        "https://openalex.org/W3080964268",
+        "https://openalex.org/W3103145119",
+        "https://openalex.org/W3112643148",
+        "https://openalex.org/W3122058587",
+        "https://openalex.org/W3126664801",
+        "https://openalex.org/W4200558553",
+        "https://openalex.org/W4213307251",
+        "https://openalex.org/W4254649607",
+        "https://openalex.org/W4294214781",
+        "https://openalex.org/W4298058862",
+        "https://openalex.org/W4301031919",
+        "https://openalex.org/W4403216346",
+        "https://openalex.org/W6607705098",
+        "https://openalex.org/W6629815417",
+        "https://openalex.org/W6646613509",
+        "https://openalex.org/W6675354045",
+        "https://openalex.org/W6752073483",
+        "https://openalex.org/W6767312528",
+        "https://openalex.org/W6775637426",
+        "https://openalex.org/W7073730401",
+        "https://openalex.org/W7073922819"
+      ],
+      "related_works": [
+        "https://openalex.org/W2748952813",
+        "https://openalex.org/W3016750667",
+        "https://openalex.org/W2134911674",
+        "https://openalex.org/W2468691689",
+        "https://openalex.org/W1480800433",
+        "https://openalex.org/W170186150",
+        "https://openalex.org/W2527879301",
+        "https://openalex.org/W4255837503",
+        "https://openalex.org/W2934626505",
+        "https://openalex.org/W3179256351"
+      ],
+      "abstract_inverted_index": {
+        "Confronting": [
+          0
+        ],
+        "the": [
+          1,
+          9,
+          19
+        ],
+        "digital": [
+          2
+        ],
+        "revolution": [
+          3
+        ],
+        "in": [
+          4,
+          18
+        ],
+        "academia,": [
+          5
+        ],
+        "this": [
+          6
+        ],
+        "book": [
+          7
+        ],
+        "examines": [
+          8
+        ],
+        "application": [
+          10
+        ],
+        "of": [
+          11
+        ],
+        "new": [
+          12
+        ],
+        "computational": [
+          13
+        ],
+        "techniques": [
+          14
+        ],
+        "and": [
+          15
+        ],
+        "visualisation": [
+          16
+        ],
+        "technologies": [
+          17
+        ],
+        "Arts": [
+          20
+        ],
+        "&": [
+          21
+        ],
+        "Humanities.": [
+          22
+        ],
+        "Uniting": [
+          23
+        ],
+        "differing": [
+          24
+        ],
+        "perspectiv": [
+          25
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 7
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 16
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 13
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 16
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 12
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 11
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 17
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 84
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 25
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 23
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 22
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 35
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 21
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 7
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 11
+        }
+      ],
+      "updated_date": "2026-05-26T13:28:51.108037",
+      "created_date": "2016-06-24T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W1564237561",
+      "doi": "https://doi.org/10.1111/b.9781405103213.2004.00018.x",
+      "title": "A Companion to Digital Humanities",
+      "display_name": "A Companion to Digital Humanities",
+      "relevance_score": 2017.1046,
+      "publication_year": 2004,
+      "publication_date": "2004-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W1564237561",
+        "doi": "https://doi.org/10.1111/b.9781405103213.2004.00018.x",
+        "mag": "1564237561"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1111/b.9781405103213.2004.00018.x",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1111/b.9781405103213.2004.00018.x",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306462929",
+          "display_name": "Blackwell Publishing Ltd eBooks",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310320390",
+          "host_organization_name": "Blackwell Publishing",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320390"
+          ],
+          "host_organization_lineage_names": [
+            "Blackwell Publishing"
+          ],
+          "type": "ebook platform"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "A Companion to Digital Humanities",
+        "raw_type": "book-chapter"
+      },
+      "type": "book-chapter",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 0,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 52.5589,
+      "has_fulltext": false,
+      "cited_by_count": 294,
+      "citation_normalized_percentile": {
+        "value": 0.9962845,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 89,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": "177",
+        "last_page": "197"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.9757999777793884,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.9757999777793884,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T10181",
+          "display_name": "Natural Language Processing Techniques",
+          "score": 0.9205999970436096,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1702",
+            "display_name": "Artificial Intelligence"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/17",
+            "display_name": "Computer Science"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.8385624289512634
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.5382319092750549
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.4255712032318115
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.8385624289512634
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.5382319092750549
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.4255712032318115
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.1111/b.9781405103213.2004.00018.x",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1111/b.9781405103213.2004.00018.x",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306462929",
+            "display_name": "Blackwell Publishing Ltd eBooks",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/P4310320390",
+            "host_organization_name": "Blackwell Publishing",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320390"
+            ],
+            "host_organization_lineage_names": [
+              "Blackwell Publishing"
+            ],
+            "type": "ebook platform"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "A Companion to Digital Humanities",
+          "raw_type": "book-chapter"
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.8700000047683716
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W4387497383",
+        "https://openalex.org/W3183948672",
+        "https://openalex.org/W3173606202",
+        "https://openalex.org/W3110381201",
+        "https://openalex.org/W2948807893",
+        "https://openalex.org/W2935909890",
+        "https://openalex.org/W2778153218",
+        "https://openalex.org/W2758277628",
+        "https://openalex.org/W2748952813",
+        "https://openalex.org/W1531601525"
+      ],
+      "abstract_inverted_index": {
+        "37": [
+          15
+        ],
+        "This": [
+          0
+        ],
+        "Companion": [
+          1
+        ],
+        "offers": [
+          2
+        ],
+        "a": [
+          3,
+          68
+        ],
+        "thorough,": [
+          4
+        ],
+        "concise": [
+          5
+        ],
+        "overview": [
+          6
+        ],
+        "of": [
+          7,
+          11,
+          41,
+          54,
+          86
+        ],
+        "the": [
+          8,
+          22,
+          25,
+          33,
+          39,
+          51,
+          76,
+          87
+        ],
+        "emerging": [
+          9
+        ],
+        "field": [
+          10,
+          77
+        ],
+        "humanities": [
+          12,
+          55
+        ],
+        "computing.": [
+          13
+        ],
+        "Contains": [
+          14
+        ],
+        "original": [
+          16
+        ],
+        "articles": [
+          17
+        ],
+        "written": [
+          18
+        ],
+        "by": [
+          19,
+          29,
+          67
+        ],
+        "leaders": [
+          20
+        ],
+        "in": [
+          21,
+          32,
+          44,
+          75,
+          83
+        ],
+        "field.": [
+          23
+        ],
+        "Addresses": [
+          24
+        ],
+        "central": [
+          26
+        ],
+        "concerns": [
+          27
+        ],
+        "shared": [
+          28
+        ],
+        "those": [
+          30
+        ],
+        "interested": [
+          31
+        ],
+        "subject.": [
+          34
+        ],
+        "Major": [
+          35
+        ],
+        "sections": [
+          36
+        ],
+        "focus": [
+          37
+        ],
+        "on": [
+          38
+        ],
+        "experience": [
+          40
+        ],
+        "particular": [
+          42
+        ],
+        "disciplines": [
+          43
+        ],
+        "applying": [
+          45
+        ],
+        "computational": [
+          46
+        ],
+        "methods": [
+          47
+        ],
+        "to": [
+          48,
+          80
+        ],
+        "research": [
+          49
+        ],
+        "problems;": [
+          50
+        ],
+        "basic": [
+          52
+        ],
+        "principles": [
+          53
+        ],
+        "computing;": [
+          56
+        ],
+        "specific": [
+          57
+        ],
+        "applications": [
+          58
+        ],
+        "and": [
+          59,
+          61,
+          64,
+          78
+        ],
+        "methods;": [
+          60
+        ],
+        "production,": [
+          62
+        ],
+        "dissemination": [
+          63
+        ],
+        "archiving.": [
+          65
+        ],
+        "Accompanied": [
+          66
+        ],
+        "website": [
+          69
+        ],
+        "featuring": [
+          70
+        ],
+        "supplementary": [
+          71
+        ],
+        "materials,": [
+          72
+        ],
+        "standard": [
+          73
+        ],
+        "readings": [
+          74
+        ],
+        "essays": [
+          79
+        ],
+        "be": [
+          81
+        ],
+        "included": [
+          82
+        ],
+        "future": [
+          84
+        ],
+        "editions": [
+          85
+        ],
+        "Companion.": [
+          88
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2023,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 4
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 19
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 27
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 19
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 24
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 25
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 23
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 31
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 36
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 26
+        }
+      ],
+      "updated_date": "2025-11-06T03:46:38.306776",
+      "created_date": "2016-06-24T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W62784252",
+      "doi": null,
+      "title": "The Computational Turn: Thinking about the Digital Humanities",
+      "display_name": "The Computational Turn: Thinking about the Digital Humanities",
+      "relevance_score": 2005.4384,
+      "publication_year": 2011,
+      "publication_date": "2011-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W62784252",
+        "mag": "62784252"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "pmh:oai:cronfa.swan.ac.uk:cronfa12654",
+        "is_oa": false,
+        "landing_page_url": "https://cronfa.swan.ac.uk/Record/cronfa12654",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306401612",
+          "display_name": "Cronfa (Swansea University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I39586589",
+          "host_organization_name": "Swansea University",
+          "host_organization_lineage": [
+            "https://openalex.org/I39586589"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "Journal article"
+      },
+      "type": "article",
+      "indexed_in": [],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": null,
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5104041649",
+            "display_name": "David M. Berry",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": true,
+          "raw_author_name": "Berry, David",
+          "raw_affiliation_strings": [],
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5104041649"
+      ],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 133.7511,
+      "has_fulltext": false,
+      "cited_by_count": 346,
+      "citation_normalized_percentile": {
+        "value": 0.99958348,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 99,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.9998999834060669,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.9998999834060669,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T10215",
+          "display_name": "Semantic Web and Ontologies",
+          "score": 0.9866999983787537,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1702",
+            "display_name": "Artificial Intelligence"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/17",
+            "display_name": "Computer Science"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11657",
+          "display_name": "Digital and Traditional Archives Management",
+          "score": 0.9696999788284302,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1206",
+            "display_name": "Conservation"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/mediation",
+          "display_name": "Mediation",
+          "score": 0.7812821865081787
+        },
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.6317119002342224
+        },
+        {
+          "id": "https://openalex.org/keywords/digital-library",
+          "display_name": "Digital library",
+          "score": 0.560979962348938
+        },
+        {
+          "id": "https://openalex.org/keywords/process",
+          "display_name": "Process (computing)",
+          "score": 0.4435088634490967
+        },
+        {
+          "id": "https://openalex.org/keywords/sociology",
+          "display_name": "Sociology",
+          "score": 0.4344334006309509
+        },
+        {
+          "id": "https://openalex.org/keywords/media-studies",
+          "display_name": "Media studies",
+          "score": 0.36463505029678345
+        },
+        {
+          "id": "https://openalex.org/keywords/political-science",
+          "display_name": "Political science",
+          "score": 0.32250910997390747
+        },
+        {
+          "id": "https://openalex.org/keywords/world-wide-web",
+          "display_name": "World Wide Web",
+          "score": 0.3197493851184845
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.2861067056655884
+        },
+        {
+          "id": "https://openalex.org/keywords/social-science",
+          "display_name": "Social science",
+          "score": 0.18561971187591553
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.16173508763313293
+        },
+        {
+          "id": "https://openalex.org/keywords/literature",
+          "display_name": "Literature",
+          "score": 0.14116573333740234
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C179420905",
+          "wikidata": "https://www.wikidata.org/wiki/Q223871",
+          "display_name": "Mediation",
+          "level": 2,
+          "score": 0.7812821865081787
+        },
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.6317119002342224
+        },
+        {
+          "id": "https://openalex.org/C513874922",
+          "wikidata": "https://www.wikidata.org/wiki/Q212805",
+          "display_name": "Digital library",
+          "level": 3,
+          "score": 0.560979962348938
+        },
+        {
+          "id": "https://openalex.org/C98045186",
+          "wikidata": "https://www.wikidata.org/wiki/Q205663",
+          "display_name": "Process (computing)",
+          "level": 2,
+          "score": 0.4435088634490967
+        },
+        {
+          "id": "https://openalex.org/C144024400",
+          "wikidata": "https://www.wikidata.org/wiki/Q21201",
+          "display_name": "Sociology",
+          "level": 0,
+          "score": 0.4344334006309509
+        },
+        {
+          "id": "https://openalex.org/C29595303",
+          "wikidata": "https://www.wikidata.org/wiki/Q165650",
+          "display_name": "Media studies",
+          "level": 1,
+          "score": 0.36463505029678345
+        },
+        {
+          "id": "https://openalex.org/C17744445",
+          "wikidata": "https://www.wikidata.org/wiki/Q36442",
+          "display_name": "Political science",
+          "level": 0,
+          "score": 0.32250910997390747
+        },
+        {
+          "id": "https://openalex.org/C136764020",
+          "wikidata": "https://www.wikidata.org/wiki/Q466",
+          "display_name": "World Wide Web",
+          "level": 1,
+          "score": 0.3197493851184845
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.2861067056655884
+        },
+        {
+          "id": "https://openalex.org/C36289849",
+          "wikidata": "https://www.wikidata.org/wiki/Q34749",
+          "display_name": "Social science",
+          "level": 1,
+          "score": 0.18561971187591553
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.16173508763313293
+        },
+        {
+          "id": "https://openalex.org/C124952713",
+          "wikidata": "https://www.wikidata.org/wiki/Q8242",
+          "display_name": "Literature",
+          "level": 1,
+          "score": 0.14116573333740234
+        },
+        {
+          "id": "https://openalex.org/C164913051",
+          "wikidata": "https://www.wikidata.org/wiki/Q482",
+          "display_name": "Poetry",
+          "level": 2,
+          "score": 0
+        },
+        {
+          "id": "https://openalex.org/C111919701",
+          "wikidata": "https://www.wikidata.org/wiki/Q9135",
+          "display_name": "Operating system",
+          "level": 1,
+          "score": 0
+        }
+      ],
+      "mesh": [],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "pmh:oai:cronfa.swan.ac.uk:cronfa12654",
+          "is_oa": false,
+          "landing_page_url": "https://cronfa.swan.ac.uk/Record/cronfa12654",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306401612",
+            "display_name": "Cronfa (Swansea University)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I39586589",
+            "host_organization_name": "Swansea University",
+            "host_organization_lineage": [
+              "https://openalex.org/I39586589"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "Journal article"
+        },
+        {
+          "id": "pmh:oai:figshare.com:article/23407976",
+          "is_oa": true,
+          "landing_page_url": null,
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4377196282",
+            "display_name": "Figshare",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I4210132348",
+            "host_organization_name": "Figshare (United Kingdom)",
+            "host_organization_lineage": [
+              "https://openalex.org/I4210132348"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "Text"
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:figshare.com:article/23407976",
+        "is_oa": true,
+        "landing_page_url": null,
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4377196282",
+          "display_name": "Figshare",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I4210132348",
+          "host_organization_name": "Figshare (United Kingdom)",
+          "host_organization_lineage": [
+            "https://openalex.org/I4210132348"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "Text"
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.8199999928474426
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 29,
+      "referenced_works": [
+        "https://openalex.org/W59449050",
+        "https://openalex.org/W118147514",
+        "https://openalex.org/W169910887",
+        "https://openalex.org/W175562627",
+        "https://openalex.org/W607696054",
+        "https://openalex.org/W613058852",
+        "https://openalex.org/W976483960",
+        "https://openalex.org/W1511731227",
+        "https://openalex.org/W1522139738",
+        "https://openalex.org/W1564237561",
+        "https://openalex.org/W1578151007",
+        "https://openalex.org/W1604638557",
+        "https://openalex.org/W1778463599",
+        "https://openalex.org/W1883470098",
+        "https://openalex.org/W1904355000",
+        "https://openalex.org/W2021196550",
+        "https://openalex.org/W2048260797",
+        "https://openalex.org/W2065568959",
+        "https://openalex.org/W2120664475",
+        "https://openalex.org/W2145482038",
+        "https://openalex.org/W2159397589",
+        "https://openalex.org/W2231616829",
+        "https://openalex.org/W2290489506",
+        "https://openalex.org/W2400430240",
+        "https://openalex.org/W2466233254",
+        "https://openalex.org/W2753533763",
+        "https://openalex.org/W2947004466",
+        "https://openalex.org/W3141641508",
+        "https://openalex.org/W3179482914"
+      ],
+      "related_works": [
+        "https://openalex.org/W1500693574",
+        "https://openalex.org/W2159397589",
+        "https://openalex.org/W2504131390",
+        "https://openalex.org/W2112031167",
+        "https://openalex.org/W2079466653",
+        "https://openalex.org/W1604638557",
+        "https://openalex.org/W2912061376",
+        "https://openalex.org/W2504209481",
+        "https://openalex.org/W2339183141",
+        "https://openalex.org/W2166445532",
+        "https://openalex.org/W2019096529",
+        "https://openalex.org/W1494137514",
+        "https://openalex.org/W1480492886",
+        "https://openalex.org/W2327521297",
+        "https://openalex.org/W2052611239",
+        "https://openalex.org/W1644932108",
+        "https://openalex.org/W1520193715",
+        "https://openalex.org/W629599117",
+        "https://openalex.org/W1564237561",
+        "https://openalex.org/W1505563434"
+      ],
+      "abstract_inverted_index": {
+        "Few": [
+          0
+        ],
+        "dispute": [
+          1
+        ],
+        "that": [
+          2,
+          26,
+          37,
+          57
+        ],
+        "digital": [
+          3,
+          33,
+          79,
+          98,
+          204
+        ],
+        "technology": [
+          4,
+          80,
+          99
+        ],
+        "is": [
+          5,
+          20,
+          28,
+          40,
+          66,
+          85
+        ],
+        "fundamentally": [
+          6
+        ],
+        "changing": [
+          7
+        ],
+        "the": [
+          8,
+          15,
+          53,
+          111,
+          125,
+          148,
+          155,
+          171,
+          182,
+          185,
+          203
+        ],
+        "way": [
+          9,
+          113
+        ],
+        "in": [
+          10,
+          14,
+          114,
+          154
+        ],
+        "which": [
+          11,
+          115
+        ],
+        "we": [
+          12
+        ],
+        "engage": [
+          13
+        ],
+        "research": [
+          16,
+          27,
+          60,
+          72,
+          104,
+          122,
+          153,
+          191
+        ],
+        "process.": [
+          17
+        ],
+        "Indeed,": [
+          18
+        ],
+        "it": [
+          19,
+          46,
+          84
+        ],
+        "becoming": [
+          21
+        ],
+        "more": [
+          22,
+          24,
+          76,
+          169
+        ],
+        "and": [
+          23,
+          55,
+          71,
+          121,
+          137,
+          161,
+          176,
+          187
+        ],
+        "evident": [
+          25
+        ],
+        "increasingly": [
+          29,
+          166
+        ],
+        "being": [
+          30
+        ],
+        "mediated": [
+          31
+        ],
+        "through": [
+          32
+        ],
+        "technology.": [
+          34
+        ],
+        "Many": [
+          35
+        ],
+        "argue": [
+          36
+        ],
+        "this": [
+          38,
+          64
+        ],
+        "mediation": [
+          39
+        ],
+        "slowly": [
+          41
+        ],
+        "beginning": [
+          42
+        ],
+        "to": [
+          43,
+          48,
+          87,
+          97,
+          151,
+          200
+        ],
+        "change": [
+          44
+        ],
+        "what": [
+          45,
+          197
+        ],
+        "means": [
+          47
+        ],
+        "undertake": [
+          49,
+          152
+        ],
+        "research,": [
+          50
+        ],
+        "affecting": [
+          51
+        ],
+        "both": [
+          52
+        ],
+        "epistemologies": [
+          54
+        ],
+        "ontologies": [
+          56
+        ],
+        "underlie": [
+          58
+        ],
+        "a": [
+          59,
+          128,
+          135
+        ],
+        "programme.": [
+          61
+        ],
+        "Of": [
+          62
+        ],
+        "course,": [
+          63
+        ],
+        "development": [
+          65
+        ],
+        "variable": [
+          67
+        ],
+        "depending": [
+          68
+        ],
+        "on": [
+          69,
+          78
+        ],
+        "disciplines": [
+          70
+        ],
+        "agendas,": [
+          73
+        ],
+        "with": [
+          74,
+          131
+        ],
+        "some": [
+          75,
+          180
+        ],
+        "reliant": [
+          77
+        ],
+        "than": [
+          81
+        ],
+        "others,": [
+          82
+        ],
+        "but": [
+          83
+        ],
+        "rare": [
+          86
+        ],
+        "find": [
+          88
+        ],
+        "an": [
+          89,
+          116
+        ],
+        "academic": [
+          90,
+          117
+        ],
+        "today": [
+          91
+        ],
+        "who": [
+          92
+        ],
+        "has": [
+          93,
+          198
+        ],
+        "had": [
+          94
+        ],
+        "no": [
+          95
+        ],
+        "access": [
+          96,
+          119
+        ],
+        "as": [
+          100,
+          168
+        ],
+        "part": [
+          101
+        ],
+        "of": [
+          102,
+          127,
+          170,
+          184,
+          189
+        ],
+        "their": [
+          103
+        ],
+        "activity.": [
+          105
+        ],
+        "Library": [
+          106
+        ],
+        "catalogues": [
+          107
+        ],
+        "are": [
+          108,
+          164,
+          174
+        ],
+        "now": [
+          109
+        ],
+        "probably": [
+          110
+        ],
+        "minimum": [
+          112
+        ],
+        "can": [
+          118
+        ],
+        "books": [
+          120
+        ],
+        "articles": [
+          123
+        ],
+        "without": [
+          124
+        ],
+        "use": [
+          126
+        ],
+        "computer,": [
+          129
+        ],
+        "but,": [
+          130
+        ],
+        "card": [
+          132
+        ],
+        "indexes": [
+          133
+        ],
+        "dying": [
+          134
+        ],
+        "slow": [
+          136
+        ],
+        "certain": [
+          138
+        ],
+        "death": [
+          139
+        ],
+        "(Baker,": [
+          140
+        ],
+        "1996,": [
+          141
+        ],
+        "2001),": [
+          142
+        ],
+        "there": [
+          143
+        ],
+        "remain": [
+          144
+        ],
+        "few": [
+          145
+        ],
+        "outputs": [
+          146
+        ],
+        "for": [
+          147
+        ],
+        "non-digital": [
+          149
+        ],
+        "scholar": [
+          150
+        ],
+        "modern": [
+          156
+        ],
+        "university.": [
+          157
+        ],
+        "Email,": [
+          158
+        ],
+        "Google": [
+          159
+        ],
+        "searches": [
+          160
+        ],
+        "bibliographic": [
+          162
+        ],
+        "databases": [
+          163
+        ],
+        "become": [
+          165
+        ],
+        "crucial,": [
+          167
+        ],
+        "world": [
+          172
+        ],
+        "libraries": [
+          173
+        ],
+        "scanned": [
+          175
+        ],
+        "placed": [
+          177
+        ],
+        "online.": [
+          178
+        ],
+        "Whilst": [
+          179
+        ],
+        "decry": [
+          181
+        ],
+        "loss": [
+          183
+        ],
+        "skills": [
+          186
+        ],
+        "techniques": [
+          188
+        ],
+        "older": [
+          190
+        ],
+        "traditions,": [
+          192
+        ],
+        "others": [
+          193
+        ],
+        "have": [
+          194
+        ],
+        "warmly": [
+          195
+        ],
+        "embraced": [
+          196
+        ],
+        "come": [
+          199
+        ],
+        "be": [
+          201
+        ],
+        "called": [
+          202
+        ],
+        "humanities": [
+          205
+        ],
+        "(Schreibman": [
+          206
+        ],
+        "et": [
+          207
+        ],
+        "al.,": [
+          208
+        ],
+        "2008;": [
+          209
+        ],
+        "Schnapp": [
+          210
+        ],
+        "&": [
+          211
+        ],
+        "Presner,": [
+          212,
+          214
+        ],
+        "2009;": [
+          213
+        ],
+        "2010;": [
+          215
+        ],
+        "Hayles,": [
+          216
+        ],
+        "2011).": [
+          217
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 9
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 23
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 23
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 27
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 37
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 38
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 37
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 23
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 37
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 25
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 28
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 22
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 7
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 7
+        }
+      ],
+      "updated_date": "2026-03-11T14:59:36.786465",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2729097583",
+      "doi": "https://doi.org/10.5749/minnesota/9780816677948.001.0001",
+      "title": "Debates in the Digital Humanities",
+      "display_name": "Debates in the Digital Humanities",
+      "relevance_score": 1976.1818,
+      "publication_year": 2012,
+      "publication_date": "2012-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W2729097583",
+        "doi": "https://doi.org/10.5749/minnesota/9780816677948.001.0001",
+        "mag": "2729097583"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.5749/minnesota/9780816677948.001.0001",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.5749/minnesota/9780816677948.001.0001",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306464182",
+          "display_name": "University of Minnesota Press eBooks",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/P4310320514",
+          "host_organization_name": "University of Minnesota Press",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320514"
+          ],
+          "host_organization_lineage_names": [
+            "University of Minnesota Press"
+          ],
+          "type": "ebook platform"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": null,
+        "raw_type": "edited-book"
+      },
+      "type": "book",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://www.jstor.org/stable/10.5749/j.ctttv8hq",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": null,
+            "display_name": "Matthew K. Gold",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": true,
+          "raw_author_name": "Matthew K. Gold",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 47.2334,
+      "has_fulltext": false,
+      "cited_by_count": 214,
+      "citation_normalized_percentile": {
+        "value": 0.99855151,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 96,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.5058000087738037,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.5058000087738037,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.8657150268554688
+        },
+        {
+          "id": "https://openalex.org/keywords/scholarship",
+          "display_name": "Scholarship",
+          "score": 0.5110148191452026
+        },
+        {
+          "id": "https://openalex.org/keywords/sociology",
+          "display_name": "Sociology",
+          "score": 0.4719509184360504
+        },
+        {
+          "id": "https://openalex.org/keywords/humanism",
+          "display_name": "Humanism",
+          "score": 0.4506417512893677
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.4098935127258301
+        },
+        {
+          "id": "https://openalex.org/keywords/media-studies",
+          "display_name": "Media studies",
+          "score": 0.3903712034225464
+        },
+        {
+          "id": "https://openalex.org/keywords/political-science",
+          "display_name": "Political science",
+          "score": 0.3836575448513031
+        },
+        {
+          "id": "https://openalex.org/keywords/public-relations",
+          "display_name": "Public relations",
+          "score": 0.331068217754364
+        },
+        {
+          "id": "https://openalex.org/keywords/social-science",
+          "display_name": "Social science",
+          "score": 0.32408979535102844
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.1995660960674286
+        },
+        {
+          "id": "https://openalex.org/keywords/law",
+          "display_name": "Law",
+          "score": 0.11764755845069885
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.8657150268554688
+        },
+        {
+          "id": "https://openalex.org/C2778061430",
+          "wikidata": "https://www.wikidata.org/wiki/Q188823",
+          "display_name": "Scholarship",
+          "level": 2,
+          "score": 0.5110148191452026
+        },
+        {
+          "id": "https://openalex.org/C144024400",
+          "wikidata": "https://www.wikidata.org/wiki/Q21201",
+          "display_name": "Sociology",
+          "level": 0,
+          "score": 0.4719509184360504
+        },
+        {
+          "id": "https://openalex.org/C153606108",
+          "wikidata": "https://www.wikidata.org/wiki/Q46158",
+          "display_name": "Humanism",
+          "level": 2,
+          "score": 0.4506417512893677
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.4098935127258301
+        },
+        {
+          "id": "https://openalex.org/C29595303",
+          "wikidata": "https://www.wikidata.org/wiki/Q165650",
+          "display_name": "Media studies",
+          "level": 1,
+          "score": 0.3903712034225464
+        },
+        {
+          "id": "https://openalex.org/C17744445",
+          "wikidata": "https://www.wikidata.org/wiki/Q36442",
+          "display_name": "Political science",
+          "level": 0,
+          "score": 0.3836575448513031
+        },
+        {
+          "id": "https://openalex.org/C39549134",
+          "wikidata": "https://www.wikidata.org/wiki/Q133080",
+          "display_name": "Public relations",
+          "level": 1,
+          "score": 0.331068217754364
+        },
+        {
+          "id": "https://openalex.org/C36289849",
+          "wikidata": "https://www.wikidata.org/wiki/Q34749",
+          "display_name": "Social science",
+          "level": 1,
+          "score": 0.32408979535102844
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.1995660960674286
+        },
+        {
+          "id": "https://openalex.org/C199539241",
+          "wikidata": "https://www.wikidata.org/wiki/Q7748",
+          "display_name": "Law",
+          "level": 1,
+          "score": 0.11764755845069885
+        }
+      ],
+      "mesh": [],
+      "locations_count": 10,
+      "locations": [
+        {
+          "id": "doi:10.5749/minnesota/9780816677948.001.0001",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.5749/minnesota/9780816677948.001.0001",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306464182",
+            "display_name": "University of Minnesota Press eBooks",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/P4310320514",
+            "host_organization_name": "University of Minnesota Press",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320514"
+            ],
+            "host_organization_lineage_names": [
+              "University of Minnesota Press"
+            ],
+            "type": "ebook platform"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": null,
+          "raw_type": "edited-book"
+        },
+        {
+          "id": "pmh:oai:muse.jhu.edu:/book/65227",
+          "is_oa": false,
+          "landing_page_url": "https://muse.jhu.edu/pub/23/oa_edited_volume/book/65227",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4377196299",
+            "display_name": "Project Muse (Johns Hopkins University)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I145311948",
+            "host_organization_name": "Johns Hopkins University",
+            "host_organization_lineage": [
+              "https://openalex.org/I145311948"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "text"
+        },
+        {
+          "id": "pmh:oai:aleph.bib-bvb.de:BVB01-024807541",
+          "is_oa": false,
+          "landing_page_url": "http://bvbr.bib-bvb.de:8991/F?func=service&amp;doc_library=BVB01&amp;local_base=BVB01&amp;doc_number=024807541&amp;sequence=000002&amp;line_number=0001&amp;func_code=DB_RECORDS&amp;service_type=MEDIA",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "text"
+        },
+        {
+          "id": "pmh:oai:aleph.bib-bvb.de:BVB01-028966816",
+          "is_oa": false,
+          "landing_page_url": "http://bvbr.bib-bvb.de:8991/F?func=service&amp;doc_library=BVB01&amp;local_base=BVB01&amp;doc_number=028966816&amp;sequence=000002&amp;line_number=0001&amp;func_code=DB_RECORDS&amp;service_type=MEDIA",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "text"
+        },
+        {
+          "id": "pmh:oai:aleph.bib-bvb.de:BVB01-031467881",
+          "is_oa": false,
+          "landing_page_url": "http://bvbr.bib-bvb.de:8991/F?func=service&amp;doc_library=BVB01&amp;local_base=BVB01&amp;doc_number=031467881&amp;sequence=000001&amp;line_number=0001&amp;func_code=DB_RECORDS&amp;service_type=MEDIA",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "text"
+        },
+        {
+          "id": "pmh:oai:aleph.bib-bvb.de:BVB01-032181726",
+          "is_oa": false,
+          "landing_page_url": "https://dhdebates.gc.cuny.edu/read/untitled-f2acf72c-a469-49d8-be35-67f9ac1e3a60",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "software, multimedia"
+        },
+        {
+          "id": "pmh:oai:aleph.bib-bvb.de:BVB01-034274055",
+          "is_oa": false,
+          "landing_page_url": "http://bvbr.bib-bvb.de:8991/F?func=service&amp;doc_library=BVB01&amp;local_base=BVB01&amp;doc_number=034274055&amp;sequence=000001&amp;line_number=0001&amp;func_code=DB_RECORDS&amp;service_type=MEDIA",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "text"
+        },
+        {
+          "id": "pmh:oai:aleph.bib-bvb.de:BVB01-034585299",
+          "is_oa": false,
+          "landing_page_url": "https://dhdebates.gc.cuny.edu/projects/debates-in-the-digital-humanities-2023",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "software, multimedia"
+        },
+        {
+          "id": "pmh:oai:directory.doabooks.org:20.500.12854/114373",
+          "is_oa": true,
+          "landing_page_url": "https://www.jstor.org/stable/10.5749/j.ctttv8hq",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400539",
+            "display_name": "Directory of Open access Books (OAPEN Foundation)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": ""
+        },
+        {
+          "id": "pmh:oai:muse.jhu.edu:/book/24733",
+          "is_oa": false,
+          "landing_page_url": "https://muse.jhu.edu/pub/23/monograph/book/24733",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4377196299",
+            "display_name": "Project Muse (Johns Hopkins University)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I145311948",
+            "host_organization_name": "Johns Hopkins University",
+            "host_organization_lineage": [
+              "https://openalex.org/I145311948"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "text"
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:directory.doabooks.org:20.500.12854/114373",
+        "is_oa": true,
+        "landing_page_url": "https://www.jstor.org/stable/10.5749/j.ctttv8hq",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400539",
+          "display_name": "Directory of Open access Books (OAPEN Foundation)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by-nc-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": ""
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.8199999928474426
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W4387497383",
+        "https://openalex.org/W3183948672",
+        "https://openalex.org/W3173606202",
+        "https://openalex.org/W3110381201",
+        "https://openalex.org/W2948807893",
+        "https://openalex.org/W2935909890",
+        "https://openalex.org/W2778153218",
+        "https://openalex.org/W2758277628",
+        "https://openalex.org/W2748952813",
+        "https://openalex.org/W1531601525"
+      ],
+      "abstract_inverted_index": {
+        "Debates": [
+          0
+        ],
+        "in": [
+          1,
+          9
+        ],
+        "the": [
+          2,
+          10,
+          28,
+          40,
+          49,
+          52
+        ],
+        "Digital": [
+          3
+        ],
+        "Humanities": [
+          4
+        ],
+        "brings": [
+          5
+        ],
+        "together": [
+          6
+        ],
+        "leading": [
+          7
+        ],
+        "figures": [
+          8
+        ],
+        "field": [
+          11
+        ],
+        "to": [
+          12,
+          20,
+          46,
+          48
+        ],
+        "explore": [
+          13
+        ],
+        "its": [
+          14,
+          22
+        ],
+        "theories,": [
+          15
+        ],
+        "methods,": [
+          16
+        ],
+        "and": [
+          17,
+          19,
+          25,
+          54
+        ],
+        "practices": [
+          18
+        ],
+        "clarify": [
+          21
+        ],
+        "multiple": [
+          23
+        ],
+        "possibilities": [
+          24
+        ],
+        "tensions.": [
+          26
+        ],
+        "Together,": [
+          27
+        ],
+        "essays—which": [
+          29
+        ],
+        "will": [
+          30
+        ],
+        "be": [
+          31
+        ],
+        "published": [
+          32
+        ],
+        "later": [
+          33
+        ],
+        "as": [
+          34
+        ],
+        "an": [
+          35
+        ],
+        "ongoing,": [
+          36
+        ],
+        "open-access": [
+          37
+        ],
+        "website—suggest": [
+          38
+        ],
+        "that": [
+          39
+        ],
+        "digital": [
+          41
+        ],
+        "humanities": [
+          42,
+          53
+        ],
+        "is": [
+          43
+        ],
+        "uniquely": [
+          44
+        ],
+        "positioned": [
+          45
+        ],
+        "contribute": [
+          47
+        ],
+        "revival": [
+          50
+        ],
+        "of": [
+          51
+        ],
+        "academic": [
+          55
+        ],
+        "life.": [
+          56
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 12
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 11
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 22
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 8
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 13
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 9
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 19
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 15
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 16
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 59
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 13
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 4
+        }
+      ],
+      "updated_date": "2026-06-13T07:54:00.901334",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2284922225",
+      "doi": null,
+      "title": "Digital Humanities Quarterly",
+      "display_name": "Digital Humanities Quarterly",
+      "relevance_score": 1929.4004,
+      "publication_year": 2007,
+      "publication_date": "2007-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W2284922225",
+        "mag": "2284922225"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "mag:2284922225",
+        "is_oa": true,
+        "landing_page_url": "http://discovery.ucl.ac.uk/171167/",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S166472302",
+          "display_name": "Digital humanities quarterly",
+          "issn_l": "1938-4122",
+          "issn": [
+            "1938-4122"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310318535",
+          "host_organization_name": "Alliance of Digital Humanities Organizations",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310318535"
+          ],
+          "host_organization_lineage_names": [
+            "Alliance of Digital Humanities Organizations"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nd",
+        "version": null,
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "Digital humanities quarterly",
+        "raw_type": null
+      },
+      "type": "article",
+      "indexed_in": [],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "http://discovery.ucl.ac.uk/171167/",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5031750299",
+            "display_name": "Julie Flanders",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "Julie Flanders",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5012238161",
+            "display_name": "M Terras",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "M Terras",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5109350413",
+            "display_name": "W Piez",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": false,
+          "raw_author_name": "W Piez",
+          "raw_affiliation_strings": [],
+          "raw_orcid": null,
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 3,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 0,
+      "has_fulltext": false,
+      "cited_by_count": 266,
+      "citation_normalized_percentile": {
+        "value": 0.3748867,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": {
+        "min": 98,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.9470999836921692,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.9470999836921692,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.8875925540924072
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.43352073431015015
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.38775691390037537
+        },
+        {
+          "id": "https://openalex.org/keywords/world-wide-web",
+          "display_name": "World Wide Web",
+          "score": 0.26768869161605835
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.1903204321861267
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.8875925540924072
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.43352073431015015
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.38775691390037537
+        },
+        {
+          "id": "https://openalex.org/C136764020",
+          "wikidata": "https://www.wikidata.org/wiki/Q466",
+          "display_name": "World Wide Web",
+          "level": 1,
+          "score": 0.26768869161605835
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.1903204321861267
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "mag:2284922225",
+          "is_oa": true,
+          "landing_page_url": "http://discovery.ucl.ac.uk/171167/",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S166472302",
+            "display_name": "Digital humanities quarterly",
+            "issn_l": "1938-4122",
+            "issn": [
+              "1938-4122"
+            ],
+            "is_oa": true,
+            "is_in_doaj": true,
+            "is_core": true,
+            "host_organization": "https://openalex.org/P4310318535",
+            "host_organization_name": "Alliance of Digital Humanities Organizations",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310318535"
+            ],
+            "host_organization_lineage_names": [
+              "Alliance of Digital Humanities Organizations"
+            ],
+            "type": "journal"
+          },
+          "license": "cc-by-nd",
+          "license_id": "https://openalex.org/licenses/cc-by-nd",
+          "version": null,
+          "is_accepted": false,
+          "is_published": null,
+          "raw_source_name": "Digital humanities quarterly",
+          "raw_type": null
+        }
+      ],
+      "best_oa_location": {
+        "id": "mag:2284922225",
+        "is_oa": true,
+        "landing_page_url": "http://discovery.ucl.ac.uk/171167/",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S166472302",
+          "display_name": "Digital humanities quarterly",
+          "issn_l": "1938-4122",
+          "issn": [
+            "1938-4122"
+          ],
+          "is_oa": true,
+          "is_in_doaj": true,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310318535",
+          "host_organization_name": "Alliance of Digital Humanities Organizations",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310318535"
+          ],
+          "host_organization_lineage_names": [
+            "Alliance of Digital Humanities Organizations"
+          ],
+          "type": "journal"
+        },
+        "license": "cc-by-nd",
+        "license_id": "https://openalex.org/licenses/cc-by-nd",
+        "version": null,
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "Digital humanities quarterly",
+        "raw_type": null
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.44999998807907104
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [],
+      "abstract_inverted_index": null,
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 10
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 32
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 27
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 36
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 23
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 20
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 22
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 21
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 26
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 12
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 15
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 9
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 6
+        }
+      ],
+      "updated_date": "2026-06-11T09:08:48.828518",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2611199518",
+      "doi": "https://doi.org/10.58079/lwgu",
+      "title": "Journal of Digital Humanities",
+      "display_name": "Journal of Digital Humanities",
+      "relevance_score": 1675.6791,
+      "publication_year": 2013,
+      "publication_date": "2013-06-14",
+      "ids": {
+        "openalex": "https://openalex.org/W2611199518",
+        "doi": "https://doi.org/10.58079/lwgu",
+        "mag": "2611199518"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "pmh:oai:hypotheses.org:bdh/187",
+        "is_oa": false,
+        "landing_page_url": "https://bdh.hypotheses.org/187",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306402281",
+          "display_name": "OpenEdition (OpenEdition)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "post"
+      },
+      "type": "article",
+      "indexed_in": [
+        "datacite"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://doi.org/10.58079/lwgu",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5035549376",
+            "display_name": "Dália Guerreiro",
+            "orcid": null
+          },
+          "institutions": [],
+          "countries": [],
+          "is_corresponding": true,
+          "raw_author_name": "Dalia Guerreiro",
+          "raw_affiliation_strings": [],
+          "affiliations": []
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 0,
+      "institutions_distinct_count": 1,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5035549376"
+      ],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 85.5315,
+      "has_fulltext": false,
+      "cited_by_count": 154,
+      "citation_normalized_percentile": {
+        "value": 0.99867416,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 96,
+        "max": 100
+      },
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.6955999732017517,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.6955999732017517,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.7303783297538757
+        },
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.7095783948898315
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.3399534523487091
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.7303783297538757
+        },
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.7095783948898315
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.3399534523487091
+        }
+      ],
+      "mesh": [],
+      "locations_count": 3,
+      "locations": [
+        {
+          "id": "pmh:oai:hypotheses.org:bdh/187",
+          "is_oa": false,
+          "landing_page_url": "https://bdh.hypotheses.org/187",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306402281",
+            "display_name": "OpenEdition (OpenEdition)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "post"
+        },
+        {
+          "id": "doi:10.58079/lwgu",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.58079/lwgu",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306402281",
+            "display_name": "OpenEdition (OpenEdition)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": null,
+          "is_accepted": false,
+          "is_published": null,
+          "raw_source_name": null,
+          "raw_type": "article-journal"
+        },
+        {
+          "id": "mag:2611199518",
+          "is_oa": false,
+          "landing_page_url": "http://www.rechercheisidore.fr/search/resource/?uri=10670/1.gpi3fv",
+          "pdf_url": null,
+          "source": null,
+          "license": null,
+          "license_id": null,
+          "version": null,
+          "is_accepted": false,
+          "is_published": null,
+          "raw_source_name": null,
+          "raw_type": null
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.58079/lwgu",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.58079/lwgu",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306402281",
+          "display_name": "OpenEdition (OpenEdition)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": null,
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "article-journal"
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.8799999952316284
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [],
+      "abstract_inverted_index": {
+        "2011": [
+          8
+        ],
+        "2012": [
+          10
+        ],
+        "Journal": [
+          0
+        ],
+        "of": [
+          1
+        ],
+        "Digital": [
+          2,
+          46
+        ],
+        "Humanities": [
+          3,
+          47
+        ],
+        "(ISSN": [
+          4
+        ],
+        "2165-6673)": [
+          5
+        ],
+        "Editado": [
+          6,
+          20
+        ],
+        "entre": [
+          7
+        ],
+        "e": [
+          9,
+          25
+        ],
+        "pelo": [
+          11
+        ],
+        "Roy": [
+          12
+        ],
+        "Rosenzweig": [
+          13
+        ],
+        "Center": [
+          14
+        ],
+        "for": [
+          15
+        ],
+        "History": [
+          16
+        ],
+        "and": [
+          17
+        ],
+        "New": [
+          18
+        ],
+        "Media.": [
+          19
+        ],
+        "trimestralmente,": [
+          21
+        ],
+        "em": [
+          22
+        ],
+        "língua": [
+          23
+        ],
+        "inglesa": [
+          24
+        ],
+        "com": [
+          26
+        ],
+        "peer-review,": [
+          27
+        ],
+        "apresenta": [
+          28
+        ],
+        "as": [
+          29
+        ],
+        "ferramentas,": [
+          30
+        ],
+        "projectos,": [
+          31
+        ],
+        "referências": [
+          32
+        ],
+        "das": [
+          33
+        ],
+        "humanidades": [
+          34
+        ],
+        "digitais.": [
+          35
+        ],
+        "Alguns": [
+          36
+        ],
+        "dos": [
+          37
+        ],
+        "artigos": [
+          38
+        ],
+        "são": [
+          39
+        ],
+        "escolhidos": [
+          40
+        ],
+        "através": [
+          41
+        ],
+        "do": [
+          42,
+          45
+        ],
+        "Editors’": [
+          43
+        ],
+        "Choice": [
+          44
+        ],
+        "Now.": [
+          48
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 16
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 8
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 15
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 9
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 16
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 31
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 16
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 12
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 7
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 12
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 9
+        }
+      ],
+      "updated_date": "2025-11-06T06:51:31.235846",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2339562889",
+      "doi": "https://doi.org/10.2312/eurovisstar.20151113",
+      "title": "On Close and Distant Reading in Digital Humanities: A Survey and Future Challenges",
+      "display_name": "On Close and Distant Reading in Digital Humanities: A Survey and Future Challenges",
+      "relevance_score": 1668.5793,
+      "publication_year": 2015,
+      "publication_date": "2015-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W2339562889",
+        "doi": "https://doi.org/10.2312/eurovisstar.20151113",
+        "mag": "2339562889"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.2312/eurovisstar.20151113",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.2312/eurovisstar.20151113",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S7407052899",
+          "display_name": "Eurographics",
+          "issn_l": null,
+          "issn": [],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": null,
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "datacite"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://doi.org/10.2312/eurovisstar.20151113",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5037571749",
+            "display_name": "Stefan Jänicke",
+            "orcid": "https://orcid.org/0000-0001-9353-5212"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I926574661",
+              "display_name": "Leipzig University",
+              "ror": "https://ror.org/03s7gtk40",
+              "country_code": "DE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I926574661"
+              ]
+            }
+          ],
+          "countries": [
+            "DE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Jänicke, Stefan",
+          "raw_affiliation_strings": [
+            "Leipzig University, Leipzig, Germany"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Leipzig University, Leipzig, Germany",
+              "institution_ids": [
+                "https://openalex.org/I926574661"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5027377131",
+            "display_name": "Greta Franzini",
+            "orcid": "https://orcid.org/0000-0003-1159-5575"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I926574661",
+              "display_name": "Leipzig University",
+              "ror": "https://ror.org/03s7gtk40",
+              "country_code": "DE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I926574661"
+              ]
+            }
+          ],
+          "countries": [
+            "DE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Franzini, Greta",
+          "raw_affiliation_strings": [
+            "Leipzig University, Leipzig, Germany"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Leipzig University, Leipzig, Germany",
+              "institution_ids": [
+                "https://openalex.org/I926574661"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5023909892",
+            "display_name": "Muhammad Faisal Cheema",
+            "orcid": "https://orcid.org/0000-0002-5002-9819"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I926574661",
+              "display_name": "Leipzig University",
+              "ror": "https://ror.org/03s7gtk40",
+              "country_code": "DE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I926574661"
+              ]
+            }
+          ],
+          "countries": [
+            "DE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Cheema, Muhammad Faisal",
+          "raw_affiliation_strings": [
+            "Leipzig University, Leipzig, Germany"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Leipzig University, Leipzig, Germany",
+              "institution_ids": [
+                "https://openalex.org/I926574661"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5029336209",
+            "display_name": "Gerik Scheuermann",
+            "orcid": "https://orcid.org/0000-0001-5200-8870"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I926574661",
+              "display_name": "Leipzig University",
+              "ror": "https://ror.org/03s7gtk40",
+              "country_code": "DE",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I926574661"
+              ]
+            }
+          ],
+          "countries": [
+            "DE"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Scheuermann, Gerik",
+          "raw_affiliation_strings": [
+            "Leipzig University, Leipzig, Germany"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Leipzig University, Leipzig, Germany",
+              "institution_ids": [
+                "https://openalex.org/I926574661"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 4,
+      "corresponding_author_ids": [],
+      "corresponding_institution_ids": [],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": null,
+      "has_fulltext": false,
+      "cited_by_count": 249,
+      "citation_normalized_percentile": null,
+      "cited_by_percentile_year": null,
+      "biblio": {
+        "volume": null,
+        "issue": null,
+        "first_page": null,
+        "last_page": null
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T12377",
+        "display_name": "Digital Humanities and Scholarship",
+        "score": 0.9944000244140625,
+        "subfield": {
+          "id": "https://openalex.org/subfields/1208",
+          "display_name": "Literature and Literary Theory"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/12",
+          "display_name": "Arts and Humanities"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/2",
+          "display_name": "Social Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T12377",
+          "display_name": "Digital Humanities and Scholarship",
+          "score": 0.9944000244140625,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1208",
+            "display_name": "Literature and Literary Theory"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/12",
+            "display_name": "Arts and Humanities"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/2",
+            "display_name": "Social Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/digital-humanities",
+          "display_name": "Digital humanities",
+          "score": 0.8019393086433411
+        },
+        {
+          "id": "https://openalex.org/keywords/reading",
+          "display_name": "Reading (process)",
+          "score": 0.590046763420105
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.4983971118927002
+        },
+        {
+          "id": "https://openalex.org/keywords/humanities",
+          "display_name": "Humanities",
+          "score": 0.3833118975162506
+        },
+        {
+          "id": "https://openalex.org/keywords/library-science",
+          "display_name": "Library science",
+          "score": 0.3518744111061096
+        },
+        {
+          "id": "https://openalex.org/keywords/data-science",
+          "display_name": "Data science",
+          "score": 0.33354413509368896
+        },
+        {
+          "id": "https://openalex.org/keywords/world-wide-web",
+          "display_name": "World Wide Web",
+          "score": 0.3210921287536621
+        },
+        {
+          "id": "https://openalex.org/keywords/political-science",
+          "display_name": "Political science",
+          "score": 0.2410944700241089
+        },
+        {
+          "id": "https://openalex.org/keywords/art",
+          "display_name": "Art",
+          "score": 0.18833771347999573
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C24351657",
+          "wikidata": "https://www.wikidata.org/wiki/Q1026962",
+          "display_name": "Digital humanities",
+          "level": 2,
+          "score": 0.8019393086433411
+        },
+        {
+          "id": "https://openalex.org/C554936623",
+          "wikidata": "https://www.wikidata.org/wiki/Q199657",
+          "display_name": "Reading (process)",
+          "level": 2,
+          "score": 0.590046763420105
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.4983971118927002
+        },
+        {
+          "id": "https://openalex.org/C15708023",
+          "wikidata": "https://www.wikidata.org/wiki/Q80083",
+          "display_name": "Humanities",
+          "level": 1,
+          "score": 0.3833118975162506
+        },
+        {
+          "id": "https://openalex.org/C161191863",
+          "wikidata": "https://www.wikidata.org/wiki/Q199655",
+          "display_name": "Library science",
+          "level": 1,
+          "score": 0.3518744111061096
+        },
+        {
+          "id": "https://openalex.org/C2522767166",
+          "wikidata": "https://www.wikidata.org/wiki/Q2374463",
+          "display_name": "Data science",
+          "level": 1,
+          "score": 0.33354413509368896
+        },
+        {
+          "id": "https://openalex.org/C136764020",
+          "wikidata": "https://www.wikidata.org/wiki/Q466",
+          "display_name": "World Wide Web",
+          "level": 1,
+          "score": 0.3210921287536621
+        },
+        {
+          "id": "https://openalex.org/C17744445",
+          "wikidata": "https://www.wikidata.org/wiki/Q36442",
+          "display_name": "Political science",
+          "level": 0,
+          "score": 0.2410944700241089
+        },
+        {
+          "id": "https://openalex.org/C142362112",
+          "wikidata": "https://www.wikidata.org/wiki/Q735",
+          "display_name": "Art",
+          "level": 0,
+          "score": 0.18833771347999573
+        },
+        {
+          "id": "https://openalex.org/C199539241",
+          "wikidata": "https://www.wikidata.org/wiki/Q7748",
+          "display_name": "Law",
+          "level": 1,
+          "score": 0
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.2312/eurovisstar.20151113",
+          "is_oa": true,
+          "landing_page_url": "https://doi.org/10.2312/eurovisstar.20151113",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S7407052899",
+            "display_name": "Eurographics",
+            "issn_l": null,
+            "issn": [],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": null,
+            "host_organization_name": null,
+            "host_organization_lineage": [],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": null,
+          "is_accepted": false,
+          "is_published": null,
+          "raw_source_name": null,
+          "raw_type": "article"
+        }
+      ],
+      "best_oa_location": {
+        "id": "doi:10.2312/eurovisstar.20151113",
+        "is_oa": true,
+        "landing_page_url": "https://doi.org/10.2312/eurovisstar.20151113",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S7407052899",
+          "display_name": "Eurographics",
+          "issn_l": null,
+          "issn": [],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": null,
+          "host_organization_name": null,
+          "host_organization_lineage": [],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": null,
+        "license_id": null,
+        "version": null,
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": null,
+        "raw_type": "article"
+      },
+      "sustainable_development_goals": [
+        {
+          "id": "https://metadata.un.org/sdg/4",
+          "display_name": "Quality Education",
+          "score": 0.8399999737739563
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 0,
+      "referenced_works": [],
+      "related_works": [
+        "https://openalex.org/W1604638557",
+        "https://openalex.org/W2012118336",
+        "https://openalex.org/W2146695947",
+        "https://openalex.org/W2075038621",
+        "https://openalex.org/W2135415614",
+        "https://openalex.org/W2056747920",
+        "https://openalex.org/W1544268587",
+        "https://openalex.org/W2138199375",
+        "https://openalex.org/W561535798",
+        "https://openalex.org/W2141880430",
+        "https://openalex.org/W2010462968",
+        "https://openalex.org/W1918045654",
+        "https://openalex.org/W2470422954",
+        "https://openalex.org/W1880262756",
+        "https://openalex.org/W2171240564",
+        "https://openalex.org/W2142493242",
+        "https://openalex.org/W2081459780",
+        "https://openalex.org/W1919652261",
+        "https://openalex.org/W1823329909",
+        "https://openalex.org/W1677901922"
+      ],
+      "abstract_inverted_index": {
+        "We": [
+          0,
+          26,
+          40
+        ],
+        "present": [
+          1
+        ],
+        "an": [
+          2,
+          98
+        ],
+        "overview": [
+          3
+        ],
+        "of": [
+          4,
+          9,
+          19,
+          44,
+          65
+        ],
+        "the": [
+          5,
+          23,
+          34,
+          66,
+          80
+        ],
+        "last": [
+          6
+        ],
+        "ten": [
+          7
+        ],
+        "years": [
+          8
+        ],
+        "research": [
+          10,
+          78,
+          105
+        ],
+        "on": [
+          11,
+          100
+        ],
+        "visualizations": [
+          12,
+          90
+        ],
+        "that": [
+          13,
+          55,
+          104
+        ],
+        "support": [
+          14
+        ],
+        "close": [
+          15,
+          48,
+          92
+        ],
+        "and": [
+          16,
+          36,
+          49,
+          52,
+          72,
+          93,
+          96
+        ],
+        "distant": [
+          17,
+          50,
+          94
+        ],
+        "reading": [
+          18,
+          58
+        ],
+        "textual": [
+          20
+        ],
+        "data": [
+          21
+        ],
+        "in": [
+          22,
+          79,
+          103
+        ],
+        "digital": [
+          24,
+          37,
+          81
+        ],
+        "humanities.": [
+          25,
+          82
+        ],
+        "look": [
+          27
+        ],
+        "at": [
+          28
+        ],
+        "various": [
+          29
+        ],
+        "works": [
+          30
+        ],
+        "published": [
+          31
+        ],
+        "within": [
+          32
+        ],
+        "both": [
+          33,
+          57
+        ],
+        "visualization": [
+          35,
+          75
+        ],
+        "humanities": [
+          38
+        ],
+        "communities.": [
+          39
+        ],
+        "provide": [
+          41,
+          61
+        ],
+        "a": [
+          42,
+          62
+        ],
+        "taxonomy": [
+          43
+        ],
+        "applied": [
+          45
+        ],
+        "methods": [
+          46
+        ],
+        "for": [
+          47,
+          77,
+          91
+        ],
+        "reading,": [
+          51,
+          95
+        ],
+        "illustrate": [
+          53
+        ],
+        "approaches": [
+          54,
+          76
+        ],
+        "combine": [
+          56
+        ],
+        "techniques": [
+          59
+        ],
+        "to": [
+          60
+        ],
+        "multifaceted": [
+          63
+        ],
+        "view": [
+          64
+        ],
+        "data.": [
+          67
+        ],
+        "Furthermore,": [
+          68
+        ],
+        "we": [
+          69,
+          84
+        ],
+        "list": [
+          70
+        ],
+        "toolkits": [
+          71
+        ],
+        "potentially": [
+          73
+        ],
+        "beneficial": [
+          74
+        ],
+        "Finally,": [
+          83
+        ],
+        "summarize": [
+          85
+        ],
+        "collaboration": [
+          86
+        ],
+        "experiences": [
+          87
+        ],
+        "when": [
+          88
+        ],
+        "developing": [
+          89
+        ],
+        "give": [
+          97
+        ],
+        "outlook": [
+          99
+        ],
+        "future": [
+          101
+        ],
+        "challenges": [
+          102
+        ],
+        "area.": [
+          106
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 10
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 17
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 50
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 36
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 24
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 33
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 17
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 24
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 21
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 14
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 2
+        }
+      ],
+      "updated_date": "2026-06-11T09:08:48.828518",
+      "created_date": "2025-10-10T00:00:00"
+    }
+  ],
+  "group_by": []
+}

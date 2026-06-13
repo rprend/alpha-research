@@ -1,0 +1,133 @@
+{
+  "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+  "generated_at": "2026-06-13T15:57:25.097Z",
+  "source_count": 6,
+  "success_count": 6,
+  "failed_count": 0,
+  "source_document_count": 60,
+  "work_count": 20,
+  "object_count": 30,
+  "rights_count": 60,
+  "records": [
+    {
+      "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+      "source_id": "openalex-humanities",
+      "started_at": "2026-06-13T15:57:06.744Z",
+      "completed_at": "2026-06-13T15:57:07.371Z",
+      "status": "success",
+      "access_route": "https://api.openalex.org/works?search=digital%20humanities&per-page=10",
+      "raw_outputs": [
+        "data/knowledge-base/raw/openalex-humanities/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/works.jsonl",
+        "data/knowledge-base/processed/objects.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 20,
+      "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+      "errors": []
+    },
+    {
+      "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+      "source_id": "crossref-humanities",
+      "started_at": "2026-06-13T15:57:07.372Z",
+      "completed_at": "2026-06-13T15:57:07.754Z",
+      "status": "success",
+      "access_route": "https://api.crossref.org/works?query.bibliographic=digital%20humanities&rows=10",
+      "raw_outputs": [
+        "data/knowledge-base/raw/crossref-humanities/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/works.jsonl",
+        "data/knowledge-base/processed/objects.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 20,
+      "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+      "errors": []
+    },
+    {
+      "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+      "source_id": "wikidata-cultural-entities",
+      "started_at": "2026-06-13T15:57:07.755Z",
+      "completed_at": "2026-06-13T15:57:21.924Z",
+      "status": "success",
+      "access_route": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT%20%3Fentity%20%3FentityLabel%20%3FentityDescription%20WHERE%20%7B%0A%20%20%3Fentity%20wdt%3AP31%20wd%3AQ5%3B%0A%20%20%20%20%20%20%20%20%20%20wdt%3AP106%2Fwdt%3AP279*%20wd%3AQ36180.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%0A%7D%0ALIMIT%2010",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/works.jsonl",
+        "data/knowledge-base/processed/objects.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 10,
+      "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+      "errors": []
+    },
+    {
+      "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+      "source_id": "library-of-congress",
+      "started_at": "2026-06-13T15:57:21.924Z",
+      "completed_at": "2026-06-13T15:57:22.879Z",
+      "status": "success",
+      "access_route": "https://www.loc.gov/books/?fo=json&c=10&fa=subject:literature",
+      "raw_outputs": [
+        "data/knowledge-base/raw/library-of-congress/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/works.jsonl",
+        "data/knowledge-base/processed/objects.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 20,
+      "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+      "errors": []
+    },
+    {
+      "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+      "source_id": "met-collection-api",
+      "started_at": "2026-06-13T15:57:22.879Z",
+      "completed_at": "2026-06-13T15:57:24.573Z",
+      "status": "success",
+      "access_route": "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=painting",
+      "raw_outputs": [
+        "data/knowledge-base/raw/met-collection-api/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/works.jsonl",
+        "data/knowledge-base/processed/objects.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 20,
+      "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+      "errors": []
+    },
+    {
+      "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+      "source_id": "cleveland-museum-open-access",
+      "started_at": "2026-06-13T15:57:24.573Z",
+      "completed_at": "2026-06-13T15:57:25.095Z",
+      "status": "success",
+      "access_route": "https://openaccess-api.clevelandart.org/api/artworks/?limit=10&has_image=1",
+      "raw_outputs": [
+        "data/knowledge-base/raw/cleveland-museum-open-access/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/works.jsonl",
+        "data/knowledge-base/processed/objects.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 20,
+      "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+      "errors": []
+    }
+  ]
+}

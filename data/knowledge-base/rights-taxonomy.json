@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "updated_at": "2026-06-13",
+  "redistribution_statuses": [
+    {
+      "id": "metadata-ok",
+      "description": "Metadata can be stored locally and redistributed with source attribution."
+    },
+    {
+      "id": "derived-metadata-ok",
+      "description": "Derived metadata tables can be stored and shared, but raw payloads or full text may require source-specific review."
+    },
+    {
+      "id": "public-domain-text-ok",
+      "description": "Public-domain text can be stored locally and used for analysis."
+    },
+    {
+      "id": "local-analysis-only",
+      "description": "Material may be stored or indexed locally for analysis, but redistribution requires review."
+    },
+    {
+      "id": "metadata-only",
+      "description": "Only metadata should be stored or redistributed."
+    },
+    {
+      "id": "blocked-or-needs-review",
+      "description": "Access, robots, license, or source terms need review before ingest."
+    }
+  ],
+  "quote_statuses": [
+    {
+      "id": "quote-ok",
+      "description": "Short quotations can be used under source license or ordinary public web citation norms."
+    },
+    {
+      "id": "quote-public-domain",
+      "description": "Text is public domain."
+    },
+    {
+      "id": "metadata-only-no-quotes",
+      "description": "Use metadata only; do not quote stored text."
+    },
+    {
+      "id": "needs-review",
+      "description": "Quotation requires source-specific review."
+    }
+  ],
+  "text_availability": [
+    "full-text-open",
+    "full-text-public-domain",
+    "abstract-or-description-only",
+    "metadata-only",
+    "public-page-extracted-text",
+    "unknown"
+  ]
+}

@@ -1,0 +1,1540 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 1575670,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              7,
+              8
+            ]
+          ],
+          "date-time": "2024-07-08T02:17:23Z",
+          "timestamp": 1720405043759
+        },
+        "reference-count": 0,
+        "publisher": "University Press of Florida",
+        "isbn-type": [
+          {
+            "value": "9781683401476",
+            "type": "print"
+          },
+          {
+            "value": "9781683402145",
+            "type": "electronic"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2020,
+              4,
+              8
+            ]
+          ]
+        },
+        "abstract": "<p>Through the study of digital projects developed by Afrolatin@ and Afro-Latin American communities and agents in the Americas, this chapter argues for a rethinking of inclusion as a notion widely discussed in fields such as the digital humanities. Departing from myths of digital universalism and digital neutrality, the text discusses how technologies—in particular, digital technologies—are repurposed by these communities to pursue diverse political, cultural, and symbolic objectives in assorted geographic and cultural contexts. In that sense, the chapter proposes the reconsideration of the digital humanities and digital studies as expansive fields of practice, in which there is space for what the author calls Afrolatin@ digital humanities. Studied projects reveal that such expansion of the digital humanities is less concerned with textual analysis and digitization of canonical material, and more centered around the combination of computer applications and analog practices to challenge colonial and neo-colonial orders embedded in global neoliberal designs. Likewise, those projects propose diverse conceptions of humanity that challenge the universal conception of human centered around western male conceptions.</p>",
+        "DOI": "10.5744/florida/9781683401476.003.0008",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              9,
+              17
+            ]
+          ],
+          "date-time": "2020-09-17T18:25:08Z",
+          "timestamp": 1600367108000
+        },
+        "page": "122-136",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Afrolatin@ Digital Humanities or Rethinking Inclusion in the Digital Humanities"
+        ],
+        "prefix": "10.5744",
+        "author": [
+          {
+            "given": "Eduard",
+            "family": "Arriaga",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "3749",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              9,
+              17
+            ]
+          ]
+        },
+        "container-title": [
+          "Digital Humanities in Latin America"
+        ],
+        "original-title": [
+          "Afrolatin@ Digital Humanities or Rethinking Inclusion in the Digital Humanities"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2020,
+              9,
+              17
+            ]
+          ],
+          "date-time": "2020-09-17T18:25:08Z",
+          "timestamp": 1600367108000
+        },
+        "score": 20.220535,
+        "resource": {
+          "primary": {
+            "URL": "https://florida.universitypressscholarship.com/view/10.5744/florida/9781683401476.001.0001/upso-9781683401476-chapter-008"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2020,
+              4,
+              8
+            ]
+          ]
+        },
+        "ISBN": [
+          "9781683401476",
+          "9781683402145"
+        ],
+        "references-count": 0,
+        "URL": "https://doi.org/10.5744/florida/9781683401476.003.0008",
+        "published": {
+          "date-parts": [
+            [
+              2020,
+              4,
+              8
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              5,
+              5
+            ]
+          ],
+          "date-time": "2024-05-05T13:37:47Z",
+          "timestamp": 1714916267632
+        },
+        "reference-count": 0,
+        "publisher": "Palgrave Macmillan",
+        "isbn-type": [
+          {
+            "value": "9781137337016",
+            "type": "print"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.1057/9781137337016.0023",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2014,
+              12,
+              5
+            ]
+          ],
+          "date-time": "2014-12-05T11:21:09Z",
+          "timestamp": 1417778469000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Digital Humanities"
+        ],
+        "prefix": "10.1057",
+        "author": [
+          {
+            "given": "Peter",
+            "family": "Robinson",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "container-title": [
+          "Advancing Digital Humanities"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2014,
+              12,
+              5
+            ]
+          ],
+          "date-time": "2014-12-05T11:21:34Z",
+          "timestamp": 1417778494000
+        },
+        "score": 19.592785,
+        "resource": {
+          "primary": {
+            "URL": "http://www.palgraveconnect.com/doifinder/10.1057/9781137337016.0023"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "ISBN": [
+          "9781137337016"
+        ],
+        "references-count": 0,
+        "URL": "https://doi.org/10.1057/9781137337016.0023"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              5
+            ]
+          ],
+          "date-time": "2022-04-05T11:14:20Z",
+          "timestamp": 1649157260978
+        },
+        "reference-count": 0,
+        "publisher": "University of Michigan Press",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2307/j.ctv65sx0t.9",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:49Z",
+          "timestamp": 1538172709000
+        },
+        "page": "172-221",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Making Digital Humanities"
+        ],
+        "prefix": "10.2307",
+        "member": "1121",
+        "container-title": [
+          "Big Digital Humanities"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:55Z",
+          "timestamp": 1538172715000
+        },
+        "score": 19.503723,
+        "resource": {
+          "primary": {
+            "URL": "http://www.jstor.org/stable/10.2307/j.ctv65sx0t.9"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2307/j.ctv65sx0t.9"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              29
+            ]
+          ],
+          "date-time": "2025-10-29T19:33:48Z",
+          "timestamp": 1761766428854
+        },
+        "reference-count": 0,
+        "publisher": "University of Michigan Press",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2307/j.ctv65sx0t.5",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:49Z",
+          "timestamp": 1538172709000
+        },
+        "page": "1-35",
+        "source": "Crossref",
+        "is-referenced-by-count": 3,
+        "title": [
+          "Introducing the Digital Humanities"
+        ],
+        "prefix": "10.2307",
+        "member": "1121",
+        "container-title": [
+          "Big Digital Humanities"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:53Z",
+          "timestamp": 1538172713000
+        },
+        "score": 19.48722,
+        "resource": {
+          "primary": {
+            "URL": "http://www.jstor.org/stable/10.2307/j.ctv65sx0t.5"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2307/j.ctv65sx0t.5"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              5
+            ]
+          ],
+          "date-time": "2022-04-05T00:13:23Z",
+          "timestamp": 1649117603946
+        },
+        "reference-count": 0,
+        "publisher": "University of Michigan Press",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2307/j.ctv65sx0t.6",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:49Z",
+          "timestamp": 1538172709000
+        },
+        "page": "36-81",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Digital Humanities as a Field"
+        ],
+        "prefix": "10.2307",
+        "member": "1121",
+        "container-title": [
+          "Big Digital Humanities"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:53Z",
+          "timestamp": 1538172713000
+        },
+        "score": 19.260914,
+        "resource": {
+          "primary": {
+            "URL": "http://www.jstor.org/stable/10.2307/j.ctv65sx0t.6"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2307/j.ctv65sx0t.6"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              6,
+              3
+            ]
+          ],
+          "date-time": "2026-06-03T21:32:55Z",
+          "timestamp": 1780522375573,
+          "version": "3.54.1"
+        },
+        "reference-count": 0,
+        "publisher": "The Association for Computers and the Humanities",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>This article presents an examination of how digital humanities is currently conceived and described, and examines the discursive shift from humanities computing to digital humanities. It is argued that this renaming of humanities computing as digital humanities carries with it a set of epistemic commitments that are not necessarily compatible with a broad and inclusive notion of the digital humanities. In particular, the author suggests that tensions arise from the instrumental, textual and methodological focus of humanities computing as well as its relative lack of engagement with the digital as a study object. This article is the first in a series of four articles attempting to describe and analyze the field of digital humanities and digital humanities as a transformative practice.</jats:p>",
+        "DOI": "10.63744/ejvcpnbazkgk",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              20
+            ]
+          ],
+          "date-time": "2026-03-20T16:57:24Z",
+          "timestamp": 1774025844000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Humanities Computing as Digital Humanities"
+        ],
+        "prefix": "10.63744",
+        "volume": "3",
+        "author": [
+          {
+            "given": "Patrik",
+            "family": "Svensson",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "53140",
+        "published-online": {
+          "date-parts": [
+            [
+              2009,
+              9,
+              29
+            ]
+          ]
+        },
+        "container-title": [
+          "Digital Humanities Quarterly"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              20
+            ]
+          ],
+          "date-time": "2026-03-20T16:57:44Z",
+          "timestamp": 1774025864000
+        },
+        "score": 19.24709,
+        "resource": {
+          "primary": {
+            "URL": "https://dhq.digitalhumanities.org/vol/3/3/000065/000065.html"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2009,
+              9,
+              29
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-online": {
+            "date-parts": [
+              [
+                2009
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.63744/ejvcpnbazkgk",
+        "ISSN": [
+          "1938-4122"
+        ],
+        "issn-type": [
+          {
+            "value": "1938-4122",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2009,
+              9,
+              29
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              5
+            ]
+          ],
+          "date-time": "2022-04-05T08:35:25Z",
+          "timestamp": 1649147725083
+        },
+        "reference-count": 0,
+        "publisher": "University of Michigan Press",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2307/j.ctv65sx0t.7",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:49Z",
+          "timestamp": 1538172709000
+        },
+        "page": "82-130",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Three Premises of Big Digital Humanities"
+        ],
+        "prefix": "10.2307",
+        "member": "1121",
+        "container-title": [
+          "Big Digital Humanities"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:54Z",
+          "timestamp": 1538172714000
+        },
+        "score": 19.18473,
+        "resource": {
+          "primary": {
+            "URL": "http://www.jstor.org/stable/10.2307/j.ctv65sx0t.7"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2307/j.ctv65sx0t.7"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              26
+            ]
+          ],
+          "date-time": "2025-03-26T05:39:10Z",
+          "timestamp": 1742967550903,
+          "version": "3.40.3"
+        },
+        "publisher-location": "Cham",
+        "reference-count": 86,
+        "publisher": "Springer International Publishing",
+        "isbn-type": [
+          {
+            "type": "print",
+            "value": "9783031169496"
+          },
+          {
+            "type": "electronic",
+            "value": "9783031169502"
+          }
+        ],
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2022,
+                  9,
+                  29
+                ]
+              ],
+              "date-time": "2022-09-29T00:00:00Z",
+              "timestamp": 1664409600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2022,
+                  9,
+                  29
+                ]
+              ],
+              "date-time": "2022-09-29T00:00:00Z",
+              "timestamp": 1664409600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0"
+          }
+        ],
+        "funder": [
+          {
+            "name": "Luxembourg National Research Fund"
+          },
+          {
+            "name": "C2DH"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "abstract": "<jats:title>Abstract</jats:title><jats:p>This chapter delineates the scope and core ideas of the book. The Digital Turn had promised to bring neutrality, fairness and accuracy to research; it created the illusion that it was possible to incorporate technology in knowledge creation practices whilst still operating within the traditional model of disciplines separation. But by adding further complexity to reality and by worsening existing inequalities in the world, the digital transformation has increasingly exposed how illusory such promises were. More recently, the dramatic increase in technology adoption brought about by the COVID-19 pandemic has conclusively established the inadequacy of our current model of knowledge. In this chapter, I examine how the rigid division into compartmentalised, competing disciplines has contributed to exalting computational methods as neutral whilst stigmatising consciousness and criticality as carriers of injustice. Taking the humanities as a focal point, I retrace schisms between the humanities, the digital humanities and critical digital humanities; these are embedded, I argue, within the old dichotomy of science versus humanities. In moving beyond the current static framework, I argue for a new model of knowledge creation.</jats:p>",
+        "DOI": "10.1007/978-3-031-16950-2_1",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              27
+            ]
+          ],
+          "date-time": "2023-03-27T02:21:39Z",
+          "timestamp": 1679883699000
+        },
+        "page": "1-35",
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Humanities in the digital"
+        ],
+        "prefix": "10.1007",
+        "author": [
+          {
+            "given": "Lorella",
+            "family": "Viola",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2022,
+              9,
+              29
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "1_CR3",
+            "doi-asserted-by": "publisher",
+            "unstructured": "Alenezi M (2021) Deep dive into digital transformation in higher education institutions. Educ Sci 11(12):770. https://doi.org/10.3390/educsci11120770, https://www.mdpi.com/2227-7102/11/12/770. Number: 12. Publisher: Multidisciplinary Digital Publishing Institute",
+            "DOI": "10.3390/educsci11120770"
+          },
+          {
+            "key": "1_CR4",
+            "unstructured": "Allington D, Brouillete S, Golumbia D (2016) Neoliberal tools (and archives): a political history of digital humanities. Los Angeles Review of Books. https://lareviewofbooks.org/article/neoliberal-tools-archives-political-history-digital-humanities/. Section: essay"
+          },
+          {
+            "key": "1_CR5",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Autor DH, Levy F, Murnane RJ (2003) The skill content of recent technological change: an empirical exploration. Q J Econ 55",
+            "DOI": "10.1162/003355303322552801"
+          },
+          {
+            "key": "1_CR13",
+            "volume-title": "Derrida and the political",
+            "author": "R Beardsworth",
+            "year": "1996",
+            "unstructured": "Beardsworth R (1996) Derrida and the political. Routledge, Milton Park"
+          },
+          {
+            "issue": "3",
+            "key": "1_CR16",
+            "first-page": "22",
+            "volume": "49",
+            "author": "D Berry",
+            "year": "2014",
+            "unstructured": "Berry D (2014) Post-digital humanities: computation and cultural critique in the arts and humanities. EDUCAUSE Rev 49(3):22–26. https://er.educause.edu/articles/2014/5/postdigital-humanities-computation-and-cultural-critique-in-the-arts-and-humanities",
+            "journal-title": "EDUCAUSE Rev"
+          },
+          {
+            "volume-title": "Postdigital aesthetics: art, computation and design",
+            "year": "2015",
+            "key": "1_CR17",
+            "unstructured": "Berry DM, Dieter M (eds) (2015) Postdigital aesthetics: art, computation and design. Palgrave Macmillan, New York"
+          },
+          {
+            "key": "1_CR18",
+            "unstructured": "Berry DM, Fagerjord A (2017) Digital humanities: knowledge and critique in a digital age. Polity, Cambridge Malden. OCLC: 986233467"
+          },
+          {
+            "key": "1_CR19",
+            "volume-title": "Chapter 7: this digital humanities which is not one",
+            "author": "J Bianco",
+            "year": "2012",
+            "unstructured": "Bianco J (2012) Chapter 7: this digital humanities which is not one. In: Debates in the digital humanities. Manifold Scholarship, University of Minnesota. https://dhdebates.gc.cuny.edu/read/untitled-88c11800-9446-469b-a3be-3fdb36bfbd1e/section/1a1c7fbc-6c4a-4cec-9597-a15e33315541"
+          },
+          {
+            "key": "1_CR26",
+            "first-page": "226",
+            "volume": "67",
+            "author": "D Boyd",
+            "year": "2016",
+            "unstructured": "Boyd D (2016) Undoing the neutrality of big data. Fla Law Rev Forum 67:226–232",
+            "journal-title": "Fla Law Rev Forum"
+          },
+          {
+            "key": "1_CR27",
+            "unstructured": "Boyd D (2018) Don’t believe every ai you see. https://www.newamerica.org/pit/blog/dont-believe-every-ai-you-see/"
+          },
+          {
+            "issue": "1",
+            "key": "1_CR29",
+            "doi-asserted-by": "publisher",
+            "first-page": "9",
+            "DOI": "10.5325/jpoststud.1.1.0009",
+            "volume": "1",
+            "author": "Braidotti",
+            "year": "2017",
+            "unstructured": "Braidotti (2017) Posthuman critical theory. J Posthuman Stud 1(1):9. https://doi.org/10.5325/jpoststud.1.1.0009",
+            "journal-title": "J Posthuman Stud"
+          },
+          {
+            "issue": "6",
+            "key": "1_CR30",
+            "doi-asserted-by": "publisher",
+            "first-page": "31",
+            "DOI": "10.1177/0263276418771486",
+            "volume": "36",
+            "author": "R Braidotti",
+            "year": "2019",
+            "unstructured": "Braidotti R (2019) A theoretical framework for the critical posthumanities. Theory Cult Soc 36(6):31–61. https://doi.org/10.1177/0263276418771486",
+            "journal-title": "Theory Cult Soc"
+          },
+          {
+            "issue": "6",
+            "key": "1_CR31",
+            "doi-asserted-by": "publisher",
+            "first-page": "3",
+            "DOI": "10.1177/0263276419860567",
+            "volume": "36",
+            "author": "R Braidotti",
+            "year": "2019",
+            "unstructured": "Braidotti R, Fuller M (2019) The posthumanities in an era of unexpected consequences. Theory Cult Soc 36(6):3–29. https://doi.org/10.1177/0263276419860567",
+            "journal-title": "Theory Cult Soc"
+          },
+          {
+            "key": "1_CR32",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Branch JW, Burgos D, Serna MDA, Ortega GP (2020) Digital transformation in higher education institutions: between myth and reality. In: Burgos D (ed) Radical solutions and eLearning. Lecture Notes in Educational Technology. Springer Singapore, Singapore, pp 41–50, https://doi.org/10.1007/978-981-15-4952-6_3",
+            "DOI": "10.1007/978-981-15-4952-6_3"
+          },
+          {
+            "key": "1_CR33",
+            "unstructured": "Brennan T (2017) The digital humanities bust. The Chronicle of Higher Education, Washington. https://www.chronicle.com/article/the-digital-humanities-bust/. Section: The Review"
+          },
+          {
+            "key": "1_CR37",
+            "unstructured": "Brown-Martin G, Yiannouka SN, Tavakolian N (2014) Learning {re}imagined: how the connected society is transforming learning. Bloomsbury Qatar Foundation Publishing, Qatar. OCLC: 905268079"
+          },
+          {
+            "key": "1_CR38",
+            "unstructured": "Bush V (1945) As we may think. The Atlantic, Washington. https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/. Section: Technology"
+          },
+          {
+            "key": "1_CR42",
+            "doi-asserted-by": "publisher",
+            "first-page": "49",
+            "DOI": "10.7551/mitpress/9780262033534.003.0004",
+            "volume-title": "Theorizing digital cultural heritage",
+            "author": "F Cameron",
+            "year": "2007",
+            "unstructured": "Cameron F (2007) Beyond the cult of the replicant: museums and historical digital objects—traditional concerns, new discourses. In: Cameron F, Kenderdine S (eds) Theorizing digital cultural heritage. The MIT Press, Cambridge, pp 49–75. https://doi.org/10.7551/mitpress/9780262033534.003.0004"
+          },
+          {
+            "key": "1_CR43",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.4324/9781003149606",
+            "volume-title": "The future of digital data, heritage and curation in a more-than-human world",
+            "author": "F Cameron",
+            "year": "2021",
+            "unstructured": "Cameron F (2021) The future of digital data, heritage and curation in a more-than-human world. Routledge, Abingdon"
+          },
+          {
+            "key": "1_CR44",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Cameron F, Kenderdine S (eds) (2007) Theorizing digital cultural heritage: a critical discourse. Media in transition. MIT Press, Cambridge. OCLC: ocm62888361",
+            "DOI": "10.7551/mitpress/9780262033534.001.0001"
+          },
+          {
+            "key": "1_CR50",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Christin A (2016) From daguerreotypes to algorithms: machines, expertise, and three forms of objectivity. ACM SIGCAS Comput Soc 46(1):27–32. https://doi.org/10.1145/2908216.2908220, https://dl.acm.org/doi/10.1145/2908216.2908220",
+            "DOI": "10.1145/2908216.2908220"
+          },
+          {
+            "key": "1_CR52",
+            "unstructured": "Chubin DE, Porter AL, Rossini FA, Connolly T (eds) (1986) Interdisciplinary analysis and research: theory and practice of problem-focused research and development. Lomond, Mt. Airy"
+          },
+          {
+            "key": "1_CR53",
+            "unstructured": "Chun WHK, Grusin R, Jagoda P, Raley R (2016) The dark side of the digital humanities. In: Debates in the digital humanities, Chapter 38. Manifold Scholarship, Minnesota. https://dhdebates.gc.cuny.edu/read/untitled/section/ca35736b-0020-4ac6-9ce7-88c6e9ff1bba"
+          },
+          {
+            "key": "1_CR55",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1017/CBO9780511518645",
+            "volume-title": "Derrida, Heidegger, Blanchot: sources of Derrida’s notion and practice of literature",
+            "author": "T Clark",
+            "year": "1992",
+            "unstructured": "Clark T (1992) Derrida, Heidegger, Blanchot: sources of Derrida’s notion and practice of literature. Cambridge University Press, Cambridge"
+          },
+          {
+            "key": "1_CR56",
+            "unstructured": "Cohron M, Cummings S, Laroia A, Yavar E (2020) COVID-19 is accelerating the rise of the digital economy. Digital transformation in the pandemic & post-pandemic era. Technical report. BDO International. https://www.bdo.co.za/getattachment/Insights/2020/COVID19/Covid-19-is-accelerating-the-rise-of-the-digital-e/ADV_DTS_COVID-19-is-Accelerating-the-Rise-of-the-Digital-Economy_Web.pdf.aspx?lang=en-ZA"
+          },
+          {
+            "key": "1_CR60",
+            "unstructured": "Cook G, Van Horn J (2011) How dirty is your data? A look at the energy choices that power cloud computing. Technical report. Greenpeace International, Amsterdam. https://www.greenpeace.org/static/planet4-international-stateless/2011/04/4cceba18-dirty-data-report-greenpeace.pdf"
+          },
+          {
+            "key": "1_CR63",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Crawford K (2021) Atlas of AI: power, politics, and the planetary costs of artificial intelligence. Yale University Press, New Haven. OCLC: on1111967630",
+            "DOI": "10.12987/9780300252392"
+          },
+          {
+            "key": "1_CR69",
+            "unstructured": "Deegan M, McCarty W (eds) (2011) Collaborative research in the digital humanities. Ashgate Pub, Farnham"
+          },
+          {
+            "key": "1_CR72",
+            "volume-title": "Specters of marx: the state of the debt, the work of mourning and the new international",
+            "author": "J Derrida",
+            "year": "1994",
+            "unstructured": "Derrida J (1994) Specters of marx: the state of the debt, the work of mourning and the new international. Routledge, Milton Park"
+          },
+          {
+            "key": "1_CR74",
+            "unstructured": "DeVaney J, Shimshon G, Rascoff M, Maggioncalda J (2020) How can universities adapt during COVID-19? Technical report. COURSERA. https://www.timeshighereducation.com/sites/default/files/how-can-universities-adapt-covid19_whitepaper.pdf"
+          },
+          {
+            "key": "1_CR77",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Dobson JE (2019) Critical digital humanities: the search for a methodology. University of Illinois Press, Champaign. OCLC: 1096281560",
+            "DOI": "10.5622/illinois/9780252042270.001.0001"
+          },
+          {
+            "key": "1_CR79",
+            "unstructured": "Drucker J (2011) Humanities approaches to graphical display. Digit Humanit Q 5(1). http://www.digitalhumanities.org/dhq/vol/5/1/000091/000091.html"
+          },
+          {
+            "key": "1_CR80",
+            "unstructured": "Drucker J (2013) Performative materiality and theoretical approaches to interface. Digit Humanit Q 7(1). ISBN: 1938-4122"
+          },
+          {
+            "key": "1_CR81",
+            "unstructured": "Drucker J (2014) Visualizing temporality: modelling time from the textual record. http://www.qmul.ac.uk/events/items/2014/119740.html"
+          },
+          {
+            "key": "1_CR82",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.7551/mitpress/12523.001.0001",
+            "volume-title": "Visualization and interpretation: humanistic approaches to display",
+            "author": "J Drucker",
+            "year": "2020",
+            "unstructured": "Drucker J (2020) Visualization and interpretation: humanistic approaches to display. The MIT Press, Cambridge"
+          },
+          {
+            "key": "1_CR83",
+            "volume-title": "A companion to digital humanities",
+            "author": "J Drucker",
+            "year": "2004",
+            "unstructured": "Drucker J, Nowviskie B (2004) Speculative computing: aesthetic provocations in humanities computing. In: Schreibman S, Siemens R, Unsworth J (eds) A companion to digital humanities. Blackwell, Oxford"
+          },
+          {
+            "key": "1_CR88",
+            "unstructured": "Electronic Frontier Foundation (2021) Search the data – atlas of surveillance. https://atlasofsurveillance.org"
+          },
+          {
+            "key": "1_CR90",
+            "volume-title": "Automating inequality: how high-tech tools profile, police, and punish the poor",
+            "author": "V Eubanks",
+            "year": "2017",
+            "unstructured": "Eubanks V (2017) Automating inequality: how high-tech tools profile, police, and punish the poor, 1st edn. St. Martin’s Press, New York",
+            "edition": "1"
+          },
+          {
+            "key": "1_CR91",
+            "unstructured": "European Center for Digital Competitiveness (2021) Digital riser report 2021. Techncial report. European Center for Digital Competitiveness, ESCP Business School. https://digital-competitiveness.eu/wp-content/uploads/Digital_Riser_Report-2021.pdf"
+          },
+          {
+            "key": "1_CR96",
+            "unstructured": "Fenn J, Raskino M (2008) Mastering the hype cycle: how to choose the right innovation at the right time. Gartner, Inc./Harvard Business School Press series. Harvard Business Press, Boston. OCLC: ocn213312226"
+          },
+          {
+            "key": "1_CR98",
+            "doi-asserted-by": "publisher",
+            "unstructured": "Fickers A (2020) Update für die Hermeneutik. Geschichtswissenschaft auf dem Weg zur digitalen Forensik? Zeithistorische Forschungen/Studies in Contemporary History 17:157–168. https://doi.org/10.14765/ZZF.DOK-1765, https://zeitgeschichte-digital.de/doks/1765. Publisher: ZZF – Centre for Contemporary History: Zeithistorische Forschungen",
+            "DOI": "10.14765/ZZF.DOK-1765"
+          },
+          {
+            "key": "1_CR100",
+            "doi-asserted-by": "publisher",
+            "first-page": "139",
+            "DOI": "10.1515/9783110430295-012",
+            "volume-title": "Handbook of digital public history",
+            "author": "A Fickers",
+            "year": "2022",
+            "unstructured": "Fickers A (2022) Digital hermeneutics: the reflexive turn in digital public history? In: Noiret S, Tebeau M, Zaagsma G (eds) Handbook of digital public history. De Gruyter, Berlin, pp 139–148. https://doi.org/10.1515/9783110430295-012"
+          },
+          {
+            "key": "1_CR104",
+            "unstructured": "Flynn (2020) How big data analytics are used in the banking industry. https://opendatascience.com/how-big-data-analytics-are-used-in-the-banking-industry/"
+          },
+          {
+            "key": "1_CR106",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Frey CB, Osborne MA (2017) The future of employment: how susceptible are jobs to computerisation? Technol Forecast Soc Chang 114:254–280. https://doi.org/10.1016/j.techfore.2016.08.019, https://linkinghub.elsevier.com/retrieve/pii/S0040162516302244",
+            "DOI": "10.1016/j.techfore.2016.08.019"
+          },
+          {
+            "key": "1_CR107",
+            "volume-title": "Why is Facebook rejecting these fashion ads?",
+            "author": "V Friedman",
+            "year": "2021",
+            "unstructured": "Friedman V (2021) Why is Facebook rejecting these fashion ads? The New York Times, New York. https://www.nytimes.com/2021/02/11/style/disabled-fashion-facebook-discrimination.html"
+          },
+          {
+            "key": "1_CR112",
+            "doi-asserted-by": "publisher",
+            "first-page": "167",
+            "DOI": "10.7551/mitpress/9780262525374.003.0009",
+            "volume-title": "Media technologies",
+            "author": "T Gillespie",
+            "year": "2014",
+            "unstructured": "Gillespie T (2014) The relevance of algorithms. In: Gillespie T, Boczkowski PJ, Foot KA (eds) Media technologies. The MIT Press, Cambridge, pp 167–194. https://doi.org/10.7551/mitpress/9780262525374.003.0009"
+          },
+          {
+            "volume-title": "“Raw data” is an oxymoron",
+            "year": "2013",
+            "key": "1_CR113",
+            "unstructured": "Gitelman L (ed) (2013) “Raw data” is an oxymoron. Infrastructures series, The MIT Press, Cambridge"
+          },
+          {
+            "key": "1_CR117",
+            "first-page": "16",
+            "volume-title": "Routledge international handbook of research methods in digital humanities",
+            "author": "P Gooding",
+            "year": "2020",
+            "unstructured": "Gooding P (2020) The library in digital humanities: interdisciplinary approaches to digital materials. In: Schuster K, Dunn S (eds) Routledge international handbook of research methods in digital humanities. Routledge, Milton Park, p 16"
+          },
+          {
+            "key": "1_CR119",
+            "volume-title": "The democracy project: a history, a crisis, a movement",
+            "author": "D Graeber",
+            "year": "2013",
+            "unstructured": "Graeber D (2013) The democracy project: a history, a crisis, a movement, 1st edn. Spiegel & Grau, New York",
+            "edition": "1"
+          },
+          {
+            "key": "1_CR121",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Grimshaw M (2018) Towards a manifesto for a critical digital humanities: critiquing the extractive capitalism of digital society. Palgrave Commun 4(1):21. https://doi.org/10.1057/s41599-018-0075-y, http://www.nature.com/articles/s41599-018-0075-y",
+            "DOI": "10.1057/s41599-018-0075-y"
+          },
+          {
+            "key": "1_CR123",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Grusin R (2014) The dark side of digital humanities: dispatches from two recent MLA conventions. Differences 25(1):79–92. https://doi.org/10.1215/10407391-2420009, https://read.dukeupress.edu/differences/article/25/1/79-92/60682",
+            "DOI": "10.1215/10407391-2420009"
+          },
+          {
+            "key": "1_CR124",
+            "unstructured": "Guariglia M (2020) Technology can’t predict crime, it can only weaponize proximity to policing. https://www.eff.org/deeplinks/2020/09/technology-cant-predict-crime-it-can-only-weaponize-proximity-policing"
+          },
+          {
+            "key": "1_CR128",
+            "unstructured": "Hall G (2002) Culture in bits: the monstrous future of theory. Continuum, London. http://site.ebrary.com/id/10224963. OCLC: 320326067"
+          },
+          {
+            "key": "1_CR130",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Hannak A, Soeller G, Lazer D, Mislove A, Wilson C (2014) Measuring price discrimination and steering on e-commerce web sites. In: Proceedings of the 2014 conference on internet measurement conference. ACM, Vancouver, pp 305–318. https://doi.org/10.1145/2663716.2663744, https://dl.acm.org/doi/10.1145/2663716.2663744",
+            "DOI": "10.1145/2663716.2663744"
+          },
+          {
+            "key": "1_CR134",
+            "unstructured": "Heidegger M (1977) The question concerning technology. Garland Publishing Inc., New York. Publisher: Harper & Row New York"
+          },
+          {
+            "issue": "1",
+            "key": "1_CR137",
+            "doi-asserted-by": "publisher",
+            "first-page": "9",
+            "DOI": "10.2752/147800413X13515292098070",
+            "volume": "10",
+            "author": "T Hitchcock",
+            "year": "2013",
+            "unstructured": "Hitchcock T (2013) Confronting the digital: or how academic history writing lost the plot. Cult Soc Hist 10(1):9–23. https://doi.org/10.2752/147800413X13515292098070",
+            "journal-title": "Cult Soc Hist"
+          },
+          {
+            "key": "1_CR147",
+            "first-page": "35",
+            "volume-title": "Interdisciplinary analysis and research: theory and practice of problem-focused research and development",
+            "author": "JT Klein",
+            "year": "1983",
+            "unstructured": "Klein JT (1983) The dialectic and rhetoric of disciplinary and interdisciplinary. In: Chubin DE, Porter AL, Rossini FA, Connolly T (eds) Interdisciplinary analysis and research: theory and practice of problem-focused research and development, Lomond Publications Inc., Mt. Airy, pp 35–74"
+          },
+          {
+            "key": "1_CR148",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.3998/dh.12869322.0001.001",
+            "volume-title": "Interdisciplining digital humanities: boundary work in an emerging field",
+            "author": "JT Klein",
+            "year": "2015",
+            "unstructured": "Klein JT (2015) Interdisciplining digital humanities: boundary work in an emerging field. Digital humanities, University of Michigan Press, Ann Arbor"
+          },
+          {
+            "key": "1_CR149",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Komarčević M, Dimić M, Čelik P (2017) Challenges and impacts of the digital transformation of society in the social sphere. SEER J Lab Soc Aff East Eur 20(1):31–48. http://www.jstor.org/stable/26379907. Publisher: Nomos Verlagsgesellschaft mbH",
+            "DOI": "10.5771/1435-2869-2017-1-31"
+          },
+          {
+            "key": "1_CR151",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Lacy P, Rutqvist J (2015) Waste to wealth: the circular economy advantage. Palgrave MacMillan, Houndmills. OCLC: 922951290",
+            "DOI": "10.1057/9781137530707"
+          },
+          {
+            "key": "1_CR162",
+            "doi-asserted-by": "publisher",
+            "first-page": "490",
+            "DOI": "10.5749/minnesota/9780816677948.003.0049",
+            "volume-title": "Debates in the digital humanities",
+            "author": "A Liu",
+            "year": "2012",
+            "unstructured": "Liu A (2012) Where is cultural criticism in the digital humanities? In: Gold MK (ed) Debates in the digital humanities. University of Minnesota Press, Minneapolis, pp 490–510. https://doi.org/10.5749/minnesota/9780816677948.003.0049"
+          },
+          {
+            "key": "1_CR172",
+            "doi-asserted-by": "crossref",
+            "unstructured": "McCarty W (2015) Becoming interdisciplinary. In: Schreibman S, Siemens R, Unsworth J (eds) A new companion to digital humanities. John Wiley & Sons Ltd., Chichester, pp 67–83. https://doi.org/10.1002/9781118680605.ch5, https://onlinelibrary.wiley.com/doi/10.1002/9781118680605.ch5",
+            "DOI": "10.1002/9781118680605.ch5"
+          },
+          {
+            "issue": "1",
+            "key": "1_CR173",
+            "doi-asserted-by": "publisher",
+            "first-page": "17",
+            "DOI": "10.2307/2739220",
+            "volume": "28",
+            "author": "M McKeon",
+            "year": "1994",
+            "unstructured": "McKeon M (1994) The origins of interdisciplinary studies. Eighteenth Century Stud 28(1):17. https://doi.org/10.2307/2739220",
+            "journal-title": "Eighteenth Century Stud"
+          },
+          {
+            "key": "1_CR176",
+            "unstructured": "Microsoft Partner Community (2018) Digital transformation – revolution, evolution or devolution? https://www.microsoftpartnercommunity.com/t5/Partner-to-Partner/Digital-transformation-revolution-evolution- or-devolution/m-p/4771#M11. Section: Partner-to-Partner"
+          },
+          {
+            "key": "1_CR179",
+            "unstructured": "Moretti MDiF (2016) The digital in the humanities: an interview with Franco Moretti. Los Angeles Review of Books. https://lareviewofbooks.org/article/the-digital-in-the-humanities-an-interview-with-franco-moretti/"
+          },
+          {
+            "key": "1_CR180",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Morze NV, Strutynska OV (2021) Digital transformation in society: key aspects for model development. J Phys Conf Ser 1946(1):012021. https://doi.org/10.1088/1742-6596/1946/1/012021. Publisher: IOP Publishing",
+            "DOI": "10.1088/1742-6596/1946/1/012021"
+          },
+          {
+            "key": "1_CR189",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1017/CBO9780511816345",
+            "volume-title": "That noble dream: the “objectivity question” and the American historical profession",
+            "author": "P Novick",
+            "year": "1988",
+            "unstructured": "Novick P (1988) That noble dream: the “objectivity question” and the American historical profession. Ideas in context, Cambridge University Press, Cambridge"
+          },
+          {
+            "key": "1_CR194",
+            "volume-title": "Qualitative research & evaluation methods: integrating theory and practice",
+            "author": "MQ Patton",
+            "year": "2015",
+            "unstructured": "Patton MQ (2015) Qualitative research & evaluation methods: integrating theory and practice, 4th edn. SAGE Publications Inc, Thousand Oaks",
+            "edition": "4"
+          },
+          {
+            "key": "1_CR205",
+            "unstructured": "ResearchAndMarketscom (2020) Big data in healthcare report 2019: global market analysis by component, deployment, analytics type, application, end-user, and region (2014–2024). Technical report, ResearchAndMarkets.com. https://www.researchandmarkets.com"
+          },
+          {
+            "key": "1_CR213",
+            "first-page": "21",
+            "volume-title": "Gadamer’s repercussions",
+            "author": "R Rorty",
+            "year": "2004",
+            "unstructured": "Rorty R (2004) Being that can be understood is language. In: Krajewski B (ed) Gadamer’s repercussions, 1st edn. Reconsidering Philosophical Hermeneutics. University of California Press, Berkeley, pp 21–29",
+            "edition": "1"
+          },
+          {
+            "key": "1_CR218",
+            "unstructured": "Schwab K (2017) The fourth industrial revolution. Penguin, London. OCLC: 1004975093"
+          },
+          {
+            "key": "1_CR223",
+            "unstructured": "Snow CP (2013) The two cultures and the scientific revolution. Martino Publishing, Mansfield Center. OCLC: 908393033"
+          },
+          {
+            "key": "1_CR225",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Stehr N, Weingart P (eds) (2000) Practising interdisciplinarity. University of Toronto Press, Toronto. OCLC: ocm43283641",
+            "DOI": "10.3138/9781442678729"
+          },
+          {
+            "key": "1_CR226",
+            "doi-asserted-by": "publisher",
+            "first-page": "13727",
+            "DOI": "10.1016/B0-08-043076-7/03187-9",
+            "volume-title": "International encyclopedia of the social & behavioral sciences",
+            "author": "R Stichweh",
+            "year": "2001",
+            "unstructured": "Stichweh R (2001) History of scientific disciplines. In: International encyclopedia of the social & behavioral sciences. Elsevier, Amsterdam, pp 13727–13731. https://doi.org/10.1016/B0-08-043076-7/03187-9"
+          },
+          {
+            "key": "1_CR227",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1515/9781503616738",
+            "volume-title": "Technics and time: the fault of Epimetheus",
+            "author": "B Stiegler",
+            "year": "1998",
+            "unstructured": "Stiegler B (1998) Technics and time: the fault of Epimetheus. Stanford University Press, Redwood City"
+          },
+          {
+            "key": "1_CR232",
+            "unstructured": "Sua A, Cheng WL, Lund S, De Smet A, Robinson O, Sanghvi S (2020) The postpandemic workforce: responses to a McKinsey global survey of 800 executives. Technical report, McKinsey Global Institute. https://www.mckinsey.com/featured-insights/future-of-work/what-800-executives-envision-for-the-postpandemic-workforce"
+          },
+          {
+            "key": "1_CR236",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Thomas WG III (2014) The promise of the digital humanities and the contested nature of digital scholarship. In: Schriebman S, Siemens R, Unsworth J (eds) A new companion to digital humanities. Wiley-Blackwell, Hoboken, pp 524–537. https://digitalcommons.unl.edu/historyfacpub/198",
+            "DOI": "10.1002/9781118680605.ch36"
+          },
+          {
+            "key": "1_CR237",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Thompson Klein J (2004) Prospects for transdisciplinarity. Futures 36(4):515–526. https://doi.org/10.1016/j.futures.2003.10.007, https://linkinghub.elsevier.com/retrieve/pii/S0016328703001903",
+            "DOI": "10.1016/j.futures.2003.10.007"
+          },
+          {
+            "key": "1_CR242",
+            "unstructured": "UNESCO (2020) Education: from disruption to recovery. https://en.unesco.org/covid19/educationresponse"
+          },
+          {
+            "key": "1_CR243",
+            "unstructured": "United Nations (2020a) ‘Inequality defines our time’: UN chief delivers hard-hitting Mandela day message | | UN News. UN News – Global perspective Human stories. https://news.un.org/en/story/2020/07/1068611"
+          },
+          {
+            "key": "1_CR247",
+            "unstructured": "van den Besselaar P, Heimeriks G (2001) Disciplinary, multidisciplinary, interdisciplinary: concepts and indicators. In: 8th conference on scientometrics and infometrics, Sydney"
+          },
+          {
+            "key": "1_CR258",
+            "doi-asserted-by": "publisher",
+            "unstructured": "Viola L, Fiscarelli AM (2021a) ChroniclItaly 3.0. A deep-learning, contextually enriched digital heritage collection of Italian immigrant newspapers published in the USA, 1898–1936. https://doi.org/10.5281/ZENODO.4596345, https://zenodo.org/record/4596345. ISSN: 1613-0073. Version Number: v3.0.0 Type: dataset",
+            "DOI": "10.5281/ZENODO.4596345"
+          },
+          {
+            "key": "1_CR263",
+            "doi-asserted-by": "publisher",
+            "unstructured": "Viola L, Verheul J (2020b) One hundred years of migration discourse in the times: a discourse-historical word vector space approach to the construction of meaning. Front Artif Intell 3:64. https://doi.org/10.3389/frai.2020.00064, https://www.frontiersin.org/article/10.3389/frai.2020.00064/full",
+            "DOI": "10.3389/frai.2020.00064"
+          },
+          {
+            "key": "1_CR270",
+            "unstructured": "Weinelt B (2016) Digital transformation of industries: societal implications. Technical report, World Economic Forum. https://reports.weforum.org/digital-transformation/wp-content/blogs.dir/94/mp/files/pages/files/dti-societal-implications-white-paper.pdf"
+          },
+          {
+            "key": "1_CR272",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Weingart P (2000) 2. Interdisciplinarity: the paradoxical discourse. In: Stehr N, Weingart P (eds) Practising interdisciplinarity. University of Toronto Press, Toronto, pp 25–42. https://doi.org/10.3138/9781442678729-004, https://www.degruyter.com/document/doi/10.3138/9781442678729-004/html",
+            "DOI": "10.3138/9781442678729-004"
+          },
+          {
+            "key": "1_CR273",
+            "unstructured": "Weiskott E (2017) There is no such thing as ‘the digital humanities’. The Chronicle of Higher Education. https://www.chronicle.com/article/there-is-no-such-thing-as-the-digital-humanities/"
+          }
+        ],
+        "container-title": [
+          "The Humanities in the Digital: Beyond Critical Digital Humanities"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/978-3-031-16950-2_1",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              9
+            ]
+          ],
+          "date-time": "2023-12-09T17:26:36Z",
+          "timestamp": 1702142796000
+        },
+        "score": 19.097315,
+        "resource": {
+          "primary": {
+            "URL": "https://link.springer.com/10.1007/978-3-031-16950-2_1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              9,
+              29
+            ]
+          ]
+        },
+        "ISBN": [
+          "9783031169496",
+          "9783031169502"
+        ],
+        "references-count": 86,
+        "URL": "https://doi.org/10.1007/978-3-031-16950-2_1",
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              9,
+              29
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "29 September 2022",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ChapterHistory",
+              "label": "Chapter History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              5,
+              1
+            ]
+          ],
+          "date-time": "2024-05-01T13:58:56Z",
+          "timestamp": 1714571936590
+        },
+        "reference-count": 0,
+        "publisher": "Palgrave Macmillan",
+        "isbn-type": [
+          {
+            "value": "9780230371934",
+            "type": "print"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.1057/9780230371934.0020",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2014,
+              2,
+              19
+            ]
+          ],
+          "date-time": "2014-02-19T10:27:49Z",
+          "timestamp": 1392805669000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Transdisciplinarity and Digital Humanities"
+        ],
+        "prefix": "10.1057",
+        "author": [
+          {
+            "given": "Yu-wei",
+            "family": "Lin",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "container-title": [
+          "Understanding Digital Humanities"
+        ],
+        "language": "en",
+        "deposited": {
+          "date-parts": [
+            [
+              2014,
+              2,
+              19
+            ]
+          ],
+          "date-time": "2014-02-19T10:27:53Z",
+          "timestamp": 1392805673000
+        },
+        "score": 18.957344,
+        "resource": {
+          "primary": {
+            "URL": "http://www.palgraveconnect.com/doifinder/10.1057/9780230371934.0020"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "ISBN": [
+          "9780230371934"
+        ],
+        "references-count": 0,
+        "URL": "https://doi.org/10.1057/9780230371934.0020"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T00:19:01Z",
+          "timestamp": 1649031541899
+        },
+        "reference-count": 0,
+        "publisher": "University of Michigan Press",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2307/j.ctv65sx0t.8",
+        "type": "book-chapter",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:49Z",
+          "timestamp": 1538172709000
+        },
+        "page": "131-171",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Humanities Infrastructure"
+        ],
+        "prefix": "10.2307",
+        "member": "1121",
+        "container-title": [
+          "Big Digital Humanities"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              28
+            ]
+          ],
+          "date-time": "2018-09-28T22:11:55Z",
+          "timestamp": 1538172715000
+        },
+        "score": 18.934677,
+        "resource": {
+          "primary": {
+            "URL": "http://www.jstor.org/stable/10.2307/j.ctv65sx0t.8"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              null
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2307/j.ctv65sx0t.8"
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

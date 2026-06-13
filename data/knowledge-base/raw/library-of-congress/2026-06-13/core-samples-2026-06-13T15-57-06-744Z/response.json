@@ -1,0 +1,4871 @@
+{
+  "breadcrumbs": [
+    {
+      "Library of Congress": "https://www.loc.gov"
+    },
+    {
+      "Books/Printed Material": "https://www.loc.gov/books/"
+    },
+    {
+      "Search": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json"
+    }
+  ],
+  "content": {
+    "active": true,
+    "link": "https://www.loc.gov/books/",
+    "pagination": "1 of 2",
+    "partof": [],
+    "results": [
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://lccn.loc.gov/2013497896",
+          "http://bvbr.bib-bvb.de:8991/F?func=service&doc_library=BVB01&local_base=BVB01&doc_number=027213917&line_number=0001&func_code=DB_RECORDS&service_type=MEDIA",
+          "http://www.loc.gov/item/2013497896/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "vendrell ferran, íngrid",
+          "demmerling, christoph"
+        ],
+        "date": "2014",
+        "dates": [
+          "2014"
+        ],
+        "description": [
+          "Includes bibliographical references and indexes."
+        ],
+        "digitized": true,
+        "extract_timestamp": "2023-06-02T15:39:09.402Z",
+        "group": [
+          "catalog-split-01",
+          "catalog",
+          "main-catalog-split-01",
+          "main-catalog"
+        ],
+        "hassegments": false,
+        "id": "http://lccn.loc.gov/2013497896",
+        "image_url": [],
+        "index": 1,
+        "item": {
+          "call_number": [
+            "PN49 .W244 2014"
+          ],
+          "contributors": [
+            "Demmerling, Christoph, 1963- editor.",
+            "Vendrell Ferran, Íngrid, editor."
+          ],
+          "created_published": [
+            "Berlin : de Gruyter, 2014."
+          ],
+          "date": "2014",
+          "format": [
+            "text"
+          ],
+          "language": [
+            "eng"
+          ],
+          "medium": [
+            "348 pages ; 25 cm."
+          ],
+          "notes": [
+            "Includes bibliographical references and indexes."
+          ],
+          "subjects": [
+            "Literature--Philosophy",
+            "Knowledge, Theory of",
+            "Truth in literature"
+          ],
+          "title": "Wahrheit, Wissen und Erkenntnis in der Literatur : philosophische Beiträge"
+        },
+        "language": [
+          "english"
+        ],
+        "number": [
+          "2018-06-01t13:29:48",
+          "n881305008",
+          "2013497896"
+        ],
+        "number_lccn": [
+          "2013497896"
+        ],
+        "number_oclc": [
+          "n881305008"
+        ],
+        "number_source_modified": [
+          "2018-06-01t13:29:48"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "catalog"
+        ],
+        "resources": [],
+        "shelf_id": "PN49 .W244 2014",
+        "site": [
+          "catalog"
+        ],
+        "subject": [
+          "literature",
+          "knowledge, theory of",
+          "philosophy",
+          "truth in literature"
+        ],
+        "timestamp": "2023-07-07T07:22:25.793Z",
+        "title": "Wahrheit, Wissen und Erkenntnis in der Literatur : philosophische Beiträge",
+        "type": [
+          "text"
+        ],
+        "url": "//lccn.loc.gov/2013497896"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://www.loc.gov/item/hlas-bi86105604/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "gardini, carlos",
+          "bastos, maría luisa"
+        ],
+        "contributor_author": [
+          "gardini, carlos"
+        ],
+        "contributor_hlas_editor": [
+          "bastos, maría luisa"
+        ],
+        "date": "1983",
+        "dates": [
+          "1983"
+        ],
+        "digitized": true,
+        "extract_timestamp": "2026-04-20T00:22:39.506Z",
+        "group": [
+          "hlas-annotations"
+        ],
+        "hassegments": false,
+        "id": "http://www.loc.gov/item/hlas-bi86105604/",
+        "image_url": [],
+        "index": 2,
+        "item": {
+          "added_personal_names": [
+            []
+          ],
+          "additional_fields": {
+            "hlas_staff_initials": [],
+            "local_record_history": [
+              "HLASretro"
+            ],
+            "note_review_copy": []
+          },
+          "annotation": "Estos 15 documentos de experiencias límite - trasmutaciones narrativas notables de la represión, la tortura, el asesinato institucionalizados en el país durante el llamado Proceso - son a la vez admonitorios y catárticos. Llama la atención que una escritura extraordinariamente tersa (donde se advierten reelaboraciones felices del Expresionismo, Kafka, Borges) logre con tanta eficacia atmósferas de pesadilla, de fantasmagoría gótica, de alucinación. [MLB]",
+          "authentication_code": "lchlas",
+          "cataloging_source": "DLC-HL DLC-HL bps",
+          "citation": "Gardini, Carlos. Primera línea. Buenos Aires: Editorial Sudamericana, 1983. 172 p.",
+          "contributor_hlas": [
+            "bastos, maría luisa"
+          ],
+          "date_of_publication": "1983",
+          "extent": "172 p.",
+          "hlas_id": "bi86105604",
+          "hlas_print_item": "5604",
+          "hlas_subject": [
+            "assassinations -- argentina",
+            "assassinations -- literature",
+            "torture -- argentina",
+            "torture -- literature"
+          ],
+          "hlas_topic": "HLAS Topic hpd7600",
+          "hlas_topic_label": "20th-21st Century Prose Fiction--Argentina",
+          "hlas_topic_number": "7600",
+          "hlas_topic_prefix": "hpd",
+          "hlas_topic_value": "HLAS Topic hpd7600 20th-21st Century Prose Fiction--Argentina",
+          "hlas_volume": "48",
+          "host_information": "Buenos Aires: Editorial Sudamericana, 1983.",
+          "language_of_publication_code": "spa",
+          "permalink": "https://lccn.loc.gov/bi86105604",
+          "physical_description": "172 p.",
+          "place_of_publication": "Buenos Aires:",
+          "place_of_publication_code": "ag",
+          "profile": "handbook-of-latin-american-studies",
+          "publication_language": "Spanish",
+          "publication_lccn": "83463462",
+          "publication_permalink": "https://lccn.loc.gov/83463462",
+          "publication_title": "Primera línea.",
+          "publisher": "Editorial Sudamericana,",
+          "rda_carrier_type": "volume nc rdacarrier",
+          "rda_content_type": "text txt rdacontent",
+          "rda_media_type": "unmediated n rdamedia",
+          "series_statement": "Col. El Espejo",
+          "year_one": "1983"
+        },
+        "language": [
+          "spanish"
+        ],
+        "language_publication": [
+          "spanish"
+        ],
+        "location": [
+          "argentina"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "latin american, caribbean, and european division",
+          "handbook of latin american studies",
+          "hlas volume 48",
+          "20th-21st century prose fiction--argentina (hpd7600)"
+        ],
+        "partof_hlas_topic": [
+          "20th-21st century prose fiction--argentina (hpd7600)"
+        ],
+        "partof_hlas_volume": [
+          "hlas volume 48"
+        ],
+        "resources": [],
+        "shelf_id": "48:hpd7600:hlas-bi86105604",
+        "site": [
+          "handbook of latin american studies"
+        ],
+        "subject": [
+          "argentina",
+          "literature",
+          "assassinations -- argentina",
+          "assassinations",
+          "torture",
+          "torture -- literature",
+          "torture -- argentina",
+          "assassinations -- literature"
+        ],
+        "subject_hlas_subject": [
+          "assassinations -- argentina",
+          "assassinations -- literature",
+          "torture -- argentina",
+          "torture -- literature"
+        ],
+        "timestamp": "2026-04-20T05:47:23.236Z",
+        "title": "Primera línea",
+        "type": [
+          "annotated"
+        ],
+        "url": "https://www.loc.gov/item/hlas-bi86105604/"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://www.loc.gov/item/2017279491/",
+          "http://lccn.loc.gov/2017279491",
+          "http://online.salempress.com/toc.do?bookId=882&bookTitle=Critical%20Approaches%20to%20Literature%3A%20Psychological&bookCategory=Literature"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "evans, robert c."
+        ],
+        "date": "2017",
+        "dates": [
+          "2017"
+        ],
+        "description": [
+          "Includes bibliographical references (pages 299-300) and index."
+        ],
+        "digitized": true,
+        "extract_timestamp": "2023-06-02T20:54:03.040Z",
+        "group": [
+          "catalog-split-10",
+          "catalog",
+          "main-catalog-split-10",
+          "main-catalog"
+        ],
+        "hassegments": false,
+        "id": "http://lccn.loc.gov/2017279491",
+        "image_url": [],
+        "index": 3,
+        "item": {
+          "call_number": [
+            "PN56.P93 P69 2017"
+          ],
+          "contents": [
+            "Dedication -- About this volume / Robert C. Evans -- On psychological approaches to literature: looking at books with the mind's eye / David Willbern -- Crews missiles: attacks and counterattacks concerning Freudian literary criticism / Robert C. Evans -- Psychological approaches to literature: a review of select scholarship / Robert C. Evans -- A family systems theory reading of Saul Bellow's Humboldt's Gift / Allan Chavkin & Nancy Feyl Chavkin -- Freud and Poe: a dialogue / James S. Baumlin and Tita French Baumlin -- Literary prehistory: the origins and psychology of storytelling / Michelle Scalise Sugiyama -- \"Is this her fault or mine?\" : hysteria, misogyny, and voice in Shakespeare's Measure for Measure / Laura B. Vogel -- Trauma in Shakespeare's Macbeth / Robert C. Evans -- John Donne, neuroscience, and the experience of empathy / David Strong -- Poe's ideal of love and the broken world: crowd psychology in some tales and poems / Jeffrey Folks -- Death and Freud in the poetry of Edna St. Vincent Millay / Jenna Lewis -- Grasping The Great Gatsby: a cognitive approach / Nicolas Tredell -- Hemingway's suicides: a psychobiographical approach to literature / Jeffrey Berman -- \"Written in his face\" : ambivalence and mirroring in Nineteen Eighty-Four / David Willbern -- \"One destroyed being\" : a post-Jungian appraisal of Darth Vader / Steve Gronert Ellerhoff -- The hero's quest in the Harry Potter books and films / Christine Gerhold Zahorchak -- Driving each other crazy: existential psychology in Hanif Kureishi's The Buddha of Suburbia / Susie Thomas."
+          ],
+          "contributors": [
+            "Evans, Robert C., 1955- editor."
+          ],
+          "created_published": [
+            "Ipswich, Massachusetts : Salem Press, a division of EBSCO Information Services, Inc. ; Amenia, NY : Grey House Publishing, [2017]",
+            "©2017"
+          ],
+          "date": "2017",
+          "format": [
+            "text"
+          ],
+          "genre": [
+            "Criticism, interpretation, etc"
+          ],
+          "language": [
+            "eng"
+          ],
+          "medium": [
+            "xxix, 319 pages : illustrations ; 24 cm."
+          ],
+          "notes": [
+            "Includes bibliographical references (pages 299-300) and index."
+          ],
+          "other_title": [
+            "Critical approaches to literature"
+          ],
+          "subjects": [
+            "Psychology in literature",
+            "Literature--History and criticism--Psychological aspects",
+            "Literature--Psychological aspects"
+          ],
+          "title": "Psychological"
+        },
+        "language": [
+          "english"
+        ],
+        "number": [
+          "2017279491",
+          "n974668672",
+          "2020-09-11t09:56:05"
+        ],
+        "number_lccn": [
+          "2017279491"
+        ],
+        "number_oclc": [
+          "n974668672"
+        ],
+        "number_source_modified": [
+          "2020-09-11t09:56:05"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "other_title": [
+          "Critical approaches to literature"
+        ],
+        "partof": [
+          "catalog"
+        ],
+        "resources": [],
+        "shelf_id": "PN56.P93 P69 2017",
+        "site": [
+          "catalog"
+        ],
+        "subject": [
+          "history and criticism",
+          "criticism, interpretation, etc",
+          "literature",
+          "psychological aspects",
+          "psychology in literature"
+        ],
+        "timestamp": "2023-07-08T23:49:07.891Z",
+        "title": "Psychological",
+        "type": [
+          "text"
+        ],
+        "url": "//lccn.loc.gov/2017279491"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://www.loc.gov/item/hlas-bi86106044/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "woodyard, george",
+          "rovinski, samuel"
+        ],
+        "contributor_author": [
+          "rovinski, samuel"
+        ],
+        "contributor_hlas_editor": [
+          "woodyard, george"
+        ],
+        "date": "1983",
+        "dates": [
+          "1983"
+        ],
+        "digitized": true,
+        "extract_timestamp": "2026-04-20T00:22:41.899Z",
+        "group": [
+          "hlas-annotations"
+        ],
+        "hassegments": false,
+        "id": "http://www.loc.gov/item/hlas-bi86106044/",
+        "image_url": [],
+        "index": 4,
+        "item": {
+          "added_personal_names": [
+            []
+          ],
+          "additional_fields": {
+            "hlas_staff_initials": [],
+            "local_record_history": [
+              "HLASretro"
+            ],
+            "note_review_copy": []
+          },
+          "annotation": "Well developed picture of conflict between Church and State, between democracy and communism, between rich and poor, as seen in the events leading up to the March 1980 assassination of Monseñor Oscar Arnulfo Romero, Archbishop of San Salvador, during the celebration of mass.",
+          "authentication_code": "lchlas",
+          "cataloging_source": "DLC-HL DLC-HL bps",
+          "citation": "Rovinski, Samuel. El martirio del pastor. San José: Editorial Universitaria Centroamericana, 1983. 155 p.",
+          "contributor_hlas": [
+            "woodyard, george"
+          ],
+          "date_of_publication": "1983",
+          "extent": "155 p.",
+          "hlas_id": "bi86106044",
+          "hlas_print_item": "6044",
+          "hlas_subject": [
+            "romero, óscar arnulfo, -- <em>saint</em>",
+            "assassinations -- el salvador",
+            "church history -- el salvador",
+            "church history -- literature"
+          ],
+          "hlas_topic": "HLAS Topic hpk4000",
+          "hlas_topic_label": "Spanish America--Plays",
+          "hlas_topic_number": "4000",
+          "hlas_topic_prefix": "hpk",
+          "hlas_topic_value": "HLAS Topic hpk4000 Spanish America--Plays",
+          "hlas_volume": "48",
+          "host_information": "San José: Editorial Universitaria Centroamericana, 1983.",
+          "language_of_publication_code": "spa",
+          "permalink": "https://lccn.loc.gov/bi86106044",
+          "physical_description": "155 p.",
+          "place_of_publication": "San José:",
+          "place_of_publication_code": "pr",
+          "profile": "handbook-of-latin-american-studies",
+          "publication_language": "Spanish",
+          "publication_lccn": "83463021",
+          "publication_permalink": "https://lccn.loc.gov/83463021",
+          "publication_title": "El martirio del pastor.",
+          "publisher": "Editorial Universitaria Centroamericana,",
+          "rda_carrier_type": "volume nc rdacarrier",
+          "rda_content_type": "text txt rdacontent",
+          "rda_media_type": "unmediated n rdamedia",
+          "series_statement": "Col. Séptimo día",
+          "year_one": "1983"
+        },
+        "language": [
+          "spanish"
+        ],
+        "language_publication": [
+          "spanish"
+        ],
+        "location": [
+          "puerto rico"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "spanish america--plays (hpk4000)",
+          "latin american, caribbean, and european division",
+          "handbook of latin american studies",
+          "hlas volume 48"
+        ],
+        "partof_hlas_topic": [
+          "spanish america--plays (hpk4000)"
+        ],
+        "partof_hlas_volume": [
+          "hlas volume 48"
+        ],
+        "resources": [],
+        "shelf_id": "48:hpk4000:hlas-bi86106044",
+        "site": [
+          "handbook of latin american studies"
+        ],
+        "subject": [
+          "church history",
+          "el salvador",
+          "romero, óscar arnulfo, -- <em>saint</em",
+          "romero, óscar arnulfo",
+          "literature",
+          "em>saint</em",
+          "church history -- el salvador",
+          "assassinations",
+          "church history -- literature",
+          "assassinations -- el salvador"
+        ],
+        "subject_hlas_subject": [
+          "romero, óscar arnulfo, -- <em>saint</em",
+          "assassinations -- el salvador",
+          "church history -- el salvador",
+          "church history -- literature"
+        ],
+        "timestamp": "2026-04-20T05:48:02.680Z",
+        "title": "El martirio del pastor",
+        "type": [
+          "annotated"
+        ],
+        "url": "https://www.loc.gov/item/hlas-bi86106044/"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://www.loc.gov/item/hlas-bi78106594/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "bruce-novoa, juan",
+          "brodman, barbara l.c."
+        ],
+        "contributor_author": [
+          "brodman, barbara l.c."
+        ],
+        "contributor_hlas_editor": [
+          "bruce-novoa, juan"
+        ],
+        "date": "1976",
+        "dates": [
+          "1976"
+        ],
+        "digitized": true,
+        "extract_timestamp": "2026-04-20T00:18:08.649Z",
+        "group": [
+          "hlas-annotations"
+        ],
+        "hassegments": false,
+        "id": "http://www.loc.gov/item/hlas-bi78106594/",
+        "image_url": [],
+        "index": 5,
+        "item": {
+          "added_personal_names": [
+            []
+          ],
+          "additional_fields": {
+            "hlas_staff_initials": [],
+            "local_record_history": [
+              "HLASretro"
+            ],
+            "note_review_copy": []
+          },
+          "annotation": "Succinct study of the backgrounds of the death cult of Aztec and Spanish cultures as seen in their poetry. Traces its presence in five contemporary writers. The last brief chapter on recent writers and the changing attitudes is not sufficiently developed.",
+          "authentication_code": "lchlas",
+          "cataloging_source": "DLC-HL DLC-HL bps",
+          "citation": "Brodman, Barbara L.C. The Mexican cult of death in myth and literature. Gainesville: University Presses of Florida, 1976. 89 p.: bibl.",
+          "contributor_hlas": [
+            "bruce-novoa, juan"
+          ],
+          "date_of_publication": "1976",
+          "extent": "89 p.:",
+          "hlas_id": "bi78106594",
+          "hlas_print_item": "6594",
+          "hlas_subject": [
+            "death -- myths and mythology",
+            "death -- literature",
+            "aztecs -- death",
+            "death -- mexico",
+            "literary criticism -- mexico"
+          ],
+          "hlas_topic": "HLAS Topic hpd3600",
+          "hlas_topic_label": "20th-21st Century Prose Fiction--Hispanic Caribbean",
+          "hlas_topic_number": "3600",
+          "hlas_topic_prefix": "hpd",
+          "hlas_topic_value": "HLAS Topic hpd3600 20th-21st Century Prose Fiction--Hispanic Caribbean",
+          "hlas_volume": "40",
+          "host_information": "Gainesville: University Presses of Florida, 1976.",
+          "language_of_publication_code": "eng",
+          "other_physical_details": "bibl.",
+          "permalink": "https://lccn.loc.gov/bi78106594",
+          "physical_description": "89 p.: bibl.",
+          "place_of_publication": "Gainesville:",
+          "place_of_publication_code": "flu",
+          "profile": "handbook-of-latin-american-studies",
+          "publication_language": "English",
+          "publication_lccn": "76026105",
+          "publication_permalink": "https://lccn.loc.gov/76026105",
+          "publication_title": "The Mexican cult of death in myth and literature.",
+          "publisher": "University Presses of Florida,",
+          "rda_carrier_type": "volume nc rdacarrier",
+          "rda_content_type": "text txt rdacontent",
+          "rda_media_type": "unmediated n rdamedia",
+          "series_statement": "University of Florida monographs. Humanities series; 44",
+          "year_one": "1976"
+        },
+        "language": [
+          "english"
+        ],
+        "language_publication": [
+          "english"
+        ],
+        "location": [
+          "florida"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "hlas volume 40",
+          "latin american, caribbean, and european division",
+          "handbook of latin american studies",
+          "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+        ],
+        "partof_hlas_topic": [
+          "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+        ],
+        "partof_hlas_volume": [
+          "hlas volume 40"
+        ],
+        "resources": [],
+        "shelf_id": "40:hpd3600:hlas-bi78106594",
+        "site": [
+          "handbook of latin american studies"
+        ],
+        "subject": [
+          "death -- myths and mythology",
+          "death -- literature",
+          "literature",
+          "mexico",
+          "literary criticism",
+          "literary criticism -- mexico",
+          "aztecs -- death",
+          "death",
+          "aztecs",
+          "myths and mythology",
+          "death -- mexico"
+        ],
+        "subject_hlas_subject": [
+          "death -- myths and mythology",
+          "death -- literature",
+          "aztecs -- death",
+          "death -- mexico",
+          "literary criticism -- mexico"
+        ],
+        "timestamp": "2026-04-20T04:43:09.761Z",
+        "title": "The Mexican cult of death in myth and literature",
+        "type": [
+          "annotated"
+        ],
+        "url": "https://www.loc.gov/item/hlas-bi78106594/"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://www.loc.gov/item/hlas-bi86105316/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "aguilar, marielos",
+          "prieto, rené"
+        ],
+        "contributor_author": [
+          "aguilar, marielos"
+        ],
+        "contributor_hlas_editor": [
+          "prieto, rené"
+        ],
+        "date": "1983",
+        "dates": [
+          "1983"
+        ],
+        "digitized": true,
+        "extract_timestamp": "2026-04-20T00:22:37.687Z",
+        "group": [
+          "hlas-annotations"
+        ],
+        "hassegments": false,
+        "id": "http://www.loc.gov/item/hlas-bi86105316/",
+        "image_url": [],
+        "index": 6,
+        "item": {
+          "added_personal_names": [
+            []
+          ],
+          "additional_fields": {
+            "hlas_staff_initials": [],
+            "local_record_history": [
+              "HLASretro"
+            ],
+            "note_review_copy": []
+          },
+          "annotation": "Valuable study of the celebrated author of Mamita Yunai. Unlike most previous monographs on Fallas, this original study sees his literary production in the light of sociopolitical events which were both the wick and the powder of his career. Aguilar highlights the role of both the Communist Party and of Fallas in the banana strike of 1934, as well as the militant author's participation in the workers' movement (1948-66).",
+          "authentication_code": "lchlas",
+          "cataloging_source": "DLC-HL DLC-HL bps",
+          "citation": "Aguilar, Marielos. Carlos Luis Fallas: su época y sus luchas. San José: Editorial Porvenir, 1983. 272 p.: bibl.",
+          "contributor_hlas": [
+            "prieto, rené"
+          ],
+          "date_of_publication": "1983",
+          "extent": "272 p.:",
+          "hlas_id": "bi86105316",
+          "hlas_print_item": "5316",
+          "hlas_subject": [
+            "fallas, carlos luis",
+            "strikes and lockouts -- costa rica",
+            "strikes and lockouts -- literature"
+          ],
+          "hlas_topic": "HLAS Topic hpd3200",
+          "hlas_topic_label": "20th-21st Century Prose Fiction--Central America--Literary Criticism and History",
+          "hlas_topic_number": "3200",
+          "hlas_topic_prefix": "hpd",
+          "hlas_topic_value": "HLAS Topic hpd3200 20th-21st Century Prose Fiction--Central America--Literary Criticism and History",
+          "hlas_volume": "48",
+          "host_information": "San José: Editorial Porvenir, 1983.",
+          "language_of_publication_code": "spa",
+          "other_physical_details": "bibl.",
+          "permalink": "https://lccn.loc.gov/bi86105316",
+          "physical_description": "272 p.: bibl.",
+          "place_of_publication": "San José:",
+          "place_of_publication_code": "cr",
+          "profile": "handbook-of-latin-american-studies",
+          "publication_language": "Spanish",
+          "publication_lccn": "84149939",
+          "publication_permalink": "https://lccn.loc.gov/84149939",
+          "publication_subtitle": "su época y sus luchas",
+          "publication_title": "Carlos Luis Fallas: su época y sus luchas.",
+          "publisher": "Editorial Porvenir,",
+          "rda_carrier_type": "volume nc rdacarrier",
+          "rda_content_type": "text txt rdacontent",
+          "rda_media_type": "unmediated n rdamedia",
+          "series_statement": "Col. Debate",
+          "year_one": "1983"
+        },
+        "language": [
+          "spanish"
+        ],
+        "language_publication": [
+          "spanish"
+        ],
+        "location": [
+          "costa rica"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "latin american, caribbean, and european division",
+          "handbook of latin american studies",
+          "hlas volume 48",
+          "20th-21st century prose fiction--central america--literary criticism and history (hpd3200)"
+        ],
+        "partof_hlas_topic": [
+          "20th-21st century prose fiction--central america--literary criticism and history (hpd3200)"
+        ],
+        "partof_hlas_volume": [
+          "hlas volume 48"
+        ],
+        "resources": [],
+        "shelf_id": "48:hpd3200:hlas-bi86105316",
+        "site": [
+          "handbook of latin american studies"
+        ],
+        "subject": [
+          "costa rica",
+          "literature",
+          "strikes and lockouts",
+          "fallas, carlos luis",
+          "strikes and lockouts -- literature",
+          "strikes and lockouts -- costa rica"
+        ],
+        "subject_hlas_subject": [
+          "fallas, carlos luis",
+          "strikes and lockouts -- costa rica",
+          "strikes and lockouts -- literature"
+        ],
+        "timestamp": "2026-04-20T05:46:52.065Z",
+        "title": "Carlos Luis Fallas: su época y sus luchas",
+        "type": [
+          "annotated"
+        ],
+        "url": "https://www.loc.gov/item/hlas-bi86105316/"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://www.loc.gov/item/hlas-bi82105325/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "luis, william",
+          "hortas, carlos r."
+        ],
+        "contributor_hlas_editor": [
+          "hortas, carlos r.",
+          "luis, william"
+        ],
+        "date": "1982",
+        "dates": [
+          "1982"
+        ],
+        "digitized": true,
+        "extract_timestamp": "2026-04-20T00:20:41.170Z",
+        "group": [
+          "hlas-annotations"
+        ],
+        "hassegments": false,
+        "id": "http://www.loc.gov/item/hlas-bi82105325/",
+        "image_url": [],
+        "index": 7,
+        "item": {
+          "added_personal_names": [
+            []
+          ],
+          "additional_fields": {
+            "hlas_staff_initials": [],
+            "local_record_history": [
+              "HLASretro",
+              "hlasja"
+            ],
+            "note_review_copy": []
+          },
+          "annotation": "New literary magazine, published four times a year, edited by Heberto Padilla, Belkis Cuza Malé and Reinaldo Arenas. First issue is dedicated to works of exiled Cuban writers: Antonio Benítez Rojo, César Leante, Enrique Labrador Ruiz, Guillermo Cabrera Infante, José Triana, Juan Arcocha, Carlos Franqui, Carlos Alberto Montaner and others.",
+          "authentication_code": "lchlas",
+          "cataloging_source": "DLC-HL DLC-HL bps",
+          "citation": "Linden Lane Magazine. Vol. 1, No. 1, enero/marzo 1982. Princeton, N.J.: Linden Lane Magazine. 1982.",
+          "contributor_hlas": [
+            "hortas, carlos r.",
+            "luis, william"
+          ],
+          "date_of_publication": "1982",
+          "hlas_id": "bi82105325",
+          "hlas_print_item": "5325",
+          "hlas_subject": [
+            "literature -- cuba"
+          ],
+          "hlas_topic": "HLAS Topic hpd3600",
+          "hlas_topic_label": "20th-21st Century Prose Fiction--Hispanic Caribbean",
+          "hlas_topic_number": "3600",
+          "hlas_topic_prefix": "hpd",
+          "hlas_topic_value": "HLAS Topic hpd3600 20th-21st Century Prose Fiction--Hispanic Caribbean",
+          "hlas_volume": "44",
+          "host_information": "Princeton, N.J.: Linden Lane Magazine. 1982.",
+          "language_of_publication_code": "eng",
+          "permalink": "https://lccn.loc.gov/bi82105325",
+          "place_of_publication": "Princeton, N.J.:",
+          "place_of_publication_code": "nju",
+          "profile": "handbook-of-latin-american-studies",
+          "publication_language": "English",
+          "publication_lccn": "sv86010755",
+          "publication_part_number": "Vol. 1, No. 1, enero/marzo 1982.",
+          "publication_permalink": "https://lccn.loc.gov/sv86010755",
+          "publication_title": "Linden Lane Magazine.",
+          "publisher": "Linden Lane Magazine.",
+          "rda_carrier_type": "volume nc rdacarrier",
+          "rda_content_type": "text txt rdacontent",
+          "rda_media_type": "unmediated n rdamedia",
+          "year_one": "1982"
+        },
+        "language": [
+          "english"
+        ],
+        "language_publication": [
+          "english"
+        ],
+        "location": [
+          "new jersey"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "latin american, caribbean, and european division",
+          "hlas volume 44",
+          "handbook of latin american studies",
+          "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+        ],
+        "partof_hlas_topic": [
+          "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+        ],
+        "partof_hlas_volume": [
+          "hlas volume 44"
+        ],
+        "resources": [],
+        "shelf_id": "44:hpd3600:hlas-bi82105325",
+        "site": [
+          "handbook of latin american studies"
+        ],
+        "subject": [
+          "literature",
+          "literature -- cuba",
+          "cuba"
+        ],
+        "subject_hlas_subject": [
+          "literature -- cuba"
+        ],
+        "timestamp": "2026-04-20T05:17:39.996Z",
+        "title": "Linden Lane Magazine",
+        "type": [
+          "annotated"
+        ],
+        "url": "https://www.loc.gov/item/hlas-bi82105325/"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://lccn.loc.gov/2016030194",
+          "http://www.loc.gov/item/2016030194/",
+          "https://hdl.loc.gov/loc.gdc/gdcebookspublic.2016030194",
+          "http://www.loc.gov/resource/gdcebookspublic.2016030194/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "ette, ottmar"
+        ],
+        "date": "2016-01-01",
+        "dates": [
+          "2016"
+        ],
+        "description": [
+          "\"Ottmar Ette's TransArea proceeds from the thesis that globalization is not a recent phenomenon, but rather, a process of long duration that may be divided into four main phases of accelerated globalization. These phases connect our present, across the world's widely divergent modern eras, to the period of early modern history. Ette demonstrates how the literatures of the world make possible a tangible perception of that which constitutes Life, both of our planet and on our planet, which may only be understood through the application of multiple logics. There is no substitute for the knowledge of literature: it is the knowledge of life, from life. This English translation will be of great interest to English-speaking scholars in the fields of Global and Area Studies, Literary Studies, Cultural Studies, History, Political Science, and many more.\"-- Provided by publisher"
+        ],
+        "digitized": true,
+        "extract_timestamp": "2023-01-21T15:26:49.393Z",
+        "group": [
+          "gdc/scd",
+          "catalog-split-10",
+          "catalog",
+          "general-collections-scan-on-demand-new",
+          "main-catalog-split-10",
+          "main-catalog"
+        ],
+        "hassegments": false,
+        "id": "http://www.loc.gov/item/2016030194/",
+        "image_url": [
+          "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif",
+          "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif#h=1187&w=800"
+        ],
+        "index": 8,
+        "item": {
+          "call_number": [
+            "PN56.G55"
+          ],
+          "contents": [
+            "Compass rose of concepts -- Globalization, vectorizations, literatures of the world: transareal studies -- Globalization I. In the grid network of the occident: treasure and trap, plenty and pitfall of the European projection of world-wide migratory spaces -- Globalization II. Dispute over the world: discourses of the tropics and the tropes of the discourses on world-wide expansion -- Globalization III. Influence of a new world power: from the abundance of absence to the pitfall of power -- Globalization IV. In the net of transarchipelagic connections: on the plenty of polyperspective and the pitfall of monolingual globalization."
+          ],
+          "contributors": [
+            "Ette, Ottmar, author"
+          ],
+          "created_published": [
+            "Berlin ; Boston : De Gruyter, 2016."
+          ],
+          "date": "2016",
+          "digital_id": [
+            "https://hdl.loc.gov/loc.gdc/gdcebookspublic.2016030194"
+          ],
+          "format": [
+            "text"
+          ],
+          "language": [
+            "eng"
+          ],
+          "medium": [
+            "1 online resource."
+          ],
+          "notes": [
+            "Includes bibliographical references and index.",
+            "Description based on print version record and CIP data provided by publisher; resource not viewed."
+          ],
+          "rights_advisory": [
+            "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International CC BY-NC-ND 4.0 https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+          ],
+          "subjects": [
+            "Globalization--History",
+            "Literature and globalization",
+            "Literature and transnationalism",
+            "Literature--History and criticism--Theory, etc"
+          ],
+          "summary": [
+            "\"Ottmar Ette's TransArea proceeds from the thesis that globalization is not a recent phenomenon, but rather, a process of long duration that may be divided into four main phases of accelerated globalization. These phases connect our present, across the world's widely divergent modern eras, to the period of early modern history. Ette demonstrates how the literatures of the world make possible a tangible perception of that which constitutes Life, both of our planet and on our planet, which may only be understood through the application of multiple logics. There is no substitute for the knowledge of literature: it is the knowledge of life, from life. This English translation will be of great interest to English-speaking scholars in the fields of Global and Area Studies, Literary Studies, Cultural Studies, History, Political Science, and many more.\"-- Provided by publisher"
+          ],
+          "title": "TransArea : a literary history of globalization"
+        },
+        "language": [
+          "english"
+        ],
+        "mime_type": [
+          "image/gif",
+          "application/pdf"
+        ],
+        "number": [
+          "2023-01-05t09:15:01",
+          "online resource",
+          "2016030194"
+        ],
+        "number_carrier_type": [
+          "online resource"
+        ],
+        "number_lccn": [
+          "2016030194"
+        ],
+        "number_source_modified": [
+          "2023-01-05t09:15:01"
+        ],
+        "online_format": [
+          "image",
+          "pdf"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "catalog",
+          "open access books",
+          "general collections"
+        ],
+        "resources": [
+          {
+            "files": 1,
+            "image": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif",
+            "pdf": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.pdf",
+            "url": "https://www.loc.gov/resource/gdcebookspublic.2016030194/"
+          }
+        ],
+        "shelf_id": "PN56.G55",
+        "site": [
+          "catalog"
+        ],
+        "subject": [
+          "history and criticism",
+          "literature and transnationalism",
+          "theory, etc",
+          "literature",
+          "globalization",
+          "history",
+          "literature and globalization"
+        ],
+        "timestamp": "2023-01-21T16:02:15.789Z",
+        "title": "TransArea : a literary history of globalization",
+        "type": [
+          "text"
+        ],
+        "url": "https://www.loc.gov/item/2016030194/"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://www.loc.gov/item/hlas-bi75106333/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "ruscoe, gordon c.",
+          "proença filho, domício"
+        ],
+        "contributor_author": [
+          "proença filho, domício"
+        ],
+        "contributor_hlas_editor": [
+          "ruscoe, gordon c."
+        ],
+        "date": "1973",
+        "dates": [
+          "1973"
+        ],
+        "digitized": true,
+        "extract_timestamp": "2026-04-20T00:16:51.467Z",
+        "group": [
+          "hlas-annotations"
+        ],
+        "hassegments": false,
+        "id": "http://www.loc.gov/item/hlas-bi75106333/",
+        "image_url": [],
+        "index": 9,
+        "item": {
+          "added_personal_names": [
+            []
+          ],
+          "additional_fields": {
+            "hlas_staff_initials": [],
+            "local_record_history": [
+              "HLASretro"
+            ],
+            "note_review_copy": []
+          },
+          "annotation": "Among the several reforms legislated since 1960, Law 5692 has prompted the renovation of curricula in many areas, including language. In this book the reader will find a discussion of language and literature as communication and expression, and an examination of linguistic standards, oral and written expression, and the selection of textbooks. The author teaches Portuguese and Brazilian Literature and served on the commission that drew up implementation plans for educational reforms in Guanabara state.",
+          "authentication_code": "lchlas",
+          "cataloging_source": "DLC-HL DLC-HL bps",
+          "citation": "Proença Filho, Domício. Língua portuguesa, literatura nacional e a reforma do ensino. Rio de Janeiro: Editôra Liceu, 1973. 127 p.: bibl.",
+          "contributor_hlas": [
+            "ruscoe, gordon c."
+          ],
+          "date_of_publication": "1973",
+          "extent": "127 p.:",
+          "hlas_id": "bi75106333",
+          "hlas_print_item": "6333",
+          "hlas_subject": [
+            "educational reform -- brazil",
+            "educational reform -- law and legislation",
+            "literature -- brazil",
+            "portuguese language -- brazil"
+          ],
+          "hlas_topic": "HLAS Topic skr",
+          "hlas_topic_label": "Education--Brazil",
+          "hlas_topic_prefix": "skr",
+          "hlas_topic_value": "HLAS Topic skr Education--Brazil",
+          "hlas_volume": "37",
+          "host_information": "Rio de Janeiro: Editôra Liceu, 1973.",
+          "language_of_publication_code": "por",
+          "other_physical_details": "bibl.",
+          "permalink": "https://lccn.loc.gov/bi75106333",
+          "physical_description": "127 p.: bibl.",
+          "place_of_publication": "Rio de Janeiro:",
+          "place_of_publication_code": "bl",
+          "profile": "handbook-of-latin-american-studies",
+          "publication_language": "Portuguese",
+          "publication_lccn": "73221717",
+          "publication_permalink": "https://lccn.loc.gov/73221717",
+          "publication_title": "Língua portuguesa, literatura nacional e a reforma do ensino.",
+          "publisher": "Editôra Liceu,",
+          "rda_carrier_type": "volume nc rdacarrier",
+          "rda_content_type": "text txt rdacontent",
+          "rda_media_type": "unmediated n rdamedia",
+          "year_one": "1973"
+        },
+        "language": [
+          "portuguese"
+        ],
+        "language_publication": [
+          "portuguese"
+        ],
+        "location": [
+          "brazil"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "latin american, caribbean, and european division",
+          "handbook of latin american studies",
+          "hlas volume 37",
+          "education--brazil (skr)"
+        ],
+        "partof_hlas_topic": [
+          "education--brazil (skr)"
+        ],
+        "partof_hlas_volume": [
+          "hlas volume 37"
+        ],
+        "resources": [],
+        "shelf_id": "37:skr:hlas-bi75106333",
+        "site": [
+          "handbook of latin american studies"
+        ],
+        "subject": [
+          "brazil",
+          "literature",
+          "literature -- brazil",
+          "portuguese language",
+          "educational reform -- brazil",
+          "educational reform -- law and legislation",
+          "portuguese language -- brazil",
+          "law and legislation",
+          "educational reform"
+        ],
+        "subject_hlas_subject": [
+          "educational reform -- brazil",
+          "educational reform -- law and legislation",
+          "literature -- brazil",
+          "portuguese language -- brazil"
+        ],
+        "timestamp": "2026-04-20T04:17:00.520Z",
+        "title": "Língua portuguesa, literatura nacional e a reforma do ensino",
+        "type": [
+          "annotated"
+        ],
+        "url": "https://www.loc.gov/item/hlas-bi75106333/"
+      },
+      {
+        "access_restricted": false,
+        "aka": [
+          "http://www.loc.gov/item/hlas-bi91004202/"
+        ],
+        "campaigns": [],
+        "contributor": [
+          "garcía núñez, fernando",
+          "fuentes, carlos"
+        ],
+        "contributor_author": [
+          "fuentes, carlos"
+        ],
+        "contributor_hlas_editor": [
+          "garcía núñez, fernando"
+        ],
+        "date": "1990",
+        "dates": [
+          "1990"
+        ],
+        "digitized": true,
+        "extract_timestamp": "2026-04-20T00:25:42.507Z",
+        "group": [
+          "hlas-annotations"
+        ],
+        "hassegments": false,
+        "id": "http://www.loc.gov/item/hlas-bi91004202/",
+        "image_url": [],
+        "index": 10,
+        "item": {
+          "added_personal_names": [
+            []
+          ],
+          "added_uncontrolled_title": [
+            "tiempo romántico"
+          ],
+          "additional_fields": {
+            "hlas_staff_initials": [],
+            "local_record_history": [],
+            "note_review_copy": []
+          },
+          "annotation": "Magnífica novela en la cual un narrador protagónico relata la participación de uno de sus amigos en las luchas independentistas de Argentina, Chile, Perú, y México, intentando así el joven amigo abandonar las ilusiones de la Ilustración para asumir otras más combativas, las del Romanticismo. Bajo esa perspectiva la novela traza también la evolución ideológica en Hispanoamérica, pero adentrando asimismo al lector en un ritmo narrativo cercano al decimonónico, al principio, para después llevarlo por una mágica vorágine poética que culmina en el Alto Perú. La novela, lo apunta la página anterior a la titular, es la primera de una trilogía que incluirá también <em>La novia muerta</em> y <em>El baile del Centenario.</em>",
+          "authentication_code": "lchlas",
+          "cataloging_source": "DLC-HL DLC-HL bps",
+          "citation": "Fuentes, Carlos. La campaña. Madrid: Mondadori España, 1990. 241 p.",
+          "contributor_hlas": [
+            "garcía núñez, fernando"
+          ],
+          "cross_references": [
+            "For review of English translation, <em>The campaign,</em> see item <a href=\"/item/hlas-bi94005053\">bi 94005053</a>"
+          ],
+          "date_of_publication": "1990",
+          "extent": "241 p.",
+          "geographic_areas": [
+            "s-ag---"
+          ],
+          "hlas_id": "bi91004202",
+          "hlas_subject": [
+            "wars of independence -- literature"
+          ],
+          "hlas_topic": "HLAS Topic hpd2400",
+          "hlas_topic_label": "20th-21st Century Prose Fiction--Mexico",
+          "hlas_topic_number": "2400",
+          "hlas_topic_prefix": "hpd",
+          "hlas_topic_value": "HLAS Topic hpd2400 20th-21st Century Prose Fiction--Mexico",
+          "hlas_volume": "52",
+          "host_information": "Madrid: Mondadori España, 1990.",
+          "language_of_publication_code": "spa",
+          "lc_subject": [
+            "argentina -- history -- war of independence,1810-1817 -- fiction"
+          ],
+          "notes": [
+            "The first vol. of the author's trilogy El tiempo romántico"
+          ],
+          "permalink": "https://lccn.loc.gov/bi91004202",
+          "physical_description": "241 p.",
+          "place_of_publication": "Madrid:",
+          "place_of_publication_code": "sp",
+          "profile": "handbook-of-latin-american-studies",
+          "publication_call_number": "PQ7297.F793 C29 1990",
+          "publication_isbn": [
+            "8439717342"
+          ],
+          "publication_language": "Spanish",
+          "publication_lccn": "91128157",
+          "publication_permalink": "https://lccn.loc.gov/91128157",
+          "publication_title": "La campaña.",
+          "publisher": "Mondadori España,",
+          "related_items": [
+            {
+              "title": "bi 94005053",
+              "url": "/item/hlas-bi94005053"
+            }
+          ],
+          "series_statement": "Narrativa Mondadori",
+          "year_one": "1990"
+        },
+        "language": [
+          "spanish"
+        ],
+        "language_publication": [
+          "spanish"
+        ],
+        "location": [
+          "spain"
+        ],
+        "original_format": [
+          "book"
+        ],
+        "partof": [
+          "hlas volume 52",
+          "latin american, caribbean, and european division",
+          "20th-21st century prose fiction--mexico (hpd2400)",
+          "handbook of latin american studies"
+        ],
+        "partof_hlas_topic": [
+          "20th-21st century prose fiction--mexico (hpd2400)"
+        ],
+        "partof_hlas_volume": [
+          "hlas volume 52"
+        ],
+        "resources": [],
+        "shelf_id": "52:hpd2400:hlas-bi91004202",
+        "site": [
+          "handbook of latin american studies"
+        ],
+        "subject": [
+          "argentina",
+          "literature",
+          "wars of independence",
+          "wars of independence -- literature",
+          "war of independence",
+          "history",
+          "fiction"
+        ],
+        "subject_hlas_subject": [
+          "wars of independence -- literature"
+        ],
+        "timestamp": "2026-04-20T06:51:11.151Z",
+        "title": "La campaña",
+        "type": [
+          "annotated"
+        ],
+        "url": "https://www.loc.gov/item/hlas-bi91004202/"
+      }
+    ],
+    "slug": "",
+    "title": "Search Books/Printed Material",
+    "url": "https://www.loc.gov/books/"
+  },
+  "context": "original-format:book",
+  "description": "The Library of Congress Catalog contains 18 million catalog records for books, serials, manuscripts, maps, music, recordings, images, and electronic resources in the Library of Congress collections.  Featured here are the collections with digitized material containing printed text.",
+  "expert_resources": [
+    {
+      "title": "Collections with Books",
+      "url": "/books/collections/"
+    },
+    {
+      "title": "Library of Congress Catalog",
+      "url": "//catalog.loc.gov/"
+    }
+  ],
+  "facet_trail": [
+    {
+      "facet": "Original Format",
+      "field": "original-format",
+      "superset": "https://www.loc.gov/search/?c=10&fa=subject:literature&fo=json",
+      "value": "book"
+    },
+    {
+      "facet": "Available Online",
+      "field": "digitized",
+      "superset": "https://www.loc.gov/books/?all=true&c=10&fa=subject:literature&fo=json",
+      "value": "digitized"
+    },
+    {
+      "facet": "Subject",
+      "field": "subject",
+      "superset": "https://www.loc.gov/books/?c=10&fo=json",
+      "value": "literature"
+    }
+  ],
+  "facet_views": {
+    "calendar": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&fs=calendar",
+    "chart": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&fs=chart",
+    "current": "list",
+    "list": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json"
+  },
+  "facets": [
+    {
+      "filters": [
+        {
+          "count": 1346,
+          "not": null,
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json",
+          "title": "Available at the Library of Congress Campus",
+          "value": "true"
+        },
+        {
+          "count": 30837,
+          "not": null,
+          "off": null,
+          "on": "https://www.loc.gov/books/?all=true&c=10&fa=subject:literature&fo=json",
+          "title": "Available Online",
+          "value": "false"
+        }
+      ],
+      "title": "Available Online",
+      "type": "digitized"
+    },
+    {
+      "filters": [
+        {
+          "count": 1346,
+          "not": null,
+          "off": "https://www.loc.gov/search/?c=10&fa=subject:literature&fo=json",
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json",
+          "title": "Book/Printed Material",
+          "value": "book"
+        },
+        {
+          "count": 2,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Coriginal-format!:web+page&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Coriginal-format:web+page&fo=json",
+          "title": "Web Page",
+          "value": "web page"
+        }
+      ],
+      "title": "Original Format",
+      "type": "original-format"
+    },
+    {
+      "filters": [
+        {
+          "count": 200,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format!:image&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format:image&fo=json",
+          "title": "Image",
+          "value": "image"
+        },
+        {
+          "count": 194,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format!:pdf&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format:pdf&fo=json",
+          "title": "PDF",
+          "value": "pdf"
+        },
+        {
+          "count": 124,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format!:online+text&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format:online+text&fo=json",
+          "title": "Online Text",
+          "value": "online text"
+        },
+        {
+          "count": 9,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format!:epub&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format:epub&fo=json",
+          "title": "EPUB",
+          "value": "epub"
+        },
+        {
+          "count": 6,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format!:compressed+data&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Conline-format:compressed+data&fo=json",
+          "title": "Compressed Data",
+          "value": "compressed data"
+        }
+      ],
+      "title": "Online Format",
+      "type": "online-format"
+    },
+    {
+      "filters": [
+        {
+          "count": 331,
+          "not": null,
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&dates=2000/2027&fa=subject:literature&fo=json",
+          "term": "2000-01-01T00:00:00Z",
+          "title": "2000 to 2027",
+          "value": "2000-01-01T00:00:00Z"
+        },
+        {
+          "count": 918,
+          "not": null,
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&dates=1900/1999&fa=subject:literature&fo=json",
+          "term": "1900-01-01T00:00:00Z",
+          "title": "1900 to 1999",
+          "value": "1900-01-01T00:00:00Z"
+        },
+        {
+          "count": 87,
+          "not": null,
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&dates=1800/1899&fa=subject:literature&fo=json",
+          "term": "1800-01-01T00:00:00Z",
+          "title": "1800 to 1899",
+          "value": "1800-01-01T00:00:00Z"
+        },
+        {
+          "count": 3,
+          "not": null,
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&dates=1700/1799&fa=subject:literature&fo=json",
+          "term": "1700-01-01T00:00:00Z",
+          "title": "1700 to 1799",
+          "value": "1700-01-01T00:00:00Z"
+        },
+        {
+          "count": 1,
+          "not": null,
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&dates=1600/1699&fa=subject:literature&fo=json",
+          "term": "1600-01-01T00:00:00Z",
+          "title": "1600 to 1699",
+          "value": "1600-01-01T00:00:00Z"
+        }
+      ],
+      "title": "Date",
+      "type": "dates"
+    },
+    {
+      "filters": [
+        {
+          "count": 203,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:brazil&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:brazil&fo=json",
+          "title": "Brazil",
+          "value": "brazil"
+        },
+        {
+          "count": 109,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:mexico&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:mexico&fo=json",
+          "title": "Mexico",
+          "value": "mexico"
+        },
+        {
+          "count": 82,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:argentina&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:argentina&fo=json",
+          "title": "Argentina",
+          "value": "argentina"
+        },
+        {
+          "count": 50,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:new+york&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:new+york&fo=json",
+          "title": "New York",
+          "value": "new york"
+        },
+        {
+          "count": 41,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:spain&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:spain&fo=json",
+          "title": "Spain",
+          "value": "spain"
+        },
+        {
+          "count": 39,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:venezuela&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:venezuela&fo=json",
+          "title": "Venezuela",
+          "value": "venezuela"
+        },
+        {
+          "count": 28,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:colombia&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:colombia&fo=json",
+          "title": "Colombia",
+          "value": "colombia"
+        },
+        {
+          "count": 27,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:peru&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:peru&fo=json",
+          "title": "Peru",
+          "value": "peru"
+        },
+        {
+          "count": 25,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:cuba&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:cuba&fo=json",
+          "title": "Cuba",
+          "value": "cuba"
+        },
+        {
+          "count": 22,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation!:united+states&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clocation:united+states&fo=json",
+          "title": "United States",
+          "value": "united states"
+        }
+      ],
+      "index": "https://www.loc.gov/books/index/location/?c=10&fa=subject:literature&fo=json&sp=1",
+      "title": "Location",
+      "type": "location"
+    },
+    {
+      "filters": [
+        {
+          "count": 968,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:handbook+of+latin+american+studies&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:handbook+of+latin+american+studies&fo=json",
+          "title": "Handbook of Latin American Studies",
+          "value": "handbook of latin american studies"
+        },
+        {
+          "count": 968,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:latin+american,+caribbean,+and+european+division&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:latin+american,+caribbean,+and+european+division&fo=json",
+          "title": "Latin American, Caribbean, and European Division",
+          "value": "latin american, caribbean, and european division"
+        },
+        {
+          "count": 375,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:catalog&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:catalog&fo=json",
+          "title": "Library of Congress Online Catalog",
+          "value": "catalog"
+        },
+        {
+          "count": 234,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:hlas+volume+48&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:hlas+volume+48&fo=json",
+          "title": "HLAS Volume 48",
+          "value": "hlas volume 48"
+        },
+        {
+          "count": 161,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:general+collections&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:general+collections&fo=json",
+          "title": "General Collections",
+          "value": "general collections"
+        },
+        {
+          "count": 121,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:selected+digitized+books&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:selected+digitized+books&fo=json",
+          "title": "Selected Digitized Books",
+          "value": "selected digitized books"
+        },
+        {
+          "count": 109,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:hlas+volume+42&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:hlas+volume+42&fo=json",
+          "title": "HLAS Volume 42",
+          "value": "hlas volume 42"
+        },
+        {
+          "count": 78,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:literature--spanish+america+%28hpd0200%29&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:literature--spanish+america+%28hpd0200%29&fo=json",
+          "title": "Literature--Spanish America (hpd0200)",
+          "value": "literature--spanish america (hpd0200)"
+        },
+        {
+          "count": 76,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:hlas+volume+46&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:hlas+volume+46&fo=json",
+          "title": "HLAS Volume 46",
+          "value": "hlas volume 46"
+        },
+        {
+          "count": 73,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof!:literature--brazil--history+and+criticism+%28hpn6500%29&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Cpartof:literature--brazil--history+and+criticism+%28hpn6500%29&fo=json",
+          "title": "Literature--Brazil--History and Criticism (hpn6500)",
+          "value": "literature--brazil--history and criticism (hpn6500)"
+        }
+      ],
+      "index": "https://www.loc.gov/books/index/partof/?c=10&fa=subject:literature&fo=json&sp=1",
+      "title": "Part of",
+      "type": "partof"
+    },
+    {
+      "filters": [
+        {
+          "count": 97,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:martins,+wilson&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:martins,+wilson&fo=json",
+          "title": "Martins, Wilson",
+          "value": "martins, wilson"
+        },
+        {
+          "count": 54,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:h%C3%A9bert,+john+r.&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:h%C3%A9bert,+john+r.&fo=json",
+          "title": "Hébert, John R.",
+          "value": "hébert, john r."
+        },
+        {
+          "count": 41,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:hortas,+carlos+r.&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:hortas,+carlos+r.&fo=json",
+          "title": "Hortas, Carlos R.",
+          "value": "hortas, carlos r."
+        },
+        {
+          "count": 37,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:luis,+william&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:luis,+william&fo=json",
+          "title": "Luis, William",
+          "value": "luis, william"
+        },
+        {
+          "count": 32,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:gonz%C3%A1lez+echevarr%C3%ADa,+roberto&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:gonz%C3%A1lez+echevarr%C3%ADa,+roberto&fo=json",
+          "title": "González Echevarría, Roberto",
+          "value": "gonzález echevarría, roberto"
+        },
+        {
+          "count": 31,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:garret,+naomi+m.&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:garret,+naomi+m.&fo=json",
+          "title": "Garret, Naomi M.",
+          "value": "garret, naomi m."
+        },
+        {
+          "count": 30,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:castro-klar%C3%A9n,+sara&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:castro-klar%C3%A9n,+sara&fo=json",
+          "title": "Castro-Klarén, Sara",
+          "value": "castro-klarén, sara"
+        },
+        {
+          "count": 30,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:oviedo,+jos%C3%A9+miguel&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:oviedo,+jos%C3%A9+miguel&fo=json",
+          "title": "Oviedo, José Miguel",
+          "value": "oviedo, josé miguel"
+        },
+        {
+          "count": 29,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:sosnowski,+sa%C3%BAl&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:sosnowski,+sa%C3%BAl&fo=json",
+          "title": "Sosnowski, Saúl",
+          "value": "sosnowski, saúl"
+        },
+        {
+          "count": 28,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor!:bruce-novoa,+juan&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Ccontributor:bruce-novoa,+juan&fo=json",
+          "title": "Bruce-Novoa, Juan",
+          "value": "bruce-novoa, juan"
+        }
+      ],
+      "index": "https://www.loc.gov/books/index/contributor/?c=10&fa=subject:literature&fo=json&sp=1",
+      "title": "Contributor",
+      "type": "contributor"
+    },
+    {
+      "filters": [
+        {
+          "count": 1346,
+          "not": null,
+          "off": "https://www.loc.gov/books/?c=10&fo=json",
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json",
+          "title": "Literature",
+          "value": "literature"
+        },
+        {
+          "count": 320,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:history+and+criticism&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:history+and+criticism&fo=json",
+          "title": "History and Criticism",
+          "value": "history and criticism"
+        },
+        {
+          "count": 181,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:literary+criticism&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:literary+criticism&fo=json",
+          "title": "Literary Criticism",
+          "value": "literary criticism"
+        },
+        {
+          "count": 149,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:brazil&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:brazil&fo=json",
+          "title": "Brazil",
+          "value": "brazil"
+        },
+        {
+          "count": 146,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:history&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:history&fo=json",
+          "title": "History",
+          "value": "history"
+        },
+        {
+          "count": 93,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:20th+century&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:20th+century&fo=json",
+          "title": "20th Century",
+          "value": "20th century"
+        },
+        {
+          "count": 78,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:philosophy&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:philosophy&fo=json",
+          "title": "Philosophy",
+          "value": "philosophy"
+        },
+        {
+          "count": 77,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:bibliography&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:bibliography&fo=json",
+          "title": "Bibliography",
+          "value": "bibliography"
+        },
+        {
+          "count": 76,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:women&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:women&fo=json",
+          "title": "Women",
+          "value": "women"
+        },
+        {
+          "count": 71,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject!:argentina&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Csubject:argentina&fo=json",
+          "title": "Argentina",
+          "value": "argentina"
+        }
+      ],
+      "index": "https://www.loc.gov/books/index/subject/?c=10&fa=subject:literature&fo=json&sp=1",
+      "title": "Subject",
+      "type": "subject"
+    },
+    {
+      "filters": [
+        {
+          "count": 551,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:spanish&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:spanish&fo=json",
+          "title": "Spanish",
+          "value": "spanish"
+        },
+        {
+          "count": 437,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:english&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:english&fo=json",
+          "title": "English",
+          "value": "english"
+        },
+        {
+          "count": 206,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:portuguese&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:portuguese&fo=json",
+          "title": "Portuguese",
+          "value": "portuguese"
+        },
+        {
+          "count": 50,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:russian&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:russian&fo=json",
+          "title": "Russian",
+          "value": "russian"
+        },
+        {
+          "count": 37,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:french&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:french&fo=json",
+          "title": "French",
+          "value": "french"
+        },
+        {
+          "count": 28,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:german&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:german&fo=json",
+          "title": "German",
+          "value": "german"
+        },
+        {
+          "count": 21,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:japanese&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:japanese&fo=json",
+          "title": "Japanese",
+          "value": "japanese"
+        },
+        {
+          "count": 16,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:italian&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:italian&fo=json",
+          "title": "Italian",
+          "value": "italian"
+        },
+        {
+          "count": 5,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:dutch&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:dutch&fo=json",
+          "title": "Dutch",
+          "value": "dutch"
+        },
+        {
+          "count": 3,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage!:flemish&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Clanguage:flemish&fo=json",
+          "title": "Flemish",
+          "value": "flemish"
+        }
+      ],
+      "index": "https://www.loc.gov/books/index/language/?c=10&fa=subject:literature&fo=json&sp=1",
+      "title": "Language",
+      "type": "language"
+    },
+    {
+      "filters": [
+        {
+          "count": 1346,
+          "not": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Caccess-restricted!:false&fo=json",
+          "off": null,
+          "on": "https://www.loc.gov/books/?c=10&fa=subject:literature%7Caccess-restricted:false&fo=json",
+          "title": "Available Online",
+          "value": "false"
+        }
+      ],
+      "title": "Access Condition",
+      "type": "access-restricted"
+    }
+  ],
+  "featured_items": [
+    {
+      "image": "/static/collections/dance-instruction-manuals-from-1490-to-1920/images/featured-ballroom.jpg",
+      "title": "How to dance A complete ball-room and party guide. Containing all the latest figures, together with old-fashioned and contra dances now in general use. Also, a guide to ballroom etiquette, toilets, and general useful information for dancers",
+      "url": "/resource/musdi.098/"
+    },
+    {
+      "image": "/static/collections/slaves-and-the-courts-from-1740-to-1860/images/featured-scott2.jpg",
+      "title": "The Dred Scott decision : opinion of Chief Justice Taney /",
+      "url": "/item/17001543/"
+    },
+    {
+      "image": "/static/collections/dance-instruction-manuals-from-1490-to-1920/images/featured-ancient.jpg",
+      "title": "How to dance the revived ancient dances",
+      "url": "/resource/musdi.200.0/?sp=54"
+    },
+    {
+      "image": "/static/collections/country-studies/images/featured-cuba.jpg",
+      "title": "Cuba : a country study",
+      "url": "/item/2002018893/"
+    },
+    {
+      "image": "/static/collections/washington-and-chesapeake-bay-narratives/images/featured-item10.jpg",
+      "title": "Page 17 of Photographic views and description of the great Baltimore $175,000,000 fire, February 7, 8, 9, 1904.",
+      "url": "/resource/lhbcb.08168/?sp=17"
+    },
+    {
+      "image": "/static/collections/country-studies/images/featured-russia.jpg",
+      "title": "Russia : a country study",
+      "url": "/item/97007563/"
+    },
+    {
+      "image": "/static/collections/dance-instruction-manuals-from-1490-to-1920/images/featured-ballarino.jpg",
+      "title": "Il ballarino di M. Fabritio Caroso da Sermoneta, diuiso in due trattati nel primo de' quali si dimostra la diuersità de i nomi, che si danno à gli atti; & mouimenti, che interuengons ne i balli: & con molte regole si dichiara come debbano farsi. Nel secondo s'insegnano diuerse sorti di balli, & balletti sì all' vso d'Italia, come à quello di Francia, & Spagna. Ornato di molte figure. Et con l'intauolatura di liuto nella sonata di ciascun ballo, & il soprano della musica alla maggior parte di essi. Opera nuouamente mandata in luce",
+      "url": "/resource/musdi.230.0/?sp=54"
+    },
+    {
+      "image": "/static/collections/puerto-rico-books-and-pamphlets/images/featured-item1.jpg",
+      "title": "Trabajos parlamentarios de D. Francisco García Molinas, diputado á Cortes por San Juan de Puerto Rico",
+      "url": "/resource/lhbpr.33527/?sp=5"
+    },
+    {
+      "image": "/static/collections/continental-congress-and-constitutional-convention-from-1774-to-1789/images/featured-declaration.jpg",
+      "title": "In Congress, July 4, 1776. The unanimous declaration of the thirteen United States of America.",
+      "url": "/item/90898037/"
+    },
+    {
+      "image": "/static/collections/federal-writers-project/images/industrial-folklore.jpg",
+      "title": "Bessie Jaffey's notes of Nelson Algren's staff meeting on documentary realism, July 13, 1939",
+      "url": "/resource/wpalh0.07020105/seq-2"
+    },
+    {
+      "image": "/static/collections/dance-instruction-manuals-from-1490-to-1920/images/featured-society.jpg",
+      "title": "The dance of society a critical analysis of all the standard quadrilles, round dances, 102 figures of le cotillon (\"the German\"), &c., including dissertations upon time and its accentuation, carriage, style, and other relative matter",
+      "url": "/resource/musdi.181.0/?sp=19"
+    },
+    {
+      "image": "/static/collections/puerto-rico-books-and-pamphlets/images/featured-item5.jpg",
+      "title": "La cuestion social en las Antillas Espanolas discurso pronunciado en la conferencia del 26 de febrero de 1872",
+      "url": "/resource/lhbpr.29149/?sp=1"
+    },
+    {
+      "image": "/static/collections/finding-our-place-in-the-cosmos-with-carl-sagan/images/blundeuile.jpg",
+      "title": "M. Blundeuile his exercises : containing eight treatises, the titles whereof are set down in the next printed page : which treatises are very necessarie to be read and learned of all young gentlemen, that haue not beene exercised in such disciplines, and yet are desirous to haue knowledge as well in cosmographie, astronomie, and geographie, as also in the art of nauigation, in which art it is impossible to profite without the helpe of these, or such like instructions : to the furtherance of which art of nauigation, the said M. Blundeuile specially wrote the said treatises",
+      "url": "/resource/rbdk.d036/?sp=301"
+    },
+    {
+      "image": "/static/collections/slaves-and-the-courts-from-1740-to-1860/images/featured-garrison.jpg",
+      "title": "A brief sketch of the trial of William Lloyd Garrison, for an alleged libel on Francis Todd, of Newburyport, Mass.",
+      "url": "/item/18019032/"
+    },
+    {
+      "image": "/static/collections/federal-writers-project/images/davey-day-interview.jpg",
+      "title": "Nelson Algren interview of Davey Day, Jewish boxer, Chicago, April 13, 1939",
+      "url": "/resource/wpalh0.07040108/seq-4"
+    }
+  ],
+  "form_facets": {},
+  "image_url": [
+    "/static/images/original-format/book.png"
+  ],
+  "manifest": "portals/books/manifest.yaml",
+  "next": {
+    "active": false,
+    "api": "/books/?fa=partof:digital+collections&c=40",
+    "disable_max_line_length": true,
+    "disable_navigation": true,
+    "link": "https://www.loc.gov/books/collections/",
+    "pagination": "2 of 2",
+    "show_featured": true,
+    "slug": "collections",
+    "style": "gallery",
+    "title": "Collections with Books/Printed Material",
+    "url": "https://www.loc.gov/books/collections/?st=gallery"
+  },
+  "next_sibling": {
+    "active": false,
+    "api": "/books/?fa=partof:digital+collections&c=40",
+    "disable_max_line_length": true,
+    "disable_navigation": true,
+    "link": "https://www.loc.gov/books/collections/",
+    "pagination": "2 of 2",
+    "show_featured": true,
+    "slug": "collections",
+    "style": "gallery",
+    "title": "Collections with Books/Printed Material",
+    "url": "https://www.loc.gov/books/collections/?st=gallery"
+  },
+  "options": {
+    "access_group": [
+      ""
+    ],
+    "access_group_raw": "",
+    "all": null,
+    "api_version": "1",
+    "app_context": null,
+    "application_version": "$Revision$",
+    "attribute": null,
+    "attribute!": null,
+    "attribute_map": null,
+    "cache_tags": [
+      "catalog-split-01",
+      "catalog",
+      "main-catalog-split-01",
+      "main-catalog",
+      "hlas-annotations",
+      "catalog-split-10",
+      "main-catalog-split-10",
+      "gdc/scd",
+      "general-collections-scan-on-demand-new"
+    ],
+    "callback": null,
+    "clip": null,
+    "clip_image_width": null,
+    "clip_rotation": null,
+    "content_filter": null,
+    "content_replacement": "",
+    "count": 10,
+    "dates": null,
+    "default_count": 25,
+    "delimiter": null,
+    "digital_id": null,
+    "display_level": null,
+    "distance": null,
+    "downloadOption": null,
+    "duration": 0.7142860889434814,
+    "embed": [],
+    "embed!": [],
+    "error_response_status": null,
+    "excludeTerms": null,
+    "facetLimits": "subject:literature",
+    "facetPrefix": null,
+    "facet_count": null,
+    "facet_limits": "subject:literature",
+    "facet_style": null,
+    "field": null,
+    "format": "json",
+    "hits": 1346,
+    "host": "www.loc.gov",
+    "ical": false,
+    "id": null,
+    "iiif": false,
+    "in": "original-format:book",
+    "index": null,
+    "inputEncoding": "UTF-8",
+    "item": null,
+    "items": null,
+    "keys": null,
+    "language": null,
+    "latlong": null,
+    "method": "GET",
+    "newSearch": null,
+    "new_clip_url": false,
+    "onsite": false,
+    "operator": null,
+    "outputEncoding": "UTF-8",
+    "page_campaigns": [],
+    "path_info": "/books/",
+    "port": "443",
+    "proxypath": null,
+    "query_string": "c=10&fa=subject:literature&fo=json",
+    "redirect_proxy": false,
+    "redirect_to_item": null,
+    "referer": "",
+    "region": "",
+    "release_id": 123456789,
+    "request_host": "www.loc.gov",
+    "request_params": {
+      "c": [
+        "10"
+      ],
+      "fa": [
+        "subject:literature"
+      ],
+      "fo": [
+        "json"
+      ]
+    },
+    "request_url": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json",
+    "resource": "",
+    "resource_sequence": null,
+    "scheme": "https",
+    "searchIn": "original-format:book",
+    "searchTerms": "",
+    "segments": null,
+    "site_id": null,
+    "site_type": "books",
+    "solrQuery": "",
+    "sortBy": null,
+    "sortOrder": null,
+    "startPage": null,
+    "style": null,
+    "suggested": null,
+    "target": null,
+    "template": "search/base",
+    "timestamp": 1781366242.1716,
+    "type": "search",
+    "tz_aware": null,
+    "unionFacets": "",
+    "url": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json",
+    "webcast_permalink": null
+  },
+  "pages": [
+    {
+      "active": true,
+      "children": [
+        {
+          "active": true,
+          "link": "https://www.loc.gov/books/",
+          "pagination": "1 of 2",
+          "partof": [],
+          "results": [
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://lccn.loc.gov/2013497896",
+                "http://bvbr.bib-bvb.de:8991/F?func=service&doc_library=BVB01&local_base=BVB01&doc_number=027213917&line_number=0001&func_code=DB_RECORDS&service_type=MEDIA",
+                "http://www.loc.gov/item/2013497896/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "vendrell ferran, íngrid",
+                "demmerling, christoph"
+              ],
+              "date": "2014",
+              "dates": [
+                "2014"
+              ],
+              "description": [
+                "Includes bibliographical references and indexes."
+              ],
+              "digitized": true,
+              "extract_timestamp": "2023-06-02T15:39:09.402Z",
+              "group": [
+                "catalog-split-01",
+                "catalog",
+                "main-catalog-split-01",
+                "main-catalog"
+              ],
+              "hassegments": false,
+              "id": "http://lccn.loc.gov/2013497896",
+              "image_url": [],
+              "index": 1,
+              "item": {
+                "call_number": [
+                  "PN49 .W244 2014"
+                ],
+                "contributors": [
+                  "Demmerling, Christoph, 1963- editor.",
+                  "Vendrell Ferran, Íngrid, editor."
+                ],
+                "created_published": [
+                  "Berlin : de Gruyter, 2014."
+                ],
+                "date": "2014",
+                "format": [
+                  "text"
+                ],
+                "language": [
+                  "eng"
+                ],
+                "medium": [
+                  "348 pages ; 25 cm."
+                ],
+                "notes": [
+                  "Includes bibliographical references and indexes."
+                ],
+                "subjects": [
+                  "Literature--Philosophy",
+                  "Knowledge, Theory of",
+                  "Truth in literature"
+                ],
+                "title": "Wahrheit, Wissen und Erkenntnis in der Literatur : philosophische Beiträge"
+              },
+              "language": [
+                "english"
+              ],
+              "number": [
+                "2018-06-01t13:29:48",
+                "n881305008",
+                "2013497896"
+              ],
+              "number_lccn": [
+                "2013497896"
+              ],
+              "number_oclc": [
+                "n881305008"
+              ],
+              "number_source_modified": [
+                "2018-06-01t13:29:48"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "catalog"
+              ],
+              "resources": [],
+              "shelf_id": "PN49 .W244 2014",
+              "site": [
+                "catalog"
+              ],
+              "subject": [
+                "literature",
+                "knowledge, theory of",
+                "philosophy",
+                "truth in literature"
+              ],
+              "timestamp": "2023-07-07T07:22:25.793Z",
+              "title": "Wahrheit, Wissen und Erkenntnis in der Literatur : philosophische Beiträge",
+              "type": [
+                "text"
+              ],
+              "url": "//lccn.loc.gov/2013497896"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://www.loc.gov/item/hlas-bi86105604/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "gardini, carlos",
+                "bastos, maría luisa"
+              ],
+              "contributor_author": [
+                "gardini, carlos"
+              ],
+              "contributor_hlas_editor": [
+                "bastos, maría luisa"
+              ],
+              "date": "1983",
+              "dates": [
+                "1983"
+              ],
+              "digitized": true,
+              "extract_timestamp": "2026-04-20T00:22:39.506Z",
+              "group": [
+                "hlas-annotations"
+              ],
+              "hassegments": false,
+              "id": "http://www.loc.gov/item/hlas-bi86105604/",
+              "image_url": [],
+              "index": 2,
+              "item": {
+                "added_personal_names": [
+                  []
+                ],
+                "additional_fields": {
+                  "hlas_staff_initials": [],
+                  "local_record_history": [
+                    "HLASretro"
+                  ],
+                  "note_review_copy": []
+                },
+                "annotation": "Estos 15 documentos de experiencias límite - trasmutaciones narrativas notables de la represión, la tortura, el asesinato institucionalizados en el país durante el llamado Proceso - son a la vez admonitorios y catárticos. Llama la atención que una escritura extraordinariamente tersa (donde se advierten reelaboraciones felices del Expresionismo, Kafka, Borges) logre con tanta eficacia atmósferas de pesadilla, de fantasmagoría gótica, de alucinación. [MLB]",
+                "authentication_code": "lchlas",
+                "cataloging_source": "DLC-HL DLC-HL bps",
+                "citation": "Gardini, Carlos. Primera línea. Buenos Aires: Editorial Sudamericana, 1983. 172 p.",
+                "contributor_hlas": [
+                  "bastos, maría luisa"
+                ],
+                "date_of_publication": "1983",
+                "extent": "172 p.",
+                "hlas_id": "bi86105604",
+                "hlas_print_item": "5604",
+                "hlas_subject": [
+                  "assassinations -- argentina",
+                  "assassinations -- literature",
+                  "torture -- argentina",
+                  "torture -- literature"
+                ],
+                "hlas_topic": "HLAS Topic hpd7600",
+                "hlas_topic_label": "20th-21st Century Prose Fiction--Argentina",
+                "hlas_topic_number": "7600",
+                "hlas_topic_prefix": "hpd",
+                "hlas_topic_value": "HLAS Topic hpd7600 20th-21st Century Prose Fiction--Argentina",
+                "hlas_volume": "48",
+                "host_information": "Buenos Aires: Editorial Sudamericana, 1983.",
+                "language_of_publication_code": "spa",
+                "permalink": "https://lccn.loc.gov/bi86105604",
+                "physical_description": "172 p.",
+                "place_of_publication": "Buenos Aires:",
+                "place_of_publication_code": "ag",
+                "profile": "handbook-of-latin-american-studies",
+                "publication_language": "Spanish",
+                "publication_lccn": "83463462",
+                "publication_permalink": "https://lccn.loc.gov/83463462",
+                "publication_title": "Primera línea.",
+                "publisher": "Editorial Sudamericana,",
+                "rda_carrier_type": "volume nc rdacarrier",
+                "rda_content_type": "text txt rdacontent",
+                "rda_media_type": "unmediated n rdamedia",
+                "series_statement": "Col. El Espejo",
+                "year_one": "1983"
+              },
+              "language": [
+                "spanish"
+              ],
+              "language_publication": [
+                "spanish"
+              ],
+              "location": [
+                "argentina"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "latin american, caribbean, and european division",
+                "handbook of latin american studies",
+                "hlas volume 48",
+                "20th-21st century prose fiction--argentina (hpd7600)"
+              ],
+              "partof_hlas_topic": [
+                "20th-21st century prose fiction--argentina (hpd7600)"
+              ],
+              "partof_hlas_volume": [
+                "hlas volume 48"
+              ],
+              "resources": [],
+              "shelf_id": "48:hpd7600:hlas-bi86105604",
+              "site": [
+                "handbook of latin american studies"
+              ],
+              "subject": [
+                "argentina",
+                "literature",
+                "assassinations -- argentina",
+                "assassinations",
+                "torture",
+                "torture -- literature",
+                "torture -- argentina",
+                "assassinations -- literature"
+              ],
+              "subject_hlas_subject": [
+                "assassinations -- argentina",
+                "assassinations -- literature",
+                "torture -- argentina",
+                "torture -- literature"
+              ],
+              "timestamp": "2026-04-20T05:47:23.236Z",
+              "title": "Primera línea",
+              "type": [
+                "annotated"
+              ],
+              "url": "https://www.loc.gov/item/hlas-bi86105604/"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://www.loc.gov/item/2017279491/",
+                "http://lccn.loc.gov/2017279491",
+                "http://online.salempress.com/toc.do?bookId=882&bookTitle=Critical%20Approaches%20to%20Literature%3A%20Psychological&bookCategory=Literature"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "evans, robert c."
+              ],
+              "date": "2017",
+              "dates": [
+                "2017"
+              ],
+              "description": [
+                "Includes bibliographical references (pages 299-300) and index."
+              ],
+              "digitized": true,
+              "extract_timestamp": "2023-06-02T20:54:03.040Z",
+              "group": [
+                "catalog-split-10",
+                "catalog",
+                "main-catalog-split-10",
+                "main-catalog"
+              ],
+              "hassegments": false,
+              "id": "http://lccn.loc.gov/2017279491",
+              "image_url": [],
+              "index": 3,
+              "item": {
+                "call_number": [
+                  "PN56.P93 P69 2017"
+                ],
+                "contents": [
+                  "Dedication -- About this volume / Robert C. Evans -- On psychological approaches to literature: looking at books with the mind's eye / David Willbern -- Crews missiles: attacks and counterattacks concerning Freudian literary criticism / Robert C. Evans -- Psychological approaches to literature: a review of select scholarship / Robert C. Evans -- A family systems theory reading of Saul Bellow's Humboldt's Gift / Allan Chavkin & Nancy Feyl Chavkin -- Freud and Poe: a dialogue / James S. Baumlin and Tita French Baumlin -- Literary prehistory: the origins and psychology of storytelling / Michelle Scalise Sugiyama -- \"Is this her fault or mine?\" : hysteria, misogyny, and voice in Shakespeare's Measure for Measure / Laura B. Vogel -- Trauma in Shakespeare's Macbeth / Robert C. Evans -- John Donne, neuroscience, and the experience of empathy / David Strong -- Poe's ideal of love and the broken world: crowd psychology in some tales and poems / Jeffrey Folks -- Death and Freud in the poetry of Edna St. Vincent Millay / Jenna Lewis -- Grasping The Great Gatsby: a cognitive approach / Nicolas Tredell -- Hemingway's suicides: a psychobiographical approach to literature / Jeffrey Berman -- \"Written in his face\" : ambivalence and mirroring in Nineteen Eighty-Four / David Willbern -- \"One destroyed being\" : a post-Jungian appraisal of Darth Vader / Steve Gronert Ellerhoff -- The hero's quest in the Harry Potter books and films / Christine Gerhold Zahorchak -- Driving each other crazy: existential psychology in Hanif Kureishi's The Buddha of Suburbia / Susie Thomas."
+                ],
+                "contributors": [
+                  "Evans, Robert C., 1955- editor."
+                ],
+                "created_published": [
+                  "Ipswich, Massachusetts : Salem Press, a division of EBSCO Information Services, Inc. ; Amenia, NY : Grey House Publishing, [2017]",
+                  "©2017"
+                ],
+                "date": "2017",
+                "format": [
+                  "text"
+                ],
+                "genre": [
+                  "Criticism, interpretation, etc"
+                ],
+                "language": [
+                  "eng"
+                ],
+                "medium": [
+                  "xxix, 319 pages : illustrations ; 24 cm."
+                ],
+                "notes": [
+                  "Includes bibliographical references (pages 299-300) and index."
+                ],
+                "other_title": [
+                  "Critical approaches to literature"
+                ],
+                "subjects": [
+                  "Psychology in literature",
+                  "Literature--History and criticism--Psychological aspects",
+                  "Literature--Psychological aspects"
+                ],
+                "title": "Psychological"
+              },
+              "language": [
+                "english"
+              ],
+              "number": [
+                "2017279491",
+                "n974668672",
+                "2020-09-11t09:56:05"
+              ],
+              "number_lccn": [
+                "2017279491"
+              ],
+              "number_oclc": [
+                "n974668672"
+              ],
+              "number_source_modified": [
+                "2020-09-11t09:56:05"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "other_title": [
+                "Critical approaches to literature"
+              ],
+              "partof": [
+                "catalog"
+              ],
+              "resources": [],
+              "shelf_id": "PN56.P93 P69 2017",
+              "site": [
+                "catalog"
+              ],
+              "subject": [
+                "history and criticism",
+                "criticism, interpretation, etc",
+                "literature",
+                "psychological aspects",
+                "psychology in literature"
+              ],
+              "timestamp": "2023-07-08T23:49:07.891Z",
+              "title": "Psychological",
+              "type": [
+                "text"
+              ],
+              "url": "//lccn.loc.gov/2017279491"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://www.loc.gov/item/hlas-bi86106044/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "woodyard, george",
+                "rovinski, samuel"
+              ],
+              "contributor_author": [
+                "rovinski, samuel"
+              ],
+              "contributor_hlas_editor": [
+                "woodyard, george"
+              ],
+              "date": "1983",
+              "dates": [
+                "1983"
+              ],
+              "digitized": true,
+              "extract_timestamp": "2026-04-20T00:22:41.899Z",
+              "group": [
+                "hlas-annotations"
+              ],
+              "hassegments": false,
+              "id": "http://www.loc.gov/item/hlas-bi86106044/",
+              "image_url": [],
+              "index": 4,
+              "item": {
+                "added_personal_names": [
+                  []
+                ],
+                "additional_fields": {
+                  "hlas_staff_initials": [],
+                  "local_record_history": [
+                    "HLASretro"
+                  ],
+                  "note_review_copy": []
+                },
+                "annotation": "Well developed picture of conflict between Church and State, between democracy and communism, between rich and poor, as seen in the events leading up to the March 1980 assassination of Monseñor Oscar Arnulfo Romero, Archbishop of San Salvador, during the celebration of mass.",
+                "authentication_code": "lchlas",
+                "cataloging_source": "DLC-HL DLC-HL bps",
+                "citation": "Rovinski, Samuel. El martirio del pastor. San José: Editorial Universitaria Centroamericana, 1983. 155 p.",
+                "contributor_hlas": [
+                  "woodyard, george"
+                ],
+                "date_of_publication": "1983",
+                "extent": "155 p.",
+                "hlas_id": "bi86106044",
+                "hlas_print_item": "6044",
+                "hlas_subject": [
+                  "romero, óscar arnulfo, -- <em>saint</em>",
+                  "assassinations -- el salvador",
+                  "church history -- el salvador",
+                  "church history -- literature"
+                ],
+                "hlas_topic": "HLAS Topic hpk4000",
+                "hlas_topic_label": "Spanish America--Plays",
+                "hlas_topic_number": "4000",
+                "hlas_topic_prefix": "hpk",
+                "hlas_topic_value": "HLAS Topic hpk4000 Spanish America--Plays",
+                "hlas_volume": "48",
+                "host_information": "San José: Editorial Universitaria Centroamericana, 1983.",
+                "language_of_publication_code": "spa",
+                "permalink": "https://lccn.loc.gov/bi86106044",
+                "physical_description": "155 p.",
+                "place_of_publication": "San José:",
+                "place_of_publication_code": "pr",
+                "profile": "handbook-of-latin-american-studies",
+                "publication_language": "Spanish",
+                "publication_lccn": "83463021",
+                "publication_permalink": "https://lccn.loc.gov/83463021",
+                "publication_title": "El martirio del pastor.",
+                "publisher": "Editorial Universitaria Centroamericana,",
+                "rda_carrier_type": "volume nc rdacarrier",
+                "rda_content_type": "text txt rdacontent",
+                "rda_media_type": "unmediated n rdamedia",
+                "series_statement": "Col. Séptimo día",
+                "year_one": "1983"
+              },
+              "language": [
+                "spanish"
+              ],
+              "language_publication": [
+                "spanish"
+              ],
+              "location": [
+                "puerto rico"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "spanish america--plays (hpk4000)",
+                "latin american, caribbean, and european division",
+                "handbook of latin american studies",
+                "hlas volume 48"
+              ],
+              "partof_hlas_topic": [
+                "spanish america--plays (hpk4000)"
+              ],
+              "partof_hlas_volume": [
+                "hlas volume 48"
+              ],
+              "resources": [],
+              "shelf_id": "48:hpk4000:hlas-bi86106044",
+              "site": [
+                "handbook of latin american studies"
+              ],
+              "subject": [
+                "church history",
+                "el salvador",
+                "romero, óscar arnulfo, -- <em>saint</em",
+                "romero, óscar arnulfo",
+                "literature",
+                "em>saint</em",
+                "church history -- el salvador",
+                "assassinations",
+                "church history -- literature",
+                "assassinations -- el salvador"
+              ],
+              "subject_hlas_subject": [
+                "romero, óscar arnulfo, -- <em>saint</em",
+                "assassinations -- el salvador",
+                "church history -- el salvador",
+                "church history -- literature"
+              ],
+              "timestamp": "2026-04-20T05:48:02.680Z",
+              "title": "El martirio del pastor",
+              "type": [
+                "annotated"
+              ],
+              "url": "https://www.loc.gov/item/hlas-bi86106044/"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://www.loc.gov/item/hlas-bi78106594/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "bruce-novoa, juan",
+                "brodman, barbara l.c."
+              ],
+              "contributor_author": [
+                "brodman, barbara l.c."
+              ],
+              "contributor_hlas_editor": [
+                "bruce-novoa, juan"
+              ],
+              "date": "1976",
+              "dates": [
+                "1976"
+              ],
+              "digitized": true,
+              "extract_timestamp": "2026-04-20T00:18:08.649Z",
+              "group": [
+                "hlas-annotations"
+              ],
+              "hassegments": false,
+              "id": "http://www.loc.gov/item/hlas-bi78106594/",
+              "image_url": [],
+              "index": 5,
+              "item": {
+                "added_personal_names": [
+                  []
+                ],
+                "additional_fields": {
+                  "hlas_staff_initials": [],
+                  "local_record_history": [
+                    "HLASretro"
+                  ],
+                  "note_review_copy": []
+                },
+                "annotation": "Succinct study of the backgrounds of the death cult of Aztec and Spanish cultures as seen in their poetry. Traces its presence in five contemporary writers. The last brief chapter on recent writers and the changing attitudes is not sufficiently developed.",
+                "authentication_code": "lchlas",
+                "cataloging_source": "DLC-HL DLC-HL bps",
+                "citation": "Brodman, Barbara L.C. The Mexican cult of death in myth and literature. Gainesville: University Presses of Florida, 1976. 89 p.: bibl.",
+                "contributor_hlas": [
+                  "bruce-novoa, juan"
+                ],
+                "date_of_publication": "1976",
+                "extent": "89 p.:",
+                "hlas_id": "bi78106594",
+                "hlas_print_item": "6594",
+                "hlas_subject": [
+                  "death -- myths and mythology",
+                  "death -- literature",
+                  "aztecs -- death",
+                  "death -- mexico",
+                  "literary criticism -- mexico"
+                ],
+                "hlas_topic": "HLAS Topic hpd3600",
+                "hlas_topic_label": "20th-21st Century Prose Fiction--Hispanic Caribbean",
+                "hlas_topic_number": "3600",
+                "hlas_topic_prefix": "hpd",
+                "hlas_topic_value": "HLAS Topic hpd3600 20th-21st Century Prose Fiction--Hispanic Caribbean",
+                "hlas_volume": "40",
+                "host_information": "Gainesville: University Presses of Florida, 1976.",
+                "language_of_publication_code": "eng",
+                "other_physical_details": "bibl.",
+                "permalink": "https://lccn.loc.gov/bi78106594",
+                "physical_description": "89 p.: bibl.",
+                "place_of_publication": "Gainesville:",
+                "place_of_publication_code": "flu",
+                "profile": "handbook-of-latin-american-studies",
+                "publication_language": "English",
+                "publication_lccn": "76026105",
+                "publication_permalink": "https://lccn.loc.gov/76026105",
+                "publication_title": "The Mexican cult of death in myth and literature.",
+                "publisher": "University Presses of Florida,",
+                "rda_carrier_type": "volume nc rdacarrier",
+                "rda_content_type": "text txt rdacontent",
+                "rda_media_type": "unmediated n rdamedia",
+                "series_statement": "University of Florida monographs. Humanities series; 44",
+                "year_one": "1976"
+              },
+              "language": [
+                "english"
+              ],
+              "language_publication": [
+                "english"
+              ],
+              "location": [
+                "florida"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "hlas volume 40",
+                "latin american, caribbean, and european division",
+                "handbook of latin american studies",
+                "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+              ],
+              "partof_hlas_topic": [
+                "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+              ],
+              "partof_hlas_volume": [
+                "hlas volume 40"
+              ],
+              "resources": [],
+              "shelf_id": "40:hpd3600:hlas-bi78106594",
+              "site": [
+                "handbook of latin american studies"
+              ],
+              "subject": [
+                "death -- myths and mythology",
+                "death -- literature",
+                "literature",
+                "mexico",
+                "literary criticism",
+                "literary criticism -- mexico",
+                "aztecs -- death",
+                "death",
+                "aztecs",
+                "myths and mythology",
+                "death -- mexico"
+              ],
+              "subject_hlas_subject": [
+                "death -- myths and mythology",
+                "death -- literature",
+                "aztecs -- death",
+                "death -- mexico",
+                "literary criticism -- mexico"
+              ],
+              "timestamp": "2026-04-20T04:43:09.761Z",
+              "title": "The Mexican cult of death in myth and literature",
+              "type": [
+                "annotated"
+              ],
+              "url": "https://www.loc.gov/item/hlas-bi78106594/"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://www.loc.gov/item/hlas-bi86105316/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "aguilar, marielos",
+                "prieto, rené"
+              ],
+              "contributor_author": [
+                "aguilar, marielos"
+              ],
+              "contributor_hlas_editor": [
+                "prieto, rené"
+              ],
+              "date": "1983",
+              "dates": [
+                "1983"
+              ],
+              "digitized": true,
+              "extract_timestamp": "2026-04-20T00:22:37.687Z",
+              "group": [
+                "hlas-annotations"
+              ],
+              "hassegments": false,
+              "id": "http://www.loc.gov/item/hlas-bi86105316/",
+              "image_url": [],
+              "index": 6,
+              "item": {
+                "added_personal_names": [
+                  []
+                ],
+                "additional_fields": {
+                  "hlas_staff_initials": [],
+                  "local_record_history": [
+                    "HLASretro"
+                  ],
+                  "note_review_copy": []
+                },
+                "annotation": "Valuable study of the celebrated author of Mamita Yunai. Unlike most previous monographs on Fallas, this original study sees his literary production in the light of sociopolitical events which were both the wick and the powder of his career. Aguilar highlights the role of both the Communist Party and of Fallas in the banana strike of 1934, as well as the militant author's participation in the workers' movement (1948-66).",
+                "authentication_code": "lchlas",
+                "cataloging_source": "DLC-HL DLC-HL bps",
+                "citation": "Aguilar, Marielos. Carlos Luis Fallas: su época y sus luchas. San José: Editorial Porvenir, 1983. 272 p.: bibl.",
+                "contributor_hlas": [
+                  "prieto, rené"
+                ],
+                "date_of_publication": "1983",
+                "extent": "272 p.:",
+                "hlas_id": "bi86105316",
+                "hlas_print_item": "5316",
+                "hlas_subject": [
+                  "fallas, carlos luis",
+                  "strikes and lockouts -- costa rica",
+                  "strikes and lockouts -- literature"
+                ],
+                "hlas_topic": "HLAS Topic hpd3200",
+                "hlas_topic_label": "20th-21st Century Prose Fiction--Central America--Literary Criticism and History",
+                "hlas_topic_number": "3200",
+                "hlas_topic_prefix": "hpd",
+                "hlas_topic_value": "HLAS Topic hpd3200 20th-21st Century Prose Fiction--Central America--Literary Criticism and History",
+                "hlas_volume": "48",
+                "host_information": "San José: Editorial Porvenir, 1983.",
+                "language_of_publication_code": "spa",
+                "other_physical_details": "bibl.",
+                "permalink": "https://lccn.loc.gov/bi86105316",
+                "physical_description": "272 p.: bibl.",
+                "place_of_publication": "San José:",
+                "place_of_publication_code": "cr",
+                "profile": "handbook-of-latin-american-studies",
+                "publication_language": "Spanish",
+                "publication_lccn": "84149939",
+                "publication_permalink": "https://lccn.loc.gov/84149939",
+                "publication_subtitle": "su época y sus luchas",
+                "publication_title": "Carlos Luis Fallas: su época y sus luchas.",
+                "publisher": "Editorial Porvenir,",
+                "rda_carrier_type": "volume nc rdacarrier",
+                "rda_content_type": "text txt rdacontent",
+                "rda_media_type": "unmediated n rdamedia",
+                "series_statement": "Col. Debate",
+                "year_one": "1983"
+              },
+              "language": [
+                "spanish"
+              ],
+              "language_publication": [
+                "spanish"
+              ],
+              "location": [
+                "costa rica"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "latin american, caribbean, and european division",
+                "handbook of latin american studies",
+                "hlas volume 48",
+                "20th-21st century prose fiction--central america--literary criticism and history (hpd3200)"
+              ],
+              "partof_hlas_topic": [
+                "20th-21st century prose fiction--central america--literary criticism and history (hpd3200)"
+              ],
+              "partof_hlas_volume": [
+                "hlas volume 48"
+              ],
+              "resources": [],
+              "shelf_id": "48:hpd3200:hlas-bi86105316",
+              "site": [
+                "handbook of latin american studies"
+              ],
+              "subject": [
+                "costa rica",
+                "literature",
+                "strikes and lockouts",
+                "fallas, carlos luis",
+                "strikes and lockouts -- literature",
+                "strikes and lockouts -- costa rica"
+              ],
+              "subject_hlas_subject": [
+                "fallas, carlos luis",
+                "strikes and lockouts -- costa rica",
+                "strikes and lockouts -- literature"
+              ],
+              "timestamp": "2026-04-20T05:46:52.065Z",
+              "title": "Carlos Luis Fallas: su época y sus luchas",
+              "type": [
+                "annotated"
+              ],
+              "url": "https://www.loc.gov/item/hlas-bi86105316/"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://www.loc.gov/item/hlas-bi82105325/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "luis, william",
+                "hortas, carlos r."
+              ],
+              "contributor_hlas_editor": [
+                "hortas, carlos r.",
+                "luis, william"
+              ],
+              "date": "1982",
+              "dates": [
+                "1982"
+              ],
+              "digitized": true,
+              "extract_timestamp": "2026-04-20T00:20:41.170Z",
+              "group": [
+                "hlas-annotations"
+              ],
+              "hassegments": false,
+              "id": "http://www.loc.gov/item/hlas-bi82105325/",
+              "image_url": [],
+              "index": 7,
+              "item": {
+                "added_personal_names": [
+                  []
+                ],
+                "additional_fields": {
+                  "hlas_staff_initials": [],
+                  "local_record_history": [
+                    "HLASretro",
+                    "hlasja"
+                  ],
+                  "note_review_copy": []
+                },
+                "annotation": "New literary magazine, published four times a year, edited by Heberto Padilla, Belkis Cuza Malé and Reinaldo Arenas. First issue is dedicated to works of exiled Cuban writers: Antonio Benítez Rojo, César Leante, Enrique Labrador Ruiz, Guillermo Cabrera Infante, José Triana, Juan Arcocha, Carlos Franqui, Carlos Alberto Montaner and others.",
+                "authentication_code": "lchlas",
+                "cataloging_source": "DLC-HL DLC-HL bps",
+                "citation": "Linden Lane Magazine. Vol. 1, No. 1, enero/marzo 1982. Princeton, N.J.: Linden Lane Magazine. 1982.",
+                "contributor_hlas": [
+                  "hortas, carlos r.",
+                  "luis, william"
+                ],
+                "date_of_publication": "1982",
+                "hlas_id": "bi82105325",
+                "hlas_print_item": "5325",
+                "hlas_subject": [
+                  "literature -- cuba"
+                ],
+                "hlas_topic": "HLAS Topic hpd3600",
+                "hlas_topic_label": "20th-21st Century Prose Fiction--Hispanic Caribbean",
+                "hlas_topic_number": "3600",
+                "hlas_topic_prefix": "hpd",
+                "hlas_topic_value": "HLAS Topic hpd3600 20th-21st Century Prose Fiction--Hispanic Caribbean",
+                "hlas_volume": "44",
+                "host_information": "Princeton, N.J.: Linden Lane Magazine. 1982.",
+                "language_of_publication_code": "eng",
+                "permalink": "https://lccn.loc.gov/bi82105325",
+                "place_of_publication": "Princeton, N.J.:",
+                "place_of_publication_code": "nju",
+                "profile": "handbook-of-latin-american-studies",
+                "publication_language": "English",
+                "publication_lccn": "sv86010755",
+                "publication_part_number": "Vol. 1, No. 1, enero/marzo 1982.",
+                "publication_permalink": "https://lccn.loc.gov/sv86010755",
+                "publication_title": "Linden Lane Magazine.",
+                "publisher": "Linden Lane Magazine.",
+                "rda_carrier_type": "volume nc rdacarrier",
+                "rda_content_type": "text txt rdacontent",
+                "rda_media_type": "unmediated n rdamedia",
+                "year_one": "1982"
+              },
+              "language": [
+                "english"
+              ],
+              "language_publication": [
+                "english"
+              ],
+              "location": [
+                "new jersey"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "latin american, caribbean, and european division",
+                "hlas volume 44",
+                "handbook of latin american studies",
+                "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+              ],
+              "partof_hlas_topic": [
+                "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+              ],
+              "partof_hlas_volume": [
+                "hlas volume 44"
+              ],
+              "resources": [],
+              "shelf_id": "44:hpd3600:hlas-bi82105325",
+              "site": [
+                "handbook of latin american studies"
+              ],
+              "subject": [
+                "literature",
+                "literature -- cuba",
+                "cuba"
+              ],
+              "subject_hlas_subject": [
+                "literature -- cuba"
+              ],
+              "timestamp": "2026-04-20T05:17:39.996Z",
+              "title": "Linden Lane Magazine",
+              "type": [
+                "annotated"
+              ],
+              "url": "https://www.loc.gov/item/hlas-bi82105325/"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://lccn.loc.gov/2016030194",
+                "http://www.loc.gov/item/2016030194/",
+                "https://hdl.loc.gov/loc.gdc/gdcebookspublic.2016030194",
+                "http://www.loc.gov/resource/gdcebookspublic.2016030194/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "ette, ottmar"
+              ],
+              "date": "2016-01-01",
+              "dates": [
+                "2016"
+              ],
+              "description": [
+                "\"Ottmar Ette's TransArea proceeds from the thesis that globalization is not a recent phenomenon, but rather, a process of long duration that may be divided into four main phases of accelerated globalization. These phases connect our present, across the world's widely divergent modern eras, to the period of early modern history. Ette demonstrates how the literatures of the world make possible a tangible perception of that which constitutes Life, both of our planet and on our planet, which may only be understood through the application of multiple logics. There is no substitute for the knowledge of literature: it is the knowledge of life, from life. This English translation will be of great interest to English-speaking scholars in the fields of Global and Area Studies, Literary Studies, Cultural Studies, History, Political Science, and many more.\"-- Provided by publisher"
+              ],
+              "digitized": true,
+              "extract_timestamp": "2023-01-21T15:26:49.393Z",
+              "group": [
+                "gdc/scd",
+                "catalog-split-10",
+                "catalog",
+                "general-collections-scan-on-demand-new",
+                "main-catalog-split-10",
+                "main-catalog"
+              ],
+              "hassegments": false,
+              "id": "http://www.loc.gov/item/2016030194/",
+              "image_url": [
+                "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif",
+                "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif#h=1187&w=800"
+              ],
+              "index": 8,
+              "item": {
+                "call_number": [
+                  "PN56.G55"
+                ],
+                "contents": [
+                  "Compass rose of concepts -- Globalization, vectorizations, literatures of the world: transareal studies -- Globalization I. In the grid network of the occident: treasure and trap, plenty and pitfall of the European projection of world-wide migratory spaces -- Globalization II. Dispute over the world: discourses of the tropics and the tropes of the discourses on world-wide expansion -- Globalization III. Influence of a new world power: from the abundance of absence to the pitfall of power -- Globalization IV. In the net of transarchipelagic connections: on the plenty of polyperspective and the pitfall of monolingual globalization."
+                ],
+                "contributors": [
+                  "Ette, Ottmar, author"
+                ],
+                "created_published": [
+                  "Berlin ; Boston : De Gruyter, 2016."
+                ],
+                "date": "2016",
+                "digital_id": [
+                  "https://hdl.loc.gov/loc.gdc/gdcebookspublic.2016030194"
+                ],
+                "format": [
+                  "text"
+                ],
+                "language": [
+                  "eng"
+                ],
+                "medium": [
+                  "1 online resource."
+                ],
+                "notes": [
+                  "Includes bibliographical references and index.",
+                  "Description based on print version record and CIP data provided by publisher; resource not viewed."
+                ],
+                "rights_advisory": [
+                  "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International CC BY-NC-ND 4.0 https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+                ],
+                "subjects": [
+                  "Globalization--History",
+                  "Literature and globalization",
+                  "Literature and transnationalism",
+                  "Literature--History and criticism--Theory, etc"
+                ],
+                "summary": [
+                  "\"Ottmar Ette's TransArea proceeds from the thesis that globalization is not a recent phenomenon, but rather, a process of long duration that may be divided into four main phases of accelerated globalization. These phases connect our present, across the world's widely divergent modern eras, to the period of early modern history. Ette demonstrates how the literatures of the world make possible a tangible perception of that which constitutes Life, both of our planet and on our planet, which may only be understood through the application of multiple logics. There is no substitute for the knowledge of literature: it is the knowledge of life, from life. This English translation will be of great interest to English-speaking scholars in the fields of Global and Area Studies, Literary Studies, Cultural Studies, History, Political Science, and many more.\"-- Provided by publisher"
+                ],
+                "title": "TransArea : a literary history of globalization"
+              },
+              "language": [
+                "english"
+              ],
+              "mime_type": [
+                "image/gif",
+                "application/pdf"
+              ],
+              "number": [
+                "2023-01-05t09:15:01",
+                "online resource",
+                "2016030194"
+              ],
+              "number_carrier_type": [
+                "online resource"
+              ],
+              "number_lccn": [
+                "2016030194"
+              ],
+              "number_source_modified": [
+                "2023-01-05t09:15:01"
+              ],
+              "online_format": [
+                "image",
+                "pdf"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "catalog",
+                "open access books",
+                "general collections"
+              ],
+              "resources": [
+                {
+                  "files": 1,
+                  "image": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif",
+                  "pdf": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.pdf",
+                  "url": "https://www.loc.gov/resource/gdcebookspublic.2016030194/"
+                }
+              ],
+              "shelf_id": "PN56.G55",
+              "site": [
+                "catalog"
+              ],
+              "subject": [
+                "history and criticism",
+                "literature and transnationalism",
+                "theory, etc",
+                "literature",
+                "globalization",
+                "history",
+                "literature and globalization"
+              ],
+              "timestamp": "2023-01-21T16:02:15.789Z",
+              "title": "TransArea : a literary history of globalization",
+              "type": [
+                "text"
+              ],
+              "url": "https://www.loc.gov/item/2016030194/"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://www.loc.gov/item/hlas-bi75106333/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "ruscoe, gordon c.",
+                "proença filho, domício"
+              ],
+              "contributor_author": [
+                "proença filho, domício"
+              ],
+              "contributor_hlas_editor": [
+                "ruscoe, gordon c."
+              ],
+              "date": "1973",
+              "dates": [
+                "1973"
+              ],
+              "digitized": true,
+              "extract_timestamp": "2026-04-20T00:16:51.467Z",
+              "group": [
+                "hlas-annotations"
+              ],
+              "hassegments": false,
+              "id": "http://www.loc.gov/item/hlas-bi75106333/",
+              "image_url": [],
+              "index": 9,
+              "item": {
+                "added_personal_names": [
+                  []
+                ],
+                "additional_fields": {
+                  "hlas_staff_initials": [],
+                  "local_record_history": [
+                    "HLASretro"
+                  ],
+                  "note_review_copy": []
+                },
+                "annotation": "Among the several reforms legislated since 1960, Law 5692 has prompted the renovation of curricula in many areas, including language. In this book the reader will find a discussion of language and literature as communication and expression, and an examination of linguistic standards, oral and written expression, and the selection of textbooks. The author teaches Portuguese and Brazilian Literature and served on the commission that drew up implementation plans for educational reforms in Guanabara state.",
+                "authentication_code": "lchlas",
+                "cataloging_source": "DLC-HL DLC-HL bps",
+                "citation": "Proença Filho, Domício. Língua portuguesa, literatura nacional e a reforma do ensino. Rio de Janeiro: Editôra Liceu, 1973. 127 p.: bibl.",
+                "contributor_hlas": [
+                  "ruscoe, gordon c."
+                ],
+                "date_of_publication": "1973",
+                "extent": "127 p.:",
+                "hlas_id": "bi75106333",
+                "hlas_print_item": "6333",
+                "hlas_subject": [
+                  "educational reform -- brazil",
+                  "educational reform -- law and legislation",
+                  "literature -- brazil",
+                  "portuguese language -- brazil"
+                ],
+                "hlas_topic": "HLAS Topic skr",
+                "hlas_topic_label": "Education--Brazil",
+                "hlas_topic_prefix": "skr",
+                "hlas_topic_value": "HLAS Topic skr Education--Brazil",
+                "hlas_volume": "37",
+                "host_information": "Rio de Janeiro: Editôra Liceu, 1973.",
+                "language_of_publication_code": "por",
+                "other_physical_details": "bibl.",
+                "permalink": "https://lccn.loc.gov/bi75106333",
+                "physical_description": "127 p.: bibl.",
+                "place_of_publication": "Rio de Janeiro:",
+                "place_of_publication_code": "bl",
+                "profile": "handbook-of-latin-american-studies",
+                "publication_language": "Portuguese",
+                "publication_lccn": "73221717",
+                "publication_permalink": "https://lccn.loc.gov/73221717",
+                "publication_title": "Língua portuguesa, literatura nacional e a reforma do ensino.",
+                "publisher": "Editôra Liceu,",
+                "rda_carrier_type": "volume nc rdacarrier",
+                "rda_content_type": "text txt rdacontent",
+                "rda_media_type": "unmediated n rdamedia",
+                "year_one": "1973"
+              },
+              "language": [
+                "portuguese"
+              ],
+              "language_publication": [
+                "portuguese"
+              ],
+              "location": [
+                "brazil"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "latin american, caribbean, and european division",
+                "handbook of latin american studies",
+                "hlas volume 37",
+                "education--brazil (skr)"
+              ],
+              "partof_hlas_topic": [
+                "education--brazil (skr)"
+              ],
+              "partof_hlas_volume": [
+                "hlas volume 37"
+              ],
+              "resources": [],
+              "shelf_id": "37:skr:hlas-bi75106333",
+              "site": [
+                "handbook of latin american studies"
+              ],
+              "subject": [
+                "brazil",
+                "literature",
+                "literature -- brazil",
+                "portuguese language",
+                "educational reform -- brazil",
+                "educational reform -- law and legislation",
+                "portuguese language -- brazil",
+                "law and legislation",
+                "educational reform"
+              ],
+              "subject_hlas_subject": [
+                "educational reform -- brazil",
+                "educational reform -- law and legislation",
+                "literature -- brazil",
+                "portuguese language -- brazil"
+              ],
+              "timestamp": "2026-04-20T04:17:00.520Z",
+              "title": "Língua portuguesa, literatura nacional e a reforma do ensino",
+              "type": [
+                "annotated"
+              ],
+              "url": "https://www.loc.gov/item/hlas-bi75106333/"
+            },
+            {
+              "access_restricted": false,
+              "aka": [
+                "http://www.loc.gov/item/hlas-bi91004202/"
+              ],
+              "campaigns": [],
+              "contributor": [
+                "garcía núñez, fernando",
+                "fuentes, carlos"
+              ],
+              "contributor_author": [
+                "fuentes, carlos"
+              ],
+              "contributor_hlas_editor": [
+                "garcía núñez, fernando"
+              ],
+              "date": "1990",
+              "dates": [
+                "1990"
+              ],
+              "digitized": true,
+              "extract_timestamp": "2026-04-20T00:25:42.507Z",
+              "group": [
+                "hlas-annotations"
+              ],
+              "hassegments": false,
+              "id": "http://www.loc.gov/item/hlas-bi91004202/",
+              "image_url": [],
+              "index": 10,
+              "item": {
+                "added_personal_names": [
+                  []
+                ],
+                "added_uncontrolled_title": [
+                  "tiempo romántico"
+                ],
+                "additional_fields": {
+                  "hlas_staff_initials": [],
+                  "local_record_history": [],
+                  "note_review_copy": []
+                },
+                "annotation": "Magnífica novela en la cual un narrador protagónico relata la participación de uno de sus amigos en las luchas independentistas de Argentina, Chile, Perú, y México, intentando así el joven amigo abandonar las ilusiones de la Ilustración para asumir otras más combativas, las del Romanticismo. Bajo esa perspectiva la novela traza también la evolución ideológica en Hispanoamérica, pero adentrando asimismo al lector en un ritmo narrativo cercano al decimonónico, al principio, para después llevarlo por una mágica vorágine poética que culmina en el Alto Perú. La novela, lo apunta la página anterior a la titular, es la primera de una trilogía que incluirá también <em>La novia muerta</em> y <em>El baile del Centenario.</em>",
+                "authentication_code": "lchlas",
+                "cataloging_source": "DLC-HL DLC-HL bps",
+                "citation": "Fuentes, Carlos. La campaña. Madrid: Mondadori España, 1990. 241 p.",
+                "contributor_hlas": [
+                  "garcía núñez, fernando"
+                ],
+                "cross_references": [
+                  "For review of English translation, <em>The campaign,</em> see item <a href=\"/item/hlas-bi94005053\">bi 94005053</a>"
+                ],
+                "date_of_publication": "1990",
+                "extent": "241 p.",
+                "geographic_areas": [
+                  "s-ag---"
+                ],
+                "hlas_id": "bi91004202",
+                "hlas_subject": [
+                  "wars of independence -- literature"
+                ],
+                "hlas_topic": "HLAS Topic hpd2400",
+                "hlas_topic_label": "20th-21st Century Prose Fiction--Mexico",
+                "hlas_topic_number": "2400",
+                "hlas_topic_prefix": "hpd",
+                "hlas_topic_value": "HLAS Topic hpd2400 20th-21st Century Prose Fiction--Mexico",
+                "hlas_volume": "52",
+                "host_information": "Madrid: Mondadori España, 1990.",
+                "language_of_publication_code": "spa",
+                "lc_subject": [
+                  "argentina -- history -- war of independence,1810-1817 -- fiction"
+                ],
+                "notes": [
+                  "The first vol. of the author's trilogy El tiempo romántico"
+                ],
+                "permalink": "https://lccn.loc.gov/bi91004202",
+                "physical_description": "241 p.",
+                "place_of_publication": "Madrid:",
+                "place_of_publication_code": "sp",
+                "profile": "handbook-of-latin-american-studies",
+                "publication_call_number": "PQ7297.F793 C29 1990",
+                "publication_isbn": [
+                  "8439717342"
+                ],
+                "publication_language": "Spanish",
+                "publication_lccn": "91128157",
+                "publication_permalink": "https://lccn.loc.gov/91128157",
+                "publication_title": "La campaña.",
+                "publisher": "Mondadori España,",
+                "related_items": [
+                  {
+                    "title": "bi 94005053",
+                    "url": "/item/hlas-bi94005053"
+                  }
+                ],
+                "series_statement": "Narrativa Mondadori",
+                "year_one": "1990"
+              },
+              "language": [
+                "spanish"
+              ],
+              "language_publication": [
+                "spanish"
+              ],
+              "location": [
+                "spain"
+              ],
+              "original_format": [
+                "book"
+              ],
+              "partof": [
+                "hlas volume 52",
+                "latin american, caribbean, and european division",
+                "20th-21st century prose fiction--mexico (hpd2400)",
+                "handbook of latin american studies"
+              ],
+              "partof_hlas_topic": [
+                "20th-21st century prose fiction--mexico (hpd2400)"
+              ],
+              "partof_hlas_volume": [
+                "hlas volume 52"
+              ],
+              "resources": [],
+              "shelf_id": "52:hpd2400:hlas-bi91004202",
+              "site": [
+                "handbook of latin american studies"
+              ],
+              "subject": [
+                "argentina",
+                "literature",
+                "wars of independence",
+                "wars of independence -- literature",
+                "war of independence",
+                "history",
+                "fiction"
+              ],
+              "subject_hlas_subject": [
+                "wars of independence -- literature"
+              ],
+              "timestamp": "2026-04-20T06:51:11.151Z",
+              "title": "La campaña",
+              "type": [
+                "annotated"
+              ],
+              "url": "https://www.loc.gov/item/hlas-bi91004202/"
+            }
+          ],
+          "slug": "",
+          "title": "Search Books/Printed Material",
+          "url": "https://www.loc.gov/books/"
+        }
+      ],
+      "link": "https://www.loc.gov/books/",
+      "pagination": "1 of 2",
+      "slug": "",
+      "title": "Search Books/Printed Material",
+      "url": "https://www.loc.gov/books/"
+    },
+    {
+      "active": false,
+      "api": "/books/?fa=partof:digital+collections&c=40",
+      "disable_max_line_length": true,
+      "disable_navigation": true,
+      "link": "https://www.loc.gov/books/collections/",
+      "pagination": "2 of 2",
+      "show_featured": true,
+      "slug": "collections",
+      "style": "gallery",
+      "title": "Collections with Books/Printed Material",
+      "url": "https://www.loc.gov/books/collections/?st=gallery"
+    }
+  ],
+  "pagination": {
+    "current": 1,
+    "first": null,
+    "from": 1,
+    "last": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&sp=4",
+    "next": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&sp=2",
+    "of": 1346,
+    "page_list": [
+      {
+        "number": 1,
+        "url": null
+      },
+      {
+        "number": 2,
+        "url": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&sp=2"
+      },
+      {
+        "number": 3,
+        "url": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&sp=3"
+      },
+      {
+        "number": "...",
+        "url": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&sp=4"
+      }
+    ],
+    "perpage": 10,
+    "perpage_options": [
+      25,
+      50,
+      100,
+      150
+    ],
+    "previous": null,
+    "results": "1 - 10",
+    "to": 10,
+    "total": 135
+  },
+  "portal": true,
+  "portal_label": "Format",
+  "previous": null,
+  "previous_sibling": null,
+  "results": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2013497896",
+        "http://bvbr.bib-bvb.de:8991/F?func=service&doc_library=BVB01&local_base=BVB01&doc_number=027213917&line_number=0001&func_code=DB_RECORDS&service_type=MEDIA",
+        "http://www.loc.gov/item/2013497896/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "vendrell ferran, íngrid",
+        "demmerling, christoph"
+      ],
+      "date": "2014",
+      "dates": [
+        "2014"
+      ],
+      "description": [
+        "Includes bibliographical references and indexes."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2023-06-02T15:39:09.402Z",
+      "group": [
+        "catalog-split-01",
+        "catalog",
+        "main-catalog-split-01",
+        "main-catalog"
+      ],
+      "hassegments": false,
+      "id": "http://lccn.loc.gov/2013497896",
+      "image_url": [],
+      "index": 1,
+      "item": {
+        "call_number": [
+          "PN49 .W244 2014"
+        ],
+        "contributors": [
+          "Demmerling, Christoph, 1963- editor.",
+          "Vendrell Ferran, Íngrid, editor."
+        ],
+        "created_published": [
+          "Berlin : de Gruyter, 2014."
+        ],
+        "date": "2014",
+        "format": [
+          "text"
+        ],
+        "language": [
+          "eng"
+        ],
+        "medium": [
+          "348 pages ; 25 cm."
+        ],
+        "notes": [
+          "Includes bibliographical references and indexes."
+        ],
+        "subjects": [
+          "Literature--Philosophy",
+          "Knowledge, Theory of",
+          "Truth in literature"
+        ],
+        "title": "Wahrheit, Wissen und Erkenntnis in der Literatur : philosophische Beiträge"
+      },
+      "language": [
+        "english"
+      ],
+      "number": [
+        "2018-06-01t13:29:48",
+        "n881305008",
+        "2013497896"
+      ],
+      "number_lccn": [
+        "2013497896"
+      ],
+      "number_oclc": [
+        "n881305008"
+      ],
+      "number_source_modified": [
+        "2018-06-01t13:29:48"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "catalog"
+      ],
+      "resources": [],
+      "shelf_id": "PN49 .W244 2014",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "literature",
+        "knowledge, theory of",
+        "philosophy",
+        "truth in literature"
+      ],
+      "timestamp": "2023-07-07T07:22:25.793Z",
+      "title": "Wahrheit, Wissen und Erkenntnis in der Literatur : philosophische Beiträge",
+      "type": [
+        "text"
+      ],
+      "url": "//lccn.loc.gov/2013497896"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi86105604/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "gardini, carlos",
+        "bastos, maría luisa"
+      ],
+      "contributor_author": [
+        "gardini, carlos"
+      ],
+      "contributor_hlas_editor": [
+        "bastos, maría luisa"
+      ],
+      "date": "1983",
+      "dates": [
+        "1983"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:22:39.506Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi86105604/",
+      "image_url": [],
+      "index": 2,
+      "item": {
+        "added_personal_names": [
+          []
+        ],
+        "additional_fields": {
+          "hlas_staff_initials": [],
+          "local_record_history": [
+            "HLASretro"
+          ],
+          "note_review_copy": []
+        },
+        "annotation": "Estos 15 documentos de experiencias límite - trasmutaciones narrativas notables de la represión, la tortura, el asesinato institucionalizados en el país durante el llamado Proceso - son a la vez admonitorios y catárticos. Llama la atención que una escritura extraordinariamente tersa (donde se advierten reelaboraciones felices del Expresionismo, Kafka, Borges) logre con tanta eficacia atmósferas de pesadilla, de fantasmagoría gótica, de alucinación. [MLB]",
+        "authentication_code": "lchlas",
+        "cataloging_source": "DLC-HL DLC-HL bps",
+        "citation": "Gardini, Carlos. Primera línea. Buenos Aires: Editorial Sudamericana, 1983. 172 p.",
+        "contributor_hlas": [
+          "bastos, maría luisa"
+        ],
+        "date_of_publication": "1983",
+        "extent": "172 p.",
+        "hlas_id": "bi86105604",
+        "hlas_print_item": "5604",
+        "hlas_subject": [
+          "assassinations -- argentina",
+          "assassinations -- literature",
+          "torture -- argentina",
+          "torture -- literature"
+        ],
+        "hlas_topic": "HLAS Topic hpd7600",
+        "hlas_topic_label": "20th-21st Century Prose Fiction--Argentina",
+        "hlas_topic_number": "7600",
+        "hlas_topic_prefix": "hpd",
+        "hlas_topic_value": "HLAS Topic hpd7600 20th-21st Century Prose Fiction--Argentina",
+        "hlas_volume": "48",
+        "host_information": "Buenos Aires: Editorial Sudamericana, 1983.",
+        "language_of_publication_code": "spa",
+        "permalink": "https://lccn.loc.gov/bi86105604",
+        "physical_description": "172 p.",
+        "place_of_publication": "Buenos Aires:",
+        "place_of_publication_code": "ag",
+        "profile": "handbook-of-latin-american-studies",
+        "publication_language": "Spanish",
+        "publication_lccn": "83463462",
+        "publication_permalink": "https://lccn.loc.gov/83463462",
+        "publication_title": "Primera línea.",
+        "publisher": "Editorial Sudamericana,",
+        "rda_carrier_type": "volume nc rdacarrier",
+        "rda_content_type": "text txt rdacontent",
+        "rda_media_type": "unmediated n rdamedia",
+        "series_statement": "Col. El Espejo",
+        "year_one": "1983"
+      },
+      "language": [
+        "spanish"
+      ],
+      "language_publication": [
+        "spanish"
+      ],
+      "location": [
+        "argentina"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "latin american, caribbean, and european division",
+        "handbook of latin american studies",
+        "hlas volume 48",
+        "20th-21st century prose fiction--argentina (hpd7600)"
+      ],
+      "partof_hlas_topic": [
+        "20th-21st century prose fiction--argentina (hpd7600)"
+      ],
+      "partof_hlas_volume": [
+        "hlas volume 48"
+      ],
+      "resources": [],
+      "shelf_id": "48:hpd7600:hlas-bi86105604",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "argentina",
+        "literature",
+        "assassinations -- argentina",
+        "assassinations",
+        "torture",
+        "torture -- literature",
+        "torture -- argentina",
+        "assassinations -- literature"
+      ],
+      "subject_hlas_subject": [
+        "assassinations -- argentina",
+        "assassinations -- literature",
+        "torture -- argentina",
+        "torture -- literature"
+      ],
+      "timestamp": "2026-04-20T05:47:23.236Z",
+      "title": "Primera línea",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi86105604/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/2017279491/",
+        "http://lccn.loc.gov/2017279491",
+        "http://online.salempress.com/toc.do?bookId=882&bookTitle=Critical%20Approaches%20to%20Literature%3A%20Psychological&bookCategory=Literature"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "evans, robert c."
+      ],
+      "date": "2017",
+      "dates": [
+        "2017"
+      ],
+      "description": [
+        "Includes bibliographical references (pages 299-300) and index."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2023-06-02T20:54:03.040Z",
+      "group": [
+        "catalog-split-10",
+        "catalog",
+        "main-catalog-split-10",
+        "main-catalog"
+      ],
+      "hassegments": false,
+      "id": "http://lccn.loc.gov/2017279491",
+      "image_url": [],
+      "index": 3,
+      "item": {
+        "call_number": [
+          "PN56.P93 P69 2017"
+        ],
+        "contents": [
+          "Dedication -- About this volume / Robert C. Evans -- On psychological approaches to literature: looking at books with the mind's eye / David Willbern -- Crews missiles: attacks and counterattacks concerning Freudian literary criticism / Robert C. Evans -- Psychological approaches to literature: a review of select scholarship / Robert C. Evans -- A family systems theory reading of Saul Bellow's Humboldt's Gift / Allan Chavkin & Nancy Feyl Chavkin -- Freud and Poe: a dialogue / James S. Baumlin and Tita French Baumlin -- Literary prehistory: the origins and psychology of storytelling / Michelle Scalise Sugiyama -- \"Is this her fault or mine?\" : hysteria, misogyny, and voice in Shakespeare's Measure for Measure / Laura B. Vogel -- Trauma in Shakespeare's Macbeth / Robert C. Evans -- John Donne, neuroscience, and the experience of empathy / David Strong -- Poe's ideal of love and the broken world: crowd psychology in some tales and poems / Jeffrey Folks -- Death and Freud in the poetry of Edna St. Vincent Millay / Jenna Lewis -- Grasping The Great Gatsby: a cognitive approach / Nicolas Tredell -- Hemingway's suicides: a psychobiographical approach to literature / Jeffrey Berman -- \"Written in his face\" : ambivalence and mirroring in Nineteen Eighty-Four / David Willbern -- \"One destroyed being\" : a post-Jungian appraisal of Darth Vader / Steve Gronert Ellerhoff -- The hero's quest in the Harry Potter books and films / Christine Gerhold Zahorchak -- Driving each other crazy: existential psychology in Hanif Kureishi's The Buddha of Suburbia / Susie Thomas."
+        ],
+        "contributors": [
+          "Evans, Robert C., 1955- editor."
+        ],
+        "created_published": [
+          "Ipswich, Massachusetts : Salem Press, a division of EBSCO Information Services, Inc. ; Amenia, NY : Grey House Publishing, [2017]",
+          "©2017"
+        ],
+        "date": "2017",
+        "format": [
+          "text"
+        ],
+        "genre": [
+          "Criticism, interpretation, etc"
+        ],
+        "language": [
+          "eng"
+        ],
+        "medium": [
+          "xxix, 319 pages : illustrations ; 24 cm."
+        ],
+        "notes": [
+          "Includes bibliographical references (pages 299-300) and index."
+        ],
+        "other_title": [
+          "Critical approaches to literature"
+        ],
+        "subjects": [
+          "Psychology in literature",
+          "Literature--History and criticism--Psychological aspects",
+          "Literature--Psychological aspects"
+        ],
+        "title": "Psychological"
+      },
+      "language": [
+        "english"
+      ],
+      "number": [
+        "2017279491",
+        "n974668672",
+        "2020-09-11t09:56:05"
+      ],
+      "number_lccn": [
+        "2017279491"
+      ],
+      "number_oclc": [
+        "n974668672"
+      ],
+      "number_source_modified": [
+        "2020-09-11t09:56:05"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "other_title": [
+        "Critical approaches to literature"
+      ],
+      "partof": [
+        "catalog"
+      ],
+      "resources": [],
+      "shelf_id": "PN56.P93 P69 2017",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "history and criticism",
+        "criticism, interpretation, etc",
+        "literature",
+        "psychological aspects",
+        "psychology in literature"
+      ],
+      "timestamp": "2023-07-08T23:49:07.891Z",
+      "title": "Psychological",
+      "type": [
+        "text"
+      ],
+      "url": "//lccn.loc.gov/2017279491"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi86106044/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "woodyard, george",
+        "rovinski, samuel"
+      ],
+      "contributor_author": [
+        "rovinski, samuel"
+      ],
+      "contributor_hlas_editor": [
+        "woodyard, george"
+      ],
+      "date": "1983",
+      "dates": [
+        "1983"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:22:41.899Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi86106044/",
+      "image_url": [],
+      "index": 4,
+      "item": {
+        "added_personal_names": [
+          []
+        ],
+        "additional_fields": {
+          "hlas_staff_initials": [],
+          "local_record_history": [
+            "HLASretro"
+          ],
+          "note_review_copy": []
+        },
+        "annotation": "Well developed picture of conflict between Church and State, between democracy and communism, between rich and poor, as seen in the events leading up to the March 1980 assassination of Monseñor Oscar Arnulfo Romero, Archbishop of San Salvador, during the celebration of mass.",
+        "authentication_code": "lchlas",
+        "cataloging_source": "DLC-HL DLC-HL bps",
+        "citation": "Rovinski, Samuel. El martirio del pastor. San José: Editorial Universitaria Centroamericana, 1983. 155 p.",
+        "contributor_hlas": [
+          "woodyard, george"
+        ],
+        "date_of_publication": "1983",
+        "extent": "155 p.",
+        "hlas_id": "bi86106044",
+        "hlas_print_item": "6044",
+        "hlas_subject": [
+          "romero, óscar arnulfo, -- <em>saint</em>",
+          "assassinations -- el salvador",
+          "church history -- el salvador",
+          "church history -- literature"
+        ],
+        "hlas_topic": "HLAS Topic hpk4000",
+        "hlas_topic_label": "Spanish America--Plays",
+        "hlas_topic_number": "4000",
+        "hlas_topic_prefix": "hpk",
+        "hlas_topic_value": "HLAS Topic hpk4000 Spanish America--Plays",
+        "hlas_volume": "48",
+        "host_information": "San José: Editorial Universitaria Centroamericana, 1983.",
+        "language_of_publication_code": "spa",
+        "permalink": "https://lccn.loc.gov/bi86106044",
+        "physical_description": "155 p.",
+        "place_of_publication": "San José:",
+        "place_of_publication_code": "pr",
+        "profile": "handbook-of-latin-american-studies",
+        "publication_language": "Spanish",
+        "publication_lccn": "83463021",
+        "publication_permalink": "https://lccn.loc.gov/83463021",
+        "publication_title": "El martirio del pastor.",
+        "publisher": "Editorial Universitaria Centroamericana,",
+        "rda_carrier_type": "volume nc rdacarrier",
+        "rda_content_type": "text txt rdacontent",
+        "rda_media_type": "unmediated n rdamedia",
+        "series_statement": "Col. Séptimo día",
+        "year_one": "1983"
+      },
+      "language": [
+        "spanish"
+      ],
+      "language_publication": [
+        "spanish"
+      ],
+      "location": [
+        "puerto rico"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "spanish america--plays (hpk4000)",
+        "latin american, caribbean, and european division",
+        "handbook of latin american studies",
+        "hlas volume 48"
+      ],
+      "partof_hlas_topic": [
+        "spanish america--plays (hpk4000)"
+      ],
+      "partof_hlas_volume": [
+        "hlas volume 48"
+      ],
+      "resources": [],
+      "shelf_id": "48:hpk4000:hlas-bi86106044",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "church history",
+        "el salvador",
+        "romero, óscar arnulfo, -- <em>saint</em",
+        "romero, óscar arnulfo",
+        "literature",
+        "em>saint</em",
+        "church history -- el salvador",
+        "assassinations",
+        "church history -- literature",
+        "assassinations -- el salvador"
+      ],
+      "subject_hlas_subject": [
+        "romero, óscar arnulfo, -- <em>saint</em",
+        "assassinations -- el salvador",
+        "church history -- el salvador",
+        "church history -- literature"
+      ],
+      "timestamp": "2026-04-20T05:48:02.680Z",
+      "title": "El martirio del pastor",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi86106044/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi78106594/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "bruce-novoa, juan",
+        "brodman, barbara l.c."
+      ],
+      "contributor_author": [
+        "brodman, barbara l.c."
+      ],
+      "contributor_hlas_editor": [
+        "bruce-novoa, juan"
+      ],
+      "date": "1976",
+      "dates": [
+        "1976"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:18:08.649Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi78106594/",
+      "image_url": [],
+      "index": 5,
+      "item": {
+        "added_personal_names": [
+          []
+        ],
+        "additional_fields": {
+          "hlas_staff_initials": [],
+          "local_record_history": [
+            "HLASretro"
+          ],
+          "note_review_copy": []
+        },
+        "annotation": "Succinct study of the backgrounds of the death cult of Aztec and Spanish cultures as seen in their poetry. Traces its presence in five contemporary writers. The last brief chapter on recent writers and the changing attitudes is not sufficiently developed.",
+        "authentication_code": "lchlas",
+        "cataloging_source": "DLC-HL DLC-HL bps",
+        "citation": "Brodman, Barbara L.C. The Mexican cult of death in myth and literature. Gainesville: University Presses of Florida, 1976. 89 p.: bibl.",
+        "contributor_hlas": [
+          "bruce-novoa, juan"
+        ],
+        "date_of_publication": "1976",
+        "extent": "89 p.:",
+        "hlas_id": "bi78106594",
+        "hlas_print_item": "6594",
+        "hlas_subject": [
+          "death -- myths and mythology",
+          "death -- literature",
+          "aztecs -- death",
+          "death -- mexico",
+          "literary criticism -- mexico"
+        ],
+        "hlas_topic": "HLAS Topic hpd3600",
+        "hlas_topic_label": "20th-21st Century Prose Fiction--Hispanic Caribbean",
+        "hlas_topic_number": "3600",
+        "hlas_topic_prefix": "hpd",
+        "hlas_topic_value": "HLAS Topic hpd3600 20th-21st Century Prose Fiction--Hispanic Caribbean",
+        "hlas_volume": "40",
+        "host_information": "Gainesville: University Presses of Florida, 1976.",
+        "language_of_publication_code": "eng",
+        "other_physical_details": "bibl.",
+        "permalink": "https://lccn.loc.gov/bi78106594",
+        "physical_description": "89 p.: bibl.",
+        "place_of_publication": "Gainesville:",
+        "place_of_publication_code": "flu",
+        "profile": "handbook-of-latin-american-studies",
+        "publication_language": "English",
+        "publication_lccn": "76026105",
+        "publication_permalink": "https://lccn.loc.gov/76026105",
+        "publication_title": "The Mexican cult of death in myth and literature.",
+        "publisher": "University Presses of Florida,",
+        "rda_carrier_type": "volume nc rdacarrier",
+        "rda_content_type": "text txt rdacontent",
+        "rda_media_type": "unmediated n rdamedia",
+        "series_statement": "University of Florida monographs. Humanities series; 44",
+        "year_one": "1976"
+      },
+      "language": [
+        "english"
+      ],
+      "language_publication": [
+        "english"
+      ],
+      "location": [
+        "florida"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "hlas volume 40",
+        "latin american, caribbean, and european division",
+        "handbook of latin american studies",
+        "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+      ],
+      "partof_hlas_topic": [
+        "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+      ],
+      "partof_hlas_volume": [
+        "hlas volume 40"
+      ],
+      "resources": [],
+      "shelf_id": "40:hpd3600:hlas-bi78106594",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "death -- myths and mythology",
+        "death -- literature",
+        "literature",
+        "mexico",
+        "literary criticism",
+        "literary criticism -- mexico",
+        "aztecs -- death",
+        "death",
+        "aztecs",
+        "myths and mythology",
+        "death -- mexico"
+      ],
+      "subject_hlas_subject": [
+        "death -- myths and mythology",
+        "death -- literature",
+        "aztecs -- death",
+        "death -- mexico",
+        "literary criticism -- mexico"
+      ],
+      "timestamp": "2026-04-20T04:43:09.761Z",
+      "title": "The Mexican cult of death in myth and literature",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi78106594/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi86105316/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "aguilar, marielos",
+        "prieto, rené"
+      ],
+      "contributor_author": [
+        "aguilar, marielos"
+      ],
+      "contributor_hlas_editor": [
+        "prieto, rené"
+      ],
+      "date": "1983",
+      "dates": [
+        "1983"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:22:37.687Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi86105316/",
+      "image_url": [],
+      "index": 6,
+      "item": {
+        "added_personal_names": [
+          []
+        ],
+        "additional_fields": {
+          "hlas_staff_initials": [],
+          "local_record_history": [
+            "HLASretro"
+          ],
+          "note_review_copy": []
+        },
+        "annotation": "Valuable study of the celebrated author of Mamita Yunai. Unlike most previous monographs on Fallas, this original study sees his literary production in the light of sociopolitical events which were both the wick and the powder of his career. Aguilar highlights the role of both the Communist Party and of Fallas in the banana strike of 1934, as well as the militant author's participation in the workers' movement (1948-66).",
+        "authentication_code": "lchlas",
+        "cataloging_source": "DLC-HL DLC-HL bps",
+        "citation": "Aguilar, Marielos. Carlos Luis Fallas: su época y sus luchas. San José: Editorial Porvenir, 1983. 272 p.: bibl.",
+        "contributor_hlas": [
+          "prieto, rené"
+        ],
+        "date_of_publication": "1983",
+        "extent": "272 p.:",
+        "hlas_id": "bi86105316",
+        "hlas_print_item": "5316",
+        "hlas_subject": [
+          "fallas, carlos luis",
+          "strikes and lockouts -- costa rica",
+          "strikes and lockouts -- literature"
+        ],
+        "hlas_topic": "HLAS Topic hpd3200",
+        "hlas_topic_label": "20th-21st Century Prose Fiction--Central America--Literary Criticism and History",
+        "hlas_topic_number": "3200",
+        "hlas_topic_prefix": "hpd",
+        "hlas_topic_value": "HLAS Topic hpd3200 20th-21st Century Prose Fiction--Central America--Literary Criticism and History",
+        "hlas_volume": "48",
+        "host_information": "San José: Editorial Porvenir, 1983.",
+        "language_of_publication_code": "spa",
+        "other_physical_details": "bibl.",
+        "permalink": "https://lccn.loc.gov/bi86105316",
+        "physical_description": "272 p.: bibl.",
+        "place_of_publication": "San José:",
+        "place_of_publication_code": "cr",
+        "profile": "handbook-of-latin-american-studies",
+        "publication_language": "Spanish",
+        "publication_lccn": "84149939",
+        "publication_permalink": "https://lccn.loc.gov/84149939",
+        "publication_subtitle": "su época y sus luchas",
+        "publication_title": "Carlos Luis Fallas: su época y sus luchas.",
+        "publisher": "Editorial Porvenir,",
+        "rda_carrier_type": "volume nc rdacarrier",
+        "rda_content_type": "text txt rdacontent",
+        "rda_media_type": "unmediated n rdamedia",
+        "series_statement": "Col. Debate",
+        "year_one": "1983"
+      },
+      "language": [
+        "spanish"
+      ],
+      "language_publication": [
+        "spanish"
+      ],
+      "location": [
+        "costa rica"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "latin american, caribbean, and european division",
+        "handbook of latin american studies",
+        "hlas volume 48",
+        "20th-21st century prose fiction--central america--literary criticism and history (hpd3200)"
+      ],
+      "partof_hlas_topic": [
+        "20th-21st century prose fiction--central america--literary criticism and history (hpd3200)"
+      ],
+      "partof_hlas_volume": [
+        "hlas volume 48"
+      ],
+      "resources": [],
+      "shelf_id": "48:hpd3200:hlas-bi86105316",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "costa rica",
+        "literature",
+        "strikes and lockouts",
+        "fallas, carlos luis",
+        "strikes and lockouts -- literature",
+        "strikes and lockouts -- costa rica"
+      ],
+      "subject_hlas_subject": [
+        "fallas, carlos luis",
+        "strikes and lockouts -- costa rica",
+        "strikes and lockouts -- literature"
+      ],
+      "timestamp": "2026-04-20T05:46:52.065Z",
+      "title": "Carlos Luis Fallas: su época y sus luchas",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi86105316/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi82105325/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "luis, william",
+        "hortas, carlos r."
+      ],
+      "contributor_hlas_editor": [
+        "hortas, carlos r.",
+        "luis, william"
+      ],
+      "date": "1982",
+      "dates": [
+        "1982"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:20:41.170Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi82105325/",
+      "image_url": [],
+      "index": 7,
+      "item": {
+        "added_personal_names": [
+          []
+        ],
+        "additional_fields": {
+          "hlas_staff_initials": [],
+          "local_record_history": [
+            "HLASretro",
+            "hlasja"
+          ],
+          "note_review_copy": []
+        },
+        "annotation": "New literary magazine, published four times a year, edited by Heberto Padilla, Belkis Cuza Malé and Reinaldo Arenas. First issue is dedicated to works of exiled Cuban writers: Antonio Benítez Rojo, César Leante, Enrique Labrador Ruiz, Guillermo Cabrera Infante, José Triana, Juan Arcocha, Carlos Franqui, Carlos Alberto Montaner and others.",
+        "authentication_code": "lchlas",
+        "cataloging_source": "DLC-HL DLC-HL bps",
+        "citation": "Linden Lane Magazine. Vol. 1, No. 1, enero/marzo 1982. Princeton, N.J.: Linden Lane Magazine. 1982.",
+        "contributor_hlas": [
+          "hortas, carlos r.",
+          "luis, william"
+        ],
+        "date_of_publication": "1982",
+        "hlas_id": "bi82105325",
+        "hlas_print_item": "5325",
+        "hlas_subject": [
+          "literature -- cuba"
+        ],
+        "hlas_topic": "HLAS Topic hpd3600",
+        "hlas_topic_label": "20th-21st Century Prose Fiction--Hispanic Caribbean",
+        "hlas_topic_number": "3600",
+        "hlas_topic_prefix": "hpd",
+        "hlas_topic_value": "HLAS Topic hpd3600 20th-21st Century Prose Fiction--Hispanic Caribbean",
+        "hlas_volume": "44",
+        "host_information": "Princeton, N.J.: Linden Lane Magazine. 1982.",
+        "language_of_publication_code": "eng",
+        "permalink": "https://lccn.loc.gov/bi82105325",
+        "place_of_publication": "Princeton, N.J.:",
+        "place_of_publication_code": "nju",
+        "profile": "handbook-of-latin-american-studies",
+        "publication_language": "English",
+        "publication_lccn": "sv86010755",
+        "publication_part_number": "Vol. 1, No. 1, enero/marzo 1982.",
+        "publication_permalink": "https://lccn.loc.gov/sv86010755",
+        "publication_title": "Linden Lane Magazine.",
+        "publisher": "Linden Lane Magazine.",
+        "rda_carrier_type": "volume nc rdacarrier",
+        "rda_content_type": "text txt rdacontent",
+        "rda_media_type": "unmediated n rdamedia",
+        "year_one": "1982"
+      },
+      "language": [
+        "english"
+      ],
+      "language_publication": [
+        "english"
+      ],
+      "location": [
+        "new jersey"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "latin american, caribbean, and european division",
+        "hlas volume 44",
+        "handbook of latin american studies",
+        "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+      ],
+      "partof_hlas_topic": [
+        "20th-21st century prose fiction--hispanic caribbean (hpd3600)"
+      ],
+      "partof_hlas_volume": [
+        "hlas volume 44"
+      ],
+      "resources": [],
+      "shelf_id": "44:hpd3600:hlas-bi82105325",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "literature",
+        "literature -- cuba",
+        "cuba"
+      ],
+      "subject_hlas_subject": [
+        "literature -- cuba"
+      ],
+      "timestamp": "2026-04-20T05:17:39.996Z",
+      "title": "Linden Lane Magazine",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi82105325/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2016030194",
+        "http://www.loc.gov/item/2016030194/",
+        "https://hdl.loc.gov/loc.gdc/gdcebookspublic.2016030194",
+        "http://www.loc.gov/resource/gdcebookspublic.2016030194/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "ette, ottmar"
+      ],
+      "date": "2016-01-01",
+      "dates": [
+        "2016"
+      ],
+      "description": [
+        "\"Ottmar Ette's TransArea proceeds from the thesis that globalization is not a recent phenomenon, but rather, a process of long duration that may be divided into four main phases of accelerated globalization. These phases connect our present, across the world's widely divergent modern eras, to the period of early modern history. Ette demonstrates how the literatures of the world make possible a tangible perception of that which constitutes Life, both of our planet and on our planet, which may only be understood through the application of multiple logics. There is no substitute for the knowledge of literature: it is the knowledge of life, from life. This English translation will be of great interest to English-speaking scholars in the fields of Global and Area Studies, Literary Studies, Cultural Studies, History, Political Science, and many more.\"-- Provided by publisher"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2023-01-21T15:26:49.393Z",
+      "group": [
+        "gdc/scd",
+        "catalog-split-10",
+        "catalog",
+        "general-collections-scan-on-demand-new",
+        "main-catalog-split-10",
+        "main-catalog"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2016030194/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif",
+        "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif#h=1187&w=800"
+      ],
+      "index": 8,
+      "item": {
+        "call_number": [
+          "PN56.G55"
+        ],
+        "contents": [
+          "Compass rose of concepts -- Globalization, vectorizations, literatures of the world: transareal studies -- Globalization I. In the grid network of the occident: treasure and trap, plenty and pitfall of the European projection of world-wide migratory spaces -- Globalization II. Dispute over the world: discourses of the tropics and the tropes of the discourses on world-wide expansion -- Globalization III. Influence of a new world power: from the abundance of absence to the pitfall of power -- Globalization IV. In the net of transarchipelagic connections: on the plenty of polyperspective and the pitfall of monolingual globalization."
+        ],
+        "contributors": [
+          "Ette, Ottmar, author"
+        ],
+        "created_published": [
+          "Berlin ; Boston : De Gruyter, 2016."
+        ],
+        "date": "2016",
+        "digital_id": [
+          "https://hdl.loc.gov/loc.gdc/gdcebookspublic.2016030194"
+        ],
+        "format": [
+          "text"
+        ],
+        "language": [
+          "eng"
+        ],
+        "medium": [
+          "1 online resource."
+        ],
+        "notes": [
+          "Includes bibliographical references and index.",
+          "Description based on print version record and CIP data provided by publisher; resource not viewed."
+        ],
+        "rights_advisory": [
+          "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International CC BY-NC-ND 4.0 https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode"
+        ],
+        "subjects": [
+          "Globalization--History",
+          "Literature and globalization",
+          "Literature and transnationalism",
+          "Literature--History and criticism--Theory, etc"
+        ],
+        "summary": [
+          "\"Ottmar Ette's TransArea proceeds from the thesis that globalization is not a recent phenomenon, but rather, a process of long duration that may be divided into four main phases of accelerated globalization. These phases connect our present, across the world's widely divergent modern eras, to the period of early modern history. Ette demonstrates how the literatures of the world make possible a tangible perception of that which constitutes Life, both of our planet and on our planet, which may only be understood through the application of multiple logics. There is no substitute for the knowledge of literature: it is the knowledge of life, from life. This English translation will be of great interest to English-speaking scholars in the fields of Global and Area Studies, Literary Studies, Cultural Studies, History, Political Science, and many more.\"-- Provided by publisher"
+        ],
+        "title": "TransArea : a literary history of globalization"
+      },
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "number": [
+        "2023-01-05t09:15:01",
+        "online resource",
+        "2016030194"
+      ],
+      "number_carrier_type": [
+        "online resource"
+      ],
+      "number_lccn": [
+        "2016030194"
+      ],
+      "number_source_modified": [
+        "2023-01-05t09:15:01"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "catalog",
+        "open access books",
+        "general collections"
+      ],
+      "resources": [
+        {
+          "files": 1,
+          "image": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.gif",
+          "pdf": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/01/94/2016030194/2016030194.pdf",
+          "url": "https://www.loc.gov/resource/gdcebookspublic.2016030194/"
+        }
+      ],
+      "shelf_id": "PN56.G55",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "history and criticism",
+        "literature and transnationalism",
+        "theory, etc",
+        "literature",
+        "globalization",
+        "history",
+        "literature and globalization"
+      ],
+      "timestamp": "2023-01-21T16:02:15.789Z",
+      "title": "TransArea : a literary history of globalization",
+      "type": [
+        "text"
+      ],
+      "url": "https://www.loc.gov/item/2016030194/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi75106333/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "ruscoe, gordon c.",
+        "proença filho, domício"
+      ],
+      "contributor_author": [
+        "proença filho, domício"
+      ],
+      "contributor_hlas_editor": [
+        "ruscoe, gordon c."
+      ],
+      "date": "1973",
+      "dates": [
+        "1973"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:16:51.467Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi75106333/",
+      "image_url": [],
+      "index": 9,
+      "item": {
+        "added_personal_names": [
+          []
+        ],
+        "additional_fields": {
+          "hlas_staff_initials": [],
+          "local_record_history": [
+            "HLASretro"
+          ],
+          "note_review_copy": []
+        },
+        "annotation": "Among the several reforms legislated since 1960, Law 5692 has prompted the renovation of curricula in many areas, including language. In this book the reader will find a discussion of language and literature as communication and expression, and an examination of linguistic standards, oral and written expression, and the selection of textbooks. The author teaches Portuguese and Brazilian Literature and served on the commission that drew up implementation plans for educational reforms in Guanabara state.",
+        "authentication_code": "lchlas",
+        "cataloging_source": "DLC-HL DLC-HL bps",
+        "citation": "Proença Filho, Domício. Língua portuguesa, literatura nacional e a reforma do ensino. Rio de Janeiro: Editôra Liceu, 1973. 127 p.: bibl.",
+        "contributor_hlas": [
+          "ruscoe, gordon c."
+        ],
+        "date_of_publication": "1973",
+        "extent": "127 p.:",
+        "hlas_id": "bi75106333",
+        "hlas_print_item": "6333",
+        "hlas_subject": [
+          "educational reform -- brazil",
+          "educational reform -- law and legislation",
+          "literature -- brazil",
+          "portuguese language -- brazil"
+        ],
+        "hlas_topic": "HLAS Topic skr",
+        "hlas_topic_label": "Education--Brazil",
+        "hlas_topic_prefix": "skr",
+        "hlas_topic_value": "HLAS Topic skr Education--Brazil",
+        "hlas_volume": "37",
+        "host_information": "Rio de Janeiro: Editôra Liceu, 1973.",
+        "language_of_publication_code": "por",
+        "other_physical_details": "bibl.",
+        "permalink": "https://lccn.loc.gov/bi75106333",
+        "physical_description": "127 p.: bibl.",
+        "place_of_publication": "Rio de Janeiro:",
+        "place_of_publication_code": "bl",
+        "profile": "handbook-of-latin-american-studies",
+        "publication_language": "Portuguese",
+        "publication_lccn": "73221717",
+        "publication_permalink": "https://lccn.loc.gov/73221717",
+        "publication_title": "Língua portuguesa, literatura nacional e a reforma do ensino.",
+        "publisher": "Editôra Liceu,",
+        "rda_carrier_type": "volume nc rdacarrier",
+        "rda_content_type": "text txt rdacontent",
+        "rda_media_type": "unmediated n rdamedia",
+        "year_one": "1973"
+      },
+      "language": [
+        "portuguese"
+      ],
+      "language_publication": [
+        "portuguese"
+      ],
+      "location": [
+        "brazil"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "latin american, caribbean, and european division",
+        "handbook of latin american studies",
+        "hlas volume 37",
+        "education--brazil (skr)"
+      ],
+      "partof_hlas_topic": [
+        "education--brazil (skr)"
+      ],
+      "partof_hlas_volume": [
+        "hlas volume 37"
+      ],
+      "resources": [],
+      "shelf_id": "37:skr:hlas-bi75106333",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "brazil",
+        "literature",
+        "literature -- brazil",
+        "portuguese language",
+        "educational reform -- brazil",
+        "educational reform -- law and legislation",
+        "portuguese language -- brazil",
+        "law and legislation",
+        "educational reform"
+      ],
+      "subject_hlas_subject": [
+        "educational reform -- brazil",
+        "educational reform -- law and legislation",
+        "literature -- brazil",
+        "portuguese language -- brazil"
+      ],
+      "timestamp": "2026-04-20T04:17:00.520Z",
+      "title": "Língua portuguesa, literatura nacional e a reforma do ensino",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi75106333/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi91004202/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "garcía núñez, fernando",
+        "fuentes, carlos"
+      ],
+      "contributor_author": [
+        "fuentes, carlos"
+      ],
+      "contributor_hlas_editor": [
+        "garcía núñez, fernando"
+      ],
+      "date": "1990",
+      "dates": [
+        "1990"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:25:42.507Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi91004202/",
+      "image_url": [],
+      "index": 10,
+      "item": {
+        "added_personal_names": [
+          []
+        ],
+        "added_uncontrolled_title": [
+          "tiempo romántico"
+        ],
+        "additional_fields": {
+          "hlas_staff_initials": [],
+          "local_record_history": [],
+          "note_review_copy": []
+        },
+        "annotation": "Magnífica novela en la cual un narrador protagónico relata la participación de uno de sus amigos en las luchas independentistas de Argentina, Chile, Perú, y México, intentando así el joven amigo abandonar las ilusiones de la Ilustración para asumir otras más combativas, las del Romanticismo. Bajo esa perspectiva la novela traza también la evolución ideológica en Hispanoamérica, pero adentrando asimismo al lector en un ritmo narrativo cercano al decimonónico, al principio, para después llevarlo por una mágica vorágine poética que culmina en el Alto Perú. La novela, lo apunta la página anterior a la titular, es la primera de una trilogía que incluirá también <em>La novia muerta</em> y <em>El baile del Centenario.</em>",
+        "authentication_code": "lchlas",
+        "cataloging_source": "DLC-HL DLC-HL bps",
+        "citation": "Fuentes, Carlos. La campaña. Madrid: Mondadori España, 1990. 241 p.",
+        "contributor_hlas": [
+          "garcía núñez, fernando"
+        ],
+        "cross_references": [
+          "For review of English translation, <em>The campaign,</em> see item <a href=\"/item/hlas-bi94005053\">bi 94005053</a>"
+        ],
+        "date_of_publication": "1990",
+        "extent": "241 p.",
+        "geographic_areas": [
+          "s-ag---"
+        ],
+        "hlas_id": "bi91004202",
+        "hlas_subject": [
+          "wars of independence -- literature"
+        ],
+        "hlas_topic": "HLAS Topic hpd2400",
+        "hlas_topic_label": "20th-21st Century Prose Fiction--Mexico",
+        "hlas_topic_number": "2400",
+        "hlas_topic_prefix": "hpd",
+        "hlas_topic_value": "HLAS Topic hpd2400 20th-21st Century Prose Fiction--Mexico",
+        "hlas_volume": "52",
+        "host_information": "Madrid: Mondadori España, 1990.",
+        "language_of_publication_code": "spa",
+        "lc_subject": [
+          "argentina -- history -- war of independence,1810-1817 -- fiction"
+        ],
+        "notes": [
+          "The first vol. of the author's trilogy El tiempo romántico"
+        ],
+        "permalink": "https://lccn.loc.gov/bi91004202",
+        "physical_description": "241 p.",
+        "place_of_publication": "Madrid:",
+        "place_of_publication_code": "sp",
+        "profile": "handbook-of-latin-american-studies",
+        "publication_call_number": "PQ7297.F793 C29 1990",
+        "publication_isbn": [
+          "8439717342"
+        ],
+        "publication_language": "Spanish",
+        "publication_lccn": "91128157",
+        "publication_permalink": "https://lccn.loc.gov/91128157",
+        "publication_title": "La campaña.",
+        "publisher": "Mondadori España,",
+        "related_items": [
+          {
+            "title": "bi 94005053",
+            "url": "/item/hlas-bi94005053"
+          }
+        ],
+        "series_statement": "Narrativa Mondadori",
+        "year_one": "1990"
+      },
+      "language": [
+        "spanish"
+      ],
+      "language_publication": [
+        "spanish"
+      ],
+      "location": [
+        "spain"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "hlas volume 52",
+        "latin american, caribbean, and european division",
+        "20th-21st century prose fiction--mexico (hpd2400)",
+        "handbook of latin american studies"
+      ],
+      "partof_hlas_topic": [
+        "20th-21st century prose fiction--mexico (hpd2400)"
+      ],
+      "partof_hlas_volume": [
+        "hlas volume 52"
+      ],
+      "resources": [],
+      "shelf_id": "52:hpd2400:hlas-bi91004202",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "argentina",
+        "literature",
+        "wars of independence",
+        "wars of independence -- literature",
+        "war of independence",
+        "history",
+        "fiction"
+      ],
+      "subject_hlas_subject": [
+        "wars of independence -- literature"
+      ],
+      "timestamp": "2026-04-20T06:51:11.151Z",
+      "title": "La campaña",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi91004202/"
+    }
+  ],
+  "search": {
+    "dates": null,
+    "facet_limits": "subject:literature",
+    "field": null,
+    "hits": 1346,
+    "in": "original-format:book",
+    "query": "",
+    "recommended": 0,
+    "site": {},
+    "sort_by": null,
+    "type": "search",
+    "union_facets": "",
+    "url": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json"
+  },
+  "shards": [
+    "00",
+    "01",
+    "08"
+  ],
+  "site_type": "books",
+  "timestamp": 1781366242886,
+  "title": "Books/Printed Material",
+  "type": "context-portal",
+  "views": {
+    "brief": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&st=brief",
+    "current": "list",
+    "gallery": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&st=gallery",
+    "grid": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&st=grid",
+    "list": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json",
+    "slideshow": "https://www.loc.gov/books/?c=10&fa=subject:literature&fo=json&st=slideshow"
+  }
+}

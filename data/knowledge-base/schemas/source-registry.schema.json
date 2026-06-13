@@ -1,0 +1,45 @@
+{
+  "schema_id": "local-humanities-kb-source-registry-v1",
+  "required_fields": [
+    "source_id",
+    "name",
+    "source_class",
+    "homepage_url",
+    "access_routes",
+    "license",
+    "redistribution_status",
+    "full_text_allowed",
+    "metadata_allowed",
+    "robots_or_terms_notes",
+    "update_cadence",
+    "expected_fields",
+    "research_use_cases",
+    "known_risks",
+    "last_checked_at",
+    "ingest_status"
+  ],
+  "allowed_redistribution_statuses": [
+    "metadata-ok",
+    "derived-metadata-ok",
+    "public-domain-text-ok",
+    "local-analysis-only",
+    "metadata-only",
+    "blocked-or-needs-review"
+  ],
+  "allowed_ingest_statuses": [
+    "planned",
+    "seeded-from-experiment",
+    "active",
+    "blocked",
+    "deprecated"
+  ],
+  "date_fields": [
+    "last_checked_at"
+  ],
+  "array_fields": [
+    "access_routes",
+    "expected_fields",
+    "research_use_cases",
+    "known_risks"
+  ]
+}

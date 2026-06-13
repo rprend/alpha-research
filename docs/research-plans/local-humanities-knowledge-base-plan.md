@@ -424,3 +424,22 @@ Implement Phase 0 and Phase 1:
 3. Seed the registry with the first 30 sources.
 4. Inventory existing experiment artifacts that can seed the KB.
 5. Add a local `kb:status` command that reports source count, rights coverage, local table availability, and stale/missing ingest state.
+
+## Implementation Status
+
+Started on 2026-06-13:
+
+- Phase 0 is implemented: the plan exists, `data/knowledge-base/` exists, and existing experiments are inventoried in `data/knowledge-base/audits/existing-experiment-inventory.md`.
+- Phase 1 is implemented: the source registry has 31 sources, registry/schema validation exists, rights taxonomy exists, ingest manifest schema exists, and `pnpm kb:status` reports local KB state.
+- Phase 2 has a bounded starter ingest: `pnpm kb:ingest:core` fetches OpenAlex, Crossref, Wikidata, Library of Congress, Met, and Cleveland Museum samples into raw run folders and normalized JSONL staging tables.
+- Phase 4 has a bounded starter index: `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` from local staging documents.
+- Phase 5 has a bounded starter workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, query sketch, and missing-data memo under `docs/research-briefs/`.
+
+Remaining before the full knowledge-base goal is complete:
+
+- Replace JSONL staging tables with durable Parquet/DuckDB analytical tables.
+- Add broad, source-specific ingest jobs rather than bounded samples.
+- Add university/department web corpus acquisition.
+- Add full text storage only for public-domain or clearly licensed sources.
+- Add SQLite FTS or equivalent local query tooling over stored text.
+- Add refresh/staleness automation for all active source routes.

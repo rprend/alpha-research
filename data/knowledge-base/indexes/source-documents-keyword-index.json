@@ -1,0 +1,1368 @@
+{
+  "generated_at": "2026-06-13T15:58:23.437Z",
+  "source": "data/knowledge-base/processed/source_documents.jsonl",
+  "document_count": 60,
+  "term_count": 252,
+  "documents": {
+    "openalex-humanities:https://openalex.org/W2488845447": {
+      "source_id": "openalex-humanities",
+      "title": "A New Companion to Digital Humanities",
+      "source_url": "https://openalex.org/W2488845447",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W4245219258": {
+      "source_id": "openalex-humanities",
+      "title": "Debates in the Digital Humanities",
+      "source_url": "https://openalex.org/W4245219258",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W419149097": {
+      "source_id": "openalex-humanities",
+      "title": "Debates in the Digital Humanities 2019",
+      "source_url": "https://openalex.org/W419149097",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W1520193715": {
+      "source_id": "openalex-humanities",
+      "title": "Understanding Digital Humanities",
+      "source_url": "https://openalex.org/W1520193715",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W1564237561": {
+      "source_id": "openalex-humanities",
+      "title": "A Companion to Digital Humanities",
+      "source_url": "https://openalex.org/W1564237561",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W62784252": {
+      "source_id": "openalex-humanities",
+      "title": "The Computational Turn: Thinking about the Digital Humanities",
+      "source_url": "https://openalex.org/W62784252",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W2729097583": {
+      "source_id": "openalex-humanities",
+      "title": "Debates in the Digital Humanities",
+      "source_url": "https://openalex.org/W2729097583",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W2284922225": {
+      "source_id": "openalex-humanities",
+      "title": "Digital Humanities Quarterly",
+      "source_url": "https://openalex.org/W2284922225",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W2611199518": {
+      "source_id": "openalex-humanities",
+      "title": "Journal of Digital Humanities",
+      "source_url": "https://openalex.org/W2611199518",
+      "type": "scholarly-work"
+    },
+    "openalex-humanities:https://openalex.org/W2339562889": {
+      "source_id": "openalex-humanities",
+      "title": "On Close and Distant Reading in Digital Humanities: A Survey and Future Challenges",
+      "source_url": "https://openalex.org/W2339562889",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.5744/florida/9781683401476.003.0008": {
+      "source_id": "crossref-humanities",
+      "title": "Afrolatin@ Digital Humanities or Rethinking Inclusion in the Digital Humanities",
+      "source_url": "https://doi.org/10.5744/florida/9781683401476.003.0008",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.1057/9781137337016.0023": {
+      "source_id": "crossref-humanities",
+      "title": "Digital Humanities",
+      "source_url": "https://doi.org/10.1057/9781137337016.0023",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.2307/j.ctv65sx0t.9": {
+      "source_id": "crossref-humanities",
+      "title": "Making Digital Humanities",
+      "source_url": "https://doi.org/10.2307/j.ctv65sx0t.9",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.2307/j.ctv65sx0t.5": {
+      "source_id": "crossref-humanities",
+      "title": "Introducing the Digital Humanities",
+      "source_url": "https://doi.org/10.2307/j.ctv65sx0t.5",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.2307/j.ctv65sx0t.6": {
+      "source_id": "crossref-humanities",
+      "title": "Digital Humanities as a Field",
+      "source_url": "https://doi.org/10.2307/j.ctv65sx0t.6",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.63744/ejvcpnbazkgk": {
+      "source_id": "crossref-humanities",
+      "title": "Humanities Computing as Digital Humanities",
+      "source_url": "https://doi.org/10.63744/ejvcpnbazkgk",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.2307/j.ctv65sx0t.7": {
+      "source_id": "crossref-humanities",
+      "title": "Three Premises of Big Digital Humanities",
+      "source_url": "https://doi.org/10.2307/j.ctv65sx0t.7",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.1007/978-3-031-16950-2_1": {
+      "source_id": "crossref-humanities",
+      "title": "The Humanities in the digital",
+      "source_url": "https://doi.org/10.1007/978-3-031-16950-2_1",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.1057/9780230371934.0020": {
+      "source_id": "crossref-humanities",
+      "title": "Transdisciplinarity and Digital Humanities",
+      "source_url": "https://doi.org/10.1057/9780230371934.0020",
+      "type": "scholarly-work"
+    },
+    "crossref-humanities:10.2307/j.ctv65sx0t.8": {
+      "source_id": "crossref-humanities",
+      "title": "Humanities Infrastructure",
+      "source_url": "https://doi.org/10.2307/j.ctv65sx0t.8",
+      "type": "scholarly-work"
+    },
+    "wikidata-cultural-entities:Q23": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "George Washington",
+      "source_url": "http://www.wikidata.org/entity/Q23",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q42": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Q42",
+      "source_url": "http://www.wikidata.org/entity/Q42",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q91": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Abraham Lincoln",
+      "source_url": "http://www.wikidata.org/entity/Q91",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q186": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Ken Jennings",
+      "source_url": "http://www.wikidata.org/entity/Q186",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q206": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Stephen Harper",
+      "source_url": "http://www.wikidata.org/entity/Q206",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q272": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Paul Morand",
+      "source_url": "http://www.wikidata.org/entity/Q272",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q360": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Julian Assange",
+      "source_url": "http://www.wikidata.org/entity/Q360",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q377": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Yanka Kupala",
+      "source_url": "http://www.wikidata.org/entity/Q377",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q392": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Bob Dylan",
+      "source_url": "http://www.wikidata.org/entity/Q392",
+      "type": "linked-open-data-entity"
+    },
+    "wikidata-cultural-entities:Q410": {
+      "source_id": "wikidata-cultural-entities",
+      "title": "Carl Sagan",
+      "source_url": "http://www.wikidata.org/entity/Q410",
+      "type": "linked-open-data-entity"
+    },
+    "library-of-congress:http://lccn.loc.gov/2013497896": {
+      "source_id": "library-of-congress",
+      "title": "Wahrheit, Wissen und Erkenntnis in der Literatur : philosophische Beiträge",
+      "source_url": "//lccn.loc.gov/2013497896",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/": {
+      "source_id": "library-of-congress",
+      "title": "Primera línea",
+      "source_url": "https://www.loc.gov/item/hlas-bi86105604/",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://lccn.loc.gov/2017279491": {
+      "source_id": "library-of-congress",
+      "title": "Psychological",
+      "source_url": "//lccn.loc.gov/2017279491",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/": {
+      "source_id": "library-of-congress",
+      "title": "El martirio del pastor",
+      "source_url": "https://www.loc.gov/item/hlas-bi86106044/",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/": {
+      "source_id": "library-of-congress",
+      "title": "The Mexican cult of death in myth and literature",
+      "source_url": "https://www.loc.gov/item/hlas-bi78106594/",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/": {
+      "source_id": "library-of-congress",
+      "title": "Carlos Luis Fallas: su época y sus luchas",
+      "source_url": "https://www.loc.gov/item/hlas-bi86105316/",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/": {
+      "source_id": "library-of-congress",
+      "title": "Linden Lane Magazine",
+      "source_url": "https://www.loc.gov/item/hlas-bi82105325/",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://www.loc.gov/item/2016030194/": {
+      "source_id": "library-of-congress",
+      "title": "TransArea : a literary history of globalization",
+      "source_url": "https://www.loc.gov/item/2016030194/",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/": {
+      "source_id": "library-of-congress",
+      "title": "Língua portuguesa, literatura nacional e a reforma do ensino",
+      "source_url": "https://www.loc.gov/item/hlas-bi75106333/",
+      "type": "loc-item"
+    },
+    "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/": {
+      "source_id": "library-of-congress",
+      "title": "La campaña",
+      "source_url": "https://www.loc.gov/item/hlas-bi91004202/",
+      "type": "loc-item"
+    },
+    "met-collection-api:488660": {
+      "source_id": "met-collection-api",
+      "title": "Met object 488660",
+      "source_url": "https://www.metmuseum.org/art/collection/search/488660",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:313632": {
+      "source_id": "met-collection-api",
+      "title": "Met object 313632",
+      "source_url": "https://www.metmuseum.org/art/collection/search/313632",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:466105": {
+      "source_id": "met-collection-api",
+      "title": "Met object 466105",
+      "source_url": "https://www.metmuseum.org/art/collection/search/466105",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:453351": {
+      "source_id": "met-collection-api",
+      "title": "Met object 453351",
+      "source_url": "https://www.metmuseum.org/art/collection/search/453351",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:456949": {
+      "source_id": "met-collection-api",
+      "title": "Met object 456949",
+      "source_url": "https://www.metmuseum.org/art/collection/search/456949",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:51776": {
+      "source_id": "met-collection-api",
+      "title": "Met object 51776",
+      "source_url": "https://www.metmuseum.org/art/collection/search/51776",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:490190": {
+      "source_id": "met-collection-api",
+      "title": "Met object 490190",
+      "source_url": "https://www.metmuseum.org/art/collection/search/490190",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:483042": {
+      "source_id": "met-collection-api",
+      "title": "Met object 483042",
+      "source_url": "https://www.metmuseum.org/art/collection/search/483042",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:394633": {
+      "source_id": "met-collection-api",
+      "title": "Met object 394633",
+      "source_url": "https://www.metmuseum.org/art/collection/search/394633",
+      "type": "museum-object-stub"
+    },
+    "met-collection-api:394741": {
+      "source_id": "met-collection-api",
+      "title": "Met object 394741",
+      "source_url": "https://www.metmuseum.org/art/collection/search/394741",
+      "type": "museum-object-stub"
+    },
+    "cleveland-museum-open-access:94979": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "Nathaniel Hurd",
+      "source_url": "https://clevelandart.org/art/1915.534",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:102578": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "Portrait of Dora Wheeler",
+      "source_url": "https://clevelandart.org/art/1921.1239",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:92937": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "Stag at Sharkey's",
+      "source_url": "https://clevelandart.org/art/1922.1133",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:151904": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "The Biglin Brothers Turning the Stake",
+      "source_url": "https://clevelandart.org/art/1927.1984",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:110180": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "The Race Track (Death on a Pale Horse)",
+      "source_url": "https://clevelandart.org/art/1928.8",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:137259": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "Mme L . . . (Laure Borreau)",
+      "source_url": "https://clevelandart.org/art/1962.2",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:141639": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "Twilight in the Wilderness",
+      "source_url": "https://clevelandart.org/art/1965.233",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:149410": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "In the Waves (Dans les Vagues)",
+      "source_url": "https://clevelandart.org/art/1978.63",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:149112": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "Church Street El",
+      "source_url": "https://clevelandart.org/art/1977.43",
+      "type": "museum-object"
+    },
+    "cleveland-museum-open-access:125249": {
+      "source_id": "cleveland-museum-open-access",
+      "title": "The Large Plane Trees (Road Menders at Saint-Rémy)",
+      "source_url": "https://clevelandart.org/art/1947.209",
+      "type": "museum-object"
+    }
+  },
+  "postings": {
+    "1732": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "1799": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "1809": [
+      "wikidata-cultural-entities:Q91"
+    ],
+    "1861": [
+      "wikidata-cultural-entities:Q91"
+    ],
+    "1865": [
+      "wikidata-cultural-entities:Q91"
+    ],
+    "1882": [
+      "wikidata-cultural-entities:Q377"
+    ],
+    "1888": [
+      "wikidata-cultural-entities:Q272"
+    ],
+    "1934": [
+      "wikidata-cultural-entities:Q410"
+    ],
+    "1941": [
+      "wikidata-cultural-entities:Q392"
+    ],
+    "1942": [
+      "wikidata-cultural-entities:Q377"
+    ],
+    "1952": [
+      "wikidata-cultural-entities:Q42"
+    ],
+    "1971": [
+      "wikidata-cultural-entities:Q360"
+    ],
+    "1976": [
+      "wikidata-cultural-entities:Q272"
+    ],
+    "1996": [
+      "wikidata-cultural-entities:Q410"
+    ],
+    "2001": [
+      "wikidata-cultural-entities:Q42"
+    ],
+    "2006": [
+      "wikidata-cultural-entities:Q206"
+    ],
+    "2015": [
+      "wikidata-cultural-entities:Q206"
+    ],
+    "2019": [
+      "openalex-humanities:https://openalex.org/W419149097"
+    ],
+    "51776": [
+      "met-collection-api:51776"
+    ],
+    "313632": [
+      "met-collection-api:313632"
+    ],
+    "394633": [
+      "met-collection-api:394633"
+    ],
+    "394741": [
+      "met-collection-api:394741"
+    ],
+    "453351": [
+      "met-collection-api:453351"
+    ],
+    "456949": [
+      "met-collection-api:456949"
+    ],
+    "466105": [
+      "met-collection-api:466105"
+    ],
+    "483042": [
+      "met-collection-api:483042"
+    ],
+    "488660": [
+      "met-collection-api:488660"
+    ],
+    "490190": [
+      "met-collection-api:490190"
+    ],
+    "22nd": [
+      "wikidata-cultural-entities:Q206"
+    ],
+    "about": [
+      "openalex-humanities:https://openalex.org/W62784252"
+    ],
+    "abraham": [
+      "wikidata-cultural-entities:Q91"
+    ],
+    "activist": [
+      "wikidata-cultural-entities:Q360"
+    ],
+    "advancing": [
+      "crossref-humanities:10.1057/9781137337016.0023"
+    ],
+    "afrolatin": [
+      "crossref-humanities:10.5744/florida/9781683401476.003.0008"
+    ],
+    "america": [
+      "crossref-humanities:10.5744/florida/9781683401476.003.0008"
+    ],
+    "american": [
+      "wikidata-cultural-entities:Q186",
+      "wikidata-cultural-entities:Q392",
+      "wikidata-cultural-entities:Q410",
+      "cleveland-museum-open-access:94979",
+      "cleveland-museum-open-access:102578",
+      "cleveland-museum-open-access:92937",
+      "cleveland-museum-open-access:151904",
+      "cleveland-museum-open-access:110180",
+      "cleveland-museum-open-access:141639",
+      "cleveland-museum-open-access:149112"
+    ],
+    "argentina": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "arnulfo": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "aspects": [
+      "library-of-congress:http://lccn.loc.gov/2017279491"
+    ],
+    "assange": [
+      "wikidata-cultural-entities:Q360"
+    ],
+    "assassinations": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "astrophysicist": [
+      "wikidata-cultural-entities:Q410"
+    ],
+    "australian": [
+      "wikidata-cultural-entities:Q360"
+    ],
+    "author": [
+      "wikidata-cultural-entities:Q410"
+    ],
+    "aztecs": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
+    ],
+    "beitra": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "belarusian": [
+      "wikidata-cultural-entities:Q377"
+    ],
+    "beyond": [
+      "crossref-humanities:10.1007/978-3-031-16950-2_1"
+    ],
+    "big": [
+      "crossref-humanities:10.2307/j.ctv65sx0t.9",
+      "crossref-humanities:10.2307/j.ctv65sx0t.5",
+      "crossref-humanities:10.2307/j.ctv65sx0t.6",
+      "crossref-humanities:10.2307/j.ctv65sx0t.7",
+      "crossref-humanities:10.2307/j.ctv65sx0t.8"
+    ],
+    "biglin": [
+      "cleveland-museum-open-access:151904"
+    ],
+    "blackwell": [
+      "openalex-humanities:https://openalex.org/W1564237561"
+    ],
+    "bob": [
+      "wikidata-cultural-entities:Q392"
+    ],
+    "born": [
+      "wikidata-cultural-entities:Q360",
+      "wikidata-cultural-entities:Q392"
+    ],
+    "borreau": [
+      "cleveland-museum-open-access:137259"
+    ],
+    "brazil": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "british": [
+      "wikidata-cultural-entities:Q42"
+    ],
+    "brothers": [
+      "cleveland-museum-open-access:151904"
+    ],
+    "campan": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "canada": [
+      "wikidata-cultural-entities:Q206"
+    ],
+    "carl": [
+      "wikidata-cultural-entities:Q410"
+    ],
+    "carlos": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "challenges": [
+      "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "church": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/",
+      "cleveland-museum-open-access:149112"
+    ],
+    "close": [
+      "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "companion": [
+      "openalex-humanities:https://openalex.org/W2488845447",
+      "openalex-humanities:https://openalex.org/W1564237561"
+    ],
+    "computational": [
+      "openalex-humanities:https://openalex.org/W62784252"
+    ],
+    "computing": [
+      "crossref-humanities:10.63744/ejvcpnbazkgk"
+    ],
+    "contestant": [
+      "wikidata-cultural-entities:Q186"
+    ],
+    "cosmologist": [
+      "wikidata-cultural-entities:Q410"
+    ],
+    "costa": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "critical": [
+      "crossref-humanities:10.1007/978-3-031-16950-2_1"
+    ],
+    "criticism": [
+      "library-of-congress:http://lccn.loc.gov/2017279491",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/",
+      "library-of-congress:http://www.loc.gov/item/2016030194/"
+    ],
+    "cronfa": [
+      "openalex-humanities:https://openalex.org/W62784252"
+    ],
+    "cuba": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/"
+    ],
+    "cult": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
+    ],
+    "dans": [
+      "cleveland-museum-open-access:149410"
+    ],
+    "data": [
+      "wikidata-cultural-entities:Q23",
+      "wikidata-cultural-entities:Q42",
+      "wikidata-cultural-entities:Q91",
+      "wikidata-cultural-entities:Q186",
+      "wikidata-cultural-entities:Q206",
+      "wikidata-cultural-entities:Q272",
+      "wikidata-cultural-entities:Q360",
+      "wikidata-cultural-entities:Q377",
+      "wikidata-cultural-entities:Q392",
+      "wikidata-cultural-entities:Q410"
+    ],
+    "death": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/",
+      "cleveland-museum-open-access:110180"
+    ],
+    "debates": [
+      "openalex-humanities:https://openalex.org/W4245219258",
+      "openalex-humanities:https://openalex.org/W419149097",
+      "openalex-humanities:https://openalex.org/W2729097583"
+    ],
+    "del": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "der": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "distant": [
+      "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "dora": [
+      "cleveland-museum-open-access:102578"
+    ],
+    "dylan": [
+      "wikidata-cultural-entities:Q392"
+    ],
+    "ebooks": [
+      "openalex-humanities:https://openalex.org/W419149097",
+      "openalex-humanities:https://openalex.org/W1520193715",
+      "openalex-humanities:https://openalex.org/W1564237561",
+      "openalex-humanities:https://openalex.org/W2729097583"
+    ],
+    "editor": [
+      "wikidata-cultural-entities:Q360"
+    ],
+    "educational": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "ensino": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "entity": [
+      "wikidata-cultural-entities:Q23",
+      "wikidata-cultural-entities:Q42",
+      "wikidata-cultural-entities:Q91",
+      "wikidata-cultural-entities:Q186",
+      "wikidata-cultural-entities:Q206",
+      "wikidata-cultural-entities:Q272",
+      "wikidata-cultural-entities:Q360",
+      "wikidata-cultural-entities:Q377",
+      "wikidata-cultural-entities:Q392",
+      "wikidata-cultural-entities:Q410"
+    ],
+    "erkenntnis": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "etc": [
+      "library-of-congress:http://lccn.loc.gov/2017279491",
+      "library-of-congress:http://www.loc.gov/item/2016030194/"
+    ],
+    "eurographics": [
+      "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "european": [
+      "cleveland-museum-open-access:137259",
+      "cleveland-museum-open-access:149410",
+      "cleveland-museum-open-access:125249"
+    ],
+    "fallas": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "father": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "fiction": [
+      "wikidata-cultural-entities:Q42",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "field": [
+      "crossref-humanities:10.2307/j.ctv65sx0t.6"
+    ],
+    "first": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "founding": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "french": [
+      "wikidata-cultural-entities:Q272"
+    ],
+    "future": [
+      "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "game": [
+      "wikidata-cultural-entities:Q186"
+    ],
+    "george": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "globalization": [
+      "library-of-congress:http://www.loc.gov/item/2016030194/"
+    ],
+    "harper": [
+      "wikidata-cultural-entities:Q206"
+    ],
+    "history": [
+      "library-of-congress:http://lccn.loc.gov/2017279491",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/",
+      "library-of-congress:http://www.loc.gov/item/2016030194/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "horse": [
+      "cleveland-museum-open-access:110180"
+    ],
+    "host": [
+      "wikidata-cultural-entities:Q186"
+    ],
+    "humanities": [
+      "openalex-humanities:https://openalex.org/W2488845447",
+      "openalex-humanities:https://openalex.org/W4245219258",
+      "openalex-humanities:https://openalex.org/W419149097",
+      "openalex-humanities:https://openalex.org/W1520193715",
+      "openalex-humanities:https://openalex.org/W1564237561",
+      "openalex-humanities:https://openalex.org/W62784252",
+      "openalex-humanities:https://openalex.org/W2729097583",
+      "openalex-humanities:https://openalex.org/W2284922225",
+      "openalex-humanities:https://openalex.org/W2611199518",
+      "openalex-humanities:https://openalex.org/W2339562889",
+      "crossref-humanities:10.5744/florida/9781683401476.003.0008",
+      "crossref-humanities:10.1057/9781137337016.0023",
+      "crossref-humanities:10.2307/j.ctv65sx0t.9",
+      "crossref-humanities:10.2307/j.ctv65sx0t.5",
+      "crossref-humanities:10.2307/j.ctv65sx0t.6",
+      "crossref-humanities:10.63744/ejvcpnbazkgk",
+      "crossref-humanities:10.2307/j.ctv65sx0t.7",
+      "crossref-humanities:10.1007/978-3-031-16950-2_1",
+      "crossref-humanities:10.1057/9780230371934.0020",
+      "crossref-humanities:10.2307/j.ctv65sx0t.8"
+    ],
+    "humorist": [
+      "wikidata-cultural-entities:Q42"
+    ],
+    "hurd": [
+      "cleveland-museum-open-access:94979"
+    ],
+    "inclusion": [
+      "crossref-humanities:10.5744/florida/9781683401476.003.0008"
+    ],
+    "independence": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "infrastructure": [
+      "crossref-humanities:10.2307/j.ctv65sx0t.8"
+    ],
+    "interpretation": [
+      "library-of-congress:http://lccn.loc.gov/2017279491"
+    ],
+    "introducing": [
+      "crossref-humanities:10.2307/j.ctv65sx0t.5"
+    ],
+    "item": [
+      "library-of-congress:http://lccn.loc.gov/2013497896",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/",
+      "library-of-congress:http://lccn.loc.gov/2017279491",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/",
+      "library-of-congress:http://www.loc.gov/item/2016030194/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "jennings": [
+      "wikidata-cultural-entities:Q186"
+    ],
+    "journal": [
+      "openalex-humanities:https://openalex.org/W2611199518"
+    ],
+    "julian": [
+      "wikidata-cultural-entities:Q360"
+    ],
+    "ken": [
+      "wikidata-cultural-entities:Q186"
+    ],
+    "knowledge": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "kupala": [
+      "wikidata-cultural-entities:Q377"
+    ],
+    "lane": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/"
+    ],
+    "language": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "large": [
+      "cleveland-museum-open-access:125249"
+    ],
+    "latin": [
+      "crossref-humanities:10.5744/florida/9781683401476.003.0008"
+    ],
+    "laure": [
+      "cleveland-museum-open-access:137259"
+    ],
+    "law": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "legislation": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "les": [
+      "cleveland-museum-open-access:149410"
+    ],
+    "lincoln": [
+      "wikidata-cultural-entities:Q91"
+    ],
+    "linden": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/"
+    ],
+    "linked": [
+      "wikidata-cultural-entities:Q23",
+      "wikidata-cultural-entities:Q42",
+      "wikidata-cultural-entities:Q91",
+      "wikidata-cultural-entities:Q186",
+      "wikidata-cultural-entities:Q206",
+      "wikidata-cultural-entities:Q272",
+      "wikidata-cultural-entities:Q360",
+      "wikidata-cultural-entities:Q377",
+      "wikidata-cultural-entities:Q392",
+      "wikidata-cultural-entities:Q410"
+    ],
+    "literary": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/",
+      "library-of-congress:http://www.loc.gov/item/2016030194/"
+    ],
+    "literatur": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "literatura": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "literature": [
+      "library-of-congress:http://lccn.loc.gov/2013497896",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/",
+      "library-of-congress:http://lccn.loc.gov/2017279491",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/",
+      "library-of-congress:http://www.loc.gov/item/2016030194/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "loc": [
+      "library-of-congress:http://lccn.loc.gov/2013497896",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/",
+      "library-of-congress:http://lccn.loc.gov/2017279491",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/",
+      "library-of-congress:http://www.loc.gov/item/2016030194/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/",
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "lockouts": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "ltd": [
+      "openalex-humanities:https://openalex.org/W1564237561"
+    ],
+    "luchas": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "luis": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "macmillan": [
+      "openalex-humanities:https://openalex.org/W1520193715"
+    ],
+    "magazine": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi82105325/"
+    ],
+    "making": [
+      "crossref-humanities:10.2307/j.ctv65sx0t.9"
+    ],
+    "martirio": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "menders": [
+      "cleveland-museum-open-access:125249"
+    ],
+    "met": [
+      "met-collection-api:488660",
+      "met-collection-api:313632",
+      "met-collection-api:466105",
+      "met-collection-api:453351",
+      "met-collection-api:456949",
+      "met-collection-api:51776",
+      "met-collection-api:490190",
+      "met-collection-api:483042",
+      "met-collection-api:394633",
+      "met-collection-api:394741"
+    ],
+    "mexican": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
+    ],
+    "mexico": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
+    ],
+    "minister": [
+      "wikidata-cultural-entities:Q206"
+    ],
+    "minnesota": [
+      "openalex-humanities:https://openalex.org/W419149097",
+      "openalex-humanities:https://openalex.org/W2729097583"
+    ],
+    "mme": [
+      "cleveland-museum-open-access:137259"
+    ],
+    "modern": [
+      "cleveland-museum-open-access:137259",
+      "cleveland-museum-open-access:149410",
+      "cleveland-museum-open-access:125249"
+    ],
+    "morand": [
+      "wikidata-cultural-entities:Q272"
+    ],
+    "museum": [
+      "met-collection-api:488660",
+      "met-collection-api:313632",
+      "met-collection-api:466105",
+      "met-collection-api:453351",
+      "met-collection-api:456949",
+      "met-collection-api:51776",
+      "met-collection-api:490190",
+      "met-collection-api:483042",
+      "met-collection-api:394633",
+      "met-collection-api:394741",
+      "cleveland-museum-open-access:94979",
+      "cleveland-museum-open-access:102578",
+      "cleveland-museum-open-access:92937",
+      "cleveland-museum-open-access:151904",
+      "cleveland-museum-open-access:110180",
+      "cleveland-museum-open-access:137259",
+      "cleveland-museum-open-access:141639",
+      "cleveland-museum-open-access:149410",
+      "cleveland-museum-open-access:149112",
+      "cleveland-museum-open-access:125249"
+    ],
+    "myth": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
+    ],
+    "mythology": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
+    ],
+    "myths": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi78106594/"
+    ],
+    "nacional": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "nathaniel": [
+      "cleveland-museum-open-access:94979"
+    ],
+    "nea": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/"
+    ],
+    "new": [
+      "openalex-humanities:https://openalex.org/W2488845447"
+    ],
+    "ngua": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "object": [
+      "met-collection-api:488660",
+      "met-collection-api:313632",
+      "met-collection-api:466105",
+      "met-collection-api:453351",
+      "met-collection-api:456949",
+      "met-collection-api:51776",
+      "met-collection-api:490190",
+      "met-collection-api:483042",
+      "met-collection-api:394633",
+      "met-collection-api:394741",
+      "cleveland-museum-open-access:94979",
+      "cleveland-museum-open-access:102578",
+      "cleveland-museum-open-access:92937",
+      "cleveland-museum-open-access:151904",
+      "cleveland-museum-open-access:110180",
+      "cleveland-museum-open-access:137259",
+      "cleveland-museum-open-access:141639",
+      "cleveland-museum-open-access:149410",
+      "cleveland-museum-open-access:149112",
+      "cleveland-museum-open-access:125249"
+    ],
+    "open": [
+      "wikidata-cultural-entities:Q23",
+      "wikidata-cultural-entities:Q42",
+      "wikidata-cultural-entities:Q91",
+      "wikidata-cultural-entities:Q186",
+      "wikidata-cultural-entities:Q206",
+      "wikidata-cultural-entities:Q272",
+      "wikidata-cultural-entities:Q360",
+      "wikidata-cultural-entities:Q377",
+      "wikidata-cultural-entities:Q392",
+      "wikidata-cultural-entities:Q410"
+    ],
+    "openedition": [
+      "openalex-humanities:https://openalex.org/W2611199518"
+    ],
+    "owner": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "painting": [
+      "cleveland-museum-open-access:94979",
+      "cleveland-museum-open-access:102578",
+      "cleveland-museum-open-access:92937",
+      "cleveland-museum-open-access:151904",
+      "cleveland-museum-open-access:110180",
+      "cleveland-museum-open-access:137259",
+      "cleveland-museum-open-access:141639",
+      "cleveland-museum-open-access:149410",
+      "cleveland-museum-open-access:149112",
+      "cleveland-museum-open-access:125249"
+    ],
+    "pale": [
+      "cleveland-museum-open-access:110180"
+    ],
+    "palgrave": [
+      "openalex-humanities:https://openalex.org/W1520193715"
+    ],
+    "pastor": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "paul": [
+      "wikidata-cultural-entities:Q272"
+    ],
+    "philosophische": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "philosophy": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "plane": [
+      "cleveland-museum-open-access:125249"
+    ],
+    "poca": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "portrait": [
+      "cleveland-museum-open-access:102578"
+    ],
+    "portuguesa": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "portuguese": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "premises": [
+      "crossref-humanities:10.2307/j.ctv65sx0t.7"
+    ],
+    "president": [
+      "wikidata-cultural-entities:Q23",
+      "wikidata-cultural-entities:Q91"
+    ],
+    "press": [
+      "openalex-humanities:https://openalex.org/W419149097",
+      "openalex-humanities:https://openalex.org/W2729097583"
+    ],
+    "prime": [
+      "wikidata-cultural-entities:Q206"
+    ],
+    "primera": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/"
+    ],
+    "psychological": [
+      "library-of-congress:http://lccn.loc.gov/2017279491"
+    ],
+    "psychology": [
+      "library-of-congress:http://lccn.loc.gov/2017279491"
+    ],
+    "publisher": [
+      "wikidata-cultural-entities:Q360"
+    ],
+    "publishing": [
+      "openalex-humanities:https://openalex.org/W1564237561"
+    ],
+    "q42": [
+      "wikidata-cultural-entities:Q42"
+    ],
+    "quarterly": [
+      "openalex-humanities:https://openalex.org/W2284922225",
+      "crossref-humanities:10.63744/ejvcpnbazkgk"
+    ],
+    "race": [
+      "cleveland-museum-open-access:110180"
+    ],
+    "reading": [
+      "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "reform": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "reforma": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi75106333/"
+    ],
+    "rethinking": [
+      "crossref-humanities:10.5744/florida/9781683401476.003.0008"
+    ],
+    "rica": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "road": [
+      "cleveland-museum-open-access:125249"
+    ],
+    "romero": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "sagan": [
+      "wikidata-cultural-entities:Q410"
+    ],
+    "saint": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/",
+      "cleveland-museum-open-access:125249"
+    ],
+    "salvador": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "scar": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86106044/"
+    ],
+    "scholarly": [
+      "openalex-humanities:https://openalex.org/W2488845447",
+      "openalex-humanities:https://openalex.org/W4245219258",
+      "openalex-humanities:https://openalex.org/W419149097",
+      "openalex-humanities:https://openalex.org/W1520193715",
+      "openalex-humanities:https://openalex.org/W1564237561",
+      "openalex-humanities:https://openalex.org/W62784252",
+      "openalex-humanities:https://openalex.org/W2729097583",
+      "openalex-humanities:https://openalex.org/W2284922225",
+      "openalex-humanities:https://openalex.org/W2611199518",
+      "openalex-humanities:https://openalex.org/W2339562889",
+      "crossref-humanities:10.5744/florida/9781683401476.003.0008",
+      "crossref-humanities:10.1057/9781137337016.0023",
+      "crossref-humanities:10.2307/j.ctv65sx0t.9",
+      "crossref-humanities:10.2307/j.ctv65sx0t.5",
+      "crossref-humanities:10.2307/j.ctv65sx0t.6",
+      "crossref-humanities:10.63744/ejvcpnbazkgk",
+      "crossref-humanities:10.2307/j.ctv65sx0t.7",
+      "crossref-humanities:10.1007/978-3-031-16950-2_1",
+      "crossref-humanities:10.1057/9780230371934.0020",
+      "crossref-humanities:10.2307/j.ctv65sx0t.8"
+    ],
+    "science": [
+      "wikidata-cultural-entities:Q42"
+    ],
+    "sculpture": [
+      "cleveland-museum-open-access:94979",
+      "cleveland-museum-open-access:102578",
+      "cleveland-museum-open-access:92937",
+      "cleveland-museum-open-access:151904",
+      "cleveland-museum-open-access:110180",
+      "cleveland-museum-open-access:137259",
+      "cleveland-museum-open-access:141639",
+      "cleveland-museum-open-access:149410",
+      "cleveland-museum-open-access:149112",
+      "cleveland-museum-open-access:125249"
+    ],
+    "sharkey": [
+      "cleveland-museum-open-access:92937"
+    ],
+    "show": [
+      "wikidata-cultural-entities:Q186"
+    ],
+    "singer": [
+      "wikidata-cultural-entities:Q392"
+    ],
+    "slave": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "soldier": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "songwriter": [
+      "wikidata-cultural-entities:Q392"
+    ],
+    "stag": [
+      "cleveland-museum-open-access:92937"
+    ],
+    "stake": [
+      "cleveland-museum-open-access:151904"
+    ],
+    "states": [
+      "wikidata-cultural-entities:Q91"
+    ],
+    "stephen": [
+      "wikidata-cultural-entities:Q206"
+    ],
+    "street": [
+      "cleveland-museum-open-access:149112"
+    ],
+    "strikes": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "stub": [
+      "met-collection-api:488660",
+      "met-collection-api:313632",
+      "met-collection-api:466105",
+      "met-collection-api:453351",
+      "met-collection-api:456949",
+      "met-collection-api:51776",
+      "met-collection-api:490190",
+      "met-collection-api:483042",
+      "met-collection-api:394633",
+      "met-collection-api:394741"
+    ],
+    "survey": [
+      "openalex-humanities:https://openalex.org/W2339562889"
+    ],
+    "sus": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105316/"
+    ],
+    "swansea": [
+      "openalex-humanities:https://openalex.org/W62784252"
+    ],
+    "theory": [
+      "library-of-congress:http://lccn.loc.gov/2013497896",
+      "library-of-congress:http://www.loc.gov/item/2016030194/"
+    ],
+    "thinking": [
+      "openalex-humanities:https://openalex.org/W62784252"
+    ],
+    "three": [
+      "crossref-humanities:10.2307/j.ctv65sx0t.7"
+    ],
+    "torture": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi86105604/"
+    ],
+    "track": [
+      "cleveland-museum-open-access:110180"
+    ],
+    "transarea": [
+      "library-of-congress:http://www.loc.gov/item/2016030194/"
+    ],
+    "transdisciplinarity": [
+      "crossref-humanities:10.1057/9780230371934.0020"
+    ],
+    "transnationalism": [
+      "library-of-congress:http://www.loc.gov/item/2016030194/"
+    ],
+    "trees": [
+      "cleveland-museum-open-access:125249"
+    ],
+    "truth": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "turn": [
+      "openalex-humanities:https://openalex.org/W62784252"
+    ],
+    "turning": [
+      "cleveland-museum-open-access:151904"
+    ],
+    "twilight": [
+      "cleveland-museum-open-access:141639"
+    ],
+    "und": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "understanding": [
+      "openalex-humanities:https://openalex.org/W1520193715",
+      "crossref-humanities:10.1057/9780230371934.0020"
+    ],
+    "united": [
+      "wikidata-cultural-entities:Q91"
+    ],
+    "university": [
+      "openalex-humanities:https://openalex.org/W419149097",
+      "openalex-humanities:https://openalex.org/W62784252",
+      "openalex-humanities:https://openalex.org/W2729097583"
+    ],
+    "vagues": [
+      "cleveland-museum-open-access:149410"
+    ],
+    "wahrheit": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "war": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "wars": [
+      "library-of-congress:http://www.loc.gov/item/hlas-bi91004202/"
+    ],
+    "washington": [
+      "wikidata-cultural-entities:Q23"
+    ],
+    "waves": [
+      "cleveland-museum-open-access:149410"
+    ],
+    "wheeler": [
+      "cleveland-museum-open-access:102578"
+    ],
+    "wilderness": [
+      "cleveland-museum-open-access:141639"
+    ],
+    "wissen": [
+      "library-of-congress:http://lccn.loc.gov/2013497896"
+    ],
+    "work": [
+      "openalex-humanities:https://openalex.org/W2488845447",
+      "openalex-humanities:https://openalex.org/W4245219258",
+      "openalex-humanities:https://openalex.org/W419149097",
+      "openalex-humanities:https://openalex.org/W1520193715",
+      "openalex-humanities:https://openalex.org/W1564237561",
+      "openalex-humanities:https://openalex.org/W62784252",
+      "openalex-humanities:https://openalex.org/W2729097583",
+      "openalex-humanities:https://openalex.org/W2284922225",
+      "openalex-humanities:https://openalex.org/W2611199518",
+      "openalex-humanities:https://openalex.org/W2339562889",
+      "crossref-humanities:10.5744/florida/9781683401476.003.0008",
+      "crossref-humanities:10.1057/9781137337016.0023",
+      "crossref-humanities:10.2307/j.ctv65sx0t.9",
+      "crossref-humanities:10.2307/j.ctv65sx0t.5",
+      "crossref-humanities:10.2307/j.ctv65sx0t.6",
+      "crossref-humanities:10.63744/ejvcpnbazkgk",
+      "crossref-humanities:10.2307/j.ctv65sx0t.7",
+      "crossref-humanities:10.1007/978-3-031-16950-2_1",
+      "crossref-humanities:10.1057/9780230371934.0020",
+      "crossref-humanities:10.2307/j.ctv65sx0t.8"
+    ],
+    "writer": [
+      "wikidata-cultural-entities:Q42",
+      "wikidata-cultural-entities:Q186",
+      "wikidata-cultural-entities:Q272",
+      "wikidata-cultural-entities:Q377"
+    ],
+    "yanka": [
+      "wikidata-cultural-entities:Q377"
+    ]
+  }
+}

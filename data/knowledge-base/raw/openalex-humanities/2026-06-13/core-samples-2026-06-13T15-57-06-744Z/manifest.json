@@ -1,0 +1,20 @@
+{
+  "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+  "source_id": "openalex-humanities",
+  "started_at": "2026-06-13T15:57:06.744Z",
+  "completed_at": "2026-06-13T15:57:07.371Z",
+  "status": "success",
+  "access_route": "https://api.openalex.org/works?search=digital%20humanities&per-page=10",
+  "raw_outputs": [
+    "data/knowledge-base/raw/openalex-humanities/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/objects.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 20,
+  "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+  "errors": []
+}

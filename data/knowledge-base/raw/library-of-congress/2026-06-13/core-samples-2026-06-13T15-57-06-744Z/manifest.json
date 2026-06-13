@@ -1,0 +1,20 @@
+{
+  "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+  "source_id": "library-of-congress",
+  "started_at": "2026-06-13T15:57:21.924Z",
+  "completed_at": "2026-06-13T15:57:22.879Z",
+  "status": "success",
+  "access_route": "https://www.loc.gov/books/?fo=json&c=10&fa=subject:literature",
+  "raw_outputs": [
+    "data/knowledge-base/raw/library-of-congress/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/objects.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 20,
+  "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+  "errors": []
+}

@@ -1,0 +1,172 @@
+{
+  "head": {
+    "vars": [
+      "entity",
+      "entityLabel",
+      "entityDescription"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q23"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "George Washington"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "founding Father and first U.S. president; soldier and slave owner (1732–1799)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q42"
+        },
+        "entityLabel": {
+          "type": "literal",
+          "value": "Q42"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "British science fiction writer and humorist (1952–2001)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q91"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Abraham Lincoln"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "president of the United States from 1861 to 1865 (1809-1865)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q186"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ken Jennings"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American game show contestant, host, and writer"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q206"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Stephen Harper"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "22nd prime minister of Canada from 2006 to 2015"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q272"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Paul Morand"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "French writer (1888-1976)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q360"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Julian Assange"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Australian editor, publisher, and activist (born 1971)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q377"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Yanka Kupala"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Belarusian writer (1882–1942)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q392"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Bob Dylan"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American singer-songwriter (born 1941)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q410"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Carl Sagan"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American astrophysicist, cosmologist and author (1934–1996)"
+        }
+      }
+    ]
+  }
+}

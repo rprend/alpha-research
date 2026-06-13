@@ -1,0 +1,20 @@
+{
+  "run_id": "core-samples-2026-06-13T15-57-06-744Z",
+  "source_id": "wikidata-cultural-entities",
+  "started_at": "2026-06-13T15:57:07.755Z",
+  "completed_at": "2026-06-13T15:57:21.924Z",
+  "status": "success",
+  "access_route": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT%20%3Fentity%20%3FentityLabel%20%3FentityDescription%20WHERE%20%7B%0A%20%20%3Fentity%20wdt%3AP31%20wd%3AQ5%3B%0A%20%20%20%20%20%20%20%20%20%20wdt%3AP106%2Fwdt%3AP279*%20wd%3AQ36180.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%0A%7D%0ALIMIT%2010",
+  "raw_outputs": [
+    "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-13/core-samples-2026-06-13T15-57-06-744Z/response.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/objects.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 10,
+  "rights_review": "Source registry rights fields apply; inspect item-level rights before publication claims.",
+  "errors": []
+}

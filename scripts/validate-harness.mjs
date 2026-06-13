@@ -31,6 +31,12 @@ const requiredPackageScripts = [
   'benchmark:gutenberg:high-recall:smoke',
   'benchmark:gutenberg:high-recall:mock-openai',
   'smoke:infra:live',
+  'kb:validate',
+  'kb:status',
+  'kb:inventory',
+  'kb:question',
+  'kb:ingest:core',
+  'kb:index',
   'qa:dashboard',
   'journey:dashboard:capture',
   'journey:dashboard:judge',
@@ -93,6 +99,17 @@ assert(
 )
 assert(existsSync(join(root, 'scripts/validate-infrastructure-contract.mjs')), 'Missing infrastructure contract validation script.')
 assert(existsSync(join(root, 'scripts/live-infrastructure-smoke.mjs')), 'Missing live infrastructure smoke script.')
+assert(existsSync(join(root, 'docs/research-plans/local-humanities-knowledge-base-plan.md')), 'Missing local humanities knowledge base plan.')
+assert(existsSync(join(root, 'data/knowledge-base/source-registry.json')), 'Missing local humanities KB source registry.')
+assert(existsSync(join(root, 'data/knowledge-base/rights-taxonomy.json')), 'Missing local humanities KB rights taxonomy.')
+assert(existsSync(join(root, 'data/knowledge-base/schemas/source-registry.schema.json')), 'Missing local humanities KB source registry schema.')
+assert(existsSync(join(root, 'data/knowledge-base/schemas/ingest-manifest.schema.json')), 'Missing local humanities KB ingest manifest schema.')
+assert(existsSync(join(root, 'scripts/kb-validate.mjs')), 'Missing local humanities KB validation script.')
+assert(existsSync(join(root, 'scripts/kb-status.mjs')), 'Missing local humanities KB status script.')
+assert(existsSync(join(root, 'scripts/kb-inventory-existing.mjs')), 'Missing local humanities KB inventory script.')
+assert(existsSync(join(root, 'scripts/kb-question.mjs')), 'Missing local humanities KB question script.')
+assert(existsSync(join(root, 'scripts/kb-ingest-core-samples.mjs')), 'Missing local humanities KB core ingest script.')
+assert(existsSync(join(root, 'scripts/kb-build-search-index.mjs')), 'Missing local humanities KB search index script.')
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')

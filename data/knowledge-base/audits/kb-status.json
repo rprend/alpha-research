@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-06-13T15:58:59.035Z",
+  "status": "phase-2-staging-active",
+  "source_count": 31,
+  "source_classes": {
+    "conference-programs": 3,
+    "cultural-collections": 4,
+    "humanities-adjacent-policy-history": 2,
+    "journals-and-reviews": 6,
+    "linked-open-data": 1,
+    "open-text-metadata": 2,
+    "public-domain-texts": 1,
+    "scholarly-metadata": 3,
+    "syllabi-teaching-corpora": 1,
+    "university-department-web": 7,
+    "web-archives": 1
+  },
+  "ingest_statuses": {
+    "blocked": 1,
+    "planned": 21,
+    "seeded-from-experiment": 9
+  },
+  "redistribution_statuses": {
+    "blocked-or-needs-review": 1,
+    "derived-metadata-ok": 1,
+    "local-analysis-only": 10,
+    "metadata-ok": 7,
+    "metadata-only": 11,
+    "public-domain-text-ok": 1
+  },
+  "metadata_allowed_count": 30,
+  "full_text_allowed_count": 1,
+  "stale_source_count": 0,
+  "stale_sources": [],
+  "tables": {
+    "expected_count": 12,
+    "existing_count": 0,
+    "missing": [
+      "works.parquet",
+      "authors.parquet",
+      "institutions.parquet",
+      "venues.parquet",
+      "departments.parquet",
+      "collections.parquet",
+      "objects.parquet",
+      "pages.parquet",
+      "citations.parquet",
+      "topics.parquet",
+      "source_documents.parquet",
+      "rights.parquet"
+    ],
+    "available": []
+  },
+  "staging_tables": {
+    "expected_count": 4,
+    "existing_count": 4,
+    "missing": [],
+    "available": [
+      {
+        "file": "works.jsonl",
+        "path": "data/knowledge-base/processed/works.jsonl",
+        "exists": true,
+        "bytes": 8901
+      },
+      {
+        "file": "objects.jsonl",
+        "path": "data/knowledge-base/processed/objects.jsonl",
+        "exists": true,
+        "bytes": 11770
+      },
+      {
+        "file": "source_documents.jsonl",
+        "path": "data/knowledge-base/processed/source_documents.jsonl",
+        "exists": true,
+        "bytes": 24445
+      },
+      {
+        "file": "rights.jsonl",
+        "path": "data/knowledge-base/processed/rights.jsonl",
+        "exists": true,
+        "bytes": 20049
+      }
+    ]
+  },
+  "local_files": {
+    "raw_count": 12,
+    "text_count": 0,
+    "index_count": 1
+  },
+  "validation_errors": []
+}
