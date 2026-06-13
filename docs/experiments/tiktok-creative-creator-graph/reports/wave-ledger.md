@@ -1,6 +1,6 @@
 # Wave Ledger
 
-Generated: 2026-06-13T01:44:09.360Z
+Generated: 2026-06-13T01:48:52.278Z
 
 - Waves: 10000
 - Planned: 10000
@@ -17,7 +17,7 @@ Generated: 2026-06-13T01:44:09.360Z
 - Dry-run attempts: 15
 - Live-run attempts: 0
 - Review needed: 496
-- Latest run wave: scale_wave_0001
+- Latest run wave: none
 - Next ready wave: scale_wave_0001
 
 Next command:

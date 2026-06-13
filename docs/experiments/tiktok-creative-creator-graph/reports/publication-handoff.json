@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:44:09.700Z",
+  "generated_at": "2026-06-13T01:48:52.618Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -62,7 +62,7 @@
     "acquisition_import_untraced_rows": 96,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
-    "acquisition_run_history": 15,
+    "acquisition_run_history": 16,
     "scale_waves": 10000,
     "wave_ledger_rows": 10000,
     "wave_ledger_planned": 10000,

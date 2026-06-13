@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:44:09.360Z",
+  "generated_at": "2026-06-13T01:48:52.278Z",
   "waves": 10000,
   "planned": 10000,
   "dry_run": 0,
@@ -15,7 +15,7 @@
   "dry_run_attempts": 15,
   "live_run_attempts": 0,
   "review_needed": 496,
-  "latest_run_wave": "scale_wave_0001",
+  "latest_run_wave": "",
   "next_ready_wave": "scale_wave_0001",
   "next_ready_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --max-tasks=8 --priority-max=2 --wave=0001",
   "first_rows": [

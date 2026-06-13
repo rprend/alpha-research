@@ -64,5 +64,31 @@
         }
       }
     }
+  },
+  "public_web": {
+    "base_url": "",
+    "actors": {
+      "search_index": {
+        "actor_id": "bing_html",
+        "input_template": {
+          "query": "{{query}}",
+          "limit": "{{limit}}"
+        }
+      },
+      "category_gap_search": {
+        "actor_id": "bing_html",
+        "input_template": {
+          "query": "{{query}}",
+          "limit": "{{limit}}"
+        }
+      },
+      "cross_platform_search": {
+        "actor_id": "bing_html",
+        "input_template": {
+          "query": "{{query}}",
+          "limit": "{{limit}}"
+        }
+      }
+    }
   }
 }

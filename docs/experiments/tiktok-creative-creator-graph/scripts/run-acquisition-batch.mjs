@@ -85,6 +85,148 @@ function renderTemplate(value, task) {
   return value
 }
 
+function decodeEntities(value) {
+  return String(value ?? '')
+    .replaceAll('&amp;', '&')
+    .replaceAll('&quot;', '"')
+    .replaceAll('&#x27;', "'")
+    .replaceAll('&#39;', "'")
+    .replaceAll('&lt;', '<')
+    .replaceAll('&gt;', '>')
+    .replace(/&#(x?[0-9a-f]+);/gi, (_match, code) => {
+      const radix = String(code).startsWith('x') ? 16 : 10
+      const point = Number.parseInt(String(code).replace(/^x/i, ''), radix)
+      return Number.isFinite(point) ? String.fromCodePoint(point) : ''
+    })
+}
+
+function stripTags(value) {
+  return decodeEntities(String(value ?? '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim()
+}
+
+function normalizeHandle(value) {
+  const raw = String(value ?? '').trim()
+  const fromUrl = raw.match(/tiktok\.com\/@([A-Za-z0-9._-]+)/i)?.[1]
+  const fromHandle = raw.match(/^@([A-Za-z0-9._-]+)$/)?.[1]
+  const handle = (fromUrl ?? fromHandle ?? '').toLowerCase()
+  if (!handle) return ''
+  if (handle.includes('@') || handle.includes('.com')) return ''
+  return `@${handle}`
+}
+
+function profileUrlFor(value) {
+  const handle = normalizeHandle(value)
+  return handle ? `https://www.tiktok.com/${handle}` : ''
+}
+
+function extractTikTokUrls(text) {
+  const urls = []
+  const pattern = /https?:\/\/(?:www\.)?tiktok\.com\/@[A-Za-z0-9._-]+/gi
+  for (const match of String(text ?? '').matchAll(pattern)) {
+    const profileUrl = profileUrlFor(match[0].replace(/[),.;]+$/g, ''))
+    if (profileUrl) urls.push(profileUrl)
+  }
+  return Array.from(new Set(urls))
+}
+
+function bingResultUrlFromHref(href) {
+  const decoded = decodeEntities(href)
+  if (decoded.startsWith('/')) return `https://www.bing.com${decoded}`
+  return decoded
+}
+
+function assertPublicSearchUsable(html, task) {
+  const text = stripTags(html).toLowerCase()
+  if (/captcha|unusual traffic|verify you are human/.test(text)) {
+    throw new Error(`public_web search blocked by verification challenge for ${task.batch_id}`)
+  }
+}
+
+function publicSearchRowsFromHtml(html, task) {
+  assertPublicSearchUsable(html, task)
+  const rows = []
+  const seen = new Set()
+  const blocks = String(html).split(/<li class="b_algo"/g).slice(1)
+
+  for (const block of blocks) {
+    const anchor = block.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i)
+    const snippetMatch = block.match(/<p[^>]*>([\s\S]*?)<\/p>/i)
+    if (!anchor) continue
+    const url = bingResultUrlFromHref(anchor[1])
+    const title = stripTags(anchor[2])
+    const snippet = stripTags(snippetMatch?.[1] ?? '')
+    for (const profileUrl of new Set([
+      ...extractTikTokUrls(url),
+      ...extractTikTokUrls(title),
+      ...extractTikTokUrls(snippet),
+    ])) {
+      const handle = normalizeHandle(profileUrl)
+      if (!handle || seen.has(handle)) continue
+      seen.add(handle)
+      rows.push({
+        handle,
+        profile_url: profileUrl,
+        display_name: title.replace(/\s+-?\s*on TikTok.*/i, '').trim(),
+        bio: snippet,
+        source_type: task.acquisition_surface === 'cross_platform_search' ? 'cross_platform_search' : 'public_web_search',
+        source_name: `Public web acquisition ${task.batch_id}`,
+        source_query: task.query,
+        source_url: url,
+        target_label: task.target_label ?? '',
+        source_target_labels: task.target_label ? [task.target_label] : [],
+        acquisition_surface: task.acquisition_surface,
+        provider,
+        provider_execution_id: '',
+        batch_id: task.batch_id,
+      })
+    }
+  }
+
+  if (!rows.length) {
+    for (const profileUrl of extractTikTokUrls(html)) {
+      const handle = normalizeHandle(profileUrl)
+      if (!handle || seen.has(handle)) continue
+      seen.add(handle)
+      rows.push({
+        handle,
+        profile_url: profileUrl,
+        display_name: handle.slice(1),
+        bio: '',
+        source_type: task.acquisition_surface === 'cross_platform_search' ? 'cross_platform_search' : 'public_web_search',
+        source_name: `Public web acquisition ${task.batch_id}`,
+        source_query: task.query,
+        source_url: '',
+        target_label: task.target_label ?? '',
+        source_target_labels: task.target_label ? [task.target_label] : [],
+        acquisition_surface: task.acquisition_surface,
+        provider,
+        provider_execution_id: '',
+        batch_id: task.batch_id,
+      })
+    }
+  }
+
+  return rows.slice(0, limit)
+}
+
+async function runPublicWebSearch(task) {
+  const url = `https://www.bing.com/search?q=${encodeURIComponent(task.query)}`
+  const response = await fetch(url, {
+    headers: {
+      'user-agent': 'Mozilla/5.0 (compatible; alpha-research-public-web-acquisition/1.0)',
+      accept: 'text/html,application/xhtml+xml',
+    },
+  })
+  if (!response.ok) throw new Error(`public_web request failed ${response.status}`)
+  const items = publicSearchRowsFromHtml(await response.text(), task)
+  return {
+    run_id: `public_web:${task.batch_id}:${Date.now()}`,
+    dataset_id: '',
+    status: 'SUCCEEDED',
+    items,
+  }
+}
+
 function providerRowsForTask(items, task, run) {
   return items.map((item) => ({
     ...item,
@@ -143,18 +285,25 @@ async function runApifyActor(task, actorConfig) {
   }
 }
 
+async function runProviderTask(task, actorConfig) {
+  if (provider === 'apify') return runApifyActor(task, actorConfig)
+  if (provider === 'public_web' && actorConfig.actor_id === 'bing_html') return runPublicWebSearch(task)
+  throw new Error(`Provider ${provider} cannot execute ${task.acquisition_surface} with actor ${actorConfig.actor_id}`)
+}
+
 const adapters = readJson(join(configDir, 'provider-adapters.json'))
 const adapter = adapters[provider]
 if (!adapter) throw new Error(`No provider adapter configured for ${provider}`)
 
 function assertLiveRunAllowed(selectedWave, tasks) {
   if (dryRun) return
-  if (!hasProviderToken) {
+  if (provider === 'apify' && !hasProviderToken) {
     throw new Error('Live provider execution requires APIFY_TOKEN in the environment. Run with --dry-run or provide the token through the configured secrets flow.')
   }
   if (!confirmedLive) {
     throw new Error('Live provider execution requires --confirm-live. Run with --dry-run or pass --live --confirm-live after checking provider preflight.')
   }
+  if (provider === 'public_web') return
   if (!selectedWave) {
     throw new Error('Live provider execution requires a specific --wave so spend is tied to the scale wave ledger.')
   }
@@ -241,17 +390,19 @@ async function main() {
     }
 
     try {
-      const run = await runApifyActor(task, actorConfig)
+      const run = await runProviderTask(task, actorConfig)
       const outputPath = join(acquisitionResultsDir, `${executionId}-${task.batch_id}.jsonl`)
-      const rows = providerRowsForTask(run.items, task, run)
-      writeJsonl(outputPath, rows)
+      const rows = provider === 'public_web'
+        ? run.items.map((item) => ({ ...item, provider_execution_id: executionId, provider_run_id: run.run_id }))
+        : providerRowsForTask(run.items, task, run)
+      if (rows.length) writeJsonl(outputPath, rows)
       results.push({
         ...base,
         status: 'succeeded',
         provider_run_id: run.run_id,
         provider_dataset_id: run.dataset_id,
         output_rows: rows.length,
-        output_path: outputPath.replace(`${root}/`, ''),
+        output_path: rows.length ? outputPath.replace(`${root}/`, '') : '',
         finished_at: new Date().toISOString(),
       })
     } catch (error) {
