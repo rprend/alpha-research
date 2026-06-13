@@ -13,11 +13,13 @@ import {
 
 const rawRoot = path.join(experimentDir, "data", "raw", "second-layer-sources");
 const waybackRawRoot = path.join(experimentDir, "data", "raw", "second-layer-wayback");
+const historicalCurrentRawRoot = path.join(experimentDir, "data", "raw", "second-layer-historical-current");
 const processedDir = path.join(experimentDir, "data", "processed");
 const reportsDir = path.join(experimentDir, "reports");
 const families = await readJson(path.join(experimentDir, "config", "term-families.json"));
 const runDate = process.argv.find((arg) => arg.startsWith("--run-date="))?.split("=")[1] ?? (await latestRunDate());
 const waybackRunDate = process.argv.find((arg) => arg.startsWith("--wayback-run-date="))?.split("=")[1] ?? (await latestRunDate(waybackRawRoot));
+const historicalCurrentRunDate = process.argv.find((arg) => arg.startsWith("--historical-current-run-date="))?.split("=")[1] ?? (await latestRunDate(historicalCurrentRawRoot));
 
 if (!runDate) throw new Error("No second-layer source probe found. Run probe-second-layer-sources.mjs first.");
 
@@ -27,6 +29,8 @@ const successful = manifest.requests.filter((request) => request.ok === true);
 if (!successful.length) throw new Error(`No successful second-layer sources in ${runDir}`);
 const waybackManifest = waybackRunDate ? await maybeReadJson(path.join(waybackRawRoot, waybackRunDate, "manifest.json")) : null;
 const successfulWayback = (waybackManifest?.snapshots ?? []).filter((request) => Number(request.status) >= 200 && Number(request.status) < 300);
+const historicalCurrentManifest = historicalCurrentRunDate ? await maybeReadJson(path.join(historicalCurrentRawRoot, historicalCurrentRunDate, "manifest.json")) : null;
+const successfulHistoricalCurrent = (historicalCurrentManifest?.snapshots ?? []).filter((request) => Number(request.status) >= 200 && Number(request.status) < 300);
 
 const pages = [];
 const termRows = [];
@@ -83,9 +87,35 @@ for (const request of successfulWayback) {
   addPage(page, counts);
 }
 
+for (const request of successfulHistoricalCurrent) {
+  const htmlPath = path.join(experimentDir, request.responsePath);
+  const html = await fs.readFile(htmlPath, "utf8");
+  const text = cleanHtml(html);
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const counts = countTerms(text, families);
+  const highSignalTerms = counts.flatMap((row) => row.matchedTerms);
+  const page = {
+    institution: request.institution,
+    source_layer: "historical-current",
+    source_genre: request.source_genre,
+    year: Number(request.year),
+    url: request.source_url ?? request.url,
+    archive_url: "",
+    status: request.status,
+    title: request.title ?? "",
+    words,
+    text_preview: text.slice(0, 800),
+    snippets: snippets(text, highSignalTerms),
+    raw_path: request.responsePath,
+    metadata_path: request.metadataPath,
+    term_counts: Object.fromEntries(counts.map((row) => [row.family, row.count])),
+  };
+  addPage(page, counts);
+}
+
 const genreRows = aggregateByGenre(termRows, pages);
 const layerYearRows = aggregateByLayerYear(termRows, pages);
-const readiness = buildReadiness({ manifest, waybackManifest, pages, genreRows, layerYearRows });
+const readiness = buildReadiness({ manifest, waybackManifest, historicalCurrentManifest, pages, genreRows, layerYearRows });
 
 await writeJson(path.join(processedDir, "second-layer-pages.json"), pages);
 await writeText(
@@ -103,7 +133,7 @@ await writeText(
 await writeJson(path.join(reportsDir, "second-layer-corpus-readiness.json"), readiness);
 await writeText(path.join(reportsDir, "second-layer-corpus-readiness.md"), buildMarkdown(readiness));
 
-console.log(`Built university second-layer corpus for ${pages.length} pages from current run ${runDate}${waybackRunDate ? ` and Wayback run ${waybackRunDate}` : ""}`);
+console.log(`Built university second-layer corpus for ${pages.length} pages from current run ${runDate}${waybackRunDate ? `, Wayback run ${waybackRunDate}` : ""}${historicalCurrentRunDate ? `, and historical-current run ${historicalCurrentRunDate}` : ""}`);
 
 function addPage(page, counts) {
   pages.push(page);
@@ -141,10 +171,10 @@ async function maybeReadJson(file) {
 }
 
 function aggregateByGenre(rows, pages) {
-  const pageMap = new Map(pages.map((page) => [`${page.institution}|${page.source_genre}|${page.year}`, page]));
+  const pageMap = new Map(pages.map((page) => [pageKey(page), page]));
   const map = new Map();
   for (const row of rows) {
-    const pageKey = `${row.institution}|${row.source_genre}|${row.year}`;
+    const rowPageKey = termRowPageKey(row);
     const key = `${row.source_genre}|${row.family}`;
     const target = map.get(key) ?? {
       source_genre: row.source_genre,
@@ -154,10 +184,10 @@ function aggregateByGenre(rows, pages) {
       count: 0,
       words: 0,
     };
-    target.pageSet.add(pageKey);
+    target.pageSet.add(rowPageKey);
     target.institutionSet.add(row.institution);
     target.count += row.count;
-    target.words += pageMap.get(pageKey)?.words ?? 0;
+    target.words += pageMap.get(rowPageKey)?.words ?? 0;
     map.set(key, target);
   }
   return [...map.values()]
@@ -174,10 +204,10 @@ function aggregateByGenre(rows, pages) {
 }
 
 function aggregateByLayerYear(rows, pages) {
-  const pageMap = new Map(pages.map((page) => [`${page.institution}|${page.source_layer}|${page.source_genre}|${page.year}`, page]));
+  const pageMap = new Map(pages.map((page) => [pageKey(page), page]));
   const map = new Map();
   for (const row of rows) {
-    const pageKey = `${row.institution}|${row.source_layer}|${row.source_genre}|${row.year}`;
+    const rowPageKey = termRowPageKey(row);
     const key = `${row.source_layer}|${row.year}|${row.source_genre}|${row.family}`;
     const target = map.get(key) ?? {
       source_layer: row.source_layer,
@@ -189,10 +219,10 @@ function aggregateByLayerYear(rows, pages) {
       count: 0,
       words: 0,
     };
-    target.pageSet.add(pageKey);
+    target.pageSet.add(rowPageKey);
     target.institutionSet.add(row.institution);
     target.count += row.count;
-    target.words += pageMap.get(pageKey)?.words ?? 0;
+    target.words += pageMap.get(rowPageKey)?.words ?? 0;
     map.set(key, target);
   }
   return [...map.values()]
@@ -210,23 +240,33 @@ function aggregateByLayerYear(rows, pages) {
     .sort((a, b) => a.source_layer.localeCompare(b.source_layer) || a.year - b.year || a.source_genre.localeCompare(b.source_genre) || a.family.localeCompare(b.family));
 }
 
-function buildReadiness({ manifest, waybackManifest, pages, genreRows, layerYearRows }) {
+function pageKey(page) {
+  return `${page.institution}|${page.source_layer}|${page.source_genre}|${page.year}|${page.raw_path}`;
+}
+
+function termRowPageKey(row) {
+  return `${row.institution}|${row.source_layer}|${row.source_genre}|${row.year}|${row.raw_path}`;
+}
+
+function buildReadiness({ manifest, waybackManifest, historicalCurrentManifest, pages, genreRows, layerYearRows }) {
   const failed = manifest.requests.filter((request) => request.ok !== true);
   const genreCounts = countBy(pages, "source_genre");
   const institutionCounts = countBy(pages, "institution");
   const layerCounts = countBy(pages, "source_layer");
-  const waybackPages = pages.filter((page) => page.source_layer === "wayback");
-  const waybackGenreCounts = countBy(waybackPages, "source_genre");
-  const waybackYearCounts = countBy(waybackPages, "year");
-  const waybackInstitutions = new Set(waybackPages.map((page) => page.institution)).size;
+  const historicalPages = pages.filter((page) => page.source_layer !== "current");
+  const historicalGenreCounts = countBy(historicalPages, "source_genre");
+  const historicalYearCounts = countBy(historicalPages, "year");
+  const historicalInstitutions = new Set(historicalPages.map((page) => page.institution)).size;
   const requiredGenres = ["catalog", "strategic-plan", "president-message", "commencement-speech"];
   const missingGenres = requiredGenres.filter((genre) => !genreCounts[genre]);
-  const historicalGenres = requiredGenres.filter((genre) => waybackGenreCounts[genre]);
+  const historicalGenres = requiredGenres.filter((genre) => historicalGenreCounts[genre]);
   const status = failed.length || missingGenres.length
     ? "source-probed-needs-replacements"
-    : waybackPages.length >= 8 && historicalGenres.length >= 2
+    : historicalPages.length >= 8 && historicalGenres.length >= 4
       ? "historical-second-layer-built"
-      : waybackPages.length
+      : historicalPages.length >= 8 && historicalGenres.length >= 2
+      ? "historical-second-layer-built"
+      : historicalPages.length
         ? "historical-source-probed"
         : "source-probed";
   const failedLabels = failed.map((request) => `${request.institution} ${request.source_genre}`);
@@ -234,18 +274,19 @@ function buildReadiness({ manifest, waybackManifest, pages, genreRows, layerYear
     generatedAt: new Date().toISOString(),
     runDate: manifest.runDate,
     waybackRunDate: waybackManifest?.runDate ?? "",
+    historicalCurrentRunDate: historicalCurrentManifest?.runDate ?? "",
     status,
-    corpusTier: waybackPages.length ? "longitudinal-source-probe" : "schema-probe",
+    corpusTier: historicalPages.length ? "longitudinal-source-probe" : "schema-probe",
     pages: pages.length,
     currentPages: pages.filter((page) => page.source_layer === "current").length,
-    historicalPages: waybackPages.length,
+    historicalPages: historicalPages.length,
     configuredSources: manifest.requests.length,
     failedOrExcludedSources: failed.length,
     genreCounts,
     sourceLayerCounts: layerCounts,
-    historicalGenreCounts: waybackGenreCounts,
-    historicalYearCounts: waybackYearCounts,
-    historicalInstitutions: waybackInstitutions,
+    historicalGenreCounts,
+    historicalYearCounts,
+    historicalInstitutions,
     institutionCounts,
     missingGenres,
     processedFiles: [
@@ -263,13 +304,13 @@ function buildReadiness({ manifest, waybackManifest, pages, genreRows, layerYear
     blockers: [
       ...(failed.length ? ["Replace failed or low-word-count source routes before publication-scale claims."] : []),
       ...(missingGenres.length ? [`Add at least one accessible source for missing genres: ${missingGenres.join(", ")}.`] : []),
-      ...(waybackPages.length ? [] : ["Add historical snapshots or recurring current snapshots before claiming second-layer change over time."]),
-      ...(historicalGenres.length < 2 ? ["Add historical snapshots for at least two second-layer genres before source-layered historical comparisons."] : []),
+      ...(historicalPages.length ? [] : ["Add historical snapshots or recurring current snapshots before claiming second-layer change over time."]),
+      ...(historicalGenres.length < 4 ? ["Add historical pages for all four second-layer genres before broad source-layered historical comparisons."] : []),
       "Keep catalog, strategic-plan, president-message, and commencement-speech language separate in public claims.",
     ],
     nextActions: [
       ...(failed.length ? [`Replace or archive-backed retry failed routes: ${failedLabels.join("; ")}.`] : ["Retain the current four-genre source mix for historical backfill."]),
-      waybackPages.length ? "Manually quote-review historical second-layer snapshots before publication-scale claims." : "Backfill historical snapshots for the retained second-layer routes.",
+      historicalPages.length ? "Manually quote-review historical second-layer snapshots before publication-scale claims." : "Backfill historical snapshots for the retained second-layer routes.",
       "Join second-layer source genres into the main readiness gate after manual quote review.",
     ],
   };

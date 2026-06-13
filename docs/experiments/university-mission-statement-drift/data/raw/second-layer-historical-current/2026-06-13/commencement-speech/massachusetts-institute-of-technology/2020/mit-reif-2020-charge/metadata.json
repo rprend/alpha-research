@@ -1,0 +1,18 @@
+{
+  "source_id": "mit-reif-2020-charge",
+  "institution": "Massachusetts Institute of Technology",
+  "source_genre": "commencement-speech",
+  "source_layer": "historical-current",
+  "year": 2020,
+  "url": "https://news.mit.edu/2020/l-rafael-reif-commencement-0529",
+  "reason": "2020 commencement charge retained on MIT News",
+  "source_url": "https://news.mit.edu/2020/l-rafael-reif-commencement-0529",
+  "status": 200,
+  "ok": true,
+  "wordCount": 1796,
+  "title": "President L. Rafael Reif's charge to the class of 2020 | MIT News | Massachusetts Institute of Technology",
+  "responsePath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-reif-2020-charge/index.html",
+  "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-reif-2020-charge/metadata.json",
+  "fetchedAt": "2026-06-13T01:36:37.877Z",
+  "bytes": 107236
+}

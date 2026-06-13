@@ -1,0 +1,150 @@
+{
+  "runDate": "2026-06-13",
+  "source": "Live historical university pages",
+  "sourceLayer": "historical-current",
+  "sourceConfig": "config/second-layer-historical-current-sources.json",
+  "minWords": 80,
+  "resume": true,
+  "genreFilter": [],
+  "startedAt": "2026-06-13T01:36:37.680Z",
+  "requests": [
+    {
+      "source_id": "mit-reif-2020-charge",
+      "institution": "Massachusetts Institute of Technology",
+      "source_genre": "commencement-speech",
+      "source_layer": "historical-current",
+      "year": 2020,
+      "url": "https://news.mit.edu/2020/l-rafael-reif-commencement-0529",
+      "reason": "2020 commencement charge retained on MIT News",
+      "source_url": "https://news.mit.edu/2020/l-rafael-reif-commencement-0529",
+      "status": 200,
+      "ok": true,
+      "wordCount": 1796,
+      "title": "President L. Rafael Reif's charge to the class of 2020 | MIT News | Massachusetts Institute of Technology",
+      "responsePath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-reif-2020-charge/index.html",
+      "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-reif-2020-charge/metadata.json"
+    },
+    {
+      "source_id": "mit-mcraven-2020-address",
+      "institution": "Massachusetts Institute of Technology",
+      "source_genre": "commencement-speech",
+      "source_layer": "historical-current",
+      "year": 2020,
+      "url": "https://news.mit.edu/2020/william-mcraven-commencement-address-0529",
+      "reason": "2020 commencement address retained on MIT News",
+      "source_url": "https://news.mit.edu/2020/william-mcraven-commencement-address-0529",
+      "status": 200,
+      "ok": true,
+      "wordCount": 2625,
+      "title": "William McRaven's Commencement address | MIT News | Massachusetts Institute of Technology",
+      "responsePath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-mcraven-2020-address/index.html",
+      "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-mcraven-2020-address/metadata.json"
+    },
+    {
+      "source_id": "princeton-strategic-framework",
+      "institution": "Princeton University",
+      "source_genre": "strategic-plan",
+      "source_layer": "historical-current",
+      "year": 2016,
+      "url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+      "reason": "Strategic planning framework retained on Princeton site",
+      "source_url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+      "status": 200,
+      "ok": true,
+      "wordCount": 483,
+      "title": "Princeton’s Strategic Planning Framework | Princeton University",
+      "responsePath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/princeton-university/2016/princeton-strategic-framework/index.html",
+      "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/princeton-university/2016/princeton-strategic-framework/metadata.json"
+    },
+    {
+      "source_id": "berkeley-strategic-plan",
+      "institution": "University of California, Berkeley",
+      "source_genre": "strategic-plan",
+      "source_layer": "historical-current",
+      "year": 2020,
+      "url": "https://strategicplan.berkeley.edu/",
+      "reason": "Strategic plan route retained on Berkeley site",
+      "source_url": "https://strategicplan.berkeley.edu/",
+      "status": 200,
+      "ok": true,
+      "wordCount": 276,
+      "title": "Strategic Plan | UC Berkeley",
+      "responsePath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/university-of-california-berkeley/2020/berkeley-strategic-plan/index.html",
+      "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/university-of-california-berkeley/2020/berkeley-strategic-plan/metadata.json"
+    }
+  ],
+  "errors": [],
+  "finishedAt": "2026-06-13T01:36:38.062Z",
+  "snapshots": [
+    {
+      "source_id": "mit-mcraven-2020-address",
+      "institution": "Massachusetts Institute of Technology",
+      "source_genre": "commencement-speech",
+      "source_layer": "historical-current",
+      "source_url": "https://news.mit.edu/2020/william-mcraven-commencement-address-0529",
+      "year": 2020,
+      "url": "https://news.mit.edu/2020/william-mcraven-commencement-address-0529",
+      "status": 200,
+      "wordCount": 2625,
+      "title": "William McRaven's Commencement address | MIT News | Massachusetts Institute of Technology",
+      "responsePath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-mcraven-2020-address/index.html",
+      "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-mcraven-2020-address/metadata.json"
+    },
+    {
+      "source_id": "mit-reif-2020-charge",
+      "institution": "Massachusetts Institute of Technology",
+      "source_genre": "commencement-speech",
+      "source_layer": "historical-current",
+      "source_url": "https://news.mit.edu/2020/l-rafael-reif-commencement-0529",
+      "year": 2020,
+      "url": "https://news.mit.edu/2020/l-rafael-reif-commencement-0529",
+      "status": 200,
+      "wordCount": 1796,
+      "title": "President L. Rafael Reif's charge to the class of 2020 | MIT News | Massachusetts Institute of Technology",
+      "responsePath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-reif-2020-charge/index.html",
+      "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-reif-2020-charge/metadata.json"
+    },
+    {
+      "source_id": "princeton-strategic-framework",
+      "institution": "Princeton University",
+      "source_genre": "strategic-plan",
+      "source_layer": "historical-current",
+      "source_url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+      "year": 2016,
+      "url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+      "status": 200,
+      "wordCount": 483,
+      "title": "Princeton’s Strategic Planning Framework | Princeton University",
+      "responsePath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/princeton-university/2016/princeton-strategic-framework/index.html",
+      "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/princeton-university/2016/princeton-strategic-framework/metadata.json"
+    },
+    {
+      "source_id": "berkeley-strategic-plan",
+      "institution": "University of California, Berkeley",
+      "source_genre": "strategic-plan",
+      "source_layer": "historical-current",
+      "source_url": "https://strategicplan.berkeley.edu/",
+      "year": 2020,
+      "url": "https://strategicplan.berkeley.edu/",
+      "status": 200,
+      "wordCount": 276,
+      "title": "Strategic Plan | UC Berkeley",
+      "responsePath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/university-of-california-berkeley/2020/berkeley-strategic-plan/index.html",
+      "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/university-of-california-berkeley/2020/berkeley-strategic-plan/metadata.json"
+    }
+  ],
+  "recordCount": 4,
+  "genreCounts": {
+    "commencement-speech": 2,
+    "strategic-plan": 2
+  },
+  "institutionCounts": {
+    "Massachusetts Institute of Technology": 2,
+    "Princeton University": 1,
+    "University of California, Berkeley": 1
+  },
+  "yearCounts": {
+    "2016": 1,
+    "2020": 3
+  }
+}

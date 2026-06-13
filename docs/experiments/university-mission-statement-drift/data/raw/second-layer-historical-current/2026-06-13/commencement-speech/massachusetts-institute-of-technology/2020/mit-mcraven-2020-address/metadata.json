@@ -1,0 +1,18 @@
+{
+  "source_id": "mit-mcraven-2020-address",
+  "institution": "Massachusetts Institute of Technology",
+  "source_genre": "commencement-speech",
+  "source_layer": "historical-current",
+  "year": 2020,
+  "url": "https://news.mit.edu/2020/william-mcraven-commencement-address-0529",
+  "reason": "2020 commencement address retained on MIT News",
+  "source_url": "https://news.mit.edu/2020/william-mcraven-commencement-address-0529",
+  "status": 200,
+  "ok": true,
+  "wordCount": 2625,
+  "title": "William McRaven's Commencement address | MIT News | Massachusetts Institute of Technology",
+  "responsePath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-mcraven-2020-address/index.html",
+  "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/commencement-speech/massachusetts-institute-of-technology/2020/mit-mcraven-2020-address/metadata.json",
+  "fetchedAt": "2026-06-13T01:36:37.946Z",
+  "bytes": 108591
+}

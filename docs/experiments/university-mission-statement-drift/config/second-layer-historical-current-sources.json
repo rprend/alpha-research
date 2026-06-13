@@ -1,0 +1,38 @@
+[
+  {
+    "source_id": "mit-reif-2020-charge",
+    "institution": "Massachusetts Institute of Technology",
+    "source_genre": "commencement-speech",
+    "source_layer": "historical-current",
+    "year": 2020,
+    "url": "https://news.mit.edu/2020/l-rafael-reif-commencement-0529",
+    "reason": "2020 commencement charge retained on MIT News"
+  },
+  {
+    "source_id": "mit-mcraven-2020-address",
+    "institution": "Massachusetts Institute of Technology",
+    "source_genre": "commencement-speech",
+    "source_layer": "historical-current",
+    "year": 2020,
+    "url": "https://news.mit.edu/2020/william-mcraven-commencement-address-0529",
+    "reason": "2020 commencement address retained on MIT News"
+  },
+  {
+    "source_id": "princeton-strategic-framework",
+    "institution": "Princeton University",
+    "source_genre": "strategic-plan",
+    "source_layer": "historical-current",
+    "year": 2016,
+    "url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+    "reason": "Strategic planning framework retained on Princeton site"
+  },
+  {
+    "source_id": "berkeley-strategic-plan",
+    "institution": "University of California, Berkeley",
+    "source_genre": "strategic-plan",
+    "source_layer": "historical-current",
+    "year": 2020,
+    "url": "https://strategicplan.berkeley.edu/",
+    "reason": "Strategic plan route retained on Berkeley site"
+  }
+]

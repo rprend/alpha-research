@@ -36,6 +36,7 @@ node docs/experiments/university-mission-statement-drift/scripts/build-publicati
 node docs/experiments/university-mission-statement-drift/scripts/check-readiness.mjs
 node docs/experiments/university-mission-statement-drift/scripts/probe-second-layer-sources.mjs --strict
 node docs/experiments/university-mission-statement-drift/scripts/fetch-second-layer-wayback-snapshots.mjs --targets=second-layer-wayback-targets.json --years=2015,2020 --max-snapshots=12 --resume=true
+node docs/experiments/university-mission-statement-drift/scripts/fetch-second-layer-historical-current-sources.mjs --resume=true
 node docs/experiments/university-mission-statement-drift/scripts/build-second-layer-corpus.mjs
 ```
 
@@ -65,6 +66,7 @@ Outputs:
 - `reports/readiness.json`
 - `data/raw/second-layer-sources/YYYY-MM-DD/`
 - `data/raw/second-layer-wayback/YYYY-MM-DD/`
+- `data/raw/second-layer-historical-current/YYYY-MM-DD/`
 - `data/processed/second-layer-pages.json`
 - `data/processed/second-layer-page-term-counts.csv`
 - `data/processed/second-layer-term-family-by-genre.csv`
@@ -74,11 +76,12 @@ Outputs:
 
 ## Second-Layer Historical Probe
 
-The current second-layer corpus contains 25 pages:
+The current second-layer corpus contains 29 pages:
 
 - 21 current institutional pages across catalog, strategic-plan, president-message, and commencement-speech genres
 - 4 Wayback historical snapshots across catalog and president-message genres
-- source-layer status: `historical-source-probed`
+- 4 live historical-current pages across strategic-plan and commencement-speech genres
+- source-layer status: `historical-second-layer-built`
 - corpus tier: `longitudinal-source-probe`
 
-Historical second-layer snapshots are intentionally source-layered. Public claims should not compare catalogs, strategic plans, president messages, and commencement speeches as one stable genre. The next coverage step is to expand curated historical routes for strategic-plan and commencement-speech pages, then manually quote-review the historical records before joining second-layer outputs into the main readiness gate.
+Historical second-layer snapshots are intentionally source-layered. Public claims should not compare catalogs, strategic plans, president messages, and commencement speeches as one stable genre. The next coverage step is manual quote review of the eight historical records before joining second-layer outputs into the main readiness gate.

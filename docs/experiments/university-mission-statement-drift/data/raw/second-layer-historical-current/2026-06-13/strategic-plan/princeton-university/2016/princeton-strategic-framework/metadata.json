@@ -1,0 +1,18 @@
+{
+  "source_id": "princeton-strategic-framework",
+  "institution": "Princeton University",
+  "source_genre": "strategic-plan",
+  "source_layer": "historical-current",
+  "year": 2016,
+  "url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+  "reason": "Strategic planning framework retained on Princeton site",
+  "source_url": "https://www.princeton.edu/meet-princeton/princetons-strategic-planning-framework",
+  "status": 200,
+  "ok": true,
+  "wordCount": 483,
+  "title": "Princeton’s Strategic Planning Framework | Princeton University",
+  "responsePath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/princeton-university/2016/princeton-strategic-framework/index.html",
+  "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/princeton-university/2016/princeton-strategic-framework/metadata.json",
+  "fetchedAt": "2026-06-13T01:36:38.008Z",
+  "bytes": 57334
+}

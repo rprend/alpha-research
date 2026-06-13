@@ -218,8 +218,9 @@ Implemented:
 - second-layer source config for catalogs, strategic plans, president-message pages, and commencement speeches
 - second-layer source probe
 - second-layer Wayback target config and fetcher
+- second-layer historical-current source config and fetcher
 - second-layer corpus builder with source-genre fields
-- source-layer/year term-family table for second-layer current vs Wayback snapshots
+- source-layer/year term-family table for second-layer current, Wayback, and historical-current snapshots
 - current and historical page processing
 - page-level term counts
 - term-family-by-year table
@@ -248,10 +249,12 @@ Current committed corpus:
 - 21 configured second-layer source routes across catalogs, strategic plans, president-message pages, and commencement speeches
 - 21 accessible second-layer source snapshots
 - 4 historical second-layer Wayback snapshots across catalog and president-message genres
+- 4 historical-current second-layer pages across strategic-plan and commencement-speech genres
 - second-layer corpus tier: longitudinal-source-probe
-- second-layer status: historical-source-probed
-- second-layer source-layer counts: 21 current, 4 Wayback
-- second-layer genre counts: 10 catalog, 6 commencement-speech, 4 president-message, 4 strategic-plan
+- second-layer status: historical-second-layer-built
+- second-layer source-layer counts: 21 current, 4 Wayback, 4 historical-current
+- second-layer historical genre counts: 2 catalog, 2 commencement-speech, 2 president-message, 2 strategic-plan
+- second-layer genre counts: 10 catalog, 8 commencement-speech, 5 president-message, 6 strategic-plan
 - year range: 2000-2026
 - term families: truth/knowledge, civic/public, innovation/impact, global/leadership, excellence/prestige, inclusion/belonging, career/economy
 - publication post: `reports/post.md`, a polished source-layer methods draft
@@ -261,8 +264,7 @@ Current committed corpus:
 Next implementation moves:
 
 - final editorial review for `reports/post.md`
-- manually quote-review the 4 historical second-layer snapshots before public comparison
-- expand curated historical route coverage for strategic-plan and commencement-speech genres
+- manually quote-review the 8 historical second-layer snapshots before public comparison
 - join second-layer source-genre outputs into the main readiness gate after manual quote review
 - hand-audit snippets before public claims
 

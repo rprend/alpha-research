@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T01:27:08.947Z",
+  "generatedAt": "2026-06-13T01:38:20.088Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
@@ -10,7 +10,7 @@
       "id": "university-second-layer-corpus",
       "title": "University Institutional Language Second-Layer Corpus",
       "priority": 1,
-      "status": "historical-source-probed",
+      "status": "historical-second-layer-built",
       "complete": false,
       "sourceExperiment": "docs/experiments/university-mission-statement-drift/",
       "requiredEvidenceCount": 5,
@@ -83,7 +83,7 @@
     {
       "id": "university-second-layer-corpus",
       "title": "University Institutional Language Second-Layer Corpus",
-      "status": "historical-source-probed",
+      "status": "historical-second-layer-built",
       "sourceExperiment": "docs/experiments/university-mission-statement-drift/"
     },
     {

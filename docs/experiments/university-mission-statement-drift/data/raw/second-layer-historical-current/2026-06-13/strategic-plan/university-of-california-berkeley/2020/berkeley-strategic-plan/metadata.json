@@ -1,0 +1,18 @@
+{
+  "source_id": "berkeley-strategic-plan",
+  "institution": "University of California, Berkeley",
+  "source_genre": "strategic-plan",
+  "source_layer": "historical-current",
+  "year": 2020,
+  "url": "https://strategicplan.berkeley.edu/",
+  "reason": "Strategic plan route retained on Berkeley site",
+  "source_url": "https://strategicplan.berkeley.edu/",
+  "status": 200,
+  "ok": true,
+  "wordCount": 276,
+  "title": "Strategic Plan | UC Berkeley",
+  "responsePath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/university-of-california-berkeley/2020/berkeley-strategic-plan/index.html",
+  "metadataPath": "data/raw/second-layer-historical-current/2026-06-13/strategic-plan/university-of-california-berkeley/2020/berkeley-strategic-plan/metadata.json",
+  "fetchedAt": "2026-06-13T01:36:38.062Z",
+  "bytes": 37919
+}

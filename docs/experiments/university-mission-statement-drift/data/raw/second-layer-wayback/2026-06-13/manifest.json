@@ -9,101 +9,14 @@
   ],
   "minWords": 80,
   "resume": true,
-  "genreFilter": [],
-  "maxSnapshots": 12,
-  "startedAt": "2026-06-13T00:43:28.066Z",
+  "genreFilter": [
+    "strategic-plan",
+    "commencement-speech"
+  ],
+  "maxSnapshots": 8,
+  "startedAt": "2026-06-13T01:30:33.106Z",
   "requests": [
     {
-      "institution": "Harvard University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://handbook.fas.harvard.edu/book/mission-and-history",
-      "reason": "historical catalog/handbook mission route candidate",
-      "source_url": "https://handbook.fas.harvard.edu/book/mission-and-history",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Harvard University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://handbook.fas.harvard.edu/book/mission-and-history",
-      "reason": "historical catalog/handbook mission route candidate",
-      "source_url": "https://handbook.fas.harvard.edu/book/mission-and-history",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Harvard University",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://www.harvard.edu/president/",
-      "source_url": "https://www.harvard.edu/president/",
-      "year": 2015,
-      "timestamp": "20150414012210",
-      "originalStatus": "200",
-      "archiveUrl": "https://web.archive.org/web/20150414012210id_/https://www.harvard.edu/president/",
-      "httpStatus": 200,
-      "wordCount": 706,
-      "title": "Office of the President | Harvard University",
-      "responsePath": "data/raw/second-layer-wayback/2026-06-13/president-message/harvard-university/2015/index.html",
-      "status": 200,
-      "fetchedAt": "2026-06-13T00:39:35.054Z",
-      "bytes": 40733,
-      "resumed": true
-    },
-    {
-      "institution": "Harvard University",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://www.harvard.edu/president/",
-      "reason": "stable president route candidate",
-      "source_url": "https://www.harvard.edu/president/",
-      "year": 2020,
-      "timestamp": "20200310020518",
-      "originalStatus": "200",
-      "archiveUrl": "https://web.archive.org/web/20200310020518id_/https://www.harvard.edu/president/",
-      "httpStatus": 200,
-      "wordCount": 233,
-      "title": "Office of the President | Harvard University",
-      "responsePath": "data/raw/second-layer-wayback/2026-06-13/president-message/harvard-university/2020/index.html",
-      "status": 200
-    },
-    {
-      "institution": "Stanford University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://exploredegrees.stanford.edu/",
-      "reason": "older Stanford bulletin route candidate",
-      "source_url": "https://exploredegrees.stanford.edu/",
-      "year": 2015,
-      "timestamp": "20150701214304",
-      "originalStatus": "200",
-      "archiveUrl": "https://web.archive.org/web/20150701214304id_/https://exploredegrees.stanford.edu/",
-      "httpStatus": 200,
-      "wordCount": 1223,
-      "title": "Stanford Bulletin 2015-16 | Stanford University",
-      "responsePath": "data/raw/second-layer-wayback/2026-06-13/catalog/stanford-university/2015/index.html",
-      "status": 200
-    },
-    {
-      "institution": "Stanford University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://exploredegrees.stanford.edu/",
-      "reason": "older Stanford bulletin route candidate",
-      "source_url": "https://exploredegrees.stanford.edu/",
-      "year": 2020,
-      "timestamp": "20200904225048",
-      "originalStatus": "200",
-      "archiveUrl": "https://web.archive.org/web/20200904225048id_/https://exploredegrees.stanford.edu/",
-      "httpStatus": 200,
-      "wordCount": 1774,
-      "title": "Stanford Bulletin 2020-21 | Stanford University",
-      "responsePath": "data/raw/second-layer-wayback/2026-06-13/catalog/stanford-university/2020/index.html",
-      "status": 200
-    },
-    {
       "institution": "Stanford University",
       "source_genre": "strategic-plan",
       "source_layer": "wayback",
@@ -120,66 +33,6 @@
       "url": "https://longrangeplan.stanford.edu/",
       "reason": "older Stanford long-range plan route candidate",
       "source_url": "https://longrangeplan.stanford.edu/",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Massachusetts Institute of Technology",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.mit.edu/",
-      "reason": "stable MIT catalog route candidate",
-      "source_url": "https://catalog.mit.edu/",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Massachusetts Institute of Technology",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.mit.edu/",
-      "reason": "stable MIT catalog route candidate",
-      "source_url": "https://catalog.mit.edu/",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Massachusetts Institute of Technology",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://president.mit.edu/",
-      "reason": "stable MIT president route candidate",
-      "source_url": "https://president.mit.edu/",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Massachusetts Institute of Technology",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://president.mit.edu/",
-      "reason": "stable MIT president route candidate",
-      "source_url": "https://president.mit.edu/",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Princeton University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://ua.princeton.edu/contents",
-      "reason": "older Princeton undergraduate announcement route candidate",
-      "source_url": "https://ua.princeton.edu/contents",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Princeton University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://ua.princeton.edu/contents",
-      "reason": "older Princeton undergraduate announcement route candidate",
-      "source_url": "https://ua.princeton.edu/contents",
       "year": 2020,
       "status": "no-snapshot"
     },
@@ -204,66 +57,6 @@
       "status": "no-snapshot"
     },
     {
-      "institution": "Yale University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.yale.edu/",
-      "reason": "stable Yale catalog route candidate",
-      "source_url": "https://catalog.yale.edu/",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Yale University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.yale.edu/",
-      "reason": "stable Yale catalog route candidate",
-      "source_url": "https://catalog.yale.edu/",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Yale University",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://president.yale.edu/",
-      "reason": "stable Yale president route candidate",
-      "source_url": "https://president.yale.edu/",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Yale University",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://president.yale.edu/",
-      "reason": "stable Yale president route candidate",
-      "source_url": "https://president.yale.edu/",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "University of California, Berkeley",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://guide.berkeley.edu/",
-      "reason": "stable Berkeley catalog route candidate",
-      "source_url": "https://guide.berkeley.edu/",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "University of California, Berkeley",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://guide.berkeley.edu/",
-      "reason": "stable Berkeley catalog route candidate",
-      "source_url": "https://guide.berkeley.edu/",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
       "institution": "University of California, Berkeley",
       "source_genre": "strategic-plan",
       "source_layer": "wayback",
@@ -280,46 +73,6 @@
       "url": "https://strategicplan.berkeley.edu/",
       "reason": "stable Berkeley strategic plan route candidate",
       "source_url": "https://strategicplan.berkeley.edu/",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Cornell University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://courses.cornell.edu/",
-      "reason": "stable Cornell catalog route candidate",
-      "source_url": "https://courses.cornell.edu/",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "Cornell University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://courses.cornell.edu/",
-      "reason": "stable Cornell catalog route candidate",
-      "source_url": "https://courses.cornell.edu/",
-      "year": 2020,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "University of Pennsylvania",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.upenn.edu/",
-      "reason": "stable Penn catalog route candidate",
-      "source_url": "https://catalog.upenn.edu/",
-      "year": 2015,
-      "status": "no-snapshot"
-    },
-    {
-      "institution": "University of Pennsylvania",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.upenn.edu/",
-      "reason": "stable Penn catalog route candidate",
-      "source_url": "https://catalog.upenn.edu/",
       "year": 2020,
       "status": "no-snapshot"
     },
@@ -366,28 +119,6 @@
   ],
   "errors": [
     {
-      "institution": "Harvard University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://handbook.fas.harvard.edu/book/mission-and-history",
-      "reason": "historical catalog/handbook mission route candidate",
-      "source_url": "https://handbook.fas.harvard.edu/book/mission-and-history",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Harvard University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://handbook.fas.harvard.edu/book/mission-and-history",
-      "reason": "historical catalog/handbook mission route candidate",
-      "source_url": "https://handbook.fas.harvard.edu/book/mission-and-history",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
       "institution": "Stanford University",
       "source_genre": "strategic-plan",
       "source_layer": "wayback",
@@ -405,72 +136,6 @@
       "url": "https://longrangeplan.stanford.edu/",
       "reason": "older Stanford long-range plan route candidate",
       "source_url": "https://longrangeplan.stanford.edu/",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Massachusetts Institute of Technology",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.mit.edu/",
-      "reason": "stable MIT catalog route candidate",
-      "source_url": "https://catalog.mit.edu/",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Massachusetts Institute of Technology",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.mit.edu/",
-      "reason": "stable MIT catalog route candidate",
-      "source_url": "https://catalog.mit.edu/",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Massachusetts Institute of Technology",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://president.mit.edu/",
-      "reason": "stable MIT president route candidate",
-      "source_url": "https://president.mit.edu/",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Massachusetts Institute of Technology",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://president.mit.edu/",
-      "reason": "stable MIT president route candidate",
-      "source_url": "https://president.mit.edu/",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Princeton University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://ua.princeton.edu/contents",
-      "reason": "older Princeton undergraduate announcement route candidate",
-      "source_url": "https://ua.princeton.edu/contents",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Princeton University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://ua.princeton.edu/contents",
-      "reason": "older Princeton undergraduate announcement route candidate",
-      "source_url": "https://ua.princeton.edu/contents",
       "year": 2020,
       "status": "no-snapshot",
       "error": "No CDX snapshot found"
@@ -498,72 +163,6 @@
       "error": "No CDX snapshot found"
     },
     {
-      "institution": "Yale University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.yale.edu/",
-      "reason": "stable Yale catalog route candidate",
-      "source_url": "https://catalog.yale.edu/",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Yale University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.yale.edu/",
-      "reason": "stable Yale catalog route candidate",
-      "source_url": "https://catalog.yale.edu/",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Yale University",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://president.yale.edu/",
-      "reason": "stable Yale president route candidate",
-      "source_url": "https://president.yale.edu/",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Yale University",
-      "source_genre": "president-message",
-      "source_layer": "wayback",
-      "url": "https://president.yale.edu/",
-      "reason": "stable Yale president route candidate",
-      "source_url": "https://president.yale.edu/",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "University of California, Berkeley",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://guide.berkeley.edu/",
-      "reason": "stable Berkeley catalog route candidate",
-      "source_url": "https://guide.berkeley.edu/",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "University of California, Berkeley",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://guide.berkeley.edu/",
-      "reason": "stable Berkeley catalog route candidate",
-      "source_url": "https://guide.berkeley.edu/",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
       "institution": "University of California, Berkeley",
       "source_genre": "strategic-plan",
       "source_layer": "wayback",
@@ -581,50 +180,6 @@
       "url": "https://strategicplan.berkeley.edu/",
       "reason": "stable Berkeley strategic plan route candidate",
       "source_url": "https://strategicplan.berkeley.edu/",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Cornell University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://courses.cornell.edu/",
-      "reason": "stable Cornell catalog route candidate",
-      "source_url": "https://courses.cornell.edu/",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "Cornell University",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://courses.cornell.edu/",
-      "reason": "stable Cornell catalog route candidate",
-      "source_url": "https://courses.cornell.edu/",
-      "year": 2020,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "University of Pennsylvania",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.upenn.edu/",
-      "reason": "stable Penn catalog route candidate",
-      "source_url": "https://catalog.upenn.edu/",
-      "year": 2015,
-      "status": "no-snapshot",
-      "error": "No CDX snapshot found"
-    },
-    {
-      "institution": "University of Pennsylvania",
-      "source_genre": "catalog",
-      "source_layer": "wayback",
-      "url": "https://catalog.upenn.edu/",
-      "reason": "stable Penn catalog route candidate",
-      "source_url": "https://catalog.upenn.edu/",
       "year": 2020,
       "status": "no-snapshot",
       "error": "No CDX snapshot found"
@@ -674,20 +229,11 @@
       "error": "No CDX snapshot found"
     }
   ],
-  "finishedAt": "2026-06-13T00:50:06.610Z",
-  "fetchedRecordCount": 4,
-  "genreCounts": {
-    "catalog": 2,
-    "president-message": 2
-  },
-  "institutionCounts": {
-    "Harvard University": 2,
-    "Stanford University": 2
-  },
-  "yearCounts": {
-    "2015": 2,
-    "2020": 2
-  },
+  "finishedAt": "2026-06-13T01:31:36.676Z",
+  "fetchedRecordCount": 0,
+  "genreCounts": {},
+  "institutionCounts": {},
+  "yearCounts": {},
   "snapshots": [
     {
       "institution": "Harvard University",
