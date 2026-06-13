@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T16:41:52.437Z",
+  "generated_at": "2026-06-13T16:45:34.843Z",
   "tables": [
     {
       "table": "works",
@@ -120,7 +120,11 @@
   "sqlite": {
     "path": "data/knowledge-base/processed/knowledge-base.sqlite",
     "created": true,
-    "fts_created": true
+    "fts_created": true,
+    "fts_tables": [
+      "source_documents_fts",
+      "pages_fts"
+    ]
   },
   "analytical_files": [
     {
@@ -163,7 +167,7 @@
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 3645440
+      "bytes": 5775360
     }
   ]
 }

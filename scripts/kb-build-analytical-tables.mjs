@@ -52,6 +52,7 @@ const report = {
     path: "data/knowledge-base/processed/knowledge-base.sqlite",
     created: false,
     fts_created: false,
+    fts_tables: ["source_documents_fts", "pages_fts"],
   },
 };
 
@@ -102,11 +103,11 @@ function buildSql(specs) {
     parts.push(`.import --skip 1 ${JSON.stringify(csvPath)} ${spec.table}`);
   }
   parts.push("DROP TABLE IF EXISTS source_documents_fts;");
-  parts.push("CREATE VIRTUAL TABLE source_documents_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, title, type, text_path UNINDEXED);");
-  parts.push("INSERT INTO source_documents_fts(local_id, source_id, title, type, text_path) SELECT local_id, source_id, title, type, text_path FROM source_documents;");
+  parts.push("CREATE VIRTUAL TABLE source_documents_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, title, type, publication_year, venue, doi, department, description, text_path UNINDEXED);");
+  parts.push("INSERT INTO source_documents_fts(local_id, source_id, source_url, title, type, publication_year, venue, doi, department, description, text_path) SELECT local_id, source_id, source_url, title, type, publication_year, venue, doi, department, description, text_path FROM source_documents;");
   parts.push("DROP TABLE IF EXISTS pages_fts;");
-  parts.push("CREATE VIRTUAL TABLE pages_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, school, department, page_type, title, text_path UNINDEXED);");
-  parts.push("INSERT INTO pages_fts(local_id, source_id, school, department, page_type, title, text_path) SELECT local_id, source_id, school, department, page_type, title, text_path FROM pages;");
+  parts.push("CREATE VIRTUAL TABLE pages_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, school, department, page_type, title, text_path UNINDEXED);");
+  parts.push("INSERT INTO pages_fts(local_id, source_id, source_url, school, department, page_type, title, text_path) SELECT local_id, source_id, source_url, school, department, page_type, title, text_path FROM pages;");
   return `${parts.join("\n")}\n`;
 }
 
@@ -125,6 +126,7 @@ function renderMarkdown(report) {
     `- Path: \`${report.sqlite.path}\``,
     `- Created: ${report.sqlite.created}`,
     `- FTS created: ${report.sqlite.fts_created}`,
+    `- FTS tables: ${report.sqlite.fts_tables.join(", ")}`,
     "",
     "Note: Parquet output still requires a Parquet writer dependency such as pyarrow or DuckDB. CSV plus SQLite are the current local analytical layer.",
     "",

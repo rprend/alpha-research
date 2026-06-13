@@ -1,6 +1,6 @@
 # KB Analytical Tables
 
-Generated at: 2026-06-13T16:41:52.437Z
+Generated at: 2026-06-13T16:45:34.843Z
 
 | Table | Rows | CSV |
 | --- | ---: | --- |
@@ -16,5 +16,6 @@ Generated at: 2026-06-13T16:41:52.437Z
 - Path: `data/knowledge-base/processed/knowledge-base.sqlite`
 - Created: true
 - FTS created: true
+- FTS tables: source_documents_fts, pages_fts
 
 Note: Parquet output still requires a Parquet writer dependency such as pyarrow or DuckDB. CSV plus SQLite are the current local analytical layer.
