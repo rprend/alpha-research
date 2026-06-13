@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-12T22:14:09.995Z",
-  "packet_id": "review_packet_20260612",
-  "rows": 179,
-  "decision_template_rows": 179,
+  "generated_at": "2026-06-13T00:11:59.927Z",
+  "packet_id": "review_packet_20260613",
+  "rows": 250,
+  "decision_template_rows": 250,
   "batch_size": 250,
   "batches": 1,
-  "packet_csv": "data/processed/review_packets/review_packet_20260612.csv",
-  "decision_template_csv": "data/processed/review_packets/review_packet_20260612-decision-template.csv",
-  "batch_manifest_jsonl": "data/processed/review_packets/review_packet_20260612-batches.jsonl",
+  "packet_csv": "data/processed/review_packets/review_packet_20260613.csv",
+  "decision_template_csv": "data/processed/review_packets/review_packet_20260613-decision-template.csv",
+  "batch_manifest_jsonl": "data/processed/review_packets/review_packet_20260613-batches.jsonl",
   "band_counts": {
-    "borderline": 176,
+    "borderline": 247,
     "quality_audit": 3
   },
   "suggested_decision_counts": {
-    "maybe": 176,
+    "maybe": 247,
     "keep": 3
   }
 }

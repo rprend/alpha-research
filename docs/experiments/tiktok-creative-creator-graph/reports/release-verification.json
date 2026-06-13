@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T22:14:10.205Z",
+  "generated_at": "2026-06-13T00:12:00.169Z",
   "complete": true,
   "checks": [
     {
@@ -66,7 +66,7 @@
       "id": "sha256:data/release/useful_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 14aeee4c2f05fcab50fda2ede3c7aee978c400b1933f97634a583e453e4fe539, actual 14aeee4c2f05fcab50fda2ede3c7aee978c400b1933f97634a583e453e4fe539"
+      "evidence": "expected 264508176e9be1c30f1af80db9edca295740bcc876be63fff4f016fef0bd706f, actual 264508176e9be1c30f1af80db9edca295740bcc876be63fff4f016fef0bd706f"
     },
     {
       "id": "row_count:data/release/useful_creators.jsonl",
@@ -78,7 +78,7 @@
       "id": "sha256:data/release/useful_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected fe254e84814b2de4b109e8ee2782f8a968473c6b24a753962b67abe22a08c848, actual fe254e84814b2de4b109e8ee2782f8a968473c6b24a753962b67abe22a08c848"
+      "evidence": "expected 0961bffd27f9b98ca4834b9cffd4e30989af4571f93de0a20abb9f5a9ab802e6, actual 0961bffd27f9b98ca4834b9cffd4e30989af4571f93de0a20abb9f5a9ab802e6"
     },
     {
       "id": "row_count:data/release/useful_creators.csv",
@@ -114,7 +114,7 @@
       "id": "sha256:data/release/rejected_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 7c1a06e0f0171073ba37a91e502952fc88da82b8649f72faceb4fe59345f0d38, actual 7c1a06e0f0171073ba37a91e502952fc88da82b8649f72faceb4fe59345f0d38"
+      "evidence": "expected 3479b49453fd3124a93afd81ead40b66289e2281a2314f31e0026760d26f0f2e, actual 3479b49453fd3124a93afd81ead40b66289e2281a2314f31e0026760d26f0f2e"
     },
     {
       "id": "row_count:data/release/rejected_creators.jsonl",
@@ -126,7 +126,7 @@
       "id": "sha256:data/release/rejected_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 7fd6e7a144fce69ce1ad307da51c0e901d853b64d43b021c034367ad23972e17, actual 7fd6e7a144fce69ce1ad307da51c0e901d853b64d43b021c034367ad23972e17"
+      "evidence": "expected b707f10c3ce0c6928f226957d8b37ebef37ded87c2e832ff9ffa96462380e151, actual b707f10c3ce0c6928f226957d8b37ebef37ded87c2e832ff9ffa96462380e151"
     },
     {
       "id": "row_count:data/release/rejected_creators.csv",
@@ -138,25 +138,25 @@
       "id": "sha256:data/release/review_queue.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 240a2900e74c77b403ef3dd5915cf3933c579aac84da4f942ce144ff0b525295, actual 240a2900e74c77b403ef3dd5915cf3933c579aac84da4f942ce144ff0b525295"
+      "evidence": "expected 89eda99af8534d389cc7912a3510962a15cada38bf8f2672c3fc9bab13d2c4b2, actual 89eda99af8534d389cc7912a3510962a15cada38bf8f2672c3fc9bab13d2c4b2"
     },
     {
       "id": "row_count:data/release/review_queue.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 525, actual 525"
+      "evidence": "expected 1688, actual 1688"
     },
     {
       "id": "sha256:data/release/all_scored_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 229a8e92f556adca7039e483434dcd13a1f6af8c200d59c5d24339e45a73561e, actual 229a8e92f556adca7039e483434dcd13a1f6af8c200d59c5d24339e45a73561e"
+      "evidence": "expected 4f01817cc6017d6b3863d27249a83a8e8449f80c2ecb0a6f5fcba667f5f031a2, actual 4f01817cc6017d6b3863d27249a83a8e8449f80c2ecb0a6f5fcba667f5f031a2"
     },
     {
       "id": "row_count:data/release/all_scored_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 529, actual 529"
+      "evidence": "expected 1692, actual 1692"
     },
     {
       "id": "required_column:identity_id",
@@ -271,6 +271,6 @@
     "useful_creators": 7,
     "benchmark_creators": 1,
     "rejected_creators": 2,
-    "all_scored_creators": 529
+    "all_scored_creators": 1692
   }
 }

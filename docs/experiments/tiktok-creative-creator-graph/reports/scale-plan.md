@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-12T22:14:10.241Z
+Generated: 2026-06-13T00:12:00.206Z
 
 ## Targets
 
@@ -38,15 +38,15 @@ Generated: 2026-06-12T22:14:10.241Z
 | 3 | manual_seed | sketch comedian character comedy | 70 | 1 | 0 |
 | 4 | manual_seed | vfx artist animation blender | 70 | 1 | 0 |
 | 5 | graph_expansion_fixture | mentioned by @ani.motionlab | 70 | 1 | 0 |
-| 6 | provider_video_export |  | 41 | 0.667 | 0.333 |
-| 7 | provider_video_export |  | 41 | 0.667 | 0.333 |
-| 8 | editorial_list_seed | Shutterstock TikTok filmmakers to follow | 7 | 0 | 0 |
-| 9 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 6 | 0 | 0 |
-| 10 | editorial_list | FeedSpot Top Movie TikTok Influencers 2026 | 6 | 0 | 0 |
+| 6 | provider_video_export |  | 65 | 0.667 | 0.333 |
+| 7 | provider_video_export |  | 43 | 0.667 | 0.333 |
+| 8 | editorial_list_seed | Shutterstock TikTok filmmakers to follow | 13 | 0 | 0 |
+| 9 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 12 | 0 | 0 |
+| 10 | editorial_list | FeedSpot Top Movie TikTok Influencers 2026 | 12 | 0 | 0 |
 
 ## Next Batches
 
-Candidate frontier targets: 82
+Candidate frontier targets: 83
 
 | Seq | Rank | Score | Priority | Surface | Target |
 | ---: | ---: | ---: | ---: | --- | --- |

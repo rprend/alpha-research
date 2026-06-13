@@ -1,11 +1,11 @@
 # Candidate Frontier
 
-Generated: 2026-06-12T22:14:10.115Z
+Generated: 2026-06-13T00:12:00.046Z
 
-- Candidates: 82
-- Handle targets: 5
+- Candidates: 83
+- Handle targets: 6
 - Query targets: 77
-- Known account targets: 5
+- Known account targets: 6
 
 ## Surfaces
 
@@ -13,7 +13,7 @@ Generated: 2026-06-12T22:14:10.115Z
 - tiktok_hashtag_export: 17
 - cross_platform_search: 8
 - category_gap_search: 37
-- tiktok_creator_neighborhood_export: 5
+- tiktok_creator_neighborhood_export: 6
 
 ## Target Labels
 
@@ -27,7 +27,7 @@ Generated: 2026-06-12T22:14:10.115Z
 - director: 4
 - behind_the_scenes_creator: 6
 - film_educator: 4
-- unclassified: 12
+- unclassified: 13
 - creative_technologist: 4
 
 ## Top Candidates

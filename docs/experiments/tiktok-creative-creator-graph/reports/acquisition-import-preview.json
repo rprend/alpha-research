@@ -1,53 +1,82 @@
 {
-  "generated_at": "2026-06-12T22:14:09.624Z",
+  "generated_at": "2026-06-13T00:11:59.374Z",
   "mode": "preview",
-  "input_rows": 526,
-  "normalized_rows": 526,
+  "input_rows": 2188,
+  "normalized_rows": 2188,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 3,
-  "output_accounts": 523,
+  "duplicate_normalized_rows": 502,
+  "output_accounts": 1686,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
+    "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 520,
+  "mapped_lineage_rows": 2182,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
-    "2026-06-12T22-10-19-433Z": 499
+    "2026-06-12T22-10-19-433Z": 499,
+    "2026-06-13T00-11-50-106Z": 1662
   },
   "batch_ids": {
-    "feedspot_comedy_tiktok_2026": 99,
-    "feedspot_movie_tiktok_2026": 96,
-    "feedspot_horror_tiktok_2026": 16,
-    "feedspot_digital_art_tiktok_2026": 100,
-    "feedspot_new_york_art_tiktok_2026": 41,
-    "feedspot_music_technology_tiktok_2026": 48,
-    "feedspot_barcelona_photography_tiktok_2026": 2,
-    "feedspot_aviation_tiktok_2026": 97,
+    "feedspot_comedy_tiktok_2026": 198,
+    "feedspot_movie_tiktok_2026": 192,
+    "feedspot_horror_tiktok_2026": 32,
+    "feedspot_digital_art_tiktok_2026": 200,
+    "feedspot_new_york_art_tiktok_2026": 82,
+    "feedspot_music_technology_tiktok_2026": 96,
+    "feedspot_barcelona_photography_tiktok_2026": 4,
+    "feedspot_aviation_tiktok_2026": 194,
+    "feedspot_mobile_gaming_tiktok_2026": 57,
+    "feedspot_historical_fiction_tiktok_2026": 25,
+    "feedspot_pop_music_tiktok_2026": 68,
+    "feedspot_german_book_tiktok_2026": 35,
+    "feedspot_lgbt_book_tiktok_2026": 21,
+    "feedspot_middle_grade_book_tiktok_2026": 7,
+    "feedspot_illustrated_books_tiktok_2026": 25,
+    "feedspot_business_book_review_tiktok_2026": 4,
+    "feedspot_literary_fiction_tiktok_2026": 47,
+    "feedspot_classical_music_tiktok_2026": 37,
+    "feedspot_christian_music_tiktok_2026": 50,
+    "feedspot_latin_music_tiktok_2026": 28,
+    "feedspot_independent_music_tiktok_2026": 29,
+    "feedspot_canadian_music_tiktok_2026": 47,
+    "feedspot_crime_fiction_tiktok_2026": 28,
+    "feedspot_thriller_book_tiktok_2026": 45,
+    "feedspot_entertainment_tiktok_2026": 38,
+    "feedspot_lego_tiktok_2026": 59,
+    "feedspot_romance_book_tiktok_2026": 44,
+    "feedspot_anime_tiktok_2026": 50,
+    "feedspot_childrens_book_tiktok_2026": 57,
+    "feedspot_dance_tiktok_2026": 62,
+    "feedspot_music_tiktok_2026": 87,
+    "feedspot_gaming_tiktok_2026": 55,
+    "feedspot_technology_tiktok_2026": 51,
+    "feedspot_book_tiktok_2026": 75,
+    "feedspot_ai_tiktok_2026": 32,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
-    "editorial_list_public_web": 499,
+    "editorial_list_public_web": 2161,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.005703422053231939,
-    "output_rate": 0.9942965779467681,
+    "duplicate_rate": 0.22943327239488118,
+    "output_rate": 0.7705667276051188,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "526 input rows"
+        "evidence": "2188 input rows"
       },
       {
         "id": "handle_extraction",
@@ -57,12 +86,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "0.6% duplicate normalized rows, threshold 35.0%"
+        "evidence": "22.9% duplicate normalized rows, threshold 35.0%"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "520/526 rows mapped to provider/wave lineage"
+        "evidence": "2182/2188 rows mapped to provider/wave lineage"
       }
     ]
   },

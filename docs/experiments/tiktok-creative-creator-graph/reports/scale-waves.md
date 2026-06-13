@@ -1,6 +1,6 @@
 # Scale Waves
 
-Generated: 2026-06-12T22:14:10.281Z
+Generated: 2026-06-13T00:12:00.247Z
 
 - Planned waves: 9999
 - Candidate accounts per wave: 250
@@ -9,10 +9,10 @@ Generated: 2026-06-12T22:14:10.281Z
 - Estimated total useful creators: 49994
 - Review gap: 496
 - Review rows per wave: 1
-- Source tasks available: 87
-- Frontier targets available: 82
+- Source tasks available: 88
+- Frontier targets available: 83
 - Frontier targets used: 77
-- High-priority source tasks: 85
+- High-priority source tasks: 86
 - Category focus rows: 11
 
 ## First 20 Waves

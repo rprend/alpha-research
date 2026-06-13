@@ -1,16 +1,17 @@
 expansion_type,source_creator_id,target,priority,reason,primary_label,overall_usefulness,evidence_count
 expand_from_creator,maya.shortcuts,@maya.shortcuts,1,high_usefulness_source,filmmaker,89,1
-hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,89,3
-hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|useful_creator_hashtag:@lucybits,filmmaker,89,7
+hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,89,4
+hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|useful_creator_hashtag:@lucybits,filmmaker,89,9
 yield_replay_search,,filmmaker short film editing breakdown,1,replay_high_yield_source:manual_seed,,89,1
-hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,89,3
+hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,89,4
 cross_platform_search,maya.shortcuts,"site:vimeo.com ""tiktok.com/@"" ""filmmaker""",1,cross_platform_adjacency:vimeo.com,filmmaker,89,1
+expand_from_creator,selahshoots,@selahshoots,1,high_usefulness_source,filmmaker,75,1
 expand_from_creator,noahframes,@noahframes,1,high_usefulness_source,cinematographer,73,1
-expand_from_creator,selahshoots,@selahshoots,1,high_usefulness_source,filmmaker,70,1
+expand_from_creator,basementbits,@basementbits,1,high_usefulness_source,sketch_comedian,69,1
+hashtag_search,basementbits,actor,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,69,4
+hashtag_search,basementbits,sketchcomedy,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,69,4
 expand_from_creator,ani.motionlab,@ani.motionlab,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,lucybits,@lucybits,1,high_usefulness_source,sketch_comedian,66,1
-hashtag_search,basementbits,actor,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,66,3
-hashtag_search,basementbits,sketchcomedy,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,66,3
 yield_replay_search,,cinematographer lighting breakdown,2,replay_high_yield_source:manual_seed,,73,1
 hashtag_search,noahframes,cinematography,2,useful_creator_hashtag:@noahframes,cinematographer,73,1
 hashtag_search,noahframes,lighting,2,useful_creator_hashtag:@noahframes,cinematographer,73,1

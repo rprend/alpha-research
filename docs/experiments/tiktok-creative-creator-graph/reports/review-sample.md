@@ -1,30 +1,30 @@
 # Review Sample
 
-Generated: 2026-06-12T22:14:09.956Z
+Generated: 2026-06-13T00:11:59.872Z
 
 - Requested rows: 250
-- Selected rows: 179
-- Available unreviewed rows: 523
-- Latest wave id: import-2026-06-12T22-14-09-668Z
+- Selected rows: 250
+- Available unreviewed rows: 1686
+- Latest wave id: import-2026-06-13T00-11-59-443Z
 
 ## Category Counts
 
-- editor: 9
-- director: 5
-- actor_performer: 1
+- editor: 25
+- director: 8
+- actor_performer: 8
 - standup_comedian: 25
+- film_educator: 25
 - behind_the_scenes_creator: 25
-- film_educator: 8
-- vfx_animation: 25
 - sketch_comedian: 25
-- unclear: 1
-- cinematographer: 5
+- vfx_animation: 25
+- unclear: 21
+- cinematographer: 15
 - filmmaker: 25
-- creative_technologist: 25
+- creative_technologist: 23
 
 ## Review Bands
 
-- borderline: 176
+- borderline: 247
 - quality_audit: 3
 
 Primary sample file: `data/processed/review_sample.csv`

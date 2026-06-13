@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-12T22:10:20.110Z",
-  "execution_id": "2026-06-12T22-10-19-433Z",
+  "generated_at": "2026-06-13T00:11:52.241Z",
+  "execution_id": "2026-06-13T00-11-50-106Z",
   "provider": "editorial_list_public_web",
   "dry_run": false,
-  "selected_sources": 8,
-  "output_rows": 499,
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-12T22-10-19-433Z-editorial-list-import.jsonl",
+  "selected_sources": 35,
+  "output_rows": 1662,
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T00-11-50-106Z-editorial-list-import.jsonl",
   "source_reports": [
     {
       "source_id": "feedspot_comedy_tiktok_2026",
@@ -13,8 +13,8 @@
       "status": "succeeded",
       "extracted_rows": 99,
       "unique_rows_added": 99,
-      "started_at": "2026-06-12T22:10:19.434Z",
-      "finished_at": "2026-06-12T22:10:19.628Z"
+      "started_at": "2026-06-13T00:11:50.107Z",
+      "finished_at": "2026-06-13T00:11:50.252Z"
     },
     {
       "source_id": "feedspot_movie_tiktok_2026",
@@ -22,8 +22,8 @@
       "status": "succeeded",
       "extracted_rows": 96,
       "unique_rows_added": 96,
-      "started_at": "2026-06-12T22:10:19.628Z",
-      "finished_at": "2026-06-12T22:10:19.677Z"
+      "started_at": "2026-06-13T00:11:50.252Z",
+      "finished_at": "2026-06-13T00:11:50.282Z"
     },
     {
       "source_id": "feedspot_horror_tiktok_2026",
@@ -31,8 +31,8 @@
       "status": "succeeded",
       "extracted_rows": 18,
       "unique_rows_added": 16,
-      "started_at": "2026-06-12T22:10:19.677Z",
-      "finished_at": "2026-06-12T22:10:19.707Z"
+      "started_at": "2026-06-13T00:11:50.282Z",
+      "finished_at": "2026-06-13T00:11:50.312Z"
     },
     {
       "source_id": "feedspot_digital_art_tiktok_2026",
@@ -40,8 +40,8 @@
       "status": "succeeded",
       "extracted_rows": 100,
       "unique_rows_added": 100,
-      "started_at": "2026-06-12T22:10:19.707Z",
-      "finished_at": "2026-06-12T22:10:19.840Z"
+      "started_at": "2026-06-13T00:11:50.312Z",
+      "finished_at": "2026-06-13T00:11:50.352Z"
     },
     {
       "source_id": "feedspot_new_york_art_tiktok_2026",
@@ -49,8 +49,8 @@
       "status": "succeeded",
       "extracted_rows": 41,
       "unique_rows_added": 41,
-      "started_at": "2026-06-12T22:10:19.840Z",
-      "finished_at": "2026-06-12T22:10:19.879Z"
+      "started_at": "2026-06-13T00:11:50.352Z",
+      "finished_at": "2026-06-13T00:11:50.380Z"
     },
     {
       "source_id": "feedspot_music_technology_tiktok_2026",
@@ -58,8 +58,8 @@
       "status": "succeeded",
       "extracted_rows": 48,
       "unique_rows_added": 48,
-      "started_at": "2026-06-12T22:10:19.879Z",
-      "finished_at": "2026-06-12T22:10:19.916Z"
+      "started_at": "2026-06-13T00:11:50.380Z",
+      "finished_at": "2026-06-13T00:11:50.406Z"
     },
     {
       "source_id": "feedspot_barcelona_photography_tiktok_2026",
@@ -67,8 +67,8 @@
       "status": "succeeded",
       "extracted_rows": 2,
       "unique_rows_added": 2,
-      "started_at": "2026-06-12T22:10:19.916Z",
-      "finished_at": "2026-06-12T22:10:20.014Z"
+      "started_at": "2026-06-13T00:11:50.406Z",
+      "finished_at": "2026-06-13T00:11:50.436Z"
     },
     {
       "source_id": "feedspot_aviation_tiktok_2026",
@@ -76,8 +76,251 @@
       "status": "succeeded",
       "extracted_rows": 97,
       "unique_rows_added": 97,
-      "started_at": "2026-06-12T22:10:20.014Z",
-      "finished_at": "2026-06-12T22:10:20.109Z"
+      "started_at": "2026-06-13T00:11:50.436Z",
+      "finished_at": "2026-06-13T00:11:50.461Z"
+    },
+    {
+      "source_id": "feedspot_mobile_gaming_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/mobile_gaming_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 57,
+      "unique_rows_added": 57,
+      "started_at": "2026-06-13T00:11:50.461Z",
+      "finished_at": "2026-06-13T00:11:50.585Z"
+    },
+    {
+      "source_id": "feedspot_historical_fiction_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/historical_fiction_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 25,
+      "unique_rows_added": 25,
+      "started_at": "2026-06-13T00:11:50.585Z",
+      "finished_at": "2026-06-13T00:11:50.624Z"
+    },
+    {
+      "source_id": "feedspot_pop_music_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/pop_music_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 68,
+      "unique_rows_added": 68,
+      "started_at": "2026-06-13T00:11:50.624Z",
+      "finished_at": "2026-06-13T00:11:50.659Z"
+    },
+    {
+      "source_id": "feedspot_german_book_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/german_book_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 35,
+      "unique_rows_added": 35,
+      "started_at": "2026-06-13T00:11:50.660Z",
+      "finished_at": "2026-06-13T00:11:50.769Z"
+    },
+    {
+      "source_id": "feedspot_lgbt_book_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/lgbt_book_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 21,
+      "unique_rows_added": 21,
+      "started_at": "2026-06-13T00:11:50.769Z",
+      "finished_at": "2026-06-13T00:11:51.079Z"
+    },
+    {
+      "source_id": "feedspot_middle_grade_book_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/middle_grade_book_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 7,
+      "unique_rows_added": 7,
+      "started_at": "2026-06-13T00:11:51.079Z",
+      "finished_at": "2026-06-13T00:11:51.113Z"
+    },
+    {
+      "source_id": "feedspot_illustrated_books_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/illustrated_books_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 25,
+      "unique_rows_added": 25,
+      "started_at": "2026-06-13T00:11:51.113Z",
+      "finished_at": "2026-06-13T00:11:51.206Z"
+    },
+    {
+      "source_id": "feedspot_business_book_review_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/business_book_review_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 4,
+      "unique_rows_added": 4,
+      "started_at": "2026-06-13T00:11:51.206Z",
+      "finished_at": "2026-06-13T00:11:51.247Z"
+    },
+    {
+      "source_id": "feedspot_literary_fiction_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/literary_fiction_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 47,
+      "unique_rows_added": 47,
+      "started_at": "2026-06-13T00:11:51.247Z",
+      "finished_at": "2026-06-13T00:11:51.343Z"
+    },
+    {
+      "source_id": "feedspot_classical_music_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/classical_music_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 37,
+      "unique_rows_added": 37,
+      "started_at": "2026-06-13T00:11:51.343Z",
+      "finished_at": "2026-06-13T00:11:51.429Z"
+    },
+    {
+      "source_id": "feedspot_christian_music_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/christian_music_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 50,
+      "unique_rows_added": 50,
+      "started_at": "2026-06-13T00:11:51.429Z",
+      "finished_at": "2026-06-13T00:11:51.467Z"
+    },
+    {
+      "source_id": "feedspot_latin_music_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/latin_music_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 29,
+      "unique_rows_added": 28,
+      "started_at": "2026-06-13T00:11:51.467Z",
+      "finished_at": "2026-06-13T00:11:51.508Z"
+    },
+    {
+      "source_id": "feedspot_independent_music_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/independent_music_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 29,
+      "unique_rows_added": 29,
+      "started_at": "2026-06-13T00:11:51.508Z",
+      "finished_at": "2026-06-13T00:11:51.631Z"
+    },
+    {
+      "source_id": "feedspot_canadian_music_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/canadian_music_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 47,
+      "unique_rows_added": 47,
+      "started_at": "2026-06-13T00:11:51.631Z",
+      "finished_at": "2026-06-13T00:11:51.654Z"
+    },
+    {
+      "source_id": "feedspot_crime_fiction_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/crime_fiction_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 28,
+      "unique_rows_added": 28,
+      "started_at": "2026-06-13T00:11:51.654Z",
+      "finished_at": "2026-06-13T00:11:51.693Z"
+    },
+    {
+      "source_id": "feedspot_thriller_book_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/thriller_book_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 47,
+      "unique_rows_added": 45,
+      "started_at": "2026-06-13T00:11:51.693Z",
+      "finished_at": "2026-06-13T00:11:51.729Z"
+    },
+    {
+      "source_id": "feedspot_entertainment_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/entertainment_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 38,
+      "unique_rows_added": 38,
+      "started_at": "2026-06-13T00:11:51.729Z",
+      "finished_at": "2026-06-13T00:11:51.758Z"
+    },
+    {
+      "source_id": "feedspot_lego_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/lego_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 59,
+      "unique_rows_added": 59,
+      "started_at": "2026-06-13T00:11:51.758Z",
+      "finished_at": "2026-06-13T00:11:51.795Z"
+    },
+    {
+      "source_id": "feedspot_romance_book_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/romance_book_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 45,
+      "unique_rows_added": 44,
+      "started_at": "2026-06-13T00:11:51.795Z",
+      "finished_at": "2026-06-13T00:11:51.825Z"
+    },
+    {
+      "source_id": "feedspot_anime_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/anime_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 50,
+      "unique_rows_added": 50,
+      "started_at": "2026-06-13T00:11:51.825Z",
+      "finished_at": "2026-06-13T00:11:51.847Z"
+    },
+    {
+      "source_id": "feedspot_childrens_book_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/childrens_book_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 57,
+      "unique_rows_added": 57,
+      "started_at": "2026-06-13T00:11:51.847Z",
+      "finished_at": "2026-06-13T00:11:51.888Z"
+    },
+    {
+      "source_id": "feedspot_dance_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/dance_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 62,
+      "unique_rows_added": 62,
+      "started_at": "2026-06-13T00:11:51.888Z",
+      "finished_at": "2026-06-13T00:11:51.925Z"
+    },
+    {
+      "source_id": "feedspot_music_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/music_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 92,
+      "unique_rows_added": 87,
+      "started_at": "2026-06-13T00:11:51.925Z",
+      "finished_at": "2026-06-13T00:11:52.018Z"
+    },
+    {
+      "source_id": "feedspot_gaming_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/gaming_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 55,
+      "unique_rows_added": 55,
+      "started_at": "2026-06-13T00:11:52.018Z",
+      "finished_at": "2026-06-13T00:11:52.126Z"
+    },
+    {
+      "source_id": "feedspot_technology_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/technology_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 51,
+      "unique_rows_added": 51,
+      "started_at": "2026-06-13T00:11:52.126Z",
+      "finished_at": "2026-06-13T00:11:52.171Z"
+    },
+    {
+      "source_id": "feedspot_book_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/book_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 80,
+      "unique_rows_added": 75,
+      "started_at": "2026-06-13T00:11:52.171Z",
+      "finished_at": "2026-06-13T00:11:52.195Z"
+    },
+    {
+      "source_id": "feedspot_ai_tiktok_2026",
+      "source_url": "https://creators.feedspot.com/ai_tiktok_influencers/",
+      "status": "succeeded",
+      "extracted_rows": 38,
+      "unique_rows_added": 32,
+      "started_at": "2026-06-13T00:11:52.195Z",
+      "finished_at": "2026-06-13T00:11:52.238Z"
     }
   ],
   "first_rows": [
@@ -96,7 +339,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 1
     },
@@ -115,7 +358,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 2
     },
@@ -134,7 +377,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 3
     },
@@ -153,7 +396,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 4
     },
@@ -172,7 +415,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 5
     },
@@ -191,7 +434,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 6
     },
@@ -210,7 +453,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 7
     },
@@ -229,7 +472,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 8
     },
@@ -248,7 +491,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 9
     },
@@ -267,7 +510,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 10
     },
@@ -286,7 +529,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 11
     },
@@ -305,7 +548,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 12
     },
@@ -324,7 +567,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 13
     },
@@ -343,7 +586,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 14
     },
@@ -362,7 +605,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 15
     },
@@ -381,7 +624,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 16
     },
@@ -400,7 +643,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 17
     },
@@ -419,7 +662,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 18
     },
@@ -438,7 +681,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 19
     },
@@ -457,7 +700,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 20
     },
@@ -476,7 +719,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 21
     },
@@ -495,7 +738,7 @@
         "sketch_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 22
     },
@@ -514,7 +757,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 23
     },
@@ -533,7 +776,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 24
     },
@@ -552,7 +795,7 @@
         "standup_comedian"
       ],
       "provider": "editorial_list_public_web",
-      "provider_execution_id": "2026-06-12T22-10-19-433Z",
+      "provider_execution_id": "2026-06-13T00-11-50-106Z",
       "batch_id": "feedspot_comedy_tiktok_2026",
       "rank": 25
     }

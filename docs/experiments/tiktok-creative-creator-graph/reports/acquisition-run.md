@@ -1,6 +1,6 @@
 # Acquisition Run
 
-Generated: 2026-06-12T22:14:10.599Z
+Generated: 2026-06-13T00:12:00.577Z
 
 - Provider: apify
 - Env file loaded: true

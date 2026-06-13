@@ -66,7 +66,7 @@ function normalizeTikTokProfileUrl(value) {
   return handle ? `https://www.tiktok.com/${handle}` : ''
 }
 
-function resultUrlFromHref(href) {
+function duckDuckGoResultUrlFromHref(href) {
   const decoded = decodeEntities(href)
   if (decoded.includes('/l/?')) {
     const url = new URL(decoded.startsWith('http') ? decoded : `https://duckduckgo.com${decoded}`)
@@ -75,13 +75,29 @@ function resultUrlFromHref(href) {
   return decoded
 }
 
-function extractResults(html, query) {
+function bingResultUrlFromHref(href) {
+  const decoded = decodeEntities(href)
+  if (decoded.startsWith('/')) return `https://www.bing.com${decoded}`
+  return decoded
+}
+
+function assertSearchResponseUsable(html, query) {
+  const text = stripTags(html).toLowerCase()
+  if (provider === 'duckduckgo_html' && /anomaly|unfortunately|human verification/.test(text)) {
+    throw new Error(`duckduckgo_html blocked by anomaly challenge for query: ${query}`)
+  }
+  if (provider === 'bing_html' && /captcha|unusual traffic|verify you are human/.test(text)) {
+    throw new Error(`bing_html blocked by verification challenge for query: ${query}`)
+  }
+}
+
+function extractDuckDuckGoResults(html, query) {
   const rows = []
   const blocks = html.split(/<div class="result[^"]*">/g).slice(1)
   for (const block of blocks) {
     const anchor = block.match(/<a[^>]+class="result__a"[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/)
     if (!anchor) continue
-    const url = resultUrlFromHref(anchor[1])
+    const url = duckDuckGoResultUrlFromHref(anchor[1])
     const handle = normalizeHandle(url)
     if (!handle) continue
     const snippetMatch = block.match(/<a[^>]+class="result__snippet"[^>]*>([\s\S]*?)<\/a>|<div[^>]+class="result__snippet"[^>]*>([\s\S]*?)<\/div>/)
@@ -97,6 +113,35 @@ function extractResults(html, query) {
   return rows
 }
 
+function extractBingResults(html, query) {
+  const rows = []
+  const blocks = html.split(/<li class="b_algo"/g).slice(1)
+  for (const block of blocks) {
+    const anchor = block.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i)
+    if (!anchor) continue
+    const url = bingResultUrlFromHref(anchor[1])
+    const handle = normalizeHandle(url)
+    if (!handle) continue
+    const snippetMatch = block.match(/<p[^>]*>([\s\S]*?)<\/p>/i)
+    rows.push({
+      query,
+      title: stripTags(anchor[2]),
+      snippet: stripTags(snippetMatch?.[1] ?? ''),
+      url,
+      profile_url: normalizeTikTokProfileUrl(url),
+      handle,
+    })
+  }
+  return rows
+}
+
+function extractResults(html, query) {
+  assertSearchResponseUsable(html, query)
+  if (provider === 'duckduckgo_html') return extractDuckDuckGoResults(html, query)
+  if (provider === 'bing_html') return extractBingResults(html, query)
+  throw new Error(`Unsupported search provider: ${provider}`)
+}
+
 function searchQueryFor(frontier) {
   const target = String(frontier.target ?? '').trim()
   if (/site:tiktok\.com\/@/i.test(target)) return target
@@ -108,10 +153,13 @@ function searchQueryFor(frontier) {
 
 async function search(frontier) {
   const query = searchQueryFor(frontier)
-  const url = `https://duckduckgo.com/html/?q=${encodeURIComponent(query)}`
+  const url = provider === 'bing_html'
+    ? `https://www.bing.com/search?q=${encodeURIComponent(query)}`
+    : `https://duckduckgo.com/html/?q=${encodeURIComponent(query)}`
   const response = await fetch(url, {
     headers: {
       'user-agent': 'Mozilla/5.0 (compatible; alpha-research-tiktok-frontier/1.0)',
+      accept: 'text/html,application/xhtml+xml',
     },
   })
   if (!response.ok) throw new Error(`${provider} request failed ${response.status}`)

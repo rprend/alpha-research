@@ -62,5 +62,221 @@
     "target_label": "filmmaker",
     "fallback_label": "behind_the_scenes_creator",
     "source_name": "FeedSpot Aviation TikTokers"
+  },
+  {
+    "id": "feedspot_mobile_gaming_tiktok_2026",
+    "url": "https://creators.feedspot.com/mobile_gaming_tiktok_influencers/",
+    "source_query": "FeedSpot Top Mobile Gaming TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "vfx_animation",
+    "source_name": "FeedSpot Mobile Gaming TikTokers"
+  },
+  {
+    "id": "feedspot_historical_fiction_tiktok_2026",
+    "url": "https://creators.feedspot.com/historical_fiction_tiktok_influencers/",
+    "source_query": "FeedSpot Top Historical Fiction TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Historical Fiction TikTokers"
+  },
+  {
+    "id": "feedspot_pop_music_tiktok_2026",
+    "url": "https://creators.feedspot.com/pop_music_tiktok_influencers/",
+    "source_query": "FeedSpot Top Pop Music TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Pop Music TikTokers"
+  },
+  {
+    "id": "feedspot_german_book_tiktok_2026",
+    "url": "https://creators.feedspot.com/german_book_tiktok_influencers/",
+    "source_query": "FeedSpot Top German Book TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot German Book TikTokers"
+  },
+  {
+    "id": "feedspot_lgbt_book_tiktok_2026",
+    "url": "https://creators.feedspot.com/lgbt_book_tiktok_influencers/",
+    "source_query": "FeedSpot Top LGBT Book TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot LGBT Book TikTokers"
+  },
+  {
+    "id": "feedspot_middle_grade_book_tiktok_2026",
+    "url": "https://creators.feedspot.com/middle_grade_book_tiktok_influencers/",
+    "source_query": "FeedSpot Top Middle Grade Book TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Middle Grade Book TikTokers"
+  },
+  {
+    "id": "feedspot_illustrated_books_tiktok_2026",
+    "url": "https://creators.feedspot.com/illustrated_books_tiktok_influencers/",
+    "source_query": "FeedSpot Top Illustrated Books TikTok Influencers 2026",
+    "target_label": "vfx_animation",
+    "fallback_label": "screenwriter",
+    "source_name": "FeedSpot Illustrated Books TikTokers"
+  },
+  {
+    "id": "feedspot_business_book_review_tiktok_2026",
+    "url": "https://creators.feedspot.com/business_book_review_tiktok_influencers/",
+    "source_query": "FeedSpot Top Business Book Review TikTok Influencers 2026",
+    "target_label": "film_educator",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Business Book Review TikTokers"
+  },
+  {
+    "id": "feedspot_literary_fiction_tiktok_2026",
+    "url": "https://creators.feedspot.com/literary_fiction_tiktok_influencers/",
+    "source_query": "FeedSpot Top Literary Fiction TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Literary Fiction TikTokers"
+  },
+  {
+    "id": "feedspot_classical_music_tiktok_2026",
+    "url": "https://creators.feedspot.com/classical_music_tiktok_influencers/",
+    "source_query": "FeedSpot Top Classical Music TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Classical Music TikTokers"
+  },
+  {
+    "id": "feedspot_christian_music_tiktok_2026",
+    "url": "https://creators.feedspot.com/christian_music_tiktok_influencers/",
+    "source_query": "FeedSpot Top Christian Music TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Christian Music TikTokers"
+  },
+  {
+    "id": "feedspot_latin_music_tiktok_2026",
+    "url": "https://creators.feedspot.com/latin_music_tiktok_influencers/",
+    "source_query": "FeedSpot Top Latin Music TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Latin Music TikTokers"
+  },
+  {
+    "id": "feedspot_independent_music_tiktok_2026",
+    "url": "https://creators.feedspot.com/independent_music_tiktok_influencers/",
+    "source_query": "FeedSpot Top Independent Music TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Independent Music TikTokers"
+  },
+  {
+    "id": "feedspot_canadian_music_tiktok_2026",
+    "url": "https://creators.feedspot.com/canadian_music_tiktok_influencers/",
+    "source_query": "FeedSpot Top Canadian Music TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Canadian Music TikTokers"
+  },
+  {
+    "id": "feedspot_crime_fiction_tiktok_2026",
+    "url": "https://creators.feedspot.com/crime_fiction_tiktok_influencers/",
+    "source_query": "FeedSpot Top Crime Fiction TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Crime Fiction TikTokers"
+  },
+  {
+    "id": "feedspot_thriller_book_tiktok_2026",
+    "url": "https://creators.feedspot.com/thriller_book_tiktok_influencers/",
+    "source_query": "FeedSpot Top Thriller Book TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Thriller Book TikTokers"
+  },
+  {
+    "id": "feedspot_entertainment_tiktok_2026",
+    "url": "https://creators.feedspot.com/entertainment_tiktok_influencers/",
+    "source_query": "FeedSpot Top Entertainment TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "sketch_comedian",
+    "source_name": "FeedSpot Entertainment TikTokers"
+  },
+  {
+    "id": "feedspot_lego_tiktok_2026",
+    "url": "https://creators.feedspot.com/lego_tiktok_influencers/",
+    "source_query": "FeedSpot Top Lego TikTok Influencers 2026",
+    "target_label": "behind_the_scenes_creator",
+    "fallback_label": "vfx_animation",
+    "source_name": "FeedSpot Lego TikTokers"
+  },
+  {
+    "id": "feedspot_romance_book_tiktok_2026",
+    "url": "https://creators.feedspot.com/romance_book_tiktok_influencers/",
+    "source_query": "FeedSpot Top Romance Book TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Romance Book TikTokers"
+  },
+  {
+    "id": "feedspot_anime_tiktok_2026",
+    "url": "https://creators.feedspot.com/anime_tiktok_influencers/",
+    "source_query": "FeedSpot Top Anime TikTok Influencers 2026",
+    "target_label": "vfx_animation",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Anime TikTokers"
+  },
+  {
+    "id": "feedspot_childrens_book_tiktok_2026",
+    "url": "https://creators.feedspot.com/childrens_book_tiktok_influencers/",
+    "source_query": "FeedSpot Top Children Book TikTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "vfx_animation",
+    "source_name": "FeedSpot Children Book TikTokers"
+  },
+  {
+    "id": "feedspot_dance_tiktok_2026",
+    "url": "https://creators.feedspot.com/dance_tiktok_influencers/",
+    "source_query": "FeedSpot Top Dance TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "behind_the_scenes_creator",
+    "source_name": "FeedSpot Dance TikTokers"
+  },
+  {
+    "id": "feedspot_music_tiktok_2026",
+    "url": "https://creators.feedspot.com/music_tiktok_influencers/",
+    "source_query": "FeedSpot Top Music TikTok Influencers 2026",
+    "target_label": "actor_performer",
+    "fallback_label": "creative_technologist",
+    "source_name": "FeedSpot Music TikTokers"
+  },
+  {
+    "id": "feedspot_gaming_tiktok_2026",
+    "url": "https://creators.feedspot.com/gaming_tiktok_influencers/",
+    "source_query": "FeedSpot Top Gaming TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "vfx_animation",
+    "source_name": "FeedSpot Gaming TikTokers"
+  },
+  {
+    "id": "feedspot_technology_tiktok_2026",
+    "url": "https://creators.feedspot.com/technology_tiktok_influencers/",
+    "source_query": "FeedSpot Top Technology TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot Technology TikTokers"
+  },
+  {
+    "id": "feedspot_book_tiktok_2026",
+    "url": "https://creators.feedspot.com/book_tiktok_influencers/",
+    "source_query": "FeedSpot Top BookTok Influencers 2026",
+    "target_label": "screenwriter",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot BookTok Creators"
+  },
+  {
+    "id": "feedspot_ai_tiktok_2026",
+    "url": "https://creators.feedspot.com/ai_tiktok_influencers/",
+    "source_query": "FeedSpot Top AI TikTok Influencers 2026",
+    "target_label": "creative_technologist",
+    "fallback_label": "film_educator",
+    "source_name": "FeedSpot AI TikTokers"
   }
 ]
