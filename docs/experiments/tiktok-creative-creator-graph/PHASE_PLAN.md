@@ -267,7 +267,9 @@ Provider dry run:
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=5
 ```
 
-Live provider run should use stored environment secrets, never pasted chat secrets:
+The default acquisition lane does not require an Apify token. Use the external lead packet and source work-item templates to collect public TikTok handles from search, editorial lists, cross-platform bios, and known creator references, then import those completed lead files through the normalized pipeline.
+
+Live provider runs are optional acceleration only when credentials already exist. If enabled, use stored environment secrets, never pasted chat secrets:
 
 ```bash
 set -a; source ~/.codex/secrets.env; set +a

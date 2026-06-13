@@ -88,6 +88,7 @@ function main() {
   steps.push(['build_external_lead_worklist', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-worklist.mjs']])
   steps.push(['build_external_lead_work_item_templates', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-work-item-templates.mjs']])
   steps.push(['build_external_lead_templates', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-templates.mjs']])
+  steps.push(['smoke_external_lead_work_items', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/smoke-external-lead-work-items.mjs']])
   steps.push(['build_external_lead_progress', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs']])
   steps.push(['build_provider_preflight', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs']])
   steps.push(['build_live_run_manifest', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-live-run-manifest.mjs']])

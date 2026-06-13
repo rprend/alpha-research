@@ -37,6 +37,12 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/merge-external-lead-
 
 The merge script reads `source-worklist.csv`, validates work-item ids, dedupes by normalized TikTok handle, and writes assignment-level files under `data/raw/external-leads/completed/` for the existing progress/import pipeline.
 
+Verify the source work-item template and merge contract with:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/smoke-external-lead-work-items.mjs
+```
+
 Generate fillable per-assignment CSV templates with:
 
 ```bash

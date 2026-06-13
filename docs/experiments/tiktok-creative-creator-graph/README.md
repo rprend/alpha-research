@@ -66,19 +66,15 @@ Execute or dry-run provider acquisition batches:
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=5
 ```
 
-Live provider execution requires a specific wave, a passing provider preflight, an available `APIFY_TOKEN`, and explicit confirmation:
+Live provider execution is optional. It requires a specific wave, a passing provider preflight, an available provider token, and explicit confirmation:
 
 ```bash
 node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --live --confirm-live --wave=0004 --max-tasks=8
 ```
 
-The runner loads `~/.codex/secrets.env` by default before checking provider credentials. If the token is not already available, store it through the hidden-input helper, not chat:
+Do not create an Apify account or token just to run this plan. The no-token path is the external lead worklist under `data/raw/external-leads/`: generate source-level assignments, fill accepted handles from public search/editorial/list sources, merge them, and import them through the same normalized acquisition path. Provider adapters are kept as optional acceleration only if credentials already exist.
 
-```bash
-~/.codex/scripts/ask-secret.sh APIFY_TOKEN ~/.codex/secrets.env "Enter APIFY_TOKEN"
-```
-
-The runner writes raw provider output to `data/raw/acquisition-results/`. The Apify adapter covers TikTok hashtag/profile/neighborhood exports plus search-index, category-gap, and cross-platform search tasks.
+The runner writes raw provider output to `data/raw/acquisition-results/`. The Apify adapter covers TikTok hashtag/profile/neighborhood exports plus search-index, category-gap, and cross-platform search tasks when token-gated acquisition is deliberately enabled.
 
 Normalize search/provider acquisition exports into pipeline imports:
 

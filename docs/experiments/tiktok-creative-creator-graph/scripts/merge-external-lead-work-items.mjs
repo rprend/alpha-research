@@ -1,13 +1,23 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { extname, join } from 'node:path'
+import { extname, isAbsolute, join } from 'node:path'
 
 const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/tiktok-creative-creator-graph')
-const externalLeadsDir = join(experimentDir, 'data/raw/external-leads')
+const args = new Map(process.argv.slice(2).map((arg) => {
+  const [key, ...rest] = arg.split('=')
+  return [key, rest.length ? rest.join('=') : true]
+}))
+
+function pathArg(name, fallback) {
+  const value = String(args.get(name) ?? fallback)
+  return isAbsolute(value) ? value : join(root, value)
+}
+
+const externalLeadsDir = pathArg('--external-leads-dir', 'docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads')
 const workItemCompletedDir = join(externalLeadsDir, 'work-items-completed')
 const completedDir = join(externalLeadsDir, 'completed')
-const processedDir = join(experimentDir, 'data/processed')
-const reportsDir = join(experimentDir, 'reports')
+const processedDir = pathArg('--processed-dir', 'docs/experiments/tiktok-creative-creator-graph/data/processed')
+const reportsDir = pathArg('--reports-dir', 'docs/experiments/tiktok-creative-creator-graph/reports')
 
 const leadColumns = [
   'handle',
