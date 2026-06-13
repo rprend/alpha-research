@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T00:34:56.550Z
+Generated: 2026-06-13T00:39:24.659Z
 
 ## Targets
 
@@ -11,15 +11,15 @@ Generated: 2026-06-13T00:34:56.550Z
 ## Current
 
 - Accounts: 1692
-- Useful creators: 7
-- Excellent creators: 6
+- Useful creators: 2
+- Excellent creators: 1
 - Review decisions: 4
 
 ## Estimated Work
 
-- Candidate accounts needed: 2499650
-- Import batches needed at 250 candidates per batch: 9999
-- Useful creators needed for excellent target: 49940
+- Candidate accounts needed: 2499900
+- Import batches needed at 250 candidates per batch: 10000
+- Useful creators needed for excellent target: 49990
 - Review batches needed: 2
 
 ## Planning Assumptions
@@ -33,16 +33,16 @@ Generated: 2026-06-13T00:34:56.550Z
 
 | Rank | Surface | Query | Yield | Useful rate | Rejection rate |
 | ---: | --- | --- | ---: | ---: | ---: |
-| 1 | manual_seed | filmmaker short film editing breakdown | 95 | 1 | 0 |
-| 2 | provider_video_export |  | 90 | 0.667 | 0.333 |
+| 1 | provider_video_export |  | 100 | 0.667 | 0.333 |
+| 2 | manual_seed | filmmaker short film editing breakdown | 95 | 1 | 0 |
 | 3 | manual_seed | cinematographer lighting breakdown | 87 | 1 | 0 |
 | 4 | manual_seed | vfx artist animation blender | 87 | 1 | 0 |
 | 5 | manual_seed | sketch comedian character comedy | 85 | 1 | 0 |
 | 6 | graph_expansion_fixture | mentioned by @ani.motionlab | 78 | 1 | 0 |
-| 7 | provider_video_export |  | 64 | 0.667 | 0.333 |
-| 8 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 29 | 0 | 0 |
-| 9 | editorial_list | FeedSpot Top Movie TikTok Influencers 2026 | 29 | 0 | 0 |
-| 10 | editorial_list | FeedSpot Top Horror TikTok Influencers 2026 | 29 | 0 | 0 |
+| 7 | provider_video_export |  | 65 | 0.667 | 0.333 |
+| 8 | editorial_list | FeedSpot Top Digital Art TikTok Influencers 2026 | 44 | 0 | 0 |
+| 9 | editorial_list | FeedSpot Top New York Art TikTok Influencers 2026 | 44 | 0 | 0 |
+| 10 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 43 | 0 | 0 |
 
 ## Next Batches
 

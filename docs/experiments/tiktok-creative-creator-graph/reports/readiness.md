@@ -1,18 +1,18 @@
 # Readiness
 
-Generated: 2026-06-13T00:34:57.401Z
+Generated: 2026-06-13T00:39:25.208Z
 
 Complete: false
 
 ## Counts
 
-- Accounts: 1692
-- Videos: 17
+- Accounts: 1900
+- Videos: 20
 - Graph edges: 52
 - Useful accounts: 7
 - Excellent accounts: 6
 - Rejected accounts: 2
-- Review queue: 1692
+- Review queue: 1900
 - Review sample: 250
 - Review packet rows: 250
 - Review decision template rows: 250
@@ -30,22 +30,22 @@ Complete: false
 - Candidate frontier: 86
 - Candidate frontier handles: 7
 - Candidate frontier queries: 79
-- Acquisition import preview accounts: 1686
+- Acquisition import preview accounts: 1894
 - Acquisition import preview ready: true
-- Acquisition import waves: 10
+- Acquisition import waves: 11
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Acquisition run history: 15
-- Source yield rows: 46
-- Identities: 1667
+- Source yield rows: 50
+- Identities: 1870
 - Category coverage labels: 5/11
 - Release useful creators: 2
 - Release verification checks: 44
-- Scale plan import batches: 9999
-- Scale waves: 9999
-- Wave ledger rows: 9999
-- Wave ledger planned: 9999
+- Scale plan import batches: 10000
+- Scale waves: 10000
+- Wave ledger rows: 10000
+- Wave ledger planned: 10000
 - Wave ledger dry-run only: 11
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
@@ -66,16 +66,16 @@ Complete: false
 - Scale campaign mode: dry_run
 - Scale campaign stop reason: dry_run_complete
 - Scale campaign estimated cost: $0.5
-- Refresh tasks: 1692
+- Refresh tasks: 1900
 - Publication handoff: 1
 
 ## Checks
 
-- seed_intake: pass (1692 accounts ingested)
-- video_metadata: pass (17 videos ingested)
+- seed_intake: pass (1900 accounts ingested)
+- video_metadata: pass (20 videos ingested)
 - graph_edges: pass (52 graph edges generated)
-- scoring_coverage: pass (1692/1692 accounts scored)
-- review_queue: pass (1692 accounts queued for review)
+- scoring_coverage: pass (1900/1900 accounts scored)
+- review_queue: pass (1900 accounts queued for review)
 - review_sample: pass (250 sampled accounts ready for review)
 - review_packet: pass (250 review packet rows, 250 decision template rows, 1 batches)
 - review_plan: pass (11 category review plan rows generated)
@@ -83,23 +83,23 @@ Complete: false
 - adjacency_expansion: pass (27 enriched expansion rows (20 added))
 - acquisition_batches: pass (91 acquisition tasks generated)
 - candidate_frontier: pass (86 ranked acquisition candidates generated)
-- acquisition_import_preview: pass (1686 preview accounts, import gate ready)
-- acquisition_import_waves: pass (10 acquisition import waves tracked)
+- acquisition_import_preview: pass (1894 preview accounts, import gate ready)
+- acquisition_import_waves: pass (11 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (15 acquisition run history rows persisted)
-- source_yield: pass (46 source/query yield rows generated)
-- identity_resolution: pass (1667 creator identities resolved)
+- source_yield: pass (50 source/query yield rows generated)
+- identity_resolution: pass (1870 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)
 - release_package: pass (2 useful creators exported for release)
 - release_verification: pass (44 release checks evaluated)
-- scale_plan: pass (9999 estimated import batches)
-- scale_waves: pass (9999 executable acquisition waves planned)
-- wave_ledger: pass (9999 wave execution ledger rows generated)
+- scale_plan: pass (10000 estimated import batches)
+- scale_waves: pass (10000 executable acquisition waves planned)
+- wave_ledger: pass (10000 wave execution ledger rows generated)
 - provider_preflight: pass (20/20 ready provider tasks, budget ok)
 - live_run_manifest: pass (10/10 runnable live waves, estimated cost $5)
 - live_manifest_runner: pass (1 dry_run wave(s) executed through manifest runner)
 - scale_campaign_runner: pass (1 dry_run iteration(s), stop reason dry_run_complete)
-- refresh_plan: pass (1692 account refresh tasks generated)
+- refresh_plan: pass (1900 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
 - useful_account_target: incomplete (7/50000 useful accounts)
 - excellent_account_target: incomplete (6/5000 excellent accounts)

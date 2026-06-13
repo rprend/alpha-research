@@ -1,18 +1,18 @@
 # Review Sample
 
-Generated: 2026-06-13T00:34:56.034Z
+Generated: 2026-06-13T00:39:24.325Z
 
 - Requested rows: 250
 - Selected rows: 250
-- Available unreviewed rows: 1688
-- Latest wave id: import-2026-06-13T00-34-55-539Z
+- Available unreviewed rows: 1896
+- Latest wave id: import-2026-06-13T00-39-23-957Z
 
 ## Category Counts
 
 - sketch_comedian: 25
 - filmmaker: 25
 - vfx_animation: 25
-- cinematographer: 16
+- cinematographer: 17
 - editor: 25
 - standup_comedian: 25
 - director: 8
@@ -20,7 +20,7 @@ Generated: 2026-06-13T00:34:56.034Z
 - behind_the_scenes_creator: 25
 - film_educator: 25
 - unclear: 21
-- creative_technologist: 22
+- creative_technologist: 21
 
 ## Review Bands
 

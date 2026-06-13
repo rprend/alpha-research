@@ -1,7 +1,7 @@
 creator_id,handle,display_name,primary_label,overall_usefulness,status,review_priority,review_reasons,profile_url
 maya.shortcuts,@maya.shortcuts,Maya Shortcuts,filmmaker,98,excellent,1,"benchmark_candidate,strong_public_source_candidate",https://www.tiktok.com/@maya.shortcuts
-basementbits,@basementbits,Basement Bits,sketch_comedian,89,excellent,1,"benchmark_candidate,strong_public_source_candidate",https://www.tiktok.com/@basementbits
-selahshoots,@selahshoots,Selah Shoots,filmmaker,88,excellent,1,"benchmark_candidate,strong_public_source_candidate",https://www.tiktok.com/@selahshoots
+basementbits,@basementbits,Basement Bits,sketch_comedian,92,excellent,1,"benchmark_candidate,strong_public_source_candidate",https://www.tiktok.com/@basementbits
+selahshoots,@selahshoots,Selah Shoots,filmmaker,91,excellent,1,"benchmark_candidate,strong_public_source_candidate",https://www.tiktok.com/@selahshoots
 ani.motionlab,@ani.motionlab,Ani Motion Lab,vfx_animation,87,excellent,1,"benchmark_candidate,strong_public_source_candidate",https://www.tiktok.com/@ani.motionlab
 noahframes,@noahframes,Noah Frames,cinematographer,86,excellent,1,"benchmark_candidate,strong_public_source_candidate",https://www.tiktok.com/@noahframes
 lucybits,@lucybits,Lucy Bits,sketch_comedian,83,excellent,1,"benchmark_candidate,strong_public_source_candidate",https://www.tiktok.com/@lucybits
@@ -22,6 +22,7 @@ bravekidpress,@bravekidpress,Bravekidpress,cinematographer,38,needs_review,3,"th
 kyndallharrisofficial,@kyndallharrisofficial,Kyndall Harris,cinematographer,38,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@kyndallharrisofficial
 jawntybrown,@jawntybrown,Carrie Brown,cinematographer,38,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@jawntybrown
 authorcarriea,@authorcarriea,Carrie Aarons,cinematographer,38,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@authorcarriea
+lab_shenanigans,@lab_shenanigans,Darrion Nguyen,cinematographer,38,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@lab_shenanigans
 ben_brainard,@ben_brainard,Ben Brainard,standup_comedian,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@ben_brainard
 theofficialsambailey,@theofficialsambailey,Sam Bailey,sketch_comedian,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@theofficialsambailey
 gigglysquad,@gigglysquad,Paige DeSorbo & Hannah Berner,sketch_comedian,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@gigglysquad
@@ -100,6 +101,23 @@ morgannbook,@morgannbook,Morgann Book,film_educator,36,needs_review,3,"threshold
 albixitobooks,@albixitobooks,Albixitobooks,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@albixitobooks
 booktokvietnam,@booktokvietnam,Booktok Vietnam,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@booktokvietnam
 aicenturyclips,@aicenturyclips,AI Century,creative_technologist,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@aicenturyclips
+hashem.alghaili,@hashem.alghaili,Hashem Al-Ghaili,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@hashem.alghaili
+cybersecuritygirl,@cybersecuritygirl,Caitlin Sarian,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@cybersecuritygirl
+riyamojaimi,@riyamojaimi,Riyam Ojaimi,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@riyamojaimi
+chefseraiah,@chefseraiah,Seraiah,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@chefseraiah
+harrypair,@harrypair,HarryPair,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@harrypair
+virtualrealityvibeso,@virtualrealityvibeso,VRGamer,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@virtualrealityvibeso
+realqaiqai,@realqaiqai,Qai Qai,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@realqaiqai
+kizunaai0630,@kizunaai0630,Kizuna AI,creative_technologist,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@kizunaai0630
+bum.bailey,@bum.bailey,Bum Bailey,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@bum.bailey
+.aixiameta,@.aixiameta,Aika,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@.aixiameta
+lentari.pagi,@lentari.pagi,Lentari van Lorainne,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@lentari.pagi
+squishypaintvrc,@squishypaintvrc,Squishypain,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@squishypaintvrc
+albarenai,@albarenai,Albarenai,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@albarenai
+whosthatlego,@whosthatlego,LegoWhosThat,editor,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@whosthatlego
+jlevaai,@jlevaai,Jleva AI,creative_technologist,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@jlevaai
+cynthia__ai,@cynthia__ai,Cynthia AI,creative_technologist,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@cynthia__ai
+be_zaira,@be_zaira,Zaira,film_educator,36,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@be_zaira
 fulltimefilmmaker,@fulltimefilmmaker,Full Time Filmmaker,filmmaker,35,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@fulltimefilmmaker
 filmmakersworld,@filmmakersworld,Filmmakers World,filmmaker,35,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@filmmakersworld
 directoryoko,@directoryoko,Director Yoko,director,35,needs_review,3,"threshold_borderline,strong_public_source_candidate",https://www.tiktok.com/@directoryoko
@@ -1640,6 +1658,195 @@ kantrowitz,@kantrowitz,Alex Kantrowitz,creative_technologist,32,needs_review,3,t
 exaltitude,@exaltitude,Jean Lee,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@exaltitude
 aashowa.ai,@aashowa.ai,Ahmed Aashowa,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@aashowa.ai
 marksavantmedia,@marksavantmedia,Mark Savant,editor,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@marksavantmedia
+stellakcole,@stellakcole,Stella Cole,behind_the_scenes_creator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@stellakcole
+marguerite_music,@marguerite_music,Marguerite Floc'h,behind_the_scenes_creator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@marguerite_music
+frankiestathamuk,@frankiestathamuk,Frankie Statham,behind_the_scenes_creator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@frankiestathamuk
+mortblock,@mortblock,Morton Block,behind_the_scenes_creator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mortblock
+tijntrommelen,@tijntrommelen,Tijn Trommelen,behind_the_scenes_creator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@tijntrommelen
+angelagrey_music,@angelagrey_music,Angela Grey,behind_the_scenes_creator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@angelagrey_music
+tripleb_pianist,@tripleb_pianist,Triple B,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@tripleb_pianist
+emmet.cohen,@emmet.cohen,Emmet Cohen,editor,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@emmet.cohen
+your.bummy.math.tutor,@your.bummy.math.tutor,Cary,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@your.bummy.math.tutor
+chemteacherphil,@chemteacherphil,Phillip Cook,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@chemteacherphil
+christinaroki,@christinaroki,Christina Roki,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@christinaroki
+mrs.b.tv,@mrs.b.tv,Nancy Bullard,filmmaker,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mrs.b.tv
+big.manny1,@big.manny1,Big Manny,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@big.manny1
+veritasium,@veritasium,Veritasium,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@veritasium
+thespacegal,@thespacegal,Emily Calandrelli,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@thespacegal
+stevespangler,@stevespangler,Steve Spangler,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@stevespangler
+chemicalkim,@chemicalkim,Kimberly Hilton,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@chemicalkim
+cbsunstoppable,@cbsunstoppable,Miranda Cosgrove,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@cbsunstoppable
+mathicallytutors,@mathicallytutors,Kelly & Steven,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mathicallytutors
+modernday_eratosthenes,@modernday_eratosthenes,Ashley Christine,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@modernday_eratosthenes
+stemcellchristian,@stemcellchristian,Christian Drapeau,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@stemcellchristian
+astrosamantha,@astrosamantha,Samantha Cristoforetti,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@astrosamantha
+drdre4000,@drdre4000,Andre Isaacs,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@drdre4000
+drkarl,@drkarl,Karl Kruszelnicki,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@drkarl
+bearbaitofficial,@bearbaitofficial,GT,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@bearbaitofficial
+katvoltage,@katvoltage,Katya Echazarreta,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@katvoltage
+arie.loo,@arie.loo,Ariel,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@arie.loo
+my.anatomy.teacher,@my.anatomy.teacher,My Anatomy Teacher,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@my.anatomy.teacher
+physicsisfun_official,@physicsisfun_official,Caleb Bonyun,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@physicsisfun_official
+fryrsquared,@fryrsquared,Hannah Fry,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@fryrsquared
+stevemould,@stevemould,Steve Mould,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@stevemould
+msmoorelessons,@msmoorelessons,Ms. Moore,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@msmoorelessons
+katethechemist,@katethechemist,Kate Biberdorf,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@katethechemist
+fernsulantay,@fernsulantay,Fernanda Sulantay,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@fernsulantay
+stemwithm,@stemwithm,Morgan McKeen,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@stemwithm
+annelisethearchaeologist,@annelisethearchaeologist,Annelise Baer,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@annelisethearchaeologist
+thephysicsgirl,@thephysicsgirl,Dianna Cowern,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@thephysicsgirl
+simonegiertz,@simonegiertz,Simone Giertz,behind_the_scenes_creator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@simonegiertz
+drbenmiles,@drbenmiles,Dr Ben Miles,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@drbenmiles
+abby_maltese,@abby_maltese,Abby Maltese,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@abby_maltese
+stemshawty,@stemshawty,Renee Mily,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@stemshawty
+thatscienceteacher,@thatscienceteacher,Zach Lillquist,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@thatscienceteacher
+julia.psg,@julia.psg,Julia Passada,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@julia.psg
+magdacious,@magdacious,Magdacious,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@magdacious
+therealmarteinthemiddle,@therealmarteinthemiddle,Nicole Marte,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@therealmarteinthemiddle
+yourfemaleengineer,@yourfemaleengineer,Joan Marie,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@yourfemaleengineer
+thenursesam1,@thenursesam1,Sam,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@thenursesam1
+mariedoesstuff,@mariedoesstuff,Marie,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mariedoesstuff
+karenspinklabcoat,@karenspinklabcoat,Karen Parada,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@karenspinklabcoat
+iteachalgebra,@iteachalgebra,Yakubov,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@iteachalgebra
+raventhesciencemaven,@raventhesciencemaven,Dr. Raven Baxter,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@raventhesciencemaven
+baddieprofessor,@baddieprofessor,Sanchez,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@baddieprofessor
+that_stem_guy,@that_stem_guy,That STEM Guy,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@that_stem_guy
+nerdgirlnews,@nerdgirlnews,NerdGirl News,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@nerdgirlnews
+juliettehanphd,@juliettehanphd,Juliette Han,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@juliettehanphd
+labskillsacademy,@labskillsacademy,Marie,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@labskillsacademy
+drbecky_s,@drbecky_s,Dr Becky Smethurst,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@drbecky_s
+mashstatic,@mashstatic,Masa,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mashstatic
+cececuttino,@cececuttino,Cece Cuttino,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@cececuttino
+your_math_bestie,@your_math_bestie,Julianna,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@your_math_bestie
+arabellathescientist,@arabellathescientist,Arabella Ndrade,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@arabellathescientist
+shengineers.png,@shengineers.png,Sirabelle,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@shengineers.png
+shawtygutz,@shawtygutz,Zoe Chua,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@shawtygutz
+currentrye_,@currentrye_,Zildjian_,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@currentrye_
+givesierraspace,@givesierraspace,Sierra Casten,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@givesierraspace
+nick.immunologist,@nick.immunologist,Nick Jackson,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@nick.immunologist
+yourmathbestie,@yourmathbestie,Your Math Bestie,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@yourmathbestie
+stemyemmy,@stemyemmy,Emmy,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@stemyemmy
+zinguppkeeo,@zinguppkeeo,Gee,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@zinguppkeeo
+techingonscience,@techingonscience,Laura,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@techingonscience
+astrokristina,@astrokristina,Kristina,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@astrokristina
+tacklingtheteks,@tacklingtheteks,Christina,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@tacklingtheteks
+_ohdus,@_ohdus,Lacey,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@_ohdus
+ellehernndz,@ellehernndz,Elle Hernndz,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@ellehernndz
+dr.andrealove,@dr.andrealove,Dr. Andrea Love,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@dr.andrealove
+bridgestemtutoring,@bridgestemtutoring,Anette Tikkop,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@bridgestemtutoring
+tarenstudies,@tarenstudies,Taren,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@tarenstudies
+j4y.lov3sth3int3rn3t,@j4y.lov3sth3int3rn3t,Jordan,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@j4y.lov3sth3int3rn3t
+stemusicnation,@stemusicnation,Roy Moye,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@stemusicnation
+mariiyaa.__,@mariiyaa.__,Mariya,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mariiyaa.__
+blondebiochemist,@blondebiochemist,keananuggets,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@blondebiochemist
+sophinvitro,@sophinvitro,Sophin Vitro,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@sophinvitro
+pandoradewan,@pandoradewan,Pandora Dewan,editor,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@pandoradewan
+tressaphd,@tressaphd,Tressa,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@tressaphd
+driii_tok,@driii_tok,Adrianna Walker,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@driii_tok
+emmaanastazia,@emmaanastazia,Emma Anastazia,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@emmaanastazia
+barbara.science,@barbara.science,Barbie Científica,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@barbara.science
+metallurgywithmarina,@metallurgywithmarina,Mariana,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@metallurgywithmarina
+c.belliveau.science,@c.belliveau.science,Claudia Belliveau,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@c.belliveau.science
+chloetheengineer,@chloetheengineer,Chloe,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@chloetheengineer
+moodimic,@moodimic,Micah Thomas,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@moodimic
+mrs.kyle.science,@mrs.kyle.science,Angie Kyle,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mrs.kyle.science
+itsnadiya,@itsnadiya,Nadiya,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@itsnadiya
+kathrynnrhodes,@kathrynnrhodes,Kathrynn Rhodes,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@kathrynnrhodes
+laurenkennedi_,@laurenkennedi_,Lauren Kennedi,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@laurenkennedi_
+thescholardiaries,@thescholardiaries,Cindy Pham,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@thescholardiaries
+kantissimmons,@kantissimmons,Kantis Simmons,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@kantissimmons
+techwithki,@techwithki,Kierra Page,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@techwithki
+functioningwithjess,@functioningwithjess,Jess,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@functioningwithjess
+lstoast,@lstoast,LSToast,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@lstoast
+drumsyofficial,@drumsyofficial,Drumsy,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@drumsyofficial
+shearsyvr,@shearsyvr,ShearsyVR,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@shearsyvr
+gingasvr,@gingasvr,GingasVR,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@gingasvr
+beemunnyx,@beemunnyx,BeeMunny,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@beemunnyx
+gabbyvr.official,@gabbyvr.official,Gabby,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@gabbyvr.official
+smashingvr,@smashingvr,Smashing,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@smashingvr
+waffle.v.r,@waffle.v.r,WaffleVR,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@waffle.v.r
+ceoquanvr,@ceoquanvr,Ceoquanvr,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@ceoquanvr
+vrsuhvr,@vrsuhvr,vrsuh,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@vrsuhvr
+nelsongalacticovr,@nelsongalacticovr,Nelson Galactico VR,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@nelsongalacticovr
+niotastic,@niotastic,niotastic,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@niotastic
+virtualreality.girl,@virtualreality.girl,Virtual Reality Girl,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@virtualreality.girl
+phiabunny,@phiabunny,PHIAbunny,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@phiabunny
+vr_lolathon,@vr_lolathon,Lolathon,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@vr_lolathon
+regetik,@regetik,Regetik,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@regetik
+nikitafajitaa,@nikitafajitaa,Nikita Fajitaa,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@nikitafajitaa
+rell.beatz,@rell.beatz,Rell Beatz VR,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@rell.beatz
+urkninvr,@urkninvr,URKN IN VR,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@urkninvr
+atombombbody,@atombombbody,🄰🅃🄾🄼 🄱🄾🄼🄱 🄱🄾🄳🅈,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@atombombbody
+julioplaysvr,@julioplaysvr,JulioVR,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@julioplaysvr
+vee_vrchat,@vee_vrchat,Vee,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@vee_vrchat
+codeedecrypt,@codeedecrypt,CodeDecrypt,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@codeedecrypt
+virtualrealityoasis,@virtualrealityoasis,Virtual Reality Oasis,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@virtualrealityoasis
+cas.xr,@cas.xr,Cas XR,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@cas.xr
+nathieevr,@nathieevr,Nathie,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@nathieevr
+etherealvirtual,@etherealvirtual,Ethereal,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@etherealvirtual
+virtualreality0011,@virtualreality0011,Virtual Reality,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@virtualreality0011
+virtualrealityau,@virtualrealityau,Virtual Reality AU!,editor,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@virtualrealityau
+nobodysausage,@nobodysausage,Nobody Sausage,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@nobodysausage
+jankyandguggimon,@jankyandguggimon,Janky,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@jankyandguggimon
+fnmeka,@fnmeka,FN Meka,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@fnmeka
+magalu,@magalu,Lu do Magalu,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@magalu
+itspuffpuff,@itspuffpuff,Puff Puff,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@itspuffpuff
+apoki.vv,@apoki.vv,Apoki,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@apoki.vv
+lilmiquela,@lilmiquela,MIQUELA,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@lilmiquela
+lechat.vv,@lechat.vv,Lechat,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@lechat.vv
+anymalu_real,@anymalu_real,Any Malu,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@anymalu_real
+casasbahia,@casasbahia,CB da Casas Bahia,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@casasbahia
+i.am.polar,@i.am.polar,Polar,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@i.am.polar
+arbie_seo,@arbie_seo,Arbie Seo,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@arbie_seo
+hatsunemiku0831,@hatsunemiku0831,初音Hatsune Miku,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@hatsunemiku0831
+timi.idol,@timi.idol,Timi Idol,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@timi.idol
+iam_zlu,@iam_zlu,Zlu,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@iam_zlu
+imma.tokyo,@imma.tokyo,Imma,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@imma.tokyo
+a_n_n_a_tnt,@a_n_n_a_tnt,Anna Tnt,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@a_n_n_a_tnt
+codemiko,@codemiko,CodeMiko,filmmaker,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@codemiko
+kda_music,@kda_music,K/DA Music,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@kda_music
+imvu_sofoke,@imvu_sofoke,Sofoke,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@imvu_sofoke
+callmeclydeo,@callmeclydeo,Clydeo,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@callmeclydeo
+arialybra,@arialybra,Arialybra,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@arialybra
+alice.inf,@alice.inf,Alice,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@alice.inf
+synth,@synth,Synthia,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@synth
+rina.8k,@rina.8k,Rina,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@rina.8k
+kuki_ai,@kuki_ai,Kuki,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@kuki_ai
+realnoonoouri,@realnoonoouri,Noonoouri,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@realnoonoouri
+yameiionliine,@yameiionliine,Yameiionline,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@yameiionliine
+mommymaryofficial,@mommymaryofficial,Mommy Mary,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mommymaryofficial
+iamxalara,@iamxalara,Alara X,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@iamxalara
+winni.grounds,@winni.grounds,Winni,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@winni.grounds
+xanacrew,@xanacrew,Xnacrew,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@xanacrew
+follow.your.sori,@follow.your.sori,Sori,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@follow.your.sori
+zerofromnexus,@zerofromnexus,Zero,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@zerofromnexus
+theo.rises,@theo.rises,Theo,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@theo.rises
+bermudaisbae,@bermudaisbae,Bermuda Is Bae,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@bermudaisbae
+thegeicogecko,@thegeicogecko,Geico Gecko,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@thegeicogecko
+iongottlich,@iongottlich,Ion,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@iongottlich
+jo_i_jo_i,@jo_i_jo_i,Jo-I,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@jo_i_jo_i
+mono_mars,@mono_mars,Mono Mars,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@mono_mars
+itsvi0let_,@itsvi0let_,Violet,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@itsvi0let_
+demi.id,@demi.id,Demi,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@demi.id
+eusouluks,@eusouluks,Luks,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@eusouluks
+here.me.lucy,@here.me.lucy,Lucy,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@here.me.lucy
+thechefjade,@thechefjade,Jade,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@thechefjade
+virtual_amy,@virtual_amy,Amy,sketch_comedian,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@virtual_amy
+sua_to_z,@sua_to_z,Nasua Sua,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@sua_to_z
+ruuui_li,@ruuui_li,Rui Rui,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@ruuui_li
+justhella_,@justhella_,Hella,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@justhella_
+emily.yoo_,@emily.yoo_,Emily Yoo,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@emily.yoo_
+theavatarab,@theavatarab,Avatarab,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@theavatarab
+luhiperhuman,@luhiperhuman,Luco,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@luhiperhuman
+vera_genie,@vera_genie,Vera,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@vera_genie
+erica.eri.vibe,@erica.eri.vibe,Erica Eri Vibe,creative_technologist,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@erica.eri.vibe
+ivaany.h,@ivaany.h,Ivaany VI,vfx_animation,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@ivaany.h
+abawils,@abawils,Aba Wils,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@abawils
+bejbyblue,@bejbyblue,Bejby blue,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@bejbyblue
+virtualsamurai.kaz,@virtualsamurai.kaz,Kazuemon,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@virtualsamurai.kaz
+lunaluxxo25,@lunaluxxo25,Lunaluxxo,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@lunaluxxo25
+boobunivt,@boobunivt,BooBuni,film_educator,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@boobunivt
+ami_yamato,@ami_yamato,Ami Yamato,editor,32,needs_review,3,threshold_borderline,https://www.tiktok.com/@ami_yamato
 broz640,@broz640,Broz,behind_the_scenes_creator,31,needs_review,3,threshold_borderline,https://www.tiktok.com/@broz640
 ashmorgan.xo,@ashmorgan.xo,Ash Morgan,behind_the_scenes_creator,31,needs_review,3,threshold_borderline,https://www.tiktok.com/@ashmorgan.xo
 777pilot01,@777pilot01,777pilot01,behind_the_scenes_creator,31,needs_review,3,threshold_borderline,https://www.tiktok.com/@777pilot01
@@ -1654,6 +1861,7 @@ mangalover8561,@mangalover8561,Mangalover8,film_educator,31,needs_review,3,thres
 an_actual_anime_page,@an_actual_anime_page,an_actual_anime_page,film_educator,31,needs_review,3,threshold_borderline,https://www.tiktok.com/@an_actual_anime_page
 iamsimplyysophie,@iamsimplyysophie,iamsimplyysophie,editor,31,needs_review,3,threshold_borderline,https://www.tiktok.com/@iamsimplyysophie
 caseygetsbooked,@caseygetsbooked,Casey,editor,31,needs_review,3,threshold_borderline,https://www.tiktok.com/@caseygetsbooked
+buildingbiotech,@buildingbiotech,Athena,editor,31,needs_review,3,threshold_borderline,https://www.tiktok.com/@buildingbiotech
 steadired,@steadired,SteadiRed,cinematographer,29,needs_review,3,threshold_borderline,https://www.tiktok.com/@steadired
 hallietut,@hallietut,Hallie Tut,filmmaker,29,needs_review,3,threshold_borderline,https://www.tiktok.com/@hallietut
 zachking,@zachking,Zach King,vfx_animation,29,needs_review,3,threshold_borderline,https://www.tiktok.com/@zachking

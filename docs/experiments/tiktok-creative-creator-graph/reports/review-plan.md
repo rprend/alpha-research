@@ -1,6 +1,6 @@
 # Review Plan
 
-Generated: 2026-06-13T00:34:56.133Z
+Generated: 2026-06-13T00:39:24.405Z
 
 - Target review decisions: 500
 - Current review decisions: 4
@@ -28,6 +28,6 @@ Generated: 2026-06-13T00:34:56.133Z
 | behind_the_scenes_creator | 25 | 0 | 25 | 25 | 3000 | 1 |
 | filmmaker | 25 | 0 | 25 | 25 | 7998 | 2 |
 | sketch_comedian | 25 | 0 | 25 | 25 | 6998 | 2 |
-| cinematographer | 25 | 0 | 16 | 25 | 4999 | 2 |
+| cinematographer | 25 | 0 | 17 | 25 | 4999 | 2 |
 | vfx_animation | 25 | 0 | 25 | 25 | 4999 | 2 |
-| creative_technologist | 25 | 0 | 22 | 25 | 1999 | 2 |
+| creative_technologist | 25 | 0 | 21 | 25 | 1999 | 2 |

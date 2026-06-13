@@ -1,12 +1,12 @@
 # Scale Waves
 
-Generated: 2026-06-13T00:34:56.605Z
+Generated: 2026-06-13T00:39:24.700Z
 
-- Planned waves: 9999
+- Planned waves: 10000
 - Candidate accounts per wave: 250
-- Total candidate accounts: 2499750
+- Total candidate accounts: 2500000
 - Estimated useful creators per wave: 5
-- Estimated total useful creators: 49993
+- Estimated total useful creators: 49998
 - Review gap: 496
 - Review rows per wave: 1
 - Source tasks available: 91

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:34:55.870Z",
+  "generated_at": "2026-06-13T00:39:24.179Z",
   "base_rows": 7,
   "expansion_rows": 27,
   "added_rows": 20,
@@ -28,7 +28,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 4
+      "evidence_count": 5
     },
     {
       "expansion_type": "hashtag_search",
@@ -38,7 +38,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes|useful_creator_hashtag:@lucybits",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 9
+      "evidence_count": 11
     },
     {
       "expansion_type": "yield_replay_search",
@@ -58,7 +58,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 4
+      "evidence_count": 5
     },
     {
       "expansion_type": "cross_platform_search",
@@ -77,7 +77,7 @@
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "sketch_comedian",
-      "overall_usefulness": 89,
+      "overall_usefulness": 92,
       "evidence_count": 1
     },
     {
@@ -87,8 +87,8 @@
       "priority": 1,
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
-      "overall_usefulness": 89,
-      "evidence_count": 4
+      "overall_usefulness": 92,
+      "evidence_count": 5
     },
     {
       "expansion_type": "hashtag_search",
@@ -97,8 +97,8 @@
       "priority": 1,
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
-      "overall_usefulness": 89,
-      "evidence_count": 4
+      "overall_usefulness": 92,
+      "evidence_count": 5
     },
     {
       "expansion_type": "expand_from_creator",
@@ -107,7 +107,7 @@
       "priority": 1,
       "reason": "high_usefulness_source",
       "primary_label": "filmmaker",
-      "overall_usefulness": 88,
+      "overall_usefulness": 91,
       "evidence_count": 1
     },
     {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:34:57.279Z",
+  "generated_at": "2026-06-13T00:39:25.127Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -35,7 +35,7 @@
     "videos": 17,
     "graph_edges": 52,
     "useful_creators": 7,
-    "release_useful_creators": 7,
+    "release_useful_creators": 2,
     "excellent_creators": 6,
     "rejected_creators": 2,
     "review_queue": 1692,
@@ -58,8 +58,8 @@
     "acquisition_import_preview_accounts": 1686,
     "acquisition_import_preview_ready": true,
     "acquisition_import_waves": 10,
-    "acquisition_import_lineage_rows": 4825,
-    "acquisition_import_untraced_rows": 60,
+    "acquisition_import_lineage_rows": 7216,
+    "acquisition_import_untraced_rows": 66,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 15,
@@ -168,22 +168,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "3479b49453fd3124a93afd81ead40b66289e2281a2314f31e0026760d26f0f2e"
+      "sha256": "a27f0a609e4838628c86edda4e98c6b5e7eae97bcdd36b8f2a9ff423aadb3e69"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "b707f10c3ce0c6928f226957d8b37ebef37ded87c2e832ff9ffa96462380e151"
+      "sha256": "e01958cc30ac5aab0ca9b383971ca1588e5bde0edae14c5748aa28729f17bff7"
     },
     {
       "path": "data/release/review_queue.csv",
-      "rows": 1688,
-      "sha256": "d817b9af1b83ed0ba49be948a3c6951999b635ff5160463d3ed138e3e142c7b8"
+      "rows": 1896,
+      "sha256": "eacbe77267100e9bead1fe43d5b65a3ec880bcae31a969aa21c618d046d1ce4b"
     },
     {
       "path": "data/release/all_scored_creators.csv",
-      "rows": 1692,
-      "sha256": "fe4cc56f14a7995b872a4bcbf2fd640398fddf77e3fd6de5eb2816f5a0e83b09"
+      "rows": 1900,
+      "sha256": "2fd672e87277c00a925737c37fc67a4b05a2348eeb60bf54123c01a5b8536233"
     }
   ],
   "registration_constraints": [

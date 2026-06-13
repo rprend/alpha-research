@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-06-13T00:34:55.777Z",
-  "sources": 46,
+  "generated_at": "2026-06-13T00:39:24.133Z",
+  "sources": 50,
   "best_sources": [
+    {
+      "source_type": "provider_video_export",
+      "source_name": "unknown",
+      "source_query": "",
+      "creators_seen": 3,
+      "useful_creators": 2,
+      "excellent_creators": 2,
+      "rejected_creators": 1,
+      "reviewed_creators": 1,
+      "usefulness_rate": 0.667,
+      "rejection_rate": 0.333,
+      "average_usefulness": 183,
+      "yield_score": 100,
+      "top_labels": "filmmaker:3; sketch_comedian:3; reject:3"
+    },
     {
       "source_type": "manual_seed",
       "source_name": "smoke-seeds.jsonl",
@@ -16,21 +31,6 @@
       "average_usefulness": 98,
       "yield_score": 95,
       "top_labels": "filmmaker:1"
-    },
-    {
-      "source_type": "provider_video_export",
-      "source_name": "unknown",
-      "source_query": "",
-      "creators_seen": 3,
-      "useful_creators": 2,
-      "excellent_creators": 2,
-      "rejected_creators": 1,
-      "reviewed_creators": 1,
-      "usefulness_rate": 0.667,
-      "rejection_rate": 0.333,
-      "average_usefulness": 118,
-      "yield_score": 90,
-      "top_labels": "filmmaker:2; sketch_comedian:2; reject:2"
     },
     {
       "source_type": "manual_seed",
@@ -103,101 +103,9 @@
       "reviewed_creators": 1,
       "usefulness_rate": 0.667,
       "rejection_rate": 0.333,
-      "average_usefulness": 59,
-      "yield_score": 64,
+      "average_usefulness": 61,
+      "yield_score": 65,
       "top_labels": "filmmaker:1; sketch_comedian:1; reject:1"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Comedy TikTokers",
-      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
-      "creators_seen": 99,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 64.4,
-      "yield_score": 29,
-      "top_labels": "sketch_comedian:128; standup_comedian:64; cinematographer:2; director:2; editor:2"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Movie TikTokers",
-      "source_query": "FeedSpot Top Movie TikTok Influencers 2026",
-      "creators_seen": 96,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 64.4,
-      "yield_score": 29,
-      "top_labels": "filmmaker:184; director:4; cinematographer:2; editor:2"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Horror TikTokers",
-      "source_query": "FeedSpot Top Horror TikTok Influencers 2026",
-      "creators_seen": 16,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 64,
-      "yield_score": 29,
-      "top_labels": "filmmaker:30; editor:2"
-    }
-  ],
-  "weak_sources": [
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Comedy TikTokers",
-      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
-      "creators_seen": 99,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 64.4,
-      "yield_score": 29,
-      "top_labels": "sketch_comedian:128; standup_comedian:64; cinematographer:2; director:2; editor:2"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Movie TikTokers",
-      "source_query": "FeedSpot Top Movie TikTok Influencers 2026",
-      "creators_seen": 96,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 64.4,
-      "yield_score": 29,
-      "top_labels": "filmmaker:184; director:4; cinematographer:2; editor:2"
-    },
-    {
-      "source_type": "editorial_list",
-      "source_name": "FeedSpot Horror TikTokers",
-      "source_query": "FeedSpot Top Horror TikTok Influencers 2026",
-      "creators_seen": 16,
-      "useful_creators": 0,
-      "excellent_creators": 0,
-      "rejected_creators": 0,
-      "reviewed_creators": 0,
-      "usefulness_rate": 0,
-      "rejection_rate": 0,
-      "average_usefulness": 64,
-      "yield_score": 29,
-      "top_labels": "filmmaker:30; editor:2"
     },
     {
       "source_type": "editorial_list",
@@ -210,9 +118,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 64.8,
-      "yield_score": 29,
-      "top_labels": "vfx_animation:198; editor:2"
+      "average_usefulness": 97.1,
+      "yield_score": 44,
+      "top_labels": "vfx_animation:297; editor:3"
     },
     {
       "source_type": "editorial_list",
@@ -225,9 +133,101 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 64.8,
-      "yield_score": 29,
-      "top_labels": "vfx_animation:76; creative_technologist:2; sketch_comedian:2; editor:2"
+      "average_usefulness": 97.2,
+      "yield_score": 44,
+      "top_labels": "vfx_animation:114; creative_technologist:3; sketch_comedian:3; editor:3"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "creators_seen": 99,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 96.5,
+      "yield_score": 43,
+      "top_labels": "sketch_comedian:192; standup_comedian:96; cinematographer:3; director:3; editor:3"
+    }
+  ],
+  "weak_sources": [
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Digital Art TikTokers",
+      "source_query": "FeedSpot Top Digital Art TikTok Influencers 2026",
+      "creators_seen": 100,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 97.1,
+      "yield_score": 44,
+      "top_labels": "vfx_animation:297; editor:3"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot New York Art TikTokers",
+      "source_query": "FeedSpot Top New York Art TikTok Influencers 2026",
+      "creators_seen": 41,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 97.2,
+      "yield_score": 44,
+      "top_labels": "vfx_animation:114; creative_technologist:3; sketch_comedian:3; editor:3"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Comedy TikTokers",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "creators_seen": 99,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 96.5,
+      "yield_score": 43,
+      "top_labels": "sketch_comedian:192; standup_comedian:96; cinematographer:3; director:3; editor:3"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Movie TikTokers",
+      "source_query": "FeedSpot Top Movie TikTok Influencers 2026",
+      "creators_seen": 96,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 96.6,
+      "yield_score": 43,
+      "top_labels": "filmmaker:276; director:6; cinematographer:3; editor:3"
+    },
+    {
+      "source_type": "editorial_list",
+      "source_name": "FeedSpot Horror TikTokers",
+      "source_query": "FeedSpot Top Horror TikTok Influencers 2026",
+      "creators_seen": 16,
+      "useful_creators": 0,
+      "excellent_creators": 0,
+      "rejected_creators": 0,
+      "reviewed_creators": 0,
+      "usefulness_rate": 0,
+      "rejection_rate": 0,
+      "average_usefulness": 96,
+      "yield_score": 43,
+      "top_labels": "filmmaker:45; editor:3"
     },
     {
       "source_type": "editorial_list",
@@ -240,9 +240,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 64.2,
-      "yield_score": 29,
-      "top_labels": "creative_technologist:82; film_educator:4; filmmaker:4; standup_comedian:2; actor_performer:2"
+      "average_usefulness": 96.3,
+      "yield_score": 43,
+      "top_labels": "creative_technologist:123; film_educator:6; filmmaker:6; standup_comedian:3; actor_performer:3"
     },
     {
       "source_type": "editorial_list",
@@ -255,9 +255,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 64,
-      "yield_score": 29,
-      "top_labels": "filmmaker:2; editor:2"
+      "average_usefulness": 96,
+      "yield_score": 43,
+      "top_labels": "filmmaker:3; editor:3"
     },
     {
       "source_type": "editorial_list",
@@ -270,9 +270,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 63.9,
-      "yield_score": 29,
-      "top_labels": "behind_the_scenes_creator:184; film_educator:4; creative_technologist:2; director:2; editor:2"
+      "average_usefulness": 95.9,
+      "yield_score": 43,
+      "top_labels": "behind_the_scenes_creator:276; film_educator:6; creative_technologist:3; director:3; editor:3"
     },
     {
       "source_type": "editorial_list_seed",
@@ -285,9 +285,9 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 63,
-      "yield_score": 28,
-      "top_labels": "film_educator:6; filmmaker:6; cinematographer:2; vfx_animation:2"
+      "average_usefulness": 94.5,
+      "yield_score": 43,
+      "top_labels": "film_educator:9; filmmaker:9; cinematographer:3; vfx_animation:3"
     },
     {
       "source_type": "editorial_list_seed",
@@ -300,10 +300,10 @@
       "reviewed_creators": 0,
       "usefulness_rate": 0,
       "rejection_rate": 0,
-      "average_usefulness": 59.5,
-      "yield_score": 27,
-      "top_labels": "filmmaker:6; cinematographer:4; vfx_animation:2; film_educator:2; behind_the_scenes_creator:2"
+      "average_usefulness": 89.3,
+      "yield_score": 40,
+      "top_labels": "filmmaker:9; cinematographer:6; vfx_animation:3; film_educator:3; behind_the_scenes_creator:3"
     }
   ],
-  "total_seen": 1692
+  "total_seen": 1900
 }

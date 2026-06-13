@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-13T00:34:57.401Z",
+  "generated_at": "2026-06-13T00:39:25.208Z",
   "complete": false,
   "counts": {
-    "accounts": 1692,
-    "videos": 17,
+    "accounts": 1900,
+    "videos": 20,
     "edges": 52,
     "useful_accounts": 7,
     "excellent_accounts": 6,
     "rejected_accounts": 2,
-    "review_queue": 1692,
+    "review_queue": 1900,
     "review_sample": 250,
     "review_packet_rows": 250,
     "review_decision_template_rows": 250,
@@ -26,23 +26,23 @@
     "candidate_frontier": 86,
     "candidate_frontier_handles": 7,
     "candidate_frontier_queries": 79,
-    "acquisition_import_preview_accounts": 1686,
+    "acquisition_import_preview_accounts": 1894,
     "acquisition_import_preview_ready": true,
-    "acquisition_import_waves": 10,
+    "acquisition_import_waves": 11,
     "acquisition_runner_tasks": 2,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 15,
-    "source_yield_rows": 46,
-    "identities": 1667,
+    "source_yield_rows": 50,
+    "identities": 1870,
     "category_coverage_labels": 11,
     "category_coverage_covered_labels": 5,
     "release_useful_creators": 2,
     "release_verification_checks": 44,
-    "scale_plan_import_batches": 9999,
-    "scale_waves": 9999,
-    "wave_ledger_rows": 9999,
-    "wave_ledger_planned": 9999,
+    "scale_plan_import_batches": 10000,
+    "scale_waves": 10000,
+    "wave_ledger_rows": 10000,
+    "wave_ledger_planned": 10000,
     "wave_ledger_dry_run_only": 11,
     "wave_ledger_imported": 0,
     "wave_ledger_imported_empty": 0,
@@ -63,19 +63,19 @@
     "scale_campaign_mode": "dry_run",
     "scale_campaign_stop_reason": "dry_run_complete",
     "scale_campaign_estimated_cost_usd": 0.5,
-    "refresh_tasks": 1692,
+    "refresh_tasks": 1900,
     "publication_handoff": 1
   },
   "checks": [
     {
       "id": "seed_intake",
       "status": "pass",
-      "evidence": "1692 accounts ingested"
+      "evidence": "1900 accounts ingested"
     },
     {
       "id": "video_metadata",
       "status": "pass",
-      "evidence": "17 videos ingested"
+      "evidence": "20 videos ingested"
     },
     {
       "id": "graph_edges",
@@ -85,12 +85,12 @@
     {
       "id": "scoring_coverage",
       "status": "pass",
-      "evidence": "1692/1692 accounts scored"
+      "evidence": "1900/1900 accounts scored"
     },
     {
       "id": "review_queue",
       "status": "pass",
-      "evidence": "1692 accounts queued for review"
+      "evidence": "1900 accounts queued for review"
     },
     {
       "id": "review_sample",
@@ -130,12 +130,12 @@
     {
       "id": "acquisition_import_preview",
       "status": "pass",
-      "evidence": "1686 preview accounts, import gate ready"
+      "evidence": "1894 preview accounts, import gate ready"
     },
     {
       "id": "acquisition_import_waves",
       "status": "pass",
-      "evidence": "10 acquisition import waves tracked"
+      "evidence": "11 acquisition import waves tracked"
     },
     {
       "id": "acquisition_runner",
@@ -150,12 +150,12 @@
     {
       "id": "source_yield",
       "status": "pass",
-      "evidence": "46 source/query yield rows generated"
+      "evidence": "50 source/query yield rows generated"
     },
     {
       "id": "identity_resolution",
       "status": "pass",
-      "evidence": "1667 creator identities resolved"
+      "evidence": "1870 creator identities resolved"
     },
     {
       "id": "category_coverage",
@@ -175,17 +175,17 @@
     {
       "id": "scale_plan",
       "status": "pass",
-      "evidence": "9999 estimated import batches"
+      "evidence": "10000 estimated import batches"
     },
     {
       "id": "scale_waves",
       "status": "pass",
-      "evidence": "9999 executable acquisition waves planned"
+      "evidence": "10000 executable acquisition waves planned"
     },
     {
       "id": "wave_ledger",
       "status": "pass",
-      "evidence": "9999 wave execution ledger rows generated"
+      "evidence": "10000 wave execution ledger rows generated"
     },
     {
       "id": "provider_preflight",
@@ -210,7 +210,7 @@
     {
       "id": "refresh_plan",
       "status": "pass",
-      "evidence": "1692 account refresh tasks generated"
+      "evidence": "1900 account refresh tasks generated"
     },
     {
       "id": "publication_handoff",

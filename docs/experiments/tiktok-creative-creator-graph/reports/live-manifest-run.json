@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:34:57.098Z",
+  "generated_at": "2026-06-13T00:39:25.012Z",
   "mode": "dry_run",
   "live_confirmed": false,
   "provider": "apify",
@@ -26,8 +26,8 @@
         "id": "dry_scale_wave_0001",
         "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=1",
         "status": "pass",
-        "started_at": "2026-06-13T00:34:57.033Z",
-        "finished_at": "2026-06-13T00:34:57.098Z",
+        "started_at": "2026-06-13T00:39:24.961Z",
+        "finished_at": "2026-06-13T00:39:25.012Z",
         "output_tail": [
           "      \"acquisition_surface\": \"category_gap_search\",",
           "      \"query\": \"site:tiktok.com/@ \\\"performer\\\"\",",
@@ -41,11 +41,11 @@
           "        \"languageCode\": \"en\"",
           "      },",
           "      \"dry_run\": true,",
-          "      \"started_at\": \"2026-06-13T00:34:57.092Z\",",
+          "      \"started_at\": \"2026-06-13T00:39:25.008Z\",",
           "      \"status\": \"dry_run\",",
           "      \"output_rows\": 0,",
           "      \"output_path\": \"\",",
-          "      \"finished_at\": \"2026-06-13T00:34:57.092Z\"",
+          "      \"finished_at\": \"2026-06-13T00:39:25.008Z\"",
           "    }",
           "  ]",
           "}"

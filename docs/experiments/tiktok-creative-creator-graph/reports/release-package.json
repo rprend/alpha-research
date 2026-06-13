@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-13T00:34:56.358Z",
+  "generated_at": "2026-06-13T00:39:24.552Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
-    "accounts": 1692,
-    "identities": 1667,
+    "accounts": 1900,
+    "identities": 1870,
     "useful_creators": 2,
     "benchmark_creators": 1,
     "rejected_creators": 2,
-    "review_queue": 1688
+    "review_queue": 1896
   },
   "readiness": {
-    "generated_at": "2026-06-13T00:34:12.741Z",
+    "generated_at": "2026-06-13T00:34:57.401Z",
     "complete": false,
     "counts": {
       "accounts": 1692,
@@ -28,8 +28,8 @@
       "review_plan_categories": 11,
       "review_decisions": 4,
       "review_blank_decisions": 0,
-      "accepted_creators": 7,
-      "benchmark_creators": 6,
+      "accepted_creators": 2,
+      "benchmark_creators": 1,
       "expansion_queue": 27,
       "adjacency_expansion_rows": 27,
       "adjacency_expansion_added_rows": 20,
@@ -48,7 +48,7 @@
       "identities": 1667,
       "category_coverage_labels": 11,
       "category_coverage_covered_labels": 5,
-      "release_useful_creators": 7,
+      "release_useful_creators": 2,
       "release_verification_checks": 44,
       "scale_plan_import_batches": 9999,
       "scale_waves": 9999,
@@ -176,7 +176,7 @@
       {
         "id": "release_package",
         "status": "pass",
-        "evidence": "7 useful creators exported for release"
+        "evidence": "2 useful creators exported for release"
       },
       {
         "id": "release_verification",
@@ -274,22 +274,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "3479b49453fd3124a93afd81ead40b66289e2281a2314f31e0026760d26f0f2e"
+      "sha256": "a27f0a609e4838628c86edda4e98c6b5e7eae97bcdd36b8f2a9ff423aadb3e69"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "b707f10c3ce0c6928f226957d8b37ebef37ded87c2e832ff9ffa96462380e151"
+      "sha256": "e01958cc30ac5aab0ca9b383971ca1588e5bde0edae14c5748aa28729f17bff7"
     },
     {
       "path": "data/release/review_queue.csv",
-      "rows": 1688,
-      "sha256": "d817b9af1b83ed0ba49be948a3c6951999b635ff5160463d3ed138e3e142c7b8"
+      "rows": 1896,
+      "sha256": "eacbe77267100e9bead1fe43d5b65a3ec880bcae31a969aa21c618d046d1ce4b"
     },
     {
       "path": "data/release/all_scored_creators.csv",
-      "rows": 1692,
-      "sha256": "fe4cc56f14a7995b872a4bcbf2fd640398fddf77e3fd6de5eb2816f5a0e83b09"
+      "rows": 1900,
+      "sha256": "2fd672e87277c00a925737c37fc67a4b05a2348eeb60bf54123c01a5b8536233"
     }
   ]
 }

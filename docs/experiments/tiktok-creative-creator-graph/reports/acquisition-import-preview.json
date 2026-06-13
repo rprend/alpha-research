@@ -1,24 +1,26 @@
 {
-  "generated_at": "2026-06-13T00:34:55.478Z",
+  "generated_at": "2026-06-13T00:39:23.895Z",
   "mode": "preview",
-  "input_rows": 2188,
-  "normalized_rows": 2188,
+  "input_rows": 2397,
+  "normalized_rows": 2397,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 502,
-  "output_accounts": 1686,
+  "duplicate_normalized_rows": 503,
+  "output_accounts": 1894,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
     "2026-06-13T00-11-50-106Z-editorial-list-import.jsonl": 1662,
+    "2026-06-13T00-39-23-080Z-editorial-list-import.jsonl": 209,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 2182,
+  "mapped_lineage_rows": 2391,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
     "2026-06-12T22-10-19-433Z": 499,
-    "2026-06-13T00-11-50-106Z": 1662
+    "2026-06-13T00-11-50-106Z": 1662,
+    "2026-06-13T00-39-23-080Z": 209
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -56,27 +58,31 @@
     "feedspot_technology_tiktok_2026": 51,
     "feedspot_book_tiktok_2026": 75,
     "feedspot_ai_tiktok_2026": 32,
+    "feedspot_jazz_tiktok_2026": 8,
+    "feedspot_stem_tiktok_2026": 98,
+    "feedspot_virtual_reality_tiktok_2026": 31,
+    "feedspot_virtual_tiktok_2026": 72,
     "editorial_izea_filmmakers_2026_06_12": 8,
     "editorial_shutterstock_filmmakers_2026_06_12": 8,
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
-    "editorial_list_public_web": 2161,
+    "editorial_list_public_web": 2370,
     "editorial_web": 21
   },
   "output_path": "",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.22943327239488118,
-    "output_rate": 0.7705667276051188,
+    "duplicate_rate": 0.2098456403838131,
+    "output_rate": 0.7901543596161869,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "checks": [
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "2188 input rows"
+        "evidence": "2397 input rows"
       },
       {
         "id": "handle_extraction",
@@ -86,12 +92,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "22.9% duplicate normalized rows, threshold 35.0%"
+        "evidence": "21.0% duplicate normalized rows, threshold 35.0%"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "2182/2188 rows mapped to provider/wave lineage"
+        "evidence": "2391/2397 rows mapped to provider/wave lineage"
       }
     ]
   },

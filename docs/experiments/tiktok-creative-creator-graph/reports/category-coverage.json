@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:34:55.990Z",
+  "generated_at": "2026-06-13T00:39:24.283Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 5,
@@ -18,7 +18,7 @@
     {
       "label": "filmmaker",
       "target_useful_creators": 8000,
-      "current_primary_accounts": 133,
+      "current_primary_accounts": 135,
       "useful_primary_accounts": 2,
       "excellent_primary_accounts": 2,
       "secondary_mentions": 3,
@@ -40,7 +40,7 @@
     {
       "label": "cinematographer",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 16,
+      "current_primary_accounts": 17,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 0,
@@ -51,7 +51,7 @@
     {
       "label": "editor",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 47,
+      "current_primary_accounts": 53,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 2,
@@ -62,7 +62,7 @@
     {
       "label": "vfx_animation",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 343,
+      "current_primary_accounts": 344,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 1,
@@ -73,7 +73,7 @@
     {
       "label": "sketch_comedian",
       "target_useful_creators": 7000,
-      "current_primary_accounts": 107,
+      "current_primary_accounts": 108,
       "useful_primary_accounts": 2,
       "excellent_primary_accounts": 2,
       "secondary_mentions": 1,
@@ -106,7 +106,7 @@
     {
       "label": "film_educator",
       "target_useful_creators": 3000,
-      "current_primary_accounts": 409,
+      "current_primary_accounts": 586,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 3,
@@ -117,7 +117,7 @@
     {
       "label": "behind_the_scenes_creator",
       "target_useful_creators": 3000,
-      "current_primary_accounts": 150,
+      "current_primary_accounts": 157,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 1,
@@ -128,7 +128,7 @@
     {
       "label": "creative_technologist",
       "target_useful_creators": 2000,
-      "current_primary_accounts": 391,
+      "current_primary_accounts": 404,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 0,

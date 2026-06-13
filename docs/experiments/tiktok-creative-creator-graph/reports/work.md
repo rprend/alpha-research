@@ -1,39 +1,39 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T00:34:55.637Z
+Generated: 2026-06-13T00:39:24.032Z
 
 ## Summary
 
-- Accounts: 1692
-- Videos: 17
+- Accounts: 1900
+- Videos: 20
 - Graph edges: 52
 - Useful accounts: 7
 - Excellent accounts: 6
-- Review queue: 1692
+- Review queue: 1900
 - Expansion queue: 7
 - Target: 50000
 - Target status: 49993 more useful accounts needed
 
 ## Status Counts
 
-- needs_review: 1683
+- needs_review: 1891
 - excellent: 6
 - reject: 2
 - useful: 1
 
 ## Primary Labels
 
-- sketch_comedian: 107
+- sketch_comedian: 108
 - standup_comedian: 57
-- cinematographer: 16
+- cinematographer: 17
 - director: 8
-- editor: 47
-- filmmaker: 133
-- vfx_animation: 343
-- creative_technologist: 391
-- film_educator: 409
+- editor: 53
+- filmmaker: 135
+- vfx_animation: 344
+- creative_technologist: 404
+- film_educator: 586
 - actor_performer: 8
-- behind_the_scenes_creator: 150
+- behind_the_scenes_creator: 157
 - unclear: 21
 - reject: 2
 
@@ -42,8 +42,8 @@ Generated: 2026-06-13T00:34:55.637Z
 | Handle | Label | Score | Status |
 | --- | --- | ---: | --- |
 | @maya.shortcuts | filmmaker | 98 | excellent |
-| @basementbits | sketch_comedian | 89 | excellent |
-| @selahshoots | filmmaker | 88 | excellent |
+| @basementbits | sketch_comedian | 92 | excellent |
+| @selahshoots | filmmaker | 91 | excellent |
 | @ani.motionlab | vfx_animation | 87 | excellent |
 | @noahframes | cinematographer | 86 | excellent |
 | @lucybits | sketch_comedian | 83 | excellent |
@@ -79,8 +79,8 @@ Generated: 2026-06-13T00:34:55.637Z
 | Handle | Label | Score | Reasons |
 | --- | --- | ---: | --- |
 | @maya.shortcuts | filmmaker | 98 | benchmark_candidate; strong_public_source_candidate |
-| @basementbits | sketch_comedian | 89 | benchmark_candidate; strong_public_source_candidate |
-| @selahshoots | filmmaker | 88 | benchmark_candidate; strong_public_source_candidate |
+| @basementbits | sketch_comedian | 92 | benchmark_candidate; strong_public_source_candidate |
+| @selahshoots | filmmaker | 91 | benchmark_candidate; strong_public_source_candidate |
 | @ani.motionlab | vfx_animation | 87 | benchmark_candidate; strong_public_source_candidate |
 | @noahframes | cinematographer | 86 | benchmark_candidate; strong_public_source_candidate |
 | @lucybits | sketch_comedian | 83 | benchmark_candidate; strong_public_source_candidate |
@@ -101,5 +101,5 @@ Generated: 2026-06-13T00:34:55.637Z
 | @kyndallharrisofficial | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
 | @jawntybrown | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
 | @authorcarriea | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
+| @lab_shenanigans | cinematographer | 38 | threshold_borderline; strong_public_source_candidate |
 | @ben_brainard | standup_comedian | 36 | threshold_borderline; strong_public_source_candidate |
-| @theofficialsambailey | sketch_comedian | 36 | threshold_borderline; strong_public_source_candidate |
