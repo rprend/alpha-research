@@ -38,6 +38,7 @@ node docs/experiments/university-mission-statement-drift/scripts/probe-second-la
 node docs/experiments/university-mission-statement-drift/scripts/fetch-second-layer-wayback-snapshots.mjs --targets=second-layer-wayback-targets.json --years=2015,2020 --max-snapshots=12 --resume=true
 node docs/experiments/university-mission-statement-drift/scripts/fetch-second-layer-historical-current-sources.mjs --resume=true
 node docs/experiments/university-mission-statement-drift/scripts/build-second-layer-corpus.mjs
+node docs/experiments/university-mission-statement-drift/scripts/build-second-layer-audit-packet.mjs
 ```
 
 `fetch-wayback-snapshots.mjs` preserves existing snapshots by default and updates the manifest from all local snapshot metadata. Use `--clean=true` only when intentionally replacing the run directory.
@@ -73,6 +74,9 @@ Outputs:
 - `data/processed/second-layer-term-family-by-source-layer-year.csv`
 - `reports/second-layer-source-inventory.md`
 - `reports/second-layer-corpus-readiness.md`
+- `reports/second-layer-audit-packet.md`
+- `reports/second-layer-audit-packet.csv`
+- `reports/second-layer-audit-packet.json`
 
 ## Second-Layer Historical Probe
 
@@ -83,5 +87,6 @@ The current second-layer corpus contains 29 pages:
 - 4 live historical-current pages across strategic-plan and commencement-speech genres
 - source-layer status: `historical-second-layer-built`
 - corpus tier: `longitudinal-source-probe`
+- audit packet: `reports/second-layer-audit-packet.md`, `reports/second-layer-audit-packet.csv`, and `reports/second-layer-audit-packet.json`
 
 Historical second-layer snapshots are intentionally source-layered. Public claims should not compare catalogs, strategic plans, president messages, and commencement speeches as one stable genre. The next coverage step is manual quote review of the eight historical records before joining second-layer outputs into the main readiness gate.

@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-06-13T01:38:20.088Z",
+  "generatedAt": "2026-06-13T01:42:31.933Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
-  "completeTrackCount": 1,
-  "incompleteTrackCount": 5,
+  "completeTrackCount": 2,
+  "incompleteTrackCount": 4,
   "tracks": [
     {
       "id": "university-second-layer-corpus",
       "title": "University Institutional Language Second-Layer Corpus",
       "priority": 1,
-      "status": "historical-second-layer-built",
-      "complete": false,
+      "status": "artifact-ready",
+      "complete": true,
       "sourceExperiment": "docs/experiments/university-mission-statement-drift/",
       "requiredEvidenceCount": 5,
       "nextActionCount": 3,
@@ -80,12 +80,6 @@
     }
   ],
   "nextImplementationQueue": [
-    {
-      "id": "university-second-layer-corpus",
-      "title": "University Institutional Language Second-Layer Corpus",
-      "status": "historical-second-layer-built",
-      "sourceExperiment": "docs/experiments/university-mission-statement-drift/"
-    },
     {
       "id": "museum-second-layer-corpus",
       "title": "Museum Annual Report And Provenance Source Layers",

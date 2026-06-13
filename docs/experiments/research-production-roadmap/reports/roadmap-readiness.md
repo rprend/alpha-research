@@ -1,12 +1,12 @@
 # Research Production Roadmap Readiness
 
-Generated at: 2026-06-13T01:38:20.088Z
+Generated at: 2026-06-13T01:42:31.933Z
 Status: active
-Complete tracks: 1/6
+Complete tracks: 2/6
 
 | Priority | Track | Status | Complete | Source Experiment |
 | ---: | --- | --- | --- | --- |
-| 1 | University Institutional Language Second-Layer Corpus | historical-second-layer-built | no | `docs/experiments/university-mission-statement-drift/` |
+| 1 | University Institutional Language Second-Layer Corpus | artifact-ready | yes | `docs/experiments/university-mission-statement-drift/` |
 | 2 | Museum Annual Report And Provenance Source Layers | historical-source-probed | no | `docs/experiments/museum-language-drift/` |
 | 3 | Humanities Literature Radar Broad Backfill | remote-verified-broad-backfill | no | `docs/experiments/humanities-literature-radar/` |
 | 4 | Cleveland Museum Full-Collection Backfill | artifact-ready | yes | `docs/experiments/cleveland-museum-collection-shape/` |
@@ -15,8 +15,7 @@ Complete tracks: 1/6
 
 ## Next Implementation Queue
 
-1. University Institutional Language Second-Layer Corpus (historical-second-layer-built)
-2. Museum Annual Report And Provenance Source Layers (historical-source-probed)
-3. Humanities Literature Radar Broad Backfill (remote-verified-broad-backfill)
-4. Canon Drift Narrow Signal Pilot (pilot-ready)
-5. Humanities Dataset Registry File-Level Probes (file-level-probed)
+1. Museum Annual Report And Provenance Source Layers (historical-source-probed)
+2. Humanities Literature Radar Broad Backfill (remote-verified-broad-backfill)
+3. Canon Drift Narrow Signal Pilot (pilot-ready)
+4. Humanities Dataset Registry File-Level Probes (file-level-probed)

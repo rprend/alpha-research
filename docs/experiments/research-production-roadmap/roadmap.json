@@ -7,7 +7,7 @@
       "id": "university-second-layer-corpus",
       "title": "University Institutional Language Second-Layer Corpus",
       "priority": 1,
-      "status": "historical-second-layer-built",
+      "status": "artifact-ready",
       "sourceExperiment": "docs/experiments/university-mission-statement-drift/",
       "why": "The Season One post proves current/about-page and Wayback feasibility, and the second-layer corpus now includes current routes plus eight historical pages across catalog, strategic-plan, president-message, and commencement-speech genres. Stronger claims still need manual quote review before publication use.",
       "requiredSources": [
@@ -26,7 +26,7 @@
       ],
       "nextActions": [
         "Retain the 21/21 accessible current-route source mix plus the 8 historical second-layer pages across all four source genres.",
-        "Manually quote-review the historical-current and Wayback records before any public source-layer comparison.",
+        "Use reports/second-layer-audit-packet.json to manually mark quote_safe rows before any public source-layer comparison.",
         "Join source-genre tables into the main readiness gate after manual quote review."
       ]
     },

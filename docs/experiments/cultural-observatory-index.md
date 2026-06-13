@@ -228,6 +228,7 @@ Implemented:
 - second-layer page-term counts
 - second-layer term-family-by-genre table
 - second-layer term-family-by-source-layer-year table
+- second-layer audit packet for historical source-layer quote review
 - audit packet
 - publication handoff with corpus notes, historical snapshot table, and public-claim checklist
 - readiness gate
@@ -255,6 +256,7 @@ Current committed corpus:
 - second-layer source-layer counts: 21 current, 4 Wayback, 4 historical-current
 - second-layer historical genre counts: 2 catalog, 2 commencement-speech, 2 president-message, 2 strategic-plan
 - second-layer genre counts: 10 catalog, 8 commencement-speech, 5 president-message, 6 strategic-plan
+- second-layer audit packet: `reports/second-layer-audit-packet.json`, status `pending-review`, 8/8 historical rows queued
 - year range: 2000-2026
 - term families: truth/knowledge, civic/public, innovation/impact, global/leadership, excellence/prestige, inclusion/belonging, career/economy
 - publication post: `reports/post.md`, a polished source-layer methods draft
