@@ -19,6 +19,7 @@ const offsetPerLabel = Number(args.get('--offset-per-label') ?? 0)
 const minVideoCount = Number(args.get('--min-video-count') ?? 3)
 const minFollowerCount = Number(args.get('--min-follower-count') ?? 0)
 const dryRun = args.has('--dry-run')
+const selectedLabels = new Set(String(args.get('--labels') ?? '').split(',').map((label) => label.trim()).filter(Boolean))
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
 const provider = 'huggingface_dataset'
 const dataset = 'Tikfly/tiktok-top-kol'
@@ -35,7 +36,7 @@ const labelQueries = [
   },
   {
     target_label: 'cinematographer',
-    keywords: ['cinematographer', 'cinematography', 'videographer', 'dp', 'camera operator', 'lighting'],
+    keywords: ['cinematographer', 'cinematography', 'videographer', 'photographer', 'dp', 'camera operator', 'lighting'],
   },
   {
     target_label: 'editor',
@@ -43,11 +44,11 @@ const labelQueries = [
   },
   {
     target_label: 'vfx_animation',
-    keywords: ['animator', 'animation', 'vfx', 'visual effects', 'motion designer', '3d artist', 'cgi'],
+    keywords: ['animator', 'animation', 'vfx', 'visual effects', 'motion designer', '3d artist', 'digital artist', 'illustrator', 'cgi'],
   },
   {
     target_label: 'sketch_comedian',
-    keywords: ['sketch comedy', 'comedian', 'comedy creator', 'improv', 'parody', 'funny videos'],
+    keywords: ['sketch comedy', 'comedian', 'comedy creator', 'comedy', 'humor', 'improv', 'parody', 'funny videos'],
   },
   {
     target_label: 'standup_comedian',
@@ -55,15 +56,19 @@ const labelQueries = [
   },
   {
     target_label: 'screenwriter',
-    keywords: ['screenwriter', 'writer', 'storyteller', 'author', 'script writer', 'scripts'],
+    keywords: ['screenwriter', 'writer', 'storyteller', 'author', 'poet', 'script writer', 'scripts'],
   },
   {
     target_label: 'film_educator',
-    keywords: ['film analysis', 'movie reviews', 'film reviews', 'explainer', 'educator', 'tutorials'],
+    keywords: ['film analysis', 'movie reviews', 'film reviews', 'explainer', 'educator', 'tutorial', 'tutorials', 'how to', 'tips', 'coach'],
   },
   {
     target_label: 'creative_technologist',
-    keywords: ['creative technologist', 'ai artist', 'generative ai', 'creative coder', 'game developer', 'ar creator', 'vr creator'],
+    keywords: ['creative technologist', 'ai artist', 'generative ai', 'ai', 'creative coder', 'developer', 'software', 'designer', 'game developer', 'ar creator', 'vr creator'],
+  },
+  {
+    target_label: 'actor_performer',
+    keywords: ['actor', 'actress', 'performer', 'voice actor', 'dancer', 'choreographer', 'singer', 'musician', 'composer', 'producer'],
   },
   {
     target_label: 'behind_the_scenes_creator',
@@ -208,7 +213,7 @@ async function main() {
   const seenHandles = new Set()
   const labelReports = []
 
-  for (const labelQuery of labelQueries) {
+  for (const labelQuery of labelQueries.filter((query) => !selectedLabels.size || selectedLabels.has(query.target_label))) {
     const startedAt = new Date().toISOString()
     let rawRows = []
     let addedRows = 0

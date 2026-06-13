@@ -1,8 +1,8 @@
 # Adjacency Expansion
 
-Generated: 2026-06-13T14:58:32.582Z
+Generated: 2026-06-13T15:58:08.040Z
 
-- Base rows: 11801
+- Base rows: 39499
 - Expansion rows: 500
 - Added rows: 0
 

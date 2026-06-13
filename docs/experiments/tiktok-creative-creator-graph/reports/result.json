@@ -1,42 +1,42 @@
 {
-  "run_id": "2026-06-13T14-58-14-745Z",
-  "generated_at": "2026-06-13T14:58:28.651Z",
+  "run_id": "2026-06-13T15-57-40-774Z",
+  "generated_at": "2026-06-13T15:58:01.130Z",
   "target_useful_accounts": 50000,
   "smoke": false,
   "counts": {
-    "accounts": 39580,
-    "videos": 141403,
-    "edges": 66004,
-    "useful_accounts": 18814,
-    "excellent_accounts": 5451,
-    "review_queue": 39580,
-    "expansion_queue": 11801
+    "accounts": 78420,
+    "videos": 179183,
+    "edges": 59288,
+    "useful_accounts": 51404,
+    "excellent_accounts": 6010,
+    "review_queue": 78420,
+    "expansion_queue": 39499
   },
   "status_counts": {
-    "useful": 13363,
-    "needs_review": 20727,
-    "excellent": 5451,
-    "reject": 39
+    "excellent": 6010,
+    "needs_review": 26971,
+    "useful": 45394,
+    "reject": 45
   },
   "primary_label_counts": {
-    "actor_performer": 8665,
-    "sketch_comedian": 3685,
-    "standup_comedian": 860,
-    "filmmaker": 7826,
-    "cinematographer": 2022,
-    "vfx_animation": 2619,
-    "director": 1521,
-    "editor": 5588,
-    "creative_technologist": 1777,
-    "film_educator": 2290,
-    "behind_the_scenes_creator": 2688,
-    "reject": 39
+    "standup_comedian": 930,
+    "sketch_comedian": 8704,
+    "vfx_animation": 18133,
+    "actor_performer": 19254,
+    "filmmaker": 14287,
+    "cinematographer": 2759,
+    "director": 1519,
+    "editor": 5587,
+    "creative_technologist": 1669,
+    "film_educator": 2125,
+    "behind_the_scenes_creator": 3408,
+    "reject": 45
   },
   "readiness": {
     "seed_intake_ready": true,
     "graph_expansion_ready": true,
     "scoring_ready": true,
-    "target_met": false,
-    "next_gap": "31186 more useful accounts needed"
+    "target_met": true,
+    "next_gap": "target_met"
   }
 }

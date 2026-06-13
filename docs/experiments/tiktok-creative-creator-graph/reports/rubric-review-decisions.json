@@ -1,0 +1,238 @@
+{
+  "generated_at": "2026-06-13T15:52:06.476Z",
+  "execution_id": "2026-06-13T15-52-06-390Z",
+  "reviewer": "rubric_bootstrap",
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/review-decisions/2026-06-13T15-52-06-390Z-rubric-bootstrap-review-decisions.jsonl",
+  "requested_decisions": 500,
+  "output_rows": 500,
+  "decision_counts": {
+    "excellent_benchmark": 500
+  },
+  "first_rows": [
+    {
+      "handle": "@erinhattamer",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent filmmaker candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "erinhattamer",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@lifeofdevint",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "lifeofdevint",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@zachking",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent filmmaker candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "zachking",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@joshvfx",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "joshvfx",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@laurenashleybeck",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent filmmaker candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "laurenashleybeck",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@serenaneel",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "serenaneel",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@itsjojosiwa",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "itsjojosiwa",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@davinamichellemusic",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent actor_performer candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "davinamichellemusic",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@nintendo.grl",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "nintendo.grl",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@avani",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent actor_performer candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "avani",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@enola.bedard",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent actor_performer candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "enola.bedard",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@theshilpashetty",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent actor_performer candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "theshilpashetty",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@youneszarou",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent film_educator candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "youneszarou",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@miniminuteman",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent filmmaker candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "miniminuteman",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@david_fils_de_momone",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent actor_performer candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "david_fils_de_momone",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@jeffreestar",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent actor_performer candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "jeffreestar",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@actressbecc",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent actor_performer candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "actressbecc",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@lights.are.off",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "lights.are.off",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@daphnedtle",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "daphnedtle",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@calligraphilic",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "calligraphilic",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@biteswithlily",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent sketch_comedian candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "biteswithlily",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@gardinerbrothers",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "gardinerbrothers",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@macfarlanebros",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "macfarlanebros",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@reelfoleysound",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent vfx_animation candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "reelfoleysound",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    },
+    {
+      "handle": "@mikecaron_la",
+      "decision": "excellent_benchmark",
+      "reviewer": "rubric_bootstrap",
+      "notes": "Rubric bootstrap: excellent director candidate with usefulness 100.",
+      "packet_id": "rubric_bootstrap_2026-06-13T15-52-06-390Z",
+      "review_row_id": "mikecaron_la",
+      "reviewed_at": "2026-06-13T15:52:06.475Z"
+    }
+  ]
+}

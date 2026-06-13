@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T14:58:39.474Z",
-  "execution_id": "2026-06-13T14-58-39-473Z",
+  "generated_at": "2026-06-13T15:58:18.443Z",
+  "execution_id": "2026-06-13T15-58-18-442Z",
   "provider": "public_web",
   "env_file_loaded": true,
   "provider_token_available": false,
@@ -20,42 +20,42 @@
   "output_rows": 0,
   "results": [
     {
-      "execution_id": "2026-06-13T14-58-39-473Z",
+      "execution_id": "2026-06-13T15-58-18-442Z",
       "provider": "public_web",
-      "batch_id": "search_0005",
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ cinematographer",
-      "target_label": "cinematographer",
+      "batch_id": "cross_platform_0027",
+      "acquisition_surface": "cross_platform_search",
+      "query": "site:imdb.com \"tiktok.com/@\" \"actor\"",
+      "target_label": "actor_performer",
       "actor_id": "bing_rss",
       "input": {
-        "query": "site:tiktok.com/@ cinematographer",
+        "query": "site:imdb.com \"tiktok.com/@\" \"actor\"",
         "limit": 100
       },
       "dry_run": true,
-      "started_at": "2026-06-13T14:58:39.474Z",
+      "started_at": "2026-06-13T15:58:18.443Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-13T14:58:39.474Z"
+      "finished_at": "2026-06-13T15:58:18.443Z"
     },
     {
-      "execution_id": "2026-06-13T14-58-39-473Z",
+      "execution_id": "2026-06-13T15-58-18-442Z",
       "provider": "public_web",
-      "batch_id": "search_0007",
-      "acquisition_surface": "search_index",
-      "query": "site:tiktok.com/@ \"vfx artist\"",
-      "target_label": "vfx_animation",
+      "batch_id": "category_gap_0042",
+      "acquisition_surface": "category_gap_search",
+      "query": "site:tiktok.com/@ \"film education\"",
+      "target_label": "film_educator",
       "actor_id": "bing_rss",
       "input": {
-        "query": "site:tiktok.com/@ \"vfx artist\"",
+        "query": "site:tiktok.com/@ \"film education\"",
         "limit": 100
       },
       "dry_run": true,
-      "started_at": "2026-06-13T14:58:39.474Z",
+      "started_at": "2026-06-13T15:58:18.443Z",
       "status": "dry_run",
       "output_rows": 0,
       "output_path": "",
-      "finished_at": "2026-06-13T14:58:39.474Z"
+      "finished_at": "2026-06-13T15:58:18.443Z"
     }
   ]
 }

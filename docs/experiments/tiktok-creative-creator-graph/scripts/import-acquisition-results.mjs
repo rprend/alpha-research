@@ -20,6 +20,7 @@ const minNormalizedRate = Number(args.get('--min-normalized-rate') ?? 0.75)
 const maxDuplicateRate = Number(args.get('--max-duplicate-rate') ?? 0.35)
 const explicitOutputPath = args.get('--output') ? join(root, String(args.get('--output'))) : null
 const defaultOutputDate = new Date().toISOString().slice(0, 10)
+const maxImportShardBytes = 75 * 1024 * 1024
 
 function ensureDir(path) {
   mkdirSync(path, { recursive: true })
@@ -79,6 +80,31 @@ function writeJson(path, value) {
 
 function writeJsonl(path, rows) {
   writeFileSync(path, jsonlText(rows))
+}
+
+function writeJsonlShards(path, rows) {
+  const shards = []
+  let shard = []
+  let shardBytes = 0
+  const flush = () => {
+    if (!shard.length) return
+    const shardPath = shards.length === 0
+      ? path
+      : path.replace(/\.jsonl$/i, `-part-${String(shards.length + 1).padStart(2, '0')}.jsonl`)
+    writeJsonl(shardPath, shard)
+    shards.push(shardPath)
+    shard = []
+    shardBytes = 0
+  }
+
+  for (const row of rows) {
+    const line = `${JSON.stringify(row)}\n`
+    if (shard.length && shardBytes + Buffer.byteLength(line) > maxImportShardBytes) flush()
+    shard.push(row)
+    shardBytes += Buffer.byteLength(line)
+  }
+  flush()
+  return shards
 }
 
 function writeCsv(path, rows) {
@@ -596,7 +622,8 @@ ${Object.entries(report.source_files).map(([file, count]) => `- ${file}: ${count
     console.log(JSON.stringify(report, null, 2))
     return
   }
-  writeJsonl(outputPath, accounts)
+  const outputPaths = writeJsonlShards(outputPath, accounts)
+  report.output_path = outputPaths.map((path) => path.replace(`${root}/`, '')).join('|')
   const wave = summarizeWave(rows, accounts, stats, report)
   const waves = upsertWave(wave)
   report.wave = wave

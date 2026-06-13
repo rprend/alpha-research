@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-13T14:58:41.558Z
+Generated: 2026-06-13T15:58:21.213Z
 
 Complete: true
 
@@ -11,8 +11,6 @@ Complete: true
 - auto_complete_external_lead_packet: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/auto-complete-external-lead-packet.mjs`)
 - build_external_lead_progress_after_auto_complete: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs`)
 - import_ready_external_lead_packet: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/import-ready-external-lead-packet.mjs`)
-- preview_acquisition_import: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs --preview`)
-- import_acquisition_results: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs`)
 - run_pipeline: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/run-pipeline.mjs`)
 - apply_review_decisions: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/apply-review-decisions.mjs`)
 - analyze_source_yield: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/analyze-source-yield.mjs`)

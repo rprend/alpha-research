@@ -1,24 +1,24 @@
 # Acquisition Import Preview
 
-Generated: 2026-06-13T14:58:12.904Z
+Generated: 2026-06-13T15:56:09.054Z
 
-- Input rows: 194286
-- Normalized rows: 194286
+- Input rows: 290587
+- Normalized rows: 290587
 - Skipped rows: 0
-- Duplicate normalized rows: 154711
-- Output accounts if imported: 39575
+- Duplicate normalized rows: 212172
+- Output accounts if imported: 78415
 - Ready to import: no
 - Normalized rate: 100.0%
-- Duplicate rate: 79.6%
-- Mapped lineage rows: 194280
+- Duplicate rate: 73.0%
+- Mapped lineage rows: 290581
 - Unmapped lineage rows: 6
 
 ## Checks
 
-- has_rows: pass - 194286 input rows
+- has_rows: pass - 290587 input rows
 - handle_extraction: pass - 100.0% normalized, threshold 75.0%
-- duplicate_pressure: fail - 79.6% duplicate normalized rows, threshold 65.0% (metadata overlay)
-- lineage_mapping: pass - 194280/194286 rows mapped to provider/wave lineage
+- duplicate_pressure: fail - 73.0% duplicate normalized rows, threshold 65.0% (metadata overlay)
+- lineage_mapping: pass - 290581/290587 rows mapped to provider/wave lineage
 
 ## Source Files
 
@@ -507,6 +507,89 @@ Generated: 2026-06-13T14:58:12.904Z
 - 2026-06-13T12-06-28-816Z-public-profile-enrichment.jsonl: 1923
 - 2026-06-13T14-38-36-754Z-public-profile-enrichment.jsonl: 100
 - 2026-06-13T14-53-16-796Z-public-profile-enrichment.jsonl: 74
+- 2026-06-13T15-02-28-173Z-hf-tikfly-top-kol.jsonl: 5000
+- 2026-06-13T15-04-55-817Z-hf-tikfly-top-kol.jsonl: 5566
+- 2026-06-13T15-06-37-794Z-hf-tikfly-top-kol.jsonl: 3916
+- 2026-06-13T15-08-29-046Z-hf-tikfly-top-kol.jsonl: 2057
+- 2026-06-13T15-10-12-577Z-hf-tikfly-top-kol.jsonl: 526
+- 2026-06-13T15-14-25-777Z-external-lead-list.jsonl: 233
+- 2026-06-13T15-16-45-590Z-hf-tiktok-video-dataset.jsonl: 1
+- 2026-06-13T15-17-18-191Z-hf-tikfly-top-kol.jsonl: 9686
+- 2026-06-13T15-19-02-881Z-hf-tikfly-top-kol.jsonl: 6882
+- 2026-06-13T15-20-47-845Z-hf-tikfly-top-kol.jsonl: 5597
+- 2026-06-13T15-22-36-064Z-hf-tikfly-top-kol.jsonl: 3553
+- 2026-06-13T15-24-28-965Z-hf-tikfly-top-kol.jsonl: 2908
+- 2026-06-13T15-26-18-224Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-28-10-808Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-30-01-752Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-31-50-780Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-33-45-199Z-hf-tikfly-top-kol.jsonl: 1034
+- 2026-06-13T15-36-19-653Z-external-lead-list.jsonl: 119
+- 2026-06-13T15-36-19-687Z-external-lead-list.jsonl: 233
+- 2026-06-13T15-36-19-722Z-external-lead-list.jsonl: 87
+- 2026-06-13T15-36-19-756Z-external-lead-list.jsonl: 192
+- 2026-06-13T15-36-19-792Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-19-829Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-19-865Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-19-902Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-19-938Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-19-973Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-007Z-external-lead-list.jsonl: 125
+- 2026-06-13T15-36-20-042Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-076Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-110Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-145Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-179Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-213Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-247Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-282Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-317Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-352Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-389Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-424Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-20-459Z-external-lead-list.jsonl: 52
+- 2026-06-13T15-36-20-491Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-36-45-284Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-36-55-115Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-37-04-832Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-37-15-146Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-37-25-110Z-hf-tikfly-top-kol.jsonl: 328
+- 2026-06-13T15-41-12-434Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-41-12-470Z-external-lead-list.jsonl: 235
+- 2026-06-13T15-41-46-261Z-hf-tikfly-top-kol.jsonl: 2985
+- 2026-06-13T15-42-12-196Z-hf-tikfly-top-kol.jsonl: 2639
+- 2026-06-13T15-42-38-186Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-43-04-947Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-43-34-652Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-44-02-972Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-44-30-850Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-44-58-039Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-45-28-405Z-hf-tikfly-top-kol.jsonl: 2000
+- 2026-06-13T15-45-57-540Z-hf-tikfly-top-kol.jsonl: 1391
+- 2026-06-13T15-46-26-826Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-46-56-209Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-47-26-538Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-47-57-143Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-48-37-812Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-49-10-784Z-hf-tikfly-top-kol.jsonl: 1000
+- 2026-06-13T15-50-38-338Z-external-lead-list.jsonl: 87
+- 2026-06-13T15-50-38-374Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-409Z-external-lead-list.jsonl: 125
+- 2026-06-13T15-50-38-446Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-481Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-519Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-556Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-594Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-632Z-external-lead-list.jsonl: 192
+- 2026-06-13T15-50-38-669Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-705Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-740Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-776Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-812Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-849Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-888Z-external-lead-list.jsonl: 250
+- 2026-06-13T15-50-38-924Z-external-lead-list.jsonl: 52
+- 2026-06-13T15-50-38-958Z-external-lead-list.jsonl: 250
 - editorial-list-seeds-2026-06-12.jsonl: 21
 - smoke-provider-results.jsonl: 3
 - smoke-search-results.jsonl: 3

@@ -130,6 +130,10 @@ function extractMentions(text) {
   return Array.from(new Set(String(text ?? '').match(/@[A-Za-z0-9._-]+/g)?.map(normalizeHandle).filter(Boolean) ?? []))
 }
 
+function compactCaption(value) {
+  return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, 500)
+}
+
 function daysSince(dateText) {
   const date = new Date(dateText)
   if (Number.isNaN(date.getTime())) return Infinity
@@ -247,9 +251,9 @@ function normalizeRows(rows) {
 
     const rowVideos = asArray(row.videos)
     for (const [index, video] of rowVideos.entries()) {
-      const caption = video.caption ?? video.description ?? ''
-      const hashtags = Array.from(new Set([...asArray(video.hashtags).map((tag) => String(tag).replace(/^#/, '').toLowerCase()), ...extractHashtags(caption)]))
-      const mentions = Array.from(new Set([...asArray(video.mentions).map(normalizeHandle).filter(Boolean), ...extractMentions(caption)].filter((mention) => mention !== handle)))
+      const caption = compactCaption(video.caption ?? video.description ?? '')
+      const hashtags = Array.from(new Set([...asArray(video.hashtags).map((tag) => String(tag).replace(/^#/, '').toLowerCase()), ...extractHashtags(caption)])).slice(0, 20)
+      const mentions = Array.from(new Set([...asArray(video.mentions).map(normalizeHandle).filter(Boolean), ...extractMentions(caption)].filter((mention) => mention !== handle))).slice(0, 20)
       const videoRow = {
         id: `${account.id}_${videos.length + index + 1}`,
         creator_id: account.id,
@@ -274,7 +278,8 @@ function normalizeRows(rows) {
 
   const accounts = Array.from(accountMap.values()).map((account) => ({
     ...account,
-    source_files: Array.from(account.source_files),
+    source_file_count: account.source_files.size,
+    source_files: Array.from(account.source_files).slice(0, 12),
     source_labels: Array.from(account.source_labels),
     source_names: Array.from(account.source_names),
     source_queries: Array.from(account.source_queries),

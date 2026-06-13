@@ -1,10 +1,10 @@
 # External Lead Packet Import
 
-Generated: 2026-06-13T14:58:39.155Z
+Generated: 2026-06-13T15:58:18.094Z
 
 - Dry run: false
-- Ready files: 60
-- Already imported ready files: 60
+- Ready files: 56
+- Already imported ready files: 56
 - Pending files: 0
 - Imported files: 0
 - Failed files: 0

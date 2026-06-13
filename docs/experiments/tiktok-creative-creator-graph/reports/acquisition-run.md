@@ -1,6 +1,6 @@
 # Acquisition Run
 
-Generated: 2026-06-13T14:58:39.474Z
+Generated: 2026-06-13T15:58:18.443Z
 
 - Provider: public_web
 - Env file loaded: true
@@ -23,5 +23,5 @@ Generated: 2026-06-13T14:58:39.474Z
 
 | Batch | Surface | Target Label | Query | Status | Rows |
 | --- | --- | --- | --- | --- | ---: |
-| search_0005 | search_index | cinematographer | site:tiktok.com/@ cinematographer | dry_run | 0 |
-| search_0007 | search_index | vfx_animation | site:tiktok.com/@ "vfx artist" | dry_run | 0 |
+| cross_platform_0027 | cross_platform_search | actor_performer | site:imdb.com "tiktok.com/@" "actor" | dry_run | 0 |
+| category_gap_0042 | category_gap_search | film_educator | site:tiktok.com/@ "film education" | dry_run | 0 |

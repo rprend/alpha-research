@@ -1,24 +1,24 @@
 # Source Yield
 
-Generated: 2026-06-13T14:58:31.774Z
+Generated: 2026-06-13T15:58:06.966Z
 
-- Sources: 1566
-- Distinct creators seen through sources: 39580
+- Sources: 1573
+- Distinct creators seen through sources: 78420
 
 ## Best Sources
 
 | Source type | Query | Seen | Useful | Rejected | Yield |
 | --- | --- | ---: | ---: | ---: | ---: |
-| hf_tikfly_top_kol | sketch comedy|comedian|comedy creator|improv|parody|funny videos | 3163 | 2617 | 0 | 100 |
+| hf_tikfly_top_kol | creative technologist|ai artist|generative ai|ai|creative coder|developer|software|designer|game developer|ar creator|vr creator | 14324 | 14321 | 3 | 100 |
+| hf_tikfly_top_kol | actor|actress|performer|voice actor|dancer|choreographer|singer|musician|composer|producer | 9612 | 9611 | 1 | 100 |
+| hf_tikfly_top_kol | sketch comedy|comedian|comedy creator|comedy|humor|improv|parody|funny videos | 5342 | 4653 | 0 | 100 |
+| hf_tikfly_top_kol | sketch comedy|comedian|comedy creator|improv|parody|funny videos | 3163 | 2670 | 0 | 100 |
 | hf_shofo_video_parquet | video editor|editor|edit breakdown|editing|velocityedit|capcut|premiere pro|davinci | 2330 | 2314 | 16 | 100 |
-| hf_tikfly_top_kol | cinematographer|cinematography|videographer|dp|camera operator|lighting | 1638 | 1439 | 0 | 100 |
+| hf_tikfly_top_kol | behind the scenes|bts|on set|production|producer | 2665 | 2193 | 1 | 100 |
+| hf_tikfly_top_kol | screenwriter|writer|storyteller|author|script writer|scripts | 3778 | 1576 | 0 | 100 |
+| hf_tikfly_top_kol | cinematographer|cinematography|videographer|dp|camera operator|lighting | 1638 | 1450 | 0 | 100 |
 | hf_tikfly_top_kol | animator|animation|vfx|visual effects|motion designer|3d artist|cgi | 1324 | 1324 | 0 | 100 |
-| hf_tikfly_top_kol | film director|director|directed by|commercial director|music video director | 1228 | 752 | 0 | 100 |
-| hf_shofo_video_parquet | filmmaker|short film|shortfilm|movie|documentary|screenwriter|music video | 735 | 732 | 3 | 100 |
-| hf_shofo_video_parquet | tutorial|breakdown|how to|film analysis|camera tips|lighting setup | 692 | 692 | 0 | 100 |
-| hf_shofo_video_parquet | vfx|visual effects|aftereffects|after effects|animation|animator|motion graphics|cgi|blender | 402 | 400 | 2 | 100 |
-| hf_shofo_video_parquet | behind the scenes|bts|making of|how i made|on set|setup|process | 296 | 294 | 2 | 100 |
-| hf_shofo_video_parquet | cinematography|cinematic|camera|lighting|shot on|videographer|film look | 293 | 290 | 2 | 100 |
+| hf_tikfly_top_kol | film director|director|directed by|commercial director|music video director | 1228 | 860 | 0 | 100 |
 
 ## Weak Sources
 

@@ -1,11 +1,11 @@
 # Learning Candidate Shortlist
 
-Generated: 2026-06-13T14:58:34.037Z
+Generated: 2026-06-13T15:58:10.385Z
 
 - Requested rows: 5000
 - Output rows: 5000
-- Reviewed rows: 0
-- Unreviewed rows: 5000
+- Reviewed rows: 60
+- Unreviewed rows: 4940
 
 This is a prioritization artifact, not a production release gate. A row means the account has enough public provenance and category fit to review for "learn from this creator" value.
 
@@ -15,17 +15,17 @@ This is a prioritization artifact, not a production release gate. A row means th
 
 ## Labels
 
-- standup_comedian: 93
-- filmmaker: 844
-- director: 41
-- editor: 2062
-- actor_performer: 66
-- vfx_animation: 610
-- behind_the_scenes_creator: 282
-- sketch_comedian: 146
-- film_educator: 699
-- cinematographer: 110
-- creative_technologist: 47
+- vfx_animation: 1046
+- behind_the_scenes_creator: 272
+- standup_comedian: 102
+- cinematographer: 116
+- editor: 1614
+- sketch_comedian: 141
+- filmmaker: 730
+- film_educator: 522
+- actor_performer: 367
+- creative_technologist: 43
+- director: 47
 
 Primary files:
 

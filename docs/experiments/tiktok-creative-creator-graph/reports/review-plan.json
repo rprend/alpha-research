@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-06-13T14:58:35.231Z",
+  "generated_at": "2026-06-13T15:58:12.125Z",
   "target_review_decisions": 500,
-  "current_review_decisions": 4,
-  "review_gap": 496,
+  "current_review_decisions": 504,
+  "review_gap": 0,
   "review_batch_size": 250,
-  "review_batches_needed": 2,
+  "review_batches_needed": 0,
   "current_sample_rows": 250,
-  "scale_plan_review_batches_needed": 2,
-  "readiness_review_gap": 496,
+  "scale_plan_review_batches_needed": 0,
+  "readiness_review_gap": 0,
   "category_minimum": 25,
   "category_rows": [
     {
@@ -16,16 +16,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 6150,
-      "priority": 2
-    },
-    {
-      "label": "sketch_comedian",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 4155,
+      "useful_gap": 5744,
       "priority": 2
     },
     {
@@ -34,7 +25,16 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3319,
+      "useful_gap": 3235,
+      "priority": 2
+    },
+    {
+      "label": "director",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 24,
+      "review_gap": 25,
+      "useful_gap": 3010,
       "priority": 2
     },
     {
@@ -43,34 +43,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3274,
-      "priority": 2
-    },
-    {
-      "label": "director",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 3119,
-      "priority": 2
-    },
-    {
-      "label": "vfx_animation",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 2613,
-      "priority": 2
-    },
-    {
-      "label": "editor",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 2366,
+      "useful_gap": 2639,
       "priority": 2
     },
     {
@@ -79,7 +52,16 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 2281,
+      "useful_gap": 2360,
+      "priority": 2
+    },
+    {
+      "label": "editor",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 2238,
       "priority": 2
     },
     {
@@ -88,7 +70,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 1948,
+      "useful_gap": 1949,
       "priority": 2
     },
     {
@@ -97,17 +79,35 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 1242,
+      "useful_gap": 471,
       "priority": 2
+    },
+    {
+      "label": "vfx_animation",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 22,
+      "review_gap": 25,
+      "useful_gap": 0,
+      "priority": 5
+    },
+    {
+      "label": "sketch_comedian",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 0,
+      "priority": 5
     },
     {
       "label": "actor_performer",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 0,
+      "current_sample_rows": 4,
       "review_gap": 25,
-      "useful_gap": 719,
-      "priority": 2
+      "useful_gap": 0,
+      "priority": 5
     }
   ],
   "next_batches": [
@@ -117,13 +117,6 @@
       "target_rows": 250,
       "sample_source": "data/processed/review_sample.csv",
       "focus": "current high-priority sample and uncovered categories"
-    },
-    {
-      "sequence": 2,
-      "batch_id": "review_batch_0002",
-      "target_rows": 246,
-      "sample_source": "data/processed/review_sample.csv",
-      "focus": "next acquisition wave sample"
     }
   ]
 }
