@@ -1,6 +1,6 @@
 # External Lead Work Item Templates
 
-Generated: 2026-06-13T03:34:02.320Z
+Generated: 2026-06-13T03:38:27.827Z
 
 These are small, source-specific templates derived from `source-worklist.csv`. Fill a template and save it with the same filename under `data/raw/external-leads/work-items-completed/`; the merge step will assemble assignment-level completed files.
 

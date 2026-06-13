@@ -31,6 +31,7 @@ function main() {
   const reviewPacket = readJsonl(join(processedDir, 'review_packet_latest.jsonl'))
   const reviewPacketBatches = readJsonl(join(processedDir, 'review_packet_batches.jsonl'))
   const reviewPlanCategories = readJsonl(join(processedDir, 'review_plan_categories.jsonl'))
+  const learningCandidateShortlist = readJsonl(join(processedDir, 'learning_candidate_shortlist.jsonl'))
   const acceptedCreators = readJsonl(join(processedDir, 'accepted_creators.jsonl'))
   const benchmarkCreators = readJsonl(join(processedDir, 'benchmark_creators.jsonl'))
   const expansionQueue = readJsonl(join(processedDir, 'expansion_queue.jsonl'))
@@ -188,6 +189,11 @@ function main() {
       id: 'review_plan',
       status: reviewPlanCategories.length > 0 ? 'pass' : 'fail',
       evidence: `${reviewPlanCategories.length} category review plan rows generated`,
+    },
+    {
+      id: 'learning_candidate_shortlist',
+      status: learningCandidateShortlist.length > 0 ? 'pass' : 'fail',
+      evidence: `${learningCandidateShortlist.length} candidate accounts prioritized for learning-value review`,
     },
     {
       id: 'expansion_queue',
@@ -371,6 +377,7 @@ function main() {
       review_packet_batches: reviewPacketBatches.length,
       review_packet_batch_rows: reviewPacketBatches.reduce((sum, row) => sum + Number(row.rows ?? 0), 0),
       review_plan_categories: reviewPlanCategories.length,
+      learning_candidate_shortlist: learningCandidateShortlist.length,
       review_decisions: reviewDecisions.length,
       review_blank_decisions: reviewBlankDecisions.length,
       accepted_creators: acceptedCreators.length,

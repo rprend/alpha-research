@@ -74,6 +74,7 @@ function main() {
   steps.push(['build_adjacency_expansion', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-adjacency-expansion.mjs']])
   steps.push(['resolve_identities', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/resolve-identities.mjs']])
   steps.push(['build_category_coverage', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-category-coverage.mjs']])
+  steps.push(['build_learning_candidate_shortlist', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-learning-candidate-shortlist.mjs']])
   steps.push(['build_review_sample', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-review-sample.mjs']])
   steps.push(['build_review_packet', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-review-packet.mjs']])
   steps.push(['build_review_plan', 'node', ['docs/experiments/tiktok-creative-creator-graph/scripts/build-review-plan.mjs']])

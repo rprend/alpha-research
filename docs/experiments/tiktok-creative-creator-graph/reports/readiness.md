@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T03:34:03.087Z
+Generated: 2026-06-13T03:38:28.486Z
 
 Complete: false
 
@@ -101,6 +101,7 @@ Complete: false
 - review_sample: pass (250 sampled accounts ready for review)
 - review_packet: pass (250 review packet rows, 250 decision template rows, 1 batches)
 - review_plan: pass (11 category review plan rows generated)
+- learning_candidate_shortlist: pass (5000 candidate accounts prioritized for learning-value review)
 - expansion_queue: pass (28 expansion targets queued)
 - adjacency_expansion: pass (28 enriched expansion rows (21 added))
 - acquisition_batches: pass (92 acquisition tasks generated)

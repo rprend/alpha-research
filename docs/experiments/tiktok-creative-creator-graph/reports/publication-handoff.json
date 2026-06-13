@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:34:02.954Z",
+  "generated_at": "2026-06-13T03:38:28.345Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -30,15 +30,15 @@
     ]
   },
   "current_corpus": {
-    "accounts": 7208,
-    "identities": 7105,
-    "videos": 47,
+    "accounts": 10104,
+    "identities": 9962,
+    "videos": 50,
     "graph_edges": 395,
     "useful_creators": 7,
     "release_useful_creators": 2,
     "excellent_creators": 6,
     "rejected_creators": 2,
-    "review_queue": 7208,
+    "review_queue": 10104,
     "review_sample": 250,
     "review_packet_rows": 250,
     "review_decision_template_rows": 250,
@@ -47,7 +47,7 @@
     "review_plan_categories": 11,
     "review_decisions": 4,
     "review_blank_decisions": 0,
-    "source_yield_rows": 383,
+    "source_yield_rows": 869,
     "adjacency_expansion_rows": 28,
     "adjacency_expansion_added_rows": 21,
     "category_coverage": "5/11",
@@ -55,9 +55,9 @@
     "candidate_frontier": 87,
     "candidate_frontier_handles": 7,
     "candidate_frontier_queries": 80,
-    "acquisition_import_preview_accounts": 7203,
+    "acquisition_import_preview_accounts": 10099,
     "acquisition_import_preview_ready": true,
-    "acquisition_import_waves": 27,
+    "acquisition_import_waves": 29,
     "acquisition_import_lineage_rows": 80255,
     "acquisition_import_untraced_rows": 138,
     "acquisition_runner_runnable_tasks": 2,
@@ -107,7 +107,7 @@
     "live_manifest_runner_steps": 0,
     "live_manifest_runner_selected_waves": 0,
     "live_manifest_runner_mode": "dry_run",
-    "refresh_tasks": 7208
+    "refresh_tasks": 10104
   },
   "target_gaps": {
     "useful_creators": 49993,
