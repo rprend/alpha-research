@@ -46,7 +46,8 @@
     "graph_value": 0.15,
     "consistency": 0.1,
     "recency": 0.05,
-    "cross_platform_evidence": 0.05
+    "cross_platform_evidence": 0.05,
+    "public_source_evidence": 0.1
   },
   "thresholds": {
     "useful": 62,

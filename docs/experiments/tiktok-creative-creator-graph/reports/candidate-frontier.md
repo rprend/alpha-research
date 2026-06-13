@@ -1,19 +1,19 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T00:12:00.046Z
+Generated: 2026-06-13T00:34:56.263Z
 
-- Candidates: 83
-- Handle targets: 6
-- Query targets: 77
-- Known account targets: 6
+- Candidates: 86
+- Handle targets: 7
+- Query targets: 79
+- Known account targets: 7
 
 ## Surfaces
 
 - search_index: 15
-- tiktok_hashtag_export: 17
+- tiktok_hashtag_export: 19
 - cross_platform_search: 8
 - category_gap_search: 37
-- tiktok_creator_neighborhood_export: 6
+- tiktok_creator_neighborhood_export: 7
 
 ## Target Labels
 
@@ -25,37 +25,37 @@ Generated: 2026-06-13T00:12:00.046Z
 - actor_performer: 6
 - standup_comedian: 7
 - director: 4
+- unclassified: 14
 - behind_the_scenes_creator: 6
 - film_educator: 4
-- unclassified: 13
-- creative_technologist: 4
+- creative_technologist: 6
 
 ## Top Candidates
 
 | Rank | Score | Priority | Kind | Surface | Label | Target |
 | ---: | ---: | ---: | --- | --- | --- | --- |
-| 1 | 101 | 1 | query | search_index | filmmaker | filmmaker short film editing breakdown |
-| 2 | 90 | 2 | query | search_index | cinematographer | cinematographer lighting breakdown |
-| 3 | 89 | 2 | query | search_index | sketch_comedian | sketch comedian character comedy |
-| 4 | 89 | 2 | query | search_index | vfx_animation | vfx artist animation blender |
+| 1 | 102 | 1 | query | search_index | filmmaker | filmmaker short film editing breakdown |
+| 2 | 100 | 1 | query | search_index | cinematographer | cinematographer lighting breakdown |
+| 3 | 100 | 1 | query | search_index | sketch_comedian | sketch comedian character comedy |
+| 4 | 100 | 1 | query | search_index | vfx_animation | vfx artist animation blender |
 | 5 | 86 | 1 | query | tiktok_hashtag_export | vfx_animation | animation |
 | 6 | 86 | 1 | query | tiktok_hashtag_export | cinematographer | cinematography |
 | 7 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
 | 8 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | shortfilm |
 | 9 | 86 | 1 | query | tiktok_hashtag_export | sketch_comedian | sketchcomedy |
-| 10 | 83 | 1 | query | cross_platform_search | filmmaker | site:vimeo.com "tiktok.com/@" "filmmaker" |
-| 11 | 80 | 1 | search_query | category_gap_search | editor | site:tiktok.com/@ "editing" |
-| 12 | 80 | 1 | search_query | category_gap_search | editor | site:tiktok.com/@ "editor" |
-| 13 | 80 | 1 | search_query | search_index | editor | site:tiktok.com/@ "video editor" |
-| 14 | 80 | 1 | query | tiktok_hashtag_export | vfx_animation | vfxartist |
-| 15 | 78 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
-| 16 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actor performer" |
-| 17 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actor" |
-| 18 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actress" |
-| 19 | 75 | 1 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "comedian" |
-| 20 | 75 | 1 | search_query | category_gap_search | director | site:tiktok.com/@ "commercial director" |
-| 21 | 75 | 1 | search_query | category_gap_search | director | site:tiktok.com/@ "directed by" |
-| 22 | 75 | 1 | search_query | category_gap_search | director | site:tiktok.com/@ "director" |
-| 23 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "performer" |
-| 24 | 75 | 1 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "stand-up" |
-| 25 | 75 | 1 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "standup comedian" |
+| 10 | 83 | 1 | query | tiktok_hashtag_export | vfx_animation | blender |
+| 11 | 83 | 1 | query | tiktok_hashtag_export | cinematographer | lighting |
+| 12 | 83 | 1 | query | cross_platform_search | vfx_animation | site:beacons.ai "tiktok.com/@" "vfx animation" |
+| 13 | 83 | 1 | query | cross_platform_search | filmmaker | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 14 | 83 | 1 | query | cross_platform_search | sketch_comedian | site:youtube.com "tiktok.com/@" "sketch comedian" |
+| 15 | 83 | 1 | query | tiktok_hashtag_export | vfx_animation | vfx |
+| 16 | 80 | 1 | search_query | category_gap_search | editor | site:tiktok.com/@ "editing" |
+| 17 | 80 | 1 | search_query | category_gap_search | editor | site:tiktok.com/@ "editor" |
+| 18 | 80 | 1 | search_query | search_index | editor | site:tiktok.com/@ "video editor" |
+| 19 | 80 | 1 | query | tiktok_hashtag_export | vfx_animation | vfxartist |
+| 20 | 78 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
+| 21 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actor performer" |
+| 22 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actor" |
+| 23 | 75 | 1 | search_query | category_gap_search | actor_performer | site:tiktok.com/@ "actress" |
+| 24 | 75 | 1 | search_query | category_gap_search | standup_comedian | site:tiktok.com/@ "comedian" |
+| 25 | 75 | 1 | search_query | category_gap_search | director | site:tiktok.com/@ "commercial director" |

@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T00:12:00.692Z
+Generated: 2026-06-13T00:34:57.279Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -10,32 +10,32 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 ## Current Corpus
 
-- Accounts: 529
-- Identities: 523
-- Videos: 14
+- Accounts: 1692
+- Identities: 1667
+- Videos: 17
 - Graph edges: 52
-- Useful creators: 6
+- Useful creators: 7
 - Release useful creators: 7
-- Excellent creators: 1
-- Review sample: 179
-- Review packet rows: 179
-- Review decision template rows: 179
+- Excellent creators: 6
+- Review sample: 250
+- Review packet rows: 250
+- Review decision template rows: 250
 - Review packet batches: 1
-- Review packet batch rows: 179
+- Review packet batch rows: 250
 - Review plan categories: 11
 - Review decisions: 4
 - Review blank decisions: 0
-- Source yield rows: 19
-- Adjacency expansion rows: 23
-- Adjacency expansion added rows: 18
+- Source yield rows: 46
+- Adjacency expansion rows: 27
+- Adjacency expansion added rows: 20
 - Category coverage: 5/11
-- Acquisition tasks: 87
-- Candidate frontier: 82
-- Candidate frontier handles: 5
-- Candidate frontier queries: 77
-- Acquisition import preview accounts: 523
+- Acquisition tasks: 91
+- Candidate frontier: 86
+- Candidate frontier handles: 7
+- Candidate frontier queries: 79
+- Acquisition import preview accounts: 1686
 - Acquisition import preview ready: true
-- Acquisition import waves: 9
+- Acquisition import waves: 10
 - Acquisition import traced rows: 4825
 - Acquisition import untraced rows: 60
 - Acquisition runner runnable tasks: 2
@@ -59,12 +59,12 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Live manifest runner steps: 1
 - Live manifest runner selected waves: 1
 - Live manifest runner mode: dry_run
-- Refresh tasks: 529
+- Refresh tasks: 1692
 
 ## Remaining Production Gaps
 
-- Useful creators: 49994
-- Excellent creators: 4999
+- Useful creators: 49993
+- Excellent creators: 4994
 - Review decisions: 496
 
 ## Key Paths
@@ -135,8 +135,8 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 ## Next Actions
 
-- Acquire and import 49994 more useful creators through provider/search/graph batches.
-- Add 4999 more excellent creators for benchmark-quality coverage.
+- Acquire and import 49993 more useful creators through provider/search/graph batches.
+- Add 4994 more excellent creators for benchmark-quality coverage.
 - Collect 496 more human review decisions before production claims.
 - Run full workflow, release package, verification, scale plan, refresh plan, and readiness after each import wave.
 - Register the release package in the control plane only after readiness is complete.

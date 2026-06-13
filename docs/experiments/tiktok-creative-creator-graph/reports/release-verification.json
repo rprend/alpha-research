@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:12:00.169Z",
+  "generated_at": "2026-06-13T00:34:56.472Z",
   "complete": true,
   "checks": [
     {
@@ -66,31 +66,31 @@
       "id": "sha256:data/release/useful_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 264508176e9be1c30f1af80db9edca295740bcc876be63fff4f016fef0bd706f, actual 264508176e9be1c30f1af80db9edca295740bcc876be63fff4f016fef0bd706f"
+      "evidence": "expected 1f3947edfe336364fc2e0da111fcdcac1cb9e049d0a9e477204c2d70759aaaa5, actual 1f3947edfe336364fc2e0da111fcdcac1cb9e049d0a9e477204c2d70759aaaa5"
     },
     {
       "id": "row_count:data/release/useful_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 7, actual 7"
+      "evidence": "expected 2, actual 2"
     },
     {
       "id": "sha256:data/release/useful_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 0961bffd27f9b98ca4834b9cffd4e30989af4571f93de0a20abb9f5a9ab802e6, actual 0961bffd27f9b98ca4834b9cffd4e30989af4571f93de0a20abb9f5a9ab802e6"
+      "evidence": "expected 30a417aaf23eb1eb675ab99db406f39278392b8682a11dda84892363025fc7d2, actual 30a417aaf23eb1eb675ab99db406f39278392b8682a11dda84892363025fc7d2"
     },
     {
       "id": "row_count:data/release/useful_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 7, actual 7"
+      "evidence": "expected 2, actual 2"
     },
     {
       "id": "sha256:data/release/benchmark_creators.jsonl",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected c07bcbc935eb729cc05652de365022fe203c7f1d0a7af6c5efc2a95ce11788a0, actual c07bcbc935eb729cc05652de365022fe203c7f1d0a7af6c5efc2a95ce11788a0"
+      "evidence": "expected 2114aaef99a290160eaafb7ea7872118790ccf426e165af53e17265e339975ee, actual 2114aaef99a290160eaafb7ea7872118790ccf426e165af53e17265e339975ee"
     },
     {
       "id": "row_count:data/release/benchmark_creators.jsonl",
@@ -102,7 +102,7 @@
       "id": "sha256:data/release/benchmark_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 6012d3df1e55af70b070b2cba86d1ac72b1dc2677d4c8f0a871466884499f0aa, actual 6012d3df1e55af70b070b2cba86d1ac72b1dc2677d4c8f0a871466884499f0aa"
+      "evidence": "expected 48de7c6529d99ea818c46fa89363a688065b365664e21c2cd3b3dc9a77b401fd, actual 48de7c6529d99ea818c46fa89363a688065b365664e21c2cd3b3dc9a77b401fd"
     },
     {
       "id": "row_count:data/release/benchmark_creators.csv",
@@ -138,7 +138,7 @@
       "id": "sha256:data/release/review_queue.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 89eda99af8534d389cc7912a3510962a15cada38bf8f2672c3fc9bab13d2c4b2, actual 89eda99af8534d389cc7912a3510962a15cada38bf8f2672c3fc9bab13d2c4b2"
+      "evidence": "expected d817b9af1b83ed0ba49be948a3c6951999b635ff5160463d3ed138e3e142c7b8, actual d817b9af1b83ed0ba49be948a3c6951999b635ff5160463d3ed138e3e142c7b8"
     },
     {
       "id": "row_count:data/release/review_queue.csv",
@@ -150,7 +150,7 @@
       "id": "sha256:data/release/all_scored_creators.csv",
       "status": "pass",
       "severity": "error",
-      "evidence": "expected 4f01817cc6017d6b3863d27249a83a8e8449f80c2ecb0a6f5fcba667f5f031a2, actual 4f01817cc6017d6b3863d27249a83a8e8449f80c2ecb0a6f5fcba667f5f031a2"
+      "evidence": "expected fe4cc56f14a7995b872a4bcbf2fd640398fddf77e3fd6de5eb2816f5a0e83b09, actual fe4cc56f14a7995b872a4bcbf2fd640398fddf77e3fd6de5eb2816f5a0e83b09"
     },
     {
       "id": "row_count:data/release/all_scored_creators.csv",
@@ -252,7 +252,7 @@
       "id": "manifest_useful_count",
       "status": "pass",
       "severity": "error",
-      "evidence": "manifest 7, file 7"
+      "evidence": "manifest 2, file 2"
     },
     {
       "id": "manifest_benchmark_count",
@@ -268,7 +268,7 @@
     }
   ],
   "counts": {
-    "useful_creators": 7,
+    "useful_creators": 2,
     "benchmark_creators": 1,
     "rejected_creators": 2,
     "all_scored_creators": 1692

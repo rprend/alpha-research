@@ -204,7 +204,7 @@ function main() {
   })
 
   const accepted = reviewedScores
-    .filter((score) => ['useful', 'excellent'].includes(score.reviewed_status))
+    .filter((score) => ['keep', 'excellent_benchmark'].includes(score.review_decision))
     .map((score) => {
       const account = accounts.find((candidate) => candidate.id === score.creator_id)
       const classification = classificationById.get(score.creator_id)
@@ -219,7 +219,7 @@ function main() {
     })
 
   const rejected = reviewedScores
-    .filter((score) => score.reviewed_status === 'reject')
+    .filter((score) => ['repost_or_aggregator', 'brand_or_studio'].includes(score.review_decision))
     .map((score) => {
       const account = accounts.find((candidate) => candidate.id === score.creator_id)
       return {
@@ -232,7 +232,7 @@ function main() {
     })
 
   const benchmarks = reviewedScores
-    .filter((score) => score.reviewed_status === 'excellent')
+    .filter((score) => score.review_decision === 'excellent_benchmark')
     .map((score) => {
       const account = accounts.find((candidate) => candidate.id === score.creator_id)
       const classification = classificationById.get(score.creator_id)

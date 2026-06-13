@@ -205,6 +205,9 @@ function normalizeRows(rows) {
       last_post_at: null,
       source_files: new Set(),
       source_labels: new Set(),
+      source_names: new Set(),
+      source_queries: new Set(),
+      best_source_rank: Infinity,
     }
 
     account.display_name ||= row.display_name ?? row.name ?? ''
@@ -221,6 +224,10 @@ function normalizeRows(rows) {
     for (const label of sourceLabels.map((item) => String(item).trim()).filter(Boolean)) {
       account.source_labels.add(label)
     }
+    if (row.source_name) account.source_names.add(String(row.source_name))
+    if (row.source_query) account.source_queries.add(String(row.source_query))
+    const sourceRank = toNumber(row.rank, Infinity)
+    if (sourceRank > 0) account.best_source_rank = Math.min(account.best_source_rank, sourceRank)
     accountMap.set(handle, account)
 
     sources.push({
@@ -264,6 +271,9 @@ function normalizeRows(rows) {
     ...account,
     source_files: Array.from(account.source_files),
     source_labels: Array.from(account.source_labels),
+    source_names: Array.from(account.source_names),
+    source_queries: Array.from(account.source_queries),
+    best_source_rank: account.best_source_rank === Infinity ? '' : account.best_source_rank,
   }))
 
   return { accounts, videos, sources }
@@ -353,6 +363,12 @@ function classifyAndScore(accounts, videos, edges, rubric) {
     const totalRelevantHits = labelHits.reduce((sum, entry) => sum + entry.hits.length, 0)
     const originalSignals = ['original', 'my short', 'i shot', 'i made', 'directed', 'breakdown', 'behind the scenes', 'bts', 'tutorial', 'camera test']
     const crossPlatform = account.bio_links.length
+    const sourceCount = asArray(account.source_names).length
+    const bestSourceRank = toNumber(account.best_source_rank, Infinity)
+    const rankedEditorialSource = bestSourceRank !== Infinity
+    const highRankSource = rankedEditorialSource && bestSourceRank <= 25
+    const midRankSource = rankedEditorialSource && bestSourceRank <= 75
+    const hasAudienceEvidence = Number(account.follower_count ?? 0) > 0
     const recentDays = account.last_post_at ? daysSince(account.last_post_at) : Infinity
     const videoCount = creatorVideos.length
     const uniqueHashtags = new Set(creatorVideos.flatMap((video) => video.hashtags).filter((tag) => !rubric.low_signal_hashtags.includes(tag))).size
@@ -372,20 +388,36 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       'compositing',
       'camera',
       'story',
+      'writer',
+      'author',
+      'illustrator',
+      'artist',
+      'producer',
+      'composer',
+      'dancer',
+      'performer',
+      'tech',
+      'ai',
+      'game',
+      'lego',
+      'book',
     ])
 
     const categoryFit = primaryLabel === 'reject'
       ? 0
-      : Math.min(100, totalRelevantHits * 16 + (best?.hits.length ?? 0) * 12 + (sourcePrimaryLabel ? 32 : 0))
+      : Math.min(100, totalRelevantHits * 16 + (best?.hits.length ?? 0) * 12 + (sourcePrimaryLabel ? 32 : 0) + Math.min(18, sourceCount * 4))
     const originality = primaryLabel === 'reject'
       ? Math.max(0, 25 - rejectHits.length * 10)
-      : Math.min(100, 45 + keywordHits(text, originalSignals).length * 12 + (creatorVideos.some((video) => String(video.sound_id).startsWith('original')) ? 12 : 0))
-    const creativeSignal = primaryLabel === 'reject' ? 8 : Math.min(100, creativeHits.length * 12 + uniqueHashtags * 5 + Math.min(20, videoCount * 5))
-    const consistency = Math.min(100, videoCount * 28)
+      : Math.min(100, 45 + keywordHits(text, originalSignals).length * 12 + (creatorVideos.some((video) => String(video.sound_id).startsWith('original')) ? 12 : 0) + (highRankSource ? 8 : 0))
+    const creativeSignal = primaryLabel === 'reject' ? 8 : Math.min(100, creativeHits.length * 12 + uniqueHashtags * 5 + Math.min(20, videoCount * 5) + (sourcePrimaryLabel ? 14 : 0) + (highRankSource ? 12 : midRankSource ? 6 : 0))
+    const consistency = Math.min(100, videoCount * 28 + (rankedEditorialSource ? 18 : 0) + (sourceCount > 1 ? 10 : 0))
     const recency = recentDays === Infinity ? 0 : Math.max(0, Math.min(100, 100 - (recentDays / rubric.thresholds.recent_days) * 100))
-    const graphValue = Math.min(100, creatorEdges.length * 11 + creatorVideos.flatMap((video) => video.mentions).length * 8)
+    const graphValue = Math.min(100, creatorEdges.length * 11 + creatorVideos.flatMap((video) => video.mentions).length * 8 + (sourceCount > 1 ? 16 : 0))
     const crossPlatformEvidence = Math.min(100, crossPlatform * 35)
-    const repostRisk = Math.min(100, rejectHits.length * 35 + (text.includes('credit to owner') ? 45 : 0) + (text.includes('clips') ? 30 : 0))
+    const publicSourceEvidence = primaryLabel === 'reject'
+      ? 0
+      : Math.min(100, (rankedEditorialSource ? 35 : 0) + (highRankSource ? 20 : 0) + Math.min(25, sourceCount * 8) + (hasAudienceEvidence ? 10 : 0))
+    const repostRisk = Math.min(100, rejectHits.length * 35 + (text.includes('credit to owner') ? 45 : 0) + (/\bclips?\b/i.test(text) ? 30 : 0))
     const weighted = (
       creativeSignal * rubric.weights.creative_signal
       + categoryFit * rubric.weights.category_fit
@@ -394,6 +426,7 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       + consistency * rubric.weights.consistency
       + recency * rubric.weights.recency
       + crossPlatformEvidence * rubric.weights.cross_platform_evidence
+      + publicSourceEvidence * (rubric.weights.public_source_evidence ?? 0)
     )
     const overallUsefulness = Math.max(0, Math.min(100, weighted - repostRisk * 0.35))
     const status = primaryLabel === 'reject'
@@ -429,6 +462,7 @@ function classifyAndScore(accounts, videos, edges, rubric) {
       depth: Math.round(Math.min(100, videoCount * 25 + uniqueHashtags * 5)),
       graph_value: Math.round(graphValue),
       cross_platform_evidence: Math.round(crossPlatformEvidence),
+      public_source_evidence: Math.round(publicSourceEvidence),
       repost_risk: Math.round(repostRisk),
       overall_usefulness: Math.round(overallUsefulness),
       status,
@@ -452,6 +486,7 @@ function buildReviewQueue(accounts, classifications, scores) {
     if (score.status === 'needs_review') reasons.push('threshold_borderline')
     if (classification.primary_label === 'unclear') reasons.push('unclear_category')
     if (score.graph_value >= 35 && score.overall_usefulness < 70) reasons.push('high_graph_value_uncertain_quality')
+    if (score.public_source_evidence >= 55 && score.overall_usefulness >= 35) reasons.push('strong_public_source_candidate')
     if (score.repost_risk >= 35) reasons.push('repost_risk')
     return {
       creator_id: account.id,

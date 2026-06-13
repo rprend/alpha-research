@@ -1,51 +1,51 @@
 {
-  "generated_at": "2026-06-13T00:12:00.104Z",
+  "generated_at": "2026-06-13T00:34:56.358Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 1692,
     "identities": 1667,
-    "useful_creators": 7,
+    "useful_creators": 2,
     "benchmark_creators": 1,
     "rejected_creators": 2,
     "review_queue": 1688
   },
   "readiness": {
-    "generated_at": "2026-06-12T22:14:10.803Z",
+    "generated_at": "2026-06-13T00:34:12.741Z",
     "complete": false,
     "counts": {
-      "accounts": 529,
-      "videos": 14,
+      "accounts": 1692,
+      "videos": 17,
       "edges": 52,
-      "useful_accounts": 6,
-      "excellent_accounts": 1,
+      "useful_accounts": 7,
+      "excellent_accounts": 6,
       "rejected_accounts": 2,
-      "review_queue": 527,
-      "review_sample": 179,
-      "review_packet_rows": 179,
-      "review_decision_template_rows": 179,
+      "review_queue": 1692,
+      "review_sample": 250,
+      "review_packet_rows": 250,
+      "review_decision_template_rows": 250,
       "review_packet_batches": 1,
-      "review_packet_batch_rows": 179,
+      "review_packet_batch_rows": 250,
       "review_plan_categories": 11,
       "review_decisions": 4,
       "review_blank_decisions": 0,
       "accepted_creators": 7,
-      "benchmark_creators": 1,
-      "expansion_queue": 23,
-      "adjacency_expansion_rows": 23,
-      "adjacency_expansion_added_rows": 18,
-      "acquisition_tasks": 87,
-      "candidate_frontier": 82,
-      "candidate_frontier_handles": 5,
-      "candidate_frontier_queries": 77,
-      "acquisition_import_preview_accounts": 523,
+      "benchmark_creators": 6,
+      "expansion_queue": 27,
+      "adjacency_expansion_rows": 27,
+      "adjacency_expansion_added_rows": 20,
+      "acquisition_tasks": 91,
+      "candidate_frontier": 86,
+      "candidate_frontier_handles": 7,
+      "candidate_frontier_queries": 79,
+      "acquisition_import_preview_accounts": 1686,
       "acquisition_import_preview_ready": true,
-      "acquisition_import_waves": 9,
+      "acquisition_import_waves": 10,
       "acquisition_runner_tasks": 2,
       "acquisition_runner_runnable_tasks": 2,
       "acquisition_runner_skipped_tasks": 0,
       "acquisition_run_history": 15,
-      "source_yield_rows": 19,
-      "identities": 523,
+      "source_yield_rows": 46,
+      "identities": 1667,
       "category_coverage_labels": 11,
       "category_coverage_covered_labels": 5,
       "release_useful_creators": 7,
@@ -74,19 +74,19 @@
       "scale_campaign_mode": "dry_run",
       "scale_campaign_stop_reason": "dry_run_complete",
       "scale_campaign_estimated_cost_usd": 0.5,
-      "refresh_tasks": 529,
+      "refresh_tasks": 1692,
       "publication_handoff": 1
     },
     "checks": [
       {
         "id": "seed_intake",
         "status": "pass",
-        "evidence": "529 accounts ingested"
+        "evidence": "1692 accounts ingested"
       },
       {
         "id": "video_metadata",
         "status": "pass",
-        "evidence": "14 videos ingested"
+        "evidence": "17 videos ingested"
       },
       {
         "id": "graph_edges",
@@ -96,22 +96,22 @@
       {
         "id": "scoring_coverage",
         "status": "pass",
-        "evidence": "529/529 accounts scored"
+        "evidence": "1692/1692 accounts scored"
       },
       {
         "id": "review_queue",
         "status": "pass",
-        "evidence": "527 accounts queued for review"
+        "evidence": "1692 accounts queued for review"
       },
       {
         "id": "review_sample",
         "status": "pass",
-        "evidence": "179 sampled accounts ready for review"
+        "evidence": "250 sampled accounts ready for review"
       },
       {
         "id": "review_packet",
         "status": "pass",
-        "evidence": "179 review packet rows, 179 decision template rows, 1 batches"
+        "evidence": "250 review packet rows, 250 decision template rows, 1 batches"
       },
       {
         "id": "review_plan",
@@ -121,32 +121,32 @@
       {
         "id": "expansion_queue",
         "status": "pass",
-        "evidence": "23 expansion targets queued"
+        "evidence": "27 expansion targets queued"
       },
       {
         "id": "adjacency_expansion",
         "status": "pass",
-        "evidence": "23 enriched expansion rows (18 added)"
+        "evidence": "27 enriched expansion rows (20 added)"
       },
       {
         "id": "acquisition_batches",
         "status": "pass",
-        "evidence": "87 acquisition tasks generated"
+        "evidence": "91 acquisition tasks generated"
       },
       {
         "id": "candidate_frontier",
         "status": "pass",
-        "evidence": "82 ranked acquisition candidates generated"
+        "evidence": "86 ranked acquisition candidates generated"
       },
       {
         "id": "acquisition_import_preview",
         "status": "pass",
-        "evidence": "523 preview accounts, import gate ready"
+        "evidence": "1686 preview accounts, import gate ready"
       },
       {
         "id": "acquisition_import_waves",
         "status": "pass",
-        "evidence": "9 acquisition import waves tracked"
+        "evidence": "10 acquisition import waves tracked"
       },
       {
         "id": "acquisition_runner",
@@ -161,12 +161,12 @@
       {
         "id": "source_yield",
         "status": "pass",
-        "evidence": "19 source/query yield rows generated"
+        "evidence": "46 source/query yield rows generated"
       },
       {
         "id": "identity_resolution",
         "status": "pass",
-        "evidence": "523 creator identities resolved"
+        "evidence": "1667 creator identities resolved"
       },
       {
         "id": "category_coverage",
@@ -221,7 +221,7 @@
       {
         "id": "refresh_plan",
         "status": "pass",
-        "evidence": "529 account refresh tasks generated"
+        "evidence": "1692 account refresh tasks generated"
       },
       {
         "id": "publication_handoff",
@@ -231,12 +231,12 @@
       {
         "id": "useful_account_target",
         "status": "incomplete",
-        "evidence": "6/50000 useful accounts"
+        "evidence": "7/50000 useful accounts"
       },
       {
         "id": "excellent_account_target",
         "status": "incomplete",
-        "evidence": "1/5000 excellent accounts"
+        "evidence": "6/5000 excellent accounts"
       },
       {
         "id": "human_review_target",
@@ -245,31 +245,31 @@
       }
     ],
     "remaining": {
-      "useful_accounts": 49994,
-      "excellent_accounts": 4999,
+      "useful_accounts": 49993,
+      "excellent_accounts": 4994,
       "reviewed_accounts": 496
     }
   },
   "files": [
     {
       "path": "data/release/useful_creators.jsonl",
-      "rows": 7,
-      "sha256": "264508176e9be1c30f1af80db9edca295740bcc876be63fff4f016fef0bd706f"
+      "rows": 2,
+      "sha256": "1f3947edfe336364fc2e0da111fcdcac1cb9e049d0a9e477204c2d70759aaaa5"
     },
     {
       "path": "data/release/useful_creators.csv",
-      "rows": 7,
-      "sha256": "0961bffd27f9b98ca4834b9cffd4e30989af4571f93de0a20abb9f5a9ab802e6"
+      "rows": 2,
+      "sha256": "30a417aaf23eb1eb675ab99db406f39278392b8682a11dda84892363025fc7d2"
     },
     {
       "path": "data/release/benchmark_creators.jsonl",
       "rows": 1,
-      "sha256": "c07bcbc935eb729cc05652de365022fe203c7f1d0a7af6c5efc2a95ce11788a0"
+      "sha256": "2114aaef99a290160eaafb7ea7872118790ccf426e165af53e17265e339975ee"
     },
     {
       "path": "data/release/benchmark_creators.csv",
       "rows": 1,
-      "sha256": "6012d3df1e55af70b070b2cba86d1ac72b1dc2677d4c8f0a871466884499f0aa"
+      "sha256": "48de7c6529d99ea818c46fa89363a688065b365664e21c2cd3b3dc9a77b401fd"
     },
     {
       "path": "data/release/rejected_creators.jsonl",
@@ -284,12 +284,12 @@
     {
       "path": "data/release/review_queue.csv",
       "rows": 1688,
-      "sha256": "89eda99af8534d389cc7912a3510962a15cada38bf8f2672c3fc9bab13d2c4b2"
+      "sha256": "d817b9af1b83ed0ba49be948a3c6951999b635ff5160463d3ed138e3e142c7b8"
     },
     {
       "path": "data/release/all_scored_creators.csv",
       "rows": 1692,
-      "sha256": "4f01817cc6017d6b3863d27249a83a8e8449f80c2ecb0a6f5fcba667f5f031a2"
+      "sha256": "fe4cc56f14a7995b872a4bcbf2fd640398fddf77e3fd6de5eb2816f5a0e83b09"
     }
   ]
 }

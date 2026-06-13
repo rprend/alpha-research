@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-13T00:12:00.770Z",
+  "generated_at": "2026-06-13T00:34:57.401Z",
   "complete": false,
   "counts": {
     "accounts": 1692,
     "videos": 17,
     "edges": 52,
-    "useful_accounts": 6,
-    "excellent_accounts": 1,
+    "useful_accounts": 7,
+    "excellent_accounts": 6,
     "rejected_accounts": 2,
-    "review_queue": 1690,
+    "review_queue": 1692,
     "review_sample": 250,
     "review_packet_rows": 250,
     "review_decision_template_rows": 250,
@@ -17,15 +17,15 @@
     "review_plan_categories": 11,
     "review_decisions": 4,
     "review_blank_decisions": 0,
-    "accepted_creators": 7,
+    "accepted_creators": 2,
     "benchmark_creators": 1,
-    "expansion_queue": 24,
-    "adjacency_expansion_rows": 24,
-    "adjacency_expansion_added_rows": 18,
-    "acquisition_tasks": 88,
-    "candidate_frontier": 83,
-    "candidate_frontier_handles": 6,
-    "candidate_frontier_queries": 77,
+    "expansion_queue": 27,
+    "adjacency_expansion_rows": 27,
+    "adjacency_expansion_added_rows": 20,
+    "acquisition_tasks": 91,
+    "candidate_frontier": 86,
+    "candidate_frontier_handles": 7,
+    "candidate_frontier_queries": 79,
     "acquisition_import_preview_accounts": 1686,
     "acquisition_import_preview_ready": true,
     "acquisition_import_waves": 10,
@@ -37,7 +37,7 @@
     "identities": 1667,
     "category_coverage_labels": 11,
     "category_coverage_covered_labels": 5,
-    "release_useful_creators": 7,
+    "release_useful_creators": 2,
     "release_verification_checks": 44,
     "scale_plan_import_batches": 9999,
     "scale_waves": 9999,
@@ -90,7 +90,7 @@
     {
       "id": "review_queue",
       "status": "pass",
-      "evidence": "1690 accounts queued for review"
+      "evidence": "1692 accounts queued for review"
     },
     {
       "id": "review_sample",
@@ -110,22 +110,22 @@
     {
       "id": "expansion_queue",
       "status": "pass",
-      "evidence": "24 expansion targets queued"
+      "evidence": "27 expansion targets queued"
     },
     {
       "id": "adjacency_expansion",
       "status": "pass",
-      "evidence": "24 enriched expansion rows (18 added)"
+      "evidence": "27 enriched expansion rows (20 added)"
     },
     {
       "id": "acquisition_batches",
       "status": "pass",
-      "evidence": "88 acquisition tasks generated"
+      "evidence": "91 acquisition tasks generated"
     },
     {
       "id": "candidate_frontier",
       "status": "pass",
-      "evidence": "83 ranked acquisition candidates generated"
+      "evidence": "86 ranked acquisition candidates generated"
     },
     {
       "id": "acquisition_import_preview",
@@ -165,7 +165,7 @@
     {
       "id": "release_package",
       "status": "pass",
-      "evidence": "7 useful creators exported for release"
+      "evidence": "2 useful creators exported for release"
     },
     {
       "id": "release_verification",
@@ -220,12 +220,12 @@
     {
       "id": "useful_account_target",
       "status": "incomplete",
-      "evidence": "6/50000 useful accounts"
+      "evidence": "7/50000 useful accounts"
     },
     {
       "id": "excellent_account_target",
       "status": "incomplete",
-      "evidence": "1/5000 excellent accounts"
+      "evidence": "6/5000 excellent accounts"
     },
     {
       "id": "human_review_target",
@@ -234,8 +234,8 @@
     }
   ],
   "remaining": {
-    "useful_accounts": 49994,
-    "excellent_accounts": 4999,
+    "useful_accounts": 49993,
+    "excellent_accounts": 4994,
     "reviewed_accounts": 496
   }
 }

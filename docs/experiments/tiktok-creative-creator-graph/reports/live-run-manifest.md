@@ -1,6 +1,6 @@
 # Live Run Manifest
 
-Generated: 2026-06-13T00:12:00.488Z
+Generated: 2026-06-13T00:34:56.984Z
 
 - Provider: apify
 - Runnable waves: 10
@@ -25,15 +25,15 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mj
 
 | Seq | Wave | Tasks | Cost | Rows | Surfaces | Labels | First query |
 | ---: | --- | ---: | ---: | ---: | --- | --- | --- |
-| 1 | scale_wave_0001 | 2 | $0.5 | 200 | search_index | filmmaker|standup_comedian | filmmaker short film editing breakdown |
-| 2 | scale_wave_0002 | 2 | $0.5 | 200 | search_index|tiktok_hashtag_export | cinematographer|standup_comedian | cinematographer lighting breakdown |
-| 3 | scale_wave_0003 | 2 | $0.5 | 200 | search_index|tiktok_hashtag_export | sketch_comedian|vfx_animation | sketch comedian character comedy |
-| 4 | scale_wave_0004 | 2 | $0.5 | 200 | search_index|tiktok_hashtag_export | vfx_animation | vfx artist animation blender |
-| 5 | scale_wave_0005 | 2 | $0.5 | 200 | tiktok_hashtag_export|cross_platform_search | vfx_animation | animation |
-| 6 | scale_wave_0006 | 2 | $0.5 | 200 | tiktok_hashtag_export|cross_platform_search | sketch_comedian | cinematography |
-| 7 | scale_wave_0007 | 2 | $0.5 | 200 | tiktok_hashtag_export | filmmaker|vfx_animation | filmmaker |
+| 1 | scale_wave_0001 | 2 | $0.5 | 200 | search_index|category_gap_search | filmmaker|actor_performer | filmmaker short film editing breakdown |
+| 2 | scale_wave_0002 | 2 | $0.5 | 200 | search_index|category_gap_search | cinematographer|standup_comedian | cinematographer lighting breakdown |
+| 3 | scale_wave_0003 | 2 | $0.5 | 200 | search_index|category_gap_search | sketch_comedian|standup_comedian | sketch comedian character comedy |
+| 4 | scale_wave_0004 | 2 | $0.5 | 200 | search_index|category_gap_search | vfx_animation|standup_comedian | vfx artist animation blender |
+| 5 | scale_wave_0005 | 2 | $0.5 | 200 | tiktok_hashtag_export|search_index | vfx_animation|standup_comedian | animation |
+| 6 | scale_wave_0006 | 2 | $0.5 | 200 | tiktok_hashtag_export | standup_comedian | cinematography |
+| 7 | scale_wave_0007 | 2 | $0.5 | 200 | tiktok_hashtag_export|search_index | filmmaker | filmmaker |
 | 8 | scale_wave_0008 | 2 | $0.5 | 200 | tiktok_hashtag_export | filmmaker|behind_the_scenes_creator | shortfilm |
 | 9 | scale_wave_0009 | 2 | $0.5 | 200 | tiktok_hashtag_export|category_gap_search | sketch_comedian|vfx_animation | sketchcomedy |
-| 10 | scale_wave_0010 | 2 | $0.5 | 200 | cross_platform_search|category_gap_search | filmmaker|cinematographer | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 10 | scale_wave_0010 | 2 | $0.5 | 200 | tiktok_hashtag_export|category_gap_search | vfx_animation|cinematographer | blender |
 
 Queue: `data/processed/live_run_manifest.csv`

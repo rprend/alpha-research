@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:12:00.488Z",
+  "generated_at": "2026-06-13T00:34:56.984Z",
   "provider": "apify",
   "readiness_complete": false,
   "preflight_within_budget": true,
@@ -27,9 +27,9 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "graph_0068|search_0004",
-      "surfaces": "search_index",
-      "target_labels": "filmmaker|standup_comedian",
+      "batch_ids": "graph_0068|category_gap_0040",
+      "surfaces": "search_index|category_gap_search",
+      "target_labels": "filmmaker|actor_performer",
       "estimated_result_rows": 200,
       "estimated_cost_usd": 0.5,
       "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=1",
@@ -37,7 +37,7 @@
       "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
       "first_query": "filmmaker short film editing breakdown",
-      "second_query": "site:tiktok.com/@ comedian"
+      "second_query": "site:tiktok.com/@ \"performer\""
     },
     {
       "wave_id": "scale_wave_0002",
@@ -46,8 +46,8 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "graph_0078|hashtag_0017",
-      "surfaces": "search_index|tiktok_hashtag_export",
+      "batch_ids": "graph_0082|category_gap_0035",
+      "surfaces": "search_index|category_gap_search",
       "target_labels": "cinematographer|standup_comedian",
       "estimated_result_rows": 200,
       "estimated_cost_usd": 0.5,
@@ -56,7 +56,7 @@
       "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
       "first_query": "cinematographer lighting breakdown",
-      "second_query": "standupcomedy"
+      "second_query": "site:tiktok.com/@ \"stand-up\""
     },
     {
       "wave_id": "scale_wave_0003",
@@ -65,9 +65,9 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "graph_0087|graph_0082",
-      "surfaces": "search_index|tiktok_hashtag_export",
-      "target_labels": "sketch_comedian|vfx_animation",
+      "batch_ids": "graph_0087|category_gap_0033",
+      "surfaces": "search_index|category_gap_search",
+      "target_labels": "sketch_comedian|standup_comedian",
       "estimated_result_rows": 200,
       "estimated_cost_usd": 0.5,
       "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=3",
@@ -75,7 +75,7 @@
       "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
       "first_query": "sketch comedian character comedy",
-      "second_query": "blender"
+      "second_query": "site:tiktok.com/@ \"standup comedian\""
     },
     {
       "wave_id": "scale_wave_0004",
@@ -84,9 +84,9 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "graph_0085|graph_0080",
-      "surfaces": "search_index|tiktok_hashtag_export",
-      "target_labels": "vfx_animation",
+      "batch_ids": "graph_0080|category_gap_0034",
+      "surfaces": "search_index|category_gap_search",
+      "target_labels": "vfx_animation|standup_comedian",
       "estimated_result_rows": 200,
       "estimated_cost_usd": 0.5,
       "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=4",
@@ -94,7 +94,7 @@
       "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
       "first_query": "vfx artist animation blender",
-      "second_query": "lighting"
+      "second_query": "site:tiktok.com/@ \"standup\""
     },
     {
       "wave_id": "scale_wave_0005",
@@ -103,9 +103,9 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "hashtag_0021|graph_0083",
-      "surfaces": "tiktok_hashtag_export|cross_platform_search",
-      "target_labels": "vfx_animation",
+      "batch_ids": "graph_0076|search_0004",
+      "surfaces": "tiktok_hashtag_export|search_index",
+      "target_labels": "vfx_animation|standup_comedian",
       "estimated_result_rows": 200,
       "estimated_cost_usd": 0.5,
       "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=5",
@@ -113,7 +113,7 @@
       "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
       "first_query": "animation",
-      "second_query": "site:beacons.ai \"tiktok.com/@\" \"vfx animation\""
+      "second_query": "site:tiktok.com/@ comedian"
     },
     {
       "wave_id": "scale_wave_0006",
@@ -122,9 +122,9 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "hashtag_0014|graph_0086",
-      "surfaces": "tiktok_hashtag_export|cross_platform_search",
-      "target_labels": "sketch_comedian",
+      "batch_ids": "graph_0083|hashtag_0017",
+      "surfaces": "tiktok_hashtag_export",
+      "target_labels": "standup_comedian",
       "estimated_result_rows": 200,
       "estimated_cost_usd": 0.5,
       "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=6",
@@ -132,7 +132,7 @@
       "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
       "first_query": "cinematography",
-      "second_query": "site:youtube.com \"tiktok.com/@\" \"sketch comedian\""
+      "second_query": "standupcomedy"
     },
     {
       "wave_id": "scale_wave_0007",
@@ -141,9 +141,9 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "graph_0067|graph_0084",
-      "surfaces": "tiktok_hashtag_export",
-      "target_labels": "filmmaker|vfx_animation",
+      "batch_ids": "graph_0067|graph_0091",
+      "surfaces": "tiktok_hashtag_export|search_index",
+      "target_labels": "filmmaker",
       "estimated_result_rows": 200,
       "estimated_cost_usd": 0.5,
       "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=7",
@@ -151,7 +151,7 @@
       "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
       "first_query": "filmmaker",
-      "second_query": "vfx"
+      "second_query": "mentioned by @ani.motionlab"
     },
     {
       "wave_id": "scale_wave_0008",
@@ -179,7 +179,7 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "graph_0075|category_gap_0060",
+      "batch_ids": "graph_0073|category_gap_0060",
       "surfaces": "tiktok_hashtag_export|category_gap_search",
       "target_labels": "sketch_comedian|vfx_animation",
       "estimated_result_rows": 200,
@@ -198,16 +198,16 @@
       "ready": true,
       "blocked_tasks": 0,
       "task_count": 2,
-      "batch_ids": "graph_0070|category_gap_0054",
-      "surfaces": "cross_platform_search|category_gap_search",
-      "target_labels": "filmmaker|cinematographer",
+      "batch_ids": "graph_0077|category_gap_0054",
+      "surfaces": "tiktok_hashtag_export|category_gap_search",
+      "target_labels": "vfx_animation|cinematographer",
       "estimated_result_rows": 200,
       "estimated_cost_usd": 0.5,
       "dry_run_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=10",
       "live_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --live --confirm-live --max-tasks=2 --priority-max=2 --wave=10",
       "import_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/import-acquisition-results.mjs",
       "rebuild_command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-full-workflow.mjs",
-      "first_query": "site:vimeo.com \"tiktok.com/@\" \"filmmaker\"",
+      "first_query": "blender",
       "second_query": "site:tiktok.com/@ \"cinematographer\""
     }
   ]

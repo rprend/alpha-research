@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T00:11:59.962Z",
+  "generated_at": "2026-06-13T00:34:56.133Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -86,7 +86,7 @@
       "label": "cinematographer",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 15,
+      "current_sample_rows": 16,
       "review_gap": 25,
       "useful_gap": 4999,
       "priority": 2
@@ -104,7 +104,7 @@
       "label": "creative_technologist",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 23,
+      "current_sample_rows": 22,
       "review_gap": 25,
       "useful_gap": 1999,
       "priority": 2

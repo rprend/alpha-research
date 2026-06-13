@@ -1,22 +1,22 @@
 {
-  "run_id": "2026-06-13T00-11-59-477Z",
-  "generated_at": "2026-06-13T00:11:59.549Z",
+  "run_id": "2026-06-13T00-34-55-598Z",
+  "generated_at": "2026-06-13T00:34:55.637Z",
   "target_useful_accounts": 50000,
   "smoke": false,
   "counts": {
     "accounts": 1692,
     "videos": 17,
     "edges": 52,
-    "useful_accounts": 6,
-    "excellent_accounts": 1,
-    "review_queue": 1690,
-    "expansion_queue": 6
+    "useful_accounts": 7,
+    "excellent_accounts": 6,
+    "review_queue": 1692,
+    "expansion_queue": 7
   },
   "status_counts": {
-    "needs_review": 1684,
-    "useful": 5,
+    "needs_review": 1683,
+    "excellent": 6,
     "reject": 2,
-    "excellent": 1
+    "useful": 1
   },
   "primary_label_counts": {
     "sketch_comedian": 107,
@@ -38,6 +38,6 @@
     "graph_expansion_ready": true,
     "scoring_ready": true,
     "target_met": false,
-    "next_gap": "49994 more useful accounts needed"
+    "next_gap": "49993 more useful accounts needed"
   }
 }

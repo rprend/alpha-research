@@ -116,9 +116,9 @@ function main() {
     }
   }).sort((a, b) => Number(b.overall_usefulness || 0) - Number(a.overall_usefulness || 0) || a.handle.localeCompare(b.handle))
 
-  const usefulRows = releaseRows.filter((row) => ['useful', 'excellent'].includes(row.reviewed_status))
-  const benchmarkRows = releaseRows.filter((row) => row.reviewed_status === 'excellent' || row.review_decision === 'excellent_benchmark')
-  const rejectedRows = releaseRows.filter((row) => row.reviewed_status === 'reject' || ['repost_or_aggregator', 'brand_or_studio'].includes(row.review_decision))
+  const usefulRows = releaseRows.filter((row) => ['keep', 'excellent_benchmark'].includes(row.review_decision))
+  const benchmarkRows = releaseRows.filter((row) => row.review_decision === 'excellent_benchmark')
+  const rejectedRows = releaseRows.filter((row) => ['repost_or_aggregator', 'brand_or_studio'].includes(row.review_decision))
   const reviewRows = releaseRows.filter((row) => !row.review_decision || row.reviewed_status === 'needs_review')
 
   const outputs = [

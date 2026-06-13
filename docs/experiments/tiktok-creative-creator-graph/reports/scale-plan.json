@@ -1,63 +1,63 @@
 {
-  "generated_at": "2026-06-13T00:12:00.206Z",
+  "generated_at": "2026-06-13T00:34:56.550Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
     "review_decisions": 500
   },
   "current": {
-    "accounts": 529,
+    "accounts": 1692,
     "useful_creators": 7,
-    "excellent_creators": 1,
+    "excellent_creators": 6,
     "review_decisions": 4
   },
   "gaps": {
     "useful_creators": 49993,
-    "excellent_creators": 4999,
+    "excellent_creators": 4994,
     "review_decisions": 496
   },
   "planning_assumptions": {
-    "observed_useful_rate": 0.013,
+    "observed_useful_rate": 0.004,
     "planning_useful_rate": 0.02,
-    "observed_excellent_rate_among_useful": 0.143,
+    "observed_excellent_rate_among_useful": 0.857,
     "planning_excellent_rate_among_useful": 0.1,
     "import_batch_size": 250
   },
   "estimated_work": {
     "candidate_accounts_needed": 2499650,
     "import_batches_needed": 9999,
-    "useful_creators_needed_for_excellent_target": 49990,
+    "useful_creators_needed_for_excellent_target": 49940,
     "review_batches_needed": 2
   },
   "candidate_frontier": {
-    "targets": 83,
-    "handle_targets": 6,
-    "query_targets": 77
+    "targets": 86,
+    "handle_targets": 7,
+    "query_targets": 79
   },
   "ranked_surfaces": [
     {
       "rank": 1,
       "source_type": "manual_seed",
       "source_query": "filmmaker short film editing breakdown",
-      "yield_score": 91,
+      "yield_score": 95,
       "usefulness_rate": 1,
       "rejected_rate": 0,
       "recommended_batch_share": 0.2
     },
     {
       "rank": 2,
-      "source_type": "manual_seed",
-      "source_query": "cinematographer lighting breakdown",
-      "yield_score": 73,
-      "usefulness_rate": 1,
-      "rejected_rate": 0,
+      "source_type": "provider_video_export",
+      "source_query": "",
+      "yield_score": 90,
+      "usefulness_rate": 0.667,
+      "rejected_rate": 0.333,
       "recommended_batch_share": 0.2
     },
     {
       "rank": 3,
       "source_type": "manual_seed",
-      "source_query": "sketch comedian character comedy",
-      "yield_score": 70,
+      "source_query": "cinematographer lighting breakdown",
+      "yield_score": 87,
       "usefulness_rate": 1,
       "rejected_rate": 0,
       "recommended_batch_share": 0.2
@@ -66,43 +66,43 @@
       "rank": 4,
       "source_type": "manual_seed",
       "source_query": "vfx artist animation blender",
-      "yield_score": 70,
+      "yield_score": 87,
       "usefulness_rate": 1,
       "rejected_rate": 0,
       "recommended_batch_share": 0.1
     },
     {
       "rank": 5,
-      "source_type": "graph_expansion_fixture",
-      "source_query": "mentioned by @ani.motionlab",
-      "yield_score": 70,
+      "source_type": "manual_seed",
+      "source_query": "sketch comedian character comedy",
+      "yield_score": 85,
       "usefulness_rate": 1,
       "rejected_rate": 0,
       "recommended_batch_share": 0.1
     },
     {
       "rank": 6,
-      "source_type": "provider_video_export",
-      "source_query": "",
-      "yield_score": 65,
-      "usefulness_rate": 0.667,
-      "rejected_rate": 0.333,
+      "source_type": "graph_expansion_fixture",
+      "source_query": "mentioned by @ani.motionlab",
+      "yield_score": 78,
+      "usefulness_rate": 1,
+      "rejected_rate": 0,
       "recommended_batch_share": 0.1
     },
     {
       "rank": 7,
       "source_type": "provider_video_export",
       "source_query": "",
-      "yield_score": 43,
+      "yield_score": 64,
       "usefulness_rate": 0.667,
       "rejected_rate": 0.333,
       "recommended_batch_share": 0.05
     },
     {
       "rank": 8,
-      "source_type": "editorial_list_seed",
-      "source_query": "Shutterstock TikTok filmmakers to follow",
-      "yield_score": 13,
+      "source_type": "editorial_list",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "yield_score": 29,
       "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.05
@@ -110,8 +110,8 @@
     {
       "rank": 9,
       "source_type": "editorial_list",
-      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
-      "yield_score": 12,
+      "source_query": "FeedSpot Top Movie TikTok Influencers 2026",
+      "yield_score": 29,
       "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.05
@@ -119,8 +119,8 @@
     {
       "rank": 10,
       "source_type": "editorial_list",
-      "source_query": "FeedSpot Top Movie TikTok Influencers 2026",
-      "yield_score": 12,
+      "source_query": "FeedSpot Top Horror TikTok Influencers 2026",
+      "yield_score": 29,
       "usefulness_rate": 0,
       "rejected_rate": 0,
       "recommended_batch_share": 0.05
@@ -131,7 +131,7 @@
       "sequence": 1,
       "batch_id": "graph_0068",
       "frontier_rank": 1,
-      "frontier_score": 101,
+      "frontier_score": 102,
       "priority": 1,
       "acquisition_surface": "search_index",
       "query": "filmmaker short film editing breakdown",
@@ -141,10 +141,10 @@
     },
     {
       "sequence": 2,
-      "batch_id": "graph_0078",
+      "batch_id": "graph_0082",
       "frontier_rank": 2,
-      "frontier_score": 90,
-      "priority": 2,
+      "frontier_score": 100,
+      "priority": 1,
       "acquisition_surface": "search_index",
       "query": "cinematographer lighting breakdown",
       "target_kind": "query",
@@ -155,8 +155,8 @@
       "sequence": 3,
       "batch_id": "graph_0087",
       "frontier_rank": 3,
-      "frontier_score": 89,
-      "priority": 2,
+      "frontier_score": 100,
+      "priority": 1,
       "acquisition_surface": "search_index",
       "query": "sketch comedian character comedy",
       "target_kind": "query",
@@ -165,10 +165,10 @@
     },
     {
       "sequence": 4,
-      "batch_id": "graph_0085",
+      "batch_id": "graph_0080",
       "frontier_rank": 4,
-      "frontier_score": 89,
-      "priority": 2,
+      "frontier_score": 100,
+      "priority": 1,
       "acquisition_surface": "search_index",
       "query": "vfx artist animation blender",
       "target_kind": "query",
@@ -177,27 +177,27 @@
     },
     {
       "sequence": 5,
-      "batch_id": "hashtag_0021|graph_0081",
+      "batch_id": "graph_0076|hashtag_0021",
       "frontier_rank": 5,
       "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
       "query": "animation",
       "target_kind": "query",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
       "sequence": 6,
-      "batch_id": "hashtag_0014|graph_0079",
+      "batch_id": "graph_0083|hashtag_0014",
       "frontier_rank": 6,
       "frontier_score": 86,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
       "query": "cinematography",
       "target_kind": "query",
-      "expected_output": "recent public videos and author profiles for hashtag",
-      "import_target": "data/raw/imports/hashtag-export.jsonl"
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
       "sequence": 7,
@@ -225,7 +225,7 @@
     },
     {
       "sequence": 9,
-      "batch_id": "graph_0075|hashtag_0016",
+      "batch_id": "graph_0073|hashtag_0016",
       "frontier_rank": 9,
       "frontier_score": 86,
       "priority": 1,
@@ -237,8 +237,44 @@
     },
     {
       "sequence": 10,
-      "batch_id": "graph_0070",
+      "batch_id": "graph_0077",
       "frontier_rank": 10,
+      "frontier_score": 83,
+      "priority": 1,
+      "acquisition_surface": "tiktok_hashtag_export",
+      "query": "blender",
+      "target_kind": "query",
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
+    },
+    {
+      "sequence": 11,
+      "batch_id": "graph_0084",
+      "frontier_rank": 11,
+      "frontier_score": 83,
+      "priority": 1,
+      "acquisition_surface": "tiktok_hashtag_export",
+      "query": "lighting",
+      "target_kind": "query",
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
+    },
+    {
+      "sequence": 12,
+      "batch_id": "graph_0078",
+      "frontier_rank": 12,
+      "frontier_score": 83,
+      "priority": 1,
+      "acquisition_surface": "cross_platform_search",
+      "query": "site:beacons.ai \"tiktok.com/@\" \"vfx animation\"",
+      "target_kind": "query",
+      "expected_output": "external pages linking to adjacent TikTok creator profiles",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
+    },
+    {
+      "sequence": 13,
+      "batch_id": "graph_0070",
+      "frontier_rank": 13,
       "frontier_score": 83,
       "priority": 1,
       "acquisition_surface": "cross_platform_search",
@@ -248,9 +284,33 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 11,
+      "sequence": 14,
+      "batch_id": "graph_0086",
+      "frontier_rank": 14,
+      "frontier_score": 83,
+      "priority": 1,
+      "acquisition_surface": "cross_platform_search",
+      "query": "site:youtube.com \"tiktok.com/@\" \"sketch comedian\"",
+      "target_kind": "query",
+      "expected_output": "external pages linking to adjacent TikTok creator profiles",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
+    },
+    {
+      "sequence": 15,
+      "batch_id": "graph_0079",
+      "frontier_rank": 15,
+      "frontier_score": 83,
+      "priority": 1,
+      "acquisition_surface": "tiktok_hashtag_export",
+      "query": "vfx",
+      "target_kind": "query",
+      "expected_output": "recent public videos and author profiles for adjacent hashtag",
+      "import_target": "data/raw/imports/graph-expansion-export.jsonl"
+    },
+    {
+      "sequence": 16,
       "batch_id": "category_gap_0029",
-      "frontier_rank": 11,
+      "frontier_rank": 16,
       "frontier_score": 80,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
@@ -260,9 +320,9 @@
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
     },
     {
-      "sequence": 12,
+      "sequence": 17,
       "batch_id": "category_gap_0028",
-      "frontier_rank": 12,
+      "frontier_rank": 17,
       "frontier_score": 80,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
@@ -272,9 +332,9 @@
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
     },
     {
-      "sequence": 13,
+      "sequence": 18,
       "batch_id": "search_0006",
-      "frontier_rank": 13,
+      "frontier_rank": 18,
       "frontier_score": 80,
       "priority": 1,
       "acquisition_surface": "search_index",
@@ -284,9 +344,9 @@
       "import_target": "data/raw/imports/search-index-export.jsonl"
     },
     {
-      "sequence": 14,
+      "sequence": 19,
       "batch_id": "hashtag_0020",
-      "frontier_rank": 14,
+      "frontier_rank": 19,
       "frontier_score": 80,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
@@ -296,9 +356,9 @@
       "import_target": "data/raw/imports/hashtag-export.jsonl"
     },
     {
-      "sequence": 15,
-      "batch_id": "graph_0074",
-      "frontier_rank": 15,
+      "sequence": 20,
+      "batch_id": "graph_0072",
+      "frontier_rank": 20,
       "frontier_score": 78,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
@@ -308,9 +368,9 @@
       "import_target": "data/raw/imports/graph-expansion-export.jsonl"
     },
     {
-      "sequence": 16,
+      "sequence": 21,
       "batch_id": "category_gap_0037",
-      "frontier_rank": 16,
+      "frontier_rank": 21,
       "frontier_score": 75,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
@@ -320,9 +380,9 @@
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
     },
     {
-      "sequence": 17,
+      "sequence": 22,
       "batch_id": "category_gap_0038",
-      "frontier_rank": 17,
+      "frontier_rank": 22,
       "frontier_score": 75,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
@@ -332,9 +392,9 @@
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
     },
     {
-      "sequence": 18,
+      "sequence": 23,
       "batch_id": "category_gap_0039",
-      "frontier_rank": 18,
+      "frontier_rank": 23,
       "frontier_score": 75,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
@@ -344,9 +404,9 @@
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
     },
     {
-      "sequence": 19,
+      "sequence": 24,
       "batch_id": "category_gap_0036",
-      "frontier_rank": 19,
+      "frontier_rank": 24,
       "frontier_score": 75,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
@@ -356,73 +416,13 @@
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
     },
     {
-      "sequence": 20,
-      "batch_id": "category_gap_0032",
-      "frontier_rank": 20,
-      "frontier_score": 75,
-      "priority": 1,
-      "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"commercial director\"",
-      "target_kind": "search_query",
-      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
-      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
-    },
-    {
-      "sequence": 21,
-      "batch_id": "category_gap_0031",
-      "frontier_rank": 21,
-      "frontier_score": 75,
-      "priority": 1,
-      "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"directed by\"",
-      "target_kind": "search_query",
-      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
-      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
-    },
-    {
-      "sequence": 22,
-      "batch_id": "category_gap_0030",
-      "frontier_rank": 22,
-      "frontier_score": 75,
-      "priority": 1,
-      "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"director\"",
-      "target_kind": "search_query",
-      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
-      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
-    },
-    {
-      "sequence": 23,
-      "batch_id": "category_gap_0040",
-      "frontier_rank": 23,
-      "frontier_score": 75,
-      "priority": 1,
-      "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"performer\"",
-      "target_kind": "search_query",
-      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
-      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
-    },
-    {
-      "sequence": 24,
-      "batch_id": "category_gap_0035",
-      "frontier_rank": 24,
-      "frontier_score": 75,
-      "priority": 1,
-      "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"stand-up\"",
-      "target_kind": "search_query",
-      "expected_output": "candidate TikTok profile URLs for undercovered creator category",
-      "import_target": "data/raw/imports/category-gap-search-export.jsonl"
-    },
-    {
       "sequence": 25,
-      "batch_id": "category_gap_0033",
+      "batch_id": "category_gap_0032",
       "frontier_rank": 25,
       "frontier_score": 75,
       "priority": 1,
       "acquisition_surface": "category_gap_search",
-      "query": "site:tiktok.com/@ \"standup comedian\"",
+      "query": "site:tiktok.com/@ \"commercial director\"",
       "target_kind": "search_query",
       "expected_output": "candidate TikTok profile URLs for undercovered creator category",
       "import_target": "data/raw/imports/category-gap-search-export.jsonl"
