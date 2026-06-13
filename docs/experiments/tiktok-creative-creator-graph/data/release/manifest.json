@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T05:12:22.727Z",
+  "generated_at": "2026-06-13T05:51:19.909Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 10837,
@@ -10,11 +10,11 @@
     "review_queue": 10833
   },
   "readiness": {
-    "generated_at": "2026-06-13T05:11:21.319Z",
+    "generated_at": "2026-06-13T05:30:41.979Z",
     "complete": false,
     "counts": {
       "accounts": 10837,
-      "videos": 74,
+      "videos": 77,
       "edges": 639,
       "useful_accounts": 107,
       "excellent_accounts": 6,
@@ -42,7 +42,7 @@
       "candidate_frontier_queries": 103,
       "acquisition_import_preview_accounts": 10832,
       "acquisition_import_preview_ready": false,
-      "acquisition_import_waves": 37,
+      "acquisition_import_waves": 38,
       "acquisition_runner_tasks": 2,
       "acquisition_runner_runnable_tasks": 2,
       "acquisition_runner_skipped_tasks": 0,
@@ -117,7 +117,7 @@
       {
         "id": "video_metadata",
         "status": "pass",
-        "evidence": "74 videos ingested"
+        "evidence": "77 videos ingested"
       },
       {
         "id": "graph_edges",
@@ -187,7 +187,7 @@
       {
         "id": "acquisition_import_waves",
         "status": "pass",
-        "evidence": "37 acquisition import waves tracked"
+        "evidence": "38 acquisition import waves tracked"
       },
       {
         "id": "acquisition_runner",
@@ -322,7 +322,7 @@
       {
         "id": "publication_handoff_freshness",
         "status": "pass",
-        "evidence": "handoff accounts 10837/10837, identities 10686/10686, videos 74/74, import waves 37/37, source yield 905/905"
+        "evidence": "handoff accounts 10837/10837, identities 10686/10686, videos 77/77, import waves 38/38, source yield 905/905"
       },
       {
         "id": "useful_account_target",

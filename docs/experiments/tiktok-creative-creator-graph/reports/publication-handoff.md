@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T05:12:24.396Z
+Generated: 2026-06-13T05:51:21.601Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -38,12 +38,12 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Acquisition import waves: 38
 - Acquisition import traced rows: 382984
 - Acquisition import untraced rows: 192
-- Acquisition runner runnable tasks: 2
-- Acquisition runner skipped tasks: 0
-- Acquisition run history: 17
+- Acquisition runner runnable tasks: 39
+- Acquisition runner skipped tasks: 11
+- Acquisition run history: 19
 - Latest recorded acquisition provider: public_web
 - Latest recorded acquisition output rows: 0
-- Zero-yield live acquisition runs: 2
+- Zero-yield live acquisition runs: 4
 - External lead packet assignments: 200
 - External lead packet requested leads: 50000
 - External lead packet category rows: 11

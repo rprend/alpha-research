@@ -121,8 +121,14 @@ function profileUrlFor(value) {
 
 function extractTikTokUrls(text) {
   const urls = []
+  const candidates = [String(text ?? '')]
+  try {
+    candidates.push(decodeURIComponent(String(text ?? '')))
+  } catch {
+    // Keep the raw value only when it is not URI-encoded.
+  }
   const pattern = /https?:\/\/(?:www\.)?tiktok\.com\/@[A-Za-z0-9._-]+/gi
-  for (const match of String(text ?? '').matchAll(pattern)) {
+  for (const match of candidates.join('\n').matchAll(pattern)) {
     const profileUrl = profileUrlFor(match[0].replace(/[),.;]+$/g, ''))
     if (profileUrl) urls.push(profileUrl)
   }
@@ -142,6 +148,36 @@ function assertPublicSearchUsable(html, task) {
   }
 }
 
+function rowsFromSearchResult(result, task, seen) {
+  const rows = []
+  for (const profileUrl of new Set([
+    ...extractTikTokUrls(result.url),
+    ...extractTikTokUrls(result.title),
+    ...extractTikTokUrls(result.snippet),
+  ])) {
+    const handle = normalizeHandle(profileUrl)
+    if (!handle || seen.has(handle)) continue
+    seen.add(handle)
+    rows.push({
+      handle,
+      profile_url: profileUrl,
+      display_name: result.title.replace(/\s+-?\s*on TikTok.*/i, '').trim(),
+      bio: result.snippet,
+      source_type: task.acquisition_surface === 'cross_platform_search' ? 'cross_platform_search' : 'public_web_search',
+      source_name: `Public web acquisition ${task.batch_id}`,
+      source_query: task.query,
+      source_url: result.url,
+      target_label: task.target_label ?? '',
+      source_target_labels: task.target_label ? [task.target_label] : [],
+      acquisition_surface: task.acquisition_surface,
+      provider,
+      provider_execution_id: '',
+      batch_id: task.batch_id,
+    })
+  }
+  return rows
+}
+
 function publicSearchRowsFromHtml(html, task) {
   assertPublicSearchUsable(html, task)
   const rows = []
@@ -155,31 +191,7 @@ function publicSearchRowsFromHtml(html, task) {
     const url = bingResultUrlFromHref(anchor[1])
     const title = stripTags(anchor[2])
     const snippet = stripTags(snippetMatch?.[1] ?? '')
-    for (const profileUrl of new Set([
-      ...extractTikTokUrls(url),
-      ...extractTikTokUrls(title),
-      ...extractTikTokUrls(snippet),
-    ])) {
-      const handle = normalizeHandle(profileUrl)
-      if (!handle || seen.has(handle)) continue
-      seen.add(handle)
-      rows.push({
-        handle,
-        profile_url: profileUrl,
-        display_name: title.replace(/\s+-?\s*on TikTok.*/i, '').trim(),
-        bio: snippet,
-        source_type: task.acquisition_surface === 'cross_platform_search' ? 'cross_platform_search' : 'public_web_search',
-        source_name: `Public web acquisition ${task.batch_id}`,
-        source_query: task.query,
-        source_url: url,
-        target_label: task.target_label ?? '',
-        source_target_labels: task.target_label ? [task.target_label] : [],
-        acquisition_surface: task.acquisition_surface,
-        provider,
-        provider_execution_id: '',
-        batch_id: task.batch_id,
-      })
-    }
+    rows.push(...rowsFromSearchResult({ url, title, snippet }, task, seen))
   }
 
   if (!rows.length) {
@@ -209,18 +221,38 @@ function publicSearchRowsFromHtml(html, task) {
   return rows.slice(0, limit)
 }
 
+function publicSearchRowsFromRss(xml, task) {
+  const rows = []
+  const seen = new Set()
+  const items = String(xml ?? '').matchAll(/<item>([\s\S]*?)<\/item>/gi)
+  for (const itemMatch of items) {
+    const item = itemMatch[1]
+    rows.push(...rowsFromSearchResult({
+      title: decodeEntities(item.match(/<title>([\s\S]*?)<\/title>/i)?.[1] ?? ''),
+      snippet: stripTags(item.match(/<description>([\s\S]*?)<\/description>/i)?.[1] ?? ''),
+      url: decodeEntities(item.match(/<link>([\s\S]*?)<\/link>/i)?.[1] ?? ''),
+    }, task, seen))
+  }
+  return rows.slice(0, limit)
+}
+
 async function runPublicWebSearch(task) {
-  const url = `https://www.bing.com/search?q=${encodeURIComponent(task.query)}`
+  const actorId = adapter.actors[task.acquisition_surface]?.actor_id ?? adapter.default_actor_id ?? 'bing_html'
+  const rssMode = actorId === 'bing_rss'
+  const url = rssMode
+    ? `https://www.bing.com/search?format=rss&q=${encodeURIComponent(task.query)}`
+    : `https://www.bing.com/search?q=${encodeURIComponent(task.query)}`
   const response = await fetch(url, {
     headers: {
       'user-agent': 'Mozilla/5.0 (compatible; alpha-research-public-web-acquisition/1.0)',
-      accept: 'text/html,application/xhtml+xml',
+      accept: rssMode ? 'application/rss+xml,text/xml' : 'text/html,application/xhtml+xml',
     },
   })
   if (!response.ok) throw new Error(`public_web request failed ${response.status}`)
-  const items = publicSearchRowsFromHtml(await response.text(), task)
+  const body = await response.text()
+  const items = rssMode ? publicSearchRowsFromRss(body, task) : publicSearchRowsFromHtml(body, task)
   return {
-    run_id: `public_web:${task.batch_id}:${Date.now()}`,
+    run_id: `public_web:${actorId}:${task.batch_id}:${Date.now()}`,
     dataset_id: '',
     status: 'SUCCEEDED',
     items,
@@ -287,7 +319,7 @@ async function runApifyActor(task, actorConfig) {
 
 async function runProviderTask(task, actorConfig) {
   if (provider === 'apify') return runApifyActor(task, actorConfig)
-  if (provider === 'public_web' && actorConfig.actor_id === 'bing_html') return runPublicWebSearch(task)
+  if (provider === 'public_web' && ['bing_html', 'bing_rss'].includes(actorConfig.actor_id)) return runPublicWebSearch(task)
   throw new Error(`Provider ${provider} cannot execute ${task.acquisition_surface} with actor ${actorConfig.actor_id}`)
 }
 
@@ -338,10 +370,13 @@ async function main() {
   const waveTasks = selectedWave
     ? [taskById.get(selectedWave.primary_task_id), taskById.get(selectedWave.secondary_task_id)].filter(Boolean)
     : []
-  const tasks = (selectedWave ? waveTasks : allTasks.filter((task) => Number(task.priority) <= priorityMax))
-    .slice(0, maxTasks)
-  const runnableTasks = tasks.filter((task) => adapter.actors[task.acquisition_surface])
-  const skippedTasks = tasks.filter((task) => !adapter.actors[task.acquisition_surface])
+  const candidateTasks = selectedWave ? waveTasks : allTasks.filter((task) => Number(task.priority) <= priorityMax)
+  const runnableCandidates = candidateTasks.filter((task) => adapter.actors[task.acquisition_surface])
+  const skippedCandidates = candidateTasks.filter((task) => !adapter.actors[task.acquisition_surface])
+  const runnableTasks = runnableCandidates.slice(0, maxTasks)
+  const remainingSlots = Math.max(0, maxTasks - runnableTasks.length)
+  const skippedTasks = skippedCandidates.slice(0, remainingSlots)
+  const tasks = [...runnableTasks, ...skippedTasks]
   assertLiveRunAllowed(selectedWave, tasks)
 
   const executionId = new Date().toISOString().replace(/[:.]/g, '-')

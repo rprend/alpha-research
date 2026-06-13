@@ -1,6 +1,6 @@
 # Scale Waves
 
-Generated: 2026-06-13T05:12:22.992Z
+Generated: 2026-06-13T05:51:20.176Z
 
 - Planned waves: 10000
 - Candidate accounts per wave: 250

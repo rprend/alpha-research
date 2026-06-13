@@ -67,23 +67,24 @@
   },
   "public_web": {
     "base_url": "",
+    "default_actor_id": "bing_rss",
     "actors": {
       "search_index": {
-        "actor_id": "bing_html",
+        "actor_id": "bing_rss",
         "input_template": {
           "query": "{{query}}",
           "limit": "{{limit}}"
         }
       },
       "category_gap_search": {
-        "actor_id": "bing_html",
+        "actor_id": "bing_rss",
         "input_template": {
           "query": "{{query}}",
           "limit": "{{limit}}"
         }
       },
       "cross_platform_search": {
-        "actor_id": "bing_html",
+        "actor_id": "bing_rss",
         "input_template": {
           "query": "{{query}}",
           "limit": "{{limit}}"

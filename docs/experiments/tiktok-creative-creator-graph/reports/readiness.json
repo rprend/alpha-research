@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T05:12:24.729Z",
+  "generated_at": "2026-06-13T05:51:21.905Z",
   "complete": false,
   "counts": {
     "accounts": 10837,
@@ -32,10 +32,10 @@
     "acquisition_import_preview_accounts": 10832,
     "acquisition_import_preview_ready": false,
     "acquisition_import_waves": 38,
-    "acquisition_runner_tasks": 2,
-    "acquisition_runner_runnable_tasks": 2,
-    "acquisition_runner_skipped_tasks": 0,
-    "acquisition_run_history": 17,
+    "acquisition_runner_tasks": 50,
+    "acquisition_runner_runnable_tasks": 39,
+    "acquisition_runner_skipped_tasks": 11,
+    "acquisition_run_history": 19,
     "source_yield_rows": 905,
     "identities": 10686,
     "category_coverage_labels": 11,
@@ -181,12 +181,12 @@
     {
       "id": "acquisition_runner",
       "status": "pass",
-      "evidence": "2 runnable of 2 selected provider tasks (dry run)"
+      "evidence": "39 runnable of 50 selected provider tasks (live)"
     },
     {
       "id": "acquisition_run_history",
       "status": "pass",
-      "evidence": "17 acquisition run history rows persisted"
+      "evidence": "19 acquisition run history rows persisted"
     },
     {
       "id": "source_yield",

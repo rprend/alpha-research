@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T05:12:24.729Z
+Generated: 2026-06-13T05:51:21.905Z
 
 Complete: false
 
@@ -33,10 +33,10 @@ Complete: false
 - Acquisition import preview accounts: 10832
 - Acquisition import preview ready: false
 - Acquisition import waves: 38
-- Acquisition runner tasks: 2
-- Acquisition runner runnable tasks: 2
-- Acquisition runner skipped tasks: 0
-- Acquisition run history: 17
+- Acquisition runner tasks: 50
+- Acquisition runner runnable tasks: 39
+- Acquisition runner skipped tasks: 11
+- Acquisition run history: 19
 - Source yield rows: 905
 - Identities: 10686
 - Category coverage labels: 8/11
@@ -114,8 +114,8 @@ Complete: false
 - candidate_frontier: pass (141 ranked acquisition candidates generated)
 - acquisition_import_preview: pass (10832 preview accounts, import gate not ready)
 - acquisition_import_waves: pass (38 acquisition import waves tracked)
-- acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
-- acquisition_run_history: pass (17 acquisition run history rows persisted)
+- acquisition_runner: pass (39 runnable of 50 selected provider tasks (live))
+- acquisition_run_history: pass (19 acquisition run history rows persisted)
 - source_yield: pass (905 source/query yield rows generated)
 - identity_resolution: pass (10686 creator identities resolved)
 - category_coverage: pass (8/11 target labels covered)
