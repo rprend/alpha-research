@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:41:49.319Z",
+  "generated_at": "2026-06-13T03:50:56.591Z",
   "target_useful_creators": 50000,
   "labels": 11,
   "covered_labels": 5,
@@ -40,7 +40,7 @@
     {
       "label": "cinematographer",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 75,
+      "current_primary_accounts": 79,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 1,
       "secondary_mentions": 0,
@@ -51,7 +51,7 @@
     {
       "label": "editor",
       "target_useful_creators": 5000,
-      "current_primary_accounts": 84,
+      "current_primary_accounts": 85,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 2,
@@ -73,7 +73,7 @@
     {
       "label": "sketch_comedian",
       "target_useful_creators": 7000,
-      "current_primary_accounts": 586,
+      "current_primary_accounts": 584,
       "useful_primary_accounts": 2,
       "excellent_primary_accounts": 2,
       "secondary_mentions": 1,
@@ -84,7 +84,7 @@
     {
       "label": "standup_comedian",
       "target_useful_creators": 4000,
-      "current_primary_accounts": 118,
+      "current_primary_accounts": 119,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 1,
@@ -95,7 +95,7 @@
     {
       "label": "actor_performer",
       "target_useful_creators": 4000,
-      "current_primary_accounts": 3713,
+      "current_primary_accounts": 3711,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 2,
@@ -106,7 +106,7 @@
     {
       "label": "film_educator",
       "target_useful_creators": 3000,
-      "current_primary_accounts": 1870,
+      "current_primary_accounts": 1869,
       "useful_primary_accounts": 0,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 3,
@@ -128,7 +128,7 @@
     {
       "label": "creative_technologist",
       "target_useful_creators": 2000,
-      "current_primary_accounts": 2063,
+      "current_primary_accounts": 2062,
       "useful_primary_accounts": 1,
       "excellent_primary_accounts": 0,
       "secondary_mentions": 0,

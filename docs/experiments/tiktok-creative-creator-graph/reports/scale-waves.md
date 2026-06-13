@@ -1,6 +1,6 @@
 # Scale Waves
 
-Generated: 2026-06-13T03:41:50.536Z
+Generated: 2026-06-13T03:50:57.862Z
 
 - Planned waves: 10000
 - Candidate accounts per wave: 250
@@ -23,8 +23,8 @@ Generated: 2026-06-13T03:41:50.536Z
 | 2 | scale_wave_0002 | cinematographer | 250 | 5 | 1 | 2 | 100 | search_index | cinematographer lighting breakdown |
 | 3 | scale_wave_0003 | sketch_comedian | 250 | 5 | 1 | 3 | 100 | search_index | sketch comedian character comedy |
 | 4 | scale_wave_0004 | vfx_animation | 250 | 5 | 1 | 4 | 100 | search_index | vfx artist animation blender |
-| 5 | scale_wave_0005 | filmmaker | 250 | 5 | 1 | 5 | 91 | tiktok_hashtag_export | filmmaker |
-| 6 | scale_wave_0006 | actor_performer | 250 | 5 | 1 | 6 | 86 | tiktok_hashtag_export | actor |
+| 5 | scale_wave_0005 | filmmaker | 250 | 5 | 1 | 5 | 95 | tiktok_hashtag_export | filmmaker |
+| 6 | scale_wave_0006 | actor_performer | 250 | 5 | 1 | 6 | 92 | tiktok_hashtag_export | actor |
 | 7 | scale_wave_0007 | vfx_animation | 250 | 5 | 1 | 7 | 86 | tiktok_hashtag_export | animation |
 | 8 | scale_wave_0008 | cinematographer | 250 | 5 | 1 | 8 | 86 | tiktok_hashtag_export | cinematography |
 | 9 | scale_wave_0009 | filmmaker | 250 | 5 | 1 | 9 | 86 | tiktok_hashtag_export | shortfilm |

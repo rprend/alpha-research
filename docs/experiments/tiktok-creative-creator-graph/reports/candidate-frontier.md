@@ -1,6 +1,6 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T03:41:49.955Z
+Generated: 2026-06-13T03:50:57.277Z
 
 - Candidates: 87
 - Handle targets: 7
@@ -38,8 +38,8 @@ Generated: 2026-06-13T03:41:49.955Z
 | 2 | 100 | 1 | query | search_index | cinematographer | cinematographer lighting breakdown |
 | 3 | 100 | 1 | query | search_index | sketch_comedian | sketch comedian character comedy |
 | 4 | 100 | 1 | query | search_index | vfx_animation | vfx artist animation blender |
-| 5 | 91 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
-| 6 | 86 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
+| 5 | 95 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
+| 6 | 92 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
 | 7 | 86 | 1 | query | tiktok_hashtag_export | vfx_animation | animation |
 | 8 | 86 | 1 | query | tiktok_hashtag_export | cinematographer | cinematography |
 | 9 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | shortfilm |

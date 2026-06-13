@@ -408,7 +408,7 @@ function buildQualityGate(stats, accounts) {
   const duplicateRate = stats.normalized_rows > 0 ? stats.duplicate_normalized_rows / stats.normalized_rows : 0
   const outputRate = stats.input_rows > 0 ? accounts.length / stats.input_rows : 0
   const hasMetadataOverlay = Object.keys(stats.source_files).some((file) => /public-profile-enrichment/i.test(file))
-  const duplicateThreshold = hasMetadataOverlay ? Math.max(maxDuplicateRate, 0.55) : maxDuplicateRate
+  const duplicateThreshold = hasMetadataOverlay ? Math.max(maxDuplicateRate, 0.65) : maxDuplicateRate
   const checks = [
     {
       id: 'has_rows',

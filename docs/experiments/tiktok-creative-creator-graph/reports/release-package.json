@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:41:50.191Z",
+  "generated_at": "2026-06-13T03:50:57.541Z",
   "objective": "TikTok creative creator graph release package",
   "counts": {
     "accounts": 10104,
@@ -10,12 +10,12 @@
     "review_queue": 10100
   },
   "readiness": {
-    "generated_at": "2026-06-13T03:38:28.486Z",
+    "generated_at": "2026-06-13T03:50:39.319Z",
     "complete": false,
     "counts": {
       "accounts": 10104,
-      "videos": 50,
-      "edges": 395,
+      "videos": 56,
+      "edges": 639,
       "useful_accounts": 7,
       "excellent_accounts": 6,
       "rejected_accounts": 2,
@@ -27,6 +27,8 @@
       "review_packet_batch_rows": 250,
       "review_plan_categories": 11,
       "learning_candidate_shortlist": 5000,
+      "learning_review_packet_rows": 1000,
+      "learning_review_packet_batches": 10,
       "review_decisions": 4,
       "review_blank_decisions": 0,
       "accepted_creators": 2,
@@ -39,8 +41,8 @@
       "candidate_frontier_handles": 7,
       "candidate_frontier_queries": 80,
       "acquisition_import_preview_accounts": 10099,
-      "acquisition_import_preview_ready": true,
-      "acquisition_import_waves": 29,
+      "acquisition_import_preview_ready": false,
+      "acquisition_import_waves": 31,
       "acquisition_runner_tasks": 2,
       "acquisition_runner_runnable_tasks": 2,
       "acquisition_runner_skipped_tasks": 0,
@@ -110,12 +112,12 @@
       {
         "id": "video_metadata",
         "status": "pass",
-        "evidence": "50 videos ingested"
+        "evidence": "56 videos ingested"
       },
       {
         "id": "graph_edges",
         "status": "pass",
-        "evidence": "395 graph edges generated"
+        "evidence": "639 graph edges generated"
       },
       {
         "id": "scoring_coverage",
@@ -148,6 +150,11 @@
         "evidence": "5000 candidate accounts prioritized for learning-value review"
       },
       {
+        "id": "learning_review_packet",
+        "status": "pass",
+        "evidence": "1000 learning review rows across 10 batches"
+      },
+      {
         "id": "expansion_queue",
         "status": "pass",
         "evidence": "28 expansion targets queued"
@@ -170,12 +177,12 @@
       {
         "id": "acquisition_import_preview",
         "status": "pass",
-        "evidence": "10099 preview accounts, import gate ready"
+        "evidence": "10099 preview accounts, import gate not ready"
       },
       {
         "id": "acquisition_import_waves",
         "status": "pass",
-        "evidence": "29 acquisition import waves tracked"
+        "evidence": "31 acquisition import waves tracked"
       },
       {
         "id": "acquisition_runner",
@@ -338,22 +345,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "37eba72e877d005687331679c686c3739f4369f48b3f3e87ee07e48e1caeced1"
+      "sha256": "6f9fa593e55d2d40cab710ee937025d3eab30b59ca5c47fbb7f36e4c4e825f95"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "cb8a44bd19ce0c6f5824f7c37125a8475854f219bb1c65a66ae99d747a991356"
+      "sha256": "8c27f21c33126b805bff8bfb00bf9ef9bcf7da391913dbb4be57d40d2441f07e"
     },
     {
       "path": "data/release/review_queue.csv",
       "rows": 10100,
-      "sha256": "542405923d2fc7d4c1ad0d26fa8c6f798c00198d06db0661c6cdad798a953c94"
+      "sha256": "4234524ad11847264425d4c98983dd6b905270fbe6f3ee31bbb4e003378bb5f6"
     },
     {
       "path": "data/release/all_scored_creators.csv",
       "rows": 10104,
-      "sha256": "397723abb1ac155852618e998f7f11ccd9b43263bc0ff6c570bda26aae78c9f5"
+      "sha256": "334ae7abd53ee8a67d53ba07d1fd0eb504424076488d1bd594f533299f208267"
     }
   ]
 }

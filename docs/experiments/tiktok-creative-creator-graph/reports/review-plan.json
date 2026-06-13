@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:41:49.759Z",
+  "generated_at": "2026-06-13T03:50:57.149Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -68,7 +68,7 @@
       "label": "filmmaker",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 25,
+      "current_sample_rows": 16,
       "review_gap": 25,
       "useful_gap": 7998,
       "priority": 2
@@ -77,7 +77,7 @@
       "label": "sketch_comedian",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 21,
+      "current_sample_rows": 16,
       "review_gap": 25,
       "useful_gap": 6998,
       "priority": 2
@@ -86,7 +86,7 @@
       "label": "cinematographer",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 8,
+      "current_sample_rows": 19,
       "review_gap": 25,
       "useful_gap": 4999,
       "priority": 2
@@ -95,7 +95,7 @@
       "label": "vfx_animation",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
-      "current_sample_rows": 21,
+      "current_sample_rows": 24,
       "review_gap": 25,
       "useful_gap": 4999,
       "priority": 2

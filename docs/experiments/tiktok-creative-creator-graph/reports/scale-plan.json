@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:41:50.480Z",
+  "generated_at": "2026-06-13T03:50:57.815Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
@@ -179,7 +179,7 @@
       "sequence": 5,
       "batch_id": "graph_0068|hashtag_0011",
       "frontier_rank": 5,
-      "frontier_score": 91,
+      "frontier_score": 95,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
       "query": "filmmaker",
@@ -191,7 +191,7 @@
       "sequence": 6,
       "batch_id": "graph_0073",
       "frontier_rank": 6,
-      "frontier_score": 86,
+      "frontier_score": 92,
       "priority": 1,
       "acquisition_surface": "tiktok_hashtag_export",
       "query": "actor",

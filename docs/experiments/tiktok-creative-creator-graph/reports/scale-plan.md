@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T03:41:50.480Z
+Generated: 2026-06-13T03:50:57.815Z
 
 ## Targets
 
@@ -54,8 +54,8 @@ Candidate frontier targets: 87
 | 2 | 2 | 100 | 1 | search_index | cinematographer lighting breakdown |
 | 3 | 3 | 100 | 1 | search_index | sketch comedian character comedy |
 | 4 | 4 | 100 | 1 | search_index | vfx artist animation blender |
-| 5 | 5 | 91 | 1 | tiktok_hashtag_export | filmmaker |
-| 6 | 6 | 86 | 1 | tiktok_hashtag_export | actor |
+| 5 | 5 | 95 | 1 | tiktok_hashtag_export | filmmaker |
+| 6 | 6 | 92 | 1 | tiktok_hashtag_export | actor |
 | 7 | 7 | 86 | 1 | tiktok_hashtag_export | animation |
 | 8 | 8 | 86 | 1 | tiktok_hashtag_export | cinematography |
 | 9 | 9 | 86 | 1 | tiktok_hashtag_export | shortfilm |

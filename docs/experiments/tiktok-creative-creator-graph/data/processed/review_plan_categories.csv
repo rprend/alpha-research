@@ -5,8 +5,8 @@ standup_comedian,25,0,25,25,4000,1
 actor_performer,25,0,25,25,4000,1
 film_educator,25,0,25,25,3000,1
 behind_the_scenes_creator,25,0,25,25,3000,1
-filmmaker,25,0,25,25,7998,2
-sketch_comedian,25,0,21,25,6998,2
-cinematographer,25,0,8,25,4999,2
-vfx_animation,25,0,21,25,4999,2
+filmmaker,25,0,16,25,7998,2
+sketch_comedian,25,0,16,25,6998,2
+cinematographer,25,0,19,25,4999,2
+vfx_animation,25,0,24,25,4999,2
 creative_technologist,25,0,0,25,1999,2

@@ -1,14 +1,14 @@
 # Readiness
 
-Generated: 2026-06-13T03:42:19.283Z
+Generated: 2026-06-13T03:50:58.924Z
 
 Complete: false
 
 ## Counts
 
 - Accounts: 10104
-- Videos: 50
-- Graph edges: 395
+- Videos: 56
+- Graph edges: 639
 - Useful accounts: 7
 - Excellent accounts: 6
 - Rejected accounts: 2
@@ -32,7 +32,7 @@ Complete: false
 - Candidate frontier queries: 80
 - Acquisition import preview accounts: 10099
 - Acquisition import preview ready: true
-- Acquisition import waves: 29
+- Acquisition import waves: 31
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
@@ -94,8 +94,8 @@ Complete: false
 ## Checks
 
 - seed_intake: pass (10104 accounts ingested)
-- video_metadata: pass (50 videos ingested)
-- graph_edges: pass (395 graph edges generated)
+- video_metadata: pass (56 videos ingested)
+- graph_edges: pass (639 graph edges generated)
 - scoring_coverage: pass (10104/10104 accounts scored)
 - review_queue: pass (10104 accounts queued for review)
 - review_sample: pass (250 sampled accounts ready for review)
@@ -108,7 +108,7 @@ Complete: false
 - acquisition_batches: pass (92 acquisition tasks generated)
 - candidate_frontier: pass (87 ranked acquisition candidates generated)
 - acquisition_import_preview: pass (10099 preview accounts, import gate ready)
-- acquisition_import_waves: pass (29 acquisition import waves tracked)
+- acquisition_import_waves: pass (31 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (17 acquisition run history rows persisted)
 - source_yield: pass (869 source/query yield rows generated)
