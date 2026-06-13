@@ -1,6 +1,6 @@
 # Provider Preflight
 
-Generated: 2026-06-13T06:07:55.887Z
+Generated: 2026-06-13T06:19:03.787Z
 
 - Provider: apify
 - Provider viability: missing_token
@@ -30,24 +30,24 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | Wave | Batch | Surface | Query | Actor | Ready | Viability | Est. rows | Est. cost |
 | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |
 | scale_wave_0001 | graph_0067 | tiktok_hashtag_export | filmmaker | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0001 | graph_0202 | search_index | influencer | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0001 | category_gap_0037 | category_gap_search | site:tiktok.com/@ "shortfilm" | apify/google-search-scraper | false | missing_token | 0 | $0 |
 | scale_wave_0002 | graph_0071 | tiktok_hashtag_export | actor | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0002 | graph_0203 | search_index | Internet celebrity | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0182 | search_index | FeedSpot Top Children Book TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0003 | graph_0199 | search_index | painter | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0180 | search_index | FeedSpot Top Comedy TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0004 | graph_0216 | cross_platform_search | site:instagram.com "tiktok.com/@" "filmmaker" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | graph_0181 | search_index | FeedSpot Top Gaming TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0005 | hashtag_0017 | tiktok_hashtag_export | standupcomedy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | graph_0185 | search_index | FeedSpot Top Latin Music TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0006 | graph_0207 | cross_platform_search | site:beacons.ai "tiktok.com/@" "filmmaker" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | graph_0179 | search_index | FeedSpot Top Lego TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0007 | graph_0211 | cross_platform_search | site:linktr.ee "tiktok.com/@" "filmmaker" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0183 | search_index | FeedSpot Top Mobile Gaming TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0008 | graph_0217 | cross_platform_search | site:youtube.com "tiktok.com/@" "filmmaker" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0184 | search_index | FeedSpot Top Pop Music TikTok Influencers 2026 | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0009 | graph_0210 | cross_platform_search | site:instagram.com "tiktok.com/@" "vfx animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0188 | search_index | screenwriter|comedian | apify/google-search-scraper | false | missing_token | 0 | $0 |
-| scale_wave_0010 | graph_0206 | cross_platform_search | site:linktr.ee "tiktok.com/@" "vfx animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0002 | category_gap_0038 | category_gap_search | site:tiktok.com/@ "sketch comedian" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | graph_0080 | tiktok_hashtag_export | cinematography | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0003 | search_0003 | search_index | site:tiktok.com/@ "sketch comedy" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | graph_0068 | tiktok_hashtag_export | shortfilm | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0004 | category_gap_0039 | category_gap_search | site:tiktok.com/@ "sketch" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | graph_0072 | tiktok_hashtag_export | sketchcomedy | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0005 | search_0006 | search_index | site:tiktok.com/@ "video editor" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0006 | graph_0075 | tiktok_hashtag_export | animation | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0006 | search_0008 | search_index | site:tiktok.com/@ actor "sketch" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0007 | graph_0081 | tiktok_hashtag_export | lighting | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0007 | search_0005 | search_index | site:tiktok.com/@ cinematographer | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0008 | graph_0069 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0008 | search_0001 | search_index | site:tiktok.com/@ filmmaker | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0009 | graph_0083 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0009 | category_gap_0049 | category_gap_search | site:tiktok.com/@ "animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | graph_0076 | tiktok_hashtag_export | blender | clockworks/tiktok-scraper | false | missing_token | 0 | $0 |
+| scale_wave_0010 | category_gap_0046 | category_gap_search | site:tiktok.com/@ "vfx animation" | apify/google-search-scraper | false | missing_token | 0 | $0 |
 
 Full preflight: `data/processed/provider_preflight.csv`

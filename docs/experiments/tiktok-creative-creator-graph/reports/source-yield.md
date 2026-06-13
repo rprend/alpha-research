@@ -1,24 +1,24 @@
 # Source Yield
 
-Generated: 2026-06-13T06:07:52.861Z
+Generated: 2026-06-13T06:18:59.226Z
 
-- Sources: 905
-- Distinct creators seen through sources: 10837
+- Sources: 1477
+- Distinct creators seen through sources: 15487
 
 ## Best Sources
 
 | Source type | Query | Seen | Useful | Rejected | Yield |
 | --- | --- | ---: | ---: | ---: | ---: |
-| wikidata_profile | actor | 2656 | 28 | 0 | 100 |
+| wikidata_profile | actor | 2656 | 63 | 0 | 100 |
+| wikidata_profile | comedian | 316 | 40 | 0 | 100 |
+| wikidata_profile | artist | 75 | 33 | 0 | 100 |
+| editorial_list | FeedSpot Top Pop Music TikTok Influencers 2026 | 68 | 30 | 0 | 100 |
+| wikidata_profile | dancer | 273 | 29 | 0 | 100 |
+| wikidata_profile | actor|dancer | 160 | 28 | 0 | 100 |
 | editorial_list | FeedSpot Top Lego TikTok Influencers 2026 | 59 | 27 | 0 | 100 |
-| wikidata_profile | comedian | 316 | 22 | 0 | 100 |
-| wikidata_profile | artist | 75 | 18 | 0 | 100 |
-| editorial_list | FeedSpot Top Pop Music TikTok Influencers 2026 | 68 | 17 | 0 | 100 |
+| wikidata_profile | voice actor | 245 | 19 | 0 | 100 |
+| wikidata_profile | singer|record producer|songwriter|rapper | 26 | 18 | 0 | 100 |
 | editorial_list | FeedSpot Top Children Book TikTok Influencers 2026 | 57 | 17 | 0 | 100 |
-| wikidata_profile | dancer | 273 | 15 | 0 | 100 |
-| wikidata_profile | actor|dancer | 160 | 14 | 0 | 100 |
-| editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 99 | 10 | 0 | 100 |
-| editorial_list | FeedSpot Top Gaming TikTok Influencers 2026 | 55 | 9 | 0 | 100 |
 
 ## Weak Sources
 

@@ -1,16 +1,16 @@
 # Adjacency Expansion
 
-Generated: 2026-06-13T06:07:52.979Z
+Generated: 2026-06-13T06:18:59.379Z
 
-- Base rows: 101
-- Expansion rows: 154
-- Added rows: 53
+- Base rows: 354
+- Expansion rows: 410
+- Added rows: 56
 
 ## Types
 
-- expand_from_creator: 101
+- expand_from_creator: 354
 - hashtag_search: 12
-- cross_platform_search: 16
+- cross_platform_search: 19
 - yield_replay_search: 25
 
 ## Top Rows
@@ -39,6 +39,6 @@ Generated: 2026-06-13T06:07:52.979Z
 | expand_from_creator | 1 | @renderjules | high_usefulness_source |
 | expand_from_creator | 1 | @fluffyguy | high_usefulness_source |
 | expand_from_creator | 1 | @butchhartman | high_usefulness_source |
-| expand_from_creator | 1 | @anthonyhopkins | high_usefulness_source |
-| expand_from_creator | 1 | @bobdylan | high_usefulness_source |
-| expand_from_creator | 1 | @davidbowie | high_usefulness_source |
+| expand_from_creator | 1 | @craigdavid | high_usefulness_source |
+| expand_from_creator | 1 | @dondiablo | high_usefulness_source |
+| expand_from_creator | 1 | @fatboyslimofficial | high_usefulness_source |

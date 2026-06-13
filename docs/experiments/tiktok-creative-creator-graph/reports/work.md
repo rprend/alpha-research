@@ -1,39 +1,39 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T06:07:52.343Z
+Generated: 2026-06-13T06:18:58.406Z
 
 ## Summary
 
-- Accounts: 10837
-- Videos: 83
-- Graph edges: 1465
-- Useful accounts: 363
+- Accounts: 15487
+- Videos: 92
+- Graph edges: 2086
+- Useful accounts: 1021
 - Excellent accounts: 6
-- Review queue: 10837
-- Expansion queue: 101
+- Review queue: 15487
+- Expansion queue: 354
 - Target: 50000
-- Target status: 49637 more useful accounts needed
+- Target status: 48979 more useful accounts needed
 
 ## Status Counts
 
-- useful: 357
-- needs_review: 10472
+- useful: 1015
+- needs_review: 14464
 - excellent: 6
 - reject: 2
 
 ## Primary Labels
 
-- actor_performer: 4553
-- sketch_comedian: 329
+- actor_performer: 8695
+- sketch_comedian: 379
 - standup_comedian: 184
-- filmmaker: 583
-- cinematographer: 53
-- director: 283
-- editor: 89
-- vfx_animation: 748
-- creative_technologist: 1941
-- film_educator: 1807
-- behind_the_scenes_creator: 265
+- filmmaker: 1199
+- cinematographer: 99
+- director: 275
+- editor: 86
+- vfx_animation: 746
+- creative_technologist: 1773
+- film_educator: 1626
+- behind_the_scenes_creator: 423
 - reject: 2
 
 ## Top Accounts
@@ -48,18 +48,18 @@ Generated: 2026-06-13T06:07:52.343Z
 | @lucybits | sketch_comedian | 85 | excellent |
 | @renderjules | creative_technologist | 78 | useful |
 | @fluffyguy | standup_comedian | 77 | useful |
+| @girlimusic | vfx_animation | 75 | useful |
+| @jaredleto | director | 75 | useful |
 | @butchhartman | vfx_animation | 75 | useful |
-| @kevinjamesofficial | filmmaker | 73 | useful |
-| @paulmccartney | filmmaker | 73 | useful |
-| @bobdylan | director | 73 | useful |
-| @davidbowie | vfx_animation | 73 | useful |
-| @anthonyhopkins | filmmaker | 73 | useful |
-| @louisckx | standup_comedian | 73 | useful |
-| @xirimpi | vfx_animation | 73 | useful |
-| @ben_brainard | standup_comedian | 72 | useful |
-| @devonrodriguezart | vfx_animation | 72 | useful |
-| @jlo | actor_performer | 72 | useful |
-| @chaokomaker | vfx_animation | 72 | useful |
+| @trevornoah | standup_comedian | 75 | useful |
+| @craigdavid | actor_performer | 75 | useful |
+| @kygomusic | actor_performer | 75 | useful |
+| @dondiablo | actor_performer | 75 | useful |
+| @fatboyslimofficial | actor_performer | 75 | useful |
+| @officialalanjackson | vfx_animation | 74 | useful |
+| @davidbowie | filmmaker | 74 | useful |
+| @smokeyrobinson | actor_performer | 74 | useful |
+| @akon | actor_performer | 74 | useful |
 
 ## Next Expansion Targets
 
@@ -68,6 +68,7 @@ Generated: 2026-06-13T06:07:52.343Z
 | expand_from_creator | @kingbach | 1 | high_usefulness_source |
 | expand_from_creator | @matt_rife | 1 | high_usefulness_source |
 | expand_from_creator | @fluffyguy | 1 | high_usefulness_source |
+| expand_from_creator | @matt_mathews | 1 | high_usefulness_source |
 | expand_from_creator | @jeffdunham | 1 | high_usefulness_source |
 | expand_from_creator | @kevinjamesofficial | 1 | high_usefulness_source |
 | expand_from_creator | @ben_brainard | 1 | high_usefulness_source |
@@ -78,18 +79,17 @@ Generated: 2026-06-13T06:07:52.343Z
 | expand_from_creator | @zachking | 1 | high_usefulness_source |
 | expand_from_creator | @selahshoots | 1 | high_usefulness_source |
 | expand_from_creator | @basementbits | 1 | high_usefulness_source |
+| expand_from_creator | @meghantrainor | 1 | high_usefulness_source |
+| expand_from_creator | @camilacabello | 1 | high_usefulness_source |
 | expand_from_creator | @jlo | 1 | high_usefulness_source |
-| expand_from_creator | @xtina | 1 | high_usefulness_source |
-| expand_from_creator | @kesha | 1 | high_usefulness_source |
-| expand_from_creator | @anitta | 1 | high_usefulness_source |
-| expand_from_creator | @matticusbricks | 1 | high_usefulness_source |
-| expand_from_creator | @luca.lego | 1 | high_usefulness_source |
-| expand_from_creator | @thelegomommy | 1 | high_usefulness_source |
-| expand_from_creator | @taylormadebricks | 1 | high_usefulness_source |
-| expand_from_creator | @thecontouredlibrarian | 1 | high_usefulness_source |
-| expand_from_creator | @youcancallmekait | 1 | high_usefulness_source |
-| expand_from_creator | @kaileemcoleman | 1 | high_usefulness_source |
-| expand_from_creator | @itsjojosiwa | 1 | high_usefulness_source |
+| expand_from_creator | @mariahcarey | 1 | high_usefulness_source |
+| expand_from_creator | @dualipaofficial | 1 | high_usefulness_source |
+| expand_from_creator | @zaralarsson | 1 | high_usefulness_source |
+| expand_from_creator | @katyperry | 1 | high_usefulness_source |
+| expand_from_creator | @conangray | 1 | high_usefulness_source |
+| expand_from_creator | @britneyspears | 1 | high_usefulness_source |
+| expand_from_creator | @sia | 1 | high_usefulness_source |
+| expand_from_creator | @halsey | 1 | high_usefulness_source |
 
 ## Human Review Queue
 
@@ -105,18 +105,18 @@ Generated: 2026-06-13T06:07:52.343Z
 | @clipvaultcinema | reject | 0 | repost_risk |
 | @renderjules | creative_technologist | 78 | strong_public_source_candidate |
 | @fluffyguy | standup_comedian | 77 | strong_public_source_candidate |
+| @girlimusic | vfx_animation | 75 | strong_public_source_candidate |
+| @jaredleto | director | 75 | strong_public_source_candidate |
 | @butchhartman | vfx_animation | 75 | strong_public_source_candidate |
+| @trevornoah | standup_comedian | 75 | strong_public_source_candidate |
+| @craigdavid | actor_performer | 75 | strong_public_source_candidate |
+| @kygomusic | actor_performer | 75 | strong_public_source_candidate |
+| @dondiablo | actor_performer | 75 | strong_public_source_candidate |
+| @fatboyslimofficial | actor_performer | 75 | strong_public_source_candidate |
+| @officialalanjackson | vfx_animation | 74 | strong_public_source_candidate |
+| @davidbowie | filmmaker | 74 | strong_public_source_candidate |
+| @smokeyrobinson | actor_performer | 74 | strong_public_source_candidate |
+| @akon | actor_performer | 74 | strong_public_source_candidate |
 | @kevinjamesofficial | filmmaker | 73 | strong_public_source_candidate |
+| @kenshiyonezu_08 | vfx_animation | 73 | strong_public_source_candidate |
 | @paulmccartney | filmmaker | 73 | strong_public_source_candidate |
-| @bobdylan | director | 73 | strong_public_source_candidate |
-| @davidbowie | vfx_animation | 73 | strong_public_source_candidate |
-| @anthonyhopkins | filmmaker | 73 | strong_public_source_candidate |
-| @louisckx | standup_comedian | 73 | strong_public_source_candidate |
-| @xirimpi | vfx_animation | 73 | strong_public_source_candidate |
-| @ben_brainard | standup_comedian | 72 | strong_public_source_candidate |
-| @devonrodriguezart | vfx_animation | 72 | strong_public_source_candidate |
-| @jlo | actor_performer | 72 | strong_public_source_candidate |
-| @chaokomaker | vfx_animation | 72 | strong_public_source_candidate |
-| @jaufibla | vfx_animation | 72 | strong_public_source_candidate |
-| @ilizas | standup_comedian | 72 | strong_public_source_candidate |
-| @chrissandersart | vfx_animation | 72 | strong_public_source_candidate |

@@ -1,15 +1,15 @@
 # External Lead List Import
 
-Generated: 2026-06-13T06:07:55.683Z
+Generated: 2026-06-13T06:19:03.580Z
 
 - Provider: external_lead_list
 - Dry run: false
-- Input path: docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0184-film_educator.csv
-- Input rows: 122
-- Output rows: 122
+- Input path: docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/completed/0199-actor_performer.csv
+- Input rows: 250
+- Output rows: 250
 - Skipped rows: 0
-- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-07-55-678Z-external-lead-list.jsonl
+- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T06-19-03-576Z-external-lead-list.jsonl
 
 ## Target Labels
 
-- film_educator: 122
+- actor_performer: 250

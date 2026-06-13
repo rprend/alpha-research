@@ -17,6 +17,7 @@ const maxRetries = Number(args.get('--max-retries') ?? 3)
 const dryRun = args.has('--dry-run')
 const includeBroadPerformers = args.has('--include-broad-performers')
 const includeCreatorNative = args.has('--include-creator-native')
+const includeExpandedCreative = args.has('--include-expanded-creative')
 const executionId = new Date().toISOString().replace(/[:.]/g, '-')
 const provider = 'wikidata_sparql'
 
@@ -72,6 +73,37 @@ const creatorNativeOccupationConfig = [
   { qid: 'Q37226', label: 'teacher', target_label: 'film_educator' },
 ]
 
+const expandedCreativeOccupationConfig = [
+  { qid: 'Q36180', label: 'writer', target_label: 'screenwriter' },
+  { qid: 'Q482980', label: 'author', target_label: 'screenwriter' },
+  { qid: 'Q49757', label: 'poet', target_label: 'screenwriter' },
+  { qid: 'Q177220', label: 'singer', target_label: 'actor_performer' },
+  { qid: 'Q639669', label: 'musician', target_label: 'actor_performer' },
+  { qid: 'Q488205', label: 'singer-songwriter', target_label: 'actor_performer' },
+  { qid: 'Q753110', label: 'songwriter', target_label: 'screenwriter' },
+  { qid: 'Q36834', label: 'composer', target_label: 'actor_performer' },
+  { qid: 'Q2252262', label: 'rapper', target_label: 'actor_performer' },
+  { qid: 'Q183945', label: 'record producer', target_label: 'creative_technologist' },
+  { qid: 'Q55960555', label: 'recording artist', target_label: 'actor_performer' },
+  { qid: 'Q130857', label: 'disc jockey', target_label: 'creative_technologist' },
+  { qid: 'Q3922505', label: 'DJ producer', target_label: 'creative_technologist' },
+  { qid: 'Q855091', label: 'guitarist', target_label: 'actor_performer' },
+  { qid: 'Q486748', label: 'pianist', target_label: 'actor_performer' },
+  { qid: 'Q822146', label: 'lyricist', target_label: 'screenwriter' },
+  { qid: 'Q60723829', label: 'pop singer', target_label: 'actor_performer' },
+  { qid: 'Q947873', label: 'television presenter', target_label: 'behind_the_scenes_creator' },
+  { qid: 'Q13590141', label: 'presenter', target_label: 'behind_the_scenes_creator' },
+  { qid: 'Q15077007', label: 'podcaster', target_label: 'film_educator' },
+  { qid: 'Q44508716', label: 'television personality', target_label: 'actor_performer' },
+  { qid: 'Q33231', label: 'photographer', target_label: 'cinematographer' },
+  { qid: 'Q2490358', label: 'choreographer', target_label: 'actor_performer' },
+  { qid: 'Q3455803', label: 'director', target_label: 'director' },
+  { qid: 'Q483501', label: 'artist', target_label: 'vfx_animation' },
+  { qid: 'Q8246794', label: 'blogger', target_label: 'film_educator' },
+  { qid: 'Q12330954', label: 'owarai tarento', target_label: 'sketch_comedian' },
+  { qid: 'Q622807', label: 'seiyu', target_label: 'actor_performer' },
+]
+
 const exclusionRules = [
   /\bpornographic\b/i,
   /\badult film\b/i,
@@ -106,6 +138,7 @@ function occupationConfigs() {
     ...occupationConfig,
     ...(includeBroadPerformers ? broadPerformerOccupationConfig : []),
     ...(includeCreatorNative ? creatorNativeOccupationConfig : []),
+    ...(includeExpandedCreative ? expandedCreativeOccupationConfig : []),
   ].filter((occupation, index, occupations) => occupations.findIndex((item) => item.qid === occupation.qid) === index)
 }
 
@@ -235,6 +268,7 @@ async function main() {
     source_use_note: 'Wikidata statements are public structured leads; verify TikTok profile activity and creator fit before production release.',
     include_broad_performers: includeBroadPerformers,
     include_creator_native: includeCreatorNative,
+    include_expanded_creative: includeExpandedCreative,
     occupation_qids: occupationConfigs().map((occupation) => occupation.qid),
     sparql_limit: sparqlLimit,
     max_retries: maxRetries,
@@ -261,6 +295,7 @@ Generated: ${summary.generated_at}
 - Source use note: ${summary.source_use_note}
 - Broad performers included: ${summary.include_broad_performers}
 - Creator-native occupations included: ${summary.include_creator_native}
+- Expanded creative occupations included: ${summary.include_expanded_creative}
 - Input rows: ${summary.input_rows}
 - Output creator rows: ${summary.output_rows}
 - Skipped rows: ${summary.skipped_rows}

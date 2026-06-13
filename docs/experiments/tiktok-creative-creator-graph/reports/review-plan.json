@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:07:53.891Z",
+  "generated_at": "2026-06-13T06:19:00.631Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -10,15 +10,6 @@
   "readiness_review_gap": 496,
   "category_minimum": 25,
   "category_rows": [
-    {
-      "label": "editor",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 5000,
-      "priority": 1
-    },
     {
       "label": "film_educator",
       "target_review_decisions": 25,
@@ -43,7 +34,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 7967,
+      "useful_gap": 7933,
       "priority": 2
     },
     {
@@ -56,7 +47,7 @@
       "priority": 2
     },
     {
-      "label": "cinematographer",
+      "label": "editor",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
@@ -65,12 +56,21 @@
       "priority": 2
     },
     {
+      "label": "cinematographer",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 25,
+      "review_gap": 25,
+      "useful_gap": 4998,
+      "priority": 2
+    },
+    {
       "label": "vfx_animation",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 4816,
+      "useful_gap": 4783,
       "priority": 2
     },
     {
@@ -79,7 +79,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3988,
+      "useful_gap": 3977,
       "priority": 2
     },
     {
@@ -88,7 +88,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3961,
+      "useful_gap": 3952,
       "priority": 2
     },
     {
@@ -97,7 +97,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3911,
+      "useful_gap": 3342,
       "priority": 2
     },
     {

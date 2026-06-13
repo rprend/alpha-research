@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:07:53.856Z",
+  "generated_at": "2026-06-13T06:19:00.594Z",
   "packet_id": "review_packet_20260613",
   "rows": 250,
   "decision_template_rows": 250,
@@ -10,12 +10,12 @@
   "batch_manifest_jsonl": "data/processed/review_packets/review_packet_20260613-batches.jsonl",
   "band_counts": {
     "benchmark_check": 5,
-    "borderline": 133,
-    "quality_audit": 112
+    "borderline": 120,
+    "quality_audit": 125
   },
   "suggested_decision_counts": {
     "excellent_benchmark": 5,
-    "maybe": 133,
-    "keep": 112
+    "maybe": 120,
+    "keep": 125
   }
 }

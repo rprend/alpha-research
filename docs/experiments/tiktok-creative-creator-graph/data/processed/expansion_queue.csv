@@ -1,12 +1,12 @@
 expansion_type,source_creator_id,target,priority,reason,primary_label,overall_usefulness,evidence_count
 expand_from_creator,maya.shortcuts,@maya.shortcuts,1,high_usefulness_source,filmmaker,98,1
-hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,26
-hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes,filmmaker,98,53
-hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,26
+hashtag_search,selahshoots,bts,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,29
+hashtag_search,selahshoots,filmmaker,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes,filmmaker,98,59
+hashtag_search,selahshoots,shortfilm,1,useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts,filmmaker,98,29
 cross_platform_search,maya.shortcuts,"site:vimeo.com ""tiktok.com/@"" ""filmmaker""",1,cross_platform_adjacency:vimeo.com,filmmaker,98,1
 expand_from_creator,basementbits,@basementbits,1,high_usefulness_source,sketch_comedian,94,1
-hashtag_search,basementbits,actor,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,26
-hashtag_search,basementbits,sketchcomedy,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,26
+hashtag_search,basementbits,actor,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,29
+hashtag_search,basementbits,sketchcomedy,1,useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits,sketch_comedian,94,29
 expand_from_creator,selahshoots,@selahshoots,1,high_usefulness_source,filmmaker,92,1
 expand_from_creator,ani.motionlab,@ani.motionlab,1,high_usefulness_source,vfx_animation,87,1
 hashtag_search,ani.motionlab,animation,1,useful_creator_hashtag:@ani.motionlab,vfx_animation,87,1
@@ -21,135 +21,391 @@ cross_platform_search,lucybits,"site:youtube.com ""tiktok.com/@"" ""sketch comed
 expand_from_creator,renderjules,@renderjules,1,high_usefulness_source,creative_technologist,78,1
 expand_from_creator,fluffyguy,@fluffyguy,1,high_usefulness_source,standup_comedian,77,1
 expand_from_creator,butchhartman,@butchhartman,1,high_usefulness_source,vfx_animation,75,1
+expand_from_creator,craigdavid,@craigdavid,1,high_usefulness_source,actor_performer,75,1
+expand_from_creator,dondiablo,@dondiablo,1,high_usefulness_source,actor_performer,75,1
+expand_from_creator,fatboyslimofficial,@fatboyslimofficial,1,high_usefulness_source,actor_performer,75,1
+expand_from_creator,girlimusic,@girlimusic,1,high_usefulness_source,vfx_animation,75,1
+expand_from_creator,jaredleto,@jaredleto,1,high_usefulness_source,director,75,1
+expand_from_creator,kygomusic,@kygomusic,1,high_usefulness_source,actor_performer,75,1
+expand_from_creator,trevornoah,@trevornoah,1,high_usefulness_source,standup_comedian,75,1
+expand_from_creator,akon,@akon,1,high_usefulness_source,actor_performer,74,1
+expand_from_creator,davidbowie,@davidbowie,1,high_usefulness_source,filmmaker,74,1
+expand_from_creator,officialalanjackson,@officialalanjackson,1,high_usefulness_source,vfx_animation,74,1
+expand_from_creator,smokeyrobinson,@smokeyrobinson,1,high_usefulness_source,actor_performer,74,1
+expand_from_creator,3x3cutemusic,@3x3cutemusic,1,high_usefulness_source,actor_performer,73,1
 expand_from_creator,anthonyhopkins,@anthonyhopkins,1,high_usefulness_source,filmmaker,73,1
 expand_from_creator,bobdylan,@bobdylan,1,high_usefulness_source,director,73,1
-expand_from_creator,davidbowie,@davidbowie,1,high_usefulness_source,vfx_animation,73,1
+expand_from_creator,kenshiyonezu_08,@kenshiyonezu_08,1,high_usefulness_source,vfx_animation,73,1
 expand_from_creator,kevinjamesofficial,@kevinjamesofficial,1,high_usefulness_source,filmmaker,73,1
 expand_from_creator,louisckx,@louisckx,1,high_usefulness_source,standup_comedian,73,1
 expand_from_creator,paulmccartney,@paulmccartney,1,high_usefulness_source,filmmaker,73,1
+expand_from_creator,r3hab,@r3hab,1,high_usefulness_source,actor_performer,73,1
+expand_from_creator,stevenwilsonhq,@stevenwilsonhq,1,high_usefulness_source,actor_performer,73,1
 expand_from_creator,xirimpi,@xirimpi,1,high_usefulness_source,vfx_animation,73,1
+expand_from_creator,_lecrae,@_lecrae,1,high_usefulness_source,filmmaker,72,1
+expand_from_creator,andreacheong_,@andreacheong_,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,anitta,@anitta,1,high_usefulness_source,actor_performer,72,1
 expand_from_creator,ben_brainard,@ben_brainard,1,high_usefulness_source,standup_comedian,72,1
 expand_from_creator,bingcrosbyofficial,@bingcrosbyofficial,1,high_usefulness_source,filmmaker,72,1
+expand_from_creator,brianeno,@brianeno,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,buicongnam0308,@buicongnam0308,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,camilo,@camilo,1,high_usefulness_source,standup_comedian,72,1
 expand_from_creator,carrottoplive,@carrottoplive,1,high_usefulness_source,standup_comedian,72,1
 expand_from_creator,chaokomaker,@chaokomaker,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,charlixcx,@charlixcx,1,high_usefulness_source,actor_performer,72,1
 expand_from_creator,chrissandersart,@chrissandersart,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,dariamarxmusic,@dariamarxmusic,1,high_usefulness_source,actor_performer,72,1
 expand_from_creator,devonrodriguezart,@devonrodriguezart,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,grimes,@grimes,1,high_usefulness_source,director,72,1
+expand_from_creator,gustiwiw,@gustiwiw,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,hitboy,@hitboy,1,high_usefulness_source,actor_performer,72,1
 expand_from_creator,ilizas,@ilizas,1,high_usefulness_source,standup_comedian,72,1
+expand_from_creator,imxmar_,@imxmar_,1,high_usefulness_source,actor_performer,72,1
 expand_from_creator,jalaiahharmon,@jalaiahharmon,1,high_usefulness_source,vfx_animation,72,1
-expand_from_creator,jaredleto,@jaredleto,1,high_usefulness_source,director,72,1
 expand_from_creator,jaufibla,@jaufibla,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,jaxjones,@jaxjones,1,high_usefulness_source,actor_performer,72,1
 expand_from_creator,jlo,@jlo,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,jordandavismusic,@jordandavismusic,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,kohmihirose_official,@kohmihirose_official,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,leslieclio,@leslieclio,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,lights,@lights,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,lorenzojova,@lorenzojova,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,luxxuryxx,@luxxuryxx,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,marenmorris,@marenmorris,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,martingarrix,@martingarrix,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,matt_mathews,@matt_mathews,1,high_usefulness_source,standup_comedian,72,1
+expand_from_creator,maurihaze,@maurihaze,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,meghantrainor,@meghantrainor,1,high_usefulness_source,standup_comedian,72,1
+expand_from_creator,michaelavonoeming,@michaelavonoeming,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,mrjustinhawkins,@mrjustinhawkins,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,nasalamode,@nasalamode,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,nimrodreshef,@nimrodreshef,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,nogaerez,@nogaerez,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,ramajeroc,@ramajeroc,1,high_usefulness_source,actor_performer,72,1
 expand_from_creator,ranakhadimofficial,@ranakhadimofficial,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,reagarvey,@reagarvey,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,shellastanofficial,@shellastanofficial,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,sofiamfisella,@sofiamfisella,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,stas_mihailoff_official,@stas_mihailoff_official,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,stevevai,@stevevai,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,verbalase,@verbalase,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,vybzkartel,@vybzkartel,1,high_usefulness_source,actor_performer,72,1
+expand_from_creator,watsky,@watsky,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,wincentweiss,@wincentweiss,1,high_usefulness_source,vfx_animation,72,1
+expand_from_creator,ahmadsupembri,@ahmadsupembri,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,aiotsuka_official,@aiotsuka_official,1,high_usefulness_source,vfx_animation,71,1
+expand_from_creator,anthonyhamiltonofficial,@anthonyhamiltonofficial,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,azizmaraka,@azizmaraka,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,christineandthequeens,@christineandthequeens,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,davido,@davido,1,high_usefulness_source,vfx_animation,71,1
+expand_from_creator,elviscostello,@elviscostello,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,jamesblake,@jamesblake,1,high_usefulness_source,actor_performer,71,1
 expand_from_creator,lewishancoxfilms,@lewishancoxfilms,1,high_usefulness_source,vfx_animation,71,1
+expand_from_creator,maik_n.g,@maik_n.g,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,nardavidmusic,@nardavidmusic,1,high_usefulness_source,vfx_animation,71,1
 expand_from_creator,nickkroll,@nickkroll,1,high_usefulness_source,filmmaker,71,1
+expand_from_creator,producteurasucces,@producteurasucces,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,ricardosbvacite,@ricardosbvacite,1,high_usefulness_source,vfx_animation,71,1
 expand_from_creator,roger_g_,@roger_g_,1,high_usefulness_source,vfx_animation,71,1
+expand_from_creator,roisinmurphyofficial,@roisinmurphyofficial,1,high_usefulness_source,filmmaker,71,1
+expand_from_creator,shaniatwain,@shaniatwain,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,thegr8khalid,@thegr8khalid,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,wisin,@wisin,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,yuba.official,@yuba.official,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,zakkwyldebls,@zakkwyldebls,1,high_usefulness_source,actor_performer,71,1
+expand_from_creator,aiofficialtiktok,@aiofficialtiktok,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,alesso,@alesso,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,anjakotar,@anjakotar,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,delovcusa,@delovcusa,1,high_usefulness_source,vfx_animation,70,1
+expand_from_creator,dieterbohlen,@dieterbohlen,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,ella_rae_feingold,@ella_rae_feingold,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,fredagainagain,@fredagainagain,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,gretamusiiic,@gretamusiiic,1,high_usefulness_source,actor_performer,70,1
 expand_from_creator,kasiababa,@kasiababa,1,high_usefulness_source,vfx_animation,70,1
+expand_from_creator,katyperry,@katyperry,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,kesha,@kesha,1,high_usefulness_source,director,70,1
+expand_from_creator,kito,@kito,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,labrinth,@labrinth,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,matthewolivierx,@matthewolivierx,1,high_usefulness_source,vfx_animation,70,1
+expand_from_creator,metahitt,@metahitt,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,mikeposner,@mikeposner,1,high_usefulness_source,actor_performer,70,1
 expand_from_creator,pacohdez77,@pacohdez77,1,high_usefulness_source,vfx_animation,70,1
+expand_from_creator,parovstelarofficial,@parovstelarofficial,1,high_usefulness_source,vfx_animation,70,1
+expand_from_creator,prince,@prince,1,high_usefulness_source,filmmaker,70,1
+expand_from_creator,saintjhn,@saintjhn,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,sanholobeats,@sanholobeats,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,sarahconnor,@sarahconnor,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,sheenaringo_official,@sheenaringo_official,1,high_usefulness_source,actor_performer,70,1
+expand_from_creator,tetsuya_komuro_,@tetsuya_komuro_,1,high_usefulness_source,actor_performer,70,1
 expand_from_creator,xtina,@xtina,1,high_usefulness_source,director,70,1
+expand_from_creator,alunewade1,@alunewade1,1,high_usefulness_source,actor_performer,69,1
 expand_from_creator,art_p3rry,@art_p3rry,1,high_usefulness_source,vfx_animation,69,1
+expand_from_creator,britneyspears,@britneyspears,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,carlosvives,@carlosvives,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,conangray,@conangray,1,high_usefulness_source,actor_performer,69,1
 expand_from_creator,dabakerboy,@dabakerboy,1,high_usefulness_source,vfx_animation,69,1
 expand_from_creator,drseuss,@drseuss,1,high_usefulness_source,vfx_animation,69,1
+expand_from_creator,dualipaofficial,@dualipaofficial,1,high_usefulness_source,filmmaker,69,1
+expand_from_creator,excision,@excision,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,gabbyb_music,@gabbyb_music,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,glaiveyeahwoohoo,@glaiveyeahwoohoo,1,high_usefulness_source,actor_performer,69,1
 expand_from_creator,itsjojosiwa,@itsjojosiwa,1,high_usefulness_source,standup_comedian,69,1
+expand_from_creator,janetjackson,@janetjackson,1,high_usefulness_source,filmmaker,69,1
 expand_from_creator,jeffdunham,@jeffdunham,1,high_usefulness_source,standup_comedian,69,1
 expand_from_creator,jessicakirson,@jessicakirson,1,high_usefulness_source,standup_comedian,69,1
 expand_from_creator,joshjohnsoncomedy,@joshjohnsoncomedy,1,high_usefulness_source,standup_comedian,69,1
+expand_from_creator,justintimberlake,@justintimberlake,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,kidsuper,@kidsuper,1,high_usefulness_source,director,69,1
 expand_from_creator,kingbach,@kingbach,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,luisfonsi,@luisfonsi,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,maiko_fujita0,@maiko_fujita0,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,matoma,@matoma,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,mshinoda,@mshinoda,1,high_usefulness_source,vfx_animation,69,1
+expand_from_creator,nav,@nav,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,oliverheldens,@oliverheldens,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,sigalamusic,@sigalamusic,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,theonlylilmoe,@theonlylilmoe,1,high_usefulness_source,vfx_animation,69,1
+expand_from_creator,tomigotti,@tomigotti,1,high_usefulness_source,vfx_animation,69,1
 expand_from_creator,treaclychild,@treaclychild,1,high_usefulness_source,standup_comedian,69,1
-expand_from_creator,anitta,@anitta,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,zaralarsson,@zaralarsson,1,high_usefulness_source,actor_performer,69,1
+expand_from_creator,21savage,@21savage,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,afrojack,@afrojack,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,akbarsahebart,@akbarsahebart,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,akini_jing,@akini_jing,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,alligatoahtrinktwasser,@alligatoahtrinktwasser,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,amandaseales,@amandaseales,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,amanoanseo,@amanoanseo,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,amarinasena,@amarinasena,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,amywinehouse,@amywinehouse,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,angelvivaldiofficial,@angelvivaldiofficial,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,antoonpb,@antoonpb,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,atrak,@atrak,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,barakhardley,@barakhardley,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,basshunter_official,@basshunter_official,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,berrysakharof,@berrysakharof,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,celiabecks,@celiabecks,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,christinamilian,@christinamilian,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,cressidacowell,@cressidacowell,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,danpovenmire,@danpovenmire,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,daphnebolivar,@daphnebolivar,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,david_firth_,@david_firth_,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,dollyparton,@dollyparton,1,high_usefulness_source,filmmaker,68,1
 expand_from_creator,ellendegeneres,@ellendegeneres,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,fedrici,@fedrici,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,florencegiven,@florencegiven,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,frenchmontana,@frenchmontana,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,gackt,@gackt,1,high_usefulness_source,filmmaker,68,1
 expand_from_creator,georgelopez,@georgelopez,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,gnash,@gnash,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,gustavoaric,@gustavoaric,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,iamhenry,@iamhenry,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,isaiahrashad,@isaiahrashad,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,its_r_o_r_y,@its_r_o_r_y,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,itsmissraisa,@itsmissraisa,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,izzaroze,@izzaroze,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,jacintcasademont,@jacintcasademont,1,high_usefulness_source,director,68,1
 expand_from_creator,jackwhitehall,@jackwhitehall,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,jainmusic,@jainmusic,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,jasonderulo,@jasonderulo,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,jbalvin,@jbalvin,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,jeremiemusic,@jeremiemusic,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,jessiereyez,@jessiereyez,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,jhariah,@jhariah,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,jimgaffigan,@jimgaffigan,1,high_usefulness_source,filmmaker,68,1
 expand_from_creator,jimmycarr,@jimmycarr,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,johnmayer,@johnmayer,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,jonasblue,@jonasblue,1,high_usefulness_source,filmmaker,68,1
+expand_from_creator,juanluisguerra,@juanluisguerra,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,jwitchytv,@jwitchytv,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,kimberly.loaiza,@kimberly.loaiza,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,kirbopher15,@kirbopher15,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,ladbabyofficial,@ladbabyofficial,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,laetitiaky,@laetitiaky,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,laiaoli,@laiaoli,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,lazarev_sn,@lazarev_sn,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,maruvofficial,@maruvofficial,1,high_usefulness_source,filmmaker,68,1
 expand_from_creator,matt_rife,@matt_rife,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,mayakuriel,@mayakuriel,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,mirceabravo,@mirceabravo,1,high_usefulness_source,filmmaker,68,1
+expand_from_creator,mitya_fomin,@mitya_fomin,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,moby,@moby,1,high_usefulness_source,filmmaker,68,1
 expand_from_creator,monlaferte,@monlaferte,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,myth,@myth,1,high_usefulness_source,vfx_animation,68,1
-expand_from_creator,nimrodreshef,@nimrodreshef,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,netta,@netta,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,nickyromero,@nickyromero,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,nicolescherzinger,@nicolescherzinger,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,ninja,@ninja,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,official_wonho,@official_wonho,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,officialalw,@officialalw,1,high_usefulness_source,filmmaker,68,1
+expand_from_creator,officialgarybarlow,@officialgarybarlow,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,omarion,@omarion,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,oreltsabari,@oreltsabari,1,high_usefulness_source,standup_comedian,68,1
+expand_from_creator,paivanna01,@paivanna01,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,peaceandkwiat,@peaceandkwiat,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,peechmusic,@peechmusic,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,picardetsaguitare,@picardetsaguitare,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,randybachmanofficial,@randybachmanofficial,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,realwhitneycummings,@realwhitneycummings,1,high_usefulness_source,filmmaker,68,1
+expand_from_creator,remiwolf,@remiwolf,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,renmakesmusic,@renmakesmusic,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,robynkonichiwa,@robynkonichiwa,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,ryosukeimai,@ryosukeimai,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,shaman.me,@shaman.me,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,siya_kakkar,@siya_kakkar,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,sofiareyes,@sofiareyes,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,sonypicturesspain,@sonypicturesspain,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,ssavaart,@ssavaart,1,high_usefulness_source,director,68,1
 expand_from_creator,steveharvey,@steveharvey,1,high_usefulness_source,standup_comedian,68,1
 expand_from_creator,steven_he,@steven_he,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,tainy,@tainy,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,thechrismarchese,@thechrismarchese,1,high_usefulness_source,vfx_animation,68,1
 expand_from_creator,theurigeller,@theurigeller,1,high_usefulness_source,vfx_animation,68,1
-expand_from_creator,trevornoah,@trevornoah,1,high_usefulness_source,standup_comedian,68,1
-expand_from_creator,verbalase,@verbalase,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,tiesto,@tiesto,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,tpain,@tpain,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,trapbunniebubbless,@trapbunniebubbless,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,vanillaiceme,@vanillaiceme,1,high_usefulness_source,actor_performer,68,1
 expand_from_creator,victorbaissait,@victorbaissait,1,high_usefulness_source,vfx_animation,68,1
-expand_from_creator,wincentweiss,@wincentweiss,1,high_usefulness_source,vfx_animation,68,1
+expand_from_creator,willsmith,@willsmith,1,high_usefulness_source,filmmaker,68,1
 expand_from_creator,yarushinstanislav,@yarushinstanislav,1,high_usefulness_source,standup_comedian,68,1
-expand_from_creator,aiotsuka_official,@aiotsuka_official,1,high_usefulness_source,vfx_animation,67,1
-expand_from_creator,andreacheong_,@andreacheong_,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,yngwiemalmsteen_official,@yngwiemalmsteen_official,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,youreemusic,@youreemusic,1,high_usefulness_source,actor_performer,68,1
+expand_from_creator,_sampha,@_sampha,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,ado1024osenbei,@ado1024osenbei,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,alicemerton,@alicemerton,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,arminvanbuuren,@arminvanbuuren,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,asta.darling,@asta.darling,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,blacktigwe,@blacktigwe,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,camdenstewarts,@camdenstewarts,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,charatsioli,@charatsioli,1,high_usefulness_source,standup_comedian,67,1
+expand_from_creator,daniel_sloss,@daniel_sloss,1,high_usefulness_source,standup_comedian,67,1
+expand_from_creator,dermotkennedy,@dermotkennedy,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,diplo,@diplo,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,dyantai,@dyantai,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,elliegoulding,@elliegoulding,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,ericbellinger,@ericbellinger,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,erikarichardo,@erikarichardo,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,erosramazzotti_,@erosramazzotti_,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,felixcartal,@felixcartal,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,flume,@flume,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,gabrielle_aplin,@gabrielle_aplin,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,hiraidai,@hiraidai,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,hungryartistny,@hungryartistny,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,iamcobrah,@iamcobrah,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,iampresidentbush,@iampresidentbush,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,jauneemma,@jauneemma,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,kaileemcoleman,@kaileemcoleman,1,high_usefulness_source,vfx_animation,67,1
-expand_from_creator,kesha,@kesha,1,high_usefulness_source,director,67,1
+expand_from_creator,katoproducer,@katoproducer,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,ladyleshurr,@ladyleshurr,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,lostfrequencies,@lostfrequencies,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,luca.lego,@luca.lego,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,lukebryan,@lukebryan,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,mackenzieziegler,@mackenzieziegler,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,maiohtaniviolinfiddle,@maiohtaniviolinfiddle,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,markiforsti,@markiforsti,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,markishammusic,@markishammusic,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,matticusbricks,@matticusbricks,1,high_usefulness_source,vfx_animation,67,1
-expand_from_creator,maurihaze,@maurihaze,1,high_usefulness_source,vfx_animation,67,1
-expand_from_creator,michaelavonoeming,@michaelavonoeming,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,maysfadia,@maysfadia,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,nifedow,@nifedow,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,paulvandyk,@paulvandyk,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,pedrosampaio,@pedrosampaio,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,poki,@poki,1,high_usefulness_source,vfx_animation,67,1
-expand_from_creator,prince,@prince,1,high_usefulness_source,filmmaker,67,1
+expand_from_creator,poplavskiy.m,@poplavskiy.m,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,porterrobinson,@porterrobinson,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,pteemoneyofficial,@pteemoneyofficial,1,high_usefulness_source,filmmaker,67,1
+expand_from_creator,ragnboneman,@ragnboneman,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,ricky__martin,@ricky__martin,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,rosalinnmusic,@rosalinnmusic,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,rrreol999,@rrreol999,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,sia,@sia,1,high_usefulness_source,director,67,1
+expand_from_creator,slash,@slash,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,socewiz,@socewiz,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,tananaimusica,@tananaimusica,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,tank_ataka,@tank_ataka,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,taylormadebricks,@taylormadebricks,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,terrycrews,@terrycrews,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,thaiscarlaa_,@thaiscarlaa_,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,tharykmusic,@tharykmusic,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,thecontouredlibrarian,@thecontouredlibrarian,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,thelegomommy,@thelegomommy,1,high_usefulness_source,vfx_animation,67,1
+expand_from_creator,tonesandi,@tonesandi,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,tribbs_music,@tribbs_music,1,high_usefulness_source,actor_performer,67,1
+expand_from_creator,xsoundbeatz,@xsoundbeatz,1,high_usefulness_source,actor_performer,67,1
 expand_from_creator,youcancallmekait,@youcancallmekait,1,high_usefulness_source,vfx_animation,67,1
 expand_from_creator,zachking,@zachking,1,high_usefulness_source,filmmaker,67,1
+expand_from_creator,_hyolyn_,@_hyolyn_,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,bazziofficial,@bazziofficial,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,brentfaiyaz,@brentfaiyaz,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,burnaboyofficial,@burnaboyofficial,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,caballero_fast_module,@caballero_fast_module,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,camilacabello,@camilacabello,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,cemadrian,@cemadrian,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,classik_official,@classik_official,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,danieleabateofficial,@danieleabateofficial,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,doddleoddle,@doddleoddle,1,high_usefulness_source,actor_performer,66,1
 expand_from_creator,eupholie_,@eupholie_,1,high_usefulness_source,vfx_animation,66,1
+expand_from_creator,hakanhellstrom,@hakanhellstrom,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,halsey,@halsey,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,jaydenyoonzk,@jaydenyoonzk,1,high_usefulness_source,filmmaker,66,1
 expand_from_creator,jossstone,@jossstone,1,high_usefulness_source,vfx_animation,66,1
+expand_from_creator,kikibabyrockwell,@kikibabyrockwell,1,high_usefulness_source,actor_performer,66,1
 expand_from_creator,kumailn,@kumailn,1,high_usefulness_source,standup_comedian,66,1
+expand_from_creator,kwnway,@kwnway,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,lailasmithmusic,@lailasmithmusic,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,liedermacherfalk,@liedermacherfalk,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,mariahcarey,@mariahcarey,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,marvingaye,@marvingaye,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,misako_uno,@misako_uno,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,monolinkmusic,@monolinkmusic,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,natsukikyodo,@natsukikyodo,1,high_usefulness_source,vfx_animation,66,1
+expand_from_creator,nicoleobarzanek.official,@nicoleobarzanek.official,1,high_usefulness_source,vfx_animation,66,1
 expand_from_creator,nikitasemplicemente,@nikitasemplicemente,1,high_usefulness_source,actor_performer,66,1
 expand_from_creator,pauldesaintsernin,@pauldesaintsernin,1,high_usefulness_source,actor_performer,66,1
-yield_replay_search,,FeedSpot Top Lego TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1354.7,27
-yield_replay_search,,FeedSpot Top Comedy TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1317.6,10
-yield_replay_search,,FeedSpot Top Gaming TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1307.2,9
-yield_replay_search,,FeedSpot Top Children Book TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1304.9,17
-yield_replay_search,,FeedSpot Top Mobile Gaming TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1267,6
-yield_replay_search,,FeedSpot Top Pop Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1104.3,17
-yield_replay_search,,FeedSpot Top Latin Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1099.9,7
-yield_replay_search,,screenwriter|film director|film producer,2,replay_high_yield_source:wikidata_profile,,958.4,6
-yield_replay_search,,screenwriter|comedian|stand-up comedian,2,replay_high_yield_source:wikidata_profile,,955.1,6
-yield_replay_search,,screenwriter|comedian,2,replay_high_yield_source:wikidata_profile,,954.6,9
-yield_replay_search,,screenwriter|film producer,2,replay_high_yield_source:wikidata_profile,,949.7,6
-yield_replay_search,,comedian|stand-up comedian,2,replay_high_yield_source:wikidata_profile,,942.7,8
-yield_replay_search,,screenwriter|film director,2,replay_high_yield_source:wikidata_profile,,888.4,5
-yield_replay_search,,film producer,2,replay_high_yield_source:wikidata_profile,,833.2,7
-yield_replay_search,,comedian,2,replay_high_yield_source:wikidata_profile,,804.8,22
-yield_replay_search,,voice actor,2,replay_high_yield_source:wikidata_profile,,758.4,8
-yield_replay_search,,film director,2,replay_high_yield_source:wikidata_profile,,738.2,6
-yield_replay_search,,dancer,2,replay_high_yield_source:wikidata_profile,,710.7,15
-yield_replay_search,,artist,2,replay_high_yield_source:wikidata_profile,,695.9,18
-yield_replay_search,,actor|dancer,2,replay_high_yield_source:wikidata_profile,,681.7,14
-yield_replay_search,,painter,2,replay_high_yield_source:wikidata_profile,,670,9
-yield_replay_search,,illustrator,2,replay_high_yield_source:wikidata_profile,,661.1,8
-yield_replay_search,,actor,2,replay_high_yield_source:wikidata_profile,,659.2,28
-yield_replay_search,,influencer,2,replay_high_yield_source:wikidata_profile,,399.4,5
-yield_replay_search,,Internet celebrity,2,replay_high_yield_source:wikidata_profile,,382.3,7
+expand_from_creator,perorin0921,@perorin0921,1,high_usefulness_source,vfx_animation,66,1
+expand_from_creator,roycecaldwell,@roycecaldwell,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,sakana_kun_fishboy,@sakana_kun_fishboy,1,high_usefulness_source,vfx_animation,66,1
+expand_from_creator,thomasrhett,@thomasrhett,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,timbaland,@timbaland,1,high_usefulness_source,actor_performer,66,1
+expand_from_creator,yaelokre,@yaelokre,1,high_usefulness_source,vfx_animation,66,1
+yield_replay_search,,FeedSpot Top Lego TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1531.4,27
+yield_replay_search,,FeedSpot Top Comedy TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1485.3,11
+yield_replay_search,,FeedSpot Top Gaming TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1481.1,10
+yield_replay_search,,FeedSpot Top Children Book TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1475.2,17
+yield_replay_search,,FeedSpot Top Pop Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1428.5,30
+yield_replay_search,,FeedSpot Top Latin Music TikTok Influencers 2026,2,replay_high_yield_source:editorial_list,,1406.8,11
+yield_replay_search,,screenwriter|comedian,2,replay_high_yield_source:wikidata_profile,,1134.5,9
+yield_replay_search,,comedian|stand-up comedian,2,replay_high_yield_source:wikidata_profile,,1123,9
+yield_replay_search,,film producer,2,replay_high_yield_source:wikidata_profile,,1065,17
+yield_replay_search,,comedian,2,replay_high_yield_source:wikidata_profile,,978.2,40
+yield_replay_search,,film director,2,replay_high_yield_source:wikidata_profile,,924.7,12
+yield_replay_search,,voice actor,2,replay_high_yield_source:wikidata_profile,,918.9,19
+yield_replay_search,,artist,2,replay_high_yield_source:wikidata_profile,,897,33
+yield_replay_search,,dancer,2,replay_high_yield_source:wikidata_profile,,885.3,29
+yield_replay_search,,actor|dancer,2,replay_high_yield_source:wikidata_profile,,871,28
+yield_replay_search,,painter,2,replay_high_yield_source:wikidata_profile,,855.5,15
+yield_replay_search,,illustrator,2,replay_high_yield_source:wikidata_profile,,834.2,11
+yield_replay_search,,actor|film actor,2,replay_high_yield_source:wikidata_profile,,817.2,12
+yield_replay_search,,actor,2,replay_high_yield_source:wikidata_profile,,812,63
+yield_replay_search,,influencer,2,replay_high_yield_source:wikidata_profile,,534.7,13
+yield_replay_search,,Internet celebrity,2,replay_high_yield_source:wikidata_profile,,506.4,12
+yield_replay_search,,singer|record producer|songwriter,2,replay_high_yield_source:wikidata_profile,,194.5,11
+yield_replay_search,,singer|record producer|songwriter|rapper,2,replay_high_yield_source:wikidata_profile,,191.4,18
+yield_replay_search,,composer|disc jockey|record producer,2,replay_high_yield_source:wikidata_profile,,190.4,11
+yield_replay_search,,composer|disc jockey|record producer|musician,2,replay_high_yield_source:wikidata_profile,,189,10
 hashtag_search,renderjules,aftereffects,2,useful_creator_hashtag:@renderjules,creative_technologist,78,1
 hashtag_search,renderjules,aivideo,2,useful_creator_hashtag:@renderjules,creative_technologist,78,1
-cross_platform_search,devonrodriguezart,"site:linktr.ee ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:linktr.ee,vfx_animation,73,43
-cross_platform_search,bingcrosbyofficial,"site:beacons.ai ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:beacons.ai,filmmaker,72,1
-cross_platform_search,gamereviewskvm,"site:youtube.com ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:youtube.com,vfx_animation,72,4
-cross_platform_search,kingbach,"site:youtube.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:youtube.com,actor_performer,69,7
-cross_platform_search,youcancallmekait,"site:instagram.com ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:instagram.com,vfx_animation,68,2
-cross_platform_search,bravemarkvins,"site:linktr.ee ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:linktr.ee,filmmaker,68,5
-cross_platform_search,matt_mathews,"site:linktr.ee ""tiktok.com/@"" ""standup comedian""",2,cross_platform_adjacency:linktr.ee,standup_comedian,68,5
-cross_platform_search,nikitasemplicemente,"site:beacons.ai ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:beacons.ai,actor_performer,66,2
-cross_platform_search,shakira,"site:linktr.ee ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:linktr.ee,actor_performer,66,17
+cross_platform_search,shakira,"site:linktr.ee ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:linktr.ee,actor_performer,74,84
+cross_platform_search,dualipaofficial,"site:linktr.ee ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:linktr.ee,filmmaker,74,10
+cross_platform_search,nikitasemplicemente,"site:beacons.ai ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:beacons.ai,actor_performer,72,8
+cross_platform_search,roisinmurphyofficial,"site:beacons.ai ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:beacons.ai,filmmaker,72,2
+cross_platform_search,davidmokel16,"site:instagram.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:instagram.com,actor_performer,72,14
+cross_platform_search,matt_mathews,"site:linktr.ee ""tiktok.com/@"" ""standup comedian""",2,cross_platform_adjacency:linktr.ee,standup_comedian,72,8
+cross_platform_search,devonrodriguezart,"site:linktr.ee ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:linktr.ee,vfx_animation,72,46
+cross_platform_search,gamereviewskvm,"site:youtube.com ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:youtube.com,vfx_animation,72,5
+cross_platform_search,kingbach,"site:youtube.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:youtube.com,actor_performer,69,14
+cross_platform_search,youcancallmekait,"site:instagram.com ""tiktok.com/@"" ""vfx animation""",2,cross_platform_adjacency:instagram.com,vfx_animation,68,3
+cross_platform_search,_hyolyn_,"site:l.instagram.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:l.instagram.com,actor_performer,66,2
+cross_platform_search,nezlobinalexandr,"site:youtube.com ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:youtube.com,filmmaker,66,4
 cross_platform_search,tanyaleedavis,"site:beacons.ai ""tiktok.com/@"" ""standup comedian""",2,cross_platform_adjacency:beacons.ai,standup_comedian,65,1
 cross_platform_search,sbezrukov,"site:instagram.com ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:instagram.com,filmmaker,65,1
-cross_platform_search,rebeccazamolo,"site:youtube.com ""tiktok.com/@"" ""filmmaker""",2,cross_platform_adjacency:youtube.com,filmmaker,65,1
-cross_platform_search,raulroco_,"site:instagram.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:instagram.com,actor_performer,63,2
+cross_platform_search,msrebeccablack,"site:linktr.ee ""tiktok.com/@"" ""director""",2,cross_platform_adjacency:linktr.ee,director,65,1
+cross_platform_search,smilingwithrileyy,"site:m.imdb.com ""tiktok.com/@"" ""actor performer""",2,cross_platform_adjacency:m.imdb.com,actor_performer,64,1
