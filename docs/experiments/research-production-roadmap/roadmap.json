@@ -112,7 +112,7 @@
       "id": "canon-narrow-pilot",
       "title": "Canon Drift Narrow Signal Pilot",
       "priority": 5,
-      "status": "pilot-ready",
+      "status": "artifact-ready",
       "sourceExperiment": "docs/experiments/canon-drift-feasibility/",
       "why": "The methods post proves that canon drift is multiple signals. The next study must choose one cohort and one signal layer before trend claims.",
       "requiredSources": [
@@ -129,7 +129,7 @@
         "blocked-source memo for unavailable layers"
       ],
       "nextActions": [
-        "Manually label OpenAlex sample works for false positives before public examples.",
+        "Use reports/sample-audit-packet.json to manually label OpenAlex sample works for false positives before public examples.",
         "Add author aliases and exclusion terms before expanding the scholarly-discussion signal.",
         "Resolve Open Syllabus access terms before assignment-level claims."
       ]

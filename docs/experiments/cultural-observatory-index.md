@@ -358,6 +358,7 @@ Implemented:
 - OpenAlex author-search probe
 - OpenAlex scholarly-discussion year-count pilot for the six-author cohort
 - sample-work audit packet for the OpenAlex pilot
+- sample-work audit packet JSON/CSV/Markdown with pending relevance labels and false-positive flags
 - feasibility matrix
 - source inventory
 - `canon-narrow-pilot.md`
@@ -382,6 +383,7 @@ Current corpus:
 - narrow pilot date range: 2010-2026
 - narrow pilot output: 102 author-year rows and 120 sample works for relevance audit
 - narrow pilot readiness: pilot-ready, with explicit blockers against canon-rank or teaching claims
+- sample audit packet: `reports/sample-audit-packet.json`, status `pending-review`, 120/120 rows queued, 120 flagged rows, 27 likely biomedical false positives
 - publication handoff: ready for copyedit as a methods piece
 - publication post: `reports/post.md`, a polished feasibility/methods draft
 - post evidence audit: `reports/post-evidence-audit.json`, status `pass`, 21/21 source and signal checks passed
@@ -390,7 +392,7 @@ Current corpus:
 Next implementation moves:
 
 - final editorial review for `reports/post.md`
-- manually label OpenAlex sample works for false positives before public examples
+- use `reports/sample-audit-packet.json` to manually label OpenAlex sample works for false positives before public examples
 - add author aliases and exclusion terms before expanding the scholarly-discussion signal
 - resolve Open Syllabus export/access before assignment-level claims
 - add audited anthology tables of contents before anthologization claims

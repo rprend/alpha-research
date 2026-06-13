@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-13T01:50:53.248Z",
+  "generatedAt": "2026-06-13T01:55:36.888Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
-  "completeTrackCount": 4,
-  "incompleteTrackCount": 2,
+  "completeTrackCount": 5,
+  "incompleteTrackCount": 1,
   "tracks": [
     {
       "id": "university-second-layer-corpus",
@@ -58,8 +58,8 @@
       "id": "canon-narrow-pilot",
       "title": "Canon Drift Narrow Signal Pilot",
       "priority": 5,
-      "status": "pilot-ready",
-      "complete": false,
+      "status": "artifact-ready",
+      "complete": true,
       "sourceExperiment": "docs/experiments/canon-drift-feasibility/",
       "requiredEvidenceCount": 5,
       "nextActionCount": 3,
@@ -80,12 +80,6 @@
     }
   ],
   "nextImplementationQueue": [
-    {
-      "id": "canon-narrow-pilot",
-      "title": "Canon Drift Narrow Signal Pilot",
-      "status": "pilot-ready",
-      "sourceExperiment": "docs/experiments/canon-drift-feasibility/"
-    },
     {
       "id": "dataset-registry-file-level-probes",
       "title": "Humanities Dataset Registry File-Level Probes",

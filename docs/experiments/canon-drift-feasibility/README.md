@@ -30,6 +30,7 @@ node docs/experiments/canon-drift-feasibility/scripts/probe-web-sources.mjs
 node docs/experiments/canon-drift-feasibility/scripts/probe-openalex-authors.mjs
 node docs/experiments/canon-drift-feasibility/scripts/build-openalex-citation-pilot.mjs --from-year=2010 --to-year=2026 --sample-size=20
 node docs/experiments/canon-drift-feasibility/scripts/check-openalex-citation-pilot.mjs
+node docs/experiments/canon-drift-feasibility/scripts/build-sample-audit-packet.mjs
 node docs/experiments/canon-drift-feasibility/scripts/build-report.mjs
 node docs/experiments/canon-drift-feasibility/scripts/build-publication-handoff.mjs
 node docs/experiments/canon-drift-feasibility/scripts/check-readiness.mjs
@@ -47,6 +48,9 @@ The scripts write:
 - `reports/source-inventory.csv`
 - `reports/canon-narrow-pilot.md`
 - `reports/canon-narrow-pilot-readiness.md`
+- `reports/sample-audit-packet.md`
+- `reports/sample-audit-packet.csv`
+- `reports/sample-audit-packet.json`
 - `reports/report.html`
 - `reports/result.json`
 - `reports/work.md`
@@ -60,3 +64,15 @@ The scripts write:
 ## Publication Standard
 
 This study becomes publishable only when it can separate at least three canon signals, such as teaching, anthologization, citation, translation, and holdings. A future public essay should state explicitly that each signal measures a different institutional process.
+
+## Narrow Pilot Review
+
+The OpenAlex citation/scholarly-discussion pilot writes a manual sample review queue to:
+
+```text
+reports/sample-audit-packet.md
+reports/sample-audit-packet.csv
+reports/sample-audit-packet.json
+```
+
+The current packet queues 120 OpenAlex sample works across the six-author cohort. It is artifact-ready but not publication-ready: all rows are pending review, all rows are flagged for relevance review, and 27 rows are likely biomedical false positives. Use this packet to label true author-discussion records before using any row as a public example.
