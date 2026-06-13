@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T02:10:00.925Z
+Generated: 2026-06-13T02:13:57.702Z
 
 Complete: false
 
@@ -52,6 +52,12 @@ Complete: false
 - Wave ledger failed: 0
 - Wave ledger imported output accounts: 0
 - Wave ledger under-yield imports: 0
+- External lead packet assignments: 120
+- External lead packet requested leads: 30000
+- External lead packet completed files: 0
+- External lead packet import-ready assignments: 0
+- External lead packet valid leads: 0
+- External lead packet lead fill ratio: 0
 - Provider preflight tasks: 20
 - Provider preflight ready tasks: 0
 - Provider preflight blocked tasks: 20
@@ -95,6 +101,8 @@ Complete: false
 - scale_plan: pass (10000 estimated import batches)
 - scale_waves: pass (10000 executable acquisition waves planned)
 - wave_ledger: pass (10000 wave execution ledger rows generated)
+- external_lead_packet: pass (120 assignments requesting 30000 leads)
+- external_lead_progress: pass (0/120 import-ready assignments, 0 valid leads)
 - provider_preflight: fail (0/20 ready provider tasks, budget ok)
 - live_run_manifest: fail (0/10 runnable live waves, estimated cost $0)
 - live_manifest_runner: fail (0 dry_run wave(s) executed through manifest runner)

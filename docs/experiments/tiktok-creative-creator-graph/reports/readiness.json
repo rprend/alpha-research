@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T02:10:00.925Z",
+  "generated_at": "2026-06-13T02:13:57.702Z",
   "complete": false,
   "counts": {
     "accounts": 1900,
@@ -49,6 +49,12 @@
     "wave_ledger_failed": 0,
     "wave_ledger_imported_output_accounts": 0,
     "wave_ledger_under_yield_imports": 0,
+    "external_lead_packet_assignments": 120,
+    "external_lead_packet_requested_leads": 30000,
+    "external_lead_packet_completed_files": 0,
+    "external_lead_packet_import_ready_assignments": 0,
+    "external_lead_packet_valid_leads": 0,
+    "external_lead_packet_lead_fill_ratio": 0,
     "provider_preflight_tasks": 20,
     "provider_preflight_ready_tasks": 0,
     "provider_preflight_blocked_tasks": 20,
@@ -187,6 +193,16 @@
       "id": "wave_ledger",
       "status": "pass",
       "evidence": "10000 wave execution ledger rows generated"
+    },
+    {
+      "id": "external_lead_packet",
+      "status": "pass",
+      "evidence": "120 assignments requesting 30000 leads"
+    },
+    {
+      "id": "external_lead_progress",
+      "status": "pass",
+      "evidence": "0/120 import-ready assignments, 0 valid leads"
     },
     {
       "id": "provider_preflight",

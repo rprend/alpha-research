@@ -107,6 +107,16 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const externalLeadAcquisitionPacket = (() => {
+    const path = join(reportsDir, 'external-lead-acquisition-packet.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
+  const externalLeadProgress = (() => {
+    const path = join(reportsDir, 'external-lead-progress.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
 
   const usefulAccounts = scores.filter((row) => ['useful', 'excellent'].includes(row.status)).length
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
@@ -237,6 +247,16 @@ function main() {
       evidence: `${waveLedger.length} wave execution ledger rows generated`,
     },
     {
+      id: 'external_lead_packet',
+      status: externalLeadAcquisitionPacket?.assignment_rows > 0 ? 'pass' : 'fail',
+      evidence: externalLeadAcquisitionPacket ? `${externalLeadAcquisitionPacket.assignment_rows} assignments requesting ${externalLeadAcquisitionPacket.total_requested_leads} leads` : 'external lead acquisition packet missing',
+    },
+    {
+      id: 'external_lead_progress',
+      status: externalLeadProgress?.packet_assignments > 0 ? 'pass' : 'fail',
+      evidence: externalLeadProgress ? `${externalLeadProgress.import_ready_assignments}/${externalLeadProgress.packet_assignments} import-ready assignments, ${externalLeadProgress.valid_leads} valid leads` : 'external lead progress missing',
+    },
+    {
       id: 'provider_preflight',
       status: providerPreflight.length > 0 && providerPreflightReport?.blocked_tasks === 0 && providerPreflightReport?.within_budget ? 'pass' : 'fail',
       evidence: providerPreflightReport ? `${providerPreflightReport.ready_tasks}/${providerPreflightReport.task_rows} ready provider tasks, budget ${providerPreflightReport.within_budget ? 'ok' : 'exceeded'}` : 'provider preflight missing',
@@ -335,6 +355,12 @@ function main() {
       wave_ledger_failed: waveLedger.filter((row) => row.status === 'failed').length,
       wave_ledger_imported_output_accounts: waveLedger.reduce((sum, row) => sum + Number(row.imported_output_accounts ?? 0), 0),
       wave_ledger_under_yield_imports: waveLedger.filter((row) => row.import_yield_status === 'under_yield').length,
+      external_lead_packet_assignments: externalLeadAcquisitionPacket?.assignment_rows ?? 0,
+      external_lead_packet_requested_leads: externalLeadAcquisitionPacket?.total_requested_leads ?? 0,
+      external_lead_packet_completed_files: externalLeadProgress?.completed_files_seen ?? 0,
+      external_lead_packet_import_ready_assignments: externalLeadProgress?.import_ready_assignments ?? 0,
+      external_lead_packet_valid_leads: externalLeadProgress?.valid_leads ?? 0,
+      external_lead_packet_lead_fill_ratio: externalLeadProgress?.lead_fill_ratio ?? 0,
       provider_preflight_tasks: providerPreflight.length,
       provider_preflight_ready_tasks: providerPreflightReport?.ready_tasks ?? 0,
       provider_preflight_blocked_tasks: providerPreflightReport?.blocked_tasks ?? 0,
@@ -416,6 +442,12 @@ Complete: ${summary.complete}
 - Wave ledger failed: ${summary.counts.wave_ledger_failed}
 - Wave ledger imported output accounts: ${summary.counts.wave_ledger_imported_output_accounts}
 - Wave ledger under-yield imports: ${summary.counts.wave_ledger_under_yield_imports}
+- External lead packet assignments: ${summary.counts.external_lead_packet_assignments}
+- External lead packet requested leads: ${summary.counts.external_lead_packet_requested_leads}
+- External lead packet completed files: ${summary.counts.external_lead_packet_completed_files}
+- External lead packet import-ready assignments: ${summary.counts.external_lead_packet_import_ready_assignments}
+- External lead packet valid leads: ${summary.counts.external_lead_packet_valid_leads}
+- External lead packet lead fill ratio: ${summary.counts.external_lead_packet_lead_fill_ratio}
 - Provider preflight tasks: ${summary.counts.provider_preflight_tasks}
 - Provider preflight ready tasks: ${summary.counts.provider_preflight_ready_tasks}
 - Provider preflight blocked tasks: ${summary.counts.provider_preflight_blocked_tasks}

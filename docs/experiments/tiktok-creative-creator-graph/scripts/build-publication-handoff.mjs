@@ -43,6 +43,7 @@ function main() {
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
   const acquisitionImportPreview = readJson(join(reportsDir, 'acquisition-import-preview.json'), null)
   const externalLeadAcquisitionPacket = readJson(join(reportsDir, 'external-lead-acquisition-packet.json'), null)
+  const externalLeadProgress = readJson(join(reportsDir, 'external-lead-progress.json'), null)
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
@@ -145,6 +146,9 @@ function main() {
       external_lead_packet_assignments: externalLeadAcquisitionPacket?.assignment_rows ?? 0,
       external_lead_packet_requested_leads: externalLeadAcquisitionPacket?.total_requested_leads ?? 0,
       external_lead_packet_category_rows: externalLeadAcquisitionPacket?.category_rows ?? 0,
+      external_lead_packet_completed_files: externalLeadProgress?.completed_files_seen ?? 0,
+      external_lead_packet_import_ready_assignments: externalLeadProgress?.import_ready_assignments ?? 0,
+      external_lead_packet_valid_leads: externalLeadProgress?.valid_leads ?? 0,
       scale_waves: counts.scale_waves ?? scaleWaves.length,
       wave_ledger_rows: counts.wave_ledger_rows ?? waveLedger.length,
       wave_ledger_planned: counts.wave_ledger_planned ?? waveLedger.filter((row) => row.status === 'planned').length,
@@ -215,6 +219,8 @@ function main() {
       external_lead_list_readme: rel(join(experimentDir, 'data/raw/external-leads/README.md')),
       external_lead_list_importer: rel(join(experimentDir, 'scripts/import-external-lead-list.mjs')),
       external_lead_acquisition_packet: rel(join(reportsDir, 'external-lead-acquisition-packet.json')),
+      external_lead_progress: rel(join(reportsDir, 'external-lead-progress.json')),
+      external_lead_progress_queue: rel(join(processedDir, 'external_lead_packet_status.csv')),
       external_lead_acquisition_packet_csv: rel(join(experimentDir, 'data/raw/external-leads/acquisition-packet.csv')),
       external_lead_category_targets_csv: rel(join(experimentDir, 'data/raw/external-leads/category-targets.csv')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
@@ -308,6 +314,9 @@ ${handoff.objective}
 - External lead packet assignments: ${handoff.current_corpus.external_lead_packet_assignments}
 - External lead packet requested leads: ${handoff.current_corpus.external_lead_packet_requested_leads}
 - External lead packet category rows: ${handoff.current_corpus.external_lead_packet_category_rows}
+- External lead packet completed files: ${handoff.current_corpus.external_lead_packet_completed_files}
+- External lead packet import-ready assignments: ${handoff.current_corpus.external_lead_packet_import_ready_assignments}
+- External lead packet valid leads: ${handoff.current_corpus.external_lead_packet_valid_leads}
 - Scale waves: ${handoff.current_corpus.scale_waves}
 - Wave ledger rows: ${handoff.current_corpus.wave_ledger_rows}
 - Wave ledger planned: ${handoff.current_corpus.wave_ledger_planned}

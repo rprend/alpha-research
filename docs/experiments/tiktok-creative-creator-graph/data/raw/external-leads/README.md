@@ -12,6 +12,14 @@ The packet files are:
 - `acquisition-packet.jsonl`: the same assignments for automation.
 - `category-targets.csv`: category gaps and search hints.
 
+Track completed assignment files with:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs
+```
+
+This writes `reports/external-lead-progress.md` and `data/processed/external_lead_packet_status.csv`, including missing files, malformed files, underfilled files, duplicate handles, and import-ready commands.
+
 Drop externally sourced TikTok creator leads here as `.csv`, `.json`, or `.jsonl`, then normalize them with:
 
 ```bash
