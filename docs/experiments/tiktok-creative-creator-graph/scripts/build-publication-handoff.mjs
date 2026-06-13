@@ -44,6 +44,7 @@ function main() {
   const acquisitionImportPreview = readJson(join(reportsDir, 'acquisition-import-preview.json'), null)
   const externalLeadAcquisitionPacket = readJson(join(reportsDir, 'external-lead-acquisition-packet.json'), null)
   const externalLeadWorklist = readJson(join(reportsDir, 'external-lead-worklist.json'), null)
+  const externalLeadWorkItemTemplates = readJson(join(reportsDir, 'external-lead-work-item-templates.json'), null)
   const externalLeadWorkItemMerge = readJson(join(reportsDir, 'external-lead-work-item-merge.json'), null)
   const externalLeadTemplates = readJson(join(reportsDir, 'external-lead-templates.json'), null)
   const externalLeadProgress = readJson(join(reportsDir, 'external-lead-progress.json'), null)
@@ -152,6 +153,8 @@ function main() {
       external_lead_packet_category_rows: externalLeadAcquisitionPacket?.category_rows ?? 0,
       external_lead_worklist_items: externalLeadWorklist?.work_items ?? counts.external_lead_worklist_items ?? 0,
       external_lead_worklist_lead_quota: externalLeadWorklist?.total_lead_quota ?? counts.external_lead_worklist_lead_quota ?? 0,
+      external_lead_work_item_template_files: externalLeadWorkItemTemplates?.templates ?? counts.external_lead_work_item_template_files ?? 0,
+      external_lead_work_item_template_rows: externalLeadWorkItemTemplates?.total_template_rows ?? counts.external_lead_work_item_template_rows ?? 0,
       external_lead_work_item_merge_input_files: externalLeadWorkItemMerge?.input_files ?? counts.external_lead_work_item_merge_input_files ?? 0,
       external_lead_work_item_merge_output_files: externalLeadWorkItemMerge?.output_files ?? counts.external_lead_work_item_merge_output_files ?? 0,
       external_lead_work_item_merge_unique_valid_rows: externalLeadWorkItemMerge?.unique_valid_rows ?? counts.external_lead_work_item_merge_unique_valid_rows ?? 0,
@@ -239,6 +242,8 @@ function main() {
       external_lead_acquisition_packet: rel(join(reportsDir, 'external-lead-acquisition-packet.json')),
       external_lead_worklist: rel(join(reportsDir, 'external-lead-worklist.json')),
       external_lead_worklist_csv: rel(join(experimentDir, 'data/raw/external-leads/source-worklist.csv')),
+      external_lead_work_item_templates: rel(join(reportsDir, 'external-lead-work-item-templates.json')),
+      external_lead_work_item_template_dir: rel(join(experimentDir, 'data/raw/external-leads/work-item-templates')),
       external_lead_work_item_merge: rel(join(reportsDir, 'external-lead-work-item-merge.json')),
       external_lead_work_item_completed_dir: rel(join(experimentDir, 'data/raw/external-leads/work-items-completed')),
       external_lead_templates: rel(join(reportsDir, 'external-lead-templates.json')),
@@ -277,6 +282,7 @@ function main() {
       `Acquire and import ${Math.max(0, targetUseful - currentUseful)} more useful creators through provider/search/graph batches.`,
       `Use the external lead acquisition packet for token-free collection: ${externalLeadAcquisitionPacket?.assignment_rows ?? 0} assignments requesting ${externalLeadAcquisitionPacket?.total_requested_leads ?? 0} TikTok profile leads.`,
       `Assign source-level work from data/raw/external-leads/source-worklist.csv: ${externalLeadWorklist?.work_items ?? counts.external_lead_worklist_items ?? 0} URL work items covering ${externalLeadWorklist?.total_lead_quota ?? counts.external_lead_worklist_lead_quota ?? 0} requested leads.`,
+      `Use data/raw/external-leads/work-item-templates/ for fillable per-URL CSVs: ${externalLeadWorkItemTemplates?.templates ?? counts.external_lead_work_item_template_files ?? 0} templates covering ${externalLeadWorkItemTemplates?.total_template_rows ?? counts.external_lead_work_item_template_rows ?? 0} rows.`,
       'Save completed source work items as data/raw/external-leads/work-items-completed/<work_item_id>.csv, then run merge-external-lead-work-items.mjs to assemble assignment-level completed files.',
       'Use data/raw/external-leads plus import-external-lead-list.mjs for contractor, directory, search-tool, or manually sourced TikTok profile lists.',
       'Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.',
@@ -344,6 +350,8 @@ ${handoff.objective}
 - External lead packet category rows: ${handoff.current_corpus.external_lead_packet_category_rows}
 - External lead worklist items: ${handoff.current_corpus.external_lead_worklist_items}
 - External lead worklist lead quota: ${handoff.current_corpus.external_lead_worklist_lead_quota}
+- External lead work-item template files: ${handoff.current_corpus.external_lead_work_item_template_files}
+- External lead work-item template rows: ${handoff.current_corpus.external_lead_work_item_template_rows}
 - External lead work-item merge input files: ${handoff.current_corpus.external_lead_work_item_merge_input_files}
 - External lead work-item merge output files: ${handoff.current_corpus.external_lead_work_item_merge_output_files}
 - External lead work-item merge unique valid rows: ${handoff.current_corpus.external_lead_work_item_merge_unique_valid_rows}

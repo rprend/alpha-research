@@ -127,6 +127,11 @@ function main() {
     if (!existsSync(path)) return null
     return JSON.parse(readFileSync(path, 'utf8'))
   })()
+  const externalLeadWorkItemTemplates = (() => {
+    const path = join(reportsDir, 'external-lead-work-item-templates.json')
+    if (!existsSync(path)) return null
+    return JSON.parse(readFileSync(path, 'utf8'))
+  })()
   const externalLeadWorkItemMerge = (() => {
     const path = join(reportsDir, 'external-lead-work-item-merge.json')
     if (!existsSync(path)) return null
@@ -282,6 +287,11 @@ function main() {
       evidence: externalLeadWorklist ? `${externalLeadWorklist.work_items} source work items, ${externalLeadWorklist.total_lead_quota} lead quota` : 'external lead worklist missing',
     },
     {
+      id: 'external_lead_work_item_templates',
+      status: externalLeadWorkItemTemplates?.templates === externalLeadWorklist?.work_items && externalLeadWorkItemTemplates?.total_template_rows === externalLeadWorklist?.total_lead_quota ? 'pass' : 'fail',
+      evidence: externalLeadWorkItemTemplates ? `${externalLeadWorkItemTemplates.templates} work-item templates, ${externalLeadWorkItemTemplates.total_template_rows} rows` : 'external lead work-item templates missing',
+    },
+    {
       id: 'external_lead_work_item_merge',
       status: externalLeadWorkItemMerge && Number(externalLeadWorkItemMerge.unknown_work_item_files ?? 0) === 0 ? 'pass' : 'fail',
       evidence: externalLeadWorkItemMerge ? `${externalLeadWorkItemMerge.input_files} work-item files, ${externalLeadWorkItemMerge.output_files} assignment files, ${externalLeadWorkItemMerge.unique_valid_rows} unique valid rows` : 'external lead work-item merge missing',
@@ -401,6 +411,8 @@ function main() {
       external_lead_template_rows: externalLeadTemplates?.total_template_rows ?? 0,
       external_lead_worklist_items: externalLeadWorklist?.work_items ?? 0,
       external_lead_worklist_lead_quota: externalLeadWorklist?.total_lead_quota ?? 0,
+      external_lead_work_item_template_files: externalLeadWorkItemTemplates?.templates ?? 0,
+      external_lead_work_item_template_rows: externalLeadWorkItemTemplates?.total_template_rows ?? 0,
       external_lead_work_item_merge_input_files: externalLeadWorkItemMerge?.input_files ?? 0,
       external_lead_work_item_merge_output_files: externalLeadWorkItemMerge?.output_files ?? 0,
       external_lead_work_item_merge_unique_valid_rows: externalLeadWorkItemMerge?.unique_valid_rows ?? 0,
@@ -502,6 +514,8 @@ Complete: ${summary.complete}
 - External lead template rows: ${summary.counts.external_lead_template_rows}
 - External lead worklist items: ${summary.counts.external_lead_worklist_items}
 - External lead worklist lead quota: ${summary.counts.external_lead_worklist_lead_quota}
+- External lead work-item template files: ${summary.counts.external_lead_work_item_template_files}
+- External lead work-item template rows: ${summary.counts.external_lead_work_item_template_rows}
 - External lead work-item merge input files: ${summary.counts.external_lead_work_item_merge_input_files}
 - External lead work-item merge output files: ${summary.counts.external_lead_work_item_merge_output_files}
 - External lead work-item merge unique valid rows: ${summary.counts.external_lead_work_item_merge_unique_valid_rows}

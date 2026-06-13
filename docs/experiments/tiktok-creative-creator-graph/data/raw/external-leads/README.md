@@ -21,6 +21,14 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-
 
 Use `source-worklist.csv` for contractor/operator assignment. Each work item has a source URL, target label, quota, acceptance rubric, and completed-file path. Leads from multiple work items for the same assignment should be merged into the matching file under `data/raw/external-leads/completed/`.
 
+Generate small fillable templates for every source work item with:
+
+```bash
+node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-work-item-templates.mjs
+```
+
+Templates are written to `data/raw/external-leads/work-item-templates/`. Each template is named `<work_item_id>.csv`, pre-fills target/source fields, and has one blank row per requested lead for that URL.
+
 If operators return one file per work item, save files as `data/raw/external-leads/work-items-completed/<work_item_id>.csv` with the same accepted lead columns. Merge them into assignment-level completed files with:
 
 ```bash

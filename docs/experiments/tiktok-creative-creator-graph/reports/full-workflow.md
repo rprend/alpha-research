@@ -1,6 +1,6 @@
 # Full Workflow
 
-Generated: 2026-06-13T02:36:46.013Z
+Generated: 2026-06-13T02:41:00.068Z
 
 Complete: true
 
@@ -29,6 +29,7 @@ Complete: true
 - build_wave_ledger: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-wave-ledger.mjs`)
 - build_external_lead_acquisition_packet: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-acquisition-packet.mjs`)
 - build_external_lead_worklist: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-worklist.mjs`)
+- build_external_lead_work_item_templates: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-work-item-templates.mjs`)
 - build_external_lead_templates: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-templates.mjs`)
 - build_external_lead_progress: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-external-lead-progress.mjs`)
 - build_provider_preflight: pass (`node docs/experiments/tiktok-creative-creator-graph/scripts/build-provider-preflight.mjs`)
