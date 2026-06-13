@@ -229,6 +229,7 @@ function loadRows() {
 }
 
 function sourceTypeFor(row) {
+  if (row.source_type) return row.source_type
   if (row.authorMeta || row.author || row.webVideoUrl || row.playCount != null) return 'provider_video_export'
   if (row.query || row.snippet || row.title) return 'search_result_export'
   return 'acquisition_export'
@@ -252,7 +253,8 @@ function canonicalFromProvider(row) {
     verified: Boolean(author.verified ?? row.verified),
     bio_links: asArray(row.bio_links ?? row.external_links ?? row.link),
     source_type: sourceTypeFor(row),
-    source_query: row.query ?? row.search_query ?? '',
+    source_name: row.source_name ?? row.source ?? '',
+    source_query: row.source_query ?? row.query ?? row.search_query ?? '',
     source_url: row.source_url ?? videoUrl ?? profileUrl,
     source_wave_id: row._source_wave_id ?? '',
     source_execution_id: row._source_execution_id ?? '',
@@ -296,7 +298,8 @@ function canonicalFromSearch(row) {
     verified: Boolean(row.verified === true || row.verified === 'true'),
     bio_links: asArray(row.bio_links ?? row.external_links),
     source_type: sourceTypeFor(row),
-    source_query: row.query ?? row.search_query ?? '',
+    source_name: row.source_name ?? row.source ?? '',
+    source_query: row.source_query ?? row.query ?? row.search_query ?? '',
     source_url: row.source_url ?? profileUrl,
     source_wave_id: row._source_wave_id ?? '',
     source_execution_id: row._source_execution_id ?? '',

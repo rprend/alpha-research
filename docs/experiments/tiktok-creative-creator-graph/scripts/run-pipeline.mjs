@@ -226,7 +226,7 @@ function normalizeRows(rows) {
     sources.push({
       creator_id: account.id,
       source_type: row.source_type ?? 'import',
-      source_name: row._source_file,
+      source_name: row.source_name ?? row._source_file,
       source_query: row.source_query ?? '',
       source_url: row.source_url ?? row.profile_url ?? account.profile_url,
       discovered_at: new Date().toISOString(),

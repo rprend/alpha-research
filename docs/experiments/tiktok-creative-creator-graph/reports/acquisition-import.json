@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T22:10:26.887Z",
+  "generated_at": "2026-06-12T22:14:09.667Z",
   "mode": "import",
   "input_rows": 526,
   "normalized_rows": 526,
@@ -35,7 +35,7 @@
     "editorial_list_public_web": 499,
     "editorial_web": 21
   },
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12-628087c63b17.jsonl",
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12-71b58730c69f.jsonl",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
@@ -67,8 +67,8 @@
     ]
   },
   "wave": {
-    "wave_id": "import-2026-06-12T22-10-26-888Z",
-    "generated_at": "2026-06-12T22:10:26.887Z",
+    "wave_id": "import-2026-06-12T22-14-09-668Z",
+    "generated_at": "2026-06-12T22:14:09.667Z",
     "input_rows": 526,
     "normalized_rows": 526,
     "skipped_rows": 0,
@@ -81,7 +81,7 @@
     "execution_ids": "2026-06-12T22-10-19-433Z",
     "batch_ids": "feedspot_comedy_tiktok_2026|feedspot_movie_tiktok_2026|feedspot_horror_tiktok_2026|feedspot_digital_art_tiktok_2026|feedspot_new_york_art_tiktok_2026|feedspot_music_technology_tiktok_2026|feedspot_barcelona_photography_tiktok_2026|feedspot_aviation_tiktok_2026|editorial_izea_filmmakers_2026_06_12|editorial_shutterstock_filmmakers_2026_06_12|editorial_shesources_women_film_2026_06_12",
     "lineage_providers": "editorial_list_public_web|editorial_web",
-    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12-628087c63b17.jsonl",
+    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12-71b58730c69f.jsonl",
     "target_label_counts": {
       "sketch_comedian": 66,
       "standup_comedian": 33,
@@ -98,7 +98,8 @@
       "unclassified": 6
     },
     "surface_counts": {
-      "acquisition_export": 520,
+      "editorial_list": 499,
+      "editorial_list_seed": 21,
       "provider_video_export": 3,
       "search_result_export": 3
     },
@@ -108,5 +109,5 @@
       "unknown": 6
     }
   },
-  "import_waves": 8
+  "import_waves": 9
 }

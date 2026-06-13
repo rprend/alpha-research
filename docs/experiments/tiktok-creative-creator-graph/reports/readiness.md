@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-12T22:10:28.016Z
+Generated: 2026-06-12T22:14:10.803Z
 
 Complete: false
 
@@ -32,20 +32,20 @@ Complete: false
 - Candidate frontier queries: 77
 - Acquisition import preview accounts: 523
 - Acquisition import preview ready: true
-- Acquisition import waves: 8
+- Acquisition import waves: 9
 - Acquisition runner tasks: 2
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Acquisition run history: 15
-- Source yield rows: 9
+- Source yield rows: 19
 - Identities: 523
 - Category coverage labels: 5/11
 - Release useful creators: 7
 - Release verification checks: 44
-- Scale plan import batches: 6885
-- Scale waves: 6885
-- Wave ledger rows: 6885
-- Wave ledger planned: 6885
+- Scale plan import batches: 9999
+- Scale waves: 9999
+- Wave ledger rows: 9999
+- Wave ledger planned: 9999
 - Wave ledger dry-run only: 11
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
@@ -84,17 +84,17 @@ Complete: false
 - acquisition_batches: pass (87 acquisition tasks generated)
 - candidate_frontier: pass (82 ranked acquisition candidates generated)
 - acquisition_import_preview: pass (523 preview accounts, import gate ready)
-- acquisition_import_waves: pass (8 acquisition import waves tracked)
+- acquisition_import_waves: pass (9 acquisition import waves tracked)
 - acquisition_runner: pass (2 runnable of 2 selected provider tasks (dry run))
 - acquisition_run_history: pass (15 acquisition run history rows persisted)
-- source_yield: pass (9 source/query yield rows generated)
+- source_yield: pass (19 source/query yield rows generated)
 - identity_resolution: pass (523 creator identities resolved)
 - category_coverage: pass (5/11 target labels covered)
 - release_package: pass (7 useful creators exported for release)
 - release_verification: pass (44 release checks evaluated)
-- scale_plan: pass (6885 estimated import batches)
-- scale_waves: pass (6885 executable acquisition waves planned)
-- wave_ledger: pass (6885 wave execution ledger rows generated)
+- scale_plan: pass (9999 estimated import batches)
+- scale_waves: pass (9999 executable acquisition waves planned)
+- wave_ledger: pass (9999 wave execution ledger rows generated)
 - provider_preflight: pass (20/20 ready provider tasks, budget ok)
 - live_run_manifest: pass (10/10 runnable live waves, estimated cost $5)
 - live_manifest_runner: pass (1 dry_run wave(s) executed through manifest runner)

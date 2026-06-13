@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T22:10:27.852Z",
+  "generated_at": "2026-06-12T22:14:10.603Z",
   "mode": "dry_run",
   "live_confirmed": false,
   "provider": "apify",
@@ -26,8 +26,8 @@
         "id": "dry_scale_wave_0001",
         "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=1",
         "status": "pass",
-        "started_at": "2026-06-12T22:10:27.804Z",
-        "finished_at": "2026-06-12T22:10:27.852Z",
+        "started_at": "2026-06-12T22:14:10.552Z",
+        "finished_at": "2026-06-12T22:14:10.603Z",
         "output_tail": [
           "      \"acquisition_surface\": \"search_index\",",
           "      \"query\": \"site:tiktok.com/@ comedian\",",
@@ -41,11 +41,11 @@
           "        \"languageCode\": \"en\"",
           "      },",
           "      \"dry_run\": true,",
-          "      \"started_at\": \"2026-06-12T22:10:27.846Z\",",
+          "      \"started_at\": \"2026-06-12T22:14:10.599Z\",",
           "      \"status\": \"dry_run\",",
           "      \"output_rows\": 0,",
           "      \"output_path\": \"\",",
-          "      \"finished_at\": \"2026-06-12T22:10:27.846Z\"",
+          "      \"finished_at\": \"2026-06-12T22:14:10.599Z\"",
           "    }",
           "  ]",
           "}"

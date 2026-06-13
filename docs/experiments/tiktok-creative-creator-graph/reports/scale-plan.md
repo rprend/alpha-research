@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-12T22:10:27.524Z
+Generated: 2026-06-12T22:14:10.241Z
 
 ## Targets
 
@@ -10,22 +10,22 @@ Generated: 2026-06-12T22:10:27.524Z
 
 ## Current
 
-- Accounts: 241
+- Accounts: 529
 - Useful creators: 7
 - Excellent creators: 1
 - Review decisions: 4
 
 ## Estimated Work
 
-- Candidate accounts needed: 1721188
-- Import batches needed at 250 candidates per batch: 6885
+- Candidate accounts needed: 2499650
+- Import batches needed at 250 candidates per batch: 9999
 - Useful creators needed for excellent target: 49990
 - Review batches needed: 2
 
 ## Planning Assumptions
 
-- Observed useful rate: 0.029
-- Planning useful rate: 0.029
+- Observed useful rate: 0.013
+- Planning useful rate: 0.02
 - Observed excellent rate among useful: 0.143
 - Planning excellent rate among useful: 0.1
 
@@ -40,7 +40,9 @@ Generated: 2026-06-12T22:10:27.524Z
 | 5 | graph_expansion_fixture | mentioned by @ani.motionlab | 70 | 1 | 0 |
 | 6 | provider_video_export |  | 41 | 0.667 | 0.333 |
 | 7 | provider_video_export |  | 41 | 0.667 | 0.333 |
-| 8 | acquisition_export |  | 6 | 0 | 0 |
+| 8 | editorial_list_seed | Shutterstock TikTok filmmakers to follow | 7 | 0 | 0 |
+| 9 | editorial_list | FeedSpot Top Comedy TikTok Influencers 2026 | 6 | 0 | 0 |
+| 10 | editorial_list | FeedSpot Top Movie TikTok Influencers 2026 | 6 | 0 | 0 |
 
 ## Next Batches
 

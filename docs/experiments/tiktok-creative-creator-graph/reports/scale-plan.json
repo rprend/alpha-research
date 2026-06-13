@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-12T22:10:27.524Z",
+  "generated_at": "2026-06-12T22:14:10.241Z",
   "targets": {
     "useful_creators": 50000,
     "excellent_creators": 5000,
     "review_decisions": 500
   },
   "current": {
-    "accounts": 241,
+    "accounts": 529,
     "useful_creators": 7,
     "excellent_creators": 1,
     "review_decisions": 4
@@ -17,15 +17,15 @@
     "review_decisions": 496
   },
   "planning_assumptions": {
-    "observed_useful_rate": 0.029,
-    "planning_useful_rate": 0.029,
+    "observed_useful_rate": 0.013,
+    "planning_useful_rate": 0.02,
     "observed_excellent_rate_among_useful": 0.143,
     "planning_excellent_rate_among_useful": 0.1,
     "import_batch_size": 250
   },
   "estimated_work": {
-    "candidate_accounts_needed": 1721188,
-    "import_batches_needed": 6885,
+    "candidate_accounts_needed": 2499650,
+    "import_batches_needed": 9999,
     "useful_creators_needed_for_excellent_target": 49990,
     "review_batches_needed": 2
   },
@@ -100,8 +100,26 @@
     },
     {
       "rank": 8,
-      "source_type": "acquisition_export",
-      "source_query": "",
+      "source_type": "editorial_list_seed",
+      "source_query": "Shutterstock TikTok filmmakers to follow",
+      "yield_score": 7,
+      "usefulness_rate": 0,
+      "rejected_rate": 0,
+      "recommended_batch_share": 0.05
+    },
+    {
+      "rank": 9,
+      "source_type": "editorial_list",
+      "source_query": "FeedSpot Top Comedy TikTok Influencers 2026",
+      "yield_score": 6,
+      "usefulness_rate": 0,
+      "rejected_rate": 0,
+      "recommended_batch_share": 0.05
+    },
+    {
+      "rank": 10,
+      "source_type": "editorial_list",
+      "source_query": "FeedSpot Top Movie TikTok Influencers 2026",
       "yield_score": 6,
       "usefulness_rate": 0,
       "rejected_rate": 0,

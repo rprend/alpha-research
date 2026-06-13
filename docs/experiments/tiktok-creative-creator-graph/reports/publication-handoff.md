@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-12T22:10:27.948Z
+Generated: 2026-06-12T22:14:10.706Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -10,40 +10,40 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 ## Current Corpus
 
-- Accounts: 241
-- Identities: 241
-- Videos: 14
+- Accounts: 529
+- Identities: 523
+- Videos: 17
 - Graph edges: 52
 - Useful creators: 6
 - Release useful creators: 7
 - Excellent creators: 1
-- Review sample: 109
-- Review packet rows: 109
-- Review decision template rows: 109
+- Review sample: 179
+- Review packet rows: 179
+- Review decision template rows: 179
 - Review packet batches: 1
-- Review packet batch rows: 109
+- Review packet batch rows: 179
 - Review plan categories: 11
 - Review decisions: 4
 - Review blank decisions: 0
-- Source yield rows: 9
-- Adjacency expansion rows: 23
+- Source yield rows: 21
+- Adjacency expansion rows: 24
 - Adjacency expansion added rows: 18
 - Category coverage: 5/11
-- Acquisition tasks: 87
-- Candidate frontier: 82
-- Candidate frontier handles: 5
+- Acquisition tasks: 88
+- Candidate frontier: 83
+- Candidate frontier handles: 6
 - Candidate frontier queries: 77
-- Acquisition import preview accounts: 235
+- Acquisition import preview accounts: 523
 - Acquisition import preview ready: true
-- Acquisition import waves: 7
-- Acquisition import traced rows: 2123
-- Acquisition import untraced rows: 48
+- Acquisition import waves: 9
+- Acquisition import traced rows: 2643
+- Acquisition import untraced rows: 54
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
 - Acquisition run history: 15
-- Scale waves: 6885
-- Wave ledger rows: 6885
-- Wave ledger planned: 6885
+- Scale waves: 9999
+- Wave ledger rows: 9999
+- Wave ledger planned: 9999
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
 - Wave ledger failed: 0
@@ -59,7 +59,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Live manifest runner steps: 1
 - Live manifest runner selected waves: 1
 - Live manifest runner mode: dry_run
-- Refresh tasks: 241
+- Refresh tasks: 529
 
 ## Remaining Production Gaps
 

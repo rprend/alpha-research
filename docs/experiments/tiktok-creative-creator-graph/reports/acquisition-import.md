@@ -1,13 +1,13 @@
 # Acquisition Import
 
-Generated: 2026-06-12T22:10:26.887Z
+Generated: 2026-06-12T22:14:09.667Z
 
 - Input rows: 526
 - Normalized rows: 526
 - Skipped rows: 0
 - Output accounts: 523
-- Output path: `docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12-628087c63b17.jsonl`
-- Import waves tracked: 8
+- Output path: `docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-12-71b58730c69f.jsonl`
+- Import waves tracked: 9
 - Mapped lineage rows: 520
 - Unmapped lineage rows: 6
 
@@ -27,11 +27,11 @@ Generated: 2026-06-12T22:10:26.887Z
 
 ## Wave
 
-- Wave id: import-2026-06-12T22-10-26-888Z
+- Wave id: import-2026-06-12T22-14-09-668Z
 - Source file count: 4
 - Scale waves: none
 - Executions: 2026-06-12T22-10-19-433Z
 - Batches: feedspot_comedy_tiktok_2026|feedspot_movie_tiktok_2026|feedspot_horror_tiktok_2026|feedspot_digital_art_tiktok_2026|feedspot_new_york_art_tiktok_2026|feedspot_music_technology_tiktok_2026|feedspot_barcelona_photography_tiktok_2026|feedspot_aviation_tiktok_2026|editorial_izea_filmmakers_2026_06_12|editorial_shutterstock_filmmakers_2026_06_12|editorial_shesources_women_film_2026_06_12
 - Lineage providers: editorial_list_public_web|editorial_web
 - Target labels: sketch_comedian=66, standup_comedian=33, director=5, editor=8, filmmaker=115, vfx_animation=140, creative_technologist=43, film_educator=10, actor_performer=1, behind_the_scenes_creator=95, cinematographer=3, screenwriter=1, unclassified=6
-- Surfaces: acquisition_export=520, provider_video_export=3, search_result_export=3
+- Surfaces: editorial_list=499, editorial_list_seed=21, provider_video_export=3, search_result_export=3

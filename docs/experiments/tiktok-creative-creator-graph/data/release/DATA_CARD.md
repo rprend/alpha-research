@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Data Card
 
-Generated: 2026-06-12T22:10:27.442Z
+Generated: 2026-06-12T22:14:10.160Z
 
 ## Purpose
 
@@ -23,8 +23,8 @@ This release package contains TikTok-visible creative creator records for discov
 - `data/release/benchmark_creators.csv`: 1 rows, sha256 `6012d3df1e55af70b070b2cba86d1ac72b1dc2677d4c8f0a871466884499f0aa`
 - `data/release/rejected_creators.jsonl`: 2 rows, sha256 `7c1a06e0f0171073ba37a91e502952fc88da82b8649f72faceb4fe59345f0d38`
 - `data/release/rejected_creators.csv`: 2 rows, sha256 `7fd6e7a144fce69ce1ad307da51c0e901d853b64d43b021c034367ad23972e17`
-- `data/release/review_queue.csv`: 525 rows, sha256 `40f6fa179dd89026533cc85743877aca1c53a35b0b504ee41710b520d59eea23`
-- `data/release/all_scored_creators.csv`: 529 rows, sha256 `8e091a6fdeb826f65fe436c266d0854f7837182a479734e444b2ccb6eaae1cfe`
+- `data/release/review_queue.csv`: 525 rows, sha256 `240a2900e74c77b403ef3dd5915cf3933c579aac84da4f942ce144ff0b525295`
+- `data/release/all_scored_creators.csv`: 529 rows, sha256 `229a8e92f556adca7039e483434dcd13a1f6af8c200d59c5d24339e45a73561e`
 
 ## Limits
 
