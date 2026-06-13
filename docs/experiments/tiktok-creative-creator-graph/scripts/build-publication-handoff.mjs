@@ -42,6 +42,7 @@ function main() {
   const candidateFrontierReport = readJson(join(reportsDir, 'candidate-frontier.json'), null)
   const acquisitionRun = readJson(join(reportsDir, 'acquisition-run.json'), null)
   const acquisitionImportPreview = readJson(join(reportsDir, 'acquisition-import-preview.json'), null)
+  const externalLeadAcquisitionPacket = readJson(join(reportsDir, 'external-lead-acquisition-packet.json'), null)
   const importWaves = readJsonl(join(processedDir, 'acquisition_import_waves.jsonl'))
   const acquisitionRunHistory = readJsonl(join(processedDir, 'acquisition_run_history.jsonl'))
   const sourceYield = readJsonl(join(processedDir, 'source_yield.jsonl'))
@@ -141,6 +142,9 @@ function main() {
       latest_recorded_acquisition_provider: latestRecordedRun?.provider ?? '',
       latest_recorded_acquisition_output_rows: latestRecordedRun?.output_rows ?? 0,
       zero_yield_live_acquisition_runs: zeroYieldLiveRuns.length,
+      external_lead_packet_assignments: externalLeadAcquisitionPacket?.assignment_rows ?? 0,
+      external_lead_packet_requested_leads: externalLeadAcquisitionPacket?.total_requested_leads ?? 0,
+      external_lead_packet_category_rows: externalLeadAcquisitionPacket?.category_rows ?? 0,
       scale_waves: counts.scale_waves ?? scaleWaves.length,
       wave_ledger_rows: counts.wave_ledger_rows ?? waveLedger.length,
       wave_ledger_planned: counts.wave_ledger_planned ?? waveLedger.filter((row) => row.status === 'planned').length,
@@ -210,6 +214,9 @@ function main() {
       acquisition_run_history: rel(join(processedDir, 'acquisition_run_history.jsonl')),
       external_lead_list_readme: rel(join(experimentDir, 'data/raw/external-leads/README.md')),
       external_lead_list_importer: rel(join(experimentDir, 'scripts/import-external-lead-list.mjs')),
+      external_lead_acquisition_packet: rel(join(reportsDir, 'external-lead-acquisition-packet.json')),
+      external_lead_acquisition_packet_csv: rel(join(experimentDir, 'data/raw/external-leads/acquisition-packet.csv')),
+      external_lead_category_targets_csv: rel(join(experimentDir, 'data/raw/external-leads/category-targets.csv')),
       source_yield: rel(join(reportsDir, 'source-yield.json')),
       adjacency_expansion: rel(join(reportsDir, 'adjacency-expansion.json')),
       category_coverage: rel(join(reportsDir, 'category-coverage.json')),
@@ -236,6 +243,7 @@ function main() {
     ],
     next_actions: [
       `Acquire and import ${Math.max(0, targetUseful - currentUseful)} more useful creators through provider/search/graph batches.`,
+      `Use the external lead acquisition packet for token-free collection: ${externalLeadAcquisitionPacket?.assignment_rows ?? 0} assignments requesting ${externalLeadAcquisitionPacket?.total_requested_leads ?? 0} TikTok profile leads.`,
       'Use data/raw/external-leads plus import-external-lead-list.mjs for contractor, directory, search-tool, or manually sourced TikTok profile lists.',
       'Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.',
       `Add ${Math.max(0, targetExcellent - currentExcellent)} more excellent creators for benchmark-quality coverage.`,
@@ -297,6 +305,9 @@ ${handoff.objective}
 - Latest recorded acquisition provider: ${handoff.current_corpus.latest_recorded_acquisition_provider || 'none'}
 - Latest recorded acquisition output rows: ${handoff.current_corpus.latest_recorded_acquisition_output_rows}
 - Zero-yield live acquisition runs: ${handoff.current_corpus.zero_yield_live_acquisition_runs}
+- External lead packet assignments: ${handoff.current_corpus.external_lead_packet_assignments}
+- External lead packet requested leads: ${handoff.current_corpus.external_lead_packet_requested_leads}
+- External lead packet category rows: ${handoff.current_corpus.external_lead_packet_category_rows}
 - Scale waves: ${handoff.current_corpus.scale_waves}
 - Wave ledger rows: ${handoff.current_corpus.wave_ledger_rows}
 - Wave ledger planned: ${handoff.current_corpus.wave_ledger_planned}

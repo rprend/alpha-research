@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T02:03:01.985Z
+Generated: 2026-06-13T02:10:00.838Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -44,6 +44,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Latest recorded acquisition provider: public_web
 - Latest recorded acquisition output rows: 0
 - Zero-yield live acquisition runs: 2
+- External lead packet assignments: 120
+- External lead packet requested leads: 30000
+- External lead packet category rows: 11
 - Scale waves: 10000
 - Wave ledger rows: 10000
 - Wave ledger planned: 10000
@@ -98,6 +101,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - acquisition_run_history: `docs/experiments/tiktok-creative-creator-graph/data/processed/acquisition_run_history.jsonl`
 - external_lead_list_readme: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/README.md`
 - external_lead_list_importer: `docs/experiments/tiktok-creative-creator-graph/scripts/import-external-lead-list.mjs`
+- external_lead_acquisition_packet: `docs/experiments/tiktok-creative-creator-graph/reports/external-lead-acquisition-packet.json`
+- external_lead_acquisition_packet_csv: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/acquisition-packet.csv`
+- external_lead_category_targets_csv: `docs/experiments/tiktok-creative-creator-graph/data/raw/external-leads/category-targets.csv`
 - source_yield: `docs/experiments/tiktok-creative-creator-graph/reports/source-yield.json`
 - adjacency_expansion: `docs/experiments/tiktok-creative-creator-graph/reports/adjacency-expansion.json`
 - category_coverage: `docs/experiments/tiktok-creative-creator-graph/reports/category-coverage.json`
@@ -143,6 +149,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 ## Next Actions
 
 - Acquire and import 49993 more useful creators through provider/search/graph batches.
+- Use the external lead acquisition packet for token-free collection: 120 assignments requesting 30000 TikTok profile leads.
 - Use data/raw/external-leads plus import-external-lead-list.mjs for contractor, directory, search-tool, or manually sourced TikTok profile lists.
 - Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.
 - Add 4994 more excellent creators for benchmark-quality coverage.
