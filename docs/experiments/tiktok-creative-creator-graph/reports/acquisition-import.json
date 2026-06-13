@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-13T01:38:10.729Z",
+  "generated_at": "2026-06-13T01:44:08.408Z",
   "mode": "import",
-  "input_rows": 2919,
-  "normalized_rows": 2919,
+  "input_rows": 3128,
+  "normalized_rows": 3128,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 1024,
+  "duplicate_normalized_rows": 1233,
   "output_accounts": 1895,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
@@ -13,11 +13,12 @@
     "2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl": 85,
     "2026-06-13T01-31-21-859Z-public-profile-enrichment.jsonl": 185,
     "2026-06-13T01-35-53-442Z-public-profile-enrichment.jsonl": 252,
+    "2026-06-13T01-42-59-960Z-editorial-list-import.jsonl": 209,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 2913,
+  "mapped_lineage_rows": 3122,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -26,7 +27,8 @@
     "2026-06-13T00-39-23-080Z": 209,
     "2026-06-13T01-25-37-893Z": 85,
     "2026-06-13T01-31-21-859Z": 185,
-    "2026-06-13T01-35-53-442Z": 252
+    "2026-06-13T01-35-53-442Z": 252,
+    "2026-06-13T01-42-59-960Z": 209
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -64,10 +66,10 @@
     "feedspot_technology_tiktok_2026": 51,
     "feedspot_book_tiktok_2026": 75,
     "feedspot_ai_tiktok_2026": 32,
-    "feedspot_jazz_tiktok_2026": 8,
-    "feedspot_stem_tiktok_2026": 98,
-    "feedspot_virtual_reality_tiktok_2026": 31,
-    "feedspot_virtual_tiktok_2026": 72,
+    "feedspot_jazz_tiktok_2026": 16,
+    "feedspot_stem_tiktok_2026": 196,
+    "feedspot_virtual_reality_tiktok_2026": 62,
+    "feedspot_virtual_tiktok_2026": 144,
     "public_profile_enrichment_2026-06-13T01-25-37-893Z": 85,
     "public_profile_enrichment_2026-06-13T01-31-21-859Z": 185,
     "public_profile_enrichment_2026-06-13T01-35-53-442Z": 252,
@@ -76,16 +78,16 @@
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
-    "editorial_list_public_web": 2370,
+    "editorial_list_public_web": 2579,
     "tiktok_public_profile_html": 522,
     "editorial_web": 21
   },
-  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-13-a635fbcdfa84.jsonl",
+  "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-13-5218c6c30d24.jsonl",
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.35080507022953067,
-    "output_rate": 0.6491949297704693,
+    "duplicate_rate": 0.39418158567774936,
+    "output_rate": 0.6058184143222506,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.55,
@@ -94,7 +96,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "2919 input rows"
+        "evidence": "3128 input rows"
       },
       {
         "id": "handle_extraction",
@@ -104,59 +106,59 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "35.1% duplicate normalized rows, threshold 55.0% (metadata overlay)"
+        "evidence": "39.4% duplicate normalized rows, threshold 55.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "2913/2919 rows mapped to provider/wave lineage"
+        "evidence": "3122/3128 rows mapped to provider/wave lineage"
       }
     ]
   },
   "wave": {
-    "wave_id": "import-2026-06-13T01-38-10-736Z",
-    "generated_at": "2026-06-13T01:38:10.729Z",
-    "input_rows": 2919,
-    "normalized_rows": 2919,
+    "wave_id": "import-2026-06-13T01-44-08-415Z",
+    "generated_at": "2026-06-13T01:44:08.408Z",
+    "input_rows": 3128,
+    "normalized_rows": 3128,
     "skipped_rows": 0,
     "output_accounts": 1895,
-    "source_file_count": 9,
-    "source_files": "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl|2026-06-13T00-11-50-106Z-editorial-list-import.jsonl|2026-06-13T00-39-23-080Z-editorial-list-import.jsonl|2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl|2026-06-13T01-31-21-859Z-public-profile-enrichment.jsonl|2026-06-13T01-35-53-442Z-public-profile-enrichment.jsonl|editorial-list-seeds-2026-06-12.jsonl|smoke-provider-results.jsonl|smoke-search-results.jsonl",
-    "mapped_lineage_rows": 2913,
+    "source_file_count": 10,
+    "source_files": "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl|2026-06-13T00-11-50-106Z-editorial-list-import.jsonl|2026-06-13T00-39-23-080Z-editorial-list-import.jsonl|2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl|2026-06-13T01-31-21-859Z-public-profile-enrichment.jsonl|2026-06-13T01-35-53-442Z-public-profile-enrichment.jsonl|2026-06-13T01-42-59-960Z-editorial-list-import.jsonl|editorial-list-seeds-2026-06-12.jsonl|smoke-provider-results.jsonl|smoke-search-results.jsonl",
+    "mapped_lineage_rows": 3122,
     "unmapped_lineage_rows": 6,
     "scale_wave_ids": "",
-    "execution_ids": "2026-06-12T22-10-19-433Z|2026-06-13T00-11-50-106Z|2026-06-13T00-39-23-080Z|2026-06-13T01-25-37-893Z|2026-06-13T01-31-21-859Z|2026-06-13T01-35-53-442Z",
+    "execution_ids": "2026-06-12T22-10-19-433Z|2026-06-13T00-11-50-106Z|2026-06-13T00-39-23-080Z|2026-06-13T01-25-37-893Z|2026-06-13T01-31-21-859Z|2026-06-13T01-35-53-442Z|2026-06-13T01-42-59-960Z",
     "batch_ids": "feedspot_comedy_tiktok_2026|feedspot_movie_tiktok_2026|feedspot_horror_tiktok_2026|feedspot_digital_art_tiktok_2026|feedspot_new_york_art_tiktok_2026|feedspot_music_technology_tiktok_2026|feedspot_barcelona_photography_tiktok_2026|feedspot_aviation_tiktok_2026|feedspot_mobile_gaming_tiktok_2026|feedspot_historical_fiction_tiktok_2026|feedspot_pop_music_tiktok_2026|feedspot_german_book_tiktok_2026|feedspot_lgbt_book_tiktok_2026|feedspot_middle_grade_book_tiktok_2026|feedspot_illustrated_books_tiktok_2026|feedspot_business_book_review_tiktok_2026|feedspot_literary_fiction_tiktok_2026|feedspot_classical_music_tiktok_2026|feedspot_christian_music_tiktok_2026|feedspot_latin_music_tiktok_2026|feedspot_independent_music_tiktok_2026|feedspot_canadian_music_tiktok_2026|feedspot_crime_fiction_tiktok_2026|feedspot_thriller_book_tiktok_2026|feedspot_entertainment_tiktok_2026|feedspot_lego_tiktok_2026|feedspot_romance_book_tiktok_2026|feedspot_anime_tiktok_2026|feedspot_childrens_book_tiktok_2026|feedspot_dance_tiktok_2026|feedspot_music_tiktok_2026|feedspot_gaming_tiktok_2026|feedspot_technology_tiktok_2026|feedspot_book_tiktok_2026|feedspot_ai_tiktok_2026|feedspot_jazz_tiktok_2026|feedspot_stem_tiktok_2026|feedspot_virtual_reality_tiktok_2026|feedspot_virtual_tiktok_2026|public_profile_enrichment_2026-06-13T01-25-37-893Z|public_profile_enrichment_2026-06-13T01-31-21-859Z|public_profile_enrichment_2026-06-13T01-35-53-442Z|editorial_izea_filmmakers_2026_06_12|editorial_shutterstock_filmmakers_2026_06_12|editorial_shesources_women_film_2026_06_12",
     "lineage_providers": "editorial_list_public_web|tiktok_public_profile_html|editorial_web",
-    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-13-a635fbcdfa84.jsonl",
+    "output_path": "docs/experiments/tiktok-creative-creator-graph/data/raw/imports/acquisition-import-2026-06-13-5218c6c30d24.jsonl",
     "target_label_counts": {
-      "sketch_comedian": 240,
+      "sketch_comedian": 241,
       "standup_comedian": 124,
       "director": 17,
-      "editor": 69,
-      "filmmaker": 343,
-      "vfx_animation": 617,
-      "creative_technologist": 502,
-      "film_educator": 630,
+      "editor": 75,
+      "filmmaker": 345,
+      "vfx_animation": 618,
+      "creative_technologist": 515,
+      "film_educator": 809,
       "actor_performer": 10,
-      "behind_the_scenes_creator": 325,
+      "behind_the_scenes_creator": 332,
       "cinematographer": 14,
       "screenwriter": 22,
       "unclassified": 6
     },
     "surface_counts": {
-      "editorial_list": 2370,
+      "editorial_list": 2579,
       "public_profile_enrichment": 522,
       "editorial_list_seed": 21,
       "provider_video_export": 3,
       "search_result_export": 3
     },
     "provider_counts": {
-      "editorial_list_public_web": 2370,
+      "editorial_list_public_web": 2579,
       "tiktok_public_profile_html": 522,
       "editorial_web": 21,
       "unknown": 6
     }
   },
-  "import_waves": 15
+  "import_waves": 16
 }

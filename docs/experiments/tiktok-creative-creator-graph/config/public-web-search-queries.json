@@ -72,6 +72,144 @@
       "query": "\"tiktok.com/@\" (\"portfolio\" OR \"director\" OR \"cinematographer\" OR \"video editor\" OR \"vfx artist\")",
       "target_label": "filmmaker",
       "source_name": "Public web search portfolio creator links"
+    },
+    {
+      "id": "tiktok_director_music_video_profiles",
+      "query": "site:tiktok.com/@ (\"music video director\" OR \"directed by\" OR \"commercial director\")",
+      "target_label": "director",
+      "source_name": "Public web search director music video profiles"
+    },
+    {
+      "id": "tiktok_director_writer_profiles",
+      "query": "site:tiktok.com/@ (\"writer director\" OR \"writer/director\" OR \"film director\")",
+      "target_label": "director",
+      "source_name": "Public web search writer director profiles"
+    },
+    {
+      "id": "tiktok_director_reel_profiles",
+      "query": "site:tiktok.com/@ (\"director reel\" OR \"directing reel\" OR \"my short film\")",
+      "target_label": "director",
+      "source_name": "Public web search director reel profiles"
+    },
+    {
+      "id": "tiktok_editor_breakdown_profiles",
+      "query": "site:tiktok.com/@ (\"editing breakdown\" OR \"edit breakdown\" OR \"how I edited\")",
+      "target_label": "editor",
+      "source_name": "Public web search editing breakdown profiles"
+    },
+    {
+      "id": "tiktok_editor_davinci_profiles",
+      "query": "site:tiktok.com/@ (\"davinci resolve\" OR \"resolve tutorial\" OR \"color grading\")",
+      "target_label": "editor",
+      "source_name": "Public web search DaVinci Resolve editor profiles"
+    },
+    {
+      "id": "tiktok_editor_after_effects_profiles",
+      "query": "site:tiktok.com/@ (\"after effects\" OR \"premiere pro\" OR \"motion graphics\")",
+      "target_label": "editor",
+      "source_name": "Public web search After Effects editor profiles"
+    },
+    {
+      "id": "tiktok_standup_open_mic_profiles",
+      "query": "site:tiktok.com/@ (\"open mic\" OR \"stand up comedy\" OR \"stand-up comedian\")",
+      "target_label": "standup_comedian",
+      "source_name": "Public web search standup open mic profiles"
+    },
+    {
+      "id": "tiktok_standup_clip_profiles",
+      "query": "site:tiktok.com/@ (\"crowd work\" OR \"comedy set\" OR \"comedy club\")",
+      "target_label": "standup_comedian",
+      "source_name": "Public web search standup clip profiles"
+    },
+    {
+      "id": "tiktok_comedian_tour_profiles",
+      "query": "site:tiktok.com/@ (\"comedian\" \"tour\" OR \"standup\" \"tickets\")",
+      "target_label": "standup_comedian",
+      "source_name": "Public web search touring comedian profiles"
+    },
+    {
+      "id": "tiktok_actor_monologue_profiles",
+      "query": "site:tiktok.com/@ (\"monologue\" OR \"self tape\" OR \"audition tape\")",
+      "target_label": "actor_performer",
+      "source_name": "Public web search actor monologue profiles"
+    },
+    {
+      "id": "tiktok_actor_character_profiles",
+      "query": "site:tiktok.com/@ (\"character work\" OR \"acting coach\" OR \"actor life\")",
+      "target_label": "actor_performer",
+      "source_name": "Public web search actor character profiles"
+    },
+    {
+      "id": "tiktok_performer_improv_profiles",
+      "query": "site:tiktok.com/@ (\"improv\" OR \"performer\" OR \"comedy actor\")",
+      "target_label": "actor_performer",
+      "source_name": "Public web search performer improv profiles"
+    },
+    {
+      "id": "tiktok_film_educator_tutorial_profiles",
+      "query": "site:tiktok.com/@ (\"film tutorial\" OR \"filmmaking tutorial\" OR \"how to shoot\")",
+      "target_label": "film_educator",
+      "source_name": "Public web search film educator tutorial profiles"
+    },
+    {
+      "id": "tiktok_film_educator_breakdown_profiles",
+      "query": "site:tiktok.com/@ (\"cinema analysis\" OR \"shot breakdown\" OR \"scene breakdown\")",
+      "target_label": "film_educator",
+      "source_name": "Public web search film educator breakdown profiles"
+    },
+    {
+      "id": "tiktok_film_school_profiles",
+      "query": "site:tiktok.com/@ (\"film school\" OR \"film student\" OR \"learn filmmaking\")",
+      "target_label": "film_educator",
+      "source_name": "Public web search film school profiles"
+    },
+    {
+      "id": "tiktok_bts_on_set_profiles",
+      "query": "site:tiktok.com/@ (\"behind the scenes\" OR \"on set\" OR \"set life\")",
+      "target_label": "behind_the_scenes_creator",
+      "source_name": "Public web search behind the scenes on set profiles"
+    },
+    {
+      "id": "tiktok_bts_production_profiles",
+      "query": "site:tiktok.com/@ (\"production diary\" OR \"making of\" OR \"film set\")",
+      "target_label": "behind_the_scenes_creator",
+      "source_name": "Public web search production diary profiles"
+    },
+    {
+      "id": "tiktok_bts_short_film_profiles",
+      "query": "site:tiktok.com/@ (\"short film\" \"behind the scenes\" OR \"bts\" \"filmmaking\")",
+      "target_label": "behind_the_scenes_creator",
+      "source_name": "Public web search short film BTS profiles"
+    },
+    {
+      "id": "youtube_director_tiktok_links",
+      "query": "site:youtube.com \"tiktok.com/@\" (\"director\" OR \"writer director\" OR \"short film\")",
+      "target_label": "director",
+      "source_name": "Public web search YouTube director TikTok links"
+    },
+    {
+      "id": "youtube_editor_tiktok_links",
+      "query": "site:youtube.com \"tiktok.com/@\" (\"video editor\" OR \"davinci resolve\" OR \"after effects\")",
+      "target_label": "editor",
+      "source_name": "Public web search YouTube editor TikTok links"
+    },
+    {
+      "id": "linktree_actor_tiktok_links",
+      "query": "site:linktr.ee \"tiktok.com/@\" (\"actor\" OR \"performer\" OR \"comedian\")",
+      "target_label": "actor_performer",
+      "source_name": "Public web search Linktree actor TikTok links"
+    },
+    {
+      "id": "beacons_standup_tiktok_links",
+      "query": "site:beacons.ai \"tiktok.com/@\" (\"standup\" OR \"comedian\" OR \"comedy club\")",
+      "target_label": "standup_comedian",
+      "source_name": "Public web search Beacons standup TikTok links"
+    },
+    {
+      "id": "portfolio_bts_tiktok_links",
+      "query": "\"tiktok.com/@\" (\"behind the scenes\" OR \"production diary\" OR \"on set\") (\"portfolio\" OR \"filmmaker\")",
+      "target_label": "behind_the_scenes_creator",
+      "source_name": "Public web search portfolio BTS creator links"
     }
   ]
 }

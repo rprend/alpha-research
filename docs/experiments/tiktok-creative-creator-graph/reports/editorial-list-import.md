@@ -1,12 +1,12 @@
 # Editorial List Import
 
-Generated: 2026-06-13T00:39:23.743Z
+Generated: 2026-06-13T01:43:00.185Z
 
 - Provider: editorial_list_public_web
 - Dry run: false
 - Selected sources: 4
 - Output rows: 209
-- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T00-39-23-080Z-editorial-list-import.jsonl
+- Output path: docs/experiments/tiktok-creative-creator-graph/data/raw/acquisition-results/2026-06-13T01-42-59-960Z-editorial-list-import.jsonl
 
 ## Sources
 

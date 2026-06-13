@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:38:11.979Z",
+  "generated_at": "2026-06-13T01:44:09.583Z",
   "mode": "dry_run",
   "live_confirmed": false,
   "provider": "apify",
@@ -26,8 +26,8 @@
         "id": "dry_scale_wave_0001",
         "command": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batch.mjs --dry-run --max-tasks=2 --priority-max=2 --wave=1",
         "status": "pass",
-        "started_at": "2026-06-13T01:38:11.919Z",
-        "finished_at": "2026-06-13T01:38:11.979Z",
+        "started_at": "2026-06-13T01:44:09.532Z",
+        "finished_at": "2026-06-13T01:44:09.583Z",
         "output_tail": [
           "      \"acquisition_surface\": \"category_gap_search\",",
           "      \"query\": \"site:tiktok.com/@ \\\"director\\\"\",",
@@ -41,11 +41,11 @@
           "        \"languageCode\": \"en\"",
           "      },",
           "      \"dry_run\": true,",
-          "      \"started_at\": \"2026-06-13T01:38:11.975Z\",",
+          "      \"started_at\": \"2026-06-13T01:44:09.579Z\",",
           "      \"status\": \"dry_run\",",
           "      \"output_rows\": 0,",
           "      \"output_path\": \"\",",
-          "      \"finished_at\": \"2026-06-13T01:38:11.975Z\"",
+          "      \"finished_at\": \"2026-06-13T01:44:09.579Z\"",
           "    }",
           "  ]",
           "}"

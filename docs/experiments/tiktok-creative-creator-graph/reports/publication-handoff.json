@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:38:12.106Z",
+  "generated_at": "2026-06-13T01:44:09.700Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -32,7 +32,7 @@
   "current_corpus": {
     "accounts": 1900,
     "identities": 1870,
-    "videos": 32,
+    "videos": 35,
     "graph_edges": 395,
     "useful_creators": 7,
     "release_useful_creators": 2,
@@ -56,10 +56,10 @@
     "candidate_frontier_handles": 7,
     "candidate_frontier_queries": 80,
     "acquisition_import_preview_accounts": 1895,
-    "acquisition_import_preview_ready": false,
-    "acquisition_import_waves": 15,
-    "acquisition_import_lineage_rows": 17742,
-    "acquisition_import_untraced_rows": 90,
+    "acquisition_import_preview_ready": true,
+    "acquisition_import_waves": 16,
+    "acquisition_import_lineage_rows": 20864,
+    "acquisition_import_untraced_rows": 96,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
     "acquisition_run_history": 15,
@@ -168,22 +168,22 @@
     {
       "path": "data/release/rejected_creators.jsonl",
       "rows": 2,
-      "sha256": "5923083196f02e4dc12bcb90a0ff9ccf5b41ce9bb79f55fa7301c39527d5481b"
+      "sha256": "5ee8d5b0d2a77335ba325572df9cd227a81369476f2a66f88de6e2fc9f98e33b"
     },
     {
       "path": "data/release/rejected_creators.csv",
       "rows": 2,
-      "sha256": "514c796dd3140ad4eb0890d1f995258b25bd9f9c050c8d68f441c37511f052ed"
+      "sha256": "999f24476371bb57471326a4e77a0a20851a22f593456d0da7c98af4096b1e1d"
     },
     {
       "path": "data/release/review_queue.csv",
       "rows": 1896,
-      "sha256": "a258f97f1a4080eff9db3f28284309042a13494d62aafa0bc9996f2ee92921c2"
+      "sha256": "d05761d0a9e4659f7223c8692e22c613b19557f3b62bd3a5b44c278cb123e4c6"
     },
     {
       "path": "data/release/all_scored_creators.csv",
       "rows": 1900,
-      "sha256": "2d3b2dcd5d320045792e6c85bbcb21b0f4c0cfe61f6bcbe693d26c626264dfd2"
+      "sha256": "360c148adcaaf794f99539392374702b664e4a9d27ca807b4d470790500b7af6"
     }
   ],
   "registration_constraints": [

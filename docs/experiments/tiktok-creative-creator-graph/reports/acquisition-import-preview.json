@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-13T01:38:10.646Z",
+  "generated_at": "2026-06-13T01:44:08.340Z",
   "mode": "preview",
-  "input_rows": 2919,
-  "normalized_rows": 2919,
+  "input_rows": 3128,
+  "normalized_rows": 3128,
   "skipped_rows": 0,
-  "duplicate_normalized_rows": 1024,
+  "duplicate_normalized_rows": 1233,
   "output_accounts": 1895,
   "source_files": {
     "2026-06-12T22-10-19-433Z-editorial-list-import.jsonl": 499,
@@ -13,11 +13,12 @@
     "2026-06-13T01-25-37-893Z-public-profile-enrichment.jsonl": 85,
     "2026-06-13T01-31-21-859Z-public-profile-enrichment.jsonl": 185,
     "2026-06-13T01-35-53-442Z-public-profile-enrichment.jsonl": 252,
+    "2026-06-13T01-42-59-960Z-editorial-list-import.jsonl": 209,
     "editorial-list-seeds-2026-06-12.jsonl": 21,
     "smoke-provider-results.jsonl": 3,
     "smoke-search-results.jsonl": 3
   },
-  "mapped_lineage_rows": 2913,
+  "mapped_lineage_rows": 3122,
   "unmapped_lineage_rows": 6,
   "scale_wave_ids": {},
   "execution_ids": {
@@ -26,7 +27,8 @@
     "2026-06-13T00-39-23-080Z": 209,
     "2026-06-13T01-25-37-893Z": 85,
     "2026-06-13T01-31-21-859Z": 185,
-    "2026-06-13T01-35-53-442Z": 252
+    "2026-06-13T01-35-53-442Z": 252,
+    "2026-06-13T01-42-59-960Z": 209
   },
   "batch_ids": {
     "feedspot_comedy_tiktok_2026": 198,
@@ -64,10 +66,10 @@
     "feedspot_technology_tiktok_2026": 51,
     "feedspot_book_tiktok_2026": 75,
     "feedspot_ai_tiktok_2026": 32,
-    "feedspot_jazz_tiktok_2026": 8,
-    "feedspot_stem_tiktok_2026": 98,
-    "feedspot_virtual_reality_tiktok_2026": 31,
-    "feedspot_virtual_tiktok_2026": 72,
+    "feedspot_jazz_tiktok_2026": 16,
+    "feedspot_stem_tiktok_2026": 196,
+    "feedspot_virtual_reality_tiktok_2026": 62,
+    "feedspot_virtual_tiktok_2026": 144,
     "public_profile_enrichment_2026-06-13T01-25-37-893Z": 85,
     "public_profile_enrichment_2026-06-13T01-31-21-859Z": 185,
     "public_profile_enrichment_2026-06-13T01-35-53-442Z": 252,
@@ -76,7 +78,7 @@
     "editorial_shesources_women_film_2026_06_12": 5
   },
   "lineage_providers": {
-    "editorial_list_public_web": 2370,
+    "editorial_list_public_web": 2579,
     "tiktok_public_profile_html": 522,
     "editorial_web": 21
   },
@@ -84,8 +86,8 @@
   "quality_gate": {
     "ready_to_import": true,
     "normalized_rate": 1,
-    "duplicate_rate": 0.35080507022953067,
-    "output_rate": 0.6491949297704693,
+    "duplicate_rate": 0.39418158567774936,
+    "output_rate": 0.6058184143222506,
     "min_normalized_rate": 0.75,
     "max_duplicate_rate": 0.35,
     "effective_duplicate_threshold": 0.55,
@@ -94,7 +96,7 @@
       {
         "id": "has_rows",
         "status": "pass",
-        "evidence": "2919 input rows"
+        "evidence": "3128 input rows"
       },
       {
         "id": "handle_extraction",
@@ -104,12 +106,12 @@
       {
         "id": "duplicate_pressure",
         "status": "pass",
-        "evidence": "35.1% duplicate normalized rows, threshold 55.0% (metadata overlay)"
+        "evidence": "39.4% duplicate normalized rows, threshold 55.0% (metadata overlay)"
       },
       {
         "id": "lineage_mapping",
         "status": "pass",
-        "evidence": "2913/2919 rows mapped to provider/wave lineage"
+        "evidence": "3122/3128 rows mapped to provider/wave lineage"
       }
     ]
   },

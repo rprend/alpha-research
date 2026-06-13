@@ -1,6 +1,6 @@
 # Source Yield
 
-Generated: 2026-06-13T01:38:10.989Z
+Generated: 2026-06-13T01:44:08.671Z
 
 - Sources: 52
 - Distinct creators seen through sources: 1900
@@ -32,5 +32,5 @@ Generated: 2026-06-13T01:38:10.989Z
 | editorial_list | FeedSpot Top Music Technology TikTok Influencers 2026 | 48 | 0 | 0 | 100 |
 | editorial_list | FeedSpot Top Barcelona Photography TikTok Influencers 2026 | 2 | 0 | 0 | 100 |
 | editorial_list | FeedSpot Top Aviation TikTok Influencers 2026 | 97 | 0 | 0 | 100 |
-| editorial_list_seed | IZEA 10 Filmmakers to Follow on TikTok | 8 | 0 | 0 | 92 |
-| editorial_list | FeedSpot Top Business Book Review TikTok Influencers 2026 | 4 | 0 | 0 | 92 |
+| editorial_list_seed | IZEA 10 Filmmakers to Follow on TikTok | 8 | 0 | 0 | 100 |
+| editorial_list | FeedSpot Top Mobile Gaming TikTok Influencers 2026 | 57 | 0 | 0 | 100 |
