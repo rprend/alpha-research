@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-13T03:42:19.102Z",
+  "packet_id": "learning_review_20260613",
+  "requested_rows": 1000,
+  "rows": 1000,
+  "batch_size": 100,
+  "batches": 10,
+  "packet_csv": "data/processed/learning_review_packets/learning_review_20260613.csv",
+  "decision_template_csv": "data/processed/learning_review_packets/learning_review_20260613-decision-template.csv",
+  "tier_counts": {
+    "review_first": 60,
+    "strong_candidate": 444,
+    "medium_candidate": 431,
+    "long_tail_candidate": 65
+  },
+  "suggested_decision_counts": {
+    "excellent_benchmark": 5,
+    "keep": 499,
+    "maybe": 496
+  }
+}

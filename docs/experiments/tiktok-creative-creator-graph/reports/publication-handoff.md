@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T03:38:28.345Z
+Generated: 2026-06-13T03:41:51.490Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 

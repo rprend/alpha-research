@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T03:38:28.486Z",
+  "generated_at": "2026-06-13T03:42:19.283Z",
   "complete": false,
   "counts": {
     "accounts": 10104,
@@ -16,6 +16,8 @@
     "review_packet_batch_rows": 250,
     "review_plan_categories": 11,
     "learning_candidate_shortlist": 5000,
+    "learning_review_packet_rows": 1000,
+    "learning_review_packet_batches": 10,
     "review_decisions": 4,
     "review_blank_decisions": 0,
     "accepted_creators": 2,
@@ -135,6 +137,11 @@
       "id": "learning_candidate_shortlist",
       "status": "pass",
       "evidence": "5000 candidate accounts prioritized for learning-value review"
+    },
+    {
+      "id": "learning_review_packet",
+      "status": "pass",
+      "evidence": "1000 learning review rows across 10 batches"
     },
     {
       "id": "expansion_queue",
