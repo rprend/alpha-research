@@ -1,40 +1,40 @@
 # TikTok Creative Creator Graph Run
 
-Generated: 2026-06-13T06:18:58.406Z
+Generated: 2026-06-13T06:33:20.328Z
 
 ## Summary
 
-- Accounts: 15487
-- Videos: 92
+- Accounts: 34168
+- Videos: 101
 - Graph edges: 2086
-- Useful accounts: 1021
+- Useful accounts: 1963
 - Excellent accounts: 6
-- Review queue: 15487
-- Expansion queue: 354
+- Review queue: 34168
+- Expansion queue: 475
 - Target: 50000
-- Target status: 48979 more useful accounts needed
+- Target status: 48037 more useful accounts needed
 
 ## Status Counts
 
-- useful: 1015
-- needs_review: 14464
+- useful: 1957
+- needs_review: 32201
 - excellent: 6
-- reject: 2
+- reject: 4
 
 ## Primary Labels
 
-- actor_performer: 8695
-- sketch_comedian: 379
-- standup_comedian: 184
-- filmmaker: 1199
-- cinematographer: 99
-- director: 275
-- editor: 86
-- vfx_animation: 746
-- creative_technologist: 1773
-- film_educator: 1626
-- behind_the_scenes_creator: 423
-- reject: 2
+- actor_performer: 8662
+- sketch_comedian: 3526
+- standup_comedian: 790
+- filmmaker: 7002
+- cinematographer: 1720
+- vfx_animation: 2125
+- director: 1499
+- editor: 3167
+- creative_technologist: 1738
+- film_educator: 1583
+- behind_the_scenes_creator: 2352
+- reject: 4
 
 ## Top Accounts
 
@@ -102,6 +102,8 @@ Generated: 2026-06-13T06:18:58.406Z
 | @noahframes | cinematographer | 86 | benchmark_candidate; strong_public_source_candidate |
 | @lucybits | sketch_comedian | 85 | benchmark_candidate; strong_public_source_candidate |
 | @dailyfilmclips | reject | 0 | repost_risk |
+| @livestreamreposted | reject | 0 | repost_risk |
+| @samuelfolabifanp | reject | 0 | repost_risk |
 | @clipvaultcinema | reject | 0 | repost_risk |
 | @renderjules | creative_technologist | 78 | strong_public_source_candidate |
 | @fluffyguy | standup_comedian | 77 | strong_public_source_candidate |
@@ -118,5 +120,3 @@ Generated: 2026-06-13T06:18:58.406Z
 | @smokeyrobinson | actor_performer | 74 | strong_public_source_candidate |
 | @akon | actor_performer | 74 | strong_public_source_candidate |
 | @kevinjamesofficial | filmmaker | 73 | strong_public_source_candidate |
-| @kenshiyonezu_08 | vfx_animation | 73 | strong_public_source_candidate |
-| @paulmccartney | filmmaker | 73 | strong_public_source_candidate |

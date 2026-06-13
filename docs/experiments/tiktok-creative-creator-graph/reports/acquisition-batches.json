@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-13T06:19:00.683Z",
+  "generated_at": "2026-06-13T06:33:24.100Z",
   "tasks": 314,
-  "useful_creators_available_for_expansion": 1021,
-  "source_yield_rows": 1477,
+  "useful_creators_available_for_expansion": 1963,
+  "source_yield_rows": 1488,
   "category_coverage_rows": 11,
   "priority_counts": {
-    "1": 271,
-    "2": 38,
+    "1": 266,
+    "2": 43,
     "3": 5
   },
   "surface_counts": {
@@ -18,13 +18,13 @@
   },
   "target_label_counts": {
     "film_educator": 4,
+    "unclassified": 242,
     "behind_the_scenes_creator": 6,
-    "unclassified": 245,
     "filmmaker": 10,
     "actor_performer": 6,
     "sketch_comedian": 9,
-    "vfx_animation": 11,
-    "cinematographer": 5,
+    "vfx_animation": 13,
+    "cinematographer": 6,
     "standup_comedian": 7,
     "editor": 3,
     "director": 4,

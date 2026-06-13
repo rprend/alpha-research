@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T06:19:04.214Z
+Generated: 2026-06-13T06:33:28.083Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -10,11 +10,11 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 ## Current Corpus
 
-- Accounts: 15487
-- Identities: 15283
-- Videos: 92
+- Accounts: 34168
+- Identities: 33277
+- Videos: 101
 - Graph edges: 2086
-- Useful creators: 1021
+- Useful creators: 1963
 - Release useful creators: 2
 - Excellent creators: 6
 - Review sample: 250
@@ -25,19 +25,19 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Review plan categories: 11
 - Review decisions: 4
 - Review blank decisions: 0
-- Source yield rows: 1477
-- Adjacency expansion rows: 410
-- Adjacency expansion added rows: 56
-- Category coverage: 9/11
+- Source yield rows: 1488
+- Adjacency expansion rows: 500
+- Adjacency expansion added rows: 25
+- Category coverage: 10/11
 - Acquisition tasks: 314
-- Candidate frontier: 350
+- Candidate frontier: 321
 - Candidate frontier handles: 237
-- Candidate frontier queries: 113
-- Acquisition import preview accounts: 15482
+- Candidate frontier queries: 84
+- Acquisition import preview accounts: 34163
 - Acquisition import preview ready: false
-- Acquisition import waves: 43
-- Acquisition import traced rows: 742723
-- Acquisition import untraced rows: 222
+- Acquisition import waves: 46
+- Acquisition import traced rows: 1077128
+- Acquisition import untraced rows: 240
 - Acquisition runner runnable tasks: 39
 - Acquisition runner skipped tasks: 11
 - Acquisition run history: 19
@@ -47,9 +47,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - External lead packet assignments: 200
 - External lead packet requested leads: 50000
 - External lead packet category rows: 11
-- External lead auto-complete files written: 36
-- External lead auto-complete existing files skipped: 19
-- External lead auto-complete routed rows: 11666
+- External lead auto-complete files written: 15
+- External lead auto-complete existing files skipped: 43
+- External lead auto-complete routed rows: 12166
 - External lead worklist items: 846
 - External lead worklist lead quota: 50000
 - External lead work-item template files: 846
@@ -60,19 +60,19 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - External lead work-item merge unknown files: 0
 - External lead template files: 200
 - External lead template rows: 50000
-- External lead packet completed files: 210
-- External lead packet import-ready assignments: 55
+- External lead packet completed files: 248
+- External lead packet import-ready assignments: 58
 - External lead packet no-valid-handles assignments: 0
-- External lead packet valid leads: 12398
-- External lead packet ready files: 55
-- External lead packet already-imported ready files: 19
-- External lead packet pending import files: 36
-- External lead packet imported files: 36
+- External lead packet valid leads: 13030
+- External lead packet ready files: 58
+- External lead packet already-imported ready files: 43
+- External lead packet pending import files: 15
+- External lead packet imported files: 15
 - External lead packet import failed files: 0
-- External lead packet import output rows: 8402
-- Scale waves: 3033
-- Wave ledger rows: 3033
-- Wave ledger planned: 3033
+- External lead packet import output rows: 3718
+- Scale waves: 3075
+- Wave ledger rows: 3075
+- Wave ledger planned: 3075
 - Wave ledger imported: 0
 - Wave ledger imported empty: 0
 - Wave ledger failed: 0
@@ -89,11 +89,11 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Live manifest runner steps: 0
 - Live manifest runner selected waves: 0
 - Live manifest runner mode: dry_run
-- Refresh tasks: 15487
+- Refresh tasks: 34168
 
 ## Remaining Production Gaps
 
-- Useful creators: 48979
+- Useful creators: 48037
 - Excellent creators: 4994
 - Review decisions: 496
 
@@ -186,9 +186,9 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 
 ## Next Actions
 
-- Acquire and import 48979 more useful creators through provider/search/graph batches.
+- Acquire and import 48037 more useful creators through provider/search/graph batches.
 - Use the external lead acquisition packet for token-free collection: 200 assignments requesting 50000 TikTok profile leads.
-- Auto-complete routed 11666 existing public acquisition leads into 210 completed packet files.
+- Auto-complete routed 12166 existing public acquisition leads into 248 completed packet files.
 - Assign source-level work from data/raw/external-leads/source-worklist.csv: 846 URL work items covering 50000 requested leads.
 - Use data/raw/external-leads/work-item-templates/ for fillable per-URL CSVs: 846 templates covering 50000 rows.
 - Save completed source work items as data/raw/external-leads/work-items-completed/<work_item_id>.csv, then run merge-external-lead-work-items.mjs to assemble assignment-level completed files.

@@ -1,18 +1,18 @@
 # External Lead Acquisition Packet
 
-Generated: 2026-06-13T06:19:01.650Z
+Generated: 2026-06-13T06:33:25.844Z
 
 This is the token-free acquisition path. Use it when paid scraper credentials are unavailable or unproductive. Each assignment asks an operator, contractor, or alternate acquisition tool to return TikTok profile leads in the columns accepted by `import-external-lead-list.mjs`. The default packet is sized to request at least the 50,000-lead discovery target before downstream quality filtering.
 
 ## Current Gap
 
 - Target useful creators: 50000
-- Current useful creators: 1021
-- Useful gap: 48979
+- Current useful creators: 1963
+- Useful gap: 48037
 - Assignment rows: 200
 - Requested leads in this packet: 50000
 - Category rows: 11
-- Uncovered labels: film_educator, behind_the_scenes_creator
+- Uncovered labels: film_educator
 
 ## Required Completed Lead Columns
 
@@ -39,21 +39,21 @@ Accept public TikTok profiles with original creative work and visible craft, pro
 | external_packet_0003 | cinematographer | 250 | tiktok_hashtag_export | cinematography | https://www.tiktok.com/tag/cinematography |
 | external_packet_0004 | filmmaker | 250 | tiktok_hashtag_export | shortfilm | https://www.tiktok.com/tag/shortfilm |
 | external_packet_0005 | sketch_comedian | 250 | tiktok_hashtag_export | sketchcomedy | https://www.tiktok.com/tag/sketchcomedy |
-| external_packet_0006 | vfx_animation | 250 | tiktok_hashtag_export | animation | https://www.tiktok.com/tag/animation |
-| external_packet_0007 | cinematographer | 250 | tiktok_hashtag_export | lighting | https://www.tiktok.com/tag/lighting |
-| external_packet_0008 | filmmaker | 250 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | https://www.tiktok.com/search/user?q=site%3Avimeo.com%20tiktok.com%2F%40%20filmmaker |
-| external_packet_0009 | sketch_comedian | 250 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | https://www.tiktok.com/search/user?q=site%3Ayoutube.com%20tiktok.com%2F%40%20sketch%20comedian |
+| external_packet_0006 | cinematographer | 250 | tiktok_hashtag_export | lighting | https://www.tiktok.com/tag/lighting |
+| external_packet_0007 | filmmaker | 250 | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | https://www.tiktok.com/search/user?q=site%3Avimeo.com%20tiktok.com%2F%40%20filmmaker |
+| external_packet_0008 | sketch_comedian | 250 | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | https://www.tiktok.com/search/user?q=site%3Ayoutube.com%20tiktok.com%2F%40%20sketch%20comedian |
+| external_packet_0009 | vfx_animation | 250 | tiktok_hashtag_export | animation | https://www.tiktok.com/tag/animation |
 | external_packet_0010 | vfx_animation | 250 | tiktok_hashtag_export | blender | https://www.tiktok.com/tag/blender |
 | external_packet_0011 | vfx_animation | 250 | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | https://www.tiktok.com/search/user?q=site%3Abeacons.ai%20tiktok.com%2F%40%20vfx%20animation |
 | external_packet_0012 | vfx_animation | 250 | tiktok_hashtag_export | vfx | https://www.tiktok.com/tag/vfx |
-| external_packet_0013 | vfx_animation | 250 | tiktok_hashtag_export | vfxartist | https://www.tiktok.com/tag/vfxartist |
-| external_packet_0014 | standup_comedian | 250 | tiktok_hashtag_export | standupcomedy | https://www.tiktok.com/tag/standupcomedy |
-| external_packet_0015 | filmmaker | 250 | cross_platform_search | site:instagram.com "tiktok.com/@" "filmmaker" | https://www.tiktok.com/search/user?q=site%3Ainstagram.com%20tiktok.com%2F%40%20filmmaker |
-| external_packet_0016 | behind_the_scenes_creator | 250 | tiktok_hashtag_export | bts | https://www.tiktok.com/tag/bts |
-| external_packet_0017 | cinematographer | 250 | category_gap_search | site:tiktok.com/@ "cinematographer" | https://www.tiktok.com/search/user?q=cinematographer |
-| external_packet_0018 | sketch_comedian | 250 | category_gap_search | site:tiktok.com/@ "comedy sketch" | https://www.tiktok.com/search/user?q=comedy%20sketch |
-| external_packet_0019 | cinematographer | 250 | category_gap_search | site:tiktok.com/@ "dop" | https://www.tiktok.com/search/user?q=dop |
-| external_packet_0020 | cinematographer | 250 | category_gap_search | site:tiktok.com/@ "dp" | https://www.tiktok.com/search/user?q=dp |
+| external_packet_0013 | standup_comedian | 250 | tiktok_hashtag_export | standupcomedy | https://www.tiktok.com/tag/standupcomedy |
+| external_packet_0014 | vfx_animation | 250 | tiktok_hashtag_export | vfxartist | https://www.tiktok.com/tag/vfxartist |
+| external_packet_0015 | behind_the_scenes_creator | 250 | tiktok_hashtag_export | bts | https://www.tiktok.com/tag/bts |
+| external_packet_0016 | cinematographer | 250 | category_gap_search | site:tiktok.com/@ "cinematographer" | https://www.tiktok.com/search/user?q=cinematographer |
+| external_packet_0017 | sketch_comedian | 250 | category_gap_search | site:tiktok.com/@ "comedy sketch" | https://www.tiktok.com/search/user?q=comedy%20sketch |
+| external_packet_0018 | cinematographer | 250 | category_gap_search | site:tiktok.com/@ "dop" | https://www.tiktok.com/search/user?q=dop |
+| external_packet_0019 | cinematographer | 250 | category_gap_search | site:tiktok.com/@ "dp" | https://www.tiktok.com/search/user?q=dp |
+| external_packet_0020 | editor | 250 | category_gap_search | site:tiktok.com/@ "editing" | https://www.tiktok.com/search/user?q=editing |
 
 Full assignment CSV: `data/raw/external-leads/acquisition-packet.csv`
 Category target CSV: `data/raw/external-leads/category-targets.csv`

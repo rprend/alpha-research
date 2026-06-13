@@ -1,61 +1,61 @@
 # Candidate Frontier
 
-Generated: 2026-06-13T06:19:00.786Z
+Generated: 2026-06-13T06:33:24.248Z
 
-- Candidates: 350
+- Candidates: 321
 - Handle targets: 237
-- Query targets: 113
+- Query targets: 84
 - Known account targets: 237
 
 ## Surfaces
 
-- tiktok_hashtag_export: 19
-- cross_platform_search: 23
-- search_index: 34
+- tiktok_hashtag_export: 17
+- cross_platform_search: 8
+- search_index: 22
 - category_gap_search: 37
 - tiktok_creator_neighborhood_export: 237
 
 ## Target Labels
 
-- filmmaker: 11
-- actor_performer: 12
-- cinematographer: 7
+- filmmaker: 8
+- actor_performer: 6
+- cinematographer: 8
 - sketch_comedian: 8
-- vfx_animation: 13
-- unclassified: 266
-- standup_comedian: 9
-- director: 5
+- vfx_animation: 12
+- unclassified: 251
+- standup_comedian: 7
 - behind_the_scenes_creator: 6
 - editor: 3
 - film_educator: 4
-- creative_technologist: 6
+- director: 4
+- creative_technologist: 4
 
 ## Top Candidates
 
 | Rank | Score | Priority | Kind | Surface | Label | Target |
 | ---: | ---: | ---: | --- | --- | --- | --- |
 | 1 | 106 | 1 | query | tiktok_hashtag_export | filmmaker | filmmaker |
-| 2 | 98 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
+| 2 | 95 | 1 | query | tiktok_hashtag_export | actor_performer | actor |
 | 3 | 86 | 1 | query | tiktok_hashtag_export | cinematographer | cinematography |
 | 4 | 86 | 1 | query | tiktok_hashtag_export | filmmaker | shortfilm |
 | 5 | 86 | 1 | query | tiktok_hashtag_export | sketch_comedian | sketchcomedy |
-| 6 | 85 | 1 | query | tiktok_hashtag_export | vfx_animation | animation |
-| 7 | 84 | 2 | query | cross_platform_search | filmmaker | site:beacons.ai "tiktok.com/@" "filmmaker" |
-| 8 | 84 | 2 | query | cross_platform_search | filmmaker | site:linktr.ee "tiktok.com/@" "filmmaker" |
-| 9 | 84 | 2 | query | cross_platform_search | filmmaker | site:youtube.com "tiktok.com/@" "filmmaker" |
-| 10 | 83 | 1 | query | tiktok_hashtag_export | cinematographer | lighting |
-| 11 | 83 | 1 | query | cross_platform_search | filmmaker | site:vimeo.com "tiktok.com/@" "filmmaker" |
-| 12 | 83 | 1 | query | cross_platform_search | sketch_comedian | site:youtube.com "tiktok.com/@" "sketch comedian" |
-| 13 | 83 | 2 | query | cross_platform_search | vfx_animation | site:instagram.com "tiktok.com/@" "vfx animation" |
-| 14 | 83 | 2 | query | cross_platform_search | vfx_animation | site:linktr.ee "tiktok.com/@" "vfx animation" |
-| 15 | 83 | 2 | query | cross_platform_search | vfx_animation | site:youtube.com "tiktok.com/@" "vfx animation" |
-| 16 | 82 | 1 | query | tiktok_hashtag_export | vfx_animation | blender |
-| 17 | 82 | 1 | query | cross_platform_search | vfx_animation | site:beacons.ai "tiktok.com/@" "vfx animation" |
-| 18 | 82 | 1 | query | tiktok_hashtag_export | vfx_animation | vfx |
-| 19 | 79 | 1 | query | tiktok_hashtag_export | vfx_animation | vfxartist |
-| 20 | 79 | 2 | query | search_index | unclassified | actor\|dancer |
-| 21 | 79 | 2 | query | search_index | unclassified | actor\|film actor |
-| 22 | 79 | 2 | query | search_index | unclassified | artist |
-| 23 | 79 | 2 | query | search_index | unclassified | comedian |
-| 24 | 79 | 2 | query | search_index | unclassified | comedian\|stand-up comedian |
-| 25 | 79 | 2 | query | search_index | unclassified | composer\|disc jockey\|record producer |
+| 6 | 83 | 1 | query | tiktok_hashtag_export | cinematographer | lighting |
+| 7 | 83 | 1 | query | cross_platform_search | filmmaker | site:vimeo.com "tiktok.com/@" "filmmaker" |
+| 8 | 83 | 1 | query | cross_platform_search | sketch_comedian | site:youtube.com "tiktok.com/@" "sketch comedian" |
+| 9 | 81 | 1 | query | tiktok_hashtag_export | vfx_animation | animation |
+| 10 | 79 | 2 | query | search_index | unclassified | artist |
+| 11 | 79 | 2 | query | search_index | unclassified | comedian |
+| 12 | 79 | 2 | query | search_index | unclassified | FeedSpot Top Children Book TikTok Influencers 2026 |
+| 13 | 79 | 2 | query | search_index | unclassified | FeedSpot Top Comedy TikTok Influencers 2026 |
+| 14 | 79 | 2 | query | search_index | unclassified | FeedSpot Top Gaming TikTok Influencers 2026 |
+| 15 | 79 | 2 | query | search_index | unclassified | FeedSpot Top Latin Music TikTok Influencers 2026 |
+| 16 | 79 | 2 | query | search_index | unclassified | FeedSpot Top Lego TikTok Influencers 2026 |
+| 17 | 79 | 2 | query | search_index | unclassified | FeedSpot Top Pop Music TikTok Influencers 2026 |
+| 18 | 79 | 2 | query | search_index | unclassified | film director |
+| 19 | 79 | 2 | query | search_index | unclassified | film producer |
+| 20 | 79 | 2 | query | search_index | unclassified | screenwriter\|comedian |
+| 21 | 79 | 2 | query | search_index | unclassified | voice actor |
+| 22 | 78 | 1 | query | tiktok_hashtag_export | vfx_animation | blender |
+| 23 | 78 | 1 | query | cross_platform_search | vfx_animation | site:beacons.ai "tiktok.com/@" "vfx animation" |
+| 24 | 78 | 1 | query | tiktok_hashtag_export | vfx_animation | vfx |
+| 25 | 75 | 1 | query | tiktok_hashtag_export | standup_comedian | standupcomedy |

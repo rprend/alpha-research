@@ -1,32 +1,29 @@
 # Learning Candidate Shortlist
 
-Generated: 2026-06-13T06:18:59.897Z
+Generated: 2026-06-13T06:33:22.951Z
 
 - Requested rows: 5000
 - Output rows: 5000
-- Reviewed rows: 1
-- Unreviewed rows: 4999
+- Reviewed rows: 0
+- Unreviewed rows: 5000
 
 This is a prioritization artifact, not a production release gate. A row means the account has enough public provenance and category fit to review for "learn from this creator" value.
 
 ## Tiers
 
-- review_first: 4722
-- strong_candidate: 278
+- review_first: 5000
 
 ## Labels
 
-- vfx_animation: 745
-- standup_comedian: 184
-- director: 223
-- actor_performer: 3309
-- filmmaker: 303
-- sketch_comedian: 135
-- cinematographer: 26
-- editor: 20
-- film_educator: 19
-- creative_technologist: 33
-- behind_the_scenes_creator: 3
+- vfx_animation: 1584
+- standup_comedian: 291
+- cinematographer: 1029
+- director: 184
+- actor_performer: 694
+- filmmaker: 387
+- behind_the_scenes_creator: 55
+- sketch_comedian: 731
+- editor: 45
 
 Primary files:
 

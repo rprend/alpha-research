@@ -1,12 +1,12 @@
 target_label,target_useful_creators,current_primary_accounts,useful_primary_accounts,useful_gap,recommended_priority,search_hints
-film_educator,3000,1626,0,3000,1,film tutorial | shot breakdown | film school | cinema analysis | camera tutorial
-behind_the_scenes_creator,3000,423,0,3000,1,behind the scenes | on set | set life | production diary | film crew
-filmmaker,8000,1199,67,7933,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
-sketch_comedian,7000,379,4,6996,2,sketch comedy | character comedy | improv | comedy sketch | original sketch
-editor,5000,86,1,4999,2,video editor | editing breakdown | DaVinci Resolve | Premiere Pro | color grading
-cinematographer,5000,99,2,4998,2,cinematographer | dp | dop | lighting breakdown | camera test | #cinematography
-vfx_animation,5000,746,217,4783,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
-director,4000,275,23,3977,2,director reel | music video director | commercial director | directed by | writer director
-standup_comedian,4000,184,48,3952,2,standup comedian | stand-up | open mic | crowd work | comedy club
-actor_performer,4000,8695,658,3342,2,actor | performer | monologue | self tape | improv
-creative_technologist,2000,1773,1,1999,2,ai video | Runway | Pika | creative coding | generative ai filmmaker
+film_educator,3000,1583,0,3000,1,film tutorial | shot breakdown | film school | cinema analysis | camera tutorial
+filmmaker,8000,7002,113,7887,2,short film | filmmaker | film director | film set | shot breakdown | #filmmaker | #shortfilm
+sketch_comedian,7000,3526,6,6994,2,sketch comedy | character comedy | improv | comedy sketch | original sketch
+editor,5000,3167,1,4999,2,video editor | editing breakdown | DaVinci Resolve | Premiere Pro | color grading
+cinematographer,5000,1720,72,4928,2,cinematographer | dp | dop | lighting breakdown | camera test | #cinematography
+vfx_animation,5000,2125,985,4015,2,vfx artist | animator | Blender | motion graphics | visual effects | #vfxartist
+director,4000,1499,51,3949,2,director reel | music video director | commercial director | directed by | writer director
+standup_comedian,4000,790,76,3924,2,standup comedian | stand-up | open mic | crowd work | comedy club
+actor_performer,4000,8662,648,3352,2,actor | performer | monologue | self tape | improv
+behind_the_scenes_creator,3000,2352,10,2990,2,behind the scenes | on set | set life | production diary | film crew
+creative_technologist,2000,1738,1,1999,2,ai video | Runway | Pika | creative coding | generative ai filmmaker

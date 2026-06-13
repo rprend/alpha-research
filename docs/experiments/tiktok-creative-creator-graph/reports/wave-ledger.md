@@ -1,9 +1,9 @@
 # Wave Ledger
 
-Generated: 2026-06-13T06:19:01.602Z
+Generated: 2026-06-13T06:33:25.796Z
 
-- Waves: 3033
-- Planned: 3033
+- Waves: 3075
+- Planned: 3075
 - Dry-run: 0
 - Dry-run only: 11
 - Succeeded: 0
@@ -38,20 +38,20 @@ node docs/experiments/tiktok-creative-creator-graph/scripts/run-acquisition-batc
 | 3 | scale_wave_0003 | planned | cinematographer | tiktok_hashtag_export | cinematography | 0 | n/a | 1 |
 | 4 | scale_wave_0004 | planned | filmmaker | tiktok_hashtag_export | shortfilm | 0 | n/a | 1 |
 | 5 | scale_wave_0005 | planned | sketch_comedian | tiktok_hashtag_export | sketchcomedy | 0 | n/a | 1 |
-| 6 | scale_wave_0006 | planned | vfx_animation | tiktok_hashtag_export | animation | 0 | n/a | 1 |
-| 7 | scale_wave_0007 | planned | cinematographer | tiktok_hashtag_export | lighting | 0 | n/a | 1 |
-| 8 | scale_wave_0008 | planned | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
-| 9 | scale_wave_0009 | planned | sketch_comedian | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | 0 | n/a | 1 |
+| 6 | scale_wave_0006 | planned | cinematographer | tiktok_hashtag_export | lighting | 0 | n/a | 1 |
+| 7 | scale_wave_0007 | planned | filmmaker | cross_platform_search | site:vimeo.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
+| 8 | scale_wave_0008 | planned | sketch_comedian | cross_platform_search | site:youtube.com "tiktok.com/@" "sketch comedian" | 0 | n/a | 1 |
+| 9 | scale_wave_0009 | planned | vfx_animation | tiktok_hashtag_export | animation | 0 | n/a | 1 |
 | 10 | scale_wave_0010 | planned | vfx_animation | tiktok_hashtag_export | blender | 0 | n/a | 1 |
 | 11 | scale_wave_0011 | planned | vfx_animation | cross_platform_search | site:beacons.ai "tiktok.com/@" "vfx animation" | 0 | n/a | 1 |
 | 12 | scale_wave_0012 | planned | vfx_animation | tiktok_hashtag_export | vfx | 0 | n/a | 1 |
-| 13 | scale_wave_0013 | planned | vfx_animation | tiktok_hashtag_export | vfxartist | 0 | n/a | 1 |
-| 14 | scale_wave_0014 | planned | standup_comedian | tiktok_hashtag_export | standupcomedy | 0 | n/a | 1 |
-| 15 | scale_wave_0015 | planned | filmmaker | cross_platform_search | site:instagram.com "tiktok.com/@" "filmmaker" | 0 | n/a | 1 |
-| 16 | scale_wave_0016 | planned | behind_the_scenes_creator | tiktok_hashtag_export | bts | 0 | n/a | 1 |
-| 17 | scale_wave_0017 | planned | cinematographer | category_gap_search | site:tiktok.com/@ "cinematographer" | 0 | n/a | 1 |
-| 18 | scale_wave_0018 | planned | sketch_comedian | category_gap_search | site:tiktok.com/@ "comedy sketch" | 0 | n/a | 1 |
-| 19 | scale_wave_0019 | planned | cinematographer | category_gap_search | site:tiktok.com/@ "dop" | 0 | n/a | 1 |
-| 20 | scale_wave_0020 | planned | cinematographer | category_gap_search | site:tiktok.com/@ "dp" | 0 | n/a | 1 |
+| 13 | scale_wave_0013 | planned | standup_comedian | tiktok_hashtag_export | standupcomedy | 0 | n/a | 1 |
+| 14 | scale_wave_0014 | planned | vfx_animation | tiktok_hashtag_export | vfxartist | 0 | n/a | 1 |
+| 15 | scale_wave_0015 | planned | behind_the_scenes_creator | tiktok_hashtag_export | bts | 0 | n/a | 1 |
+| 16 | scale_wave_0016 | planned | cinematographer | category_gap_search | site:tiktok.com/@ "cinematographer" | 0 | n/a | 1 |
+| 17 | scale_wave_0017 | planned | sketch_comedian | category_gap_search | site:tiktok.com/@ "comedy sketch" | 0 | n/a | 1 |
+| 18 | scale_wave_0018 | planned | cinematographer | category_gap_search | site:tiktok.com/@ "dop" | 0 | n/a | 1 |
+| 19 | scale_wave_0019 | planned | cinematographer | category_gap_search | site:tiktok.com/@ "dp" | 0 | n/a | 1 |
+| 20 | scale_wave_0020 | planned | editor | category_gap_search | site:tiktok.com/@ "editing" | 0 | n/a | 1 |
 
 Full ledger: `data/processed/wave_ledger.csv`

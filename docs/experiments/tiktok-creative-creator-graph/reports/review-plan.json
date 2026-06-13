@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T06:19:00.631Z",
+  "generated_at": "2026-06-13T06:33:24.032Z",
   "target_review_decisions": 500,
   "current_review_decisions": 4,
   "review_gap": 496,
@@ -20,21 +20,12 @@
       "priority": 1
     },
     {
-      "label": "behind_the_scenes_creator",
-      "target_review_decisions": 25,
-      "reviewed_decisions": 0,
-      "current_sample_rows": 25,
-      "review_gap": 25,
-      "useful_gap": 3000,
-      "priority": 1
-    },
-    {
       "label": "filmmaker",
       "target_review_decisions": 25,
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 7933,
+      "useful_gap": 7887,
       "priority": 2
     },
     {
@@ -43,7 +34,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 6996,
+      "useful_gap": 6994,
       "priority": 2
     },
     {
@@ -61,7 +52,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 4998,
+      "useful_gap": 4928,
       "priority": 2
     },
     {
@@ -70,7 +61,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 4783,
+      "useful_gap": 4015,
       "priority": 2
     },
     {
@@ -79,7 +70,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3977,
+      "useful_gap": 3949,
       "priority": 2
     },
     {
@@ -88,7 +79,7 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3952,
+      "useful_gap": 3924,
       "priority": 2
     },
     {
@@ -97,7 +88,16 @@
       "reviewed_decisions": 0,
       "current_sample_rows": 25,
       "review_gap": 25,
-      "useful_gap": 3342,
+      "useful_gap": 3352,
+      "priority": 2
+    },
+    {
+      "label": "behind_the_scenes_creator",
+      "target_review_decisions": 25,
+      "reviewed_decisions": 0,
+      "current_sample_rows": 23,
+      "review_gap": 25,
+      "useful_gap": 2990,
       "priority": 2
     },
     {

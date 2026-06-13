@@ -1,16 +1,17 @@
 # Source Yield
 
-Generated: 2026-06-13T06:18:59.226Z
+Generated: 2026-06-13T06:33:21.814Z
 
-- Sources: 1477
-- Distinct creators seen through sources: 15487
+- Sources: 1488
+- Distinct creators seen through sources: 34168
 
 ## Best Sources
 
 | Source type | Query | Seen | Useful | Rejected | Yield |
 | --- | --- | ---: | ---: | ---: | ---: |
-| wikidata_profile | actor | 2656 | 63 | 0 | 100 |
-| wikidata_profile | comedian | 316 | 40 | 0 | 100 |
+| wikidata_profile | actor | 2656 | 66 | 0 | 100 |
+| hf_tikfly_top_kol | creative technologist|ai artist|generative ai|creative coder|game developer|ar creator|vr creator | 52 | 52 | 0 | 100 |
+| wikidata_profile | comedian | 316 | 44 | 0 | 100 |
 | wikidata_profile | artist | 75 | 33 | 0 | 100 |
 | editorial_list | FeedSpot Top Pop Music TikTok Influencers 2026 | 68 | 30 | 0 | 100 |
 | wikidata_profile | dancer | 273 | 29 | 0 | 100 |
@@ -18,7 +19,6 @@ Generated: 2026-06-13T06:18:59.226Z
 | editorial_list | FeedSpot Top Lego TikTok Influencers 2026 | 59 | 27 | 0 | 100 |
 | wikidata_profile | voice actor | 245 | 19 | 0 | 100 |
 | wikidata_profile | singer|record producer|songwriter|rapper | 26 | 18 | 0 | 100 |
-| editorial_list | FeedSpot Top Children Book TikTok Influencers 2026 | 57 | 17 | 0 | 100 |
 
 ## Weak Sources
 

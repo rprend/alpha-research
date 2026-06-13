@@ -1,9 +1,9 @@
 # Acquisition Batches
 
-Generated: 2026-06-13T06:19:00.683Z
+Generated: 2026-06-13T06:33:24.100Z
 
 - Tasks: 314
-- Useful creators available for expansion: 1021
+- Useful creators available for expansion: 1963
 
 ## Surfaces
 
@@ -16,13 +16,13 @@ Generated: 2026-06-13T06:19:00.683Z
 ## Target Labels
 
 - film_educator: 4
+- unclassified: 242
 - behind_the_scenes_creator: 6
-- unclassified: 245
 - filmmaker: 10
 - actor_performer: 6
 - sketch_comedian: 9
-- vfx_animation: 11
-- cinematographer: 5
+- vfx_animation: 13
+- cinematographer: 6
 - standup_comedian: 7
 - editor: 3
 - director: 4
@@ -30,8 +30,8 @@ Generated: 2026-06-13T06:19:00.683Z
 
 ## Priority Counts
 
-- P1: 271
-- P2: 38
+- P1: 266
+- P2: 43
 - P3: 5
 
 Primary task file: `data/processed/acquisition/acquisition_tasks.csv`

@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-06-13T06:18:59.379Z",
-  "base_rows": 354,
-  "expansion_rows": 410,
-  "added_rows": 56,
+  "generated_at": "2026-06-13T06:33:22.054Z",
+  "base_rows": 475,
+  "expansion_rows": 500,
+  "added_rows": 25,
   "type_counts": {
-    "expand_from_creator": 354,
-    "hashtag_search": 12,
-    "cross_platform_search": 19,
-    "yield_replay_search": 25
+    "expand_from_creator": 475,
+    "hashtag_search": 10,
+    "cross_platform_search": 3,
+    "yield_replay_search": 12
   },
   "top_rows": [
     {
@@ -28,7 +28,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 29
+      "evidence_count": 32
     },
     {
       "expansion_type": "hashtag_search",
@@ -38,7 +38,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits|useful_creator_hashtag:@maya.shortcuts|useful_creator_hashtag:@noahframes",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 59
+      "evidence_count": 65
     },
     {
       "expansion_type": "hashtag_search",
@@ -48,7 +48,7 @@
       "reason": "useful_creator_hashtag:@selahshoots|useful_creator_hashtag:@maya.shortcuts",
       "primary_label": "filmmaker",
       "overall_usefulness": 98,
-      "evidence_count": 29
+      "evidence_count": 32
     },
     {
       "expansion_type": "cross_platform_search",
@@ -78,7 +78,7 @@
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
       "overall_usefulness": 94,
-      "evidence_count": 29
+      "evidence_count": 32
     },
     {
       "expansion_type": "hashtag_search",
@@ -88,7 +88,7 @@
       "reason": "useful_creator_hashtag:@basementbits|useful_creator_hashtag:@lucybits",
       "primary_label": "sketch_comedian",
       "overall_usefulness": 94,
-      "evidence_count": 29
+      "evidence_count": 32
     },
     {
       "expansion_type": "expand_from_creator",
