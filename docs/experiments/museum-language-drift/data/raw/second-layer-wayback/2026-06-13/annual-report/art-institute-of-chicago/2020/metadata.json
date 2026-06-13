@@ -1,0 +1,19 @@
+{
+  "museum": "Art Institute of Chicago",
+  "page_type": "annual-report",
+  "url": "https://www.artic.edu/about-us/financial-reporting",
+  "source_layer": "wayback-second-layer",
+  "source_url": "https://www.artic.edu/about-us/financial-reporting",
+  "year": 2020,
+  "timestamp": "20200707170454",
+  "originalStatus": "200",
+  "archiveUrl": "https://web.archive.org/web/20200707170454id_/https://www.artic.edu/about-us/financial-reporting",
+  "httpStatus": 200,
+  "wordCount": 204,
+  "title": "Financial Reporting | The Art Institute of Chicago",
+  "responsePath": "data/raw/second-layer-wayback/2026-06-13/annual-report/art-institute-of-chicago/2020/index.html",
+  "metadataPath": "data/raw/second-layer-wayback/2026-06-13/annual-report/art-institute-of-chicago/2020/metadata.json",
+  "status": 200,
+  "fetchedAt": "2026-06-13T01:25:08.143Z",
+  "bytes": 60656
+}

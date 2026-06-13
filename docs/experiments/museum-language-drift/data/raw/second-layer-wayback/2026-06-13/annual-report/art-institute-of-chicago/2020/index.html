@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="no-js s-borderless-header   s-env-production p-genericpages-show">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"64338d1b8c",applicationID:"62463744"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+  <meta name="format-detection" content="telephone=no">
+
+          <meta property="twitter:card" content="summary_large_image" />
+      <meta property="og:type" content="article" />
+       <title>Financial Reporting | The Art Institute of Chicago</title>
+<meta property="og:site_name"  content="The Art Institute of Chicago" />
+<meta property="og:title"      content="Financial Reporting | The Art Institute of Chicago" />
+<meta name="twitter:title"     content="Financial Reporting | The Art Institute of Chicago" />
+<meta itemprop="name"          content="Financial Reporting | The Art Institute of Chicago" />
+        <meta name="description"         content="Our annual reports offer a snapshot of the work we are able to do each year—growing our collection, expanding engagement, strengthening our exhibition program, and innovating our public programs for all ages—thanks to the generosity of our supporters." />
+<meta property="og:description"  content="Our annual reports offer a snapshot of the work we are able to do each year—growing our collection, expanding engagement, strengthening our exhibition program, and innovating our public programs for all ages—thanks to the generosity of our supporters." />
+<meta name="twitter:description" content="Our annual reports offer a snapshot of the work we are able to do each year—growing our collection, expanding engagement, strengthening our exhibition program, and innovating our public programs for all ages—thanks to the generosity of our supporters." />
+<meta itemprop="description"     content="Our annual reports offer a snapshot of the work we are able to do each year—growing our collection, expanding engagement, strengthening our exhibition program, and innovating our public programs for all ages—thanks to the generosity of our supporters." />
+        <link rel="canonical"    href="https://www.artic.edu/about-us/financial-reporting" />
+<meta property="og:url"  content="https://www.artic.edu/about-us/financial-reporting" />
+<meta name="twitter:url" content="https://www.artic.edu/about-us/financial-reporting" />
+
+            <meta property="og:image"        content="https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C288%2C5616%2C3159&auto=compress&fm=jpg&q=80&fit=crop&crop=faces%2Cedges%2Centropy&w=1200&h=675?w=1200&h=800&fit=crop" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta name="twitter:image"       content="https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C288%2C5616%2C3159&auto=compress&fm=jpg&q=80&fit=crop&crop=faces%2Cedges%2Centropy&w=1200&h=675?w=1200&h=800&fit=crop" />
+    <meta itemprop="image"           content="https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C288%2C5616%2C3159&auto=compress&fm=jpg&q=80&fit=crop&crop=faces%2Cedges%2Centropy&w=1200&h=675?w=1200&h=800&fit=crop" />
+     
+  <link rel="search" type="application/opensearchdescription+xml" title="Art Institute of Chicago" href="/opensearch.xml">
+
+  <!-- Main Favicon -->
+  <link rel="shortcut icon" type="image/png" href="/dist/images/favicon-16.png">
+  <!-- Apple Touch Icons (ipad/iphone standard+retina) -->
+  <link rel="apple-touch-icon-precomposed" href="/dist/images/favicon-152.png"> <!-- General use iOS/Android icon, auto-downscaled by devices. -->
+  <link rel="apple-touch-icon-precomposed" type="image/png" href="/dist/images/favicon-120.png" sizes="120x120"> <!-- iPhone retina touch icon -->
+  <link rel="apple-touch-icon-precomposed" type="image/png" href="/dist/images/favicon-76.png" sizes="76x76"> <!-- iPad home screen icons -->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+
+  <meta name="csrf-token" content="llC3E9YdF3C6q7MKEgHp5z1qYreYV5FbBc0Mz6vi">
+
+  <script>!function(e){var t,s,i=window.A17||{},n=e.documentElement,l=window,a=e.getElementsByTagName("head")[0];function c(){if(/in/.test(e.readyState))setTimeout(c,9);else{var t=e.body,i=e.createElement("div");i.className="svg-sprite",i.innerHTML=s.responseText,t.insertBefore(i,t.childNodes[0])}}i.browserSpec=(e.querySelectorAll,"addEventListener"in l&&l.history.pushState&&e.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure","1.1")?"html5":"html4"),i.objectFit="objectFit"in n.style,window.A17=i,n.className=n.className.replace(/\bno-js\b/," js "+i.browserSpec+(i.objectFit?" objectFit":" no-objectFit")),"html4"===i.browserSpec?((t=e.createElement("link")).rel="stylesheet",t.title="html4css",t.href="/dist/styles/html4css.css",a.appendChild(t),(t=e.createElement("script")).src="//legacypicturefill.s3.amazonaws.com/legacypicturefill.min.js",a.appendChild(t),function t(){!e.readyState&&e.addEventListener&&(e.body?setTimeout(function(){e.readyState="complete"},500):setTimeout(t,9))}(),function t(){if(/in/.test(e.readyState))setTimeout(t,9);else for(var s=0;s<e.styleSheets.length;s++){var i=e.styleSheets[s];"html4css"!==i.title&&(i.disabled=!0)}}()):((t=e.createElement("script")).src="//cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js",a.appendChild(t),(s=new XMLHttpRequest).open("GET","/dist/icons/icons.svg",!0),s.send(),s.onload=function(e){s.status>=200&&s.status<400&&c()})}(document);</script>
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/612324/7579192/css/fonts.css" />
+  <style>
+  @import  url("//hello.myfonts.net/count/3545d5");
+  @font-face {font-family: 'Sabon';src: url(/dist/fonts/3545D5_0_0.eot);src: url(/dist/fonts/3545D5_0_0.eot?#iefix) format('embedded-opentype'),url(/dist/fonts/3545D5_0_0.woff2) format('woff2'),url(/dist/fonts/3545D5_0_0.woff) format('woff'),url(/dist/fonts/3545D5_0_0.ttf) format('truetype');font-weight:normal;font-weight:400;font-style:normal;}
+  @font-face {font-family: 'Sabon';src: url(/dist/fonts/3545D5_1_0.eot);src: url(/dist/fonts/3545D5_1_0.eot?#iefix) format('embedded-opentype'),url(/dist/fonts/3545D5_1_0.woff2) format('woff2'),url(/dist/fonts/3545D5_1_0.woff) format('woff'),url(/dist/fonts/3545D5_1_0.ttf) format('truetype');font-weight:normal;font-weight:400;font-style:italic;}
+  @font-face {font-family: 'Sabon';src: url(/dist/fonts/3545D5_2_0.eot);src: url(/dist/fonts/3545D5_2_0.eot?#iefix) format('embedded-opentype'),url(/dist/fonts/3545D5_2_0.woff2) format('woff2'),url(/dist/fonts/3545D5_2_0.woff) format('woff'),url(/dist/fonts/3545D5_2_0.ttf) format('truetype');font-weight:normal;font-weight:500;font-style:normal;}
+  </style>
+  <link rel="stylesheet" href="https://vjs.zencdn.net/7.1.0/video-js.css" />
+  <meta name="msvalidate.01" content="1E22F0BBEF5CF0D71FF4C150D094A1CA" />
+  <link href="/dist/styles/app-25d6bb0b3c.css" rel="stylesheet" />
+        <link href="/dist/styles/print-b259dce556.css" rel="stylesheet" media="print" />
+              <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MQBCFS');</script>
+        <!-- End Google Tag Manager -->
+        </head>
+
+<body>
+            <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQBCFS"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    
+<div id="a17">
+
+  <header class="g-header">
+    <a href="#content" class="skip-nav f-body">Skip to Content</a>
+        <div class="m-notification m-notification--header" data-behavior="notification">
+      <div class="m-notification--header__inner">
+        <p class="m-notification__text f-secondary">
+          <svg class="icon--info" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--info"></use></svg> To best protect the health and safety of our community, the museum is temporarily closed. <a href="https://www.artic.edu/visit/covid-19-update" target="_blank">Learn more</a>. 
+        </p>
+                  <button class="m-notification__close" data-notification-closer="" data-expires="1440"><svg class="icon--close" aria-title="Close message"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--close"></use></svg></button>
+              </div>
+    </div>
+        <div class="g-header__inner">
+      <nav aria-label="primary">
+                <a class="g-header__logo" aria-label="Art Institute of Chicago" href="/">
+          <svg aria-hidden="true">
+            <use xlink:href="#icon--logo--outline--80" />
+            <use xlink:href="#icon--logo--outline--88" />
+            <use xlink:href="#icon--logo--outline--92" />
+          </svg>
+        </a>
+                <div class="g-header__nav-primary">
+          <h2 class="sr-only" id="h-nav-primary-header">Primary Navigation</h2>
+          <ul class="f-main-nav" aria-labelledby="h-nav-primary-header">
+            <li class='u-hide@small+'>
+              <a href="https://sales.artic.edu/admissions" data-gtm-event-category="top-nav" data-gtm-event-action="Financial Reporting" data-gtm-event="buy-tickets">Buy Tickets</a>
+            </li>
+            <li>
+              <a href="/visit-us-virtually" data-gtm-event-category="top-nav" data-gtm-event-action="Financial Reporting" data-gtm-event="visit">Visit</a>
+            </li>
+            <li class="u-show@small+">
+              <a href="https://www.artic.edu/exhibitions" data-gtm-event-category="top-nav" data-gtm-event-action="Financial Reporting" data-gtm-event="exhibitions-and-events">Exhibitions &amp; Events</a>
+            </li>
+            <li class="u-show@small+">
+              <a href="https://www.artic.edu/collection" data-gtm-event-category="top-nav" data-gtm-event-action="Financial Reporting" data-gtm-event="collection">The Collection</a>
+            </li>
+            <li class="u-show@small+"><button id="global-search-icon" data-behavior="globalSearchOpen" aria-label="Search site"><svg class="icon--search--24" aria-hidden="true"><use xlink:href="#icon--search--24" /></svg></button></li>
+          </ul>
+        </div>
+      </nav>
+      <nav class="g-header__nav-secondary" aria-label="secondary">
+        <h2 class="sr-only" id="h-nav-secondary-header">Secondary Navigation</h2>
+        <ul class="f-secondary" aria-labelledby="h-nav-secondary-header">
+          <li><a href="https://sales.artic.edu/admissions" data-gtm-event-category="top-nav" data-gtm-event-action="Financial Reporting" data-gtm-event="buy-tickets">Buy Tickets</a></li>
+          <li><a href="https://sales.artic.edu/memberships" data-gtm-event-category="top-nav" data-gtm-event-action="Financial Reporting" data-gtm-event="become-a-member">Become a Member</a></li>
+          <li><a href="https://shop.artic.edu/" target="_blank" data-gtm-event-action="Financial Reporting" data-gtm-event-category="top-nav" data-gtm-event="shop">Shop</a></li>
+        </ul>
+      </nav>
+            <button class="g-header__menu-link f-secondary" data-behavior="openNavMobile" aria-label="Show menu">Menu<svg class="icon--menu--24" aria-hidden="true"><use xlink:href="#icon--menu--24" /></svg></button>
+  </div>
+</header>
+
+  <main id="content">
+    
+    
+
+<article class="o-article o-article--generic-page">
+
+  <header class="m-article-header m-article-header--generic m-article-header--generic-w-img " data-behavior="blurMyBackground">
+        <div class="m-article-header__img" data-blur-img>
+        <img
+    alt="Im026911 030 Int Copy"
+    class="  "
+            src="https://artic-web.imgix.net/31ad5326-19f8-4c21-a4c9-392181a41017/IM026911_030-intcopy.jpg?rect=%2C%2C%2C&amp;auto=format&amp;fm=jpg&amp;q=1&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=25&amp;h=3&amp;blur=30&amp;sat=20"
+                data-srcset="https://artic-web.imgix.net/31ad5326-19f8-4c21-a4c9-392181a41017/IM026911_030-intcopy.jpg?rect=%2C%2C%2C&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=300&amp;h=36 300w, https://artic-web.imgix.net/31ad5326-19f8-4c21-a4c9-392181a41017/IM026911_030-intcopy.jpg?rect=%2C%2C%2C&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=600&amp;h=72 600w, https://artic-web.imgix.net/31ad5326-19f8-4c21-a4c9-392181a41017/IM026911_030-intcopy.jpg?rect=%2C%2C%2C&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=1000&amp;h=120 1000w, https://artic-web.imgix.net/31ad5326-19f8-4c21-a4c9-392181a41017/IM026911_030-intcopy.jpg?rect=%2C%2C%2C&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=1500&amp;h=180 1500w, https://artic-web.imgix.net/31ad5326-19f8-4c21-a4c9-392181a41017/IM026911_030-intcopy.jpg?rect=%2C%2C%2C&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=3000&amp;h=360 3000w"
+        sizes="100vw"
+    width="3000"
+    height="360"
+                data-pin-media="https://artic-web.imgix.net/31ad5326-19f8-4c21-a4c9-392181a41017/IM026911_030-intcopy.jpg?rect=%2C%2C%2C&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=600&amp;h=72"
+                 
+>
+    </div>
+      <div class="m-article-header__text">
+              <h1 class="title f-headline" itemprop="name">Financial Reporting</h1>
+        </div>
+        <ul class="m-article-header__breadcrumb" data-blur-clip-to>
+                                          <li class="f-secondary">
+                      <a class="link f-null" href="/about-us">About Us</a>
+
+                  </li>
+                              </ul>
+  </header>
+
+      <div class="o-article__primary-actions">
+        <div class="o-collapsing-nav" data-behavior="dropdown" data-dropdown-breakpoints="medium-">
+    <button class="o-collapsing-nav__trigger f-secondary">Financial Reporting<svg class="icon--arrow"><use xlink:href="#icon--arrow" /></svg></button>
+    <ul class="m-link-list m-link-list--quiet">
+        <li class="m-link-list__item">
+                                <a class="m-link-list__trigger f-module-title-1" href="/about-us/leadership">
+                                <span class="m-link-list__label">Leadership</span>
+                                            </a>
+                                    </li>
+        <li class="m-link-list__item s-active">
+                                <a class="m-link-list__trigger f-module-title-1" href="/about-us/financial-reporting">
+                                <span class="m-link-list__label">Financial Reporting</span>
+                                            </a>
+                                        <ul class="m-link-list__sub-list">
+                                            <li class="m-link-list__item">
+                            <a class="m-link-list__trigger f-secondary" href="/about-us/financial-reporting/archive-of-financial-reports"><span class="m-link-list__label">Archive of Financial Reports</span></a>
+                        </li>
+                                    </ul>
+                        </li>
+        <li class="m-link-list__item">
+                                <a class="m-link-list__trigger f-module-title-1" href="/about-us/departments">
+                                <span class="m-link-list__label">Departments</span>
+                                            </a>
+                                    </li>
+        <li class="m-link-list__item">
+                                <a class="m-link-list__trigger f-module-title-1" href="/about-us/mission-and-history">
+                                <span class="m-link-list__label">Mission and History</span>
+                                            </a>
+                                    </li>
+        <li class="m-link-list__item">
+                                <a class="m-link-list__trigger f-module-title-1" href="/about-us/land-acknowledgment">
+                                <span class="m-link-list__label">Land Acknowledgment</span>
+                                            </a>
+                                    </li>
+    </ul>
+</div>
+    </div>
+  
+        <div class="o-article__secondary-actions">
+        <div>
+<h2 class="sr-only" id="h-article-actions">Share</h2>
+<ul class="m-article-actions" aria-labelledby="h-article-actions">
+        <li class="m-article-actions__action">
+        <button class="btn  btn--icon" data-behavior="sharePage" aria-label="Share page">
+    <svg class="icon--share--24" aria-hidden="true"><use xlink:href="#icon--share--24" /></svg>    
+</button>
+    </li>
+                <li class="m-article-actions__action u-hide@small-">
+        <button class="btn  btn--quaternary btn--icon" data-behavior="printPage" aria-label="Print page">
+    <svg class="icon--print--24" aria-hidden="true"><use xlink:href="#icon--print--24" /></svg>    
+</button>
+    </li>
+    </ul>
+</div>
+
+              </div>
+
+        
+  <div class="o-article__body o-blocks">
+        <figure  data-type="image" class="m-media m-media--s o-blocks__block">
+    <div class="m-media__img" data-behavior="fitText ">
+                                <img
+    alt="An image of the museum facade, with a blue sky and surrounded by trees"
+    class="  "
+            src="https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=format&amp;fm=jpg&amp;q=1&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=25&amp;h=17&amp;blur=30&amp;sat=20"
+                data-srcset="https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=300&amp;h=200 300w, https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=600&amp;h=399 600w, https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=800&amp;h=532 800w, https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=1200&amp;h=798 1200w, https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=1600&amp;h=1064 1600w, https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=2000&amp;h=1330 2000w, https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=3000&amp;h=1996 3000w, https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=4500&amp;h=2994 4500w"
+        sizes="(min-width: 1640px) 724px, (min-width: 1200px) 43.75vw, (min-width: 900px) 59.38vw, (min-width: 600px) 90.63vw,  90.63vw"
+    width="5616"
+    height="3736"
+                data-pin-media="https://artic-web.imgix.net/87cdf745-a4de-49d2-8dfe-3d0b5239e86b/ChrisLake1052_7326-web.jpg?rect=0%2C0%2C5616%2C3736&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=600&amp;h=399"
+                 
+>
+                                                    
+        
+        
+        
+        
+    </div>
+    </figure>
+<p>Thanks to the generosity of our members, donors, volunteers, and friends, every year we are able to grow our global collection, expand our audience engagement, strengthen our exhibition program, and innovate our public programs for all ages. Our annual reports offer a snapshot of each year from July 1 of one year through June 30 of the following, coinciding with the museum’s fiscal calendar.</p>
+<p>Please see our most recent report below or our <a href="/about-us/financial-reporting/archive-of-financial-reports" target="_blank">archive for all reports</a>.</p>
+<ul  class="o-row-listing o-blocks__block">
+    <li class="m-listing m-listing--inline">
+    <a href="https://aic-web-cms-uploads.s3.us-east-2.amazonaws.com/nulld83d2d31-53f1-4b14-b749-4c6bcf9735bd/TheArtInstituteofChicagoFinancialStatements-June30%2C2019.pdf" class="m-listing__link">
+                                    <span class="m-listing__img">
+                    <img
+    alt="Im026911 228 Int"
+    class="  "
+            src="https://artic-web.imgix.net/878483d4-38b9-45a7-a8b4-cadf215cb3b1/IM026911_228-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=format&amp;fm=jpg&amp;q=1&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=25&amp;h=14&amp;blur=30&amp;sat=20"
+                data-srcset="https://artic-web.imgix.net/878483d4-38b9-45a7-a8b4-cadf215cb3b1/IM026911_228-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=200&amp;h=113 200w, https://artic-web.imgix.net/878483d4-38b9-45a7-a8b4-cadf215cb3b1/IM026911_228-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=400&amp;h=225 400w, https://artic-web.imgix.net/878483d4-38b9-45a7-a8b4-cadf215cb3b1/IM026911_228-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=600&amp;h=338 600w"
+        sizes="(min-width: 1640px) 336px, (min-width: 1200px) 20.31vw, (min-width: 900px) 20.31vw, (min-width: 600px) 20.31vw,  90.63vw"
+    width="3000"
+    height="1688"
+                data-pin-media="https://artic-web.imgix.net/878483d4-38b9-45a7-a8b4-cadf215cb3b1/IM026911_228-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=600&amp;h=338"
+                 
+>
+                                    </span>
+                            <span class="m-listing__meta">
+                        <strong class="title f-list-3 ">2019 Annual Report</strong>
+
+                                                            <br>
+                <span class="intro f-secondary"><p>Audited Financial Statement</p></span>
+                            
+            
+                            
+                                    </span>
+    </a>
+</li>
+            <li class="m-listing m-listing--inline">
+    <a href="https://aic-web-cms-uploads.s3.us-east-2.amazonaws.com/nullc207cde0-c637-46e7-b3e3-a1892b339a28/AIC_Annual_Tax_Return_2018.pdf" class="m-listing__link">
+                                    <span class="m-listing__img">
+                    <img
+    alt="A photograph of the museum&#039;s facade with trees in front."
+    class="  "
+            src="https://artic-web.imgix.net/3293ac93-0c55-42fa-b10c-a0da85f0014a/IM026911_231-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=format&amp;fm=jpg&amp;q=1&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=25&amp;h=14&amp;blur=30&amp;sat=20"
+                data-srcset="https://artic-web.imgix.net/3293ac93-0c55-42fa-b10c-a0da85f0014a/IM026911_231-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=200&amp;h=113 200w, https://artic-web.imgix.net/3293ac93-0c55-42fa-b10c-a0da85f0014a/IM026911_231-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=400&amp;h=225 400w, https://artic-web.imgix.net/3293ac93-0c55-42fa-b10c-a0da85f0014a/IM026911_231-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=600&amp;h=338 600w"
+        sizes="(min-width: 1640px) 336px, (min-width: 1200px) 20.31vw, (min-width: 900px) 20.31vw, (min-width: 600px) 20.31vw,  90.63vw"
+    width="3000"
+    height="1688"
+                data-pin-media="https://artic-web.imgix.net/3293ac93-0c55-42fa-b10c-a0da85f0014a/IM026911_231-int.jpg?rect=0%2C0%2C3000%2C2000&amp;auto=compress&amp;fm=jpg&amp;q=80&amp;fit=crop&amp;crop=faces%2Cedges%2Centropy&amp;w=600&amp;h=338"
+                 
+>
+                                    </span>
+                            <span class="m-listing__meta">
+                        <strong class="title f-list-3 ">Annual Tax Return</strong>
+
+                                                            <br>
+                <span class="intro f-secondary"><p>Form 990</p></span>
+                            
+            
+                            
+                                    </span>
+    </a>
+</li>
+</ul>
+
+        
+
+    
+    
+    <div>
+<h2 class="sr-only" id="h-article-actionsm-article-actions--keyline-top">Share</h2>
+<ul class="m-article-actions m-article-actions--keyline-top" aria-labelledby="h-article-actionsm-article-actions--keyline-top">
+        <li class="m-article-actions__action">
+        <button class="btn  btn--icon" data-behavior="sharePage" aria-label="Share page">
+    <svg class="icon--share--24" aria-hidden="true"><use xlink:href="#icon--share--24" /></svg>    
+</button>
+    </li>
+                <li class="m-article-actions__action u-hide@small-">
+        <button class="btn  btn--quaternary btn--icon" data-behavior="printPage" aria-label="Print page">
+    <svg class="icon--print--24" aria-hidden="true"><use xlink:href="#icon--print--24" /></svg>    
+</button>
+    </li>
+    </ul>
+</div>
+  </div>
+
+</article>
+
+
+    <form class="m-aside-newsletter m-aside-newsletter--wide" action="/subscribe" data-behavior="newsletter" novalidate>
+    <fieldset>
+        <legend><h2 class="title f-list-3">Sign up for our enewsletter to receive updates.</h2></legend>
+        <div class="m-aside-newsletter__field__wrapper">
+            <span class="m-aside-newsletter__field">
+                <label for="email642" class="f-secondary">Email address</label>
+                <input type="hidden" name="_token" value="llC3E9YdF3C6q7MKEgHp5z1qYreYV5FbBc0Mz6vi">
+                <input type="email" name="email" id="email642" class="f-secondary" placeholder="">
+                <button type="submit" class="f-buttons m-aside-newsletter__btn--submit" data-gtm-event-category="subscribe" data-gtm-event-action="Financial Reporting" data-gtm-event="email">Subscribe</button>
+            </span>
+
+            
+            
+            <div class="m-aside-newsletter__btn--list__wrapper">
+                <button type="button" class="f-buttons m-aside-newsletter__btn--list">
+                    See all newsletters
+                    <svg class="icon--arrow">
+                        <use xlink:href="#icon--arrow"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="m-aside-newsletter__list-wrapper" aria-hidden="true">
+                <div class="m-aside-newsletter__list">
+                    
+                    <div class="m-aside-newsletter__list__left">
+                        <ol class="m-fieldset__fields">
+                          <li class="m-fieldset__field o-blocks m-fieldset__field--group">
+                                                        <span class="checkbox s-disabled">
+  <input type="checkbox" value="OptEnews" id="subscriptions-OptEnews" name="subscriptions[0]" checked disabled>
+  <span class="f-secondary">
+      <label for="subscriptions-OptEnews" class="label  ">
+    News and Exhibitions
+            </label>
+  </span>
+  </span>
+                                                                                      <span class="checkbox">
+  <input type="checkbox" value="OptHumanResources" id="subscriptions-OptHumanResources" name="subscriptions[1]"  >
+  <span class="f-secondary">
+      <label for="subscriptions-OptHumanResources" class="label  ">
+    Career Opportunities
+            </label>
+  </span>
+  </span>
+                                                                                      <span class="checkbox">
+  <input type="checkbox" value="OptEveningAssociates" id="subscriptions-OptEveningAssociates" name="subscriptions[2]"  >
+  <span class="f-secondary">
+      <label for="subscriptions-OptEveningAssociates" class="label  ">
+    Young Professionals
+            </label>
+  </span>
+  </span>
+                                                                                      <span class="checkbox">
+  <input type="checkbox" value="OptFamilyPrograms" id="subscriptions-OptFamilyPrograms" name="subscriptions[3]"  >
+  <span class="f-secondary">
+      <label for="subscriptions-OptFamilyPrograms" class="label  ">
+    Families
+            </label>
+  </span>
+  </span>
+                                                                                  </li>
+                        </ol>
+                    </div>
+                    <div class="m-aside-newsletter__list__right">
+                        <ol class="m-fieldset__fields">
+                          <li class="m-fieldset__field o-blocks m-fieldset__field--group">
+                                                        <span class="checkbox">
+  <input type="checkbox" value="OptEvents" id="subscriptions-OptEvents" name="subscriptions[4]"  >
+  <span class="f-secondary">
+      <label for="subscriptions-OptEvents" class="label  ">
+    Public Programs
+            </label>
+  </span>
+  </span>
+                                                                                      <span class="checkbox">
+  <input type="checkbox" value="OptStudentTeacherPrograms" id="subscriptions-OptStudentTeacherPrograms" name="subscriptions[5]"  >
+  <span class="f-secondary">
+      <label for="subscriptions-OptStudentTeacherPrograms" class="label  ">
+    Students and Teachers
+            </label>
+  </span>
+  </span>
+                                                                                      <span class="checkbox">
+  <input type="checkbox" value="OptTeenPrograms" id="subscriptions-OptTeenPrograms" name="subscriptions[6]"  >
+  <span class="f-secondary">
+      <label for="subscriptions-OptTeenPrograms" class="label  ">
+    Teens
+            </label>
+  </span>
+  </span>
+                                                                                      <span class="checkbox">
+  <input type="checkbox" value="OptAcademicEngagement" id="subscriptions-OptAcademicEngagement" name="subscriptions[7]"  >
+  <span class="f-secondary">
+      <label for="subscriptions-OptAcademicEngagement" class="label  ">
+    Research, Publishing, and Conservation
+            </label>
+  </span>
+  </span>
+                                                                                  </li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+
+            
+                    </div>
+                
+    </fieldset>
+</form>
+  </main>
+
+  <footer id="footer" class="g-footer">
+  <a href="#a17" class="g-footer__top-link arrow-link arrow-link--up f-small-caps">
+    Back to top
+    <span>
+      <svg aria-hidden="true" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg>
+    </span>
+  </a>
+
+  <div class="g-footer__inner">
+    <h2 class="sr-only" id="h-footer-grid">Footer content</h2>
+    <ul class="g-footer__grid" aria-labelledby="h-footer-grid">
+      <li>
+        <nav aria-label="primary">
+          <h3 class="sr-only" id="h-footer-nav-primary">Primary Navigation</h3>
+
+          <a class="g-footer__logo" aria-label="Art Institute of Chicago" href="/">
+            <svg aria-hidden="true">
+              <use xlink:href="#icon--logo--outline--92" />
+            </svg>
+          </a>
+
+          <ul class="g-footer__link-list" aria-labelledby="h-footer-nav-primary">
+            <li><a href="/visit-us-virtually">Visit</a></li>
+            <li><a href="https://www.artic.edu/exhibitions">Exhibitions and Events</a></li>
+            <li><a href="https://www.artic.edu/collection">The Collection</a></li>
+          </ul>
+        </nav>
+      </li>
+
+      <li class="u-hide@small-">
+        <a href="https://www.google.com/maps/place/The+Art+Institute+of+Chicago/@41.8795845,-87.625902,17z/data=!3m1!5s0x880e2ca148f260e3:0xd473c3802aaff420!4m5!3m4!1s0x880e2ca3e2d94695:0x4829f3cc9ca2d0de!8m2!3d41.8795847!4d-87.623713" target="_blank" aria-label="Directions to the Art Institute of Chicago">
+          <svg aria-hidden="true" class="icon--footer_map_120x92"><use xlink:href="#icon--footer_map_120x92" /></svg>
+        </a>
+
+        <h3 class="sr-only" id="h-footer-nav-locations">Locations</h3>
+        <ul class="g-footer__link-list g-footer__link-list--spaced" aria-labelledby="h-footer-nav-locations">
+          <li>
+
+            <h4>Michigan Avenue Entrance</h4>
+            <a href="https://www.google.com/maps/place/The+Art+Institute+of+Chicago/@41.8795845,-87.625902,17z/data=!3m1!5s0x880e2ca148f260e3:0xd473c3802aaff420!4m5!3m4!1s0x880e2ca3e2d94695:0x4829f3cc9ca2d0de!8m2!3d41.8795847!4d-87.623713" target="_blank">111 South Michigan Avenue <br>Chicago, IL 60603</a>
+          </li>
+
+          <li>
+            <h4>Modern Wing Entrance</h4>
+            <a href="https://www.google.com/maps/place/Modern+Wing+Entrance/@41.8797032,-87.6244036,17z/data=!3m1!5s0x880e2ca148f260e3:0xd473c3802aaff420!4m12!1m6!3m5!1s0x880e2ca3e2d94695:0x4829f3cc9ca2d0de!2sThe+Art+Institute+of+Chicago!8m2!3d41.8795847!4d-87.623713!3m4!1s0x880e2ca6cf1a0e41:0xa97b8d9d0c91fa6e!8m2!3d41.880725!4d-87.621932" target="_blank">159 East Monroe Street <br>Chicago, IL 60603</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="u-hide@small-">
+        <div class="g-footer__grid__group">
+          <h3 class="f-list-6" id="h-footer-about-us"><a href="/about-us">About us<svg aria-hidden="true" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg></a></h3>
+
+          <ul class="g-footer__link-list" aria-labelledby="h-footer-about-us">
+            <li><a href="/about-us/mission-and-history">Mission and History</a></li>
+            <li><a href="/about-us/leadership">Leadership</a></li>
+            <li><a href="/about-us/financial-reporting">Financial Reporting</a></li>
+                        <li><a href="/about-us/departments">Departments</a></li>
+
+          </ul>
+        </div>
+
+        <div class="g-footer__grid__group">
+          <h3 class="f-list-6" id="h-footer-support-us"><a href="/support-us">Support us</a></h3>
+
+          <ul class="g-footer__link-list" aria-labelledby="h-footer-support-us">
+            <li><a href="/support-us/membership">Membership</a></li>
+            <li><a href="/support-us/ways-to-give/annual-fund">Annual Fund</a></li>
+            <li><a href="/support-us/ways-to-give/planned-giving">Planned Giving</a></li>
+            <li><a href="/support-us/ways-to-give/corporate-sponsorship">Corporate Sponsorship</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <div class="g-footer__grid__group u-hide@small-">
+          <h3 class="f-list-6" id="h-footer-learn-with-us"><a href="/learn-with-us">Learn with us<svg aria-hidden="true" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg></a></h3>
+
+          <ul class="g-footer__link-list" aria-labelledby="h-footer-learn-with-us">
+            <li><a href="/learn-with-us/families">Families</a></li>
+            <li><a href="/learn-with-us/teens">Teens</a></li>
+            <li><a href="/learn-with-us/educators">Educators</a></li>
+            <li><a href="/learn-with-us/adults">Adults</a></li>
+          </ul>
+        </div>
+
+        <div class="g-footer__grid__group">
+          <h3 class="f-list-6" id="h-footer-follow-us">Follow us</h3>
+
+          <ul class="g-footer__link-list" aria-labelledby="h-footer-follow-us">
+            <li><a href="https://www.facebook.com/artic" data-gtm-event="facebook" data-gtm-event-action="Financial Reporting" data-gtm-event-category="follow" target="_blank">Facebook</a></li>
+            <li><a href="https://twitter.com/artinstitutechi" data-gtm-event="twitter" data-gtm-event-action="Financial Reporting" data-gtm-event-category="follow" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com/artinstitutechi/" data-gtm-event="instagram" data-gtm-event-action="Financial Reporting" data-gtm-event-category="follow" target="_blank">Instagram</a></li>
+            <li><a href="https://www.youtube.com/user/ArtInstituteChicago" data-gtm-event="youtube" data-gtm-event-action="Financial Reporting" data-gtm-event-category="follow" target="_blank">YouTube</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <h2 class="sr-only" id="h-mobile-footer-links">Footer Links</h2>
+  <ul class="g-footer__legals f-secondary" aria-labelledby="h-mobile-footer-links">
+    <li><a href="/press">Press</a></li>
+    <li><a href="/employment">Careers</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/venue-rental">Venue Rental</a></li>
+    <li><a href="/image-licensing">Image Licensing</a></li>
+    <li><a href="https://www.saic.edu">SAIC</a></li>
+    <li><a href="/terms">Terms</a></li>
+  </ul>
+</footer>
+<a class="top-link" href="#a17" aria-label="top of page">
+  <svg class="icon--arrow" aria-hidden="true">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--arrow" />
+  </svg>
+</a>
+
+  </div>
+
+<div id="mask" class="g-mask" data-behavior="mask"></div>
+<div class="m-calendar" id="calendar" data-behavior="calendar">
+    <div class="m-calendar__header">
+        <button class="btn btn--sm btn--secondary f-buttons s-active" data-calendar-start>From</button>
+        <button class="btn btn--sm btn--secondary f-buttons" data-calendar-end>To</button>
+        <button class="m-calendar__close" data-calendar-close><svg class="icon--close" aria-label="Close date select"><use xlink:href="#icon--close" /></svg></button>
+    </div>
+    <div class="m-calendar__months" data-calendar-months>
+        <div class="m-calendar__month" style="display: none;" data-calendar-month-template>
+            <b class="m-calendar__title f-caption" data-calendar-title></b>
+            <table data-calendar-table>
+                <thead class="f-caption">
+                  <tr>
+                    <th title="Sunday">S</th>
+                    <th title="Monday">M</th>
+                    <th title="Tuesday">T</th>
+                    <th title="Wednesday">W</th>
+                    <th title="Thursday">T</th>
+                    <th title="Friday">F</th>
+                    <th title="Saturday">S</th>
+                  </tr>
+                </thead>
+                <tbody class="f-secondary">
+                </tbody>
+            </table>
+        </div>
+        <button class="m-calendar__next" data-calendar-next><svg aria-label="Next month" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg></button>
+        <button class="m-calendar__prev" data-calendar-prev><svg aria-label="Previous month" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg></button>
+    </div>
+    <div class="m-calendar__footer">
+        <button class="btn btn--sm f-buttons" data-calendar-done>Done</button>
+        <button class="btn btn--sm btn--secondary f-buttons" data-calendar-reset>Reset</button>
+    </div>
+</div>
+<div class="o-fullscreen-image" id="fullscreenImage" data-behavior="imageZoomArea">
+    <a class="o-fullscreen-image__info">Learn more</a>
+    <img class="o-fullscreen-image__img" alt="" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
+    <div class="o-fullscreen-image__osd" id="openseadragon"></div>
+    <h2 class="sr-only" id="h-img_action">Image actions</h2>
+    <ul class="o-fullscreen-image__img-actions" aria-labelledby="h-img_action">
+      <li>
+        <button class="btn  btn--septenary btn--icon-sq" id="osd_zoomInButton" data-fullscreen-zoom-in aria-label="Zoom in">
+    <svg class="icon--zoom-in--24" aria-hidden="true"><use xlink:href="#icon--zoom-in--24" /></svg>    
+</button>
+      </li>
+      <li>
+        <button class="btn  btn--septenary btn--icon-sq" id="osd_zoomOutButton" data-fullscreen-zoom-out aria-label="Zoom out">
+    <svg class="icon--zoom-out--24" aria-hidden="true"><use xlink:href="#icon--zoom-out--24" /></svg>    
+</button>
+      </li>
+    </ul>
+    <button class="btn  btn--octonary btn--icon btn--icon-circle-48 o-fullscreen-image__close" data-fullscreen-close aria-label="Close full screen image viewer">
+    <svg class="icon--close--24" aria-hidden="true"><use xlink:href="#icon--close--24" /></svg>    
+</button>
+</div>
+<div class="m-share-menu" id="shareMenu" data-behavior="shareMenu">
+  <h4 class="m-share-menu__title f-module-title-2" id="h-share-menu">Share</h4>
+  <ul aria-labelledby="h-share-menu">
+    <li><a href="#" class="f-secondary" data-shareMenu="facebook" data-gtm-event-category="share" data-gtm-event-action="Financial Reporting" data-gtm-event="facebook" aria-label="Share via Facebook">Facebook</a></li>
+    <li><a href="#" class="f-secondary" data-shareMenu="twitter" data-gtm-event-category="share" data-gtm-event-action="Financial Reporting" data-gtm-event="twitter" aria-label="Share via Twitter">Twitter</a></li>
+    <li><a href="#" class="f-secondary" data-shareMenu="pinterest" data-gtm-event-category="share" data-gtm-event-action="Financial Reporting" data-gtm-event="pinterest" aria-label="Share via Pinterest">Pinterest</a></li>
+    <li><a href="#" class="f-secondary" data-shareMenu="email" aria-label="Share via Email">Email</a></li>
+    <li><button class="f-secondary" data-shareMenu="copy" aria-label="Copy link to page">Copy link</button></li>
+  </ul>
+  <button class="m-share-menu__close" aria-label="Close share menu"><svg class="icon--close" aria-hidden="true"><use xlink:href="#icon--close" /></svg></button>
+</div>
+<div class="g-nav-mobile" data-behavior="navMobile" tabindex="0">
+  <div class="g-nav-mobile__inner">
+    <div class="g-nav-mobile__container">
+      <div class="g-header">
+        <div class="g-header__inner">
+            <a class="g-header__logo" href="/">
+              <svg aria-label="Art Institute of Chicago">
+                <use xlink:href="#icon--logo--80" />
+                <use xlink:href="#icon--logo--88" />
+                <use xlink:href="#icon--logo--92" />
+              </svg>
+            </a>
+            <nav class="g-header__nav-primary">
+              <h2 class="sr-only" id="h-nav-secondary">Secondary Navigation</h2>
+              <ul class="f-secondary" aria-labelledby="h-nav-secondary">
+                <li class='u-hide@small+'><a href="https://sales.artic.edu/admissions">Buy Tickets</a></li>
+                <li><a href="/visit-us-virtually">Visit</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+      <div class="g-nav-mobile__search" data-behavior="mobileSearch">
+        <form action="/search" role="search">
+          <input type="search" id="mobile_search" name="q" placeholder="Search" autocomplete="off" aria-label="Search the site" />
+          <button type="submit" aria-label="Search">
+            <svg aria-hidden="true" class="icon--search--24"><use xlink:href="#icon--search--24" /></svg>
+          </button>
+        </form>
+      </div>
+
+      <nav class="g-nav-mobile__nav-wrapper">
+        <h2 class="sr-only" id="h-nav-mobile">Primary Navigation</h2>
+        <ul class="g-nav-mobile__nav" aria-labelledby="h-nav-mobile">
+          
+                      <li class="">
+              <a href="https://www.artic.edu/visit" >
+                Visit
+
+                              </a>
+
+              
+                          </li>
+                      <li class="">
+              <a href="#" data-nav-trigger>
+                Exhibition &amp; Events
+
+                                  <svg aria-hidden="true" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg>
+                              </a>
+
+              
+                              <div class="g-nav-mobile__subnav">
+                  <a href="#" class="g-nav-mobile__back arrow-link arrow-link--back" data-nav-back>
+                    <svg aria-hidden="true" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg>
+
+                    <h3 id="h-nav-mobile-sub-exhibition-amp-events">Exhibition &amp; Events</h3>
+                  </a>
+
+                  <ul aria-labelledby="h-nav-mobile-sub-exhibition-amp-events">
+                                          <li class="">
+                        <a href="https://www.artic.edu/exhibitions" >
+                          Exhibitions
+
+                                                  </a>
+
+                        
+                                              </li>
+                                          <li class="">
+                        <a href="https://www.artic.edu/events" >
+                          Events
+
+                                                  </a>
+
+                        
+                                              </li>
+                                      </ul>
+                </div>
+                          </li>
+                      <li class="">
+              <a href="https://www.artic.edu/collection" data-nav-trigger>
+                The Collection
+
+                                  <svg aria-hidden="true" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg>
+                              </a>
+
+              
+                              <div class="g-nav-mobile__subnav">
+                  <a href="#" class="g-nav-mobile__back arrow-link arrow-link--back" data-nav-back>
+                    <svg aria-hidden="true" class="icon--arrow"><use xlink:href="#icon--arrow" /></svg>
+
+                    <h3 id="h-nav-mobile-sub-the-collection">The Collection</h3>
+                  </a>
+
+                  <ul aria-labelledby="h-nav-mobile-sub-the-collection">
+                                          <li class="">
+                        <a href="https://www.artic.edu/collection" >
+                          Artworks
+
+                                                  </a>
+
+                        
+                                              </li>
+                                          <li class="">
+                        <a href="https://www.artic.edu/articles_publications" >
+                          Writings
+
+                                                  </a>
+
+                        
+                                              </li>
+                                          <li class="">
+                        <a href="https://www.artic.edu/collection/research_resources" >
+                          Resources
+
+                                                  </a>
+
+                        
+                                              </li>
+                                      </ul>
+                </div>
+                          </li>
+                      <li class="">
+              <a href="https://sales.artic.edu/admissions" >
+                Buy Tickets
+
+                              </a>
+
+              
+                          </li>
+                      <li class="">
+              <a href="https://sales.artic.edu/memberships" >
+                Become A Member
+
+                              </a>
+
+              
+                          </li>
+                      <li class="">
+              <a href="https://shop.artic.edu/" >
+                Shop
+
+                              </a>
+
+              
+                          </li>
+                      <li class="">
+              <a href="https://www.artic.edu/about-us" >
+                About Us
+
+                              </a>
+
+              
+                          </li>
+                      <li class="">
+              <a href="learn-with-us" >
+                Learn With Us
+
+                              </a>
+
+              
+                          </li>
+                      <li class="">
+              <a href="support-us" >
+                Support Us
+
+                              </a>
+
+              
+                          </li>
+                  </ul>
+
+        <div class="g-nav-mobile__nav-secondary">
+          <h4 class="sr-only" id="h-footer-nav-secondary">Secondary Navigation</h4>
+          <ul class="g-nav-mobile__legals" aria-labelledby="h-footer-nav-secondary">
+            <li><a href="/press">Press</a></li>
+            <li><a href="/employment">Careers</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/venue-rental">Venue Rental</a></li>
+            <li><a href="/image-licensing">Image Licensing</a></li>
+            <li><a href="https://www.saic.edu">SAIC</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+
+          <h4 class="sr-only" id="h-footer-nav-social">Social links</h4>
+          <ul class="g-nav-mobile__social" aria-labelledby="h-footer-nav-social">
+            <li><a href="https://www.facebook.com/artic">Facebook</a></li>
+            <li><a href="https://twitter.com/artinstitutechi">Twitter</a></li>
+            <li><a href="https://www.instagram.com/artinstitutechi/">Instagram</a></li>
+            <li><a href="https://www.youtube.com/user/ArtInstituteChicago">YouTube</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <button class="g-nav-mobile__close" data-behavior="closeNavMobile" aria-label="Close menu"><svg aria-hidden="true" class="icon--close--24"><use xlink:href="#icon--close--24" /></svg></button>
+    </div>
+  </div>
+</div>
+<div class="g-search" data-behavior="globalSearch" data-autocomplete-url="https://www.artic.edu/search/autocomplete" aria-modal="true" data-gtm-event-category="site search" data-gtm-event-action="Financial Reporting" aria-label="Search">
+    <div class="g-search__scroll">
+        <div class="g-search__inner" data-search-inner>
+            <form action="/search" class="g-search__form" role="search">
+                <input type="search" id="q" name="q" class="g-search__input" placeholder="Search" autocomplete="off" aria-label="Search the site" />
+                <button type="submit" class="g-search__submit">
+                    <svg aria-hidden="true" class="icon--search--24"><use xlink:href="#icon--search--24" /></svg>
+                </button>
+                <span class="g-search__loader"></span>
+            </form>
+            <div class="g-search__suggested">
+                <h2 class="g-search__suggested-title" id="h-suggested-terms">Suggested Terms</h2>
+                <ul aria-labelledby="h-suggested-terms">
+                                                                        <li><a href="https://www.artic.edu/visit-us-virtually">Visit Us Virtually</a></li>
+                                                    <li><a href="https://www.artic.edu/articles">Blog</a></li>
+                                                    <li><a href="/support-us/membership">Membership</a></li>
+                                                    <li><a href="https://www.artic.edu/el-greco-online">El Greco</a></li>
+                                                    <li><a href="/visit/frequently-asked-questions">FAQs</a></li>
+                                                            </ul>
+            </div>
+            <button class="g-search__close" data-behavior="globalSearchClose" aria-label="Close search">
+                <svg aria-hidden="true" class="icon--close--24"><use xlink:href="#icon--close--24" /></svg>
+            </button>
+        </div>
+    </div>
+</div>
+<div id="modal" class="g-modal">
+    <div class="g-modal__content" data-modal-content>
+    </div>
+    <button class="g-modal__close" data-behavior="closeModal">
+        <svg aria-hidden="true" class="icon--close"><use xlink:href="#icon--close" /></svg>
+    </button>
+</div>
+<span class="g-ajax-loader">
+  <svg class="g-ajax-loader__svg" viewBox="25 25 50 50">
+    <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+  </svg>
+</span>
+
+<script src="https://vjs.zencdn.net/7.1.0/video.min.js"></script>
+<script src="/dist/scripts/app-6b20d5cfe6.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/openseadragon@2.3/build/openseadragon/openseadragon.min.js" defer></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"64338d1b8c","applicationID":"62463744","transactionName":"YQFWZ0JWDUQCBRALX1hLdVBEXgxZTAEBDFVEDVdjUVAGRE0VDA1H","queueTime":0,"applicationTime":472,"atts":"TUZVEQpMHko=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

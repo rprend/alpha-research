@@ -1,0 +1,82 @@
+[
+  {
+    "museum": "Tate",
+    "page_type": "annual-report",
+    "url": "https://www.tate.org.uk/about-us/tate-reports"
+  },
+  {
+    "museum": "Tate",
+    "page_type": "exhibition",
+    "url": "https://www.tate.org.uk/whats-on"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "page_type": "annual-report",
+    "url": "https://www.getty.edu/about/governance/finance.html"
+  },
+  {
+    "museum": "J. Paul Getty Museum",
+    "page_type": "provenance",
+    "url": "https://www.getty.edu/museum/provenance/"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "page_type": "annual-report",
+    "url": "https://www.rijksmuseum.nl/en/organisation/annual-reports"
+  },
+  {
+    "museum": "Rijksmuseum",
+    "page_type": "repatriation",
+    "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution"
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "page_type": "annual-report",
+    "url": "https://www.artic.edu/about-us/financial-reporting"
+  },
+  {
+    "museum": "Art Institute of Chicago",
+    "page_type": "provenance",
+    "url": "https://www.artic.edu/collection-information/provenance-research"
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "page_type": "annual-report",
+    "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies"
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "page_type": "provenance",
+    "url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va"
+  },
+  {
+    "museum": "Victoria and Albert Museum",
+    "page_type": "repatriation",
+    "url": "https://www.vam.ac.uk/info/restitution-and-repatriation"
+  },
+  {
+    "museum": "Cleveland Museum of Art",
+    "page_type": "provenance",
+    "url": "https://www.clevelandart.org/about-collection/nazi-era-provenance"
+  },
+  {
+    "museum": "Cleveland Museum of Art",
+    "page_type": "exhibition",
+    "url": "https://www.clevelandart.org/whats-on/exhibitions"
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "page_type": "collection-note",
+    "url": "https://philamuseum.org/collection"
+  },
+  {
+    "museum": "Philadelphia Museum of Art",
+    "page_type": "provenance",
+    "url": "https://www.philamuseum.org/provenance"
+  },
+  {
+    "museum": "Natural History Museum London",
+    "page_type": "annual-report",
+    "url": "https://www.nhm.ac.uk/about-us/annual-reviews.html"
+  }
+]

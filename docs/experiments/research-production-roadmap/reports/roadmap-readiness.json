@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-13T00:53:53.181Z",
+  "generatedAt": "2026-06-13T01:27:08.947Z",
   "roadmap": "Archive Signals / The Cultural Observatory",
   "status": "active",
   "trackCount": 6,
@@ -22,7 +22,7 @@
       "id": "museum-second-layer-corpus",
       "title": "Museum Annual Report And Provenance Source Layers",
       "priority": 2,
-      "status": "five-page-type-source-probed",
+      "status": "historical-source-probed",
       "complete": false,
       "sourceExperiment": "docs/experiments/museum-language-drift/",
       "requiredEvidenceCount": 5,
@@ -89,7 +89,7 @@
     {
       "id": "museum-second-layer-corpus",
       "title": "Museum Annual Report And Provenance Source Layers",
-      "status": "five-page-type-source-probed",
+      "status": "historical-source-probed",
       "sourceExperiment": "docs/experiments/museum-language-drift/"
     },
     {

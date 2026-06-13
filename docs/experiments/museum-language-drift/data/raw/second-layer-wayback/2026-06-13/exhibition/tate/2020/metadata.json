@@ -1,0 +1,19 @@
+{
+  "museum": "Tate",
+  "page_type": "exhibition",
+  "url": "https://www.tate.org.uk/whats-on",
+  "source_layer": "wayback-second-layer",
+  "source_url": "https://www.tate.org.uk/whats-on",
+  "year": 2020,
+  "timestamp": "20200622225232",
+  "originalStatus": "200",
+  "archiveUrl": "https://web.archive.org/web/20200622225232id_/https://www.tate.org.uk/whats-on",
+  "httpStatus": 200,
+  "wordCount": 418,
+  "title": "What’s On | Tate",
+  "responsePath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2020/index.html",
+  "metadataPath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2020/metadata.json",
+  "status": 200,
+  "fetchedAt": "2026-06-13T01:24:32.992Z",
+  "bytes": 127313
+}

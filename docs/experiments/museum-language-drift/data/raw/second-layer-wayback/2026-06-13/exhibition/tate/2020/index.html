@@ -1,0 +1,2576 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+<head>
+    <meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"a046830de0",applicationID:"274086721"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"a046830de0","applicationID":"274086721","transactionName":"ZgdRbUMFCxAHURVaDl9NdUxfBxEKCVxOVwtQDFRWHwcKEQMcCVIPVQ5WS0JKEhABW1tkMnYre1hfAAkGFBw+bAJQDl9mbg==","queueTime":1,"applicationTime":3,"agent":""}</script>
+    <script>
+        var dataLayer = [];
+    </script>
+    <!-- Avoid page flicker with Google Optimize -->
+    <!-- Page hiding snippet (recommended) -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>
+      (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;
+          h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+          (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);
+      })(window,document.documentElement,'async-hide','dataLayer',4000,{'GTM-WQPJ9H':true});
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WQPJ9H');</script>
+    <!-- End Google Tag Manager -->
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    
+    <meta property="og:url" content="https://www.tate.org.uk/whats-on" />
+    
+    <meta property="og:site_name" content="Tate" />
+    <meta property="fb:app_id" content="402260676558591" />
+    <meta property="fb:admins" content="100003842463048" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@tate" />
+    <meta name="twitter:creator" content="@tate" />
+    
+    <meta property="og:title" content="What’s On | Tate" />
+    <meta name="twitter:title" content="What’s On | Tate" />
+    
+    
+    <meta property="og:image" content="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/tate_social_logo.png" />
+    <meta name="twitter:image" content="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/tate_social_logo.png" />
+    <meta property="og:image:width" content="840" />
+    <meta property="og:image:height" content="450" />
+    
+    
+    <meta name="description" content="Tate is four art galleries in London, Liverpool &amp;amp; Cornwall known as Tate Modern, Tate Britain, Tate Liverpool &amp;amp; Tate St Ives. Tate is the UK home of British art from 1500 &amp;amp; of international modern art." />
+    <meta name="twitter:description" content="Tate is four art galleries in London, Liverpool &amp;amp; Cornwall known as Tate Modern, Tate Britain, Tate Liverpool &amp;amp; Tate St Ives. Tate is the UK home of British art from 1500 &amp;amp; of international modern art." />
+    <meta property="og:description" content="Tate is four art galleries in London, Liverpool &amp;amp; Cornwall known as Tate Modern, Tate Britain, Tate Liverpool &amp;amp; Tate St Ives. Tate is the UK home of British art from 1500 &amp;amp; of international modern art." />
+    
+    <meta name="author" content="Tate" />
+    
+    <meta property="article:section" content="Exhibitions &amp; events" />
+    
+    
+    
+    
+
+    <title>What’s On | Tate</title>
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.tate.org.uk/favicon.ico"/>
+    
+    <link rel="canonical" href="https://www.tate.org.uk/whats-on" />
+
+    
+    <link type="text/css" rel="stylesheet" href="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/css/styles.min.css" media="all" />
+    
+
+
+
+<script>
+    var TateUrls = {
+        'root': 'https://www.tate.org.uk',
+        'shop': 'https://shop.tate.org.uk',
+        'tickets': 'https://shop.tate.org.uk'
+    };
+    var pageProperties = {
+        'theme': 'default',
+        'apiType': 'landing_page',
+        'pageType': 'landing-page--whats-on',
+        'lang': 'en'
+    };
+    var objectData = {
+        'pageType': 'landing_page',
+        'lang': 'en',
+        'section': 'whats-on'
+        ,
+        'content_pageview': {
+            'content_title': 'What’s On',
+            'content_url': 'https://www.tate.org.uk/whats-on'
+        },
+        'title': 'What’s On'
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    };
+    
+    
+    
+    dataLayer.push(objectData);
+</script>
+
+
+
+</head>
+<body class="no-js landing-page--whats-on lang--en">
+<!-- Google Tag Manager -->
+<script>
+    dataLayer.push({
+        'fireGtm': true
+    });
+</script>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WQPJ9H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager -->
+
+
+<script>
+(function(){
+    var cookies;
+
+    function tateReadCookie(name,c,C,i){
+        if(cookies){ return cookies[name]; }
+
+        c = document.cookie.split('; ');
+        cookies = {};
+
+        for(i=c.length-1; i>=0; i--){
+           C = c[i].split('=');
+           cookies[C[0]] = C[1];
+        }
+
+        return cookies[name];
+    }
+
+    function tatePopulateBasket() {
+        var basketItems = parseInt(tateReadCookie('sccBasket'));
+        var nav = document.querySelectorAll("div.header-nav")[0];
+        if(!isNaN(basketItems) && basketItems > 0 && typeof(nav) !== 'undefined') {
+            nav.classList.add('header-nav--has-basket');
+            var basket = document.createElement("div");
+            basket.classList.add('header-nav__item');
+            basket.classList.add('header-nav__basket');
+            basket.id = 'tate-basket';
+            basket.innerHTML = '<a href="https://shop.tate.org.uk/s/tate/basket" title="View Basket" class="btn  btn--type__no-bg btn--size__small btn--style__icon" data-gtm-name="Navigation-basket"><i class="btn__icon icon--shop"></i><span class="btn__badge">' + basketItems  + '</span></a>';
+            nav.insertBefore(basket, nav.firstChild);
+        }
+    }
+    window.tatePopulateBasket = tatePopulateBasket;
+})();
+
+</script>
+
+
+<div id="page">
+
+    
+    
+    
+
+    
+    <header id="header" class="sticks-to-top" itemscope="" itemtype="https://schema.org/WPHeader">
+        <div class="container">
+            <div class="container__inner">
+                <div class="header-branding">
+                    <div class="site-logo" itemscope="" itemtype="https://schema.org/Organization">
+                        <a href="/" id="logo" itemprop="url" tabindex="1" title="Return to the Tate home page"><img typeof="foaf:Image" itemprop="logo" src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/tate-logo.png" alt="Tate Logo"></a>
+                    </div>
+                    
+                </div>
+                
+                <div class="header-nav">
+                    <div class="header-nav__item header-nav__shop">
+                        <a href="https://shop.tate.org.uk" class="btn btn--type__no-bg btn--size__small btn--style__text" data-gtm-name="Navigation-header" tabindex="3">
+                            <i class="btn__icon icon--shop"></i>
+                            <span class="btn__text">Shop</span>
+                        </a>
+                    </div>
+
+                    
+                    <div class="header-nav__item header-nav__search">
+                        <form action="/search" method="GET" id="search-block-form" role="search" aria-label="Search this site" accept-charset="UTF-8" class="site-search" autocomplete="off">
+                            <div class="site-search__inner">
+                                <noscript>
+                                    <div class="input-wrapper input-wrapper--btn-over">
+                                        <input type="text" title="Search Tate" class="" name="q" placeholder="Search">
+                                        <button type="submit" class="btn btn--style__icon" data-gtm-name="Navigation-search-search">
+                                            <i class="btn__icon icon--search"></i>
+                                            <span class="btn__text">Search</span>
+                                        </button>
+                                    </div>
+                                </noscript>
+                                <div class="tag-list">
+                                    <h3 class="tags-list__title tags-list__title--inline">Suggested terms:</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/art/art-terms" class="tag" data-gtm-name="Navigation-search">Art Terms</a>
+                                        </li>
+                                        <li>
+                                            <a href="/research/publications/tate-papers" class="tag" data-gtm-name="Navigation-search">Tate Papers</a>
+                                        </li>
+                                        <li>
+                                            <a href="/search?q=Turner+Collection " class="tag" data-gtm-name="Navigation-search">Turner Collection</a>
+                                        </li>
+                                        <li>
+                                            <a href="/kids" class="tag" data-gtm-name="Navigation-search">Tate Kids</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tate-collective" class="tag" data-gtm-name="Navigation-search">Tate Collective</a>
+                                        </li>
+                                        <li>
+                                            <a href="/artist-rooms" class="tag" data-gtm-name="Navigation-search">ARTIST ROOMS</a>
+                                        </li>
+                                        <li>
+                                            <a href="/tate-exchange" class="tag" data-gtm-name="Navigation-search">Tate Exchange</a>
+                                        </li>
+                                        <li>
+                                            <a href="/whats-on?daterange=fromnow&event_type=late" class="tag" data-gtm-name="Navigation-search">Late at Tate</a>
+                                        </li>
+                                        <li>
+                                            <a href="/art/artists/jenny-holzer-1307" class="tag" data-gtm-name="Navigation-search">Jenny Holzer</a>
+                                        </li>
+                                        <li>
+                                            <a href="/visit/tate-st-ives/barbara-hepworth-museum-and-sculpture-garden" class="tag" data-gtm-name="Navigation-search">Barbara Hepworth Museum</a>
+                                        </li>
+                                        <li>
+                                            <a href="/art/artists/angelica-kauffman-303" class="tag" data-gtm-name="Navigation-search">Angelica Kauffman</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                
+                <div class="header-join">
+                    <a href="/join-support/tate-members" class="header-join--action" data-gtm-name="Navigation-header">
+                        <span class="btn__text">Become a Member</span>
+                        <i class="btn__icon icon--arrow-right"></i>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+    
+
+    <script>if(typeof(window.tatePopulateBasket)!=='undefined')window.tatePopulateBasket();</script>
+
+    
+    <nav id="nav" class="nav--relaxed" itemscope="" itemtype="https://schema.org/SiteNavigationElement">
+        <div class="container">
+            <div class="container__inner">
+                <div class="block site-menu-block">
+                    <h2 class="block__title h-e">Main menu</h2>
+                    <ul class="site-menu site-menu--level-1">
+                        <li class="site-menu__item site-menu__item--first">
+                            <a href="/art" class="" data-gtm-nav="Art &amp; artists" data-gtm-name="Navigation-primary">Art &amp; artists</a>
+                        </li>
+                        <li class="site-menu__item">
+                            <a href="/whats-on" class="active-trail active" data-gtm-nav="Exhibitions &amp; Events" data-gtm-name="Navigation-primary">Exhibitions &amp; events</a>
+                        </li>
+                        <li class="site-menu__item site-menu__item--last">
+                            <a href="/visit" class="" data-gtm-nav="Plan your visit" data-gtm-name="Navigation-primary">Plan your visit</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block site-menu-block">
+                    <h2 class="block__title h-e">Main menu additional</h2>
+                    <ul class="site-menu--handheld site-menu--handheld--level-1">
+                        <li class="site-menu--handheld__item site-menu--handheld__item--first">
+                            <a href="/join-support/tate-members" data-gtm-nav="Become a member" data-gtm-name="Navigation-primary">Become a Member</a>
+                        </li>
+                        <li class="site-menu--handheld__item site-menu--handheld__item--last">
+                            <a href="https://shop.tate.org.uk" data-gtm-nav="Shop" data-gtm-name="Navigation-primary">Shop</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+
+    
+    
+
+
+
+    
+
+    
+
+    <main id="content" itemscope="" itemtype="https://schema.org/WebPage" class="container-16 ">
+        
+<div class="container container--whats-on">
+    <div class="container__inner">
+        <div class="whatson-filters">
+            <div class="whatson-filters__inner">
+                <form method="get" action="/whats-on" id="whatson-filters" class="advanced-filters">
+                    <div class="form-section">
+                        <div class="form-section__inner">
+                            <div class="form-section__title">
+                                <h2>What's on at Tate</h2>
+                            </div>
+                            <div class="form-section__content">
+                                <fieldset>
+                                    <legend class="h-e">What's on filters</legend>
+                                    <div class="form-section__wrapper accordion-group accordion-group--size__medium">
+                                        <div class="form-item form-item--checkbox form-item--what">
+                                            <fieldset>
+                                                <legend>
+                                                    <h3>What?</h3>
+                                                </legend>
+                                                <div class="form-item__wrapper accordion">
+                                                    <header class="accordion__header">
+                                                        <a href="#"><h4 class="form-item__header accordion__title form-item__header--event_type" data-default-text="Everything">Everything</h4></a>
+                                                    </header>
+                                                    <div class="accordion__content">
+                                                        <ul class="form-item__list">
+                                                        
+                                                        <li><label for="form--what__exhibition"><input type="checkbox" value="exhibition" name="event_type" data-gtm-name="Whatson-all-exhibition" id="form--what__exhibition" class="form-item__input form-item__input--checkbox" />Exhibitions</label></li>
+                                                        
+                                                        <li><label for="form--what__display"><input type="checkbox" value="display" name="event_type" data-gtm-name="Whatson-all-display" id="form--what__display" class="form-item__input form-item__input--checkbox" />Free displays</label></li>
+                                                        
+                                                        <li><label for="form--what__tour"><input type="checkbox" value="tour" name="event_type" data-gtm-name="Whatson-all-tour" id="form--what__tour" class="form-item__input form-item__input--checkbox" />Tours</label></li>
+                                                        
+                                                        <li><label for="form--what__workshops"><input type="checkbox" value="workshops" name="event_type" data-gtm-name="Whatson-all-workshops" id="form--what__workshops" class="form-item__input form-item__input--checkbox" />Workshops</label></li>
+                                                        
+                                                        <li class="inc__display-none"><label for="form--what__private_view"><input type="checkbox" value="private_view" name="event_type" data-gtm-name="Whatson-all-private_view" id="form--what__private_view" class="form-item__input form-item__input--checkbox" />Private views</label></li>
+                                                        
+                                                        <li class="inc__display-none"><label for="form--what__courses"><input type="checkbox" value="courses" name="event_type" data-gtm-name="Whatson-all-courses" id="form--what__courses" class="form-item__input form-item__input--checkbox" />Courses</label></li>
+                                                        
+                                                        <li class="inc__display-none"><label for="form--what__late"><input type="checkbox" value="late" name="event_type" data-gtm-name="Whatson-all-late" id="form--what__late" class="form-item__input form-item__input--checkbox" />Lates</label></li>
+                                                        
+                                                        <li class="inc__display-none"><label for="form--what__festival"><input type="checkbox" value="festival" name="event_type" data-gtm-name="Whatson-all-festival" id="form--what__festival" class="form-item__input form-item__input--checkbox" />Festivals</label></li>
+                                                        
+                                                        <li class="inc__display-none"><label for="form--what__online_event"><input type="checkbox" value="online_event" name="event_type" data-gtm-name="Whatson-all-online_event" id="form--what__online_event" class="form-item__input form-item__input--checkbox" />Online events</label></li>
+                                                        
+                                                        <li class="inc__display-none--no-js"><a href="#" class="text-link text-link--what-toggle" id="whatson-what-toggle">Show more</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="form-item form-item--checkbox form-item--where">
+                                            <fieldset>
+                                                <legend>
+                                                    <h3>Where?</h3>
+                                                </legend>
+                                                <div class="form-item__wrapper accordion">
+                                                    <header class="accordion__header">
+                                                        <a href="#"><h4 class="form-item__header accordion__title form-item__header--gallery_group" data-default-text="All Tate sites">All Tate sites</h4></a>
+                                                    </header>
+                                                    <div class="accordion__content">
+                                                        <ul class="form-item__list">
+                                                        
+                                                        <li><label for="form--where__tate_britain"><input type="checkbox" value="tate_britain" name="gallery_group" data-gtm-name="Whatson-all-tate_britain" id="form--where__tate_britain" class="form-item__input form-item__input--checkbox" />Tate Britain</label></li>
+                                                        
+                                                        <li><label for="form--where__tate_liverpool"><input type="checkbox" value="tate_liverpool" name="gallery_group" data-gtm-name="Whatson-all-tate_liverpool" id="form--where__tate_liverpool" class="form-item__input form-item__input--checkbox" />Tate Liverpool</label></li>
+                                                        
+                                                        <li><label for="form--where__tate_modern"><input type="checkbox" value="tate_modern" name="gallery_group" data-gtm-name="Whatson-all-tate_modern" id="form--where__tate_modern" class="form-item__input form-item__input--checkbox" />Tate Modern</label></li>
+                                                        
+                                                        <li><label for="form--where__tate_st_ives"><input type="checkbox" value="tate_st_ives" name="gallery_group" data-gtm-name="Whatson-all-tate_st_ives" id="form--where__tate_st_ives" class="form-item__input form-item__input--checkbox" />Tate St Ives</label></li>
+                                                        
+                                                        <li><label for="form--where__online"><input type="checkbox" value="online" name="gallery_group" data-gtm-name="Whatson-all-online" id="form--where__online" class="form-item__input form-item__input--checkbox" />online only</label></li>
+                                                        
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="form-item form-item--radio form-item--when">
+                                            <fieldset>
+                                                <legend>
+                                                    <h3>When?</h3>
+                                                </legend>
+                                                <div class="form-item__wrapper accordion">
+                                                    <header class="accordion__header">
+                                                        <a href="#"><h4 class="form-item__header accordion__title form-item__header--daterange" data-default-text="Any time">On now and coming soon</h4></a>
+                                                    </header>
+                                                    <div class="accordion__content">
+                                                        <ul class="form-item__list">
+                                                        
+                                                        <li><label for="form--when__fromnow"><input type="radio" value="fromnow" name="daterange" checked data-gtm-name="Whatson-all-fromnow" id="form--when__fromnow" class="form-item__input form-item__input--radio form-item__input--default" /><span class="form-item__label-text">On now and coming soon</span></label></li>
+                                                        
+                                                        <li><label for="form--when__today"><input type="radio" value="today" name="daterange" data-gtm-name="Whatson-all-today" id="form--when__today" class="form-item__input form-item__input--radio" /><span class="form-item__label-text">Today</span></label></li>
+                                                        
+                                                        <li><label for="form--when__weekend"><input type="radio" value="weekend" name="daterange" data-gtm-name="Whatson-all-weekend" id="form--when__weekend" class="form-item__input form-item__input--radio" /><span class="form-item__label-text">This weekend</span></label></li>
+                                                        
+                                                        <li><label for="form--when__next_week"><input type="radio" value="next_week" name="daterange" data-gtm-name="Whatson-all-next_week" id="form--when__next_week" class="form-item__input form-item__input--radio" /><span class="form-item__label-text">Next week</span></label></li>
+                                                        
+                                                        <li class="inc__display-none"><label for="form--when__custom"><input type="radio" value="custom" name="daterange" data-gtm-name="Whatson-all-custom" id="form--when__custom" class="form-item__input form-item__input--radio" data-default-label="Custom date range" /><span class="form-item__label-text">Custom date range</span></label></li>
+                                                        
+                                                        </ul>
+                                                        <div class="calendar-wrapper inc__display-none--no-js">
+                                                            <div class="calend calendar--single-date">
+                                                                <button class="btn btn--type__secondary btn--size__small" id="calendar-toggle">Show calendar</button>
+                                                                <input name="selectedDate" id="calendar" class="save-js h-e" tabindex="-1">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-item__calendar inc__display-none">
+                                                            <div class="calendar__from-date">
+                                                                <label for="form--when__from" class="h-e">From: </label>
+                                                                <input type="date" name="date_a" class="input--size__small" id="form--when__after" data-ignore-unless="daterange=custom" value="" />
+                                                            </div>
+                                                            <span class="calendar__until-break"><small>until</small></span>
+                                                            <div class="calendar__until-date">
+                                                                <label for="form--when__until" class="h-e">Until: </label>
+                                                                <input type="date" name="date_b" class="input--size__small" id="form--when__until" data-ignore-unless="daterange=custom" value="" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        
+                                        <div class="form-item form-item--checkbox form-item--audience-type inc__display-none">
+                                            <h3>Audience</h3>
+                                            <div class="form-item__wrapper accordion">
+                                                <header class="accordion__header">
+                                                    <a href="#"><h4 class="form-item__header accordion__title form-item__header--audience_type" data-default-text="Anyone">Anyone</h4></a>
+                                                </header>
+                                                <div class="accordion__content">
+                                                    <ul class="form-item__list">
+                                                    
+                                                    <li><label for="form--audience__families"><input type="checkbox" value="families" name="audience_type" data-gtm-name="Whatson-refine-families" id="form--audience__families" class="form-item__input form-item__input--checkbox" />Families</label></li>
+                                                    
+                                                    <li><label for="form--audience__members"><input type="checkbox" value="members" name="audience_type" data-gtm-name="Whatson-refine-members" id="form--audience__members" class="form-item__input form-item__input--checkbox" />Members</label></li>
+                                                    
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-item form-item--checkbox form-item--price inc__display-none">
+                                            <h3 class="form-item__header">Price</h3>
+                                            <div class="accordion__content">
+                                                <ul class="form-item__list">
+                                                    <li><label for="form--price__free"><input type="checkbox" class="form-item__input form-item__input--checkbox" name="free" id="form--price__free" value="1" data-gtm-name="refine" />free</label></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="form-section__btn-row">
+                                <div class="btn-row">
+                                    <a href="#" class="btn btn--type__secondary inc__display-none--no-js" id="whatson-see-more-options">
+                                        <span class="btn__text">Show more options</span>
+                                    </a>
+                                    <a href="#whatson-results" class="btn btn--type__primary inc__display-none--no-js" data-role="tate-goto">
+                                        <span class="btn__text">Go</span>
+                                        <span class="btn__icon icon icon--arrow-down"></span>
+                                    </a>
+                                    <noscript>
+                                        <button type="submit" class="btn btn--type__primary">
+                                            <i class="btn__icon icon--arrow-right"></i>
+                                            <span class="btn__text">Go</span>
+                                        </button>
+                                    </noscript>
+                                </div>
+                                <a href="/whats-on" title="Clear all filter options" class="text-link inc__display-none" id="whatson-clear-all-options">Clear all options</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<span id="whatson-results"></span>
+
+    
+    <div class="results-grid container container--search-results">
+        <div class="container__inner">
+        
+            
+            
+
+
+
+    <div class="card-group card-group--with-border">
+
+
+
+    
+    
+    
+            <h3 aria-live="polite">Showing
+                
+                    <span class="card-group__range-first">1</span>–<span class="card-group__range-last">20</span> of 82 results
+                
+                
+            </h3>
+    
+    
+    
+
+    
+
+        
+        <div class="card-list card-list--4col card-list--type__image-canvas card-list--type__2-col-mobile"
+             data-current-page="1" data-page-size="20"
+             data-total-results="82" data-page-count="5">
+
+    
+
+
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/media-networks/franciszka-and-stefan-themerson" aria-label="Franciszka and Stefan Themerson" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1536px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/82.3568; --aspect-ratio-percentage: 82.3568%; ">
+
+<img alt="Franciszka Themerson, ‘Two Pious Persons Making their Way to Heaven, one propellered, one helicoptered, with a little angel below’ 1951"  data-src-128-105="https://www.tate.org.uk/art/images/work/T/T14/T14493_7.jpg" data-src-256-210="https://www.tate.org.uk/art/images/work/T/T14/T14493_8.jpg" data-src-730-601="https://www.tate.org.uk/art/images/work/T/T14/T14493_9.jpg" data-src-1536-1265="https://www.tate.org.uk/art/images/work/T/T14/T14493_10.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/art/images/work/T/T14/T14493_7.jpg" data-current-size="128-105"
+ data-visible="" data-caption="Franciszka Themerson, ‘Two Pious Persons Making their Way to Heaven, one propellered, one helicoptered, with a little angel below’ 1951" />
+<noscript><img src="https://www.tate.org.uk/art/images/work/T/T14/T14493_7.jpg" alt="Franciszka Themerson, ‘Two Pious Persons Making their Way to Heaven, one propellered, one helicoptered, with a little angel below’ 1951" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/media-networks/franciszka-and-stefan-themerson" aria-label="Franciszka and Stefan Themerson" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">Media Networks: Franciszka and Stefan Themerson</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 29 Jun 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/online-event/late/uniqlo-tate-lates-night" aria-label="Uniqlo Tate Lates: Night In" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 3400px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/100.0; --aspect-ratio-percentage: 100.0%; ">
+
+<img alt=""  data-src-170-170="https://www.tate.org.uk/sites/default/files/styles/width-170/public/purple_moon_1_rgb.jpg" data-src-240-240="https://www.tate.org.uk/sites/default/files/styles/width-240/public/purple_moon_1_rgb.jpg" data-src-340-340="https://www.tate.org.uk/sites/default/files/styles/width-340/public/purple_moon_1_rgb.jpg" data-src-420-420="https://www.tate.org.uk/sites/default/files/styles/width-420/public/purple_moon_1_rgb.jpg" data-src-480-480="https://www.tate.org.uk/sites/default/files/styles/width-480/public/purple_moon_1_rgb.jpg" data-src-600-600="https://www.tate.org.uk/sites/default/files/styles/width-600/public/purple_moon_1_rgb.jpg" data-src-720-720="https://www.tate.org.uk/sites/default/files/styles/width-720/public/purple_moon_1_rgb.jpg" data-src-840-840="https://www.tate.org.uk/sites/default/files/styles/width-840/public/purple_moon_1_rgb.jpg" data-src-960-960="https://www.tate.org.uk/sites/default/files/styles/width-960/public/purple_moon_1_rgb.jpg" data-src-1200-1200="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/purple_moon_1_rgb.jpg" data-src-1440-1440="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/purple_moon_1_rgb.jpg" data-src-1680-1680="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/purple_moon_1_rgb.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/purple_moon_1_rgb.jpg" data-current-size="170-170"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/purple_moon_1_rgb.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Online event</h3>
+      
+      <h3 class="card__label card__label--type">Late</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/whats-on/online-event/late/uniqlo-tate-lates-night" aria-label="Uniqlo Tate Lates: Night In" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--late">Uniqlo Tate Lates: Night In</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">3 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-liverpool/exhibition/don-mccullin/mobile-phone-storytelling" aria-label="Mobile Phone Storytelling: Don McCullin" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1600px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/66.6875; --aspect-ratio-percentage: 66.6875%; ">
+
+<img alt=""  data-src-170-113="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-240-160="https://www.tate.org.uk/sites/default/files/styles/width-240/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-340-227="https://www.tate.org.uk/sites/default/files/styles/width-340/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-420-280="https://www.tate.org.uk/sites/default/files/styles/width-420/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-480-320="https://www.tate.org.uk/sites/default/files/styles/width-480/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-600-400="https://www.tate.org.uk/sites/default/files/styles/width-600/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-720-480="https://www.tate.org.uk/sites/default/files/styles/width-720/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-840-560="https://www.tate.org.uk/sites/default/files/styles/width-840/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-960-640="https://www.tate.org.uk/sites/default/files/styles/width-960/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-1200-800="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-1440-960="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-src-1600-1067="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" data-current-size="170-113"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_people_taking_selfie_mirror_artwork_1_0.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Liverpool</h3>
+      
+      <h3 class="card__label card__label--type">Course</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title card__title-small">
+                
+                  <a href="/whats-on/tate-liverpool/exhibition/don-mccullin/mobile-phone-storytelling" aria-label="Mobile Phone Storytelling: Don McCullin" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--courses">Mobile Phone Storytelling: Don McCullin</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Every Sat until 4 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/studio/atul-dodiya" aria-label="Atul Dodiya" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 7075px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/67.0671; --aspect-ratio-percentage: 67.0671%; ">
+
+<img alt=""  data-src-170-114="https://www.tate.org.uk/sites/default/files/styles/width-170/public/dodiya_website_image_2_1.jpg" data-src-240-161="https://www.tate.org.uk/sites/default/files/styles/width-240/public/dodiya_website_image_2_1.jpg" data-src-340-228="https://www.tate.org.uk/sites/default/files/styles/width-340/public/dodiya_website_image_2_1.jpg" data-src-420-282="https://www.tate.org.uk/sites/default/files/styles/width-420/public/dodiya_website_image_2_1.jpg" data-src-480-322="https://www.tate.org.uk/sites/default/files/styles/width-480/public/dodiya_website_image_2_1.jpg" data-src-600-402="https://www.tate.org.uk/sites/default/files/styles/width-600/public/dodiya_website_image_2_1.jpg" data-src-720-483="https://www.tate.org.uk/sites/default/files/styles/width-720/public/dodiya_website_image_2_1.jpg" data-src-840-563="https://www.tate.org.uk/sites/default/files/styles/width-840/public/dodiya_website_image_2_1.jpg" data-src-960-644="https://www.tate.org.uk/sites/default/files/styles/width-960/public/dodiya_website_image_2_1.jpg" data-src-1200-805="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/dodiya_website_image_2_1.jpg" data-src-1440-966="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/dodiya_website_image_2_1.jpg" data-src-1680-1127="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/dodiya_website_image_2_1.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/dodiya_website_image_2_1.jpg" data-current-size="170-114"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/dodiya_website_image_2_1.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/studio/atul-dodiya" aria-label="Atul Dodiya" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">In the Studio: Atul Dodiya</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/materials-and-objects/explore-materials-and-objects" aria-label="Explore Materials and Objects" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1600px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/66.5625; --aspect-ratio-percentage: 66.5625%; ">
+
+<img alt=""  data-src-170-113="https://www.tate.org.uk/sites/default/files/styles/width-170/public/l4w_explore_01_materialobjects.jpg" data-src-240-160="https://www.tate.org.uk/sites/default/files/styles/width-240/public/l4w_explore_01_materialobjects.jpg" data-src-340-226="https://www.tate.org.uk/sites/default/files/styles/width-340/public/l4w_explore_01_materialobjects.jpg" data-src-420-280="https://www.tate.org.uk/sites/default/files/styles/width-420/public/l4w_explore_01_materialobjects.jpg" data-src-480-320="https://www.tate.org.uk/sites/default/files/styles/width-480/public/l4w_explore_01_materialobjects.jpg" data-src-600-399="https://www.tate.org.uk/sites/default/files/styles/width-600/public/l4w_explore_01_materialobjects.jpg" data-src-720-479="https://www.tate.org.uk/sites/default/files/styles/width-720/public/l4w_explore_01_materialobjects.jpg" data-src-840-559="https://www.tate.org.uk/sites/default/files/styles/width-840/public/l4w_explore_01_materialobjects.jpg" data-src-960-639="https://www.tate.org.uk/sites/default/files/styles/width-960/public/l4w_explore_01_materialobjects.jpg" data-src-1200-799="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/l4w_explore_01_materialobjects.jpg" data-src-1440-958="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/l4w_explore_01_materialobjects.jpg" data-src-1600-1065="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/l4w_explore_01_materialobjects.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/l4w_explore_01_materialobjects.jpg" data-current-size="170-113"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/l4w_explore_01_materialobjects.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/materials-and-objects/explore-materials-and-objects" aria-label="Explore Materials and Objects" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">Materials and Objects: Explore Materials and Objects</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/in-the-studio/international-surrealism" aria-label="International Surrealism" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1536px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/71.4844; --aspect-ratio-percentage: 71.4844%; ">
+
+<img alt="Maria Helena Vieira da Silva, ‘The Tiled Room’ 1935"  data-src-128-91="https://www.tate.org.uk/art/images/work/T/T14/T14206_7.jpg" data-src-256-183="https://www.tate.org.uk/art/images/work/T/T14/T14206_8.jpg" data-src-730-521="https://www.tate.org.uk/art/images/work/T/T14/T14206_9.jpg" data-src-1536-1098="https://www.tate.org.uk/art/images/work/T/T14/T14206_10.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/art/images/work/T/T14/T14206_7.jpg" data-current-size="128-91"
+ data-visible="" data-caption="Maria Helena Vieira da Silva, ‘The Tiled Room’ 1935" />
+<noscript><img src="https://www.tate.org.uk/art/images/work/T/T14/T14206_7.jpg" alt="Maria Helena Vieira da Silva, ‘The Tiled Room’ 1935" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title card__title-small">
+                
+                  <a href="/visit/tate-modern/display/in-the-studio/international-surrealism" aria-label="International Surrealism" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">In the Studio: International Surrealism</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-modern/exhibition/dora-maurer" aria-label="Dóra Maurer" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 3720px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/100.0; --aspect-ratio-percentage: 100.0%; ">
+
+<img alt=""  data-src-170-170="https://www.tate.org.uk/sites/default/files/styles/width-170/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-240-240="https://www.tate.org.uk/sites/default/files/styles/width-240/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-340-340="https://www.tate.org.uk/sites/default/files/styles/width-340/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-420-420="https://www.tate.org.uk/sites/default/files/styles/width-420/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-480-480="https://www.tate.org.uk/sites/default/files/styles/width-480/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-600-600="https://www.tate.org.uk/sites/default/files/styles/width-600/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-720-720="https://www.tate.org.uk/sites/default/files/styles/width-720/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-840-840="https://www.tate.org.uk/sites/default/files/styles/width-840/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-960-960="https://www.tate.org.uk/sites/default/files/styles/width-960/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-1200-1200="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-1440-1440="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-src-1680-1680="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" data-current-size="170-170"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/x74284_relative_quasi_image_1996_photography_vintage_galeria_andras_bozso_1.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Exhibition</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/whats-on/tate-modern/exhibition/dora-maurer" aria-label="Dóra Maurer" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--exhibition">Dóra Maurer</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Last chance</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/media-networks/aldo-tambellini" aria-label="Aldo Tambellini" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 4632px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/100.0; --aspect-ratio-percentage: 100.0%; ">
+
+<img alt=""  data-src-170-170="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tambellini_website.jpg" data-src-240-240="https://www.tate.org.uk/sites/default/files/styles/width-240/public/tambellini_website.jpg" data-src-340-340="https://www.tate.org.uk/sites/default/files/styles/width-340/public/tambellini_website.jpg" data-src-420-420="https://www.tate.org.uk/sites/default/files/styles/width-420/public/tambellini_website.jpg" data-src-480-480="https://www.tate.org.uk/sites/default/files/styles/width-480/public/tambellini_website.jpg" data-src-600-600="https://www.tate.org.uk/sites/default/files/styles/width-600/public/tambellini_website.jpg" data-src-720-720="https://www.tate.org.uk/sites/default/files/styles/width-720/public/tambellini_website.jpg" data-src-840-840="https://www.tate.org.uk/sites/default/files/styles/width-840/public/tambellini_website.jpg" data-src-960-960="https://www.tate.org.uk/sites/default/files/styles/width-960/public/tambellini_website.jpg" data-src-1200-1200="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/tambellini_website.jpg" data-src-1440-1440="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/tambellini_website.jpg" data-src-1680-1680="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/tambellini_website.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tambellini_website.jpg" data-current-size="170-170"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tambellini_website.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/media-networks/aldo-tambellini" aria-label="Aldo Tambellini" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">Media Networks: Aldo Tambellini</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/materials-and-objects/doris-salcedo" aria-label="Doris Salcedo" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 958px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/78.6013; --aspect-ratio-percentage: 78.6013%; ">
+
+<img alt=""  data-src-170-134="https://www.tate.org.uk/sites/default/files/styles/width-170/public/thumbnail_6.jpg" data-src-240-189="https://www.tate.org.uk/sites/default/files/styles/width-240/public/thumbnail_6.jpg" data-src-340-267="https://www.tate.org.uk/sites/default/files/styles/width-340/public/thumbnail_6.jpg" data-src-420-330="https://www.tate.org.uk/sites/default/files/styles/width-420/public/thumbnail_6.jpg" data-src-480-377="https://www.tate.org.uk/sites/default/files/styles/width-480/public/thumbnail_6.jpg" data-src-600-472="https://www.tate.org.uk/sites/default/files/styles/width-600/public/thumbnail_6.jpg" data-src-720-566="https://www.tate.org.uk/sites/default/files/styles/width-720/public/thumbnail_6.jpg" data-src-840-660="https://www.tate.org.uk/sites/default/files/styles/width-840/public/thumbnail_6.jpg" data-src-958-753="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/thumbnail_6.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/thumbnail_6.jpg" data-current-size="170-134"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/thumbnail_6.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/materials-and-objects/doris-salcedo" aria-label="Doris Salcedo" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">Materials and Objects: Doris Salcedo</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/performer-and-participant/paul-neagu" aria-label="Paul Neagu" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1150px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/133.5652; --aspect-ratio-percentage: 133.5652%; ">
+
+<img alt=""  data-src-170-227="https://www.tate.org.uk/sites/default/files/styles/width-170/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-240-321="https://www.tate.org.uk/sites/default/files/styles/width-240/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-340-454="https://www.tate.org.uk/sites/default/files/styles/width-340/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-420-561="https://www.tate.org.uk/sites/default/files/styles/width-420/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-480-641="https://www.tate.org.uk/sites/default/files/styles/width-480/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-600-801="https://www.tate.org.uk/sites/default/files/styles/width-600/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-720-962="https://www.tate.org.uk/sites/default/files/styles/width-720/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-840-1122="https://www.tate.org.uk/sites/default/files/styles/width-840/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-960-1282="https://www.tate.org.uk/sites/default/files/styles/width-960/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-src-1150-1536="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" data-current-size="170-227"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/paul_neagu_great_tactile_table_1970._c_estate_of_paul_neagu.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/performer-and-participant/paul-neagu" aria-label="Paul Neagu" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">Performer and Participant: Paul Neagu</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/performer-and-participant/edward-krasinski" aria-label="Edward Krasiński" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1200px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/69.25; --aspect-ratio-percentage: 69.25%; ">
+
+<img alt=""  data-src-170-118="https://www.tate.org.uk/sites/default/files/styles/width-170/public/krasinski_install_005_web_0.jpg" data-src-240-166="https://www.tate.org.uk/sites/default/files/styles/width-240/public/krasinski_install_005_web_0.jpg" data-src-340-235="https://www.tate.org.uk/sites/default/files/styles/width-340/public/krasinski_install_005_web_0.jpg" data-src-420-291="https://www.tate.org.uk/sites/default/files/styles/width-420/public/krasinski_install_005_web_0.jpg" data-src-480-332="https://www.tate.org.uk/sites/default/files/styles/width-480/public/krasinski_install_005_web_0.jpg" data-src-600-416="https://www.tate.org.uk/sites/default/files/styles/width-600/public/krasinski_install_005_web_0.jpg" data-src-720-499="https://www.tate.org.uk/sites/default/files/styles/width-720/public/krasinski_install_005_web_0.jpg" data-src-840-582="https://www.tate.org.uk/sites/default/files/styles/width-840/public/krasinski_install_005_web_0.jpg" data-src-960-665="https://www.tate.org.uk/sites/default/files/styles/width-960/public/krasinski_install_005_web_0.jpg" data-src-1200-831="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/krasinski_install_005_web_0.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/krasinski_install_005_web_0.jpg" data-current-size="170-118"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/krasinski_install_005_web_0.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/performer-and-participant/edward-krasinski" aria-label="Edward Krasiński" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">Performer and Participant: Edward Krasiński</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/materials-and-objects/mrinalini-mukherjee" aria-label="Mrinalini Mukherjee" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1319px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/116.4519; --aspect-ratio-percentage: 116.4519%; ">
+
+<img alt="Mrinalini Mukherjee, ‘Jauba’ 2000"  data-src-109-128="https://www.tate.org.uk/art/images/work/T/T14/T14458_7.jpg" data-src-219-256="https://www.tate.org.uk/art/images/work/T/T14/T14458_8.jpg" data-src-626-730="https://www.tate.org.uk/art/images/work/T/T14/T14458_9.jpg" data-src-1319-1536="https://www.tate.org.uk/art/images/work/T/T14/T14458_10.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/art/images/work/T/T14/T14458_7.jpg" data-current-size="109-128"
+ data-visible="" data-caption="Mrinalini Mukherjee, ‘Jauba’ 2000" />
+<noscript><img src="https://www.tate.org.uk/art/images/work/T/T14/T14458_7.jpg" alt="Mrinalini Mukherjee, ‘Jauba’ 2000" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/materials-and-objects/mrinalini-mukherjee" aria-label="Mrinalini Mukherjee" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">Materials and Objects: Mrinalini Mukherjee</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/visit/tate-modern/display/in-the-studio/ellsworth-kelly-and-anish-kapoor" aria-label="Ellsworth Kelly and Anish Kapoor" data-gtm-name="card_link_image" data-gtm-destination="page--display">
+                
+                    
+                        
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1031px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/148.9816; --aspect-ratio-percentage: 148.9816%; ">
+
+<img alt="Anish Kapoor, ‘Ishi’s Light’ 2003"  data-src-86-128="https://www.tate.org.uk/art/images/work/T/T12/T12004_7.jpg" data-src-172-256="https://www.tate.org.uk/art/images/work/T/T12/T12004_8.jpg" data-src-344-512="https://www.tate.org.uk/art/images/work/T/T12/T12004_9.jpg" data-src-1031-1536="https://www.tate.org.uk/art/images/work/T/T12/T12004_10.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/art/images/work/T/T12/T12004_7.jpg" data-current-size="86-128"
+ data-visible="" data-caption="Anish Kapoor, ‘Ishi’s Light’ 2003" />
+<noscript><img src="https://www.tate.org.uk/art/images/work/T/T12/T12004_7.jpg" alt="Anish Kapoor, ‘Ishi’s Light’ 2003" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Display</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/visit/tate-modern/display/in-the-studio/ellsworth-kelly-and-anish-kapoor" aria-label="Ellsworth Kelly and Anish Kapoor" data-gtm-name="card_link_title" data-gtm-destination="page--display">
+                      <span class="card__title--maintitle card__title--display">In the Studio: Ellsworth Kelly and Anish Kapoor</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-liverpool/exhibition/op-art-focus/make-and-create-station" aria-label="Make and Create Station" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1600px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/66.6875; --aspect-ratio-percentage: 66.6875%; ">
+
+<img alt=""  data-src-170-113="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-240-160="https://www.tate.org.uk/sites/default/files/styles/width-240/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-340-227="https://www.tate.org.uk/sites/default/files/styles/width-340/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-420-280="https://www.tate.org.uk/sites/default/files/styles/width-420/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-480-320="https://www.tate.org.uk/sites/default/files/styles/width-480/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-600-400="https://www.tate.org.uk/sites/default/files/styles/width-600/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-720-480="https://www.tate.org.uk/sites/default/files/styles/width-720/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-840-560="https://www.tate.org.uk/sites/default/files/styles/width-840/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-960-640="https://www.tate.org.uk/sites/default/files/styles/width-960/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-1200-800="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-1440-960="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-src-1600-1067="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" data-current-size="170-113"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_make_and_create_station_young_people_family_drawing_floor_1.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Liverpool</h3>
+      
+      <h3 class="card__label card__label--type">Workshop</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/whats-on/tate-liverpool/exhibition/op-art-focus/make-and-create-station" aria-label="Make and Create Station" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--workshops">Make and Create Station</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Daily until 5 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-britain/exhibition/lynette-yiadom-boakye/members-private-view-lynette-yiadom-boakye" aria-label="Members Private View: Lynette Yiadom-Boakye" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 2831px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/92.2642; --aspect-ratio-percentage: 92.2642%; ">
+
+<img alt=""  data-src-170-157="https://www.tate.org.uk/sites/default/files/styles/width-170/public/id_31_-_will_hart.jpg" data-src-240-221="https://www.tate.org.uk/sites/default/files/styles/width-240/public/id_31_-_will_hart.jpg" data-src-340-314="https://www.tate.org.uk/sites/default/files/styles/width-340/public/id_31_-_will_hart.jpg" data-src-420-388="https://www.tate.org.uk/sites/default/files/styles/width-420/public/id_31_-_will_hart.jpg" data-src-480-443="https://www.tate.org.uk/sites/default/files/styles/width-480/public/id_31_-_will_hart.jpg" data-src-600-554="https://www.tate.org.uk/sites/default/files/styles/width-600/public/id_31_-_will_hart.jpg" data-src-720-664="https://www.tate.org.uk/sites/default/files/styles/width-720/public/id_31_-_will_hart.jpg" data-src-840-775="https://www.tate.org.uk/sites/default/files/styles/width-840/public/id_31_-_will_hart.jpg" data-src-960-886="https://www.tate.org.uk/sites/default/files/styles/width-960/public/id_31_-_will_hart.jpg" data-src-1200-1107="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/id_31_-_will_hart.jpg" data-src-1440-1329="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/id_31_-_will_hart.jpg" data-src-1680-1550="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/id_31_-_will_hart.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/id_31_-_will_hart.jpg" data-current-size="170-157"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/id_31_-_will_hart.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Britain</h3>
+      
+      <h3 class="card__label card__label--type">Private View</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title card__title-small">
+                
+                  <a href="/whats-on/tate-britain/exhibition/lynette-yiadom-boakye/members-private-view-lynette-yiadom-boakye" aria-label="Members Private View: Lynette Yiadom-Boakye" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--private-view">Members Private View: Lynette Yiadom-Boakye</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">19 May 2020, 21 May 2020, 7 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-liverpool/exhibition/op-art-focus" aria-label="Op Art in Focus" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1600px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/66.6875; --aspect-ratio-percentage: 66.6875%; ">
+
+<img alt=""  data-src-170-113="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-240-160="https://www.tate.org.uk/sites/default/files/styles/width-240/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-340-227="https://www.tate.org.uk/sites/default/files/styles/width-340/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-420-280="https://www.tate.org.uk/sites/default/files/styles/width-420/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-480-320="https://www.tate.org.uk/sites/default/files/styles/width-480/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-600-400="https://www.tate.org.uk/sites/default/files/styles/width-600/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-720-480="https://www.tate.org.uk/sites/default/files/styles/width-720/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-840-560="https://www.tate.org.uk/sites/default/files/styles/width-840/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-960-640="https://www.tate.org.uk/sites/default/files/styles/width-960/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-1200-800="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-1440-960="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-src-1600-1067="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" data-current-size="170-113"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/tate_liverpool_op_art_stripe_floor_people_walking_symmetrical.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Liverpool</h3>
+      
+      <h3 class="card__label card__label--type">Exhibition</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/whats-on/tate-liverpool/exhibition/op-art-focus" aria-label="Op Art in Focus" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--exhibition">Op Art in Focus</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 12 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-modern/exhibition/andy-warhol/members-private-view-andy-warhol" aria-label="Members Private View: Andy Warhol" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1204px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/127.5748; --aspect-ratio-percentage: 127.5748%; ">
+
+<img alt="Robert Mapplethorpe, ‘Andy Warhol’ 1983"  data-src-100-128="https://www.tate.org.uk/art/images/work/AR/AR00150_7.jpg" data-src-201-256="https://www.tate.org.uk/art/images/work/AR/AR00150_8.jpg" data-src-572-730="https://www.tate.org.uk/art/images/work/AR/AR00150_9.jpg" data-src-1204-1536="https://www.tate.org.uk/art/images/work/AR/AR00150_10.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/art/images/work/AR/AR00150_7.jpg" data-current-size="100-128"
+ data-visible="" data-caption="Robert Mapplethorpe, ‘Andy Warhol’ 1983" />
+<noscript><img src="https://www.tate.org.uk/art/images/work/AR/AR00150_7.jpg" alt="Robert Mapplethorpe, ‘Andy Warhol’ 1983" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Modern</h3>
+      
+      <h3 class="card__label card__label--type">Private View</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/whats-on/tate-modern/exhibition/andy-warhol/members-private-view-andy-warhol" aria-label="Members Private View: Andy Warhol" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--private-view">Members Private View: Andy Warhol</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">11 Mar 2020, 2 Jun 2020, 2 Jul 2020, 14 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-liverpool/exhibition/don-mccullin/cyanotype-printmaking-course" aria-label="Cyanotype Printmaking Course: Where it all began" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 1534px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/133.5072; --aspect-ratio-percentage: 133.5072%; ">
+
+<img alt=""  data-src-170-227="https://www.tate.org.uk/sites/default/files/styles/width-170/public/cyano_example.jpg" data-src-240-320="https://www.tate.org.uk/sites/default/files/styles/width-240/public/cyano_example.jpg" data-src-340-454="https://www.tate.org.uk/sites/default/files/styles/width-340/public/cyano_example.jpg" data-src-420-561="https://www.tate.org.uk/sites/default/files/styles/width-420/public/cyano_example.jpg" data-src-480-641="https://www.tate.org.uk/sites/default/files/styles/width-480/public/cyano_example.jpg" data-src-600-801="https://www.tate.org.uk/sites/default/files/styles/width-600/public/cyano_example.jpg" data-src-720-961="https://www.tate.org.uk/sites/default/files/styles/width-720/public/cyano_example.jpg" data-src-840-1121="https://www.tate.org.uk/sites/default/files/styles/width-840/public/cyano_example.jpg" data-src-960-1282="https://www.tate.org.uk/sites/default/files/styles/width-960/public/cyano_example.jpg" data-src-1200-1602="https://www.tate.org.uk/sites/default/files/styles/width-1200/public/cyano_example.jpg" data-src-1440-1923="https://www.tate.org.uk/sites/default/files/styles/width-1440/public/cyano_example.jpg" data-src-1534-2048="https://www.tate.org.uk/sites/default/files/styles/width-1680/public/cyano_example.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/cyano_example.jpg" data-current-size="170-227"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/cyano_example.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Liverpool</h3>
+      
+      <h3 class="card__label card__label--type">Course</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/whats-on/tate-liverpool/exhibition/don-mccullin/cyanotype-printmaking-course" aria-label="Cyanotype Printmaking Course: Where it all began" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--courses">Cyanotype Printmaking Course: Where it all began</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Every Fri until 17 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-britain/festival/queer-and-now-2020" aria-label="Queer and Now 2020" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 600px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/112.5; --aspect-ratio-percentage: 112.5%; ">
+
+<img alt=""  data-src-170-191="https://www.tate.org.uk/sites/default/files/styles/width-170/public/mar_0090_queer_and_now_tate_website_v3_3_0.jpg" data-src-240-270="https://www.tate.org.uk/sites/default/files/styles/width-240/public/mar_0090_queer_and_now_tate_website_v3_3_0.jpg" data-src-340-382="https://www.tate.org.uk/sites/default/files/styles/width-340/public/mar_0090_queer_and_now_tate_website_v3_3_0.jpg" data-src-420-472="https://www.tate.org.uk/sites/default/files/styles/width-420/public/mar_0090_queer_and_now_tate_website_v3_3_0.jpg" data-src-480-540="https://www.tate.org.uk/sites/default/files/styles/width-480/public/mar_0090_queer_and_now_tate_website_v3_3_0.jpg" data-src-600-675="https://www.tate.org.uk/sites/default/files/styles/width-840/public/mar_0090_queer_and_now_tate_website_v3_3_0.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/mar_0090_queer_and_now_tate_website_v3_3_0.jpg" data-current-size="170-191"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/mar_0090_queer_and_now_tate_website_v3_3_0.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Britain</h3>
+      
+      <h3 class="card__label card__label--type">Festival</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title">
+                
+                  <a href="/whats-on/tate-britain/festival/queer-and-now-2020" aria-label="Queer and Now 2020" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--festival">Queer and Now 2020</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">25 Jul 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                <span class="card__label card__label--status">Free entry</span>
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+    
+        
+            
+                <div class="card">
+                    
+
+
+
+
+<div class="card__inner">
+  
+  
+    
+    <div class="card-media card-media--image">
+        <div class="card-media__inner responsive-container">
+            <a href="/whats-on/tate-britain/exhibition/lynette-yiadom-boakye" aria-label="Lynette Yiadom-Boakye: Fly In League With The Night" data-gtm-name="card_link_image" data-gtm-destination="page--event">
+                
+                    
+                        
+
+<div class="responsive-container__outer-sizer" style=" max-width: 827px; margin: 0 auto;">
+  <div class="responsive-container__sizer" 
+	style="--aspect-ratio: 100/107.0133; --aspect-ratio-percentage: 107.0133%; ">
+
+<img alt=""  data-src-170-182="https://www.tate.org.uk/sites/default/files/styles/width-170/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" data-src-240-257="https://www.tate.org.uk/sites/default/files/styles/width-240/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" data-src-340-364="https://www.tate.org.uk/sites/default/files/styles/width-340/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" data-src-420-449="https://www.tate.org.uk/sites/default/files/styles/width-420/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" data-src-480-514="https://www.tate.org.uk/sites/default/files/styles/width-480/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" data-src-600-642="https://www.tate.org.uk/sites/default/files/styles/width-600/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" data-src-720-770="https://www.tate.org.uk/sites/default/files/styles/width-720/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" data-src-827-885="https://www.tate.org.uk/sites/default/files/styles/width-840/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg"
+ src="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/images/placeholder/placeholder-4x3.gif"
+ data-original="https://www.tate.org.uk/sites/default/files/styles/width-170/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" data-current-size="170-182"
+ data-visible="" data-caption="" />
+<noscript><img src="https://www.tate.org.uk/sites/default/files/styles/width-170/public/lynette_yiadom-boakye_a_passion_like_no_other_2012.jpg" alt="" /></noscript>
+</div></div>
+
+
+                    
+                
+            </a>
+        </div>
+    </div>
+	
+  
+  
+    <div class="card-header">
+      
+      <h3 class="card__label card__label--type">Tate Britain</h3>
+      
+      <h3 class="card__label card__label--type">Exhibition</h3>
+      
+    </div>
+  
+  
+    <div class="card-content ">
+        <div class="card-content__inner">
+            <h2 class="card__title card__title-small">
+                
+                  <a href="/whats-on/tate-britain/exhibition/lynette-yiadom-boakye" aria-label="Lynette Yiadom-Boakye: Fly In League With The Night" data-gtm-name="card_link_title" data-gtm-destination="page--event">
+                      <span class="card__title--maintitle card__title--exhibition">Lynette Yiadom-Boakye: Fly In League With The Night</span>
+                  </a>
+                
+            </h2>
+
+            
+
+            
+
+            
+                
+                    
+                    
+                    <div class="card__when">
+                        <span class="card__when--date">Until 31 Aug 2020</span>
+                    </div>
+                    
+                    
+                
+                
+                
+                
+                
+                
+                <!-- Button to launch Net Art acquisition links -->
+                
+                <!-- end button -->
+            
+        </div>
+    </div>
+  
+  
+  
+</div>
+
+                </div>
+            
+        
+    
+
+
+
+
+
+    
+        </div>
+        
+        <noscript class="card-group__paginator">
+    <div class="block pager-block">
+        <div class="pager-block--centered">
+            <h2 class="block__title h-e">Pagination</h2>
+            <ul class="pager pager--pages">
+                
+
+                
+                    
+                        <li class="pager__item pager__item--active" aria-current="page"><a href="/whats-on?page=1" data-gtm-name="pager_link_number" data-gtm-destination="landing-page--whats-on">1</a></li>
+                    
+                
+                    
+                        <li class="pager__item"><a href="/whats-on?page=2" data-gtm-name="pager_link_number" data-gtm-destination="landing-page--whats-on">2</a></li>
+                    
+                
+                    
+                        <li class="pager__item"><a href="/whats-on?page=3" data-gtm-name="pager_link_number" data-gtm-destination="landing-page--whats-on">3</a></li>
+                    
+                
+                    
+                        <li class="pager__item"><a href="/whats-on?page=4" data-gtm-name="pager_link_number" data-gtm-destination="landing-page--whats-on">4</a></li>
+                    
+                
+                    
+                        <li class="pager__item"><a href="/whats-on?page=5" data-gtm-name="pager_link_number" data-gtm-destination="landing-page--whats-on">5</a></li>
+                    
+                
+
+                
+                    <li class="pager__item pager__item--next"><a href="/whats-on?page=2" data-gtm-name="pager_link_next" data-gtm-destination="landing-page--whats-on">Next page</a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+</noscript>
+        
+    
+
+
+
+    </div>
+
+
+            
+        
+        </div>
+    </div>
+    
+
+
+
+    </main>
+
+    <footer id="footer" itemscope="" itemtype="https://schema.org/WPFooter">
+        
+        <div class="container inc__bt--solid footer__primary">
+            <div class="container__inner">
+                <div class="grid-outer">
+                    <div class="grid-col--50 footer__follow-us">
+                        <div class="footer__social-links"><div class="list-wrapper"><h2 class="list__title block__title">Join in</h2><ul class="list list--inline list--social list--social--blue"><li class="list__item list__item--social list__item--twitter list__item--first"><a href="https://twitter.com/tate" title="Twitter" data-gtm-name="Social-footer">Twitter</a></li><li class="list__item list__item--social list__item--facebook"><a href="https://www.facebook.com/tategallery" title="Facebook" data-gtm-name="Social-footer">Facebook</a></li><li class="list__item list__item--social list__item--youtube"><a href="https://www.youtube.com/user/tate" title="Youtube" data-gtm-name="Social-footer">YouTube</a></li><li class="list__item list__item--social list__item--instagram"><a href="https://www.instagram.com/tate" title="Instagram" data-gtm-name="Social-footer">Instagram</a></li><li class="list__item list__item--social list__item--pinterest list__item--last"><a href="https://pinterest.com/tategallery/" title="Pinterest" data-gtm-name="Social-footer">Pinterest</a></li></ul></div></div>
+                        <div class="footer__newsletter">
+                            <form class="form__newsletter-signup" action="/subscribe/preferences" method="post">
+                                <div class="form-section form-section--multicolumn">
+                                    <div class="form-section__inner">
+                                        <div class="form-section__content">
+                                            <fieldset class="fieldset--button-inline fieldset--label-hidden">
+                                                <legend class="h-e">Sign up to emails</legend>
+                                                <h2 class="fieldset-title">Sign up to emails</h2>
+                                                <div class="form-footer">
+                                                    <div class="form-item form-item--text">
+                                                        <label id="newsletter-label" for="email">Email address</label>
+                                                        <input type="email" id="email" class="form-item__input form-item__input--text" name="email" placeholder="Email address" aria-label="Subscribe to email newsletter" autocomplete="email"/>
+                                                        <p><small>Tate’s <a href="/about-us/policies-and-procedures/tate-privacy-policy">privacy policy</a></small></p>
+                                                    </div>
+                                                    <div class="form-item form-item--button">
+                                                        <button type="submit" class="btn btn--submit">
+                                                            <span class="btn__text">Submit</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="grid-col--25 footer__quick-links footer__quick-links--about">
+                        <div class="list-wrapper">
+                            <h2 class="list__title block__title">About</h2>
+                            <ul class="list list--links">
+                                <li class="list__item"><a href="/about-us" data-gtm-name="Navigation-footer">About us</a></li>
+                                <li class="list__item"><a href="/about-us/collection" data-gtm-name="Navigation-footer">Our collection</a></li>
+                                <li class="list__item"><a href="/about-us/policies-and-procedures/website-terms-use" data-gtm-name="Navigation-footer">Terms and copyright</a></li>
+                                <li class="list__item"><a href="/about-us/governance" data-gtm-name="Navigation-footer">Governance</a></li>
+                                <li class="list__item"><a href="https://www.tate-images.com" data-gtm-name="Navigation-footer">Picture library</a></li>
+                                <li class="list__item"><a href="/artist-rooms" data-gtm-name="Navigation-footer">ARTIST ROOMS</a></li>
+                                <li class="list__item"><a href="/kids" data-gtm-name="Navigation-footer">Tate Kids</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid-col--25 footer__quick-links footer__quick-links--support">
+                        <div class="list-wrapper">
+                            <h2 class="list__title block__title">Support</h2>
+                            <ul class="list list--links">
+                                <li class="list__item"><a href="/tate-collective" data-gtm-name="Navigation-footer">Tate Collective</a></li>
+                                <li class="list__item"><a href="/join-support/tate-members" data-gtm-name="Navigation-footer">Members</a></li>
+                                <li class="list__item"><a href="/join-support/tate-patrons" data-gtm-name="Navigation-footer">Patrons</a></li>
+                                <li class="list__item"><a href="/join-support/donate" data-gtm-name="Navigation-footer">Donate</a></li>
+                                <li class="list__item"><a href="/about-us/corporate-support" data-gtm-name="Navigation-footer">Corporate</a></li>
+                                <li class="list__item"><a href="https://shop.tate.org.uk/account" data-gtm-name="Navigation-footer">My account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container inc__bt--solid footer__secondary">
+            <div class="container__inner">
+                <div class="grid-outer grid-outer--trigger-tablet">
+                    <div class="grid-col--100">
+                        <div class="footer__logo">
+                            <span class="icon icon--logo footer-logo" aria-label="Tate logo"></span>
+                        </div>
+                        <div class="footer__site-links">
+                            <div class="list-wrapper">
+                                <ul class="list list--links list--inline">
+                                    <li class="list__item"><a href="/press" data-gtm-name="Navigation-footer">Press</a></li>
+                                    <li class="list__item"><a href="/about-us/working-at-tate" data-gtm-name="Navigation-footer">Jobs</a></li>
+                                    <li class="list__item"><a href="/about-us/policies-and-procedures" data-gtm-name="Navigation-footer">Privacy and cookies</a></li>
+                                    <li class="list__item"><a href="/about-us/contact-us" data-gtm-name="Navigation-footer">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+</div> <!-- end div.container -->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script>
+
+var s=document.createElement("script"),b="https://storage.googleapis.com/tate-digital/ui/3.22.0-compressed/static/js/",E="TateUI.min.js",e="TateUI-ES5.min.js";function S(){"use strict";try{eval("var A=(x)=>x");}catch(e){return false;}return true;}if(S()){s.src=b+E;}else{s.src=b+e;}document.body.appendChild(s);
+</script>
+
+
+
+
+
+
+
+    <div class="notification-container" id="notifications-footer"></div>
+
+</body>
+</html>
+

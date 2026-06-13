@@ -282,7 +282,8 @@ Implemented:
 - exact Wayback snapshot fetcher for hand-curated archived pages
 - second-layer source config for annual reports, provenance, repatriation, exhibition, and collection-note pages
 - second-layer source probe
-- second-layer corpus builder with page-type fields
+- second-layer Wayback target config and historical snapshot fetcher
+- second-layer corpus builder with page-type and source-layer/year fields
 - one-command source-probe pipeline runner
 - term-family taxonomy for civilization/world culture, provenance/ownership, restitution/repatriation, decolonization/reckoning, access/public, community/inclusion, and research/scholarship
 - processed page table
@@ -301,6 +302,7 @@ Implemented:
 - second-layer page table
 - second-layer page-term counts
 - second-layer term-family-by-page-type table
+- second-layer term-family-by-source-layer-year table
 - readiness gate
 
 Current corpus:
@@ -312,9 +314,13 @@ Current corpus:
 - current source genres represented: about, collection, education, exhibition, and research pages
 - 19 configured second-layer routes across annual-report, provenance, repatriation, exhibition, and collection-note pages
 - 19 accessible second-layer source snapshots
-- second-layer corpus tier: schema-probe
-- second-layer status: source-probed
-- second-layer page-type counts: 6 annual-report, 6 provenance, 3 exhibition, 2 collection-note, 2 repatriation
+- 5 historical second-layer Wayback snapshots across annual-report and exhibition pages
+- second-layer corpus tier: longitudinal-source-probe
+- second-layer status: historical-source-probed
+- second-layer source-layer counts: 19 current, 5 Wayback
+- second-layer page-type counts: 9 annual-report, 6 provenance, 5 exhibition, 2 collection-note, 2 repatriation
+- second-layer historical page-type counts: 3 annual-report, 2 exhibition
+- second-layer historical year counts: 2 in 2015, 3 in 2020
 - audit packet: 0 flagged rows after weak-page exclusions
 - publication handoff: ready for copyedit as a source-caveated longitudinal post
 - publication post: `reports/post.md`, a polished source-layer methods draft
@@ -324,8 +330,8 @@ Current corpus:
 Next implementation moves:
 
 - final editorial review for `reports/post.md`
-- retain the five-page-type current source mix for historical backfill
-- backfill historical snapshots for retained second-layer routes
+- retain the five-page-type current source mix plus 5 captured historical second-layer snapshots
+- expand curated historical snapshots for provenance, repatriation, and collection-note page types
 - join second-layer page-type outputs into the main readiness gate after manual quote review
 - review source snippets by hand before quoting
 

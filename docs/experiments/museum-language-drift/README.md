@@ -38,6 +38,7 @@ node docs/experiments/museum-language-drift/scripts/build-audit-packet.mjs
 node docs/experiments/museum-language-drift/scripts/build-publication-handoff.mjs
 node docs/experiments/museum-language-drift/scripts/check-readiness.mjs
 node docs/experiments/museum-language-drift/scripts/probe-second-layer-sources.mjs --strict
+node docs/experiments/museum-language-drift/scripts/fetch-second-layer-wayback-snapshots.mjs --years=2015,2020 --max-snapshots=12
 node docs/experiments/museum-language-drift/scripts/build-second-layer-corpus.mjs
 ```
 
@@ -63,9 +64,11 @@ The scripts write:
 - `reports/readiness.md`
 - `reports/readiness.json`
 - `data/raw/second-layer-sources/<run-date>/`
+- `data/raw/second-layer-wayback/<run-date>/`
 - `data/processed/second-layer-pages.json`
 - `data/processed/second-layer-page-term-counts.csv`
 - `data/processed/second-layer-term-family-by-page-type.csv`
+- `data/processed/second-layer-term-family-by-source-layer-year.csv`
 - `reports/second-layer-source-inventory.md`
 - `reports/second-layer-corpus-readiness.md`
 

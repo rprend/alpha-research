@@ -1,0 +1,711 @@
+{
+  "runDate": "2026-06-13",
+  "source": "Internet Archive Wayback Machine",
+  "sourceLayer": "wayback-second-layer",
+  "sourceConfig": "config/second-layer-wayback-targets.json",
+  "years": [
+    2015,
+    2020
+  ],
+  "minWords": 80,
+  "resume": true,
+  "pageTypeFilter": [],
+  "maxSnapshots": 12,
+  "startedAt": "2026-06-13T01:24:04.301Z",
+  "requests": [
+    {
+      "museum": "Tate",
+      "page_type": "annual-report",
+      "url": "https://www.tate.org.uk/about-us/tate-reports",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.tate.org.uk/about-us/tate-reports",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Tate",
+      "page_type": "annual-report",
+      "url": "https://www.tate.org.uk/about-us/tate-reports",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.tate.org.uk/about-us/tate-reports",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Tate",
+      "page_type": "exhibition",
+      "url": "https://www.tate.org.uk/whats-on",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.tate.org.uk/whats-on",
+      "year": 2015,
+      "timestamp": "20150728082347",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20150728082347id_/https://www.tate.org.uk/whats-on",
+      "httpStatus": 200,
+      "wordCount": 1237,
+      "title": "What&#039;s on | Tate",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2015/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2015/metadata.json",
+      "status": 200
+    },
+    {
+      "museum": "Tate",
+      "page_type": "exhibition",
+      "url": "https://www.tate.org.uk/whats-on",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.tate.org.uk/whats-on",
+      "year": 2020,
+      "timestamp": "20200622225232",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200622225232id_/https://www.tate.org.uk/whats-on",
+      "httpStatus": 200,
+      "wordCount": 418,
+      "title": "What’s On | Tate",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2020/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2020/metadata.json",
+      "status": 200
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "annual-report",
+      "url": "https://www.getty.edu/about/governance/finance.html",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.getty.edu/about/governance/finance.html",
+      "year": 2015,
+      "timestamp": "20150706232150",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20150706232150id_/https://www.getty.edu/about/governance/finance.html",
+      "httpStatus": 200,
+      "wordCount": 275,
+      "title": "Financial Information (Getty About Us)",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2015/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2015/metadata.json",
+      "status": 200
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "annual-report",
+      "url": "https://www.getty.edu/about/governance/finance.html",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.getty.edu/about/governance/finance.html",
+      "year": 2020,
+      "timestamp": "20200808023228",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200808023228id_/https://www.getty.edu/about/governance/finance.html",
+      "httpStatus": 200,
+      "wordCount": 189,
+      "title": "Financial Information | About the Getty",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2020/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2020/metadata.json",
+      "status": 200
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "provenance",
+      "url": "https://www.getty.edu/museum/provenance/",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.getty.edu/museum/provenance/",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "provenance",
+      "url": "https://www.getty.edu/museum/provenance/",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.getty.edu/museum/provenance/",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "annual-report",
+      "url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "annual-report",
+      "url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "repatriation",
+      "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "repatriation",
+      "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "annual-report",
+      "url": "https://www.artic.edu/about-us/financial-reporting",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.artic.edu/about-us/financial-reporting",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "annual-report",
+      "url": "https://www.artic.edu/about-us/financial-reporting",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.artic.edu/about-us/financial-reporting",
+      "year": 2020,
+      "timestamp": "20200707170454",
+      "originalStatus": "200",
+      "archiveUrl": "https://web.archive.org/web/20200707170454id_/https://www.artic.edu/about-us/financial-reporting",
+      "httpStatus": 200,
+      "wordCount": 204,
+      "title": "Financial Reporting | The Art Institute of Chicago",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/annual-report/art-institute-of-chicago/2020/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/annual-report/art-institute-of-chicago/2020/metadata.json",
+      "status": 200
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "provenance",
+      "url": "https://www.artic.edu/collection-information/provenance-research",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.artic.edu/collection-information/provenance-research",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "provenance",
+      "url": "https://www.artic.edu/collection-information/provenance-research",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.artic.edu/collection-information/provenance-research",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "annual-report",
+      "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "annual-report",
+      "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "provenance",
+      "url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "provenance",
+      "url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "repatriation",
+      "url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "repatriation",
+      "url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "provenance",
+      "url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "provenance",
+      "url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "exhibition",
+      "url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "exhibition",
+      "url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "collection-note",
+      "url": "https://philamuseum.org/collection",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://philamuseum.org/collection",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "collection-note",
+      "url": "https://philamuseum.org/collection",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://philamuseum.org/collection",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "provenance",
+      "url": "https://www.philamuseum.org/provenance",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.philamuseum.org/provenance",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "provenance",
+      "url": "https://www.philamuseum.org/provenance",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.philamuseum.org/provenance",
+      "year": 2020,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "annual-report",
+      "url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+      "year": 2015,
+      "status": "no-snapshot"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "annual-report",
+      "url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+      "year": 2020,
+      "status": "no-snapshot"
+    }
+  ],
+  "errors": [
+    {
+      "museum": "Tate",
+      "page_type": "annual-report",
+      "url": "https://www.tate.org.uk/about-us/tate-reports",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.tate.org.uk/about-us/tate-reports",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Tate",
+      "page_type": "annual-report",
+      "url": "https://www.tate.org.uk/about-us/tate-reports",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.tate.org.uk/about-us/tate-reports",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "provenance",
+      "url": "https://www.getty.edu/museum/provenance/",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.getty.edu/museum/provenance/",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "provenance",
+      "url": "https://www.getty.edu/museum/provenance/",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.getty.edu/museum/provenance/",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "annual-report",
+      "url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "annual-report",
+      "url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.rijksmuseum.nl/en/organisation/annual-reports",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "repatriation",
+      "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Rijksmuseum",
+      "page_type": "repatriation",
+      "url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "annual-report",
+      "url": "https://www.artic.edu/about-us/financial-reporting",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.artic.edu/about-us/financial-reporting",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "provenance",
+      "url": "https://www.artic.edu/collection-information/provenance-research",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.artic.edu/collection-information/provenance-research",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "provenance",
+      "url": "https://www.artic.edu/collection-information/provenance-research",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.artic.edu/collection-information/provenance-research",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "annual-report",
+      "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "annual-report",
+      "url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/info/reports-strategic-plans-and-policies",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "provenance",
+      "url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "provenance",
+      "url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/research/projects/provenance-research-at-the-va",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "repatriation",
+      "url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Victoria and Albert Museum",
+      "page_type": "repatriation",
+      "url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.vam.ac.uk/info/restitution-and-repatriation",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "provenance",
+      "url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "provenance",
+      "url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.clevelandart.org/about-collection/nazi-era-provenance",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "exhibition",
+      "url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Cleveland Museum of Art",
+      "page_type": "exhibition",
+      "url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.clevelandart.org/whats-on/exhibitions",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "collection-note",
+      "url": "https://philamuseum.org/collection",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://philamuseum.org/collection",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "collection-note",
+      "url": "https://philamuseum.org/collection",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://philamuseum.org/collection",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "provenance",
+      "url": "https://www.philamuseum.org/provenance",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.philamuseum.org/provenance",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Philadelphia Museum of Art",
+      "page_type": "provenance",
+      "url": "https://www.philamuseum.org/provenance",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.philamuseum.org/provenance",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "annual-report",
+      "url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+      "year": 2015,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    },
+    {
+      "museum": "Natural History Museum London",
+      "page_type": "annual-report",
+      "url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.nhm.ac.uk/about-us/annual-reviews.html",
+      "year": 2020,
+      "status": "no-snapshot",
+      "error": "No CDX snapshot found"
+    }
+  ],
+  "finishedAt": "2026-06-13T01:26:26.590Z",
+  "fetchedRecordCount": 5,
+  "pageTypeCounts": {
+    "annual-report": 3,
+    "exhibition": 2
+  },
+  "museumCounts": {
+    "J. Paul Getty Museum": 2,
+    "Tate": 2,
+    "Art Institute of Chicago": 1
+  },
+  "yearCounts": {
+    "2015": 2,
+    "2020": 3
+  },
+  "snapshots": [
+    {
+      "museum": "Art Institute of Chicago",
+      "page_type": "annual-report",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.artic.edu/about-us/financial-reporting",
+      "year": 2020,
+      "url": "https://www.artic.edu/about-us/financial-reporting",
+      "archiveUrl": "https://web.archive.org/web/20200707170454id_/https://www.artic.edu/about-us/financial-reporting",
+      "timestamp": "20200707170454",
+      "status": 200,
+      "wordCount": 204,
+      "title": "Financial Reporting | The Art Institute of Chicago",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/annual-report/art-institute-of-chicago/2020/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/annual-report/art-institute-of-chicago/2020/metadata.json"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "annual-report",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.getty.edu/about/governance/finance.html",
+      "year": 2015,
+      "url": "https://www.getty.edu/about/governance/finance.html",
+      "archiveUrl": "https://web.archive.org/web/20150706232150id_/https://www.getty.edu/about/governance/finance.html",
+      "timestamp": "20150706232150",
+      "status": 200,
+      "wordCount": 275,
+      "title": "Financial Information (Getty About Us)",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2015/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2015/metadata.json"
+    },
+    {
+      "museum": "J. Paul Getty Museum",
+      "page_type": "annual-report",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.getty.edu/about/governance/finance.html",
+      "year": 2020,
+      "url": "https://www.getty.edu/about/governance/finance.html",
+      "archiveUrl": "https://web.archive.org/web/20200808023228id_/https://www.getty.edu/about/governance/finance.html",
+      "timestamp": "20200808023228",
+      "status": 200,
+      "wordCount": 189,
+      "title": "Financial Information | About the Getty",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2020/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2020/metadata.json"
+    },
+    {
+      "museum": "Tate",
+      "page_type": "exhibition",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.tate.org.uk/whats-on",
+      "year": 2015,
+      "url": "https://www.tate.org.uk/whats-on",
+      "archiveUrl": "https://web.archive.org/web/20150728082347id_/https://www.tate.org.uk/whats-on",
+      "timestamp": "20150728082347",
+      "status": 200,
+      "wordCount": 1237,
+      "title": "What&#039;s on | Tate",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2015/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2015/metadata.json"
+    },
+    {
+      "museum": "Tate",
+      "page_type": "exhibition",
+      "source_layer": "wayback-second-layer",
+      "source_url": "https://www.tate.org.uk/whats-on",
+      "year": 2020,
+      "url": "https://www.tate.org.uk/whats-on",
+      "archiveUrl": "https://web.archive.org/web/20200622225232id_/https://www.tate.org.uk/whats-on",
+      "timestamp": "20200622225232",
+      "status": 200,
+      "wordCount": 418,
+      "title": "What’s On | Tate",
+      "responsePath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2020/index.html",
+      "metadataPath": "data/raw/second-layer-wayback/2026-06-13/exhibition/tate/2020/metadata.json"
+    }
+  ],
+  "existingRecordCount": 5,
+  "recordCount": 5
+}

@@ -1,0 +1,19 @@
+{
+  "museum": "J. Paul Getty Museum",
+  "page_type": "annual-report",
+  "url": "https://www.getty.edu/about/governance/finance.html",
+  "source_layer": "wayback-second-layer",
+  "source_url": "https://www.getty.edu/about/governance/finance.html",
+  "year": 2015,
+  "timestamp": "20150706232150",
+  "originalStatus": "200",
+  "archiveUrl": "https://web.archive.org/web/20150706232150id_/https://www.getty.edu/about/governance/finance.html",
+  "httpStatus": 200,
+  "wordCount": 275,
+  "title": "Financial Information (Getty About Us)",
+  "responsePath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2015/index.html",
+  "metadataPath": "data/raw/second-layer-wayback/2026-06-13/annual-report/j-paul-getty-museum/2015/metadata.json",
+  "status": 200,
+  "fetchedAt": "2026-06-13T01:24:34.541Z",
+  "bytes": 12516
+}
