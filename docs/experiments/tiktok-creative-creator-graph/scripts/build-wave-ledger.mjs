@@ -93,6 +93,9 @@ function main() {
   }
   const importIndex = indexImportWaves(importWaves)
   const reviewSampleWaveIds = new Set(reviewSample.map((row) => row.import_wave_id).filter(Boolean))
+  const liveHistory = acquisitionRunHistory.filter((row) => !row.dry_run)
+  const zeroYieldRuns = liveHistory.filter((row) => Number(row.output_rows ?? 0) === 0 && Number(row.failed ?? 0) === 0)
+  const latestRecordedRun = acquisitionRunHistory.at(-1)
 
   const ledger = waves.map((wave) => {
     const runs = runsByWave.get(wave.wave_id) ?? []
@@ -117,7 +120,7 @@ function main() {
     const dryRunOnly = runs.length > 0 && liveRuns.length === 0
     const latestLiveRun = liveRuns.at(-1)
     const liveRunStatus = latestLiveRun
-      ? latestLiveRun.failed > 0 ? 'failed' : latestLiveRun.succeeded > 0 ? 'succeeded' : 'attempted'
+      ? latestLiveRun.failed > 0 ? 'failed' : latestLiveRun.succeeded > 0 ? 'succeeded' : Number(latestLiveRun.zero_yield ?? 0) > 0 ? 'zero_yield' : 'attempted'
       : 'not_started'
     const status = imported
       ? importedOutputAccounts > 0 ? 'imported' : 'imported_empty'
@@ -180,6 +183,9 @@ function main() {
     run_attempts: ledger.reduce((sum, row) => sum + Number(row.run_attempts ?? 0), 0),
     dry_run_attempts: ledger.reduce((sum, row) => sum + Number(row.dry_run_attempts ?? 0), 0),
     live_run_attempts: ledger.reduce((sum, row) => sum + Number(row.live_run_attempts ?? 0), 0),
+    zero_yield_live_runs: zeroYieldRuns.length,
+    latest_recorded_provider: latestRecordedRun?.provider ?? '',
+    latest_recorded_output_rows: latestRecordedRun?.output_rows ?? '',
     review_needed: ledger.filter((row) => row.needs_review_sample).length,
     latest_run_wave: latestRunWave,
     next_ready_wave: nextReady?.wave_id ?? '',
@@ -208,6 +214,9 @@ Generated: ${summary.generated_at}
 - Run attempts: ${summary.run_attempts}
 - Dry-run attempts: ${summary.dry_run_attempts}
 - Live-run attempts: ${summary.live_run_attempts}
+- Zero-yield live runs: ${summary.zero_yield_live_runs}
+- Latest recorded provider: ${summary.latest_recorded_provider || 'none'}
+- Latest recorded output rows: ${summary.latest_recorded_output_rows === '' ? 'n/a' : summary.latest_recorded_output_rows}
 - Review needed: ${summary.review_needed}
 - Latest run wave: ${summary.latest_run_wave || 'none'}
 - Next ready wave: ${summary.next_ready_wave || 'none'}

@@ -1,6 +1,6 @@
 # TikTok Creative Creator Graph Publication Handoff
 
-Generated: 2026-06-13T01:48:52.618Z
+Generated: 2026-06-13T01:54:13.965Z
 Publish state: not-ready-production-data
 Readiness status: incomplete
 
@@ -40,7 +40,10 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - Acquisition import untraced rows: 96
 - Acquisition runner runnable tasks: 2
 - Acquisition runner skipped tasks: 0
-- Acquisition run history: 16
+- Acquisition run history: 17
+- Latest recorded acquisition provider: public_web
+- Latest recorded acquisition output rows: 0
+- Zero-yield live acquisition runs: 2
 - Scale waves: 10000
 - Wave ledger rows: 10000
 - Wave ledger planned: 10000
@@ -123,6 +126,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 - provider_preflight_available: pass
 - live_run_manifest_available: pass
 - live_manifest_runner_exercised: pass
+- latest_live_public_web_attempt_zero_yield: pass
 - refresh_plan_available: pass
 
 ## Registration Constraints
@@ -136,6 +140,7 @@ Build roughly 50,000 TikTok-visible creative creator accounts worth learning fro
 ## Next Actions
 
 - Acquire and import 49993 more useful creators through provider/search/graph batches.
+- Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.
 - Add 4994 more excellent creators for benchmark-quality coverage.
 - Collect 496 more human review decisions before production claims.
 - Run full workflow, release package, verification, scale plan, refresh plan, and readiness after each import wave.

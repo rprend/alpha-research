@@ -1,6 +1,6 @@
 # Acquisition Run
 
-Generated: 2026-06-13T01:48:52.499Z
+Generated: 2026-06-13T01:54:13.844Z
 
 - Provider: apify
 - Env file loaded: true
@@ -14,6 +14,7 @@ Generated: 2026-06-13T01:48:52.499Z
 - Runnable tasks: 2
 - Skipped tasks: 0
 - Succeeded: 0
+- Zero-yield: 0
 - Failed: 0
 - Dry-run tasks: 2
 - Output rows: 0

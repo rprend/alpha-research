@@ -398,7 +398,7 @@ async function main() {
       if (rows.length) writeJsonl(outputPath, rows)
       results.push({
         ...base,
-        status: 'succeeded',
+        status: rows.length ? 'succeeded' : 'zero_yield',
         provider_run_id: run.run_id,
         provider_dataset_id: run.dataset_id,
         output_rows: rows.length,
@@ -433,6 +433,7 @@ async function main() {
     runnable_tasks: runnableTasks.length,
     skipped_tasks: skippedTasks.length,
     succeeded: results.filter((row) => row.status === 'succeeded').length,
+    zero_yield: results.filter((row) => row.status === 'zero_yield').length,
     failed: results.filter((row) => row.status === 'failed').length,
     dry_run_tasks: results.filter((row) => row.status === 'dry_run').length,
     output_rows: results.reduce((sum, row) => sum + Number(row.output_rows ?? 0), 0),
@@ -457,6 +458,7 @@ Generated: ${summary.generated_at}
 - Runnable tasks: ${summary.runnable_tasks}
 - Skipped tasks: ${summary.skipped_tasks}
 - Succeeded: ${summary.succeeded}
+- Zero-yield: ${summary.zero_yield}
 - Failed: ${summary.failed}
 - Dry-run tasks: ${summary.dry_run_tasks}
 - Output rows: ${summary.output_rows}

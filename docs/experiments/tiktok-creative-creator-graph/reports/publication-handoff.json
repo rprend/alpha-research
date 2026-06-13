@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T01:48:52.618Z",
+  "generated_at": "2026-06-13T01:54:13.965Z",
   "dataset_id": "tiktok-creative-creator-graph",
   "title": "TikTok Creative Creator Graph",
   "publish_state": "not-ready-production-data",
@@ -62,7 +62,10 @@
     "acquisition_import_untraced_rows": 96,
     "acquisition_runner_runnable_tasks": 2,
     "acquisition_runner_skipped_tasks": 0,
-    "acquisition_run_history": 16,
+    "acquisition_run_history": 17,
+    "latest_recorded_acquisition_provider": "public_web",
+    "latest_recorded_acquisition_output_rows": 0,
+    "zero_yield_live_acquisition_runs": 2,
     "scale_waves": 10000,
     "wave_ledger_rows": 10000,
     "wave_ledger_planned": 10000,
@@ -102,6 +105,7 @@
     "provider_preflight_available": true,
     "live_run_manifest_available": true,
     "live_manifest_runner_exercised": true,
+    "latest_live_public_web_attempt_zero_yield": true,
     "refresh_plan_available": true
   },
   "paths": {
@@ -195,6 +199,7 @@
   ],
   "next_actions": [
     "Acquire and import 49993 more useful creators through provider/search/graph batches.",
+    "Do not rely on the current public Bing HTML path as a scale source until it produces nonzero handles; latest public_web run yielded 0 rows.",
     "Add 4994 more excellent creators for benchmark-quality coverage.",
     "Collect 496 more human review decisions before production claims.",
     "Run full workflow, release package, verification, scale plan, refresh plan, and readiness after each import wave.",
