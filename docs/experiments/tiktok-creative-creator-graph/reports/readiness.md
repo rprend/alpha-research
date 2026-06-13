@@ -1,6 +1,6 @@
 # Readiness
 
-Generated: 2026-06-13T04:05:00.100Z
+Generated: 2026-06-13T04:08:52.152Z
 
 Complete: false
 
@@ -132,6 +132,7 @@ Complete: false
 - scale_campaign_runner: pass (1 dry_run iteration(s), stop reason dry_run_complete)
 - refresh_plan: pass (10837 account refresh tasks generated)
 - publication_handoff: pass (not-ready-production-data handoff generated)
+- publication_handoff_freshness: pass (handoff accounts 10837/10837, identities 10686/10686, videos 65/65, import waves 34/34, source yield 905/905)
 - useful_account_target: incomplete (7/50000 useful accounts)
 - excellent_account_target: incomplete (6/5000 excellent accounts)
 - human_review_target: incomplete (4/500 review decisions applied)

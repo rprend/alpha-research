@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T04:05:00.100Z",
+  "generated_at": "2026-06-13T04:08:52.152Z",
   "complete": false,
   "counts": {
     "accounts": 10837,
@@ -287,6 +287,11 @@
       "id": "publication_handoff",
       "status": "pass",
       "evidence": "not-ready-production-data handoff generated"
+    },
+    {
+      "id": "publication_handoff_freshness",
+      "status": "pass",
+      "evidence": "handoff accounts 10837/10837, identities 10686/10686, videos 65/65, import waves 34/34, source yield 905/905"
     },
     {
       "id": "useful_account_target",

@@ -1,6 +1,6 @@
 # Scale Plan
 
-Generated: 2026-06-13T04:04:50.780Z
+Generated: 2026-06-13T04:08:41.286Z
 
 ## Targets
 
@@ -10,7 +10,7 @@ Generated: 2026-06-13T04:04:50.780Z
 
 ## Current
 
-- Accounts: 10796
+- Accounts: 10837
 - Useful creators: 2
 - Excellent creators: 1
 - Review decisions: 4

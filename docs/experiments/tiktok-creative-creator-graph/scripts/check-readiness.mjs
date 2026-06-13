@@ -150,6 +150,15 @@ function main() {
   const excellentAccounts = scores.filter((row) => row.status === 'excellent').length
   const rejectedAccounts = scores.filter((row) => row.status === 'reject').length
   const scoredAccounts = new Set(scores.map((row) => row.creator_id)).size
+  const handoffCorpus = publicationHandoff?.current_corpus ?? {}
+  const handoffFresh = Boolean(
+    publicationHandoff?.dataset_id === 'tiktok-creative-creator-graph' &&
+    handoffCorpus.accounts === accounts.length &&
+    handoffCorpus.identities === identities.length &&
+    handoffCorpus.videos === videos.length &&
+    handoffCorpus.acquisition_import_waves === acquisitionImportWaves.length &&
+    handoffCorpus.source_yield_rows === sourceYield.length
+  )
 
   const checks = [
     {
@@ -348,6 +357,11 @@ function main() {
       id: 'publication_handoff',
       status: publicationHandoff?.dataset_id === 'tiktok-creative-creator-graph' ? 'pass' : 'fail',
       evidence: publicationHandoff ? `${publicationHandoff.publish_state} handoff generated` : 'publication handoff missing',
+    },
+    {
+      id: 'publication_handoff_freshness',
+      status: handoffFresh ? 'pass' : 'fail',
+      evidence: publicationHandoff ? `handoff accounts ${handoffCorpus.accounts ?? 0}/${accounts.length}, identities ${handoffCorpus.identities ?? 0}/${identities.length}, videos ${handoffCorpus.videos ?? 0}/${videos.length}, import waves ${handoffCorpus.acquisition_import_waves ?? 0}/${acquisitionImportWaves.length}, source yield ${handoffCorpus.source_yield_rows ?? 0}/${sourceYield.length}` : 'publication handoff missing',
     },
     {
       id: 'useful_account_target',
