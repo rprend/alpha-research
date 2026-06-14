@@ -147,13 +147,39 @@ function sourceDateLabel(row) {
 
 function yearRange(value) {
   const text = String(value ?? "");
+  const bceRange = text.match(/\b(\d{2,4})\s*[-–]\s*(\d{2,4})\s*BCE\b/i);
+  if (bceRange) {
+    return {
+      start: `-${bceRange[1]}`,
+      end: `-${bceRange[2]}`,
+      precision: "range-bce",
+    };
+  }
+  const bceYear = text.match(/\b(\d{2,4})\s*BCE\b/i);
+  if (bceYear) {
+    return {
+      start: `-${bceYear[1]}`,
+      end: `-${bceYear[1]}`,
+      precision: "year-bce",
+    };
+  }
+  const shortEraRange = text.match(/\b(\d{3,4})\s*[-–]\s*(\d{2})\s*CE\b/i);
+  if (shortEraRange) {
+    const start = shortEraRange[1];
+    const end = `${start.slice(0, -2)}${shortEraRange[2]}`;
+    return { start, end, precision: "range" };
+  }
+  const eraRange = text.match(/\b(\d{3,4})\s*[-–]\s*(\d{3,4})(?:\s*CE)?\b/i);
+  if (eraRange) {
+    return { start: eraRange[1], end: eraRange[2], precision: "range" };
+  }
   const abbreviatedRange = text.match(/\b((?:1[0-9]|20)\d{2})\s*[-–]\s*(\d{2})\b/);
   if (abbreviatedRange) {
     const start = abbreviatedRange[1];
     const end = `${start.slice(0, 2)}${abbreviatedRange[2]}`;
     return { start, end, precision: "range" };
   }
-  const years = [...text.matchAll(/\b(?:1[0-9]|20)\d{2}\b/g)].map((match) => match[0]);
+  const years = [...text.matchAll(/\b(?:[1-9]\d{2}|1[0-9]\d{2}|20\d{2})\b/g)].map((match) => match[0]);
   if (years.length) {
     return {
       start: years[0],
@@ -179,6 +205,11 @@ function yearRange(value) {
       end: String((centuryNumber * 100) - 1),
       precision: /early|mid|late/i.test(text) ? "century-qualified" : "century",
     };
+  }
+  const numberedCentury = text.match(/\b([1-9]\d{2}|1[0-9]\d{2}|20\d{2})s\b/);
+  if (numberedCentury) {
+    const start = Number(numberedCentury[1]);
+    return { start: String(start), end: String(start + 99), precision: "century-ish" };
   }
   const decade = text.match(/\b((?:18|19|20)\d0)s\b/);
   if (decade) {

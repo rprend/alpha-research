@@ -1,6 +1,6 @@
 # KB Date Quality Audit
 
-Generated at: 2026-06-14T21:57:58.926Z
+Generated at: 2026-06-14T22:01:29.700Z
 Status: pass
 
 ## nber-culture-history
@@ -42,7 +42,7 @@ SSRN rows currently come from Crossref posted-content metadata; publication_year
 Status: pass
 Date kind: mixed-page-date-event-year
 Rows: 51
-Year coverage: 61%
+Year coverage: 86%
 ISO date coverage: 49%
 Source-label coverage: 0%
 Fetch timestamp coverage: 100%
@@ -76,7 +76,7 @@ Department web rows are current-page crawl snapshots unless a source-specific ev
 Status: pass
 Date kind: object-or-item-date
 Rows: 988
-Year coverage: 62%
+Year coverage: 87%
 ISO date coverage: 0%
 Source-label coverage: 0%
 Fetch timestamp coverage: 100%

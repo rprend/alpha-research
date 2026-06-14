@@ -207,6 +207,7 @@ function pct(value) {
 }
 
 function contentYear(row) {
+  if (row.content_year_start) return String(row.content_year_start);
   return String(row.publication_year ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ??
     String(row.publication_date ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ??
     String(row.date ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ??
