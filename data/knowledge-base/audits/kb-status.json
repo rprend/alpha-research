@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T19:36:04.739Z",
+  "generated_at": "2026-06-14T19:41:08.541Z",
   "status": "phase-2-staging-active",
   "source_count": 34,
   "source_classes": {
@@ -35,8 +35,8 @@
   "stale_source_count": 0,
   "stale_sources": [],
   "tables": {
-    "expected_count": 12,
-    "existing_count": 12,
+    "expected_count": 14,
+    "existing_count": 14,
     "missing": [],
     "available": [
       {
@@ -50,6 +50,12 @@
         "path": "data/knowledge-base/processed/authors.parquet",
         "exists": true,
         "bytes": 103272
+      },
+      {
+        "file": "canonical_people.parquet",
+        "path": "data/knowledge-base/processed/canonical_people.parquet",
+        "exists": true,
+        "bytes": 113661
       },
       {
         "file": "institutions.parquet",
@@ -94,6 +100,12 @@
         "bytes": 816794
       },
       {
+        "file": "work_references.parquet",
+        "path": "data/knowledge-base/processed/work_references.parquet",
+        "exists": true,
+        "bytes": 831602
+      },
+      {
         "file": "topics.parquet",
         "path": "data/knowledge-base/processed/topics.parquet",
         "exists": true,
@@ -114,8 +126,8 @@
     ]
   },
   "staging_tables": {
-    "expected_count": 12,
-    "existing_count": 12,
+    "expected_count": 14,
+    "existing_count": 14,
     "missing": [],
     "available": [
       {
@@ -129,6 +141,12 @@
         "path": "data/knowledge-base/processed/authors.jsonl",
         "exists": true,
         "bytes": 623277
+      },
+      {
+        "file": "canonical_people.jsonl",
+        "path": "data/knowledge-base/processed/canonical_people.jsonl",
+        "exists": true,
+        "bytes": 738145
       },
       {
         "file": "institutions.jsonl",
@@ -173,6 +191,12 @@
         "bytes": 14314425
       },
       {
+        "file": "work_references.jsonl",
+        "path": "data/knowledge-base/processed/work_references.jsonl",
+        "exists": true,
+        "bytes": 11479219
+      },
+      {
         "file": "topics.jsonl",
         "path": "data/knowledge-base/processed/topics.jsonl",
         "exists": true,
@@ -193,8 +217,8 @@
     ]
   },
   "analytical_tables": {
-    "expected_count": 27,
-    "existing_count": 27,
+    "expected_count": 31,
+    "existing_count": 31,
     "missing": [],
     "available": [
       {
@@ -258,6 +282,18 @@
         "bytes": 103272
       },
       {
+        "file": "canonical_people.csv",
+        "path": "data/knowledge-base/processed/canonical_people.csv",
+        "exists": true,
+        "bytes": 395801
+      },
+      {
+        "file": "canonical_people.parquet",
+        "path": "data/knowledge-base/processed/canonical_people.parquet",
+        "exists": true,
+        "bytes": 113661
+      },
+      {
         "file": "institutions.csv",
         "path": "data/knowledge-base/processed/institutions.csv",
         "exists": true,
@@ -304,6 +340,18 @@
         "path": "data/knowledge-base/processed/citations.parquet",
         "exists": true,
         "bytes": 816794
+      },
+      {
+        "file": "work_references.csv",
+        "path": "data/knowledge-base/processed/work_references.csv",
+        "exists": true,
+        "bytes": 6993173
+      },
+      {
+        "file": "work_references.parquet",
+        "path": "data/knowledge-base/processed/work_references.parquet",
+        "exists": true,
+        "bytes": 831602
       },
       {
         "file": "topics.csv",
@@ -357,7 +405,7 @@
         "file": "knowledge-base.sqlite",
         "path": "data/knowledge-base/processed/knowledge-base.sqlite",
         "exists": true,
-        "bytes": 39022592
+        "bytes": 46960640
       }
     ]
   },

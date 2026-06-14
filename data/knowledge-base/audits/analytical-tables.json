@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T19:15:08.826Z",
+  "generated_at": "2026-06-14T19:41:03.258Z",
   "tables": [
     {
       "table": "works",
@@ -113,6 +113,28 @@
       "empty_ok": true
     },
     {
+      "table": "canonical_people",
+      "source": "data/knowledge-base/processed/canonical_people.jsonl",
+      "csv": "data/knowledge-base/processed/canonical_people.csv",
+      "parquet": "data/knowledge-base/processed/canonical_people.parquet",
+      "rows": 1713,
+      "columns": [
+        "canonical_person_id",
+        "canonical_name",
+        "name_key",
+        "source_count",
+        "record_count",
+        "source_ids",
+        "source_author_ids",
+        "institution_hints",
+        "birth_year",
+        "death_year",
+        "confidence",
+        "notes"
+      ],
+      "empty_ok": true
+    },
+    {
       "table": "institutions",
       "source": "data/knowledge-base/processed/institutions.jsonl",
       "csv": "data/knowledge-base/processed/institutions.csv",
@@ -185,6 +207,26 @@
         "fetched_at",
         "citation_context",
         "confidence"
+      ],
+      "empty_ok": true
+    },
+    {
+      "table": "work_references",
+      "source": "data/knowledge-base/processed/work_references.jsonl",
+      "csv": "data/knowledge-base/processed/work_references.csv",
+      "parquet": "data/knowledge-base/processed/work_references.parquet",
+      "rows": 25204,
+      "columns": [
+        "canonical_reference_id",
+        "reference_key",
+        "reference_label",
+        "reference_type",
+        "source_count",
+        "citation_count",
+        "source_ids",
+        "source_work_ids",
+        "confidence",
+        "notes"
       ],
       "empty_ok": true
     },
@@ -336,6 +378,18 @@
       "bytes": 103272
     },
     {
+      "file": "canonical_people.csv",
+      "path": "data/knowledge-base/processed/canonical_people.csv",
+      "exists": true,
+      "bytes": 395801
+    },
+    {
+      "file": "canonical_people.parquet",
+      "path": "data/knowledge-base/processed/canonical_people.parquet",
+      "exists": true,
+      "bytes": 113661
+    },
+    {
       "file": "institutions.csv",
       "path": "data/knowledge-base/processed/institutions.csv",
       "exists": true,
@@ -382,6 +436,18 @@
       "path": "data/knowledge-base/processed/citations.parquet",
       "exists": true,
       "bytes": 816794
+    },
+    {
+      "file": "work_references.csv",
+      "path": "data/knowledge-base/processed/work_references.csv",
+      "exists": true,
+      "bytes": 6993173
+    },
+    {
+      "file": "work_references.parquet",
+      "path": "data/knowledge-base/processed/work_references.parquet",
+      "exists": true,
+      "bytes": 831602
     },
     {
       "file": "topics.csv",
@@ -435,7 +501,7 @@
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 39022592
+      "bytes": 46960640
     }
   ]
 }

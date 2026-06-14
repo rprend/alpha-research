@@ -56,6 +56,7 @@ Current normalized staging outputs:
 - `processed/source_documents.jsonl`
 - `processed/works.jsonl`
 - `processed/authors.jsonl`
+- `processed/canonical_people.jsonl`
 - `processed/institutions.jsonl`
 - `processed/venues.jsonl`
 - `processed/collections.jsonl`
@@ -63,6 +64,7 @@ Current normalized staging outputs:
 - `processed/pages.jsonl`
 - `processed/departments.jsonl`
 - `processed/citations.jsonl`
+- `processed/work_references.jsonl`
 - `processed/topics.jsonl`
 - `processed/rights.jsonl`
 - `processed/*.csv`
@@ -89,4 +91,6 @@ The dedicated cultural-collections ingest adds richer object metadata from Met, 
 
 The Wayback snapshot ingest adds CDX capture metadata for department-page targets in `config/department-pages.json`. It stores capture metadata and archive URLs only; archived page text is not stored.
 
-This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. The semantic hash index provides deterministic offline vector-style retrieval over metadata plus rights-filtered stored text; it is not a neural embedding model. Author, citation, venue, institution, collection, and topic tables are derived from current local source records and raw snapshots; source-provided names and references still require normalization before strong identity or citation-network claims.
+The analytical table build now adds a deterministic candidate identity layer: `processed/canonical_people.*` clusters source author records by normalized name, and `processed/work_references.*` clusters citation/reference edges by DOI, OpenAlex ID, or normalized source label. The audit at `audits/identity-resolution.{json,md}` reports record counts, repeated references, and limitations. These tables are suitable for exploratory field maps and QA, but they are not manual authority control.
+
+This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. The semantic hash index provides deterministic offline vector-style retrieval over metadata plus rights-filtered stored text; it is not a neural embedding model. Author, citation, venue, institution, collection, topic, canonical-person, and work-reference tables are derived from current local source records and raw snapshots; candidate identity clusters still need authority matching before strong person-level or citation-network claims.

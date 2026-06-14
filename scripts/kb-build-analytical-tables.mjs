@@ -44,6 +44,12 @@ const tableSpecs = [
     empty_ok: true,
   },
   {
+    table: "canonical_people",
+    jsonl: "canonical_people.jsonl",
+    columns: ["canonical_person_id", "canonical_name", "name_key", "source_count", "record_count", "source_ids", "source_author_ids", "institution_hints", "birth_year", "death_year", "confidence", "notes"],
+    empty_ok: true,
+  },
+  {
     table: "institutions",
     jsonl: "institutions.jsonl",
     columns: ["local_id", "source_id", "source_native_id", "source_url", "name", "fetched_at", "type", "country", "region"],
@@ -65,6 +71,12 @@ const tableSpecs = [
     table: "citations",
     jsonl: "citations.jsonl",
     columns: ["local_id", "source_id", "source_work_id", "cited_work_id", "source_url", "fetched_at", "citation_context", "confidence"],
+    empty_ok: true,
+  },
+  {
+    table: "work_references",
+    jsonl: "work_references.jsonl",
+    columns: ["canonical_reference_id", "reference_key", "reference_label", "reference_type", "source_count", "citation_count", "source_ids", "source_work_ids", "confidence", "notes"],
     empty_ok: true,
   },
   {
@@ -155,12 +167,17 @@ async function deriveEntityTables() {
     readJsonl(path.join(processedDir, "source_documents.jsonl")),
   ]);
   const { authors, citations } = await deriveAuthorsAndCitationsFromRaw();
+  const canonicalPeople = deriveCanonicalPeople(authors);
+  const workReferences = deriveWorkReferences(citations);
   await writeJsonl(path.join(processedDir, "authors.jsonl"), authors);
+  await writeJsonl(path.join(processedDir, "canonical_people.jsonl"), canonicalPeople);
   await writeJsonl(path.join(processedDir, "venues.jsonl"), deriveVenues([...works, ...sourceDocuments]));
   await writeJsonl(path.join(processedDir, "institutions.jsonl"), deriveInstitutions({ pages, objects }));
   await writeJsonl(path.join(processedDir, "collections.jsonl"), deriveCollections(objects));
   await writeJsonl(path.join(processedDir, "citations.jsonl"), citations);
+  await writeJsonl(path.join(processedDir, "work_references.jsonl"), workReferences);
   await writeJsonl(path.join(processedDir, "topics.jsonl"), deriveTopics(objects));
+  await writeIdentityResolutionAudit({ authors, canonicalPeople, citations, workReferences });
 }
 
 async function deriveAuthorsAndCitationsFromRaw() {
@@ -281,6 +298,135 @@ function deriveVenues(rows) {
     }
   }
   return sortRows(byKey.values(), "name");
+}
+
+function deriveCanonicalPeople(authors) {
+  const byKey = new Map();
+  for (const author of authors) {
+    const name = cleanLabel(author.name);
+    const key = personNameKey(name);
+    if (!key) continue;
+    const bucket = byKey.get(key) ?? [];
+    bucket.push(author);
+    byKey.set(key, bucket);
+  }
+  const rows = [];
+  for (const [key, records] of byKey.entries()) {
+    const sourceIds = unique(records.map((record) => record.source_id));
+    const sourceAuthorIds = unique(records.map((record) => record.source_native_id).filter(Boolean));
+    const institutions = unique(records.map((record) => record.institution).filter(Boolean));
+    const birthYears = unique(records.map((record) => record.birth_year).filter(Boolean));
+    const deathYears = unique(records.map((record) => record.death_year).filter(Boolean));
+    const canonicalName = bestName(records.map((record) => record.name));
+    rows.push({
+      canonical_person_id: `person:${slugish(key)}`,
+      canonical_name: canonicalName,
+      name_key: key,
+      source_count: sourceIds.length,
+      record_count: records.length,
+      source_ids: sourceIds.join("; "),
+      source_author_ids: sourceAuthorIds.slice(0, 12).join("; "),
+      institution_hints: institutions.slice(0, 8).join("; "),
+      birth_year: birthYears.length === 1 ? birthYears[0] : "",
+      death_year: deathYears.length === 1 ? deathYears[0] : "",
+      confidence: canonicalPersonConfidence({ sourceIds, sourceAuthorIds, birthYears, deathYears, institutions }),
+      notes: "Deterministic normalized-name cluster. Treat as candidate identity, not authority control.",
+    });
+  }
+  return sortRows(rows, "canonical_name");
+}
+
+function deriveWorkReferences(citations) {
+  const byKey = new Map();
+  for (const citation of citations) {
+    const label = cleanLabel(citation.cited_work_id);
+    const key = referenceKey(label);
+    if (!key) continue;
+    const bucket = byKey.get(key) ?? [];
+    bucket.push(citation);
+    byKey.set(key, bucket);
+  }
+  const rows = [];
+  for (const [key, records] of byKey.entries()) {
+    const labels = records.map((record) => cleanLabel(record.cited_work_id)).filter(Boolean);
+    const sourceIds = unique(records.map((record) => record.source_id));
+    const sourceWorkIds = unique(records.map((record) => record.source_work_id).filter(Boolean));
+    const referenceType = key.startsWith("doi:") ? "doi" : key.startsWith("openalex:") ? "openalex-work" : "source-label";
+    rows.push({
+      canonical_reference_id: `work-reference:${slugish(key)}`,
+      reference_key: key,
+      reference_label: bestName(labels),
+      reference_type: referenceType,
+      source_count: sourceIds.length,
+      citation_count: records.length,
+      source_ids: sourceIds.join("; "),
+      source_work_ids: sourceWorkIds.slice(0, 12).join("; "),
+      confidence: referenceType === "source-label" ? "medium" : "high",
+      notes: referenceType === "source-label"
+        ? "Source-provided reference label without a stable DOI/OpenAlex key."
+        : "Stable source identifier clustered from citation edges.",
+    });
+  }
+  return sortRows(rows, "reference_key");
+}
+
+async function writeIdentityResolutionAudit({ authors, canonicalPeople, citations, workReferences }) {
+  const report = {
+    generated_at: new Date().toISOString(),
+    source_author_records: authors.length,
+    canonical_people: canonicalPeople.length,
+    multi_record_people: canonicalPeople.filter((row) => Number(row.record_count) > 1).length,
+    multi_source_people: canonicalPeople.filter((row) => Number(row.source_count) > 1).length,
+    source_citation_edges: citations.length,
+    canonical_work_references: workReferences.length,
+    repeated_work_references: workReferences.filter((row) => Number(row.citation_count) > 1).length,
+    high_confidence_work_references: workReferences.filter((row) => row.confidence === "high").length,
+    limitations: [
+      "Person clusters are deterministic normalized-name candidates, not manually verified identities.",
+      "Work references are strongest when the source provides DOI or OpenAlex identifiers.",
+      "Source-label references need future authority matching before citation-network claims.",
+    ],
+  };
+  await writeJson(path.join(auditsDir, "identity-resolution.json"), report);
+  await writeText(path.join(auditsDir, "identity-resolution.md"), renderIdentityMarkdown(report));
+}
+
+function canonicalPersonConfidence({ sourceIds, sourceAuthorIds, birthYears, deathYears, institutions }) {
+  if (birthYears.length > 1 || deathYears.length > 1) return "low";
+  if (sourceAuthorIds.some((id) => /^https?:\/\/orcid\.org\//i.test(id))) return "high";
+  if (sourceIds.length > 1 && institutions.length) return "medium";
+  if (sourceIds.length > 1) return "medium-low";
+  return "name-only";
+}
+
+function personNameKey(name) {
+  return cleanLabel(name)
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9 ]+/g, " ")
+    .replace(/\b(jr|sr|ii|iii|iv|phd|prof|dr)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function referenceKey(label) {
+  const value = cleanLabel(label);
+  if (!value) return "";
+  const doiMatch = value.match(/\b10\.\d{4,9}\/\S+/i);
+  if (doiMatch) return `doi:${doiMatch[0].replace(/[.,;)]$/, "").toLowerCase()}`;
+  const openAlexMatch = value.match(/openalex\.org\/([WA]\d+)/i) || value.match(/\b([WA]\d{6,})\b/i);
+  if (openAlexMatch) return `openalex:${openAlexMatch[1].toUpperCase()}`;
+  return `label:${personNameKey(value) || slugish(value)}`;
+}
+
+function bestName(values) {
+  const names = values.map(cleanLabel).filter(Boolean);
+  return names.sort((a, b) => b.length - a.length || a.localeCompare(b))[0] || "";
+}
+
+function unique(values) {
+  return [...new Set(values.map(cleanLabel).filter(Boolean))].sort((a, b) => a.localeCompare(b));
 }
 
 function deriveInstitutions({ pages, objects }) {
@@ -501,6 +647,33 @@ function renderMarkdown(report) {
     emptyTables.length
       ? `- Empty schema-valid tables pending dedicated ingests: ${emptyTables.join(", ")}.`
       : "- No empty analytical tables.",
+    "",
+  ].join("\n");
+}
+
+function renderIdentityMarkdown(report) {
+  return [
+    "# KB Identity Resolution",
+    "",
+    `Generated at: ${report.generated_at}`,
+    "",
+    "## People",
+    "",
+    `- Source author records: ${report.source_author_records}`,
+    `- Canonical people: ${report.canonical_people}`,
+    `- Multi-record people: ${report.multi_record_people}`,
+    `- Multi-source people: ${report.multi_source_people}`,
+    "",
+    "## Work References",
+    "",
+    `- Source citation edges: ${report.source_citation_edges}`,
+    `- Canonical work references: ${report.canonical_work_references}`,
+    `- Repeated work references: ${report.repeated_work_references}`,
+    `- High-confidence work references: ${report.high_confidence_work_references}`,
+    "",
+    "## Limitations",
+    "",
+    ...report.limitations.map((limitation) => `- ${limitation}`),
     "",
   ].join("\n");
 }

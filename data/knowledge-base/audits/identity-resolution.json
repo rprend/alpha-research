@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-06-14T19:41:03.515Z",
+  "source_author_records": 1779,
+  "canonical_people": 1713,
+  "multi_record_people": 61,
+  "multi_source_people": 4,
+  "source_citation_edges": 34859,
+  "canonical_work_references": 25204,
+  "repeated_work_references": 3765,
+  "high_confidence_work_references": 19011,
+  "limitations": [
+    "Person clusters are deterministic normalized-name candidates, not manually verified identities.",
+    "Work references are strongest when the source provides DOI or OpenAlex identifiers.",
+    "Source-label references need future authority matching before citation-network claims."
+  ]
+}

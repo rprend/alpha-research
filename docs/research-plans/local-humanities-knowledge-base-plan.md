@@ -544,6 +544,7 @@ Started on 2026-06-13:
 - Phase 3 now has a Wayback CDX snapshot ingest: `pnpm kb:ingest:wayback` reads department-page targets, stores raw CDX responses, and writes historical capture metadata without storing archived page text.
 - Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables, Parquet tables, and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` using metadata plus previews of stored text; `pnpm kb:search "<terms>"` queries the local keyword index.
 - Phase 4 now derives author, citation, venue, institution, collection, and topic tables from current normalized local records and raw snapshots; source-provided names and references still need normalization before strong identity or citation-network claims.
+- Phase 4 now has a deterministic candidate identity layer: `pnpm kb:tables` writes `canonical_people` clusters from normalized source-author names and `work_references` clusters from citation/reference DOI, OpenAlex ID, or source-label keys, with limitations documented in `data/knowledge-base/audits/identity-resolution.{json,md}`.
 - Phase 4 now has SQLite FTS retrieval over metadata and stored local text content: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
 - Phase 4 now has deterministic offline vector-style retrieval: `pnpm kb:index:semantic` builds `data/knowledge-base/indexes/semantic-hash-index.json` and `pnpm kb:search:semantic "<terms>"` searches rights-filtered metadata and stored text.
 - Phase 5 has a reusable local-data workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, evidence file, query sketch, missing-data memo, `date-coverage.json`, `publication-concept.json`, and `study-template.md` under `docs/research-briefs/`. It infers source-class priorities from the question, records the routing decision in `source-map.json`, boosts institutional, scholarly, cultural-collection, linked-open-data, or text-corpus evidence, and separates content-year coverage from fetch-year coverage before suggesting longitudinal claims.
@@ -557,10 +558,12 @@ Current local footprint as of the latest local status:
 - 5883 source documents.
 - 2913 works.
 - 1779 source-provided authors.
+- 1713 deterministic candidate canonical people, including 61 multi-record clusters and 4 multi-source clusters.
 - 2270 venues.
 - 17 institutions.
 - 40 derived collections.
 - 34859 source-provided citation/reference edges.
+- 25204 deterministic candidate work-reference clusters, including 19011 high-confidence DOI/OpenAlex-keyed references and 3765 repeated references.
 - 1062 source-provided topics.
 - 1012 cultural objects.
 - 107 department/web pages, including discovered about/news pages beyond configured homepages.
@@ -572,8 +575,8 @@ Current local footprint as of the latest local status:
 - 200 public-domain Project Gutenberg text files imported from the local Gutenberg experiment cache.
 - 4 strict homepage Wayback CDX department-page snapshot metadata records from 2020-2026 across 4 target routes; broader wildcard captures were rejected to avoid query-string noise.
 - 277 local text files.
-- 12/12 staging JSONL tables.
-- 12/12 processed Parquet tables.
+- 14/14 staging JSONL tables.
+- 14/14 processed Parquet tables.
 - SQLite FTS indexes metadata for the broader corpus plus stored local text content for public-domain books and local-analysis department/web pages.
 - Semantic hash index covers 5852 rights-filtered documents, including public-domain full-text records and local-analysis page-text records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
@@ -583,7 +586,7 @@ This is a foundation and harness, not the complete knowledge base.
 
 Remaining before the full knowledge-base goal is complete:
 
-- Normalize source-provided author identities and citation/reference edges into cleaner person/work graphs.
+- Improve candidate person/work identity resolution with authority matching, ORCID/OpenAlex/Wikidata joins, and conflict detection before making strong person-level or citation-network claims.
 - Add more broad, source-specific ingest jobs rather than bounded samples, especially deeper department-page crawling, humanities centers, conference programs, and further Project Gutenberg/catalog-cultural collection expansion.
 - Continue executing the replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for LARB, Harvard, Princeton, Columbia, Michigan, Penn, Yale/Wayback CDX, and remaining 403/timeout routes; do not bypass access controls. Prefer alternate public pages, sitemaps, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages block polite fetches.
 - Expand university/department web corpus acquisition beyond the current shallow discovery pass; the first discovery run found mostly about pages and a few news pages, so faculty/events/program routes need source-specific selectors and sitemap/RSS support.
