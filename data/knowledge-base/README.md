@@ -89,6 +89,8 @@ The department-sitemap ingest fetches public `sitemap.xml` routes for configured
 
 The blocked-source audit writes both `audits/blocked-sources.{json,md}` and `audits/failed-route-replacements.{json,md}`. The replacement audit covers blocked sources and active-source route failures, so stale feeds, 403 department pages, Wayback instability, rate limits, and partial API timeouts each have an explicit next action before another ingest attempt.
 
+`pnpm kb:validate` now enforces the operational audit contract, not just registry shape: active failed-route plans must carry next actions and do-not-do guidance, blocked registry sources must have blocked-source memos, sources without local documents must be explicitly blocked, and the local analytical/search artifacts must exist.
+
 The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, Los Angeles Review of Books, and Digital Humanities Quarterly when their public routes respond. LARB's legacy `/feed/` route returned 404, so the current replacement route imports metadata from public homepage Next.js data without storing article text. Failed historical routes are retained in `audits/failed-routes.jsonl`, while `audits/failed-route-replacements.md` separates resolved historical failures from active replacement plans, including source-specific retired-route replacements that may have a later obsolete retry.
 
 The gap-source ingest now imports AHA annual-meeting metadata from public WordPress JSON search/pages endpoints after the HTML annual-meeting route returned 403. This keeps AHA metadata-only, excludes full program text, and records the original blocked HTML route as a resolved historical failure once the JSON route succeeds.
