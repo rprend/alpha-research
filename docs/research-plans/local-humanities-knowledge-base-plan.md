@@ -536,7 +536,7 @@ Started on 2026-06-13:
 - Phase 2 now has a dedicated cultural-collections ingest: `pnpm kb:ingest:cultural` pulls richer object/collection metadata from Met, Cleveland Museum of Art, Library of Congress, and Smithsonian APIs.
 - Phase 2 now has a dedicated DOAJ humanities ingest: `pnpm kb:ingest:doaj` pulls article and journal metadata across humanities queries from DOAJ, stores raw responses, and appends normalized work, venue, source-document, and rights rows.
 - Phase 2 now has a dedicated Wikidata cultural-entity ingest: `pnpm kb:ingest:wikidata` pulls typed linked-open-data entities for people, works, movements, genres, institutions, journals, and humanities concepts.
-- Phase 2/3 now has a gap-source ingest: `pnpm kb:ingest:gaps` targets registered sources without local records, including Smithsonian, Columbia department pages, DH conference pages, journal metadata through Crossref, and blocked-route probes for sources that need replacement routes.
+- Phase 2/3 now has a gap-source ingest: `pnpm kb:ingest:gaps` targets registered sources without local records, including Smithsonian, Columbia department pages, DH conference pages, AHA annual-meeting metadata through public WordPress JSON endpoints, journal metadata through Crossref, and blocked-route probes for sources that need replacement routes.
 - Phase 6 now has blocked-source and failed-route replacement audits: `pnpm kb:audit:blocked` writes source-specific memos for blocked sources and `failed-route-replacements.{json,md}` with next actions for active-source route failures such as 403 department pages, stale feeds, Wayback CDX instability, partial API timeouts, rate limits, and permissioned APIs.
 - Phase 2 also imports a 200-text Project Gutenberg public-domain corpus from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
 - Phase 2 now has a bounded web metadata ingest: `pnpm kb:ingest:web` imports responding public routes for DOAJ, Internet Archive, NBER, Public Books, Los Angeles Review of Books, and Digital Humanities Quarterly. LARB's stale `/feed/` route has a working replacement: the ingest imports public homepage Next.js metadata without storing article text.
@@ -553,18 +553,18 @@ Started on 2026-06-13:
 - Phase 5 now has a brief-to-experiment promotion path: `node scripts/kb-promote-brief-experiment.mjs` converts local-data briefs into first-pass `docs/experiments/kb-*` experiment scaffolds with copied SQL/source maps, readiness gates, article outlines, claim checklists, evidence samples, and missing-data memos. The first promotion run created five experiment candidates for department visibility/public humanities, scholarly digital/public humanities literature, museum metadata, cultural entity field maps, and public-domain canon/text studies.
 - The first promoted experiment now has a runnable analysis/report pipeline: `docs/experiments/kb-humanities-departments-visible-faculty-events-news-public-humanities-lan/scripts/build-analysis.mjs` reads the local KB pages/rights tables plus stored local-analysis text, writes coverage and term-family CSVs, and produces `reports/result.json`, `reports/work.md`, and `reports/public-draft.md`.
 - Phase 6 has bounded maintenance automation: `pnpm kb:refresh` validates, inventories, refreshes bounded source-specific metadata routes, refreshes department sitemap summaries, runs a bounded Wayback CDX smoke with explicit timeout/limit settings, rebuilds analytical tables and both indexes, refreshes coverage/rights/stale-source/blocked-source audits, updates KB status, and writes a local question-smoke brief to prove the rebuilt KB can answer a question.
-- Phase 6 now distinguishes active route failures from resolved historical failures: `pnpm kb:audit:blocked` reads successful ingest runs as well as failed routes, records LARB/Wayback/DOAJ and other resolved historical failures, and leaves 10 active source-level replacement plans.
+- Phase 6 now distinguishes active route failures from resolved historical failures: `pnpm kb:audit:blocked` reads successful ingest runs as well as failed routes, records AHA/LARB/Wayback/DOAJ and other resolved historical failures, and leaves 9 active source-level replacement plans.
 
 Current local footprint as of the latest local status:
 
 - 34 registered sources.
 - 29 registered sources with local documents.
-- Registry statuses: 25 active, 4 blocked, 4 seeded-from-experiment, 1 planned.
-- 6519 source documents.
-- 2913 works.
+- Registry statuses: 26 active, 3 blocked, 4 seeded-from-experiment, 1 planned.
+- 6539 source documents.
+- 2970 works.
 - 1779 source-provided authors.
 - 1713 deterministic candidate canonical people, including 61 multi-record clusters and 4 multi-source clusters.
-- 2271 venues.
+- 2273 venues.
 - 17 institutions.
 - 40 derived collections.
 - 34859 source-provided citation/reference edges.
@@ -573,8 +573,9 @@ Current local footprint as of the latest local status:
 - 1012 cultural objects.
 - 515 department/web page rows, including 206 text-bearing department rows and 279 remaining metadata-only sitemap URL rows.
 - 52 department summaries.
-- 6519 rights rows.
+- 6539 rights rows.
 - 18 Los Angeles Review of Books metadata records from the public homepage replacement route, with article text still excluded.
+- 20 American Historical Association annual-meeting metadata records from public WordPress JSON replacement routes, with program/page text still excluded.
 - 2539 records from the dedicated DOAJ humanities ingest, including 1450 article records and 1089 journal records from 32 raw article/journal API route responses.
 - 757 Wikidata cultural entity records across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts.
 - 505 additional cultural-collection object records from the dedicated Met/Cleveland/Library of Congress/Smithsonian ingest; Met object-detail routes partially succeeded and blocked object IDs are retained in the ingest audit.
@@ -584,7 +585,7 @@ Current local footprint as of the latest local status:
 - 14/14 staging JSONL tables.
 - 14/14 processed Parquet tables.
 - SQLite FTS indexes metadata for the broader corpus plus stored local text content for public-domain books and local-analysis department/web pages.
-- Semantic hash index covers 6488 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
+- Semantic hash index covers 6508 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 - Five first-pass promoted experiment scaffolds under `docs/experiments/kb-*`, indexed by `data/knowledge-base/audits/promoted-experiments.md`.
@@ -595,8 +596,8 @@ This is a foundation and harness, not the complete knowledge base.
 Remaining before the full knowledge-base goal is complete:
 
 - Improve candidate person/work identity resolution with authority matching, ORCID/OpenAlex/Wikidata joins, and conflict detection before making strong person-level or citation-network claims.
-- Add more broad, source-specific ingest jobs rather than bounded samples, especially humanities centers, conference programs, and further Project Gutenberg/catalog-cultural collection expansion.
-- Continue executing the active replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for Harvard, Columbia, Michigan, Penn, Yale, UChicago, blocked conference/metadata routes, and remaining 403/404/timeout routes; do not bypass access controls. Prefer alternate public pages, source-specific sitemap indexes, school directories, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages or default sitemaps block polite fetches.
+- Add more broad, source-specific ingest jobs rather than bounded samples, especially humanities centers, deeper conference-program metadata, and further Project Gutenberg/catalog-cultural collection expansion.
+- Continue executing the active replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for Harvard, Columbia, Michigan, Penn, Yale, UChicago, blocked bibliographic metadata routes, and remaining 403/404/timeout routes; do not bypass access controls. Prefer alternate public pages, source-specific sitemap indexes, school directories, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages or default sitemaps block polite fetches.
 - Expand university/department web corpus acquisition beyond the current balanced shallow discovery pass; faculty/events/program text coverage is materially improved, but blocked Harvard/Princeton routes, remaining sitemap-only rows, and source-specific directory/RSS routes still need replacement work.
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add neural embedding retrieval later if a local model or approved embedding service is configured; the current semantic hash index is deterministic and offline.
@@ -606,7 +607,7 @@ Remaining before the full knowledge-base goal is complete:
 Next build steps:
 
 1. Add source-specific replacement routes for blocked Harvard/Princeton department pages and remaining sitemap-only department URLs while retaining rights and route manifests.
-2. Add explicit replacement memos for remaining blocked 403 department, conference, and bibliographic metadata routes, using alternate public routes or Wayback metadata where available.
+2. Add explicit replacement memos for remaining blocked 403 department and bibliographic metadata routes, using alternate public routes or Wayback metadata where available.
 3. Expand broad metadata acquisition for OpenAlex/Crossref, Project Gutenberg, and cultural-collection APIs; DOAJ and Wikidata now have dedicated routes but should be expanded beyond the current page limits when needed.
 4. Execute the source replacement plans for blocked/stale/403 routes and promote successful replacements into source-specific ingest configs.
 5. Convert the promoted first-pass experiments into runnable analysis/report pipelines only after confirming source-class coverage, dates, and quote/rights limits.

@@ -89,6 +89,8 @@ The blocked-source audit writes both `audits/blocked-sources.{json,md}` and `aud
 
 The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, Los Angeles Review of Books, and Digital Humanities Quarterly when their public routes respond. LARB's legacy `/feed/` route returned 404, so the current replacement route imports metadata from public homepage Next.js data without storing article text. Failed historical routes are retained in `audits/failed-routes.jsonl`, while `audits/failed-route-replacements.md` separates resolved historical failures from active replacement plans.
 
+The gap-source ingest now imports AHA annual-meeting metadata from public WordPress JSON search/pages endpoints after the HTML annual-meeting route returned 403. This keeps AHA metadata-only, excludes full program text, and records the original blocked HTML route as a resolved historical failure once the JSON route succeeds.
+
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 
 The dedicated Wikidata ingest adds linked-open-data cultural entities across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts. It stores raw SPARQL JSON responses, normalized source-document rows, rights rows, and `audits/wikidata-cultural-entities-last-run.json`.

@@ -1,0 +1,20 @@
+{
+  "run_id": "gap-sources-2026-06-14T20-34-05-552Z",
+  "source_id": "columbia-humanities-departments",
+  "started_at": "2026-06-14T20:34:06.392Z",
+  "completed_at": "2026-06-14T20:34:06.522Z",
+  "status": "success",
+  "access_route": "https://history.columbia.edu/",
+  "raw_outputs": [
+    "data/knowledge-base/raw/columbia-humanities-departments/2026-06-14/gap-sources-2026-06-14T20-34-05-552Z/response-001.txt"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/pages.jsonl",
+    "data/knowledge-base/processed/departments.jsonl"
+  ],
+  "record_count": 1,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

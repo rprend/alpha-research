@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T20:29:09.696Z",
-  "blocked_source_count": 4,
+  "generated_at": "2026-06-14T20:34:31.058Z",
+  "blocked_source_count": 3,
   "blocked_sources": [
     {
       "source_id": "hathitrust-bibliographic-metadata",
@@ -9,11 +9,11 @@
       "redistribution_status": "metadata-only",
       "metadata_allowed": true,
       "full_text_allowed": false,
-      "failure_count": 1,
+      "failure_count": 3,
       "latest_failure": {
-        "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+        "run_id": "gap-sources-2026-06-14T20-34-05-552Z",
         "access_route": "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true",
-        "completed_at": "2026-06-13T16:37:21.021Z",
+        "completed_at": "2026-06-14T20:34:13.751Z",
         "errors": [
           "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden"
         ]
@@ -23,29 +23,6 @@
         "rights filtering required",
         "multi-volume normalization",
         "access restrictions"
-      ]
-    },
-    {
-      "source_id": "aha-annual-meeting-programs",
-      "name": "American Historical Association Annual Meeting Programs",
-      "source_class": "conference-programs",
-      "redistribution_status": "metadata-only",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "failure_count": 1,
-      "latest_failure": {
-        "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
-        "access_route": "https://www.historians.org/events/annual-meeting/",
-        "completed_at": "2026-06-13T16:37:20.977Z",
-        "errors": [
-          "https://www.historians.org/events/annual-meeting/: HTTP 403 Forbidden"
-        ]
-      },
-      "next_decision": "Requires route replacement, manual export, permissioned API access, or terms review; do not bypass access controls.",
-      "known_risks": [
-        "program format changes",
-        "rights review required",
-        "topic normalization"
       ]
     },
     {
@@ -72,11 +49,11 @@
       "redistribution_status": "metadata-only",
       "metadata_allowed": true,
       "full_text_allowed": false,
-      "failure_count": 1,
+      "failure_count": 3,
       "latest_failure": {
-        "run_id": "gap-sources-2026-06-13T16-37-13-226Z",
+        "run_id": "gap-sources-2026-06-14T20-34-05-552Z",
         "access_route": "https://api.ssrn.com/content/v1/papers?query=humanities",
-        "completed_at": "2026-06-13T16:37:21.118Z",
+        "completed_at": "2026-06-14T20:34:13.823Z",
         "errors": [
           "https://api.ssrn.com/content/v1/papers?query=humanities: HTTP 401 Unauthorized"
         ]
@@ -89,8 +66,30 @@
       ]
     }
   ],
-  "resolved_failure_count": 6,
+  "resolved_failure_count": 7,
   "resolved_failures": [
+    {
+      "source_id": "aha-annual-meeting-programs",
+      "name": "American Historical Association Annual Meeting Programs",
+      "source_class": "conference-programs",
+      "failure_count": 1,
+      "latest_failure_at": "2026-06-13T16:37:20.977Z",
+      "latest_success_at": "2026-06-14T20:34:13.681Z",
+      "successful_route": "https://www.historians.org/wp-json/wp/v2/search?search=annual%20meeting%20program&per_page=20 | https://www.historians.org/wp-json/wp/v2/pages?search=annual%20meeting%20program&per_page=20",
+      "record_count": 20,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "columbia-humanities-departments",
+      "name": "Columbia Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "failure_count": 9,
+      "latest_failure_at": "2026-06-14T20:22:06.009Z",
+      "latest_success_at": "2026-06-14T20:34:06.522Z",
+      "successful_route": "https://history.columbia.edu/",
+      "record_count": 1,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
     {
       "source_id": "doaj-humanities",
       "name": "DOAJ Humanities Open Access Metadata",
@@ -100,17 +99,6 @@
       "latest_success_at": "2026-06-14T20:28:04.857Z",
       "successful_route": "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20",
       "record_count": 20,
-      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
-    },
-    {
-      "source_id": "lareviewofbooks",
-      "name": "Los Angeles Review of Books",
-      "source_class": "journals-and-reviews",
-      "failure_count": 6,
-      "latest_failure_at": "2026-06-14T20:02:56.346Z",
-      "latest_success_at": "2026-06-14T20:28:09.368Z",
-      "successful_route": "https://lareviewofbooks.org/",
-      "record_count": 18,
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
@@ -158,7 +146,7 @@
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 10,
+  "replacement_plan_count": 9,
   "replacement_plans": [
     {
       "source_id": "harvard-humanities-departments",
@@ -256,34 +244,26 @@
       "do_not_do": "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls."
     },
     {
-      "source_id": "columbia-humanities-departments",
-      "name": "Columbia Humanities Department Public Pages",
-      "source_class": "university-department-web",
+      "source_id": "lareviewofbooks",
+      "name": "Los Angeles Review of Books",
+      "source_class": "journals-and-reviews",
       "ingest_status": "active",
       "redistribution_status": "local-analysis-only",
-      "failure_count": 9,
-      "latest_failure_at": "2026-06-14T20:22:06.009Z",
-      "latest_error": "HTTP 403 Forbidden",
+      "failure_count": 7,
+      "latest_failure_at": "2026-06-14T20:33:43.035Z",
+      "latest_error": "https://lareviewofbooks.org/feed/: HTTP 404 Not Found",
       "failed_routes": [
-        "https://english.columbia.edu/",
-        "https://philosophy.columbia.edu/",
-        "https://english.columbia.edu/sitemap.xml",
-        "https://history.columbia.edu/sitemap.xml",
-        "https://philosophy.columbia.edu/sitemap.xml"
+        "https://lareviewofbooks.org/feed/"
       ],
-      "affected_targets": [
-        "Columbia University English and Comparative Literature department-sitemap",
-        "Columbia University History department-sitemap",
-        "Columbia University Philosophy department-sitemap"
-      ],
+      "affected_targets": [],
       "replacement_status": "replacement-needed",
       "replacement_routes": [
-        "Use already responding same-domain department pages discovered from successful homepages.",
-        "Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.",
-        "Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed."
+        "Find the current RSS/feed URL from the site homepage or sitemap.",
+        "Use WordPress discovery endpoints such as /wp-json/wp/v2/posts only if public and allowed.",
+        "Use Crossref/OpenAlex/Internet Archive metadata as fallback for bibliographic discovery."
       ],
-      "next_action": "Create source-specific alternate target entries for Columbia University English and Comparative Literature department-sitemap, Columbia University History department-sitemap, Columbia University Philosophy department-sitemap using public about/news/events/faculty routes that return 200.",
-      "do_not_do": "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls."
+      "next_action": "Replace the stale feed URL before another automated ingest.",
+      "do_not_do": "Do not repeatedly retry the known 404 feed route."
     },
     {
       "source_id": "uchicago-humanities-departments",
@@ -345,8 +325,8 @@
       "source_class": "humanities-adjacent-policy-history",
       "ingest_status": "blocked",
       "redistribution_status": "metadata-only",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-13T16:37:21.118Z",
+      "failure_count": 3,
+      "latest_failure_at": "2026-06-14T20:34:13.823Z",
       "latest_error": "https://api.ssrn.com/content/v1/papers?query=humanities: HTTP 401 Unauthorized",
       "failed_routes": [
         "https://api.ssrn.com/content/v1/papers?query=humanities"
@@ -366,11 +346,12 @@
       "source_class": "cultural-collections",
       "ingest_status": "active",
       "redistribution_status": "metadata-ok",
-      "failure_count": 3,
-      "latest_failure_at": "2026-06-14T20:02:34.741Z",
-      "latest_error": "HTTP 429 Too Many Requests",
+      "failure_count": 5,
+      "latest_failure_at": "2026-06-14T20:34:06.390Z",
+      "latest_error": "https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=20: HTTP 429 Too Many Requests; https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=20: HTTP 429 Too Many Requests",
       "failed_routes": [
-        "source-specific cultural collections API routes"
+        "source-specific cultural collections API routes",
+        "https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=20 | https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=20"
       ],
       "affected_targets": [],
       "replacement_status": "rate-limit-backoff",
@@ -387,8 +368,8 @@
       "source_class": "open-text-metadata",
       "ingest_status": "blocked",
       "redistribution_status": "metadata-only",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-13T16:37:21.021Z",
+      "failure_count": 3,
+      "latest_failure_at": "2026-06-14T20:34:13.751Z",
       "latest_error": "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden",
       "failed_routes": [
         "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true"
@@ -401,27 +382,6 @@
       ],
       "next_action": "Replace catalog-page scraping with documented metadata download/export workflow after terms review.",
       "do_not_do": "Do not scrape blocked catalog pages or store restricted full text."
-    },
-    {
-      "source_id": "aha-annual-meeting-programs",
-      "name": "American Historical Association Annual Meeting Programs",
-      "source_class": "conference-programs",
-      "ingest_status": "blocked",
-      "redistribution_status": "metadata-only",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-13T16:37:20.977Z",
-      "latest_error": "https://www.historians.org/events/annual-meeting/: HTTP 403 Forbidden",
-      "failed_routes": [
-        "https://www.historians.org/events/annual-meeting/"
-      ],
-      "affected_targets": [],
-      "replacement_status": "source-specific-review-needed",
-      "replacement_routes": [
-        "Review source terms, robots, documented APIs, sitemaps, and public exports.",
-        "Prefer metadata routes over page scraping where available."
-      ],
-      "next_action": "Write a source-specific acquisition note before retrying.",
-      "do_not_do": "Do not repeatedly retry the same failed route without a changed route or terms decision."
     }
   ]
 }

@@ -726,7 +726,8 @@
       "source_class": "conference-programs",
       "homepage_url": "https://www.historians.org/",
       "access_routes": [
-        "annual meeting program pages and exports where available"
+        "https://www.historians.org/wp-json/wp/v2/search",
+        "https://www.historians.org/wp-json/wp/v2/pages"
       ],
       "license": "AHA site/program terms",
       "redistribution_status": "metadata-only",
@@ -750,10 +751,11 @@
       "known_risks": [
         "program format changes",
         "rights review required",
-        "topic normalization"
+        "topic normalization",
+        "HTML annual meeting route returns 403; use public WordPress JSON metadata endpoints"
       ],
-      "last_checked_at": "2026-06-13",
-      "ingest_status": "blocked"
+      "last_checked_at": "2026-06-14",
+      "ingest_status": "active"
     },
     {
       "source_id": "dh-conference-programs",

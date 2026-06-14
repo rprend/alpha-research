@@ -1,0 +1,3461 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 16603,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              22
+            ]
+          ],
+          "date-time": "2023-04-22T23:14:20Z",
+          "timestamp": 1682205260674
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 9062,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1996,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900174905",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              27
+            ]
+          ],
+          "date-time": "2020-10-27T09:06:47Z",
+          "timestamp": 1603789607000
+        },
+        "page": "133-134",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Birth of the Cyberqueer"
+        ],
+        "prefix": "10.1632",
+        "volume": "111",
+        "author": [
+          {
+            "given": "Donald",
+            "family": "Morton",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900174905",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:55:26Z",
+          "timestamp": 1631732126000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900174905/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1996,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1996,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900174905"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900174905",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1996,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T20:16:18Z",
+          "timestamp": 1649103378045
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  2
+                ]
+              ],
+              "date-time": "2020-12-02T00:00:00Z",
+              "timestamp": 1606867200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 19177,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1968,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900193125",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              12
+            ]
+          ],
+          "date-time": "2021-01-12T20:31:10Z",
+          "timestamp": 1610483470000
+        },
+        "page": "b1-b2",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "MLA volume 83 issue 3 Cover and Back matter"
+        ],
+        "prefix": "10.1632",
+        "volume": "83",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900193125",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:50:38Z",
+          "timestamp": 1631731838000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900193125/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1968,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1968,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900193125"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900193125",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1968,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T19:42:29Z",
+          "timestamp": 1649101349656
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  2
+                ]
+              ],
+              "date-time": "2020-12-02T00:00:00Z",
+              "timestamp": 1606867200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 27213,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1946,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900034386",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              12
+            ]
+          ],
+          "date-time": "2021-01-12T19:01:14Z",
+          "timestamp": 1610478074000
+        },
+        "page": "605-606",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Meeting of the Executive Council"
+        ],
+        "prefix": "10.1632",
+        "volume": "61",
+        "author": [
+          {
+            "given": "Percy W.",
+            "family": "Long",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900034386",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:49:13Z",
+          "timestamp": 1631731753000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900034386/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1946,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1946,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900034386"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900034386",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1946,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T15:05:18Z",
+          "timestamp": 1649084718589
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "5",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 12076,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1987,
+              10
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900173857",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              27
+            ]
+          ],
+          "date-time": "2020-10-27T09:22:55Z",
+          "timestamp": 1603790575000
+        },
+        "page": "865-865",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Index of Advertisers"
+        ],
+        "prefix": "10.1632",
+        "volume": "102",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900173857",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:57:34Z",
+          "timestamp": 1631732254000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900173857/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1987,
+              10
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                1987,
+                10
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900173857"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900173857",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1987,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T20:59:40Z",
+          "timestamp": 1649105980162
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 906,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2018,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.1632/pmla.2018.133.3.715",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              6
+            ]
+          ],
+          "date-time": "2018-09-06T17:27:58Z",
+          "timestamp": 1536254878000
+        },
+        "page": "715-716",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "What's Literally in Joyce"
+        ],
+        "prefix": "10.1632",
+        "volume": "133",
+        "author": [
+          {
+            "given": "David",
+            "family": "Galef",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900119674",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T19:01:04Z",
+          "timestamp": 1631732464000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900119674/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2018,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2018,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900119674"
+        ],
+        "URL": "https://doi.org/10.1632/pmla.2018.133.3.715",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              5
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T21:00:26Z",
+          "timestamp": 1649106026390
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 11498,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1989,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900137125",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              27
+            ]
+          ],
+          "date-time": "2020-10-27T09:20:47Z",
+          "timestamp": 1603790447000
+        },
+        "page": "281-281",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Forthcoming in <i>PMLA</i>"
+        ],
+        "prefix": "10.1632",
+        "volume": "104",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900137125",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:59:26Z",
+          "timestamp": 1631732366000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900137125/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1989,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1989,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900137125"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900137125",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1989,
+              5
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              12,
+              15
+            ]
+          ],
+          "date-time": "2022-12-15T06:57:41Z",
+          "timestamp": 1671087461437
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "5",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2022,
+                  12,
+                  14
+                ]
+              ],
+              "date-time": "2022-12-14T00:00:00Z",
+              "timestamp": 1670976000000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 74,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA Publ. Mod. Lang."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2022,
+              10
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812922000773",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              12,
+              14
+            ]
+          ],
+          "date-time": "2022-12-14T09:56:07Z",
+          "timestamp": 1671011767000
+        },
+        "page": "902-908",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Monolingualism, Dispossession, and the Biopolitics of Language"
+        ],
+        "prefix": "10.1632",
+        "volume": "137",
+        "author": [
+          {
+            "given": "Sarah",
+            "family": "Dowling",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2022,
+              12,
+              14
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812922000773",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              12,
+              14
+            ]
+          ],
+          "date-time": "2022-12-14T09:56:27Z",
+          "timestamp": 1671011787000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812922000773/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              10
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                2022,
+                10
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812922000773"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812922000773",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2022-04-03T11:28:54Z",
+          "timestamp": 1648985334089
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  2
+                ]
+              ],
+              "date-time": "2020-12-02T00:00:00Z",
+              "timestamp": 1606867200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 25448,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1951,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900028078",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              12
+            ]
+          ],
+          "date-time": "2021-01-12T22:10:10Z",
+          "timestamp": 1610489410000
+        },
+        "page": "108-119",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Germanic Languages and Literatures"
+        ],
+        "prefix": "10.1632",
+        "volume": "66",
+        "author": [
+          {
+            "given": "Henry W.",
+            "family": "Nordmeyer",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900028078",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:46:46Z",
+          "timestamp": 1631731606000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900028078/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1951,
+              4
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1951,
+                4
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900028078"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900028078",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1951,
+              4
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2022-04-03T13:48:10Z",
+          "timestamp": 1648993690428
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  2
+                ]
+              ],
+              "date-time": "2020-12-02T00:00:00Z",
+              "timestamp": 1606867200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 37591,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1918
+            ]
+          ]
+        },
+        "abstract": "<jats:p>The naturalistic reaction against Romanticism was a more or less conscious return to classical models. Romantic diffuseness was banished. The limpid prose of the classical <jats:italic>conteurs</jats:italic> came back to its own. The ideal of the naturalistic novelist was to maintain a classical, impersonal point of view, which rendered impossible the gushing of Romantic lyricism. Nineteenth-century science, heir to the <jats:italic>raison</jats:italic> of Rousseau's enemies, the <jats:italic>philosophes,</jats:italic> replaced Romantic emotion. Disdaining the fantastic plots of the Romanticists, the naturalists tended to make of their novels merely a series of scenes, like Le Sage, and like Marivaux.</jats:p>",
+        "DOI": "10.1632/456974",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              13
+            ]
+          ],
+          "date-time": "2021-01-13T20:28:08Z",
+          "timestamp": 1610569688000
+        },
+        "page": "96-134",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Romanticism of Guy de Maupassant"
+        ],
+        "prefix": "10.1632",
+        "volume": "33",
+        "author": [
+          {
+            "given": "Olin H.",
+            "family": "Moore",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900004442",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:46:38Z",
+          "timestamp": 1631731598000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900004442/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1918
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1918
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900004442"
+        ],
+        "URL": "https://doi.org/10.1632/456974",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1918
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2022-04-03T13:52:54Z",
+          "timestamp": 1648993974589
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  1
+                ]
+              ],
+              "date-time": "2020-12-01T00:00:00Z",
+              "timestamp": 1606780800000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 16406,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1976,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900036476",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              12
+            ]
+          ],
+          "date-time": "2021-01-12T22:58:49Z",
+          "timestamp": 1610492329000
+        },
+        "page": "140-148",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Professional Notes and Comment"
+        ],
+        "prefix": "10.1632",
+        "volume": "91",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              1
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900036476",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:51:40Z",
+          "timestamp": 1631731900000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900036476/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1976,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1976,
+                1
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900036476"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900036476",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1976,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              1
+            ]
+          ],
+          "date-time": "2022-04-01T15:53:45Z",
+          "timestamp": 1648828425004
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  2
+                ]
+              ],
+              "date-time": "2020-12-02T00:00:00Z",
+              "timestamp": 1606867200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 23256,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1957,
+              4
+            ]
+          ]
+        },
+        "abstract": "<jats:p>Your very kind applause encourages me to say that it is a pleasure to find myself with but this single responsibility at an MLA meeting. I shall repay you in part with a very brief report.</jats:p>",
+        "DOI": "10.1632/s0030812900012116",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              12
+            ]
+          ],
+          "date-time": "2021-01-12T23:26:43Z",
+          "timestamp": 1610494003000
+        },
+        "page": "96-96",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Report of the Delegate to the American Council of Learned Societies"
+        ],
+        "prefix": "10.1632",
+        "volume": "72",
+        "author": [
+          {
+            "given": "William R.",
+            "family": "Parker",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900012116",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:52:52Z",
+          "timestamp": 1631731972000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900012116/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1957,
+              4
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1957,
+                4
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900012116"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900012116",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1957,
+              4
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              1
+            ]
+          ],
+          "date-time": "2022-04-01T23:43:12Z",
+          "timestamp": 1648856592321
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "4",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 8088,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1998,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900147832",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              27
+            ]
+          ],
+          "date-time": "2020-10-27T09:00:29Z",
+          "timestamp": 1603789229000
+        },
+        "page": "962-963",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Humanities Research Centers"
+        ],
+        "prefix": "10.1632",
+        "volume": "113",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900147832",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:57:32Z",
+          "timestamp": 1631732252000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900147832/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1998,
+              9
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1998,
+                9
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900147832"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900147832",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1998,
+              9
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T08:05:12Z",
+          "timestamp": 1649059512122
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 14055,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1982,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900085734",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              27
+            ]
+          ],
+          "date-time": "2020-10-27T09:26:52Z",
+          "timestamp": 1603790812000
+        },
+        "page": "423-431",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Forthcoming Meetings and Conferences of General Interest"
+        ],
+        "prefix": "10.1632",
+        "volume": "97",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900085734",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:59:45Z",
+          "timestamp": 1631732385000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900085734/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1982,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1982,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900085734"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900085734",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1982,
+              5
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              1
+            ]
+          ],
+          "date-time": "2022-04-01T02:39:42Z",
+          "timestamp": 1648780782653
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 1697,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2016,
+              3
+            ]
+          ]
+        },
+        "DOI": "10.1632/pmla.2016.131.2.245",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ],
+          "date-time": "2020-10-23T09:44:48Z",
+          "timestamp": 1603446288000
+        },
+        "page": "245-246",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A Statement of Editorial Policy"
+        ],
+        "prefix": "10.1632",
+        "volume": "131",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900172190",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T19:03:30Z",
+          "timestamp": 1631732610000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900172190/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2016,
+              3
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                2016,
+                3
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900172190"
+        ],
+        "URL": "https://doi.org/10.1632/pmla.2016.131.2.245",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2016,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              5,
+              26
+            ]
+          ],
+          "date-time": "2022-05-26T11:44:01Z",
+          "timestamp": 1653565441768
+        },
+        "reference-count": 14,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2022,
+                  5,
+                  25
+                ]
+              ],
+              "date-time": "2022-05-25T00:00:00Z",
+              "timestamp": 1653436800000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 85,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA Publ. Mod. Lang."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2022,
+              3
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812922000086",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              5,
+              26
+            ]
+          ],
+          "date-time": "2022-05-26T10:55:14Z",
+          "timestamp": 1653562514000
+        },
+        "page": "295-310",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Tattoos: Writing in Dots"
+        ],
+        "prefix": "10.1632",
+        "volume": "137",
+        "author": [
+          {
+            "given": "Abdelkébir",
+            "family": "Khatibi",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Matt",
+            "family": "Reeck",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2022,
+              5,
+              25
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "S0030812922000086_s1_ref1",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.7208/chicago/9780226816340.001.0001"
+          },
+          {
+            "key": "S0030812922000086_s1_ref7",
+            "unstructured": "New International Version. Bible Gateway, biblegateway.com."
+          },
+          {
+            "key": "S0030812922000086_s1_ref3",
+            "volume-title": "The Holy Qur'an: An Eternal Translation of the Great Book of the Universe",
+            "author": "Kathir"
+          },
+          {
+            "key": "S0030812922000086_ref4",
+            "volume-title": "La blessure du nom propre",
+            "author": "Khatibi",
+            "year": "1974"
+          },
+          {
+            "key": "S0030812922000086_ref5",
+            "unstructured": "Qader, Nasrin . “Book Launch - Edited Volume - Abdelkébir Khatibi - March 16, 2021.” YouTube, 19 Mar. 2021, www.youtube.com/watch?v=o6SLPaanVXk."
+          },
+          {
+            "key": "S0030812922000086_ref2",
+            "first-page": "126",
+            "volume-title": "Translation Studies Reader",
+            "author": "Jakobson",
+            "year": "2012"
+          },
+          {
+            "key": "S0030812922000086_ref1",
+            "first-page": "1",
+            "article-title": "Introduction: Désappropriation de soi et poétique de l'intersigne chez Khatibi.",
+            "volume": "12",
+            "author": "Fieni",
+            "year": "2013",
+            "journal-title": "Expressions maghrébines"
+          },
+          {
+            "key": "S0030812922000086_s1_ref8",
+            "volume-title": "The Qur'an",
+            "author": "Abdel Haleem",
+            "year": "2004"
+          },
+          {
+            "key": "S0030812922000086_s1_ref6",
+            "volume-title": "Divagations",
+            "author": "Mallarmé",
+            "year": "2007"
+          },
+          {
+            "key": "S0030812922000086_s1_ref9",
+            "unstructured": "Sienna, Naom . “The History of Harqus: Temporary Facial Decoration in North Africa.” Eshkol HaKofer, 29 May 2015, eshkolhakofer.blogspot.com/2015/05/the-history-of-harqus-temporary-facial.html."
+          },
+          {
+            "key": "S0030812922000086_s1_ref5",
+            "first-page": "793",
+            "article-title": "The Savage Origin of Tattooing.",
+            "volume": "48",
+            "author": "Lombroso",
+            "year": "1896",
+            "journal-title": "Popular Science Monthly"
+          },
+          {
+            "key": "S0030812922000086_s1_ref2",
+            "volume-title": "Of Grammatology",
+            "author": "Derrida",
+            "year": "1976"
+          },
+          {
+            "key": "S0030812922000086_ref3",
+            "first-page": "32",
+            "article-title": "Abdelkébir Khatibi: Il faut s'essayer à une double critique permanente.",
+            "volume": "57",
+            "author": "Khatibi",
+            "year": "1973",
+            "journal-title": "Lamalif"
+          },
+          {
+            "key": "S0030812922000086_s1_ref4",
+            "volume-title": "Tristes tropiques",
+            "author": "Lévi-Strauss",
+            "year": "1961"
+          }
+        ],
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812922000086",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              5,
+              26
+            ]
+          ],
+          "date-time": "2022-05-26T10:59:45Z",
+          "timestamp": 1653562785000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812922000086/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              3
+            ]
+          ]
+        },
+        "references-count": 14,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                2022,
+                3
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812922000086"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812922000086",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              1
+            ]
+          ],
+          "date-time": "2022-04-01T17:51:03Z",
+          "timestamp": 1648835463981
+        },
+        "reference-count": 27,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "5",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 5136,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2006,
+              10
+            ]
+          ]
+        },
+        "abstract": "<jats:p>RULA, A PALESTINIAN WOMAN, WAS IN THE last stages of labor. Her husband, Daoud, could not convince the soldiers at an Israeli military roadblock to let them through to meet the ambulance that was held up on the other side. After a long wait, Rula could no longer hold it. She started screaming in pain, to the total apathy of the soldiers.</jats:p>",
+        "DOI": "10.1632/s0030812900099831",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              27
+            ]
+          ],
+          "date-time": "2020-10-27T08:14:46Z",
+          "timestamp": 1603786486000
+        },
+        "page": "1536-1543",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Relative Humanity: Identity, Rights, and Ethics—Israel as a Case Study"
+        ],
+        "prefix": "10.1632",
+        "volume": "121",
+        "author": [
+          {
+            "given": "Omar",
+            "family": "Barghouti",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "reference": [
+          {
+            "key": "S0030812900099831_ref1886",
+            "volume-title": "Critical Discourse Analysis: Theory and Interdisciplinarity",
+            "author": "Dascal",
+            "year": "2003"
+          },
+          {
+            "key": "S0030812900099831_ref1893",
+            "unstructured": "Hirst, David . “The War Game.” Observer 21 Sept. 2003. <http://observer.guardian.co.uk/comment/story/0,6903,1046411,00.html>."
+          },
+          {
+            "key": "S0030812900099831_ref1907",
+            "unstructured": "Universal Declaration of Human Rights. Office of the High Commissioner for Human Rights. United Nations Office at Geneva. 12 June 2006 <http://www.unhchr.ch/udhr/>."
+          },
+          {
+            "key": "S0030812900099831_ref1889",
+            "unstructured": "Galili, Lili . “A Jewish Demographic State.” Ha'aretz 1 July 2002. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1897",
+            "unstructured": "Levy, Gideon . “The Occupation Is Us.” Ha'aretz 27 Apr. 2003. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1891",
+            "unstructured": "Hedges, Chris . “A Gaza Diary.” Harper's Magazine Oct. 2001. <http://www.harpers.org/>."
+          },
+          {
+            "key": "S0030812900099831_ref1884",
+            "unstructured": "Bedell, Geraldine . “Set in Stone.” Observer 15 June 2003. <http://observer.guardian.co.uk/magazine/story/0,11913,976104,00.html>."
+          },
+          {
+            "key": "S0030812900099831_ref1898",
+            "unstructured": "Levy, Gideon . “Wombs in the Service of the State.” Ha'aretz 9 Sept. 2002. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1899",
+            "unstructured": "McGreal, Chris . “A Schoolgirl Riddled with Bullets. And No One Is to Blame.” Guardian 21 Oct. 2004. <http://www.guardian.co.uk/israel/Story/0,2763,1332219,00.html>."
+          },
+          {
+            "key": "S0030812900099831_ref1904",
+            "volume-title": "Jewish Fundamentalism in Israel",
+            "author": "Shahak",
+            "year": "1999"
+          },
+          {
+            "key": "S0030812900099831_ref1894",
+            "unstructured": "Khromchenco, Yulie . “Poll: 64% of Israeli Jews Support Encouraging Arabs to Leave.” Ha'aretz 22 June 2004. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1908",
+            "unstructured": "“Zeita: Border Police Officer Forces Man from Attil to Commit Sexual Act with Donkey, June 2003.” B'Tselem: The Israeli Information Center for Human Rights in the Occupied Territories. 18 July 2006 <http://www.btselem.org/english/testimonies/20030626_sexual_harassment_of_naziya_damiri_in_zeita_witness_damiri.asp>."
+          },
+          {
+            "key": "S0030812900099831_ref1895",
+            "unstructured": "Kissinger, Henry . “The Peace Paradox.” Washington Post 4 Dec. 2000."
+          },
+          {
+            "key": "S0030812900099831_ref1888",
+            "volume-title": "Pedagogy of the Oppressed",
+            "author": "Freire",
+            "year": "1972"
+          },
+          {
+            "key": "S0030812900099831_ref1883",
+            "unstructured": "Barghouti, Omar . “Relative Humanity: The Fundamental Obstacle to a One State Solution.” Z Magazine 16 Dec. 2003. 13 June 2006 <http://www.zmag.org/content/showarticle.cfm?SectionID=22&ltemID=4696>."
+          },
+          {
+            "key": "S0030812900099831_ref1903",
+            "volume-title": "Jewish History, Jewish Religion: The Weight of Three Thousand Years",
+            "author": "Shahak",
+            "year": "2002"
+          },
+          {
+            "key": "S0030812900099831_ref1890",
+            "unstructured": "Hass, Amira . “Don't Shoot Till You Can See They're over the Age of 12.” Ha'aretz 20 Nov. 2000. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1896",
+            "unstructured": "Levy, Gideon . “Birth and Death at the Checkpoint.” Ha'aretz 12 Sept. 2003. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1906",
+            "unstructured": "Tamir, Yuli . “Divide the Land or Divide Democracy.” Ha'aretz 14 Apr. 2002. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1900",
+            "unstructured": "Mazal, Mualem . “Old Habitats Die Hard.” Ha'aretz 20 June 2003. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1901",
+            "unstructured": "Rokach, Livia . Israel's Sacred Terrorism. Belmont: Assn. of Arab-Amer. U Graduates. 1980."
+          },
+          {
+            "key": "S0030812900099831_ref1882",
+            "volume-title": "Controversies and Subjectivity",
+            "author": "Barghouti",
+            "year": "2005"
+          },
+          {
+            "key": "S0030812900099831_ref1885",
+            "volume-title": "Original Sins: Reflections on the History of Zionism and Israel",
+            "author": "Benjamin",
+            "year": "1993"
+          },
+          {
+            "key": "S0030812900099831_ref1887",
+            "unstructured": "“A Fence along the Settlers' Lines.” Editorial. Ha'aretz 3 Oct. 2003. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1902",
+            "unstructured": "“Sephardi Jews Demand Recognition from Spanish Government.” Ha'aretz 15 Oct. 2002. <http://www.haaretz.com/>."
+          },
+          {
+            "key": "S0030812900099831_ref1892",
+            "unstructured": "Herman, Edward S. “Israeli Apartheid and Terrorism.” Z Magazine 29 Apr. 2002. 13 June 2006 <http://zena.secureforum.com/Znet/ZMag/articles/may94herman.htm>."
+          },
+          {
+            "key": "S0030812900099831_ref1905",
+            "volume-title": "Illusions of Restraint: Human Rights Violations during the Events in the Occupied Territories, 29 September–2 December 2000",
+            "author": "Stein",
+            "year": "2000"
+          }
+        ],
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900099831",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:59:08Z",
+          "timestamp": 1631732348000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900099831/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2006,
+              10
+            ]
+          ]
+        },
+        "references-count": 27,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                2006,
+                10
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900099831"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900099831",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2006,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              31
+            ]
+          ],
+          "date-time": "2022-03-31T21:19:00Z",
+          "timestamp": 1648761540062
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 906,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2018,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.1632/pmla.2018.133.3.756",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              9,
+              6
+            ]
+          ],
+          "date-time": "2018-09-06T17:27:58Z",
+          "timestamp": 1536254878000
+        },
+        "page": "756-773",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Minutes of the MLA Delegate Assembly"
+        ],
+        "prefix": "10.1632",
+        "volume": "133",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900119704",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T19:01:04Z",
+          "timestamp": 1631732464000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900119704/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2018,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2018,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900119704"
+        ],
+        "URL": "https://doi.org/10.1632/pmla.2018.133.3.756",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              5
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              31
+            ]
+          ],
+          "date-time": "2022-03-31T21:52:02Z",
+          "timestamp": 1648763522104
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "4-Part2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  2
+                ]
+              ],
+              "date-time": "2020-12-02T00:00:00Z",
+              "timestamp": 1606867200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 20546,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1964,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900129256",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              13
+            ]
+          ],
+          "date-time": "2021-01-13T01:13:16Z",
+          "timestamp": 1610500396000
+        },
+        "page": "249-249",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Annual Meetings and Membership"
+        ],
+        "prefix": "10.1632",
+        "volume": "79",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900129256",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:51:28Z",
+          "timestamp": 1631731888000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900129256/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1964,
+              9
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4-Part2",
+          "published-print": {
+            "date-parts": [
+              [
+                1964,
+                9
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900129256"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900129256",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1964,
+              9
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              4
+            ]
+          ],
+          "date-time": "2022-04-04T09:53:48Z",
+          "timestamp": 1649066028947
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "S1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  12,
+                  2
+                ]
+              ],
+              "date-time": "2020-12-02T00:00:00Z",
+              "timestamp": 1606867200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 44165,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1900
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900190273",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              1,
+              13
+            ]
+          ],
+          "date-time": "2021-01-13T18:01:55Z",
+          "timestamp": 1610560915000
+        },
+        "page": "lviii-lviii",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Honorary Members"
+        ],
+        "prefix": "10.1632",
+        "volume": "15",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              12,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "PMLA/Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900190273",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:46:43Z",
+          "timestamp": 1631731603000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900190273/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1900
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "S1",
+          "published-print": {
+            "date-parts": [
+              [
+                1900
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900190273"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900190273",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1900
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              1
+            ]
+          ],
+          "date-time": "2022-04-01T21:42:53Z",
+          "timestamp": 1648849373334
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "6",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2020,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2020-10-23T00:00:00Z",
+              "timestamp": 1603411200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 12045,
+            "URL": "https://www.cambridge.org/core/terms"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Publ. Mod. Lang. Assoc. Am."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1987,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1632/s0030812900158468",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              27
+            ]
+          ],
+          "date-time": "2020-10-27T09:22:25Z",
+          "timestamp": 1603790545000
+        },
+        "page": "1092-1094",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Discussion Group Executive Committees"
+        ],
+        "prefix": "10.1632",
+        "volume": "102",
+        "member": "634",
+        "published-online": {
+          "date-parts": [
+            [
+              2020,
+              10,
+              23
+            ]
+          ]
+        },
+        "container-title": [
+          "Publications of the Modern Language Association of America"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0030812900158468",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:57:41Z",
+          "timestamp": 1631732261000
+        },
+        "score": 0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.cambridge.org/core/product/identifier/S0030812900158468/type/journal_article"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1987,
+              11
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "6",
+          "published-print": {
+            "date-parts": [
+              [
+                1987,
+                11
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0030812900158468"
+        ],
+        "URL": "https://doi.org/10.1632/s0030812900158468",
+        "ISSN": [
+          "0030-8129",
+          "1938-1530"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          },
+          {
+            "value": "1938-1530",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1987,
+              11
+            ]
+          ]
+        }
+      }
+    ],
+    "items-per-page": 20,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

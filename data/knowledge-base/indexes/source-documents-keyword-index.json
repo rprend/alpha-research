@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-14T20:28:25.122Z",
+  "generated_at": "2026-06-14T20:34:29.156Z",
   "source": "data/knowledge-base/processed/source_documents.jsonl",
-  "document_count": 7034,
-  "term_count": 73051,
+  "document_count": 7054,
+  "term_count": 73056,
   "documents": {
     "openalex-humanities:https://openalex.org/W2488845447": {
       "source_id": "openalex-humanities",
@@ -45636,6 +45636,146 @@
       "source_url": "https://www.digitalhumanities.org/dhq/vol/16/2/index.html",
       "type": "article",
       "text_path": ""
+    },
+    "aha-annual-meeting-programs:7251": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Annual Meeting Program Committee",
+      "source_url": "https://www.historians.org/group/annual-meeting-program-committee/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:32610": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Highlights of the 2017 AHA Annual Meeting Program",
+      "source_url": "https://www.historians.org/perspectives-article/highlights-of-the-2017-aha-annual-meeting-program-scale-and-presidential-sessions-december-2016/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:32920": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Staff Picks from the 2017 AHA Annual Meeting Program",
+      "source_url": "https://www.historians.org/perspectives-article/staff-picks-from-the-2017-aha-annual-meeting-program-september-2016/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:34901": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "New York History on the 2015 Annual Meeting Program",
+      "source_url": "https://www.historians.org/perspectives-article/new-york-history-on-the-annual-meeting-program-november-2014/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:42133": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "2002 Annual Meeting Program Highlights",
+      "source_url": "https://www.historians.org/perspectives-article/2002-annual-meeting-program-highlights-october-2001/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:42138": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "The Challenge of the Annual Meeting Program",
+      "source_url": "https://www.historians.org/perspectives-article/the-challenge-of-the-annual-meeting-program-october-2001/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:42996": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "1997 Annual Meeting Program Chairs Report That Meeting Will Feature a Variety of Sessions",
+      "source_url": "https://www.historians.org/perspectives-article/1997-annual-meeting-program-chairs-report-that-meeting-will-feature-a-variety-of-sessions/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:43139": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Some Highlights of the 1996 Annual Meeting Program",
+      "source_url": "https://www.historians.org/perspectives-article/some-highlights-of-the-1996-annual-meeting-program/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:37570": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Some Advice from the Program Committee on Submitting Proposals for the 2013 Annual Meeting",
+      "source_url": "https://www.historians.org/perspectives-article/some-advice-from-the-program-committee-on-submitting-proposals-for-the-2013-annual-meeting-january-2012/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:37669": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Chicago History on the 2012 Program of the AHA’s Annual Meeting",
+      "source_url": "https://www.historians.org/perspectives-article/chicago-history-on-the-2012-program-of-the-ahas-annual-meeting-december-2011/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:116559": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Society for Applied Anthropology 87th Annual Meeting",
+      "source_url": "https://www.historians.org/opportunity/society-for-applied-anthropology-87th-annual-meeting/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:7538": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Annual Meeting Guidelines",
+      "source_url": "https://www.historians.org/resource/annual-meeting-guidelines/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:109273": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "AHA26 Program",
+      "source_url": "https://www.historians.org/events/annual-meeting/past-meetings/aha26-program/",
+      "type": "conference-page",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:109121": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Awards, Prizes, and Honors Conferred at the 139th Annual Meeting",
+      "source_url": "https://www.historians.org/perspectives-article/awards-prizes-and-honors-conferred-at-the-139th-annual-meeting/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:108553": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "The Annual Meeting Is for Teachers, Chicago Edition",
+      "source_url": "https://www.historians.org/perspectives-article/the-annual-meeting-is-for-teachers-chicago-edition/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:90797": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "AHA25 Program",
+      "source_url": "https://www.historians.org/events/annual-meeting/past-meetings/aha25-program/",
+      "type": "conference-page",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:89342": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "2026 AHA Annual Meeting",
+      "source_url": "https://www.historians.org/event/aha-annual-meeting/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:88329": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Awards, Prizes, and Honors Conferred at the 138th Annual Meeting",
+      "source_url": "https://www.historians.org/perspectives-article/awards-prizes-and-honors-conferred-at-the-138th-annual-meeting/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:82829": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "2025 AHA Annual Meeting",
+      "source_url": "https://www.historians.org/event/2025-aha-annual-meeting/",
+      "type": "conference-program-metadata",
+      "text_path": ""
+    },
+    "aha-annual-meeting-programs:106607": {
+      "source_id": "aha-annual-meeting-programs",
+      "title": "Exploring Chicago at AHA26",
+      "source_url": "https://www.historians.org/events/annual-meeting/resources-and-guides/exploring-chicago-at-aha26/",
+      "type": "conference-page",
+      "text_path": ""
     }
   },
   "postings": {
@@ -54196,7 +54336,8 @@
       "wikidata-cultural-entities:Q1257",
       "wikidata-cultural-entities:Q1768",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-about-https-history-berkeley-edu-about-awards-honors-faculty-awards-honors",
-      "expanded-university-humanities-departments:university-of-california-berkeley-english-department-events-sitemap-url-https-english-berkeley-edu-annual-series-charles-mills-gayley-lecture"
+      "expanded-university-humanities-departments:university-of-california-berkeley-english-department-events-sitemap-url-https-english-berkeley-edu-annual-series-charles-mills-gayley-lecture",
+      "aha-annual-meeting-programs:43139"
     ],
     "1997": [
       "nber-culture-history:i768l2-sitesearch-entity-node-1319799-en",
@@ -54219,7 +54360,8 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-about-https-history-berkeley-edu-about-awards-honors-faculty-awards-honors",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-about-https-rhetoric-berkeley-edu-about-books-faculty",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-events-sitemap-url-https-english-berkeley-edu-annual-series-charles-mills-gayley-lecture",
-      "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-events-https-english-ucla-edu-events"
+      "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-events-https-english-ucla-edu-events",
+      "aha-annual-meeting-programs:42996"
     ],
     "1998": [
       "project-gutenberg:pg-2878",
@@ -54330,7 +54472,8 @@
       "wikidata-cultural-entities:Q80926",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-about-https-rhetoric-berkeley-edu-about-books-faculty",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-events-sitemap-url-https-english-berkeley-edu-annual-series-charles-mills-gayley-lecture",
-      "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-https-english-ucla-edu-graduate-community-gradfaculty-reading-groups"
+      "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-https-english-ucla-edu-graduate-community-gradfaculty-reading-groups",
+      "aha-annual-meeting-programs:42133"
     ],
     "2003": [
       "humanities-literature-radar:oai-doaj-org-article-3bf16e187a9b4a77893526603357bfba",
@@ -54620,7 +54763,8 @@
       "wikidata-cultural-entities:Q24917",
       "wikidata-cultural-entities:Q25080",
       "uchicago-humanities-departments:university-of-chicago-english-department-faculty-https-english-uchicago-edu-people-alumni",
-      "doaj-humanities:010acb22d75e4c038255bb46b0af81a9"
+      "doaj-humanities:010acb22d75e4c038255bb46b0af81a9",
+      "aha-annual-meeting-programs:37669"
     ],
     "2013": [
       "humanities-literature-radar:oai-doaj-org-article-26eea7dd2882472c81130566e22c9c08",
@@ -54657,7 +54801,8 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-about-https-history-berkeley-edu-about-awards-honors-faculty-awards-honors",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-about-https-rhetoric-berkeley-edu-about-books-faculty",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-events-sitemap-url-https-english-berkeley-edu-annual-series-charles-mills-gayley-lecture",
-      "uchicago-humanities-departments:university-of-chicago-english-department-faculty-https-english-uchicago-edu-people-alumni"
+      "uchicago-humanities-departments:university-of-chicago-english-department-faculty-https-english-uchicago-edu-people-alumni",
+      "aha-annual-meeting-programs:37570"
     ],
     "2014": [
       "humanities-literature-radar:oai-doaj-org-article-93db334e10664f8ab89ebe10e67ad8b1",
@@ -54787,6 +54932,7 @@
       "uchicago-humanities-departments:university-of-chicago-english-department-faculty-https-english-uchicago-edu-people-alumni",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors",
+      "aha-annual-meeting-programs:34901",
       "stanford-humanities-departments:experiment-university-stanford-university-catalog-2015-23"
     ],
     "2016": [
@@ -54899,7 +55045,9 @@
       "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students",
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920"
     ],
     "2018": [
       "stanford-humanities-departments:experiment-university-stanford-university-strategic-plan-2026-3",
@@ -55714,6 +55862,7 @@
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
       "lareviewofbooks:15568",
+      "aha-annual-meeting-programs:82829",
       "harvard-humanities-departments:experiment-university-harvard-university-commencement-speech-2026-2",
       "humanities-centers-public-pages:experiment-university-massachusetts-institute-of-technology-commencement-speech-2026-8",
       "princeton-humanities-departments:experiment-university-princeton-university-commencement-speech-2026-11",
@@ -55862,6 +56011,7 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:89342",
       "stanford-humanities-departments:experiment-university-stanford-university-commencement-speech-2026-5",
       "humanities-centers-public-pages:experiment-university-university-of-pennsylvania-catalog-2026-18",
       "stanford-humanities-departments:stanford-university-history-department-about-https-history-stanford-edu-about-congratulations-stanford-history-class-2026",
@@ -59029,8 +59179,14 @@
     "1380s": [
       "cleveland-museum-open-access:131820"
     ],
+    "138th": [
+      "aha-annual-meeting-programs:88329"
+    ],
     "139s": [
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+    ],
+    "139th": [
+      "aha-annual-meeting-programs:109121"
     ],
     "13co": [
       "humanities-literature-radar:oai-doaj-org-article-7c843b9c48774d839ac491dc801c44c8"
@@ -61823,6 +61979,9 @@
     ],
     "87n": [
       "stanford-humanities-departments:stanford-university-art-and-art-history-department-programs-sitemap-url-https-art-stanford-edu-academics-courses"
+    ],
+    "87th": [
+      "aha-annual-meeting-programs:116559"
     ],
     "88s": [
       "stanford-humanities-departments:stanford-university-history-department-programs-https-history-stanford-edu-academics-courses"
@@ -73843,6 +74002,7 @@
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-https-english-ucla-edu-graduate-community-gradfaculty-reading-groups",
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
+      "aha-annual-meeting-programs:37570",
       "stanford-humanities-departments:stanford-university-philosophy-department-programs-sitemap-url-https-philosophy-stanford-edu-academics-graduate-program-philosophy-graduate-life-advice-succeeding-grad-school"
     ],
     "advices": [
@@ -78102,7 +78262,19 @@
       "project-gutenberg:pg-1330",
       "project-gutenberg:pg-5295",
       "project-gutenberg:pg-3485",
-      "project-gutenberg:pg-3183"
+      "project-gutenberg:pg-3183",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:82829"
+    ],
+    "aha25": [
+      "aha-annual-meeting-programs:90797"
+    ],
+    "aha26": [
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:106607"
     ],
     "ahab": [
       "project-gutenberg:pg-272"
@@ -86228,6 +86400,26 @@
       "expanded-university-humanities-departments:duke-university-english-department-faculty-https-english-duke-edu-books-ugly-white-people-writing-whiteness-contemporary-america",
       "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:42138",
+      "aha-annual-meeting-programs:42996",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:116559",
+      "aha-annual-meeting-programs:7538",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:90797",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:88329",
+      "aha-annual-meeting-programs:82829",
+      "aha-annual-meeting-programs:106607",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-sitemap-url-https-english-berkeley-edu-departments-19th-century-american",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-sitemap-url-https-english-berkeley-edu-departments-20th-and-21st-century-american",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-sitemap-url-https-english-berkeley-edu-departments-african-american",
@@ -90892,6 +91084,26 @@
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
       "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
       "expanded-university-humanities-departments:duke-university-english-department-events-https-english-duke-edu-events",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:42138",
+      "aha-annual-meeting-programs:42996",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:116559",
+      "aha-annual-meeting-programs:7538",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:90797",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:88329",
+      "aha-annual-meeting-programs:82829",
+      "aha-annual-meeting-programs:106607",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-sitemap-url-https-english-berkeley-edu-annual-series"
     ],
     "annually": [
@@ -92015,7 +92227,8 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-events-https-history-ucla-edu-2026-04-01-benjamin-madley-delivered-the-robert-harris-memorial-lecture-at-sonoma-state-university",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-programs-https-history-ucla-edu-academics-graduate",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:116559"
     ],
     "anthropometrics": [
       "doaj-humanities:10-7717-peerj-20435"
@@ -95318,7 +95531,8 @@
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses",
       "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history",
       "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:116559"
     ],
     "applies": [
       "doaj-humanities:0059d14296954a8d88c9017daedbfdfb",
@@ -96262,7 +96476,8 @@
       "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history",
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
       "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:109273"
     ],
     "approaching": [
       "humanities-literature-radar:oai-doaj-org-article-abb7ced7b54c4b318056d75f9e8ad9f6",
@@ -106346,7 +106561,27 @@
       "uchicago-humanities-departments:university-of-chicago-history-department-programs-https-history-uchicago-edu-phd-study-phd-courses",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-events-https-english-ucla-edu-events",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-https-english-ucla-edu-graduate-community-gradfaculty-reading-groups",
-      "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors"
+      "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:42138",
+      "aha-annual-meeting-programs:42996",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:116559",
+      "aha-annual-meeting-programs:7538",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:90797",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:88329",
+      "aha-annual-meeting-programs:82829",
+      "aha-annual-meeting-programs:106607"
     ],
     "associations": [
       "project-gutenberg:pg-2589",
@@ -112197,6 +112432,8 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:88329",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-about-https-history-berkeley-edu-about-awards-honors-faculty-awards-honors",
       "uchicago-humanities-departments:university-of-chicago-history-department-news-sitemap-url-http-history-uchicago-edu-about-newsletter-awards-and-publications"
     ],
@@ -156269,6 +156506,7 @@
       "uchicago-humanities-departments:university-of-chicago-english-department-about-https-english-uchicago-edu-about-contact",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-about-https-history-berkeley-edu-about-awards-honors-faculty-awards-honors",
       "uchicago-humanities-departments:university-of-chicago-history-department-news-sitemap-url-http-history-uchicago-edu-2024-chairs-welcome",
+      "aha-annual-meeting-programs:42996",
       "uchicago-humanities-departments:university-of-chicago-history-department-news-sitemap-url-http-history-uchicago-edu-2024-chairs-welcome"
     ],
     "chaise": [
@@ -156407,7 +156645,8 @@
       "uchicago-humanities-departments:university-of-chicago-humanities-division-department-news-https-humanities-uchicago-edu-articles-2026-05-deans-salon-explores-theaters-civic-role-time-transformation",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate",
-      "doaj-humanities:00ab7abea8b74c53931f2e1743aec0bf"
+      "doaj-humanities:00ab7abea8b74c53931f2e1743aec0bf",
+      "aha-annual-meeting-programs:42138"
     ],
     "challenged": [
       "humanities-literature-radar:oai-doaj-org-article-70f2f473c8844862b0ef27c410cc8149",
@@ -160163,6 +160402,9 @@
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-news-https-rhetoric-berkeley-edu-news-archive",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:106607",
       "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home",
       "uchicago-humanities-departments:university-of-chicago-english-department-home",
       "uchicago-humanities-departments:university-of-chicago-history-department-home",
@@ -164218,6 +164460,7 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors",
       "expanded-university-humanities-departments:cornell-university-english-department-events-https-english-cornell-edu-english-events",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:106607",
       "yale-humanities-departments:yale-university-philosophy-department-events-sitemap-url-http-philosophy-yale-edu-events-2024-10-23-ellmm-city-branden-fitelson-northeastern-univ"
     ],
     "citymapper": [
@@ -174134,7 +174377,9 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-events-https-english-ucla-edu-events",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-programs-https-history-ucla-edu-academics-graduate",
-      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news"
+      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:37570"
     ],
     "committees": [
       "humanities-centers-public-pages:experiment-university-duke-university-strategic-plan-2026-19",
@@ -181983,7 +182228,27 @@
       "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students",
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:42138",
+      "aha-annual-meeting-programs:42996",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:116559",
+      "aha-annual-meeting-programs:7538",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:90797",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:88329",
+      "aha-annual-meeting-programs:82829",
+      "aha-annual-meeting-programs:106607"
     ],
     "conferences": [
       "humanities-literature-radar:oai-doaj-org-article-65e7b69c66464de69ccdb52b34e7e1b2",
@@ -182034,7 +182299,9 @@
       "project-gutenberg:pg-2627",
       "project-gutenberg:pg-881",
       "project-gutenberg:pg-5279",
-      "project-gutenberg:pg-2938"
+      "project-gutenberg:pg-2938",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:88329"
     ],
     "confers": [
       "humanities-literature-radar:oai-doaj-org-article-a44f6c70cc8c4b15a03e39f1ca42b2f6",
@@ -223076,7 +223343,8 @@
       "expanded-university-humanities-departments:duke-university-english-department-programs-https-english-duke-edu-2020-2021-courses-and-requirement",
       "doaj-humanities:00ab7abea8b74c53931f2e1743aec0bf",
       "doaj-humanities:00fc9c9714624b28a9225ebc3c6b17e1",
-      "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c"
+      "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
+      "aha-annual-meeting-programs:109273"
     ],
     "developmental": [
       "humanities-literature-radar:oai-doaj-org-article-1eedf3e73613450cad9dcd1c53ff534c",
@@ -248731,7 +248999,8 @@
       "stanford-humanities-departments:stanford-university-english-department-sitemap-url-https-english-stanford-edu",
       "yale-humanities-departments:yale-university-english-department-faculty-https-english-yale-edu-books-faculty-books",
       "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history",
-      "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news"
+      "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
+      "aha-annual-meeting-programs:108553"
     ],
     "editions": [
       "stanford-humanities-departments:stanford-university-english-department-home",
@@ -258695,7 +258964,8 @@
       "uchicago-humanities-departments:university-of-chicago-humanities-division-department-news-https-humanities-uchicago-edu-articles-2026-05-deans-salon-explores-theaters-civic-role-time-transformation",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
-      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news"
+      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
+      "aha-annual-meeting-programs:109273"
     ],
     "engagements": [
       "doaj-humanities:010623a9b5ae44ef9daa2eed4dccaa8b",
@@ -277889,7 +278159,8 @@
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
       "expanded-university-humanities-departments:brown-university-history-department-faculty-https-history-brown-edu-media-faculty-books",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
-      "doaj-humanities:012a1b8c85f6459da7cb79ca7bcacaa3"
+      "doaj-humanities:012a1b8c85f6459da7cb79ca7bcacaa3",
+      "aha-annual-meeting-programs:109273"
     ],
     "exploreat": [
       "doaj-humanities:10-5944-rhd-vol-3-2019-23188"
@@ -278127,7 +278398,8 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate",
       "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
       "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:106607"
     ],
     "explosion": [
       "doaj-humanities:10-1002-lrh2-10474",
@@ -287166,7 +287438,8 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-news-https-english-berkeley-edu-news-features-0",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-news-https-rhetoric-berkeley-edu-news-archive",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate",
-      "expanded-university-humanities-departments:duke-university-english-department-events-https-english-duke-edu-events"
+      "expanded-university-humanities-departments:duke-university-english-department-events-https-english-duke-edu-events",
+      "aha-annual-meeting-programs:42996"
     ],
     "featured": [
       "museum-language-drift:experiment-museum-tate-exhibition-2026-1",
@@ -318348,7 +318621,8 @@
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-events-https-history-berkeley-edu-events-commencement",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate",
-      "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news"
+      "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
+      "aha-annual-meeting-programs:106607"
     ],
     "getachew": [
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-faculty-https-philosophy-uchicago-edu-people-affiliated-faculty"
@@ -330616,7 +330890,8 @@
       "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students",
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:7538"
     ],
     "guideront": [
       "doaj-humanities:10-18778-2392-0718-09-10"
@@ -339758,7 +340033,9 @@
       "dh-conference-programs:20",
       "dh-conference-programs:18",
       "dh-conference-programs:16",
-      "dh-conference-programs:14"
+      "dh-conference-programs:14",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:106607"
     ],
     "hellish": [
       "project-gutenberg:pg-151",
@@ -343536,7 +343813,10 @@
       "expanded-university-humanities-departments:brown-university-history-department-news-sitemap-url-https-history-brown-edu",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-news-https-english-berkeley-edu-news-features-0",
-      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-giving"
+      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-giving",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:43139"
     ],
     "highly": [
       "project-gutenberg:pg-727",
@@ -345413,7 +345693,8 @@
       "yale-humanities-departments:yale-university-history-department-events-https-history-yale-edu-calendar",
       "yale-humanities-departments:yale-university-history-department-programs-https-history-yale-edu-academics-graduate-programs",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:109273"
     ],
     "historias": [
       "doaj-humanities:10-18239-ocnos-2023-22-1-332",
@@ -345726,7 +346007,27 @@
       "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students",
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:42138",
+      "aha-annual-meeting-programs:42996",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:116559",
+      "aha-annual-meeting-programs:7538",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:90797",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:88329",
+      "aha-annual-meeting-programs:82829",
+      "aha-annual-meeting-programs:106607"
     ],
     "historically": [
       "humanities-literature-radar:http-arxiv-org-abs-2606-13397v1",
@@ -347400,6 +347701,9 @@
       "doaj-humanities:00fc9c9714624b28a9225ebc3c6b17e1",
       "lareviewofbooks:19705",
       "lareviewofbooks:19668",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:106607",
       "yale-humanities-departments:yale-university-history-department-home",
       "columbia-humanities-departments:https-history-columbia-edu",
       "stanford-humanities-departments:stanford-university-history-department-home",
@@ -349739,6 +350043,8 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:88329",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-about-https-history-berkeley-edu-about-awards-honors-faculty-awards-honors",
       "stanford-humanities-departments:stanford-university-english-department-programs-sitemap-url-https-english-stanford-edu-academics-undergraduate-programs-honors",
       "expanded-university-humanities-departments:duke-university-history-department-news-sitemap-url-http-history-duke-edu-2019-history-honors-students",
@@ -366932,7 +367238,8 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-programs-https-history-ucla-edu-academics-graduate",
       "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history",
       "expanded-university-humanities-departments:cornell-university-english-department-events-https-english-cornell-edu-english-events",
-      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news"
+      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
+      "aha-annual-meeting-programs:106607"
     ],
     "incluir": [
       "doaj-humanities:https-doi-org-10-11606-issn-2238-2593-organicom-2022-205774"
@@ -387664,7 +387971,8 @@
       "doaj-humanities:00ab7abea8b74c53931f2e1743aec0bf",
       "doaj-humanities:00fc9c9714624b28a9225ebc3c6b17e1",
       "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
-      "lareviewofbooks:19689"
+      "lareviewofbooks:19689",
+      "aha-annual-meeting-programs:106607"
     ],
     "its2": [
       "humanities-literature-radar:oai-doaj-org-article-2ea22411740748ef80f813e6da59fc5a"
@@ -400226,7 +400534,8 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-news-https-rhetoric-berkeley-edu-news-archive",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate",
       "expanded-university-humanities-departments:cornell-university-history-department-programs-https-history-cornell-edu-course-flyers",
-      "doaj-humanities:012a1b8c85f6459da7cb79ca7bcacaa3"
+      "doaj-humanities:012a1b8c85f6459da7cb79ca7bcacaa3",
+      "aha-annual-meeting-programs:106607"
     ],
     "knowable": [
       "doaj-humanities:10-5209-rev-anha-2015-v25-50857",
@@ -446134,7 +446443,27 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-giving",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-events-https-english-ucla-edu-events",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-https-english-ucla-edu-graduate-community-gradfaculty-reading-groups",
-      "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate"
+      "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:42138",
+      "aha-annual-meeting-programs:42996",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:116559",
+      "aha-annual-meeting-programs:7538",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:90797",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:88329",
+      "aha-annual-meeting-programs:82829",
+      "aha-annual-meeting-programs:106607"
     ],
     "meetings": [
       "project-gutenberg:pg-1544",
@@ -450118,7 +450447,24 @@
       "wayback-machine-cdx:harvard-university-classics-department-home-20200108060711-https-classics-fas-harvard-edu",
       "wayback-machine-cdx:yale-university-philosophy-department-home-20200113214624-https-philosophy-yale-edu",
       "doaj-humanities:00a4b9cb9ecf40a59683c5df318b824d",
-      "doaj-humanities:0124982a30ac46478ea77d831f3043eb"
+      "doaj-humanities:0124982a30ac46478ea77d831f3043eb",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:42138",
+      "aha-annual-meeting-programs:42996",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:116559",
+      "aha-annual-meeting-programs:7538",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:88329",
+      "aha-annual-meeting-programs:82829"
     ],
     "metade": [
       "doaj-humanities:10-1590-1980-4369e2020011"
@@ -461933,7 +462279,8 @@
       "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
       "expanded-university-humanities-departments:duke-university-english-department-events-https-english-duke-edu-events",
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:109273"
     ],
     "morea": [
       "project-gutenberg:pg-1373"
@@ -477585,6 +477932,8 @@
       "lareviewofbooks:19658",
       "lareviewofbooks:19656",
       "lareviewofbooks:19666",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:109273",
       "expanded-university-humanities-departments:new-york-university-english-department-home",
       "expanded-university-humanities-departments:new-york-university-history-department-home"
     ],
@@ -490298,7 +490647,8 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-programs-https-history-ucla-edu-academics-graduate",
       "expanded-university-humanities-departments:university-of-pennsylvania-english-department-programs-https-www-english-upenn-edu-courses",
       "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history",
-      "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news"
+      "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
+      "aha-annual-meeting-programs:106607"
     ],
     "office": [
       "project-gutenberg:pg-2589",
@@ -496791,7 +497141,8 @@
       "uchicago-humanities-departments:university-of-chicago-humanities-division-department-programs-https-humanities-uchicago-edu-students-bama-programs",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses",
-      "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-programs-https-history-ucla-edu-academics-graduate"
+      "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-programs-https-history-ucla-edu-academics-graduate",
+      "aha-annual-meeting-programs:106607"
     ],
     "oppose": [
       "doaj-humanities:10-5007-2175-8026-2014n67p79",
@@ -505990,6 +506341,9 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:90797",
+      "aha-annual-meeting-programs:106607",
       "harvard-humanities-departments:experiment-university-harvard-university-catalog-2026-0",
       "expanded-university-humanities-departments:duke-university-english-department-home",
       "expanded-university-humanities-departments:duke-university-history-department-home",
@@ -525808,7 +526162,8 @@
       "project-gutenberg:pg-5198",
       "project-gutenberg:pg-2919",
       "project-gutenberg:pg-2910",
-      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news"
+      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
+      "aha-annual-meeting-programs:32920"
     ],
     "picnic": [
       "project-gutenberg:pg-4756",
@@ -546980,7 +547335,9 @@
       "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students",
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:88329"
     ],
     "prl": [
       "doaj-humanities:10-1186-s12935-023-02944-4"
@@ -549604,7 +549961,8 @@
       "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
       "expanded-university-humanities-departments:duke-university-english-department-events-https-english-duke-edu-events",
       "expanded-university-humanities-departments:duke-university-english-department-faculty-https-english-duke-edu-books-ugly-white-people-writing-whiteness-contemporary-america",
-      "expanded-university-humanities-departments:duke-university-english-department-programs-https-english-duke-edu-2020-2021-courses-and-requirement"
+      "expanded-university-humanities-departments:duke-university-english-department-programs-https-english-duke-edu-2020-2021-courses-and-requirement",
+      "aha-annual-meeting-programs:109273"
     ],
     "professionalism": [
       "humanities-literature-radar:oai-doaj-org-article-0bfadb4100b947c3849eb4ecf27a2725",
@@ -550440,6 +550798,25 @@
       "expanded-university-humanities-departments:duke-university-english-department-faculty-https-english-duke-edu-books-ugly-white-people-writing-whiteness-contemporary-america",
       "expanded-university-humanities-departments:duke-university-english-department-programs-https-english-duke-edu-2020-2021-courses-and-requirement",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:7251",
+      "aha-annual-meeting-programs:32610",
+      "aha-annual-meeting-programs:32920",
+      "aha-annual-meeting-programs:34901",
+      "aha-annual-meeting-programs:42133",
+      "aha-annual-meeting-programs:42138",
+      "aha-annual-meeting-programs:42996",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570",
+      "aha-annual-meeting-programs:37669",
+      "aha-annual-meeting-programs:116559",
+      "aha-annual-meeting-programs:7538",
+      "aha-annual-meeting-programs:109273",
+      "aha-annual-meeting-programs:109121",
+      "aha-annual-meeting-programs:108553",
+      "aha-annual-meeting-programs:90797",
+      "aha-annual-meeting-programs:89342",
+      "aha-annual-meeting-programs:88329",
+      "aha-annual-meeting-programs:82829",
       "stanford-humanities-departments:stanford-university-english-department-programs-sitemap-url-https-english-stanford-edu-academics-phd-program",
       "stanford-humanities-departments:stanford-university-english-department-programs-sitemap-url-https-english-stanford-edu-academics-phd-program-joint-degree-program-school-law-jdphd",
       "stanford-humanities-departments:stanford-university-philosophy-department-programs-sitemap-url-https-philosophy-stanford-edu-academics-graduate-program-philosophy",
@@ -550716,6 +551093,7 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:109273",
       "uchicago-humanities-departments:university-of-chicago-humanities-division-department-about-https-humanities-uchicago-edu-about-interdisciplinary",
       "stanford-humanities-departments:stanford-university-english-department-programs-sitemap-url-https-english-stanford-edu-academics-overview-degree-programs",
       "stanford-humanities-departments:stanford-university-english-department-programs-sitemap-url-https-english-stanford-edu-academics-phd-program",
@@ -553124,7 +553502,8 @@
       "project-gutenberg:pg-5281",
       "expanded-university-humanities-departments:cornell-university-history-department-news-https-history-cornell-edu-graduate-handbook",
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:37570"
     ],
     "proposant": [
       "doaj-humanities:10-4000-italies-9971"
@@ -557380,7 +557759,8 @@
       "lareviewofbooks:19666",
       "lareviewofbooks:19679",
       "lareviewofbooks:19665",
-      "lareviewofbooks:15568"
+      "lareviewofbooks:15568",
+      "aha-annual-meeting-programs:109273"
     ],
     "publica": [
       "doaj-humanities:10-34019-1982-8047-2018-v44-13881"
@@ -582056,7 +582436,8 @@
       "stanford-humanities-departments:stanford-university-art-and-art-history-department-about-sitemap-url-https-art-stanford-edu-about-academic-facilities-mcmurtry-building",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-news-sitemap-url-https-history-ucla-edu",
       "yale-humanities-departments:yale-university-english-department-programs-https-english-yale-edu-diversity-resources-resources-graduate-students",
-      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-events-https-history-berkeley-edu-events-commencement"
+      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-events-https-history-berkeley-edu-events-commencement",
+      "aha-annual-meeting-programs:42996"
     ],
     "reportagem": [
       "doaj-humanities:000e1545ebc14339ad8f550b6fc37cb8"
@@ -584769,6 +585150,7 @@
       "doaj-humanities:0124982a30ac46478ea77d831f3043eb",
       "doaj-humanities:012a1b8c85f6459da7cb79ca7bcacaa3",
       "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
+      "aha-annual-meeting-programs:109273",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-news-sitemap-url-https-history-ucla-edu-2021-11-15-fullbright-hays-doctoral-dissertation-research-abroad-fellowship-recipients",
       "stanford-humanities-departments:stanford-university-philosophy-department-faculty-https-philosophy-stanford-edu-node-10956",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research"
@@ -586224,6 +586606,7 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:106607",
       "uchicago-humanities-departments:university-of-chicago-history-department-news-sitemap-url-http-history-uchicago-edu-about-diversity-and-inclusion-university-resources",
       "expanded-university-humanities-departments:university-of-california-berkeley-english-department-sitemap-url-https-english-berkeley-edu-department-resources",
       "yale-humanities-departments:yale-university-english-department-programs-https-english-yale-edu-diversity-resources-resources-graduate-students",
@@ -620732,6 +621115,7 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-home",
       "stanford-humanities-departments:stanford-university-art-and-art-history-department-programs-sitemap-url-https-art-stanford-edu-academics-graduate-programs-mfa-art-practice-applicant-info-sessions",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-news-https-rhetoric-berkeley-edu-news-archive",
+      "aha-annual-meeting-programs:42996",
       "stanford-humanities-departments:stanford-university-art-and-art-history-department-programs-sitemap-url-https-art-stanford-edu-academics-graduate-programs-mfa-art-practice-applicant-info-sessions"
     ],
     "sestara": [
@@ -640217,6 +640601,7 @@
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
       "doaj-humanities:0124982a30ac46478ea77d831f3043eb",
+      "aha-annual-meeting-programs:116559",
       "stanford-humanities-departments:stanford-university-philosophy-department-programs-sitemap-url-https-philosophy-stanford-edu-academics-graduate-program-philosophy-graduate-life-hume-society",
       "stanford-humanities-departments:stanford-university-philosophy-department-programs-sitemap-url-https-philosophy-stanford-edu-academics-graduate-program-philosophy-graduate-life-hume-society-past-hume-society-officers"
     ],
@@ -642395,7 +642780,9 @@
       "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
       "doaj-humanities:00ab7abea8b74c53931f2e1743aec0bf",
       "doaj-humanities:00e06cc3ca92413ab84f7f97dbc087a4",
-      "doaj-humanities:00f979d4fcb74e81ad1067e4b963f2bd"
+      "doaj-humanities:00f979d4fcb74e81ad1067e4b963f2bd",
+      "aha-annual-meeting-programs:43139",
+      "aha-annual-meeting-programs:37570"
     ],
     "somebody": [
       "doaj-humanities:10-22394-2412-9410-2023-9-4-268-285",
@@ -651470,6 +651857,7 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "aha-annual-meeting-programs:32920",
       "expanded-university-humanities-departments:brown-university-english-department-about-https-english-brown-edu-about-administrative-staff",
       "expanded-university-humanities-departments:brown-university-english-department-about-sitemap-url-https-english-brown-edu-about-administrative-staff",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-faculty-https-rhetoric-berkeley-edu-faculty-and-staff-resources"
@@ -665366,7 +665754,8 @@
       "expanded-university-humanities-departments:cornell-university-english-department-about-https-english-cornell-edu-mfa-creative-writing-admissions-and-financial-support",
       "stanford-humanities-departments:stanford-university-english-department-about-sitemap-url-https-english-stanford-edu-academics-phd-admissions-faqs",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-programs-https-history-ucla-edu-academics-graduate",
-      "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia"
+      "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
+      "aha-annual-meeting-programs:37570"
     ],
     "submucous": [
       "doaj-humanities:10-4103-jhnps-jhnps-19-18"
@@ -679611,7 +680000,8 @@
       "expanded-university-humanities-departments:cornell-university-english-department-about-https-english-cornell-edu-mfa-creative-writing-admissions-and-financial-support",
       "expanded-university-humanities-departments:cornell-university-history-department-about-https-history-cornell-edu-about-us",
       "expanded-university-humanities-departments:cornell-university-history-department-news-sitemap-url-https-history-cornell-edu-about-us",
-      "yale-humanities-departments:yale-university-english-department-programs-https-english-yale-edu-diversity-resources-resources-graduate-students"
+      "yale-humanities-departments:yale-university-english-department-programs-https-english-yale-edu-diversity-resources-resources-graduate-students",
+      "aha-annual-meeting-programs:108553"
     ],
     "teaches": [
       "project-gutenberg:pg-5299",
@@ -679834,7 +680224,8 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
-      "doaj-humanities:00ab7abea8b74c53931f2e1743aec0bf"
+      "doaj-humanities:00ab7abea8b74c53931f2e1743aec0bf",
+      "aha-annual-meeting-programs:109273"
     ],
     "teachings": [
       "doaj-humanities:10-4102-hts-v79i1-8234",
@@ -726042,7 +726433,8 @@
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
       "doaj-humanities:00a4b9cb9ecf40a59683c5df318b824d",
       "doaj-humanities:00e06cc3ca92413ab84f7f97dbc087a4",
-      "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c"
+      "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
+      "aha-annual-meeting-programs:106607"
     ],
     "used": [
       "project-gutenberg:pg-2572",
@@ -730323,7 +730715,8 @@
       "yale-humanities-departments:yale-university-philosophy-department-programs-https-philosophy-yale-edu-graduates",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-faculty-https-philosophy-uchicago-edu-people-affiliated-faculty",
-      "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
+      "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses",
+      "aha-annual-meeting-programs:42996"
     ],
     "varimax": [
       "humanities-literature-radar:oai-doaj-org-article-724aafbc44754789b4df69afbb32fd8c"
@@ -753537,6 +753930,7 @@
       "expanded-university-humanities-departments:duke-university-english-department-events-https-english-duke-edu-events",
       "doaj-humanities:00e06cc3ca92413ab84f7f97dbc087a4",
       "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
+      "aha-annual-meeting-programs:42996",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-news-sitemap-url-https-history-ucla-edu-2022-01-03-alumna-catherine-ceniza-choy-in-how-will-the-history-books-remember-2021",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-news-sitemap-url-https-history-ucla-edu-2022-01-03-professor-brenda-stevenson-in-how-will-the-history-books-remember-2021"
     ],
@@ -768193,6 +768587,7 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-https-english-ucla-edu-graduate-community-gradfaculty-reading-groups",
       "expanded-university-humanities-departments:cornell-university-history-department-programs-https-history-cornell-edu-course-flyers",
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
+      "aha-annual-meeting-programs:34901",
       "expanded-university-humanities-departments:new-york-university-english-department-home",
       "expanded-university-humanities-departments:new-york-university-history-department-home"
     ],

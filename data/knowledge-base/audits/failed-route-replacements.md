@@ -1,13 +1,14 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T20:29:09.696Z
-Resolved historical failures: 6
-Replacement plans: 10
+Generated at: 2026-06-14T20:34:31.058Z
+Resolved historical failures: 7
+Replacement plans: 9
 
 ## Resolved Historical Failures
 
+- aha-annual-meeting-programs: latest successful route https://www.historians.org/wp-json/wp/v2/search?search=annual%20meeting%20program&per_page=20 | https://www.historians.org/wp-json/wp/v2/pages?search=annual%20meeting%20program&per_page=20 at 2026-06-14T20:34:13.681Z (20 records).
+- columbia-humanities-departments: latest successful route https://history.columbia.edu/ at 2026-06-14T20:34:06.522Z (1 records).
 - doaj-humanities: latest successful route https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20 at 2026-06-14T20:28:04.857Z (20 records).
-- lareviewofbooks: latest successful route https://lareviewofbooks.org/ at 2026-06-14T20:28:09.368Z (18 records).
 - library-of-congress: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:34.343Z (50 records).
 - met-collection-api: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:33.316Z (50 records).
 - wayback-machine-cdx: latest successful route https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=20 at 2026-06-14T20:28:09.044Z (20 records).
@@ -87,28 +88,24 @@ Replacement plans: 10
 - Next action: Create source-specific alternate target entries for princeton-humanities-departments using public about/news/events/faculty routes that return 200.
 - Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
 
-## columbia-humanities-departments
+## lareviewofbooks
 
-- Name: Columbia Humanities Department Public Pages
-- Class: university-department-web
+- Name: Los Angeles Review of Books
+- Class: journals-and-reviews
 - Ingest status: active
 - Replacement status: replacement-needed
-- Failure count: 9
-- Latest failure: 2026-06-14T20:22:06.009Z
-- Latest error: HTTP 403 Forbidden
-- Affected targets: Columbia University English and Comparative Literature department-sitemap; Columbia University History department-sitemap; Columbia University Philosophy department-sitemap
+- Failure count: 7
+- Latest failure: 2026-06-14T20:33:43.035Z
+- Latest error: https://lareviewofbooks.org/feed/: HTTP 404 Not Found
+- Affected targets: No target metadata.
 - Failed routes:
-  - https://english.columbia.edu/
-  - https://philosophy.columbia.edu/
-  - https://english.columbia.edu/sitemap.xml
-  - https://history.columbia.edu/sitemap.xml
-  - https://philosophy.columbia.edu/sitemap.xml
+  - https://lareviewofbooks.org/feed/
 - Replacement routes:
-  - Use already responding same-domain department pages discovered from successful homepages.
-  - Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.
-  - Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed.
-- Next action: Create source-specific alternate target entries for Columbia University English and Comparative Literature department-sitemap, Columbia University History department-sitemap, Columbia University Philosophy department-sitemap using public about/news/events/faculty routes that return 200.
-- Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
+  - Find the current RSS/feed URL from the site homepage or sitemap.
+  - Use WordPress discovery endpoints such as /wp-json/wp/v2/posts only if public and allowed.
+  - Use Crossref/OpenAlex/Internet Archive metadata as fallback for bibliographic discovery.
+- Next action: Replace the stale feed URL before another automated ingest.
+- Do not do: Do not repeatedly retry the known 404 feed route.
 
 ## uchicago-humanities-departments
 
@@ -157,8 +154,8 @@ Replacement plans: 10
 - Class: humanities-adjacent-policy-history
 - Ingest status: blocked
 - Replacement status: permission-needed
-- Failure count: 1
-- Latest failure: 2026-06-13T16:37:21.118Z
+- Failure count: 3
+- Latest failure: 2026-06-14T20:34:13.823Z
 - Latest error: https://api.ssrn.com/content/v1/papers?query=humanities: HTTP 401 Unauthorized
 - Affected targets: No target metadata.
 - Failed routes:
@@ -175,12 +172,13 @@ Replacement plans: 10
 - Class: cultural-collections
 - Ingest status: active
 - Replacement status: rate-limit-backoff
-- Failure count: 3
-- Latest failure: 2026-06-14T20:02:34.741Z
-- Latest error: HTTP 429 Too Many Requests
+- Failure count: 5
+- Latest failure: 2026-06-14T20:34:06.390Z
+- Latest error: https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=20: HTTP 429 Too Many Requests; https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=20: HTTP 429 Too Many Requests
 - Affected targets: No target metadata.
 - Failed routes:
   - source-specific cultural collections API routes
+  - https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=20 | https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=20
 - Replacement routes:
   - Retry with lower per-source limits and longer backoff.
   - Prefer bulk/download routes if the source documents one.
@@ -193,8 +191,8 @@ Replacement plans: 10
 - Class: open-text-metadata
 - Ingest status: blocked
 - Replacement status: route-review-needed
-- Failure count: 1
-- Latest failure: 2026-06-13T16:37:21.021Z
+- Failure count: 3
+- Latest failure: 2026-06-14T20:34:13.751Z
 - Latest error: https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden
 - Affected targets: No target metadata.
 - Failed routes:
@@ -204,21 +202,3 @@ Replacement plans: 10
   - Store metadata only and keep rights fields attached before any text access decisions.
 - Next action: Replace catalog-page scraping with documented metadata download/export workflow after terms review.
 - Do not do: Do not scrape blocked catalog pages or store restricted full text.
-
-## aha-annual-meeting-programs
-
-- Name: American Historical Association Annual Meeting Programs
-- Class: conference-programs
-- Ingest status: blocked
-- Replacement status: source-specific-review-needed
-- Failure count: 1
-- Latest failure: 2026-06-13T16:37:20.977Z
-- Latest error: https://www.historians.org/events/annual-meeting/: HTTP 403 Forbidden
-- Affected targets: No target metadata.
-- Failed routes:
-  - https://www.historians.org/events/annual-meeting/
-- Replacement routes:
-  - Review source terms, robots, documented APIs, sitemaps, and public exports.
-  - Prefer metadata routes over page scraping where available.
-- Next action: Write a source-specific acquisition note before retrying.
-- Do not do: Do not repeatedly retry the same failed route without a changed route or terms decision.

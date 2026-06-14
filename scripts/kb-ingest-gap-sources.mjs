@@ -55,10 +55,12 @@ const jobs = [
   textJob("mla-convention-programs", [
     "https://www.mla.org/Events/2027-MLA-Convention",
   ], normalizeMlaPage, "works"),
-  blockedProbe("aha-annual-meeting-programs", "https://www.historians.org/events/annual-meeting/"),
+  jsonJob("aha-annual-meeting-programs", [
+    `https://www.historians.org/wp-json/wp/v2/search?search=${encodeURIComponent("annual meeting program")}&per_page=${Math.min(limit, 50)}`,
+    `https://www.historians.org/wp-json/wp/v2/pages?search=${encodeURIComponent("annual meeting program")}&per_page=${Math.min(limit, 50)}`,
+  ], normalizeAhaProgramMetadata, "works"),
   blockedProbe("hathitrust-bibliographic-metadata", "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true"),
   blockedProbe("ssrn-humanities-adjacent", "https://api.ssrn.com/content/v1/papers?query=humanities"),
-  blockedProbe("lareviewofbooks", "https://lareviewofbooks.org/feed/"),
 ];
 
 for (const job of jobs) {
@@ -214,6 +216,26 @@ function normalizeMlaPage(html, source, route) {
     venue: "MLA Convention",
     description: text.slice(0, 1200),
   })];
+}
+
+function normalizeAhaProgramMetadata(payload, source) {
+  const rows = Array.isArray(payload) ? payload : [];
+  return rows.map((row) => {
+    const title = cleanHtml(row.title?.rendered ?? row.title ?? "");
+    const url = row.link ?? row.url ?? "";
+    const description = cleanHtml(row.excerpt?.rendered ?? row.content?.rendered ?? row.description ?? "").slice(0, 1200);
+    const publicationYear = String(row.date ?? row.modified ?? "").slice(0, 4);
+    return baseDoc(source, row.id ?? url ?? title, title, url, {
+      type: row.type === "page" || row.subtype === "page" ? "conference-page" : "conference-program-metadata",
+      publication_year: publicationYear,
+      venue: "American Historical Association Annual Meeting",
+      description,
+      route_replacement_note: "Imported from public WordPress JSON search/pages endpoints after the HTML annual-meeting page returned 403.",
+    });
+  }).filter((row) =>
+    row.title &&
+    /annual meeting|conference|program|session|cfp|call for proposals/i.test(`${row.title} ${row.description} ${row.source_url}`)
+  );
 }
 
 function baseDoc(source, nativeId, title, url, extra = {}) {

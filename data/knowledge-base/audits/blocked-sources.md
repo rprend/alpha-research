@@ -1,8 +1,8 @@
 # KB Blocked Sources
 
-Generated at: 2026-06-14T20:29:09.696Z
-Blocked sources: 4
-Resolved historical failures: 6
+Generated at: 2026-06-14T20:34:31.058Z
+Blocked sources: 3
+Resolved historical failures: 7
 
 ## hathitrust-bibliographic-metadata
 
@@ -11,21 +11,9 @@ Resolved historical failures: 6
 - Redistribution: metadata-only
 - Metadata allowed: true
 - Full text allowed: false
-- Failed route count: 1
+- Failed route count: 3
 - Latest route: https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true
 - Latest errors: https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden
-- Next decision: Requires route replacement, manual export, permissioned API access, or terms review; do not bypass access controls.
-
-## aha-annual-meeting-programs
-
-- Name: American Historical Association Annual Meeting Programs
-- Class: conference-programs
-- Redistribution: metadata-only
-- Metadata allowed: true
-- Full text allowed: false
-- Failed route count: 1
-- Latest route: https://www.historians.org/events/annual-meeting/
-- Latest errors: https://www.historians.org/events/annual-meeting/: HTTP 403 Forbidden
 - Next decision: Requires route replacement, manual export, permissioned API access, or terms review; do not bypass access controls.
 
 ## open-syllabus
@@ -47,11 +35,11 @@ Resolved historical failures: 6
 - Redistribution: metadata-only
 - Metadata allowed: true
 - Full text allowed: false
-- Failed route count: 1
+- Failed route count: 3
 - Latest route: https://api.ssrn.com/content/v1/papers?query=humanities
 - Latest errors: https://api.ssrn.com/content/v1/papers?query=humanities: HTTP 401 Unauthorized
 - Next decision: Requires authorized API access or a different metadata provider; do not retry anonymously.
 
 ## Failed Route Replacement Plans
 
-See `data/knowledge-base/audits/failed-route-replacements.md` for 10 source-level replacement plans.
+See `data/knowledge-base/audits/failed-route-replacements.md` for 9 source-level replacement plans.

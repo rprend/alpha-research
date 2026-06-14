@@ -1,15 +1,15 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T20:28:25.804Z
+Generated at: 2026-06-14T20:34:29.840Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 6488
+Documents: 6508
 
 ## Text Scope
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 6082 |
+| metadata-only | 6102 |
 | stored-full-text | 200 |
 | stored-local-analysis-text | 206 |
 
@@ -17,6 +17,7 @@ Documents: 6488
 
 | Value | Count |
 | --- | ---: |
+| aha-annual-meeting-programs | 20 |
 | cleveland-museum-open-access | 200 |
 | columbia-humanities-departments | 8 |
 | crossref-humanities | 178 |
