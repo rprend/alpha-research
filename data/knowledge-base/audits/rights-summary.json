@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T21:10:38.814Z",
-  "rights_rows": 6558,
+  "generated_at": "2026-06-14T21:20:14.142Z",
+  "rights_rows": 6562,
   "registry_redistribution_statuses": {
     "blocked-or-needs-review": 1,
     "derived-metadata-ok": 1,
@@ -11,17 +11,17 @@
   },
   "local_redistribution_statuses": {
     "derived-metadata-ok": 919,
-    "local-analysis-only": 332,
+    "local-analysis-only": 336,
     "metadata-ok": 4479,
     "metadata-only": 628,
     "public-domain-text-ok": 200
   },
   "local_full_text_allowed_count": 200,
-  "local_metadata_allowed_count": 6558,
+  "local_metadata_allowed_count": 6562,
   "local_quote_statuses": {
     "metadata-only": 269,
     "metadata-only-no-quotes": 5727,
-    "needs-review": 332,
+    "needs-review": 336,
     "quote-public-domain": 200,
     "unknown": 30
   }

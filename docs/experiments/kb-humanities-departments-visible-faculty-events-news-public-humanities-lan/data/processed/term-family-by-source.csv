@@ -27,11 +27,17 @@ princeton-humanities-departments,event_visibility,19,3,3
 yale-humanities-departments,public_humanities,15,6,30
 yale-humanities-departments,ai_digital,10,6,30
 columbia-humanities-departments,inclusion_ethics,6,1,7
+harvard-humanities-departments,faculty_visibility,3,2,4
 columbia-humanities-departments,news_visibility,3,2,7
 columbia-humanities-departments,public_humanities,3,2,7
 columbia-humanities-departments,ai_digital,2,1,7
 princeton-humanities-departments,ai_digital,2,1,3
+harvard-humanities-departments,public_humanities,2,2,4
 princeton-humanities-departments,faculty_visibility,1,1,3
+harvard-humanities-departments,news_visibility,1,1,4
+harvard-humanities-departments,ai_digital,0,0,4
+harvard-humanities-departments,event_visibility,0,0,4
 princeton-humanities-departments,inclusion_ethics,0,0,3
+harvard-humanities-departments,inclusion_ethics,0,0,4
 princeton-humanities-departments,news_visibility,0,0,3
 princeton-humanities-departments,public_humanities,0,0,3

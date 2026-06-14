@@ -31,6 +31,34 @@
       "url": "https://classics.fas.harvard.edu/"
     },
     {
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "English",
+      "page_type": "department-programs",
+      "url": "https://www.harvard.edu/programs/english/"
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "History",
+      "page_type": "department-programs",
+      "url": "https://www.harvard.edu/programs/history/"
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "Philosophy",
+      "page_type": "department-programs",
+      "url": "https://www.harvard.edu/programs/philosophy/"
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "Classics",
+      "page_type": "department-programs",
+      "url": "https://www.harvard.edu/programs/classics/"
+    },
+    {
       "source_id": "yale-humanities-departments",
       "school": "Yale University",
       "department": "English",

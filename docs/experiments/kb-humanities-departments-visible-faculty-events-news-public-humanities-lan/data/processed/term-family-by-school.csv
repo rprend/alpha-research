@@ -55,17 +55,23 @@ Columbia University,inclusion_ethics,6,1,7
 University of Pennsylvania,ai_digital,5,2,10
 Brown University,ai_digital,4,3,20
 Cornell University,ai_digital,3,2,14
+Harvard University,faculty_visibility,3,2,4
 Columbia University,news_visibility,3,2,7
 Columbia University,public_humanities,3,2,7
 Columbia University,ai_digital,2,1,7
 Princeton University,ai_digital,2,1,3
+Harvard University,public_humanities,2,2,4
 Princeton University,faculty_visibility,1,1,3
+Harvard University,news_visibility,1,1,4
 New York University,ai_digital,0,0,2
+Harvard University,ai_digital,0,0,4
 New York University,event_visibility,0,0,2
+Harvard University,event_visibility,0,0,4
 New York University,faculty_visibility,0,0,2
 University of Pennsylvania,inclusion_ethics,0,0,10
 New York University,inclusion_ethics,0,0,2
 Princeton University,inclusion_ethics,0,0,3
+Harvard University,inclusion_ethics,0,0,4
 New York University,news_visibility,0,0,2
 Princeton University,news_visibility,0,0,3
 University of Pennsylvania,public_humanities,0,0,10

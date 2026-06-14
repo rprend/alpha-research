@@ -1,13 +1,13 @@
 # Department Visibility Analysis
 
-Generated at: 2026-06-14T21:11:41.190Z
+Generated at: 2026-06-14T21:19:01.562Z
 
 ## Corpus
 
-- Page rows: 529
-- Text rows: 230
+- Page rows: 533
+- Text rows: 234
 - Sitemap-only rows: 269
-- Rights statuses: local-analysis-only=260, metadata-only=269
+- Rights statuses: local-analysis-only=264, metadata-only=269
 
 ## Coverage Highlights
 
@@ -99,7 +99,7 @@ Generated at: 2026-06-14T21:11:41.190Z
 | department-events | faculty_visibility | 206 | 16 | 28 |
 | department-news | news_visibility | 177 | 27 | 41 |
 | department-news | event_visibility | 154 | 31 | 41 |
-| department-programs | event_visibility | 149 | 15 | 25 |
-| department-programs | inclusion_ethics | 138 | 12 | 25 |
+| department-programs | event_visibility | 149 | 15 | 29 |
+| department-programs | inclusion_ethics | 138 | 12 | 29 |
 | department-home | news_visibility | 109 | 30 | 34 |
 | department-home | event_visibility | 90 | 29 | 34 |

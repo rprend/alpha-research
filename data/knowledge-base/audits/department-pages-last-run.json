@@ -1,72 +1,72 @@
 {
-  "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-  "generated_at": "2026-06-14T21:09:40.673Z",
-  "target_count": 56,
+  "run_id": "department-pages-2026-06-14T21-18-41-332Z",
+  "generated_at": "2026-06-14T21:18:42.225Z",
+  "target_count": 8,
   "success_count": 4,
-  "failed_count": 19,
-  "page_count": 529,
-  "department_count": 52,
+  "failed_count": 4,
+  "page_count": 533,
+  "department_count": 56,
   "new_page_count": 4,
   "pages": [
     {
-      "local_id": "uchicago-humanities-departments:university-of-chicago-humanities-division-department-news-https-humanities-uchicago-edu-news",
-      "source_id": "uchicago-humanities-departments",
-      "school": "University of Chicago",
-      "department": "Humanities Division",
-      "page_type": "department-news",
-      "source_url": "https://humanities.uchicago.edu/news",
-      "title": "News | Division of the Humanities",
-      "fetched_at": "2026-06-14T21:09:32.843Z",
-      "text_path": "data/knowledge-base/text/department-pages/uchicago-humanities-departments/university-of-chicago-humanities-division-department-news-https-humanities-uchicago-edu-news.txt",
-      "text_chars": 3930,
+      "local_id": "harvard-humanities-departments:harvard-university-english-department-programs-https-www-harvard-edu-programs-english",
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "English",
+      "page_type": "department-programs",
+      "source_url": "https://www.harvard.edu/programs/english/",
+      "title": "English - Harvard University",
+      "fetched_at": "2026-06-14T21:18:41.881Z",
+      "text_path": "data/knowledge-base/text/department-pages/harvard-humanities-departments/harvard-university-english-department-programs-https-www-harvard-edu-programs-english.txt",
+      "text_chars": 2125,
       "status": "success"
     },
     {
-      "local_id": "uchicago-humanities-departments:university-of-chicago-humanities-division-department-news-https-humanities-uchicago-edu-articles-2025-11-phd-student-naomi-harris-publishes-three-new-hittite-poems-paris-review",
-      "source_id": "uchicago-humanities-departments",
-      "school": "University of Chicago",
-      "department": "Humanities Division",
-      "page_type": "department-news",
-      "source_url": "https://humanities.uchicago.edu/articles/2025/11/phd-student-naomi-harris-publishes-three-new-hittite-poems-paris-review",
-      "title": "PhD student Naomi Harris publishes three new Hittite poems in The Paris Review | Division of the Humanities",
-      "fetched_at": "2026-06-14T21:09:32.887Z",
-      "text_path": "data/knowledge-base/text/department-pages/uchicago-humanities-departments/university-of-chicago-humanities-division-department-news-https-humanities-uchicago-edu-articles-2025-11-phd-student-naomi-harris-publishes-three-new-hittite-poems-paris-review.txt",
-      "text_chars": 7169,
+      "local_id": "harvard-humanities-departments:harvard-university-history-department-programs-https-www-harvard-edu-programs-history",
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "History",
+      "page_type": "department-programs",
+      "source_url": "https://www.harvard.edu/programs/history/",
+      "title": "History - Harvard University",
+      "fetched_at": "2026-06-14T21:18:41.896Z",
+      "text_path": "data/knowledge-base/text/department-pages/harvard-humanities-departments/harvard-university-history-department-programs-https-www-harvard-edu-programs-history.txt",
+      "text_chars": 2233,
       "status": "success"
     },
     {
-      "local_id": "uchicago-humanities-departments:university-of-chicago-humanities-division-department-events-https-humanities-uchicago-edu-events",
-      "source_id": "uchicago-humanities-departments",
-      "school": "University of Chicago",
-      "department": "Humanities Division",
-      "page_type": "department-events",
-      "source_url": "https://humanities.uchicago.edu/events",
-      "title": "Events | Division of the Humanities",
-      "fetched_at": "2026-06-14T21:09:33.238Z",
-      "text_path": "data/knowledge-base/text/department-pages/uchicago-humanities-departments/university-of-chicago-humanities-division-department-events-https-humanities-uchicago-edu-events.txt",
-      "text_chars": 626,
+      "local_id": "harvard-humanities-departments:harvard-university-philosophy-department-programs-https-www-harvard-edu-programs-philosophy",
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "Philosophy",
+      "page_type": "department-programs",
+      "source_url": "https://www.harvard.edu/programs/philosophy/",
+      "title": "Philosophy - Harvard University",
+      "fetched_at": "2026-06-14T21:18:42.154Z",
+      "text_path": "data/knowledge-base/text/department-pages/harvard-humanities-departments/harvard-university-philosophy-department-programs-https-www-harvard-edu-programs-philosophy.txt",
+      "text_chars": 1706,
       "status": "success"
     },
     {
-      "local_id": "uchicago-humanities-departments:university-of-chicago-humanities-division-department-news-https-humanities-uchicago-edu-newsevents",
-      "source_id": "uchicago-humanities-departments",
-      "school": "University of Chicago",
-      "department": "Humanities Division",
-      "page_type": "department-news",
-      "source_url": "https://humanities.uchicago.edu/newsevents",
-      "title": "News and Events | Division of the Humanities",
-      "fetched_at": "2026-06-14T21:09:33.313Z",
-      "text_path": "data/knowledge-base/text/department-pages/uchicago-humanities-departments/university-of-chicago-humanities-division-department-news-https-humanities-uchicago-edu-newsevents.txt",
-      "text_chars": 3033,
+      "local_id": "harvard-humanities-departments:harvard-university-classics-department-programs-https-www-harvard-edu-programs-classics",
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "Classics",
+      "page_type": "department-programs",
+      "source_url": "https://www.harvard.edu/programs/classics/",
+      "title": "Classics - Harvard University",
+      "fetched_at": "2026-06-14T21:18:42.169Z",
+      "text_path": "data/knowledge-base/text/department-pages/harvard-humanities-departments/harvard-university-classics-department-programs-https-www-harvard-edu-programs-classics.txt",
+      "text_chars": 1685,
       "status": "success"
     }
   ],
   "failures": [
     {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
+      "run_id": "department-pages-2026-06-14T21-18-41-332Z",
       "source_id": "harvard-humanities-departments",
-      "started_at": "2026-06-14T21:09:18.570Z",
-      "completed_at": "2026-06-14T21:09:18.570Z",
+      "started_at": "2026-06-14T21:18:41.611Z",
+      "completed_at": "2026-06-14T21:18:41.611Z",
       "status": "failed",
       "route_kind": "configured-page",
       "access_route": "https://english.fas.harvard.edu/",
@@ -79,10 +79,10 @@
       ]
     },
     {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
+      "run_id": "department-pages-2026-06-14T21-18-41-332Z",
       "source_id": "harvard-humanities-departments",
-      "started_at": "2026-06-14T21:09:18.620Z",
-      "completed_at": "2026-06-14T21:09:18.620Z",
+      "started_at": "2026-06-14T21:18:41.673Z",
+      "completed_at": "2026-06-14T21:18:41.673Z",
       "status": "failed",
       "route_kind": "configured-page",
       "access_route": "https://history.fas.harvard.edu/",
@@ -95,10 +95,10 @@
       ]
     },
     {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
+      "run_id": "department-pages-2026-06-14T21-18-41-332Z",
       "source_id": "harvard-humanities-departments",
-      "started_at": "2026-06-14T21:09:18.675Z",
-      "completed_at": "2026-06-14T21:09:18.675Z",
+      "started_at": "2026-06-14T21:18:41.725Z",
+      "completed_at": "2026-06-14T21:18:41.725Z",
       "status": "failed",
       "route_kind": "configured-page",
       "access_route": "https://philosophy.fas.harvard.edu/",
@@ -111,253 +111,13 @@
       ]
     },
     {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
+      "run_id": "department-pages-2026-06-14T21-18-41-332Z",
       "source_id": "harvard-humanities-departments",
-      "started_at": "2026-06-14T21:09:18.725Z",
-      "completed_at": "2026-06-14T21:09:18.725Z",
+      "started_at": "2026-06-14T21:18:41.829Z",
+      "completed_at": "2026-06-14T21:18:41.829Z",
       "status": "failed",
       "route_kind": "configured-page",
       "access_route": "https://classics.fas.harvard.edu/",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:19.221Z",
-      "completed_at": "2026-06-14T21:09:19.221Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://english.princeton.edu/",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:19.406Z",
-      "completed_at": "2026-06-14T21:09:19.406Z",
-      "status": "failed",
-      "route_kind": "discovered-page",
-      "access_route": "https://english.princeton.edu/events/news",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:19.543Z",
-      "completed_at": "2026-06-14T21:09:19.543Z",
-      "status": "failed",
-      "route_kind": "discovered-page",
-      "access_route": "https://english.princeton.edu/colloquiaseries/ecotheories-colloquium",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:19.630Z",
-      "completed_at": "2026-06-14T21:09:19.630Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://history.princeton.edu/",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:19.729Z",
-      "completed_at": "2026-06-14T21:09:19.729Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://philosophy.princeton.edu/",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:19.842Z",
-      "completed_at": "2026-06-14T21:09:19.842Z",
-      "status": "failed",
-      "route_kind": "discovered-page",
-      "access_route": "https://philosophy.princeton.edu/about",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:19.897Z",
-      "completed_at": "2026-06-14T21:09:19.897Z",
-      "status": "failed",
-      "route_kind": "discovered-page",
-      "access_route": "https://philosophy.princeton.edu/news",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:20.068Z",
-      "completed_at": "2026-06-14T21:09:20.068Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://artandarchaeology.princeton.edu/",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:20.234Z",
-      "completed_at": "2026-06-14T21:09:20.234Z",
-      "status": "failed",
-      "route_kind": "discovered-page",
-      "access_route": "https://artandarchaeology.princeton.edu/about-us",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "princeton-humanities-departments",
-      "started_at": "2026-06-14T21:09:20.297Z",
-      "completed_at": "2026-06-14T21:09:20.297Z",
-      "status": "failed",
-      "route_kind": "discovered-page",
-      "access_route": "https://artandarchaeology.princeton.edu/what%E2%80%99s/news/aa-celebrates-class-2026",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "columbia-humanities-departments",
-      "started_at": "2026-06-14T21:09:33.675Z",
-      "completed_at": "2026-06-14T21:09:33.675Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://english.columbia.edu/",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "columbia-humanities-departments",
-      "started_at": "2026-06-14T21:09:33.909Z",
-      "completed_at": "2026-06-14T21:09:33.909Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://philosophy.columbia.edu/",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "expanded-university-humanities-departments",
-      "started_at": "2026-06-14T21:09:37.951Z",
-      "completed_at": "2026-06-14T21:09:37.951Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://lsa.umich.edu/english",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "expanded-university-humanities-departments",
-      "started_at": "2026-06-14T21:09:38.006Z",
-      "completed_at": "2026-06-14T21:09:38.006Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://lsa.umich.edu/history",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 403 Forbidden"
-      ]
-    },
-    {
-      "run_id": "department-pages-2026-06-14T21-09-18-307Z",
-      "source_id": "expanded-university-humanities-departments",
-      "started_at": "2026-06-14T21:09:38.993Z",
-      "completed_at": "2026-06-14T21:09:38.993Z",
-      "status": "failed",
-      "route_kind": "configured-page",
-      "access_route": "https://www.history.upenn.edu/",
       "raw_outputs": [],
       "processed_outputs": [],
       "record_count": 0,

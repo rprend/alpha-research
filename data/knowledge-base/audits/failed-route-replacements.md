@@ -1,8 +1,8 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T21:10:38.591Z
-Resolved historical failures: 14
-Replacement plans: 2
+Generated at: 2026-06-14T21:20:13.917Z
+Resolved historical failures: 15
+Replacement plans: 1
 
 ## Resolved Historical Failures
 
@@ -10,6 +10,7 @@ Replacement plans: 2
 - columbia-humanities-departments: latest successful route https://history.columbia.edu/ at 2026-06-14T20:34:06.522Z (1 records).
 - doaj-humanities: latest successful route https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20 at 2026-06-14T20:28:04.857Z (20 records).
 - expanded-university-humanities-departments: latest successful route https://history.berkeley.edu/news | https://rhetoric.berkeley.edu/people | https://rhetoric.berkeley.edu/people/faculty/lecturers | https://www.english.upenn.edu/about | https://www.english.upenn.edu/about/academic-freedom-statement | https://www.english.upenn.edu/events/2026/06/19/juneteenth-no-classes | https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center | http://english.duke.edu/2023-e-newsletter-chair | http://english.duke.edu/2023-e-newsletter-graduate | http://english.duke.edu/2023-e-newsletter-other | http://english.duke.edu/2023-e-newsletter-undergraduate | http://english.duke.edu/2024-e-newsletter-chair | http://english.duke.edu/2024-e-newsletter-faculty | http://english.duke.edu/2024-e-newsletter-graduate | http://english.duke.edu/2024-e-newsletter-other | http://english.duke.edu/2024-e-newsletter-undergraduate at 2026-06-14T20:42:04.005Z (16 records).
+- harvard-humanities-departments: latest successful route https://www.harvard.edu/programs/english/ | https://www.harvard.edu/programs/history/ | https://www.harvard.edu/programs/philosophy/ | https://www.harvard.edu/programs/classics/ at 2026-06-14T21:18:42.225Z (4 records).
 - hathitrust-bibliographic-metadata: latest successful route Internet Archive identifiers -> HathiTrust Bibliographic API brief endpoint at 2026-06-14T21:01:23.282Z (5 records).
 - lareviewofbooks: latest successful route https://lareviewofbooks.org/ at 2026-06-14T20:28:09.368Z (18 records).
 - library-of-congress: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:34.343Z (50 records).
@@ -20,32 +21,6 @@ Replacement plans: 2
 - wayback-machine-cdx: latest successful route https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=20 at 2026-06-14T20:28:09.044Z (20 records).
 - wikidata-cultural-entities: latest successful route https://query.wikidata.org/sparql at 2026-06-14T20:02:20.514Z (25 records).
 - yale-humanities-departments: latest successful route http://complit.yale.edu/about/department-history at 2026-06-14T20:42:04.005Z (1 records).
-
-## harvard-humanities-departments
-
-- Name: Harvard Humanities Department Public Pages
-- Class: university-department-web
-- Ingest status: seeded-from-experiment
-- Replacement status: replacement-needed
-- Failure count: 26
-- Latest failure: 2026-06-14T21:09:18.725Z
-- Latest error: HTTP 403 Forbidden
-- Affected targets: Harvard University English department-sitemap; Harvard University History department-sitemap; Harvard University Philosophy department-sitemap; Harvard University Classics department-sitemap
-- Failed routes:
-  - https://english.fas.harvard.edu/
-  - https://history.fas.harvard.edu/
-  - https://philosophy.fas.harvard.edu/
-  - https://classics.fas.harvard.edu/
-  - https://english.fas.harvard.edu/sitemap.xml
-  - https://history.fas.harvard.edu/sitemap.xml
-  - https://philosophy.fas.harvard.edu/sitemap.xml
-  - https://classics.fas.harvard.edu/sitemap.xml
-- Replacement routes:
-  - Use already responding same-domain department pages discovered from successful homepages.
-  - Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.
-  - Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed.
-- Next action: Create source-specific alternate target entries for Harvard University English department-sitemap, Harvard University History department-sitemap, Harvard University Philosophy department-sitemap, Harvard University Classics department-sitemap using public about/news/events/faculty routes that return 200.
-- Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
 
 ## ssrn-humanities-adjacent
 

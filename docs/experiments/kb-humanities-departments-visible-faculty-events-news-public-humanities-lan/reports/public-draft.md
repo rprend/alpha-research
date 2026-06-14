@@ -4,7 +4,7 @@ The local humanities knowledge base can already distinguish two different kinds 
 
 ## What The Current Local Corpus Supports
 
-The promoted experiment covers 529 department/web page rows from matched university-department sources. Of those, 230 have local-analysis text and 269 are metadata-only sitemap URLs.
+The promoted experiment covers 533 department/web page rows from matched university-department sources. Of those, 234 have local-analysis text and 269 are metadata-only sitemap URLs.
 
 The strongest text-level signals in this first pass are:
 

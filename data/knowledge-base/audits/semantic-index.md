@@ -1,9 +1,9 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T21:15:37.178Z
+Generated at: 2026-06-14T21:18:55.591Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 6527
+Documents: 6531
 Shards: 14
 Shard size: 500
 
@@ -13,7 +13,7 @@ Shard size: 500
 | --- | ---: |
 | metadata-only | 6097 |
 | stored-full-text | 200 |
-| stored-local-analysis-text | 230 |
+| stored-local-analysis-text | 234 |
 
 ## Sources
 
@@ -26,7 +26,7 @@ Shard size: 500
 | dh-conference-programs | 25 |
 | doaj-humanities | 2957 |
 | expanded-university-humanities-departments | 257 |
-| harvard-humanities-departments | 5 |
+| harvard-humanities-departments | 9 |
 | hathitrust-bibliographic-metadata | 5 |
 | humanities-centers-public-pages | 12 |
 | humanities-literature-radar | 53 |

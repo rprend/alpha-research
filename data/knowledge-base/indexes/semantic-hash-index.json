@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "generated_at": "2026-06-14T21:15:37.178Z",
+  "generated_at": "2026-06-14T21:18:55.591Z",
   "kind": "local-hashed-tfidf",
   "dimensions": 2048,
-  "document_count": 6527,
+  "document_count": 6531,
   "shard_size": 500,
   "shard_dir": "semantic-hash-index",
   "shards": [
@@ -75,7 +75,7 @@
     {
       "path": "semantic-hash-index/part-0013.json",
       "start": 6500,
-      "count": 27
+      "count": 31
     }
   ],
   "source_counts": {
@@ -86,7 +86,7 @@
     "dh-conference-programs": 25,
     "doaj-humanities": 2957,
     "expanded-university-humanities-departments": 257,
-    "harvard-humanities-departments": 5,
+    "harvard-humanities-departments": 9,
     "hathitrust-bibliographic-metadata": 5,
     "humanities-centers-public-pages": 12,
     "humanities-literature-radar": 53,
@@ -115,6 +115,6 @@
   "rights_scope_counts": {
     "metadata-only": 6097,
     "stored-full-text": 200,
-    "stored-local-analysis-text": 230
+    "stored-local-analysis-text": 234
   }
 }

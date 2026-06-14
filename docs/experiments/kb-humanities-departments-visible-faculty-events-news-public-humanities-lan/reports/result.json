@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-14T21:11:41.190Z",
+  "generated_at": "2026-06-14T21:19:01.562Z",
   "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
   "source_count": 8,
-  "page_rows": 529,
-  "text_rows": 230,
+  "page_rows": 533,
+  "text_rows": 234,
   "sitemap_only_rows": 269,
   "rights_statuses": {
-    "local-analysis-only": 260,
+    "local-analysis-only": 264,
     "metadata-only": 269
   },
   "findings": {
@@ -37,7 +37,7 @@
       "department-news news_visibility: 177 mentions",
       "department-news event_visibility: 154 mentions"
     ],
-    "text_vs_metadata": "230 rows include local-analysis text; 269 rows are metadata-only sitemap URLs."
+    "text_vs_metadata": "234 rows include local-analysis text; 269 rows are metadata-only sitemap URLs."
   },
   "caveats": [
     "Counts describe the local KB corpus, not the universe of humanities departments.",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T21:10:38.591Z",
+  "generated_at": "2026-06-14T21:20:13.917Z",
   "blocked_source_count": 2,
   "blocked_sources": [
     {
@@ -43,7 +43,7 @@
       ]
     }
   ],
-  "resolved_failure_count": 14,
+  "resolved_failure_count": 15,
   "resolved_failures": [
     {
       "source_id": "aha-annual-meeting-programs",
@@ -87,6 +87,17 @@
       "latest_success_at": "2026-06-14T20:42:04.005Z",
       "successful_route": "https://history.berkeley.edu/news | https://rhetoric.berkeley.edu/people | https://rhetoric.berkeley.edu/people/faculty/lecturers | https://www.english.upenn.edu/about | https://www.english.upenn.edu/about/academic-freedom-statement | https://www.english.upenn.edu/events/2026/06/19/juneteenth-no-classes | https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center | http://english.duke.edu/2023-e-newsletter-chair | http://english.duke.edu/2023-e-newsletter-graduate | http://english.duke.edu/2023-e-newsletter-other | http://english.duke.edu/2023-e-newsletter-undergraduate | http://english.duke.edu/2024-e-newsletter-chair | http://english.duke.edu/2024-e-newsletter-faculty | http://english.duke.edu/2024-e-newsletter-graduate | http://english.duke.edu/2024-e-newsletter-other | http://english.duke.edu/2024-e-newsletter-undergraduate",
       "record_count": 16,
+      "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "name": "Harvard Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "failure_count": 30,
+      "latest_failure_at": "2026-06-14T21:18:41.829Z",
+      "latest_success_at": "2026-06-14T21:18:42.225Z",
+      "successful_route": "https://www.harvard.edu/programs/english/ | https://www.harvard.edu/programs/history/ | https://www.harvard.edu/programs/philosophy/ | https://www.harvard.edu/programs/classics/",
+      "record_count": 4,
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
     },
     {
@@ -200,42 +211,8 @@
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 2,
+  "replacement_plan_count": 1,
   "replacement_plans": [
-    {
-      "source_id": "harvard-humanities-departments",
-      "name": "Harvard Humanities Department Public Pages",
-      "source_class": "university-department-web",
-      "ingest_status": "seeded-from-experiment",
-      "redistribution_status": "local-analysis-only",
-      "failure_count": 26,
-      "latest_failure_at": "2026-06-14T21:09:18.725Z",
-      "latest_error": "HTTP 403 Forbidden",
-      "failed_routes": [
-        "https://english.fas.harvard.edu/",
-        "https://history.fas.harvard.edu/",
-        "https://philosophy.fas.harvard.edu/",
-        "https://classics.fas.harvard.edu/",
-        "https://english.fas.harvard.edu/sitemap.xml",
-        "https://history.fas.harvard.edu/sitemap.xml",
-        "https://philosophy.fas.harvard.edu/sitemap.xml",
-        "https://classics.fas.harvard.edu/sitemap.xml"
-      ],
-      "affected_targets": [
-        "Harvard University English department-sitemap",
-        "Harvard University History department-sitemap",
-        "Harvard University Philosophy department-sitemap",
-        "Harvard University Classics department-sitemap"
-      ],
-      "replacement_status": "replacement-needed",
-      "replacement_routes": [
-        "Use already responding same-domain department pages discovered from successful homepages.",
-        "Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.",
-        "Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed."
-      ],
-      "next_action": "Create source-specific alternate target entries for Harvard University English department-sitemap, Harvard University History department-sitemap, Harvard University Philosophy department-sitemap, Harvard University Classics department-sitemap using public about/news/events/faculty routes that return 200.",
-      "do_not_do": "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls."
-    },
     {
       "source_id": "ssrn-humanities-adjacent",
       "name": "SSRN Humanities-Adjacent Metadata",

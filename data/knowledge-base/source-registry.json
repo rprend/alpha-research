@@ -423,7 +423,8 @@
         "department about pages",
         "news pages",
         "events pages",
-        "faculty pages"
+        "faculty pages",
+        "central Harvard program pages"
       ],
       "license": "Public web pages; copyright retained by institution",
       "redistribution_status": "local-analysis-only",
@@ -449,10 +450,11 @@
         "site redesigns",
         "copyrighted page text",
         "department list maintenance",
-        "department home/about/news/events routes returned 403 on 2026-06-14; use Wayback CDX metadata or authorized exports rather than bypassing access controls"
+        "department home/about/news/events routes returned 403 on 2026-06-14; use central Harvard program pages, Wayback CDX metadata, or authorized exports rather than bypassing access controls",
+        "central program pages are official Harvard pages but are not full replacements for department home/about/faculty/event pages"
       ],
       "last_checked_at": "2026-06-14",
-      "ingest_status": "seeded-from-experiment"
+      "ingest_status": "active"
     },
     {
       "source_id": "yale-humanities-departments",
