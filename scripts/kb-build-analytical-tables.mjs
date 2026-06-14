@@ -7,8 +7,10 @@ import {
   auditsDir,
   processedDir,
   readJsonl,
+  slug,
   toCsv,
   writeJson,
+  writeJsonl,
   writeText,
 } from "./kb-lib.mjs";
 
@@ -96,6 +98,8 @@ const report = {
   },
 };
 
+await deriveEntityTables();
+
 for (const spec of tableSpecs) {
   const rows = await readJsonl(path.join(processedDir, spec.jsonl));
   const csvPath = path.join(processedDir, `${spec.table}.csv`);
@@ -137,6 +141,149 @@ await writeText(path.join(auditsDir, "analytical-tables.md"), renderMarkdown(rep
 
 console.log(`Built analytical CSV/Parquet tables and SQLite DB (${report.tables.map((table) => `${table.table}=${table.rows}`).join(", ")}).`);
 
+async function deriveEntityTables() {
+  const [works, objects, pages, sourceDocuments] = await Promise.all([
+    readJsonl(path.join(processedDir, "works.jsonl")),
+    readJsonl(path.join(processedDir, "objects.jsonl")),
+    readJsonl(path.join(processedDir, "pages.jsonl")),
+    readJsonl(path.join(processedDir, "source_documents.jsonl")),
+  ]);
+  await writeJsonl(path.join(processedDir, "authors.jsonl"), []);
+  await writeJsonl(path.join(processedDir, "venues.jsonl"), deriveVenues([...works, ...sourceDocuments]));
+  await writeJsonl(path.join(processedDir, "institutions.jsonl"), deriveInstitutions({ pages, objects }));
+  await writeJsonl(path.join(processedDir, "collections.jsonl"), deriveCollections(objects));
+  await writeJsonl(path.join(processedDir, "citations.jsonl"), []);
+  await writeJsonl(path.join(processedDir, "topics.jsonl"), deriveTopics(objects));
+}
+
+function deriveVenues(rows) {
+  const byKey = new Map();
+  for (const row of rows) {
+    const name = cleanLabel(row.venue);
+    if (!name) continue;
+    const key = `${row.source_id}:${name.toLowerCase()}`;
+    const existing = byKey.get(key);
+    if (!existing || String(row.fetched_at || "") > String(existing.fetched_at || "")) {
+      byKey.set(key, {
+        local_id: `${row.source_id}:venue:${slug(name)}`,
+        source_id: row.source_id,
+        source_native_id: name,
+        source_url: row.source_url || "",
+        name,
+        fetched_at: row.fetched_at || "",
+        type: row.type === "article" ? "journal-or-periodical" : row.type === "scholarly-work" ? "scholarly-venue" : "source-venue",
+        publisher: row.publisher || "",
+        issn: row.issn || "",
+        issn_l: row.issn_l || "",
+      });
+    }
+  }
+  return sortRows(byKey.values(), "name");
+}
+
+function deriveInstitutions({ pages, objects }) {
+  const byKey = new Map();
+  for (const page of pages) {
+    const name = cleanLabel(page.school);
+    if (!name) continue;
+    byKey.set(`school:${name.toLowerCase()}`, {
+      local_id: `${page.source_id}:institution:${slug(name)}`,
+      source_id: page.source_id,
+      source_native_id: name,
+      source_url: page.source_url || "",
+      name,
+      fetched_at: page.fetched_at || "",
+      type: "university",
+      country: "",
+      region: "",
+    });
+  }
+  for (const object of objects) {
+    const name = institutionNameForSource(object.source_id);
+    if (!name) continue;
+    const key = `collection-holder:${object.source_id}`;
+    if (!byKey.has(key)) {
+      byKey.set(key, {
+        local_id: `${object.source_id}:institution:${slug(name)}`,
+        source_id: object.source_id,
+        source_native_id: object.source_id,
+        source_url: object.source_url || "",
+        name,
+        fetched_at: object.fetched_at || "",
+        type: object.source_id === "library-of-congress" ? "library/archive" : "museum",
+        country: "United States",
+        region: "",
+      });
+    }
+  }
+  return sortRows(byKey.values(), "name");
+}
+
+function deriveCollections(objects) {
+  const byKey = new Map();
+  for (const object of objects) {
+    const title = cleanLabel(object.department || object.type);
+    if (!title) continue;
+    const key = `${object.source_id}:${title.toLowerCase()}`;
+    const existing = byKey.get(key);
+    if (!existing || String(object.fetched_at || "") > String(existing.fetched_at || "")) {
+      byKey.set(key, {
+        local_id: `${object.source_id}:collection:${slug(title)}`,
+        source_id: object.source_id,
+        source_native_id: title,
+        source_url: object.source_url || "",
+        title,
+        fetched_at: object.fetched_at || "",
+        institution: institutionNameForSource(object.source_id),
+        date_range: "",
+        rights: object.rights || object.share_license_status || "",
+      });
+    }
+  }
+  return sortRows(byKey.values(), "title");
+}
+
+function deriveTopics(objects) {
+  const byKey = new Map();
+  for (const object of objects) {
+    for (const subject of Array.isArray(object.subjects) ? object.subjects : []) {
+      const label = cleanLabel(subject);
+      if (!label) continue;
+      const key = `${object.source_id}:${label.toLowerCase()}`;
+      if (!byKey.has(key)) {
+        byKey.set(key, {
+          local_id: `${object.source_id}:topic:${slug(label)}`,
+          source_id: object.source_id,
+          source_native_id: label,
+          source_url: object.source_url || "",
+          label,
+          fetched_at: object.fetched_at || "",
+          vocabulary: "source-subject",
+          parent_label: "",
+          confidence: "source-provided",
+        });
+      }
+    }
+  }
+  return sortRows(byKey.values(), "label");
+}
+
+function institutionNameForSource(sourceId) {
+  return {
+    "met-collection-api": "Metropolitan Museum of Art",
+    "cleveland-museum-open-access": "Cleveland Museum of Art",
+    "library-of-congress": "Library of Congress",
+  }[sourceId] || "";
+}
+
+function cleanLabel(value) {
+  return String(value ?? "").replace(/\s+/g, " ").trim();
+}
+
+function sortRows(rows, field) {
+  return [...rows].sort((a, b) => String(a[field]).localeCompare(String(b[field])) || String(a.source_id).localeCompare(String(b.source_id)));
+}
+
 function writeParquet(spec, parquetPath) {
   const result = spawnSync("python3", [
     path.join("scripts", "kb-jsonl-to-parquet.py"),
@@ -172,6 +319,7 @@ function buildSql(specs) {
 }
 
 function renderMarkdown(report) {
+  const emptyTables = report.tables.filter((table) => table.rows === 0).map((table) => table.table);
   return [
     "# KB Analytical Tables",
     "",
@@ -192,7 +340,9 @@ function renderMarkdown(report) {
     "",
     `- Created: ${report.parquet.created}`,
     `- Writer: \`${report.parquet.writer}\``,
-    "- Empty entity/relation tables are schema-valid placeholders until dedicated author, institution, venue, collection, citation, and topic ingests populate them.",
+    emptyTables.length
+      ? `- Empty schema-valid tables pending dedicated ingests: ${emptyTables.join(", ")}.`
+      : "- No empty analytical tables.",
     "",
   ].join("\n");
 }

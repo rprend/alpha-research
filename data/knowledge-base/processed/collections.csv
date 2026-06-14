@@ -1,1 +1,26 @@
 local_id,source_id,source_native_id,source_url,title,fetched_at,institution,date_range,rights
+cleveland-museum-open-access:collection:african-art,cleveland-museum-open-access,African Art,https://clevelandart.org/art/1969.2,African Art,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:american-painting-and-sculpture,cleveland-museum-open-access,American Painting and Sculpture,https://clevelandart.org/art/1965.474,American Painting and Sculpture,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+museum-language-drift:collection:annual-report,museum-language-drift,annual-report,https://www.tate.org.uk/about-us/tate-reports,annual-report,2026-06-13T16:41:52.322Z,,,
+cleveland-museum-open-access:collection:art-of-the-americas,cleveland-museum-open-access,Art of the Americas,https://clevelandart.org/art/1973.213,Art of the Americas,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:chinese-art,cleveland-museum-open-access,Chinese Art,https://clevelandart.org/art/1953.628,Chinese Art,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+museum-language-drift:collection:collection-note,museum-language-drift,collection-note,https://www.tate.org.uk/research/tate-papers/35/richard-bells-embassy-reshaping-the-contemporary-art-museum,collection-note,2026-06-13T16:41:52.322Z,,,
+cleveland-museum-open-access:collection:decorative-art-and-design,cleveland-museum-open-access,Decorative Art and Design,https://clevelandart.org/art/1940.228,Decorative Art and Design,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:drawings,cleveland-museum-open-access,Drawings,https://clevelandart.org/art/1926.25,Drawings,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:egyptian-and-ancient-near-eastern-art,cleveland-museum-open-access,Egyptian and Ancient Near Eastern Art,https://clevelandart.org/art/1969.118,Egyptian and Ancient Near Eastern Art,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:european-painting-and-sculpture,cleveland-museum-open-access,European Painting and Sculpture,https://clevelandart.org/art/1961.219,European Painting and Sculpture,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+museum-language-drift:collection:exhibition,museum-language-drift,exhibition,https://www.tate.org.uk/whats-on,exhibition,2026-06-13T16:41:52.322Z,,,
+cleveland-museum-open-access:collection:greek-and-roman-art,cleveland-museum-open-access,Greek and Roman Art,https://clevelandart.org/art/1953.125,Greek and Roman Art,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:indian-and-southeast-asian-art,cleveland-museum-open-access,Indian and Southeast Asian Art,https://clevelandart.org/art/1970.156,Indian and Southeast Asian Art,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:islamic-art,cleveland-museum-open-access,Islamic Art,https://clevelandart.org/art/1962.23,Islamic Art,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:japanese-art,cleveland-museum-open-access,Japanese Art,https://clevelandart.org/art/1973.105,Japanese Art,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:korean-art,cleveland-museum-open-access,Korean Art,https://clevelandart.org/art/1918.501,Korean Art,2026-06-13T16:31:51.187Z,Cleveland Museum of Art,,CC0
+library-of-congress:collection:loc-item,library-of-congress,loc-item,//lccn.loc.gov/2013497896,loc-item,2026-06-13T16:31:48.995Z,Library of Congress,,
+cleveland-museum-open-access:collection:medieval-art,cleveland-museum-open-access,Medieval Art,https://clevelandart.org/art/1934.29,Medieval Art,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+cleveland-museum-open-access:collection:modern-european-painting-and-sculpture,cleveland-museum-open-access,Modern European Painting and Sculpture,https://clevelandart.org/art/1958.21,Modern European Painting and Sculpture,2026-06-13T16:31:52.413Z,Cleveland Museum of Art,,CC0
+met-collection-api:collection:museum-object-stub,met-collection-api,museum-object-stub,https://www.metmuseum.org/art/collection/search/120983,museum-object-stub,2026-06-13T16:31:56.273Z,Metropolitan Museum of Art,,
+smithsonian-open-access:collection:nmah,smithsonian-open-access,NMAH,https://www.si.edu/object/ld1-1643399116748-1643399121792-1,NMAH,2026-06-13T16:37:14.356Z,,,
+museum-language-drift:collection:provenance,museum-language-drift,provenance,https://www.getty.edu/museum/provenance/,provenance,2026-06-13T16:41:52.322Z,,,
+museum-language-drift:collection:repatriation,museum-language-drift,repatriation,https://www.rijksmuseum.nl/en/research/our-research/overarching/provenance-research-colonial-collections/restitution,repatriation,2026-06-13T16:41:52.322Z,,,
+smithsonian-open-access:collection:sil,smithsonian-open-access,SIL,https://www.si.edu/object/ld1-1646149545906-1646149891347-1,SIL,2026-06-13T16:37:14.356Z,,,
+cleveland-museum-open-access:collection:textiles,cleveland-museum-open-access,Textiles,https://clevelandart.org/art/1967.144,Textiles,2026-06-13T16:31:51.187Z,Cleveland Museum of Art,,CC0

@@ -203,9 +203,15 @@ export function tableAvailability() {
 export function processedStagingAvailability() {
   const expected = [
     "works.jsonl",
+    "authors.jsonl",
+    "institutions.jsonl",
+    "venues.jsonl",
+    "collections.jsonl",
     "objects.jsonl",
     "pages.jsonl",
     "departments.jsonl",
+    "citations.jsonl",
+    "topics.jsonl",
     "source_documents.jsonl",
     "rights.jsonl",
   ];
