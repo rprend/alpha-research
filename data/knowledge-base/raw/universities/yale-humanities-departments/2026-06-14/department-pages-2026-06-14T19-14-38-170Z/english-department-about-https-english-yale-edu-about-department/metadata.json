@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T19-14-38-170Z",
+  "source_id": "yale-humanities-departments",
+  "url": "https://english.yale.edu/about-department",
+  "school": "Yale University",
+  "department": "English",
+  "page_type": "department-about",
+  "discovery_source_url": "https://english.yale.edu/",
+  "fetched_at": "2026-06-14T19:14:38.872Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/yale-humanities-departments/2026-06-14/department-pages-2026-06-14T19-14-38-170Z/english-department-about-https-english-yale-edu-about-department/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/yale-humanities-departments/yale-university-english-department-about-https-english-yale-edu-about-department.txt",
+  "text_chars": 2861
+}

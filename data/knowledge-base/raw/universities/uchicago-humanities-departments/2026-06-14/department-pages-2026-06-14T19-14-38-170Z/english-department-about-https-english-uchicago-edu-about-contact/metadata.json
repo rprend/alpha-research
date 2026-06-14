@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T19-14-38-170Z",
+  "source_id": "uchicago-humanities-departments",
+  "url": "https://english.uchicago.edu/about/contact",
+  "school": "University of Chicago",
+  "department": "English",
+  "page_type": "department-about",
+  "discovery_source_url": "https://english.uchicago.edu/",
+  "fetched_at": "2026-06-14T19:14:44.985Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/uchicago-humanities-departments/2026-06-14/department-pages-2026-06-14T19-14-38-170Z/english-department-about-https-english-uchicago-edu-about-contact/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/uchicago-humanities-departments/university-of-chicago-english-department-about-https-english-uchicago-edu-about-contact.txt",
+  "text_chars": 2562
+}

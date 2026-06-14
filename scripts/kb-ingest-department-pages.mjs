@@ -25,93 +25,30 @@ const runDate = new Date().toISOString().slice(0, 10);
 const runId = `department-pages-${new Date().toISOString().replace(/[:.]/g, "-")}`;
 const timeoutMs = Number.parseInt(getArg("--timeout-ms") ?? "20000", 10);
 const limit = Number.parseInt(getArg("--limit") ?? String(targetConfig.targets.length), 10);
+const discoverPerTarget = Number.parseInt(getArg("--discover-per-target") ?? "2", 10);
 
 const pages = [];
 const existingPages = await readJsonl(path.join(processedDir, "pages.jsonl"));
 const sourceDocuments = await readJsonl(path.join(processedDir, "source_documents.jsonl"));
 const rights = await readJsonl(path.join(processedDir, "rights.jsonl"));
 const failures = [];
+const existingPageIds = new Set(existingPages.map((page) => page.local_id));
+const existingPageUrls = new Set(existingPages.map((page) => normalizeUrl(page.source_url)).filter(Boolean));
 
 for (const target of targetConfig.targets.slice(0, limit)) {
-  const started = new Date().toISOString();
-  const source = registryById.get(target.source_id) ?? {};
-  const localId = `${target.source_id}:${slug(`${target.school}-${target.department}-${target.page_type}`)}`;
-  const rawTargetDir = path.join(rawDir, "universities", target.source_id, runDate, runId, slug(`${target.department}-${target.page_type}`));
-  const rawPath = path.join(rawTargetDir, "response.html");
-  const metadataPath = path.join(rawTargetDir, "metadata.json");
-  const textPath = path.join(textDir, "department-pages", target.source_id, `${slug(`${target.school}-${target.department}-${target.page_type}`)}.txt`);
   try {
-    const html = await fetchText(target.url);
-    const text = cleanHtml(html);
-    const title = extractTitle(html) || `${target.school} ${target.department}`;
-    await writeText(rawPath, html);
-    await writeText(textPath, text);
-    const metadata = {
-      run_id: runId,
-      source_id: target.source_id,
-      url: target.url,
-      school: target.school,
-      department: target.department,
-      page_type: target.page_type,
-      fetched_at: new Date().toISOString(),
-      status: "success",
-      raw_path: relative(rawPath),
-      text_path: relative(textPath),
-      text_chars: text.length,
-    };
-    await writeJson(metadataPath, metadata);
-    const page = {
-      local_id: localId,
-      source_id: target.source_id,
-      school: target.school,
-      department: target.department,
-      page_type: target.page_type,
-      source_url: target.url,
-      title,
-      fetched_at: metadata.fetched_at,
-      text_path: relative(textPath),
-      text_chars: text.length,
-      status: "success",
-    };
-    pages.push(page);
-    sourceDocuments.push({
-      local_id: localId,
-      source_id: target.source_id,
-      source_native_id: target.url,
-      source_url: target.url,
-      title,
-      fetched_at: metadata.fetched_at,
-      type: "department-page",
-      department: target.department,
-      text_path: relative(textPath),
-      text_chars: text.length,
-    });
-    rights.push({
-      local_id: localId,
-      source_id: target.source_id,
-      license: source.license ?? "Public web pages; copyright retained by institution",
-      redistribution_status: source.redistribution_status ?? "local-analysis-only",
-      full_text_allowed: false,
-      metadata_allowed: true,
-      quote_status: "needs-review",
-      rights_note: "Extracted public page text is stored for local analysis only; do not redistribute page text without review.",
-    });
+    const result = await ingestTargetPage(target);
+    if (discoverPerTarget > 0) {
+      for (const discovered of discoverTargets(target, result.html).slice(0, discoverPerTarget)) {
+        try {
+          await ingestTargetPage(discovered);
+        } catch (error) {
+          await recordFailure(discovered, error, new Date().toISOString(), "discovered-page");
+        }
+      }
+    }
   } catch (error) {
-    const failure = {
-      run_id: runId,
-      source_id: target.source_id,
-      started_at: started,
-      completed_at: new Date().toISOString(),
-      status: "failed",
-      access_route: target.url,
-      raw_outputs: [],
-      processed_outputs: [],
-      record_count: 0,
-      rights_review: "Not reviewed because fetch failed.",
-      errors: [error.message],
-    };
-    failures.push(failure);
-    await appendText(path.join(auditsDir, "failed-routes.jsonl"), `${JSON.stringify(failure)}\n`);
+    await recordFailure(target, error, new Date().toISOString(), "configured-page");
   }
 }
 
@@ -177,6 +114,159 @@ async function fetchText(url) {
   } finally {
     clearTimeout(timeout);
   }
+}
+
+async function ingestTargetPage(target) {
+  const source = registryById.get(target.source_id) ?? {};
+  const localId = `${target.source_id}:${slug(`${target.school}-${target.department}-${target.page_type}-${target.url}`)}`;
+  const urlKey = normalizeUrl(target.url);
+  if (existingPageIds.has(localId) || existingPageUrls.has(urlKey)) {
+    if (target.discovery_source_url) return { html: "", skipped: true };
+    return { html: await fetchText(target.url), skipped: true };
+  }
+  const html = await fetchText(target.url);
+  const text = cleanHtml(html);
+  const title = extractTitle(html) || `${target.school} ${target.department}`;
+  const targetSlug = slug(`${target.department}-${target.page_type}-${target.url}`);
+  const textSlug = slug(`${target.school}-${target.department}-${target.page_type}-${target.url}`);
+  const rawTargetDir = path.join(rawDir, "universities", target.source_id, runDate, runId, targetSlug);
+  const rawPath = path.join(rawTargetDir, "response.html");
+  const metadataPath = path.join(rawTargetDir, "metadata.json");
+  const textPath = path.join(textDir, "department-pages", target.source_id, `${textSlug}.txt`);
+  await writeText(rawPath, html);
+  await writeText(textPath, text);
+  const metadata = {
+    run_id: runId,
+    source_id: target.source_id,
+    url: target.url,
+    school: target.school,
+    department: target.department,
+    page_type: target.page_type,
+    discovery_source_url: target.discovery_source_url ?? "",
+    fetched_at: new Date().toISOString(),
+    status: "success",
+    raw_path: relative(rawPath),
+    text_path: relative(textPath),
+    text_chars: text.length,
+  };
+  await writeJson(metadataPath, metadata);
+  const page = {
+    local_id: localId,
+    source_id: target.source_id,
+    school: target.school,
+    department: target.department,
+    page_type: target.page_type,
+    source_url: target.url,
+    title,
+    fetched_at: metadata.fetched_at,
+    text_path: relative(textPath),
+    text_chars: text.length,
+    status: "success",
+  };
+  pages.push(page);
+  existingPageIds.add(localId);
+  existingPageUrls.add(urlKey);
+  sourceDocuments.push({
+    local_id: localId,
+    source_id: target.source_id,
+    source_native_id: target.url,
+    source_url: target.url,
+    title,
+    fetched_at: metadata.fetched_at,
+    type: "department-page",
+    department: target.department,
+    text_path: relative(textPath),
+    text_chars: text.length,
+  });
+  rights.push({
+    local_id: localId,
+    source_id: target.source_id,
+    license: source.license ?? "Public web pages; copyright retained by institution",
+    redistribution_status: source.redistribution_status ?? "local-analysis-only",
+    full_text_allowed: false,
+    metadata_allowed: true,
+    quote_status: "needs-review",
+    rights_note: "Extracted public page text is stored for local analysis only; do not redistribute page text without review.",
+  });
+  return { html, skipped: false };
+}
+
+async function recordFailure(target, error, started, routeKind) {
+  const failure = {
+    run_id: runId,
+    source_id: target.source_id,
+    started_at: started,
+    completed_at: new Date().toISOString(),
+    status: "failed",
+    route_kind: routeKind,
+    access_route: target.url,
+    raw_outputs: [],
+    processed_outputs: [],
+    record_count: 0,
+    rights_review: "Not reviewed because fetch failed.",
+    errors: [error.message],
+  };
+  failures.push(failure);
+  await appendText(path.join(auditsDir, "failed-routes.jsonl"), `${JSON.stringify(failure)}\n`);
+}
+
+function discoverTargets(target, html) {
+  const links = [];
+  const base = new URL(target.url);
+  const seen = new Set([normalizeUrl(target.url)]);
+  const pattern = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = pattern.exec(String(html)))) {
+    const href = match[1];
+    const label = cleanHtml(match[2]);
+    let url;
+    try {
+      url = new URL(href, base);
+    } catch {
+      continue;
+    }
+    if (url.origin !== base.origin) continue;
+    url.hash = "";
+    const normalized = normalizeUrl(url.href);
+    if (seen.has(normalized)) continue;
+    const pageType = classifyPageType(`${url.pathname} ${label}`);
+    if (!pageType) continue;
+    seen.add(normalized);
+    links.push({
+      ...target,
+      url: normalized,
+      page_type: pageType,
+      discovery_source_url: target.url,
+    });
+  }
+  return links.sort((a, b) => pageTypeRank(a.page_type) - pageTypeRank(b.page_type) || a.url.localeCompare(b.url));
+}
+
+function classifyPageType(value) {
+  const text = String(value).toLowerCase();
+  if (/\babout\b|mission|overview/.test(text)) return "department-about";
+  if (/news|story|stories|article/.test(text)) return "department-news";
+  if (/event|calendar|lecture|colloqu/.test(text)) return "department-events";
+  if (/faculty|people|directory/.test(text)) return "department-faculty";
+  if (/graduate|undergraduate|program|course|curriculum/.test(text)) return "department-programs";
+  return "";
+}
+
+function pageTypeRank(pageType) {
+  return {
+    "department-about": 0,
+    "department-news": 1,
+    "department-events": 2,
+    "department-faculty": 3,
+    "department-programs": 4,
+  }[pageType] ?? 99;
+}
+
+function normalizeUrl(value) {
+  const url = new URL(value);
+  url.hash = "";
+  url.search = "";
+  return url.href.replace(/\/$/, "");
 }
 
 function summarizeDepartments(pages) {

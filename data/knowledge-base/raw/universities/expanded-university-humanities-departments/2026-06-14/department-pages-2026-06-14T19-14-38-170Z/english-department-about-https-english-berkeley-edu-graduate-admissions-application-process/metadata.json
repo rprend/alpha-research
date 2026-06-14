@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T19-14-38-170Z",
+  "source_id": "expanded-university-humanities-departments",
+  "url": "https://english.berkeley.edu/graduate/admissions/application-process",
+  "school": "University of California, Berkeley",
+  "department": "English",
+  "page_type": "department-about",
+  "discovery_source_url": "https://english.berkeley.edu/",
+  "fetched_at": "2026-06-14T19:14:49.261Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-pages-2026-06-14T19-14-38-170Z/english-department-about-https-english-berkeley-edu-graduate-admissions-application-process/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/expanded-university-humanities-departments/university-of-california-berkeley-english-department-about-https-english-berkeley-edu-graduate-admissions-application-process.txt",
+  "text_chars": 3283
+}

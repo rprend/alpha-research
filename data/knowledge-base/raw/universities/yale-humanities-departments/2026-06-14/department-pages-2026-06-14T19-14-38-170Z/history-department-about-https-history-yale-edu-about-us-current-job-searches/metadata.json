@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T19-14-38-170Z",
+  "source_id": "yale-humanities-departments",
+  "url": "https://history.yale.edu/about-us/current-job-searches",
+  "school": "Yale University",
+  "department": "History",
+  "page_type": "department-about",
+  "discovery_source_url": "https://history.yale.edu/",
+  "fetched_at": "2026-06-14T19:14:39.461Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/yale-humanities-departments/2026-06-14/department-pages-2026-06-14T19-14-38-170Z/history-department-about-https-history-yale-edu-about-us-current-job-searches/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/yale-humanities-departments/yale-university-history-department-about-https-history-yale-edu-about-us-current-job-searches.txt",
+  "text_chars": 6110
+}

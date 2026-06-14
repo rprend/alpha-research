@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T19-14-38-170Z",
+  "source_id": "expanded-university-humanities-departments",
+  "url": "https://history.duke.edu/about",
+  "school": "Duke University",
+  "department": "History",
+  "page_type": "department-about",
+  "discovery_source_url": "https://history.duke.edu/",
+  "fetched_at": "2026-06-14T19:15:03.602Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-pages-2026-06-14T19-14-38-170Z/history-department-about-https-history-duke-edu-about/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/expanded-university-humanities-departments/duke-university-history-department-about-https-history-duke-edu-about.txt",
+  "text_chars": 4279
+}

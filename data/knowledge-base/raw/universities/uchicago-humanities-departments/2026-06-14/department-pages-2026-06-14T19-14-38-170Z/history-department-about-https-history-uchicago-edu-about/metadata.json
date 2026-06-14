@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T19-14-38-170Z",
+  "source_id": "uchicago-humanities-departments",
+  "url": "https://history.uchicago.edu/about",
+  "school": "University of Chicago",
+  "department": "History",
+  "page_type": "department-about",
+  "discovery_source_url": "https://history.uchicago.edu/",
+  "fetched_at": "2026-06-14T19:14:45.311Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/uchicago-humanities-departments/2026-06-14/department-pages-2026-06-14T19-14-38-170Z/history-department-about-https-history-uchicago-edu-about/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/uchicago-humanities-departments/university-of-chicago-history-department-about-https-history-uchicago-edu-about.txt",
+  "text_chars": 1371
+}
