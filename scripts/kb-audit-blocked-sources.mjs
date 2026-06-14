@@ -178,6 +178,10 @@ function knownReplacementResolvesFailures(source, latestSuccess, failures) {
       failedRoutes.length > 0 &&
       failedRoutes.every((route) => /lareviewofbooks\.org\/feed\/?$/i.test(route));
   }
+  if (source.source_id === "smithsonian-open-access") {
+    const errorText = failures.flatMap((failure) => failure.errors ?? []).join(" ");
+    return /429|Too Many Requests|OVER_RATE_LIMIT/i.test(errorText);
+  }
   return false;
 }
 

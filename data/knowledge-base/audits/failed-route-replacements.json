@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T20:47:58.325Z",
-  "resolved_failure_count": 10,
+  "generated_at": "2026-06-14T20:51:29.301Z",
+  "resolved_failure_count": 11,
   "resolved_failures": [
     {
       "source_id": "aha-annual-meeting-programs",
@@ -80,6 +80,17 @@
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
+      "source_id": "smithsonian-open-access",
+      "name": "Smithsonian Open Access",
+      "source_class": "cultural-collections",
+      "failure_count": 5,
+      "latest_failure_at": "2026-06-14T20:34:06.390Z",
+      "latest_success_at": "2026-06-14T19:00:08.030Z",
+      "successful_route": "source-specific cultural collections API routes",
+      "record_count": 200,
+      "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
+    },
+    {
       "source_id": "wayback-machine-cdx",
       "name": "Internet Archive Wayback CDX",
       "source_class": "web-archives",
@@ -113,7 +124,7 @@
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 6,
+  "replacement_plan_count": 5,
   "replacement_plans": [
     {
       "source_id": "harvard-humanities-departments",
@@ -227,28 +238,6 @@
       ],
       "next_action": "Keep the source blocked until an authorized metadata route or allowed export is available.",
       "do_not_do": "Do not ask for secrets in chat or retry unauthorized API routes anonymously."
-    },
-    {
-      "source_id": "smithsonian-open-access",
-      "name": "Smithsonian Open Access",
-      "source_class": "cultural-collections",
-      "ingest_status": "active",
-      "redistribution_status": "metadata-ok",
-      "failure_count": 5,
-      "latest_failure_at": "2026-06-14T20:34:06.390Z",
-      "latest_error": "https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=20: HTTP 429 Too Many Requests; https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=20: HTTP 429 Too Many Requests",
-      "failed_routes": [
-        "source-specific cultural collections API routes",
-        "https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=20 | https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=20"
-      ],
-      "affected_targets": [],
-      "replacement_status": "rate-limit-backoff",
-      "replacement_routes": [
-        "Retry with lower per-source limits and longer backoff.",
-        "Prefer bulk/download routes if the source documents one."
-      ],
-      "next_action": "Schedule a polite retry with lower page size and source-specific backoff.",
-      "do_not_do": "Do not increase concurrency or rotate identities."
     },
     {
       "source_id": "hathitrust-bibliographic-metadata",

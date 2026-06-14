@@ -1,6 +1,6 @@
 # Local Humanities Knowledge Base Status
 
-Generated at: 2026-06-14T20:47:58.765Z
+Generated at: 2026-06-14T20:51:29.746Z
 Status: phase-2-staging-active
 Sources: 34
 

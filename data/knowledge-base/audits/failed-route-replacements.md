@@ -1,8 +1,8 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T20:47:58.325Z
-Resolved historical failures: 10
-Replacement plans: 6
+Generated at: 2026-06-14T20:51:29.301Z
+Resolved historical failures: 11
+Replacement plans: 5
 
 ## Resolved Historical Failures
 
@@ -13,6 +13,7 @@ Replacement plans: 6
 - library-of-congress: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:34.343Z (50 records).
 - met-collection-api: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:33.316Z (50 records).
 - princeton-humanities-departments: latest successful route https://english.princeton.edu/events | https://philosophy.princeton.edu/events | https://artandarchaeology.princeton.edu/events at 2026-06-14T20:42:04.005Z (3 records).
+- smithsonian-open-access: latest successful route source-specific cultural collections API routes at 2026-06-14T19:00:08.030Z (200 records).
 - wayback-machine-cdx: latest successful route https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=20 at 2026-06-14T20:28:09.044Z (20 records).
 - wikidata-cultural-entities: latest successful route https://query.wikidata.org/sparql at 2026-06-14T20:02:20.514Z (25 records).
 - yale-humanities-departments: latest successful route http://complit.yale.edu/about/department-history at 2026-06-14T20:42:04.005Z (1 records).
@@ -104,25 +105,6 @@ Replacement plans: 6
   - Use OpenAlex, Crossref, NBER, or publisher metadata as alternate discovery sources.
 - Next action: Keep the source blocked until an authorized metadata route or allowed export is available.
 - Do not do: Do not ask for secrets in chat or retry unauthorized API routes anonymously.
-
-## smithsonian-open-access
-
-- Name: Smithsonian Open Access
-- Class: cultural-collections
-- Ingest status: active
-- Replacement status: rate-limit-backoff
-- Failure count: 5
-- Latest failure: 2026-06-14T20:34:06.390Z
-- Latest error: https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=20: HTTP 429 Too Many Requests; https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=20: HTTP 429 Too Many Requests
-- Affected targets: No target metadata.
-- Failed routes:
-  - source-specific cultural collections API routes
-  - https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=humanities&rows=20 | https://api.si.edu/openaccess/api/v1.0/search?api_key=DEMO_KEY&q=art%20history&rows=20
-- Replacement routes:
-  - Retry with lower per-source limits and longer backoff.
-  - Prefer bulk/download routes if the source documents one.
-- Next action: Schedule a polite retry with lower page size and source-specific backoff.
-- Do not do: Do not increase concurrency or rotate identities.
 
 ## hathitrust-bibliographic-metadata
 
