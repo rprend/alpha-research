@@ -1,8 +1,8 @@
 # Local Humanities Knowledge Base Status
 
-Generated at: 2026-06-14T19:03:08.341Z
+Generated at: 2026-06-14T19:10:04.604Z
 Status: phase-2-staging-active
-Sources: 33
+Sources: 34
 
 ## Source Classes
 
@@ -18,14 +18,14 @@ Sources: 33
 | public-domain-texts | 1 |
 | scholarly-metadata | 3 |
 | syllabi-teaching-corpora | 1 |
-| university-department-web | 7 |
+| university-department-web | 8 |
 | web-archives | 1 |
 
 ## Ingest Statuses
 
 | Value | Count |
 | --- | ---: |
-| active | 23 |
+| active | 24 |
 | blocked | 5 |
 | planned | 1 |
 | seeded-from-experiment | 4 |
@@ -36,7 +36,7 @@ Sources: 33
 | --- | ---: |
 | blocked-or-needs-review | 1 |
 | derived-metadata-ok | 1 |
-| local-analysis-only | 11 |
+| local-analysis-only | 12 |
 | metadata-ok | 8 |
 | metadata-only | 11 |
 | public-domain-text-ok | 1 |
@@ -46,8 +46,8 @@ Sources: 33
 - Processed tables: 12/12
 - Processed staging JSONL: 12/12
 - Analytical CSV/Parquet/SQLite: 27/27
-- Raw files: 428
-- Text files: 204
+- Raw files: 370
+- Text files: 227
 - Index files: 2
 
 ## Missing Processed Tables

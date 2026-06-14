@@ -1,9 +1,9 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T19:03:07.094Z
+Generated at: 2026-06-14T19:10:03.373Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 5779
+Documents: 5802
 
 ## Text Scope
 
@@ -11,17 +11,18 @@ Documents: 5779
 | --- | ---: |
 | metadata-only | 5575 |
 | stored-full-text | 200 |
-| stored-local-analysis-text | 4 |
+| stored-local-analysis-text | 27 |
 
 ## Sources
 
 | Value | Count |
 | --- | ---: |
 | cleveland-museum-open-access | 200 |
-| columbia-humanities-departments | 1 |
+| columbia-humanities-departments | 2 |
 | crossref-humanities | 178 |
 | dh-conference-programs | 25 |
 | doaj-humanities | 2948 |
+| expanded-university-humanities-departments | 14 |
 | harvard-humanities-departments | 5 |
 | humanities-centers-public-pages | 12 |
 | humanities-literature-radar | 53 |
@@ -40,10 +41,10 @@ Documents: 5779
 | project-gutenberg | 200 |
 | public-books | 10 |
 | smithsonian-open-access | 225 |
-| stanford-humanities-departments | 6 |
-| uchicago-humanities-departments | 1 |
+| stanford-humanities-departments | 9 |
+| uchicago-humanities-departments | 4 |
 | wayback-machine-cdx | 4 |
 | wikidata-cultural-entities | 757 |
-| yale-humanities-departments | 5 |
+| yale-humanities-departments | 7 |
 
 This is a local hashed TF-IDF retrieval layer over metadata plus rights-filtered stored text. It is deterministic and offline; it is not a neural embedding model.

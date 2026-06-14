@@ -73,6 +73,8 @@ Current normalized staging outputs:
 
 The KB also imports 200 public-domain Project Gutenberg texts from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
 
+The department-page ingest now reads the broader target list in `config/department-pages.json`, appends and dedupes successful public page fetches into the durable `pages` and `departments` tables, and logs blocked routes for replacement planning. The current expanded crawl covers 57 local department/web page records and 48 department summaries after 27 successful fetches from the 40-target public-page configuration.
+
 The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly when their public routes respond. Failed routes are retained in `audits/failed-routes.jsonl`.
 
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.

@@ -1,16 +1,16 @@
 # KB Source Coverage
 
-Generated at: 2026-06-14T19:02:09.108Z
-Sources with local documents: 28/33
+Generated at: 2026-06-14T19:10:02.087Z
+Sources with local documents: 29/34
 Unregistered local source IDs: 0
 
 ## Local Records
 
-- source_documents: 5810
+- source_documents: 5833
 - works: 2913
 - objects: 1012
-- pages: 34
-- rights: 5810
+- pages: 57
+- rights: 5833
 
 ## Unregistered Local Source IDs
 

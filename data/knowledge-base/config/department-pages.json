@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updated_at": "2026-06-13",
+  "version": 2,
+  "updated_at": "2026-06-14",
   "targets": [
     {
       "source_id": "harvard-humanities-departments",
@@ -17,6 +17,20 @@
       "url": "https://history.fas.harvard.edu/"
     },
     {
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "Philosophy",
+      "page_type": "department-home",
+      "url": "https://philosophy.fas.harvard.edu/"
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "school": "Harvard University",
+      "department": "Classics",
+      "page_type": "department-home",
+      "url": "https://classics.fas.harvard.edu/"
+    },
+    {
       "source_id": "yale-humanities-departments",
       "school": "Yale University",
       "department": "English",
@@ -29,6 +43,20 @@
       "department": "History",
       "page_type": "department-home",
       "url": "https://history.yale.edu/"
+    },
+    {
+      "source_id": "yale-humanities-departments",
+      "school": "Yale University",
+      "department": "Philosophy",
+      "page_type": "department-home",
+      "url": "https://philosophy.yale.edu/"
+    },
+    {
+      "source_id": "yale-humanities-departments",
+      "school": "Yale University",
+      "department": "Comparative Literature",
+      "page_type": "department-home",
+      "url": "https://complit.yale.edu/"
     },
     {
       "source_id": "princeton-humanities-departments",
@@ -45,6 +73,20 @@
       "url": "https://history.princeton.edu/"
     },
     {
+      "source_id": "princeton-humanities-departments",
+      "school": "Princeton University",
+      "department": "Philosophy",
+      "page_type": "department-home",
+      "url": "https://philosophy.princeton.edu/"
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "school": "Princeton University",
+      "department": "Art and Archaeology",
+      "page_type": "department-home",
+      "url": "https://artandarchaeology.princeton.edu/"
+    },
+    {
       "source_id": "stanford-humanities-departments",
       "school": "Stanford University",
       "department": "English",
@@ -52,11 +94,193 @@
       "url": "https://english.stanford.edu/"
     },
     {
+      "source_id": "stanford-humanities-departments",
+      "school": "Stanford University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.stanford.edu/"
+    },
+    {
+      "source_id": "stanford-humanities-departments",
+      "school": "Stanford University",
+      "department": "Philosophy",
+      "page_type": "department-home",
+      "url": "https://philosophy.stanford.edu/"
+    },
+    {
+      "source_id": "stanford-humanities-departments",
+      "school": "Stanford University",
+      "department": "Art and Art History",
+      "page_type": "department-home",
+      "url": "https://art.stanford.edu/"
+    },
+    {
       "source_id": "uchicago-humanities-departments",
       "school": "University of Chicago",
       "department": "Humanities Division",
       "page_type": "division-home",
       "url": "https://humanities.uchicago.edu/"
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "school": "University of Chicago",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.uchicago.edu/"
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "school": "University of Chicago",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.uchicago.edu/"
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "school": "University of Chicago",
+      "department": "Philosophy",
+      "page_type": "department-home",
+      "url": "https://philosophy.uchicago.edu/"
+    },
+    {
+      "source_id": "columbia-humanities-departments",
+      "school": "Columbia University",
+      "department": "English and Comparative Literature",
+      "page_type": "department-home",
+      "url": "https://english.columbia.edu/"
+    },
+    {
+      "source_id": "columbia-humanities-departments",
+      "school": "Columbia University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.columbia.edu/"
+    },
+    {
+      "source_id": "columbia-humanities-departments",
+      "school": "Columbia University",
+      "department": "Philosophy",
+      "page_type": "department-home",
+      "url": "https://philosophy.columbia.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.berkeley.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.berkeley.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
+      "department": "Rhetoric",
+      "page_type": "department-home",
+      "url": "https://rhetoric.berkeley.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Los Angeles",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.ucla.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Los Angeles",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.ucla.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of Michigan",
+      "department": "English Language and Literature",
+      "page_type": "department-home",
+      "url": "https://lsa.umich.edu/english"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of Michigan",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://lsa.umich.edu/history"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of Pennsylvania",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://www.english.upenn.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of Pennsylvania",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://www.history.upenn.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "Cornell University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.cornell.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "Cornell University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.cornell.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "Brown University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.brown.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "Brown University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.brown.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "New York University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://as.nyu.edu/departments/english.html"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "New York University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://as.nyu.edu/departments/history.html"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "Duke University",
+      "department": "English",
+      "page_type": "department-home",
+      "url": "https://english.duke.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "Duke University",
+      "department": "History",
+      "page_type": "department-home",
+      "url": "https://history.duke.edu/"
     }
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "run_id": "department-pages-2026-06-14T19-09-16-584Z",
+  "source_id": "uchicago-humanities-departments",
+  "url": "https://english.uchicago.edu/",
+  "school": "University of Chicago",
+  "department": "English",
+  "page_type": "department-home",
+  "fetched_at": "2026-06-14T19:09:42.391Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/uchicago-humanities-departments/2026-06-14/department-pages-2026-06-14T19-09-16-584Z/english-department-home/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/uchicago-humanities-departments/university-of-chicago-english-department-home.txt",
+  "text_chars": 3700
+}

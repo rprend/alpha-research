@@ -645,6 +645,47 @@
       "ingest_status": "active"
     },
     {
+      "source_id": "expanded-university-humanities-departments",
+      "name": "Expanded University Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "homepage_url": "https://www.aau.edu/",
+      "access_routes": [
+        "department home pages",
+        "division home pages",
+        "center pages",
+        "news pages",
+        "events pages"
+      ],
+      "license": "Public web pages; copyright retained by each institution",
+      "redistribution_status": "local-analysis-only",
+      "full_text_allowed": false,
+      "metadata_allowed": true,
+      "robots_or_terms_notes": "Respect per-domain robots.txt and store extracted text for local analysis only with source URL and fetch date.",
+      "update_cadence": "quarterly",
+      "expected_fields": [
+        "school",
+        "department",
+        "page_type",
+        "url",
+        "title",
+        "fetched_at",
+        "extracted_text"
+      ],
+      "research_use_cases": [
+        "institutional language drift",
+        "public/private university comparison",
+        "humanities department topic mapping"
+      ],
+      "known_risks": [
+        "heterogeneous web platforms",
+        "copyrighted page text",
+        "URL churn",
+        "historical snapshot gaps"
+      ],
+      "last_checked_at": "2026-06-14",
+      "ingest_status": "active"
+    },
+    {
       "source_id": "mla-convention-programs",
       "name": "MLA Convention Programs",
       "source_class": "conference-programs",

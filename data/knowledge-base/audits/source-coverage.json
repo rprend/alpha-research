@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T19:02:09.108Z",
-  "source_count": 33,
+  "generated_at": "2026-06-14T19:10:02.087Z",
+  "source_count": 34,
   "source_classes": {
     "conference-programs": 3,
     "cultural-collections": 4,
@@ -12,7 +12,7 @@
     "public-domain-texts": 1,
     "scholarly-metadata": 3,
     "syllabi-teaching-corpora": 1,
-    "university-department-web": 7,
+    "university-department-web": 8,
     "web-archives": 1
   },
   "source_ids_with_local_documents": [
@@ -21,6 +21,7 @@
     "crossref-humanities",
     "dh-conference-programs",
     "doaj-humanities",
+    "expanded-university-humanities-departments",
     "harvard-humanities-departments",
     "humanities-centers-public-pages",
     "humanities-literature-radar",
@@ -45,15 +46,15 @@
     "wikidata-cultural-entities",
     "yale-humanities-departments"
   ],
-  "source_count_with_local_documents": 28,
+  "source_count_with_local_documents": 29,
   "unregistered_source_ids_with_local_documents": [],
   "unregistered_source_count_with_local_documents": 0,
   "local_records": {
-    "source_documents": 5810,
+    "source_documents": 5833,
     "works": 2913,
     "objects": 1012,
-    "pages": 34,
-    "rights": 5810
+    "pages": 57,
+    "rights": 5833
   },
   "sources_without_local_documents": [
     {

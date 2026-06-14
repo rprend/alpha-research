@@ -27,6 +27,7 @@ const timeoutMs = Number.parseInt(getArg("--timeout-ms") ?? "20000", 10);
 const limit = Number.parseInt(getArg("--limit") ?? String(targetConfig.targets.length), 10);
 
 const pages = [];
+const existingPages = await readJsonl(path.join(processedDir, "pages.jsonl"));
 const sourceDocuments = await readJsonl(path.join(processedDir, "source_documents.jsonl"));
 const rights = await readJsonl(path.join(processedDir, "rights.jsonl"));
 const failures = [];
@@ -114,8 +115,9 @@ for (const target of targetConfig.targets.slice(0, limit)) {
   }
 }
 
-const departments = summarizeDepartments(pages);
-await writeJsonl(path.join(processedDir, "pages.jsonl"), pages);
+const allPages = dedupe([...existingPages, ...pages], "local_id");
+const departments = summarizeDepartments(allPages);
+await writeJsonl(path.join(processedDir, "pages.jsonl"), allPages);
 await writeJsonl(path.join(processedDir, "departments.jsonl"), departments);
 await writeJsonl(path.join(processedDir, "source_documents.jsonl"), dedupe(sourceDocuments, "local_id"));
 await writeJsonl(path.join(processedDir, "rights.jsonl"), dedupe(rights, "local_id"));
@@ -126,8 +128,9 @@ const report = {
   target_count: Math.min(limit, targetConfig.targets.length),
   success_count: pages.length,
   failed_count: failures.length,
-  page_count: pages.length,
+  page_count: allPages.length,
   department_count: departments.length,
+  new_page_count: pages.length,
   pages,
   failures,
 };
