@@ -24,6 +24,7 @@ pnpm kb:ingest:cultural
 pnpm kb:ingest:doaj
 pnpm kb:ingest:wikidata
 pnpm kb:ingest:departments
+node scripts/kb-ingest-department-sitemaps.mjs
 pnpm kb:import:gutenberg
 pnpm kb:ingest:web
 pnpm kb:tables
@@ -78,6 +79,8 @@ Current normalized staging outputs:
 The KB also imports 200 public-domain Project Gutenberg texts from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
 
 The department-page ingest now reads the broader target list in `config/department-pages.json`, discovers shallow same-origin about/news/events/faculty/program links from successful homepages, appends and dedupes successful public page fetches into the durable `pages` and `departments` tables, and logs blocked routes for replacement planning. The current expanded crawl covers 107 local department/web page records and 48 department summaries after adding 50 discovered/configured page records in the latest run.
+
+The department-sitemap ingest fetches public `sitemap.xml` routes for configured department targets, stores raw sitemap XML for successful routes, and adds sitemap URL metadata rows without storing page text. The latest run succeeded for 22 of 40 sitemap targets and added 325 metadata-only department URL rows, expanding the department/page corpus to 432 page records and 52 department summaries. Failed sitemap routes are logged in `audits/failed-routes.jsonl` for source-specific replacement planning.
 
 The blocked-source audit writes both `audits/blocked-sources.{json,md}` and `audits/failed-route-replacements.{json,md}`. The replacement audit covers blocked sources and active-source route failures, so stale feeds, 403 department pages, Wayback instability, rate limits, and partial API timeouts each have an explicit next action before another ingest attempt.
 

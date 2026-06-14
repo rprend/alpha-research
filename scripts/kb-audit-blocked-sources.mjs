@@ -135,6 +135,18 @@ function replacementPlanFor(source, latestFailure, errorText, failedRoutes, targ
       do_not_do: "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.",
     };
   }
+  if (/404|Not Found/i.test(errorText) && source.source_class === "university-department-web") {
+    return {
+      status: "replacement-needed",
+      routes: [
+        "Try source-specific sitemap locations such as /sitemap_index.xml, /sitemap.xml.gz, or CMS-provided XML indexes where public.",
+        "Use already responding same-domain department pages and their discovered internal links.",
+        "Use official school directories, RSS/news feeds, or Wayback CDX metadata when current sitemap routes are absent.",
+      ],
+      next_action: `Create source-specific alternate sitemap/directory targets for ${targetSummary.length ? targetSummary.join(", ") : sourceId}; keep missing sitemap routes logged as failed metadata routes.`,
+      do_not_do: "Do not repeatedly retry absent sitemap.xml routes or infer page text from sitemap URL metadata.",
+    };
+  }
   if (sourceId === "lareviewofbooks" || /404|Not Found/i.test(errorText)) {
     return {
       status: "replacement-needed",

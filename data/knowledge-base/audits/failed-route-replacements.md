@@ -1,7 +1,7 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T19:41:08.333Z
-Replacement plans: 13
+Generated at: 2026-06-14T19:50:55.513Z
+Replacement plans: 15
 
 ## harvard-humanities-departments
 
@@ -9,20 +9,50 @@ Replacement plans: 13
 - Class: university-department-web
 - Ingest status: seeded-from-experiment
 - Replacement status: replacement-needed
-- Failure count: 10
-- Latest failure: 2026-06-14T19:14:38.678Z
+- Failure count: 14
+- Latest failure: 2026-06-14T19:49:18.974Z
 - Latest error: HTTP 403 Forbidden
-- Affected targets: No target metadata.
+- Affected targets: Harvard University English department-sitemap; Harvard University History department-sitemap; Harvard University Philosophy department-sitemap; Harvard University Classics department-sitemap
 - Failed routes:
   - https://english.fas.harvard.edu/
   - https://history.fas.harvard.edu/
   - https://philosophy.fas.harvard.edu/
   - https://classics.fas.harvard.edu/
+  - https://english.fas.harvard.edu/sitemap.xml
+  - https://history.fas.harvard.edu/sitemap.xml
+  - https://philosophy.fas.harvard.edu/sitemap.xml
+  - https://classics.fas.harvard.edu/sitemap.xml
 - Replacement routes:
   - Use already responding same-domain department pages discovered from successful homepages.
   - Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.
   - Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed.
-- Next action: Create source-specific alternate target entries for harvard-humanities-departments using public about/news/events/faculty routes that return 200.
+- Next action: Create source-specific alternate target entries for Harvard University English department-sitemap, Harvard University History department-sitemap, Harvard University Philosophy department-sitemap, Harvard University Classics department-sitemap using public about/news/events/faculty routes that return 200.
+- Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
+
+## expanded-university-humanities-departments
+
+- Name: Expanded University Humanities Department Public Pages
+- Class: university-department-web
+- Ingest status: active
+- Replacement status: replacement-needed
+- Failure count: 12
+- Latest failure: 2026-06-14T19:49:30.609Z
+- Latest error: HTTP 403 Forbidden
+- Affected targets: University of California, Berkeley History department-sitemap; University of California, Berkeley Rhetoric department-sitemap; University of Michigan English Language and Literature department-sitemap; University of Michigan History department-sitemap; University of Pennsylvania English department-sitemap; University of Pennsylvania History department-sitemap
+- Failed routes:
+  - https://lsa.umich.edu/english
+  - https://lsa.umich.edu/history
+  - https://www.history.upenn.edu/
+  - https://history.berkeley.edu/sitemap.xml
+  - https://rhetoric.berkeley.edu/sitemap.xml
+  - https://lsa.umich.edu/sitemap.xml
+  - https://www.english.upenn.edu/sitemap.xml
+  - https://www.history.upenn.edu/sitemap.xml
+- Replacement routes:
+  - Use already responding same-domain department pages discovered from successful homepages.
+  - Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.
+  - Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed.
+- Next action: Create source-specific alternate target entries for University of California, Berkeley History department-sitemap, University of California, Berkeley Rhetoric department-sitemap, University of Michigan English Language and Literature department-sitemap, University of Michigan History department-sitemap, University of Pennsylvania English department-sitemap, University of Pennsylvania History department-sitemap using public about/news/events/faculty routes that return 200.
 - Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
 
 ## princeton-humanities-departments
@@ -47,45 +77,27 @@ Replacement plans: 13
 - Next action: Create source-specific alternate target entries for princeton-humanities-departments using public about/news/events/faculty routes that return 200.
 - Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
 
-## expanded-university-humanities-departments
-
-- Name: Expanded University Humanities Department Public Pages
-- Class: university-department-web
-- Ingest status: active
-- Replacement status: replacement-needed
-- Failure count: 6
-- Latest failure: 2026-06-14T19:14:58.597Z
-- Latest error: HTTP 403 Forbidden
-- Affected targets: No target metadata.
-- Failed routes:
-  - https://lsa.umich.edu/english
-  - https://lsa.umich.edu/history
-  - https://www.history.upenn.edu/
-- Replacement routes:
-  - Use already responding same-domain department pages discovered from successful homepages.
-  - Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.
-  - Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed.
-- Next action: Create source-specific alternate target entries for expanded-university-humanities-departments using public about/news/events/faculty routes that return 200.
-- Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
-
 ## columbia-humanities-departments
 
 - Name: Columbia Humanities Department Public Pages
 - Class: university-department-web
 - Ingest status: active
 - Replacement status: replacement-needed
-- Failure count: 4
-- Latest failure: 2026-06-14T19:14:48.219Z
+- Failure count: 7
+- Latest failure: 2026-06-14T19:49:24.052Z
 - Latest error: HTTP 403 Forbidden
-- Affected targets: No target metadata.
+- Affected targets: Columbia University English and Comparative Literature department-sitemap; Columbia University History department-sitemap; Columbia University Philosophy department-sitemap
 - Failed routes:
   - https://english.columbia.edu/
   - https://philosophy.columbia.edu/
+  - https://english.columbia.edu/sitemap.xml
+  - https://history.columbia.edu/sitemap.xml
+  - https://philosophy.columbia.edu/sitemap.xml
 - Replacement routes:
   - Use already responding same-domain department pages discovered from successful homepages.
   - Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.
   - Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed.
-- Next action: Create source-specific alternate target entries for columbia-humanities-departments using public about/news/events/faculty routes that return 200.
+- Next action: Create source-specific alternate target entries for Columbia University English and Comparative Literature department-sitemap, Columbia University History department-sitemap, Columbia University Philosophy department-sitemap using public about/news/events/faculty routes that return 200.
 - Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
 
 ## lareviewofbooks
@@ -106,6 +118,47 @@ Replacement plans: 13
   - Use Crossref/OpenAlex/Internet Archive metadata as fallback for bibliographic discovery.
 - Next action: Replace the stale feed URL before another automated ingest.
 - Do not do: Do not repeatedly retry the known 404 feed route.
+
+## uchicago-humanities-departments
+
+- Name: University of Chicago Humanities Department Public Pages
+- Class: university-department-web
+- Ingest status: active
+- Replacement status: replacement-needed
+- Failure count: 3
+- Latest failure: 2026-06-14T19:49:23.051Z
+- Latest error: HTTP 404 Not Found
+- Affected targets: University of Chicago Humanities Division department-sitemap; University of Chicago English department-sitemap; University of Chicago Philosophy department-sitemap
+- Failed routes:
+  - https://humanities.uchicago.edu/sitemap.xml
+  - https://english.uchicago.edu/sitemap.xml
+  - https://philosophy.uchicago.edu/sitemap.xml
+- Replacement routes:
+  - Try source-specific sitemap locations such as /sitemap_index.xml, /sitemap.xml.gz, or CMS-provided XML indexes where public.
+  - Use already responding same-domain department pages and their discovered internal links.
+  - Use official school directories, RSS/news feeds, or Wayback CDX metadata when current sitemap routes are absent.
+- Next action: Create source-specific alternate sitemap/directory targets for University of Chicago Humanities Division department-sitemap, University of Chicago English department-sitemap, University of Chicago Philosophy department-sitemap; keep missing sitemap routes logged as failed metadata routes.
+- Do not do: Do not repeatedly retry absent sitemap.xml routes or infer page text from sitemap URL metadata.
+
+## yale-humanities-departments
+
+- Name: Yale Humanities Department Public Pages
+- Class: university-department-web
+- Ingest status: active
+- Replacement status: replacement-needed
+- Failure count: 2
+- Latest failure: 2026-06-14T19:49:19.491Z
+- Latest error: HTTP 404 Not Found
+- Affected targets: Yale University English department-sitemap; Yale University History department-sitemap
+- Failed routes:
+  - https://english.yale.edu/sitemap.xml
+  - https://history.yale.edu/sitemap.xml
+- Replacement routes:
+  - Try source-specific sitemap locations such as /sitemap_index.xml, /sitemap.xml.gz, or CMS-provided XML indexes where public.
+  - Use already responding same-domain department pages and their discovered internal links.
+  - Use official school directories, RSS/news feeds, or Wayback CDX metadata when current sitemap routes are absent.
+- Next action: Create source-specific alternate sitemap/directory targets for Yale University English department-sitemap, Yale University History department-sitemap; keep missing sitemap routes logged as failed metadata routes.
+- Do not do: Do not repeatedly retry absent sitemap.xml routes or infer page text from sitemap URL metadata.
 
 ## ssrn-humanities-adjacent
 

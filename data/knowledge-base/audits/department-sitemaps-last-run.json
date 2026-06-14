@@ -1,0 +1,619 @@
+{
+  "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+  "generated_at": "2026-06-14T19:49:32.335Z",
+  "sitemap_target_count": 40,
+  "success_count": 22,
+  "failed_count": 18,
+  "discovered_url_count": 325,
+  "added_page_count": 325,
+  "sitemaps": [
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "yale-humanities-departments",
+      "sitemap_url": "https://philosophy.yale.edu/sitemap.xml",
+      "school": "Yale University",
+      "department": "Philosophy",
+      "fetched_at": "2026-06-14T19:49:19.492Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/yale-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/yale-university-philosophy-https-philosophy-yale-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "yale-humanities-departments",
+      "sitemap_url": "https://complit.yale.edu/sitemap.xml",
+      "school": "Yale University",
+      "department": "Comparative Literature",
+      "fetched_at": "2026-06-14T19:49:19.828Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/yale-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/yale-university-comparative-literature-https-complit-yale-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "princeton-humanities-departments",
+      "sitemap_url": "https://english.princeton.edu/sitemap.xml",
+      "school": "Princeton University",
+      "department": "English",
+      "fetched_at": "2026-06-14T19:49:20.018Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/princeton-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/princeton-university-english-https-english-princeton-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 2,
+      "added_page_count": 2
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "princeton-humanities-departments",
+      "sitemap_url": "https://history.princeton.edu/sitemap.xml",
+      "school": "Princeton University",
+      "department": "History",
+      "fetched_at": "2026-06-14T19:49:20.102Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/princeton-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/princeton-university-history-https-history-princeton-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 3,
+      "added_page_count": 3
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "princeton-humanities-departments",
+      "sitemap_url": "https://philosophy.princeton.edu/sitemap.xml",
+      "school": "Princeton University",
+      "department": "Philosophy",
+      "fetched_at": "2026-06-14T19:49:20.190Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/princeton-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/princeton-university-philosophy-https-philosophy-princeton-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 2,
+      "added_page_count": 2
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "princeton-humanities-departments",
+      "sitemap_url": "https://artandarchaeology.princeton.edu/sitemap.xml",
+      "school": "Princeton University",
+      "department": "Art and Archaeology",
+      "fetched_at": "2026-06-14T19:49:20.430Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/princeton-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/princeton-university-art-and-archaeology-https-artandarchaeology-princeton-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 2,
+      "added_page_count": 2
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "stanford-humanities-departments",
+      "sitemap_url": "https://english.stanford.edu/sitemap.xml",
+      "school": "Stanford University",
+      "department": "English",
+      "fetched_at": "2026-06-14T19:49:20.547Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/stanford-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/stanford-university-english-https-english-stanford-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "stanford-humanities-departments",
+      "sitemap_url": "https://history.stanford.edu/sitemap.xml",
+      "school": "Stanford University",
+      "department": "History",
+      "fetched_at": "2026-06-14T19:49:21.076Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/stanford-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/stanford-university-history-https-history-stanford-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "stanford-humanities-departments",
+      "sitemap_url": "https://philosophy.stanford.edu/sitemap.xml",
+      "school": "Stanford University",
+      "department": "Philosophy",
+      "fetched_at": "2026-06-14T19:49:21.561Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/stanford-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/stanford-university-philosophy-https-philosophy-stanford-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "stanford-humanities-departments",
+      "sitemap_url": "https://art.stanford.edu/sitemap.xml",
+      "school": "Stanford University",
+      "department": "Art and Art History",
+      "fetched_at": "2026-06-14T19:49:22.019Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/stanford-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/stanford-university-art-and-art-history-https-art-stanford-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "uchicago-humanities-departments",
+      "sitemap_url": "https://history.uchicago.edu/sitemap.xml",
+      "school": "University of Chicago",
+      "department": "History",
+      "fetched_at": "2026-06-14T19:49:22.686Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/uchicago-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/university-of-chicago-history-https-history-uchicago-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://english.berkeley.edu/sitemap.xml",
+      "school": "University of California, Berkeley",
+      "department": "English",
+      "fetched_at": "2026-06-14T19:49:24.053Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/university-of-california-berkeley-english-https-english-berkeley-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://english.ucla.edu/sitemap.xml",
+      "school": "University of California, Los Angeles",
+      "department": "English",
+      "fetched_at": "2026-06-14T19:49:25.338Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/university-of-california-los-angeles-english-https-english-ucla-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 16,
+      "added_page_count": 16
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://history.ucla.edu/sitemap.xml",
+      "school": "University of California, Los Angeles",
+      "department": "History",
+      "fetched_at": "2026-06-14T19:49:27.162Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/university-of-california-los-angeles-history-https-history-ucla-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://english.cornell.edu/sitemap.xml",
+      "school": "Cornell University",
+      "department": "English",
+      "fetched_at": "2026-06-14T19:49:30.609Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/cornell-university-english-https-english-cornell-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://history.cornell.edu/sitemap.xml",
+      "school": "Cornell University",
+      "department": "History",
+      "fetched_at": "2026-06-14T19:49:30.707Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/cornell-university-history-https-history-cornell-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://english.brown.edu/sitemap.xml",
+      "school": "Brown University",
+      "department": "English",
+      "fetched_at": "2026-06-14T19:49:30.969Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/brown-university-english-https-english-brown-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://history.brown.edu/sitemap.xml",
+      "school": "Brown University",
+      "department": "History",
+      "fetched_at": "2026-06-14T19:49:31.197Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/brown-university-history-https-history-brown-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://as.nyu.edu/sitemap.xml",
+      "school": "New York University",
+      "department": "English",
+      "fetched_at": "2026-06-14T19:49:31.433Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/new-york-university-english-https-as-nyu-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 0,
+      "added_page_count": 0
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://as.nyu.edu/sitemap.xml",
+      "school": "New York University",
+      "department": "History",
+      "fetched_at": "2026-06-14T19:49:31.585Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/new-york-university-history-https-as-nyu-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 0,
+      "added_page_count": 0
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://english.duke.edu/sitemap.xml",
+      "school": "Duke University",
+      "department": "English",
+      "fetched_at": "2026-06-14T19:49:31.658Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/duke-university-english-https-english-duke-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "sitemap_url": "https://history.duke.edu/sitemap.xml",
+      "school": "Duke University",
+      "department": "History",
+      "fetched_at": "2026-06-14T19:49:32.055Z",
+      "status": "success",
+      "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-sitemaps-2026-06-14T19-49-18-485Z/duke-university-history-https-history-duke-edu-sitemap-xml/sitemap.xml",
+      "discovered_url_count": 20,
+      "added_page_count": 20
+    }
+  ],
+  "failures": [
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "harvard-humanities-departments",
+      "started_at": "2026-06-14T19:49:18.516Z",
+      "completed_at": "2026-06-14T19:49:18.639Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://english.fas.harvard.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "Harvard University",
+      "target_department": "English",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "harvard-humanities-departments",
+      "started_at": "2026-06-14T19:49:18.640Z",
+      "completed_at": "2026-06-14T19:49:18.774Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://history.fas.harvard.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "Harvard University",
+      "target_department": "History",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "harvard-humanities-departments",
+      "started_at": "2026-06-14T19:49:18.775Z",
+      "completed_at": "2026-06-14T19:49:18.851Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://philosophy.fas.harvard.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "Harvard University",
+      "target_department": "Philosophy",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "harvard-humanities-departments",
+      "started_at": "2026-06-14T19:49:18.852Z",
+      "completed_at": "2026-06-14T19:49:18.974Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://classics.fas.harvard.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "Harvard University",
+      "target_department": "Classics",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "yale-humanities-departments",
+      "started_at": "2026-06-14T19:49:18.975Z",
+      "completed_at": "2026-06-14T19:49:19.396Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://english.yale.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "Yale University",
+      "target_department": "English",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "yale-humanities-departments",
+      "started_at": "2026-06-14T19:49:19.397Z",
+      "completed_at": "2026-06-14T19:49:19.491Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://history.yale.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "Yale University",
+      "target_department": "History",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "uchicago-humanities-departments",
+      "started_at": "2026-06-14T19:49:22.452Z",
+      "completed_at": "2026-06-14T19:49:22.537Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://humanities.uchicago.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "University of Chicago",
+      "target_department": "Humanities Division",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "uchicago-humanities-departments",
+      "started_at": "2026-06-14T19:49:22.537Z",
+      "completed_at": "2026-06-14T19:49:22.685Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://english.uchicago.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "University of Chicago",
+      "target_department": "English",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "uchicago-humanities-departments",
+      "started_at": "2026-06-14T19:49:22.781Z",
+      "completed_at": "2026-06-14T19:49:23.051Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://philosophy.uchicago.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "University of Chicago",
+      "target_department": "Philosophy",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "columbia-humanities-departments",
+      "started_at": "2026-06-14T19:49:23.051Z",
+      "completed_at": "2026-06-14T19:49:23.121Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://english.columbia.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "Columbia University",
+      "target_department": "English and Comparative Literature",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "columbia-humanities-departments",
+      "started_at": "2026-06-14T19:49:23.121Z",
+      "completed_at": "2026-06-14T19:49:23.893Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://history.columbia.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "Columbia University",
+      "target_department": "History",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "columbia-humanities-departments",
+      "started_at": "2026-06-14T19:49:23.894Z",
+      "completed_at": "2026-06-14T19:49:24.052Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://philosophy.columbia.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "Columbia University",
+      "target_department": "Philosophy",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "started_at": "2026-06-14T19:49:24.545Z",
+      "completed_at": "2026-06-14T19:49:24.952Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://history.berkeley.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "University of California, Berkeley",
+      "target_department": "History",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "started_at": "2026-06-14T19:49:24.953Z",
+      "completed_at": "2026-06-14T19:49:25.338Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://rhetoric.berkeley.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "University of California, Berkeley",
+      "target_department": "Rhetoric",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "started_at": "2026-06-14T19:49:29.343Z",
+      "completed_at": "2026-06-14T19:49:29.393Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://lsa.umich.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "University of Michigan",
+      "target_department": "English Language and Literature",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "started_at": "2026-06-14T19:49:29.393Z",
+      "completed_at": "2026-06-14T19:49:29.785Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://lsa.umich.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "University of Michigan",
+      "target_department": "History",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "started_at": "2026-06-14T19:49:29.785Z",
+      "completed_at": "2026-06-14T19:49:30.187Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://www.english.upenn.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 404 Not Found"
+      ],
+      "target_school": "University of Pennsylvania",
+      "target_department": "English",
+      "target_page_type": "department-sitemap"
+    },
+    {
+      "run_id": "department-sitemaps-2026-06-14T19-49-18-485Z",
+      "source_id": "expanded-university-humanities-departments",
+      "started_at": "2026-06-14T19:49:30.187Z",
+      "completed_at": "2026-06-14T19:49:30.609Z",
+      "status": "failed",
+      "route_kind": "department-sitemap",
+      "access_route": "https://www.history.upenn.edu/sitemap.xml",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Not reviewed because sitemap fetch failed.",
+      "errors": [
+        "HTTP 403 Forbidden"
+      ],
+      "target_school": "University of Pennsylvania",
+      "target_department": "History",
+      "target_page_type": "department-sitemap"
+    }
+  ]
+}

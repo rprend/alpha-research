@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T19:41:03.258Z",
+  "generated_at": "2026-06-14T19:50:16.414Z",
   "tables": [
     {
       "table": "works",
@@ -58,7 +58,7 @@
       "source": "data/knowledge-base/processed/pages.jsonl",
       "csv": "data/knowledge-base/processed/pages.csv",
       "parquet": "data/knowledge-base/processed/pages.parquet",
-      "rows": 107,
+      "rows": 432,
       "columns": [
         "local_id",
         "source_id",
@@ -79,7 +79,7 @@
       "source": "data/knowledge-base/processed/departments.jsonl",
       "csv": "data/knowledge-base/processed/departments.csv",
       "parquet": "data/knowledge-base/processed/departments.parquet",
-      "rows": 48,
+      "rows": 52,
       "columns": [
         "local_id",
         "source_id",
@@ -254,7 +254,7 @@
       "source": "data/knowledge-base/processed/source_documents.jsonl",
       "csv": "data/knowledge-base/processed/source_documents.csv",
       "parquet": "data/knowledge-base/processed/source_documents.parquet",
-      "rows": 5883,
+      "rows": 6208,
       "columns": [
         "local_id",
         "source_id",
@@ -285,7 +285,7 @@
       "source": "data/knowledge-base/processed/rights.jsonl",
       "csv": "data/knowledge-base/processed/rights.csv",
       "parquet": "data/knowledge-base/processed/rights.parquet",
-      "rows": 5883,
+      "rows": 6208,
       "columns": [
         "local_id",
         "source_id",
@@ -345,25 +345,25 @@
       "file": "pages.csv",
       "path": "data/knowledge-base/processed/pages.csv",
       "exists": true,
-      "bytes": 47426
+      "bytes": 169819
     },
     {
       "file": "pages.parquet",
       "path": "data/knowledge-base/processed/pages.parquet",
       "exists": true,
-      "bytes": 15902
+      "bytes": 37402
     },
     {
       "file": "departments.csv",
       "path": "data/knowledge-base/processed/departments.csv",
       "exists": true,
-      "bytes": 11094
+      "bytes": 12053
     },
     {
       "file": "departments.parquet",
       "path": "data/knowledge-base/processed/departments.parquet",
       "exists": true,
-      "bytes": 6025
+      "bytes": 6262
     },
     {
       "file": "authors.csv",
@@ -393,13 +393,13 @@
       "file": "institutions.csv",
       "path": "data/knowledge-base/processed/institutions.csv",
       "exists": true,
-      "bytes": 4283
+      "bytes": 4357
     },
     {
       "file": "institutions.parquet",
       "path": "data/knowledge-base/processed/institutions.parquet",
       "exists": true,
-      "bytes": 5452
+      "bytes": 5483
     },
     {
       "file": "venues.csv",
@@ -465,43 +465,43 @@
       "file": "source_documents.csv",
       "path": "data/knowledge-base/processed/source_documents.csv",
       "exists": true,
-      "bytes": 4817086
+      "bytes": 4949533
     },
     {
       "file": "source_documents.parquet",
       "path": "data/knowledge-base/processed/source_documents.parquet",
       "exists": true,
-      "bytes": 2521428
+      "bytes": 2550516
     },
     {
       "file": "source_documents_fts_input.csv",
       "path": "data/knowledge-base/processed/source_documents_fts_input.csv",
       "exists": true,
-      "bytes": 10053633
+      "bytes": 10157952
     },
     {
       "file": "pages_fts_input.csv",
       "path": "data/knowledge-base/processed/pages_fts_input.csv",
       "exists": true,
-      "bytes": 342607
+      "bytes": 452325
     },
     {
       "file": "rights.csv",
       "path": "data/knowledge-base/processed/rights.csv",
       "exists": true,
-      "bytes": 1451082
+      "bytes": 1568198
     },
     {
       "file": "rights.parquet",
       "path": "data/knowledge-base/processed/rights.parquet",
       "exists": true,
-      "bytes": 135288
+      "bytes": 144532
     },
     {
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 46960640
+      "bytes": 48001024
     }
   ]
 }

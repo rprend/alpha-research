@@ -541,6 +541,7 @@ Started on 2026-06-13:
 - Phase 2 also imports a 200-text Project Gutenberg public-domain corpus from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
 - Phase 2 now has a bounded web metadata ingest: `pnpm kb:ingest:web` imports responding public routes for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly. Wayback and LARB failures are logged for route replacement.
 - Phase 3 has an expanded department-page corpus: `pnpm kb:ingest:departments` fetches public humanities department pages from the target list in `data/knowledge-base/config/department-pages.json`, discovers shallow same-origin about/news/events/faculty/program links from successful homepages, stores raw HTML and extracted local-analysis text, appends/dedupes durable `pages`/`departments` staging rows, and logs 403 routes in `failed-routes.jsonl` for replacement planning.
+- Phase 3 now has a department-sitemap metadata route: `node scripts/kb-ingest-department-sitemaps.mjs` fetches public `sitemap.xml` routes for configured department targets, stores raw sitemap XML, and appends metadata-only URL records without storing page text. The first run succeeded for 22 of 40 sitemap targets and added 325 department URL metadata records; blocked or absent sitemaps remain in `failed-routes.jsonl`.
 - Phase 3 now has a Wayback CDX snapshot ingest: `pnpm kb:ingest:wayback` reads department-page targets, stores raw CDX responses, and writes historical capture metadata without storing archived page text.
 - Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables, Parquet tables, and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` using metadata plus previews of stored text; `pnpm kb:search "<terms>"` queries the local keyword index.
 - Phase 4 now derives author, citation, venue, institution, collection, and topic tables from current normalized local records and raw snapshots; source-provided names and references still need normalization before strong identity or citation-network claims.
@@ -555,7 +556,7 @@ Current local footprint as of the latest local status:
 - 34 registered sources.
 - 29 registered sources with local documents.
 - Registry statuses: 24 active, 5 blocked, 4 seeded-from-experiment, 1 planned.
-- 5883 source documents.
+- 6208 source documents.
 - 2913 works.
 - 1779 source-provided authors.
 - 1713 deterministic candidate canonical people, including 61 multi-record clusters and 4 multi-source clusters.
@@ -566,9 +567,9 @@ Current local footprint as of the latest local status:
 - 25204 deterministic candidate work-reference clusters, including 19011 high-confidence DOI/OpenAlex-keyed references and 3765 repeated references.
 - 1062 source-provided topics.
 - 1012 cultural objects.
-- 107 department/web pages, including discovered about/news pages beyond configured homepages.
-- 48 department summaries.
-- 5883 rights rows.
+- 432 department/web page rows, including fetched public page text plus 325 metadata-only sitemap URL rows.
+- 52 department summaries.
+- 6208 rights rows.
 - 2539 records from the dedicated DOAJ humanities ingest, including 1450 article records and 1089 journal records from 32 raw article/journal API route responses.
 - 757 Wikidata cultural entity records across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts.
 - 505 additional cultural-collection object records from the dedicated Met/Cleveland/Library of Congress/Smithsonian ingest; Met object-detail routes partially succeeded and blocked object IDs are retained in the ingest audit.
@@ -578,7 +579,7 @@ Current local footprint as of the latest local status:
 - 14/14 staging JSONL tables.
 - 14/14 processed Parquet tables.
 - SQLite FTS indexes metadata for the broader corpus plus stored local text content for public-domain books and local-analysis department/web pages.
-- Semantic hash index covers 5852 rights-filtered documents, including public-domain full-text records and local-analysis page-text records.
+- Semantic hash index covers 6177 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 
@@ -588,7 +589,7 @@ Remaining before the full knowledge-base goal is complete:
 
 - Improve candidate person/work identity resolution with authority matching, ORCID/OpenAlex/Wikidata joins, and conflict detection before making strong person-level or citation-network claims.
 - Add more broad, source-specific ingest jobs rather than bounded samples, especially deeper department-page crawling, humanities centers, conference programs, and further Project Gutenberg/catalog-cultural collection expansion.
-- Continue executing the replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for LARB, Harvard, Princeton, Columbia, Michigan, Penn, Yale/Wayback CDX, and remaining 403/timeout routes; do not bypass access controls. Prefer alternate public pages, sitemaps, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages block polite fetches.
+- Continue executing the replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for LARB, Harvard, Columbia, Michigan, Penn, Yale, UChicago, Wayback CDX, and remaining 403/404/timeout routes; do not bypass access controls. Prefer alternate public pages, source-specific sitemap indexes, school directories, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages or default sitemaps block polite fetches.
 - Expand university/department web corpus acquisition beyond the current shallow discovery pass; the first discovery run found mostly about pages and a few news pages, so faculty/events/program routes need source-specific selectors and sitemap/RSS support.
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add neural embedding retrieval later if a local model or approved embedding service is configured; the current semantic hash index is deterministic and offline.
