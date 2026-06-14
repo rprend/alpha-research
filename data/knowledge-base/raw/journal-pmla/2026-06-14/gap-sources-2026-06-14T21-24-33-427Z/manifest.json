@@ -1,0 +1,20 @@
+{
+  "run_id": "gap-sources-2026-06-14T21-24-33-427Z",
+  "source_id": "journal-pmla",
+  "started_at": "2026-06-14T21:24:36.269Z",
+  "completed_at": "2026-06-14T21:24:36.596Z",
+  "status": "success",
+  "access_route": "https://api.crossref.org/journals/0030-8129/works?rows=25 | https://api.crossref.org/works?query.container-title=PMLA&rows=25",
+  "raw_outputs": [
+    "data/knowledge-base/raw/journal-pmla/2026-06-14/gap-sources-2026-06-14T21-24-33-427Z/response-001.json",
+    "data/knowledge-base/raw/journal-pmla/2026-06-14/gap-sources-2026-06-14T21-24-33-427Z/response-002.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/works.jsonl"
+  ],
+  "record_count": 25,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

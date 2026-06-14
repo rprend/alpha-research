@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T21:20:14.142Z",
+  "generated_at": "2026-06-14T21:24:56.501Z",
   "source_count": 34,
   "source_classes": {
     "conference-programs": 3,
@@ -43,21 +43,22 @@
     "project-gutenberg",
     "public-books",
     "smithsonian-open-access",
+    "ssrn-humanities-adjacent",
     "stanford-humanities-departments",
     "uchicago-humanities-departments",
     "wayback-machine-cdx",
     "wikidata-cultural-entities",
     "yale-humanities-departments"
   ],
-  "source_count_with_local_documents": 32,
+  "source_count_with_local_documents": 33,
   "unregistered_source_ids_with_local_documents": [],
   "unregistered_source_count_with_local_documents": 0,
   "local_records": {
-    "source_documents": 6562,
-    "works": 2975,
+    "source_documents": 6592,
+    "works": 3005,
     "objects": 1012,
     "pages": 533,
-    "rights": 6562
+    "rights": 6592
   },
   "sources_without_local_documents": [
     {
@@ -65,12 +66,6 @@
       "source_class": "syllabi-teaching-corpora",
       "ingest_status": "blocked",
       "redistribution_status": "blocked-or-needs-review"
-    },
-    {
-      "source_id": "ssrn-humanities-adjacent",
-      "source_class": "humanities-adjacent-policy-history",
-      "ingest_status": "blocked",
-      "redistribution_status": "metadata-only"
     }
   ]
 }

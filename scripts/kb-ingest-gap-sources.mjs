@@ -59,7 +59,10 @@ const jobs = [
     `https://www.historians.org/wp-json/wp/v2/search?search=${encodeURIComponent("annual meeting program")}&per_page=${Math.min(limit, 50)}`,
     `https://www.historians.org/wp-json/wp/v2/pages?search=${encodeURIComponent("annual meeting program")}&per_page=${Math.min(limit, 50)}`,
   ], normalizeAhaProgramMetadata, "works"),
-  blockedProbe("ssrn-humanities-adjacent", "https://api.ssrn.com/content/v1/papers?query=humanities"),
+  jsonJob("ssrn-humanities-adjacent", [
+    `https://api.crossref.org/works?filter=type:posted-content&query=${encodeURIComponent("SSRN humanities")}&rows=${limit}`,
+    `https://api.crossref.org/works?filter=type:posted-content&query=${encodeURIComponent("SSRN digital humanities culture history")}&rows=${limit}`,
+  ], normalizeSsrnAdjacentCrossref, "works"),
 ];
 
 for (const job of jobs) {
@@ -234,6 +237,28 @@ function normalizeAhaProgramMetadata(payload, source) {
   }).filter((row) =>
     row.title &&
     /annual meeting|conference|program|session|cfp|call for proposals/i.test(`${row.title} ${row.description} ${row.source_url}`)
+  );
+}
+
+function normalizeSsrnAdjacentCrossref(payload, source) {
+  const rows = payload.message?.items ?? [];
+  return rows.map((row) => {
+    const title = cleanHtml(first(row.title));
+    const doi = row.DOI ?? "";
+    const text = `${title} ${doi} ${row.publisher ?? ""} ${first(row["container-title"])} ${row.subject?.join?.(" ") ?? ""}`;
+    return baseDoc(source, doi || row.URL || title, title, row.URL, {
+      type: "working-paper-metadata",
+      publication_year: row.issued?.["date-parts"]?.[0]?.[0] ?? "",
+      venue: first(row["container-title"]) || "SSRN-adjacent posted content",
+      doi,
+      publisher: row.publisher ?? "",
+      description: "Metadata-only Crossref posted-content record discovered as an SSRN-adjacent replacement route; no SSRN full text is stored.",
+      route_replacement_note: "Imported from Crossref posted-content metadata after the anonymous SSRN API route returned 401.",
+    });
+  }).filter((row) =>
+    row.title &&
+    (/10\.2139\/ssrn\./i.test(row.doi) || /\bSSRN\b/i.test(`${row.title} ${row.venue} ${row.publisher ?? ""}`)) &&
+    /humanities|culture|history|law|literature|digital|arts|heritage|media|philosophy/i.test(`${row.title} ${row.venue} ${row.description}`)
   );
 }
 

@@ -1,0 +1,3757 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 667720,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T07:50:00Z",
+          "timestamp": 1776930600211,
+          "version": "3.51.2"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>Posthumanism and digital humanities share a fundamental concern with boundariesbetween human and non-human, nature and culture, discipline and discipline. Both fields deconstruct fixed categories and emphasise fluidity, movement, and hybridity. However, neither has fully theorised how we are to operate within such fluid conditions. This working paper introduces the concept of oscillation as a practical and philosophical response to post-boundary thinking. Drawing on key posthumanist theorists (Haraway, Braidotti, Wolfe) and the methodological practices of digital humanities (mixed methods, cross-disciplinary collaboration, technological mediation), the paper argues that boundaries are not simply crossed but must be continuously moved along spatial, temporal, and ontological axes. The paper proposes a metaphor-the slider in video editing software (e.g., Adobe Premiere)-to illustrate how oscillation works: a slider can stretch or compress a sequence, zoom in or out, and thereby change the scale and nature of observation.</jats:p>",
+        "DOI": "10.2139/ssrn.6518478",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T07:17:42Z",
+          "timestamp": 1776928662000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "From Technology to Culture: The Interaction between Contemporary Western Digital Humanities and Posthumanism"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0000-8216-5236",
+            "authenticated-orcid": true,
+            "given": "Zhao",
+            "family": "Xie",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T07:17:42Z",
+          "timestamp": 1776928662000
+        },
+        "score": 26.828123,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=6518478"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.6518478",
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              31
+            ]
+          ],
+          "date-time": "2025-10-31T14:33:37Z",
+          "timestamp": 1761921217359,
+          "version": "build-2065373602"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5641831",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              31
+            ]
+          ],
+          "date-time": "2025-10-31T13:46:38Z",
+          "timestamp": 1761918398000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Digital Humanities, AI, and Comparative Literature: An Epistemological Reconfiguration"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Wael",
+            "family": "Ashry",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              31
+            ]
+          ],
+          "date-time": "2025-10-31T14:31:02Z",
+          "timestamp": 1761921062000
+        },
+        "score": 21.704447,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5641831"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5641831",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              27
+            ]
+          ],
+          "date-time": "2026-02-27T23:56:13Z",
+          "timestamp": 1772236573563,
+          "version": "3.50.1"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              26
+            ]
+          ]
+        },
+        "group-title": "Arts and Humanities",
+        "reference-count": 0,
+        "publisher": "MDPI AG",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  4,
+                  26
+                ]
+              ],
+              "date-time": "2023-04-26T00:00:00Z",
+              "timestamp": 1682467200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "accepted": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              25
+            ]
+          ]
+        },
+        "abstract": "<jats:p>In the paper, we explore the notion of global digital citizenship, particularly with respect to museums and cultural heritage organizations. In this perspectives study, we explore current examples of how museums can adapt to the tenets of global digital citizenship necessary to navigate and participate in increasingly interconnected digital worlds and culture, and to collectively address global challenges.</jats:p>",
+        "DOI": "10.20944/preprints202304.0975.v1",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              26
+            ]
+          ],
+          "date-time": "2023-04-26T22:00:31Z",
+          "timestamp": 1682546431000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Perspectives on Amplifying Participation in Digital Culture through Global Digital Citizenship"
+        ],
+        "prefix": "10.20944",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-3884-2978",
+            "authenticated-orcid": false,
+            "given": "Ann",
+            "family": "Borda",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8748-6140",
+            "authenticated-orcid": false,
+            "given": "Jonathan P.",
+            "family": "Bowen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "1968",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              21
+            ]
+          ],
+          "date-time": "2025-07-21T00:38:14Z",
+          "timestamp": 1753058294000
+        },
+        "score": 21.415682,
+        "resource": {
+          "primary": {
+            "URL": "https://www.preprints.org/manuscript/202304.0975/v1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              26
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.20944/preprints202304.0975.v1",
+        "relation": {
+          "is-version-of": [
+            {
+              "id-type": "doi",
+              "id": "10.20944/preprints202304.0975.v2",
+              "asserted-by": "subject"
+            }
+          ],
+          "is-preprint-of": [
+            {
+              "id-type": "doi",
+              "id": "10.3390/heritage8070274",
+              "asserted-by": "subject"
+            }
+          ],
+          "has-version": [
+            {
+              "id-type": "doi",
+              "id": "10.20944/preprints202304.0975.v2",
+              "asserted-by": "object"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              4,
+              26
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              13
+            ]
+          ],
+          "date-time": "2026-01-13T10:35:24Z",
+          "timestamp": 1768300524739,
+          "version": "3.49.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              19
+            ]
+          ]
+        },
+        "group-title": "Arts and Humanities",
+        "reference-count": 0,
+        "publisher": "MDPI AG",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  11,
+                  19
+                ]
+              ],
+              "date-time": "2025-11-19T00:00:00Z",
+              "timestamp": 1763510400000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "accepted": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              17
+            ]
+          ]
+        },
+        "abstract": "<jats:p>This paper, which identifies nine paradoxes particular to popular culture in a digital society, begins by distinguishing art and culture, since scholars have historically relied on these terms to differentiate popular culture, mass culture, and mass art. Digital societies, which exist both online and offline, are awash in digital products such as LED signs, digital imagery, video games, film, podcasts, and social media. In a digital society, popular culture is effectively “mass art,” which exhibits five properties: 1) digital media’s low-cost products and low-skill tools are 2) created and distributed to appeal to as broad a cultural sector as possible (qualitative) and thus aim to 3) attract consumers (quantitative) who capably enjoy and deploy cultural content both 4) offline and online, yet “popularity” ultimately depends on 5) efforts to maximize unity and minimize fragmentation. Although popular culture is largely a thing of the past, mass art as we know it will flourish until human beings go extinct. The next frontier will be finding ways to prevent artificial intelligence from producing cultural products, not because they will be terrible, undesirable, or fake, but because the culture-making process engenders human wellbeing.</jats:p>",
+        "DOI": "10.20944/preprints202511.1313.v1",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              19
+            ]
+          ],
+          "date-time": "2025-11-19T07:03:08Z",
+          "timestamp": 1763535788000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Popular Culture in a Digital Society: Nine Paradoxes"
+        ],
+        "prefix": "10.20944",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-1004-8529",
+            "authenticated-orcid": false,
+            "given": "Sue",
+            "family": "Spaid",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "1968",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              13
+            ]
+          ],
+          "date-time": "2026-01-13T02:25:52Z",
+          "timestamp": 1768271152000
+        },
+        "score": 21.409588,
+        "resource": {
+          "primary": {
+            "URL": "https://www.preprints.org/manuscript/202511.1313/v1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              19
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.20944/preprints202511.1313.v1",
+        "relation": {
+          "is-preprint-of": [
+            {
+              "id-type": "doi",
+              "id": "10.3390/encyclopedia6010012",
+              "asserted-by": "subject"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              19
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              13
+            ]
+          ],
+          "date-time": "2025-11-13T23:46:34Z",
+          "timestamp": 1763077594185,
+          "version": "3.45.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2018,
+              8,
+              23
+            ]
+          ]
+        },
+        "group-title": "SocArXiv",
+        "reference-count": 0,
+        "publisher": "Center for Open Science",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2018,
+                  8,
+                  23
+                ]
+              ],
+              "date-time": "2018-08-23T00:00:00Z",
+              "timestamp": 1534982400000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/legalcode"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<p>I developed the concept of cultural analytics in 2005 to refer to \"the analysis of massive cultural datasets and flows using computational and visualization techniques.\" In 2007 we established a research lab (Software Studies Initiative, softwarestudies.com) to start working on practical projects. The following are the examples of theoretical and practical questions that are driving our research:What does it mean to represent \"culture\" by \"data\"? What are the unique possibilities offered by computational analysis of large cultural data in contrast to qualitative methods used in humanities and social science? How can we use quantitative techniques to study the key cultural form of our era — interactive media? How can we combine computational analysis and visualization of large cultural data with qualitative methods, including \"close reading\"? (In other words, how does one combine analysis of larger patterns with the analysis of individual artifacts and their details?)  How can computational analysis do justice to variability and diversity of cultural artifacts and processes, rather than focusing on the \"typical\" and \"most popular\"?Eight years later, the work of our lab has become only a tiny portion of a very large body of research. Thousands of researchers have already published tens of thousands of papers analyzing patterns in massive cultural datasets. First, there are data describing the activity on the most popular social networks (Flickr, Instagram, YouTube, Twitter, etc.), user-created content shared on these networks (tweets, images, video, etc.), and also users' interactions with this content (likes, favorites, reports, comments). Second, researchers have also started to analyze particular professional cultural areas and historical periods, such as website design, fashion photography, twentieth-century popular music, nineteenth-century literature, etc. This work is carried out in two newly developed fields — social computing and digital humanities.</p>",
+        "DOI": "10.31235/osf.io/b2y79",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2018,
+              8,
+              23
+            ]
+          ],
+          "date-time": "2018-08-23T16:55:41Z",
+          "timestamp": 1535043341000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 5,
+        "title": [
+          "The Science of Culture? Social Computing, Digital Humanities and Cultural Analytics"
+        ],
+        "prefix": "10.31235",
+        "author": [
+          {
+            "given": "Lev",
+            "family": "Manovich",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "15934",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              13
+            ]
+          ],
+          "date-time": "2025-11-13T23:41:42Z",
+          "timestamp": 1763077302000
+        },
+        "score": 21.113878,
+        "resource": {
+          "primary": {
+            "URL": "https://osf.io/b2y79_v1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2018,
+              8,
+              23
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.31235/osf.io/b2y79",
+        "relation": {
+          "is-preprint-of": [
+            {
+              "id-type": "doi",
+              "id": "10.22148/16.004",
+              "asserted-by": "subject"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              8,
+              23
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "institution": [
+          {
+            "name": "medRxiv"
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              16
+            ]
+          ],
+          "date-time": "2026-01-16T08:44:02Z",
+          "timestamp": 1768553042221,
+          "version": "3.49.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2022,
+              2,
+              6
+            ]
+          ]
+        },
+        "group-title": "Epidemiology",
+        "reference-count": 72,
+        "publisher": "openRxiv",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "accepted": {
+          "date-parts": [
+            [
+              2022,
+              2,
+              6
+            ]
+          ]
+        },
+        "abstract": "<jats:title>ABSTRACT</jats:title>\n                <jats:sec>\n                  <jats:title>Background</jats:title>\n                  <jats:p>At the time of the COVID-19 epidemic, it is useful to look at what lessons (digital) history can give us about the past pandemics and dealing with them. We show that the Google Ngram (GNV) can discover hidden patterns in history and, therefore, can be used as a window into history. By using the approach of Digital Humanities, we analysed the epidemiological literature on the development of the Russian flu pandemic for hints on how the COVID-19 might develop in the following years.</jats:p>\n                </jats:sec>\n                <jats:sec>\n                  <jats:title>Objective</jats:title>\n                  <jats:p>Our study is searching for evidence that the COVID-19 is not a unique phenomenon in human history. We are testing the hypothesis that the flu-like illness that caused loss of taste and smell in the late 19th century (Russian flu) was caused by a coronavirus. We are aware that it is difficult to formulate a hypothesis for a microbiological aetiology of a pandemic that occurred 133 years ago. But differentiating an influenza virus infection from a COVID-19 patient purely on the clinical ground is difficult for a physician because the symptoms overlap. The most crucial observation of similarities between the Russian flu pandemic and COVID-19 is the loss of smell and taste (anosmia and ageusia). The objective was to calculate the ratio of increasing to decreasing trends in the changes in frequencies of the selected words representing symptoms of the Russian flu and COVID-19.</jats:p>\n                </jats:sec>\n                <jats:sec>\n                  <jats:title>Methods</jats:title>\n                  <jats:p>The primary methodological concept of our approach is to analyse the ratio of increasing to decreasing trends in the changes in frequencies of the selected words representing symptoms of the Russian flu and COVID-19 with the Google NGram analytical tool. Initially, keywords were chosen that are specific and common for the Russian flu and COVID-19. We show the graphic display on the Y-axis what percentage of words in the selected corpus of books (collective memory) over the years (X-axis) make up the word. To standardise the data, we requested the data from 1800 to 2019 in English, German and Russian (to 2012) book corpora and focused on the ten years before, during and after the outbreak of the Russian flu. We compared this frequency index with “non-epidemic periods” to test the model’s analytical potential and prove the signification of the results.</jats:p>\n                </jats:sec>\n                <jats:sec>\n                  <jats:title>Results</jats:title>\n                  <jats:p>The COVID-19 is not a unique phenomenon because the Russian flu was probably the coronavirus infection. Results show that all the three analysed book corpora (including newspapers and magazines) show the increase in the mention of the symptoms “loss of smell” and “loss of taste” during the Russian flu (1889-1891), which are today undoubtedly proven to be key symptoms of COVID-19.</jats:p>\n                  <jats:p>In the English corpus, the frequency rose from 0.0000040433 % in 1880 to 0.0000047123 % in 1889. The frequency fell sharply after the pandemic stopped in 1900 (0.0000033861%). In the Russian corpus, the frequency rises from 0 % in 1880 to 0.0000004682 % in 1889 and decreased rapidly after the pandemic (1900 = 0.0000011834 %). In the German corpus, the frequency rose from 0.0000014463 % in 1880 to 0.0000018015 % in 1889 and decreased also rapidly after the pandemic (1900 = 0.0000016600 %).</jats:p>\n                  <jats:p>According to our analysis of historical records with the approach of GNV, 1) the ‘natural’ length of a pandemic is two to five years; 2) the pandemic stops on their own; 3) the viruses weaken over time; 4) the so-called “herd immunity” is not necessary to stop the pandemic; 5) history has shown that a significant crisis does not need to occur after the COVID-19 pandemic.</jats:p>\n                </jats:sec>\n                <jats:sec>\n                  <jats:title>Conclusion</jats:title>\n                  <jats:p>According to our study, the Google Books Ngram Viewer (GNV) gives a clear evidence of the influence that social changes have on word frequency. The results of this study open a discussion on the usefulness of the Google Ngram insights possibilities into past socio-cultural development, i.e. epidemics and pandemics that can serve as lessons for today. We showed hidden patterns of conceptual trends in history and their relationships with current development in the case of the pandemic COVID-19.</jats:p>\n                  <jats:p>The benefit of this method could help complement historical medical records, which are often woefully incomplete. However, this method comes with severe limitations and can be useful only under cautious handling and testing. Despite the numerous indications we have shown, we are aware that this thesis still cannot be confirmed and that it is necessary to require further historical and medical research.</jats:p>\n                </jats:sec>",
+        "DOI": "10.1101/2022.02.02.22270333",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              2,
+              7
+            ]
+          ],
+          "date-time": "2022-02-07T01:10:10Z",
+          "timestamp": 1644196210000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Using Digital Humanities for Understanding COVID-19: Lessons from Digital History about earlier Coronavirus Pandemic"
+        ],
+        "prefix": "10.64898",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-4634-686X",
+            "authenticated-orcid": false,
+            "given": "Tado",
+            "family": "Jurić",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "54368",
+        "reference": [
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.1",
+            "unstructured": "Why history suggests Covid-19 is here to stay, https://ec.europa.eu/research-and-innovation/en/horizon-magazine/qa-why-history-suggests-covid-19-here-stay [accessed 20.12.2021]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.2",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Halbwachs, M. On Collective Memory. Trans. Lewis A. Coser. Chicago: University of Chicago, 1992.",
+            "DOI": "10.7208/chicago/9780226774497.001.0001"
+          },
+          {
+            "issue": "6",
+            "key": "2022020823451082000_2022.02.02.22270333v1.3",
+            "doi-asserted-by": "crossref",
+            "first-page": "2244",
+            "DOI": "10.1111/1751-7915.13916",
+            "article-title": "What we can learn from the dynamics of the 1889 ‘Russian flu’ pandemic for the future trajectory of COVID-19",
+            "volume": "14",
+            "year": "2021",
+            "journal-title": "Microbial Biotechnologie"
+          },
+          {
+            "issue": "5",
+            "key": "2022020823451082000_2022.02.02.22270333v1.4",
+            "doi-asserted-by": "crossref",
+            "first-page": "1860",
+            "DOI": "10.1111/1751-7915.13889",
+            "article-title": "Clinical evidence that the pandemic from 1889 to 1891 commonly called the Russian flu might have been an earlier coronavirus pandemic",
+            "volume": "14",
+            "year": "2021",
+            "journal-title": "Microbial Biotechnologie"
+          },
+          {
+            "issue": "1",
+            "key": "2022020823451082000_2022.02.02.22270333v1.5",
+            "first-page": "67",
+            "article-title": "Google Trends as a Method to Predict New COVID-19 Cases and Socio-Psychological Consequences of the Pandemic",
+            "volume": "8",
+            "year": "2022",
+            "journal-title": "Athens Journal of Mediterranean Studies -"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.6",
+            "unstructured": "Rojas Castro A (2017). Big Data in the Digital Humanities. New Conversations in the Global Academic Context, AC/E Digital Culture 2017 Annual Report, 62–71, http://dx.doi.org/10.17613/M6434X"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.7",
+            "unstructured": "Ward and Barker, 2013, “Undefined by Data: A Survey of Big Data Definitions”"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.8",
+            "unstructured": "Preeti Oza: Digital Humanities-An Introduction in: Gurudutta Pradeep Japee, Preeti Oza: Multidimensionality of the Concept & Function of Digital Publisher, Apple Books 2020"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.9",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Burdick A , Drucker J , Lunenfeld P , Presner T and Jeffrey S : Digital_Humanities, The MIT Press 2012, ISBN: 9780262528863",
+            "DOI": "10.7551/mitpress/9248.001.0001"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.10",
+            "first-page": "7",
+            "article-title": "Big data for the humanities using Google Ngrams: Discovering hidden patterns of conceptual trends",
+            "volume": "21",
+            "year": "2016",
+            "journal-title": "First Monday"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.11",
+            "unstructured": "Bruno Latour , Rematerializing Humanities Thanks to Digital Traces, Digital Humanities 2014 - Opening Night Sciences Paris, https://www.youtube.com/watch?v=4L2zRoKS0IA&ab_channel=UNILUniversit%C3%A9deLausanne [accessed 23.12.2021]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.12",
+            "unstructured": "Antonio Rojas Castro (2017) Big Data in the Digital Humanities. New Conversations in the Global Academic Context, AC/E Digital Culture 2017 Annual Report, 62–71, http://dx.doi.org/10.17613/M6434X"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2478/rela-2018-0015"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.14",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1126/science.1199644"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.15",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1111/j.1467-9531.2008.00199.x"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.16",
+            "unstructured": "Lin, Yuri et al.. (2012): “Syntactic Annotations for the Google Books Ngram Corpus”. Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics. Jeju, Republic of Korea, pp. 169–174."
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.17",
+            "unstructured": "Jason Chumtong , David Kaldewey , Beyond the Google Ngram Viewer: bibliographic databases and journal archives as tools for the quantitative analysis of scientific and meta-scientific concepts, FIW Working paper 08, Bonn, 2017, ISBN 978-3-946306-07-8"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.18",
+            "unstructured": "Michel, J.B. , Shen, Y.K. , Presser Aiden, A. , Veres, A. , Gray, M.K. , Brockman, W. , Pickett, J.P. , Hoiberg, D. , Clancy, D. , Norvig, P. , Orwant, J. , Pinker, S. , Nowak, M.A. i Lieberman A. E. , Supporting Online Material for Quantitative Analysis of Culture Using Millions of Digitized Books, www.sciencemag.org/cgi/content/full/science.1199644/DC1"
+          },
+          {
+            "issue": "3",
+            "key": "2022020823451082000_2022.02.02.22270333v1.19",
+            "doi-asserted-by": "crossref",
+            "first-page": "e0213554",
+            "DOI": "10.1371/journal.pone.0213554",
+            "article-title": "Guideline for improving the reliability of Google Ngram studies: Evidence from religious terms",
+            "volume": "14",
+            "year": "2019",
+            "journal-title": "PLoS ONE"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.20",
+            "unstructured": "University of London, An introduction to text mining, https://port.sas.ac.uk/mod/book/view.php?id=554&chapterid=331"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.21",
+            "unstructured": "Gilles Kratzer , (2019) Google Ngram, https://gilleskratzer.netlify.app/post/ngram/ [accessed 23.12.2021]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.22",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Juric, Tado (2021). Medical brain drain from South-eastern Europe: using digital demography to forecast health worker emigration, Journal of Medical Internet Research JMIRx Med, http://dx.doi.org/10.2196/30831",
+            "DOI": "10.2196/preprints.30831"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.23",
+            "unstructured": "Marziah Karch (2021), How to Use the Ngram Viewer Tool in Google Books, https://www.lifewire.com/google-books-ngram-viewer-1616701 [accessed 23.12.2021]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.24",
+            "unstructured": "Lucija Kardaš , Uporaba Google Ngrama u društvenim znanostima, Masterthesis, Zagreb: Hrvatsko katolicko sveucilište, 2020. urn:nbn:hr:224:693619"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.25",
+            "unstructured": "http://storage.googleapis.com/books/ngrams/books/datasetsv2.html. [accessed 23.12.2021]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.26",
+            "first-page": "2012",
+            "article-title": "The Social Epistemologies of Software",
+            "volume": "26",
+            "year": "2012",
+            "journal-title": "A Journal of Knowledge, Culture and Policy"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.27",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Rutten, B P F , Hammels C , N. Geschwind , C. Menne-Lothmann , E. Pishva , K. Schruers , D. van den Hove , G. Kenis , J. van Os , M. Wichers (2013: 40), Resilience in mental health: linking psychological and neurobiological perspectives, Acta Psychiatrica Scandinavica, https://doi.org/10.1111/acps.12095",
+            "DOI": "10.1111/acps.12095"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.28",
+            "unstructured": "Michalski B , Krishnamoorthy M , Lau T Y (2012:1), Temporal Analysis of Literary and Programming Prose, https://www.researchgate.net/publication/221663041_Temporal_Analysis_of_Literary_and_Programming_Prose"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.29",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Newberry, M.G. , Ahern, C. A. , Clark, R. i Plotkin, J.B. (2017) Detecting evolutionary forces in language change. Nature Research, 00(0)",
+            "DOI": "10.1038/nature24455"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.30",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Greenfield, P.M. (2013) The Changing Psychology of Culture From 1800 Through 2000. Psychological Science, 20 (10)",
+            "DOI": "10.1177/0956797613479387"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.31",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Acerbi A. , Lampos V. , Garnett P. i Bentley R.A. (2013) The Expression of Emotions in 20th Century Books. PLOS ONE, 8(3)",
+            "DOI": "10.1371/journal.pone.0059030"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.32",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s11199-012-0194-7"
+          },
+          {
+            "issue": "4",
+            "key": "2022020823451082000_2022.02.02.22270333v1.33",
+            "doi-asserted-by": "crossref",
+            "first-page": "730",
+            "DOI": "10.1016/j.dss.2012.05.030",
+            "article-title": "From once upon a time to happily ever after: Tracking emotions in mail and books",
+            "volume": "53",
+            "year": "2012",
+            "journal-title": "Decision Support Systems"
+          },
+          {
+            "issue": "4",
+            "key": "2022020823451082000_2022.02.02.22270333v1.34",
+            "doi-asserted-by": "crossref",
+            "first-page": "621",
+            "DOI": "10.1007/s12144-014-9274-x",
+            "article-title": "Personality adjectives in twitter tweets and in the Google books corpus. An analysis of the facet structure of the openness factor of personality",
+            "volume": "34",
+            "year": "2015",
+            "journal-title": "Current Psychology"
+          },
+          {
+            "issue": "1",
+            "key": "2022020823451082000_2022.02.02.22270333v1.35",
+            "doi-asserted-by": "crossref",
+            "first-page": "23",
+            "DOI": "10.1007/s40732-014-0079-y",
+            "article-title": "A history of “behavior” and “mind”: Use of behavioral and cognitive terms in the 20th century",
+            "volume": "65",
+            "year": "2015",
+            "journal-title": "The Psychological Record"
+          },
+          {
+            "issue": "4",
+            "key": "2022020823451082000_2022.02.02.22270333v1.36",
+            "doi-asserted-by": "crossref",
+            "first-page": "343",
+            "DOI": "10.1080/00029157.2012.696078",
+            "article-title": "Therapeutic hypnosis, psychotherapy, and the digital humanities: The narratives and culturomics of hypnosis, 1800–2008",
+            "volume": "55",
+            "year": "2013",
+            "journal-title": "American Journal of Clinical Hypnosis"
+          },
+          {
+            "issue": "3",
+            "key": "2022020823451082000_2022.02.02.22270333v1.37",
+            "doi-asserted-by": "crossref",
+            "first-page": "585",
+            "DOI": "10.1037/pspp0000149",
+            "article-title": "Resisting temptation for the good of the group: Binding moral values and the moralization of self-control",
+            "volume": "115",
+            "year": "2018",
+            "journal-title": "Journal of Personality and Social Psychology"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.38",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1177/0734282913485542"
+          },
+          {
+            "issue": "2",
+            "key": "2022020823451082000_2022.02.02.22270333v1.39",
+            "doi-asserted-by": "crossref",
+            "first-page": "258",
+            "DOI": "10.1177/1745691616662473",
+            "article-title": "A growing disconnection from nature is evident in cultural products",
+            "volume": "12",
+            "year": "2017",
+            "journal-title": "Perspectives on Psychological Science"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.40",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1177/0956797614563765"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.41",
+            "unstructured": "Yuval Noah Harari , (Sapiens) A Brief History of Humankind, London 2014, ISBN 978-1846558238"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.42",
+            "unstructured": "Lider.hr, https://lider.media/poslovna-scena/svijet/infografika-sve-pandemije-kroz-povijest-130435 [accessed 23.10.2021]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.43",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1046/j.1365-2672.2001.01492.x"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.44",
+            "unstructured": "CDC, https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm [accessed 23.09.2021]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.45",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1128/JVI.79.3.1595-1604.2005"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.46",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Crookshank, E. M. 1897. Infectious pleuro-pneumonia, p. 239-248. In E. M. Crookshank (ed.), A textbook of bacteriology including the etiology and prevention of infective diseases. W. B. Saunders, Philadelphia.",
+            "DOI": "10.5962/bhl.title.31191"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.47",
+            "doi-asserted-by": "crossref",
+            "first-page": "1452",
+            "DOI": "10.2460/javma.1996.208.09.1452",
+            "article-title": "Coronavirus isolation from nasal swab samples of cattle with signs of respiratory tract disease after shipping",
+            "volume": "208",
+            "year": "1996",
+            "journal-title": "J. Am. Vet. Med. Assoc"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.48",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Anonymous. 1958. Influenza 1889 and 1957. Lanceti:833-835, cited in: Vijgen et al. (2005)",
+            "DOI": "10.1016/S0140-6736(58)91750-1"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.49",
+            "unstructured": "Sisley, R. 1891. The epidemic of 1889-1890. Bokhara. St. Petersburgh. Berlin, p. 47–53. In R. Sisley (ed.), Epidemic influenza: notes on its origin and method of spread. Longmans, Green, and Co., London, United Kingdom."
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.50",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Mulder, J. , and N. Masurel . 1958. Pre-epidemic antibody against 1957 strain of Asiatic influenza in serum of older people living in The Netherlands. Lanceti: 810–814.",
+            "DOI": "10.1016/S0140-6736(58)91738-0"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.51",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1128/JVI.74.19.8913-8921.2000"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.52",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1073/pnas.1000886107"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.53",
+            "unstructured": "Dr. Parsons , Report on the Influenz Epidemic of 1889-90 - Great Britain, Local Government Board, Henry Franklin Parsons – Google Books)."
+          },
+          {
+            "issue": "3",
+            "key": "2022020823451082000_2022.02.02.22270333v1.54",
+            "first-page": "285",
+            "article-title": "Infection, contagion and causality in Colonial Britain: the 1889-90 influenza pandemic and the British Medical Journal",
+            "volume": "25",
+            "year": "2017",
+            "journal-title": "Le infezioni in medicina"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.55",
+            "unstructured": "1911 Encyclopædia Britannica/Influenza – Wikisource"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.56",
+            "unstructured": "Leyden and Guttmann, 1892 https://collections.nlm.nih.gov/catalog/nlm:nlmuid-64820270R-bk"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.57",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/S1473-3099(20)30297-8"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.58",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1038/s41586-021-03792-w"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.59",
+            "doi-asserted-by": "crossref",
+            "first-page": "1406",
+            "DOI": "10.1177/0333102420965132",
+            "article-title": "Daily persistent headache after a viral illness during a worldwide pandemic may not be a new occurrence: Lessons from the 1890 Russian/Asiatic flu",
+            "volume": "40",
+            "year": "2020",
+            "journal-title": "Cephalalgia"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.60",
+            "unstructured": "Laura Spinney , The Spanish Flu of 1918 and How It Changed the World; Adam Kucharski, The Rules of Contagion: Why Things Spread--And Why They Stop."
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.61",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1073/pnas.0611071104"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.62",
+            "unstructured": "Brian G. , COVID-19 Update: Knowledge Is Power, But Compassion Is Lacking, https://www.myeloma.org/blog/covid-19-update-knowledge-power-compassion-lacking [accessed 02.01.2022]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.63",
+            "unstructured": "Opca i nacionalna enciklopedija, Zagreb 2006."
+          },
+          {
+            "issue": "3",
+            "key": "2022020823451082000_2022.02.02.22270333v1.64",
+            "first-page": "425",
+            "article-title": "Mass digitization and the garbage dump: The conflicting needs of quantitative and qualitative methods",
+            "volume": "28",
+            "year": "2012",
+            "journal-title": "Literary and Linguistic Computing"
+          },
+          {
+            "issue": "2",
+            "key": "2022020823451082000_2022.02.02.22270333v1.65",
+            "doi-asserted-by": "crossref",
+            "first-page": "141",
+            "DOI": "10.1037/hop0000023",
+            "article-title": "Historical time in the age of big data: Cultural psychology, historical change, and the Google Books Ngram Viewer",
+            "volume": "19",
+            "year": "2016",
+            "journal-title": "History of Psychology"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.66",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1371/journal.pone.0137041"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.67",
+            "unstructured": "Zhang, Sarah . “The Pitfalls of Using Google Ngram to Study Language”. WIRED. (2017-05-24.)"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.68",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1093/llc/fqn012"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.69",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1080/1369118X.2012.678878"
+          },
+          {
+            "issue": "3",
+            "key": "2022020823451082000_2022.02.02.22270333v1.70",
+            "doi-asserted-by": "crossref",
+            "first-page": "401",
+            "DOI": "10.1075/ijcl.19.3.04dav",
+            "article-title": "Making Google Books n-grams Useful for a Wide Range of Research on Language Change",
+            "volume": "19",
+            "year": "2014",
+            "journal-title": "International Journal of Corpus Linguistics"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.71",
+            "unstructured": "Lakoff, Robin . 2013. What Words Don’t Tell Us., http://blogs.berkeley.edu/author/rlakoff/ [accessed 23.12.2021]"
+          },
+          {
+            "key": "2022020823451082000_2022.02.02.22270333v1.72",
+            "doi-asserted-by": "crossref",
+            "unstructured": "Solovyev V.D. , Bochkarev V.V. , Akhtyamova S.S. (2020) Google Books Ngram: Problems of Representativeness and Data Reliability. In: Elizarov A. , Novikov B. , Stupnikov S. (eds) Data Analytics and Management in Data Intensive Domains. Communications in Computer and Information Science, vol 1223. Springer, Cham. https://doi.org/10.1007/978-3-030-51913-1_10",
+            "DOI": "10.1007/978-3-030-51913-1_10"
+          }
+        ],
+        "link": [
+          {
+            "URL": "https://syndication.highwire.org/content/doi/10.1101/2022.02.02.22270333",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              15
+            ]
+          ],
+          "date-time": "2026-01-15T14:35:39Z",
+          "timestamp": 1768487739000
+        },
+        "score": 21.104631,
+        "resource": {
+          "primary": {
+            "URL": "http://medrxiv.org/lookup/doi/10.1101/2022.02.02.22270333"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              2,
+              6
+            ]
+          ]
+        },
+        "references-count": 72,
+        "URL": "https://doi.org/10.1101/2022.02.02.22270333",
+        "relation": {
+          "is-preprint-of": [
+            {
+              "id-type": "doi",
+              "id": "10.30958/ajte.9-2-3",
+              "asserted-by": "subject"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              2,
+              6
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              1
+            ]
+          ],
+          "date-time": "2025-07-01T04:09:41Z",
+          "timestamp": 1751342981881,
+          "version": "3.41.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5330017",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              30
+            ]
+          ],
+          "date-time": "2025-06-30T14:37:53Z",
+          "timestamp": 1751294273000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "From Cogito to Code: The Philosophy of Consciousness in Digital Humanities"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Kerwin Xiang",
+            "family": "Liao",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              30
+            ]
+          ],
+          "date-time": "2025-06-30T14:37:53Z",
+          "timestamp": 1751294273000
+        },
+        "score": 20.970375,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5330017"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5330017",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              14
+            ]
+          ],
+          "date-time": "2025-02-14T11:40:26Z",
+          "timestamp": 1739533226725,
+          "version": "3.37.1"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 14,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5071868",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              14
+            ]
+          ],
+          "date-time": "2025-02-14T11:03:40Z",
+          "timestamp": 1739531020000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Digital Parasitism In The New Asset Management Culture"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Julia",
+            "family": "Kovalchuk",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "issue": "5",
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "first-page": "1353",
+            "DOI": "10.1108/BPMJ-12-2020-0573",
+            "article-title": "Smart supply chain and firm performance: the role of digital technologies",
+            "volume": "27",
+            "author": "A F Almulhim",
+            "year": "2021",
+            "journal-title": "Business Process Management Journal"
+          },
+          {
+            "key": "ref2",
+            "first-page": "196",
+            "volume": "2",
+            "author": "N F Anokhina",
+            "year": "2012",
+            "journal-title": "A study of the problem of plagiarism in the context of the theory of social parasitism. Technological education and sustainable development of the region"
+          },
+          {
+            "issue": "4",
+            "key": "ref3",
+            "first-page": "46",
+            "article-title": "Socio-economic dependence and social parasitism: strategies of \"negative adaptation",
+            "author": "E S Balabanova",
+            "year": "1999",
+            "journal-title": "Sociological research"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "crossref",
+            "first-page": "313",
+            "DOI": "10.1016/j.bushor.2020.01.005",
+            "article-title": "Growth paths for overcoming the digitalization paradox",
+            "volume": "63",
+            "author": "H Gebauer",
+            "year": "2020",
+            "journal-title": "Business Horizons"
+          },
+          {
+            "issue": "4",
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "first-page": "703",
+            "DOI": "10.1111/j.1540-5915.2008.00209.x",
+            "article-title": "Information technology and process performance: an empirical investigation of the interaction between IT and non-IT resources",
+            "volume": "39",
+            "author": "P I Jeffers",
+            "year": "2008",
+            "journal-title": "Decision Sciences"
+          },
+          {
+            "issue": "8",
+            "key": "ref6",
+            "doi-asserted-by": "crossref",
+            "first-page": "90",
+            "DOI": "10.1108/BPMJ-03-2022-0122",
+            "article-title": "The impact of digitalization on firm performance: examining the role of digital culture and the effect of supply chain capability",
+            "volume": "28",
+            "author": "T Hautala-Kankaanp��",
+            "year": "2022",
+            "journal-title": "Business Process Management Journal"
+          },
+          {
+            "key": "ref7",
+            "first-page": "123",
+            "volume": "28",
+            "author": "I S Karpikova",
+            "year": "2018",
+            "journal-title": "Social dependency and social parasitism in modern Russia: expert assessment of the causes and factors of existence"
+          },
+          {
+            "issue": "3",
+            "key": "ref8",
+            "first-page": "103",
+            "article-title": "Unemployment and other social threats of the digital economy",
+            "author": "A A Khachaturian",
+            "year": "2021",
+            "journal-title": "Studies on Russian Economic Research"
+          },
+          {
+            "key": "ref9",
+            "article-title": "The relationship between digitalization and servitization: the role of servitization in capturing the financial potential of digitalization",
+            "volume": "151",
+            "author": "M Kohtam�ki",
+            "year": "2020",
+            "journal-title": "Technological Forecasting and Social Change"
+          },
+          {
+            "key": "ref10",
+            "year": "2020",
+            "journal-title": "Post-Industrial Society"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.1007/978-981-19-3242-7_3",
+            "article-title": "Evolution of Digital Platforms to Ecosystems: Is the Digital Paradox Real?",
+            "author": "J A Kovalchuk",
+            "year": "2022",
+            "journal-title": "The Platform Economy"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.7551/mitpress/2415.001.0001",
+            "author": "D Schiller",
+            "year": "1999",
+            "journal-title": "Digital Capitalism: Networking the Global Market System"
+          },
+          {
+            "issue": "4",
+            "key": "ref13",
+            "doi-asserted-by": "crossref",
+            "first-page": "77",
+            "DOI": "10.17213/2312-6469-2020-4-77-87",
+            "article-title": "Pricing platforms, investments and the digital paradox",
+            "author": "I M Stepnov",
+            "year": "2020",
+            "journal-title": "Druckerovskii Vestnik"
+          },
+          {
+            "key": "ref14",
+            "first-page": "58",
+            "author": "A K Teokharov",
+            "year": "2020",
+            "journal-title": "Cyber-fraud"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              14
+            ]
+          ],
+          "date-time": "2025-02-14T11:05:05Z",
+          "timestamp": 1739531105000
+        },
+        "score": 20.74752,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5071868"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 14,
+        "URL": "https://doi.org/10.2139/ssrn.5071868",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "institution": [
+          {
+            "name": "Toronto Metropolitan University"
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              14
+            ]
+          ],
+          "date-time": "2025-05-14T10:14:47Z",
+          "timestamp": 1747217687314,
+          "version": "3.40.5"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ]
+        },
+        "reference-count": 0,
+        "publisher": "Ryerson University Library and Archives",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  9,
+                  13
+                ]
+              ],
+              "date-time": "2023-09-13T00:00:00Z",
+              "timestamp": 1694563200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>&lt;p&gt;[pp 132-133:] \"Drawing on the historiographic practices of Jeanette Howard Foster in the 1950s, Barbara Grier in the 1960s, Lillian Faderman in the 1980s, and Dell Richards in 1990, we argue that the accumulation of data and the rhetorical structuring of those data (in these examples often as a list, a much ignored data format) serve as important acts of lesbian self- definition, self- definition that resists the erasure of women’s history by mainstream culture and the definition of the lesbian self in relation to men. This listing, or amassing of data, situates lesbian researchers as the heirs of the history that they create. This ordering of data in self- definitional work, even in the face of the increased attention, or even surveillance, that it might bring, is an important corrective to lesbian histories that are often framed as an afterthought in gay men’s histories, or worse, are ignored altogether.\"&lt;/p&gt;</jats:p>",
+        "DOI": "10.32920/24135024",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T19:10:21Z",
+          "timestamp": 1694632221000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Remaking History: Lesbian Feminist Historical Methods in the Digital Humanities"
+        ],
+        "prefix": "10.32920",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-3298-4871",
+            "authenticated-orcid": false,
+            "given": "Michelle",
+            "family": "Schwartz",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Constance",
+            "family": "Crompton",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "18300",
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T19:10:21Z",
+          "timestamp": 1694632221000
+        },
+        "score": 20.527626,
+        "resource": {
+          "primary": {
+            "URL": "https://rshare.library.torontomu.ca/articles/chapter/Remaking_History_Lesbian_Feminist_Historical_Methods_in_the_Digital_Humanities/24135024"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.32920/24135024",
+        "relation": {
+          "is-preprint-of": [
+            {
+              "id-type": "doi",
+              "id": "10.5749/j.ctv9hj9r9",
+              "asserted-by": "subject"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ]
+        },
+        "subtype": "other"
+      },
+      {
+        "institution": [
+          {
+            "name": "Toronto Metropolitan University"
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              14
+            ]
+          ],
+          "date-time": "2025-05-14T10:14:48Z",
+          "timestamp": 1747217688001,
+          "version": "3.40.5"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ]
+        },
+        "reference-count": 0,
+        "publisher": "Ryerson University Library and Archives",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  9,
+                  13
+                ]
+              ],
+              "date-time": "2023-09-13T00:00:00Z",
+              "timestamp": 1694563200000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>&lt;p&gt;[pp 132-133:] \"Drawing on the historiographic practices of Jeanette Howard Foster in the 1950s, Barbara Grier in the 1960s, Lillian Faderman in the 1980s, and Dell Richards in 1990, we argue that the accumulation of data and the rhetorical structuring of those data (in these examples often as a list, a much ignored data format) serve as important acts of lesbian self- definition, self- definition that resists the erasure of women’s history by mainstream culture and the definition of the lesbian self in relation to men. This listing, or amassing of data, situates lesbian researchers as the heirs of the history that they create. This ordering of data in self- definitional work, even in the face of the increased attention, or even surveillance, that it might bring, is an important corrective to lesbian histories that are often framed as an afterthought in gay men’s histories, or worse, are ignored altogether.\"&lt;/p&gt;</jats:p>",
+        "DOI": "10.32920/24135024.v1",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T19:10:20Z",
+          "timestamp": 1694632220000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Remaking History: Lesbian Feminist Historical Methods in the Digital Humanities"
+        ],
+        "prefix": "10.32920",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-3298-4871",
+            "authenticated-orcid": false,
+            "given": "Michelle",
+            "family": "Schwartz",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Constance",
+            "family": "Crompton",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "18300",
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T19:10:20Z",
+          "timestamp": 1694632220000
+        },
+        "score": 20.453352,
+        "resource": {
+          "primary": {
+            "URL": "https://rshare.library.torontomu.ca/articles/chapter/Remaking_History_Lesbian_Feminist_Historical_Methods_in_the_Digital_Humanities/24135024/1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.32920/24135024.v1",
+        "relation": {
+          "is-preprint-of": [
+            {
+              "id-type": "doi",
+              "id": "10.5749/j.ctv9hj9r9",
+              "asserted-by": "subject"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ]
+        },
+        "subtype": "other"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              8,
+              13
+            ]
+          ],
+          "date-time": "2024-08-13T00:16:16Z",
+          "timestamp": 1723508176995
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.4894187",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              8,
+              12
+            ]
+          ],
+          "date-time": "2024-08-12T19:14:56Z",
+          "timestamp": 1723490096000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Copyright Infringements in the Digital Age of Remix Culture"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Priyansha",
+            "family": "Agarwal",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              8,
+              12
+            ]
+          ],
+          "date-time": "2024-08-12T19:14:56Z",
+          "timestamp": 1723490096000
+        },
+        "score": 20.443762,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=4894187"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.4894187",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              3
+            ]
+          ],
+          "date-time": "2022-04-03T15:11:51Z",
+          "timestamp": 1648998711409
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2018,
+              6,
+              14
+            ]
+          ]
+        },
+        "group-title": "Digital Humanities Curricular Development Syllabi",
+        "reference-count": 0,
+        "publisher": "Swarthmore College",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.24968/2476-2458.dhgrants.11",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2019,
+              8,
+              28
+            ]
+          ],
+          "date-time": "2019-08-28T15:53:00Z",
+          "timestamp": 1567007580000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Introduction To Latinx Literature And Culture (SPAN015 / LITR 15S) Syllabus"
+        ],
+        "prefix": "10.24968",
+        "author": [
+          {
+            "given": "Désirée",
+            "family": "Diaz",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "10593",
+        "deposited": {
+          "date-parts": [
+            [
+              2019,
+              8,
+              28
+            ]
+          ],
+          "date-time": "2019-08-28T15:55:08Z",
+          "timestamp": 1567007708000
+        },
+        "score": 20.219894,
+        "resource": {
+          "primary": {
+            "URL": "https://works.swarthmore.edu/dev-dhgrants/11/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2018,
+              6,
+              14
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.24968/2476-2458.dhgrants.11",
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              6,
+              14
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2022,
+              3,
+              31
+            ]
+          ],
+          "date-time": "2022-03-31T16:18:30Z",
+          "timestamp": 1648743510890
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2019,
+              4,
+              16
+            ]
+          ]
+        },
+        "group-title": "Digital Humanities Curricular Development Syllabi",
+        "reference-count": 0,
+        "publisher": "Swarthmore College",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.24968/2476-2458.dhgrants.20",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2019,
+              8,
+              28
+            ]
+          ],
+          "date-time": "2019-08-28T11:53:00Z",
+          "timestamp": 1566993180000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Black Culture In A \"Post-Soul\" Era (ENGL 068) Syllabus"
+        ],
+        "prefix": "10.24968",
+        "author": [
+          {
+            "given": "Anthony",
+            "family": "Foy",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "10593",
+        "deposited": {
+          "date-parts": [
+            [
+              2019,
+              8,
+              28
+            ]
+          ],
+          "date-time": "2019-08-28T11:57:06Z",
+          "timestamp": 1566993426000
+        },
+        "score": 20.17868,
+        "resource": {
+          "primary": {
+            "URL": "https://works.swarthmore.edu/dev-dhgrants/20/"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2019,
+              4,
+              16
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.24968/2476-2458.dhgrants.20",
+        "published": {
+          "date-parts": [
+            [
+              2019,
+              4,
+              16
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2025-10-18T00:22:17Z",
+          "timestamp": 1760746937470,
+          "version": "build-2065373602"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5523118",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              17
+            ]
+          ],
+          "date-time": "2025-10-17T12:46:52Z",
+          "timestamp": 1760705212000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Institutions, History, Culture, and Propaganda in Autocratic Survival"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Gary",
+            "family": "Chang",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              17
+            ]
+          ],
+          "date-time": "2025-10-17T12:46:52Z",
+          "timestamp": 1760705212000
+        },
+        "score": 20.096596,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5523118"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5523118",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              20
+            ]
+          ],
+          "date-time": "2026-03-20T02:09:35Z",
+          "timestamp": 1773972575624,
+          "version": "3.50.1"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              17
+            ]
+          ]
+        },
+        "group-title": "Arts and Humanities",
+        "reference-count": 0,
+        "publisher": "MDPI AG",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  3,
+                  17
+                ]
+              ],
+              "date-time": "2026-03-17T00:00:00Z",
+              "timestamp": 1773705600000
+            },
+            "content-version": "unspecified",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "accepted": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              13
+            ]
+          ]
+        },
+        "abstract": "<jats:p>The Deori community represents one of the most ancient indigenous tribal communities of Assam, with a rich cultural heritage spanning over a millennium. This article provides a comprehensive overview of the Deori people, examining their historical origins, social structure, cultural traditions, linguistic heritage, and contemporary challenges. Drawing on ethnographic research, government records, and academic studies, the paper explores how this Sino-Tibetan community has preserved its distinct identity while navigating centuries of political change, from ancient kingdoms to colonial rule to modern democratic governance. The establishment of the Deori Autonomous Council in 2005 marked a significant milestone in the community's political empowerment, though ongoing demands for Sixth Schedule status reflect continuing aspirations for greater autonomy. The article also examines contemporary efforts to document and preserve the Deori language and culture, particularly through recent collaborations with academic institutions such as the reputed universities and IITs, while addressing the challenges of language endangerment, economic development, and cultural preservation in the 21st century.</jats:p>",
+        "DOI": "10.20944/preprints202603.1265.v1",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              20
+            ]
+          ],
+          "date-time": "2026-03-20T01:18:11Z",
+          "timestamp": 1773969491000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Deori Community of India: History, Culture, and Contemporary Dynamics"
+        ],
+        "prefix": "10.20944",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-2966-5220",
+            "authenticated-orcid": false,
+            "given": "Bhuban",
+            "family": "De Brook",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "1968",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              20
+            ]
+          ],
+          "date-time": "2026-03-20T01:18:32Z",
+          "timestamp": 1773969512000
+        },
+        "score": 19.929548,
+        "resource": {
+          "primary": {
+            "URL": "https://www.preprints.org/manuscript/202603.1265/v1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              17
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.20944/preprints202603.1265.v1",
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              17
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              21
+            ]
+          ],
+          "date-time": "2025-02-21T00:47:20Z",
+          "timestamp": 1740098840252,
+          "version": "3.37.3"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2022,
+              1,
+              31
+            ]
+          ]
+        },
+        "group-title": "Journal of Medical Internet Research",
+        "reference-count": 46,
+        "publisher": "JMIR Publications Inc.",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<sec>\n                    <title>BACKGROUND</title>\n                        <p>At the time of the COVID-19 epidemic, it is useful to look at what lessons (digital) history can give us about the past pandemics and dealing with them. We show that the Google Ngram (GNV) can discover hidden patterns in history and, therefore, can be used as a window into history. By using the approach of Digital Humanities, we analysed the epidemiological literature on the development of the Russian flu pandemic for hints on how the COVID-19 might develop in the following years.</p>\n                </sec>\n                                <sec>\n                    <title>OBJECTIVE</title>\n                        <p>Our study is searching for evidence that the COVID-19 is not a unique phenomenon in human history. We are testing the hypothesis that the flu-like illness that caused loss of taste and smell in the late 19th century (Russian flu) was caused by a coronavirus. We are aware that it is difficult to formulate a hypothesis for a microbiological aetiology of a pandemic that occurred 133 years ago. But differentiating an influenza virus infection from a COVID-19 patient purely on the clinical ground is difficult for a physician because the symptoms overlap. The most crucial observation of similarities between the Russian flu pandemic and COVID-19 is the loss of smell and taste (anosmia and ageusia). The objective was to calculate the ratio of increasing to decreasing trends in the changes in frequencies of the selected words representing symptoms of the Russian flu and COVID-19.</p>\n                </sec>\n                                <sec>\n                    <title>METHODS</title>\n                        <p>The primary methodological concept of our approach is to analyse the ratio of increasing to decreasing trends in the changes in frequencies of the selected words representing symptoms of the Russian flu and COVID-19 with the Google NGram analytical tool. Initially, keywords were chosen that are specific and common for the Russian flu and COVID-19. We show the graphic display on the Y-axis what percentage of words in the selected corpus of books (collective memory) over the years (X-axis) make up the word. To standardise the data, we requested the data from 1800 to 2019 in English, German and Russian (to 2012) book corpora and focused on the ten years before, during and after the outbreak of the Russian flu. We compared this frequency index with “non-epidemic periods” to test the model’s analytical potential and prove the signification of the results.</p>\n                </sec>\n                                <sec>\n                    <title>RESULTS</title>\n                        <p>The COVID-19 is not a unique phenomenon because the Russian flu was probably the coronavirus infection. Results show that all the three analysed book corpora (including newspapers and magazines) show the increase in the mention of the symptoms “loss of smell” and “loss of taste” during the Russian flu (1889-1891), which are today undoubtedly proven to be key symptoms of COVID-19.  \nIn the English corpus, the frequency rose from 0.0000040433 % in 1880 to 0.0000047123 % in 1889. The frequency fell sharply after the pandemic stopped in 1900 (0.0000033861%). In the Russian corpus, the frequency rises from 0 % in 1880 to 0.0000004682 % in 1889 and decreased rapidly after the pandemic (1900 = 0.0000011834 %). In the German corpus, the frequency rose from 0.0000014463 % in 1880 to 0.0000018015 % in 1889 and decreased also rapidly after the pandemic (1900 = 0.0000016600 %). \nAccording to our analysis of historical records with the approach of GNV, 1) the ‘natural’ length of a pandemic is two to five years; 2) the pandemic stops on their own; 3) the viruses weaken over time; 4) the so-called “herd immunity” is not necessary to stop the pandemic; 5) history has shown that a significant crisis does not need to occur after the COVID-19 pandemic.</p>\n                </sec>\n                                <sec>\n                    <title>CONCLUSIONS</title>\n                        <p>According to our study, the Google Books Ngram Viewer (GNV) gives a clear evidence of the influence that social changes have on word frequency. The results of this study open a discussion on the usefulness of the Google Ngram insights possibilities into past socio-cultural development, i.e. epidemics and pandemics that can serve as lessons for today. We showed hidden patterns of conceptual trends in history and their relationships with current development in the case of the pandemic COVID-19.  \nThe benefit of this method could help complement historical medical records, which are often woefully incomplete. However, this method comes with severe limitations and can be useful only under cautious handling and testing. Despite the numerous indications we have shown, we are aware that this thesis still cannot be confirmed and that it is necessary to require further historical and medical research.</p>\n                </sec>",
+        "DOI": "10.2196/preprints.36942",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2022,
+              2,
+              18
+            ]
+          ],
+          "date-time": "2022-02-18T21:16:04Z",
+          "timestamp": 1645218964000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Using Digital Humanities for Understanding COVID-19: Lessons from Digital History about earlier Coronavirus Pandemic (Preprint)"
+        ],
+        "prefix": "10.2196",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-4634-686X",
+            "authenticated-orcid": false,
+            "given": "Tado",
+            "family": "Juric",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "1010",
+        "reference": [
+          {
+            "key": "ref2",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.7208/chicago/9780226774497.001.0001"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1111/1751-7915.13916"
+          },
+          {
+            "key": "ref4",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1111/1751-7915.13889"
+          },
+          {
+            "key": "ref5",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.30958/ajms.8-1-4"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.17613/M6434X"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5210/fm.v21i7.5567"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.17613/M6434X"
+          },
+          {
+            "key": "ref13",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2478/rela-2018-0015"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1126/science.1199644"
+          },
+          {
+            "key": "ref17",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.4135/9781526421036929307"
+          },
+          {
+            "key": "ref25",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1126/science.1199644"
+          },
+          {
+            "key": "ref26",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1371/journal.pone.0213554"
+          },
+          {
+            "key": "ref29",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.2196/preprints.30831"
+          },
+          {
+            "key": "ref30",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5260/chara.23.1.16"
+          },
+          {
+            "key": "ref33",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1080/02691728.2012.727191"
+          },
+          {
+            "key": "ref34",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1111/acps.12095"
+          },
+          {
+            "key": "ref36",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1038/nature24455"
+          },
+          {
+            "key": "ref37",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1177/0956797613479387"
+          },
+          {
+            "key": "ref38",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1371/journal.pone.0059030"
+          },
+          {
+            "key": "ref39",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s11199-012-0194-7"
+          },
+          {
+            "key": "ref40",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/j.dss.2012.05.030"
+          },
+          {
+            "key": "ref41",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s12144-014-9274-x"
+          },
+          {
+            "key": "ref42",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/s40732-014-0079-y"
+          },
+          {
+            "key": "ref43",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1080/00029157.2012.696078"
+          },
+          {
+            "key": "ref44",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1037/pspp0000149"
+          },
+          {
+            "key": "ref45",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1177/0734282913485542"
+          },
+          {
+            "key": "ref46",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1177/1745691616662473"
+          },
+          {
+            "key": "ref47",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1177/0956797614563765"
+          },
+          {
+            "key": "ref50",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1046/j.1365-2672.2001.01492.x"
+          },
+          {
+            "key": "ref52",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1128/jvi.79.3.1595-1604.2005"
+          },
+          {
+            "key": "ref53",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.5962/bhl.title.55931"
+          },
+          {
+            "key": "ref55",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/s0140-6736(58)91750-1"
+          },
+          {
+            "key": "ref56",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1056/nejm189112101252409"
+          },
+          {
+            "key": "ref57",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/s0140-6736(58)91738-0"
+          },
+          {
+            "key": "ref58",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1128/jvi.74.19.8913-8921.2000"
+          },
+          {
+            "key": "ref59",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1073/pnas.1000886107"
+          },
+          {
+            "key": "ref64",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1016/s1473-3099(20)30297-8"
+          },
+          {
+            "key": "ref65",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1038/s41586-021-03792-w"
+          },
+          {
+            "key": "ref66",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1177/0333102420965132"
+          },
+          {
+            "key": "ref68",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1073/pnas.0611071104"
+          },
+          {
+            "key": "ref71",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1037/hop0000023"
+          },
+          {
+            "key": "ref72",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1371/journal.pone.0137041"
+          },
+          {
+            "key": "ref74",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1093/llc/fqn012"
+          },
+          {
+            "key": "ref76",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1080/1369118X.2012.678878"
+          },
+          {
+            "key": "ref77",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1075/ijcl.19.3.04dav"
+          },
+          {
+            "key": "ref79",
+            "doi-asserted-by": "publisher",
+            "DOI": "10.1007/978-3-030-51913-1_10"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2022,
+              2,
+              18
+            ]
+          ],
+          "date-time": "2022-02-18T21:16:08Z",
+          "timestamp": 1645218968000
+        },
+        "score": 19.798296,
+        "resource": {
+          "primary": {
+            "URL": "http://preprints.jmir.org/preprint/36942"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2022,
+              1,
+              31
+            ]
+          ]
+        },
+        "references-count": 46,
+        "URL": "https://doi.org/10.2196/preprints.36942",
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              1,
+              31
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              20
+            ]
+          ],
+          "date-time": "2025-09-20T07:28:07Z",
+          "timestamp": 1758353287891,
+          "version": "3.44.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5431395",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              19
+            ]
+          ],
+          "date-time": "2025-09-19T09:37:16Z",
+          "timestamp": 1758274636000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Recommender Systems for Digital Humanities and Archives: Multistakeholder Evaluation, Scholarly Information Needs, and Multimodal Similarity"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Florian",
+            "family": "Atzenhofer-Baumgartner",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              19
+            ]
+          ],
+          "date-time": "2025-09-19T09:37:16Z",
+          "timestamp": 1758274636000
+        },
+        "score": 19.706352,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5431395"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5431395",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ],
+          "date-time": "2026-04-24T15:14:29Z",
+          "timestamp": 1777043669579,
+          "version": "3.51.4"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>Global fertility rates are currently converging toward unprecedented lows, with digitally mature nations exhibiting Total Fertility Rates (TFR) far below the replacement threshold. While standard economic models attribute this decline to the \"quality-quantity\" trade-off, they fail to explain why fertility remains suppressed despite significant pro-natalist financial interventions. This paper proposes a novel theoretical framework-the \"Compression Wave\"-to explain this demographic-evolutionary paradox. Synthesizing longitudinal demographic data with cultural evolutionary theory, I argue that digital maturity acts as an environmental mismatch that hijacks evolved status-seeking heuristics.&amp;nbsp; \n&lt;div&gt;\n &lt;br&gt;\n&lt;/div&gt;\n&lt;div&gt;\n Drawing on Richerson and Boyd's \"Big Mistake\" hypothesis and Henrich's \"Collective Brain,\" I demonstrate how the shift from vertical (parent-to-child) to oblique (peer/teacherdriven) cultural transmission creates a \"Status Trap.\" In this trap, individuals are evolutionarily seduced into a runaway positional arms race for digital prestige, modeling their lives after childless \"teachers\" rather than fertile parents. This process results in the systematic \"unlearning\" of the domestic social operating system-the specific cultural heuristics required for low-friction child-rearing.&amp;nbsp;\n&lt;/div&gt;\n&lt;div&gt;\n &lt;br&gt;\n&lt;/div&gt;\n&lt;div&gt;\n The paper concludes by proposing a \"Reflexive Turn,\" suggesting that the same digital maturity that induced the collapse-specifically via Large Language Models (LLMs)-may offer the only viable mechanism for re-synthesizing the lost cultural buffers necessary for demographic sustainability. A companion paper, \"The Eighth Atheism,\" develops the philosophical corollary of this argument; a subsequent paper extends the framework to aesthetic transmission, developing the concept of \"compression without the wave\" to diagnose cultural artifacts that replicate form without inheriting the social chain that produced them.\n&lt;/div&gt;</jats:p>",
+        "DOI": "10.2139/ssrn.6637619",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ],
+          "date-time": "2026-04-24T13:44:37Z",
+          "timestamp": 1777038277000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Compression Wave: Digital Maturity and the Evolutionary Fate of Modern Culture"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0006-2550-5955",
+            "authenticated-orcid": true,
+            "given": "J.M.",
+            "family": "Bailey",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ],
+          "date-time": "2026-04-24T13:44:37Z",
+          "timestamp": 1777038277000
+        },
+        "score": 19.606236,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=6637619"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.6637619",
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              5
+            ]
+          ],
+          "date-time": "2025-07-05T04:11:14Z",
+          "timestamp": 1751688674799,
+          "version": "3.41.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5287335",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              23
+            ]
+          ],
+          "date-time": "2025-06-23T09:24:21Z",
+          "timestamp": 1750670661000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Digital Age: Libraries' Impact on Students' Reading Culture and Psychological Well-being"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "AKHITHA",
+            "family": "BABU",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              4
+            ]
+          ],
+          "date-time": "2025-07-04T16:39:40Z",
+          "timestamp": 1751647180000
+        },
+        "score": 19.551987,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5287335"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5287335",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              14
+            ]
+          ],
+          "date-time": "2025-11-14T12:42:35Z",
+          "timestamp": 1763124155415,
+          "version": "3.45.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5605010",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              14
+            ]
+          ],
+          "date-time": "2025-11-14T12:37:56Z",
+          "timestamp": 1763123876000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The TikTok Mind: Self-Diagnosis and Therapy Culture in the Digital Age"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Ramesah",
+            "family": "Qayyum",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              14
+            ]
+          ],
+          "date-time": "2025-11-14T12:37:56Z",
+          "timestamp": 1763123876000
+        },
+        "score": 19.473896,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5605010"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5605010",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              8
+            ]
+          ],
+          "date-time": "2023-12-08T00:51:59Z",
+          "timestamp": 1701996719812
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 12,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.4657105",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              7
+            ]
+          ],
+          "date-time": "2023-12-07T11:17:37Z",
+          "timestamp": 1701947857000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Promote or Inhibit: Clan Culture and Enterprise Digital Transformation"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Xiaorong",
+            "family": "Li",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Yunxiao",
+            "family": "Bi",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Mengmeng",
+            "family": "Guo",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "first-page": "569",
+            "DOI": "10.1017/S002210901500006X",
+            "article-title": "Trust, Investment, and Business Contracting",
+            "volume": "50",
+            "author": "J S Ang",
+            "year": "2015",
+            "journal-title": "J. Financ. Quant. Anal"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "crossref",
+            "first-page": "849",
+            "DOI": "10.1007/s10551-017-3762-5",
+            "article-title": "What's in a Surname? The Effect of Auditor-CEO Surname Sharing on Financial Misstatem ent",
+            "volume": "158",
+            "author": "X Du",
+            "year": "2019",
+            "journal-title": "J Bus Ethics"
+          },
+          {
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "first-page": "135",
+            "DOI": "10.1257/aer.100.2.135",
+            "article-title": "Cultural and Institutional Bifurcation: China and Europe Compared",
+            "volume": "100",
+            "author": "A Greif",
+            "year": "2010",
+            "journal-title": "The Am erican Economic Review"
+          },
+          {
+            "key": "ref4",
+            "first-page": "1",
+            "article-title": "The clan and the corporation: Sustaining cooperation in China and Europe",
+            "volume": "45",
+            "author": "A Greif",
+            "year": "2017",
+            "journal-title": "Journal of Comparative Economics, Institutions and Economic Change"
+          },
+          {
+            "key": "ref5",
+            "author": "K",
+            "year": "1981",
+            "journal-title": "Americans and Chinese"
+          },
+          {
+            "key": "ref6",
+            "doi-asserted-by": "crossref",
+            "first-page": "325",
+            "DOI": "10.2308/tar-2017-0425",
+            "article-title": "The Effect of Trade Secrets Law on Stock Price Sync hronicity: Evidence from the Inevitable Disclosure Doctrine",
+            "volume": "96",
+            "author": "Y Kim",
+            "year": "2021",
+            "journal-title": "The Accounting Review"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "crossref",
+            "first-page": "224",
+            "DOI": "10.1016/j.jcorpfin.2019.02.006",
+            "article-title": "Trust and IPO underpricing",
+            "volume": "56",
+            "author": "X Li",
+            "year": "2019",
+            "journal-title": "Journal of Corporate Finance"
+          },
+          {
+            "key": "ref8"
+          },
+          {
+            "key": "ref9",
+            "doi-asserted-by": "crossref",
+            "first-page": "659",
+            "DOI": "10.1016/j.jce.2007.09.001",
+            "article-title": "Culture rules: The foundations of the rule of law and other norms of governance",
+            "volume": "35",
+            "author": "A N Licht",
+            "year": "2007",
+            "journal-title": "Journal of Comparative Economics"
+          },
+          {
+            "key": "ref10",
+            "doi-asserted-by": "crossref",
+            "first-page": "313",
+            "DOI": "10.1016/S0304-405X(03)00173-9",
+            "article-title": "Culture, openness, and finance",
+            "volume": "70",
+            "author": "R M Stulz",
+            "year": "2003",
+            "journal-title": "Journal of Financial Economics"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "crossref",
+            "first-page": "432",
+            "DOI": "10.1111/j.1467-9248.2011.00881.x",
+            "article-title": "Clans, Electoral Procedures and Voter Turnout: Evidence from Vi llagers' Committee Elections in Transitional China",
+            "volume": "59",
+            "author": "F Su",
+            "year": "2011",
+            "journal-title": "Political Studies"
+          },
+          {
+            "key": "ref12",
+            "first-page": "100",
+            "article-title": "Unraveling the capabilities that enable digital transfo rmation: A data-driven methodology and the case of artificial intelligence",
+            "volume": "50",
+            "author": "M Wu",
+            "year": "2020",
+            "journal-title": "Journal of Com parative Economics"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              7
+            ]
+          ],
+          "date-time": "2023-12-07T11:22:48Z",
+          "timestamp": 1701948168000
+        },
+        "score": 19.279495,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=4657105"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "references-count": 12,
+        "URL": "https://doi.org/10.2139/ssrn.4657105",
+        "published": {
+          "date-parts": [
+            [
+              2023
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              11
+            ]
+          ],
+          "date-time": "2026-03-11T08:46:48Z",
+          "timestamp": 1773218808803,
+          "version": "3.50.1"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>&lt;span&gt;\n &lt;p&gt;&lt;span&gt;Traditional companies looking to build digital-ready cultures need not abandon their core strengths or mimic the cultures of digital native organizations. This research-based framework identifies four key values central to digital culture—impact, speed, openness, and autonomy—along with the practices that bring them to life. The authors provide principles for cultivating these elements in traditional organizations while preserving important aspects of legacy culture, particularly stability and integrity. Based on a study of more than 500 digital and traditional companies, plus extensive interviews with executives, this article offers a roadmap for traditional companies to become more agile and innovative without sacrificing the strengths that have made them successful.&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;</jats:p>",
+        "DOI": "10.2139/ssrn.6024095",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              10
+            ]
+          ],
+          "date-time": "2026-03-10T10:55:44Z",
+          "timestamp": 1773140144000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Building Digital-Ready Culture in Traditional Organizations"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "George F.",
+            "family": "Westerman",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5555-8763",
+            "authenticated-orcid": true,
+            "given": "Deborah L.",
+            "family": "Soule",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Anand",
+            "family": "Eswaran",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              3,
+              10
+            ]
+          ],
+          "date-time": "2026-03-10T10:55:44Z",
+          "timestamp": 1773140144000
+        },
+        "score": 19.26615,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=6024095"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.6024095",
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              3
+            ]
+          ],
+          "date-time": "2026-05-03T01:51:32Z",
+          "timestamp": 1777773092913,
+          "version": "3.51.4"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>The purpose of this research is to examine how real-time edit tracking in cloud word processors, such as Google Docs, transforms the study of a work's creation. It specifically investigates whether the transparency and permanence of digital revisions redefine the concept of the \"definitive edition\". By treating the version history as an automated \"digital variorum,\" the study shifts the focus from the finished product to the creative process. Ultimately, the research aims to elevate the writing process to a primary scholarly object, challenging traditional ideas about authorial finality in contemporary literature. This research utilizes a multidisciplinary framework combining literary theory with digital forensics and computational tracking. The study analyzes textual evolution through three levels of granularity: micro-genesis via keystroke logging, meso-genesis through automated cloud snapshots, and macro-genesis using named versions. Furthermore, forensic tools like hex-editors are employed to recover deleted fragments and metadata, treating binary code as historical evidence. Finally, the methodology evaluates large-scale digital infrastructures, such as the Bichitra and Git-Lit projects, to compare automated cloud systems with manual archival recovery and version control systems. Research findings indicate that cloud-based \"Version History\" functions as an automated \"digital variorum,\" capturing the writing process in real-time. The traditional \"definitive edition\" is revealed as a \"convenient fiction,\" replaced by an inherently \"fluid text\". This digital environment elevates the writing process to a primary scholarly object, treating the text as a \"four-dimensional object\" with a visible \"algorithmic footprint\" of authorial intent. Furthermore, these digital traces serve as forensic evidence, allowing for the recovery of the \"avant-texte\" and providing pedagogical tools to monitor student workflows within a \"digital panopticon\".</jats:p>",
+        "DOI": "10.2139/ssrn.6676098",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              29
+            ]
+          ],
+          "date-time": "2026-04-29T17:14:21Z",
+          "timestamp": 1777482861000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The \"Version History\" as a Digital Variorum: Tracking Genetic Criticism and the Definitive Edition in Contemporary Digital Literature"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0005-8556-4087",
+            "authenticated-orcid": true,
+            "given": "Jaspreet",
+            "family": "Kaur",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              29
+            ]
+          ],
+          "date-time": "2026-04-29T17:14:21Z",
+          "timestamp": 1777482861000
+        },
+        "score": 19.129618,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=6676098"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.6676098",
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              4
+            ]
+          ],
+          "date-time": "2024-12-04T05:25:16Z",
+          "timestamp": 1733289916216,
+          "version": "3.30.1"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5042736",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              3
+            ]
+          ],
+          "date-time": "2024-12-03T16:01:46Z",
+          "timestamp": 1733241706000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Rewriting History: The Impact of Digital Writing Assistants on Student Agency"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Fergal  Enda",
+            "family": "Treanor",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              3
+            ]
+          ],
+          "date-time": "2024-12-03T16:01:46Z",
+          "timestamp": 1733241706000
+        },
+        "score": 18.94917,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5042736"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5042736",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              9
+            ]
+          ],
+          "date-time": "2025-01-09T05:28:42Z",
+          "timestamp": 1736400522884,
+          "version": "3.32.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5034113",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              8
+            ]
+          ],
+          "date-time": "2025-01-08T16:54:58Z",
+          "timestamp": 1736355298000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Culture Configuration, Digital Innovation and State-ownership: Evidence from an Emerging Economy"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Yuqi",
+            "family": "Li",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "You",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              8
+            ]
+          ],
+          "date-time": "2025-01-08T16:54:58Z",
+          "timestamp": 1736355298000
+        },
+        "score": 18.918995,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5034113"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5034113",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      }
+    ],
+    "items-per-page": 25,
+    "query": {
+      "start-index": 0,
+      "search-terms": "SSRN digital humanities culture history"
+    }
+  }
+}

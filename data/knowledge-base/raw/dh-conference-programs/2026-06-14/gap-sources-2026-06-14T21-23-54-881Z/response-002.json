@@ -1,0 +1,1787 @@
+[
+  {
+    "id": 4242,
+    "date": "2026-06-13T02:07:02",
+    "date_gmt": "2026-06-13T02:07:02",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=4242"
+    },
+    "modified": "2026-06-13T02:53:36",
+    "modified_gmt": "2026-06-13T02:53:36",
+    "slug": "phishing-scam-warning",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/phishing-scam-warning/",
+    "title": {
+      "rendered": "⚠️ Security Notice: Phishing Scam Targeting DH2026 Participants"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">We have received reports that fraudulent (&#8220;phishing&#8221;) emails impersonating DH2026 and its organizers are being sent to conference participants. These messages falsely claim to handle <strong>hotel reservations and travel arrangements</strong> for the conference and attempt to collect personal information and payment.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Example of a known fraudulent message</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Sender:</strong> <code>ops@gtravelservice.com</code> (posing as &#8220;OPS GTE&#8221;)</li>\n\n\n\n<li><strong>Subject:</strong> <em>&#8220;Reservation Confirmation in Daejeon, South Korea – July 27–31, 2026 – Daejeon Convention Center&#8221;</em></li>\n\n\n\n<li><strong>Content:</strong> Requests hotel-booking details, travel information, and payment</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\">The senders appear to harvest presenters&#8217; email addresses from public conference pages and published abstracts, then send unsolicited &#8220;reservation&#8221; emails at random. This is a common form of academic-conference fraud, sometimes called a &#8220;housing pirate&#8221; scam.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Please remember:</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>For accommodation, DH2026 works only with officially designated booking partners, which are listed on our <a href=\"https://dh2026.adho.org/hotel-reservation/\">official hotel reservation page</a>.</li>\n\n\n\n<li>We will <strong>never</strong> ask you to provide credit-card details, make payments, or submit personal travel information through unsolicited emails or external links.</li>\n\n\n\n<li>Any official information about accommodation, registration, and payment is published <strong>only</strong> on our official website and sent <strong>only</strong> from our official account.</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Official DH2026 channels:</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Website: <a href=\"https://dh2026.adho.org\">https://dh2026.adho.org</a></li>\n\n\n\n<li>Email: <a href=\"mailto:kadh2026@gmail.com\">kadh2026@gmail.com</a></li>\n\n\n\n<li>Registration: ConfTool (<a href=\"https://www.conftool.pro/dh2026\">https://www.conftool.pro/dh2026</a>)</li>\n\n\n\n<li>Event app: Whova</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>If you receive a suspicious email:</strong></p>\n\n\n\n<ol class=\"wp-block-list\">\n<li>Do <strong>not</strong> reply, click any links, or open attachments.</li>\n\n\n\n<li>Do <strong>not</strong> provide any personal or payment information.</li>\n\n\n\n<li>Delete the message or mark it as spam.</li>\n\n\n\n<li>If possible, forward it to <strong><a href=\"mailto:kadh2026@gmail.com\">kadh2026@gmail.com</a></strong> so we can warn other participants.</li>\n</ol>\n\n\n\n<p class=\"wp-block-paragraph\">If you are unsure whether a message is genuine, please contact us at <a href=\"mailto:kadh2026@gmail.com\">kadh2026@gmail.com</a> <strong>before taking any action</strong>. We are grateful to the participants who alerted us to this scam.</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>We have received reports that fraudulent (&#8220;phishing&#8221;) emails impersonating DH2026 and its organizers are being sent to conference participants. These messages falsely claim to handle hotel reservations and travel arrangements for the conference and attempt to collect personal information and payment. Example of a known fraudulent message The senders appear to harvest presenters&#8217; email addresses [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-4242",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4242",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=4242"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4242/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 4247,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4242/revisions/4247"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=4242"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=4242"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=4242"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 4174,
+    "date": "2026-06-04T13:39:53",
+    "date_gmt": "2026-06-04T13:39:53",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=4174"
+    },
+    "modified": "2026-06-13T02:07:25",
+    "modified_gmt": "2026-06-13T02:07:25",
+    "slug": "dh2026-main-conference-program-now-available",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/dh2026-main-conference-program-now-available/",
+    "title": {
+      "rendered": "DH2026 Main Conference Program Now Available"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">We are pleased to announce that the <strong>Main Conference Program for DH2026 (Daejeon, Republic of Korea)</strong> is now available.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>View the program</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Online program (live &amp; searchable): <a href=\"https://dh2026.adho.org/program-agenda/\">https://dh2026.adho.org/program-agenda/</a></li>\n\n\n\n<li>Printable PDF: <a href=\"https://dh2026.adho.org/wp-content/uploads/2026/06/DH2026_Main_Conference_Program.pdf\">https://dh2026.adho.org/wp-content/uploads/2026/06/DH2026_Main_Conference_Program.pdf</a></li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\">The online version is interactive — you can filter by day, track, and paper type, and search by title, author, or affiliation to locate your presentation and see exactly when and where it takes place. It always reflects the most current schedule.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>At a glance</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Pre-conference events:</strong> Monday–Tuesday, July 27–28</li>\n\n\n\n<li><strong>Opening Ceremony, Opening Keynote (Prof. Kim Hyeon) &amp; Reception:</strong> Tuesday, July 28, 18:00</li>\n\n\n\n<li><strong>Main conference:</strong> Wednesday–Friday, July 29–31 — 111 parallel sessions across 11 tracks · 421 presentations · 94 posters on display throughout the conference</li>\n\n\n\n<li><strong>Three keynotes</strong> (Grand Ballroom): Prof. Kim Hyeon (Opening), Prof. Maciej Eder (Antonio Zampolli Prize Lecture, Wed 10:30), and Prof. Kirsten Thorpe (Closing, Fri 16:00)</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>For presenting authors</strong> Please check the day, time, track, and presentation format of your contribution. If you notice any error, or your circumstances have changed (e.g., switching to virtual presentation, or withdrawal), contact us at <a href=\"mailto:kadh2026@gmail.com\">kadh2026@gmail.com</a> as soon as possible. Note that <strong>at least one author of each accepted submission must be registered</strong> for the presentation to remain in the program.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Registration:</strong> <a href=\"https://dh2026.adho.org/conference-registration/\">https://dh2026.adho.org/conference-registration/</a> (via ConfTool: <a href=\"https://www.conftool.pro/dh2026\">https://www.conftool.pro/dh2026</a>)</p>\n\n\n\n<p class=\"wp-block-paragraph\">Room assignments and session chairs will be announced closer to the conference. Questions? Write to us at <a href=\"mailto:kadh2026@gmail.com\">kadh2026@gmail.com</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">We look forward to welcoming you to Daejeon this July.</p>\n\n\n\n<p class=\"wp-block-paragraph\">— On behalf of the DH2026 Program Committee and Local Organizing Committee</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>We are pleased to announce that the Main Conference Program for DH2026 (Daejeon, Republic of Korea) is now available. View the program The online version is interactive — you can filter by day, track, and paper type, and search by title, author, or affiliation to locate your presentation and see exactly when and where it [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-4174",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4174",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=4174"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4174/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 4175,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4174/revisions/4175"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=4174"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=4174"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=4174"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 4018,
+    "date": "2026-05-08T02:26:11",
+    "date_gmt": "2026-05-08T02:26:11",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=4018"
+    },
+    "modified": "2026-05-08T02:26:12",
+    "modified_gmt": "2026-05-08T02:26:12",
+    "slug": "avindh-mini-conference-at-dh2026-10-years-of-audiovisual-digital-humanities",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/avindh-mini-conference-at-dh2026-10-years-of-audiovisual-digital-humanities/",
+    "title": {
+      "rendered": "AVinDH Mini-Conference at DH2026: 10 Years of AudioVisual &amp; Digital Humanities"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">The AudioVisual &amp; Digital Humanities Special Interest Group (AVinDH SIG) will hold its 10th-anniversary mini-conference at DH2026 in Daejeon, South Korea. The full-day session invites all DH2026 attendees to reflect on a decade of work on audiovisual materials in the Digital Humanities and to shape the future of the community.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Programme Highlights</h3>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Welcome &amp; Introduction</strong></li>\n\n\n\n<li><strong>Panel: &#8220;AVinDH SIG turns 10!&#8221;</strong> — reflections on past, present, and future, with discussants Lauren Tilton (University of Richmond) and Michaël Bourgatte (Université de Lorraine), moderated by Alison Langmead (University of Pittsburgh)</li>\n\n\n\n<li><strong>Speed Dating</strong> — a structured networking activity</li>\n\n\n\n<li><strong>Lightning Talks</strong> — 5-minute presentations on current AVinDH research</li>\n\n\n\n<li><strong>Tool Cavalcade</strong> — 5-minute showcases of AVinDH tools</li>\n\n\n\n<li><strong>Wrap-up</strong> — final reflections on future directions</li>\n</ul>\n\n\n\n<h3 class=\"wp-block-heading\">Participation</h3>\n\n\n\n<p class=\"wp-block-paragraph\">📅 <strong>Date:</strong> Monday, July 27, 2026 🤝 <strong>Format:</strong> In-Person + Virtual (with AI translation support) 📝 <strong>Registration:</strong> Open to all DH2026 attendees — you do not need to be a member of the AVinDH SIG to participate.</p>\n\n\n\n<p class=\"wp-block-paragraph\">🔗 <a href=\"https://avindh.org/workshops/2026/\">Workshop page &amp; registration form</a> 🔗 <a href=\"https://dh2026.adho.org/pre-conference-events/\">Browse all DH2026 pre-conference events</a></p>\n\n\n\n<p class=\"wp-block-paragraph\">For questions, please contact Mila Oiva at <a href=\"mailto:mila.oiva@fau.de\">mila.oiva@fau.de</a>.</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>The AudioVisual &amp; Digital Humanities Special Interest Group (AVinDH SIG) will hold its 10th-anniversary mini-conference at DH2026 in Daejeon, South Korea. The full-day session invites all DH2026 attendees to reflect on a decade of work on audiovisual materials in the Digital Humanities and to shape the future of the community. Programme Highlights Participation 📅 Date: [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-4018",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4018",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=4018"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4018/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 4019,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4018/revisions/4019"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=4018"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=4018"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=4018"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 4006,
+    "date": "2026-05-05T13:59:32",
+    "date_gmt": "2026-05-05T13:59:32",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=4006"
+    },
+    "modified": "2026-05-08T13:50:37",
+    "modified_gmt": "2026-05-08T13:50:37",
+    "slug": "final-abstract-upload-faq-now-available",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/final-abstract-upload-faq-now-available/",
+    "title": {
+      "rendered": "Final Abstract Upload — FAQ Now Available"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">With the <strong>final (camera-ready) abstract upload deadline approaching on <s>7</s> 14 May 2026 (AoE)</strong>, we have published a Frequently Asked Questions page covering the most common issues raised by authors over the past weeks.</p>\n\n\n\n<p class=\"wp-block-paragraph\">The FAQ addresses how to update titles, authors, and affiliations in ConfTool; troubleshooting template downloads in DHConvalidator; correct use of the gray-shaded sections and the <code>DH-</code> paragraph styles; the &#8220;Appendix A&#8221; reference heading; and how to inspect a <code>.dhc</code> file before uploading.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Most submission questions can be resolved in a few minutes by following the FAQ. We kindly ask all authors to consult it before contacting the committee.</p>\n\n\n\n<p class=\"wp-block-paragraph\">🔗 <strong><a href=\"https://dh2026.adho.org/final-upload-faq/\">FAQ — DH2026 Final Abstract Upload</a></strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">For any issues not covered in the FAQ, please contact us at <a href=\"mailto:kadh2026@gmail.com\">kadh2026@gmail.com</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">— DH2026 Program Committee and Local Organizing Committee</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>With the final (camera-ready) abstract upload deadline approaching on 7 14 May 2026 (AoE), we have published a Frequently Asked Questions page covering the most common issues raised by authors over the past weeks. The FAQ addresses how to update titles, authors, and affiliations in ConfTool; troubleshooting template downloads in DHConvalidator; correct use of the [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-4006",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4006",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=4006"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4006/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 4020,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/4006/revisions/4020"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=4006"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=4006"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=4006"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3860,
+    "date": "2026-04-01T01:27:56",
+    "date_gmt": "2026-04-01T01:27:56",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3860"
+    },
+    "modified": "2026-04-01T01:36:50",
+    "modified_gmt": "2026-04-01T01:36:50",
+    "slug": "call-for-abstracts-distant-pasts-current-futures-mini-conference-at-dh2026",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/call-for-abstracts-distant-pasts-current-futures-mini-conference-at-dh2026/",
+    "title": {
+      "rendered": "Call for Abstracts: Distant Past(s) – Current Future(s) — Mini-Conference at DH2026"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">The organizing committee of the mini-conference &#8220;Distant Past(s) – Current Future(s): Digitization, Digital Objects and Datafication Approaches in Ancient and Medieval Studies&#8221; is now accepting submissions for DH2026.</p>\n\n\n\n<h4 class=\"wp-block-heading\">About the Mini-Conference</h4>\n\n\n\n<p class=\"wp-block-paragraph\">This full-day mini-conference on <strong>Tuesday, July 28, 2026</strong> offers an exchange platform for ancient civilizations and medieval studies scholars venturing into DH practices and tools, those with experience bridging historical evidence and technical approaches, and technical experts contributing to ancient and medieval projects. Submissions are welcome on topics including ethics, accessibility, reuse, mapping, ownership, imaging, engagement, curation, and more.</p>\n\n\n\n<h4 class=\"wp-block-heading\">Submission Details</h4>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Deadline:</strong> May 1, 2026 (23:59 UTC+1)</li>\n\n\n\n<li><strong>Abstract length:</strong> 250–300 words</li>\n\n\n\n<li><strong>Submission:</strong> Via <a href=\"https://vlandau.notion.site/distant-pasts-current-futures-2026\">online form</a> only</li>\n\n\n\n<li><strong>Formats:</strong> Long Talk (20 min) or Short Talk (10 min)</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\">Scholars and practitioners at all career stages are welcome, and Early Career Researchers (ECRs) are strongly encouraged to submit. This CFP is open to all researchers — you do not need to have an accepted submission in the main DH2026 program to apply. Selected contributors will need to register for DH2026.</p>\n\n\n\n<p class=\"wp-block-paragraph\">For full details, visit the mini-conference page: <a href=\"https://vlandau.notion.site/distant-pasts-current-futures-2026\">https://vlandau.notion.site/distant-pasts-current-futures-2026</a></p>\n\n\n\n<p class=\"wp-block-paragraph\">Browse all pre-conference events: <a href=\"https://dh2026.adho.org/pre-conference-events/\">https://dh2026.adho.org/pre-conference-events/</a></p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>The organizing committee of the mini-conference &#8220;Distant Past(s) – Current Future(s): Digitization, Digital Objects and Datafication Approaches in Ancient and Medieval Studies&#8221; is now accepting submissions for DH2026. About the Mini-Conference This full-day mini-conference on Tuesday, July 28, 2026 offers an exchange platform for ancient civilizations and medieval studies scholars venturing into DH practices and [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3860",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3860",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3860"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3860/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3861,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3860/revisions/3861"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3860"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3860"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3860"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3821,
+    "date": "2026-03-28T13:04:06",
+    "date_gmt": "2026-03-28T13:04:06",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3821"
+    },
+    "modified": "2026-03-28T13:04:07",
+    "modified_gmt": "2026-03-28T13:04:07",
+    "slug": "call-for-papers-playing-heaven-remapping-early-modern-neo-confucian-worlds-with-ai",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/call-for-papers-playing-heaven-remapping-early-modern-neo-confucian-worlds-with-ai/",
+    "title": {
+      "rendered": "Call for Papers: Playing Heaven – Remapping Early Modern Neo-Confucian Worlds with AI"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">The &#8220;Playing Heaven&#8221; team is now accepting paper submissions for their mini-conference at DH2026, scheduled for <strong>28 July 2026</strong> (Pre-Conference Day 2).</p>\n\n\n\n<p class=\"wp-block-paragraph\">This mini-conference invites intellectual historians, specialists in early modern East Asia, and scholars in the digital humanities to present 20-minute papers on the effective application of artificial intelligence to the study of the history of ideas, cultural history, and multilingual historical research.</p>\n\n\n\n<h4 class=\"wp-block-heading\">About the Project</h4>\n\n\n\n<p class=\"wp-block-paragraph\">&#8220;Playing Heaven&#8221; is an inter-university collaboration based in Hong Kong and Singapore and one of the inaugural recipients of the Schmidt Sciences Humanities and AI Virtual Institute (HAVI) grant. The project seeks to rethink the intellectual and cultural history of early modern East Asia through the development of a domain-specific AI system. Rather than treating philosophical schools, literary traditions, and cultural practices as fixed categories, the project approaches them as historically contingent formations shaped by processes of transmission, adaptation, and reinterpretation.</p>\n\n\n\n<p class=\"wp-block-paragraph\">This DH2026 mini-conference constitutes the second part of the Playing Heaven team&#8217;s project launch. The first launch event is scheduled to be held at the University of Hong Kong on 1 June 2026.</p>\n\n\n\n<h4 class=\"wp-block-heading\">Submission Guidelines</h4>\n\n\n\n<div class=\"wp-block-file\"><a id=\"wp-block-file--media-8c326a9d-0c7b-4163-aba2-3a93d74a53af\" href=\"https://dh2026.adho.org/wp-content/uploads/2026/03/DH2026-Playing-Heaven-CFP.docx\">DH2026 Playing Heaven CFP</a><a href=\"https://dh2026.adho.org/wp-content/uploads/2026/03/DH2026-Playing-Heaven-CFP.docx\" class=\"wp-block-file__button wp-element-button\" download aria-describedby=\"wp-block-file--media-8c326a9d-0c7b-4163-aba2-3a93d74a53af\">Download</a></div>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Abstract length:</strong> Up to 500 words in English (excluding bibliography)</li>\n\n\n\n<li><strong>Format:</strong> PDF</li>\n\n\n\n<li><strong>Submission deadline:</strong> 21 April 2026, 23:59 (anywhere on Earth)</li>\n\n\n\n<li><strong>Submit to:</strong> <a href=\"mailto:javiercha@hku.hk\">javiercha@hku.hk</a></li>\n\n\n\n<li><strong>Notification of acceptance:</strong> 30 April 2026</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\">Submissions will be evaluated on the basis of originality, rigour, and significance. Selected contributors will be required to register for DH2026.</p>\n\n\n\n<p class=\"wp-block-paragraph\">For further information, please contact <strong>Javier Cha</strong> (<a href=\"mailto:javiercha@hku.hk\">javiercha@hku.hk</a>).</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>The &#8220;Playing Heaven&#8221; team is now accepting paper submissions for their mini-conference at DH2026, scheduled for 28 July 2026 (Pre-Conference Day 2). This mini-conference invites intellectual historians, specialists in early modern East Asia, and scholars in the digital humanities to present 20-minute papers on the effective application of artificial intelligence to the study of the [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3821",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3821",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3821"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3821/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3823,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3821/revisions/3823"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3821"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3821"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3821"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3749,
+    "date": "2026-03-23T14:32:36",
+    "date_gmt": "2026-03-23T14:32:36",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3749"
+    },
+    "modified": "2026-03-23T14:32:59",
+    "modified_gmt": "2026-03-23T14:32:59",
+    "slug": "call-for-papers-icla-dcl-sig-dls-mini-conference-digital-and-or-comparative-literary-studies-today",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/call-for-papers-icla-dcl-sig-dls-mini-conference-digital-and-or-comparative-literary-studies-today/",
+    "title": {
+      "rendered": "Call for Papers: ICLA DCL / SIG-DLS Mini-Conference — &#8220;Digital and/or Comparative Literary Studies Today&#8221;"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">We are pleased to announce the Call for Papers for a mini-conference titled <strong>&#8220;Digital and/or Comparative Literary Studies Today&#8221;</strong>, jointly organized by the ICLA Digital Comparative Literature (DCL) research committee and ADHO&#8217;s Special Interest Group in Digital Literary Studies (SIG-DLS), taking place as part of DH2026 in Daejeon, South Korea (July 27–31, 2026).</p>\n\n\n\n<p class=\"wp-block-paragraph\">Following the success of their event at DH2025 Lisbon, this half-day mini-conference explores the intersection of digital/computational and comparative approaches to literary studies — from distant reading, cultural analytics, and network analysis to generative AI and born-digital literature. Contributions addressing multilingual, cross-cultural, and interdisciplinary research are particularly welcome.</p>\n\n\n\n<p class=\"wp-block-paragraph\">The mini-conference consists of two parts: a <strong>lightning talks session</strong> followed by an <strong>interactive poster session</strong>. Free on-site poster printing is expected to be available for most participants.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Key Dates</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Submission deadline: <strong>April 30, 2026</strong></li>\n\n\n\n<li>Notification of acceptance: May 21, 2026</li>\n\n\n\n<li>Mini-conference date: <strong>July 28, 2026</strong> (afternoon, KST)</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Submission Guidelines</strong> 300–500 word abstracts (excluding references) in PDF format, submitted to Christof Schöch at <a href=\"mailto:schoech@uni-trier.de\">schoech@uni-trier.de</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">For full details, visit: 🔗 <a href=\"https://icla-dcl.quarto.pub/info/news/2026/dh-mini-conference.html\">https://icla-dcl.quarto.pub/info/news/2026/dh-mini-conference.html</a></p>\n\n\n\n<p class=\"wp-block-paragraph\">For inquiries, please contact Simone Rebora at <a href=\"mailto:simone.rebora@univr.it\">simone.rebora@univr.it</a>.</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>We are pleased to announce the Call for Papers for a mini-conference titled &#8220;Digital and/or Comparative Literary Studies Today&#8221;, jointly organized by the ICLA Digital Comparative Literature (DCL) research committee and ADHO&#8217;s Special Interest Group in Digital Literary Studies (SIG-DLS), taking place as part of DH2026 in Daejeon, South Korea (July 27–31, 2026). Following the [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3749",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3749",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3749"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3749/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3750,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3749/revisions/3750"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3749"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3749"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3749"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3741,
+    "date": "2026-03-23T04:15:43",
+    "date_gmt": "2026-03-23T04:15:43",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3741"
+    },
+    "modified": "2026-04-01T08:57:59",
+    "modified_gmt": "2026-04-01T08:57:59",
+    "slug": "call-for-papers-ai4as-2026-ai-for-ancient-studies-mini-conference-at-dh2026",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/call-for-papers-ai4as-2026-ai-for-ancient-studies-mini-conference-at-dh2026/",
+    "title": {
+      "rendered": "Call for Papers: AI4AS 2026 — AI for Ancient Studies Mini-Conference at DH2026"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">We are pleased to announce the Call for Papers for <strong>AI4AS 2026 (AI for Ancient Studies)</strong>, a mini-conference taking place as part of DH2026 in Daejeon, South Korea (July 27–31, 2026).</p>\n\n\n\n<p class=\"wp-block-paragraph\">AI4AS 2026 focuses on <strong>engagement and fragility</strong>, critically examining the opportunities and risks that generative AI introduces into the study, interpretation, and dissemination of ancient non-alphabetic languages. The mini-conference gathers experts across diverse ancient-language traditions to build a shared understanding of responsible AI adoption within Ancient World Studies.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Key Dates</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Submission deadline: <strong>April </strong><s>7</s><strong> 17, 2026</strong> (11:59 pm AoE)</li>\n\n\n\n<li>Notification of acceptance: April <s>15</s> <strong>24</strong>, 2026</li>\n\n\n\n<li>Camera-ready abstract due: April <s>20</s> <strong>28</strong>, 2026</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Submission Guidelines</strong> Abstracts of max 500 words in English, submitted as PDF to <a href=\"mailto:ai4asconference@gmail.com\">ai4asconference@gmail.com</a> with [AI4AS2026] in the subject line.</p>\n\n\n\n<p class=\"wp-block-paragraph\">For full details, visit the AI4AS 2026 CFP page: 🔗 <a href=\"https://ai4asconference.github.io/2026/call-for-papers.html\">https://ai4asconference.github.io/2026/call-for-papers.html</a></p>\n\n\n\n<p class=\"wp-block-paragraph\">Selected contributors will be required to register for DH2026 via ConfTool. Early bird registration is available until May 18, 2026.</p>\n\n\n\n<p class=\"wp-block-paragraph\">For questions, please contact the AI4AS Organizing Committee:</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Chiara Salvador, University of Montpellier Paul-Valéry</li>\n\n\n\n<li>Angelica Lo Duca, National Research Council (CNR), Italy</li>\n</ul>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>We are pleased to announce the Call for Papers for AI4AS 2026 (AI for Ancient Studies), a mini-conference taking place as part of DH2026 in Daejeon, South Korea (July 27–31, 2026). AI4AS 2026 focuses on engagement and fragility, critically examining the opportunities and risks that generative AI introduces into the study, interpretation, and dissemination of [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3741",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3741",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3741"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 3,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3741/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3865,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3741/revisions/3865"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3741"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3741"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3741"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3683,
+    "date": "2026-03-18T15:00:33",
+    "date_gmt": "2026-03-18T15:00:33",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3683"
+    },
+    "modified": "2026-03-18T15:00:33",
+    "modified_gmt": "2026-03-18T15:00:33",
+    "slug": "registration-now-open-for-dh2026",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/registration-now-open-for-dh2026/",
+    "title": {
+      "rendered": "Registration Now Open for DH2026"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">Registration for DH2026 is now open. The conference will take place July 27–31, 2026, at the Daejeon Convention Center in South Korea.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Registration Fees &amp; Details</strong> For a full overview of registration categories and fees, please visit the <a href=\"https://dh2026.adho.org/conference-registration/\">Conference Registration</a> page.</p>\n\n\n\n<p class=\"wp-block-paragraph\">To register, log in to your ConfTool account: 👉 <a href=\"https://www.conftool.pro/dh2026/index.php?page=participate\">Register via ConfTool</a></p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Key Deadlines</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Early Bird Registration:</strong> until May 18, 2026</li>\n\n\n\n<li><strong>Presenter Registration Deadline:</strong> May 18, 2026 — At least one author of each accepted submission must register and complete payment by this date to confirm their presentation in the program.</li>\n\n\n\n<li><strong>Standard Registration:</strong> from May 19, 2026</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Visa Invitation Letters</strong> If you require an official invitation letter for a South Korean visa, please first complete your registration and payment. You will then be able to generate and print the letter directly through the ConfTool system.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Participants Residing in Korea</strong> Due to Korean foreign exchange regulations, PayPal USD payments are not available. Please select Bank Transfer in ConfTool and transfer the fee to the IBK account shown on the payment page. For institutional credit card payment or tax invoice requests, please contact <a href=\"mailto:kadh2026@gmail.com\">kadh2026@gmail.com</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Hotel Reservations</strong> Official hotel reservations at discounted conference rates are now available. Visit the <a href=\"https://dh2026.adho.org/hotel-reservation/\">Hotel Reservation</a> page for details and booking.</p>\n\n\n\n<p class=\"wp-block-paragraph\">We look forward to welcoming you to Daejeon this July.</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Registration for DH2026 is now open. The conference will take place July 27–31, 2026, at the Daejeon Convention Center in South Korea. Registration Fees &amp; Details For a full overview of registration categories and fees, please visit the Conference Registration page. To register, log in to your ConfTool account: 👉 Register via ConfTool Key Deadlines [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3683",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3683",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3683"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3683/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3684,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3683/revisions/3684"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3683"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3683"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3683"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3532,
+    "date": "2026-03-03T08:56:47",
+    "date_gmt": "2026-03-03T08:56:47",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3532"
+    },
+    "modified": "2026-03-16T09:24:20",
+    "modified_gmt": "2026-03-16T09:24:20",
+    "slug": "call-for-bursaries-dh2026",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/call-for-bursaries-dh2026/",
+    "title": {
+      "rendered": "Call for Bursaries: DH2026"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">ADHO offers bursaries to students and early career scholars whose submissions have been accepted for DH2026. Online presenters will have virtual registration covered. In-person presenters will receive up to €550 for travel, with up to €300 in additional funding available for intercontinental travelers.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Deadline:</strong> April 1, 2026</p>\n\n\n\n<p class=\"wp-block-paragraph\">For full details, eligibility, and how to apply, please visit the <a href=\"https://adho.org/2026/03/02/call-for-bursaries-dh2026/\">official ADHO announcement</a>.</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>ADHO offers bursaries to students and early career scholars whose submissions have been accepted for DH2026. Online presenters will have virtual registration covered. In-person presenters will receive up to €550 for travel, with up to €300 in additional funding available for intercontinental travelers. Deadline: April 1, 2026 For full details, eligibility, and how to apply, [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3532",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3532",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3532"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 3,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3532/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3539,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3532/revisions/3539"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3532"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3532"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3532"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3526,
+    "date": "2026-02-28T14:28:38",
+    "date_gmt": "2026-02-28T14:28:38",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3526"
+    },
+    "modified": "2026-03-16T09:24:44",
+    "modified_gmt": "2026-03-16T09:24:44",
+    "slug": "notification-of-acceptance",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/notification-of-acceptance/",
+    "title": {
+      "rendered": "Notification of Acceptance"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">DH 2026: Notification of Acceptance Status</p>\n\n\n\n<p class=\"wp-block-paragraph\">We are delighted to announce that the review process for DH 2026 has concluded.</p>\n\n\n\n<p class=\"wp-block-paragraph\">We extend our sincere thanks to all authors who submitted their valuable work and to the reviewers for their dedication and thorough reviews. The high volume and quality of submissions made the selection process exceptionally competitive.</p>\n\n\n\n<figure class=\"wp-block-table\"><table class=\"has-border-color has-black-border-color has-fixed-layout\" style=\"border-width:1px\"><tbody><tr><td><strong>Category</strong></td><td><strong>Accepted</strong></td><td><strong>Total Submissions</strong></td><td><strong>Acceptance Rate</strong></td></tr><tr><td>Long paper</td><td>164</td><td>264</td><td>about 61%</td></tr><tr><td>Short paper</td><td>275</td><td>387</td><td>about 71%</td></tr><tr><td>Poster</td><td>101</td><td>131</td><td>about 76%</td></tr><tr><td>Workshop</td><td>18</td><td>19</td><td>about 95%</td></tr><tr><td>Mini-conference</td><td>12</td><td>13</td><td>about 92%</td></tr></tbody></table></figure>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Individual notifications of the decisions have now been sent via email to the corresponding authors.</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">Please check the inbox and spam folders of the email address used for your submission on the conference platform.</p>\n\n\n\n<p class=\"wp-block-paragraph\">We look forward to welcoming you to DH2026!</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>DH 2026: Notification of Acceptance Status We are delighted to announce that the review process for DH 2026 has concluded. We extend our sincere thanks to all authors who submitted their valuable work and to the reviewers for their dedication and thorough reviews. The high volume and quality of submissions made the selection process exceptionally [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3526",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3526",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3526"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3526/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3528,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3526/revisions/3528"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3526"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3526"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3526"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3502,
+    "date": "2025-12-19T13:28:54",
+    "date_gmt": "2025-12-19T13:28:54",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3502"
+    },
+    "modified": "2026-03-16T09:24:52",
+    "modified_gmt": "2026-03-16T09:24:52",
+    "slug": "review-assignments-for-dh2026-have-been-sent",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/review-assignments-for-dh2026-have-been-sent/",
+    "title": {
+      "rendered": "Review Assignments for DH2026 Have Been Sent"
+    },
+    "content": {
+      "rendered": "\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p class=\"wp-block-paragraph\">We are pleased to announce that review assignments for the Digital Humanities Conference 2026 (DH2026) have been distributed to all reviewers.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Check Your Inbox</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">If you have registered as a reviewer, you should have received an email with details about your assigned submissions. Please check your inbox, including your spam or junk folder.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Didn&#8217;t receive an email? No worries! You can still access your review assignments by logging in to ConfTool directly:</p>\n\n\n\n<p class=\"wp-block-paragraph\">🔗 <strong><a href=\"https://www.conftool.pro/dh2026/index.php?page=browseAssignedPapers\">Access Your Review Assignments</a></strong></p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Review Deadline</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">Please complete all assigned reviews by <strong>January 20, 2026</strong>. Your timely completion is crucial for keeping the overall conference schedule on track.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Review Criteria and Assessment Categories</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">Reviews should be conducted in accordance with ADHO&#8217;s established review criteria, as outlined in the <a href=\"https://adho.org/2025/09/30/cfp-dh2026/\">CFP</a> and <a href=\"https://adho.org/wp-content/uploads/2023/12/ADHO-DH-Conference-Evaluation-criteria.pdf\">related ADHO documentation</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">In the submission system, you will see five assessment categories:</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li><strong>Evaluation (20%)</strong> – Does the submission provide a sufficient description of the current state of knowledge and best practices relevant to the work, supported by appropriate references?</li>\n\n\n\n<li><strong>Significance (20%)</strong> – Does the work go beyond the current state of knowledge and best practices in its field(s), whether in method, approach, application domain, or findings?</li>\n\n\n\n<li><strong>Methodology (20%)</strong> – Does the submission describe its approach or method with enough detail for readers to understand what was done and why, within the limits of the abstract format?</li>\n\n\n\n<li><strong>Diversity (15%)</strong> – Does the submission contribute to diversity by expanding the range of topics, approaches, or perspectives represented at the conference, and/or by giving appropriate recognition to a broad range of relevant scholarly work?</li>\n\n\n\n<li><strong>Readability (15%)</strong> – Is the submission well structured and clearly written in a way that supports reader comprehension?</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Double-Anonymous Review</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">DH2026 follows the double-anonymous (blind) review principle. Authors&#8217; and reviewers&#8217; identities must not be disclosed, and submissions should be assessed solely on their scholarly merits. Please avoid speculation about authorship and flag any potential identifying information encountered in submissions.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Use of Large Language Models (LLMs)</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">To protect the confidentiality of the review process, please refrain from entering submission content into any large language model (LLM) or external AI tool. LLMs may be used only for light proofreading or language refinement of your own review texts, on the condition that no data are stored or used for training purposes.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Questions or Conflicts of Interest?</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">If you need to recuse yourself from any review, please select the &#8220;conflict of interest&#8221; option in ConfTool, and we will reassign it promptly. For any other questions, feel free to contact us.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Thank you for contributing your time and expertise to DH2026. Your careful and thoughtful reviews play a vital role in shaping a strong and inclusive conference program.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>The Program Committee of DH2026 Daejeon</strong></p>\n\n\n\n<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>We are pleased to announce that review assignments for the Digital Humanities Conference 2026 (DH2026) have been distributed to all reviewers. Check Your Inbox If you have registered as a reviewer, you should have received an email with details about your assigned submissions. Please check your inbox, including your spam or junk folder. Didn&#8217;t receive [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3502",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3502",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3502"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3502/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3503,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3502/revisions/3503"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3502"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3502"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3502"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3494,
+    "date": "2025-12-16T13:19:43",
+    "date_gmt": "2025-12-16T13:19:43",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3494"
+    },
+    "modified": "2026-03-16T09:24:49",
+    "modified_gmt": "2026-03-16T09:24:49",
+    "slug": "dh2026-submissions-now-closed-thank-you-for-813-proposals",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/dh2026-submissions-now-closed-thank-you-for-813-proposals/",
+    "title": {
+      "rendered": "DH2026 Submissions Now Closed: Thank You for 813 Proposals!"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">Dear DH Community,<br>We are pleased to announce that the submission period for DH2026 has now closed. Following the extended deadline of <strong>December 15, 2024 (23:59 KST)</strong>, we received a total of 813 submissions.<br>We wish to express our sincere gratitude to all who submitted their work. The volume and breadth of proposals reflect the continued vitality of the digital humanities community and the strong interest in convening in South Korea next year.<br>As the submission system is now closed, we regret that we are unable to accept any further submissions.<br>The Program Committee will now begin the review process. We will communicate further updates regarding the review timeline and notifications in due course.<br>Thank you once again for your enthusiasm and support.</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Dear DH Community,We are pleased to announce that the submission period for DH2026 has now closed. Following the extended deadline of December 15, 2024 (23:59 KST), we received a total of 813 submissions.We wish to express our sincere gratitude to all who submitted their work. The volume and breadth of proposals reflect the continued vitality [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3494",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3494",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3494"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 6,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3494/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3530,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3494/revisions/3530"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3494"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3494"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3494"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3484,
+    "date": "2025-12-08T08:26:44",
+    "date_gmt": "2025-12-08T08:26:44",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3484"
+    },
+    "modified": "2026-03-16T09:24:56",
+    "modified_gmt": "2026-03-16T09:24:56",
+    "slug": "preview",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/preview/",
+    "title": {
+      "rendered": "Preview"
+    },
+    "content": {
+      "rendered": "\n<figure class=\"wp-block-image size-full\"><img fetchpriority=\"high\" decoding=\"async\" width=\"668\" height=\"283\" src=\"https://dh2026.adho.org/wp-content/uploads/2025/07/DH2026_logo_H_color.png\" alt=\"\" class=\"wp-image-3208\" srcset=\"https://dh2026.adho.org/wp-content/uploads/2025/07/DH2026_logo_H_color.png 668w, https://dh2026.adho.org/wp-content/uploads/2025/07/DH2026_logo_H_color-300x127.png 300w\" sizes=\"(max-width: 668px) 100vw, 668px\" /></figure>\n\n\n\n<p class=\"wp-block-paragraph\">We are currently finalizing the DH2026 registration fees, with the aim of keeping them similar to the <a href=\"https://dh2024.adho.org/index.html%3Fp=751.html\">2024 Washington conference rates</a>. The fees will be announced by the end of January, before the proposal review is complete. Thank you for your patience.</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>We are currently finalizing the DH2026 registration fees, with the aim of keeping them similar to the 2024 Washington conference rates. The fees will be announced by the end of January, before the proposal review is complete. Thank you for your patience.</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3484",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3484",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3484"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3484/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3485,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3484/revisions/3485"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3484"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3484"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3484"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3447,
+    "date": "2025-12-01T05:41:01",
+    "date_gmt": "2025-12-01T05:41:01",
+    "guid": {
+      "rendered": "https://dh2026.adho.org/?p=3447"
+    },
+    "modified": "2025-12-01T06:58:56",
+    "modified_gmt": "2025-12-01T06:58:56",
+    "slug": "deadline-extension-dh2026-call-for-proposals",
+    "status": "publish",
+    "type": "post",
+    "link": "https://dh2026.adho.org/deadline-extension-dh2026-call-for-proposals/",
+    "title": {
+      "rendered": "Deadline Extension: DH2026 Call for Proposals"
+    },
+    "content": {
+      "rendered": "\n<figure class=\"wp-block-image size-full\"><img fetchpriority=\"high\" decoding=\"async\" width=\"668\" height=\"283\" src=\"https://dh2026.adho.org/wp-content/uploads/2025/07/DH2026_logo_H_color.png\" alt=\"\" class=\"wp-image-3208\" srcset=\"https://dh2026.adho.org/wp-content/uploads/2025/07/DH2026_logo_H_color.png 668w, https://dh2026.adho.org/wp-content/uploads/2025/07/DH2026_logo_H_color-300x127.png 300w\" sizes=\"(max-width: 668px) 100vw, 668px\" /></figure>\n\n\n\n<p class=\"wp-block-paragraph\">The DH2026 organizers announce that the submission deadline for Digital Humanities 2026 proposals has been extended to <strong>December 15, 2025 (KST)</strong>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Next year’s conference (July 27–31, 2026) will be hosted by the Korean Association for Digital Humanities (KADH) at the Daejeon Convention Center in Daejeon, South Korea. The theme for this conference is “Engagement.” Submissions are welcome in multiple formats, including long and short papers, posters, panels, workshops, and mini-conferences.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Please visit the Call for Proposals on the conference website for more details: <a href=\"https://dh2026.adho.org/cfp\">https://dh2026.adho.org/cfp</a>.</p>\n\n\n\n<p class=\"wp-block-paragraph\">We invite you to share your work with the global Digital Humanities community.</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>The DH2026 organizers announce that the submission deadline for Digital Humanities 2026 proposals has been extended to December 15, 2025 (KST). Next year’s conference (July 27–31, 2026) will be hosted by the Korean Association for Digital Humanities (KADH) at the Daejeon Convention Center in Daejeon, South Korea. The theme for this conference is “Engagement.” Submissions [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": {
+      "footnotes": ""
+    },
+    "categories": [
+      17
+    ],
+    "tags": [],
+    "class_list": [
+      "post-3447",
+      "post",
+      "type-post",
+      "status-publish",
+      "format-standard",
+      "hentry",
+      "category-notice"
+    ],
+    "blocksy_meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3447",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/comments?post=3447"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 6,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3447/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 3481,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/posts/3447/revisions/3481"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/media?parent=3447"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/categories?post=3447"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "https://dh2026.adho.org/wp-json/wp/v2/tags?post=3447"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

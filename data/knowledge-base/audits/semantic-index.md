@@ -1,9 +1,9 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T21:18:55.591Z
+Generated at: 2026-06-14T21:24:55.863Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 6531
+Documents: 6561
 Shards: 14
 Shard size: 500
 
@@ -11,7 +11,7 @@ Shard size: 500
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 6097 |
+| metadata-only | 6127 |
 | stored-full-text | 200 |
 | stored-local-analysis-text | 234 |
 
@@ -19,7 +19,7 @@ Shard size: 500
 
 | Value | Count |
 | --- | ---: |
-| aha-annual-meeting-programs | 20 |
+| aha-annual-meeting-programs | 25 |
 | cleveland-museum-open-access | 200 |
 | columbia-humanities-departments | 8 |
 | crossref-humanities | 178 |
@@ -46,6 +46,7 @@ Shard size: 500
 | project-gutenberg | 200 |
 | public-books | 10 |
 | smithsonian-open-access | 225 |
+| ssrn-humanities-adjacent | 25 |
 | stanford-humanities-departments | 110 |
 | uchicago-humanities-departments | 51 |
 | wayback-machine-cdx | 23 |

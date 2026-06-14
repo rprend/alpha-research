@@ -1,0 +1,3389 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 633641,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              8,
+              28
+            ]
+          ],
+          "date-time": "2024-08-28T14:13:16Z",
+          "timestamp": 1724854396178
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.4897315",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              8,
+              20
+            ]
+          ],
+          "date-time": "2024-08-20T13:49:25Z",
+          "timestamp": 1724161765000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Law and Humanities Quarterly Reviews"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Ahmad",
+            "family": "Alsharu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              8,
+              20
+            ]
+          ],
+          "date-time": "2024-08-20T13:49:25Z",
+          "timestamp": 1724161765000
+        },
+        "score": 16.064363,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=4897315"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.4897315",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "institution": [
+          {
+            "name": "Front Matter"
+          }
+        ],
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              26
+            ]
+          ],
+          "date-time": "2025-03-26T04:06:20Z",
+          "timestamp": 1742961980179,
+          "version": "3.40.3"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2007,
+              10,
+              23
+            ]
+          ]
+        },
+        "group-title": "Social science",
+        "reference-count": 0,
+        "publisher": "Front Matter",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2007,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2007-10-23T00:00:00Z",
+              "timestamp": 1193097600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/legalcode"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2007,
+                  10,
+                  23
+                ]
+              ],
+              "date-time": "2007-10-23T00:00:00Z",
+              "timestamp": 1193097600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/legalcode"
+          }
+        ],
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<p>SSRN Announces New Humanities Research Network (HRN), a press release from the Social Science Research Network, October 19, 2007.  Excerpt:       Also see Jennifer Howard&amp;#39;s story in yesterday&amp;#39;s\n&lt;em&gt;\n Chronicle of Higher Education\n&lt;/em&gt;\n.  Excerpt:      PS:  For more background, see my post from last month on the Philosophy Research Network and some restrictions at SSRN unheard of at other OA repositories.</p>",
+        "DOI": "10.63485/jtkc2-xxj94",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              25
+            ]
+          ],
+          "date-time": "2025-03-25T08:39:20Z",
+          "timestamp": 1742891960000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "More on the Humanities Research Network at SSRN"
+        ],
+        "prefix": "10.63485",
+        "author": [
+          {
+            "given": "Peter",
+            "family": "Suber",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "31795",
+        "link": [
+          {
+            "URL": "https://legacy.earlham.edu/~peters/fos/2007/10/more-on-humanities-research-network-at.html",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.rogue-scholar.org/posts/10.63485/jtkc2-xxj94.md",
+            "content-type": "text/markdown",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.rogue-scholar.org/posts/10.63485/jtkc2-xxj94.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.rogue-scholar.org/posts/10.63485/jtkc2-xxj94.epub",
+            "content-type": "application/epub+zip",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.rogue-scholar.org/posts/10.63485/jtkc2-xxj94.xml",
+            "content-type": "application/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              3,
+              25
+            ]
+          ],
+          "date-time": "2025-03-25T08:39:24Z",
+          "timestamp": 1742891964000
+        },
+        "score": 15.003897,
+        "resource": {
+          "primary": {
+            "URL": "https://legacy.earlham.edu/~peters/fos/2007/10/more-on-humanities-research-network-at.html"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2007,
+              10,
+              23
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.63485/jtkc2-xxj94",
+        "relation": {
+          "is-part-of": [
+            {
+              "id-type": "uri",
+              "id": "https://rogue-scholar.org/api/communities/oan",
+              "asserted-by": "subject"
+            },
+            {
+              "id-type": "uri",
+              "id": "https://rogue-scholar.org/api/communities/socialScience",
+              "asserted-by": "subject"
+            }
+          ]
+        },
+        "published": {
+          "date-parts": [
+            [
+              2007,
+              10,
+              23
+            ]
+          ]
+        },
+        "subtype": "other"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              31
+            ]
+          ],
+          "date-time": "2025-10-31T14:33:37Z",
+          "timestamp": 1761921217359,
+          "version": "build-2065373602"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5641831",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              31
+            ]
+          ],
+          "date-time": "2025-10-31T13:46:38Z",
+          "timestamp": 1761918398000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Digital Humanities, AI, and Comparative Literature: An Epistemological Reconfiguration"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Wael",
+            "family": "Ashry",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              31
+            ]
+          ],
+          "date-time": "2025-10-31T14:31:02Z",
+          "timestamp": 1761921062000
+        },
+        "score": 14.95537,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5641831"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5641831",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              7
+            ]
+          ],
+          "date-time": "2025-10-07T01:04:30Z",
+          "timestamp": 1759799070635,
+          "version": "build-2065373602"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5532238",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              6
+            ]
+          ],
+          "date-time": "2025-10-06T19:17:47Z",
+          "timestamp": 1759778267000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Interdisciplinary Educational Contributions to Humanities, Literary Studies, and Maritime Sciences"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Andreea",
+            "family": "Ilea",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              6
+            ]
+          ],
+          "date-time": "2025-10-06T19:17:47Z",
+          "timestamp": 1759778267000
+        },
+        "score": 14.906204,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5532238"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5532238",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              7
+            ]
+          ],
+          "date-time": "2025-10-07T01:03:32Z",
+          "timestamp": 1759799012122,
+          "version": "build-2065373602"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5532198",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              6
+            ]
+          ],
+          "date-time": "2025-10-06T19:15:25Z",
+          "timestamp": 1759778125000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Multiple Researches for Dialogues Across Humanities, Literature, and Maritime Sciences"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Andreea",
+            "family": "Ilea",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              6
+            ]
+          ],
+          "date-time": "2025-10-06T19:15:25Z",
+          "timestamp": 1759778125000
+        },
+        "score": 14.788408,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5532198"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5532198",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              1
+            ]
+          ],
+          "date-time": "2025-07-01T04:09:41Z",
+          "timestamp": 1751342981881,
+          "version": "3.41.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5330017",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              30
+            ]
+          ],
+          "date-time": "2025-06-30T14:37:53Z",
+          "timestamp": 1751294273000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "From Cogito to Code: The Philosophy of Consciousness in Digital Humanities"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Kerwin Xiang",
+            "family": "Liao",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              30
+            ]
+          ],
+          "date-time": "2025-06-30T14:37:53Z",
+          "timestamp": 1751294273000
+        },
+        "score": 14.357696,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5330017"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5330017",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T07:50:00Z",
+          "timestamp": 1776930600211,
+          "version": "3.51.2"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>Posthumanism and digital humanities share a fundamental concern with boundariesbetween human and non-human, nature and culture, discipline and discipline. Both fields deconstruct fixed categories and emphasise fluidity, movement, and hybridity. However, neither has fully theorised how we are to operate within such fluid conditions. This working paper introduces the concept of oscillation as a practical and philosophical response to post-boundary thinking. Drawing on key posthumanist theorists (Haraway, Braidotti, Wolfe) and the methodological practices of digital humanities (mixed methods, cross-disciplinary collaboration, technological mediation), the paper argues that boundaries are not simply crossed but must be continuously moved along spatial, temporal, and ontological axes. The paper proposes a metaphor-the slider in video editing software (e.g., Adobe Premiere)-to illustrate how oscillation works: a slider can stretch or compress a sequence, zoom in or out, and thereby change the scale and nature of observation.</jats:p>",
+        "DOI": "10.2139/ssrn.6518478",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T07:17:42Z",
+          "timestamp": 1776928662000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "From Technology to Culture: The Interaction between Contemporary Western Digital Humanities and Posthumanism"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0000-8216-5236",
+            "authenticated-orcid": true,
+            "given": "Zhao",
+            "family": "Xie",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              23
+            ]
+          ],
+          "date-time": "2026-04-23T07:17:42Z",
+          "timestamp": 1776928662000
+        },
+        "score": 14.0938635,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=6518478"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.6518478",
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              7
+            ]
+          ],
+          "date-time": "2024-12-07T05:10:37Z",
+          "timestamp": 1733548237284,
+          "version": "3.30.1"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.4983232",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              6
+            ]
+          ],
+          "date-time": "2024-12-06T11:44:43Z",
+          "timestamp": 1733485483000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Shaping the Future of Distance Learning: A Study of Humanities Students' Online Learning Preferences"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Genesio",
+            "family": "Modesti",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              6
+            ]
+          ],
+          "date-time": "2024-12-06T11:44:43Z",
+          "timestamp": 1733485483000
+        },
+        "score": 14.044205,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=4983232"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.4983232",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              8
+            ]
+          ],
+          "date-time": "2025-11-08T04:48:19Z",
+          "timestamp": 1762577299745,
+          "version": "build-2065373602"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 30,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5719356",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              7
+            ]
+          ],
+          "date-time": "2025-11-07T23:50:42Z",
+          "timestamp": 1762559442000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Chun Huanga, Kehao Xingb*, aSchool of Humanities and Management, Zhejiang Chinese Medical University"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Chun",
+            "family": "Huang",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Kehao",
+            "family": "Xing",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "issue": "1",
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "first-page": "653",
+            "DOI": "10.5465/19416520.2011.593320",
+            "article-title": "The Bind that Ties: Socioemotional Wealth Preservation in Family Firms",
+            "volume": "5",
+            "author": "L R Gomez-Mejia",
+            "year": "2011",
+            "journal-title": "The Academy of Management Annals"
+          },
+          {
+            "issue": "3",
+            "key": "ref2",
+            "doi-asserted-by": "crossref",
+            "first-page": "819",
+            "DOI": "10.1007/s11365-016-0426-3",
+            "article-title": "Links Between Entrepreneurial Culture, Innovation, and Performance: The Moderating Role of Family Firms",
+            "volume": "13",
+            "author": "G Leal-Rodr�guez A L, Albort-Morant",
+            "year": "2017",
+            "journal-title": "International Entrepreneurship and Management Journal"
+          },
+          {
+            "journal-title": "Strategic leadership: Top executives and their effect on organizations",
+            "year": "1996",
+            "author": "S Finkelstein",
+            "key": "ref3"
+          },
+          {
+            "key": "ref4",
+            "first-page": "662",
+            "volume": "42",
+            "author": "T Simons",
+            "year": "1999",
+            "journal-title": "Making use of difference: Diversity, debate, and decision comprehensiveness in top management teams"
+          },
+          {
+            "issue": "4",
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "first-page": "797",
+            "DOI": "10.5465/amj.2011.64870140",
+            "article-title": "When do relational resources matter? Leveraging portfolio technological resources for breakthrough innovation",
+            "volume": "54",
+            "author": "M K Srivastava",
+            "year": "2011",
+            "journal-title": "Academy of Management Journal"
+          },
+          {
+            "issue": "1",
+            "key": "ref6",
+            "doi-asserted-by": "crossref",
+            "first-page": "91",
+            "DOI": "10.2307/256474",
+            "article-title": "Top management team demography and corporate strategic change",
+            "volume": "35",
+            "author": "M F Wiersema",
+            "year": "1992",
+            "journal-title": "Academy of Management Journal"
+          },
+          {
+            "key": "ref7",
+            "doi-asserted-by": "crossref",
+            "first-page": "363",
+            "DOI": "10.1016/j.jbusres.2019.10.051",
+            "article-title": "Toward a dynamic construction of organizational ambidexterity: Exploring the synergies between structural differentiation, organizational context, and interorganizational relations",
+            "volume": "112",
+            "author": "M Ubeda-Garcia",
+            "year": "2020",
+            "journal-title": "Journal of Business Research"
+          },
+          {
+            "issue": "6",
+            "key": "ref8",
+            "doi-asserted-by": "crossref",
+            "first-page": "1083",
+            "DOI": "10.1002/smj.3119",
+            "article-title": "Performance implications of incremental transition and discontinuous jump between exploration and exploitation",
+            "volume": "41",
+            "author": "J Kang",
+            "year": "2020",
+            "journal-title": "Strategic Management Journal"
+          },
+          {
+            "key": "ref9",
+            "article-title": "Finding the microfoundations of organizational ambidexterity-Demystifying the role of top management behavioural integration",
+            "author": "A Venugopal",
+            "year": "2020",
+            "journal-title": "Journal of Business Research"
+          },
+          {
+            "issue": "3",
+            "key": "ref10",
+            "doi-asserted-by": "crossref",
+            "first-page": "366",
+            "DOI": "10.1080/00343404.2019.1624712",
+            "article-title": "Enterprise R&D investments, product innovation and the regional industry structure",
+            "volume": "54",
+            "author": "J Aarstad",
+            "year": "2020",
+            "journal-title": "Regional Studies"
+          },
+          {
+            "key": "ref11",
+            "doi-asserted-by": "crossref",
+            "first-page": "106",
+            "DOI": "10.2189/asqu.52.1.106",
+            "article-title": "Socioemotional wealth and business risks in familycontrolled firms: Evidence from Spanish olive oil mills",
+            "volume": "52",
+            "author": "Gomez-Mejia L R",
+            "year": "2007",
+            "journal-title": "Administrative Science Quarterly"
+          },
+          {
+            "issue": "6",
+            "key": "ref12",
+            "doi-asserted-by": "crossref",
+            "first-page": "1351",
+            "DOI": "10.1111/etap.12083",
+            "article-title": "Socioemotional wealth as a mixed gamble: Revisiting family firm R&D investments with the behavioral agency model",
+            "volume": "38",
+            "author": "Gomez-Mejla L R",
+            "year": "2014",
+            "journal-title": "Entrepreneurship Theory and Practice"
+          },
+          {
+            "issue": "2",
+            "key": "ref13",
+            "doi-asserted-by": "crossref",
+            "first-page": "169",
+            "DOI": "10.1111/j.1741-6248.2008.00117.x",
+            "article-title": "Knowledge integration and dynamic organizational adaptation in family firms",
+            "volume": "21",
+            "author": "Chirico Francesco",
+            "year": "2008",
+            "journal-title": "Family Business Review"
+          },
+          {
+            "key": "ref14",
+            "doi-asserted-by": "crossref",
+            "first-page": "924",
+            "DOI": "10.1002/bse.2042",
+            "article-title": "The relevance of personal characteristics and gender diversity for(eco-)innovation activities at the firm-level: Results from a linked employeremployee database in Germany",
+            "volume": "27",
+            "author": "J Horbach",
+            "year": "2018",
+            "journal-title": "Business Strategy and the Environment"
+          },
+          {
+            "key": "ref15",
+            "first-page": "597",
+            "article-title": "Organizational ambidexterity: toward a multilevel understanding",
+            "volume": "46",
+            "author": "Z Simsek",
+            "year": "2009",
+            "journal-title": "Journal Management Studies"
+          },
+          {
+            "issue": "1",
+            "key": "ref16",
+            "doi-asserted-by": "crossref",
+            "first-page": "653",
+            "DOI": "10.5465/19416520.2011.593320",
+            "article-title": "The Bind that Ties: Socioemotional Wealth Preservation in Family Firms",
+            "volume": "5",
+            "author": "L R Gomez-Mejia",
+            "year": "2011",
+            "journal-title": "The Academy of Management Annals"
+          },
+          {
+            "issue": "3",
+            "key": "ref17",
+            "doi-asserted-by": "crossref",
+            "first-page": "819",
+            "DOI": "10.1007/s11365-016-0426-3",
+            "article-title": "Links Between Entrepreneurial Culture, Innovation, and Performance: The Moderating Role of Family Firms",
+            "volume": "13",
+            "author": "G Leal-Rodr�guez A L, Albort-Morant",
+            "year": "2017",
+            "journal-title": "International Entrepreneurship and Management Journal"
+          },
+          {
+            "journal-title": "Strategic leadership: Top executives and their effect on organizations",
+            "year": "1996",
+            "author": "S Finkelstein",
+            "key": "ref18"
+          },
+          {
+            "key": "ref19",
+            "first-page": "662",
+            "volume": "42",
+            "author": "T Simons",
+            "year": "1999",
+            "journal-title": "Making use of difference: Diversity, debate, and decision comprehensiveness in top management teams"
+          },
+          {
+            "issue": "4",
+            "key": "ref20",
+            "doi-asserted-by": "crossref",
+            "first-page": "797",
+            "DOI": "10.5465/amj.2011.64870140",
+            "article-title": "When do relational resources matter? Leveraging portfolio technological resources for breakthrough innovation",
+            "volume": "54",
+            "author": "M K Srivastava",
+            "year": "2011",
+            "journal-title": "Academy of Management Journal"
+          },
+          {
+            "issue": "1",
+            "key": "ref21",
+            "doi-asserted-by": "crossref",
+            "first-page": "91",
+            "DOI": "10.2307/256474",
+            "article-title": "Top management team demography and corporate strategic change",
+            "volume": "35",
+            "author": "M F Wiersema",
+            "year": "1992",
+            "journal-title": "Academy of Management Journal"
+          },
+          {
+            "key": "ref22",
+            "doi-asserted-by": "crossref",
+            "first-page": "363",
+            "DOI": "10.1016/j.jbusres.2019.10.051",
+            "article-title": "Toward a dynamic construction of organizational ambidexterity: Exploring the synergies between structural differentiation, organizational context, and interorganizational relations",
+            "volume": "112",
+            "author": "M Ubeda-Garcia",
+            "year": "2020",
+            "journal-title": "Journal of Business Research"
+          },
+          {
+            "issue": "6",
+            "key": "ref23",
+            "doi-asserted-by": "crossref",
+            "first-page": "1083",
+            "DOI": "10.1002/smj.3119",
+            "article-title": "Performance implications of incremental transition and discontinuous jump between exploration and exploitation",
+            "volume": "41",
+            "author": "J Kang",
+            "year": "2020",
+            "journal-title": "Strategic Management Journal"
+          },
+          {
+            "key": "ref24",
+            "article-title": "Finding the microfoundations of organizational ambidexterity-Demystifying the role of top management behavioural integration",
+            "author": "A Venugopal",
+            "year": "2020",
+            "journal-title": "Journal of Business Research"
+          },
+          {
+            "issue": "3",
+            "key": "ref25",
+            "doi-asserted-by": "crossref",
+            "first-page": "366",
+            "DOI": "10.1080/00343404.2019.1624712",
+            "article-title": "Enterprise R&D investments, product innovation and the regional industry structure",
+            "volume": "54",
+            "author": "J Aarstad",
+            "year": "2020",
+            "journal-title": "Regional Studies"
+          },
+          {
+            "key": "ref26",
+            "doi-asserted-by": "crossref",
+            "first-page": "106",
+            "DOI": "10.2189/asqu.52.1.106",
+            "article-title": "Socioemotional wealth and business risks in familycontrolled firms: Evidence from Spanish olive oil mills",
+            "volume": "52",
+            "author": "Gomez-Mejia L R",
+            "year": "2007",
+            "journal-title": "Administrative Science Quarterly"
+          },
+          {
+            "issue": "6",
+            "key": "ref27",
+            "doi-asserted-by": "crossref",
+            "first-page": "1351",
+            "DOI": "10.1111/etap.12083",
+            "article-title": "Socioemotional wealth as a mixed gamble: Revisiting family firm R&D investments with the behavioral agency model",
+            "volume": "38",
+            "author": "Gomez-Mejla L R",
+            "year": "2014",
+            "journal-title": "Entrepreneurship Theory and Practice"
+          },
+          {
+            "issue": "2",
+            "key": "ref28",
+            "doi-asserted-by": "crossref",
+            "first-page": "169",
+            "DOI": "10.1111/j.1741-6248.2008.00117.x",
+            "article-title": "Knowledge integration and dynamic organizational adaptation in family firms",
+            "volume": "21",
+            "author": "Chirico Francesco",
+            "year": "2008",
+            "journal-title": "Family Business Review"
+          },
+          {
+            "key": "ref29",
+            "doi-asserted-by": "crossref",
+            "first-page": "924",
+            "DOI": "10.1002/bse.2042",
+            "article-title": "The relevance of personal characteristics and gender diversity for(eco-)innovation activities at the firm-level: Results from a linked employeremployee database in Germany",
+            "volume": "27",
+            "author": "J Horbach",
+            "year": "2018",
+            "journal-title": "Business Strategy and the Environment"
+          },
+          {
+            "key": "ref30",
+            "first-page": "597",
+            "article-title": "Organizational ambidexterity: toward a multilevel understanding",
+            "volume": "46",
+            "author": "Z Simsek",
+            "year": "2009",
+            "journal-title": "Journal Management Studies"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              8
+            ]
+          ],
+          "date-time": "2025-11-08T04:44:24Z",
+          "timestamp": 1762577064000
+        },
+        "score": 13.780653,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5719356"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 30,
+        "URL": "https://doi.org/10.2139/ssrn.5719356",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              5
+            ]
+          ],
+          "date-time": "2025-07-05T04:11:12Z",
+          "timestamp": 1751688672882,
+          "version": "3.41.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5284806",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              22
+            ]
+          ],
+          "date-time": "2025-06-22T12:50:58Z",
+          "timestamp": 1750596658000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Syntaxology — Bridging the Humanities and the Sciences: A Co-evolutionary Semi-Autonomous Recursive AI Society Model"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Jieyin",
+            "family": "YU",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              7,
+              4
+            ]
+          ],
+          "date-time": "2025-07-04T16:32:27Z",
+          "timestamp": 1751646747000
+        },
+        "score": 13.624271,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5284806"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5284806",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              20
+            ]
+          ],
+          "date-time": "2025-09-20T07:28:07Z",
+          "timestamp": 1758353287891,
+          "version": "3.44.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5431395",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              19
+            ]
+          ],
+          "date-time": "2025-09-19T09:37:16Z",
+          "timestamp": 1758274636000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Recommender Systems for Digital Humanities and Archives: Multistakeholder Evaluation, Scholarly Information Needs, and Multimodal Similarity"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Florian",
+            "family": "Atzenhofer-Baumgartner",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              19
+            ]
+          ],
+          "date-time": "2025-09-19T09:37:16Z",
+          "timestamp": 1758274636000
+        },
+        "score": 13.604063,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5431395"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5431395",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              21
+            ]
+          ],
+          "date-time": "2025-11-21T16:40:19Z",
+          "timestamp": 1763743219733,
+          "version": "3.45.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5753982",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              21
+            ]
+          ],
+          "date-time": "2025-11-21T16:36:37Z",
+          "timestamp": 1763742997000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A Provisional Map of the Disciplines: Mathematics, Logic, Relations, Natural Language, and the Humanities"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "克行",
+            "family": "奥村",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              21
+            ]
+          ],
+          "date-time": "2025-11-21T16:36:37Z",
+          "timestamp": 1763742997000
+        },
+        "score": 13.553748,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5753982"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5753982",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              12
+            ]
+          ],
+          "date-time": "2024-12-12T05:45:19Z",
+          "timestamp": 1733982319548,
+          "version": "3.30.2"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.4987963",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              11
+            ]
+          ],
+          "date-time": "2024-12-11T17:42:22Z",
+          "timestamp": 1733938942000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Kwame Nkrumah University of Science and Technology, Kumasi College Of Humanities and Social Science&amp;nbsp;"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Adam",
+            "family": "Kwarteng",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              12,
+              11
+            ]
+          ],
+          "date-time": "2024-12-11T17:42:22Z",
+          "timestamp": 1733938942000
+        },
+        "score": 13.549482,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=4987963"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.4987963",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              8
+            ]
+          ],
+          "date-time": "2026-05-08T14:15:16Z",
+          "timestamp": 1778249716368,
+          "version": "3.51.4"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "abstract": "<jats:p>The humanities and many social-scientific theories exhibit a distinctive epistemic profile: they often remain explanatorily rich while being difficult to falsify in a stringent Popperian sense. This paper proposes a structural account of that phenomenon. The central claim is that a theory in a weakly constrained domain can be progressively refined-by concept splitting, exception carving, mechanistic supplementation, and interpretive re-description-in a way that preserves or even improves local explanatory fit while reducing global vulnerability to refutation. To make this idea precise, we model theories as nodes in a preorder of semantic and inferential refinements. Using the language of topological coverings, a coarse theory is treated as an open cover of a phenomenon-space, and refinement is understood as passing to a finer cover that partitions the same explananda more delicately. The key result is not that every theory can be refined into truth, but that in domains with high semantic elasticity and low constraint density, refinement is cheap enough that ad hoc accommodation of anomalies becomes systematically available. We show that this mechanism helps explain why humanities and social-scientific theories often display weak falsifiability without collapsing into mere arbitrariness. The paper concludes by identifying empirical and methodological implications, including criteria for distinguishing productive refinement from degenerative immunization.</jats:p>",
+        "DOI": "10.2139/ssrn.6674281",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              8
+            ]
+          ],
+          "date-time": "2026-05-08T13:43:38Z",
+          "timestamp": 1778247818000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Refinement as an Immunizing Mechanism: A Topological Model of Weak Falsifiability in the Humanities and Social Sciences"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Zhang",
+            "family": "Sulin",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              8
+            ]
+          ],
+          "date-time": "2026-05-08T13:43:38Z",
+          "timestamp": 1778247818000
+        },
+        "score": 13.463881,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=6674281"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.6674281",
+        "published": {
+          "date-parts": [
+            [
+              2026
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              10
+            ]
+          ],
+          "date-time": "2025-11-10T15:19:21Z",
+          "timestamp": 1762787961210,
+          "version": "build-2065373602"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5703026",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              10
+            ]
+          ],
+          "date-time": "2025-11-10T15:14:46Z",
+          "timestamp": 1762787686000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Unpackaging of the World, Noraly Schoenmaker, the Media's Packaged World, and the Reclamation of Global Humanities"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Aloysius",
+            "family": "Yapp",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              10
+            ]
+          ],
+          "date-time": "2025-11-10T15:14:46Z",
+          "timestamp": 1762787686000
+        },
+        "score": 13.412632,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5703026"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5703026",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2024-10-10T04:21:46Z",
+          "timestamp": 1728534106614
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.4981025",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              9
+            ]
+          ],
+          "date-time": "2024-10-09T07:38:01Z",
+          "timestamp": 1728459481000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Beyond Commercialisation: Revealing the Multifaceted Economic Impacts of Arts, Humanities &amp; Social Science"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Syahirah",
+            "family": "Abdul Rahman",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Jen",
+            "family": "Nelles",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Tim",
+            "family": "Vorley",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              10,
+              9
+            ]
+          ],
+          "date-time": "2024-10-09T07:38:01Z",
+          "timestamp": 1728459481000
+        },
+        "score": 13.3514595,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=4981025"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.4981025",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              6
+            ]
+          ],
+          "date-time": "2025-05-06T20:40:11Z",
+          "timestamp": 1746564011110,
+          "version": "3.40.5"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5228102",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              6
+            ]
+          ],
+          "date-time": "2025-05-06T20:04:59Z",
+          "timestamp": 1746561899000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Code, Crown, and Community: Reconstructing the Lives of Immigrants in Medieval London through Royal Records and Digital Humanities 1"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Elemegious",
+            "family": "Mugamba",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              6
+            ]
+          ],
+          "date-time": "2025-05-06T20:04:59Z",
+          "timestamp": 1746561899000
+        },
+        "score": 13.11017,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5228102"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5228102",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              23
+            ]
+          ],
+          "date-time": "2025-09-23T00:33:55Z",
+          "timestamp": 1758587635782,
+          "version": "3.44.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5430715",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              22
+            ]
+          ],
+          "date-time": "2025-09-22T14:17:28Z",
+          "timestamp": 1758550648000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Philosophy is Dead, Long Live Meme OS: Financial Freedom for Humanities Majors (¬_¬) -A Shitpost Disguised as a Whitepaper"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Qinshu",
+            "family": "Yu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              22
+            ]
+          ],
+          "date-time": "2025-09-22T14:17:29Z",
+          "timestamp": 1758550649000
+        },
+        "score": 13.061768,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5430715"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5430715",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              18
+            ]
+          ],
+          "date-time": "2025-11-18T21:04:10Z",
+          "timestamp": 1763499850146,
+          "version": "3.45.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 42,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5766998",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              18
+            ]
+          ],
+          "date-time": "2025-11-18T20:50:49Z",
+          "timestamp": 1763499049000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Publishing in Japanese or English? Language Choice Among Japanese Doctoral Students in the Humanities and Social Sciences"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Wenjuan",
+            "family": "Cheng",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Yusuke",
+            "family": "Sakurai",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": [
+          {
+            "issue": "2",
+            "key": "ref1",
+            "doi-asserted-by": "crossref",
+            "first-page": "77",
+            "DOI": "10.1191/1478088706qp063oa",
+            "article-title": "Using thematic analysis in psychology",
+            "volume": "3",
+            "author": "V Braun",
+            "year": "2006",
+            "journal-title": "Qualitative Research in Psychology"
+          },
+          {
+            "key": "ref2",
+            "doi-asserted-by": "crossref",
+            "first-page": "72",
+            "DOI": "10.1016/j.jeap.2014.01.001",
+            "article-title": "Affordances and constraints on research publication: A comparative study of the language choices of Spanish historians and psychologists",
+            "volume": "14",
+            "author": "S Burgess",
+            "year": "2014",
+            "journal-title": "Journal of English for Academic Purposes"
+          },
+          {
+            "issue": "2",
+            "key": "ref3",
+            "doi-asserted-by": "crossref",
+            "first-page": "175",
+            "DOI": "10.1016/S1060-3743(98)90012-1",
+            "article-title": "Transitions: The balancing act of bilingual academics",
+            "volume": "7",
+            "author": "C P Casanave",
+            "year": "1998",
+            "journal-title": "Journal of Second Language Writing"
+          },
+          {
+            "issue": "1",
+            "key": "ref4",
+            "doi-asserted-by": "crossref",
+            "first-page": "85",
+            "DOI": "10.1016/S1060-3743(03)00002-X",
+            "article-title": "Looking ahead to more sociopolitically-oriented case study research in L2 writing scholarship",
+            "volume": "12",
+            "author": "C P Casanave",
+            "year": "2003",
+            "journal-title": "Journal of Second Language Writing"
+          },
+          {
+            "issue": "4",
+            "key": "ref5",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.2307/3588284",
+            "article-title": "Multilingual scholars and the imperative to publish in English: Negotiating interests, demands, and rewards",
+            "volume": "38",
+            "author": "M J Curry",
+            "year": "2004",
+            "journal-title": "TESOL Quarterly"
+          },
+          {
+            "issue": "2",
+            "key": "ref6",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.3390/publications7020027",
+            "article-title": "Unpacking the lore on multilingual scholars' publishing in English: A discussion paper",
+            "volume": "7",
+            "author": "M J Curry",
+            "year": "2019",
+            "journal-title": "Publications"
+          },
+          {
+            "journal-title": "Case study research in applied linguistics",
+            "year": "2008",
+            "author": "P A Duff",
+            "key": "ref7"
+          },
+          {
+            "issue": "2",
+            "key": "ref8",
+            "doi-asserted-by": "crossref",
+            "first-page": "108",
+            "DOI": "10.1016/j.jeap.2008.03.001",
+            "article-title": "Publishing academic texts in English: A Polish perspective",
+            "volume": "7",
+            "author": "A Duszak",
+            "year": "2008",
+            "journal-title": "Journal of English for Academic Purposes"
+          },
+          {
+            "issue": "2",
+            "key": "ref9",
+            "doi-asserted-by": "crossref",
+            "first-page": "249",
+            "DOI": "10.1017/S0261444819000041",
+            "article-title": "The linguistic disadvantage of scholars who write in English as an additional language: Myth or reality",
+            "volume": "52",
+            "author": "J Flowerdew",
+            "year": "2019",
+            "journal-title": "Language Teaching"
+          },
+          {
+            "journal-title": "Introducing English for research publication purposes",
+            "year": "2022",
+            "author": "J Flowerdew",
+            "key": "ref10"
+          },
+          {
+            "issue": "1",
+            "key": "ref11",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1016/j.jslw.2008.09.005",
+            "article-title": "English or Chinese? The trade-off between local and international publication among Chinese academics in the humanities and social sciences",
+            "volume": "18",
+            "author": "J Flowerdew",
+            "year": "2009",
+            "journal-title": "Journal of Second Language Writing"
+          },
+          {
+            "key": "ref12",
+            "doi-asserted-by": "crossref",
+            "first-page": "1",
+            "DOI": "10.1016/j.jeap.2017.02.004",
+            "article-title": "Navigating scholarly writing and international publishing: Individual agency of Taiwanese EAL doctoral students",
+            "volume": "27",
+            "author": "M C Ho",
+            "year": "2017",
+            "journal-title": "Journal of English for Academic Purposes"
+          },
+          {
+            "issue": "2",
+            "key": "ref13",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.3390/publications7020031",
+            "article-title": "English as the language for academic publication: On equity, disadvantage and 'nonnativeness' as a red herring",
+            "volume": "7",
+            "author": "A K Hultgren",
+            "year": "2019",
+            "journal-title": "Publications"
+          },
+          {
+            "issue": "1",
+            "key": "ref14",
+            "doi-asserted-by": "crossref",
+            "first-page": "33",
+            "DOI": "10.1016/j.jeap.2009.10.001",
+            "article-title": "Publishing and learning writing for publication in English: Perspectives of NNES PhD students in science",
+            "volume": "9",
+            "author": "J C Huang",
+            "year": "2010",
+            "journal-title": "Journal of English for Academic Purposes"
+          },
+          {
+            "key": "ref15",
+            "doi-asserted-by": "crossref",
+            "DOI": "10.14507/epaa.v22n30.2014",
+            "article-title": "Ranking regime and the future of vernacular scholarship",
+            "volume": "22",
+            "author": "M Ishikawa",
+            "year": "2014",
+            "journal-title": "Education Policy Analysis Archives"
+          },
+          {
+            "key": "ref16",
+            "doi-asserted-by": "crossref",
+            "first-page": "451",
+            "DOI": "10.1057/s41307-016-0014-8",
+            "article-title": "The Paradox of Autonomy: Japan's vernacular scholarship and the policy pursuit of \"Super Global",
+            "volume": "29",
+            "author": "M Ishikawa",
+            "year": "2016",
+            "journal-title": "Higher Education Policy"
+          },
+          {
+            "issue": "3",
+            "key": "ref17",
+            "doi-asserted-by": "crossref",
+            "first-page": "428",
+            "DOI": "10.1080/03075079.2015.1049144",
+            "article-title": "Challenges and coping strategies for international publication: Perceptions of young scholars in China",
+            "volume": "42",
+            "author": "X Jiang",
+            "year": "2017",
+            "journal-title": "Studies in Higher Education"
+          },
+          {
+            "issue": "4",
+            "key": "ref18",
+            "doi-asserted-by": "crossref",
+            "first-page": "554",
+            "DOI": "10.1007/s12109-018-9602-3",
+            "article-title": "Scholarly publishing in Korea: Language, perception, practice of Korean university faculty",
+            "volume": "34",
+            "author": "E.-Y J Kim",
+            "year": "2018",
+            "journal-title": "Publishing Research Quarterly"
+          },
+          {
+            "key": "ref19",
+            "doi-asserted-by": "crossref",
+            "first-page": "20",
+            "DOI": "10.1016/j.jslw.2016.12.004",
+            "article-title": "Writing academic English as a doctoral student in Sweden: Narrative perspectives",
+            "volume": "35",
+            "author": "V Langum",
+            "year": "2017",
+            "journal-title": "Journal of Second Language Writing"
+          },
+          {
+            "issue": "3",
+            "key": "ref20",
+            "doi-asserted-by": "crossref",
+            "first-page": "215",
+            "DOI": "10.1007/s10993-012-9267-2",
+            "article-title": "Publish (in international indexed journals) or perish: Neoliberal ideology in a Korean university",
+            "volume": "12",
+            "author": "H Lee",
+            "year": "2013",
+            "journal-title": "Language Policy"
+          },
+          {
+            "issue": "1",
+            "key": "ref21",
+            "doi-asserted-by": "crossref",
+            "first-page": "68",
+            "DOI": "10.1080/0158037X.2019.1672638",
+            "article-title": "Neoliberal ideologies in a Chinese university's requirements and rewards schemes for doctoral publication",
+            "volume": "43",
+            "author": "J Lei",
+            "year": "2021",
+            "journal-title": "Studies in Continuing Education"
+          },
+          {
+            "key": "ref22",
+            "article-title": "Non-native English-speaking (NNES) students' English academic writing experiences in higher education: A meta-ethnographic qualitative synthesis",
+            "author": "M Li",
+            "year": "2024",
+            "journal-title": "Journal of English for Academic Purposes"
+          },
+          {
+            "issue": "4",
+            "key": "ref23",
+            "doi-asserted-by": "crossref",
+            "first-page": "545",
+            "DOI": "10.1080/02188791.2015.1005050",
+            "article-title": "Publish SCI papers or no degree\": Practices of Chinese doctoral supervisors in response to the publication pressure on science students",
+            "volume": "36",
+            "author": "Y Li",
+            "year": "2016",
+            "journal-title": "Asia Pacific Journal of Education"
+          },
+          {
+            "issue": "4",
+            "key": "ref24",
+            "doi-asserted-by": "crossref",
+            "first-page": "279",
+            "DOI": "10.1016/j.jeap.2009.05.002",
+            "article-title": "International engagement versus local commitment: Hong Kong academics in the humanities and social sciences writing for publication",
+            "volume": "8",
+            "author": "Y Li",
+            "year": "2009",
+            "journal-title": "Journal of English for Academic Purposes"
+          },
+          {
+            "issue": "6",
+            "key": "ref25",
+            "doi-asserted-by": "crossref",
+            "first-page": "1176",
+            "DOI": "10.1080/07294360.2020.1809354",
+            "article-title": "Writing in English as an additional language: Challenges encountered by doctoral students",
+            "volume": "40",
+            "author": "L P F Ma",
+            "year": "2021",
+            "journal-title": "Higher Education Research & Development"
+          },
+          {
+            "issue": "2",
+            "key": "ref26",
+            "doi-asserted-by": "crossref",
+            "first-page": "255",
+            "DOI": "10.1007/s10734-019-00478-1",
+            "article-title": "Iranian doctoral students' shared experience of English-medium publication: The case of humanities and social sciences",
+            "volume": "80",
+            "author": "A Mansouri Nejad",
+            "year": "2020",
+            "journal-title": "Higher Education"
+          },
+          {
+            "issue": "1",
+            "key": "ref27",
+            "doi-asserted-by": "crossref",
+            "first-page": "57",
+            "DOI": "10.1080/1360080X.2024.2389357",
+            "article-title": "What makes a Thesis by Publication? An international study of policy requirements and restrictions",
+            "volume": "47",
+            "author": "S Mason",
+            "year": "2025",
+            "journal-title": "Journal of Higher Education Policy and Management"
+          },
+          {
+            "key": "ref28",
+            "doi-asserted-by": "crossref",
+            "first-page": "141",
+            "DOI": "10.1016/j.jeap.2018.11.011",
+            "article-title": "Japanese materials scientists' experiences with English for research publication purposes",
+            "volume": "37",
+            "author": "L Mcdowell",
+            "year": "2019",
+            "journal-title": "Journal of English for Academic Purposes"
+          },
+          {
+            "journal-title": "Top Global University Project",
+            "year": "2013",
+            "key": "ref29"
+          },
+          {
+            "key": "ref30",
+            "article-title": "The impact of the internationalization of political science on publishing in two languages: The case of Japan",
+            "author": "M Nishikawa",
+            "year": "1971",
+            "journal-title": "Scientometrics"
+          },
+          {
+            "issue": "3",
+            "key": "ref31",
+            "doi-asserted-by": "crossref",
+            "first-page": "705",
+            "DOI": "10.1080/07294360.2024.2429428",
+            "article-title": "International doctoral students' socialization into English academic writing proficiency",
+            "volume": "44",
+            "author": "W M Phyo",
+            "year": "2025",
+            "journal-title": "Higher Education Research & Development"
+          },
+          {
+            "issue": "4",
+            "key": "ref32",
+            "doi-asserted-by": "crossref",
+            "first-page": "941",
+            "DOI": "10.1108/JARHE-02-2019-0040",
+            "article-title": "Iranian doctoral students' perceptions of publication in English: Motives, hurdles, and strategies",
+            "volume": "11",
+            "author": "S Rezaei",
+            "year": "2019",
+            "journal-title": "Journal of Applied Research in Higher Education"
+          },
+          {
+            "issue": "2",
+            "key": "ref33",
+            "doi-asserted-by": "crossref",
+            "first-page": "103",
+            "DOI": "10.61186/johepal.5.2.103",
+            "article-title": "Navigating doctoral students' dual-track academic socialisation in Japan",
+            "volume": "5",
+            "author": "Y Sakurai",
+            "year": "2024",
+            "journal-title": "Journal of Higher Education Policy and Leadership Studies"
+          },
+          {
+            "issue": "7",
+            "key": "ref34",
+            "doi-asserted-by": "crossref",
+            "first-page": "2367",
+            "DOI": "10.1080/07294360.2021.2014410",
+            "article-title": "Competing meanings of international experiences for early-career researchers: a collaborative autoethnographic approach",
+            "volume": "41",
+            "author": "Y Sakurai",
+            "year": "2022",
+            "journal-title": "Higher Education Research and Development"
+          },
+          {
+            "key": "ref35",
+            "article-title": "Theory in practice. Increasing Professional effectiveness",
+            "author": "& Sch�n",
+            "year": "1974",
+            "journal-title": "SJR-SCImago journal & country rank"
+          },
+          {
+            "issue": "2",
+            "key": "ref36",
+            "article-title": "Challenges and support in article publication: Perspectives of non-native English speaking doctoral students in a \"Publish or No Degree",
+            "volume": "12",
+            "author": "A F Shamsi",
+            "year": "2022",
+            "journal-title": "context. SAGE Open"
+          },
+          {
+            "issue": "2",
+            "key": "ref37",
+            "doi-asserted-by": "crossref",
+            "first-page": "645",
+            "DOI": "10.1007/s11192-018-2987-0",
+            "article-title": "Publishing in English or another language: An inclusive study of scholar's language publication preferences in the natural, social and interdisciplinary sciences",
+            "volume": "118",
+            "author": "D Stockemer",
+            "year": "2019",
+            "journal-title": "Scientometrics"
+          },
+          {
+            "issue": "1",
+            "key": "ref38",
+            "doi-asserted-by": "crossref",
+            "first-page": "5",
+            "DOI": "10.1075/jerpp.22009.str",
+            "article-title": "Most good papers are published in English\": Japanese academics' perspectives on the benefits and drawbacks of writing and publishing in English",
+            "volume": "4",
+            "author": "P Strauss",
+            "year": "2023",
+            "journal-title": "Journal of English for Research Publication Purposes"
+          },
+          {
+            "key": "ref39",
+            "article-title": "L2 doctoral students' experiences in thesis writing in an English-medium university in New Zealand",
+            "author": "L Xu",
+            "year": "2019",
+            "journal-title": "Journal of English for Academic Purposes"
+          },
+          {
+            "issue": "5",
+            "key": "ref40",
+            "doi-asserted-by": "crossref",
+            "first-page": "167",
+            "DOI": "10.5430/ijhe.v7n5p167",
+            "article-title": "Investigating the Performance of Japan's Competitive Grants-in-Aid for Scientific Research Systems",
+            "volume": "7",
+            "author": "Y Yamashita",
+            "year": "2018",
+            "journal-title": "International Journal of Higher Education"
+          },
+          {
+            "issue": "6",
+            "key": "ref41",
+            "first-page": "212",
+            "article-title": "Jinbun kagaku shakai kagaku no bunya ni okeru eigo ronbun shippitsu: Ky?iku-gaku bun'ya o jirei to shite [Writing English academic papers in the humanities and social sciences: A case study in the field of education]",
+            "volume": "73",
+            "author": "A Yonezawa",
+            "year": "2023",
+            "journal-title": "The Journal of Information Science and Technology"
+          },
+          {
+            "issue": "2",
+            "key": "ref42",
+            "doi-asserted-by": "crossref",
+            "first-page": "220",
+            "DOI": "10.1111/aepr.12421",
+            "article-title": "Japan's higher education policies under global challenges",
+            "volume": "18",
+            "author": "A Yonezawa",
+            "year": "2023",
+            "journal-title": "Asian Economic Policy Review"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              18
+            ]
+          ],
+          "date-time": "2025-11-18T20:57:46Z",
+          "timestamp": 1763499466000
+        },
+        "score": 13.015289,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5766998"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 42,
+        "URL": "https://doi.org/10.2139/ssrn.5766998",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2024,
+              3,
+              1
+            ]
+          ],
+          "date-time": "2024-03-01T00:39:39Z",
+          "timestamp": 1709253579003
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.4734135",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              2,
+              29
+            ]
+          ],
+          "date-time": "2024-02-29T20:03:52Z",
+          "timestamp": 1709237032000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Empathy Perspective on the Differences in Medical Humanities Courses Among Countries: A Targeted Systematic Review and Meta-Analysis"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "mingyue",
+            "family": "li",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "xiaofei",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              2,
+              29
+            ]
+          ],
+          "date-time": "2024-02-29T20:03:52Z",
+          "timestamp": 1709237032000
+        },
+        "score": 12.953828,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=4734135"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.4734135",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              22
+            ]
+          ],
+          "date-time": "2025-02-22T04:10:23Z",
+          "timestamp": 1740197423199,
+          "version": "3.37.3"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5148543",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              22
+            ]
+          ],
+          "date-time": "2025-02-22T03:40:42Z",
+          "timestamp": 1740195642000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Knowledge Construction Modes in Humanities and Social Sciences: A Cross-Disciplinary Analysis Through Linguistic Complexity Lens"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Jilong",
+            "family": "Hao",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Qiu",
+            "family": "Jin",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Yuan",
+            "family": "Gao",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              22
+            ]
+          ],
+          "date-time": "2025-02-22T03:40:42Z",
+          "timestamp": 1740195642000
+        },
+        "score": 12.940193,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5148543"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5148543",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              12,
+              3
+            ]
+          ],
+          "date-time": "2025-12-03T03:38:57Z",
+          "timestamp": 1764733137960,
+          "version": "3.28.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5015109",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2024,
+              11,
+              19
+            ]
+          ],
+          "date-time": "2024-11-19T20:01:08Z",
+          "timestamp": 1732046468000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Educating for the AI Era: Harnessing the Wild GenAI Horse through Multiplex AI Humanities and Critical AI Literacy"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Junaid",
+            "family": "Qadir",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Recep",
+            "family": "Senturk",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2024,
+              11,
+              19
+            ]
+          ],
+          "date-time": "2024-11-19T20:01:09Z",
+          "timestamp": 1732046469000
+        },
+        "score": 12.859554,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5015109"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5015109",
+        "published": {
+          "date-parts": [
+            [
+              2024
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              10
+            ]
+          ],
+          "date-time": "2025-01-10T05:31:37Z",
+          "timestamp": 1736487097870,
+          "version": "3.32.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5090904",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              10
+            ]
+          ],
+          "date-time": "2025-01-10T02:42:25Z",
+          "timestamp": 1736476945000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Role of Career Guidance in Enhancing Humanities Literacy Among Vocational Students: A Case Study of Shanxi Province"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Zhang",
+            "family": "Yu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Nidhi",
+            "family": "Agarwal",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              1,
+              10
+            ]
+          ],
+          "date-time": "2025-01-10T02:42:25Z",
+          "timestamp": 1736476945000
+        },
+        "score": 12.844648,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5090904"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5090904",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              10
+            ]
+          ],
+          "date-time": "2025-11-10T15:16:08Z",
+          "timestamp": 1762787768059,
+          "version": "build-2065373602"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5703025",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              10
+            ]
+          ],
+          "date-time": "2025-11-10T15:13:25Z",
+          "timestamp": 1762787605000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Unpackaging of the World with Noraly's Itchy Boots, the Pandora's Box of Media, and the Reclamation of Global Humanities"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Aloysius",
+            "family": "Yapp",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              11,
+              10
+            ]
+          ],
+          "date-time": "2025-11-10T15:13:25Z",
+          "timestamp": 1762787605000
+        },
+        "score": 12.805014,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5703025"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5703025",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              16
+            ]
+          ],
+          "date-time": "2025-09-16T18:55:10Z",
+          "timestamp": 1758048910537,
+          "version": "3.44.0"
+        },
+        "posted": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "group-title": "SSRN",
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "DOI": "10.2139/ssrn.5411925",
+        "type": "posted-content",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2025-09-13T12:13:23Z",
+          "timestamp": 1757765603000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "From Philosophy to Protocol: A Blueprint for the Next Civilizational OS - A Survival Guide for the World's Unemployed Humanities Graduates (´･ω･`)"
+        ],
+        "prefix": "10.2139",
+        "author": [
+          {
+            "given": "Qinshu",
+            "family": "Yu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "deposited": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2025-09-13T12:13:23Z",
+          "timestamp": 1757765603000
+        },
+        "score": 12.639795,
+        "resource": {
+          "primary": {
+            "URL": "https://www.ssrn.com/abstract=5411925"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2139/ssrn.5411925",
+        "published": {
+          "date-parts": [
+            [
+              2025
+            ]
+          ]
+        },
+        "subtype": "preprint"
+      }
+    ],
+    "items-per-page": 25,
+    "query": {
+      "start-index": 0,
+      "search-terms": "SSRN humanities"
+    }
+  }
+}

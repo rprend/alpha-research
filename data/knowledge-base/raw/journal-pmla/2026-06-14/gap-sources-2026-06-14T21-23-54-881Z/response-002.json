@@ -1,0 +1,3357 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 14858,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T09:11:41Z",
+          "timestamp": 1683709901444
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1947,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.2307/459269",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:07:56Z",
+          "timestamp": 1170907676000
+        },
+        "page": "392",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Horace's Influence on Shakespeare's Antony and Cleopatra"
+        ],
+        "prefix": "10.1632",
+        "volume": "62",
+        "author": [
+          {
+            "given": "Perry D.",
+            "family": "Westbrook",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T08:53:42Z",
+          "timestamp": 1683708822000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/459269?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1947,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1947,
+                6
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/459269",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1947,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:32:59Z",
+          "timestamp": 1694629979660
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "5",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1991,
+              10
+            ]
+          ]
+        },
+        "DOI": "10.2307/462690",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T05:08:55Z",
+          "timestamp": 1170911335000
+        },
+        "page": "1174",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Popular Literature in PMLA"
+        ],
+        "prefix": "10.1632",
+        "volume": "106",
+        "author": [
+          {
+            "given": "Ray",
+            "family": "Browne",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Carl",
+            "family": "Freedman",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Christopher",
+            "family": "Kendrick",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:55:42Z",
+          "timestamp": 1631732142000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/462690?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1991,
+              10
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                1991,
+                10
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/462690",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1991,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:31:46Z",
+          "timestamp": 1694629906649
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "5",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1953,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.2307/460013",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:27:48Z",
+          "timestamp": 1170908868000
+        },
+        "page": "1223",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Local Allusions in Joyce's Ulysses"
+        ],
+        "prefix": "10.1632",
+        "volume": "68",
+        "author": [
+          {
+            "given": "Joseph",
+            "family": "Prescott",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:49:03Z",
+          "timestamp": 1631731743000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/460013?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1953,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                1953,
+                12
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/460013",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1953,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:05:14Z",
+          "timestamp": 1694628314453
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1895
+            ]
+          ]
+        },
+        "DOI": "10.2307/456115",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2006,
+              11,
+              24
+            ]
+          ],
+          "date-time": "2006-11-24T08:58:54Z",
+          "timestamp": 1164358734000
+        },
+        "page": "lxix",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Notes on Syllabication-Its Importance in Teaching French Pronunciation"
+        ],
+        "prefix": "10.1632",
+        "volume": "10",
+        "author": [
+          {
+            "given": "Atkinson",
+            "family": "Jenkins",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:45:10Z",
+          "timestamp": 1631731510000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456115?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1895
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2307/456115",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1895
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:31:09Z",
+          "timestamp": 1694629869941
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "7",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1952,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.2307/459968",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:26:24Z",
+          "timestamp": 1170908784000
+        },
+        "page": "1181",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "That \"Two-Handed Engine\" Finally?"
+        ],
+        "prefix": "10.1632",
+        "volume": "67",
+        "author": [
+          {
+            "given": "Esmond L.",
+            "family": "Marilla",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:48:23Z",
+          "timestamp": 1631731703000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/459968?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1952,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "7",
+          "published-print": {
+            "date-parts": [
+              [
+                1952,
+                12
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/459968",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1952,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:33:42Z",
+          "timestamp": 1694630022516
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1991,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.2307/462783",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T05:08:35Z",
+          "timestamp": 1170911315000
+        },
+        "page": "515",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Henry James, George Sand, and the Suspense of Masculinity"
+        ],
+        "prefix": "10.1632",
+        "volume": "106",
+        "author": [
+          {
+            "suffix": "join(' '",
+            "given": "Leland S.",
+            "family": "Person",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:55:32Z",
+          "timestamp": 1631732132000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/462783?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1991,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1991,
+                5
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/462783",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1991,
+              5
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:26:51Z",
+          "timestamp": 1694629611821
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1889
+            ]
+          ]
+        },
+        "DOI": "10.2307/456183",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T02:54:11Z",
+          "timestamp": 1170903251000
+        },
+        "page": "xi",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A Forerunner of Bunyan in the 12th Century: Discussion"
+        ],
+        "prefix": "10.1632",
+        "volume": "4",
+        "author": [
+          {
+            "given": "Kuno",
+            "family": "Francke",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Francis H.",
+            "family": "Stoddard",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Prof.",
+            "family": "Thomas",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "suffix": "join(' '",
+            "given": "Edward E.",
+            "family": "Hale",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "F. M.",
+            "family": "Warren",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr.",
+            "family": "Greene",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Adolph",
+            "family": "Gerber",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "H. S.",
+            "family": "White",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Dr.",
+            "family": "Learned",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "A. M.",
+            "family": "Elliott",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:43:59Z",
+          "timestamp": 1631731439000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456183?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1889
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2307/456183",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1889
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:26:59Z",
+          "timestamp": 1694629619398
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1902
+            ]
+          ]
+        },
+        "DOI": "10.2307/456508",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T02:59:08Z",
+          "timestamp": 1170903548000
+        },
+        "page": "464",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Contributions to the History of the Legend of Saint George, with Special Reference to the Sources of the French, German and Anglo-Saxon Metrical Versions"
+        ],
+        "prefix": "10.1632",
+        "volume": "17",
+        "author": [
+          {
+            "given": "John E.",
+            "family": "Matzke",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:47:28Z",
+          "timestamp": 1631731648000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456508?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1902
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1902
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/456508",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1902
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:36:16Z",
+          "timestamp": 1694630176177
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "5",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1989,
+              10
+            ]
+          ]
+        },
+        "DOI": "10.2307/462587",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T05:06:19Z",
+          "timestamp": 1170911179000
+        },
+        "page": "903",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Recipes for Reading"
+        ],
+        "prefix": "10.1632",
+        "volume": "104",
+        "author": [
+          {
+            "given": "Mark",
+            "family": "Dunphy",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Nancy",
+            "family": "Walker",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "R. Baird",
+            "family": "Shuman",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "M. Thomas",
+            "family": "Inge",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Joel",
+            "family": "Roache",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Deborah A.",
+            "family": "Thomas",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Betsy",
+            "family": "Hilbert",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Ruth",
+            "family": "apRoberts",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Susan J.",
+            "family": "Leonardi",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:54:09Z",
+          "timestamp": 1631732049000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/462587?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1989,
+              10
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "5",
+          "published-print": {
+            "date-parts": [
+              [
+                1989,
+                10
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/462587",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1989,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:28:19Z",
+          "timestamp": 1694629699212
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1915
+            ]
+          ]
+        },
+        "DOI": "10.2307/456948",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T03:14:58Z",
+          "timestamp": 1170904498000
+        },
+        "page": "529",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Middle English Evangelie"
+        ],
+        "prefix": "10.1632",
+        "volume": "30",
+        "author": [
+          {
+            "given": "Gertrude H.",
+            "family": "Campbell",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:45:09Z",
+          "timestamp": 1631731509000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456948?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1915
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1915
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/456948",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1915
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:27:21Z",
+          "timestamp": 1694629641383
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1910
+            ]
+          ]
+        },
+        "DOI": "10.2307/456735",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T03:08:08Z",
+          "timestamp": 1170904088000
+        },
+        "page": "498",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Los Alcaldes Encontrados; 6 a Parte"
+        ],
+        "prefix": "10.1632",
+        "volume": "25",
+        "author": [
+          {
+            "given": "G. L.",
+            "family": "Lincoln",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:49:25Z",
+          "timestamp": 1631731765000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456735?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1910
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1910
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/456735",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1910
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:30:27Z",
+          "timestamp": 1694629827854
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1938
+            ]
+          ]
+        },
+        "DOI": "10.2307/458615",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T03:59:25Z",
+          "timestamp": 1170907165000
+        },
+        "page": "1313",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Nostra Maxima Culpa"
+        ],
+        "prefix": "10.1632",
+        "volume": "53",
+        "author": [
+          {
+            "given": "J. S. P.",
+            "family": "Tatlock",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:44:15Z",
+          "timestamp": 1631731455000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/458615?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1938
+            ]
+          ]
+        },
+        "references-count": 0,
+        "URL": "https://doi.org/10.2307/458615",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1938
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:26:19Z",
+          "timestamp": 1694629579775
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "1",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1901
+            ]
+          ]
+        },
+        "DOI": "10.2307/456400",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T02:57:28Z",
+          "timestamp": 1170903448000
+        },
+        "page": "66",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "\"Tittus and Vespacia\" and \"Titus and Ondronicus\" in Henslowe's Diary"
+        ],
+        "prefix": "10.1632",
+        "volume": "16",
+        "author": [
+          {
+            "given": "George P.",
+            "family": "Baker",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:46:57Z",
+          "timestamp": 1631731617000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456400?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1901
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1901
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/456400",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1901
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              12
+            ]
+          ],
+          "date-time": "2023-05-12T04:49:58Z",
+          "timestamp": 1683866998699
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1916
+            ]
+          ]
+        },
+        "DOI": "10.2307/456957",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T03:17:16Z",
+          "timestamp": 1170904636000
+        },
+        "page": "232",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A Byzantine Source for Guillaume De Lorris's Roman De La Rose"
+        ],
+        "prefix": "10.1632",
+        "volume": "31",
+        "author": [
+          {
+            "given": "F. M.",
+            "family": "Warren",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              12
+            ]
+          ],
+          "date-time": "2023-05-12T04:19:04Z",
+          "timestamp": 1683865144000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456957?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1916
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1916
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/456957",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1916
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              12
+            ]
+          ],
+          "date-time": "2023-05-12T05:43:03Z",
+          "timestamp": 1683870183614
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1915
+            ]
+          ]
+        },
+        "DOI": "10.2307/456977",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T03:15:34Z",
+          "timestamp": 1170904534000
+        },
+        "page": "788",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Studies in the Dialect of Basilicata"
+        ],
+        "prefix": "10.1632",
+        "volume": "30",
+        "author": [
+          {
+            "given": "Alfonso",
+            "family": "de Salvio",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              12
+            ]
+          ],
+          "date-time": "2023-05-12T05:03:40Z",
+          "timestamp": 1683867820000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456977?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1915
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1915
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/456977",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1915
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              13
+            ]
+          ],
+          "date-time": "2025-05-13T14:24:26Z",
+          "timestamp": 1747146266564
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "1",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1993,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.2307/462855",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T05:10:42Z",
+          "timestamp": 1170911442000
+        },
+        "page": "94",
+        "source": "Crossref",
+        "is-referenced-by-count": 7,
+        "title": [
+          "Between Slavery and Freedom: The Transgressive Self in Olaudah Equiano's Autobiography"
+        ],
+        "prefix": "10.1632",
+        "volume": "108",
+        "author": [
+          {
+            "given": "Susan M.",
+            "family": "Marren",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:56:45Z",
+          "timestamp": 1631732205000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/462855?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1993,
+              1
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1993,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/462855",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1993,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              15
+            ]
+          ],
+          "date-time": "2025-05-15T17:28:16Z",
+          "timestamp": 1747330096293
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "2",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1901
+            ]
+          ]
+        },
+        "DOI": "10.2307/456611",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T02:57:37Z",
+          "timestamp": 1170903457000
+        },
+        "page": "141",
+        "source": "Crossref",
+        "is-referenced-by-count": 4,
+        "title": [
+          "The Appositive Participle in Anglo-Saxon"
+        ],
+        "prefix": "10.1632",
+        "volume": "16",
+        "author": [
+          {
+            "suffix": "join(' '",
+            "given": "M.",
+            "family": "C.",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:46:59Z",
+          "timestamp": 1631731619000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456611?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1901
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                1901
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/456611",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1901
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              7
+            ]
+          ],
+          "date-time": "2026-02-07T03:00:54Z",
+          "timestamp": 1770433254697,
+          "version": "3.49.0"
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1946,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.2307/459099",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:07:09Z",
+          "timestamp": 1170907629000
+        },
+        "page": "910",
+        "source": "Crossref",
+        "is-referenced-by-count": 2,
+        "title": [
+          "Old English Riddle No. 39: Creature Death"
+        ],
+        "prefix": "10.1632",
+        "volume": "61",
+        "author": [
+          {
+            "given": "Erika",
+            "family": "von Erhardt-Siebold",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:49:28Z",
+          "timestamp": 1631731768000
+        },
+        "score": 14.0903,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/459099?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1946,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1946,
+                12
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/459099",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1946,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              12
+            ]
+          ],
+          "date-time": "2023-05-12T00:40:01Z",
+          "timestamp": 1683852001112
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "1",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1900
+            ]
+          ]
+        },
+        "DOI": "10.2307/456496",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T02:56:17Z",
+          "timestamp": 1170903377000
+        },
+        "page": "114",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Influence of the Court-Masques on the Drama, 1608-15"
+        ],
+        "prefix": "10.1632",
+        "volume": "15",
+        "author": [
+          {
+            "given": "Ashley H.",
+            "family": "Thorndike",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              12
+            ]
+          ],
+          "date-time": "2023-05-12T00:04:42Z",
+          "timestamp": 1683849882000
+        },
+        "score": 14.085828,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/456496?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1900
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1900
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/456496",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1900
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T06:41:34Z",
+          "timestamp": 1683700894620
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "1",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1952,
+              2
+            ]
+          ]
+        },
+        "DOI": "10.2307/459975",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:23:58Z",
+          "timestamp": 1170908638000
+        },
+        "page": "67",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "The Pure Flame"
+        ],
+        "prefix": "10.1632",
+        "volume": "67",
+        "author": [
+          {
+            "given": "Harlan",
+            "family": "Hatcher",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T06:16:01Z",
+          "timestamp": 1683699361000
+        },
+        "score": 14.085828,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/459975?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1952,
+              2
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-print": {
+            "date-parts": [
+              [
+                1952,
+                2
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/459975",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1952,
+              2
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T09:41:39Z",
+          "timestamp": 1683711699815
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1993,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.2307/462620",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T05:11:17Z",
+          "timestamp": 1170911477000
+        },
+        "page": "533",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The Discipline of Deconstruction"
+        ],
+        "prefix": "10.1632",
+        "volume": "108",
+        "author": [
+          {
+            "given": "Jonathan",
+            "family": "Culler",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "James M.",
+            "family": "Lang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Edward R.",
+            "family": "Heidt",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Jonathan",
+            "family": "Hillman",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "suffix": "join(' '",
+            "given": "Robert A.",
+            "family": "Hall",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Jeffrey T.",
+            "family": "Nealon",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T09:28:03Z",
+          "timestamp": 1683710883000
+        },
+        "score": 14.085828,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/462620?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1993,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1993,
+                5
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/462620",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1993,
+              5
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T07:41:21Z",
+          "timestamp": 1683704481446
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1946,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.2307/459241",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:06:28Z",
+          "timestamp": 1170907588000
+        },
+        "page": "673",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Hamlet and Fortinbras"
+        ],
+        "prefix": "10.1632",
+        "volume": "61",
+        "author": [
+          {
+            "given": "William Witherle",
+            "family": "Lawrence",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T07:23:52Z",
+          "timestamp": 1683703432000
+        },
+        "score": 14.085828,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/459241?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1946,
+              9
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1946,
+                9
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/459241",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1946,
+              9
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T08:11:13Z",
+          "timestamp": 1683706273111
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "3",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1954,
+              6
+            ]
+          ]
+        },
+        "DOI": "10.2307/460073",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:29:20Z",
+          "timestamp": 1170908960000
+        },
+        "page": "566",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Der Aristarchus: Eine Neuwertung"
+        ],
+        "prefix": "10.1632",
+        "volume": "69",
+        "author": [
+          {
+            "given": "Curt",
+            "family": "von Faber du Faur",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2023,
+              5,
+              10
+            ]
+          ],
+          "date-time": "2023-05-10T07:43:42Z",
+          "timestamp": 1683704622000
+        },
+        "score": 14.085828,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/460073?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1954,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                1954,
+                6
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/460073",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1954,
+              6
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:31:07Z",
+          "timestamp": 1694629867252
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1947,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.2307/459153",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:08:42Z",
+          "timestamp": 1170907722000
+        },
+        "page": "1108",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Les Debuts litteraires de Pierre Lasserre"
+        ],
+        "prefix": "10.1632",
+        "volume": "62",
+        "author": [
+          {
+            "given": "Selim",
+            "family": "Ezban",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:44:23Z",
+          "timestamp": 1631731463000
+        },
+        "score": 14.085828,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/459153?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1947,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1947,
+                12
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/459153",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1947,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2023,
+              9,
+              13
+            ]
+          ],
+          "date-time": "2023-09-13T18:31:47Z",
+          "timestamp": 1694629907843
+        },
+        "reference-count": 0,
+        "publisher": "Modern Language Association (MLA)",
+        "issue": "4",
+        "content-domain": {
+          "domain": [],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "PMLA"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              1959,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.2307/460456",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2007,
+              2,
+              8
+            ]
+          ],
+          "date-time": "2007-02-08T04:36:58Z",
+          "timestamp": 1170909418000
+        },
+        "page": "470",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "Bernard Shaw's beginnings on the London Stage"
+        ],
+        "prefix": "10.1632",
+        "volume": "74",
+        "author": [
+          {
+            "given": "Irving",
+            "family": "McKee",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "634",
+        "container-title": [
+          "PMLA"
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2021,
+              9,
+              15
+            ]
+          ],
+          "date-time": "2021-09-15T18:56:07Z",
+          "timestamp": 1631732167000
+        },
+        "score": 14.085828,
+        "resource": {
+          "primary": {
+            "URL": "https://www.jstor.org/stable/460456?origin=crossref"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              1959,
+              9
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                1959,
+                9
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.2307/460456",
+        "ISSN": [
+          "0030-8129"
+        ],
+        "issn-type": [
+          {
+            "value": "0030-8129",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              1959,
+              9
+            ]
+          ]
+        }
+      }
+    ],
+    "items-per-page": 25,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

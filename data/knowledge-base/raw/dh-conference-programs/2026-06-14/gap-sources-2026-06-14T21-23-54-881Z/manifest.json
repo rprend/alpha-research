@@ -1,0 +1,20 @@
+{
+  "run_id": "gap-sources-2026-06-14T21-23-54-881Z",
+  "source_id": "dh-conference-programs",
+  "started_at": "2026-06-14T21:23:55.888Z",
+  "completed_at": "2026-06-14T21:23:57.736Z",
+  "status": "success",
+  "access_route": "https://dh2026.adho.org/wp-json/wp/v2/pages?per_page=25 | https://dh2026.adho.org/wp-json/wp/v2/posts?per_page=25",
+  "raw_outputs": [
+    "data/knowledge-base/raw/dh-conference-programs/2026-06-14/gap-sources-2026-06-14T21-23-54-881Z/response-001.json",
+    "data/knowledge-base/raw/dh-conference-programs/2026-06-14/gap-sources-2026-06-14T21-23-54-881Z/response-002.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/works.jsonl"
+  ],
+  "record_count": 25,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

@@ -1,0 +1,19 @@
+{
+  "run_id": "gap-sources-2026-06-14T21-24-33-427Z",
+  "source_id": "mla-convention-programs",
+  "started_at": "2026-06-14T21:24:36.596Z",
+  "completed_at": "2026-06-14T21:24:36.988Z",
+  "status": "success",
+  "access_route": "https://www.mla.org/Events/2027-MLA-Convention",
+  "raw_outputs": [
+    "data/knowledge-base/raw/mla-convention-programs/2026-06-14/gap-sources-2026-06-14T21-24-33-427Z/response-001.txt"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/works.jsonl"
+  ],
+  "record_count": 1,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}

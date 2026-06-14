@@ -1105,7 +1105,8 @@
       "source_class": "humanities-adjacent-policy-history",
       "homepage_url": "https://www.ssrn.com/",
       "access_routes": [
-        "SSRN search and paper metadata pages"
+        "SSRN search and paper metadata pages",
+        "Crossref posted-content metadata for SSRN DOI records"
       ],
       "license": "SSRN terms; paper rights vary",
       "redistribution_status": "metadata-only",
@@ -1128,12 +1129,14 @@
         "preprint trend tracking"
       ],
       "known_risks": [
-        "terms review required",
+        "direct SSRN API route returned 401 on 2026-06-14; use authorized exports or Crossref/OpenAlex metadata fallback rather than retrying anonymously",
+        "terms review required for direct SSRN access",
         "paper rights vary",
-        "field filtering noise"
+        "field filtering noise",
+        "Crossref fallback is metadata-only and may miss SSRN records not deposited with Crossref"
       ],
-      "last_checked_at": "2026-06-13",
-      "ingest_status": "blocked"
+      "last_checked_at": "2026-06-14",
+      "ingest_status": "active"
     },
     {
       "source_id": "wayback-machine-cdx",

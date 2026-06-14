@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T21:20:13.917Z",
-  "resolved_failure_count": 15,
+  "generated_at": "2026-06-14T21:24:56.277Z",
+  "resolved_failure_count": 16,
   "resolved_failures": [
     {
       "source_id": "aha-annual-meeting-programs",
@@ -8,9 +8,9 @@
       "source_class": "conference-programs",
       "failure_count": 1,
       "latest_failure_at": "2026-06-13T16:37:20.977Z",
-      "latest_success_at": "2026-06-14T20:34:13.681Z",
-      "successful_route": "https://www.historians.org/wp-json/wp/v2/search?search=annual%20meeting%20program&per_page=20 | https://www.historians.org/wp-json/wp/v2/pages?search=annual%20meeting%20program&per_page=20",
-      "record_count": 20,
+      "latest_success_at": "2026-06-14T21:24:40.163Z",
+      "successful_route": "https://www.historians.org/wp-json/wp/v2/search?search=annual%20meeting%20program&per_page=25 | https://www.historians.org/wp-json/wp/v2/pages?search=annual%20meeting%20program&per_page=25",
+      "record_count": 25,
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
@@ -19,7 +19,7 @@
       "source_class": "university-department-web",
       "failure_count": 13,
       "latest_failure_at": "2026-06-14T21:09:33.909Z",
-      "latest_success_at": "2026-06-14T20:34:06.522Z",
+      "latest_success_at": "2026-06-14T21:24:34.262Z",
       "successful_route": "https://history.columbia.edu/",
       "record_count": 1,
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
@@ -116,12 +116,23 @@
       "source_id": "smithsonian-open-access",
       "name": "Smithsonian Open Access",
       "source_class": "cultural-collections",
-      "failure_count": 5,
-      "latest_failure_at": "2026-06-14T20:34:06.390Z",
+      "failure_count": 7,
+      "latest_failure_at": "2026-06-14T21:24:34.149Z",
       "latest_success_at": "2026-06-14T19:00:08.030Z",
       "successful_route": "source-specific cultural collections API routes",
       "record_count": 200,
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "ssrn-humanities-adjacent",
+      "name": "SSRN Humanities-Adjacent Metadata",
+      "source_class": "humanities-adjacent-policy-history",
+      "failure_count": 3,
+      "latest_failure_at": "2026-06-14T20:34:13.823Z",
+      "latest_success_at": "2026-06-14T21:24:40.914Z",
+      "successful_route": "https://api.crossref.org/works?filter=type:posted-content&query=SSRN%20humanities&rows=25 | https://api.crossref.org/works?filter=type:posted-content&query=SSRN%20digital%20humanities%20culture%20history&rows=25",
+      "record_count": 25,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
       "source_id": "uchicago-humanities-departments",
@@ -168,28 +179,6 @@
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 1,
-  "replacement_plans": [
-    {
-      "source_id": "ssrn-humanities-adjacent",
-      "name": "SSRN Humanities-Adjacent Metadata",
-      "source_class": "humanities-adjacent-policy-history",
-      "ingest_status": "blocked",
-      "redistribution_status": "metadata-only",
-      "failure_count": 3,
-      "latest_failure_at": "2026-06-14T20:34:13.823Z",
-      "latest_error": "https://api.ssrn.com/content/v1/papers?query=humanities: HTTP 401 Unauthorized",
-      "failed_routes": [
-        "https://api.ssrn.com/content/v1/papers?query=humanities"
-      ],
-      "affected_targets": [],
-      "replacement_status": "permission-needed",
-      "replacement_routes": [
-        "Use an authorized export or API route if credentials/terms permit.",
-        "Use OpenAlex, Crossref, NBER, or publisher metadata as alternate discovery sources."
-      ],
-      "next_action": "Keep the source blocked until an authorized metadata route or allowed export is available.",
-      "do_not_do": "Do not ask for secrets in chat or retry unauthorized API routes anonymously."
-    }
-  ]
+  "replacement_plan_count": 0,
+  "replacement_plans": []
 }

@@ -1,0 +1,20 @@
+{
+  "run_id": "gap-sources-2026-06-14T21-23-54-881Z",
+  "source_id": "aha-annual-meeting-programs",
+  "started_at": "2026-06-14T21:23:59.239Z",
+  "completed_at": "2026-06-14T21:24:08.752Z",
+  "status": "success",
+  "access_route": "https://www.historians.org/wp-json/wp/v2/search?search=annual%20meeting%20program&per_page=25 | https://www.historians.org/wp-json/wp/v2/pages?search=annual%20meeting%20program&per_page=25",
+  "raw_outputs": [
+    "data/knowledge-base/raw/aha-annual-meeting-programs/2026-06-14/gap-sources-2026-06-14T21-23-54-881Z/response-001.json",
+    "data/knowledge-base/raw/aha-annual-meeting-programs/2026-06-14/gap-sources-2026-06-14T21-23-54-881Z/response-002.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl",
+    "data/knowledge-base/processed/works.jsonl"
+  ],
+  "record_count": 25,
+  "rights_review": "Source registry rights fields apply; metadata only unless item-level rights allow more.",
+  "errors": []
+}
