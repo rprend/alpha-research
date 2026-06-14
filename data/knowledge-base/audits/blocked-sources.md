@@ -1,6 +1,6 @@
 # KB Blocked Sources
 
-Generated at: 2026-06-14T19:15:13.214Z
+Generated at: 2026-06-14T19:36:04.533Z
 Blocked sources: 5
 
 ## hathitrust-bibliographic-metadata
@@ -62,3 +62,7 @@ Blocked sources: 5
 - Latest route: https://api.ssrn.com/content/v1/papers?query=humanities
 - Latest errors: https://api.ssrn.com/content/v1/papers?query=humanities: HTTP 401 Unauthorized
 - Next decision: Requires authorized API access or a different metadata provider; do not retry anonymously.
+
+## Failed Route Replacement Plans
+
+See `data/knowledge-base/audits/failed-route-replacements.md` for 13 source-level replacement plans.

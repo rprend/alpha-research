@@ -77,6 +77,8 @@ The KB also imports 200 public-domain Project Gutenberg texts from the existing 
 
 The department-page ingest now reads the broader target list in `config/department-pages.json`, discovers shallow same-origin about/news/events/faculty/program links from successful homepages, appends and dedupes successful public page fetches into the durable `pages` and `departments` tables, and logs blocked routes for replacement planning. The current expanded crawl covers 107 local department/web page records and 48 department summaries after adding 50 discovered/configured page records in the latest run.
 
+The blocked-source audit writes both `audits/blocked-sources.{json,md}` and `audits/failed-route-replacements.{json,md}`. The replacement audit covers blocked sources and active-source route failures, so stale feeds, 403 department pages, Wayback instability, rate limits, and partial API timeouts each have an explicit next action before another ingest attempt.
+
 The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly when their public routes respond. Failed routes are retained in `audits/failed-routes.jsonl`.
 
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.

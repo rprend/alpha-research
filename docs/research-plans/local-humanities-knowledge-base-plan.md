@@ -537,7 +537,7 @@ Started on 2026-06-13:
 - Phase 2 now has a dedicated DOAJ humanities ingest: `pnpm kb:ingest:doaj` pulls article and journal metadata across humanities queries from DOAJ, stores raw responses, and appends normalized work, venue, source-document, and rights rows.
 - Phase 2 now has a dedicated Wikidata cultural-entity ingest: `pnpm kb:ingest:wikidata` pulls typed linked-open-data entities for people, works, movements, genres, institutions, journals, and humanities concepts.
 - Phase 2/3 now has a gap-source ingest: `pnpm kb:ingest:gaps` targets registered sources without local records, including Smithsonian, Columbia department pages, DH conference pages, journal metadata through Crossref, and blocked-route probes for sources that need replacement routes.
-- Phase 6 now has a blocked-source audit: `pnpm kb:audit:blocked` writes source-specific memos for routes that require permission, replacement, or terms review.
+- Phase 6 now has blocked-source and failed-route replacement audits: `pnpm kb:audit:blocked` writes source-specific memos for blocked sources and `failed-route-replacements.{json,md}` with next actions for active-source route failures such as 403 department pages, stale feeds, Wayback CDX instability, partial API timeouts, rate limits, and permissioned APIs.
 - Phase 2 also imports a 200-text Project Gutenberg public-domain corpus from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
 - Phase 2 now has a bounded web metadata ingest: `pnpm kb:ingest:web` imports responding public routes for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly. Wayback and LARB failures are logged for route replacement.
 - Phase 3 has an expanded department-page corpus: `pnpm kb:ingest:departments` fetches public humanities department pages from the target list in `data/knowledge-base/config/department-pages.json`, discovers shallow same-origin about/news/events/faculty/program links from successful homepages, stores raw HTML and extracted local-analysis text, appends/dedupes durable `pages`/`departments` staging rows, and logs 403 routes in `failed-routes.jsonl` for replacement planning.
@@ -585,7 +585,7 @@ Remaining before the full knowledge-base goal is complete:
 
 - Normalize source-provided author identities and citation/reference edges into cleaner person/work graphs.
 - Add more broad, source-specific ingest jobs rather than bounded samples, especially deeper department-page crawling, humanities centers, conference programs, and further Project Gutenberg/catalog-cultural collection expansion.
-- Continue replacement or retry plans for failed LARB, Harvard, Princeton, Columbia, Michigan, Penn, Yale English CDX, and remaining 403/timeout routes; do not bypass access controls. Prefer alternate public pages, sitemaps, RSS/news routes, official APIs, or Wayback metadata when current homepages block polite fetches.
+- Continue executing the replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for LARB, Harvard, Princeton, Columbia, Michigan, Penn, Yale/Wayback CDX, and remaining 403/timeout routes; do not bypass access controls. Prefer alternate public pages, sitemaps, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages block polite fetches.
 - Expand university/department web corpus acquisition beyond the current shallow discovery pass; the first discovery run found mostly about pages and a few news pages, so faculty/events/program routes need source-specific selectors and sitemap/RSS support.
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add neural embedding retrieval later if a local model or approved embedding service is configured; the current semantic hash index is deterministic and offline.
@@ -596,5 +596,5 @@ Next build steps:
 1. Add source-specific department crawlers that discover about/news/events/faculty links from successful domains while retaining rights and route manifests.
 2. Add explicit replacement memos for blocked LARB and 403 department routes, using alternate public routes or Wayback metadata where available.
 3. Expand broad metadata acquisition for OpenAlex/Crossref, Project Gutenberg, and cultural-collection APIs; DOAJ and Wikidata now have dedicated routes but should be expanded beyond the current page limits when needed.
-4. Add explicit source replacement memos for blocked LARB and 403 department routes, using alternate public routes or Wayback metadata where available.
+4. Execute the source replacement plans for blocked/stale/403 routes and promote successful replacements into source-specific ingest configs.
 5. Convert the five proof templates into first-pass experiments only after confirming source-class coverage, dates, and quote/rights limits.
