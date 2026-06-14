@@ -1,0 +1,37 @@
+source_id,department,rows,rows_with_dates,rows_with_image_url,public_domain_or_cc0_rows
+smithsonian-open-access,SIL,203,202,0,0
+library-of-congress,Library of Congress,150,138,142,0
+met-collection-api,European Paintings,57,57,57,57
+cleveland-museum-open-access,European Painting and Sculpture,40,40,40,40
+met-collection-api,The Michael C. Rockefeller Wing,40,40,2,2
+met-collection-api,Modern and Contemporary Art,35,35,1,1
+cleveland-museum-open-access,Modern European Painting and Sculpture,34,34,34,34
+cleveland-museum-open-access,American Painting and Sculpture,31,31,31,31
+cleveland-museum-open-access,Medieval Art,30,30,30,30
+met-collection-api,Greek and Roman Art,28,28,28,28
+met-collection-api,Islamic Art,19,19,19,19
+met-collection-api,Photographs,19,19,5,5
+smithsonian-open-access,NMAH,19,1,0,0
+met-collection-api,Asian Art,16,16,16,16
+cleveland-museum-open-access,Chinese Art,12,12,12,12
+met-collection-api,Costume Institute,12,12,0,0
+cleveland-museum-open-access,Art of the Americas,9,9,9,9
+cleveland-museum-open-access,Indian and Southeast Asian Art,9,9,9,9
+cleveland-museum-open-access,Decorative Art and Design,8,8,8,8
+met-collection-api,European Sculpture and Decorative Arts,8,8,8,8
+cleveland-museum-open-access,Greek and Roman Art,7,7,7,7
+cleveland-museum-open-access,Egyptian and Ancient Near Eastern Art,6,6,6,6
+cleveland-museum-open-access,Japanese Art,5,5,5,5
+met-collection-api,Drawings and Prints,5,5,5,5
+met-collection-api,Egyptian Art,4,4,4,4
+met-collection-api,Medieval Art,4,4,4,4
+cleveland-museum-open-access,African Art,2,2,2,2
+cleveland-museum-open-access,Drawings,2,2,2,2
+cleveland-museum-open-access,Islamic Art,2,2,2,2
+cleveland-museum-open-access,Textiles,2,2,2,2
+met-collection-api,The Cloisters,2,2,2,2
+smithsonian-open-access,SILNMAHTL,2,2,0,0
+cleveland-museum-open-access,Korean Art,1,1,1,1
+met-collection-api,Arms and Armor,1,1,1,1
+met-collection-api,The American Wing,1,1,0,0
+smithsonian-open-access,SLA_SRO,1,1,0,0

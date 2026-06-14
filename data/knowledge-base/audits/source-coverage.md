@@ -1,6 +1,6 @@
 # KB Source Coverage
 
-Generated at: 2026-06-14T22:19:26.901Z
+Generated at: 2026-06-14T22:28:40.081Z
 Sources with local documents: 33/34
 Unregistered local source IDs: 0
 

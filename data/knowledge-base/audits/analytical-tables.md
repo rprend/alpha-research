@@ -1,6 +1,6 @@
 # KB Analytical Tables
 
-Generated at: 2026-06-14T22:19:20.178Z
+Generated at: 2026-06-14T22:28:33.124Z
 
 | Table | Rows | CSV |
 | --- | ---: | --- |

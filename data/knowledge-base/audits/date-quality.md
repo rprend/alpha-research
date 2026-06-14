@@ -1,6 +1,6 @@
 # KB Date Quality Audit
 
-Generated at: 2026-06-14T22:14:42.584Z
+Generated at: 2026-06-14T22:28:39.846Z
 Status: pass
 
 ## nber-culture-history
@@ -58,7 +58,7 @@ Conference rows mix page/post dates, event-year records, and program metadata. T
 
 Status: pass
 Date kind: crawl-snapshot-date
-Rows: 533
+Rows: 532
 Year coverage: 0%
 ISO date coverage: 0%
 Source-label coverage: 0%

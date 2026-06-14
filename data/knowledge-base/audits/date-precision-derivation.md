@@ -1,6 +1,6 @@
 # KB Date Precision Derivation
 
-Generated at: 2026-06-14T22:14:35.649Z
+Generated at: 2026-06-14T22:28:32.932Z
 Source-document updates: 1039
 Work updates: 51
 
@@ -10,7 +10,8 @@ Work updates: 51
 | --- | ---: |
 | aha-annual-meeting-programs:event-year:year | 21 |
 | aha-annual-meeting-programs:undated-conference-metadata:none | 4 |
-| cleveland-museum-open-access:object-date:century-ish | 18 |
+| cleveland-museum-open-access:object-date:century-ish | 16 |
+| cleveland-museum-open-access:object-date:decade | 2 |
 | cleveland-museum-open-access:object-date:range | 65 |
 | cleveland-museum-open-access:object-date:range-bce | 11 |
 | cleveland-museum-open-access:object-date:year | 101 |
@@ -21,15 +22,16 @@ Work updates: 51
 | library-of-congress:undated-cultural-metadata:none | 12 |
 | met-collection-api:accession-year:year | 33 |
 | met-collection-api:object-date:century | 9 |
-| met-collection-api:object-date:century-ish | 18 |
+| met-collection-api:object-date:century-ish | 6 |
 | met-collection-api:object-date:century-qualified | 29 |
 | met-collection-api:object-date:century-range | 3 |
+| met-collection-api:object-date:decade | 12 |
 | met-collection-api:object-date:range | 41 |
 | met-collection-api:object-date:range-bce | 5 |
 | met-collection-api:object-date:year | 113 |
 | met-collection-api:undated-cultural-metadata:none | 4 |
 | mla-convention-programs:event-year:year | 1 |
-| smithsonian-open-access:object-date:century-ish | 206 |
+| smithsonian-open-access:object-date:decade | 206 |
 | smithsonian-open-access:undated-cultural-metadata:none | 19 |
 
 ## Works

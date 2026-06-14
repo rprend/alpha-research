@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T22:14:42.584Z",
+  "generated_at": "2026-06-14T22:28:39.846Z",
   "audited_source_count": 5,
   "status": "pass",
   "source_reports": [
@@ -728,11 +728,11 @@
       "status": "pass",
       "note": "Department web rows are current-page crawl snapshots unless a source-specific event/page date is later extracted. `fetched_at` is provenance, not a content date.",
       "counts": {
-        "rows": 533,
+        "rows": 532,
         "rows_with_year": 0,
         "rows_with_iso_date": 0,
         "rows_with_source_label": 0,
-        "rows_with_fetch_timestamp": 533,
+        "rows_with_fetch_timestamp": 532,
         "rows_with_precision_label": 0,
         "rows_with_fetch_date_only_risk": 0,
         "rows_with_study_period_risk": 0

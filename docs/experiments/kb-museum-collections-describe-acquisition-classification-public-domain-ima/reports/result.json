@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-06-14T22:28:40.348Z",
+  "question": "How do museum collections describe acquisition, classification, and public-domain image availability?",
+  "source_count": 4,
+  "object_rows": 988,
+  "rows_with_dates": 953,
+  "rows_with_classification": 784,
+  "rows_with_department": 826,
+  "rows_with_acquisition_number": 451,
+  "rows_with_acquisition_year": 251,
+  "rows_with_image_url": 494,
+  "rows_marked_public_domain": 352,
+  "rights_statuses": {
+    "metadata-ok": 988
+  },
+  "findings": {
+    "corpus": [
+      "988 local cultural-collection metadata rows across 4 sources.",
+      "953 rows carry derived object/item/acquisition year information.",
+      "784 rows include normalized classification/type metadata.",
+      "494 rows include image URLs as metadata.",
+      "352 rows carry public-domain/CC0-like source indicators."
+    ],
+    "top_sources": [
+      "library-of-congress: 308 rows, 296 dated, 142 with image URLs",
+      "met-collection-api: 255 rows, 251 dated, 152 with image URLs",
+      "smithsonian-open-access: 225 rows, 206 dated, 0 with image URLs",
+      "cleveland-museum-open-access: 200 rows, 200 dated, 200 with image URLs"
+    ],
+    "acquisition": [
+      "met-collection-api: 251 accession numbers, 251 accession years",
+      "cleveland-museum-open-access: 200 accession numbers, 0 accession years",
+      "library-of-congress: 0 accession numbers, 0 accession years",
+      "smithsonian-open-access: 0 accession numbers, 0 accession years"
+    ],
+    "image_rights": [
+      "cleveland-museum-open-access: 200 image URLs, 200 also public-domain/CC0-like",
+      "met-collection-api: 152 image URLs, 152 also public-domain/CC0-like",
+      "library-of-congress: 142 image URLs, 0 also public-domain/CC0-like",
+      "smithsonian-open-access: 0 image URLs, 0 also public-domain/CC0-like"
+    ],
+    "top_classifications": [
+      "library-of-congress photo, print, drawing: 129 rows",
+      "cleveland-museum-open-access Painting: 116 rows",
+      "smithsonian-open-access Books: 100 rows",
+      "met-collection-api Paintings: 74 rows",
+      "cleveland-museum-open-access Sculpture: 41 rows",
+      "met-collection-api Archives: 26 rows",
+      "met-collection-api Miscellaneous-Paintings: 25 rows",
+      "met-collection-api Photographs: 19 rows"
+    ],
+    "representative_titles": [
+      "cleveland-museum-open-access: A Genoese Lady with Her Child (c. 1623–25)",
+      "cleveland-museum-open-access: A Hare and a Leg of Lamb (1742)",
+      "cleveland-museum-open-access: A Woman's Work (1912)",
+      "cleveland-museum-open-access: Adeline Ravoux (1890)",
+      "cleveland-museum-open-access: Altarpiece with The Passion of Christ (c. 1440s)",
+      "cleveland-museum-open-access: Amitabha Triad (1400s)",
+      "cleveland-museum-open-access: Amulet in the Form of a Seated Figure with Bovine Head (c. 4700–2920 BCE)",
+      "cleveland-museum-open-access: Antiochus and Stratonice (c. 1838)"
+    ]
+  },
+  "caveats": [
+    "Rows are local KB object/collection metadata, not complete institutional collections.",
+    "Image URLs are retained as metadata; media files are not stored and reuse requires item-level rights review.",
+    "Public-domain and CC0 indicators are source metadata fields and should be verified before publication reuse.",
+    "Acquisition coverage is source-specific: Met/Cleveland expose accession fields; LOC and Smithsonian rows often do not.",
+    "Date precision is derived from source object/item date strings and accession years where available; raw date strings remain authoritative."
+  ]
+}

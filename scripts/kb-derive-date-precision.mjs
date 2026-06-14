@@ -212,15 +212,15 @@ function yearRange(value) {
       precision: /early|mid|late/i.test(text) ? "century-qualified" : "century",
     };
   }
-  const numberedCentury = text.match(/\b([1-9]\d{2}|1[0-9]\d{2}|20\d{2})s\b/);
-  if (numberedCentury) {
-    const start = Number(numberedCentury[1]);
-    return { start: String(start), end: String(start + 99), precision: "century-ish" };
-  }
   const decade = text.match(/\b((?:18|19|20)\d0)s\b/);
   if (decade) {
     const start = Number(decade[1]);
     return { start: String(start), end: String(start + 9), precision: "decade" };
+  }
+  const numberedCentury = text.match(/\b([1-9]\d{2}|1[0-9]\d{2}|20\d{2})s\b/);
+  if (numberedCentury) {
+    const start = Number(numberedCentury[1]);
+    return { start: String(start), end: String(start + 99), precision: "century-ish" };
   }
   return null;
 }

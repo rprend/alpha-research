@@ -1,0 +1,5 @@
+source_id,rows,rows_with_accession_number,rows_with_accession_year,accession_year_min,accession_year_max
+met-collection-api,255,251,251,1892,2024
+cleveland-museum-open-access,200,200,0,,
+library-of-congress,308,0,0,,
+smithsonian-open-access,225,0,0,,

@@ -1,0 +1,118 @@
+source_id,classification,rows,rows_with_dates,rows_with_image_url,public_domain_or_cc0_rows
+library-of-congress,"photo, print, drawing",129,121,124,0
+cleveland-museum-open-access,Painting,116,116,116,116
+smithsonian-open-access,Books,100,99,0,0
+met-collection-api,Paintings,74,74,69,69
+cleveland-museum-open-access,Sculpture,41,41,41,41
+met-collection-api,Archives,26,26,0,0
+met-collection-api,Miscellaneous-Paintings,25,25,25,25
+met-collection-api,Photographs,19,19,5,5
+met-collection-api,Codices,15,15,15,15
+met-collection-api,Bark-Paintings,14,14,0,0
+smithsonian-open-access,Paintings; Painting; Finger Painting,14,0,0,0
+cleveland-museum-open-access,Ceramic,11,11,11,11
+cleveland-museum-open-access,Metalwork,8,8,8,8
+met-collection-api,Paper-Paintings,8,8,0,0
+met-collection-api,Wood-Sculpture,8,8,0,0
+smithsonian-open-access,Periodicals,8,8,0,0
+smithsonian-open-access,Articles,7,7,0,0
+met-collection-api,Sculpture,6,6,6,6
+smithsonian-open-access,Conferences,6,6,0,0
+library-of-congress,"film, video; photo, print, drawing; personal narrative; manuscript/mixed material",5,5,5,0
+met-collection-api,Prints,5,5,5,5
+met-collection-api,Stone Sculpture,5,5,1,1
+smithsonian-open-access,Catalogs; Trade catalogs,5,5,0,0
+smithsonian-open-access,Exhibitions (events),5,5,0,0
+smithsonian-open-access,Catalogs,4,4,0,0
+cleveland-museum-open-access,Furniture and woodwork,3,3,3,3
+cleveland-museum-open-access,Jade,3,3,3,3
+cleveland-museum-open-access,Silver,3,3,3,3
+library-of-congress,"photo, print, drawing; web page",3,0,0,0
+met-collection-api,Woodwork,3,3,0,0
+smithsonian-open-access,Art photography; Books,3,3,0,0
+smithsonian-open-access,Syllabi; Outlines,3,3,0,0
+cleveland-museum-open-access,Bound Volume,2,2,2,2
+cleveland-museum-open-access,Drawing,2,2,2,2
+cleveland-museum-open-access,Miscellaneous,2,2,2,2
+cleveland-museum-open-access,Textile,2,2,2,2
+library-of-congress,"photo, print, drawing; collection",2,2,2,0
+library-of-congress,"photo, print, drawing; personal narrative; manuscript/mixed material",2,2,2,0
+library-of-congress,"photo, print, drawing; sound recording; personal narrative; manuscript/mixed material",2,2,2,0
+smithsonian-open-access,Art photography; Scientific illustrations; Books,2,2,0,0
+smithsonian-open-access,"Books; Criticism, interpretation, etc",2,2,0,0
+smithsonian-open-access,Dictionaries; Books,2,2,0,0
+smithsonian-open-access,Electronic information resources,2,2,0,0
+smithsonian-open-access,Exhibition catalogs; Exhibitions (events),2,2,0,0
+smithsonian-open-access,"Patents; Paintings; Specimen, Painting; Models; specimen, painting; painting, surface for",2,0,0,0
+smithsonian-open-access,Trade catalogs,2,2,0,0
+cleveland-museum-open-access,Arms and Armor,1,1,1,1
+cleveland-museum-open-access,Funerary Equipment,1,1,1,1
+cleveland-museum-open-access,Glass,1,1,1,1
+cleveland-museum-open-access,Jewelry,1,1,1,1
+cleveland-museum-open-access,Lacquer,1,1,1,1
+cleveland-museum-open-access,Manuscript,1,1,1,1
+cleveland-museum-open-access,Mask,1,1,1,1
+library-of-congress,"3d object; personal narrative; sound recording; manuscript/mixed material; photo, print, drawing",1,1,1,0
+library-of-congress,"collection; manuscript/mixed material; photo, print, drawing",1,1,1,0
+library-of-congress,"collection; notated music; photo, print, drawing; manuscript/mixed material",1,1,1,0
+library-of-congress,"collection; photo, print, drawing; manuscript/mixed material",1,0,1,0
+library-of-congress,"photo, print, drawing; book",1,1,1,0
+library-of-congress,"software, e-resource; 3d object; personal narrative; film, video; photo, print, drawing; manuscript/mixed material",1,1,1,0
+library-of-congress,"software, e-resource; manuscript/mixed material; 3d object; personal narrative; photo, print, drawing",1,1,1,0
+met-collection-api,Bark-Sculpture,1,1,0,0
+met-collection-api,Basketry-Sculpture,1,1,0,0
+met-collection-api,Beads-Sculpture,1,1,1,1
+met-collection-api,Bone/Ivory-Sculpture,1,1,1,1
+met-collection-api,Ceramics-Pottery,1,1,1,1
+met-collection-api,Ceramics,1,1,1,1
+met-collection-api,Furniture,1,1,1,1
+met-collection-api,Horology,1,1,1,1
+met-collection-api,Inrō,1,1,1,1
+met-collection-api,Ivories-Elephant,1,1,1,1
+met-collection-api,Lacquer,1,1,1,1
+met-collection-api,Lapidary Work-Chalcedony,1,1,1,1
+met-collection-api,Metalwork-Gold and Platinum,1,1,1,1
+met-collection-api,Metalwork-Silver,1,1,1,1
+met-collection-api,"Miscellaneous-Bone, Ivory",1,1,1,1
+met-collection-api,Miscellaneous-Stone,1,1,1,1
+met-collection-api,Screens,1,1,1,1
+met-collection-api,Sculpture-Wood,1,1,1,1
+met-collection-api,Stone,1,1,0,0
+met-collection-api,Stucco,1,1,1,1
+met-collection-api,Swords,1,1,1,1
+met-collection-api,tablets and plaques,1,1,1,1
+met-collection-api,Textiles-Tapestries,1,1,1,1
+met-collection-api,Textiles-Woven,1,1,1,1
+met-collection-api,Wood-Vessels,1,1,0,0
+met-collection-api,Woodwork-Furniture,1,1,1,1
+smithsonian-open-access,Abstracts (summaries); Periodicals,1,1,0,0
+smithsonian-open-access,Anthologies,1,1,0,0
+smithsonian-open-access,Art photography; Portrait photography; Nonfiction; Books,1,1,0,0
+smithsonian-open-access,Art photography; Scientific illustrations; Biographies,1,1,0,0
+smithsonian-open-access,Bibliographies,1,1,0,0
+smithsonian-open-access,Biographies; Books,1,1,0,0
+smithsonian-open-access,Biographies; Exhibitions (events),1,1,0,0
+smithsonian-open-access,Books; Catalogs,1,1,0,0
+smithsonian-open-access,Case studies,1,1,0,0
+smithsonian-open-access,Conference papers and proceedings; Congrès; Conferences; Actes de congrès,1,1,0,0
+smithsonian-open-access,Conference papers and proceedings; E-books; Conferences,1,1,0,0
+smithsonian-open-access,Dictionaries,1,1,0,0
+smithsonian-open-access,Documentary photography; Books,1,1,0,0
+smithsonian-open-access,Documents d'information; Books; Informational works,1,1,0,0
+smithsonian-open-access,Illustrations,1,1,0,0
+smithsonian-open-access,Journal Article; Smithsonian staff publications,1,1,0,0
+smithsonian-open-access,Landscape photography; Biographies; Publications; Exhibitions (events),1,1,0,0
+smithsonian-open-access,Literature (writings); Books,1,1,0,0
+smithsonian-open-access,"Paintings; Painting; Painting, Oil; Medicine",1,1,0,0
+smithsonian-open-access,Paintings; Paintings; Pictures; Painting of Glass; Landscape,1,0,0,0
+smithsonian-open-access,Paintings; Peintures; Paintings (visual works).); Books,1,1,0,0
+smithsonian-open-access,Photobooks; Art photography; Biographies; Autobiographies; Livres de photographies; autobiographies (literary works),1,1,0,0
+smithsonian-open-access,Photographs; Books,1,1,0,0
+smithsonian-open-access,Pictorial works; Exhibitions (events),1,1,0,0
+smithsonian-open-access,Pictorial works; Ouvrages illustrés,1,1,0,0
+smithsonian-open-access,Pictorial works,1,1,0,0
+smithsonian-open-access,Portraits,1,1,0,0
+smithsonian-open-access,Scientific illustrations; Books,1,1,0,0
+smithsonian-open-access,Textbooks,1,1,0,0
+smithsonian-open-access,Treatises; Books,1,1,0,0
+smithsonian-open-access,Video recordings,1,1,0,0

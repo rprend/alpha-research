@@ -1,0 +1,5 @@
+source_id,rows,rows_with_dates,rows_with_classification,rows_with_department,rows_with_accession_number,rows_with_accession_year,rows_with_image_url,public_domain_or_cc0_rows,rights_statuses
+library-of-congress,308,296,150,150,0,0,142,0,metadata-ok=308
+met-collection-api,255,251,234,251,251,251,152,152,metadata-ok=255
+smithsonian-open-access,225,206,200,225,0,0,0,0,metadata-ok=225
+cleveland-museum-open-access,200,200,200,200,200,0,200,200,metadata-ok=200

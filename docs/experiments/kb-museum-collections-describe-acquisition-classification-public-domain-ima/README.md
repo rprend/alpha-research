@@ -25,6 +25,27 @@ How do museum collections describe acquisition, classification, and public-domai
 From the repository root:
 
 ```bash
+node docs/experiments/kb-museum-collections-describe-acquisition-classification-public-domain-ima/scripts/build-analysis.mjs
+```
+
+This writes:
+
+- `data/processed/coverage-by-source.csv`
+- `data/processed/field-coverage.csv`
+- `data/processed/classification-by-source.csv`
+- `data/processed/department-by-source.csv`
+- `data/processed/date-precision-by-source.csv`
+- `data/processed/acquisition-by-source.csv`
+- `data/processed/image-rights-by-source.csv`
+- `data/processed/public-domain-by-source.csv`
+- `data/processed/representative-records.csv`
+- `reports/result.json`
+- `reports/work.md`
+- `reports/public-draft.md`
+
+The original SQL sketch remains available:
+
+```bash
 sqlite3 data/knowledge-base/processed/knowledge-base.sqlite < docs/experiments/kb-museum-collections-describe-acquisition-classification-public-domain-ima/config/queries.sql
 ```
 
