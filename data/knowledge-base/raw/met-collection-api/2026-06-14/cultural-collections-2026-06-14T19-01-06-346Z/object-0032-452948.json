@@ -1,0 +1,91 @@
+{
+  "objectID": 452948,
+  "isHighlight": false,
+  "accessionNumber": "1979.460.2a, b",
+  "accessionYear": "1979",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/is/original/DP107270.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/is/web-large/DP107270.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/is/original/DP155258.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 133395,
+      "role": "Artist",
+      "name": "Painting by Fathallah Shirazi",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    }
+  ],
+  "department": "Islamic Art",
+  "objectName": "Mirror case",
+  "title": "Lacquer Mirror Case",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "Painting by",
+  "artistDisplayName": "Fathallah Shirazi",
+  "artistDisplayBio": "Iranian, active 1850s–80s",
+  "artistSuffix": "",
+  "artistAlphaSort": "Shirazi, Fathallah",
+  "artistNationality": "Iranian",
+  "artistBeginDate": "1825",
+  "artistEndDate": "1905",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "dated 1295 AH/1878 CE",
+  "objectBeginDate": 1877,
+  "objectEndDate": 1879,
+  "medium": "Papier-maché; painted, gilded, and lacquered",
+  "dimensions": "H. 2 1/2 in. (6.4 cm)\r\nW. 6 1/16 in. (15.4 cm)\r\nD. 3 1/2 in. (8.9 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Depth": 8.9,
+        "Height": 6.35,
+        "Width": 15.4
+      }
+    }
+  ],
+  "creditLine": "Gift of Irma B. Wilkinson, 1979",
+  "geographyType": "Made in",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "Iran",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Lacquer",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2026-01-21T04:52:24.343Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/452948",
+  "tags": [
+    {
+      "term": "Birds",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300266506",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q5113"
+    },
+    {
+      "term": "Flowers",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300132399",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q506"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116276470",
+  "isTimelineWork": true,
+  "GalleryNumber": "462"
+}

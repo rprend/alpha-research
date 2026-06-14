@@ -533,6 +533,7 @@ Started on 2026-06-13:
 - Phase 1 is implemented: the source registry has 31 sources, registry/schema validation exists, rights taxonomy exists, ingest manifest schema exists, and `pnpm kb:status` reports local KB state.
 - Phase 2 has a bounded starter ingest: `pnpm kb:ingest:core` fetches OpenAlex, Crossref, Wikidata, Library of Congress, Met, and Cleveland Museum samples into raw run folders and normalized JSONL staging tables.
 - Phase 2 now has a broad append/dedupe metadata ingest: `pnpm kb:ingest:broad` pulls larger source-specific batches for OpenAlex, Crossref, Internet Archive, Library of Congress, Cleveland Museum, Met, and NBER into the local KB without resetting existing staging tables.
+- Phase 2 now has a dedicated cultural-collections ingest: `pnpm kb:ingest:cultural` pulls richer object/collection metadata from Met, Cleveland Museum of Art, Library of Congress, and Smithsonian APIs.
 - Phase 2 now has a dedicated DOAJ humanities ingest: `pnpm kb:ingest:doaj` pulls article and journal metadata across humanities queries from DOAJ, stores raw responses, and appends normalized work, venue, source-document, and rights rows.
 - Phase 2 now has a dedicated Wikidata cultural-entity ingest: `pnpm kb:ingest:wikidata` pulls typed linked-open-data entities for people, works, movements, genres, institutions, journals, and humanities concepts.
 - Phase 2/3 now has a gap-source ingest: `pnpm kb:ingest:gaps` targets registered sources without local records, including Smithsonian, Columbia department pages, DH conference pages, journal metadata through Crossref, and blocked-route probes for sources that need replacement routes.
@@ -553,26 +554,27 @@ Current local footprint as of the latest local status:
 - 33 registered sources.
 - 28 registered sources with local documents.
 - Registry statuses: 23 active, 5 blocked, 4 seeded-from-experiment, 1 planned.
-- 5305 source documents.
+- 5810 source documents.
 - 2913 works.
 - 1779 source-provided authors.
 - 2270 venues.
 - 14 institutions.
-- 25 derived collections.
+- 40 derived collections.
 - 34859 source-provided citation/reference edges.
 - 541 source-provided topics.
-- 507 cultural objects.
+- 1012 cultural objects.
 - 34 department/web pages.
-- 5305 rights rows.
+- 5810 rights rows.
 - 2539 records from the dedicated DOAJ humanities ingest, including 1450 article records and 1089 journal records from 32 raw article/journal API route responses.
 - 757 Wikidata cultural entity records across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts.
+- 505 additional cultural-collection object records from the dedicated Met/Cleveland/Library of Congress/Smithsonian ingest; Met object-detail routes partially succeeded and blocked object IDs are retained in the ingest audit.
 - 200 public-domain Project Gutenberg text files imported from the local Gutenberg experiment cache.
 - 4 strict homepage Wayback CDX department-page snapshot metadata records from 2020-2026 across 4 target routes; broader wildcard captures were rejected to avoid query-string noise.
 - 204 local text files.
 - 12/12 staging JSONL tables.
 - 12/12 processed Parquet tables.
 - SQLite FTS indexes 24 source-document rows and 4 page rows with stored local text content, plus metadata for the broader corpus.
-- Semantic hash index covers 5274 rights-filtered documents, including 200 public-domain full-text records and 4 local-analysis page-text records.
+- Semantic hash index covers 5779 rights-filtered documents, including 200 public-domain full-text records and 4 local-analysis page-text records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 
@@ -581,7 +583,7 @@ This is a foundation and harness, not the complete knowledge base.
 Remaining before the full knowledge-base goal is complete:
 
 - Normalize source-provided author identities and citation/reference edges into cleaner person/work graphs.
-- Add more broad, source-specific ingest jobs rather than bounded samples, especially cultural collections, department-page crawling, and further Project Gutenberg catalog/text expansion.
+- Add more broad, source-specific ingest jobs rather than bounded samples, especially department-page crawling and further Project Gutenberg/catalog-cultural collection expansion.
 - Continue replacement or retry plans for failed LARB, Harvard English current-page, Yale English CDX, and remaining 403/timeout routes; do not bypass access controls.
 - Expand university/department web corpus acquisition beyond the first successful routes.
 - Expand full text storage only for public-domain or clearly licensed sources.

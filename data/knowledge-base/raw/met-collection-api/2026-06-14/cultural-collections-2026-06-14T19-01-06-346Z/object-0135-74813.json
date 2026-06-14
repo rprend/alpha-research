@@ -1,0 +1,118 @@
+{
+  "objectID": 74813,
+  "isHighlight": true,
+  "accessionNumber": "2015.300.298",
+  "accessionYear": "2015",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/as/original/DP355788.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/as/web-large/DP355788.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/as/original/DP355791.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-001a.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-001b.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-001c.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-002a.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-002b(1).jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-002b(2).jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-002c(1).jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-002c(2).jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-002c(3).jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/SC-2015_300_298-002c(4).jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 37502,
+      "role": "Artist",
+      "name": "Unidentified artist",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    }
+  ],
+  "department": "Asian Art",
+  "objectName": "Hanging scroll",
+  "title": "Shakyamuni triad",
+  "culture": "Korea",
+  "period": "Joseon dynasty (1392–1910)",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Unidentified artist",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "Unidentified artist",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "1565",
+  "objectBeginDate": 1565,
+  "objectEndDate": 1565,
+  "medium": "Hanging scroll; color and gold on silk",
+  "dimensions": "Image: 23 13/16 x 12 5/8 in. (60.5 x 32 cm)\r\nOverall with mounting: 60 x 21 1/8 in. (152.4 x 53.7 cm)",
+  "measurements": [
+    {
+      "elementName": "Image",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 60.5,
+        "Width": 32
+      }
+    },
+    {
+      "elementName": "Overall with mounting",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 152.4003,
+        "Width": 53.6576
+      }
+    }
+  ],
+  "creditLine": "Mary Griggs Burke Collection, Gift of the Mary and Jackson Burke Foundation, 2015",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Paintings",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2026-05-27T04:55:05.427Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/74813",
+  "tags": [
+    {
+      "term": "Buddhism",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300073738",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q748"
+    },
+    {
+      "term": "Bodhisattvas",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300264360",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q178149"
+    },
+    {
+      "term": "Buddha",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300262950",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q7055"
+    },
+    {
+      "term": "Shakyamuni",
+      "AAT_URL": "http://vocab.getty.edu/page/ia/901000851",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q9441"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q78706762",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

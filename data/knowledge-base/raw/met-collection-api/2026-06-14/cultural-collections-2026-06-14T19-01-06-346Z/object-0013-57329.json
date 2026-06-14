@@ -1,0 +1,127 @@
+{
+  "objectID": 57329,
+  "isHighlight": false,
+  "accessionNumber": "52.160.3a–q",
+  "accessionYear": "1952",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/as/original/DP205561.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/as/web-large/DP205561.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/as/original/DP205563.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205562.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205566.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205565.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205564.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205569.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205568.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205567.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205572.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205571.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205570.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205575.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205574.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205573.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP206153.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205577.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP205576.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 165386,
+      "role": "Artist",
+      "name": "Shibata Zeshin",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500325954",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q2386947",
+      "gender": ""
+    }
+  ],
+  "department": "Asian Art",
+  "objectName": "Album leaves",
+  "title": "Painting",
+  "culture": "Japan",
+  "period": "Meiji period (1868–1912)",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Shibata Zeshin",
+  "artistDisplayBio": "Japanese, 1807–1891",
+  "artistSuffix": "",
+  "artistAlphaSort": "Shibata Zeshin",
+  "artistNationality": "Japanese",
+  "artistBeginDate": "1807",
+  "artistEndDate": "1891",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q2386947",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500325954",
+  "objectDate": "19th century",
+  "objectBeginDate": 1807,
+  "objectEndDate": 1891,
+  "medium": "Album of seventeen sketches; watercolor on paper; mounted on natural silk",
+  "dimensions": "Image: 11 x 14 in. (27.9 x 35.6 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": "image with mounting",
+      "elementMeasurements": {
+        "Height": 32.385063,
+        "Width": 38.57633
+      }
+    },
+    {
+      "elementName": "Image",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 27.940056,
+        "Width": 35.56007
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "album cover",
+      "elementMeasurements": {
+        "Depth": 3.8100076,
+        "Height": 32.385063,
+        "Width": 39.68758
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "album",
+      "elementMeasurements": {
+        "Depth": 2.8575058,
+        "Height": 32.385063,
+        "Width": 38.735077
+      }
+    }
+  ],
+  "creditLine": "Purchase, Gifts, Bequests, and Funds from various donors, by exchange, 1952",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Paintings",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/57329",
+  "tags": [
+    {
+      "term": "Men",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025928",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q8441"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q78722945",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

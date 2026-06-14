@@ -1,0 +1,157 @@
+{
+  "objectID": 452668,
+  "isHighlight": false,
+  "accessionNumber": "1974.290.43",
+  "accessionYear": "1974",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/is/original/DP215587.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/is/web-large/DP215587.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/is/original/DP215588.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215589.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215590.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215591.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215592.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215593.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215594.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP223916.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-1.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215581.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215582.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215583.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215584.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215585.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DP215586.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-2.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-3.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-4.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-5.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-6.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-7.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-8.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-9.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-10.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-11.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-12.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43-13.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf1974-290-43cov.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 134511,
+      "role": "Artist",
+      "name": "Painting by Mu&#39;in Musavvir",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500116630",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q3327312",
+      "gender": ""
+    },
+    {
+      "constituentID": 130357,
+      "role": "Author",
+      "name": "Abu&#39;l Qasim Firdausi",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q43459",
+      "gender": ""
+    }
+  ],
+  "department": "Islamic Art",
+  "objectName": "Illustrated manuscript",
+  "title": "Shahnama (Book of Kings) of Firdausi",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "Painting by",
+  "artistDisplayName": "Mu'in Musavvir",
+  "artistDisplayBio": "Iranian, active 1630s–90s",
+  "artistSuffix": "",
+  "artistAlphaSort": "Musavvir Mu'in",
+  "artistNationality": "Iranian",
+  "artistBeginDate": "1605",
+  "artistEndDate": "1722",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q3327312",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500116630",
+  "objectDate": "1660s",
+  "objectBeginDate": 1635,
+  "objectEndDate": 1685,
+  "medium": "Ink, opaque watercolor, gold, and silver on paper",
+  "dimensions": "Painting (folio 158v): H. 9 15/16 in. (25.2 cm)\r\n                                    W. 5 5/8 in. (14.3 cm)\r\nText block: H. 14 5/16 in. (36.4 cm)\r\n                    W. 8 9/16 in. (21.7 cm)\r\nBinding: H. 14 1/2 in. (36.8 cm)\r\n               W. 9 1/16 in. (23 cm)\r\n                D. 2 in. (5.1 cm)",
+  "measurements": [
+    {
+      "elementName": "Other",
+      "elementDescription": "Text block",
+      "elementMeasurements": {
+        "Height": 36.35382,
+        "Width": 21.748793
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "Binding",
+      "elementMeasurements": {
+        "Depth": 5.08001,
+        "Height": 36.830074,
+        "Width": 23.018797
+      }
+    },
+    {
+      "elementName": "Other",
+      "elementDescription": "Painting (folio 158v)",
+      "elementMeasurements": {
+        "Height": 25.2413,
+        "Width": 14.287529
+      }
+    }
+  ],
+  "creditLine": "Bequest of Monroe C. Gutman, 1974",
+  "geographyType": "Attributed to",
+  "city": "probably Isfahan",
+  "state": "",
+  "county": "",
+  "country": "Iran",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Codices",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-01-30T04:54:21.21Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/452668",
+  "tags": [
+    {
+      "term": "Men",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025928",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q8441"
+    },
+    {
+      "term": "Horses",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300250148",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q726"
+    },
+    {
+      "term": "Lions",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300310388",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q140"
+    },
+    {
+      "term": "Demons",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300379730",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q177413"
+    },
+    {
+      "term": "Wolves",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300250132",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q18498"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116276948",
+  "isTimelineWork": true,
+  "GalleryNumber": "462"
+}

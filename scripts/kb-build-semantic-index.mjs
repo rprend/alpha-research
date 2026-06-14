@@ -87,6 +87,12 @@ async function documentText(row, rights) {
     row.publication_year,
     row.venue,
     row.department,
+    row.culture,
+    row.classification,
+    row.medium,
+    row.artist,
+    row.accession_number,
+    row.accession_year,
     row.description,
   ].filter(Boolean);
   const localText = await readAllowedLocalText(row, rights);

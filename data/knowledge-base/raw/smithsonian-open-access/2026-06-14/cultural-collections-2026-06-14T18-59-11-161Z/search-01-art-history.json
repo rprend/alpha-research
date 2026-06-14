@@ -1,0 +1,5466 @@
+{
+  "status": 200,
+  "responseCode": 1,
+  "response": {
+    "rows": [
+      {
+        "id": "sro-1663946979444-1663946991448-0",
+        "title": "Bully Pulpit: Is American Art History Conservative?",
+        "unitCode": "SLA_SRO",
+        "type": "edanmdm",
+        "url": "edanmdm:slasro_153423",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Year",
+                "content": "2016"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Casey, Emily"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Citation",
+                "content": "Casey, Emily. 2016. \"<a href=\"https://editions.lib.umn.edu/panorama/article/is-american-art-history-conservative/emily-casey-doctoral-candidate-art-history-university-of-delaware/\">Bully Pulpit: Is American Art History Conservative?</a>\" <em>Panorama: Journal of the Association of Historians of American Art</em>, 2, (1)."
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries and Archives"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Identifier",
+                "content": "153423"
+              },
+              {
+                "label": "ISSN",
+                "content": "2471-6839"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Type",
+                "content": "Smithsonian staff publication"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              {
+                "type": "author",
+                "content": "Casey, Emily"
+              }
+            ],
+            "object_type": [
+              "Journal Article",
+              "Smithsonian staff publications"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Bully Pulpit: Is American Art History Conservative?"
+            },
+            "record_ID": "slasro_153423",
+            "unit_code": "SLA_SRO",
+            "title_sort": "BULLY PULPIT: IS AMERICAN ART HISTORY CONSERVATIVE?",
+            "data_source": "Smithsonian Libraries and Archives",
+            "record_link": "https://editions.lib.umn.edu/panorama/article/is-american-art-history-conservative/emily-casey-doctoral-candidate-art-history-university-of-delaware/",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "f3b4999ff3c078f831e6fba8e17e8a601a0542ef",
+        "docSignature": "1f28a62d5a7ab9c1d4da3352a2fbf852",
+        "timestamp": "1663956074",
+        "lastTimeUpdated": "1663956074",
+        "version": "1663955563"
+      },
+      {
+        "id": "ld1-1646149545906-1646150765825-0",
+        "title": "Art history and its institutions : foundations of a discipline / edited by Elizabeth Mansfield",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_701962",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2002"
+              },
+              {
+                "label": "Date",
+                "content": "19th century"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Mansfield, Elizabeth"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Art history and modernism / Elizabeth Mansfield -- Hearing the unsaid : art history, museology, and the composition of the self / Donald Preziosi -- From Boullée to Bilbao : the museum as utopian space / Andrew McClellan -- Marburg, Harvard and purpose-built architecture for art history, 1927 / Kathryn Brush -- Viollet-le-Duc and Taine at the École des Beaux-Arts : on the first professorship of art history in France / Philip Hotchkiss Walsh -- Colonizing culture : the origins of art history in Australia / Jacqueline Strecker -- Deep innovation and mere eccentricity : six case studies of innovation in art history / David Carrier -- The taste of angels in the art of darkness : fashioning the canon of African art / Christopher B. Steiner -- Tradesmen as scholars : interdependencies in the study and exchange of art / Ivan Gaskell -- How canons disappear : the case of Henri Regnault / Marc Gotlieb -- Using art history : the Louvre and its public persona, 1848-52 / Gabriel P. Weisberg -- Silent moves : on excluding the ethnographic subject from the discourse of art history / Claire Farago -- Art history on the academic fringe : Taine's philosophy of art / Mary G. Morton -- \"For connoisseurs\" : The Burlington magazine, 1903-11 / Helen Rees Leahy -- Photographic perspectives : photography and the institutional formation of art history / Frederick N. Bohrer -- Instituting genius : the formation of biographical art history in France / Greg M. Thomas -- A preponderance of practical problems : discourse institutionalized and the history of art in the United States between 1876 and 1888 / Eric Rosenberg -- Emancipation and the freed in American sculpture : race, representation, and the beginnings of an African American history of art / Steven Nelson -- Art photography, history, and aesthetics / Catherine M. Soussloff"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art, Modern--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art, Modern--Societies, etc"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N6450 .A77 2002"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xiii, 329 p. : ill. ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1800s",
+              "1810s",
+              "1820s",
+              "2000s",
+              "1830s",
+              "1880s",
+              "1890s",
+              "1840s",
+              "1850s",
+              "1860s",
+              "1870s"
+            ],
+            "name": [
+              "Mansfield, Elizabeth"
+            ],
+            "topic": [
+              "Art",
+              "Societies",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art history and its institutions : foundations of a discipline / edited by Elizabeth Mansfield"
+            },
+            "record_ID": "siris_sil_701962",
+            "unit_code": "SIL",
+            "title_sort": "ART HISTORY AND ITS INSTITUTIONS : FOUNDATIONS OF A DISCIPLINE EDITED BY ELIZABETH MANSFIELD",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!701962~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "aa3ce4696223bf0395a657020e0689c057776a63",
+        "docSignature": "caafa3f09de18721202ae56f8e96784b",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661962734",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149783995-2",
+        "title": "Kangjwa misulsa = The art history journal / p'yŏnjibin Han'guk Pulgyo Misulsa Hakhoe",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1080677",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1988"
+              }
+            ],
+            "name": [
+              {
+                "label": "issuing body",
+                "content": "Han'guk Pulgyo Misulsa Hakhoe"
+              },
+              {
+                "label": "Author",
+                "content": "Han'guk Misulsa Yŏn'guso"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "강좌 미술사 = The art history journal / 편집인 한국 불교 미술사 학회"
+              },
+              {
+                "label": "Title",
+                "content": "Art history journal"
+              },
+              {
+                "label": "Title",
+                "content": "講座 美術史"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art, Korean--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Buddhist art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "P"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Periodicals"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "volumes : illustrations ; 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Han'guk Pulgyo Misulsa Hakhoe",
+              "한국 불교 미술사 학회, issuing body",
+              "Han'guk Misulsa Yŏn'guso",
+              "한국 미술사 연구소"
+            ],
+            "topic": [
+              "Art",
+              "History",
+              "Buddhist art"
+            ],
+            "culture": [
+              "Koreans"
+            ],
+            "language": [
+              "Korean language"
+            ],
+            "object_type": [
+              "Periodicals"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Kangjwa misulsa = The art history journal / p'yŏnjibin Han'guk Pulgyo Misulsa Hakhoe"
+            },
+            "record_ID": "siris_sil_1080677",
+            "unit_code": "SIL",
+            "title_sort": "KANGJWA MISULSA = THE ART HISTORY JOURNAL PYŎNJIBIN HANGUK PULGYO MISULSA HAKHOE",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1080677~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "dab244e7d3e8010d60b7548ace857c08cc96012a",
+        "docSignature": "8b93bb37f268ed5c370ad5914d46c094",
+        "timestamp": "1499069459",
+        "lastTimeUpdated": "1661961939",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150080675-0",
+        "title": "Newsletter / Midwest Art History Society",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_154716",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1974"
+              },
+              {
+                "label": "Date",
+                "content": "1974-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Midwest Art History Society"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History--Societies, etc"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "AP1 .M634"
+              },
+              {
+                "label": "Call number",
+                "content": "AP1.M634"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Periodicals"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "ill. ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1970s"
+            ],
+            "name": [
+              "Midwest Art History Society"
+            ],
+            "topic": [
+              "Art",
+              "Societies",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Periodicals"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Newsletter / Midwest Art History Society"
+            },
+            "record_ID": "siris_sil_154716",
+            "unit_code": "SIL",
+            "title_sort": "NEWSLETTER MIDWEST ART HISTORY SOCIETY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!154716~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "d731aadabaa6bf1e39c558e33b93fcc34b3fe87c",
+        "docSignature": "5196ec720103970a1cce1d7eb64cc4bb",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661962658",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150365316-2",
+        "title": "The subjects of art history : historical objects in contemporary perspectives / edited by Mark A. Cheetham, Michael Ann Holly. Keith Moxey",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_630810",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1998"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Cheetham, Mark A (Mark Arthur) 1954-"
+              },
+              {
+                "label": "Author",
+                "content": "Holly, Michael Ann"
+              },
+              {
+                "label": "Author",
+                "content": "Moxey, Keith P. F. 1943-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Immanuel Kant and the bo(a)rders of art history / Mark A. Cheetham -- Art history's Hegelian unconscious : naturalism as nationalism in the study of early Netherlandish painting / Keith Moxey -- Spirits and ghosts in the historiography of art / Michael Ann Holly -- Seeing signs : the use of semiotics for the understanding of visual art / Mieke Bal -- Politics of feminist art history / Patricia Mathews -- \"Homosexualism,\" gay and lesbian studies, and queer theory in art history / Whitney Davis -- Phenomenology and the limits of hermeneutics / Stephen Melville -- Photo-logos : photography and deconstruction / David Phillips -- Work of art and its beholder : the methodology of the aesthetic of reception / Wolfgang Kemp -- Between art history and psychoanalysis : I/eye-ing Monet with Freud and Lacan / Steven Z. Levine -- Passing between art history and postcolonial theory / James D. Herbert -- Art history and museums / Stephen Bann -- Museums and galleries as sites for artistic intervention / Gerald McMaster -- Art history's significant other-- film studies / Bruce Barber -- Interpreting the void : architecture and spatial anxiety / Anthony Vidler -- Computer applications for art history / William Vaughan"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--Historiography"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xii, 336 p. : ill. ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Cheetham, Mark A",
+              "Holly, Michael Ann",
+              "Moxey, Keith P. F"
+            ],
+            "topic": [
+              "Art",
+              "Historiography"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The subjects of art history : historical objects in contemporary perspectives / edited by Mark A. Cheetham, Michael Ann Holly. Keith Moxey"
+            },
+            "record_ID": "siris_sil_630810",
+            "unit_code": "SIL",
+            "title_sort": "SUBJECTS OF ART HISTORY : HISTORICAL OBJECTS IN CONTEMPORARY PERSPECTIVES EDITED BY MARK A CHEETHAM MICHAEL ANN HOLLY KEITH MOXEY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!630810~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "f869491dd2bad7aba4b000b344a34105e892d4fb",
+        "docSignature": "e1cf5575ea1f1e9b712f48d0707d6e25",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661962552",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150582661-0",
+        "title": "Race-ing art history : critical readings in race and art history / edited by Kymberly N. Pinder",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_688832",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2002"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Pinder, Kymberly N"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Racing art history"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art and race"
+              },
+              {
+                "label": "Topic",
+                "content": "Racism in art"
+              },
+              {
+                "label": "Topic",
+                "content": "Sexism in art"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xvi, 413 p., [8] p. of plates : ill. (some col.) ; 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Pinder, Kymberly N"
+            ],
+            "topic": [
+              "Racism in art",
+              "Art",
+              "Art and race",
+              "History",
+              "Sexism in art"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Race-ing art history : critical readings in race and art history / edited by Kymberly N. Pinder"
+            },
+            "record_ID": "siris_sil_688832",
+            "unit_code": "SIL",
+            "title_sort": "RACEING ART HISTORY : CRITICAL READINGS IN RACE AND ART HISTORY EDITED BY KYMBERLY N PINDER",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!688832~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "14cf9c2863644454716187bac674763514489e9b",
+        "docSignature": "ad034ffa003872816bbff4b5657f6bd9",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661962784",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150888393-0",
+        "title": "Art history / Marilyn Stokstad, Michael W. Cothren",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1084321",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2018"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Stokstad, Marilyn 1929-2016"
+              },
+              {
+                "label": "author",
+                "content": "Cothren, Michael Watt"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Summary",
+                "content": "For survey courses in Art History Welcoming, inclusive, engaging, and global Art History brings the history of art to life for a new generation of students. It is global in scope, inclusive in its coverage, and warm and welcoming in tone. The guiding vision of Art History is that the teaching of art history survey courses should be filled with equal delight, enjoyment, and serious learning, while fostering an enthusiastic and educated public for the visual arts. The Sixth Edition has been revised to reflect new discoveries, recent research, and fresh interpretive perspectives, as well as to address the changing needs of both students and educators. Art History, Sixth Edition is also available via Revel(TM), an interactive learning environment that enables students to read, practice, and study in one continuous experience."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Textbooks"
+              },
+              {
+                "label": "Type",
+                "content": "History"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxxvii, 1210 pages : illustrations (chiefly color), maps ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              "Cothren, Michael Watt",
+              "Stokstad, Marilyn"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Textbooks"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art history / Marilyn Stokstad, Michael W. Cothren"
+            },
+            "record_ID": "siris_sil_1084321",
+            "unit_code": "SIL",
+            "title_sort": "ART HISTORY MARILYN STOKSTAD MICHAEL W COTHREN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1084321~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "1839844e76df9ab236cce3b4a781a3825c0625c9",
+        "docSignature": "66776356d1bcef1ae477ce6490ea1eed",
+        "timestamp": "1663782165",
+        "lastTimeUpdated": "1666732454",
+        "version": "1666732036"
+      },
+      {
+        "id": "ld1-1646149545906-1646150725980-2",
+        "title": "Art history",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_558458",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1996"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Carrier, David 1944-"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries African Art Index Project DSI"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art history"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History--Methodology"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N34 .C75 1996X"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Articles"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Smithsonian Libraries",
+              "Carrier, David"
+            ],
+            "topic": [
+              "Art",
+              "Methodology",
+              "Art history",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Articles"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art history"
+            },
+            "record_ID": "siris_sil_558458",
+            "unit_code": "SIL",
+            "title_sort": "ART HISTORY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!558458~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "277e0c4434d3f956822d02ec46e067d9cef3d6b1",
+        "docSignature": "9991f2acf72c9cbad901e8c40844b5fa",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961808",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1654592037492-1654592046429-0",
+        "title": "Creation art since the beginning John-Paul Stonard",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1155236",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2021"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Stonard, John-Paul 1973-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Signs of life -- Eyes wide open -- Ages of elegance -- Jade and bronze -- The human measure -- Roads to empire -- Suffering and desire -- Golden saints -- The name of the prophet -- Invaders and inventors -- Serpents, skulls, standing stones -- Sound and light -- Travellers in the mist -- Spellbound -- The new life -- The ordering of vision -- Spectular small things -- Bronze kings -- Some kind of genius -- Shadows and power -- An open window -- Choosing to be human -- The poetic impulse -- Everyday revolutions -- Mountains and oceans -- New worlds -- After the trauma"
+              },
+              {
+                "label": "Summary",
+                "content": "\"Creation tells the extraordinary story of how people all over the globe, from prehistory to the present day, have created images in order to understand the world they inhabit. It explores the remarkable endurance of this creative impulse, and by tracing the diversity of artistic forms through the ages, offers a comprehensive and exhilarating introduction to world art.\" -- from the publisher"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Art since the beginning"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--Histoire"
+              },
+              {
+                "label": "Topic",
+                "content": "Art history"
+              },
+              {
+                "label": "Topic",
+                "content": "ART / History / Contemporary (1945-)"
+              },
+              {
+                "label": "Topic",
+                "content": "ART / History / General"
+              },
+              {
+                "label": "Topic",
+                "content": "ART / History / Prehistoric"
+              },
+              {
+                "label": "Topic",
+                "content": "ART / History / Renaissance"
+              },
+              {
+                "label": "Topic",
+                "content": "Art"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              },
+              {
+                "label": "Type",
+                "content": "History"
+              },
+              {
+                "label": "Type",
+                "content": "Informational works"
+              },
+              {
+                "label": "Type",
+                "content": "Documents d'information"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "459 pages illustrations (chiefly color) 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2020s"
+            ],
+            "name": [
+              "Stonard, John-Paul"
+            ],
+            "topic": [
+              "Art",
+              "ART / History / Contemporary (1945-)",
+              "ART / History / Prehistoric",
+              "Histoire",
+              "Art history",
+              "History",
+              "ART / History / General",
+              "ART / History / Renaissance"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Documents d'information",
+              "Books",
+              "Informational works"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Creation art since the beginning John-Paul Stonard"
+            },
+            "record_ID": "siris_sil_1155236",
+            "unit_code": "SIL",
+            "title_sort": "CREATION ART SINCE THE BEGINNING JOHNPAUL STONARD",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1155236~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "2dd7a890316b46e7e250e15962df15ec33ba0282",
+        "docSignature": "7c965df781026a01ea31c2f8a337c8d9",
+        "timestamp": "1663785056",
+        "lastTimeUpdated": "1666737563",
+        "version": "1666732094"
+      },
+      {
+        "id": "ld1-1646149545906-1646149585823-1",
+        "title": "The Penguin concise dictionary of art history / Nancy Frazier",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_595689",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1999"
+              },
+              {
+                "label": "Date",
+                "content": "2000"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Frazier, Nancy"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Concise dictionary of art history"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History--Dictionaries"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "ix, 774 p. ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s",
+              "1990s"
+            ],
+            "name": [
+              "Frazier, Nancy"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Dictionaries",
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The Penguin concise dictionary of art history / Nancy Frazier"
+            },
+            "record_ID": "siris_sil_595689",
+            "unit_code": "SIL",
+            "title_sort": "PENGUIN CONCISE DICTIONARY OF ART HISTORY NANCY FRAZIER",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!595689~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "2c5169e7bfb7a62f86dd5067f541fb7d87082bd6",
+        "docSignature": "14fca472a2fe2f155ac529a81ac2827c",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961809",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150294442-0",
+        "title": "The history of art history / Udo Kultermann",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_919930",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1993"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Kultermann, Udo"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Translation of: Geschichte der Kunstgeschichte."
+              },
+              {
+                "label": "Contents",
+                "content": "Introduction -- Artists' histories -- Poussin and the French Academy -- Art in the Enlightenment -- The Laocoön debate -- Winckelmann's revolution -- Toward an historical discipline -- Goethe as art historian -- Art history in romanticism -- Rumohr and the Berlin School -- Jakob Burkhardt and the Renaissance -- Reality and method -- Art history in the Gründerzeit -- The Dresden Holbein debate -- Impressionist aesthetics -- The Vienna School -- The discovery of form -- Art history at the turn of the century -- Art history of expressionism -- The founding of iconology -- Foundations of art history today -- Epilogue: The image of the art historian"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--Historiography"
+              },
+              {
+                "label": "Topic",
+                "content": "Art historians"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "ix, 278 p. : ports ; 29 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Kultermann, Udo"
+            ],
+            "topic": [
+              "Art",
+              "Historiography",
+              "Historians",
+              "Art historians"
+            ],
+            "language": [
+              "English language",
+              "German language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The history of art history / Udo Kultermann"
+            },
+            "record_ID": "siris_sil_919930",
+            "unit_code": "SIL",
+            "title_sort": "HISTORY OF ART HISTORY UDO KULTERMANN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!919930~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "464f4724cbc9cbb1cbb8b2c8d2c1a68e029aeb44",
+        "docSignature": "557a7ca10e19dc7a3c43f4e826e00bed",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661976196",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150305412-2",
+        "title": "Proceedings of the 7th session of Indian Art History Congress, Kanyakumari : November 1998 / editors, C.P. Sinha, U.K. Dwivedi [i.e. U.C. Dwivedi]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_849152",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1998"
+              },
+              {
+                "label": "Date",
+                "content": "2000"
+              },
+              {
+                "label": "Date",
+                "content": "[1998?]"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Indian Art History Congress Session (7th : 1998 : Kanyakumari, India)"
+              },
+              {
+                "label": "Author",
+                "content": "Sinha, Chitta Ranjan Prasad 1941-"
+              },
+              {
+                "label": "Author",
+                "content": "Dwivedi, Umesh Chandra"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Title on cover: Proceedings of Indian Art History Congress."
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "India"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Proceedings of the seventh session of Indian Art History Congress, Kanyakumari"
+              },
+              {
+                "label": "Title",
+                "content": "Indian Art History Congress"
+              },
+              {
+                "label": "Title",
+                "content": "Proceedings of Indian Art History Congress"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art"
+              },
+              {
+                "label": "Topic",
+                "content": "Art, Indic"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N7301 .I64 1998"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Congresses"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxii, 126 p., [16] p. of plates : ill. ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s",
+              "1990s"
+            ],
+            "name": [
+              "Indian Art History Congress",
+              "Dwivedi, Umesh Chandra",
+              "Sinha, Chitta Ranjan Prasad"
+            ],
+            "place": [
+              "India"
+            ],
+            "topic": [
+              "Art"
+            ],
+            "culture": [
+              "East Indians"
+            ],
+            "language": [
+              "English language",
+              "Hindi language"
+            ],
+            "object_type": [
+              "Conferences"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Proceedings of the 7th session of Indian Art History Congress, Kanyakumari : November 1998 / editors, C.P. Sinha, U.K. Dwivedi [i.e. U.C. Dwivedi]"
+            },
+            "record_ID": "siris_sil_849152",
+            "unit_code": "SIL",
+            "title_sort": "PROCEEDINGS OF THE 7TH SESSION OF INDIAN ART HISTORY CONGRESS KANYAKUMARI : NOVEMBER 1998 EDITORS CP SINHA UK DWIVEDI IE UC DWIVEDI",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!849152~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "b55394af2f3d32897d9bf7f78cdcc9e5bdd77e20",
+        "docSignature": "058c64e4bcc6ffaa3aef9c6dbf0d38d9",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661963860",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150944140-1",
+        "title": "Art history re-hashed / by Akpulu A.U",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_543617",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1996"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Akpulu, Andrew Umanna 1946-"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Art history re-hashed for schools & colleges"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History--Study and teaching (Higher)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N5305 .A37 1996"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Outlines, syllabi, etc"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "24 p. ; 33 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Akpulu, Andrew Umanna"
+            ],
+            "topic": [
+              "Art",
+              "Study and teaching (Higher)",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Syllabi",
+              "Outlines"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art history re-hashed / by Akpulu A.U"
+            },
+            "record_ID": "siris_sil_543617",
+            "unit_code": "SIL",
+            "title_sort": "ART HISTORY REHASHED BY AKPULU AU",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!543617~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "bbf1740697a8e623dbb51f832b57ddc63301c3a3",
+        "docSignature": "2a240a1b8cfcbc98f13c73063bbde7d3",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961844",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150207759-0",
+        "title": "Zuo you / [Gong zuo shi Xianggang yi shu li shi yan jiu hui] = Besides / [the Workshop, Hong Kong Art History Research Society]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_932905",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1997"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Hong Kong Art History Research Society Workshop"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Colophon title."
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "China"
+              },
+              {
+                "label": "Place",
+                "content": "Hong Kong"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "左右 / [工作室香港藝術歷史研究會] = Besides / [the Workshop, Hong Kong Art History Research Society]"
+              },
+              {
+                "label": "Title",
+                "content": "Besides"
+              },
+              {
+                "label": "Title",
+                "content": "Journal of art history & criticism"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art criticism"
+              },
+              {
+                "label": "Topic",
+                "content": "Arts--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N7485.H85 Z86 1997"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "231, [71] p. of plates : ill. (some col.) ; 22 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Hong Kong Art History Research Society"
+            ],
+            "place": [
+              "Hong Kong",
+              "China"
+            ],
+            "topic": [
+              "Art",
+              "Criticism",
+              "History"
+            ],
+            "language": [
+              "English language",
+              "Chinese language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Zuo you / [Gong zuo shi Xianggang yi shu li shi yan jiu hui] = Besides / [the Workshop, Hong Kong Art History Research Society]"
+            },
+            "record_ID": "siris_sil_932905",
+            "unit_code": "SIL",
+            "title_sort": "ZUO YOU GONG ZUO SHI XIANGGANG YI SHU LI SHI YAN JIU HUI = BESIDES THE WORKSHOP HONG KONG ART HISTORY RESEARCH SOCIETY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!932905~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "f4cff89a612443c9410401bb42b47276ec61e557",
+        "docSignature": "7815d68fad7fcfa576ee777763743115",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962470",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150566255-2",
+        "title": "Oculus : journal for the history of art",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_570247",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1998"
+              },
+              {
+                "label": "Date",
+                "content": "C1998-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Art History Association (Indiana University, Bloomington)"
+              },
+              {
+                "label": "Author",
+                "content": "Indiana University, Bloomington Department of the History of Art"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Journal for the history of art"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Periodicals"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "v. : ill. ; 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Art History Association (Indiana University, Bloomington)",
+              "Indiana University, Bloomington"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Periodicals"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Oculus : journal for the history of art"
+            },
+            "record_ID": "siris_sil_570247",
+            "unit_code": "SIL",
+            "title_sort": "OCULUS : JOURNAL FOR THE HISTORY OF ART",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!570247~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "1fd291530f8778c4badfde494bd2a77c77d6cd54",
+        "docSignature": "0482ad45b0d69d973130b4fdbe8bc906",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961887",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150425380-2",
+        "title": "The new art history : a critical introduction / Jonathan Harris",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_988420",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2001"
+              },
+              {
+                "label": "Date",
+                "content": "20th century"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Harris, Jonathan (Jonathan P.)"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Radical art history : back to its future? -- Capitalist modernity, the nation-state, and visual representation -- Feminism, art, and art history -- Subjects, identities, and visual ideology -- Structures and meanings in art and society -- Searching, after certainties -- Sexualities represented"
+              },
+              {
+                "label": "Summary",
+                "content": "\"A comprehensive introduction to the fundamental changes which have occurred in both the institutions and practice of art history over the last thirty years. Jonathan Harris examines and accounts for the new approaches to the study of art which have been grouped loosely under the term 'the new art history'. He distinguishes between these and earlier forms of 'radical' or 'critical' analysis, explores the influence of other disciplines and traditions on art history, and relates art historical ideas and values to social change ... each chapter discusses a key moment in the discipline of art history, tracing the development and interaction of Marxist, feminist and psychoanalytic critical theories\"--Back cover."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--Historiography"
+              },
+              {
+                "label": "Topic",
+                "content": "Art criticism--Social aspects--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xviii, 302 p. : ill. ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1920s",
+              "1910s",
+              "1940s",
+              "2000s",
+              "1930s",
+              "1900s",
+              "1990s",
+              "1960s",
+              "1950s",
+              "1980s",
+              "1970s"
+            ],
+            "name": [
+              "Harris, Jonathan"
+            ],
+            "topic": [
+              "Art",
+              "Historiography",
+              "Criticism",
+              "Social aspects",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The new art history : a critical introduction / Jonathan Harris"
+            },
+            "record_ID": "siris_sil_988420",
+            "unit_code": "SIL",
+            "title_sort": "NEW ART HISTORY : A CRITICAL INTRODUCTION JONATHAN HARRIS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!988420~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "4079d82cda2354350bb95e169eea451842b8cb8e",
+        "docSignature": "038f1d6da1f82b6a1be13f450ce3afa0",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962149",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150862876-0",
+        "title": "The Routledge companion to digital humanities and art history edited by Kathryn Brown",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1145016",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2020"
+              }
+            ],
+            "name": [
+              {
+                "label": "editor",
+                "content": "Brown, Kathryn (Kathryn J.)"
+              },
+              {
+                "label": "Author",
+                "content": "ProQuest (Firm)"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Kathryn Brown is a lecturer in art history and visual culture at Loughborough University, UK"
+              },
+              {
+                "label": "Notes",
+                "content": "Elecresource"
+              },
+              {
+                "label": "Contents",
+                "content": "Introduction -- Part I Histories and Critical Debates -- 1 Digital Methods and the Historiography of Art -- 2 Blind Spot: Information Visualization and Art History -- 3 The Digital Transformation of Art History -- 4 Feminist Digital Art History -- 5 Slow Digital Art History and KUbism: Or, Situation Awareness and the Promise of Open-World Games -- Part II Archives, Networks, and Maps -- 6 Tangled Metaphors: Network Thinking and Network Analysis in the History of Art -- 7 Digital Humanities for a Spatial, Global, and Social History of Art -- 8 Mapping Paintings, or How to Breathe Life Into Provenance -- \"9 Qualitative Approaches to Network Analysis in Art History: Research -- 10 Mapping Senufo: Mapping as a Method to Transcend Colonial Assumptions -- 11 X-Reception: Re-mediating Trans- Feminist and Queer Performance Art -- 12 Digital Methods and the Study of the Art Market -- 13 Noise Management in the Archival Ecosystem: Debating Principles for Classification -- Part III Museums: Real, Virtual, and Augmented -- 14 Digital Imaging Projects for Asian Art and Visual Culture: Transcultural Mediations and Collaborations -- 15 A Field Guide to Digital Surrogates: Evaluating and Contextualizing a Rapidly Changing Resource -- 16 A Service-Orientation and Open-Source Approach to Developing Virtual Museums -- 17 Art History, Heritage Games, and Virtual Reality -- 18 Art With a Lifespan: Digital Technologies and the Preservation of BioArt -- 19 The Expanding Role of Digitized Collections: The Medici Archive -- 20 Digital Languages for Art History: Audience Engagement, Virtual and Augmented Reality -- Part IV Computational Techniques for Analyzing Artworks -- 21 Curation, Content, Creation: Computer Approaches to the Fine Arts -- 22 Computerized Analysis of Paintings -- 23 Digital 3D Modeling for the History of Art -- 24 Metadata, Material Culture, and Global Art History -- 25 Image Processing and Computer Vision in the Field of Art History -- 26 Pointers and Proxies: Thoughts on the Computational Modeling of the Phenomenal World -- 27 Approaching Aby Warburg and Digital Art History: Thinking Through Images -- 28 Analyzing Gesture in Digital Art History -- 29 Digital Techniques for the Study of Portuguese Azulejos (Glazed Tiles): Between Alice's White Rabbit and the Mad Tea Party -- Part V Digital Resources, Publication, and Education -- 30 The Database of Modern Exhibitions (DoME): European Paintings and Drawings 1905-1915 -- 31 The Art-Historical Catalogue in the Digital Era -- 32 Digital Provenance, Open Access, and Data-Driven Art History -- 33 Research, Process, Publication, and Pedagogy: Reconstructing the World's Columbian Exposition of 1893 -- 34 Social Media in the Art History Classroom -- Index"
+              },
+              {
+                "label": "Summary",
+                "content": "\"The Routledge Companion to Digital Humanities and Art History offers a broad survey of cutting-edge intersections between digital technologies and the study of art history, museum practices, and cultural heritage. The volume focuses not only on new computational tools that have been developed for the study of artworks and their histories, but also debates the disciplinary opportunities and challenges that have emerged in response to the use of digital resources and methodologies. Chapters cover a wide range of technical and conceptual themes that define the current state of the field and outline strategies for future development. This book offers a timely perspective on trans-disciplinary developments that are reshaping art historical research, conservation, and teaching. This book will be of interest to scholars in art history, historical theory, method and historiography, and research methods in education\"-- Provided by publisher"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Digital humanities"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--Historiography--Data processing"
+              },
+              {
+                "label": "Topic",
+                "content": "ART / Digital & Video"
+              },
+              {
+                "label": "Topic",
+                "content": "ART / Study & Teaching"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "AZ105 .R68 2020 (Internet)"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Electronic resources"
+              }
+            ],
+            "objectRights": [
+              {
+                "label": "Restrictions & Rights",
+                "content": "1-user"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "1 online resource (xxv, 498 pages) illustrations"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2020s"
+            ],
+            "name": [
+              "Brown, Kathryn",
+              "ProQuest (Firm)"
+            ],
+            "topic": [
+              "Art",
+              "Historiography",
+              "Digital humanities",
+              "ART / Digital & Video",
+              "ART / Study & Teaching",
+              "Data processing"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Electronic information resources"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The Routledge companion to digital humanities and art history edited by Kathryn Brown"
+            },
+            "record_ID": "siris_sil_1145016",
+            "unit_code": "SIL",
+            "title_sort": "ROUTLEDGE COMPANION TO DIGITAL HUMANITIES AND ART HISTORY EDITED BY KATHRYN BROWN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1145016~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "fd6da9ee06a1334efcba349e4933b4872a7daba0",
+        "docSignature": "01ed920cadbecdb45e4c7a47b016049b",
+        "timestamp": "1601453414",
+        "lastTimeUpdated": "1661961859",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150643254-2",
+        "title": "Nihon bijutsu zenshi : sekai kara mita meisaku no keifu = Art history of Japan in the world / Tanaka Hidemichi",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_885344",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1995"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Tanaka, Hidemichi 1942-"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Japan"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "日本美術全史 : 世界から見た名作の系譜 = Art history of Japan in the world / 田中英道．"
+              },
+              {
+                "label": "Title",
+                "content": "Art history of Japan in the world"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art, Japanese--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N7350 .T36"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "398 p. [4] p. of plates : ill. (some col.) ; 22 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Tanaka, Hidemichi",
+              "田中英道, 1942-"
+            ],
+            "place": [
+              "Japan"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "culture": [
+              "Japanese"
+            ],
+            "language": [
+              "Japanese language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Nihon bijutsu zenshi : sekai kara mita meisaku no keifu = Art history of Japan in the world / Tanaka Hidemichi"
+            },
+            "record_ID": "siris_sil_885344",
+            "unit_code": "SIL",
+            "title_sort": "NIHON BIJUTSU ZENSHI : SEKAI KARA MITA MEISAKU NO KEIFU = ART HISTORY OF JAPAN IN THE WORLD TANAKA HIDEMICHI",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!885344~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "d05c29ccabbd52e686f25b316849fbf32116f589",
+        "docSignature": "942e571d70bcf26570ec29930e2f78de",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661975497",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150300026-2",
+        "title": "Art history in Latin America : reports of the Latin American Fellowship Program 1994-2000",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_725322",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2003"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Association of Research Institutes in Art History"
+              },
+              {
+                "label": "Subject",
+                "content": "Association of Research Institutes in Art History Latin American Fellowship Program"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "At head of title: Association of Research Institutes in Art History."
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Latin America"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--Historiography"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N7480 .A78 2003"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "120 p. : ill. ; 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Association of Research Institutes in Art History"
+            ],
+            "place": [
+              "Latin America"
+            ],
+            "topic": [
+              "Art",
+              "Historiography"
+            ],
+            "language": [
+              "English language",
+              "Spanish language",
+              "Portuguese language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art history in Latin America : reports of the Latin American Fellowship Program 1994-2000"
+            },
+            "record_ID": "siris_sil_725322",
+            "unit_code": "SIL",
+            "title_sort": "ART HISTORY IN LATIN AMERICA : REPORTS OF THE LATIN AMERICAN FELLOWSHIP PROGRAM 19942000",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!725322~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "f62b342339a050de1e581c6fefe454363eec2f45",
+        "docSignature": "860c9ed1d8932707779eb2cb8dc6a38b",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661976135",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150342305-1",
+        "title": "Information sources in art, art history and design / editor, Simon Ford",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_681883",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2001"
+              },
+              {
+                "label": "Date",
+                "content": "C2001"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Ford, Simon 1965-"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Art, art history and design"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Design"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N58 .I545 2001"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Information services"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xx, 220 p. ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Ford, Simon"
+            ],
+            "topic": [
+              "Design",
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Electronic information resources"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Information sources in art, art history and design / editor, Simon Ford"
+            },
+            "record_ID": "siris_sil_681883",
+            "unit_code": "SIL",
+            "title_sort": "INFORMATION SOURCES IN ART ART HISTORY AND DESIGN EDITOR SIMON FORD",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!681883~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "708ec56a4c3c5f195b9b9969259fd63458f5f0b9",
+        "docSignature": "7d9aa84f225018f0741785d63cf0c662",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661962810",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149916574-2",
+        "title": "The virtual database [videorecording] : art information on the networks",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_614851",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1994"
+              },
+              {
+                "label": "Date",
+                "content": "C1994"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Getty Art History Information Program"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Summary",
+                "content": "Discusses the Getty Art History Information Program's efforts in database standardization for art history research."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--Research--Data proccessing"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History--Data proccessing"
+              },
+              {
+                "label": "Topic",
+                "content": "Information networks"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N58 .V57 1994"
+              },
+              {
+                "label": "Call number",
+                "content": "video 000400"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Videorecordings"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "1 videocassette (17 min.) : sd., col. ; 1/2 in"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Getty Art History Information Program"
+            ],
+            "topic": [
+              "Information networks",
+              "Art",
+              "Data processing",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Video recordings"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The virtual database [videorecording] : art information on the networks"
+            },
+            "record_ID": "siris_sil_614851",
+            "unit_code": "SIL",
+            "title_sort": "VIRTUAL DATABASE VIDEORECORDING : ART INFORMATION ON THE NETWORKS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!614851~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "4f4ea5793db263cb57aa73389c54aed23c0dd543",
+        "docSignature": "5f4df0360fe24d41a782429ce87b5100",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661961859",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150521847-1",
+        "title": "Picturing art history : the rise of the illustrated history of art in the eighteenth century / Ingrid R. Vermeulen",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_963376",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2010"
+              },
+              {
+                "label": "Date",
+                "content": "C2010"
+              },
+              {
+                "label": "Date",
+                "content": "18th century"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Vermeulen, Ingrid R"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Introduction -- Unfulfilled projects to illustrate Vasari : Bottari, Corsini's print collection and the rise of art-historical illustration -- The artistic past at a glance : Winckelmann, Cavaceppi's drawing collection and the short life of drawn art histories -- The Histoire de l'art par les monuments : D'Agincourt, his reproduction collection and the birth of the illustrated survey -- Conclusion"
+              },
+              {
+                "label": "Summary",
+                "content": "This book \"Picturing art history\" traces the development of the history and use of art reproductions in the eighteenth century. Showing how reproductions ended up in art books and how in the eighteenth century learned men as Bottari, Winckelmann and d'Agincourt brought art history into the picture by collecting in art cabinets reproductions of drawings and prints. Which later became an essential dimension in the experience of art objects and the writing of art history."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--Historiography"
+              },
+              {
+                "label": "Topic",
+                "content": "Art, Modern--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--Reproduction--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "358 p. : ill. ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1700s",
+              "2010s",
+              "1710s",
+              "1720s",
+              "1770s",
+              "1780s",
+              "1790s",
+              "1730s",
+              "1740s",
+              "1750s",
+              "1760s"
+            ],
+            "name": [
+              "Vermeulen, Ingrid R"
+            ],
+            "topic": [
+              "Art",
+              "Historiography",
+              "Reproduction",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Picturing art history : the rise of the illustrated history of art in the eighteenth century / Ingrid R. Vermeulen"
+            },
+            "record_ID": "siris_sil_963376",
+            "unit_code": "SIL",
+            "title_sort": "PICTURING ART HISTORY : THE RISE OF THE ILLUSTRATED HISTORY OF ART IN THE EIGHTEENTH CENTURY INGRID R VERMEULEN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!963376~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "86466627fcdf8461e8d1ba28c262b447c6c74aab",
+        "docSignature": "dc00a6643a71518c93e843ddf8865912",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962485",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150193005-1",
+        "title": "Art history : the key concepts / Jonathan Harris",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_799167",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2006"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Harris, Jonathan (Jonathan P.)"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Dictionaries"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xiv, 346 p. ; 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Harris, Jonathan"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Dictionaries"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art history : the key concepts / Jonathan Harris"
+            },
+            "record_ID": "siris_sil_799167",
+            "unit_code": "SIL",
+            "title_sort": "ART HISTORY : THE KEY CONCEPTS JONATHAN HARRIS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!799167~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "e2e2a4da9debb8522e5869738c2d1d7b43cdc689",
+        "docSignature": "43a4f4f0be54d47fa055ef1e5cf5fed3",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661963830",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150310150-1",
+        "title": "Deceiving history : some thoughtful and thoughtless practices in South African art history now",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_512414",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1988"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Richards, Colin 1954-2012"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries African Art Index Project DSI"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "South Africa"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History--Study and teaching (Higher)"
+              },
+              {
+                "label": "Topic",
+                "content": "Art, South African--Study and teaching (Higher)"
+              },
+              {
+                "label": "Topic",
+                "content": "Art history"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N7391.7 .H572 1987"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Articles"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Richards, Colin",
+              "Smithsonian Libraries"
+            ],
+            "place": [
+              "South Africa"
+            ],
+            "topic": [
+              "Art",
+              "Study and teaching (Higher)",
+              "Art history",
+              "History"
+            ],
+            "culture": [
+              "South Africans"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Articles"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Deceiving history : some thoughtful and thoughtless practices in South African art history now"
+            },
+            "record_ID": "siris_sil_512414",
+            "unit_code": "SIL",
+            "title_sort": "DECEIVING HISTORY : SOME THOUGHTFUL AND THOUGHTLESS PRACTICES IN SOUTH AFRICAN ART HISTORY NOW",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!512414~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "a2e36e1e484c735028e40835339e5886cb222d9a",
+        "docSignature": "05ff4f0511256211932d38b5d1ba72ec",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961917",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150364835-2",
+        "title": "Abstracts of art history papers : ... annual meeting / College Art Association of America",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1046745",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1984"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "College Art Association of America Meeting"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "\"Abstracts of art history papers presented at the Association's annual meeting.\""
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "United States"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "AP1 .C692"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Abstracts"
+              },
+              {
+                "label": "Type",
+                "content": "Periodicals"
+              },
+              {
+                "label": "Type",
+                "content": "History"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "1 v. ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "College Art Association of America"
+            ],
+            "place": [
+              "United States"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Abstracts (summaries)",
+              "Periodicals"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Abstracts of art history papers : ... annual meeting / College Art Association of America"
+            },
+            "record_ID": "siris_sil_1046745",
+            "unit_code": "SIL",
+            "title_sort": "ABSTRACTS OF ART HISTORY PAPERS : ANNUAL MEETING COLLEGE ART ASSOCIATION OF AMERICA",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1046745~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "baac9dbaae2a269f6bbea85af376ae2ca9fbd795",
+        "docSignature": "f19b168f117cd658cea5db48e23a28fb",
+        "timestamp": "1498153816",
+        "lastTimeUpdated": "1661975349",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150749086-1",
+        "title": "Is art history global? / edited by James Elkins",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_819134",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2007"
+              },
+              {
+                "label": "Date",
+                "content": "C2007"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Elkins, James 1955-"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "viii, 464 p. ; 22 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Elkins, James"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Is art history global? / edited by James Elkins"
+            },
+            "record_ID": "siris_sil_819134",
+            "unit_code": "SIL",
+            "title_sort": "IS ART HISTORY GLOBAL EDITED BY JAMES ELKINS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!819134~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "7cb7d82895095c035e95847dd24ac30938959548",
+        "docSignature": "d1d447db2f643c88edd4d1fd56dfb698",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661963843",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150086594-1",
+        "title": "Making art history : a changing discipline and its institutions / edited by Elizabeth C. Mansfield",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_948024",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2007"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Mansfield, Elizabeth 1965-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "The call of the canon : why art history cannot do without / Marlite Halbertsma -- From the prophet to postmodernism? New world orders and the end of Islamic art / Finbarr Barry Flood -- Turning green into black, or how I learned to live with the canon / Steven Nelson -- What's in a name? \"Flanders,\" language and the historiography of late medieval art in Belgium since federalization / Gregory T. Clark -- Art history's present tense / Janet Kraynak -- The totality of form : S.J. Freedberg's criticism and Clement Greenberg's history / Eric Rosenberg -- Unmaking art history / Donald Preziosi -- Rhetoric and motive in art history : a shapeshifter's perspective / Christopher Bucklow -- On the institution of limits / Stephen Melville -- Remaking art history : working wonder in the university's ruins / Claire Farago -- Deep innovation and mere eccentricity in Islamic art history / David Carrier -- Art, science, and evolution / Robert O. Bork -- Figuring the origins of the modern at the fin de siècle : the trope of the pathetic male / Anna C. Chave -- Re-imagining meaning in the contemporary museum : from things that go beep in the case to the artist ex machina / Christopher R. Marshall -- (Con)Testing resources / Maureen Connor"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--Historiography"
+              },
+              {
+                "label": "Topic",
+                "content": "Art and society"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xi, 274 p. : ill ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Mansfield, Elizabeth"
+            ],
+            "topic": [
+              "Art",
+              "Historiography",
+              "Society"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Making art history : a changing discipline and its institutions / edited by Elizabeth C. Mansfield"
+            },
+            "record_ID": "siris_sil_948024",
+            "unit_code": "SIL",
+            "title_sort": "MAKING ART HISTORY : A CHANGING DISCIPLINE AND ITS INSTITUTIONS EDITED BY ELIZABETH C MANSFIELD",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!948024~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "d304768fa44975234833184dd0f0e1d3363829f4",
+        "docSignature": "73bd31a48d730a753376df4f03d5901c",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962092",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149577088-0",
+        "title": "Die Kunst Zentralasiens",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_866918",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2003"
+              },
+              {
+                "label": "Date",
+                "content": "C2003"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Includes index."
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Asia, Central"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Islamic art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Buddhist art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N7291 .K95 2003"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "255 p. : col. ill., map ; 33 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "place": [
+              "Asia, Central"
+            ],
+            "topic": [
+              "Art",
+              "Islamic art",
+              "History",
+              "Buddhist art"
+            ],
+            "language": [
+              "German language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Die Kunst Zentralasiens"
+            },
+            "record_ID": "siris_sil_866918",
+            "unit_code": "SIL",
+            "title_sort": "KUNST ZENTRALASIENS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!866918~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "440dc87cb251328753db4f2ebca341620ad1f4a6",
+        "docSignature": "f3dad72d6871a72370ee62ba52bffb92",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661963886",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150159257-0",
+        "title": "The map of art history",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_517691",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1997"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Nelson, Robert S. 1947-"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries African Art Index Project DSI"
+              },
+              {
+                "label": "Subject",
+                "content": "Janson, H. W (Horst Woldemar) 1913-1982 History of art"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Includes critique of H.W. Janson's History of art (4th edition, 1991)."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art history"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--Study and teaching (Higher)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N1 .B936"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Articles"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Smithsonian Libraries",
+              "Nelson, Robert S",
+              "Janson, H. W"
+            ],
+            "topic": [
+              "Art",
+              "Study and teaching (Higher)",
+              "Art history"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Articles"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The map of art history"
+            },
+            "record_ID": "siris_sil_517691",
+            "unit_code": "SIL",
+            "title_sort": "MAP OF ART HISTORY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!517691~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "2feaa958d3d500b426a54c7462feb536d188009a",
+        "docSignature": "5734e1abbe69ac9bfd5d7102bbd712c4",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961805",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150017098-1",
+        "title": "A world art history and its objects / David Carrier",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_942100",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2008"
+              },
+              {
+                "label": "Date",
+                "content": "C2008"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Carrier, David 1944-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Overture: Islamic carpets in European paintings -- Works of art and art-historical narratives -- Monocultural art-history narratives -- Why monoculturalism is not the whole story -- What happens when art-making traditions intersect -- Charts and works of art -- Importance of an aesthetic -- Exotic aesthetics -- How exotic can exotic art be? -- Our world art history is imperialism seen aesthetically -- Mutual respect as an ethical ideal -- Conclusion: the coming transformation of Western art history"
+              },
+              {
+                "label": "Summary",
+                "content": "\"Explores the question of how an art history of all cultures could be written or if it is even possible to do so. Examines the political and moral issues raised by the consideration of a multicultural art history\"--Provided by publisher."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--Historiography--Methodology"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--Historiography--Moral and ethical aspects"
+              },
+              {
+                "label": "Topic",
+                "content": "Politics and culture"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxvi, 170 p. : ill ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Carrier, David"
+            ],
+            "topic": [
+              "Politics and culture",
+              "Art",
+              "Historiography",
+              "Methodology",
+              "Moral and ethical aspects"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "A world art history and its objects / David Carrier"
+            },
+            "record_ID": "siris_sil_942100",
+            "unit_code": "SIL",
+            "title_sort": "WORLD ART HISTORY AND ITS OBJECTS DAVID CARRIER",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!942100~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "050941c01140fa11fe5cb1091cf01f83bfb65e4e",
+        "docSignature": "1b41e6e399b065c7b404b55439d5d469",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962159",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149602549-0",
+        "title": "Outline of art history",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_120383",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1950"
+              },
+              {
+                "label": "Date",
+                "content": "[c1950]"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Longman, Lester Duncan 1905-"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History--Study and teaching (Higher)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N380 .L85"
+              },
+              {
+                "label": "Call number",
+                "content": "N380.L85"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Outlines, syllabi, etc"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "153 p. : table ; 22 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1950s"
+            ],
+            "name": [
+              "Longman, Lester Duncan"
+            ],
+            "topic": [
+              "Art",
+              "Study and teaching (Higher)",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Syllabi",
+              "Outlines"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Outline of art history"
+            },
+            "record_ID": "siris_sil_120383",
+            "unit_code": "SIL",
+            "title_sort": "OUTLINE OF ART HISTORY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!120383~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "3bf6822b3172eb386ccf717d03289d7432fa5404",
+        "docSignature": "786246efea2c574f05e9d013c77d20fc",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661962465",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1657096273442-1657096277099-0",
+        "title": "Otherwise imagining queer feminist art histories edited by Amelia Jones and Erin Silver",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1156072",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2016"
+              }
+            ],
+            "name": [
+              {
+                "label": "editor",
+                "content": "Jones, Amelia"
+              },
+              {
+                "label": "editor",
+                "content": "Silver, Erin"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Purchased from the S. Dillon Ripley endowment"
+              },
+              {
+                "label": "Contents",
+                "content": "Introduction: Sexual differences and otherwise / Amelia Jones -- Queer feminist art history: an imperfect genealogy / Amelia Jones and Erin Silver -- Just friends: on the making of Pop Out: Queer Warhol / Jennifer Doyle -- Our maiden aunt, lesbianism, or the limits of queer: Jonathan D. Katz in dialogue with Erin Silver and Amelia Jones -- Improper objects: performing queer/feminist art/history / Tirza True Latimer -- Queerly made: Harmony Hammond's Floorpieces / Julia Bryan-Wilson -- Ink on paper, again / Catherine Lord -- On the site of her own exclusion: strategizing queer feminist art history / Dore Bowen -- Dyke talk, or 'political lesbianism' and queer feminist art (history): Amelia Jones in dialogue with Cheri Gaulke, A.L. Steiner and Terry Wolverton -- Notes from backstage: a dialogue among Pauline Boudry/Renate Lorenz and Jon Davies -- The male nude as a queer feminist iconography in contemporary Polish art / Pawel Leszkowicz -- Is identity a method? A study of queer feminist praxis / Nizan Shaked -- Are we still trespassing? A trans-Atlantic conversation between Emily Roysdon and Xabier Arakistain -- And the altar started to moan and groan!: transfeminist artistic practices in Spain, a taxonomy / Juan Vicente Aliaga -- Thinking archivally: curating WOMEN / Alpesh Kantilal Patel -- Striking reverberations: beating back the unfinished history of the colonial aesthetic with Jeannette Ehlers's Whip it Good / Mathias Danbolt -- Triple threat: queer feminist of color performance art / Jennifer González and Tina Takemoto -- Beyond the binary: the gender neutral in JJ Levine's Queer Portraits / Jackson Davidow -- Trans*feminism: fragmenting and re-reading the history of art through a trans* perspective / Jennie Klein and Kris Grey -- 'What have you done for me lately?': the institutionalization of queer feminist art histories. Lisa Newman in dialogue with Vaginal Davis and Del LaGrace Volcano -- Transition pieces: the photography of Del LaGrace Volcano / Dominic Johnson -- Not at the beginning and not at the end: a conversation among Deirdre Logue, Allyson Mitchell and Helena Reckitt -- Epilogue: Out of the boxes and into the streets -- translating queer and feminist activism into queer feminist art history / Erin Silver"
+              },
+              {
+                "label": "Summary",
+                "content": "\"Otherwise: Imagining queer feminist art histories\" is the first publication to address queer feminist politics, methods and theories in relation to the visual arts, including new media, installation and performance art. Despite the crucial contribution of considerations of 'queer' to feminism in other disciplines of the humanities, and the strong impact of feminist art history on queer visual theory, a visible and influential queer feminist art history has remained elusive. This book fills the gap by offering a range of essays by key North American and European scholars, both emerging and renowned, who address the historiographic and political questions arising from the relationship between art history and queer theory in order to help map exclusions and to offer models of a new queer feminist art historical or curatorial approach"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Imagining queer feminist art histories"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Feminism in art"
+              },
+              {
+                "label": "Topic",
+                "content": "Feminism and art"
+              },
+              {
+                "label": "Topic",
+                "content": "Queer theory"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Féminisme dans l'art"
+              },
+              {
+                "label": "Topic",
+                "content": "Féminisme et art"
+              },
+              {
+                "label": "Topic",
+                "content": "Théorie queer"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--Histoire"
+              },
+              {
+                "label": "Topic",
+                "content": "Art history"
+              },
+              {
+                "label": "Topic",
+                "content": "20.01 history of the art sciences"
+              },
+              {
+                "label": "Topic",
+                "content": "20.02 philosophy and theory of the art sciences"
+              },
+              {
+                "label": "Topic",
+                "content": "20.10 art and society: general"
+              },
+              {
+                "label": "Topic",
+                "content": "Art"
+              },
+              {
+                "label": "Topic",
+                "content": "Kunstgeschichte"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              },
+              {
+                "label": "Type",
+                "content": "History"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxiii, 400 pages illustrations 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              "Silver, Erin",
+              "Jones, Amelia"
+            ],
+            "topic": [
+              "Kunstgeschichte",
+              "Feminism and art",
+              "Feminism in art",
+              "Art",
+              "Queer theory",
+              "History",
+              "Féminisme dans l'art",
+              "Féminisme et art",
+              "Histoire",
+              "20.02 philosophy and theory of the art sciences",
+              "Art history",
+              "20.01 history of the art sciences",
+              "Théorie queer",
+              "20.10 art and society: general"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Otherwise imagining queer feminist art histories edited by Amelia Jones and Erin Silver"
+            },
+            "record_ID": "siris_sil_1156072",
+            "unit_code": "SIL",
+            "title_sort": "OTHERWISE IMAGINING QUEER FEMINIST ART HISTORIES EDITED BY AMELIA JONES AND ERIN SILVER",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1156072~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "8e607b7acd066882b1a42d7613fdbae66ea04ed8",
+        "docSignature": "a267278bde4be58a3ae61d27ec6921ed",
+        "timestamp": "1663785056",
+        "lastTimeUpdated": "1666737563",
+        "version": "1666732094"
+      },
+      {
+        "id": "ld1-1646149545906-1646149910648-1",
+        "title": "Yi shu shi yan jiu = The study of art history / Zhong shan da xue yi shu shi yan jiu zhong xin bian",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1029443",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1999"
+              },
+              {
+                "label": "Date",
+                "content": "1999-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Zhongshan da xue (Guangzhou, China) Yi shu shi yan jiu zhong xin"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "藝術史硏究 = The study of art history / 中山大學藝術史硏究中心編"
+              },
+              {
+                "label": "Title",
+                "content": "Study of art history"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art, Chinese"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "P"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Periodicals"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "volumes : illustrations (some color) ; 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Zhongshan da xue (Guangzhou, China)",
+              "中山大學 (Guangzhou, China). 藝術史硏究中心"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "culture": [
+              "Chinese"
+            ],
+            "language": [
+              "English language",
+              "Chinese language"
+            ],
+            "object_type": [
+              "Periodicals"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Yi shu shi yan jiu = The study of art history / Zhong shan da xue yi shu shi yan jiu zhong xin bian"
+            },
+            "record_ID": "siris_sil_1029443",
+            "unit_code": "SIL",
+            "title_sort": "YI SHU SHI YAN JIU = THE STUDY OF ART HISTORY ZHONG SHAN DA XUE YI SHU SHI YAN JIU ZHONG XIN BIAN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1029443~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "9e34cf239d55c410058cb7bbc44c79274347a40e",
+        "docSignature": "ea7e59a84eb36d85c82a5eba80838940",
+        "timestamp": "1498153816",
+        "lastTimeUpdated": "1661963003",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150112885-0",
+        "title": "Phoebus",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_114231",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1978"
+              },
+              {
+                "label": "Date",
+                "content": "[1978-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Arizona State University Art History Faculty"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "\"A journal of art history.\""
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "AP1 .P555"
+              },
+              {
+                "label": "Call number",
+                "content": "AP1.P555"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Periodicals"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "no. ill. 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1970s"
+            ],
+            "name": [
+              "Arizona State University"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Periodicals"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Phoebus"
+            },
+            "record_ID": "siris_sil_114231",
+            "unit_code": "SIL",
+            "title_sort": "PHOEBUS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!114231~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "a31efd8657953cd12840b09c14b05433c03743a5",
+        "docSignature": "6f0b039767bb6ebd50245a6ed4ff42f9",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661961697",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150944296-2",
+        "title": "An illustrated handbook of art history",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_186958",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1954"
+              },
+              {
+                "label": "Date",
+                "content": "[1954]"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Roos, Frank J (Frank John) 1903-1966"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N5301.R78 1954"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "vi, 331 p. (p. 1-317 illus.) 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1950s"
+            ],
+            "name": [
+              "Roos, Frank J"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "An illustrated handbook of art history"
+            },
+            "record_ID": "siris_sil_186958",
+            "unit_code": "SIL",
+            "title_sort": "ILLUSTRATED HANDBOOK OF ART HISTORY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!186958~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "dcf2617985c276f71268b8ba1c51ced469dd5e77",
+        "docSignature": "76b39747726df71c45f02a79159ae68c",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661962772",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150709822-2",
+        "title": "Child of the fire : Mary Edmonia Lewis and the problem of art history's Black and Indian subject / Kirsten Pai Buick",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_939085",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2010"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Buick, Kirsten Pai"
+              },
+              {
+                "label": "Subject",
+                "content": "Lewis, Edmonia"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Framing the problem : American Africanisms, American Indianisms, and the processes of art history -- Inventing the artist : locating the Black and Catholic subject -- The \"problem\" of art history's Black subject -- Longfellow, Lewis, and the cultural work of Hiawatha -- Identity, tautology, and the death of Cleopatra -- Separate and unequal : toward a more responsive and responsible art history"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Mary Edmonia Lewis and the problem of art history's Black and Indian subject"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "African American sculptors"
+              },
+              {
+                "label": "Topic",
+                "content": "Art, American--Social aspects--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art and society"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxiv, 297 p., 16 p. of plates : ill. (some col.) ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              "Buick, Kirsten Pai",
+              "Lewis, Edmonia"
+            ],
+            "topic": [
+              "Art",
+              "Art, American",
+              "Society",
+              "Sculptors",
+              "Social aspects",
+              "History"
+            ],
+            "culture": [
+              "African Americans"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Child of the fire : Mary Edmonia Lewis and the problem of art history's Black and Indian subject / Kirsten Pai Buick"
+            },
+            "record_ID": "siris_sil_939085",
+            "unit_code": "SIL",
+            "title_sort": "CHILD OF THE FIRE : MARY EDMONIA LEWIS AND THE PROBLEM OF ART HISTORYS BLACK AND INDIAN SUBJECT KIRSTEN PAI BUICK",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!939085~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "f267dea8977312403f3467991fd3f292367e1e99",
+        "docSignature": "082194e332d1546875a2ee68473a1480",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962470",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150294556-1",
+        "title": "Art history, an anthology of modern criticism",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_418739",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1963"
+              },
+              {
+                "label": "Date",
+                "content": "[1963]"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Sypher, Wylie"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "\"V243.\""
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N5303 .S96 1963X"
+              },
+              {
+                "label": "Call number",
+                "content": "N5303.S96 1963X"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xiv, 428 p. 19 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1960s"
+            ],
+            "name": [
+              "Sypher, Wylie"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art history, an anthology of modern criticism"
+            },
+            "record_ID": "siris_sil_418739",
+            "unit_code": "SIL",
+            "title_sort": "ART HISTORY AN ANTHOLOGY OF MODERN CRITICISM",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!418739~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "a05a9412ebe86397c0c01ccabb340644edb17692",
+        "docSignature": "70b595a5051e245d46cc730ebe60ebbd",
+        "timestamp": "1498154178",
+        "lastTimeUpdated": "1661970133",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150950097-0",
+        "title": "Key dates in art history : from 600 BC to the present / Roslin Mair",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_643760",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1979"
+              },
+              {
+                "label": "Date",
+                "content": "C1979"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Mair, Roslin"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Includes index."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N5306 .M35 1979"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "96 p. : ill. ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1970s"
+            ],
+            "name": [
+              "Mair, Roslin"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Key dates in art history : from 600 BC to the present / Roslin Mair"
+            },
+            "record_ID": "siris_sil_643760",
+            "unit_code": "SIL",
+            "title_sort": "KEY DATES IN ART HISTORY : FROM 600 BC TO THE PRESENT ROSLIN MAIR",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!643760~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "41d68a9c18c19a0c3692e7b8fe9783e81b0e735a",
+        "docSignature": "baab7c6575d0b6d03156308b20142ee7",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661962566",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149784212-0",
+        "title": "A World view of art history : selected readings / Virgil H. Bird ... [et al.]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_857233",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1985"
+              },
+              {
+                "label": "Date",
+                "content": "C1985"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Bird, Virgil H"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "709 .W6"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xii, 348 p. : ill. ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Bird, Virgil H"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "A World view of art history : selected readings / Virgil H. Bird ... [et al.]"
+            },
+            "record_ID": "siris_sil_857233",
+            "unit_code": "SIL",
+            "title_sort": "WORLD VIEW OF ART HISTORY : SELECTED READINGS VIRGIL H BIRD ET AL",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!857233~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "ffc7aba2930a2ef938d79042df1a438c6a1f6d82",
+        "docSignature": "550b0658997d63a0f68a6ca849b5a547",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661964229",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149942930-0",
+        "title": "An illustrated handbook of art history",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1766",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1969"
+              },
+              {
+                "label": "Date",
+                "content": "[1969, c1970]"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Roos, Frank J (Frank John) 1903-1966"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N5301 .R78 1969"
+              },
+              {
+                "label": "Call number",
+                "content": "N5301.R78 1969"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "viii, 343 p. (chiefly illus.) 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1960s"
+            ],
+            "name": [
+              "Roos, Frank J"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "An illustrated handbook of art history"
+            },
+            "record_ID": "siris_sil_1766",
+            "unit_code": "SIL",
+            "title_sort": "ILLUSTRATED HANDBOOK OF ART HISTORY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1766~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "e4ba9dc037de44446333a4f86be03cb7f847c740",
+        "docSignature": "8a39cd6fbcf00d2cbe78c6e96683a398",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1661962820",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149719527-0",
+        "title": "Program for an International Congress on Art History and Museology held by the Metropolitan Museum of Art : January 6th, 7th, and 8th, 1954, in conjunction with the bicentennial of Columbia University",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_88625",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1954"
+              },
+              {
+                "label": "Date",
+                "content": "1954]"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "International Congress on Art History and Museology (1954 : New York)"
+              },
+              {
+                "label": "Author",
+                "content": "Metropolitan Museum of Art (New York, N.Y.)"
+              },
+              {
+                "label": "Author",
+                "content": "Columbia University"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Cover title."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Museum techniques"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N5300 .I61 1954"
+              },
+              {
+                "label": "Call number",
+                "content": "N5300.I61 1954"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Congresses"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "[6] p. ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1950s"
+            ],
+            "name": [
+              "Columbia University",
+              "Metropolitan Museum of Art (New York, N.Y.)",
+              "International Congress on Art History and Museology"
+            ],
+            "topic": [
+              "Art",
+              "Museums",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Conferences"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Program for an International Congress on Art History and Museology held by the Metropolitan Museum of Art : January 6th, 7th, and 8th, 1954, in conjunction with the bicentennial of Columbia University"
+            },
+            "record_ID": "siris_sil_88625",
+            "unit_code": "SIL",
+            "title_sort": "PROGRAM FOR AN INTERNATIONAL CONGRESS ON ART HISTORY AND MUSEOLOGY HELD BY THE METROPOLITAN MUSEUM OF ART : JANUARY 6TH 7TH AND 8TH 1954 IN CONJUNCTION WITH THE BICENTENNIAL OF COLUMBIA UNIVERSITY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!88625~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "cc114eec26456ec0ea7bbc20686478174647db37",
+        "docSignature": "f1013ac1409c8ed8468e5580d56fbe3c",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1661975662",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150524181-2",
+        "title": "Art history in Africa : a look at course content",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_507580",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1987"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Van Robbroeck, Lize"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries African Art Index Project DSI"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "South Africa"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art history"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--Study and teaching (Higher)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N8.A34 A78"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Articles"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Van Robbroeck, Lize",
+              "Smithsonian Libraries"
+            ],
+            "place": [
+              "South Africa"
+            ],
+            "topic": [
+              "Art",
+              "Study and teaching (Higher)",
+              "Art history"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Articles"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art history in Africa : a look at course content"
+            },
+            "record_ID": "siris_sil_507580",
+            "unit_code": "SIL",
+            "title_sort": "ART HISTORY IN AFRICA : A LOOK AT COURSE CONTENT",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!507580~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "b3897644f762a18b35bce984182e6b61892e7aa7",
+        "docSignature": "d481f9eaea6c5a5736bd66838e0fef03",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961968",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150486853-2",
+        "title": "Art : a brief history / Marilyn Stokstad",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_799531",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2007"
+              },
+              {
+                "label": "Date",
+                "content": "C2007"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Stokstad, Marilyn 1929-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Abridgment of the author's Art history."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxxi, 624 p. : ill. (some col.), col. maps ; 30 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Stokstad, Marilyn"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art : a brief history / Marilyn Stokstad"
+            },
+            "record_ID": "siris_sil_799531",
+            "unit_code": "SIL",
+            "title_sort": "ART : A BRIEF HISTORY MARILYN STOKSTAD",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!799531~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "eb299afdb8fa7893bee715ffbaeb7d326b81a9f1",
+        "docSignature": "e933976b6a0192fbd4ca4fa8c7766c34",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661963830",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150716670-2",
+        "title": "All about art : an essential history / Marilyn Stokstad",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_798533",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2007"
+              },
+              {
+                "label": "Date",
+                "content": "C2007"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Stokstad, Marilyn 1929-"
+              },
+              {
+                "label": "Author",
+                "content": "Stokstad, Marilyn 1929- Art history"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xxiii, 624 p. : ill. (some col.), col. maps ; 30 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Stokstad, Marilyn"
+            ],
+            "topic": [
+              "Art",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "All about art : an essential history / Marilyn Stokstad"
+            },
+            "record_ID": "siris_sil_798533",
+            "unit_code": "SIL",
+            "title_sort": "ALL ABOUT ART : AN ESSENTIAL HISTORY MARILYN STOKSTAD",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!798533~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "58f2be79b59c0861063515428b72bb269a6e02f6",
+        "docSignature": "a159a4c36e9d300f812d9d6c93305d88",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661963792",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149635195-2",
+        "title": "Introducing art history : a guide for teachers / Michael J. McCarthy ; foreword by H. W. Janson",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_112784",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1978"
+              },
+              {
+                "label": "Date",
+                "content": "C1978"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "McCarthy, Michael J"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History--Study and teaching (Secondary)"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N380 .M12"
+              },
+              {
+                "label": "Call number",
+                "content": "N380.M12"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Outlines, syllabi, etc"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "ix, 118 p. : ill. ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1970s"
+            ],
+            "name": [
+              "McCarthy, Michael J"
+            ],
+            "topic": [
+              "Art",
+              "Study and teaching (Secondary)",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Syllabi",
+              "Outlines"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Introducing art history : a guide for teachers / Michael J. McCarthy ; foreword by H. W. Janson"
+            },
+            "record_ID": "siris_sil_112784",
+            "unit_code": "SIL",
+            "title_sort": "INTRODUCING ART HISTORY : A GUIDE FOR TEACHERS MICHAEL J MCCARTHY FOREWORD BY H W JANSON",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!112784~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "32e6a5b0e5937dc953e3e1ea7d121e2fbd778f0b",
+        "docSignature": "b6292dda407a23b8b6b3982a1c6acb6d",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661961717",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150903659-2",
+        "title": "Through our own eyes : popular art and modern history / Guy Brett",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_746208",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1986"
+              },
+              {
+                "label": "Date",
+                "content": "C1986"
+              },
+              {
+                "label": "Date",
+                "content": "20th century"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Brett, Guy"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "History in art"
+              },
+              {
+                "label": "Topic",
+                "content": "History, Modern"
+              },
+              {
+                "label": "Topic",
+                "content": "Primitivism in art"
+              },
+              {
+                "label": "Topic",
+                "content": "Art, Modern"
+              },
+              {
+                "label": "Topic",
+                "content": "Folk art--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Pictorial works"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "157 p. : ill. (some col.) ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1920s",
+              "1910s",
+              "1940s",
+              "1930s",
+              "1900s",
+              "1990s",
+              "1960s",
+              "1950s",
+              "1980s",
+              "1970s"
+            ],
+            "name": [
+              "Brett, Guy"
+            ],
+            "topic": [
+              "Art",
+              "History in art",
+              "Primitivism in art",
+              "History",
+              "History, Modern",
+              "Folk art"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Pictorial works"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Through our own eyes : popular art and modern history / Guy Brett"
+            },
+            "record_ID": "siris_sil_746208",
+            "unit_code": "SIL",
+            "title_sort": "THROUGH OUR OWN EYES : POPULAR ART AND MODERN HISTORY GUY BRETT",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!746208~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "22a00ba3b106801cab89c740c41cf7836991b750",
+        "docSignature": "6ee1d1135d3dbcdc4f29044b3b8330f6",
+        "timestamp": "1498154379",
+        "lastTimeUpdated": "1661976144",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150755122-0",
+        "title": "Art through the ages",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_25462",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1959"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Gardner, Helen 1878-1946"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Ancient art -- European art -- Non-European art -- Modern art"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--Histoire"
+              },
+              {
+                "label": "Topic",
+                "content": "Art history"
+              },
+              {
+                "label": "Topic",
+                "content": "Art"
+              },
+              {
+                "label": "Topic",
+                "content": "Art--history"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N5300 .G227 1959"
+              },
+              {
+                "label": "Call number",
+                "content": "N5300.G227 1959"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              },
+              {
+                "label": "Type",
+                "content": "History"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "840 pages illustrations 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1950s"
+            ],
+            "name": [
+              "Gardner, Helen"
+            ],
+            "topic": [
+              "Art",
+              "Histoire",
+              "Art history",
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Art through the ages"
+            },
+            "record_ID": "siris_sil_25462",
+            "unit_code": "SIL",
+            "title_sort": "ART THROUGH THE AGES",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!25462~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "80e5f5d377a930be8f0dcf77e269442c37cb3292",
+        "docSignature": "1fca73037d7e3c79f40d98952c7e2e0d",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1740743667",
+        "version": "1740741233"
+      },
+      {
+        "id": "ld1-1646149545906-1646149862198-2",
+        "title": "Mei shu shi yu guan nian shi = History of art and history of ideas / Fan Jingzhong, Cao Yiqiang zhu bian",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1009108",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2003"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Fan, Jingzhong 1951-"
+              },
+              {
+                "label": "Author",
+                "content": "Cao, Yiqiang"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "美术史与观念史 = History of art and history of ideas / 范景中, 曹意强主编"
+              },
+              {
+                "label": "Title",
+                "content": "History of art and history of ideas"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Art--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Idea (Philosophy) in art"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "2 v. (751 p.) : ill. ; 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2000s"
+            ],
+            "name": [
+              "Fan, Jingzhong",
+              "范景中, 1951-",
+              "Cao, Yiqiang",
+              "曹意强"
+            ],
+            "topic": [
+              "Art",
+              "Idea (Philosophy) in art",
+              "History"
+            ],
+            "language": [
+              "English language",
+              "Chinese language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Mei shu shi yu guan nian shi = History of art and history of ideas / Fan Jingzhong, Cao Yiqiang zhu bian"
+            },
+            "record_ID": "siris_sil_1009108",
+            "unit_code": "SIL",
+            "title_sort": "MEI SHU SHI YU GUAN NIAN SHI = HISTORY OF ART AND HISTORY OF IDEAS FAN JINGZHONG CAO YIQIANG ZHU BIAN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1009108~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "caee488bafd5b5b06a8c3952881bb8e517a4873d",
+        "docSignature": "368aa44e6193ec7a48d3975dcbe75718",
+        "timestamp": "1498153816",
+        "lastTimeUpdated": "1661963134",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150295999-0",
+        "title": "Forget and forgive her sex : integrating women artists with art history",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_508975",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1987"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Arnold, Marion I"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries African Art Index Project DSI"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "South Africa"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Women artists"
+              },
+              {
+                "label": "Topic",
+                "content": "Art history"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N8.A34 A78"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Articles"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Smithsonian Libraries",
+              "Arnold, Marion I"
+            ],
+            "place": [
+              "South Africa"
+            ],
+            "topic": [
+              "Women",
+              "Art history",
+              "Artists"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Articles"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Forget and forgive her sex : integrating women artists with art history"
+            },
+            "record_ID": "siris_sil_508975",
+            "unit_code": "SIL",
+            "title_sort": "FORGET AND FORGIVE HER SEX : INTEGRATING WOMEN ARTISTS WITH ART HISTORY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!508975~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "e7a9ad1c08452adba9f59837936d8ddcd22479fd",
+        "docSignature": "807edc44e9c106227f72754964644f38",
+        "timestamp": "1498154247",
+        "lastTimeUpdated": "1661961774",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149703577-2",
+        "title": "Taiwan, Nihon shitsugei koryuten : kako, genzai soshite mirai = Taiwan Japan urushi arts : history and the present day and the future",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1075386",
+        "content": {
+          "freetext": {
+            "title": [
+              {
+                "label": "Title",
+                "content": "台湾展・日本漆芸交流展 : 過去、現在そして未来 = Taiwan Japan urushi arts : history and the present day and the future. = Taiwan Japan urushi arts : history and the present day and the future"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Taiwan, Nihon shitsugei koryuten : kako, genzai soshite mirai = Taiwan Japan urushi arts : history and the present day and the future"
+            },
+            "record_ID": "siris_sil_1075386",
+            "unit_code": "SIL",
+            "title_sort": "TAIWAN NIHON SHITSUGEI KORYUTEN : KAKO GENZAI SOSHITE MIRAI = TAIWAN JAPAN URUSHI ARTS : HISTORY AND THE PRESENT DAY AND THE FUTURE",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1075386~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "13ea00ffffea2d714f2d3ff63326f86f60533a60",
+        "docSignature": "e04d771e70f74bd689a6f1c185b2d609",
+        "timestamp": "1498153816",
+        "lastTimeUpdated": "1661961775",
+        "version": "0"
+      }
+    ],
+    "facets": {},
+    "rowCount": 275882,
+    "message": "content found"
+  }
+}

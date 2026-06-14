@@ -1,0 +1,79 @@
+{
+  "objectID": 245845,
+  "isHighlight": false,
+  "accessionNumber": "94.4.389",
+  "accessionYear": "1894",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/gr/original/DP112918.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/DP112918.jpg",
+  "additionalImages": [],
+  "constituents": null,
+  "department": "Greek and Roman Art",
+  "objectName": "Wall painting fragment",
+  "title": "Wall painting fragment",
+  "culture": "Roman",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "",
+  "artistPrefix": "",
+  "artistDisplayName": "",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "1st century CE",
+  "objectBeginDate": 1,
+  "objectEndDate": 79,
+  "medium": "Fresco",
+  "dimensions": "Overall: 8 3/8 x 6 in. (21.3 x 15.3 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 21.3,
+        "Width": 15.3
+      }
+    }
+  ],
+  "creditLine": "Gift of Henry G. Marquand, 1894",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Miscellaneous-Paintings",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/245845",
+  "tags": [
+    {
+      "term": "Flowers",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300132399",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q506"
+    },
+    {
+      "term": "Leaves",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300011892",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q33971"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116288948",
+  "isTimelineWork": false,
+  "GalleryNumber": "171"
+}

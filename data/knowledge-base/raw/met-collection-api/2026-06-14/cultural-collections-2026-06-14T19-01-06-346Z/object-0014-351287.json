@@ -1,0 +1,104 @@
+{
+  "objectID": 351287,
+  "isHighlight": false,
+  "accessionNumber": "55.539.10",
+  "accessionYear": "1955",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/dp/original/DP825970.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/dp/web-large/DP825970.jpg",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 163869,
+      "role": "Artist",
+      "name": "Gilles Demarteau",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500043168",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q1289866",
+      "gender": ""
+    },
+    {
+      "constituentID": 161703,
+      "role": "Artist",
+      "name": "After François Boucher",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500032143",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q180932",
+      "gender": ""
+    }
+  ],
+  "department": "Drawings and Prints",
+  "objectName": "Print",
+  "title": "Painting",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Gilles Demarteau",
+  "artistDisplayBio": "French, Liège 1722–1776 Paris",
+  "artistSuffix": "",
+  "artistAlphaSort": "Demarteau, Gilles",
+  "artistNationality": "French",
+  "artistBeginDate": "1722",
+  "artistEndDate": "1776",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q1289866",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500043168",
+  "objectDate": "",
+  "objectBeginDate": 1722,
+  "objectEndDate": 1776,
+  "medium": "Chalk manner etching and engraving printed in brown ink",
+  "dimensions": "sheet: 15 3/4 x 11 1/4 in. (40 x 28.5 cm)\r\nplate: 13 x 9 3/16 in. (33 x 23.3 cm)",
+  "measurements": [
+    {
+      "elementName": "Sheet",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 40,
+        "Width": 28.5
+      }
+    },
+    {
+      "elementName": "Plate",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 33,
+        "Width": 23.3
+      }
+    }
+  ],
+  "creditLine": "The Elisha Whittelsey Collection, The Elisha Whittelsey Fund, 1955",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Prints",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/351287",
+  "tags": [
+    {
+      "term": "Boys",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300247598",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q3010"
+    },
+    {
+      "term": "Women",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025943",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q467"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

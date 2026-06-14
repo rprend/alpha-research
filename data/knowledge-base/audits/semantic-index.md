@@ -1,15 +1,15 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T18:53:42.279Z
+Generated at: 2026-06-14T19:03:07.094Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 5274
+Documents: 5779
 
 ## Text Scope
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 5070 |
+| metadata-only | 5575 |
 | stored-full-text | 200 |
 | stored-local-analysis-text | 4 |
 
@@ -17,7 +17,7 @@ Documents: 5274
 
 | Value | Count |
 | --- | ---: |
-| cleveland-museum-open-access | 150 |
+| cleveland-museum-open-access | 200 |
 | columbia-humanities-departments | 1 |
 | crossref-humanities | 178 |
 | dh-conference-programs | 25 |
@@ -30,8 +30,8 @@ Documents: 5274
 | journal-digital-humanities-quarterly | 10 |
 | journal-new-literary-history | 25 |
 | journal-pmla | 25 |
-| library-of-congress | 158 |
-| met-collection-api | 150 |
+| library-of-congress | 308 |
+| met-collection-api | 255 |
 | mla-convention-programs | 1 |
 | museum-language-drift | 24 |
 | nber-culture-history | 50 |
@@ -39,7 +39,7 @@ Documents: 5274
 | princeton-humanities-departments | 4 |
 | project-gutenberg | 200 |
 | public-books | 10 |
-| smithsonian-open-access | 25 |
+| smithsonian-open-access | 225 |
 | stanford-humanities-departments | 6 |
 | uchicago-humanities-departments | 1 |
 | wayback-machine-cdx | 4 |

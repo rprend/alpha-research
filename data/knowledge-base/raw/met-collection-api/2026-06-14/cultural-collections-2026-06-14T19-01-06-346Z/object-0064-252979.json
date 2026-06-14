@@ -1,0 +1,73 @@
+{
+  "objectID": 252979,
+  "isHighlight": false,
+  "accessionNumber": "28.192",
+  "accessionYear": "1928",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/gr/original/DP112911.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/DP112911.jpg",
+  "additionalImages": [],
+  "constituents": null,
+  "department": "Greek and Roman Art",
+  "objectName": "Wall painting",
+  "title": "Wall painting fragment",
+  "culture": "Roman",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "",
+  "artistPrefix": "",
+  "artistDisplayName": "",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "1st century CE",
+  "objectBeginDate": 1,
+  "objectEndDate": 79,
+  "medium": "Fresco",
+  "dimensions": "Overall: 4 7/16 in. (11.4 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 11.35
+      }
+    }
+  ],
+  "creditLine": "Gift of Albert Gallatin, 1928",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Miscellaneous-Paintings",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/252979",
+  "tags": [
+    {
+      "term": "Women",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025943",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q467"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116242116",
+  "isTimelineWork": false,
+  "GalleryNumber": "171"
+}

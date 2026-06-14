@@ -122,6 +122,7 @@ assert(existsSync(join(root, 'scripts/kb-inventory-existing.mjs')), 'Missing loc
 assert(existsSync(join(root, 'scripts/kb-question.mjs')), 'Missing local humanities KB question script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-core-samples.mjs')), 'Missing local humanities KB core ingest script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-broad-metadata.mjs')), 'Missing local humanities KB broad metadata ingest script.')
+assert(existsSync(join(root, 'scripts/kb-ingest-cultural-collections.mjs')), 'Missing local humanities KB cultural collections ingest script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-doaj.mjs')), 'Missing local humanities KB DOAJ ingest script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-gap-sources.mjs')), 'Missing local humanities KB gap-source ingest script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-wikidata.mjs')), 'Missing local humanities KB Wikidata ingest script.')

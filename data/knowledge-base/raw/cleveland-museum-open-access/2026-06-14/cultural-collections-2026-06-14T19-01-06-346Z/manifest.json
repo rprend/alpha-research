@@ -1,0 +1,23 @@
+{
+  "run_id": "cultural-collections-2026-06-14T19-01-06-346Z",
+  "source_id": "cleveland-museum-open-access",
+  "started_at": "2026-06-14T19:01:38.101Z",
+  "completed_at": "2026-06-14T19:01:38.582Z",
+  "status": "success",
+  "access_route": "source-specific cultural collections API routes",
+  "raw_outputs": [
+    "data/knowledge-base/raw/cleveland-museum-open-access/2026-06-14/cultural-collections-2026-06-14T19-01-06-346Z/artworks-page-001.json",
+    "data/knowledge-base/raw/cleveland-museum-open-access/2026-06-14/cultural-collections-2026-06-14T19-01-06-346Z/artworks-page-002.json",
+    "data/knowledge-base/raw/cleveland-museum-open-access/2026-06-14/cultural-collections-2026-06-14T19-01-06-346Z/artworks-page-003.json",
+    "data/knowledge-base/raw/cleveland-museum-open-access/2026-06-14/cultural-collections-2026-06-14T19-01-06-346Z/artworks-page-004.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/objects.jsonl",
+    "data/knowledge-base/processed/collections.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 200,
+  "rights_review": "Registry metadata rights apply; item-level rights must be checked before image reuse or publication quoting.",
+  "errors": []
+}

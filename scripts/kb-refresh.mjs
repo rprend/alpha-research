@@ -5,6 +5,7 @@ const commands = [
   ["node", ["scripts/kb-inventory-existing.mjs"]],
   ["node", ["scripts/kb-ingest-doaj.mjs", "--page-size=25", "--max-pages=1"]],
   ["node", ["scripts/kb-ingest-wikidata.mjs", "--per-query=25"]],
+  ["node", ["scripts/kb-ingest-cultural-collections.mjs", "--per-source=50", "--page-size=25"]],
   ["node", ["scripts/kb-ingest-web-metadata.mjs", "--limit=10"]],
   ["node", ["scripts/kb-ingest-wayback-snapshots.mjs", "--per-target=3"]],
   ["node", ["scripts/kb-import-experiment-seeds.mjs"]],

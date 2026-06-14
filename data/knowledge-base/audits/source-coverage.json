@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T18:53:41.080Z",
+  "generated_at": "2026-06-14T19:02:09.108Z",
   "source_count": 33,
   "source_classes": {
     "conference-programs": 3,
@@ -49,11 +49,11 @@
   "unregistered_source_ids_with_local_documents": [],
   "unregistered_source_count_with_local_documents": 0,
   "local_records": {
-    "source_documents": 5305,
+    "source_documents": 5810,
     "works": 2913,
-    "objects": 507,
+    "objects": 1012,
     "pages": 34,
-    "rights": 5305
+    "rights": 5810
   },
   "sources_without_local_documents": [
     {

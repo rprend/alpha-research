@@ -1,0 +1,97 @@
+{
+  "objectID": 451260,
+  "isHighlight": false,
+  "accessionNumber": "55.121.10.12",
+  "accessionYear": "1955",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/is/original/DP245154.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/is/web-large/DP245154.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/is/original/DP257372.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf55-121-10-12a.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/181881.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf55-121-10-12b.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/181880.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 164104,
+      "role": "Artist",
+      "name": "Painting by Mansur",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500336943",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q2502664",
+      "gender": ""
+    },
+    {
+      "constituentID": 133379,
+      "role": "Calligrapher",
+      "name": "Mir &#39;Ali Haravi",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    }
+  ],
+  "department": "Islamic Art",
+  "objectName": "Album leaf",
+  "title": "\"Red-Headed Vulture and Long-Billed Vulture\", Folio from the Shah Jahan Album",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "Painting by",
+  "artistDisplayName": "Mansur",
+  "artistDisplayBio": "active ca. 1589–1626",
+  "artistSuffix": "",
+  "artistAlphaSort": "Mansur",
+  "artistNationality": "",
+  "artistBeginDate": "1584",
+  "artistEndDate": "1626",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q2502664",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500336943",
+  "objectDate": "verso: ca. 1615–20; recto: ca. 1535–45",
+  "objectBeginDate": 1510,
+  "objectEndDate": 1645,
+  "medium": "Ink, opaque watercolor, and gold on paper",
+  "dimensions": "H. 15 3/8 in. (39.1 cm)\r\nW. 10 1/16 in. (25.6 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 39.0526,
+        "Width": 25.5588
+      }
+    }
+  ],
+  "creditLine": "Purchase, Rogers Fund and The Kevorkian Foundation Gift, 1955",
+  "geographyType": "Attributed to",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "India",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Codices",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-10-06T04:51:04.6Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/451260",
+  "tags": [
+    {
+      "term": "Birds",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300266506",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q5113"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": true,
+  "GalleryNumber": "463"
+}

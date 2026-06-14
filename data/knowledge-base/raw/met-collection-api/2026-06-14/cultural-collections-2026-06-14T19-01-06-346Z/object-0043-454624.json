@@ -1,0 +1,99 @@
+{
+  "objectID": 454624,
+  "isHighlight": false,
+  "accessionNumber": "55.121.10.17",
+  "accessionYear": "1955",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/is/original/DP246551.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/is/web-large/DP246551.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/is/original/DP246542.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf55-121-10-17a.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DT4811.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/181885.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf55-121-10-17b.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 164103,
+      "role": "Artist",
+      "name": "Painting attributed to Manohar",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500322026",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q99267778",
+      "gender": ""
+    }
+  ],
+  "department": "Islamic Art",
+  "objectName": "Album leaf",
+  "title": "\"Black Buck\", Folio from the Shah Jahan Album",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "Painting attributed to",
+  "artistDisplayName": "Manohar",
+  "artistDisplayBio": "active ca. 1582–1624",
+  "artistSuffix": "",
+  "artistAlphaSort": "Manohar",
+  "artistNationality": "",
+  "artistBeginDate": "1577",
+  "artistEndDate": "1624",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q99267778",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500322026",
+  "objectDate": "recto: ca. 1615–20; verso: ca. 1530–50",
+  "objectBeginDate": 1505,
+  "objectEndDate": 1645,
+  "medium": "Ink, opaque watercolor, and gold on paper",
+  "dimensions": "H. 15 3/8 in. (39 cm)\r\nW. 10 1/4 in. (26 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 39,
+        "Width": 26
+      }
+    }
+  ],
+  "creditLine": "Purchase, Rogers Fund and The Kevorkian Foundation Gift, 1955",
+  "geographyType": "Attributed to",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "India",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Codices",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-09-27T04:50:39.59Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/454624",
+  "tags": [
+    {
+      "term": "Animals",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300249525",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q729"
+    },
+    {
+      "term": "Flowers",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300132399",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q506"
+    },
+    {
+      "term": "Leaves",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300011892",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q33971"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": "463"
+}

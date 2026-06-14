@@ -1,0 +1,85 @@
+{
+  "objectID": 53441,
+  "isHighlight": false,
+  "accessionNumber": "2015.300.112",
+  "accessionYear": "2015",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/as/original/DP357984_cropped.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/as/web-large/DP357984_cropped.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/as/original/DP357984.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP357985.jpg"
+  ],
+  "constituents": null,
+  "department": "Asian Art",
+  "objectName": "Hanging scroll",
+  "title": "Beauty of the Kanbun Era",
+  "culture": "Japan",
+  "period": "Edo period (1615–1868)",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "",
+  "artistPrefix": "",
+  "artistDisplayName": "",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "late 17th century",
+  "objectBeginDate": 1660,
+  "objectEndDate": 1680,
+  "medium": "Hanging scroll; ink, color, and gold on paper",
+  "dimensions": "Image: 24 1/8 × 9 5/8 in. (61.3 × 24.4 cm)\r\nOverall with mounting: 55 × 15 7/16 in. (139.7 × 39.2 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall with mounting",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 139.70029,
+        "Width": 39.211327
+      }
+    },
+    {
+      "elementName": "Image",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 61.277622,
+        "Width": 24.44755
+      }
+    }
+  ],
+  "creditLine": "Mary Griggs Burke Collection, Gift of the Mary and Jackson Burke Foundation, 2015",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Paintings",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2026-05-27T04:55:05.427Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/53441",
+  "tags": [
+    {
+      "term": "Women",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025943",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q467"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q78759309",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

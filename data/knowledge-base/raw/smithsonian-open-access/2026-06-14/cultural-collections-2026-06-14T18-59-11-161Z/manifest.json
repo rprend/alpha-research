@@ -1,0 +1,25 @@
+{
+  "run_id": "cultural-collections-2026-06-14T18-59-11-161Z",
+  "source_id": "smithsonian-open-access",
+  "started_at": "2026-06-14T19:00:00.363Z",
+  "completed_at": "2026-06-14T19:00:08.030Z",
+  "status": "success",
+  "access_route": "source-specific cultural collections API routes",
+  "raw_outputs": [
+    "data/knowledge-base/raw/smithsonian-open-access/2026-06-14/cultural-collections-2026-06-14T18-59-11-161Z/search-01-art-history.json",
+    "data/knowledge-base/raw/smithsonian-open-access/2026-06-14/cultural-collections-2026-06-14T18-59-11-161Z/search-02-painting.json",
+    "data/knowledge-base/raw/smithsonian-open-access/2026-06-14/cultural-collections-2026-06-14T18-59-11-161Z/search-03-literature.json",
+    "data/knowledge-base/raw/smithsonian-open-access/2026-06-14/cultural-collections-2026-06-14T18-59-11-161Z/search-04-photography.json",
+    "data/knowledge-base/raw/smithsonian-open-access/2026-06-14/cultural-collections-2026-06-14T18-59-11-161Z/search-05-music.json",
+    "data/knowledge-base/raw/smithsonian-open-access/2026-06-14/cultural-collections-2026-06-14T18-59-11-161Z/search-06-material-culture.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/objects.jsonl",
+    "data/knowledge-base/processed/collections.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 200,
+  "rights_review": "Registry metadata rights apply; item-level rights must be checked before image reuse or publication quoting.",
+  "errors": []
+}

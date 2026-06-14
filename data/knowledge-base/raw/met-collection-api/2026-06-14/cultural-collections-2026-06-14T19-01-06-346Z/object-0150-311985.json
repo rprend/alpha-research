@@ -1,0 +1,85 @@
+{
+  "objectID": 311985,
+  "isHighlight": false,
+  "accessionNumber": "1978.412.1553",
+  "accessionYear": "1978",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 164074,
+      "role": "Artist",
+      "name": "Kaumindja",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    }
+  ],
+  "department": "The Michael C. Rockefeller Wing",
+  "objectName": "Bark painting",
+  "title": "Painting from a Ceremonial House Ceiling",
+  "culture": "Kwoma",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Kaumindja",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "Kaumindja",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "1965",
+  "objectBeginDate": 1965,
+  "objectEndDate": 1965,
+  "medium": "Sago palm spathe, paint",
+  "dimensions": "H. 56 3/4 x W. 15 3/4 x D. 4 3/4 in. (144.1 x 40 x 12.1 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Depth": 12.07,
+        "Height": 144.145,
+        "Width": 40.01
+      }
+    },
+    {
+      "elementName": "Other",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Width": 40.01
+      }
+    }
+  ],
+  "creditLine": "The Michael C. Rockefeller Memorial Collection, Anonymous Gift, 1969",
+  "geographyType": "",
+  "city": "Tongwindjam village",
+  "state": "",
+  "county": "",
+  "country": "Papua New Guinea",
+  "region": "Washkuk Hills",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "Upper Sepik River",
+  "classification": "Bark-Paintings",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-05-31T04:50:53.377Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/311985",
+  "tags": null,
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": "354"
+}

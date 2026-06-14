@@ -1,0 +1,101 @@
+{
+  "objectID": 910555,
+  "isHighlight": true,
+  "accessionNumber": "2024.279.1, .2",
+  "accessionYear": "2024",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/as/original/DP-35700-001.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/as/web-large/DP-35700-001.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/as/original/DP-35700-008.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP-35700-007.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP-35700-006.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP-35700-005.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP-35700-004.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP-35700-003.jpg",
+    "https://images.metmuseum.org/CRDImages/as/original/DP-35700-002.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 15378,
+      "role": "Artist",
+      "name": "Painting by Studio of Kano Takanobu",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q3192792",
+      "gender": ""
+    },
+    {
+      "constituentID": 13433,
+      "role": "Artist",
+      "name": "Inscriptions by Konoe Nobutada",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500320711",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q368605",
+      "gender": ""
+    }
+  ],
+  "department": "Asian Art",
+  "objectName": "Folding screens",
+  "title": "The Thirty-Six Poetic Immortals",
+  "culture": "Japan",
+  "period": "Momoyama period (1573–1615)",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "Painting by",
+  "artistDisplayName": "Studio of Kano Takanobu",
+  "artistDisplayBio": "Japanese, 1571–1618",
+  "artistSuffix": "",
+  "artistAlphaSort": "Studio of Kano Takanobu",
+  "artistNationality": "Japanese",
+  "artistBeginDate": "1571",
+  "artistEndDate": "1618",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q3192792",
+  "artistULAN_URL": "",
+  "objectDate": "early 17th century",
+  "objectBeginDate": 1600,
+  "objectEndDate": 1615,
+  "medium": "Pair of six-panel folding screens; ink, color, gold, and silver on paper",
+  "dimensions": "Image (each): 65 1/8 in. × 11 ft. 10 in. (165.4 × 360.7 cm)\r\nOverall (each): 72 in. × 12 ft. 2 1/2 in. (182.9 × 372.1 cm)",
+  "measurements": [
+    {
+      "elementName": "Image",
+      "elementDescription": "each",
+      "elementMeasurements": {
+        "Height": 165.41783,
+        "Width": 360.68073
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "each",
+      "elementMeasurements": {
+        "Height": 182.88037,
+        "Width": 372.11075
+      }
+    }
+  ],
+  "creditLine": "Purchase, Mary and Cheney Cowles Gift, 2024",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Screens",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-12-20T04:50:39.43Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/910555",
+  "tags": null,
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

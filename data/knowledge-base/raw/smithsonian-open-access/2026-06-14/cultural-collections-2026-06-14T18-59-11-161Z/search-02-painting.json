@@ -1,0 +1,5605 @@
+{
+  "status": 200,
+  "responseCode": 1,
+  "response": {
+    "rows": [
+      {
+        "id": "ld1-1646149545906-1646150896932-0",
+        "title": "[Trade catalogs on Valdura paints : enamel paints, floor paints, roofing paints, asphalt paints, aluminum paints, rubber-based paints, primer paints ... ]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_683260",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1945"
+              },
+              {
+                "label": "Date",
+                "content": "1945-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "American-Marietta Company"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries American History Trade Literature Collection DSI"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Trade literature."
+              },
+              {
+                "label": "Notes",
+                "content": "Includes brochures, pamphlets, specifications, instructions, technical notes and color samples."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Paint"
+              },
+              {
+                "label": "Topic",
+                "content": "Protective coatings"
+              },
+              {
+                "label": "Topic",
+                "content": "Primers (Coating)"
+              },
+              {
+                "label": "Topic",
+                "content": "Roofing paint"
+              },
+              {
+                "label": "Topic",
+                "content": "Floor paint"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "052334"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Catalogs"
+              },
+              {
+                "label": "Type",
+                "content": "Trade catalogs"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "<20> v. : ill. (some col.)"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1940s"
+            ],
+            "name": [
+              "Smithsonian Libraries",
+              "American-Marietta Company"
+            ],
+            "topic": [
+              "Primers (Coating)",
+              "Floor paint",
+              "Protective coatings",
+              "Roofing paint"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Catalogs",
+              "Trade catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "[Trade catalogs on Valdura paints : enamel paints, floor paints, roofing paints, asphalt paints, aluminum paints, rubber-based paints, primer paints ... ]"
+            },
+            "record_ID": "siris_sil_683260",
+            "unit_code": "SIL",
+            "title_sort": "TRADE CATALOGS ON VALDURA PAINTS : ENAMEL PAINTS FLOOR PAINTS ROOFING PAINTS ASPHALT PAINTS ALUMINUM PAINTS RUBBERBASED PAINTS PRIMER PAINTS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!683260~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "2b15e1f57872cc23239974c8a26cc1d7fb2f2bba",
+        "docSignature": "140346b3abdceca9d1f228cbdb73bbc2",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661962320",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149984828-0",
+        "title": "[Trade catalogs on paints : lead based paint, bridge paint, oxide paint, carbon paint, graphite paint, ready mixed paint ... ]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_686889",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1933"
+              },
+              {
+                "label": "Date",
+                "content": "[1933?]-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "American Lucol Company"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries American History Trade Literature Collection DSI"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Trade literature."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Paint"
+              },
+              {
+                "label": "Topic",
+                "content": "Lead based paint"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "052283"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Catalogs"
+              },
+              {
+                "label": "Type",
+                "content": "Trade catalogs"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "<1> v. : ill"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1930s"
+            ],
+            "name": [
+              "Smithsonian Libraries",
+              "American Lucol Company"
+            ],
+            "topic": [
+              "Lead based paint"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Catalogs",
+              "Trade catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "[Trade catalogs on paints : lead based paint, bridge paint, oxide paint, carbon paint, graphite paint, ready mixed paint ... ]"
+            },
+            "record_ID": "siris_sil_686889",
+            "unit_code": "SIL",
+            "title_sort": "TRADE CATALOGS ON PAINTS : LEAD BASED PAINT BRIDGE PAINT OXIDE PAINT CARBON PAINT GRAPHITE PAINT READY MIXED PAINT",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!686889~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "69f7be2cac4a127ed5d4c5f8e11a44b6467c162d",
+        "docSignature": "d3cd52f69d12e8708df0a07c8846660e",
+        "timestamp": "1498154317",
+        "lastTimeUpdated": "1661962869",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150658792-2",
+        "title": "Greek painting",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_24234",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1959"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Robertson, Martin (Charles Martin)"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Colour in Greek art -- Loss of monumental painting -- Vase-painting and its relation to painting in other media -- The 'classical moment' -- tradition in ancient writers about Greek painters and their contributions to development -- Echoes of these in vase-painting -- Scale of illustrations -- The painting of bronze-age civilization -- The Bronze age -- Character of Cretan civilization and art -- Painted pottery -- Wall-painting -- Relation of Crete and mainland Greece -- Cretan Sarcophagus with painted scenes -- Mainland wall-painting -- Tendency towards formalism -- Collapse of bronze-age civilization -- The beginnings of Greek painting -- Dark ages -- Revival of figure-work on painted pottery -- The 'geometric' style -- Oriental influence -- Revival of wall-painting echoed on vases -- Painted Metopes -- Archaic painting -- 'Black-figure' technique and separation of vase painters' style from that of other painters -- Rivalry of Corinthian and Athenian potteries ending in supremacy of Athens -- Masters of Athenian black-figure -- Sixth century vase-painting outside Athens -- Remains of panel-painting -- Late Archaic painting -- 'Red-figure' technique -- Relation to painting in other media and to black-figure -- Changing spirit at turn of sixth and fifth centuries -- Relation of sculpture, painting and vase-painting -- Beginnings of concern with third dimension -- Red-figure pioneers of new style; their pupils -- 'White-ground technique' of vase-painting and rapprochement with painting in other media -- The Classical revolution -- Change of spirit manifest in white-ground and red-figure vase-painting -- Appropriation of third dimension in wall-painting evidenced in literary tradition -- Echoes of spatial innovations in red-figure and white-ground vase-painting -- Decline of red-figure -- White ground masterpieces (cups) -- Classical painting -- White-ground funeral 'lekythoi' of Periclean and later Athens -- Relation to lost painting -- Freedom of handling -- Painted tombstones -- Chiaroscuro -- Cessation of white-ground and vase painting -- Red-figure in south Italy -- Burlesque and stage influence -- \"Gnathia\" technique of vase-painting, and echoes of developments in chiaroscuro and perspective -- Evidenced by literary tradition -- Hellenistic Painting -- Mastery of chiaroscuro -- The 'Alexander Mosaic' -- History of mosaic technique -- Mosaics from Pella -- Painted tombstones and Tomb-chambers -- Polychrome vase-paintings from Sicily and their relation to Roman wall-paintings -- Perspective, freedom of handling and atmospheric effects -- Roman wall-painting and lost Greek originals"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Greece"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting, Greek"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Greek--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Peinture grecque"
+              },
+              {
+                "label": "Topic",
+                "content": "Vase-painting, Greek"
+              },
+              {
+                "label": "Topic",
+                "content": "Antiquities"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND110 .R65"
+              },
+              {
+                "label": "Call number",
+                "content": "ND110.R65"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "193 pages mounted color illustrations, map 29 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1950s"
+            ],
+            "name": [
+              "Robertson, Martin"
+            ],
+            "place": [
+              "Greece"
+            ],
+            "topic": [
+              "Painting, Greek",
+              "Antiquities",
+              "Peinture grecque",
+              "History",
+              "Vase-painting, Greek"
+            ],
+            "language": [
+              "English language"
+            ],
+            "geoLocation": [
+              {
+                "L1": {
+                  "type": "Continent",
+                  "content": "Europe"
+                },
+                "L2": {
+                  "type": "Country",
+                  "content": "Greece"
+                }
+              }
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Greek painting"
+            },
+            "record_ID": "siris_sil_24234",
+            "unit_code": "SIL",
+            "title_sort": "GREEK PAINTING",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!24234~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "ede34d419163c245381d4cd9ab1c1319c13def06",
+        "docSignature": "2ab92feeae44f26c0f304f83bdacf4e8",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1736289618",
+        "version": "1736254357"
+      },
+      {
+        "id": "ld1-1646149545906-1646150299921-1",
+        "title": "The Taft Museum : European and American Paintings",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_953015",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1995"
+              },
+              {
+                "label": "Date",
+                "content": "C1995"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Taft Museum"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Introduction to the collection of European and American paintings in the Taft Museum / Edward J. Sullivan -- Early Renaissance Italian panel paintings / Rona Goffen -- Sixteenth-century French panel paintings / Guy Bauman -- Seventeenth-century Dutch and Flemish paintings / Walter A. Liedtke -- Eighteenth- and nineteenth-century English paintings / Kenneth Paul Bendiner -- Nineteenth- and twentieth-century Spanish paintings / Edward J. Sullivan -- Nineteenth-century French paintings / Lewis C. Kachur -- Barbizon school paintings / Ruth Krueger Meyer -- Hague school paintings / Ann H. Murray -- Head of a girl / Leslie Griffin Hennessey -- American paintings and sculpture / Diana Strazdes"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Ohio"
+              },
+              {
+                "label": "Place",
+                "content": "Cincinnati"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting, European"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, American"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Catalogs"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "325 p. : ill. (chiefly col.) ; 31 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Taft Museum"
+            ],
+            "place": [
+              "Ohio",
+              "Cincinnati"
+            ],
+            "topic": [
+              "Painting, European",
+              "Painting"
+            ],
+            "culture": [
+              "Americans"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The Taft Museum : European and American Paintings"
+            },
+            "record_ID": "siris_sil_953015",
+            "unit_code": "SIL",
+            "title_sort": "TAFT MUSEUM : EUROPEAN AND AMERICAN PAINTINGS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!953015~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "3b0d0db4f3365b50d754a3ae11497aa966334c5d",
+        "docSignature": "d2d0680b764af1903418877f0d69c2a8",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661962459",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149722886-1",
+        "title": "Paint in America : the colors of historic buildings / Roger W. Moss, editor",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_480374",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1994"
+              },
+              {
+                "label": "Date",
+                "content": "C1994"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Moss, Roger W. 1940-"
+              },
+              {
+                "label": "Author",
+                "content": "Paint in America--a Symposium on Architectural and Decorative Paints (1989 : Lexington, Mass.)"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Papers from Paint in America--a Symposium on Architectural and Decorative Paints, held in Lexington, Mass., 1989."
+              },
+              {
+                "label": "Contents",
+                "content": "Colonial and federal America : accounts of early painting practices / Abbott Lowell Cummings and Richard M. Candee -- House painting in Britain : sources for American paints, 1615 to 1830 / Ian C. Bristow -- Nineteenth-century paints : a documentary approach / Roger W. Moss -- The early American palette : colonial paints color revealed / Frank S. Welsh -- Colonial Williamsburg colors : a changing spectrum / Thomas H. Taylor, Jr., and Nicholas A. Pappas -- Paint decoration at Mount Vernon : the revival of eighteenth-century techniques / Matthew J. Mosca -- The color of change : a nineteenth-century Massachusetts house / Myron O. Stachiw -- An early colonial mural : the conservation of wall paintings / Christy Cunningham-Adams -- A Victorian trompe l'oeil : the restoration of distemper paints / Morgan W. Phillips -- Analyzing paint samples : investigation and interpretation / Andrea M. Gilmore -- Pigments and media : techniques in paint analysis / Eugene Farrell -- Painting techniques : surface preparation and application / Brian Powell -- A survey of paint technology : the composition and properties of paints / Morgan W. Phillips -- Historic and modern oil paints : composition and conservation / Richard Newman -- House paint pigments : composition and use, 1600 to 1850 / Richard Newman and Eugene Farrell"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "United States"
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Colors of historic buildings"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Paint"
+              },
+              {
+                "label": "Topic",
+                "content": "Color--Conservation and restoration"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Congresses"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "318 p. : ill. (chiefly col.) ; 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1990s"
+            ],
+            "name": [
+              "Paint in America--a Symposium on Architectural and Decorative Paints",
+              "Moss, Roger W"
+            ],
+            "place": [
+              "United States"
+            ],
+            "topic": [
+              "Conservation and restoration",
+              "Symbolism"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Conferences"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Paint in America : the colors of historic buildings / Roger W. Moss, editor"
+            },
+            "record_ID": "siris_sil_480374",
+            "unit_code": "SIL",
+            "title_sort": "PAINT IN AMERICA : THE COLORS OF HISTORIC BUILDINGS ROGER W MOSS EDITOR",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!480374~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "c13c8a5b58d8da9b7c5555e1493daf0d3bb4a823",
+        "docSignature": "a4991c56b67b2c13160fe54cf20a9252",
+        "timestamp": "1653681645",
+        "lastTimeUpdated": "1661970050",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1643399486815-1643399535188-0",
+        "title": "painting, surface for",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_818079",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "ZZ.RSN83140I25"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Specimen, Painting"
+              },
+              {
+                "label": "Object Name",
+                "content": "painting"
+              },
+              {
+                "label": "Object Name",
+                "content": "painting, surface for"
+              },
+              {
+                "label": "Object Name",
+                "content": "patent model"
+              },
+              {
+                "label": "Object Name",
+                "content": "specimen, painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Patents",
+              "Paintings",
+              "Specimen, Painting",
+              "Models",
+              "specimen, painting",
+              "painting, surface for"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a6-4e04-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting, surface for"
+            },
+            "record_ID": "nmah_818079",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING, SURFACE FOR",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "8bc210c9df56fca1242cd4f022df5ad3b356484d",
+        "docSignature": "583851f0e9883d4003755142bc421539",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729074432",
+        "version": "1729072028"
+      },
+      {
+        "id": "ld1-1643399486815-1643399535187-2",
+        "title": "painting, surface for",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_818078",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "ZZ.RSN83140I24"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Specimen, Painting"
+              },
+              {
+                "label": "Object Name",
+                "content": "painting"
+              },
+              {
+                "label": "Object Name",
+                "content": "painting, surface for"
+              },
+              {
+                "label": "Object Name",
+                "content": "patent model"
+              },
+              {
+                "label": "Object Name",
+                "content": "specimen, painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Patents",
+              "Paintings",
+              "Specimen, Painting",
+              "Models",
+              "specimen, painting",
+              "painting, surface for"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a6-4e03-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting, surface for"
+            },
+            "record_ID": "nmah_818078",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING, SURFACE FOR",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "874938dbaca153ccfa4b86c2e1b6c29c3a14045b",
+        "docSignature": "9cbc61ac9f68af91da3a1e87a5635044",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729074432",
+        "version": "1729072028"
+      },
+      {
+        "id": "ld1-1643399486815-1643399526923-2",
+        "title": "paintings",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_317472",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Home and Community Life: Domestic Life"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "ZZ.RSN82579U09"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "paintings"
+              },
+              {
+                "label": "Object Type",
+                "content": "paintings"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Paintings; Pictures; Painting of Glass; Landscape"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Measurements",
+                "content": "overall, painting: 3/4 in x 8 1/8 in x 6 1/8 in; 1.905 cm x 20.6375 cm x 15.5575 cm"
+              },
+              {
+                "label": "Measurements",
+                "content": "overall, painting: 3/4 in x 8 7/8 in x 5 3/8 in; 1.905 cm x 22.5425 cm x 13.6525 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Paintings; Pictures; Painting of Glass; Landscape"
+            ],
+            "online_media_type": [
+              "Images"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a1-1ade-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "paintings"
+            },
+            "record_ID": "nmah_317472",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTINGS",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "c290792a1b5d97777b99d19f456a0cc74e71ec01",
+        "docSignature": "683c58cff095e88708183c264990007c",
+        "timestamp": "1663781971",
+        "lastTimeUpdated": "1733397014",
+        "version": "1733394937"
+      },
+      {
+        "id": "ld1-1646149545906-1646150101380-2",
+        "title": "The impact of seventeenth-century Dutch and Flemish genre painting on American genre painting, 1800-1865 / by Henry Nichols Blake Clark",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_154892",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1982"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Clark, Henry Nichols Blake"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Photocopy."
+              },
+              {
+                "label": "Notes",
+                "content": "Principal faculty adviser: Wayne Craven, Dept. of Art History."
+              },
+              {
+                "label": "Notes",
+                "content": "Illustrations are mounted photographs."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting, American--Dutch influences"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, American--Flemish influences"
+              },
+              {
+                "label": "Topic",
+                "content": "Genre painting, American--Dutch influences"
+              },
+              {
+                "label": "Topic",
+                "content": "Genre painting, American--Flemish influences"
+              },
+              {
+                "label": "Topic",
+                "content": "Genre painting, Dutch"
+              },
+              {
+                "label": "Topic",
+                "content": "Genre painting, Flemish"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND1451.5 .C593"
+              },
+              {
+                "label": "Call number",
+                "content": "ND1451.5.C593"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "viii, 445 leaves : ill. ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Clark, Henry Nichols Blake"
+            ],
+            "topic": [
+              "Genre painting, Dutch",
+              "Genre painting, Flemish",
+              "Genre painting, American",
+              "Flemish influences",
+              "Painting"
+            ],
+            "culture": [
+              "Americans",
+              "Dutch"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The impact of seventeenth-century Dutch and Flemish genre painting on American genre painting, 1800-1865 / by Henry Nichols Blake Clark"
+            },
+            "record_ID": "siris_sil_154892",
+            "unit_code": "SIL",
+            "title_sort": "IMPACT OF SEVENTEENTHCENTURY DUTCH AND FLEMISH GENRE PAINTING ON AMERICAN GENRE PAINTING 18001865 BY HENRY NICHOLS BLAKE CLARK",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!154892~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "141c6b9d12c5c026bd804e7d5f63f586868a1c65",
+        "docSignature": "016d3f5dc52569091ce336decc8210b3",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661962653",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150400762-2",
+        "title": "Conservation of modern oil paintings Klaas Jan van den Berg [and 7 others], editors",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1153069",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2019"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Conference on Modern Oil Paints (2018 : Amsterdam, Netherlands)"
+              },
+              {
+                "label": "editor",
+                "content": "Berg, Klaas Jan van den"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Papers from the 2018 Conference on Modern Oil Paints held in Amsterdam, marking the end of the Cleaning Modern Oil Paints (CMOP) project"
+              },
+              {
+                "label": "Notes",
+                "content": "ELEC copy purchased with funds from the S. Dillon Ripley Endowment"
+              },
+              {
+                "label": "Notes",
+                "content": "Elecresource"
+              },
+              {
+                "label": "Contents",
+                "content": "Oil paintings in Tates collection: a review of analytical findings and reflections on water sensitivity; -- Analytical study to monitor the effectiveness of a combined liquid-dispensing and micro-aspiration system for the cleaning of modern oil paintings -- Ketone resins varnishes on canvas paintings from the collection of the Munch Museum -- Designing mock-up paintings for a study of novel surface cleaning techniques for Munchs unvarnished Aula paintings -- Analysis of cleaning efficacy and clearance of silicone-based Pickering-type emulsions used in the cleaning of water-miscible oil paints -- Improving the surface cleaning of water sensitive oil paint by use of alternative application methods; M. Hintz et al -- Evolon® CR microfibre cloth as a tool for varnish removal -- Can Cellulosebeads save the Circling of the Planets? Cellulose-based consolidating filler to stabilise lifted brittle flakes on a large painting race à nous by Asger Jorn -- A synchrotron photoluminescence microscopy study into the use and degradation of zinc white in The Woodcutters by Bart van der Leck -- 'Breaking waves. The relation between zinc-oxide degradation in a ground layer and extreme delamination on Beach Scene, by J.E.H. Akkeringa (1861-1942) -- Efflorescence on the paintings of Edwin Austin Abbey: Examination, analysis, and cleaning of surface bloom on The Spirit of Light -- A Study of Softening and Liquefying Oil Paint on Womenizer by Alex Janvier; K. Helwig et al -- The Deterioration and Treatment of Some Late Paintings by Paul-Émile Borduas -- Colors before Zero: commercial alkyd-oil enamel paints in early reliefs by Jan J. Schoonhoven -- Some considerations when cleaning Robert Rymans oil paint(ings) -- Challenges of Surface Cleaning Paintings by Asger Jorn (1914-1973): An Inventory of Existing Practice.-Decision-making processes regarding the treatment of modern oil paintings (1950s -- present) exhibiting paint dripping and oil exudates -- Between rejection, ignorance, and preference: The history and dilemma of modern double-sided (recto/verso) paintings with regard to issues of conservation and presentation -- Model studies -- Novel microscopic strategy for the study of paint cross-sections -- Investigations into the mechanical properties of commercial artists oil paint by Dynamic Mechanical (Thermal) Analysis (DMA), Nanoindentation (UNHT), and Dynamic Vapour Sorption (DVS) -- A Preliminary Investigation into the Behavior of Modern Artists Oil Paints in a Hot and Humid Climate -- Inside the forgers oven: identification of drying products in oil paints during and after accelerated drying with increased temperatures -- The influence of metal stearates on the water sensitivity of modern oil paints -- The rate of solvent action on modern oil paint -- Conservation treatment -- Water-sensitivity in modern oil paintings: Trends in phenomena and treatment options -- Modern"
+              },
+              {
+                "label": "Summary",
+                "content": "Artists oil paints have become increasingly complex and diverse in the 20th Century, applied by artists in a variety of ways. This has led to a number of issues that pose increasing difficulties to conservators and collection keepers. A deeper knowledge of the artists intent as well as processes associated with material changes in paintings is important to conservation, which is almost always a compromise between material preservation and aesthetics. This volume represents 46 peer-reviewed papers presented at the Conference of Modern Oil Paints held in Amsterdam in 2018. The book contains a compilation of articles on oil paints and paintings in the 20th Century, partly presenting the outcome of the European JPI project 'Cleaning of Modern Oil Paints. It is also a follow-up on 'Issues in Contemporary Oil Paint (Springer, 2014). The chapters cover a range of themes and topics such as: patents and paint manufacturing in the 20th Century; characterization of modern-contemporary oil paints and paint surfaces; artists materials and techniques; the artists voice and influence on perception of curators, conservators and scientists; model studies on paint degradation and long term stability; approaches to conservation of oil paintings; practical surface treatment and display. The book will help conservators and curators recognise problems and interpret visual changes on paintings, which in turn give a more solid basis for decisions on the treatment of these paintings"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting, Modern--Conservation and restoration"
+              },
+              {
+                "label": "Topic",
+                "content": "Paint"
+              },
+              {
+                "label": "Topic",
+                "content": "Artists' materials"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND1640 .C66 2019 (Internet)"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Congresses"
+              },
+              {
+                "label": "Type",
+                "content": "Electronic books"
+              },
+              {
+                "label": "Type",
+                "content": "Conference papers and proceedings"
+              }
+            ],
+            "objectRights": [
+              {
+                "label": "Restrictions & Rights",
+                "content": "1-user"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "1 online resource"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              "Conference on Modern Oil Paints",
+              "Berg, Klaas Jan van den"
+            ],
+            "topic": [
+              "Conservation and restoration",
+              "Artists' materials",
+              "Painting"
+            ],
+            "culture": [
+              "Americans"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Conference papers and proceedings",
+              "E-books",
+              "Conferences"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Conservation of modern oil paintings Klaas Jan van den Berg [and 7 others], editors"
+            },
+            "record_ID": "siris_sil_1153069",
+            "unit_code": "SIL",
+            "title_sort": "CONSERVATION OF MODERN OIL PAINTINGS KLAAS JAN VAN DEN BERG AND 7 OTHERS EDITORS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1153069~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "86ce486508bc96d6d5086bea6635a52851640108",
+        "docSignature": "eecf0348ba1498a0cbe2ff85e3df653e",
+        "timestamp": "1653681424",
+        "lastTimeUpdated": "1703069789",
+        "version": "1703066160"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883652-1",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788504",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19744.04"
+              },
+              {
+                "label": "catalog number",
+                "content": "19744.04"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-f0e5-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788504",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "1b368becd0d4047d080ef369d97671035c702a2c",
+        "docSignature": "66403dda78c128f42f3c57b6a85433c3",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883653-0",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788493",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19747"
+              },
+              {
+                "label": "catalog number",
+                "content": "19747"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a6-0bb7-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788493",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "a8f317adcca66aba5d036bf2280b366f6914c196",
+        "docSignature": "a2901bfc451a2d287f7dfdb7c8e8d2b5",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883652-2",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788497",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19745"
+              },
+              {
+                "label": "catalog number",
+                "content": "19745"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-f0de-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788497",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "3a80add499c79b562254e85a5a1d009eb6e25d1e",
+        "docSignature": "e020a8912cf170d2f2ac9f39ed703bac",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883651-1",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788496",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19743"
+              },
+              {
+                "label": "catalog number",
+                "content": "19743"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a6-1178-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788496",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "2033a73800ba558f5f277b5eb5321635a059c14c",
+        "docSignature": "646687d777108ac7d50122797c3d35ee",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883653-1",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_794116",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19748"
+              },
+              {
+                "label": "catalog number",
+                "content": "19748"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-dc49-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_794116",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "e3fa9946ab12bd24f384ae78eb0de250b556dfe2",
+        "docSignature": "4b0e094aa4e3f8f5eb2480bc375c59bd",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883652-3",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788495",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19746"
+              },
+              {
+                "label": "catalog number",
+                "content": "19746"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a6-1177-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788495",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "e252e866f8d6dad8c44d0bd58369d449e75eb9fe",
+        "docSignature": "10c2f3935f95b7249ede8d4094bc89ba",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883651-3",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788502",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19744.02"
+              },
+              {
+                "label": "catalog number",
+                "content": "19744.02"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-f0e3-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788502",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "ee7e93bdaba2a88172a35092c06b8fee3e6fb40f",
+        "docSignature": "ce95c2239721441a120ddfd87d548a65",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883652-0",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788503",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19744.03"
+              },
+              {
+                "label": "catalog number",
+                "content": "19744.03"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-f0e4-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788503",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "d55619d7e63122210d603eb90fb4cb823f782cbd",
+        "docSignature": "273390e5fd30c28eb41368d4477b175f",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883654-0",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788492",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19750"
+              },
+              {
+                "label": "catalog number",
+                "content": "19750"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a6-0bb6-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788492",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "046e299a908c390afcabf6005e712ae42ce6e4cf",
+        "docSignature": "6e653c9df12b6eadbd76aecdcca74929",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883653-2",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788494",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19749"
+              },
+              {
+                "label": "catalog number",
+                "content": "19749"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a6-0bb8-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788494",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "0afdda8c6d640d789391811540b34aa857165d68",
+        "docSignature": "42984fd15b8c8d4fa1871b2f1c886cdf",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883671-2",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788491",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19826"
+              },
+              {
+                "label": "nonaccession number",
+                "content": "19826"
+              },
+              {
+                "label": "catalog number",
+                "content": "19826"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a6-0bb5-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788491",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "4a4b52d4f8d61cd0b07b2693cc01065d52b79c76",
+        "docSignature": "62e5380ae76ba84d9620c55ab5423dff",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883774-2",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788498",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.20221"
+              },
+              {
+                "label": "catalog number",
+                "content": "20221"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-f0df-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788498",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "64f6c6eab49d4676f1011b39644286726c4050fe",
+        "docSignature": "785585fd644701cf1c20dd908004af0a",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883654-1",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_794117",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19751"
+              },
+              {
+                "label": "catalog number",
+                "content": "19751"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-dc4a-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_794117",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "9a916a29727abcc7c2bbeabe11056efe943384c4",
+        "docSignature": "fef78fff8d4fc1ab7122adc219b18f81",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1643398853934-1643398883651-2",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_788501",
+        "content": {
+          "freetext": {
+            "notes": [
+              {
+                "label": "Location",
+                "content": "Currently not on view"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Work and Industry: Graphic Arts"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "GA.19744.01"
+              },
+              {
+                "label": "catalog number",
+                "content": "19744.01"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Finger Painting"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "object_type": [
+              "Paintings",
+              "Painting; Finger Painting"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a5-f0e2-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_788501",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "806eab072156d1ead952f28975af03a6daa4811d",
+        "docSignature": "41b77fd34401653e8acec83389556189",
+        "timestamp": "1663782597",
+        "lastTimeUpdated": "1729072953",
+        "version": "1729071808"
+      },
+      {
+        "id": "ld1-1646149545906-1646150012135-1",
+        "title": "Practical guide to scene painting and painting in distemper / by F. Lloyds ; with illustrations drawn by the author",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_422774",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1800"
+              },
+              {
+                "label": "Date",
+                "content": "1899"
+              },
+              {
+                "label": "Date",
+                "content": "[18--?]"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Lloyds, F"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Cover title: Scene painting and painting in distemper."
+              },
+              {
+                "label": "Notes",
+                "content": "Running title: Scene painting and distemper painting."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Scene painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Distemper painting"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND2885 .L7932"
+              },
+              {
+                "label": "Call number",
+                "content": "ND2885.L7932"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "vi, 90 p. : ill. ; 24 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1800s",
+              "1810s",
+              "1820s",
+              "1830s",
+              "1880s",
+              "1890s",
+              "1840s",
+              "1850s",
+              "1860s",
+              "1870s"
+            ],
+            "name": [
+              "Lloyds, F"
+            ],
+            "topic": [
+              "Distemper painting",
+              "Scene painting"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Practical guide to scene painting and painting in distemper / by F. Lloyds ; with illustrations drawn by the author"
+            },
+            "record_ID": "siris_sil_422774",
+            "unit_code": "SIL",
+            "title_sort": "PRACTICAL GUIDE TO SCENE PAINTING AND PAINTING IN DISTEMPER BY F LLOYDS WITH ILLUSTRATIONS DRAWN BY THE AUTHOR",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!422774~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "3b7a96fb13af0c98762df92656bc8ed3d9e86703",
+        "docSignature": "dee63fa13a06fbe5dc74a72f4594428c",
+        "timestamp": "1498154178",
+        "lastTimeUpdated": "1661970300",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150473053-1",
+        "title": "Indian paintings in the Los Angeles County Museum of Art / Pratapaditya Pal",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_862577",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1982"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Pal, Pratapaditya"
+              },
+              {
+                "label": "Subject",
+                "content": "Los Angeles County Museum of Art"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "RECON"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "California"
+              },
+              {
+                "label": "Place",
+                "content": "Los Angeles"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Miniature painting, Indic"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Mogul"
+              },
+              {
+                "label": "Topic",
+                "content": "Rajput painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Pahari painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Miniature painting"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "759.954 .P23"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Catalogs"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "28 p. : col. ill. ; 41 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Los Angeles County Museum of Art",
+              "Pal, Pratapaditya"
+            ],
+            "place": [
+              "Los Angeles",
+              "California"
+            ],
+            "topic": [
+              "Miniature painting",
+              "Rajput painting",
+              "Painting, Mogul",
+              "Pahari painting",
+              "Miniature painting, Indic"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Indian paintings in the Los Angeles County Museum of Art / Pratapaditya Pal"
+            },
+            "record_ID": "siris_sil_862577",
+            "unit_code": "SIL",
+            "title_sort": "INDIAN PAINTINGS IN THE LOS ANGELES COUNTY MUSEUM OF ART PRATAPADITYA PAL",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!862577~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "594f5527e7636b3152bf1d9debb59d8857d0a5c8",
+        "docSignature": "2f1cae7a3fa5355034b3757a095c7c33",
+        "timestamp": "1513329438",
+        "lastTimeUpdated": "1661964434",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150682155-0",
+        "title": "Elementary view of the fine arts, containing the principles of drawing, painting in general, crayon painting, oil painting, portrait painting, miniature painting, designing, colouring, engraving, &c, &c. By William Enfield. Assisted by eminent professional gentlemen",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_113957",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1809"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Enfield, William 1741-1797"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND1142 .E56"
+              },
+              {
+                "label": "Call number",
+                "content": "ND1142.E56"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "1 p. l., 318, [2] p. 15 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1800s"
+            ],
+            "name": [
+              "Enfield, William"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Elementary view of the fine arts, containing the principles of drawing, painting in general, crayon painting, oil painting, portrait painting, miniature painting, designing, colouring, engraving, &c, &c. By William Enfield. Assisted by eminent professional gentlemen"
+            },
+            "record_ID": "siris_sil_113957",
+            "unit_code": "SIL",
+            "title_sort": "ELEMENTARY VIEW OF THE FINE ARTS CONTAINING THE PRINCIPLES OF DRAWING PAINTING IN GENERAL CRAYON PAINTING OIL PAINTING PORTRAIT PAINTING MINIATURE PAINTING DESIGNING COLOURING ENGRAVING C C BY WILLIAM ENFIELD ASSISTED BY EMINENT PROFESSIONAL GENTLEMEN",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!113957~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "014007c7f35308c920be297314d563a851bfd0ae",
+        "docSignature": "52b38afcb51795a84cdd61522202291b",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661961796",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150428114-0",
+        "title": "Ottoman painting / Serpil Bağcı ... [et al.]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_978026",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2010"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Bağcı, Serpil"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Turkey"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Illumination of books and manuscripts--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Miniature painting, Turkish--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Islamic miniature painting--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Turkish--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Islamic painting--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "335 p. : col. ill. ; 32 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              "Bağcı, Serpil"
+            ],
+            "place": [
+              "Turkey"
+            ],
+            "topic": [
+              "Islamic miniature painting",
+              "Miniature painting, Turkish",
+              "Painting, Turkish",
+              "Islamic painting",
+              "History",
+              "Illumination of books and manuscripts"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Ottoman painting / Serpil Bağcı ... [et al.]"
+            },
+            "record_ID": "siris_sil_978026",
+            "unit_code": "SIL",
+            "title_sort": "OTTOMAN PAINTING SERPIL BAĞCI ET AL",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!978026~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "68e85605bf6d17eee2f68e1d420310eb3a03ccbc",
+        "docSignature": "fb9f057b8774db7af32d9b5c66619bbe",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661961902",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150005783-0",
+        "title": "Zen in the art of painting / Helmut Brinker ; translated by George Campbell",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_875980",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1987"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Brinker, Helmut 1939-2012"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Translation of: Zen in der Kunst des Malens."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Zen painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Buddhist painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Chinese"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Japanese"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND197 .B69"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "159 p. : ill. ; 20 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Brinker, Helmut"
+            ],
+            "topic": [
+              "Painting, Chinese",
+              "Painting, Japanese",
+              "Buddhist painting",
+              "Zen painting"
+            ],
+            "language": [
+              "English language",
+              "German language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Zen in the art of painting / Helmut Brinker ; translated by George Campbell"
+            },
+            "record_ID": "siris_sil_875980",
+            "unit_code": "SIL",
+            "title_sort": "ZEN IN THE ART OF PAINTING HELMUT BRINKER TRANSLATED BY GEORGE CAMPBELL",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!875980~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "50ca875a7d3ddf4e9b5cf6d34d71d966da03cfdd",
+        "docSignature": "051369129bc49c20fd1fe3d7cbb032dc",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661975769",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149644797-0",
+        "title": "Court paintings of India, 16th-19th centuries / Pratapaditya Pal",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_859582",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1983"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Pal, Pratapaditya"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Includes index."
+              },
+              {
+                "label": "Notes",
+                "content": "RECON"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Miniature painting, Indic"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Mogul Empire"
+              },
+              {
+                "label": "Topic",
+                "content": "Deccani painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Rajput painting"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "759.954 .P22"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "334 p. : col. ill. ; 32 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Pal, Pratapaditya"
+            ],
+            "topic": [
+              "Painting, Mogul Empire",
+              "Rajput painting",
+              "Miniature painting, Indic",
+              "Deccani painting"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Court paintings of India, 16th-19th centuries / Pratapaditya Pal"
+            },
+            "record_ID": "siris_sil_859582",
+            "unit_code": "SIL",
+            "title_sort": "COURT PAINTINGS OF INDIA 16TH19TH CENTURIES PRATAPADITYA PAL",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!859582~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "9110d40eda03241eeed98b6500a5947f38dd7299",
+        "docSignature": "1f4db28ff9b834736242763f46aa452b",
+        "timestamp": "1601885404",
+        "lastTimeUpdated": "1661963811",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1643399134763-1643399188383-0",
+        "title": "painting",
+        "unitCode": "NMAH",
+        "type": "edanmdm",
+        "url": "edanmdm:nmah_1306536",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date made",
+                "content": "ca. 1917"
+              }
+            ],
+            "setName": [
+              {
+                "label": "See more items in",
+                "content": "Medicine and Science: Medicine"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "National Museum of American History"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "ID Number",
+                "content": "2005.0100.139"
+              },
+              {
+                "label": "catalog number",
+                "content": "2005.0100.139"
+              },
+              {
+                "label": "accession number",
+                "content": "2005.0100"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Object Name",
+                "content": "Painting"
+              },
+              {
+                "label": "Object Name",
+                "content": "Painting, Oil"
+              },
+              {
+                "label": "Other Terms",
+                "content": "Painting; Painting, Oil; Medicine"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Measurements",
+                "content": "overall: 41 1/2 in x 31 1/2 in x 2 in; 105.41 cm x 80.01 cm x 5.08 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1910s"
+            ],
+            "object_type": [
+              "Paintings",
+              "Painting; Painting, Oil; Medicine"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "guid": "https://n2t.net/ark:/65665/ng49ca746a8-f30e-704b-e053-15f76fa0b4fa",
+            "title": {
+              "label": "Object Name",
+              "content": "painting"
+            },
+            "record_ID": "nmah_1306536",
+            "unit_code": "NMAH",
+            "title_sort": "PAINTING",
+            "data_source": "National Museum of American History",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "af07f5ea828033429afe27c165ceba9ccae794d0",
+        "docSignature": "b5bd1bcae9e4fecfbff25014c170ecf7",
+        "timestamp": "1663783025",
+        "lastTimeUpdated": "1729072305",
+        "version": "1729071706"
+      },
+      {
+        "id": "ld1-1646149545906-1646150398026-0",
+        "title": "An introduction to Indian court painting / Andrew Topsfield",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_859643",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1984"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Topsfield, Andrew"
+              },
+              {
+                "label": "Author",
+                "content": "Victoria and Albert Museum"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "\"Victoria & Albert Museum\"--Cover."
+              },
+              {
+                "label": "Notes",
+                "content": "Maps on lining papers."
+              },
+              {
+                "label": "Notes",
+                "content": "RECON"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Miniature painting, Indic"
+              },
+              {
+                "label": "Topic",
+                "content": "Illumination of books and manuscripts, Indic"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Mogul Empire"
+              },
+              {
+                "label": "Topic",
+                "content": "Pahari painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Deccani painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Rajput painting"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "759.954 .T63"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "47, [1] p. : ill. (some col.), maps ; 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "Victoria and Albert Museum",
+              "Topsfield, Andrew"
+            ],
+            "topic": [
+              "Painting, Mogul Empire",
+              "Rajput painting",
+              "Pahari painting",
+              "Miniature painting, Indic",
+              "Deccani painting",
+              "Illumination of books and manuscripts"
+            ],
+            "culture": [
+              "East Indians"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "An introduction to Indian court painting / Andrew Topsfield"
+            },
+            "record_ID": "siris_sil_859643",
+            "unit_code": "SIL",
+            "title_sort": "INTRODUCTION TO INDIAN COURT PAINTING ANDREW TOPSFIELD",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!859643~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "c50e7ff92c6ceb04a4859281772b8d8b766ea2b0",
+        "docSignature": "a7976b326dc29253f88ff65a0b25c59f",
+        "timestamp": "1601885404",
+        "lastTimeUpdated": "1661964359",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150863463-0",
+        "title": "Catalogue of the Greek, Etruscan and Roman paintings and mosaics in the British Museum, by R.P. Hinks ..",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_408775",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1933"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "British Museum Department of Greek and Roman Antiquities"
+              },
+              {
+                "label": "Author",
+                "content": "Hinks, R. P (Roger Packman) 1903-1963"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting, Roman"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Greek"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Etruscan"
+              },
+              {
+                "label": "Topic",
+                "content": "Mosaics"
+              },
+              {
+                "label": "Topic",
+                "content": "Mural painting and decoration"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Ancient"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N5335.L7 B67 1933X"
+              },
+              {
+                "label": "Call number",
+                "content": "N5335.L7B67 1933X"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "lxxi, 157 p., 1 l. incl. illus., plates. XXXII pl. 29 x 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1930s"
+            ],
+            "name": [
+              "British Museum",
+              "Hinks, R. P"
+            ],
+            "topic": [
+              "Painting, Greek",
+              "Painting, Etruscan",
+              "Mosaics",
+              "Painting, Roman",
+              "Mural painting and decoration",
+              "Painting, Ancient"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Catalogue of the Greek, Etruscan and Roman paintings and mosaics in the British Museum, by R.P. Hinks .."
+            },
+            "record_ID": "siris_sil_408775",
+            "unit_code": "SIL",
+            "title_sort": "CATALOGUE OF THE GREEK ETRUSCAN AND ROMAN PAINTINGS AND MOSAICS IN THE BRITISH MUSEUM BY RP HINKS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!408775~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "9c4dce973a002c5583a879f1b3e0a754a2d9b707",
+        "docSignature": "797ba8c3df92c59ec086f5b335de0717",
+        "timestamp": "1498154178",
+        "lastTimeUpdated": "1661969775",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150465392-0",
+        "title": "The love of painting : genealogy of a success medium / Isabelle Graw ; translation, Brían Hanrahan, Gerrit Jackson ; editor, Niamh Dunphy",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1095983",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2018"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Graw, Isabelle"
+              },
+              {
+                "label": "editor",
+                "content": "Dunphy, Niamh"
+              },
+              {
+                "label": "translator",
+                "content": "Hanrahan, Brian"
+              },
+              {
+                "label": "translator",
+                "content": "Jackson, Gerrit"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Introduction -- Painting's intensified externalization and intellectual prestige -- For connoisseurs only : painting specialists and their subject matter -- The knowledge of painting : notes on thinking and subject-like pictures -- The outside is the inside : on Édouard Manet at the Musée d'Orsay, Paris -- Painting in a different light : a conversation with Jutta Koether about Joan Mitchell -- Anti-subjective procedures and self-active paintings -- The force of the impersonal brush : reflections on Frank Stella's early work -- Painting as \"Object-tableau\" : Ellsworth Kelly at Haus der Kunst, Munich -- The gray haze of subjectivity : on Gerhard Richter at the Neue Nationalgalerie, Berlin -- Unreconciled: De-skilling versus Re-skilling : a conversation with Charline von Heyl -- Painting against painting -- Painted critique of painting : from anti-essentialism to the myth of self-activity in the 1960s and 1980s (Immendorff, Polke, Koether, Oehlen, Kippenberger) -- \"Hi, here I am, that must be enough\" : the persona and the product in Martin Kippenberger's work -- Painting as a cover story : a conversation with Merlin Carpenter -- Painting without painting -- The absent painter : six theses on the reflection on value and painting in the work of Marcel Broodthaers -- Painting without a painter : a conversation with Wade Guyton -- Human figures with a painterly appeal : on anthropomorphism, mannequins, and painting in the work of Isa Genzken and Rachel Harrison -- Beyond network painting -- Frozen references to life in Avery Singer's paintings -- The curse of the network : a conversation with myself about Jana Euler's paintings -- Follow me: painting in the age of social media : a conversation with Alex Israel -- The value of painting -- The economy of painting : reflections on the particular value form of the painted canvas -- Questions of value : a conversation between Kerstin Stakemeier and Isabelle Graw -- Acknowledgments -- Author biography -- Bibliographic note -- Image credits"
+              },
+              {
+                "label": "Summary",
+                "content": "Painting seems to have lost its dominant position in the field of the arts. However, looking more closely at exhibited photographs, assemblages, installations, or performances, it is evident how the rhetorics of painting still remain omnipresent. Following the tradition of classical theories of painting based on exchanges with artists, Isabelle Graw's The Love of Painting considers the art form not as something fixed, but as a visual and discursive material formation with the potential to fascinate owing to its ability to produce the fantasy of liveliness. Thus, painting is not restricted to the limits of its own frame, but possesses a specific potential that is located in its material and physical signs. Its value is grounded in its capacity to both reveal and mystify its conditions of production. Alongside in-depth analyses of the work of artists like Édouard Manet, Jutta Koether, Martin Kippenberger, Jana Euler, and Marcel Broodthaers, the book includes conversations with artists in which Graw's insights are further discussed and put to the test."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting--History"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              },
+              {
+                "label": "Type",
+                "content": "History"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "363 pages : illustrations (chiefly color) ; 21 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s"
+            ],
+            "name": [
+              "Dunphy, Niamh",
+              "Graw, Isabelle",
+              "Jackson, Gerrit",
+              "Hanrahan, Brian"
+            ],
+            "topic": [
+              "History"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "The love of painting : genealogy of a success medium / Isabelle Graw ; translation, Brían Hanrahan, Gerrit Jackson ; editor, Niamh Dunphy"
+            },
+            "record_ID": "siris_sil_1095983",
+            "unit_code": "SIL",
+            "title_sort": "LOVE OF PAINTING : GENEALOGY OF A SUCCESS MEDIUM ISABELLE GRAW TRANSLATION BRÍAN HANRAHAN GERRIT JACKSON EDITOR NIAMH DUNPHY",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1095983~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "27ce5937d04b752c0c88862ab7b0c038873b3d0f",
+        "docSignature": "85598980d77756238ce79b1ede60f7d1",
+        "timestamp": "1543309812",
+        "lastTimeUpdated": "1661961634",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150426971-0",
+        "title": "Issues in contemporary oil paint Klaas Jan van den Berg, Aviva Burnstock, Matthijs de Keijzer, Jay Krueger, Tom Learner, Alberto de Tagle, Gunnar Heydenreich, editors",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1113185",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2014"
+              },
+              {
+                "label": "Date",
+                "content": "20th century"
+              },
+              {
+                "label": "Date",
+                "content": "21st century"
+              },
+              {
+                "label": "Date",
+                "content": "20e siècle"
+              },
+              {
+                "label": "Date",
+                "content": "21e siècle"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Issues in Contemporary Oil Paint Symposium (2013 : Amersfoort, Netherlands)"
+              },
+              {
+                "label": "editor",
+                "content": "Berg, Klaas Jan van den"
+              },
+              {
+                "label": "editor",
+                "content": "Burnstock, Aviva"
+              },
+              {
+                "label": "editor",
+                "content": "Keijzer, Matthijs de"
+              },
+              {
+                "label": "editor",
+                "content": "Krueger, Jay"
+              },
+              {
+                "label": "editor",
+                "content": "Learner, Tom"
+              },
+              {
+                "label": "editor",
+                "content": "Tagle, Alberto de"
+              },
+              {
+                "label": "editor",
+                "content": "Heydenreich, Gunnar"
+              },
+              {
+                "label": "host institution",
+                "content": "Netherlands Rijksdienst voor het Cultureel Erfgoed"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Proceedings of the Issues in Contemporary Oil Paint (ICOP) Symposium held at the Cultural Heritage Agency of the Netherlands (RCE), Amersfoort, March 28-29, 2013"
+              },
+              {
+                "label": "Contents",
+                "content": "From the content: 1. 20th Century Oil Paint. The interface between science and conservation and the challenges for modern oil paint research -- 2. Do we see what we know or do we know what we see? Conservation of oil paintings in the Stedelijk Museum Amsterdam -- 3. Towards interpretation of making, meaning, and change in British 20th century oil paintings: the relevance of an artist's paint archive -- 4. The delight of modern organic pigment creations -- 5. Modern Oil Paints: Formulations, organic additives, and degradation: some case studies -- 6. Distinction by micro-Raman spectroscopy and chemometrical analysis of copper phthalocyanine blue polymorphs in oil-based and acrylic paint samples -- 7. Charting the development of oil-based enamel paints through the correlation of historical paint technology manuals with scientific analysis -- 8. Hans Hofmann's last lesson: a study of the artist's materials in the last decade of his career. 9. Théorème de Gödel by Georges Mathieu, 1957. Study and restoration: consolidation through cohesive regeneration using a solvent -- 10. Non-traditionally painted oil painting: how to treat it properly? Josip Vaništa's Cakes (1955) -- 11. Conservation Issues in Several 20th-Century Canadian Oil Paintings: The Role of Zinc Carboxylate Reaction Product -- 12. Zwei Jünglinge und Zwei Mädchen, a tempera painting by Otto Mueller, circa 1917. Paint analysis and reconstruction -- 13. Metal soaps and visual changes in a painting by René Magritte-The Menaced Assassin, 1927 -- 14. Fleurs Grises -- A delicate surface. Difficult to clean -- Essential to protect -- 15. Derivatisation technique for infrared spectroscopy -- Characterisation of oxidative ageing products in modern oil paint. 16. Investigating fluidizing dripping pink commercial paint on Van Hemert's Seven-series works from 1990-1995 -- 17. Hard dry paint, softening tacky paint, and exuding drips on Composition (1952) by Jean-Paul Riopelle -- 18. Zinc white and the influence of paint composition for stability in oil based media -- 19. It's surreal: zinc-oxide degradation and misperceptions in Salvador Dalí?s Couple with Clouds in their Heads, 1936 -- 20. Water Sensitive Oil Paints in the 20th Century: A study of the distribution of water-soluble degradation products in modern oil paint films -- 21. An investigation into the viability of removal of lead soap efflorescence from contemporary oil paintings -- 22. Set back the race: Treatment strategies for running oil paint -- 23. Sensitivity of modern oil paints to solvents. Effects on synthetic organic pigments -- 24. Dry Cleaning: research and practice -- 25. New Approaches to Surface Cleaning of Unvarnished Contemporary Oil Paintings -- Moist Sponges and Cloths -- 26. Agar -- a new tool for the surface cleaning of water sensitive oil paint? -- 27. Investigation into the surface conductivity of water-sensitive modern oil paints"
+              },
+              {
+                "label": "Summary",
+                "content": "\"This volume represents 27 peer-reviewed papers presented at the ICOP 2013 symposium which will help conservators and curators recognise problems and interpret visual changes on paintings, which in turn give a more solid basis for decisions on the treatment of these paintings. The subject matter ranges from developments of paint technology, working methods of individual artists, through characterisation of paints and paint surfaces, paint degradation vs. long time stability, to observations of issues in collections, cleaning and other treatment issues as well as new conservation approaches\"--Page 4 of cover"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Paint materials--Analysis"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Modern--Conservation and restoration--Technique"
+              },
+              {
+                "label": "Topic",
+                "content": "Museum conservation methods"
+              },
+              {
+                "label": "Topic",
+                "content": "Peinture (Produit chimique)--Constituants--Analyse"
+              },
+              {
+                "label": "Topic",
+                "content": "Peinture--Conservation et restauration--Technique"
+              },
+              {
+                "label": "Topic",
+                "content": "Musées--Méthodes de conservation"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Congresses"
+              },
+              {
+                "label": "Type",
+                "content": "Congrès"
+              },
+              {
+                "label": "Type",
+                "content": "Congress"
+              },
+              {
+                "label": "Type",
+                "content": "Conference papers and proceedings"
+              },
+              {
+                "label": "Type",
+                "content": "Actes de congrès"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xv, 430 pages illustrations (some color) 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1920s",
+              "1910s",
+              "2010s",
+              "1940s",
+              "2000s",
+              "1930s",
+              "1900s",
+              "1990s",
+              "1960s",
+              "1950s",
+              "1980s",
+              "1970s"
+            ],
+            "name": [
+              "Burnstock, Aviva",
+              "Learner, Tom",
+              "Netherlands",
+              "Keijzer, Matthijs de",
+              "Krueger, Jay",
+              "Berg, Klaas Jan van den",
+              "Issues in Contemporary Oil Paint Symposium",
+              "Heydenreich, Gunnar",
+              "Tagle, Alberto de"
+            ],
+            "topic": [
+              "Analyse",
+              "Musées",
+              "Conservation and restoration",
+              "Peinture (Produit chimique)",
+              "Museum conservation methods",
+              "Constituants",
+              "Peinture",
+              "Méthodes de conservation",
+              "Technique",
+              "Conservation et restauration",
+              "Paint materials",
+              "Painting"
+            ],
+            "culture": [
+              "Americans"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Conference papers and proceedings",
+              "Congrès",
+              "Conferences",
+              "Actes de congrès"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Issues in contemporary oil paint Klaas Jan van den Berg, Aviva Burnstock, Matthijs de Keijzer, Jay Krueger, Tom Learner, Alberto de Tagle, Gunnar Heydenreich, editors"
+            },
+            "record_ID": "siris_sil_1113185",
+            "unit_code": "SIL",
+            "title_sort": "ISSUES IN CONTEMPORARY OIL PAINT KLAAS JAN VAN DEN BERG AVIVA BURNSTOCK MATTHIJS DE KEIJZER JAY KRUEGER TOM LEARNER ALBERTO DE TAGLE GUNNAR HEYDENREICH EDITORS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1113185~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "cdd1003983973c77570cf46e7cba8b8a176dc4da",
+        "docSignature": "d3012fc834bf357a8889269c5efc346c",
+        "timestamp": "1663782165",
+        "lastTimeUpdated": "1666732454",
+        "version": "1666732036"
+      },
+      {
+        "id": "ld1-1642011394986-1642011395879-0",
+        "title": "[Trade catalogs from Lowe Brothers Co.]",
+        "unitCode": "SILNMAHTL",
+        "type": "edanmdm",
+        "url": "edanmdm:SILNMAHTL_27773",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1900s"
+              }
+            ],
+            "name": [
+              {
+                "label": "Company Name",
+                "content": "Lowe Brothers Co."
+              },
+              {
+                "label": "Related companies",
+                "content": "Lowe Bros. Co. ; Lowe Brothers ; Oldham Bros. Drug Store"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Dayton, Ohio, United States"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic (Romaine term)",
+                "content": "Paint; varnishes; adhesives; coatings; etc."
+              },
+              {
+                "label": "Topic",
+                "content": "Adhesives"
+              },
+              {
+                "label": "Topic",
+                "content": "Paint industry and trade"
+              }
+            ],
+            "setName": [
+              {
+                "label": "Location",
+                "content": "Trade Literature at the American History Museum Library"
+              },
+              {
+                "label": "Collection",
+                "content": "Smithsonian Libraries Trade Literature Collections"
+              }
+            ],
+            "language": [
+              {
+                "label": "Language",
+                "content": "English"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Record ID",
+                "content": "SILNMAHTL_27773"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type of material",
+                "content": "Trade catalogs"
+              },
+              {
+                "label": "Type of material",
+                "content": "Trade literature"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Notes content",
+                "content": "Paint ; varnish ; house paint ; interior paint ; \"Neptunite Varnish\" ; paint brushes ; varnish brushes ; wire brush ; paperhangers' brushes ; stucco brushes ; other brushes ; \"Metalcote\" primer and paint ; \"Plax-Cote\" floor paint ; wood finishes ; oil stain ; shingle stain ; fluid tinting colors ; \"Stylist Colors\" ; latex house paint ; \"Little Blue Flag\" or \"High Standard\" liquid paint ; \"Mellotone\" interior paint ; \"Brushing Up on Beauty: With Captivating Color Schemes and Helpful Advice on Painting and Decorating\" ; \"Modern Color Styling for Your Home\" ; \"A Test by Technologists: Expert Reports on the Six Years of Weather Tests of Paint for Steel on the Pennsylvania Railroad Bridge at Havre de Grace, Md.\" ; stucco paint ; barn paint ; enamel paint ; \"101 Questions and Answers About Painting and Decorating\" ; \"practical hints on painting and decorating with pictorial color suggestions\" ; \"Color Keys to Sunlit Homes\" ; \"The Stylizer\" color selector ; \"High Standard Specifications For Painting and Varnishing\" ."
+              },
+              {
+                "label": "Includes",
+                "content": "Trade catalog, price lists, manual and samples"
+              },
+              {
+                "label": "Types of samples",
+                "content": "Color chips ."
+              },
+              {
+                "label": "Includes",
+                "content": "Black and white images"
+              },
+              {
+                "label": "Includes",
+                "content": "Color images"
+              },
+              {
+                "label": "Physical description",
+                "content": "55 pieces; 2 boxes"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1920s",
+              "1910s",
+              "1940s",
+              "1930s",
+              "1900s",
+              "1990s",
+              "1960s",
+              "1950s",
+              "1980s",
+              "1970s"
+            ],
+            "name": [
+              {
+                "type": "corporate_name",
+                "content": "Lowe Brothers Co."
+              }
+            ],
+            "place": [
+              "United States",
+              "Ohio",
+              "Dayton"
+            ],
+            "topic": [
+              "Adhesives",
+              "Paint industry and trade"
+            ],
+            "language": [
+              "English"
+            ],
+            "geoLocation": [
+              {
+                "L2": {
+                  "type": "Country",
+                  "content": "United States"
+                },
+                "L3": {
+                  "type": "State",
+                  "content": "Ohio"
+                },
+                "L5": {
+                  "type": "City",
+                  "content": "Dayton"
+                }
+              }
+            ],
+            "object_type": [
+              "Trade catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "[Trade catalogs from Lowe Brothers Co.]"
+            },
+            "record_ID": "SILNMAHTL_27773",
+            "unit_code": "SILNMAHTL",
+            "title_sort": "Trade catalogs from Lowe Brothers Co.",
+            "data_source": "Smithsonian Libraries",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "41742d20c056f8359a8d0e57daf4dda31f146783",
+        "docSignature": "faeed823307bf385b8f57a84b5c3a197",
+        "timestamp": "1663785437",
+        "lastTimeUpdated": "1666742642",
+        "version": "1666739154"
+      },
+      {
+        "id": "ld1-1646149545906-1646150213856-1",
+        "title": "What is modern painting?",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_25965",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1966"
+              },
+              {
+                "label": "Date",
+                "content": "19th century"
+              },
+              {
+                "label": "Date",
+                "content": "20th century"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Barr, Alfred H Jr 1902-1981"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Contrasts -- Realism -- Impressionism -- Expressionism -- The constructors -- Motion and commotion -- Mystery and magic -- Allegory and prophecy -- Mid-century abstraction -- The 1960's -- Conclusion: Which are the great paintings? -- Truth, freedom, perfection"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Modernism (Art)"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Modernisme (Art)"
+              },
+              {
+                "label": "Topic",
+                "content": "Peinture"
+              },
+              {
+                "label": "Topic",
+                "content": "painting (image-making)"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Modern"
+              },
+              {
+                "label": "Topic",
+                "content": "paintings (visual works)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND195 .B26 1966"
+              },
+              {
+                "label": "Call number",
+                "content": "ND195.B26 1966"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              },
+              {
+                "label": "Type",
+                "content": "Paintings (visual works).)"
+              },
+              {
+                "label": "Type",
+                "content": "Paintings"
+              },
+              {
+                "label": "Type",
+                "content": "Peintures"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "48 pages illustrations 26 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1800s",
+              "1920s",
+              "1810s",
+              "1910s",
+              "1820s",
+              "1940s",
+              "1830s",
+              "1930s",
+              "1900s",
+              "1880s",
+              "1890s",
+              "1990s",
+              "1960s",
+              "1840s",
+              "1850s",
+              "1950s",
+              "1860s",
+              "1980s",
+              "1870s",
+              "1970s"
+            ],
+            "name": [
+              "Barr, Alfred H"
+            ],
+            "topic": [
+              "Art",
+              "Modernisme (Art)",
+              "Peinture",
+              "Paintings (visual works)",
+              "Painting (image-making)",
+              "Painting"
+            ],
+            "culture": [
+              "Americans"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Paintings",
+              "Peintures",
+              "Paintings (visual works).)",
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "What is modern painting?"
+            },
+            "record_ID": "siris_sil_25965",
+            "unit_code": "SIL",
+            "title_sort": "WHAT IS MODERN PAINTING",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!25965~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "e5d6fef08b972383ef24a436aa64d545f217176c",
+        "docSignature": "347718063ac0157818bced6c441f18a5",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1740743667",
+        "version": "1740741233"
+      },
+      {
+        "id": "ld1-1646149545906-1646149900295-0",
+        "title": "Synthetic painting media",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_11545",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1964"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Jensen, Lawrence N"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Traditional media: encaustic painting -- Fresco painting -- Egg tempera painting -- Pastel painting -- Watercolor painting -- Oil painting -- Traditional practices -- Synthetic painting media -- Polymer tempera -- Polymer tempera techniques -- Oil-compatible, acrylic resin paints -- Ethyl silicate -- Pyroxylin -- Vinyl acetate -- Vinyl chloride acetate -- Fiberglas supports"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Artists' materials"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting--Technique"
+              },
+              {
+                "label": "Topic",
+                "content": "Matériel d'artistes"
+              },
+              {
+                "label": "Topic",
+                "content": "Peinture--Technique"
+              },
+              {
+                "label": "Topic",
+                "content": "artists' materials"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND1500 .J54"
+              },
+              {
+                "label": "Call number",
+                "content": "ND1500.J54"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "v, 138 p illus 22 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1960s"
+            ],
+            "name": [
+              "Jensen, Lawrence N"
+            ],
+            "topic": [
+              "Artists' materials",
+              "Peinture",
+              "Technique",
+              "Matériel d'artistes"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Synthetic painting media"
+            },
+            "record_ID": "siris_sil_11545",
+            "unit_code": "SIL",
+            "title_sort": "SYNTHETIC PAINTING MEDIA",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!11545~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "9bec58492c4befad4b63dc33a1a5e71ad33ef3f7",
+        "docSignature": "7b94b93b20314eff8e75729899731365",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1716578091",
+        "version": "1716576291"
+      },
+      {
+        "id": "ld1-1646149545906-1646150454563-1",
+        "title": "[Trade catalogs on painting supplies, paint, varnish, wall paint, brushes, air brushes, wall paper supplies, painter's clothing, mixing machines, glues, scaffolds, decorating books, automobile paint, and colors ... ]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_430194",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1926"
+              },
+              {
+                "label": "Date",
+                "content": "1926-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Geo. E. Watson Co"
+              },
+              {
+                "label": "Author",
+                "content": "Smithsonian Libraries American History Trade Literature Collection DSI"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Trade literature."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Paint materials"
+              },
+              {
+                "label": "Topic",
+                "content": "Paint"
+              },
+              {
+                "label": "Topic",
+                "content": "Varnish and varnishing"
+              },
+              {
+                "label": "Topic",
+                "content": "Paperhanging--Equipment and supplies--Catalogs"
+              },
+              {
+                "label": "Topic",
+                "content": "Paint mixing--Equipment and supplies--Catalogs"
+              },
+              {
+                "label": "Topic",
+                "content": "Color decoration and ornament"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "46350"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Catalogs"
+              },
+              {
+                "label": "Type",
+                "content": "Trade catalogs"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "<5> v. : ill. (some col.)"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1920s"
+            ],
+            "name": [
+              "Geo. E. Watson Co",
+              "Smithsonian Libraries"
+            ],
+            "topic": [
+              "Color decoration and ornament",
+              "Varnish and varnishing",
+              "Equipment",
+              "Paint mixing",
+              "Paperhanging",
+              "Paint materials"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Catalogs",
+              "Trade catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "[Trade catalogs on painting supplies, paint, varnish, wall paint, brushes, air brushes, wall paper supplies, painter's clothing, mixing machines, glues, scaffolds, decorating books, automobile paint, and colors ... ]"
+            },
+            "record_ID": "siris_sil_430194",
+            "unit_code": "SIL",
+            "title_sort": "TRADE CATALOGS ON PAINTING SUPPLIES PAINT VARNISH WALL PAINT BRUSHES AIR BRUSHES WALL PAPER SUPPLIES PAINTERS CLOTHING MIXING MACHINES GLUES SCAFFOLDS DECORATING BOOKS AUTOMOBILE PAINT AND COLORS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!430194~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "ea82f8e913f6fa96d04f410877a77b01f638c314",
+        "docSignature": "b7f9d23eff4bb42178339d60420cc6ff",
+        "timestamp": "1498154178",
+        "lastTimeUpdated": "1661970036",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150516390-0",
+        "title": "An introduction to preservation of paintings [by] O. P. Agrawal",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_8791",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1967"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Agrawal, Om Prakash 1931-"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting--Conservation and restoration"
+              },
+              {
+                "label": "Topic",
+                "content": "Paintings"
+              },
+              {
+                "label": "Topic",
+                "content": "Peinture"
+              },
+              {
+                "label": "Topic",
+                "content": "Peinture--Conservation et restauration"
+              },
+              {
+                "label": "Topic",
+                "content": "painting (image-making)"
+              },
+              {
+                "label": "Topic",
+                "content": "paintings (visual works)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND1640 .A5X"
+              },
+              {
+                "label": "Call number",
+                "content": "ND1640.A5X"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "40 pages illus 25 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1960s"
+            ],
+            "name": [
+              "Agrawal, Om Prakash"
+            ],
+            "topic": [
+              "Conservation and restoration",
+              "Peinture",
+              "Paintings (visual works)",
+              "Painting (image-making)",
+              "Conservation et restauration",
+              "Painting"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "An introduction to preservation of paintings [by] O. P. Agrawal"
+            },
+            "record_ID": "siris_sil_8791",
+            "unit_code": "SIL",
+            "title_sort": "INTRODUCTION TO PRESERVATION OF PAINTINGS BY O P AGRAWAL",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!8791~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "1614a96cb492cd8feadacba53bb40a32f15687eb",
+        "docSignature": "64080024935d20fda118c1a958ef4b04",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1705921420",
+        "version": "1705917843"
+      },
+      {
+        "id": "ld1-1646149545906-1646149644796-1",
+        "title": "Miniature paintings on display in Lahore Museum : Mughal and Rajasthani schools",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1088074",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1976"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Lahore Museum (Pakistan)"
+              },
+              {
+                "label": "Subject",
+                "content": "Lahore Museum (Pakistan)"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Pakistan"
+              },
+              {
+                "label": "Place",
+                "content": "Lahore"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Miniature painting, Indic"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Mogul Empire"
+              },
+              {
+                "label": "Topic",
+                "content": "Rajput painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Miniature painting"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND1337.I5 M56 1976"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Catalogs"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "24 pages, [6] leaves of plates : illustrations ; 21 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1970s"
+            ],
+            "name": [
+              "Lahore Museum (Pakistan)"
+            ],
+            "place": [
+              "Pakistan",
+              "Lahore"
+            ],
+            "topic": [
+              "Miniature painting",
+              "Painting, Mogul Empire",
+              "Rajput painting",
+              "Miniature painting, Indic"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Miniature paintings on display in Lahore Museum : Mughal and Rajasthani schools"
+            },
+            "record_ID": "siris_sil_1088074",
+            "unit_code": "SIL",
+            "title_sort": "MINIATURE PAINTINGS ON DISPLAY IN LAHORE MUSEUM : MUGHAL AND RAJASTHANI SCHOOLS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1088074~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "dce82d4809648ea311d0a48a8df6f3d276c666bd",
+        "docSignature": "f2850d4496c9cf40bfd63c1ed2465315",
+        "timestamp": "1601885404",
+        "lastTimeUpdated": "1661961940",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150402998-1",
+        "title": "Raquel Xamani Icart, artist : figure & portrait oil painting: 15 years of painting",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_1063924",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "2014"
+              },
+              {
+                "label": "Date",
+                "content": "21st century"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Xamani Icart, Raquel 1973-"
+              },
+              {
+                "label": "Subject",
+                "content": "Xamani Icart, Raquel 1973-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "AAPG copy 39088019498070 signed by author."
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Figure & portrait oil painting: 15 years of painting"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Figurative painting, Spanish"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Spanish"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Catalogs"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "44 pages : illustrations (some color) ; 23 x 29 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "2010s",
+              "2000s"
+            ],
+            "name": [
+              "Xamani Icart, Raquel"
+            ],
+            "topic": [
+              "Figurative painting, Spanish",
+              "Painting, Spanish"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Raquel Xamani Icart, artist : figure & portrait oil painting: 15 years of painting"
+            },
+            "record_ID": "siris_sil_1063924",
+            "unit_code": "SIL",
+            "title_sort": "RAQUEL XAMANI ICART ARTIST : FIGURE PORTRAIT OIL PAINTING: 15 YEARS OF PAINTING",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!1063924~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "8480a8cd5c7f04265601591cbe281645f9a0a5c9",
+        "docSignature": "3e6a2a90ca10e801eb06b9649b3e30e6",
+        "timestamp": "1522224655",
+        "lastTimeUpdated": "1661961674",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150544724-2",
+        "title": "Painting in Florence and Siena after the Black Death",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_402495",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1951"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Meiss, Millard"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Italy"
+              },
+              {
+                "label": "Place",
+                "content": "Florence"
+              },
+              {
+                "label": "Place",
+                "content": "Siena"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting, Italian"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Florentine"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Sienese"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Renaissance"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND621.F7 M4X"
+              },
+              {
+                "label": "Call number",
+                "content": "ND621.F7M4X"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "xiv, 194 p. 169 illus. 31 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1950s"
+            ],
+            "name": [
+              "Meiss, Millard"
+            ],
+            "place": [
+              "Siena",
+              "Florence",
+              "Italy"
+            ],
+            "topic": [
+              "Painting, Sienese",
+              "Painting, Italian",
+              "Painting, Renaissance",
+              "Painting, Florentine"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Painting in Florence and Siena after the Black Death"
+            },
+            "record_ID": "siris_sil_402495",
+            "unit_code": "SIL",
+            "title_sort": "PAINTING IN FLORENCE AND SIENA AFTER THE BLACK DEATH",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!402495~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "6116d038ef07f603a7766b59c5279bac72dc6372",
+        "docSignature": "0709795775f4b72dd6018516cca13e64",
+        "timestamp": "1498154178",
+        "lastTimeUpdated": "1661970217",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150544975-1",
+        "title": "Official digest - Federation of Societies for Paint Technology, May 1959",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_135128",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1959"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Federation of Societies for Paint Technology"
+              },
+              {
+                "label": "Author",
+                "content": "Flynn, C. Homer"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "C. Homer Flynn, ed."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Paint materials"
+              },
+              {
+                "label": "Topic",
+                "content": "Paint mixing"
+              },
+              {
+                "label": "Topic",
+                "content": "Urethanes"
+              },
+              {
+                "label": "Topic",
+                "content": "Emulsion paint"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "TP936 .F29"
+              },
+              {
+                "label": "Call number",
+                "content": "TP936.F29"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "p. 599-705 : ill., ports. ; 23 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1950s"
+            ],
+            "name": [
+              "Federation of Societies for Paint Technology",
+              "Flynn, C. Homer"
+            ],
+            "topic": [
+              "Paint mixing",
+              "Urethanes",
+              "Emulsion paint",
+              "Paint materials"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Official digest - Federation of Societies for Paint Technology, May 1959"
+            },
+            "record_ID": "siris_sil_135128",
+            "unit_code": "SIL",
+            "title_sort": "OFFICIAL DIGEST FEDERATION OF SOCIETIES FOR PAINT TECHNOLOGY MAY 1959",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!135128~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "9b2a2ee20e63a0a27dd38f8a4d090be80958ceba",
+        "docSignature": "2ab4f3962f7ef80259ee62017f149090",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661962460",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1642011394986-1642011395882-0",
+        "title": "[Trade catalogs from John Lucas & Co., Inc.]",
+        "unitCode": "SILNMAHTL",
+        "type": "edanmdm",
+        "url": "edanmdm:SILNMAHTL_27852",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1900s"
+              }
+            ],
+            "name": [
+              {
+                "label": "Variant company name",
+                "content": "Multiple locations: New York, NY ; Boston, MA ; Chicago, IL ; San Francisco, CA ."
+              },
+              {
+                "label": "Company Name",
+                "content": "John Lucas & Co., Inc."
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Philadelphia, Pennsylvania, United States"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic (Romaine term)",
+                "content": "Paint; varnishes; adhesives; coatings; etc."
+              },
+              {
+                "label": "Topic",
+                "content": "Adhesives"
+              },
+              {
+                "label": "Topic",
+                "content": "Paint industry and trade"
+              }
+            ],
+            "setName": [
+              {
+                "label": "Location",
+                "content": "Trade Literature at the American History Museum Library"
+              },
+              {
+                "label": "Collection",
+                "content": "Smithsonian Libraries Trade Literature Collections"
+              }
+            ],
+            "language": [
+              {
+                "label": "Language",
+                "content": "English"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Record ID",
+                "content": "SILNMAHTL_27852"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type of material",
+                "content": "Trade catalogs"
+              },
+              {
+                "label": "Type of material",
+                "content": "Trade literature"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Notes content",
+                "content": "Paints and varnishes ; \"Metropolitan Ready-Mixed Paint\" ; brick paint ; barn paint ; \"Liquid Plumbago Paint\" ; graphite paint ; marine paint ; deck and porch paint ; floor paints and stains ; wood filler ; \"Waxolac\" polish ; \"Hygeia\" polish ; oil stains ; shingle stains ; \"Auto-Klean\" for carriages , automobiles , etc. ; coach , wagon , and carriage paints ; \"Trophy\" enamels ; stove enamel ; gold and aluminum enamel ; blackboard paint ; \"Mirac\" paint and varnish remover ; \"Lu-Flat-Kot\" wall finishes ; white lead ; \"colors ground in oil\" ; \"Gibbsboro Colors\" , \"Philadelphia Colors\" , and \"Alpine Colors\" in oil ; dry colors ; glass ; glaziers' \"diamonds\" or glass cutters ; brushes ; paper hangers' tools ; industrial building paint ; other paints , varnishes , and supplies ; color samples -- unique"
+              },
+              {
+                "label": "Includes",
+                "content": "Trade catalog, price lists and samples"
+              },
+              {
+                "label": "Types of samples",
+                "content": "Paint chips"
+              },
+              {
+                "label": "Includes",
+                "content": "Black and white images"
+              },
+              {
+                "label": "Includes",
+                "content": "Color images"
+              },
+              {
+                "label": "Physical description",
+                "content": "2 pieces; 1 box"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1920s",
+              "1910s",
+              "1940s",
+              "1930s",
+              "1900s",
+              "1990s",
+              "1960s",
+              "1950s",
+              "1980s",
+              "1970s"
+            ],
+            "name": [
+              {
+                "type": "corporate_name",
+                "content": "John Lucas & Co., Inc."
+              }
+            ],
+            "place": [
+              "United States",
+              "Philadelphia",
+              "Pennsylvania"
+            ],
+            "topic": [
+              "Adhesives",
+              "Paint industry and trade"
+            ],
+            "language": [
+              "English"
+            ],
+            "geoLocation": [
+              {
+                "L2": {
+                  "type": "Country",
+                  "content": "United States"
+                },
+                "L3": {
+                  "type": "State",
+                  "content": "Pennsylvania"
+                },
+                "L5": {
+                  "type": "City",
+                  "content": "Philadelphia"
+                }
+              }
+            ],
+            "object_type": [
+              "Trade catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "[Trade catalogs from John Lucas & Co., Inc.]"
+            },
+            "record_ID": "SILNMAHTL_27852",
+            "unit_code": "SILNMAHTL",
+            "title_sort": "Trade catalogs from John Lucas & Co., Inc.",
+            "data_source": "Smithsonian Libraries",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "188925bb73aca765e4495323c7ad9a2d3d217870",
+        "docSignature": "e6cf38f656f54acf1699aed435a5f322",
+        "timestamp": "1663785437",
+        "lastTimeUpdated": "1666742642",
+        "version": "1666739154"
+      },
+      {
+        "id": "ld1-1646149545906-1646150123524-2",
+        "title": "Watercolor at large nineteen chapters on the renaissance of watercolor, with thirty illustrations, two in full color by Eliot O'Hara, A.N.A",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_24603",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1946"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "O'Hara, Eliot 1890-1969"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "Watercolorists on the increase -- Simplicity and convenience of materials -- Paint-mixing -- the three dimensions of color -- Lighting -- sun, shade, and reflecting surfaces -- Variety of approach -- Spotting -- or the use of light and dark -- Wet blended edges for soft transitions -- Surface textures or the tactile quality -- Transitions -- gradations in nature and painting -- Selective color -- choice rather than imitation -- Calligraphic symbols -- picture writing in watercolor -- Sight-seeing along the path of vision -- Rhythmic painting -- interval and emphasis -- The plastic quality -- Painting form notes -- memory helps selection -- Mood has infinite variations -- Primitives -- genuine and spurious -- The hammer -- The collecting cycle"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Transparent watercolor painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Watercolor painting"
+              },
+              {
+                "label": "Topic",
+                "content": "Watercolor painting--Technique"
+              },
+              {
+                "label": "Topic",
+                "content": "Aquarelle"
+              },
+              {
+                "label": "Topic",
+                "content": "Aquarelle--Technique"
+              },
+              {
+                "label": "Topic",
+                "content": "aquarelles (paintings)"
+              },
+              {
+                "label": "Topic",
+                "content": "watercolor (paint)"
+              },
+              {
+                "label": "Topic",
+                "content": "watercolors (paintings)"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND2420 .O36"
+              },
+              {
+                "label": "Call number",
+                "content": "ND2420.O36"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "171 pages illustrations 21 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1940s"
+            ],
+            "name": [
+              "O'Hara, Eliot"
+            ],
+            "topic": [
+              "Aquarelles (paintings)",
+              "Watercolors (paintings)",
+              "Technique",
+              "Aquarelle",
+              "Watercolor (paint)",
+              "Transparent watercolor painting",
+              "Painting"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Watercolor at large nineteen chapters on the renaissance of watercolor, with thirty illustrations, two in full color by Eliot O'Hara, A.N.A"
+            },
+            "record_ID": "siris_sil_24603",
+            "unit_code": "SIL",
+            "title_sort": "WATERCOLOR AT LARGE NINETEEN CHAPTERS ON THE RENAISSANCE OF WATERCOLOR WITH THIRTY ILLUSTRATIONS TWO IN FULL COLOR BY ELIOT OHARA ANA",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!24603~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "2cf84178e325c8524c8b0be8a9529d2d471a2f78",
+        "docSignature": "cd5204a74853224da8e9595fade8974d",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1736289618",
+        "version": "1736254357"
+      },
+      {
+        "id": "ld1-1646149545906-1646149688922-1",
+        "title": "Japanese painting / Text by Akiyama Terukazu",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_26101",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1961"
+              }
+            ],
+            "name": [
+              {
+                "label": "author",
+                "content": "Akiyama, Terukazu 1918-2009-"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Illustrations mounted on pages."
+              },
+              {
+                "label": "Notes",
+                "content": "Original text in French. English translation by James Emmons."
+              },
+              {
+                "label": "Notes",
+                "content": "Reproduction: 0̲6̲.̲2̲3̲1̲-̲.̲2̲3̲2̲, p. 150-151."
+              },
+              {
+                "label": "Contents",
+                "content": "Pre-Buddhist painting -- Introduction of Buddhist painting and the assimilation of the T'ang style from China (7th and 8th centuries) -- Buddhist painting of Japanese inspiration (9th to 13th century) -- Formation of the national style in secular art (9th to 12th century) -- Great age of scroll painting (12th to 14th century) -- Renewed influence of Chinese art and the development of monochrome painting (13th to 16th century) -- Golden age of mural painting (16th and 17th centuries) -- Decorative painting of the Sot̄atsu-Kor̄in school (17th to 19th century) -- Genre painting and the masters of the Japanese print (17th to 19th century) -- Trends of modern painting (17th to 19th century)"
+              }
+            ],
+            "place": [
+              {
+                "label": "Place",
+                "content": "Iran"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting, Japanese"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting, Japanese--History"
+              },
+              {
+                "label": "Topic",
+                "content": "Peinture japonaise"
+              },
+              {
+                "label": "Topic",
+                "content": "Painting"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "ND1050 .A31 E1961"
+              },
+              {
+                "label": "Call number",
+                "content": "ND1050 .A4213 1961"
+              },
+              {
+                "label": "Call number",
+                "content": "ND1050.A31 E1961"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              },
+              {
+                "label": "Type",
+                "content": "History"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "219 pages : color illustrations, maps ; 29 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1960s"
+            ],
+            "name": [
+              "Akiyama, Terukazu"
+            ],
+            "place": [
+              "Iran"
+            ],
+            "topic": [
+              "Peinture japonaise",
+              "Painting, Japanese",
+              "History"
+            ],
+            "language": [
+              "English language",
+              "French language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Japanese painting / Text by Akiyama Terukazu"
+            },
+            "record_ID": "siris_sil_26101",
+            "unit_code": "SIL",
+            "title_sort": "JAPANESE PAINTING TEXT BY AKIYAMA TERUKAZU",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!26101~!0#focus",
+            "metadata_usage": {
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "ae3a585b38758fd59b0c35ea7feaefd909639e98",
+        "docSignature": "40ba944636015c31786f21dbc46bfaaa",
+        "timestamp": "1498153881",
+        "lastTimeUpdated": "1741002866",
+        "version": "1741000419"
+      },
+      {
+        "id": "ld1-1646149545906-1646149699299-0",
+        "title": "[Trade catalogs on paints, sealers, finishes, and enamels for home and industrial use : house paints, automobile paints, alumininum paints, enamels, wood stains, primers, marine varnishes, floor sealers, concrete floor enamels ... ]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_902013",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1946"
+              },
+              {
+                "label": "Date",
+                "content": "1946-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "Vita-Var Corporation"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Trade literature."
+              },
+              {
+                "label": "Notes",
+                "content": "Includes pamphlets and paint color charts."
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Paint"
+              },
+              {
+                "label": "Topic",
+                "content": "Coatings"
+              },
+              {
+                "label": "Topic",
+                "content": "Paint materials"
+              },
+              {
+                "label": "Topic",
+                "content": "Primers (Coating)"
+              },
+              {
+                "label": "Topic",
+                "content": "Finishes and finishing"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "054465"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Catalogs"
+              },
+              {
+                "label": "Type",
+                "content": "Trade catalogs"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "<1> v. : ill. (some col.)"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1940s"
+            ],
+            "name": [
+              "Vita-Var Corporation"
+            ],
+            "topic": [
+              "Primers (Coating)",
+              "Coatings",
+              "Finishes and finishing",
+              "Paint materials"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Catalogs",
+              "Trade catalogs"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "[Trade catalogs on paints, sealers, finishes, and enamels for home and industrial use : house paints, automobile paints, alumininum paints, enamels, wood stains, primers, marine varnishes, floor sealers, concrete floor enamels ... ]"
+            },
+            "record_ID": "siris_sil_902013",
+            "unit_code": "SIL",
+            "title_sort": "TRADE CATALOGS ON PAINTS SEALERS FINISHES AND ENAMELS FOR HOME AND INDUSTRIAL USE : HOUSE PAINTS AUTOMOBILE PAINTS ALUMININUM PAINTS ENAMELS WOOD STAINS PRIMERS MARINE VARNISHES FLOOR SEALERS CONCRETE FLOOR ENAMELS",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!902013~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "a2aaa5a3a6bfc51ab4f1679ff3e5d378a6d28842",
+        "docSignature": "011a5c7158afc136e42e160a7c777a55",
+        "timestamp": "1498153750",
+        "lastTimeUpdated": "1661975660",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646150631357-0",
+        "title": "Postprints of papers presented at the ... annual meeting / Paintings Specialty Group, the American Institute for Conservation",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_842683",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1988"
+              },
+              {
+                "label": "Date",
+                "content": "1988-"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "American Institute for Conservation of Historic and Artistic Works Paintings Specialty Group Meeting"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Notes",
+                "content": "Issue for 1990 called: Paintings Specialty Group annual."
+              },
+              {
+                "label": "Notes",
+                "content": "Title from cover."
+              }
+            ],
+            "title": [
+              {
+                "label": "Title",
+                "content": "Paintings Specialty Group annual 1990"
+              },
+              {
+                "label": "Title",
+                "content": "Paintings Specialty Group postprints"
+              },
+              {
+                "label": "Title",
+                "content": "Paintings Specialty Group of the American Institute for Conservation postprints"
+              }
+            ],
+            "topic": [
+              {
+                "label": "Topic",
+                "content": "Painting--Conservation and restoration"
+              },
+              {
+                "label": "Topic",
+                "content": "Paintings, care and treatment"
+              },
+              {
+                "label": "Topic",
+                "content": "Paintings, methods and materials"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Congresses"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "v. : ill. ; 28 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1980s"
+            ],
+            "name": [
+              "American Institute for Conservation of Historic and Artistic Works"
+            ],
+            "topic": [
+              "Paintings, care and treatment",
+              "Conservation and restoration",
+              "Paintings, methods and materials"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Conferences"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Postprints of papers presented at the ... annual meeting / Paintings Specialty Group, the American Institute for Conservation"
+            },
+            "record_ID": "siris_sil_842683",
+            "unit_code": "SIL",
+            "title_sort": "POSTPRINTS OF PAPERS PRESENTED AT THE ANNUAL MEETING PAINTINGS SPECIALTY GROUP THE AMERICAN INSTITUTE FOR CONSERVATION",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!842683~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "d59a3921e74333c6930f7926869767d8ac2d78ef",
+        "docSignature": "e769430bbcdaa9b24bbcb35cc4fb4362",
+        "timestamp": "1498154449",
+        "lastTimeUpdated": "1661963612",
+        "version": "0"
+      },
+      {
+        "id": "ld1-1646149545906-1646149561338-1",
+        "title": "Ten schools of painting in the National Gallery of Art. [Booklet no. 1-10]",
+        "unitCode": "SIL",
+        "type": "edanmdm",
+        "url": "edanmdm:siris_sil_125857",
+        "content": {
+          "freetext": {
+            "date": [
+              {
+                "label": "Date",
+                "content": "1959"
+              },
+              {
+                "label": "Date",
+                "content": "1960"
+              },
+              {
+                "label": "Date",
+                "content": "[c1959-1960]"
+              }
+            ],
+            "name": [
+              {
+                "label": "Author",
+                "content": "National Gallery of Art (U.S.)"
+              }
+            ],
+            "notes": [
+              {
+                "label": "Contents",
+                "content": "1. American painting, by Margaret Bouton.--2. French painting, by Grose Evans.--3. Early Italian painting, by Fern Rusk Shapley.--4. French painting of the 16th-18th centuries, by Hereward Lester Cooke.--5. Flemish painting, by Hugh T. Broadley.--6. Later Italian painting, by Fern Rusk Sharpley.--7. Dutch painting, by Thomas P. Baird.--8. British painting, by H.L. Cooke.--9. German painting, by H.T. Broadley.--10. Spanish painting, by Grose Evans"
+              }
+            ],
+            "dataSource": [
+              {
+                "label": "Data Source",
+                "content": "Smithsonian Libraries"
+              }
+            ],
+            "identifier": [
+              {
+                "label": "Call number",
+                "content": "N856 .A57"
+              },
+              {
+                "label": "Call number",
+                "content": "N856.A57"
+              }
+            ],
+            "objectType": [
+              {
+                "label": "Type",
+                "content": "Books"
+              }
+            ],
+            "physicalDescription": [
+              {
+                "label": "Physical description",
+                "content": "10 nos. in 1 box. col. illus. 20 cm"
+              }
+            ]
+          },
+          "indexedStructured": {
+            "date": [
+              "1960s",
+              "1950s"
+            ],
+            "name": [
+              "National Gallery of Art (U.S.)"
+            ],
+            "language": [
+              "English language"
+            ],
+            "object_type": [
+              "Books"
+            ]
+          },
+          "descriptiveNonRepeating": {
+            "title": {
+              "label": "Title",
+              "content": "Ten schools of painting in the National Gallery of Art. [Booklet no. 1-10]"
+            },
+            "record_ID": "siris_sil_125857",
+            "unit_code": "SIL",
+            "title_sort": "TEN SCHOOLS OF PAINTING IN THE NATIONAL GALLERY OF ART BOOKLET NO 110",
+            "data_source": "Smithsonian Libraries",
+            "record_link": "https://siris-libraries.si.edu/ipac20/ipac.jsp?&profile=liball&source=~!silibraries&uri=full=3100001~!125857~!0#focus",
+            "metadata_usage": {
+              "text": "",
+              "access": "CC0"
+            }
+          }
+        },
+        "hash": "836b8fd7dffc39745d09593fa778c16dde67248b",
+        "docSignature": "dbf044aa534c2d13e42f620f49dded26",
+        "timestamp": "1498153952",
+        "lastTimeUpdated": "1661962890",
+        "version": "0"
+      }
+    ],
+    "facets": {},
+    "rowCount": 129979,
+    "message": "content found"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "objectID": 250946,
+  "isHighlight": false,
+  "accessionNumber": "20.192.17",
+  "accessionYear": "1920",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/gr/original/DP138763.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/gr/web-large/DP138763.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/gr/original/DP138764.jpg",
+    "https://images.metmuseum.org/CRDImages/gr/original/DP140710.jpg",
+    "https://images.metmuseum.org/CRDImages/gr/original/DP140711.jpg"
+  ],
+  "constituents": null,
+  "department": "Greek and Roman Art",
+  "objectName": "Wall painting: Polyphemus and Galatea in a landscape",
+  "title": "Wall painting: Polyphemus and Galatea in a landscape, from the imperial villa at Boscotrecase",
+  "culture": "Roman",
+  "period": "Early Imperial, Augustan",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "",
+  "artistPrefix": "",
+  "artistDisplayName": "",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "last decade of the 1st century BCE",
+  "objectBeginDate": -10,
+  "objectEndDate": -1,
+  "medium": "Fresco",
+  "dimensions": "H. 73 3/4 in. (187.33 cm.)\r\nwidth  47 in. (119.38 cm.)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 187.33,
+        "Width": 119.38
+      }
+    }
+  ],
+  "creditLine": "Rogers Fund, 1920",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Miscellaneous-Paintings",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-12-20T04:50:39.43Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/250946",
+  "tags": [
+    {
+      "term": "Men",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025928",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q8441"
+    },
+    {
+      "term": "Women",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025943",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q467"
+    },
+    {
+      "term": "Galatea",
+      "AAT_URL": null,
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q241070"
+    },
+    {
+      "term": "Goats",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300250122",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q2934"
+    },
+    {
+      "term": "Landscapes",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300132294",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q191163"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116291534",
+  "isTimelineWork": true,
+  "GalleryNumber": "166"
+}

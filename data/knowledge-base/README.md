@@ -20,6 +20,7 @@ pnpm kb:validate
 pnpm kb:status
 pnpm kb:inventory
 pnpm kb:ingest:core
+pnpm kb:ingest:cultural
 pnpm kb:ingest:doaj
 pnpm kb:ingest:wikidata
 pnpm kb:ingest:departments
@@ -77,6 +78,8 @@ The web metadata ingest adds bounded local records for DOAJ, Internet Archive, N
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 
 The dedicated Wikidata ingest adds linked-open-data cultural entities across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts. It stores raw SPARQL JSON responses, normalized source-document rows, rights rows, and `audits/wikidata-cultural-entities-last-run.json`.
+
+The dedicated cultural-collections ingest adds richer object metadata from Met, Cleveland Museum of Art, Library of Congress, and Smithsonian routes. It stores raw API responses, normalized source-document/object/collection rows, rights rows, and `audits/cultural-collections-last-run.json`.
 
 The Wayback snapshot ingest adds CDX capture metadata for department-page targets in `config/department-pages.json`. It stores capture metadata and archive URLs only; archived page text is not stored.
 

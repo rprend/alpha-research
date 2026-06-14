@@ -1,0 +1,100 @@
+{
+  "objectID": 206419,
+  "isHighlight": false,
+  "accessionNumber": "1976.155.19",
+  "accessionYear": "1976",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/es/original/LC-1976_155_19-001.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/LC-1976_155_19-001.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/es/original/LC-1976_155_19-002.jpg",
+    "https://images.metmuseum.org/CRDImages/es/original/LC-1976_155_19-003.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 33050,
+      "role": "Maker",
+      "name": "Maker known by his initials A. P. C., Switzerland",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 161703,
+      "role": "Artist",
+      "name": "Paintings after a design by François Boucher",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500032143",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q180932",
+      "gender": ""
+    }
+  ],
+  "department": "European Sculpture and Decorative Arts",
+  "objectName": "Snuffbox, painting",
+  "title": "Snuffbox",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Maker",
+  "artistPrefix": "Maker known by his initials",
+  "artistDisplayName": "A. P. C., Switzerland",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "C. A.P.",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "ca. 1770–75",
+  "objectBeginDate": 1765,
+  "objectEndDate": 1780,
+  "medium": "Gold, enamel",
+  "dimensions": "Overall: 1 9/16 × 3 9/16 × 1 7/8 in. (4 × 9 × 4.8 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Depth": 4.7625093,
+        "Height": 3.9687579,
+        "Width": 9.048768
+      }
+    }
+  ],
+  "creditLine": "Gift of Mr. and Mrs. Charles Wrightsman, 1976",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Metalwork-Gold and Platinum",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-11-21T10:05:27.96Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/206419",
+  "tags": [
+    {
+      "term": "Putti",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300250465",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q284865"
+    },
+    {
+      "term": "Goats",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300250122",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q2934"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116240683",
+  "isTimelineWork": false,
+  "GalleryNumber": "545"
+}

@@ -25,7 +25,7 @@ const tableSpecs = [
   {
     table: "objects",
     jsonl: "objects.jsonl",
-    columns: ["local_id", "source_id", "source_native_id", "source_url", "title", "fetched_at", "type", "date", "creation_date", "department", "culture", "share_license_status", "rights"],
+    columns: ["local_id", "source_id", "source_native_id", "source_url", "title", "fetched_at", "type", "date", "creation_date", "department", "culture", "classification", "medium", "artist", "accession_number", "accession_year", "share_license_status", "rights", "image_url", "description"],
   },
   {
     table: "pages",
@@ -76,7 +76,7 @@ const tableSpecs = [
   {
     table: "source_documents",
     jsonl: "source_documents.jsonl",
-    columns: ["local_id", "source_id", "source_native_id", "source_url", "title", "fetched_at", "type", "publication_year", "venue", "doi", "open_access", "department", "description", "text_path", "text_chars"],
+    columns: ["local_id", "source_id", "source_native_id", "source_url", "title", "fetched_at", "type", "publication_year", "venue", "doi", "open_access", "department", "culture", "classification", "medium", "artist", "accession_number", "accession_year", "description", "text_path", "text_chars"],
   },
   {
     table: "rights",
@@ -410,7 +410,7 @@ function writeParquet(spec, parquetPath) {
 }
 
 async function writeFtsInputs() {
-  const sourceColumns = ["local_id", "source_id", "source_url", "title", "type", "publication_year", "venue", "doi", "department", "description", "text_path", "text_content"];
+  const sourceColumns = ["local_id", "source_id", "source_url", "title", "type", "publication_year", "venue", "doi", "department", "culture", "classification", "medium", "artist", "accession_number", "accession_year", "description", "text_path", "text_content"];
   const pageColumns = ["local_id", "source_id", "source_url", "school", "department", "page_type", "title", "text_path", "text_content"];
   const sourceRows = await enrichRowsWithText(await readJsonl(path.join(processedDir, "source_documents.jsonl")));
   const pageRows = await enrichRowsWithText(await readJsonl(path.join(processedDir, "pages.jsonl")));
@@ -467,7 +467,7 @@ function buildSql(specs, ftsInputs) {
   const sourceFts = ftsInputs.find((input) => input.table === "source_documents_fts");
   const pagesFts = ftsInputs.find((input) => input.table === "pages_fts");
   parts.push("DROP TABLE IF EXISTS source_documents_fts;");
-  parts.push("CREATE VIRTUAL TABLE source_documents_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, title, type, publication_year, venue, doi, department, description, text_path UNINDEXED, text_content);");
+  parts.push("CREATE VIRTUAL TABLE source_documents_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, title, type, publication_year, venue, doi, department, culture, classification, medium, artist, accession_number, accession_year, description, text_path UNINDEXED, text_content);");
   parts.push(`.import --skip 1 ${JSON.stringify(sourceFts.path)} source_documents_fts`);
   parts.push("DROP TABLE IF EXISTS pages_fts;");
   parts.push("CREATE VIRTUAL TABLE pages_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, school, department, page_type, title, text_path UNINDEXED, text_content);");
