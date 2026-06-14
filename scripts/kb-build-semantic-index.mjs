@@ -13,6 +13,7 @@ import {
 
 const dimensions = Number.parseInt(getArg("--dimensions") ?? "2048", 10);
 const maxTextChars = Number.parseInt(getArg("--max-text-chars") ?? "20000", 10);
+const shardSize = Number.parseInt(getArg("--shard-size") ?? "500", 10);
 const stopwords = new Set([
   "the", "and", "for", "that", "this", "with", "from", "are", "was", "were", "has", "have", "had", "not", "but",
   "you", "your", "their", "they", "our", "can", "all", "any", "into", "over", "under", "between", "about", "more",
@@ -35,40 +36,67 @@ for (const row of sourceDocuments) {
   docs.push({ row, rights, text_scope: textScope(row, rights), tokens });
 }
 
-const index = {
+const documents = docs.map((doc) => {
+  const vector = vectorize(doc.tokens, documentFrequency, docs.length);
+  const term_hashes = [...new Set(doc.tokens.map((token) => hashToken(token)))].sort((a, b) => a - b);
+  return {
+    local_id: doc.row.local_id,
+    source_id: doc.row.source_id,
+    source_url: doc.row.source_url ?? "",
+    title: doc.row.title ?? "",
+    type: doc.row.type ?? "",
+    publication_year: doc.row.publication_year ?? "",
+    venue: doc.row.venue ?? "",
+    department: doc.row.department ?? "",
+    text_path: doc.row.text_path ?? "",
+    text_scope: doc.text_scope,
+    redistribution_status: doc.rights.redistribution_status ?? "",
+    quote_status: doc.rights.quote_status ?? "",
+    token_count: doc.tokens.length,
+    term_hashes,
+    vector,
+  };
+});
+
+const manifest = {
   version: 1,
   generated_at: new Date().toISOString(),
   kind: "local-hashed-tfidf",
   dimensions,
   document_count: docs.length,
+  shard_size: shardSize,
+  shard_dir: "semantic-hash-index",
+  shards: [],
   source_counts: countBy(docs.map((doc) => doc.row), "source_id"),
   rights_scope_counts: countBy(docs, "text_scope"),
-  documents: docs.map((doc) => {
-    const vector = vectorize(doc.tokens, documentFrequency, docs.length);
-    const term_hashes = [...new Set(doc.tokens.map((token) => hashToken(token)))].sort((a, b) => a - b);
-    return {
-      local_id: doc.row.local_id,
-      source_id: doc.row.source_id,
-      source_url: doc.row.source_url ?? "",
-      title: doc.row.title ?? "",
-      type: doc.row.type ?? "",
-      publication_year: doc.row.publication_year ?? "",
-      venue: doc.row.venue ?? "",
-      department: doc.row.department ?? "",
-      text_path: doc.row.text_path ?? "",
-      text_scope: doc.text_scope,
-      redistribution_status: doc.rights.redistribution_status ?? "",
-      quote_status: doc.rights.quote_status ?? "",
-      token_count: doc.tokens.length,
-      term_hashes,
-      vector,
-    };
-  }),
 };
 
-await writeJson(path.join(indexesDir, "semantic-hash-index.json"), index);
-await writeText(path.join(auditsDir, "semantic-index.md"), renderMarkdown(index));
-console.log(`Built KB semantic hash index: ${index.document_count} documents, ${dimensions} dimensions.`);
+const shardDir = path.join(indexesDir, manifest.shard_dir);
+await fs.rm(shardDir, { recursive: true, force: true });
+await fs.mkdir(shardDir, { recursive: true });
+for (let start = 0; start < documents.length; start += shardSize) {
+  const shardDocuments = documents.slice(start, start + shardSize);
+  const shardName = `part-${String(manifest.shards.length).padStart(4, "0")}.json`;
+  const shard = {
+    version: manifest.version,
+    generated_at: manifest.generated_at,
+    kind: manifest.kind,
+    dimensions,
+    start,
+    count: shardDocuments.length,
+    documents: shardDocuments,
+  };
+  await writeJson(path.join(shardDir, shardName), shard);
+  manifest.shards.push({
+    path: path.posix.join(manifest.shard_dir, shardName),
+    start,
+    count: shardDocuments.length,
+  });
+}
+
+await writeJson(path.join(indexesDir, "semantic-hash-index.json"), manifest);
+await writeText(path.join(auditsDir, "semantic-index.md"), renderMarkdown(manifest));
+console.log(`Built KB semantic hash index: ${manifest.document_count} documents, ${dimensions} dimensions, ${manifest.shards.length} shards.`);
 
 function getArg(name) {
   const arg = process.argv.find((value) => value.startsWith(`${name}=`));
@@ -177,6 +205,8 @@ function renderMarkdown(index) {
     `Kind: ${index.kind}`,
     `Dimensions: ${index.dimensions}`,
     `Documents: ${index.document_count}`,
+    `Shards: ${index.shards?.length ?? 0}`,
+    `Shard size: ${index.shard_size ?? "unknown"}`,
     "",
     "## Text Scope",
     "",

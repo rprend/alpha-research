@@ -1,9 +1,11 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T21:10:02.262Z
+Generated at: 2026-06-14T21:15:37.178Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
 Documents: 6527
+Shards: 14
+Shard size: 500
 
 ## Text Scope
 

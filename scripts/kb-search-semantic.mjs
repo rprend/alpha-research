@@ -18,19 +18,21 @@ const index = await readJson(indexPath);
 const queryTokens = tokenize(query);
 const queryTermHashes = new Set(queryTokens.map((token) => hashToken(token)));
 const queryVector = vectorizeQuery(queryTokens, index);
-const scored = index.documents
-  .map((document) => {
-    const overlap = exactOverlap(queryTermHashes, document.term_hashes ?? []);
-    const vectorScore = cosine(queryVector, document.vector);
-    return {
-      ...document,
-      lexical_overlap: overlap.count,
-      lexical_score: overlap.score,
-      vector_score: vectorScore,
-      score: overlap.count > 0 ? vectorScore + overlap.score : 0,
-    };
-  })
-  .filter((document) => document.score > 0)
+const scored = [];
+for await (const document of semanticDocuments(index)) {
+  const overlap = exactOverlap(queryTermHashes, document.term_hashes ?? []);
+  const vectorScore = cosine(queryVector, document.vector);
+  const score = overlap.count > 0 ? vectorScore + overlap.score : 0;
+  if (score <= 0) continue;
+  scored.push({
+    ...document,
+    lexical_overlap: overlap.count,
+    lexical_score: overlap.score,
+    vector_score: vectorScore,
+    score,
+  });
+}
+const results = scored
   .sort((a, b) => b.score - a.score || b.lexical_overlap - a.lexical_overlap || a.local_id.localeCompare(b.local_id))
   .slice(0, Number.isFinite(limit) ? limit : 10);
 
@@ -39,8 +41,9 @@ console.log(JSON.stringify({
   generated_at: new Date().toISOString(),
   index_path: path.relative(rootDir, indexPath),
   index_kind: index.kind,
-  result_count: scored.length,
-  results: scored.map((document) => ({
+  index_shards: index.shards?.length ?? 0,
+  result_count: results.length,
+  results: results.map((document) => ({
     local_id: document.local_id,
     source_id: document.source_id,
     source_url: document.source_url,
@@ -90,6 +93,18 @@ function vectorizeQuery(tokens, index) {
   return Object.fromEntries([...hashed.entries()]
     .map(([dim, value]) => [dim, value / norm])
     .filter(([, value]) => value !== 0));
+}
+
+async function* semanticDocuments(index) {
+  if (Array.isArray(index.documents)) {
+    yield* index.documents;
+    return;
+  }
+  for (const shardInfo of index.shards ?? []) {
+    const shardPath = path.join(indexesDir, shardInfo.path);
+    const shard = await readJson(shardPath);
+    yield* (shard.documents ?? []);
+  }
 }
 
 function cosine(left, right) {

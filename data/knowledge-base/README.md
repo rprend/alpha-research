@@ -79,6 +79,7 @@ Current normalized staging outputs:
 - `processed/knowledge-base.sqlite`
 - `indexes/source-documents-keyword-index.json`
 - `indexes/semantic-hash-index.json`
+- `indexes/semantic-hash-index/part-*.json`
 
 The KB also imports 200 public-domain Project Gutenberg texts from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
 
@@ -112,4 +113,4 @@ The brief-promotion workflow converts local-data briefs into first-pass experime
 
 The first promoted experiment with a runnable analysis is `docs/experiments/kb-humanities-departments-visible-faculty-events-news-public-humanities-lan/`. Its `scripts/build-analysis.mjs` reads local KB page and rights tables plus stored local-analysis text, then writes coverage CSVs, term-family CSVs, `reports/result.json`, `reports/work.md`, and `reports/public-draft.md`. After the expanded department crawl, the experiment analyzes 529 page rows and 230 stored-text rows.
 
-This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. The semantic hash index provides deterministic offline vector-style retrieval over metadata plus rights-filtered stored text; it is not a neural embedding model. Author, citation, venue, institution, collection, topic, canonical-person, and work-reference tables are derived from current local source records and raw snapshots; candidate identity clusters still need authority matching before strong person-level or citation-network claims.
+This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. The semantic hash index provides deterministic offline vector-style retrieval over metadata plus rights-filtered stored text; it is not a neural embedding model. The semantic index is stored as a small manifest plus deterministic shard files so the local KB can grow without producing a single oversized git blob. Author, citation, venue, institution, collection, topic, canonical-person, and work-reference tables are derived from current local source records and raw snapshots; candidate identity clusters still need authority matching before strong person-level or citation-network claims.
