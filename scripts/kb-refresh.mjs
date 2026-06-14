@@ -10,6 +10,7 @@ const commands = [
   ["node", ["scripts/kb-audit-coverage.mjs"]],
   ["node", ["scripts/kb-audit-blocked-sources.mjs"]],
   ["node", ["scripts/kb-build-search-index.mjs"]],
+  ["node", ["scripts/kb-build-semantic-index.mjs"]],
   ["node", ["scripts/kb-status.mjs"]],
 ];
 

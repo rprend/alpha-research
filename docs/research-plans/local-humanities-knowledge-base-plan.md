@@ -542,6 +542,7 @@ Started on 2026-06-13:
 - Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables, Parquet tables, and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` using metadata plus previews of stored text; `pnpm kb:search "<terms>"` queries the local keyword index.
 - Phase 4 now derives author, citation, venue, institution, collection, and topic tables from current normalized local records and raw snapshots; source-provided names and references still need normalization before strong identity or citation-network claims.
 - Phase 4 now has SQLite FTS retrieval over metadata and stored local text content: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
+- Phase 4 now has deterministic offline vector-style retrieval: `pnpm kb:index:semantic` builds `data/knowledge-base/indexes/semantic-hash-index.json` and `pnpm kb:search:semantic "<terms>"` searches rights-filtered metadata and stored text.
 - Phase 5 has a bounded starter workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, query sketch, and missing-data memo under `docs/research-briefs/`.
 - Phase 6 has starter maintenance automation: `pnpm kb:refresh` validates, inventories, rebuilds analytical tables, refreshes coverage/rights/stale-source audits, rebuilds the index, and updates KB status.
 
@@ -566,6 +567,7 @@ Current local footprint as of the latest committed status:
 - 12/12 staging JSONL tables.
 - 12/12 processed Parquet tables.
 - SQLite FTS indexes 24 source-document rows and 4 page rows with stored local text content, plus metadata for the broader corpus.
+- Semantic hash index covers 1808 rights-filtered documents, including 20 public-domain full-text records and 4 local-analysis page-text records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 
@@ -578,7 +580,7 @@ Remaining before the full knowledge-base goal is complete:
 - Continue replacement or retry plans for failed LARB, Harvard English current-page, Yale English CDX, and remaining 403/timeout routes; do not bypass access controls.
 - Expand university/department web corpus acquisition beyond the first successful routes.
 - Expand full text storage only for public-domain or clearly licensed sources.
-- Add semantic retrieval over allowed stored text after the current SQLite full-text layer stabilizes.
+- Add neural embedding retrieval later if a local model or approved embedding service is configured; the current semantic hash index is deterministic and offline.
 - Add refresh/staleness automation for every active source route, including route replacement for 403/failed department pages.
 
 Next build steps:

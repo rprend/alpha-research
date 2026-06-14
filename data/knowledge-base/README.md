@@ -25,9 +25,11 @@ pnpm kb:import:gutenberg
 pnpm kb:ingest:web
 pnpm kb:tables
 pnpm kb:index
+pnpm kb:index:semantic
 pnpm kb:audit
 pnpm kb:refresh
 pnpm kb:search "public humanities"
+pnpm kb:search:semantic "public humanities"
 pnpm kb:question "How has public humanities language changed in top university departments since 2000?"
 ```
 
@@ -64,6 +66,7 @@ Current normalized staging outputs:
 - `processed/pages_fts_input.csv`
 - `processed/knowledge-base.sqlite`
 - `indexes/source-documents-keyword-index.json`
+- `indexes/semantic-hash-index.json`
 
 The KB also imports a bounded local Project Gutenberg text sample from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
 
@@ -71,4 +74,4 @@ The web metadata ingest adds bounded local records for DOAJ, Internet Archive, N
 
 The Wayback snapshot ingest adds CDX capture metadata for department-page targets in `config/department-pages.json`. It stores capture metadata and archive URLs only; archived page text is not stored.
 
-This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. Author, citation, venue, institution, collection, and topic tables are derived from current local source records and raw snapshots; source-provided names and references still require normalization before strong identity or citation-network claims.
+This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. The semantic hash index provides deterministic offline vector-style retrieval over metadata plus rights-filtered stored text; it is not a neural embedding model. Author, citation, venue, institution, collection, and topic tables are derived from current local source records and raw snapshots; source-provided names and references still require normalization before strong identity or citation-network claims.

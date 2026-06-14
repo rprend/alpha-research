@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T18:29:34.420Z",
+  "generated_at": "2026-06-14T18:35:56.276Z",
   "status": "phase-2-staging-active",
   "source_count": 33,
   "source_classes": {
@@ -362,9 +362,9 @@
     ]
   },
   "local_files": {
-    "raw_count": 128,
+    "raw_count": 106,
     "text_count": 24,
-    "index_count": 1
+    "index_count": 2
   },
   "validation_errors": []
 }
