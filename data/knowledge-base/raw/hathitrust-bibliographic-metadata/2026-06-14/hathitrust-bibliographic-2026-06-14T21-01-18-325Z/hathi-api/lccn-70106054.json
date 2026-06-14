@@ -1,0 +1,36 @@
+{
+  "records": {
+    "005706927": {
+      "recordURL": "https://catalog.hathitrust.org/Record/005706927",
+      "titles": [
+        "The one culture"
+      ],
+      "isbns": [
+        "9780080163222",
+        "9780080163222"
+      ],
+      "issns": [],
+      "oclcs": [
+        "97325"
+      ],
+      "lccns": [
+        "70106054"
+      ],
+      "publishDates": [
+        "1970"
+      ]
+    }
+  },
+  "items": [
+    {
+      "orig": "University of Wisconsin - Madison",
+      "fromRecord": "005706927",
+      "htid": "wu.89033910118",
+      "itemURL": "https://babel.hathitrust.org/cgi/pt?id=wu.89033910118",
+      "rightsCode": "ic",
+      "lastUpdate": "20250402",
+      "enumcron": false,
+      "usRightsString": "Limited (search-only)"
+    }
+  ]
+}

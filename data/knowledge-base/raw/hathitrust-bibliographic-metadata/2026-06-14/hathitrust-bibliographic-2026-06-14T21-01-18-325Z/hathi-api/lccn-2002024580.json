@@ -1,0 +1,42 @@
+{
+  "records": {
+    "009807302": {
+      "recordURL": "https://catalog.hathitrust.org/Record/009807302",
+      "titles": [
+        "Terrorism"
+      ],
+      "isbns": [
+        "9780737713237",
+        "9780737713237",
+        "9780737713220",
+        "9780737713220",
+        "9780737713237 (pbk : alk paper)",
+        "9780737713237",
+        "9780737713220 (hb : alk paper)",
+        "9780737713220"
+      ],
+      "issns": [],
+      "oclcs": [
+        "49891979"
+      ],
+      "lccns": [
+        "2002024580"
+      ],
+      "publishDates": [
+        "2003"
+      ]
+    }
+  },
+  "items": [
+    {
+      "orig": "Pennsylvania State University",
+      "fromRecord": "009807302",
+      "htid": "pst.000066744528",
+      "itemURL": "https://babel.hathitrust.org/cgi/pt?id=pst.000066744528",
+      "rightsCode": "ic",
+      "lastUpdate": "20260118",
+      "enumcron": false,
+      "usRightsString": "Limited (search-only)"
+    }
+  ]
+}

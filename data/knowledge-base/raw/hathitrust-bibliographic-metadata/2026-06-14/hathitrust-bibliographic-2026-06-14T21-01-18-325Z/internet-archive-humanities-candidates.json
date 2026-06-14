@@ -1,0 +1,400 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 65,
+    "params": {
+      "query": "subject:humanities AND mediatype:texts",
+      "qin": "subject:(humanities) AND mediatype:(texts)",
+      "fields": "identifier,title,isbn,lccn,oclc_id",
+      "wt": "json",
+      "rows": 80,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 18502,
+    "start": 0,
+    "docs": [
+      {
+        "identifier": "practicalresearc0000davi",
+        "isbn": [
+          "0748621849",
+          "0748621857",
+          "9780748621842",
+          "9780748621859"
+        ],
+        "title": "Practical research methods for media and cultural studies : making people count"
+      },
+      {
+        "identifier": "sim_bucknell-review_1954-03_4_4",
+        "title": "Bucknell University Studies 1954-03: Vol 4 Iss 4"
+      },
+      {
+        "identifier": "ei-2018",
+        "title": "SCIENTIFIC WORK"
+      },
+      {
+        "identifier": "oneculture0000unse",
+        "isbn": [
+          "008016322X",
+          "9780080163222"
+        ],
+        "lccn": "70106054",
+        "title": "The one culture"
+      },
+      {
+        "identifier": "sim_christian-century_1924-10-09_41_41",
+        "title": "The Christian Century 1924-10-09: Vol 41 Iss 41"
+      },
+      {
+        "identifier": "sim_christian-century_1925-02-12_42_7",
+        "title": "The Christian Century 1925-02-12: Vol 42 Iss 7"
+      },
+      {
+        "identifier": "sim_christian-century_1906-03-01_23_9",
+        "title": "The Christian Century 1906-03-01: Vol 23 Iss 9"
+      },
+      {
+        "identifier": "sim_christian-century_1915-07-15_32_28",
+        "title": "The Christian Century 1915-07-15: Vol 32 Iss 28"
+      },
+      {
+        "identifier": "sim_christian-century_1900-02-22_17_8",
+        "title": "The Christian Century 1900-02-22: Vol 17 Iss 8"
+      },
+      {
+        "identifier": "sim_christian-century_1900-09-20_17_38",
+        "title": "The Christian Century 1900-09-20: Vol 17 Iss 38"
+      },
+      {
+        "identifier": "sim_christian-century_1916-12-07_33_49",
+        "title": "The Christian Century 1916-12-07: Vol 33 Iss 49"
+      },
+      {
+        "identifier": "sim_christian-century_1915-11-25_32_47",
+        "title": "The Christian Century 1915-11-25: Vol 32 Iss 47"
+      },
+      {
+        "identifier": "sim_christian-century_1910-01-27_27_4",
+        "title": "The Christian Century 1910-01-27: Vol 27 Iss 4"
+      },
+      {
+        "identifier": "sim_christian-century_1910-04-21_27_16",
+        "title": "The Christian Century 1910-04-21: Vol 27 Iss 16"
+      },
+      {
+        "identifier": "sim_christian-century_1922-04-27_39_17",
+        "title": "The Christian Century 1922-04-27: Vol 39 Iss 17"
+      },
+      {
+        "identifier": "sim_christian-century_1922-12-14_39_50",
+        "title": "The Christian Century 1922-12-14: Vol 39 Iss 50"
+      },
+      {
+        "identifier": "sim_christian-century_1929-02-07_46_6",
+        "title": "The Christian Century 1929-02-07: Vol 46 Iss 6"
+      },
+      {
+        "identifier": "sim_georgia-review_1965_19_index",
+        "title": "The Georgia Review 1965: Vol 19 Index"
+      },
+      {
+        "identifier": "isbn_0553274074",
+        "isbn": [
+          "0553274074",
+          "9780553274073"
+        ],
+        "title": "A fire in the sun"
+      },
+      {
+        "identifier": "terrorism00will",
+        "isbn": [
+          "0737713224",
+          "9780737713220",
+          "0737713232",
+          "9780737713237"
+        ],
+        "lccn": "2002024580",
+        "title": "Terrorism"
+      },
+      {
+        "identifier": "briefchapterinmy00wend",
+        "isbn": [
+          "9780375846915",
+          "0375846913"
+        ],
+        "title": "A brief chapter in my impossible life"
+      },
+      {
+        "identifier": "sim_americas_1960_12_index",
+        "title": "Americas 1960: Vol 12 Index"
+      },
+      {
+        "identifier": "sim_christian-century_1901-05-30_18_22",
+        "title": "The Christian Century 1901-05-30: Vol 18 Iss 22"
+      },
+      {
+        "identifier": "sim_christian-century_1902-06-12_19_24",
+        "title": "The Christian Century 1902-06-12: Vol 19 Iss 24"
+      },
+      {
+        "identifier": "sim_christian-century_1914-05-14_31_20",
+        "title": "The Christian Century 1914-05-14: Vol 31 Iss 20"
+      },
+      {
+        "identifier": "sim_christian-century_1915-07-29_32_30",
+        "title": "The Christian Century 1915-07-29: Vol 32 Iss 30"
+      },
+      {
+        "identifier": "sim_christian-century_1917-06-14_34_24",
+        "title": "The Christian Century 1917-06-14: Vol 34 Iss 24"
+      },
+      {
+        "identifier": "sim_christian-century_1917-07-19_34_29",
+        "title": "The Christian Century 1917-07-19: Vol 34 Iss 29"
+      },
+      {
+        "identifier": "sim_christian-century_1924-05-01_41_18",
+        "title": "The Christian Century 1924-05-01: Vol 41 Iss 18"
+      },
+      {
+        "identifier": "sim_christian-century_1930-01-29_47_5",
+        "title": "The Christian Century 1930-01-29: Vol 47 Iss 5"
+      },
+      {
+        "identifier": "sim_christian-century_1900-05-10_17_19",
+        "title": "The Christian Century 1900-05-10: Vol 17 Iss 19"
+      },
+      {
+        "identifier": "sim_christian-century_1900-11-22_17_47",
+        "title": "The Christian Century 1900-11-22: Vol 17 Iss 47"
+      },
+      {
+        "identifier": "sim_christian-century_1916-08-31_33_35",
+        "title": "The Christian Century 1916-08-31: Vol 33 Iss 35"
+      },
+      {
+        "identifier": "sim_christian-century_1927-03-03_44_9",
+        "title": "The Christian Century 1927-03-03: Vol 44 Iss 9"
+      },
+      {
+        "identifier": "sim_huntington-library-quarterly_1949-1950_13_contents",
+        "title": "The Huntington Library Quarterly 1949 - 1950: Vol 13 Table of Contents"
+      },
+      {
+        "identifier": "sim_christian-century_1905-06-29_22_26",
+        "title": "The Christian Century 1905-06-29: Vol 22 Iss 26"
+      },
+      {
+        "identifier": "sim_christian-century_1909-12-02_26_49",
+        "title": "The Christian Century 1909-12-02: Vol 26 Iss 49"
+      },
+      {
+        "identifier": "sim_christian-century_1924-07-31_41_31",
+        "title": "The Christian Century 1924-07-31: Vol 41 Iss 31"
+      },
+      {
+        "identifier": "sim_christian-century_1929-02-14_46_7",
+        "title": "The Christian Century 1929-02-14: Vol 46 Iss 7"
+      },
+      {
+        "identifier": "twoculturetheory0000unse",
+        "isbn": [
+          "087805006X",
+          "9780878050062"
+        ],
+        "lccn": "73170672",
+        "title": "The two culture theory in C.P. Snow's novels"
+      },
+      {
+        "identifier": "sim_christian-century_1924-09-04_41_36",
+        "title": "The Christian Century 1924-09-04: Vol 41 Iss 36"
+      },
+      {
+        "identifier": "sim_christian-century_1921-06-23_38_25",
+        "title": "The Christian Century 1921-06-23: Vol 38 Iss 25"
+      },
+      {
+        "identifier": "sim_christian-century_1916-04-13_33_15",
+        "title": "The Christian Century 1916-04-13: Vol 33 Iss 15"
+      },
+      {
+        "identifier": "sim_christian-century_1916-05-11_33_19",
+        "title": "The Christian Century 1916-05-11: Vol 33 Iss 19"
+      },
+      {
+        "identifier": "sim_christian-century_1926-01-14_43_2",
+        "title": "The Christian Century 1926-01-14: Vol 43 Iss 2"
+      },
+      {
+        "identifier": "sim_christian-century_1917-10-18_34_42",
+        "title": "The Christian Century 1917-10-18: Vol 34 Iss 42"
+      },
+      {
+        "identifier": "sim_christian-century_1904-05-19_21_20",
+        "title": "The Christian Century 1904-05-19: Vol 21 Iss 20"
+      },
+      {
+        "identifier": "sim_christian-century_1904-09-01_21_34",
+        "title": "The Christian Century 1904-09-01: Vol 21 Iss 34"
+      },
+      {
+        "identifier": "sim_queens-quarterly_winter-1957_63_4",
+        "title": "Queen's Quarterly Winter 1957: Vol 63 Iss 4"
+      },
+      {
+        "identifier": "sim_christian-century_1903-10-29_20_44",
+        "title": "The Christian Century 1903-10-29: Vol 20 Iss 44"
+      },
+      {
+        "identifier": "sim_christian-century_1909-10-07_26_41",
+        "title": "The Christian Century 1909-10-07: Vol 26 Iss 41"
+      },
+      {
+        "identifier": "sim_christian-century_1922-11-23_39_47",
+        "title": "The Christian Century 1922-11-23: Vol 39 Iss 47"
+      },
+      {
+        "identifier": "sim_christian-century_1918-05-16_35_20",
+        "title": "The Christian Century 1918-05-16: Vol 35 Iss 20"
+      },
+      {
+        "identifier": "sim_christian-century_1926-04-22_43_16",
+        "title": "The Christian Century 1926-04-22: Vol 43 Iss 16"
+      },
+      {
+        "identifier": "sim_christian-century_1913-10-16_30_41",
+        "title": "The Christian Century 1913-10-16: Vol 30 Iss 41"
+      },
+      {
+        "identifier": "sim_christian-century_1930-06-04_47_23",
+        "title": "The Christian Century 1930-06-04: Vol 47 Iss 23"
+      },
+      {
+        "identifier": "sim_christian-century_1927-11-03_44_44",
+        "title": "The Christian Century 1927-11-03: Vol 44 Iss 44"
+      },
+      {
+        "identifier": "sim_christian-century_1902-09-11_19_37",
+        "title": "The Christian Century 1902-09-11: Vol 19 Iss 37"
+      },
+      {
+        "identifier": "sim_christian-century_1905-01-05_22_1",
+        "title": "The Christian Century 1905-01-05: Vol 22 Iss 1"
+      },
+      {
+        "identifier": "joyschool00berg_1",
+        "isbn": [
+          "9780679449430",
+          "0679449434"
+        ],
+        "lccn": [
+          "96035245",
+          "97097066"
+        ],
+        "title": "Joy school"
+      },
+      {
+        "identifier": "isbn_0523425589",
+        "isbn": [
+          "0523425589",
+          "9780523425580"
+        ],
+        "title": "\"Chessplayer\""
+      },
+      {
+        "identifier": "examiningpopcult00andy",
+        "isbn": [
+          "0737714328",
+          "9780737714326",
+          "073771431X",
+          "9780737714319"
+        ],
+        "lccn": "2002027885",
+        "title": "Crime and criminals"
+      },
+      {
+        "identifier": "sim_queens-quarterly_2012_119_index",
+        "title": "Queen's Quarterly 2012: Vol 119 Index"
+      },
+      {
+        "identifier": "sim_christian-century_1909-01-23_26_4",
+        "title": "The Christian Century 1909-01-23: Vol 26 Iss 4"
+      },
+      {
+        "identifier": "sim_christian-century_1908-01-02_25_1",
+        "title": "The Christian Century 1908-01-02: Vol 25 Iss 1"
+      },
+      {
+        "identifier": "sim_christian-century_1924-06-12_41_24",
+        "title": "The Christian Century 1924-06-12: Vol 41 Iss 24"
+      },
+      {
+        "identifier": "sim_christian-century_1906-09-13_23_37",
+        "title": "The Christian Century 1906-09-13: Vol 23 Iss 37"
+      },
+      {
+        "identifier": "sim_georgia-review_1999_53_index",
+        "title": "The Georgia Review 1999: Vol 53 Index"
+      },
+      {
+        "identifier": "sim_christian-century_1922-11-02_39_44",
+        "title": "The Christian Century 1922-11-02: Vol 39 Iss 44"
+      },
+      {
+        "identifier": "sim_christian-century_1918-08-15_35_31",
+        "title": "The Christian Century 1918-08-15: Vol 35 Iss 31"
+      },
+      {
+        "identifier": "sim_christian-century_1923-04-26_40_17",
+        "title": "The Christian Century 1923-04-26: Vol 40 Iss 17"
+      },
+      {
+        "identifier": "sim_christian-century_1917-07-05_34_27",
+        "title": "The Christian Century 1917-07-05: Vol 34 Iss 27"
+      },
+      {
+        "identifier": "sim_christian-century_1914-02-05_31_6",
+        "title": "The Christian Century 1914-02-05: Vol 31 Iss 6"
+      },
+      {
+        "identifier": "sim_christian-century_1914-06-11_31_24",
+        "title": "The Christian Century 1914-06-11: Vol 31 Iss 24"
+      },
+      {
+        "identifier": "sim_christian-century_1904-04-07_21_14",
+        "title": "The Christian Century 1904-04-07: Vol 21 Iss 14"
+      },
+      {
+        "identifier": "indigenouspeople00mary",
+        "isbn": [
+          "1590180054",
+          "9781590180051"
+        ],
+        "lccn": "2002010429",
+        "title": "The Mohawk"
+      },
+      {
+        "identifier": "artsgraduatesthe0000unse",
+        "isbn": [
+          "0750700629",
+          "0750700637"
+        ],
+        "lccn": "92016907 //r92",
+        "title": "Arts graduates, their skills and their employment : perspectives for change"
+      },
+      {
+        "identifier": "macbeths-resilient-kingdom",
+        "title": "Macbeth’s Resilient Kingdom"
+      },
+      {
+        "identifier": "are-we-not-all-micro",
+        "title": "Are We Not All Micro"
+      },
+      {
+        "identifier": "micro_IA40244203_3452",
+        "title": "Education report. Issue no. 2"
+      }
+    ]
+  }
+}

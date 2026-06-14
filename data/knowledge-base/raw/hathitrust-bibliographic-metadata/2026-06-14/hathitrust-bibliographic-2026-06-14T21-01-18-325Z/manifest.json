@@ -1,0 +1,42 @@
+{
+  "run_id": "hathitrust-bibliographic-2026-06-14T21-01-18-325Z",
+  "source_id": "hathitrust-bibliographic-metadata",
+  "started_at": "2026-06-14T21:01:18.358Z",
+  "completed_at": "2026-06-14T21:01:23.282Z",
+  "status": "success",
+  "access_route": "Internet Archive identifiers -> HathiTrust Bibliographic API brief endpoint",
+  "raw_outputs": [
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/internet-archive-humanities-candidates.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-0748621849.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/lccn-70106054.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-0553274074.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-9780553274073.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/lccn-2002024580.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-9780375846915.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-0375846913.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/lccn-73170672.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/lccn-96035245.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-0523425589.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-9780523425580.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/lccn-2002027885.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-0737714328.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-9780737714326.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-073771431x.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-9780737714319.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/lccn-2002010429.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-1590180054.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-9781590180051.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-0750700629.json",
+    "data/knowledge-base/raw/hathitrust-bibliographic-metadata/2026-06-14/hathitrust-bibliographic-2026-06-14T21-01-18-325Z/hathi-api/isbn-0750700637.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 5,
+  "rights_review": "Metadata-only HathiTrust Bibliographic API enrichment; no HathiTrust full text is stored.",
+  "errors": [
+    "artsgraduatesthe0000unse lccn:92016907 //r92: https://catalog.hathitrust.org/api/volumes/brief/lccn/92016907%20%2F%2Fr92.json: HTTP 404 Not Found"
+  ]
+}

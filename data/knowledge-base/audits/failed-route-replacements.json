@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T20:51:29.301Z",
-  "resolved_failure_count": 11,
+  "generated_at": "2026-06-14T21:01:42.304Z",
+  "resolved_failure_count": 12,
   "resolved_failures": [
     {
       "source_id": "aha-annual-meeting-programs",
@@ -33,6 +33,17 @@
       "latest_success_at": "2026-06-14T20:42:04.005Z",
       "successful_route": "https://history.berkeley.edu/news | https://rhetoric.berkeley.edu/people | https://rhetoric.berkeley.edu/people/faculty/lecturers | https://www.english.upenn.edu/about | https://www.english.upenn.edu/about/academic-freedom-statement | https://www.english.upenn.edu/events/2026/06/19/juneteenth-no-classes | https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center | http://english.duke.edu/2023-e-newsletter-chair | http://english.duke.edu/2023-e-newsletter-graduate | http://english.duke.edu/2023-e-newsletter-other | http://english.duke.edu/2023-e-newsletter-undergraduate | http://english.duke.edu/2024-e-newsletter-chair | http://english.duke.edu/2024-e-newsletter-faculty | http://english.duke.edu/2024-e-newsletter-graduate | http://english.duke.edu/2024-e-newsletter-other | http://english.duke.edu/2024-e-newsletter-undergraduate",
       "record_count": 16,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "hathitrust-bibliographic-metadata",
+      "name": "HathiTrust Bibliographic Metadata",
+      "source_class": "open-text-metadata",
+      "failure_count": 3,
+      "latest_failure_at": "2026-06-14T20:34:13.751Z",
+      "latest_success_at": "2026-06-14T21:01:23.282Z",
+      "successful_route": "Internet Archive identifiers -> HathiTrust Bibliographic API brief endpoint",
+      "record_count": 5,
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
@@ -124,7 +135,7 @@
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 5,
+  "replacement_plan_count": 4,
   "replacement_plans": [
     {
       "source_id": "harvard-humanities-departments",
@@ -238,27 +249,6 @@
       ],
       "next_action": "Keep the source blocked until an authorized metadata route or allowed export is available.",
       "do_not_do": "Do not ask for secrets in chat or retry unauthorized API routes anonymously."
-    },
-    {
-      "source_id": "hathitrust-bibliographic-metadata",
-      "name": "HathiTrust Bibliographic Metadata",
-      "source_class": "open-text-metadata",
-      "ingest_status": "blocked",
-      "redistribution_status": "metadata-only",
-      "failure_count": 3,
-      "latest_failure_at": "2026-06-14T20:34:13.751Z",
-      "latest_error": "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden",
-      "failed_routes": [
-        "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true"
-      ],
-      "affected_targets": [],
-      "replacement_status": "route-review-needed",
-      "replacement_routes": [
-        "Use documented HathiTrust bibliographic data files or metadata exports rather than blocked catalog result pages.",
-        "Store metadata only and keep rights fields attached before any text access decisions."
-      ],
-      "next_action": "Replace catalog-page scraping with documented metadata download/export workflow after terms review.",
-      "do_not_do": "Do not scrape blocked catalog pages or store restricted full text."
     }
   ]
 }

@@ -59,7 +59,6 @@ const jobs = [
     `https://www.historians.org/wp-json/wp/v2/search?search=${encodeURIComponent("annual meeting program")}&per_page=${Math.min(limit, 50)}`,
     `https://www.historians.org/wp-json/wp/v2/pages?search=${encodeURIComponent("annual meeting program")}&per_page=${Math.min(limit, 50)}`,
   ], normalizeAhaProgramMetadata, "works"),
-  blockedProbe("hathitrust-bibliographic-metadata", "https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true"),
   blockedProbe("ssrn-humanities-adjacent", "https://api.ssrn.com/content/v1/papers?query=humanities"),
 ];
 

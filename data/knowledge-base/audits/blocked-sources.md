@@ -1,20 +1,8 @@
 # KB Blocked Sources
 
-Generated at: 2026-06-14T20:51:29.301Z
-Blocked sources: 3
-Resolved historical failures: 11
-
-## hathitrust-bibliographic-metadata
-
-- Name: HathiTrust Bibliographic Metadata
-- Class: open-text-metadata
-- Redistribution: metadata-only
-- Metadata allowed: true
-- Full text allowed: false
-- Failed route count: 3
-- Latest route: https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true
-- Latest errors: https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden
-- Next decision: Requires route replacement, manual export, permissioned API access, or terms review; do not bypass access controls.
+Generated at: 2026-06-14T21:01:42.304Z
+Blocked sources: 2
+Resolved historical failures: 12
 
 ## open-syllabus
 
@@ -42,4 +30,4 @@ Resolved historical failures: 11
 
 ## Failed Route Replacement Plans
 
-See `data/knowledge-base/audits/failed-route-replacements.md` for 5 source-level replacement plans.
+See `data/knowledge-base/audits/failed-route-replacements.md` for 4 source-level replacement plans.

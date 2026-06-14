@@ -1,0 +1,36 @@
+{
+  "records": {
+    "102798919": {
+      "recordURL": "https://catalog.hathitrust.org/Record/102798919",
+      "titles": [
+        "The two culture theory in C. P. Snow's novels"
+      ],
+      "isbns": [
+        "9780878050062",
+        "9780878050062"
+      ],
+      "issns": [],
+      "oclcs": [
+        "257736"
+      ],
+      "lccns": [
+        "73170672"
+      ],
+      "publishDates": [
+        "1971"
+      ]
+    }
+  },
+  "items": [
+    {
+      "orig": "University of Michigan",
+      "fromRecord": "102798919",
+      "htid": "mdp.39015004044601",
+      "itemURL": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015004044601",
+      "rightsCode": "ic",
+      "lastUpdate": "20260314",
+      "enumcron": false,
+      "usRightsString": "Limited (search-only)"
+    }
+  ]
+}

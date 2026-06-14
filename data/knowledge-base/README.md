@@ -25,6 +25,7 @@ pnpm kb:ingest:doaj
 pnpm kb:ingest:wikidata
 pnpm kb:ingest:departments
 node scripts/kb-ingest-department-sitemaps.mjs
+node scripts/kb-ingest-hathitrust.mjs
 pnpm kb:import:gutenberg
 pnpm kb:ingest:web
 pnpm kb:tables
@@ -91,13 +92,15 @@ The web metadata ingest adds bounded local records for DOAJ, Internet Archive, N
 
 The gap-source ingest now imports AHA annual-meeting metadata from public WordPress JSON search/pages endpoints after the HTML annual-meeting route returned 403. This keeps AHA metadata-only, excludes full program text, and records the original blocked HTML route as a resolved historical failure once the JSON route succeeds.
 
-The department route replacement pass added public Princeton event pages and expanded-university replacement pages for Berkeley History, Berkeley Rhetoric, Penn English, and additional discovered Duke English newsletter pages. Princeton, the expanded university source, LARB, and Smithsonian now appear as resolved historical failures in `audits/failed-route-replacements.md`; Smithsonian's later `DEMO_KEY` 429s are treated as cooldown failures because an earlier 200-record cultural-collections ingest succeeded. Harvard, Columbia, UChicago sitemap routes, SSRN, and HathiTrust remain active replacement or permission-review work.
+The department route replacement pass added public Princeton event pages and expanded-university replacement pages for Berkeley History, Berkeley Rhetoric, Penn English, and additional discovered Duke English newsletter pages. Princeton, the expanded university source, LARB, Smithsonian, and HathiTrust now appear as resolved historical failures in `audits/failed-route-replacements.md`; Smithsonian's later `DEMO_KEY` 429s are treated as cooldown failures because an earlier 200-record cultural-collections ingest succeeded. Harvard, Columbia, UChicago sitemap routes, and SSRN remain active replacement or permission-review work.
 
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 
 The dedicated Wikidata ingest adds linked-open-data cultural entities across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts. It stores raw SPARQL JSON responses, normalized source-document rows, rights rows, and `audits/wikidata-cultural-entities-last-run.json`.
 
 The dedicated cultural-collections ingest adds richer object metadata from Met, Cleveland Museum of Art, Library of Congress, and Smithsonian routes. It stores raw API responses, normalized source-document/object/collection rows, rights rows, and `audits/cultural-collections-last-run.json`.
+
+The dedicated HathiTrust ingest adds metadata-only HathiTrust Bibliographic API enrichment from Internet Archive humanities candidates with ISBN/LCCN/OCLC identifiers. It stores the IA candidate search, Hathi API responses, normalized source-document/work rows, rights rows, and `audits/hathitrust-bibliographic-last-run.json`; it does not store HathiTrust full text or scrape blocked catalog search pages.
 
 The Wayback snapshot ingest adds CDX capture metadata for department-page targets in `config/department-pages.json`. It stores capture metadata and archive URLs only; archived page text is not stored.
 

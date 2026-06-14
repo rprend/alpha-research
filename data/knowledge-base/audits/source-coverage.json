@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T20:51:29.534Z",
+  "generated_at": "2026-06-14T21:01:42.532Z",
   "source_count": 34,
   "source_classes": {
     "conference-programs": 3,
@@ -24,6 +24,7 @@
     "doaj-humanities",
     "expanded-university-humanities-departments",
     "harvard-humanities-departments",
+    "hathitrust-bibliographic-metadata",
     "humanities-centers-public-pages",
     "humanities-literature-radar",
     "internet-archive-metadata",
@@ -48,23 +49,17 @@
     "wikidata-cultural-entities",
     "yale-humanities-departments"
   ],
-  "source_count_with_local_documents": 31,
+  "source_count_with_local_documents": 32,
   "unregistered_source_ids_with_local_documents": [],
   "unregistered_source_count_with_local_documents": 0,
   "local_records": {
-    "source_documents": 6549,
-    "works": 2970,
+    "source_documents": 6554,
+    "works": 2975,
     "objects": 1012,
     "pages": 525,
-    "rights": 6549
+    "rights": 6554
   },
   "sources_without_local_documents": [
-    {
-      "source_id": "hathitrust-bibliographic-metadata",
-      "source_class": "open-text-metadata",
-      "ingest_status": "blocked",
-      "redistribution_status": "metadata-only"
-    },
     {
       "source_id": "open-syllabus",
       "source_class": "syllabi-teaching-corpora",

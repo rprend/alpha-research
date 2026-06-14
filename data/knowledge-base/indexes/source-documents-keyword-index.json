@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-14T20:42:23.694Z",
+  "generated_at": "2026-06-14T21:01:40.401Z",
   "source": "data/knowledge-base/processed/source_documents.jsonl",
-  "document_count": 7074,
-  "term_count": 73494,
+  "document_count": 7079,
+  "term_count": 73500,
   "documents": {
     "openalex-humanities:https://openalex.org/W2488845447": {
       "source_id": "openalex-humanities",
@@ -45846,6 +45846,41 @@
       "source_url": "https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center",
       "type": "department-news",
       "text_path": "data/knowledge-base/text/department-pages/expanded-university-humanities-departments/university-of-pennsylvania-english-department-news-https-www-english-upenn-edu-news-2026-03-05-dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center.txt"
+    },
+    "hathitrust-bibliographic-metadata:mdp-39015066795835": {
+      "source_id": "hathitrust-bibliographic-metadata",
+      "title": "Practical research methods for media and cultural studies : making people count",
+      "source_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015066795835",
+      "type": "hathitrust-volume-metadata",
+      "text_path": ""
+    },
+    "hathitrust-bibliographic-metadata:wu-89033910118": {
+      "source_id": "hathitrust-bibliographic-metadata",
+      "title": "The one culture",
+      "source_url": "https://babel.hathitrust.org/cgi/pt?id=wu.89033910118",
+      "type": "hathitrust-volume-metadata",
+      "text_path": ""
+    },
+    "hathitrust-bibliographic-metadata:pst-000066744528": {
+      "source_id": "hathitrust-bibliographic-metadata",
+      "title": "Terrorism",
+      "source_url": "https://babel.hathitrust.org/cgi/pt?id=pst.000066744528",
+      "type": "hathitrust-volume-metadata",
+      "text_path": ""
+    },
+    "hathitrust-bibliographic-metadata:mdp-39015004044601": {
+      "source_id": "hathitrust-bibliographic-metadata",
+      "title": "The two culture theory in C. P. Snow's novels",
+      "source_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015004044601",
+      "type": "hathitrust-volume-metadata",
+      "text_path": ""
+    },
+    "hathitrust-bibliographic-metadata:mdp-39015040991625": {
+      "source_id": "hathitrust-bibliographic-metadata",
+      "title": "Joy school",
+      "source_url": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015040991625",
+      "type": "hathitrust-volume-metadata",
+      "text_path": ""
     }
   },
   "postings": {
@@ -94542,7 +94577,12 @@
     ],
     "api": [
       "humanities-literature-radar:http-arxiv-org-abs-2606-12578v1",
-      "doaj-humanities:10-1186-s12940-021-00738-7"
+      "doaj-humanities:10-1186-s12940-021-00738-7",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "apia": [
       "project-gutenberg:pg-727",
@@ -98846,6 +98886,11 @@
       "wayback-machine-cdx:https-english-yale-edu-20200824080746",
       "princeton-humanities-departments:princeton-university-english-department-events-https-english-princeton-edu-events",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-events-https-english-ucla-edu-events",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news"
     ],
@@ -128591,7 +128636,12 @@
       "doaj-humanities:0006f4c201354dc0a97acf938e966a00",
       "doaj-humanities:10-15388-knygotyra-2023-80-133",
       "doaj-humanities:033a9e9afa044438923c756474f5b9a4",
-      "doaj-humanities:10-19195-0080-3626-67-11"
+      "doaj-humanities:10-19195-0080-3626-67-11",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "bibliographical": [
       "doaj-humanities:10-7592-methis-v9i12-1089",
@@ -148718,6 +148768,11 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-programs-https-history-ucla-edu-academics-graduate",
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625",
       "yale-humanities-departments:yale-university-comparative-literature-department-events-sitemap-url-http-complit-yale-edu-events-2019-01-28-a-lecture-by-doctoral-candidate-samuel-hodgkin"
     ],
     "candidates": [
@@ -196334,7 +196389,8 @@
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses",
       "columbia-humanities-departments:columbia-university-history-department-programs-https-history-columbia-edu-courses",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate",
-      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses"
+      "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835"
     ],
     "countdown": [
       "project-gutenberg:pg-278"
@@ -204170,6 +204226,7 @@
       "doaj-humanities:012a1b8c85f6459da7cb79ca7bcacaa3",
       "lareviewofbooks:19659",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
       "expanded-university-humanities-departments:cornell-university-history-department-news-sitemap-url-https-history-cornell-edu-bare-sarked-warrior-brief-cultural-history-battlefield-exposure"
     ],
     "culturale": [
@@ -204565,7 +204622,9 @@
       "doaj-humanities:00fc9c9714624b28a9225ebc3c6b17e1",
       "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
       "lareviewofbooks:19686",
-      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news"
+      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601"
     ],
     "cultured": [
       "project-gutenberg:pg-396",
@@ -339550,6 +339609,13 @@
     "hathe": [
       "project-gutenberg:pg-2878"
     ],
+    "hathitrust": [
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
+    ],
     "hati": [
       "doaj-humanities:10-19166-dil-v6i1-7884"
     ],
@@ -359660,6 +359726,11 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-faculty-https-rhetoric-berkeley-edu-people",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-events-https-rhetoric-berkeley-edu-people-faculty-lecturers",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625",
       "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home",
       "uchicago-humanities-departments:university-of-chicago-humanities-division-department-about-https-humanities-uchicago-edu-about",
       "uchicago-humanities-departments:university-of-chicago-humanities-division-department-about-https-humanities-uchicago-edu-about-interdisciplinary",
@@ -384382,7 +384453,12 @@
       "wayback-machine-cdx:harvard-university-philosophy-department-home-20200107150904-https-philosophy-fas-harvard-edu",
       "wayback-machine-cdx:harvard-university-classics-department-home-20200108060711-https-classics-fas-harvard-edu",
       "wayback-machine-cdx:yale-university-philosophy-department-home-20200113214624-https-philosophy-yale-edu",
-      "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c"
+      "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "internetarchivebooks": [
       "internet-archive-metadata:undermermaidange00moor",
@@ -397358,7 +397434,8 @@
       "stanford-humanities-departments:stanford-university-history-department-faculty-https-history-stanford-edu-people-alumni",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
-      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news"
+      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "joya": [
       "doaj-humanities:10-5565-rev-athenea-2517"
@@ -397458,6 +397535,9 @@
       "project-gutenberg:pg-5281",
       "project-gutenberg:pg-5329",
       "project-gutenberg:pg-109"
+    ],
+    "joyschool00berg": [
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "joyu": [
       "project-gutenberg:pg-613"
@@ -419353,7 +419433,12 @@
       "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history",
       "expanded-university-humanities-departments:cornell-university-history-department-programs-https-history-cornell-edu-course-flyers",
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
-      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news"
+      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "libre": [
       "doaj-humanities:10-3989-asclepio-2016-02",
@@ -424311,7 +424396,12 @@
       "wikidata-cultural-entities:Q1378978",
       "wikidata-cultural-entities:Q1382662",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
-      "doaj-humanities:0124982a30ac46478ea77d831f3043eb"
+      "doaj-humanities:0124982a30ac46478ea77d831f3043eb",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "linkedin": [
       "princeton-humanities-departments:experiment-university-princeton-university-commencement-speech-2026-11",
@@ -439117,7 +439207,8 @@
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
       "doaj-humanities:00e06cc3ca92413ab84f7f97dbc087a4",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
-      "expanded-university-humanities-departments:university-of-pennsylvania-english-department-news-https-www-english-upenn-edu-news-2026-03-05-dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center"
+      "expanded-university-humanities-departments:university-of-pennsylvania-english-department-news-https-www-english-upenn-edu-news-2026-03-05-dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835"
     ],
     "makings": [
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
@@ -449477,7 +449568,8 @@
       "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
       "doaj-humanities:00fc9c9714624b28a9225ebc3c6b17e1",
       "lareviewofbooks:19706",
-      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news"
+      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835"
     ],
     "mediaandcommunication": [
       "doaj-humanities:212c65f505e54308adda57105aa7dce7"
@@ -454763,7 +454855,12 @@
       "aha-annual-meeting-programs:108553",
       "aha-annual-meeting-programs:89342",
       "aha-annual-meeting-programs:88329",
-      "aha-annual-meeting-programs:82829"
+      "aha-annual-meeting-programs:82829",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "metade": [
       "doaj-humanities:10-1590-1980-4369e2020011"
@@ -456013,7 +456110,8 @@
       "expanded-university-humanities-departments:duke-university-history-department-events-https-history-duke-edu-colloquia",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
-      "doaj-humanities:00fc9c9714624b28a9225ebc3c6b17e1"
+      "doaj-humanities:00fc9c9714624b28a9225ebc3c6b17e1",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835"
     ],
     "methods611": [
       "humanities-literature-radar:oai-doaj-org-article-3694287c3c664e9a9ff160a7809efb62"
@@ -488410,7 +488508,8 @@
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-programs-https-english-ucla-edu-courses-graduate",
       "expanded-university-humanities-departments:brown-university-english-department-news-https-english-brown-edu-news",
-      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news"
+      "expanded-university-humanities-departments:duke-university-english-department-news-https-english-duke-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601"
     ],
     "novelties": [
       "humanities-literature-radar:hbwn2-4ea65",
@@ -498359,7 +498458,11 @@
       "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
       "expanded-university-humanities-departments:university-of-pennsylvania-english-department-about-https-www-english-upenn-edu-about-academic-freedom-statement",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-news-sitemap-url-https-history-ucla-edu-2021-12-16-amir-alexanders-book-proof-is-one-of-eight-books-recommended-by-vox-for-the-holidays"
+    ],
+    "oneculture0000unse": [
+      "hathitrust-bibliographic-metadata:wu-89033910118"
     ],
     "oneida": [
       "project-gutenberg:pg-2328"
@@ -522700,6 +522803,7 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
       "expanded-university-humanities-departments:university-of-california-berkeley-rhetoric-department-faculty-https-rhetoric-berkeley-edu-people",
       "expanded-university-humanities-departments:university-of-pennsylvania-english-department-news-https-www-english-upenn-edu-news-2026-03-05-dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-sitemap-url-https-english-ucla-edu-people-faculty-affiliation-sitemap-xml",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-sitemap-url-https-english-ucla-edu-people-faculty-sitemap-xml",
       "uchicago-humanities-departments:university-of-chicago-history-department-faculty-https-history-uchicago-edu-people",
@@ -544471,7 +544575,8 @@
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses",
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-faculty-https-english-ucla-edu-graduate-community-gradfaculty-reading-groups",
-      "doaj-humanities:00e06cc3ca92413ab84f7f97dbc087a4"
+      "doaj-humanities:00e06cc3ca92413ab84f7f97dbc087a4",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835"
     ],
     "practicalities": [
       "doaj-humanities:10-7592-mt2023-86-laak-kirss"
@@ -544498,6 +544603,9 @@
       "project-gutenberg:pg-3314",
       "project-gutenberg:pg-3113",
       "project-gutenberg:pg-2938"
+    ],
+    "practicalresearc0000davi": [
+      "hathitrust-bibliographic-metadata:mdp-39015066795835"
     ],
     "practicantes": [
       "doaj-humanities:10-62174-avatares-2024-9480"
@@ -590793,6 +590901,7 @@
       "aha-annual-meeting-programs:109273",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
       "expanded-university-humanities-departments:university-of-pennsylvania-english-department-about-https-www-english-upenn-edu-about-academic-freedom-statement",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-news-sitemap-url-https-history-ucla-edu-2021-11-15-fullbright-hays-doctoral-dissertation-research-abroad-fellowship-recipients",
       "stanford-humanities-departments:stanford-university-philosophy-department-faculty-https-philosophy-stanford-edu-node-10956",
       "expanded-university-humanities-departments:duke-university-history-department-faculty-https-history-duke-edu-faculty-research"
@@ -615747,6 +615856,7 @@
       "expanded-university-humanities-departments:university-of-pennsylvania-english-department-about-https-www-english-upenn-edu-about-academic-freedom-statement",
       "expanded-university-humanities-departments:university-of-pennsylvania-english-department-events-https-www-english-upenn-edu-events-2026-06-19-juneteenth-no-classes",
       "expanded-university-humanities-departments:university-of-pennsylvania-english-department-news-https-www-english-upenn-edu-news-2026-03-05-dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625",
       "stanford-humanities-departments:stanford-university-english-department-programs-sitemap-url-https-english-stanford-edu-academics-phd-program-joint-degree-program-school-law-jdphd",
       "stanford-humanities-departments:stanford-university-philosophy-department-programs-sitemap-url-https-philosophy-stanford-edu-academics-graduate-program-philosophy-graduate-life-advice-succeeding-grad-school",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-news-sitemap-url-https-history-ucla-edu-2021-11-09-ny-times-magazine-discusses-work-on-school-history-curriculum-conducted-by-the-late-gary-nash"
@@ -645080,7 +645190,8 @@
       "project-gutenberg:pg-5420",
       "project-gutenberg:pg-109",
       "yale-humanities-departments:yale-university-english-department-faculty-https-english-yale-edu-books-faculty-books",
-      "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors"
+      "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601"
     ],
     "snowbank": [
       "project-gutenberg:pg-519"
@@ -669757,6 +669868,7 @@
       "doaj-humanities:00a4b9cb9ecf40a59683c5df318b824d",
       "doaj-humanities:00e06cc3ca92413ab84f7f97dbc087a4",
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
       "yale-humanities-departments:yale-university-comparative-literature-department-sitemap-url-http-complit-yale-edu-comparative-literature-and-jewish-studies",
       "yale-humanities-departments:yale-university-comparative-literature-department-events-sitemap-url-http-complit-yale-edu-events-2019-01-23-left-literary-studies-reading-group-victoria-baena",
       "yale-humanities-departments:yale-university-comparative-literature-department-events-sitemap-url-http-complit-yale-edu-events-2019-02-06-british-studies-colloquium-2019-victoria-baena-kate-nesbit",
@@ -690895,7 +691007,11 @@
     "terrorism": [
       "project-gutenberg:pg-3115",
       "expanded-university-humanities-departments:cornell-university-history-department-programs-https-history-cornell-edu-course-flyers",
-      "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students"
+      "expanded-university-humanities-departments:duke-university-history-department-news-https-history-duke-edu-2019-history-honors-students",
+      "hathitrust-bibliographic-metadata:pst-000066744528"
+    ],
+    "terrorism00will": [
+      "hathitrust-bibliographic-metadata:pst-000066744528"
     ],
     "terrorized": [
       "project-gutenberg:pg-3115"
@@ -695909,7 +696025,8 @@
       "expanded-university-humanities-departments:duke-university-english-department-programs-https-english-duke-edu-2020-2021-courses-and-requirement",
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
       "doaj-humanities:00e06cc3ca92413ab84f7f97dbc087a4",
-      "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c"
+      "doaj-humanities:013040e3ce824fdda1750cdcd228dd7c",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601"
     ],
     "theorywhen": [
       "nber-culture-history:i768l2-sitesearch-entity-node-1306780-en"
@@ -720646,7 +720763,11 @@
       "expanded-university-humanities-departments:duke-university-history-department-programs-https-history-duke-edu-courses",
       "doaj-humanities:00ab7abea8b74c53931f2e1743aec0bf",
       "doaj-humanities:012a1b8c85f6459da7cb79ca7bcacaa3",
-      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news"
+      "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601"
+    ],
+    "twoculturetheory0000unse": [
+      "hathitrust-bibliographic-metadata:mdp-39015004044601"
     ],
     "twofold": [
       "doaj-humanities:00447d272fd14c258945203093c59d48",
@@ -745067,7 +745188,12 @@
       "wikidata-cultural-entities:Q80083362",
       "yale-humanities-departments:yale-university-english-department-faculty-https-english-yale-edu-books-faculty-books",
       "expanded-university-humanities-departments:university-of-california-los-angeles-history-department-faculty-https-history-ucla-edu-faculty-honors",
-      "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history"
+      "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history",
+      "hathitrust-bibliographic-metadata:mdp-39015066795835",
+      "hathitrust-bibliographic-metadata:wu-89033910118",
+      "hathitrust-bibliographic-metadata:pst-000066744528",
+      "hathitrust-bibliographic-metadata:mdp-39015004044601",
+      "hathitrust-bibliographic-metadata:mdp-39015040991625"
     ],
     "volumen": [
       "doaj-humanities:10-61497-xem5kp49",

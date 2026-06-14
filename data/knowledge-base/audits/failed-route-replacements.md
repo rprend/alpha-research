@@ -1,14 +1,15 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T20:51:29.301Z
-Resolved historical failures: 11
-Replacement plans: 5
+Generated at: 2026-06-14T21:01:42.304Z
+Resolved historical failures: 12
+Replacement plans: 4
 
 ## Resolved Historical Failures
 
 - aha-annual-meeting-programs: latest successful route https://www.historians.org/wp-json/wp/v2/search?search=annual%20meeting%20program&per_page=20 | https://www.historians.org/wp-json/wp/v2/pages?search=annual%20meeting%20program&per_page=20 at 2026-06-14T20:34:13.681Z (20 records).
 - doaj-humanities: latest successful route https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20 at 2026-06-14T20:28:04.857Z (20 records).
 - expanded-university-humanities-departments: latest successful route https://history.berkeley.edu/news | https://rhetoric.berkeley.edu/people | https://rhetoric.berkeley.edu/people/faculty/lecturers | https://www.english.upenn.edu/about | https://www.english.upenn.edu/about/academic-freedom-statement | https://www.english.upenn.edu/events/2026/06/19/juneteenth-no-classes | https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center | http://english.duke.edu/2023-e-newsletter-chair | http://english.duke.edu/2023-e-newsletter-graduate | http://english.duke.edu/2023-e-newsletter-other | http://english.duke.edu/2023-e-newsletter-undergraduate | http://english.duke.edu/2024-e-newsletter-chair | http://english.duke.edu/2024-e-newsletter-faculty | http://english.duke.edu/2024-e-newsletter-graduate | http://english.duke.edu/2024-e-newsletter-other | http://english.duke.edu/2024-e-newsletter-undergraduate at 2026-06-14T20:42:04.005Z (16 records).
+- hathitrust-bibliographic-metadata: latest successful route Internet Archive identifiers -> HathiTrust Bibliographic API brief endpoint at 2026-06-14T21:01:23.282Z (5 records).
 - lareviewofbooks: latest successful route https://lareviewofbooks.org/ at 2026-06-14T20:28:09.368Z (18 records).
 - library-of-congress: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:34.343Z (50 records).
 - met-collection-api: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:33.316Z (50 records).
@@ -105,21 +106,3 @@ Replacement plans: 5
   - Use OpenAlex, Crossref, NBER, or publisher metadata as alternate discovery sources.
 - Next action: Keep the source blocked until an authorized metadata route or allowed export is available.
 - Do not do: Do not ask for secrets in chat or retry unauthorized API routes anonymously.
-
-## hathitrust-bibliographic-metadata
-
-- Name: HathiTrust Bibliographic Metadata
-- Class: open-text-metadata
-- Ingest status: blocked
-- Replacement status: route-review-needed
-- Failure count: 3
-- Latest failure: 2026-06-14T20:34:13.751Z
-- Latest error: https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true: HTTP 403 Forbidden
-- Affected targets: No target metadata.
-- Failed routes:
-  - https://catalog.hathitrust.org/Search/Home?lookfor=humanities&type=all&ft=ft&setft=true
-- Replacement routes:
-  - Use documented HathiTrust bibliographic data files or metadata exports rather than blocked catalog result pages.
-  - Store metadata only and keep rights fields attached before any text access decisions.
-- Next action: Replace catalog-page scraping with documented metadata download/export workflow after terms review.
-- Do not do: Do not scrape blocked catalog pages or store restricted full text.

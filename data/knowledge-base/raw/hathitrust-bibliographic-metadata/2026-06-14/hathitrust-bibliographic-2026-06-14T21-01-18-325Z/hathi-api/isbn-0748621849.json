@@ -1,0 +1,36 @@
+{
+  "records": {
+    "005290187": {
+      "recordURL": "https://catalog.hathitrust.org/Record/005290187",
+      "titles": [
+        "Practical research methods for media and cultural studies : making people count"
+      ],
+      "isbns": [
+        "9780748621859",
+        "9780748621859",
+        "9780748621842",
+        "9780748621842"
+      ],
+      "issns": [],
+      "oclcs": [
+        "65765749"
+      ],
+      "lccns": [],
+      "publishDates": [
+        "2006"
+      ]
+    }
+  },
+  "items": [
+    {
+      "orig": "University of Michigan",
+      "fromRecord": "005290187",
+      "htid": "mdp.39015066795835",
+      "itemURL": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015066795835",
+      "rightsCode": "ic",
+      "lastUpdate": "20260319",
+      "enumcron": false,
+      "usRightsString": "Limited (search-only)"
+    }
+  ]
+}

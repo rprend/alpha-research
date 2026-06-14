@@ -1,15 +1,15 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T20:42:24.381Z
+Generated at: 2026-06-14T21:01:41.085Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 6518
+Documents: 6523
 
 ## Text Scope
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 6092 |
+| metadata-only | 6097 |
 | stored-full-text | 200 |
 | stored-local-analysis-text | 226 |
 
@@ -25,6 +25,7 @@ Documents: 6518
 | doaj-humanities | 2957 |
 | expanded-university-humanities-departments | 257 |
 | harvard-humanities-departments | 5 |
+| hathitrust-bibliographic-metadata | 5 |
 | humanities-centers-public-pages | 12 |
 | humanities-literature-radar | 53 |
 | internet-archive-metadata | 160 |

@@ -1,8 +1,8 @@
 # KB Rights Summary
 
-Generated at: 2026-06-14T20:51:29.534Z
-Rights rows: 6549
-Local metadata-allowed rows: 6549
+Generated at: 2026-06-14T21:01:42.532Z
+Rights rows: 6554
+Local metadata-allowed rows: 6554
 Local full-text-allowed rows: 200
 
 ## Local Redistribution Statuses
@@ -12,7 +12,7 @@ Local full-text-allowed rows: 200
 | derived-metadata-ok | 919 |
 | local-analysis-only | 328 |
 | metadata-ok | 4479 |
-| metadata-only | 623 |
+| metadata-only | 628 |
 | public-domain-text-ok | 200 |
 
 ## Local Quote Statuses
@@ -20,7 +20,7 @@ Local full-text-allowed rows: 200
 | Value | Count |
 | --- | ---: |
 | metadata-only | 269 |
-| metadata-only-no-quotes | 5722 |
+| metadata-only-no-quotes | 5727 |
 | needs-review | 328 |
 | quote-public-domain | 200 |
 | unknown | 30 |

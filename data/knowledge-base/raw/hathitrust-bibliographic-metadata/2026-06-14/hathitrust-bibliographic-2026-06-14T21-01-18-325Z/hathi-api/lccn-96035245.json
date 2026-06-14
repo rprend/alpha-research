@@ -1,0 +1,36 @@
+{
+  "records": {
+    "003154079": {
+      "recordURL": "https://catalog.hathitrust.org/Record/003154079",
+      "titles": [
+        "Joy school"
+      ],
+      "isbns": [
+        "9780679449430",
+        "9780679449430"
+      ],
+      "issns": [],
+      "oclcs": [
+        "35526215"
+      ],
+      "lccns": [
+        "96035245"
+      ],
+      "publishDates": [
+        "1997"
+      ]
+    }
+  },
+  "items": [
+    {
+      "orig": "University of Michigan",
+      "fromRecord": "003154079",
+      "htid": "mdp.39015040991625",
+      "itemURL": "https://babel.hathitrust.org/cgi/pt?id=mdp.39015040991625",
+      "rightsCode": "ic",
+      "lastUpdate": "20260314",
+      "enumcron": false,
+      "usRightsString": "Limited (search-only)"
+    }
+  ]
+}

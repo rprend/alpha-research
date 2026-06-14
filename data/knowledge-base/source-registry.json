@@ -232,13 +232,15 @@
       "source_class": "open-text-metadata",
       "homepage_url": "https://www.hathitrust.org/",
       "access_routes": [
-        "https://www.hathitrust.org/data"
+        "https://catalog.hathitrust.org/api/volumes/brief/{identifier_type}/{identifier}.json",
+        "Internet Archive identifiers already present in the local KB",
+        "https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/hathifiles/"
       ],
       "license": "HathiTrust metadata/data terms",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
-      "robots_or_terms_notes": "Use metadata and rights fields; do not store restricted full text.",
+      "robots_or_terms_notes": "Use documented HathiTrust Bibliographic API and Hathifiles metadata routes only; do not scrape blocked catalog search result pages or store restricted full text.",
       "update_cadence": "quarterly",
       "expected_fields": [
         "htid",
@@ -257,10 +259,12 @@
       "known_risks": [
         "rights filtering required",
         "multi-volume normalization",
-        "access restrictions"
+        "access restrictions",
+        "Bibliographic API is identifier lookup, not keyword search",
+        "current Hathifiles web page is Cloudflare-challenged from local fetcher; prefer API enrichment from existing local identifiers until direct file route is available"
       ],
-      "last_checked_at": "2026-06-13",
-      "ingest_status": "blocked"
+      "last_checked_at": "2026-06-14",
+      "ingest_status": "active"
     },
     {
       "source_id": "library-of-congress",
