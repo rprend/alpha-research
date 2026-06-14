@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T22:10:56.598Z",
+  "generated_at": "2026-06-14T22:14:35.649Z",
   "source_document_updates": 1039,
   "work_updates": 51,
   "source_document_counts": {
@@ -12,8 +12,8 @@
     "cleveland-museum-open-access:object-date:year-bce": 5,
     "dh-conference-programs:page-post-date:day": 25,
     "library-of-congress:item-date:range": 75,
-    "library-of-congress:item-date:year": 219,
-    "library-of-congress:undated-cultural-metadata:none": 14,
+    "library-of-congress:item-date:year": 221,
+    "library-of-congress:undated-cultural-metadata:none": 12,
     "met-collection-api:accession-year:year": 33,
     "met-collection-api:object-date:century": 9,
     "met-collection-api:object-date:century-ish": 18,

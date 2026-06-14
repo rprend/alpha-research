@@ -1,0 +1,1310 @@
+{
+  "articles_and_essays": null,
+  "cite_this": {
+    "apa": "Unknown Artist. <cite>Colinet</cite>. , . [Photograph] Retrieved from the Library of Congress, https://www.loc.gov/item/musdcmicon.0514/.",
+    "chicago": "Unknown Artist. <cite>Colinet</cite>. , . Photograph. https://www.loc.gov/item/musdcmicon.0514/.",
+    "mla": "Unknown Artist. <cite>Colinet</cite>. Photograph. Retrieved from the Library of Congress, &lt;www.loc.gov/item/musdcmicon.0514/&gt;."
+  },
+  "item": {
+    "_version_": 1835891520695173000,
+    "access_restricted": false,
+    "aka": [
+      "https://hdl.loc.gov/loc.music/musdcmicon.0514",
+      "http://www.loc.gov/resource/music.musdcmicon-0514/",
+      "http://www.loc.gov/item/musdcmicon.0514/"
+    ],
+    "campaigns": [],
+    "contributor_names": [
+      "Unknown artist"
+    ],
+    "contributors": [
+      {
+        "unknown artist": "https://www.loc.gov/search/?fa=contributor:unknown+artist&fo=json"
+      }
+    ],
+    "description": [
+      ""
+    ],
+    "digital_id": [
+      "https://hdl.loc.gov/loc.music/musdcmicon.0514"
+    ],
+    "digitized": true,
+    "display_offsite": true,
+    "extract_timestamp": "2025-06-25T07:25:15.057Z",
+    "extract_urls": [
+      "https://repo.loc.gov/access/public/music/musdcmicon-0514/.resource.json#paprika-music"
+    ],
+    "format": [
+      {
+        "photo, print, drawing": "https://www.loc.gov/search/?fa=original_format:photo,+print,+drawing&fo=json"
+      }
+    ],
+    "genre": [
+      "art"
+    ],
+    "group": [
+      "paprika-music"
+    ],
+    "hassegments": false,
+    "id": "http://www.loc.gov/item/musdcmicon.0514/",
+    "image_url": [
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:12.5/0/default.jpg",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:12.5/0/default.jpg#h=442&w=321",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:25.0/0/default.jpg#h=884&w=643",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:50.0/0/default.jpg#h=1768&w=1286",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:100.0/0/default.jpg#h=3537&w=2573"
+    ],
+    "index": 1,
+    "item": {
+      "contributors": [
+        "Unknown artist"
+      ],
+      "digital_id": [
+        "https://hdl.loc.gov/loc.music/musdcmicon.0514"
+      ],
+      "format": [
+        "still image"
+      ],
+      "genre": [
+        "art"
+      ],
+      "language": [
+        "eng"
+      ],
+      "medium": [
+        "4 1/2 inches high"
+      ],
+      "notes": [
+        "Medium: Lithograph? No medium given.",
+        "Provenance: The Arthur H. Clark Company, Glendale, California, June 1938.",
+        "Dayton Miller Category: Caricatures and Cartoons"
+      ],
+      "repository": "music division",
+      "rights": "No known restrictions on use or reproduction.",
+      "source_collection": "Dayton C. Miller Collection",
+      "subjects": [
+        "Art reproduction",
+        "Caricature",
+        "art"
+      ],
+      "title": "Colinet"
+    },
+    "language": [
+      "english"
+    ],
+    "languages": [
+      {
+        "english": "https://www.loc.gov/search/?fa=language:english&fo=json"
+      }
+    ],
+    "medium": [
+      "4 1/2 inches high"
+    ],
+    "mime_type": [
+      "image/jpeg",
+      "application/pdf",
+      "image/jp2"
+    ],
+    "notes": [
+      "Medium: Lithograph? No medium given.",
+      "Provenance: The Arthur H. Clark Company, Glendale, California, June 1938.",
+      "Dayton Miller Category: Caricatures and Cartoons"
+    ],
+    "number": [
+      "http://www.loc.gov/resource/musdcmicon.0514.0"
+    ],
+    "number_former_id": [
+      "http://www.loc.gov/resource/musdcmicon.0514.0"
+    ],
+    "online_format": [
+      "image",
+      "pdf"
+    ],
+    "original_format": [
+      "photo, print, drawing"
+    ],
+    "other_formats": [],
+    "partof": [
+      {
+        "count": 2544,
+        "title": "dayton c. miller collection",
+        "url": "https://www.loc.gov/collections/dayton-c-miller-collection/?fo=json"
+      },
+      {
+        "count": 184375,
+        "title": "music division",
+        "url": "https://www.loc.gov/search/?fa=partof:music+division&fo=json"
+      }
+    ],
+    "repository": [
+      "music division"
+    ],
+    "resources": [
+      {
+        "files": 1,
+        "image": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:12.5/0/default.jpg",
+        "paprika_resource_path": "/sets/music/musdcmicon-0514",
+        "pdf": "https://tile.loc.gov/storage-services/public/music/musdcmicon-0514/musdcmicon-0514.pdf",
+        "schemaVersion": "v1",
+        "url": "https://www.loc.gov/resource/music.musdcmicon-0514/",
+        "version": 4
+      }
+    ],
+    "rights": [
+      "<p>The Library of Congress is not aware of any U.S. copyright protection (see Title 17 U.S.C.) or any other restrictions in the Dayton C. Miller Collection except for the items noted below. The Library of Congress is providing access to these materials for educational and research purposes. Patrons should keep in mind that the written permission of the copyright owners and/or other rights holders (such as holders of publicity and/or privacy rights) is required for distribution, reproduction, or other use of protected items beyond that allowed by fair use or other statutory exemptions. </p>\n<p>Responsibility for making an independent legal assessment of an item and securing any necessary permissions ultimately rests with persons desiring to use the item. Users should consult the bibliographic information that accompanies each item for specific information.</p>\n<h2>Copyright Protected Items</h2>\n<p>Four full-size drawings of flutes DCM 0507, DCM 0615, DCM 0916, and DCM 1125  by Jean-François Beaudin, Québec, Canada. 2003. Please make written requests  for permission for other uses to: </p>\n<p>Jean-François Beaudin<br />\n\t312 Chemin Richford<br />\n\tFrelighsburg (Québec) Canada, J0J1C0<br />\n\tTel.: 450-298-5161<br />\n\tFax: 450-298-8251<br />\n\tjfbeaudin@hotmail.com </p>\n<p>The quotation regarding Dr. Miller and his gold flute comes from an article by Robert S. Shankland, \"Dayton Clarence Miller: Physics Across Fifty Years.\" <em>American Journal of Physics</em> 9(October 1941):273-283. LC call number: QC1.A47. It was reprinted here with permission from the <em>American Journal of Physics</em> 9(October 1941):278. Copyright 1941, American Association of Physics Teachers. Should you wish to quote from this article, please contact:</p>\n<p>Susann Brailey, Office of Rights and Permissions<br /> American Institute of Physics<br /> Suite 1N01<br /> 2 Huntington Quadrangle<br /> Melville, NY 11747-4502<br /> Phone: 516-576-2268<br /> Fax: 516-576-2450</p>\n<p>\n<a href=\"/item/ihas.200182874/\">The image of the <em>Faun playing an aulos</em> by Rea Irvin</a>, Miller no. 57/G, comes from the cover of <em>The New Yorker</em> magazine, 14 March 1925. It is reproduced here without <em>The New Yorker</em> masthead as required by Condé Nast Publications, New York. Permission to reproduce the <em>Faun</em> only as a thumbnail-size image, and without the masthead, is Courtesy of the Irvin Estate. No reproduction without permission. For reproduction permission, please contact:</p>\n<p>The Irvin Estate<br /> c/o Molly Rea<br /> 5 Willis Lane<br /> Fairfax, California 94930</p>\n<p>Credit line: Dayton C. Miller Collection, Music Division, Library of Congress  </p>\n<p>\"Dayton C. Miller, His Life, Work and Contributions as a  Scientist and Organologist\" is made available here with permission from  the author, William J. Maynard. <a href=\"/collections/dayton-c-miller-collection/articles-and-essays/his-life-work-and-contributions-as-scientist-and-organologist/\">HTML version of this text</a></p>\n<p>More about <a href=\"https://memory.loc.gov/ammem/copyrit2.html\"> American Memory, Copyright and other Restrictions</a></p>\n<p>Credit line: Dayton C. Miller Collection, Music Division, Library of Congress </p>\n"
+    ],
+    "score": 15.929317,
+    "shard": "08",
+    "shelf_id": "musdcmicon.0514",
+    "site": [],
+    "source_collection": "Dayton C. Miller Collection",
+    "source_modified": "2000-01-01T12:00:00Z",
+    "subject": [
+      "art reproduction",
+      "caricature",
+      "art"
+    ],
+    "subject_headings": [
+      "Art reproduction",
+      "Caricature",
+      "art"
+    ],
+    "subjects": [
+      {
+        "art": "https://www.loc.gov/search/?fa=subject:art&fo=json"
+      },
+      {
+        "art reproduction": "https://www.loc.gov/search/?fa=subject:art+reproduction&fo=json"
+      },
+      {
+        "caricature": "https://www.loc.gov/search/?fa=subject:caricature&fo=json"
+      }
+    ],
+    "timestamp": "2025-06-25T09:09:50.985Z",
+    "title": "Colinet",
+    "type": [
+      "still image"
+    ],
+    "url": "https://www.loc.gov/item/musdcmicon.0514/"
+  },
+  "more_like_this": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/resource/music.musdcmicon-0011/",
+        "http://www.loc.gov/item/musdcmicon.0011/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0011"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "unknown artist"
+      ],
+      "date": "1700",
+      "dates": [
+        "[1700 TO 1799]"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T08:11:14.587Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0011/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0011:0001/full/pct:12.5/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0011:0001/full/pct:12.5/0/default.jpg#h=263&w=295",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0011:0001/full/pct:25.0/0/default.jpg#h=526&w=590",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0011:0001/full/pct:50.0/0/default.jpg#h=1052&w=1180",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0011:0001/full/pct:100.0/0/default.jpg#h=2104&w=2361"
+      ],
+      "index": 1,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0011.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 32.77249,
+      "shelf_id": "musdcmicon.0011",
+      "subject": [
+        "art reproduction",
+        "caricature",
+        "art",
+        "musical group"
+      ],
+      "timestamp": "2025-06-25T09:04:28.780Z",
+      "title": "Georg Fried: Haendel geb: 1684. Joh: Sebast: Bach geb; 1685. Joseph Tartini geb: 1692. Joh: Joach: Quanz geb: 1697. Christof Gluck geb: 1714. Nicolo Jomelli geb: 1714",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0011/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://hdl.loc.gov/loc.music/musdcmicon.0051",
+        "http://www.loc.gov/resource/music.musdcmicon-0051/",
+        "http://www.loc.gov/item/musdcmicon.0051/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "unknown artist"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T07:30:00.271Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0051/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0051:0001/full/pct:12.5/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0051:0001/full/pct:12.5/0/default.jpg#h=182&w=343",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0051:0001/full/pct:25.0/0/default.jpg#h=364&w=686",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0051:0001/full/pct:50.0/0/default.jpg#h=728&w=1373",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0051:0001/full/pct:100.0/0/default.jpg#h=1457&w=2746"
+      ],
+      "index": 2,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0051.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 32.77249,
+      "shelf_id": "musdcmicon.0051",
+      "subject": [
+        "art reproduction",
+        "caricature",
+        "art"
+      ],
+      "timestamp": "2025-06-25T09:05:24.243Z",
+      "title": "Les Grimaces / Extrait des Albums Mariani",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0051/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/resource/music.musdcmicon-0341/",
+        "http://www.loc.gov/item/musdcmicon.0341/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0341"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "unknown artist"
+      ],
+      "date": "1800",
+      "dates": [
+        "[1800 TO 1899]"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T08:04:37.582Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0341/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0341:0001/full/pct:6.25/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0341:0001/full/pct:6.25/0/default.jpg#h=255&w=305",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0341:0001/full/pct:12.5/0/default.jpg#h=510&w=611",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0341:0001/full/pct:25.0/0/default.jpg#h=1021&w=1223",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0341:0001/full/pct:50.0/0/default.jpg#h=2043&w=2447",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0341:0001/full/pct:100.0/0/default.jpg#h=4087&w=4895"
+      ],
+      "index": 3,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0341.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 32.77249,
+      "shelf_id": "musdcmicon.0341",
+      "subject": [
+        "art reproduction",
+        "caricature",
+        "art"
+      ],
+      "timestamp": "2025-06-25T09:08:06.012Z",
+      "title": "Rehearsing for the Million",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0341/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/musdcmicon.0127/",
+        "http://www.loc.gov/resource/music.musdcmicon-0127/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0127"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "unknown artist"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T07:30:00.271Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0127/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0127:0001/full/pct:6.25/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0127:0001/full/pct:6.25/0/default.jpg#h=348&w=277",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0127:0001/full/pct:12.5/0/default.jpg#h=697&w=554",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0127:0001/full/pct:25.0/0/default.jpg#h=1394&w=1109",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0127:0001/full/pct:50.0/0/default.jpg#h=2789&w=2218",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0127:0001/full/pct:100.0/0/default.jpg#h=5579&w=4436"
+      ],
+      "index": 4,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0127.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 32.77249,
+      "shelf_id": "musdcmicon.0127",
+      "subject": [
+        "art reproduction",
+        "caricature",
+        "art"
+      ],
+      "timestamp": "2025-06-25T09:06:18.477Z",
+      "title": "Un accord peu parfait",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0127/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/resource/music.musdcmicon-0166/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0166",
+        "http://www.loc.gov/item/musdcmicon.0166/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "unknown artist"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T07:32:17.755Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0166/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0166:0001/full/pct:6.25/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0166:0001/full/pct:6.25/0/default.jpg#h=263&w=330",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0166:0001/full/pct:12.5/0/default.jpg#h=527&w=661",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0166:0001/full/pct:25.0/0/default.jpg#h=1054&w=1322",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0166:0001/full/pct:50.0/0/default.jpg#h=2109&w=2645",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0166:0001/full/pct:100.0/0/default.jpg#h=4219&w=5291"
+      ],
+      "index": 5,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0166.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 32.77249,
+      "shelf_id": "musdcmicon.0166",
+      "subject": [
+        "art reproduction",
+        "caricature",
+        "art"
+      ],
+      "timestamp": "2025-06-25T09:06:18.477Z",
+      "title": "L’Enragé Musicien",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0166/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://hdl.loc.gov/loc.music/musdcmicon.0296",
+        "http://www.loc.gov/item/musdcmicon.0296/",
+        "http://www.loc.gov/resource/music.musdcmicon-0296/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "unknown artist"
+      ],
+      "date": "1818",
+      "dates": [
+        "1818"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T08:09:00.142Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0296/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0296:0001/full/pct:12.5/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0296:0001/full/pct:12.5/0/default.jpg#h=329&w=449",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0296:0001/full/pct:25.0/0/default.jpg#h=659&w=899",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0296:0001/full/pct:50.0/0/default.jpg#h=1318&w=1799",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0296:0001/full/pct:100.0/0/default.jpg#h=2636&w=3599"
+      ],
+      "index": 6,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0296.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 32.77249,
+      "shelf_id": "musdcmicon.0296",
+      "subject": [
+        "art reproduction",
+        "caricature",
+        "art",
+        "musical group"
+      ],
+      "timestamp": "2025-06-25T09:07:12.512Z",
+      "title": "A Little Music - or - the Delights of Harmony",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0296/"
+    }
+  ],
+  "options": {
+    "access_group": [
+      ""
+    ],
+    "access_group_raw": "",
+    "all": null,
+    "api_version": "1",
+    "app_context": null,
+    "application_version": "$Revision$",
+    "attribute": null,
+    "attribute!": null,
+    "attribute_map": null,
+    "cache_tags": [
+      "paprika-music",
+      "gdc/webcasts",
+      "catalog-split-03",
+      "catalog",
+      "cataloged-event-videos",
+      "main-catalog-split-03",
+      "catalog-split-00",
+      "main-catalog-split-00",
+      "catalog-split-13",
+      "main-catalog-split-13",
+      "catalog-split-07",
+      "main-catalog-split-07",
+      "collections-portal",
+      "gdc/scd",
+      "catalog-split-09",
+      "general-collections-scan-on-demand-new",
+      "main-catalog-split-09",
+      "main-catalog"
+    ],
+    "callback": null,
+    "clip": null,
+    "clip_image_width": null,
+    "clip_rotation": null,
+    "content_filter": null,
+    "content_replacement": "",
+    "count": null,
+    "dates": null,
+    "default_count": 25,
+    "delimiter": null,
+    "digital_id": null,
+    "display_level": null,
+    "distance": null,
+    "downloadOption": null,
+    "duration": 0.48098134994506836,
+    "embed": [],
+    "embed!": [],
+    "error_response_status": null,
+    "excludeTerms": null,
+    "facetLimits": "",
+    "facetPrefix": null,
+    "facet_count": null,
+    "facet_style": null,
+    "field": null,
+    "format": "json",
+    "host": "www.loc.gov",
+    "ical": false,
+    "id": "musdcmicon.0514/",
+    "iiif": false,
+    "index": null,
+    "inputEncoding": "UTF-8",
+    "item": null,
+    "items": null,
+    "keys": null,
+    "language": null,
+    "latlong": null,
+    "method": "GET",
+    "newSearch": null,
+    "new_clip_url": false,
+    "onsite": false,
+    "operator": null,
+    "outputEncoding": "UTF-8",
+    "page_campaigns": [],
+    "path_info": "/item/musdcmicon.0514/",
+    "port": "443",
+    "proxypath": null,
+    "query_string": "fo=json",
+    "redirect_proxy": false,
+    "redirect_to_item": null,
+    "referer": "",
+    "region": "",
+    "release_id": 123456789,
+    "request_host": "www.loc.gov",
+    "request_params": {
+      "fo": [
+        "json"
+      ]
+    },
+    "request_url": "https://www.loc.gov/item/musdcmicon.0514/?fo=json",
+    "resource": "",
+    "resource_sequence": null,
+    "scheme": "https",
+    "searchIn": null,
+    "searchTerms": "",
+    "segments": null,
+    "shards": [
+      "08"
+    ],
+    "site_id": null,
+    "site_type": null,
+    "solrQuery": "",
+    "sortBy": null,
+    "sortOrder": null,
+    "startPage": null,
+    "style": null,
+    "suggested": null,
+    "target": null,
+    "template": "layouts/item/layout",
+    "timestamp": 1781475268.3882678,
+    "tz_aware": null,
+    "unionFacets": "",
+    "webcast_permalink": null
+  },
+  "related_items": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2021690456",
+        "http://www.loc.gov/item/2021690456/",
+        "https://hdl.loc.gov/loc.gdc/gdcwebcasts.170324eur1500",
+        "http://www.loc.gov/resource/gdcwebcasts.170324eur1500/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "john w. kluge center (library of congress)",
+        "library of congress",
+        "library of congress. music division"
+      ],
+      "date": "2017",
+      "dates": [
+        "2017"
+      ],
+      "description": [
+        "Laura Benedetti of Georgetown University and Peter Lukehart of the National Gallery of Art discuss 16th Century Italian poet Torquato Tasso in a program co-sponsored by the Embassy of Italy and the Italian Cultural Institute in Washington."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-04-28T19:52:24.789Z",
+      "group": [
+        "gdc/webcasts",
+        "catalog-split-03",
+        "catalog",
+        "cataloged-event-videos",
+        "main-catalog-split-03"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2021690456/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gdc/gdcwebcasts/17/03/24/eu/r1/50/0/170324eur1500/170324eur1500_716.0_thumb.jpg"
+      ],
+      "index": 1,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "video/mp4",
+        "image/jpeg",
+        "application/xml"
+      ],
+      "number": [
+        "2021690456",
+        "2022-11-09t14:52:00",
+        "online resource",
+        "http://www.loc.gov/item/webcast-8328"
+      ],
+      "online_format": [
+        "video",
+        "image",
+        "online text"
+      ],
+      "original_format": [
+        "film, video"
+      ],
+      "partof": [
+        "catalog",
+        "music division",
+        "general collections",
+        "event videos",
+        "john w. kluge center"
+      ],
+      "score": 9.504136,
+      "shelf_id": "http://lccn.loc.gov/2021690456",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "culture",
+        "poetry",
+        "16th century",
+        "music",
+        "art",
+        "torquato tasso",
+        "culture, performing arts",
+        "biography, history",
+        "italy",
+        "literature"
+      ],
+      "timestamp": "2025-05-09T16:22:31.799Z",
+      "title": "Words, Images & Music: A Dialogue on Torquato Tasso & the Arts",
+      "type": [
+        "moving image"
+      ],
+      "url": "https://www.loc.gov/item/2021690456/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2021690075",
+        "http://www.loc.gov/item/2021690075/",
+        "https://hdl.loc.gov/loc.gdc/gdcwebcasts.160324mus1900",
+        "http://www.loc.gov/resource/gdcwebcasts.160324mus1900/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "library of congress. music division",
+        "library of congress"
+      ],
+      "date": "2016",
+      "dates": [
+        "2016"
+      ],
+      "description": [
+        "Hayden Herrera discusses her book on the acclaimed Japanese-American artist and designer Isamu Noguchi, an important creative partner of Martha Graham. \"Without Isamu Noguchi I could have done nothing,\" Graham said. \"Always he has given me something that lived on stage as... another dancer.\" This and other events celebrating Noguchi were presented through the support of Sachiko Kuno and Ryuji Ueno."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-04-28T19:52:22.123Z",
+      "group": [
+        "gdc/webcasts",
+        "catalog-split-00",
+        "catalog",
+        "cataloged-event-videos",
+        "main-catalog-split-00"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2021690075/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gdc/gdcwebcasts/16/03/24/mu/s1/90/0/160324mus1900/160324mus1900_135.0_thumb.jpg"
+      ],
+      "index": 2,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "video/mp4",
+        "image/jpeg",
+        "application/xml"
+      ],
+      "number": [
+        "2021690075",
+        "2022-11-09t14:49:43",
+        "http://www.loc.gov/item/webcast-7308",
+        "online resource"
+      ],
+      "online_format": [
+        "video",
+        "image",
+        "online text"
+      ],
+      "original_format": [
+        "film, video"
+      ],
+      "partof": [
+        "catalog",
+        "general collections",
+        "music division",
+        "event videos"
+      ],
+      "score": 9.504136,
+      "shelf_id": "http://lccn.loc.gov/2021690075",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "martha graham",
+        "dance",
+        "isamu noguchi",
+        "art",
+        "japanese",
+        "culture, performing arts",
+        "japanese-american",
+        "book lecture"
+      ],
+      "timestamp": "2025-05-09T16:16:55.738Z",
+      "title": "Listening to Stone: The Art & Life of Isamu Noguchi",
+      "type": [
+        "moving image"
+      ],
+      "url": "https://www.loc.gov/item/2021690075/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2021690081",
+        "http://www.loc.gov/item/2021690081/",
+        "https://hdl.loc.gov/loc.gdc/gdcwebcasts.160331mus1900",
+        "http://www.loc.gov/resource/gdcwebcasts.160331mus1900/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "library of congress. music division",
+        "library of congress"
+      ],
+      "date": "2016",
+      "dates": [
+        "2016"
+      ],
+      "description": [
+        "Dakin Hart discussed Martha Graham and Isamu Noguchi's explorations of the archetypal spaces of myth, including the American west, the Minotaur's labyrinth and the \"cave of the heart.\""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-04-28T19:52:15.216Z",
+      "group": [
+        "gdc/webcasts",
+        "catalog-split-13",
+        "catalog",
+        "cataloged-event-videos",
+        "main-catalog-split-13"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2021690081/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gdc/gdcwebcasts/16/03/31/mu/s1/90/0/160331mus1900/160331mus1900_645.0_thumb.jpg"
+      ],
+      "index": 3,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "video/mp4",
+        "image/jpeg",
+        "application/xml"
+      ],
+      "number": [
+        "2022-11-09t14:49:46",
+        "2021690081",
+        "http://www.loc.gov/item/webcast-7426",
+        "online resource"
+      ],
+      "online_format": [
+        "video",
+        "image",
+        "online text"
+      ],
+      "original_format": [
+        "film, video"
+      ],
+      "partof": [
+        "catalog",
+        "general collections",
+        "music division",
+        "event videos"
+      ],
+      "score": 9.504136,
+      "shelf_id": "http://lccn.loc.gov/2021690081",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "design",
+        "martha graham",
+        "american art",
+        "music",
+        "art",
+        "culture, performing arts",
+        "performance",
+        "dance",
+        "japanese art"
+      ],
+      "timestamp": "2025-05-09T16:16:55.738Z",
+      "title": "Isamu Noguchi's Dance Sets",
+      "type": [
+        "moving image"
+      ],
+      "url": "https://www.loc.gov/item/2021690081/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2021689641",
+        "http://www.loc.gov/item/2021689641/",
+        "https://hdl.loc.gov/loc.gdc/gdcwebcasts.150123mus1830",
+        "http://www.loc.gov/resource/gdcwebcasts.150123mus1830/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "library of congress. music division",
+        "library of congress"
+      ],
+      "date": "2015",
+      "dates": [
+        "2015"
+      ],
+      "description": [
+        "Anne McLean discussed the history of the Concerts from the Library of Congress series, which has included concerts, lectures, symposia, and major radio broadcast projects since 1925. The lecture also provided an overview of the 90th anniversary season of the series."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-04-28T19:52:11.574Z",
+      "group": [
+        "gdc/webcasts",
+        "catalog-split-07",
+        "catalog",
+        "cataloged-event-videos",
+        "main-catalog-split-07"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2021689641/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gdc/gdcwebcasts/15/01/23/mu/s1/83/0/150123mus1830/150123mus1830_635.0_thumb.jpg"
+      ],
+      "index": 4,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "video/mp4",
+        "image/jpeg",
+        "application/xml"
+      ],
+      "number": [
+        "2022-11-09t14:47:11",
+        "http://www.loc.gov/item/webcast-7408",
+        "online resource",
+        "2021689641"
+      ],
+      "online_format": [
+        "video",
+        "image",
+        "online text"
+      ],
+      "original_format": [
+        "film, video"
+      ],
+      "partof": [
+        "catalog",
+        "music division",
+        "talking about music",
+        "general collections",
+        "event videos"
+      ],
+      "score": 9.504136,
+      "shelf_id": "http://lccn.loc.gov/2021689641",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "culture, performing arts",
+        "concerts",
+        "music",
+        "art",
+        "library of congress",
+        "history",
+        "radio broadcast",
+        "culture",
+        "performance",
+        "celebration"
+      ],
+      "timestamp": "2025-05-09T16:11:35.841Z",
+      "title": "Opus 90: Celebrating 90 Years of Concerts from the Library of Congress",
+      "type": [
+        "moving image"
+      ],
+      "url": "https://www.loc.gov/item/2021689641/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/collections/john-philip-sousa/about-this-collection/",
+        "http://www.loc.gov/collections/sousa/",
+        "https://lccn.loc.gov/2006579404",
+        "https://www.loc.gov/item/2006579404",
+        "http://lccn.loc.gov/2006579404",
+        "http://www.loc.gov/item/2006579404/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "sousa, john philip"
+      ],
+      "count": 678,
+      "date": "1849",
+      "dates": [
+        "[1854 TO 1932]",
+        "1849"
+      ],
+      "description": [
+        "Painting of Sousa during US Marine Band era, [n.d.]. Performing Arts Reading Room."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-06-14T05:08:20.574Z",
+      "group": [
+        "collections-portal"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/collections/john-philip-sousa/about-this-collection/",
+      "image_url": [
+        "https://www.loc.gov/static/collections/john-philip-sousa/500_500.jpg"
+      ],
+      "index": 5,
+      "items": "https://www.loc.gov/collections/john-philip-sousa/",
+      "language": [
+        "english",
+        "french"
+      ],
+      "location": [
+        "united states"
+      ],
+      "number": [
+        "2006579404",
+        "2025-06-07t01:29:44.600000"
+      ],
+      "original_format": [
+        "collection",
+        "notated music",
+        "sound recording",
+        "manuscript/mixed material"
+      ],
+      "partof": [
+        "music division",
+        "digital collections",
+        "the march king: john philip sousa"
+      ],
+      "score": 9.504136,
+      "shelf_id": "~/collections/john-philip-sousa/about-this-collection/",
+      "subject": [
+        "sousa band",
+        "advertisements",
+        "autographs (manuscripts)",
+        "musical sketches",
+        "periodicals",
+        "writings (documents)",
+        "marches (music)",
+        "sousa, john philip",
+        "art",
+        "dance music",
+        "suites",
+        "recordings",
+        "scores",
+        "incidental music",
+        "royalty statements",
+        "military music",
+        "arts and culture",
+        "financial records",
+        "music",
+        "parts (music)",
+        "photographs",
+        "posters",
+        "performing arts",
+        "songs",
+        "arrangements (music)",
+        "programs (publications)",
+        "marches and military music",
+        "music manuscripts",
+        "operas",
+        "drafts (documents)",
+        "personal correspondence",
+        "popular music",
+        "contracts",
+        "excerpts",
+        "business correspondence"
+      ],
+      "timestamp": "2026-06-14T06:13:29.193Z",
+      "title": "The March King: John Philip Sousa",
+      "type": [
+        "collection"
+      ],
+      "url": "https://www.loc.gov/collections/john-philip-sousa/about-this-collection/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2020016293",
+        "http://www.loc.gov/item/2020016293/",
+        "https://hdl.loc.gov/loc.gdc/gdcebookspublic.2020016293",
+        "http://www.loc.gov/resource/gdcebookspublic.2020016293/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "crespi, john a."
+      ],
+      "date": "2020-01-01",
+      "dates": [
+        "2020"
+      ],
+      "description": [
+        "\"From fashion sketches of smartly dressed Shanghai dandies in the 1920s, to multipanel drawings of refugee urbanites during the war against Japan, to panoramic pictures of anti-American propaganda rallies in the early 1950s, the polymorphic cartoon-style art known as manhua helped define China's modern experience. Manhua Modernity offers a richly illustrated, deeply contextualized analysis of these illustrations across the lively pages of popular pictorial magazines that entertained, informed, and mobilized a nation through a half century of political and cultural transformation. In this compelling media history, John Crespi argues that manhua must be understood in the context of the pictorial magazines that hosted them, and in turn these magazines must be seen as important mediators of the modern urban experience. Even as times changed-from interwar-era consumerism to war-time mobilization to Mao-style propaganda-the art form adapted to stay on the cutting edge of both politics and style\"-- Provided by publisher."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2022-05-07T14:15:47.888Z",
+      "group": [
+        "gdc/scd",
+        "catalog-split-09",
+        "catalog",
+        "general-collections-scan-on-demand-new",
+        "main-catalog-split-09",
+        "main-catalog"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2020016293/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/20/01/62/93/2020016293/2020016293.gif",
+        "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/20/01/62/93/2020016293/2020016293.gif#h=2700&w=1800"
+      ],
+      "index": 6,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "china"
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/epub"
+      ],
+      "number": [
+        "2020016293",
+        "online resource",
+        "2022-04-18t16:03:37"
+      ],
+      "online_format": [
+        "image",
+        "epub"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "catalog",
+        "general collections",
+        "lc online resource",
+        "open access books"
+      ],
+      "score": 8.7771015,
+      "shelf_id": "NC1696",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "caricature",
+        "political aspects",
+        "communism and culture",
+        "political culture",
+        "china",
+        "caricatures and cartoons",
+        "history",
+        "20th century"
+      ],
+      "timestamp": "2022-12-10T08:56:01.089Z",
+      "title": "Manhua modernity : Chinese culture and the pictorial turn",
+      "type": [
+        "text"
+      ],
+      "url": "https://www.loc.gov/item/2020016293/"
+    }
+  ],
+  "resources": [
+    {
+      "caption": null,
+      "files": [
+        [
+          {
+            "height": "3537",
+            "info": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/info.json",
+            "levels": "6",
+            "mimetype": "image/jp2",
+            "other_name": "0001.jp2",
+            "size": 1820109,
+            "url": "https://tile.loc.gov/storage-services/public/music/musdcmicon-0514/0001.jp2",
+            "width": "2573"
+          },
+          {
+            "height": 3537,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:100.0/0/default.jpg",
+            "width": 2573
+          },
+          {
+            "height": 1768,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:50.0/0/default.jpg",
+            "width": 1286
+          },
+          {
+            "height": 884,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:25.0/0/default.jpg",
+            "width": 643
+          },
+          {
+            "height": 442,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:12.5/0/default.jpg",
+            "width": 321
+          }
+        ]
+      ],
+      "image": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0514:0001/full/pct:12.5/0/default.jpg",
+      "paprika_resource_path": "/sets/music/musdcmicon-0514",
+      "pdf": "https://tile.loc.gov/storage-services/public/music/musdcmicon-0514/musdcmicon-0514.pdf",
+      "representative_index": 0,
+      "resourceOrder": null,
+      "resource_items": null,
+      "schemaVersion": "v1",
+      "url": "https://www.loc.gov/resource/music.musdcmicon-0514/",
+      "version": 4
+    }
+  ],
+  "timestamp": 1781475268869
+}

@@ -1,0 +1,131 @@
+{
+  "run_id": "loc-undated-enrichment-2026-06-14T22-14-28-125Z",
+  "source_id": "library-of-congress",
+  "started_at": "2026-06-14T22:14:28.151Z",
+  "completed_at": "2026-06-14T22:14:35.540Z",
+  "status": "success",
+  "access_route": "Library of Congress item/detail JSON via ?fo=json for previously undated local rows",
+  "selected_count": 14,
+  "enriched_count": 10,
+  "failed_count": 4,
+  "raw_outputs": [
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0001-http-www-loc-gov-item-musdcmicon-0567.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0002-http-www-loc-gov-item-musdcmicon-0514.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0003-http-www-loc-gov-item-musdcmicon-0320.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0004-http-www-loc-gov-item-musdcmicon-0047.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0005-http-www-loc-gov-item-musdcmicon-0092.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0006-http-www-loc-gov-item-musdcmicon-0069.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0007-http-www-loc-gov-item-musdcmicon-0650.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0008-http-www-loc-gov-item-musdcmicon-0379a.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0009-http-www-loc-gov-collections-lewis-carroll-scrapbook-about-this-collection.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0010-http-www-loc-gov-item-dc0492.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0014-http-www-loc-gov-item-ny0074.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/objects.jsonl"
+  ],
+  "record_count": 10,
+  "rights_review": "Registry metadata rights apply; detail JSON is stored as raw metadata and media files are not stored.",
+  "errors": [
+    "library-of-congress:http-www-loc-gov-collections-lewis-carroll-scrapbook-about-this-collection: No richer date or descriptive metadata found in LOC detail JSON.",
+    "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks239-html: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+    "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks23-html: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+    "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks208-html: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  ],
+  "generated_at": "2026-06-14T22:14:35.540Z",
+  "failures": [
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-collections-lewis-carroll-scrapbook-about-this-collection",
+      "route": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/?fo=json",
+      "error": "No richer date or descriptive metadata found in LOC detail JSON."
+    },
+    {
+      "local_id": "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks239-html",
+      "route": "https://www.loc.gov/preservation/conservators/bachbase/bbcbooks/detail/bbcbooks239.html?fo=json",
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+    },
+    {
+      "local_id": "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks23-html",
+      "route": "https://www.loc.gov/preservation/conservators/bachbase/bbcbooks/detail/bbcbooks23.html?fo=json",
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+    },
+    {
+      "local_id": "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks208-html",
+      "route": "https://www.loc.gov/preservation/conservators/bachbase/bbcbooks/detail/bbcbooks208.html?fo=json",
+      "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+    }
+  ],
+  "examples": [
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-musdcmicon-0567",
+      "title": "Les Chiens Quadrille (The Dogs Quadrille)",
+      "date": "",
+      "medium": "7 x 5 1/2 inches",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0001-http-www-loc-gov-item-musdcmicon-0567.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-musdcmicon-0514",
+      "title": "Colinet",
+      "date": "",
+      "medium": "4 1/2 inches high",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0002-http-www-loc-gov-item-musdcmicon-0514.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-musdcmicon-0320",
+      "title": "[Boy playing a transverse flute]",
+      "date": "",
+      "medium": "5 3/4 x 4 1/2 inches (14.7 x 11.5 cm.)",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0003-http-www-loc-gov-item-musdcmicon-0320.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-musdcmicon-0047",
+      "title": "Old Man playing Flute",
+      "date": "",
+      "medium": "7 1/4 x 7 1/2 inches",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0004-http-www-loc-gov-item-musdcmicon-0047.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-musdcmicon-0092",
+      "title": "Concert du Faubourg St. Germain",
+      "date": "",
+      "medium": "6 1/2 x 9 7/8 inches (16.5 x 25.1 cm.)",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0005-http-www-loc-gov-item-musdcmicon-0092.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-musdcmicon-0069",
+      "title": "Instruments de Musique / \"Perse\" - Plate 80",
+      "date": "",
+      "medium": "4 1/2 x 7 1/2 inches",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0006-http-www-loc-gov-item-musdcmicon-0069.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-musdcmicon-0650",
+      "title": "[Colophon - 1910 Türckische Chronica]",
+      "date": "",
+      "medium": "4 1/4 x 4 1/2 inches",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0007-http-www-loc-gov-item-musdcmicon-0650.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-musdcmicon-0379a",
+      "title": "Apollon et Midas (Apollo and Midas)",
+      "date": "",
+      "medium": "6 1/2 x 9 inches",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0008-http-www-loc-gov-item-musdcmicon-0379a.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-dc0492",
+      "title": "Mathew B. Brady Studio, 625 Pennsylvania Avenue Northwest, Washington, District of Columbia, DC",
+      "date": "Documentation compiled after 1933",
+      "medium": "Data Page(s): 14",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0010-http-www-loc-gov-item-dc0492.json"
+    },
+    {
+      "local_id": "library-of-congress:http-www-loc-gov-item-ny0074",
+      "title": "Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+      "date": "Documentation compiled after 1933",
+      "medium": "Photo(s): 9 ; Measured Drawing(s): 1 ; Data Page(s): 8 ; Photo Caption Page(s): 1",
+      "raw_path": "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0014-http-www-loc-gov-item-ny0074.json"
+    }
+  ]
+}

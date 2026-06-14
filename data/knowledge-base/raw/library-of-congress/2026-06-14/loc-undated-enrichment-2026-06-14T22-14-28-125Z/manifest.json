@@ -1,0 +1,36 @@
+{
+  "run_id": "loc-undated-enrichment-2026-06-14T22-14-28-125Z",
+  "source_id": "library-of-congress",
+  "started_at": "2026-06-14T22:14:28.151Z",
+  "completed_at": "2026-06-14T22:14:35.540Z",
+  "status": "success",
+  "access_route": "Library of Congress item/detail JSON via ?fo=json for previously undated local rows",
+  "selected_count": 14,
+  "enriched_count": 10,
+  "failed_count": 4,
+  "raw_outputs": [
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0001-http-www-loc-gov-item-musdcmicon-0567.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0002-http-www-loc-gov-item-musdcmicon-0514.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0003-http-www-loc-gov-item-musdcmicon-0320.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0004-http-www-loc-gov-item-musdcmicon-0047.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0005-http-www-loc-gov-item-musdcmicon-0092.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0006-http-www-loc-gov-item-musdcmicon-0069.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0007-http-www-loc-gov-item-musdcmicon-0650.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0008-http-www-loc-gov-item-musdcmicon-0379a.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0009-http-www-loc-gov-collections-lewis-carroll-scrapbook-about-this-collection.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0010-http-www-loc-gov-item-dc0492.json",
+    "data/knowledge-base/raw/library-of-congress/2026-06-14/loc-undated-enrichment-2026-06-14T22-14-28-125Z/loc-detail-0014-http-www-loc-gov-item-ny0074.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/objects.jsonl"
+  ],
+  "record_count": 10,
+  "rights_review": "Registry metadata rights apply; detail JSON is stored as raw metadata and media files are not stored.",
+  "errors": [
+    "library-of-congress:http-www-loc-gov-collections-lewis-carroll-scrapbook-about-this-collection: No richer date or descriptive metadata found in LOC detail JSON.",
+    "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks239-html: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+    "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks23-html: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+    "library-of-congress:https-www-loc-gov-preservation-conservators-bachbase-bbcbooks-detail-bbcbooks208-html: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  ]
+}

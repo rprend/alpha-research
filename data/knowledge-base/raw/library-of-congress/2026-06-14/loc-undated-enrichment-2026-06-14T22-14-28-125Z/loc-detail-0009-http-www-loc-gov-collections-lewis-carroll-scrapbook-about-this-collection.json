@@ -1,0 +1,815 @@
+{
+  "aka": [
+    "carroll"
+  ],
+  "breadcrumbs": [
+    {
+      "Library of Congress": "https://www.loc.gov"
+    },
+    {
+      "Digital Collections": "https://www.loc.gov/collections/"
+    },
+    {
+      "Lewis Carroll Scrapbook": "https://www.loc.gov/collections/lewis-carroll-scrapbook/"
+    },
+    {
+      "About this Collection": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/"
+    }
+  ],
+  "content": {
+    "active": true,
+    "image_url": [
+      "/static/collections/lewis-carroll-scrapbook/500_500.jpg"
+    ],
+    "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/",
+    "markup": "<p>An original scrapbook that was kept  by Charles Lutwidge Dodgson. Better known as Lewis Carroll, the Victorian-era children&rsquo;s  author of <em>Alice&rsquo;s Adventures in Wonderland</em> (1865) and <em>Through the Looking-Glass</em> (1871),  Dodgson was a lecturer in mathematics at the University of Oxford. The scrapbook contains  approximately 130 items, including newspaper clippings, photographs, and a limited number  of manuscript materials, collected between 1855-72. A timeline, authored by Edward Wakeling,  former chairman of the Lewis Carroll Society, helps to place materials found in the scrapbook  in their proper context. </p>\n<p>Lewis Carroll is the pseudonym for the Reverend Charles Lutwidge Dodgson (1832-1898),  lecturer of mathematics at Oxford University, England. He is best known as the  author of <em>Alice&rsquo;s Adventures in Wonderland</em>, a Victorian Era children&rsquo;s  story. The Lewis Carroll Scrapbook in the Rare Book &amp; Special Collections  Division of the Library of Congress consists of one scrapbook of approximately  200 unnumbered pages, containing 142 pasted and inlaid items. Carroll appears  to have kept the scrapbook between the years 1855 and 1871. Of the approximately  200 unnumbered pages, only 63 pages contain clippings and writing, the remaining  pages are blank. Blank pages are not included in the online collection. There  are seven loose inlaid items that Carroll had presumably not yet pasted into the  scrapbook. These <a href=\"/resource/rbc0001.2004695063/?sp=70\">seven items have been placed on page 64</a> of the scrapbook for  presentation purposes. </p>\n<p>Users of this online collection have the option of browsing the scrapbook,  page by page; searching bibliographic information (title, subject, notes) or full-text  of items within the scrapbook; or browsing the scrapbook items by author, title,   and subject.</p>\n",
+    "meta_description": "An original scrapbook that was kept by Charles Lutwidge Dodgson. Better known as Lewis Carroll, the Victorian-era children&rsquo;s author of Alice&rsquo;s Adventures in Wonderland (1865) and Through the Looking-Glass (1871), Dodgson was a lecturer in mathematics at the University of Oxford. The scrapbook contains approximately 130 items, including newspaper clippings, photographs, and a limited number of manuscript materials, collected between 1855-72. A timeline, authored by Edward Wakeling, former chairman of the Lewis Carroll Society, helps to place materials found in the scrapbook in their proper context. ",
+    "pagination": "1 of 3",
+    "partof": [],
+    "slug": "about-this-collection",
+    "title": "About this Collection",
+    "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/"
+  },
+  "digitized": 1138,
+  "expert_resources": [
+    {
+      "title": "Rare Book and Special Collections Reading Room",
+      "url": "https://www.loc.gov/research-centers/rare-book-and-special-collections"
+    },
+    {
+      "title": "Collections with Photos",
+      "url": "/photos/collections/"
+    },
+    {
+      "title": "Collections with Manuscripts",
+      "url": "/manuscripts/collections/"
+    }
+  ],
+  "featured_items": [
+    {
+      "alt": "A photograph of Lewis Carroll seated looking right.",
+      "image": "/static/collections/lewis-carroll-scrapbook/images/featured_carroll.jpg",
+      "title": "Lewis Carroll, n.d.\n",
+      "url": "/resource/cph.3b17481/"
+    },
+    {
+      "alt": "A woman with a cane points her finger, appearing to lecture a young girl who holds a dish and towel in her hands.",
+      "image": "/static/collections/lewis-carroll-scrapbook/images/featured_no-accouting-for-taste.jpg",
+      "title": "No Accounting for Taste! Image 96 of Scrap-book belonging to the Rev. Charles Ludwig [sic] Dodgson, M.A., Christ Church, Oxford, better known as \"Lewis Carroll,\" the author of \"Alice's adventures in wonderland, \"Through the looking-glass,\" etc.\n",
+      "url": "/resource/rbc0001.2004695063/?sp=96"
+    },
+    {
+      "alt": "An illustration depicting a well-dressed man in top hat with umbrella speaking to two men smoking pipes and leaning against a fence.",
+      "image": "/static/collections/lewis-carroll-scrapbook/images/featured_attempt-at-converting-the-natives.jpg",
+      "title": "From the Mining Districts. An attempt at converting the natives. Image 17 of Scrap-book belonging to the Rev. Charles Ludwig [sic] Dodgson, M.A., Christ Church, Oxford, better known as \"Lewis Carroll,\" the author of \"Alice's adventures in wonderland,\" \"Through the looking-glass.\"\n",
+      "url": "/resource/rbc0001.2004695063/?sp=17"
+    },
+    {
+      "alt": "Illustration of two women, one seated and one standing looking over a little girl seated in a chair.",
+      "image": "/static/collections/lewis-carroll-scrapbook/images/featured_wonderful-intelligent-child.jpg",
+      "title": "Wonderful Intelligent Child, Image 35 of Scrap-book belonging to the Rev. Charles Ludwig [sic] Dodgson, M.A., Christ Church, Oxford, better known as \"Lewis Carroll,\" the author of \"Alice's adventures in wonderland,\" \"Through the looking-glass,\" etc.\n",
+      "url": "/resource/rbc0001.2004695063/?sp=35"
+    },
+    {
+      "alt": "An illustration of a scene from a play depicting a man, woman and child grouped on the right and interacting with a man on the left.",
+      "image": "/static/collections/lewis-carroll-scrapbook/images/featured_adelphi-theater-performance.jpg",
+      "title": "Amateur Performance at the Adelphi Theatre. Scene from “A Sheep in Wolf’s Clothing.” Image 38 of Scrap-book belonging to the Rev. Charles Ludwig [sic] Dodgson, M.A., Christ Church, Oxford, better known as \"Lewis Carroll,\" the author of \"Alice's adventures in wonderland,\" \"Through the looking-glass,\" etc.\n",
+      "url": "/resource/rbc0001.2004695063/?sp=38"
+    },
+    {
+      "alt": "An Illustration of a young girl on her tiptoes peering up to see what is set on a table. ",
+      "image": "/static/collections/lewis-carroll-scrapbook/images/featured_tiptoe-of-expectation.jpg",
+      "title": "“On the Tiptoe of Expectation.” By Mrs. Anderson, in the Winter Expedition, 120, Pall-Mall. Image 59 of Scrap-book belonging to the Rev. Charles Ludwig [sic] Dodgson, M.A., Christ Church, Oxford, better known as \"Lewis Carroll,\" the author of \"Alice's adventures in wonderland,\" \"Through the looking-glass,\" etc\n",
+      "url": "/resource/rbc0001.2004695063/?sp=59"
+    }
+  ],
+  "legacy-url": "https://international.loc.gov/intldl/carrollhtml/lchome.html",
+  "next": {
+    "active": false,
+    "content": "about-this-collection/rights-and-access.html",
+    "description": [
+      "The contents of the Library of Lewis Carroll Scrapbook have no known copyright restrictions and are free to use and reuse."
+    ],
+    "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/rights-and-access/",
+    "markup": "<p>The contents of the Library of Lewis Carroll Scrapbook have no known copyright restrictions and are free to use and reuse.</p>\n<p>More about <a href=\"/legal/\">Copyright and other Restrictions</a></p>\n<p>For guidance about compiling full citations consult <a href=\"/programs/teachers/getting-started-with-primary-sources/citing/\">Citing Primary Sources</a>.</p>\n<p>Credit Line: Library of Congress, Rare Book and Special Collections Division.</p>\n",
+    "meta_description": "The contents of the Library of Lewis Carroll Scrapbook have no known copyright restrictions and are free to use and reuse.",
+    "pagination": "2 of 2",
+    "slug": "rights-and-access",
+    "title": "Rights and Access",
+    "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/rights-and-access/"
+  },
+  "next_sibling": {
+    "active": false,
+    "content": "$search_default|partof:lewis-carroll-scrapbook",
+    "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/",
+    "pagination": "2 of 3",
+    "slug": "",
+    "title": "Collection Items",
+    "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/"
+  },
+  "options": {
+    "access_group": [
+      ""
+    ],
+    "access_group_raw": "",
+    "all": null,
+    "api_version": "1",
+    "app_context": null,
+    "application_version": "$Revision$",
+    "attribute": null,
+    "attribute!": null,
+    "attribute_map": null,
+    "cache_tags": [],
+    "callback": null,
+    "clip": null,
+    "clip_image_width": null,
+    "clip_rotation": null,
+    "content_filter": null,
+    "content_replacement": "",
+    "count": null,
+    "dates": null,
+    "default_count": 25,
+    "delimiter": null,
+    "digital_id": null,
+    "display_level": null,
+    "distance": null,
+    "downloadOption": null,
+    "duration": 0.15486717224121094,
+    "embed": [],
+    "embed!": [],
+    "error_response_status": null,
+    "excludeTerms": null,
+    "facetLimits": "",
+    "facetPrefix": null,
+    "facet_count": null,
+    "facet_style": null,
+    "field": null,
+    "format": "json",
+    "host": "www.loc.gov",
+    "ical": false,
+    "id": null,
+    "iiif": false,
+    "index": null,
+    "inputEncoding": "UTF-8",
+    "item": null,
+    "items": null,
+    "keys": null,
+    "language": null,
+    "latlong": null,
+    "method": "GET",
+    "newSearch": null,
+    "new_clip_url": false,
+    "onsite": false,
+    "operator": null,
+    "outputEncoding": "UTF-8",
+    "page_campaigns": [],
+    "path_info": "/collections/lewis-carroll-scrapbook/about-this-collection/",
+    "port": "443",
+    "proxypath": null,
+    "query_string": "fo=json",
+    "redirect_proxy": false,
+    "redirect_to_item": null,
+    "referer": "",
+    "region": "",
+    "release_id": 123456789,
+    "request_host": "www.loc.gov",
+    "request_params": {
+      "fo": [
+        "json"
+      ]
+    },
+    "request_url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/?fo=json",
+    "resource": "about-this-collection/",
+    "resource_sequence": null,
+    "scheme": "https",
+    "searchIn": null,
+    "searchTerms": "",
+    "segments": null,
+    "site_id": "lewis-carroll-scrapbook",
+    "site_type": "collections",
+    "solrQuery": "",
+    "sortBy": null,
+    "sortOrder": null,
+    "startPage": null,
+    "style": null,
+    "suggested": null,
+    "target": null,
+    "template": "managed-content/layouts",
+    "timestamp": 1781475185.404761,
+    "tz_aware": null,
+    "unionFacets": "",
+    "webcast_permalink": null
+  },
+  "original_formats": [
+    "photo, print, drawing",
+    "manuscript/mixed material"
+  ],
+  "pages": [
+    {
+      "active": true,
+      "children": [
+        {
+          "active": true,
+          "image_url": [
+            "/static/collections/lewis-carroll-scrapbook/500_500.jpg"
+          ],
+          "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/",
+          "markup": "<p>An original scrapbook that was kept  by Charles Lutwidge Dodgson. Better known as Lewis Carroll, the Victorian-era children&rsquo;s  author of <em>Alice&rsquo;s Adventures in Wonderland</em> (1865) and <em>Through the Looking-Glass</em> (1871),  Dodgson was a lecturer in mathematics at the University of Oxford. The scrapbook contains  approximately 130 items, including newspaper clippings, photographs, and a limited number  of manuscript materials, collected between 1855-72. A timeline, authored by Edward Wakeling,  former chairman of the Lewis Carroll Society, helps to place materials found in the scrapbook  in their proper context. </p>\n<p>Lewis Carroll is the pseudonym for the Reverend Charles Lutwidge Dodgson (1832-1898),  lecturer of mathematics at Oxford University, England. He is best known as the  author of <em>Alice&rsquo;s Adventures in Wonderland</em>, a Victorian Era children&rsquo;s  story. The Lewis Carroll Scrapbook in the Rare Book &amp; Special Collections  Division of the Library of Congress consists of one scrapbook of approximately  200 unnumbered pages, containing 142 pasted and inlaid items. Carroll appears  to have kept the scrapbook between the years 1855 and 1871. Of the approximately  200 unnumbered pages, only 63 pages contain clippings and writing, the remaining  pages are blank. Blank pages are not included in the online collection. There  are seven loose inlaid items that Carroll had presumably not yet pasted into the  scrapbook. These <a href=\"/resource/rbc0001.2004695063/?sp=70\">seven items have been placed on page 64</a> of the scrapbook for  presentation purposes. </p>\n<p>Users of this online collection have the option of browsing the scrapbook,  page by page; searching bibliographic information (title, subject, notes) or full-text  of items within the scrapbook; or browsing the scrapbook items by author, title,   and subject.</p>\n",
+          "meta_description": "An original scrapbook that was kept by Charles Lutwidge Dodgson. Better known as Lewis Carroll, the Victorian-era children&rsquo;s author of Alice&rsquo;s Adventures in Wonderland (1865) and Through the Looking-Glass (1871), Dodgson was a lecturer in mathematics at the University of Oxford. The scrapbook contains approximately 130 items, including newspaper clippings, photographs, and a limited number of manuscript materials, collected between 1855-72. A timeline, authored by Edward Wakeling, former chairman of the Lewis Carroll Society, helps to place materials found in the scrapbook in their proper context. ",
+          "pagination": "1 of 3",
+          "partof": [],
+          "slug": "about-this-collection",
+          "title": "About this Collection",
+          "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/"
+        },
+        {
+          "active": false,
+          "content": "about-this-collection/rights-and-access.html",
+          "description": [
+            "The contents of the Library of Lewis Carroll Scrapbook have no known copyright restrictions and are free to use and reuse."
+          ],
+          "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/rights-and-access/",
+          "markup": "<p>The contents of the Library of Lewis Carroll Scrapbook have no known copyright restrictions and are free to use and reuse.</p>\n<p>More about <a href=\"/legal/\">Copyright and other Restrictions</a></p>\n<p>For guidance about compiling full citations consult <a href=\"/programs/teachers/getting-started-with-primary-sources/citing/\">Citing Primary Sources</a>.</p>\n<p>Credit Line: Library of Congress, Rare Book and Special Collections Division.</p>\n",
+          "meta_description": "The contents of the Library of Lewis Carroll Scrapbook have no known copyright restrictions and are free to use and reuse.",
+          "pagination": "2 of 2",
+          "slug": "rights-and-access",
+          "title": "Rights and Access",
+          "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/rights-and-access/"
+        }
+      ],
+      "content": "about-this-collection/overview.html",
+      "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/",
+      "markup": "<p>An original scrapbook that was kept  by Charles Lutwidge Dodgson. Better known as Lewis Carroll, the Victorian-era children&rsquo;s  author of <em>Alice&rsquo;s Adventures in Wonderland</em> (1865) and <em>Through the Looking-Glass</em> (1871),  Dodgson was a lecturer in mathematics at the University of Oxford. The scrapbook contains  approximately 130 items, including newspaper clippings, photographs, and a limited number  of manuscript materials, collected between 1855-72. A timeline, authored by Edward Wakeling,  former chairman of the Lewis Carroll Society, helps to place materials found in the scrapbook  in their proper context. </p>\n<p>Lewis Carroll is the pseudonym for the Reverend Charles Lutwidge Dodgson (1832-1898),  lecturer of mathematics at Oxford University, England. He is best known as the  author of <em>Alice&rsquo;s Adventures in Wonderland</em>, a Victorian Era children&rsquo;s  story. The Lewis Carroll Scrapbook in the Rare Book &amp; Special Collections  Division of the Library of Congress consists of one scrapbook of approximately  200 unnumbered pages, containing 142 pasted and inlaid items. Carroll appears  to have kept the scrapbook between the years 1855 and 1871. Of the approximately  200 unnumbered pages, only 63 pages contain clippings and writing, the remaining  pages are blank. Blank pages are not included in the online collection. There  are seven loose inlaid items that Carroll had presumably not yet pasted into the  scrapbook. These <a href=\"/resource/rbc0001.2004695063/?sp=70\">seven items have been placed on page 64</a> of the scrapbook for  presentation purposes. </p>\n<p>Users of this online collection have the option of browsing the scrapbook,  page by page; searching bibliographic information (title, subject, notes) or full-text  of items within the scrapbook; or browsing the scrapbook items by author, title,   and subject.</p>\n",
+      "meta_description": "An original scrapbook that was kept by Charles Lutwidge Dodgson. Better known as Lewis Carroll, the Victorian-era children&rsquo;s author of Alice&rsquo;s Adventures in Wonderland (1865) and Through the Looking-Glass (1871), Dodgson was a lecturer in mathematics at the University of Oxford. The scrapbook contains approximately 130 items, including newspaper clippings, photographs, and a limited number of manuscript materials, collected between 1855-72. A timeline, authored by Edward Wakeling, former chairman of the Lewis Carroll Society, helps to place materials found in the scrapbook in their proper context. ",
+      "pagination": "1 of 3",
+      "slug": "about-this-collection",
+      "title": "About this Collection",
+      "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/"
+    },
+    {
+      "active": false,
+      "content": "$search_default|partof:lewis-carroll-scrapbook",
+      "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/",
+      "pagination": "2 of 3",
+      "slug": "",
+      "title": "Collection Items",
+      "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/"
+    },
+    {
+      "active": false,
+      "children": [
+        {
+          "content": "articles-and-essays/essay/index.html",
+          "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/articles-and-essays/essay/",
+          "slug": "essay",
+          "title": "The Lewis Carroll Scrapbook by Edward Wakeling",
+          "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/articles-and-essays/essay/"
+        },
+        {
+          "content": "$posts|partof:portraits",
+          "description": [
+            "Portraits of key people mentioned in the clippings contained within the Lewis Carroll Scrapbook at the Library of Congress. All photographs were taken by Dodgson."
+          ],
+          "disableSort": true,
+          "disableViews": true,
+          "image_url": [
+            "/static/collections/lewis-carroll-scrapbook/images/dodgson.jpg"
+          ],
+          "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/articles-and-essays/portrait-gallery/",
+          "slug": "portrait-gallery",
+          "style": "slideshow",
+          "title": "Portrait Gallery",
+          "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/articles-and-essays/portrait-gallery/?st=slideshow"
+        },
+        {
+          "description": [
+            "Charles Lutwidge Dodgson’s, (Lewis Carroll) Timeline 1855-1872; including a chronology of his life, life events and world events.\n"
+          ],
+          "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/articles-and-essays/timeline/",
+          "slug": "timeline",
+          "timelines": [
+            "timeline_chronology",
+            "timeline_dodgson_life_events",
+            "timeline_world_events"
+          ],
+          "title": "Timelines",
+          "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/articles-and-essays/timeline/"
+        }
+      ],
+      "content": "$children",
+      "link": "https://www.loc.gov/collections/lewis-carroll-scrapbook/articles-and-essays/",
+      "pagination": "3 of 3",
+      "slug": "articles-and-essays",
+      "title": "Articles and Essays",
+      "url": "https://www.loc.gov/collections/lewis-carroll-scrapbook/articles-and-essays/"
+    }
+  ],
+  "partof": [
+    "Rare Book and Special Collections Division"
+  ],
+  "posts": [
+    {
+      "description": [
+        "Assisted self-portrait. Prints & Photographs Division\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/charlesd.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/dodgson.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Charles Lutwidge Dodgson (1832-1898)."
+    },
+    {
+      "description": [
+        "Princeton University Library\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/alfred.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Tennyson_Alfred.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Alfred, Lord Tennyson (1809-1892)."
+    },
+    {
+      "description": [
+        "Harry Ransom Humanities Research Center, The University of Texas\nat Austin\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/kate.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Terry_Kate.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Elizabeth Murray Kate Terry (1844-1924)"
+    },
+    {
+      "description": [
+        "Princeton University Library\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/john.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Ruskin_John.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "John Ruskin (1819-1900)"
+    },
+    {
+      "description": [
+        "Princeton University Library\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/wilcox.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Wilcox_William_and_Fanny.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "William Edward Wilcox (1835-1876)"
+    },
+    {
+      "description": [
+        "Harry Ransom Humanities Research Center, The University of Texas\nat Austin\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/charlesl.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Longley_Charles.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Charles Thomas Longley (1794-1868)"
+    },
+    {
+      "description": [
+        "Private collection\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/monier.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Williams_Monier.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Monier Monier-Williams (1819-1899)"
+    },
+    {
+      "description": [
+        "National Portrait Gallery, London\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/friedrich.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Muller_Frederick.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Friedrich Max Müller (1823-1900)"
+    },
+    {
+      "description": [
+        "Private collection\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/christina.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Rossetti_Christina.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Christina Georgina Rossetti (1830-1894)"
+    },
+    {
+      "description": [
+        "Princeton University Library\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/agnes.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Weld_Agnes.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Agnes Grace Weld (1849-1915)"
+    },
+    {
+      "description": [
+        "Harry Ransom Humanities Research Center, The University of Texas\nat Austin\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/charlesw.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Weld_Charles.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Charles Richard Weld (1813-1869)"
+    },
+    {
+      "description": [
+        "Harry Ransom Humanities Research Center, The University of Texas\nat Austin\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/tom.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Taylor_Tom.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Tom Taylor (1817-1880)"
+    },
+    {
+      "description": [
+        "Princeton University Library\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/samuel.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Wilberforce_Samuel.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Samuel Wilberforce (1805-1873)"
+    },
+    {
+      "description": [
+        "Harry Ransom Humanities Research Center, The University of Texas\nat Austin\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/charlotte.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Denman_Charlotte.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Charlotte Edith Denman (1855-1884)"
+    },
+    {
+      "description": [
+        "Princeton University Library\n"
+      ],
+      "image_url": [
+        "/static/collections/lewis-carroll-scrapbook/images/arthur.jpg",
+        "/static/collections/lewis-carroll-scrapbook/images/Stanley_Arthur.jpg"
+      ],
+      "partof": [
+        "portraits"
+      ],
+      "title": "Arthur Penrhyn Stanley (1815-1881)"
+    }
+  ],
+  "previous": null,
+  "previous_sibling": null,
+  "research-centers": [
+    "rare-book-and-special-collections"
+  ],
+  "shards": [
+    "00"
+  ],
+  "site_type": "collections",
+  "subjects": [
+    "World Cultures & History",
+    "Europe",
+    "Arts and Culture",
+    "Literature & Poetry",
+    "Western Europe",
+    "Literature"
+  ],
+  "timelines": [
+    {
+      "id": "timeline_chronology",
+      "items": [
+        {
+          "description": "<p>Born  (January 27) at the Parsonage, Daresbury, Cheshire, eldest son and third  child of Charles Dodgson, perpetual curate of Daresbury, and Frances  Jane née Lutwidge.</p>\n",
+          "title": "1832"
+        },
+        {
+          "description": "<p>At Richmond School, Yorkshire.</p>\n",
+          "title": "1844-45"
+        },
+        {
+          "description": "<p>At Rugby School.</p>\n",
+          "title": "1846-49"
+        },
+        {
+          "description": "<p>Matriculated  (May 23) at Christ Church, Oxford, but unable to take up residence as  insufficient room for undergraduates at that time.</p>\n",
+          "title": "1850"
+        },
+        {
+          "description": "<p> Undergraduate at Christ Church, Oxford (January 24); Frances Jane [Lutwidge] Dodgson, his mother, dies (January 26).</p>\n",
+          "title": "1851"
+        },
+        {
+          "description": "<p>Student of Christ Church (equivalent to a fellowship carrying a small stipend).</p>\n",
+          "title": "1852-98"
+        },
+        {
+          "description": "<p>B.A., Christ Church, Oxford First Class Honors in Mathematics, Second Class in Classics.</p>\n",
+          "title": "1854"
+        },
+        {
+          "description": "<p> Sub-Librarian of Christ Church Library (February); Bostock Scholarship  (May); appointed Master of the House (June); appointed Mathematical  Lecturer (August; takes up post in January 1856).</p>\n",
+          "title": "1855"
+        },
+        {
+          "description": "<p>Takes up photography, his main hobby for twenty-five years (May 1).</p>\n",
+          "title": "1856"
+        },
+        {
+          "description": "<p>M.A., Christ Church, Oxford (February 5).</p>\n",
+          "title": "1857"
+        },
+        {
+          "description": "<p>Ordained deacon, Church of England in Christ Church Cathedral (December 22).</p>\n",
+          "title": "1861"
+        },
+        {
+          "description": "<p>Story of Alice&rsquo;s adventures told to Alice Liddell and her sisters on a boat-trip to Godstow (July 4); manuscript of<em> Alice&rsquo;s Adventures Under-Ground</em> begun soon after.</p>\n",
+          "title": "1862"
+        },
+        {
+          "description": "<p>Publishes <em>Alice&rsquo;s Adventures in Wonderland</em> (July) but immediately withdrawn and reissued with improved illustrations (November). </p>\n",
+          "title": "1865"
+        },
+        {
+          "description": "<p>Sheets of the suppressed edition of <em>Alice''s Adventures in Wonderland</em> (1865) bound in Oxford and shipped to New York for sale by D. Appleton  and Company, with a new title page dated 1866 (before August).</p>\n",
+          "title": "1866"
+        },
+        {
+          "description": "<p>Journeys through Europe to Russia with Henry P. Liddon (July to September).</p>\n",
+          "title": "1867"
+        },
+        {
+          "description": "<p>Father dies (June 21); siblings move to &ldquo;The Chestnuts,&rdquo; Guildford (September).</p>\n",
+          "title": "1868"
+        },
+        {
+          "description": "<p>Publishes <em>Phantasmagoria</em>, collection of humorous and serious poetry.</p>\n",
+          "title": "1869"
+        },
+        {
+          "description": "<p>Publishes <em>Through the Looking-Glass</em> (December).<br>Publishes <em>The Hunting of the Snark</em> (April).</p>\n",
+          "title": "1871"
+        },
+        {
+          "description": "<p>Takes summer lodgings at Eastbourne for first time (July); occupies rooms with the same landlady annually until 1897.</p>\n",
+          "title": "1877"
+        },
+        {
+          "description": "<p> Gives up photography (last photograph taken on July 15).</p>\n",
+          "title": "1880"
+        },
+        {
+          "description": "<p>Takes early retirement from mathematical lectureship.</p>\n",
+          "title": "1881"
+        },
+        {
+          "description": "<p> Curator of Common Room at Christ Church (December).</p>\n",
+          "title": "1882"
+        },
+        {
+          "description": "<p> Publishes <em>A Tangled Tale</em>.</p>\n",
+          "title": "1885"
+        },
+        {
+          "description": "<p>Publishes facsimile of <em>Alice&rsquo;s Adventures Under-Ground</em>.</p>\n",
+          "title": "1886"
+        },
+        {
+          "description": "<p>Publishes <em>The Game of Logic</em>.</p>\n",
+          "title": "1887"
+        },
+        {
+          "description": "<p>Publishes <em>Sylvie and Bruno</em>.</p>\n",
+          "title": "1889"
+        },
+        {
+          "description": "<p>Publishes <em>The Nursery &ldquo;Alice.&rdquo;</em></p>\n",
+          "title": "1890"
+        },
+        {
+          "description": "<p>Resigns as Curator of Common Room.</p>\n",
+          "title": "1892"
+        },
+        {
+          "description": "<p>Publishes <em>Sylvie and Bruno Concluded</em>.</p>\n",
+          "title": "1893"
+        },
+        {
+          "description": "<p>Publishes <em>Symbolic Logic: Part 1</em>. </p>\n",
+          "title": "1896"
+        },
+        {
+          "description": "<p>Dies at Guildford (January 14) and is buried there. <em>Three Sunsets and Other Poems </em>published posthumously (January). </p>\n",
+          "title": "1898"
+        }
+      ],
+      "title": "Charles Lutwidge Dodgson: A Chronology of His Life\n"
+    },
+    {
+      "id": "timeline_dodgson_life_events",
+      "items": [
+        {
+          "description": "<p>Appointed tutor in mathematics at Christ Church, Oxford (January).<br>Henry George Liddell appointed new Dean of Christ Church, Oxford (June).<br>Liddell appoints Dodgson honorary Master of the House at Christ Church, Oxford--providing privileges within the college, entitling membership in Common Room, and paving way for position as mathematical lecturer (June).<br>Reads Tennyson’s <em>Maud</em> (August).<br>Spends time with his Wilcox cousins at Whitburn (September).</p>\n",
+          "title": "1855"
+        },
+        {
+          "description": "<p>Begins career as mathematical lecturer at Christ Church, Oxford (January).<br>Invents pen name “Lewis Carroll” (February).<br>Meets three-year-old Alice Liddell in Deanery Garden for first time (April).<br>Buys camera and begins hobby of photography (May).<br>Sees child-actress Ellen Terry perform in <em>Henry VIII</em> (June).<br>Takes holiday in Lake District (August).<br>Hears <em>Messiah</em> performed at Exeter Hall (December).</p>\n",
+          "title": "1856"
+        },
+        {
+          "description": "<p>Receives M.A. degree (February).\nPublishes “Palace of Humbug” in first issue of <em>The Oxford Critic</em> (April).<br>Sees Tom Taylor’s <em>A Sheep in Wolf’s Clothing</em> at Olympic Theatre (April).<br>Sees thirteen-year-old Kate Terry in role of Ariel in The Tempest (July).<br>Photographs Agnes Grace Weld as “Little Red Riding-Hood” (August).<br>Takes holiday in Scotland (September).<br>Meets Alfred Lord Tennyson and his family in Lake District (September).</p>\n",
+          "title": "1857"
+        },
+        {
+          "description": "<p>Reads George Eliot’s <em>Scenes from Clerical Life</em> (January).<br>Invents first of four different systems of cipher (February/March).<br>Exhibits four photographs at fifth annual exhibition, Photographic Society of London (April).<br>Takes photographs of Liddell sisters, including Alice as “Beggar-Maid” (Summer).</p>\n",
+          "title": "1858"
+        },
+        {
+          "description": "<p>Visits the Tennysons on Isle of Wight (April).<br>Meets Samuel Wilberforce, Bishop of Oxford, to discuss ordination (July).<br>Visits studio of sculptor Alexander Munro and takes several photographs (summer).<br>Spends time with Bishop of Durham Charles T. Longley and his family (late summer).<br>Prince of Wales comes to Christ Church, Oxford, as undergraduate (October).</p>\n",
+          "title": "1859"
+        },
+        {
+          "description": "<p>Contributes “A Photographer’s Day Out” to <em>The South Shields Amateur Magazine</em> (early in the year).<br>Makes pilgrimage to Daresbury and Richmond--places associated with his early life (Easter).<br>Attends meeting of British Association at Oxford during which Wilberforce and Huxley debate Darwin’s <em>Origin of Species</em>. Photographs several delegates (June/July).<br>Takes holiday at Whitby, Yorkshire (late summer).<br>Meets Queen Victoria and members of Royal Family at Christ Church Deanery, Oxford (December).<br>Publishes <em>A Syllabus of Plane Algebraical Geometry</em> (month unknown).</p>\n",
+          "title": "1860"
+        },
+        {
+          "description": "<p>Begins “letter register” numbering all correspondence sent and received chronologically (January).<br>Reviews Photographic Society of London’s exhibition in The Illustrated Times (January).<br>Visits James Hunt at Ore, near Hastings, to receive help with speech hesitation (April).<br>Publishes <em>The Formula of Plane Trigonometry</em> (June).<br>Attends Oxford University debate on endowment of Greek professorship (November).<br>Ordained deacon of Church of England by Wilberforce in Christ Church Cathedral (December).</p>\n",
+          "title": "1861"
+        },
+        {
+          "description": "<p>Visits Isle of Wight and meets the Tennysons and Camerons (April).<br>Becomes editor, <em>College Rhymes</em> (July).<br>Takes Liddell sisters on boat-trip during which he tells the tale of <em>Alice’s Adventures</em> (July).<br>Composes medley-song, “Miss Jones,” with help from his sisters (September).</p>\n",
+          "title": "1862"
+        },
+        {
+          "description": "<p>Attends celebrations in Oxford to commemorate wedding of Prince and Princess of Wales (March).<br>Journeys to Tenby, West Wales, to visit relatives--Smedleys and Pooles (April).<br>Vaccinated against smallpox (May).<br>Prince and Princess of Wales visit the Deanery, Christ Church, Oxford (June).<br>Spends a few days photographing Rossetti family in London (October)</p>\n",
+          "title": "1863"
+        },
+        {
+          "description": "<p>Introduced by Tom Taylor to John Tenniel; asks latter to illustrate <em>Alice’s Adventures</em> (January).<br>Tenniel consents (April).<br>Spends a few weeks at Lambeth Palace photographing visitors (July).<br>Visits Isle of Wight and photographs Farringford, the Tennyson’s home, and Mr. Weld (August).<br>Presents Alice Liddell with manuscript copy of <em>Alice’s Adventures Under Ground</em> (November).<br>Meets, for first time, Kate and Ellen Terry in person at their home (December).</p>\n",
+          "title": "1864"
+        },
+        {
+          "description": "<p>Meets Sophie Anderson, painter, at her home (April).<br><em>Alice’s Adventures in Wonderland</em> published, but immediately withdrawn from sale (July).<br>Alice reprinted--becoming first published edition (November).<br>Letter of complaint from undergraduates at Christ Church, Oxford, published in <em>The Times</em> (November).<br>Sees <em>Henry Dunbar</em> at Olympic Theatre, London (December).</p>\n",
+          "title": "1865"
+        },
+        {
+          "description": "<p>Invents “Condensation of Determinants”--reads before Royal Society (May).<br>Goes to Haymarket Theatre to see Edward Askew Sothern perform in <em>Lord Dundreary Married and Done For</em> (June).<br>Travels to Whitburn and Whitby (September).<br>Publishes letters in <em>Pall Mall Gazette</em> and <em>The Times</em> on “Science of Betting” (November).</p>\n",
+          "title": "1866"
+        },
+        {
+          "description": "<p>Publishes “The Organization of Charity” in <em>Pall Mall Gazette</em> (January).<br>Sees amateur production of <em>A Sheep in Wolf’s Clothing</em> performed at Olympic Theatre to aid family of C. H. Bennett (May).<br>Travels to Russia with Henry P. Liddon, via France, Belgium, and Germany (July to September).</p>\n",
+          "title": "1867"
+        },
+        {
+          "description": "<p>1868\nReads Dickens’ Our Mutual Friend (January).<br>Dodgson’s father, Archdeacon Charles Dodgson, dies (June).<br>Brothers and sisters move to “The Chestnuts,” Guildford (September).<br>Publishes letter in Oxford University Herald about Woodstock Election (November).</p>\n",
+          "title": "1868"
+        },
+        {
+          "description": "<p>Book of poetry entitled Phantasmagoria published (January).<br>Sister, Mary Charlotte Dodgson, marries Charles E. S. Collingwood at Guildford (April).</p>\n",
+          "title": "1869"
+        },
+        {
+          "description": "<p>Spends five days at home of Henry Holiday, artist and illustrator, taking photographs July).<br>Visits Margate, Kent, for five weeks (August and September).</p>\n",
+          "title": "1870"
+        },
+        {
+          "description": "<p>Visits Lord Salisbury and family at Hatfield House (July).<br>Attends brother’s wedding at Sleights, near Whitby (August).<br>Travels to Scotland, visiting studio and home of Sir Noël Paton (September).<br>Publishes <em>Through the Looking-Glass</em> (December).</p>\n",
+          "title": "1871"
+        },
+        {
+          "description": "<p>Visits family and relatives at Southwick and Whitburn, near Sunderland (April).<br>Publishes <em>The New Belfry</em> (June).<br>Spends holiday at Bognor Regis with some of his sisters (August and September).<br>Guest of Salisbury family at Hatfield House for New Year (December).</p>\n",
+          "title": "1872"
+        }
+      ],
+      "title": "Dodgson’s Life Events Timeline 1855-1872\n"
+    },
+    {
+      "id": "timeline_world_events",
+      "items": [
+        {
+          "description": "<p>Palmerston elected premier of Great Britain (February).<br>Alexander II becomes tsar of Russia (March).<br>Charlotte Brontë dies (March).<br>Great Exhibition opens in Paris (May).</p>\n",
+          "title": "1855"
+        },
+        {
+          "description": "<p>Treaty of Paris ends Crimean War (March).<br>Oscar Wilde born (October).<br>John Buchanan elected fifteenth president of United States (November).<br>Powdered milk invented. </p>\n",
+          "title": "1856"
+        },
+        {
+          "description": "<p>Lord Baden-Powell, founder of Boy Scouts and Girl Guides, born (February).<br>Outbreak of Indian mutiny, also known as Sepoy Mutiny (March).<br>Thomas Hughes’ <em>Tom Brown’s School Days</em> published.</p>\n",
+          "title": "1857"
+        },
+        {
+          "description": "<p>Princess Royal, Victoria, marries Prince Frederick William of Prussia (January).<br><em>The Great Eastern</em>, a ship of revolutionary design by renowned Victorian engineer Isambard Kingdom Brunel, launched (January).<br>Lord Derby elected premier of Great Britain (February).<br>Atlantic telegraph completed (August).</p>\n",
+          "title": "1858"
+        },
+        {
+          "description": "<p>Arthur Conan Doyle born (May).<br>Palmerston elected premier for second term (June).<br>Isambard Kingdom Brunel dies (September).<br>Darwin’s <em>Origin of Species</em> published.<br>George Eliot’s <em>Adam Bede</em> published. </p>\n",
+          "title": "1859"
+        },
+        {
+          "description": "<p>J. M. Barrie, writer of <em>Peter Pan</em>, born (May).<br><em>Great Eastern</em> arrives in New York (June).<br>Prince of Wales visits United States (August).<br>Abraham Lincoln elected sixteenth president of United States (November).<br>First patent issued for Yale lock.</p>\n",
+          "title": "1860"
+        },
+        {
+          "description": "<p>U.S. civil war begins (April).<br>Queen Victoria calls for British people to remain neutral in American civil war (May).<br>Albert, the Prince Consort, dies (December).<br>Dickens’s <em>Great Expectations</em> published.</p>\n",
+          "title": "1861"
+        },
+        {
+          "description": "<p>International Exhibition opens in London (May).</p>\n",
+          "title": "1862"
+        },
+        {
+          "description": "<p>Abolition of slavery declared by President Abraham Lincoln (January).<br>Prince of Wales marries Princess Alexandra of Denmark (March).<br>William Makepeace Thackeray dies (December).<br>Charles Kingsley publishes <em>The Water Babies</em>. </p>\n",
+          "title": "1863"
+        },
+        {
+          "description": "<p>Geneva Convention, first to provide more humane treatment for wounded, signed (August).</p>\n",
+          "title": "1864"
+        },
+        {
+          "description": "<p>Lord Derby becomes premier of Great Britain (July).</p>\n",
+          "title": "1866"
+        },
+        {
+          "description": "<p>Nebraska admitted to the Union as thirty-seventh state (February).<br>Dominion of Canada established (March).<br>Karl Marx publishes <em>Das Kapital</em>. </p>\n",
+          "title": "1867"
+        },
+        {
+          "description": "<p>Benjamin Disraeli becomes premier of Great Britain (February).<br>General Ulysses Grant elected eighteenth president of United States (November).<br>Disraeli resigns and William Gladstone becomes premier (December).</p>\n",
+          "title": "1868"
+        },
+        {
+          "description": "<p>Disestablishment of Irish Church (July).<br>Suez Canal opens (November).</p>\n",
+          "title": "1869"
+        },
+        {
+          "description": "<p>Charles Dickens dies (June).<br>Republic proclaimed in France (September).</p>\n",
+          "title": "1870"
+        },
+        {
+          "description": "<p>Royal Albert Hall opens in London (March).<br>Great Chicago fire (October).</p>\n",
+          "title": "1871"
+        },
+        {
+          "description": "<p>Arthur Orton, the Tichborne Claimant, found an imposter (March).<br>Smallpox epidemic in London (July).</p>\n",
+          "title": "1872"
+        }
+      ],
+      "title": "World Events Timeline 1855-1872\n"
+    }
+  ],
+  "timestamp": 1781475185560,
+  "title": "Lewis Carroll Scrapbook",
+  "topics": [
+    "World Cultures & History",
+    "Social & Business History"
+  ],
+  "total": 1138
+}

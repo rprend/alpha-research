@@ -1,6 +1,6 @@
 # KB Date Quality Audit
 
-Generated at: 2026-06-14T22:11:03.492Z
+Generated at: 2026-06-14T22:14:42.584Z
 Status: pass
 
 ## nber-culture-history

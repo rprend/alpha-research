@@ -1,0 +1,1566 @@
+{
+  "articles_and_essays": null,
+  "cite_this": {
+    "apa": "Historic American Buildings Survey, C. (1933) <cite>Mathew B. Brady Studio, 625 Pennsylvania Avenue Northwest, Washington, District of Columbia, DC</cite>. Washington Washington D.C, 1933. Documentation Compiled After. [Photograph] Retrieved from the Library of Congress, https://www.loc.gov/item/dc0492/.",
+    "chicago": "Historic American Buildings Survey, Creator. <cite>Mathew B. Brady Studio, 625 Pennsylvania Avenue Northwest, Washington, District of Columbia, DC</cite>. Washington Washington D.C, 1933. Documentation Compiled After. Photograph. https://www.loc.gov/item/dc0492/.",
+    "mla": "Historic American Buildings Survey, Creator. <cite>Mathew B. Brady Studio, 625 Pennsylvania Avenue Northwest, Washington, District of Columbia, DC</cite>. Documentation Compiled After. Photograph. Retrieved from the Library of Congress, &lt;www.loc.gov/item/dc0492/&gt;."
+  },
+  "item": {
+    "_version_": 1821164287806144500,
+    "access_restricted": false,
+    "aka": [
+      "https://www.loc.gov/pictures/item/dc0492/",
+      "http://www.loc.gov/item/dc0492/",
+      "http://www.loc.gov/pictures/item/dc0492/",
+      "https://www.loc.gov/pictures/collection/hh/item/dc0492/",
+      "http://www.loc.gov/pictures/collection/hh/item/dc0492/",
+      "https://cdn.loc.gov/master/pnp/habshaer/dc/dc0400/dc0492/data/dc0492data.pdf",
+      "http://cdn.loc.gov/master/pnp/habshaer/dc/dc0400/dc0492/data/dc0492data.pdf",
+      "http://www.loc.gov/resource/hhh.dc0492data/"
+    ],
+    "call_number": "HABS DC,WASH,325-",
+    "campaigns": [],
+    "contributor_names": [
+      "Historic American Buildings Survey, creator"
+    ],
+    "contributors": [
+      {
+        "historic american buildings survey": "https://www.loc.gov/search/?fa=contributor:historic+american+buildings+survey&fo=json"
+      }
+    ],
+    "control_number": "dc0492",
+    "created": "2016-04-17T03:00:49Z",
+    "created_published": [
+      "Documentation compiled after 1933"
+    ],
+    "created_published_date": "Documentation compiled after 1933",
+    "description": [
+      "Data Page(s): 14"
+    ],
+    "digitized": true,
+    "display_offsite": true,
+    "extract_timestamp": "2025-01-13T19:14:05.646Z",
+    "extract_urls": [
+      "http://www.loc.gov/pictures/collection/hh/item/dc0492/#hh-0"
+    ],
+    "format": [
+      {
+        "photo, print, drawing": "https://www.loc.gov/search/?fa=original_format:photo,+print,+drawing&fo=json"
+      }
+    ],
+    "group": [
+      "hh-0",
+      "habshaer-group-0"
+    ],
+    "hassegments": false,
+    "id": "http://www.loc.gov/item/dc0492/",
+    "image_url": [],
+    "index": 1,
+    "item": {
+      "call_number": "HABS DC,WASH,325-",
+      "control_number": "dc0492",
+      "created": "2016-04-17T03:00:49Z",
+      "created_published": "Documentation compiled after 1933",
+      "created_published_date": "Documentation compiled after 1933",
+      "creators": [
+        {
+          "link": "https://www.loc.gov/pictures/related/?fi=name&q=Historic%20American%20Buildings%20Survey&co=hh",
+          "role": "creator",
+          "title": "Historic American Buildings Survey"
+        }
+      ],
+      "display_offsite": true,
+      "id": "dc0492",
+      "link": "https://www.loc.gov/pictures/item/dc0492/",
+      "medium_brief": "Data Page(s): 14",
+      "mediums": [
+        "Data Page(s): 14 "
+      ],
+      "modified": "2016-04-17T03:00:50Z",
+      "notes": [
+        "Significance: The small Italianate commercial building is a fine example of pre-Civil War commercial Washington architecture.  This building served as one of the first photographic studios in the City of Washington, being put to that use in 1850. From 1858-1881, it housed the National Photographic Art Gallery and the studio for the world renowned photographer Mathew B. Brady.  Brady is remembered for his photographs of the Civil War and the many portraits he took of famous personages of that era.  ",
+        "Survey number: HABS DC-295 "
+      ],
+      "part_of": "Historic American Buildings Survey (Library of Congress)",
+      "part_of_group": "Survey Number dc0492",
+      "place": [
+        {
+          "latitude": "",
+          "link": "https://www.loc.gov/pictures/related/?fi=place&q=District%20of%20Columbia--District%20of%20Columbia--Washington&co=hh",
+          "longitude": "",
+          "title": "District of Columbia -- District of Columbia -- Washington"
+        }
+      ],
+      "raw_collections": [
+        "diof",
+        "hh",
+        "survey"
+      ],
+      "repository": "Library of Congress Prints and Photographs Division Washington,      D.C. 20540 USA http://hdl.loc.gov/loc.pnp/pp.print",
+      "resource_links": [
+        "https://tile.loc.gov/storage-services/master/pnp/habshaer/dc/dc0400/dc0492/data/dc0492data.pdf"
+      ],
+      "rights_advisory": "No known restrictions on images made by the U.S. Government; images     copied from other sources may be restricted.    https://www.loc.gov/rr/print/res/114_habs.html",
+      "rights_information": "No known restrictions on images made by the U.S. Government; images     copied from other sources may be restricted.    https://www.loc.gov/rr/print/res/114_habs.html",
+      "service_low": "https://memory.loc.gov/pp/hhhtml/images/hh.gif",
+      "service_medium": "https://memory.loc.gov/pp/hhhtml/images/hh.gif",
+      "source_created": "1970-01-01T00:00:00Z",
+      "source_modified": "2016-04-17T03:00:00Z",
+      "subject_headings": [
+        "studios",
+        "photography",
+        "District Of Columbia -- District Of Columbia -- Washington"
+      ],
+      "thumb_gallery": "https://www.loc.gov/pictures/images/item/habs_thumb_large.jpg",
+      "title": "Mathew B. Brady Studio, 625 Pennsylvania Avenue Northwest, Washington, District of Columbia, DC"
+    },
+    "language": [
+      "english"
+    ],
+    "languages": [
+      {
+        "english": "https://www.loc.gov/search/?fa=language:english&fo=json"
+      }
+    ],
+    "link": "https://www.loc.gov/pictures/item/dc0492/",
+    "location": [
+      "washington",
+      "washington d.c."
+    ],
+    "locations": [
+      {
+        "washington": "https://www.loc.gov/search/?fa=location:washington&fo=json"
+      },
+      {
+        "washington d.c.": "https://www.loc.gov/search/?fa=location:washington+d.c.&fo=json"
+      }
+    ],
+    "medium": [
+      "Data Page(s): 14 "
+    ],
+    "medium_brief": "Data Page(s): 14",
+    "mime_type": [
+      "application/pdf"
+    ],
+    "modified": "2016-04-17T03:00:50Z",
+    "notes": [
+      "Significance: The small Italianate commercial building is a fine example of pre-Civil War commercial Washington architecture.  This building served as one of the first photographic studios in the City of Washington, being put to that use in 1850. From 1858-1881, it housed the National Photographic Art Gallery and the studio for the world renowned photographer Mathew B. Brady.  Brady is remembered for his photographs of the Civil War and the many portraits he took of famous personages of that era.  ",
+      "Survey number: HABS DC-295 "
+    ],
+    "online_format": [
+      "pdf"
+    ],
+    "original_format": [
+      "photo, print, drawing"
+    ],
+    "other_formats": [],
+    "part_of_group": "Survey Number dc0492",
+    "partof": [
+      {
+        "count": 45882,
+        "title": "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "url": "https://www.loc.gov/collections/historic-american-buildings-landscapes-and-engineering-records/?fo=json"
+      },
+      {
+        "count": 418991,
+        "title": "american memory",
+        "url": "https://www.loc.gov/search/?fa=partof:american+memory&fo=json"
+      },
+      {
+        "count": 1123193,
+        "title": "prints and photographs division",
+        "url": "https://www.loc.gov/search/?fa=partof:prints+and+photographs+division&fo=json"
+      }
+    ],
+    "place": [
+      {
+        "latitude": "",
+        "link": "https://www.loc.gov/pictures/related/?fi=place&q=District%20of%20Columbia--District%20of%20Columbia--Washington&co=hh",
+        "longitude": "",
+        "title": "District of Columbia -- District of Columbia -- Washington"
+      }
+    ],
+    "raw_collections": [
+      "diof",
+      "hh",
+      "survey"
+    ],
+    "related": {
+      "neighbors": "https://www.loc.gov/pictures/related/?&co=hh&pk=dc0492&st=gallery&sb=call_number#focus"
+    },
+    "repository": [
+      "Library of Congress Prints and Photographs Division Washington,      D.C. 20540 USA http://hdl.loc.gov/loc.pnp/pp.print"
+    ],
+    "reproductions": [
+      "<h4>If Digital Images Are Displaying</h4>\r\n<p>You can download online images yourself.  Alternatively, you can  purchase copies of various types through Library of Congress Duplication  Services.</p>\r\n<p>HABS/HAER/HALS materials have generally been scanned at high resolution that is suitable for most publication purposes (see <a href=\"/collections/historic-american-buildings-landscapes-and-engineering-records/about-this-collection/technical-information/\">Digitizing the Collection</a> for further details about the digital images).</p>\r\n<ul class=\"plain margin-bottom-double-li list-plain-extra-margin\">\r\n\t<li><strong>Photographs--</strong>All photographs are printed from digital files to preserve the fragile originals. </li>\r\n\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t<li>Make note of the Call Number and Item Number that appear under the  photograph in the multiple-image display (e.g., HAER, NY,52-BRIG,4-2). </li>\r\n\t\t<li>If possible, include a printout of the photograph. </li>\r\n\t</ul>\r\n\t<li><strong>Drawings--</strong>All drawings are printed from digital files to preserve the fragile originals. </li>\r\n\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t<li>Make note of the Survey Number (e.g., HAER NY - 143) and Sheet  Number (e.g., \"Sheet 1 of 4\"), which appear on the edge of the drawing.  (NOTE: These numbers are visible in the Tiff \"Reference Image\" display.) </li>\r\n\t\t<li>If possible, include a printout of the drawing. </li>\r\n\t</ul>\r\n\t<li><strong>Data Pages</strong></li>\r\n\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t<li>Make note of the Call Number in the catalog record. </li>\r\n\t</ul>\r\n</ul>\r\n<h4>If Digital Images Are Not Displaying</h4>\r\n<p>In the rare case that a digital image for HABS/HAER/HALS  documentation is not displaying online, select images for reproduction  through one of these methods:</p>\r\n<ul class=\"plain margin-bottom-double-li list-plain-extra-margin\">\r\n\t<li>Visit the Prints &amp; Photographs Reading Room and request to  view the group (general information about service in the reading room is  available at: <a href=\"https://www.loc.gov/rr/print/info/001_ref.html\">https://www.loc.gov/rr/print/info/001_ref.html</a>). It is best to contact reference staff in advance (see: <a href=\"https://www.loc.gov/rr/print/address.html\">https://www.loc.gov/rr/print/address.html</a>) to make sure the material is on site.  OR </li>\r\n\t<li>P&amp;P reading room staff can provide up to 15 quick copies of  items per calendar year (many original items in the holdings are too old  or fragile to make such copies, but generally HABS/HAER/HALS materials  are in good enough condition to be placed on photocopy machines). For  assistance, see our <a href=\"https://ask.loc.gov/prints-photographs/\">Ask a Librarian</a> page OR </li>\r\n\t<li>Hire a freelance researcher to do further selection for you (a list of researchers in available at: <a href=\"https://www.loc.gov/rr/print/resource/013_pic.html\">https://www.loc.gov/rr/print/resource/013_pic.html</a>). </li>\r\n\t<li>You can purchase copies of various types, including quick  copies, through Library of Congress Duplication Services (price lists,  contact information, and order forms for Library of Congress Duplication  Services are available on the <a href=\"https://www.loc.gov/preserv/pds/\">Duplication Services Web site</a>): </li>\r\n\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t<li>Make note of the Call Number listed above. </li>\r\n\t\t<li>Look at the Medium field above. If it lists more than one item: </li>\r\n\t\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t\t<li>The entire group can be ordered as photocopies or high-quality copies. </li>\r\n\t\t\t<li>All the items in a particular medium (e.g., all drawings, all  photographs) can be ordered as photocopies or high-quality copies. </li>\r\n\t\t</ul>\r\n\t</ul>\r\n</ul>\r\n"
+    ],
+    "resource_links": [
+      "https://tile.loc.gov/storage-services/master/pnp/habshaer/dc/dc0400/dc0492/data/dc0492data.pdf"
+    ],
+    "resources": [
+      {
+        "caption": "Data Pages from Survey HABS DC-295 ",
+        "files": 1,
+        "image": "/static/images/original-format/manuscript-mixed-material.svg"
+      }
+    ],
+    "rights": [
+      "<p>The Library of Congress does not&nbsp;own rights to material  in its collections. Therefore, it does not license or charge permission fees  for use of such material and cannot grant or deny permission to publish or  otherwise distribute the material. </p>\n<p>Ultimately, it is the researcher's obligation to assess copyright or other use restrictions and  obtain permission from third parties when necessary before publishing or  otherwise distributing materials found in the Library's collections. </p>\n<p>For information about reproducing,  publishing, and citing material from this collection, as well as access to the  original items, see: <a href=\"https://www.loc.gov/rr/print/res/114_habs.html\">Historic American Buildings Survey/Historic American Engineering Record/Historic American Landscape Survey (HABS/HAER/HALS) Collection - Rights and Restrictions Information</a> </p>\n\n"
+    ],
+    "rights_advisory": "No known restrictions on images made by the U.S. Government; images     copied from other sources may be restricted.    https://www.loc.gov/rr/print/res/114_habs.html",
+    "rights_information": "No known restrictions on images made by the U.S. Government; images     copied from other sources may be restricted.    https://www.loc.gov/rr/print/res/114_habs.html",
+    "score": 19.407604,
+    "shard": "00",
+    "shelf_id": "HABS DC,WASH,325-",
+    "site": [
+      "pictures"
+    ],
+    "source_collection": "Historic American Buildings Survey (Library of Congress)",
+    "source_created": "1970-01-01T00:00:00Z",
+    "source_modified": "2000-01-01T12:00:00Z",
+    "subject": [
+      "photography",
+      "studios"
+    ],
+    "subject_headings": [
+      "studios",
+      "photography",
+      "District Of Columbia -- District Of Columbia -- Washington"
+    ],
+    "subjects": [
+      {
+        "photography": "https://www.loc.gov/search/?fa=subject:photography&fo=json"
+      },
+      {
+        "studios": "https://www.loc.gov/search/?fa=subject:studios&fo=json"
+      }
+    ],
+    "thumb_gallery": "https://www.loc.gov/pictures/images/item/habs_thumb_large.jpg",
+    "timestamp": "2025-01-13T19:46:46.269Z",
+    "title": "Mathew B. Brady Studio, 625 Pennsylvania Avenue Northwest, Washington, District of Columbia, DC",
+    "type": [
+      "still image"
+    ],
+    "unrestricted": true,
+    "url": "https://www.loc.gov/item/dc0492/"
+  },
+  "more_like_this": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/collections/historic-american-buildings-landscapes-and-engineering-records/about-this-collection/",
+        "http://www.loc.gov/collections/hh/",
+        "https://lccn.loc.gov/99472551",
+        "https://www.loc.gov/item/99472551",
+        "http://lccn.loc.gov/99472551",
+        "http://www.loc.gov/item/99472551/",
+        "https://hdl.loc.gov/loc.pnp/pp.hh"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "historic american buildings survey"
+      ],
+      "count": 45882,
+      "date": "1933",
+      "dates": [
+        "[1933 TO 2014]",
+        "1933"
+      ],
+      "description": [
+        "Overview of the HABS/HAER/HALS collections, which document achievements in architecture, engineering, and landscape design from the 17th-20th centuries in the United States and its territories through measured drawings, photographs, and written historical and architectural information. The collection includes: colonial houses, plantations, Victorian mansions, 20th century commercial buildings including skyscrapers, Native American sites, the built environment, landscapes and parks, military bases and complexes, historic industrial and technology structures, as well as historic ships, boats, and vessels."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-06-14T05:09:44.308Z",
+      "group": [
+        "collections-portal"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/collections/historic-american-buildings-landscapes-and-engineering-records/about-this-collection/",
+      "image_url": [
+        "https://www.loc.gov/static/collections/historic-american-buildings-landscapes-and-engineering-records/500_500.jpg"
+      ],
+      "index": 1,
+      "items": "https://www.loc.gov/collections/historic-american-buildings-landscapes-and-engineering-records/",
+      "language": [
+        "english"
+      ],
+      "location": [
+        "united states"
+      ],
+      "number": [
+        "sheet",
+        "2025-06-06t18:06:30.300000",
+        "99472551",
+        "http://www.loc.gov/item/11843880",
+        "http://www.loc.gov/item/99472551"
+      ],
+      "original_format": [
+        "collection",
+        "photo, print, drawing"
+      ],
+      "other_title": [
+        "HABS Collection",
+        "Built in America: Historic American Buildings Survey/Historic American Engineering Record"
+      ],
+      "partof": [
+        "prints and photographs division",
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "digital collections"
+      ],
+      "score": 20.376797,
+      "shelf_id": "~/collections/historic-american-buildings-landscapes-and-engineering-records/about-this-collection/",
+      "subject": [
+        "architectural drawings",
+        "science & technology",
+        "engineering",
+        "arts and culture",
+        "peterson, charles e.",
+        "measured drawings",
+        "american history",
+        "national park service",
+        "architecture and design",
+        "art & architecture",
+        "photographs, prints & posters",
+        "landscape design",
+        "architecture",
+        "architectural photographs"
+      ],
+      "timestamp": "2026-06-14T06:13:29.193Z",
+      "title": "Historic American Buildings Survey/Historic American Engineering Record/Historic American Landscapes Survey",
+      "type": [
+        "collection"
+      ],
+      "url": "https://www.loc.gov/collections/historic-american-buildings-landscapes-and-engineering-records/about-this-collection/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/ca4169/",
+        "http://www.loc.gov/item/ca4169/",
+        "http://www.loc.gov/pictures/item/ca4169/",
+        "https://www.loc.gov/pictures/collection/hh/item/ca4169/",
+        "http://www.loc.gov/pictures/collection/hh/item/ca4169/",
+        "https://cdn.loc.gov/master/pnp/habshaer/ca/ca4100/ca4169/data/ca4169data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ca/ca4100/ca4169/data/ca4169data.pdf",
+        "https://stage.loc.gov/pictures/search/?q=drawing: ca4169&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=drawing: ca4169&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.ca4169data/",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet/",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00001a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00002a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00003a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00004a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00005a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00006a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00007a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00008a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00009a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00010a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00011a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00012a",
+        "http://www.loc.gov/resource/hhh.ca4169.sheet.00013a"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "lamport, paul",
+        "chicopee manufacturing company",
+        "burke, jon nelson",
+        "alexander smith & sons",
+        "lavoie, catherine c.",
+        "c. w. stockwell company",
+        "laverne original",
+        "modern building specialties co",
+        "republic steel, berger manufacturing division",
+        "mississippi glass company",
+        "truscon steel company",
+        "charles and ray eames house preservation foundation, inc",
+        "united states plywood corporation",
+        "bell electric company",
+        "celotex corporation",
+        "eames foundation",
+        "kirsch",
+        "sunbeam corporation",
+        "herrick, dan",
+        "slaton, deborah",
+        "lamport, cofer, salzman, inc",
+        "ellwood, craig",
+        "cofer, jack",
+        "kohler company",
+        "grant pulley & hardware company",
+        "california cornice, steel & supply corporation",
+        "the formica company",
+        "howard miller company",
+        "garcia enguita, amable",
+        "swedlow company",
+        "binswanger and company",
+        "gotham lighting corporation",
+        "century lighting, inc",
+        "saarinen, eero",
+        "flush wall radio company",
+        "normandin, kyle",
+        "e. l. bruce company",
+        "historic preservation education foundation",
+        "american stove company",
+        "bobrick manufacturing company",
+        "payne furnace company",
+        "mackintosh & mackintosh",
+        "acker, kenneth",
+        "goodyear time & rubber company, inc",
+        "harvey machine company",
+        "contini, edgardo",
+        "meilink steel safe company",
+        "klearflax linen looms, inc",
+        "eames, charles",
+        "american device manufacturing company",
+        "eames, ray",
+        "knape & vogt manufacturing co",
+        "sandmeier, trudi",
+        "w. a. case & son manufacturing company",
+        "sargent, liz",
+        "california panel & veneer company",
+        "the blackstone corporation",
+        "kaiser steel",
+        "voit",
+        "roberts company",
+        "eames, lucia",
+        "pryne & company, inc",
+        "penich, timothy",
+        "getty conservation institute",
+        "minneapolis-honeywell regulator company",
+        "salzman, henry",
+        "kelvinator",
+        "swedlow plastics company",
+        "deering millikan & company",
+        "neri, daniel",
+        "gilbert, sarah",
+        "american cabinet hardware corporation",
+        "cannon electric development company",
+        "albinson, don",
+        "sunmaster",
+        "randl, chad",
+        "kierulff and company",
+        "historic american buildings survey",
+        "altec lansing corporation"
+      ],
+      "description": [
+        "Measured Drawing(s): 13 | Data Page(s): 33"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T19:18:37.990Z",
+      "group": [
+        "hh-1",
+        "habshaer-group-1"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/ca4169/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ca/ca4100/ca4169/sheet/00001_150px.jpg#h=100&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ca/ca4100/ca4169/sheet/00001r.jpg#h=427&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ca/ca4100/ca4169/sheet/00001v.jpg#h=683&w=1024"
+      ],
+      "index": 2,
+      "language": [
+        "english"
+      ],
+      "latlong": [
+        34.029747,
+        -118.519399
+      ],
+      "location": [
+        "california",
+        "los angeles county",
+        "los angeles"
+      ],
+      "location_str": "",
+      "lonlat": [
+        -118.519399,
+        34.029747
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "american memory",
+        "prints and photographs division",
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey"
+      ],
+      "score": 16.21159,
+      "shelf_id": "HABS CA-2903",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "steel structural frames",
+        "trails & paths",
+        "spiral stairs",
+        "courtyards",
+        "stucco",
+        "domestic life",
+        "steel columns",
+        "sliding doors",
+        "vinyl tile floors",
+        "glass",
+        "darkrooms",
+        "studios",
+        "recessed light fixtures",
+        "carports",
+        "modern architectural elements",
+        "decking",
+        "concrete foundations",
+        "retaining walls",
+        "meadows",
+        "living rooms",
+        "kitchens",
+        "cupboards",
+        "architects",
+        "patios",
+        "metal & glass (structural systems)",
+        "bathrooms",
+        "eucalyptus trees"
+      ],
+      "timestamp": "2025-01-13T19:41:33.750Z",
+      "title": "Eames House, 203 Chautauqua Boulevard, Los Angeles, Los Angeles County, CA",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/ca4169/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/az0678/",
+        "http://www.loc.gov/item/az0678/",
+        "http://www.loc.gov/pictures/item/az0678/",
+        "https://www.loc.gov/pictures/collection/hh/item/az0678/",
+        "http://www.loc.gov/pictures/collection/hh/item/az0678/",
+        "https://cdn.loc.gov/master/pnp/habshaer/az/az0600/az0678/data/az0678data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/az/az0600/az0678/data/az0678data.pdf",
+        "https://stage.loc.gov/pictures/search/?q=drawing: az0678&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=drawing: az0678&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.az0678data/",
+        "http://www.loc.gov/resource/hhh.az0678.sheet/",
+        "http://www.loc.gov/resource/hhh.az0678.sheet",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00001a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00002a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00003a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00004a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00005a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00006a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00007a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00008a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00009a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00010a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00011a",
+        "http://www.loc.gov/resource/hhh.az0678.sheet.00012a"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "brizuela, valeria r.",
+        "wright, frank lloyd",
+        "bustillos, laura m.",
+        "yousefpour, mansour",
+        "mendiola, stephanie j.",
+        "hehr, porter b.",
+        "gonzalez, jonathan r.",
+        "tynan, troy t.",
+        "frank lloyd wright foundation",
+        "satia, maitreyee m.",
+        "rodriguez, diana r.",
+        "mcpartland, mary",
+        "huerta, marcus a.",
+        "pemberton, sue ann",
+        "poore, andi m.",
+        "ochoa, gustavo",
+        "villejo, austin m.",
+        "historic american buildings survey",
+        "university of texas at san antonio, college of architecture, construction and planning"
+      ],
+      "description": [
+        "Measured Drawing(s): 12 | Data Page(s): 9"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T19:17:43.170Z",
+      "group": [
+        "hh-0",
+        "habshaer-group-0"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/az0678/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/az/az0600/az0678/sheet/00001_150px.jpg#h=102&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/az/az0600/az0678/sheet/00001r.jpg#h=434&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/az/az0600/az0678/sheet/00001v.jpg#h=694&w=1024"
+      ],
+      "index": 3,
+      "language": [
+        "english"
+      ],
+      "latlong": [
+        33.606569,
+        -111.845419
+      ],
+      "location": [
+        "scottsdale",
+        "maricopa county",
+        "arizona"
+      ],
+      "location_str": "",
+      "lonlat": [
+        -111.845419,
+        33.606569
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "american memory",
+        "prints and photographs division",
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey"
+      ],
+      "score": 16.21159,
+      "shelf_id": "HABS AZ-218-D",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "redwood",
+        "masonry (building materials)",
+        "world heritage sites",
+        "studios",
+        "furniture"
+      ],
+      "timestamp": "2025-01-13T19:34:14.870Z",
+      "title": "Taliesin West, Drafting Studio, 12621 North Frank Lloyd Wright Boulevard, Scottsdale, Maricopa County, AZ",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/az0678/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/nh0129/",
+        "http://www.loc.gov/item/nh0129/",
+        "http://www.loc.gov/pictures/item/nh0129/",
+        "https://www.loc.gov/pictures/collection/hh/item/nh0129/",
+        "http://www.loc.gov/pictures/collection/hh/item/nh0129/",
+        "https://cdn.loc.gov/master/pnp/habshaer/nh/nh0100/nh0129/data/nh0129data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/nh/nh0100/nh0129/data/nh0129data.pdf",
+        "https://cdn.loc.gov/master/pnp/habshaer/nh/nh0100/nh0129/data/nh0129cap.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/nh/nh0100/nh0129/data/nh0129cap.pdf",
+        "https://stage.loc.gov/pictures/search/?q=photograph: nh0129&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=photograph: nh0129&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.nh0129data/",
+        "http://www.loc.gov/resource/hhh.nh0129cap/",
+        "http://www.loc.gov/resource/hhh.nh0129.photos/",
+        "http://www.loc.gov/resource/hhh.nh0129.photos",
+        "http://www.loc.gov/resource/hhh.nh0129.photos.104639p",
+        "http://www.loc.gov/resource/hhh.nh0129.photos.104640p",
+        "http://www.loc.gov/resource/hhh.nh0129.photos.104641p",
+        "http://www.loc.gov/resource/hhh.nh0129.photos.104642p",
+        "http://www.loc.gov/resource/hhh.nh0129.photos.104643p"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "historic american buildings survey",
+        "boucher, jack e"
+      ],
+      "description": [
+        "Photo(s): 5 | Photo Caption Page(s): 1"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T21:10:30.805Z",
+      "group": [
+        "hh-4",
+        "habshaer-group-4"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/nh0129/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/nh/nh0100/nh0129/photos/104639p_150px.jpg#h=108&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/nh/nh0100/nh0129/photos/104639pr.jpg#h=460&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/nh/nh0100/nh0129/photos/104639pv.jpg#h=736&w=1024"
+      ],
+      "index": 4,
+      "language": [
+        "english"
+      ],
+      "latlong": [
+        43.500883,
+        -72.369525
+      ],
+      "location": [
+        "new hampshire",
+        "sullivan county",
+        "cornish city"
+      ],
+      "location_str": "",
+      "lonlat": [
+        -72.369525,
+        43.500883
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "american memory",
+        "prints and photographs division",
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey"
+      ],
+      "score": 16.21159,
+      "shelf_id": "HABS NH,10-CORN,1B-",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "studios"
+      ],
+      "timestamp": "2025-01-13T21:20:56.193Z",
+      "title": "Augustus Saint-Gaudens National Historic Site, Little Studio, Saint Gaudens Road, off State Route 12A, Cornish City, Sullivan County, NH",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/nh0129/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/nh0130/",
+        "http://www.loc.gov/item/nh0130/",
+        "http://www.loc.gov/pictures/item/nh0130/",
+        "https://www.loc.gov/pictures/collection/hh/item/nh0130/",
+        "http://www.loc.gov/pictures/collection/hh/item/nh0130/",
+        "https://cdn.loc.gov/master/pnp/habshaer/nh/nh0100/nh0130/data/nh0130data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/nh/nh0100/nh0130/data/nh0130data.pdf",
+        "https://cdn.loc.gov/master/pnp/habshaer/nh/nh0100/nh0130/data/nh0130cap.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/nh/nh0100/nh0130/data/nh0130cap.pdf",
+        "https://stage.loc.gov/pictures/search/?q=photograph: nh0130&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=photograph: nh0130&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.nh0130data/",
+        "http://www.loc.gov/resource/hhh.nh0130cap/",
+        "http://www.loc.gov/resource/hhh.nh0130.photos/",
+        "http://www.loc.gov/resource/hhh.nh0130.photos",
+        "http://www.loc.gov/resource/hhh.nh0130.photos.104644p",
+        "http://www.loc.gov/resource/hhh.nh0130.photos.104645p",
+        "http://www.loc.gov/resource/hhh.nh0130.photos.104646p"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "historic american buildings survey",
+        "boucher, jack e"
+      ],
+      "description": [
+        "Photo(s): 3 | Photo Caption Page(s): 1"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T21:10:30.805Z",
+      "group": [
+        "hh-4",
+        "habshaer-group-4"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/nh0130/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/nh/nh0100/nh0130/photos/104644p_150px.jpg#h=108&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/nh/nh0100/nh0130/photos/104644pr.jpg#h=462&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/nh/nh0100/nh0130/photos/104644pv.jpg#h=740&w=1024"
+      ],
+      "index": 5,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new hampshire",
+        "sullivan county",
+        "cornish city"
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "american memory",
+        "prints and photographs division",
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey"
+      ],
+      "score": 16.21159,
+      "shelf_id": "HABS NH,10-CORN,1C-",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "studios"
+      ],
+      "timestamp": "2025-01-13T21:20:56.193Z",
+      "title": "Augustus Saint-Gaudens National Historic Site, New Studio, Saint Gaudens Road, off State Route 12A, Cornish City, Sullivan County, NH",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/nh0130/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/ma1842/",
+        "http://www.loc.gov/item/ma1842/",
+        "http://www.loc.gov/pictures/item/ma1842/",
+        "https://www.loc.gov/pictures/collection/hh/item/ma1842/",
+        "http://www.loc.gov/pictures/collection/hh/item/ma1842/",
+        "https://cdn.loc.gov/master/pnp/habshaer/ma/ma1800/ma1842/data/ma1842data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ma/ma1800/ma1842/data/ma1842data.pdf",
+        "https://stage.loc.gov/pictures/search/?q=drawing: ma1842&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=drawing: ma1842&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.ma1842data/",
+        "http://www.loc.gov/resource/hhh.ma1842.sheet/",
+        "http://www.loc.gov/resource/hhh.ma1842.sheet"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "arzola, robert r",
+        "mcpartland, mary",
+        "french, daniel chester",
+        "french, prentiss",
+        "hassler, donna",
+        "hawkins, will",
+        "historic american buildings survey",
+        "nyandak, tenzin",
+        "french, helen douglass",
+        "wilson, ashley",
+        "cresson, margaret frence",
+        "semrad, allison",
+        "meloy, grace",
+        "national trust for historic preservation"
+      ],
+      "description": [
+        "Measured Drawing(s): 1 | Data Page(s): 4"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T20:17:25.549Z",
+      "group": [
+        "hh-3",
+        "habshaer-group-3"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/ma1842/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ma/ma1800/ma1842/sheet/00001_150px.jpg#h=150&w=100",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ma/ma1800/ma1842/sheet/00001r.jpg#h=640&w=427",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ma/ma1800/ma1842/sheet/00001v.jpg#h=1024&w=683"
+      ],
+      "index": 6,
+      "language": [
+        "english"
+      ],
+      "latlong": [
+        42.282655,
+        -73.351829
+      ],
+      "location": [
+        "stockbridge",
+        "berkshire county",
+        "massachusetts"
+      ],
+      "location_str": "",
+      "lonlat": [
+        -73.351829,
+        42.282655
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "american memory",
+        "prints and photographs division",
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey"
+      ],
+      "score": 16.21159,
+      "shelf_id": "HABS MA-1348-A",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "residential facilities",
+        "studios",
+        "estates",
+        "casting (process)",
+        "artists' studios",
+        "wood shingles",
+        "seasonal dwellings",
+        "art",
+        "vertical siding",
+        "porches",
+        "windows",
+        "artists"
+      ],
+      "timestamp": "2025-01-13T20:29:54.152Z",
+      "title": "Chesterwood, The Meadowlark, 4 Williamsville Road, Stockbridge, Berkshire County, MA",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/ma1842/"
+    }
+  ],
+  "options": {
+    "access_group": [
+      ""
+    ],
+    "access_group_raw": "",
+    "all": null,
+    "api_version": "1",
+    "app_context": null,
+    "application_version": "$Revision$",
+    "attribute": null,
+    "attribute!": null,
+    "attribute_map": null,
+    "cache_tags": [
+      "hh-0",
+      "habshaer-group-0",
+      "collections-portal",
+      "hh-1",
+      "habshaer-group-1",
+      "hh-4",
+      "habshaer-group-4",
+      "hh-3",
+      "habshaer-group-3",
+      "paprika-navcc",
+      "catalog-split-13",
+      "catalog",
+      "main-catalog-split-13",
+      "ndnp/ncu",
+      "university-of-north-carolina-chapel-hill-library-awardee",
+      "gdc/webcasts",
+      "catalog-split-02",
+      "cataloged-event-videos",
+      "main-catalog-split-02",
+      "geospatial_applications",
+      "geospatial-applications"
+    ],
+    "callback": null,
+    "clip": null,
+    "clip_image_width": null,
+    "clip_rotation": null,
+    "content_filter": null,
+    "content_replacement": "",
+    "count": null,
+    "dates": null,
+    "default_count": 25,
+    "delimiter": null,
+    "digital_id": null,
+    "display_level": null,
+    "distance": null,
+    "downloadOption": null,
+    "duration": 0.7794928550720215,
+    "embed": [],
+    "embed!": [],
+    "error_response_status": null,
+    "excludeTerms": null,
+    "facetLimits": "",
+    "facetPrefix": null,
+    "facet_count": null,
+    "facet_style": null,
+    "field": null,
+    "format": "json",
+    "host": "www.loc.gov",
+    "ical": false,
+    "id": "dc0492/",
+    "iiif": false,
+    "index": null,
+    "inputEncoding": "UTF-8",
+    "item": null,
+    "items": null,
+    "keys": null,
+    "language": null,
+    "latlong": null,
+    "method": "GET",
+    "newSearch": null,
+    "new_clip_url": false,
+    "onsite": false,
+    "operator": null,
+    "outputEncoding": "UTF-8",
+    "page_campaigns": [],
+    "path_info": "/item/dc0492/",
+    "port": "443",
+    "proxypath": null,
+    "query_string": "fo=json",
+    "redirect_proxy": false,
+    "redirect_to_item": null,
+    "referer": "",
+    "region": "",
+    "release_id": 123456789,
+    "request_host": "www.loc.gov",
+    "request_params": {
+      "fo": [
+        "json"
+      ]
+    },
+    "request_url": "https://www.loc.gov/item/dc0492/?fo=json",
+    "resource": "",
+    "resource_sequence": null,
+    "scheme": "https",
+    "searchIn": null,
+    "searchTerms": "",
+    "segments": null,
+    "shards": [
+      "00"
+    ],
+    "site_id": null,
+    "site_type": null,
+    "solrQuery": "",
+    "sortBy": null,
+    "sortOrder": null,
+    "startPage": null,
+    "style": null,
+    "suggested": null,
+    "target": null,
+    "template": "layouts/item/layout",
+    "timestamp": 1781475184.4418015,
+    "tz_aware": null,
+    "unionFacets": "",
+    "webcast_permalink": null
+  },
+  "related": {
+    "group_record": null,
+    "lot_link": null,
+    "neighbors": "https://www.loc.gov/pictures/related/?&co=hh&pk=dc0492&st=gallery&sb=call_number#focus",
+    "survey_link": null
+  },
+  "related_items": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/99481536",
+        "http://www.loc.gov/item/99481536/",
+        "http://www.loc.gov/resource/navcc.cwband-recs001/",
+        "https://hdl.loc.gov/loc.mbrsrs/mbrsrsdig.cwband-recs001",
+        "http://www.loc.gov/resource/mbrsrsdig.cwband-recs001/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "noeren, j. m.",
+        "wallace, william vincent",
+        "lindblad, adolf fredrik",
+        "grafulla, c. s. (claudio s.)",
+        "bovy-lysberg, charles-samuel",
+        "donizetti, gaetano",
+        "balfe, m. w. (michael william)",
+        "foster, stephen collins",
+        "farmer, henry",
+        "rose, bernard",
+        "goodwin, george h.",
+        "knaebel, simon",
+        "friederich, g. w. e.",
+        "downing, david l.",
+        "sargon, merja",
+        "fennell, frederick",
+        "library of congress. music division",
+        "benedict, julius",
+        "jaeger, edmund"
+      ],
+      "date": "1990",
+      "dates": [
+        "1990"
+      ],
+      "description": [
+        "Vocal works sung in English or Swedish. Merja Sargon, soprano; Bernard Rose, piano; band playing brass instruments from collections of the Smithsonian Institution; Frederick Fennell, conductor. Recorded Sept. 1974, Coolidge, Auditorium, Library of Congress, Washington, D.C. Program notes by Jon Newsom with texts or English translations of texts (27 p.) in container. Production level cataloging."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-07-29T06:45:35.750Z",
+      "group": [
+        "paprika-navcc",
+        "catalog-split-13",
+        "catalog",
+        "main-catalog-split-13"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/99481536/",
+      "image_url": [],
+      "index": 1,
+      "language": [
+        "english",
+        "engswe"
+      ],
+      "mime_type": [
+        "audio/mpeg"
+      ],
+      "number": [
+        "http://www.loc.gov/item/cwband.recs015",
+        "http://www.loc.gov/item/cwband.recs010",
+        "http://www.loc.gov/item/cwband.recs016",
+        "http://www.loc.gov/resource/cwband.recs004.0",
+        "http://www.loc.gov/item/cwband.recs003",
+        "http://www.loc.gov/item/cwband.recs018",
+        "http://www.loc.gov/resource/cwband.recs010.0",
+        "http://www.loc.gov/resource/cwband.recs005.0",
+        "http://www.loc.gov/item/cwband.recs006",
+        "http://www.loc.gov/item/cwband.recs005",
+        "http://www.loc.gov/item/cwband.recs017",
+        "http://www.loc.gov/item/cwband.recs004",
+        "http://www.loc.gov/resource/cwband.recs007.0",
+        "http://www.loc.gov/resource/cwband.recs006.0",
+        "2025-05-21t15:37:26",
+        "http://www.loc.gov/resource/cwband.recs017.0",
+        "http://www.loc.gov/resource/cwband.recs001.0",
+        "http://www.loc.gov/item/cwband.recs008",
+        "http://www.loc.gov/item/cwband.recs012",
+        "http://www.loc.gov/item/cwband.recs011",
+        "http://www.loc.gov/item/cwband.recs001",
+        "http://www.loc.gov/resource/cwband.recs018.0",
+        "99481536",
+        "http://www.loc.gov/resource/cwband.recs002.0",
+        "http://www.loc.gov/item/cwband.recs013",
+        "http://www.loc.gov/resource/cwband.recs016.0",
+        "http://www.loc.gov/item/cwband.recs002",
+        "http://www.loc.gov/resource/cwband.recs003.0",
+        "http://www.loc.gov/item/cwband.recs014",
+        "http://www.loc.gov/resource/cwband.recs019.0",
+        "http://www.loc.gov/item/cwband.recs007",
+        "http://www.loc.gov/resource/cwband.recs008.0",
+        "http://www.loc.gov/item/cwband.recs019",
+        "http://www.loc.gov/resource/cwband.recs014.0",
+        "http://www.loc.gov/resource/cwband.recs011.0",
+        "http://www.loc.gov/resource/cwband.recs012.0",
+        "http://www.loc.gov/resource/cwband.recs015.0",
+        "http://www.loc.gov/resource/cwband.recs009.0",
+        "http://www.loc.gov/item/cwband.recs009",
+        "http://www.loc.gov/resource/cwband.recs013.0"
+      ],
+      "online_format": [
+        "audio"
+      ],
+      "original_format": [
+        "sound recording"
+      ],
+      "other_title": [
+        "Concert for brass band, voice, and piano"
+      ],
+      "partof": [
+        "catalog",
+        "the library of congress celebrates the songs of america",
+        "band music from the civil war era",
+        "american memory",
+        "national audiovisual conservation center",
+        "performing arts encyclopedia"
+      ],
+      "score": 10.950441,
+      "shelf_id": "https://repo.loc.gov/access/public/navcc/cwband-recs001/.resource.json",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "excerpts, arranged",
+        "operas",
+        "piano music",
+        "songs (high voice) with piano",
+        "brass band music"
+      ],
+      "timestamp": "2025-07-29T06:46:11.798Z",
+      "title": "[Library of Congress Music Division concert, 1974-09-??]",
+      "type": [
+        "sound recording-musical"
+      ],
+      "url": "https://www.loc.gov/item/99481536/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/sn96027351/1868-01-01/ed-1/",
+        "http://www.loc.gov/resource/sn96027351/1868-01-01/ed-1/"
+      ],
+      "batch": [
+        "ncu_appling_ver02"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "university of north carolina at chapel hill library, chapel hill, nc"
+      ],
+      "date": "1868-01-01",
+      "dates": [
+        "1868-01-01"
+      ],
+      "description": [
+        "Washington, D.C."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2023-08-12T17:31:13.321Z",
+      "group": [
+        "ndnp/ncu",
+        "university-of-north-carolina-chapel-hill-library-awardee"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/sn96027351/1868-01-01/ed-1/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/service:ndnp:ncu:batch_ncu_appling_ver02:data:sn96027351:00332891613:1868010101:0001/full/pct:3.125/0/default.jpg#h=298&w=203",
+        "https://tile.loc.gov/image-services/iiif/service:ndnp:ncu:batch_ncu_appling_ver02:data:sn96027351:00332891613:1868010101:0001/full/pct:6.25/0/default.jpg#h=597&w=407",
+        "https://tile.loc.gov/image-services/iiif/service:ndnp:ncu:batch_ncu_appling_ver02:data:sn96027351:00332891613:1868010101:0001/full/pct:12.5/0/default.jpg#h=1194&w=815"
+      ],
+      "index": 2,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "district of columbia",
+        "united states",
+        "washington",
+        "washington d.c."
+      ],
+      "mime_type": [
+        "image/jp2",
+        "application/pdf",
+        "text/xml",
+        "image/jpeg"
+      ],
+      "number": [
+        "1",
+        "00332891613",
+        "sn96027351"
+      ],
+      "numeric_shelf_id": 186801011,
+      "online_format": [
+        "image",
+        "pdf",
+        "online text"
+      ],
+      "original_format": [
+        "newspaper"
+      ],
+      "partof": [
+        "national savings bank (washington, d.c.) 1868-18?? [online resource]",
+        "chronicling america",
+        "serial and government publications division"
+      ],
+      "publication_frequency": [
+        "monthly"
+      ],
+      "score": 10.34442,
+      "shelf_id": "sn96027351, 1868-01-01, Edition 1",
+      "site": [
+        "chroniclingamerica"
+      ],
+      "subject": [
+        "district of columbia",
+        "african american",
+        "african american banks",
+        "washington (d.c.)",
+        "african americans",
+        "washington",
+        "newspapers",
+        "united states"
+      ],
+      "timestamp": "2023-08-12T19:43:38.893Z",
+      "title": "National savings bank (Washington, D.C.), January 1, 1868",
+      "type": [
+        "issue"
+      ],
+      "url": "https://www.loc.gov/item/sn96027351/1868-01-01/ed-1/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2021690068",
+        "http://www.loc.gov/item/2021690068/",
+        "https://hdl.loc.gov/loc.gdc/gdcwebcasts.160317pnp1200",
+        "http://www.loc.gov/resource/gdcwebcasts.160317pnp1200/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "library of congress",
+        "library of congress. prints and photographs division"
+      ],
+      "date": "2016",
+      "dates": [
+        "2016"
+      ],
+      "description": [
+        "Noted architectural photographer Norman McGrath discusses the unique approaches and styles to architectural photography."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-04-28T19:52:15.216Z",
+      "group": [
+        "gdc/webcasts",
+        "catalog-split-02",
+        "catalog",
+        "cataloged-event-videos",
+        "main-catalog-split-02"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2021690068/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gdc/gdcwebcasts/16/03/17/pn/p1/20/0/160317pnp1200/160317pnp1200_644.0_thumb.jpg"
+      ],
+      "index": 3,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "video/mp4",
+        "image/jpeg",
+        "application/xml"
+      ],
+      "number": [
+        "2022-11-09t14:49:41",
+        "online resource",
+        "2021690068",
+        "http://www.loc.gov/item/webcast-7296"
+      ],
+      "online_format": [
+        "video",
+        "image",
+        "online text"
+      ],
+      "original_format": [
+        "film, video"
+      ],
+      "partof": [
+        "catalog",
+        "general collections",
+        "event videos",
+        "prints and photographs division"
+      ],
+      "score": 10.293823,
+      "shelf_id": "http://lccn.loc.gov/2021690068",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "photographer",
+        "norman mcgrath",
+        "architectural photography",
+        "photography",
+        "science, technology",
+        "photography discussion",
+        "architecture"
+      ],
+      "timestamp": "2025-05-09T16:16:55.738Z",
+      "title": "What Makes Architectural Photography Different",
+      "type": [
+        "moving image"
+      ],
+      "url": "https://www.loc.gov/item/2021690068/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/ghe/cascade/index.html?appid=83cfeada888c4e6e94bf9128ec4ef943",
+        "https://loc.maps.arcgis.com/sharing/rest/content/items/83cfeada888c4e6e94bf9128ec4ef943?f=json"
+      ],
+      "campaigns": [],
+      "date": "2021-04-29",
+      "dates": [
+        "2021-04-29T02:44:47Z"
+      ],
+      "description": [
+        "This Story Map highlights the similarities between the 19th-century Amateur Photographic Exchange Club (1861-1863) and contemporary social networking platforms such as Instagram and Facebook."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-06-13T12:47:07.955Z",
+      "group": [
+        "geospatial_applications",
+        "geospatial-applications"
+      ],
+      "hassegments": false,
+      "id": "https://www.loc.gov/ghe/cascade/index.html?appid=83cfeada888c4e6e94bf9128ec4ef943",
+      "image_url": [
+        "https://loc.maps.arcgis.com/sharing/rest/content/items/83cfeada888c4e6e94bf9128ec4ef943/info/thumbnail/thumbnail.png"
+      ],
+      "index": 4,
+      "original_format": [
+        "web page"
+      ],
+      "partof": [
+        "geospatial applications",
+        "story maps",
+        "prints and photographs division"
+      ],
+      "score": 10.293823,
+      "shelf_id": "https://www.loc.gov/ghe/cascade/index.html?appid=83cfeada888c4e6e94bf9128ec4ef943",
+      "subject": [
+        "edwin emerson",
+        "19th century photography",
+        "robert shriver",
+        "selfie",
+        "amateur photographic exchange club",
+        "siccus",
+        "oliver wendell holmes",
+        "coleman sellers",
+        "photography",
+        "instagram",
+        "facebook",
+        "frederick ferris thompson",
+        "charles f. himes",
+        "humidus",
+        "dry collodion",
+        "titian ramsay peale"
+      ],
+      "timestamp": "2026-06-13T19:10:58.684Z",
+      "title": "The 19th-Century Roots of Instagram",
+      "url": "https://www.loc.gov/ghe/cascade/index.html?appid=83cfeada888c4e6e94bf9128ec4ef943"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/ghe/cascade/index.html?appid=e85e8d3997164a7095be9bc5a5673e2a",
+        "https://loc.maps.arcgis.com/sharing/rest/content/items/e85e8d3997164a7095be9bc5a5673e2a?f=json"
+      ],
+      "campaigns": [],
+      "date": "2023-03-10",
+      "dates": [
+        "2023-03-10T16:30:44Z"
+      ],
+      "description": [
+        "Journey across the Middle East with English photographer Francis Frith. This Story Map includes 19th century photography and written testimony from \"Sinai and Palestine,\" a photographically illustrated book by Frith at the Library of Congress."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-06-13T12:47:06.117Z",
+      "group": [
+        "geospatial_applications",
+        "geospatial-applications"
+      ],
+      "hassegments": false,
+      "id": "https://www.loc.gov/ghe/cascade/index.html?appid=e85e8d3997164a7095be9bc5a5673e2a",
+      "image_url": [
+        "https://loc.maps.arcgis.com/sharing/rest/content/items/e85e8d3997164a7095be9bc5a5673e2a/info/thumbnail/thumbnail1536701592784.png"
+      ],
+      "index": 5,
+      "original_format": [
+        "web page"
+      ],
+      "partof": [
+        "geospatial applications",
+        "story maps",
+        "prints and photographs division"
+      ],
+      "score": 10.293823,
+      "shelf_id": "https://www.loc.gov/ghe/cascade/index.html?appid=e85e8d3997164a7095be9bc5a5673e2a",
+      "subject": [
+        "travel",
+        "sinai",
+        "middle east",
+        "israel",
+        "palestine",
+        "exploration",
+        "photography",
+        "syria",
+        "francis frith",
+        "lebanon"
+      ],
+      "timestamp": "2026-06-13T19:10:58.684Z",
+      "title": "Holy Land Photography",
+      "url": "https://www.loc.gov/ghe/cascade/index.html?appid=e85e8d3997164a7095be9bc5a5673e2a"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://storymaps.arcgis.com/stories/c3c76a06cf834d00a803062914a2baab",
+        "https://loc.maps.arcgis.com/sharing/rest/content/items/c3c76a06cf834d00a803062914a2baab?f=json"
+      ],
+      "campaigns": [],
+      "date": "2025-05-09",
+      "dates": [
+        "2025-05-09T15:36:36Z"
+      ],
+      "description": [
+        "This Story Map maps photographs from the Liljenquist Collection at the Library of Congress to events of the Civil War, linking portraits of soldiers to the battles where they fought and died."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-06-13T12:47:06.117Z",
+      "group": [
+        "geospatial_applications",
+        "geospatial-applications"
+      ],
+      "hassegments": false,
+      "id": "https://storymaps.arcgis.com/stories/c3c76a06cf834d00a803062914a2baab",
+      "image_url": [
+        "https://loc.maps.arcgis.com/sharing/rest/content/items/c3c76a06cf834d00a803062914a2baab/info/thumbnail/thumbnail.jpeg"
+      ],
+      "index": 6,
+      "original_format": [
+        "web page"
+      ],
+      "partof": [
+        "geospatial applications",
+        "story maps",
+        "prints and photographs division"
+      ],
+      "score": 10.293823,
+      "shelf_id": "https://storymaps.arcgis.com/stories/c3c76a06cf834d00a803062914a2baab",
+      "subject": [
+        "liljenquist collection",
+        "nursing",
+        "african american history",
+        "gmd_converted",
+        "portraits",
+        "union army",
+        "photography",
+        "civil war",
+        "library of congress storymaps",
+        "us history"
+      ],
+      "timestamp": "2026-06-13T19:10:54.978Z",
+      "title": "Faces of the Civil War",
+      "url": "https://storymaps.arcgis.com/stories/c3c76a06cf834d00a803062914a2baab"
+    }
+  ],
+  "reproductions": "<h3>If Digital Images Are Displaying</h3>\n\n<p>You can download online images yourself.  Alternatively, you can purchase copies of various types through Library of Congress Duplication Services.</p>\n\n<p>HABS/HAER/HALS materials have generally been scanned at high resolution that is suitable for most publication purposes (see <a href=\"/ppoc/hh/resources/digitizing.html\">Digitizing the Collection</a> for further details about the digital images).</p>\n\n<ul>\n<p>\n<li><strong>Photographs--</strong>All photographs are printed from digital files to preserve the fragile originals.\n</li>\n<ul>\n<li>Make note of the Call Number and Item Number that appear under the photograph in the multiple-image display (e.g., HAER, NY,52-BRIG,4-2).\n</li>\n<li>If possible, include a printout of the photograph.\n</li>\n</ul>\n</p>\n\n<p>\n<li><strong>Drawings--</strong>All drawings are printed from digital files to preserve the fragile originals.\n</li>\n<ul>\n<li>Make note of the Survey Number (e.g., HAER NY - 143) and Sheet Number (e.g., &quot;Sheet 1 of 4&quot;), which appear on the edge of the drawing. (NOTE: These numbers are visible in the Tiff &quot;Reference Image&quot; display.)\n</li>\n<li>If possible, include a printout of the drawing. \n</li>\n</ul>\n</p>\n\n<p>\n<li><strong>Data Pages</strong>\n</li>\n<ul>\n<li>Make note of the Call Number in the catalog record.\n</li>\n</ul>\n</p>\n</ul>\n\n<h3>If Digital Images Are Not Displaying</h3>\n\n<p>In the rare case that a digital image for HABS/HAER/HALS documentation is not displaying online, select images for reproduction through one of these methods:</p>\n<ul>\n<p>\n<li>Visit the Prints & Photographs Reading Room and request to view the group (general information about service in the reading room is available at: <a href=\"https://www.loc.gov/rr/print/info/001_ref.html\">https://www.loc.gov/rr/print/info/001_ref.html</a>). It is best to contact reference staff in advance (see: <a href=\"https://www.loc.gov/rr/print/address.html\">https://www.loc.gov/rr/print/address.html</a>) to make sure the material is on site.  OR\n</li>\n</p>\n\n<p>\n<li>P&amp;P reading room staff can provide up to 15 quick copies of items per calendar year (many original items in the holdings are too old or fragile to make such copies, but generally HABS/HAER/HALS materials are in good enough condition to be placed on photocopy machines). For assistance, see our <a href=\"https://www.loc.gov/rr/askalib/ask-print.html\">Ask a Librarian</a> page OR\n</li>\n</p>\n\n<p>\n<li>Hire a freelance researcher to do further selection for you (a list of researchers in available at: <a href=\"https://www.loc.gov/rr/print/resource/013_pic.html\">https://www.loc.gov/rr/print/resource/013_pic.html</a>).\n</li>\n</p>\n\n<p>\n<li>You can purchase copies of various types, including quick copies, through Library of Congress Duplication Services (price lists, contact information, and order forms for Library of Congress Duplication Services are available on the <a href=\"https://www.loc.gov/duplicationservices/\">Duplication Services Web site</a>):\n</li>\n</p>\n\n<ul>\n<li>Make note of the Call Number listed above. \n</li>\n<li>Look at the Medium field above. If it lists more than one item: \n</li>\n<ul>\n<li>The entire group can be ordered as photocopies or high-quality copies. \n</li>\n<li>All the items in a particular medium (e.g., all drawings, all photographs) can be ordered as photocopies or high-quality copies.   \n</li>\n</ul>\n</ul>\n</ul>",
+  "resources": [
+    {
+      "caption": "Data Pages from Survey HABS DC-295 ",
+      "files": [
+        [
+          {
+            "height": 1,
+            "levels": 1,
+            "mimetype": "application/pdf",
+            "size": 197000,
+            "type": "data",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/dc/dc0400/dc0492/data/dc0492data.pdf",
+            "width": 1
+          }
+        ]
+      ],
+      "image": "/static/images/original-format/manuscript-mixed-material.svg"
+    }
+  ],
+  "thesaurus_entry": null,
+  "timestamp": 1781475185221,
+  "unrestricted": true
+}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T22:10:56.793Z",
+  "generated_at": "2026-06-14T22:14:35.851Z",
   "tables": [
     {
       "table": "works",
@@ -345,13 +345,13 @@
       "file": "objects.csv",
       "path": "data/knowledge-base/processed/objects.csv",
       "exists": true,
-      "bytes": 477566
+      "bytes": 477914
     },
     {
       "file": "objects.parquet",
       "path": "data/knowledge-base/processed/objects.parquet",
       "exists": true,
-      "bytes": 180914
+      "bytes": 181324
     },
     {
       "file": "pages.csv",
@@ -429,13 +429,13 @@
       "file": "collections.csv",
       "path": "data/knowledge-base/processed/collections.csv",
       "exists": true,
-      "bytes": 9047
+      "bytes": 9043
     },
     {
       "file": "collections.parquet",
       "path": "data/knowledge-base/processed/collections.parquet",
       "exists": true,
-      "bytes": 6387
+      "bytes": 6378
     },
     {
       "file": "citations.csv",
@@ -471,25 +471,25 @@
       "file": "topics.parquet",
       "path": "data/knowledge-base/processed/topics.parquet",
       "exists": true,
-      "bytes": 52177
+      "bytes": 52342
     },
     {
       "file": "source_documents.csv",
       "path": "data/knowledge-base/processed/source_documents.csv",
       "exists": true,
-      "bytes": 5219656
+      "bytes": 5219922
     },
     {
       "file": "source_documents.parquet",
       "path": "data/knowledge-base/processed/source_documents.parquet",
       "exists": true,
-      "bytes": 2614004
+      "bytes": 2614365
     },
     {
       "file": "source_documents_fts_input.csv",
       "path": "data/knowledge-base/processed/source_documents_fts_input.csv",
       "exists": true,
-      "bytes": 11292661
+      "bytes": 11292927
     },
     {
       "file": "pages_fts_input.csv",
@@ -513,7 +513,7 @@
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 51597312
+      "bytes": 51601408
     }
   ]
 }

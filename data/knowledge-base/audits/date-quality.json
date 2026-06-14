@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T22:11:03.492Z",
+  "generated_at": "2026-06-14T22:14:42.584Z",
   "audited_source_count": 5,
   "status": "pass",
   "source_reports": [
@@ -967,7 +967,7 @@
       "note": "Cultural collection rows use item/object dates and accession years where supplied. These are not publication dates and need source-specific precision parsing before strong object-date trend claims.",
       "counts": {
         "rows": 988,
-        "rows_with_year": 951,
+        "rows_with_year": 953,
         "rows_with_iso_date": 0,
         "rows_with_source_label": 0,
         "rows_with_fetch_timestamp": 988,
@@ -976,7 +976,7 @@
         "rows_with_study_period_risk": 0
       },
       "rates": {
-        "year_rate": 0.9626,
+        "year_rate": 0.9646,
         "iso_date_rate": 0,
         "source_labeled_rate": 0,
         "fetch_rate": 1,

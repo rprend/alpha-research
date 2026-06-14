@@ -1,0 +1,1148 @@
+{
+  "articles_and_essays": null,
+  "cite_this": {
+    "apa": "<cite>Les Chiens Quadrille The Dogs Quadrille</cite>. , . [Photograph] Retrieved from the Library of Congress, https://www.loc.gov/item/musdcmicon.0567/.",
+    "chicago": "<cite>Les Chiens Quadrille The Dogs Quadrille</cite>. , . Photograph. https://www.loc.gov/item/musdcmicon.0567/.",
+    "mla": "<cite>Les Chiens Quadrille The Dogs Quadrille</cite>. Photograph. Retrieved from the Library of Congress, &lt;www.loc.gov/item/musdcmicon.0567/&gt;."
+  },
+  "item": {
+    "_version_": 1835891520850362400,
+    "access_restricted": false,
+    "aka": [
+      "http://www.loc.gov/item/musdcmicon.0567/",
+      "http://www.loc.gov/resource/music.musdcmicon-0567/",
+      "https://hdl.loc.gov/loc.music/musdcmicon.0567"
+    ],
+    "campaigns": [],
+    "description": [
+      ""
+    ],
+    "digital_id": [
+      "https://hdl.loc.gov/loc.music/musdcmicon.0567"
+    ],
+    "digitized": true,
+    "display_offsite": true,
+    "extract_timestamp": "2025-06-25T08:05:43.845Z",
+    "extract_urls": [
+      "https://repo.loc.gov/access/public/music/musdcmicon-0567/.resource.json#paprika-music"
+    ],
+    "format": [
+      {
+        "photo, print, drawing": "https://www.loc.gov/search/?fa=original_format:photo,+print,+drawing&fo=json"
+      }
+    ],
+    "genre": [
+      "art"
+    ],
+    "group": [
+      "paprika-music"
+    ],
+    "hassegments": false,
+    "id": "http://www.loc.gov/item/musdcmicon.0567/",
+    "image_url": [
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:6.25/0/default.jpg",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:6.25/0/default.jpg#h=359&w=251",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:12.5/0/default.jpg#h=718&w=503",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:25.0/0/default.jpg#h=1437&w=1007",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:50.0/0/default.jpg#h=2874&w=2014",
+      "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:100.0/0/default.jpg#h=5748&w=4028"
+    ],
+    "index": 1,
+    "item": {
+      "digital_id": [
+        "https://hdl.loc.gov/loc.music/musdcmicon.0567"
+      ],
+      "format": [
+        "still image"
+      ],
+      "genre": [
+        "art"
+      ],
+      "language": [
+        "eng"
+      ],
+      "medium": [
+        "7 x 5 1/2 inches"
+      ],
+      "notes": [
+        "Dayton Miller Category: Animals",
+        "Medium: No medium given, title page.",
+        "Provenance: [Harold Reeves?, London, ca. 1936-1937?]"
+      ],
+      "repository": "music division",
+      "rights": "No known restrictions on use or reproduction.",
+      "source_collection": "Dayton C. Miller Collection",
+      "subjects": [
+        "Animals",
+        "Art reproduction",
+        "art"
+      ],
+      "title": "Les Chiens Quadrille (The Dogs Quadrille)"
+    },
+    "language": [
+      "english"
+    ],
+    "languages": [
+      {
+        "english": "https://www.loc.gov/search/?fa=language:english&fo=json"
+      }
+    ],
+    "medium": [
+      "7 x 5 1/2 inches"
+    ],
+    "mime_type": [
+      "image/jpeg",
+      "application/pdf",
+      "image/jp2"
+    ],
+    "notes": [
+      "Dayton Miller Category: Animals",
+      "Medium: No medium given, title page.",
+      "Provenance: [Harold Reeves?, London, ca. 1936-1937?]"
+    ],
+    "number": [
+      "http://www.loc.gov/resource/musdcmicon.0567.0"
+    ],
+    "number_former_id": [
+      "http://www.loc.gov/resource/musdcmicon.0567.0"
+    ],
+    "online_format": [
+      "image",
+      "pdf"
+    ],
+    "original_format": [
+      "photo, print, drawing"
+    ],
+    "other_formats": [],
+    "partof": [
+      {
+        "count": 2544,
+        "title": "dayton c. miller collection",
+        "url": "https://www.loc.gov/collections/dayton-c-miller-collection/?fo=json"
+      },
+      {
+        "count": 184375,
+        "title": "music division",
+        "url": "https://www.loc.gov/search/?fa=partof:music+division&fo=json"
+      }
+    ],
+    "repository": [
+      "music division"
+    ],
+    "resources": [
+      {
+        "files": 1,
+        "image": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:6.25/0/default.jpg",
+        "paprika_resource_path": "/sets/music/musdcmicon-0567",
+        "pdf": "https://tile.loc.gov/storage-services/public/music/musdcmicon-0567/musdcmicon-0567.pdf",
+        "schemaVersion": "v1",
+        "url": "https://www.loc.gov/resource/music.musdcmicon-0567/",
+        "version": 4
+      }
+    ],
+    "rights": [
+      "<p>The Library of Congress is not aware of any U.S. copyright protection (see Title 17 U.S.C.) or any other restrictions in the Dayton C. Miller Collection except for the items noted below. The Library of Congress is providing access to these materials for educational and research purposes. Patrons should keep in mind that the written permission of the copyright owners and/or other rights holders (such as holders of publicity and/or privacy rights) is required for distribution, reproduction, or other use of protected items beyond that allowed by fair use or other statutory exemptions. </p>\n<p>Responsibility for making an independent legal assessment of an item and securing any necessary permissions ultimately rests with persons desiring to use the item. Users should consult the bibliographic information that accompanies each item for specific information.</p>\n<h2>Copyright Protected Items</h2>\n<p>Four full-size drawings of flutes DCM 0507, DCM 0615, DCM 0916, and DCM 1125  by Jean-François Beaudin, Québec, Canada. 2003. Please make written requests  for permission for other uses to: </p>\n<p>Jean-François Beaudin<br />\n\t312 Chemin Richford<br />\n\tFrelighsburg (Québec) Canada, J0J1C0<br />\n\tTel.: 450-298-5161<br />\n\tFax: 450-298-8251<br />\n\tjfbeaudin@hotmail.com </p>\n<p>The quotation regarding Dr. Miller and his gold flute comes from an article by Robert S. Shankland, \"Dayton Clarence Miller: Physics Across Fifty Years.\" <em>American Journal of Physics</em> 9(October 1941):273-283. LC call number: QC1.A47. It was reprinted here with permission from the <em>American Journal of Physics</em> 9(October 1941):278. Copyright 1941, American Association of Physics Teachers. Should you wish to quote from this article, please contact:</p>\n<p>Susann Brailey, Office of Rights and Permissions<br /> American Institute of Physics<br /> Suite 1N01<br /> 2 Huntington Quadrangle<br /> Melville, NY 11747-4502<br /> Phone: 516-576-2268<br /> Fax: 516-576-2450</p>\n<p>\n<a href=\"/item/ihas.200182874/\">The image of the <em>Faun playing an aulos</em> by Rea Irvin</a>, Miller no. 57/G, comes from the cover of <em>The New Yorker</em> magazine, 14 March 1925. It is reproduced here without <em>The New Yorker</em> masthead as required by Condé Nast Publications, New York. Permission to reproduce the <em>Faun</em> only as a thumbnail-size image, and without the masthead, is Courtesy of the Irvin Estate. No reproduction without permission. For reproduction permission, please contact:</p>\n<p>The Irvin Estate<br /> c/o Molly Rea<br /> 5 Willis Lane<br /> Fairfax, California 94930</p>\n<p>Credit line: Dayton C. Miller Collection, Music Division, Library of Congress  </p>\n<p>\"Dayton C. Miller, His Life, Work and Contributions as a  Scientist and Organologist\" is made available here with permission from  the author, William J. Maynard. <a href=\"/collections/dayton-c-miller-collection/articles-and-essays/his-life-work-and-contributions-as-scientist-and-organologist/\">HTML version of this text</a></p>\n<p>More about <a href=\"https://memory.loc.gov/ammem/copyrit2.html\"> American Memory, Copyright and other Restrictions</a></p>\n<p>Credit line: Dayton C. Miller Collection, Music Division, Library of Congress </p>\n"
+    ],
+    "score": 15.929317,
+    "shard": "08",
+    "shelf_id": "musdcmicon.0567",
+    "site": [],
+    "source_collection": "Dayton C. Miller Collection",
+    "source_modified": "2000-01-01T12:00:00Z",
+    "subject": [
+      "art reproduction",
+      "art",
+      "animals"
+    ],
+    "subject_headings": [
+      "Animals",
+      "Art reproduction",
+      "art"
+    ],
+    "subjects": [
+      {
+        "animals": "https://www.loc.gov/search/?fa=subject:animals&fo=json"
+      },
+      {
+        "art": "https://www.loc.gov/search/?fa=subject:art&fo=json"
+      },
+      {
+        "art reproduction": "https://www.loc.gov/search/?fa=subject:art+reproduction&fo=json"
+      }
+    ],
+    "timestamp": "2025-06-25T09:09:50.985Z",
+    "title": "Les Chiens Quadrille (The Dogs Quadrille)",
+    "type": [
+      "still image"
+    ],
+    "url": "https://www.loc.gov/item/musdcmicon.0567/"
+  },
+  "more_like_this": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/musdcmicon.0033/",
+        "http://www.loc.gov/resource/music.musdcmicon-0033/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0033"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "pirodon, louis eugène"
+      ],
+      "date": "1800",
+      "dates": [
+        "[1800 TO 1899]"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T06:55:55.919Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0033/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0033:0001/full/pct:6.25/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0033:0001/full/pct:6.25/0/default.jpg#h=201&w=258",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0033:0001/full/pct:12.5/0/default.jpg#h=402&w=516",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0033:0001/full/pct:25.0/0/default.jpg#h=805&w=1033",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0033:0001/full/pct:50.0/0/default.jpg#h=1610&w=2067",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0033:0001/full/pct:100.0/0/default.jpg#h=3220&w=4134"
+      ],
+      "index": 1,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0033.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 23.653564,
+      "shelf_id": "musdcmicon.0033",
+      "subject": [
+        "art reproduction",
+        "art",
+        "animals"
+      ],
+      "timestamp": "2025-06-25T09:05:24.243Z",
+      "title": "Musique (Music)",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0033/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/resource/music.musdcmicon-0084/",
+        "http://www.loc.gov/item/musdcmicon.0084/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0084"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "medbery"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T07:00:16.088Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0084/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0084:0001/full/pct:6.25/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0084:0001/full/pct:6.25/0/default.jpg#h=260&w=204",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0084:0001/full/pct:12.5/0/default.jpg#h=520&w=409",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0084:0001/full/pct:25.0/0/default.jpg#h=1041&w=819",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0084:0001/full/pct:50.0/0/default.jpg#h=2083&w=1639",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0084:0001/full/pct:100.0/0/default.jpg#h=4166&w=3278"
+      ],
+      "index": 2,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0084.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 23.653564,
+      "shelf_id": "musdcmicon.0084",
+      "subject": [
+        "art reproduction",
+        "art",
+        "animals"
+      ],
+      "timestamp": "2025-06-25T09:05:24.243Z",
+      "title": "Monkey Playing Flute and Violin",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0084/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/musdcmicon.0427/",
+        "http://www.loc.gov/resource/music.musdcmicon-0427/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0427"
+      ],
+      "campaigns": [],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T07:10:18.557Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0427/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0427:0001/full/pct:12.5/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0427:0001/full/pct:12.5/0/default.jpg#h=224&w=365",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0427:0001/full/pct:25.0/0/default.jpg#h=448&w=731",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0427:0001/full/pct:50.0/0/default.jpg#h=896&w=1463",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0427:0001/full/pct:100.0/0/default.jpg#h=1792&w=2927"
+      ],
+      "index": 3,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0427.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 23.653564,
+      "shelf_id": "musdcmicon.0427",
+      "subject": [
+        "art reproduction",
+        "art",
+        "animals"
+      ],
+      "timestamp": "2025-06-25T09:08:58.101Z",
+      "title": "\"Celestial Harmony by a Seraphic Band\"",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0427/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/resource/music.musdcmicon-0374/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0374",
+        "http://www.loc.gov/item/musdcmicon.0374/"
+      ],
+      "campaigns": [],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T07:16:12.421Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0374/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0374:0001/full/pct:12.5/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0374:0001/full/pct:12.5/0/default.jpg#h=429&w=344",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0374:0001/full/pct:25.0/0/default.jpg#h=858&w=688",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0374:0001/full/pct:50.0/0/default.jpg#h=1716&w=1377",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0374:0001/full/pct:100.0/0/default.jpg#h=3432&w=2754"
+      ],
+      "index": 4,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0374.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 23.653564,
+      "shelf_id": "musdcmicon.0374",
+      "subject": [
+        "art reproduction",
+        "art",
+        "animals"
+      ],
+      "timestamp": "2025-06-25T09:08:06.012Z",
+      "title": "\"Une Fausse Note\"",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0374/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/musdcmicon.0132/",
+        "http://www.loc.gov/resource/music.musdcmicon-0132/",
+        "https://hdl.loc.gov/loc.music/musdcmicon.0132"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "probably william johnstone white, 19th century"
+      ],
+      "date": "1807",
+      "dates": [
+        "1807"
+      ],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T06:52:36.540Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0132/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0132:0001/full/pct:6.25/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0132:0001/full/pct:6.25/0/default.jpg#h=222&w=300",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0132:0001/full/pct:12.5/0/default.jpg#h=444&w=601",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0132:0001/full/pct:25.0/0/default.jpg#h=888&w=1203",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0132:0001/full/pct:50.0/0/default.jpg#h=1777&w=2407",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0132:0001/full/pct:100.0/0/default.jpg#h=3555&w=4814"
+      ],
+      "index": 5,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0132.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 23.653564,
+      "shelf_id": "musdcmicon.0132",
+      "subject": [
+        "art reproduction",
+        "art",
+        "animals"
+      ],
+      "timestamp": "2025-06-25T09:06:18.477Z",
+      "title": "The Concert",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0132/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://hdl.loc.gov/loc.music/musdcmicon.0670",
+        "http://www.loc.gov/item/musdcmicon.0670/",
+        "http://www.loc.gov/resource/music.musdcmicon-0670/"
+      ],
+      "campaigns": [],
+      "description": [
+        ""
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-06-25T07:52:51.768Z",
+      "group": [
+        "paprika-music"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/musdcmicon.0670/",
+      "image_url": [
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0670:0001/full/pct:25.0/0/default.jpg",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0670:0001/full/pct:25.0/0/default.jpg#h=484&w=289",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0670:0001/full/pct:50.0/0/default.jpg#h=969&w=579",
+        "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0670:0001/full/pct:100.0/0/default.jpg#h=1938&w=1159"
+      ],
+      "index": 6,
+      "language": [
+        "english"
+      ],
+      "mime_type": [
+        "image/jpeg",
+        "application/pdf",
+        "image/jp2"
+      ],
+      "number": [
+        "http://www.loc.gov/resource/musdcmicon.0670.0"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "dayton c. miller collection",
+        "music division"
+      ],
+      "score": 23.653564,
+      "shelf_id": "musdcmicon.0670",
+      "subject": [
+        "art reproduction",
+        "art",
+        "animals"
+      ],
+      "timestamp": "2025-06-25T09:10:44.283Z",
+      "title": "[Donkey playing flute]",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/musdcmicon.0670/"
+    }
+  ],
+  "options": {
+    "access_group": [
+      ""
+    ],
+    "access_group_raw": "",
+    "all": null,
+    "api_version": "1",
+    "app_context": null,
+    "application_version": "$Revision$",
+    "attribute": null,
+    "attribute!": null,
+    "attribute_map": null,
+    "cache_tags": [
+      "paprika-music",
+      "hlas-annotations"
+    ],
+    "callback": null,
+    "clip": null,
+    "clip_image_width": null,
+    "clip_rotation": null,
+    "content_filter": null,
+    "content_replacement": "",
+    "count": null,
+    "dates": null,
+    "default_count": 25,
+    "delimiter": null,
+    "digital_id": null,
+    "display_level": null,
+    "distance": null,
+    "downloadOption": null,
+    "duration": 0.46137022972106934,
+    "embed": [],
+    "embed!": [],
+    "error_response_status": null,
+    "excludeTerms": null,
+    "facetLimits": "",
+    "facetPrefix": null,
+    "facet_count": null,
+    "facet_style": null,
+    "field": null,
+    "format": "json",
+    "host": "www.loc.gov",
+    "ical": false,
+    "id": "musdcmicon.0567/",
+    "iiif": false,
+    "index": null,
+    "inputEncoding": "UTF-8",
+    "item": null,
+    "items": null,
+    "keys": null,
+    "language": null,
+    "latlong": null,
+    "method": "GET",
+    "newSearch": null,
+    "new_clip_url": false,
+    "onsite": false,
+    "operator": null,
+    "outputEncoding": "UTF-8",
+    "page_campaigns": [],
+    "path_info": "/item/musdcmicon.0567/",
+    "port": "443",
+    "proxypath": null,
+    "query_string": "fo=json",
+    "redirect_proxy": false,
+    "redirect_to_item": null,
+    "referer": "",
+    "region": "",
+    "release_id": 123456789,
+    "request_host": "www.loc.gov",
+    "request_params": {
+      "fo": [
+        "json"
+      ]
+    },
+    "request_url": "https://www.loc.gov/item/musdcmicon.0567/?fo=json",
+    "resource": "",
+    "resource_sequence": null,
+    "scheme": "https",
+    "searchIn": null,
+    "searchTerms": "",
+    "segments": null,
+    "shards": [
+      "08"
+    ],
+    "site_id": null,
+    "site_type": null,
+    "solrQuery": "",
+    "sortBy": null,
+    "sortOrder": null,
+    "startPage": null,
+    "style": null,
+    "suggested": null,
+    "target": null,
+    "template": "layouts/item/layout",
+    "timestamp": 1781475183.7226236,
+    "tz_aware": null,
+    "unionFacets": "",
+    "webcast_permalink": null
+  },
+  "related_items": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi2018002098/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "kury, lorelai brilhante",
+        "container of (work): velden, felipe ferreira vander. multiplicam-se muito nestas terras",
+        "neistein, josé m."
+      ],
+      "date": "2014",
+      "dates": [
+        "2014"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:46:15.156Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi2018002098/",
+      "image_url": [],
+      "index": 1,
+      "language": [
+        "portuguese"
+      ],
+      "location": [
+        "brazil"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "handbook of latin american studies",
+        "latin american, caribbean, and european division",
+        "hlas volume 74",
+        "art--brazil--miscellaneous (hdn9000)"
+      ],
+      "score": 10.008278,
+      "shelf_id": "74:hdn9000:hlas-bi2018002098",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "colonization -- animals",
+        "natural history",
+        "colonization -- ecology",
+        "colonization",
+        "animals -- art",
+        "ecology",
+        "animals in art",
+        "themes, motives",
+        "animals -- brazil",
+        "art",
+        "art, brazilian",
+        "brazil",
+        "natural history -- brazil",
+        "ecology -- brazil",
+        "animals"
+      ],
+      "timestamp": "2026-04-20T03:31:47.648Z",
+      "title": "Representações da fauna no Brasil: séculos XVI-XX. Organização de Lorelai Kury. Contribuções de Felipe F. Vander Velden, Bruno Martins Boto Leite, Lorelai Kury, Magali Romero Sá, e José Luiz de Andrade Franco. Versão para o inglês de Chris Hieatt",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi2018002098/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi2022002292/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "looper, matthew george",
+        "henderson, john s."
+      ],
+      "date": "2019",
+      "dates": [
+        "2019"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:48:02.297Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi2022002292/",
+      "image_url": [],
+      "index": 2,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "texas"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "handbook of latin american studies",
+        "latin american, caribbean, and european division",
+        "hlas volume 77",
+        "archeology--mesoamerica (sef1200)"
+      ],
+      "score": 10.008278,
+      "shelf_id": "77:sef1200:hlas-bi2022002292",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "antiquities",
+        "animals -- archeology",
+        "mayas -- animals",
+        "precolumbian civilizations -- animals",
+        "hunting",
+        "maya art",
+        "mayas",
+        "precolumbian civilizations",
+        "art",
+        "human-animal relationships",
+        "deer in art",
+        "animals -- art",
+        "animals and civilization",
+        "archeology",
+        "animals",
+        "animal remains -- mesoamerica",
+        "mayas -- hunting",
+        "animal remains",
+        "mesoamerica"
+      ],
+      "timestamp": "2026-04-20T03:51:18.735Z",
+      "title": "The beast between: deer in Maya art and culture",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi2022002292/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi82100470/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "mello filho, luiz emygdio de",
+        "neistein, josé m.",
+        "museu nacional valladares. seção etnográfica",
+        "valladares, clarival do prado"
+      ],
+      "date": "1981",
+      "dates": [
+        "1981"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:20:25.496Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi82100470/",
+      "image_url": [],
+      "index": 3,
+      "language": [
+        "portuguese"
+      ],
+      "location": [
+        "brazil"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "handbook of latin american studies",
+        "art--brazil--colonial period (hdn2000)",
+        "latin american, caribbean, and european division",
+        "hlas volume 44"
+      ],
+      "score": 10.008278,
+      "shelf_id": "44:hdn2000:hlas-bi82100470",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "indigenous peoples -- brazil",
+        "indigenous peoples",
+        "indigenous peoples -- art",
+        "eckhout, albert",
+        "animals -- art",
+        "plants -- art",
+        "colonial art -- brazil",
+        "painting -- brazil",
+        "plants",
+        "costume and adornment",
+        "art",
+        "colonial art",
+        "brazil",
+        "painting",
+        "animals",
+        "costume and adornment -- brazil"
+      ],
+      "timestamp": "2026-04-20T05:13:32.848Z",
+      "title": "Albert Eckhout: pintor de Maurício de Nassau no Brasil, 1637-1644. Revisão crítica e atualidade por Clarival do Prado Valladares. Verbetes científicos por Luiz Emygdio de Mello Filho. Reproduções das obras do acervo da Seção Etnográfica do Museu Nacional Valladares",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi82100470/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi82100471/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "verdier, jeanine",
+        "neistein, josé m."
+      ],
+      "date": "1980",
+      "dates": [
+        "1980"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:20:25.496Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi82100471/",
+      "image_url": [],
+      "index": 4,
+      "language": [
+        "french"
+      ],
+      "location": [
+        "france"
+      ],
+      "original_format": [
+        "periodical"
+      ],
+      "partof": [
+        "handbook of latin american studies",
+        "art--brazil--colonial period (hdn2000)",
+        "latin american, caribbean, and european division",
+        "hlas volume 44"
+      ],
+      "score": 10.008278,
+      "shelf_id": "44:hdn2000:hlas-bi82100471",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "johan maurits",
+        "description and travel",
+        "animals -- art",
+        "plants -- art",
+        "colonial art -- brazil",
+        "plants",
+        "johan maurits, -- <em>prince of nassau-siegen</em",
+        "animals -- brazil",
+        "plants -- brazil",
+        "art",
+        "colonial art",
+        "brazil",
+        "description and travel -- brazil",
+        "animals",
+        "em>prince of nassau-siegen</em"
+      ],
+      "timestamp": "2026-04-20T05:13:32.848Z",
+      "title": "Les tentures des Indes",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi82100471/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi82100474/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "rugendas, johann moritz",
+        "neistein, josé m.",
+        "carneiro, newton"
+      ],
+      "date": "1982",
+      "dates": [
+        "1970",
+        "1982"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:20:25.496Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi82100474/",
+      "image_url": [],
+      "index": 5,
+      "language": [
+        "portuguese"
+      ],
+      "location": [
+        "brazil"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "handbook of latin american studies",
+        "latin american, caribbean, and european division",
+        "hlas volume 44",
+        "art--brazil--19th century (hdn3000)"
+      ],
+      "score": 10.008278,
+      "shelf_id": "44:hdn3000:hlas-bi82100474",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "modern art",
+        "indigenous peoples -- brazil",
+        "são paulo, brazil (city)",
+        "indigenous peoples",
+        "minas gerais, brazil (state) -- art",
+        "art",
+        "rio de janeiro, brazil (city) -- art",
+        "modern art -- brazil",
+        "animals -- art",
+        "rio de janeiro, brazil (city)",
+        "brazil",
+        "art -- brazil",
+        "minas gerais, brazil (state)",
+        "animals",
+        "indigenous peoples -- art",
+        "plants",
+        "pernambuco, brazil (city) -- art",
+        "são paulo, brazil (city) -- art",
+        "pernambuco, brazil (city)",
+        "plants -- art"
+      ],
+      "timestamp": "2026-04-20T05:13:32.848Z",
+      "title": "Rugendas no Brasil. Textos y comentários por Newton Carneiro",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi82100474/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/hlas-bi82100526/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "franceschi, humberto",
+        "neistein, josé m.",
+        "octavio ignacio"
+      ],
+      "date": "1978",
+      "dates": [
+        "1978"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-20T00:20:25.496Z",
+      "group": [
+        "hlas-annotations"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/hlas-bi82100526/",
+      "image_url": [],
+      "index": 6,
+      "language": [
+        "portuguese"
+      ],
+      "location": [
+        "brazil"
+      ],
+      "original_format": [
+        "book"
+      ],
+      "partof": [
+        "handbook of latin american studies",
+        "art--brazil--miscellaneous (hdn9000)",
+        "latin american, caribbean, and european division",
+        "hlas volume 44"
+      ],
+      "score": 10.008278,
+      "shelf_id": "44:hdn9000:hlas-bi82100526",
+      "site": [
+        "handbook of latin american studies"
+      ],
+      "subject": [
+        "artists -- brazil",
+        "animals -- art",
+        "art",
+        "brazil",
+        "octavio ignacio",
+        "animals",
+        "artists"
+      ],
+      "timestamp": "2026-04-20T05:13:32.848Z",
+      "title": "Os cavalos de Octavio Ignacio. Fotografias de Humberto Franceschi",
+      "type": [
+        "annotated"
+      ],
+      "url": "https://www.loc.gov/item/hlas-bi82100526/"
+    }
+  ],
+  "resources": [
+    {
+      "caption": null,
+      "files": [
+        [
+          {
+            "height": "5748",
+            "info": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/info.json",
+            "levels": "6",
+            "mimetype": "image/jp2",
+            "other_name": "0001.jp2",
+            "size": 4630299,
+            "url": "https://tile.loc.gov/storage-services/public/music/musdcmicon-0567/0001.jp2",
+            "width": "4028"
+          },
+          {
+            "height": 5748,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:100.0/0/default.jpg",
+            "width": 4028
+          },
+          {
+            "height": 2874,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:50.0/0/default.jpg",
+            "width": 2014
+          },
+          {
+            "height": 1437,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:25.0/0/default.jpg",
+            "width": 1007
+          },
+          {
+            "height": 718,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:12.5/0/default.jpg",
+            "width": 503
+          },
+          {
+            "height": 359,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "url": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:6.25/0/default.jpg",
+            "width": 251
+          }
+        ]
+      ],
+      "image": "https://tile.loc.gov/image-services/iiif/public:music:musdcmicon-0567:0001/full/pct:6.25/0/default.jpg",
+      "paprika_resource_path": "/sets/music/musdcmicon-0567",
+      "pdf": "https://tile.loc.gov/storage-services/public/music/musdcmicon-0567/musdcmicon-0567.pdf",
+      "representative_index": 0,
+      "resourceOrder": null,
+      "resource_items": null,
+      "schemaVersion": "v1",
+      "url": "https://www.loc.gov/resource/music.musdcmicon-0567/",
+      "version": 4
+    }
+  ],
+  "timestamp": 1781475184184
+}

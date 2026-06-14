@@ -1,6 +1,6 @@
 # KB Date Precision Derivation
 
-Generated at: 2026-06-14T22:10:56.598Z
+Generated at: 2026-06-14T22:14:35.649Z
 Source-document updates: 1039
 Work updates: 51
 
@@ -17,8 +17,8 @@ Work updates: 51
 | cleveland-museum-open-access:object-date:year-bce | 5 |
 | dh-conference-programs:page-post-date:day | 25 |
 | library-of-congress:item-date:range | 75 |
-| library-of-congress:item-date:year | 219 |
-| library-of-congress:undated-cultural-metadata:none | 14 |
+| library-of-congress:item-date:year | 221 |
+| library-of-congress:undated-cultural-metadata:none | 12 |
 | met-collection-api:accession-year:year | 33 |
 | met-collection-api:object-date:century | 9 |
 | met-collection-api:object-date:century-ish | 18 |

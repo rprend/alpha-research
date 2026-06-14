@@ -1,0 +1,2081 @@
+{
+  "articles_and_essays": null,
+  "cite_this": {
+    "apa": "Historic American Buildings Survey, C., Poppeliers, J. C. &amp; Mosley, A. K., Boucher, J. E., Winter, W. F. &amp; Baldwin, N. E., photographer. (1933) <cite>Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY</cite>. New York Watervliet Albany County, 1933. Price, V. B., trans Documentation Compiled After. [Photograph] Retrieved from the Library of Congress, https://www.loc.gov/item/ny0074/.",
+    "chicago": "Historic American Buildings Survey, Creator, John C Poppeliers, and Abraham K Mosley, Boucher, Jack E, William F Winter, and Nelson E Baldwin, photographer. <cite>Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY</cite>. New York Watervliet Albany County, 1933. translateds by Price, Virginia Barrettmitter Documentation Compiled After. Photograph. https://www.loc.gov/item/ny0074/.",
+    "mla": "Historic American Buildings Survey, Creator, John C Poppeliers, and Abraham K Mosley, photographers by Boucher, Jack E, William F Winter, and Nelson E Baldwin. <cite>Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY</cite>. trans by Price, Virginia Barrettmitter Documentation Compiled After. Photograph. Retrieved from the Library of Congress, &lt;www.loc.gov/item/ny0074/&gt;."
+  },
+  "item": {
+    "_version_": 1821170125886193700,
+    "access_restricted": false,
+    "aka": [
+      "https://www.loc.gov/pictures/item/ny0074/",
+      "http://www.loc.gov/item/ny0074/",
+      "http://www.loc.gov/pictures/item/ny0074/",
+      "https://www.loc.gov/pictures/collection/hh/item/ny0074/",
+      "http://www.loc.gov/pictures/collection/hh/item/ny0074/",
+      "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074data.pdf",
+      "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074data.pdf",
+      "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074cap.pdf",
+      "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074cap.pdf",
+      "https://stage.loc.gov/pictures/search/?q=photograph: ny0074&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+      "http://stage.loc.gov/pictures/search/?q=photograph: ny0074&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+      "https://stage.loc.gov/pictures/search/?q=drawing: ny0074&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+      "http://stage.loc.gov/pictures/search/?q=drawing: ny0074&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+      "http://www.loc.gov/resource/hhh.ny0074data/",
+      "http://www.loc.gov/resource/hhh.ny0074cap/",
+      "http://www.loc.gov/resource/hhh.ny0074.sheet/",
+      "http://www.loc.gov/resource/hhh.ny0074.photos/",
+      "http://www.loc.gov/resource/hhh.ny0074.photos",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.114523p",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.114524p",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.114525p",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.114526p",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.114527p",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.114528p",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.381276p",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.381277p",
+      "http://www.loc.gov/resource/hhh.ny0074.photos.381278p",
+      "http://www.loc.gov/resource/hhh.ny0074.sheet"
+    ],
+    "call_number": "HABS NY,1-COL,11-",
+    "campaigns": [],
+    "contributor_names": [
+      "Historic American Buildings Survey, creator",
+      "Price, Virginia Barrett, transmitter",
+      "Boucher, Jack E., photographer",
+      "Winter, William F., Jr., photographer",
+      "Baldwin, Nelson E., photographer",
+      "Poppeliers, John C., historian",
+      "Mosley, Abraham K., delineator"
+    ],
+    "contributors": [
+      {
+        "baldwin, nelson e.": "https://www.loc.gov/search/?fa=contributor:baldwin,+nelson+e.&fo=json"
+      },
+      {
+        "boucher, jack e.": "https://www.loc.gov/search/?fa=contributor:boucher,+jack+e.&fo=json"
+      },
+      {
+        "historic american buildings survey": "https://www.loc.gov/search/?fa=contributor:historic+american+buildings+survey&fo=json"
+      },
+      {
+        "mosley, abraham k.": "https://www.loc.gov/search/?fa=contributor:mosley,+abraham+k.&fo=json"
+      },
+      {
+        "poppeliers, john c.": "https://www.loc.gov/search/?fa=contributor:poppeliers,+john+c.&fo=json"
+      },
+      {
+        "price, virginia barrett": "https://www.loc.gov/search/?fa=contributor:price,+virginia+barrett&fo=json"
+      },
+      {
+        "winter, william f., jr": "https://www.loc.gov/search/?fa=contributor:winter,+william+f.,+jr&fo=json"
+      }
+    ],
+    "control_number": "ny0074",
+    "created": "2024-12-04T16:38:45Z",
+    "created_published": [
+      "Documentation compiled after 1933"
+    ],
+    "created_published_date": "Documentation compiled after 1933",
+    "description": [
+      "Photo(s): 9 | Measured Drawing(s): 1 | Data Page(s): 8 | Photo Caption Page(s): 1"
+    ],
+    "digitized": true,
+    "display_offsite": true,
+    "extract_timestamp": "2025-01-13T21:17:09.441Z",
+    "extract_urls": [
+      "http://www.loc.gov/pictures/collection/hh/item/ny0074/#hh-5"
+    ],
+    "format": [
+      {
+        "photo, print, drawing": "https://www.loc.gov/search/?fa=original_format:photo,+print,+drawing&fo=json"
+      }
+    ],
+    "group": [
+      "hh-5",
+      "habshaer-group-5"
+    ],
+    "hassegments": true,
+    "id": "http://www.loc.gov/item/ny0074/",
+    "image_url": [
+      "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523p_150px.jpg#h=107&w=150",
+      "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523pr.jpg#h=456&w=640",
+      "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523pv.jpg#h=729&w=1024"
+    ],
+    "index": 1,
+    "item": {
+      "call_number": "HABS NY,1-COL,11-",
+      "contributor_names": [
+        "Price, Virginia Barrett, transmitter ",
+        "Boucher, Jack E., photographer ",
+        "Winter, William F., Jr., photographer ",
+        "Baldwin, Nelson E., photographer ",
+        "Poppeliers, John C., historian ",
+        "Mosley, Abraham K., delineator "
+      ],
+      "control_number": "ny0074",
+      "created": "2024-12-04T16:38:45Z",
+      "created_published": "Documentation compiled after 1933",
+      "created_published_date": "Documentation compiled after 1933",
+      "creators": [
+        {
+          "link": "https://www.loc.gov/pictures/related/?fi=name&q=Historic%20American%20Buildings%20Survey&co=hh",
+          "role": "creator",
+          "title": "Historic American Buildings Survey"
+        },
+        {
+          "link": "https://www.loc.gov/pictures/related/?fi=name&q=Price%2C%20Virginia%20Barrett&co=hh",
+          "role": "transmitter",
+          "title": "Price, Virginia Barrett"
+        },
+        {
+          "link": "https://www.loc.gov/pictures/related/?fi=name&q=Boucher%2C%20Jack%20E.&co=hh",
+          "role": "photographer",
+          "title": "Boucher, Jack E."
+        },
+        {
+          "link": "https://www.loc.gov/pictures/related/?fi=name&q=Winter%2C%20William%20F.%2C%20Jr.&co=hh",
+          "role": "photographer",
+          "title": "Winter, William F., Jr."
+        },
+        {
+          "link": "https://www.loc.gov/pictures/related/?fi=name&q=Baldwin%2C%20Nelson%20E.&co=hh",
+          "role": "photographer",
+          "title": "Baldwin, Nelson E."
+        },
+        {
+          "link": "https://www.loc.gov/pictures/related/?fi=name&q=Poppeliers%2C%20John%20C.&co=hh",
+          "role": "historian",
+          "title": "Poppeliers, John C."
+        },
+        {
+          "link": "https://www.loc.gov/pictures/related/?fi=name&q=Mosley%2C%20Abraham%20K.&co=hh",
+          "role": "delineator",
+          "title": "Mosley, Abraham K."
+        }
+      ],
+      "display_offsite": true,
+      "id": "ny0074",
+      "link": "https://www.loc.gov/pictures/item/ny0074/",
+      "medium_brief": "Photo(s): 9, Measured Drawing(s): 1, Data Page(s): 8, Photo Caption Page(s): 1",
+      "mediums": [
+        "Photo(s): 9 ",
+        "Measured Drawing(s): 1 ",
+        "Data Page(s): 8 ",
+        "Photo Caption Page(s): 1 "
+      ],
+      "modified": "2024-12-13T20:38:18Z",
+      "notes": [
+        "Survey number: HABS NY-3272 "
+      ],
+      "part_of": "Historic American Buildings Survey (Library of Congress)",
+      "part_of_group": "Survey Number ny0074",
+      "place": [
+        {
+          "latitude": "",
+          "link": "https://www.loc.gov/pictures/related/?fi=place&q=New%20York--Albany%20County--Watervliet&co=hh",
+          "longitude": "",
+          "title": "New York--Albany County--Watervliet"
+        }
+      ],
+      "raw_collections": [
+        "diof",
+        "hh",
+        "survey"
+      ],
+      "repository": "Library of Congress Prints and Photographs Division Washington,      D.C. 20540 USA http://hdl.loc.gov/loc.pnp/pp.print",
+      "resource_links": [
+        "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074data.pdf",
+        "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074cap.pdf",
+        "https://stage.loc.gov/pictures/search/?q=Photograph: ny0074&fi=number&op=PHRASE&va=exact&co =hh&st=gallery&sg = true",
+        "https://stage.loc.gov/pictures/search/?q=Drawing: ny0074&fi=number&op=PHRASE&va=exact&co =hh&st=gallery&sg = true"
+      ],
+      "rights_advisory": "No known restrictions on images made by the U.S. Government; images     copied from other sources may be restricted.    https://www.loc.gov/rr/print/res/114_habs.html",
+      "rights_information": "No known restrictions on images made by the U.S. Government; images     copied from other sources may be restricted.    https://www.loc.gov/rr/print/res/114_habs.html",
+      "service_low": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523p_150px.jpg?q=ny0074.photos.114523p&c=9&st=gallery",
+      "service_medium": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523pr.jpg?q=ny0074.photos.114523p&c=9&st=gallery",
+      "source_created": "1970-01-01T00:00:00Z",
+      "source_modified": "2024-12-04T16:38:00Z",
+      "subject_headings": [
+        "complexes",
+        "agriculture",
+        "commerce",
+        "Shakers",
+        "maps",
+        "New York--Albany County--Watervliet"
+      ],
+      "thumb_gallery": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523p_150px.jpg?q=ny0074.photos.114523p&c=9&st=gallery",
+      "title": "Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY"
+    },
+    "language": [
+      "english"
+    ],
+    "languages": [
+      {
+        "english": "https://www.loc.gov/search/?fa=language:english&fo=json"
+      }
+    ],
+    "link": "https://www.loc.gov/pictures/item/ny0074/",
+    "location": [
+      "new york",
+      "watervliet",
+      "albany county"
+    ],
+    "locations": [
+      {
+        "albany county": "https://www.loc.gov/search/?fa=location:albany+county&fo=json"
+      },
+      {
+        "new york": "https://www.loc.gov/search/?fa=location:new+york&fo=json"
+      },
+      {
+        "watervliet": "https://www.loc.gov/search/?fa=location:watervliet&fo=json"
+      }
+    ],
+    "medium": [
+      "Photo(s): 9 ",
+      "Measured Drawing(s): 1 ",
+      "Data Page(s): 8 ",
+      "Photo Caption Page(s): 1 "
+    ],
+    "medium_brief": "Photo(s): 9, Measured Drawing(s): 1, Data Page(s): 8, Photo Caption Page(s): 1",
+    "mime_type": [
+      "image/gif",
+      "application/pdf"
+    ],
+    "modified": "2024-12-13T20:38:18Z",
+    "notes": [
+      "Survey number: HABS NY-3272 "
+    ],
+    "online_format": [
+      "image",
+      "pdf"
+    ],
+    "original_format": [
+      "photo, print, drawing"
+    ],
+    "other_formats": [],
+    "part_of_group": "Survey Number ny0074",
+    "partof": [
+      {
+        "count": 45882,
+        "title": "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "url": "https://www.loc.gov/collections/historic-american-buildings-landscapes-and-engineering-records/?fo=json"
+      },
+      {
+        "count": 418991,
+        "title": "american memory",
+        "url": "https://www.loc.gov/search/?fa=partof:american+memory&fo=json"
+      },
+      {
+        "count": 1123193,
+        "title": "prints and photographs division",
+        "url": "https://www.loc.gov/search/?fa=partof:prints+and+photographs+division&fo=json"
+      }
+    ],
+    "place": [
+      {
+        "latitude": "",
+        "link": "https://www.loc.gov/pictures/related/?fi=place&q=New%20York--Albany%20County--Watervliet&co=hh",
+        "longitude": "",
+        "title": "New York--Albany County--Watervliet"
+      }
+    ],
+    "raw_collections": [
+      "diof",
+      "hh",
+      "survey"
+    ],
+    "related": {
+      "neighbors": "https://www.loc.gov/pictures/related/?&co=hh&pk=ny0074&st=gallery&sb=call_number#focus"
+    },
+    "repository": [
+      "Library of Congress Prints and Photographs Division Washington,      D.C. 20540 USA http://hdl.loc.gov/loc.pnp/pp.print"
+    ],
+    "reproductions": [
+      "<h4>If Digital Images Are Displaying</h4>\r\n<p>You can download online images yourself.  Alternatively, you can  purchase copies of various types through Library of Congress Duplication  Services.</p>\r\n<p>HABS/HAER/HALS materials have generally been scanned at high resolution that is suitable for most publication purposes (see <a href=\"/collections/historic-american-buildings-landscapes-and-engineering-records/about-this-collection/technical-information/\">Digitizing the Collection</a> for further details about the digital images).</p>\r\n<ul class=\"plain margin-bottom-double-li list-plain-extra-margin\">\r\n\t<li><strong>Photographs--</strong>All photographs are printed from digital files to preserve the fragile originals. </li>\r\n\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t<li>Make note of the Call Number and Item Number that appear under the  photograph in the multiple-image display (e.g., HAER, NY,52-BRIG,4-2). </li>\r\n\t\t<li>If possible, include a printout of the photograph. </li>\r\n\t</ul>\r\n\t<li><strong>Drawings--</strong>All drawings are printed from digital files to preserve the fragile originals. </li>\r\n\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t<li>Make note of the Survey Number (e.g., HAER NY - 143) and Sheet  Number (e.g., \"Sheet 1 of 4\"), which appear on the edge of the drawing.  (NOTE: These numbers are visible in the Tiff \"Reference Image\" display.) </li>\r\n\t\t<li>If possible, include a printout of the drawing. </li>\r\n\t</ul>\r\n\t<li><strong>Data Pages</strong></li>\r\n\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t<li>Make note of the Call Number in the catalog record. </li>\r\n\t</ul>\r\n</ul>\r\n<h4>If Digital Images Are Not Displaying</h4>\r\n<p>In the rare case that a digital image for HABS/HAER/HALS  documentation is not displaying online, select images for reproduction  through one of these methods:</p>\r\n<ul class=\"plain margin-bottom-double-li list-plain-extra-margin\">\r\n\t<li>Visit the Prints &amp; Photographs Reading Room and request to  view the group (general information about service in the reading room is  available at: <a href=\"https://www.loc.gov/rr/print/info/001_ref.html\">https://www.loc.gov/rr/print/info/001_ref.html</a>). It is best to contact reference staff in advance (see: <a href=\"https://www.loc.gov/rr/print/address.html\">https://www.loc.gov/rr/print/address.html</a>) to make sure the material is on site.  OR </li>\r\n\t<li>P&amp;P reading room staff can provide up to 15 quick copies of  items per calendar year (many original items in the holdings are too old  or fragile to make such copies, but generally HABS/HAER/HALS materials  are in good enough condition to be placed on photocopy machines). For  assistance, see our <a href=\"https://ask.loc.gov/prints-photographs/\">Ask a Librarian</a> page OR </li>\r\n\t<li>Hire a freelance researcher to do further selection for you (a list of researchers in available at: <a href=\"https://www.loc.gov/rr/print/resource/013_pic.html\">https://www.loc.gov/rr/print/resource/013_pic.html</a>). </li>\r\n\t<li>You can purchase copies of various types, including quick  copies, through Library of Congress Duplication Services (price lists,  contact information, and order forms for Library of Congress Duplication  Services are available on the <a href=\"https://www.loc.gov/preserv/pds/\">Duplication Services Web site</a>): </li>\r\n\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t<li>Make note of the Call Number listed above. </li>\r\n\t\t<li>Look at the Medium field above. If it lists more than one item: </li>\r\n\t\t<ul class=\"plain margin-bottom-single-li\">\r\n\t\t\t<li>The entire group can be ordered as photocopies or high-quality copies. </li>\r\n\t\t\t<li>All the items in a particular medium (e.g., all drawings, all  photographs) can be ordered as photocopies or high-quality copies. </li>\r\n\t\t</ul>\r\n\t</ul>\r\n</ul>\r\n"
+    ],
+    "resource_links": [
+      "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074data.pdf",
+      "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074cap.pdf",
+      "https://stage.loc.gov/pictures/search/?q=Photograph: ny0074&fi=number&op=PHRASE&va=exact&co =hh&st=gallery&sg = true",
+      "https://stage.loc.gov/pictures/search/?q=Drawing: ny0074&fi=number&op=PHRASE&va=exact&co =hh&st=gallery&sg = true"
+    ],
+    "resources": [
+      {
+        "caption": "Photos from Survey HABS NY-3272 ",
+        "files": 9,
+        "image": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523p_150px.jpg",
+        "url": "https://www.loc.gov/resource/hhh.ny0074.photos"
+      },
+      {
+        "caption": "Drawings from Survey HABS NY-3272 ",
+        "files": 1,
+        "image": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/sheet/00001_150px.jpg",
+        "url": "https://www.loc.gov/resource/hhh.ny0074.sheet"
+      },
+      {
+        "caption": "Data Pages from Survey HABS NY-3272 ",
+        "files": 1,
+        "image": "/static/images/original-format/manuscript-mixed-material.svg"
+      },
+      {
+        "caption": "Photo Captions from Survey HABS NY-3272 ",
+        "files": 1,
+        "image": "/static/images/original-format/manuscript-mixed-material.svg"
+      }
+    ],
+    "rights": [
+      "<p>The Library of Congress does not&nbsp;own rights to material  in its collections. Therefore, it does not license or charge permission fees  for use of such material and cannot grant or deny permission to publish or  otherwise distribute the material. </p>\n<p>Ultimately, it is the researcher's obligation to assess copyright or other use restrictions and  obtain permission from third parties when necessary before publishing or  otherwise distributing materials found in the Library's collections. </p>\n<p>For information about reproducing,  publishing, and citing material from this collection, as well as access to the  original items, see: <a href=\"https://www.loc.gov/rr/print/res/114_habs.html\">Historic American Buildings Survey/Historic American Engineering Record/Historic American Landscape Survey (HABS/HAER/HALS) Collection - Rights and Restrictions Information</a> </p>\n\n"
+    ],
+    "rights_advisory": "No known restrictions on images made by the U.S. Government; images     copied from other sources may be restricted.    https://www.loc.gov/rr/print/res/114_habs.html",
+    "rights_information": "No known restrictions on images made by the U.S. Government; images     copied from other sources may be restricted.    https://www.loc.gov/rr/print/res/114_habs.html",
+    "score": 18.825191,
+    "shard": "00",
+    "shelf_id": "HABS NY,1-COL,11-",
+    "site": [
+      "pictures"
+    ],
+    "source_collection": "Historic American Buildings Survey (Library of Congress)",
+    "source_created": "1970-01-01T00:00:00Z",
+    "source_modified": "2000-01-01T12:00:00Z",
+    "subject": [
+      "maps",
+      "agriculture",
+      "complexes",
+      "shakers",
+      "commerce"
+    ],
+    "subject_headings": [
+      "complexes",
+      "agriculture",
+      "commerce",
+      "Shakers",
+      "maps",
+      "New York--Albany County--Watervliet"
+    ],
+    "subjects": [
+      {
+        "agriculture": "https://www.loc.gov/search/?fa=subject:agriculture&fo=json"
+      },
+      {
+        "commerce": "https://www.loc.gov/search/?fa=subject:commerce&fo=json"
+      },
+      {
+        "complexes": "https://www.loc.gov/search/?fa=subject:complexes&fo=json"
+      },
+      {
+        "maps": "https://www.loc.gov/search/?fa=subject:maps&fo=json"
+      },
+      {
+        "shakers": "https://www.loc.gov/search/?fa=subject:shakers&fo=json"
+      }
+    ],
+    "thumb_gallery": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523p_150px.jpg?q=ny0074.photos.114523p&c=9&st=gallery",
+    "timestamp": "2025-01-13T21:19:33.556Z",
+    "title": "Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+    "type": [
+      "still image"
+    ],
+    "unrestricted": true,
+    "url": "https://www.loc.gov/item/ny0074/"
+  },
+  "more_like_this": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/ny0531/",
+        "http://www.loc.gov/item/ny0531/",
+        "http://www.loc.gov/pictures/item/ny0531/",
+        "https://www.loc.gov/pictures/collection/hh/item/ny0531/",
+        "http://www.loc.gov/pictures/collection/hh/item/ny0531/",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0500/ny0531/data/ny0531data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0500/ny0531/data/ny0531data.pdf",
+        "https://stage.loc.gov/pictures/search/?q=photograph: ny0531&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=photograph: ny0531&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "https://stage.loc.gov/pictures/search/?q=drawing: ny0531&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=drawing: ny0531&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.ny0531data/",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet/",
+        "http://www.loc.gov/resource/hhh.ny0531.photos/",
+        "http://www.loc.gov/resource/hhh.ny0531.photos",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115468p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115469p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115470p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115471p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115472p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115473p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115474p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115475p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115476p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115477p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115478p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115479p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115480p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115481p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115482p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115483p",
+        "http://www.loc.gov/resource/hhh.ny0531.photos.115484p",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00001a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00002a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00003a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00004a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00005a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00006a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00007a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00008a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00009a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00010a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00011a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00012a",
+        "http://www.loc.gov/resource/hhh.ny0531.sheet.00013a"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "poppeliers, john c.",
+        "historic american buildings survey",
+        "baldwin, nelson e.",
+        "pearson, elmer r.",
+        "mosley, abraham k.",
+        "winter, william f., jr",
+        "boucher, jack e."
+      ],
+      "description": [
+        "Photo(s): 17 | Measured Drawing(s): 13 | Data Page(s): 7"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T21:17:08.540Z",
+      "group": [
+        "hh-5",
+        "habshaer-group-5"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/ny0531/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0500/ny0531/photos/115468p_150px.jpg#h=108&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0500/ny0531/photos/115468pr.jpg#h=459&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0500/ny0531/photos/115468pv.jpg#h=734&w=1024"
+      ],
+      "index": 1,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "columbia county",
+        "mount lebanon",
+        "new lebanon",
+        "columbia"
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "prints and photographs division",
+        "american memory"
+      ],
+      "score": 46.205467,
+      "shelf_id": "HABS NY,11-NELEB.V,3-",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "shakers",
+        "meeting houses",
+        "libraries",
+        "arched roofs"
+      ],
+      "timestamp": "2025-01-13T21:22:32.383Z",
+      "title": "Shaker Meetinghouse (second), Shaker Road, New Lebanon, Columbia County, NY",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/ny0531/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/ny0532/",
+        "http://www.loc.gov/item/ny0532/",
+        "http://www.loc.gov/pictures/item/ny0532/",
+        "https://www.loc.gov/pictures/collection/hh/item/ny0532/",
+        "http://www.loc.gov/pictures/collection/hh/item/ny0532/",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0500/ny0532/data/ny0532data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0500/ny0532/data/ny0532data.pdf",
+        "https://stage.loc.gov/pictures/search/?q=photograph: ny0532&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=photograph: ny0532&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "https://stage.loc.gov/pictures/search/?q=drawing: ny0532&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=drawing: ny0532&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.ny0532data/",
+        "http://www.loc.gov/resource/hhh.ny0532.sheet/",
+        "http://www.loc.gov/resource/hhh.ny0532.photos/",
+        "http://www.loc.gov/resource/hhh.ny0532.photos",
+        "http://www.loc.gov/resource/hhh.ny0532.photos.115563p",
+        "http://www.loc.gov/resource/hhh.ny0532.photos.115564p",
+        "http://www.loc.gov/resource/hhh.ny0532.photos.115565p",
+        "http://www.loc.gov/resource/hhh.ny0532.photos.115566p",
+        "http://www.loc.gov/resource/hhh.ny0532.photos.115567p",
+        "http://www.loc.gov/resource/hhh.ny0532.photos.115568p",
+        "http://www.loc.gov/resource/hhh.ny0532.sheet",
+        "http://www.loc.gov/resource/hhh.ny0532.sheet.00001a",
+        "http://www.loc.gov/resource/hhh.ny0532.sheet.00002a",
+        "http://www.loc.gov/resource/hhh.ny0532.sheet.00003a",
+        "http://www.loc.gov/resource/hhh.ny0532.sheet.00004a"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "historic american buildings survey",
+        "baldwin, nelson e.",
+        "winter, william f., jr",
+        "boucher, jack e.",
+        "mosley, abraham k."
+      ],
+      "description": [
+        "Photo(s): 6 | Measured Drawing(s): 4"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T21:17:08.540Z",
+      "group": [
+        "hh-5",
+        "habshaer-group-5"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/ny0532/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0500/ny0532/photos/115563p_150px.jpg#h=107&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0500/ny0532/photos/115563pr.jpg#h=457&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0500/ny0532/photos/115563pv.jpg#h=731&w=1024"
+      ],
+      "index": 2,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "columbia county",
+        "mount lebanon",
+        "new lebanon",
+        "columbia"
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "prints and photographs division",
+        "american memory"
+      ],
+      "score": 40.116417,
+      "shelf_id": "HABS NY,11-NELEB.V,6-",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "shakers"
+      ],
+      "timestamp": "2025-01-13T21:22:32.383Z",
+      "title": "Shaker Church Family Minister's Residence, Shaker Road, New Lebanon, Columbia County, NY",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/ny0532/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/ma0103/",
+        "http://www.loc.gov/item/ma0103/",
+        "http://www.loc.gov/pictures/item/ma0103/",
+        "https://www.loc.gov/pictures/collection/hh/item/ma0103/",
+        "http://www.loc.gov/pictures/collection/hh/item/ma0103/",
+        "https://cdn.loc.gov/master/pnp/habshaer/ma/ma0100/ma0103/data/ma0103data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ma/ma0100/ma0103/data/ma0103data.pdf",
+        "https://stage.loc.gov/pictures/search/?q=photograph: ma0103&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=photograph: ma0103&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "https://stage.loc.gov/pictures/search/?q=drawing: ma0103&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=drawing: ma0103&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.ma0103data/",
+        "http://www.loc.gov/resource/hhh.ma0103.sheet/",
+        "http://www.loc.gov/resource/hhh.ma0103.photos/",
+        "http://www.loc.gov/resource/hhh.ma0103.photos",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077572p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077573p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077574p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077575p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077576p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077577p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077578p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077579p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077580p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077581p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077582p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077583p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077584p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077585p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077586p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077587p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077588p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077589p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077590p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077591p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077592p",
+        "http://www.loc.gov/resource/hhh.ma0103.photos.077593p",
+        "http://www.loc.gov/resource/hhh.ma0103.sheet",
+        "http://www.loc.gov/resource/hhh.ma0103.sheet.00001a",
+        "http://www.loc.gov/resource/hhh.ma0103.sheet.00002a"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "historic american buildings survey",
+        "baldwin, nelson e.",
+        "pearson, elmer r.",
+        "andrews, edward deming",
+        "mosley, abraham k.",
+        "winter, william f., jr",
+        "boucher, jack e."
+      ],
+      "description": [
+        "Photo(s): 22 | Measured Drawing(s): 2 | Data Page(s): 3"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T20:17:24.785Z",
+      "group": [
+        "hh-3",
+        "habshaer-group-3"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/ma0103/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ma/ma0100/ma0103/photos/077572p_150px.jpg#h=108&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ma/ma0100/ma0103/photos/077572pr.jpg#h=459&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ma/ma0100/ma0103/photos/077572pv.jpg#h=735&w=1024"
+      ],
+      "index": 3,
+      "language": [
+        "english"
+      ],
+      "latlong": [
+        42.430392,
+        -73.336637
+      ],
+      "location": [
+        "hancock",
+        "berkshire county",
+        "massachusetts"
+      ],
+      "location_str": "",
+      "lonlat": [
+        -73.336637,
+        42.430392
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "prints and photographs division",
+        "american memory"
+      ],
+      "score": 38.28214,
+      "shelf_id": "HABS MASS,2-HANC,9-",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "circular buildings",
+        "shakers",
+        "barns"
+      ],
+      "timestamp": "2025-01-13T20:20:34.411Z",
+      "title": "Shaker Church Family Round Barn, U.S. Route 20, Hancock, Berkshire County, MA",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/ma0103/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/ny0102/",
+        "http://www.loc.gov/item/ny0102/",
+        "http://www.loc.gov/pictures/item/ny0102/",
+        "https://www.loc.gov/pictures/collection/hh/item/ny0102/",
+        "http://www.loc.gov/pictures/collection/hh/item/ny0102/",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0100/ny0102/data/ny0102data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0100/ny0102/data/ny0102data.pdf",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0100/ny0102/supp/ny0102supp.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0100/ny0102/supp/ny0102supp.pdf",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0100/ny0102/data/ny0102cap.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0100/ny0102/data/ny0102cap.pdf",
+        "https://stage.loc.gov/pictures/search/?q=photograph: ny0102&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=photograph: ny0102&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.ny0102data/",
+        "http://www.loc.gov/resource/hhh.ny0102cap/",
+        "http://www.loc.gov/resource/hhh.ny0102supp/",
+        "http://www.loc.gov/resource/hhh.ny0102.photos/",
+        "http://www.loc.gov/resource/hhh.ny0102.photos",
+        "http://www.loc.gov/resource/hhh.ny0102.photos.114602p",
+        "http://www.loc.gov/resource/hhh.ny0102.photos.114603p",
+        "http://www.loc.gov/resource/hhh.ny0102.photos.114604p",
+        "http://www.loc.gov/resource/hhh.ny0102.photos.114605p",
+        "http://www.loc.gov/resource/hhh.ny0102.photos.114606p",
+        "http://www.loc.gov/resource/hhh.ny0102.photos.381275p"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "winter, william f, jr",
+        "price, virginia b",
+        "historic american buildings survey",
+        "stein, e j"
+      ],
+      "description": [
+        "Photo(s): 6 | Photo Caption Page(s): 1"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T21:17:12.341Z",
+      "group": [
+        "hh-5",
+        "habshaer-group-5"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/ny0102/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0100/ny0102/photos/114602p_150px.jpg#h=107&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0100/ny0102/photos/114602pr.jpg#h=455&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0100/ny0102/photos/114602pv.jpg#h=728&w=1024"
+      ],
+      "index": 4,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "watervliet",
+        "albany county"
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "prints and photographs division",
+        "american memory"
+      ],
+      "score": 26.487007,
+      "shelf_id": "HABS NY,1-COL,31-",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "shakers"
+      ],
+      "timestamp": "2025-01-13T21:20:09.422Z",
+      "title": "Shaker Church Family, Herb House, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/ny0102/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/ny0049/",
+        "http://www.loc.gov/item/ny0049/",
+        "http://www.loc.gov/pictures/item/ny0049/",
+        "https://www.loc.gov/pictures/collection/hh/item/ny0049/",
+        "http://www.loc.gov/pictures/collection/hh/item/ny0049/",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0049/data/ny0049data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0049/data/ny0049data.pdf",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0049/supp/ny0049supp.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0049/supp/ny0049supp.pdf",
+        "https://stage.loc.gov/pictures/search/?q=photograph: ny0049&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=photograph: ny0049&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.ny0049data/",
+        "http://www.loc.gov/resource/hhh.ny0049supp/",
+        "http://www.loc.gov/resource/hhh.ny0049.photos/",
+        "http://www.loc.gov/resource/hhh.ny0049.photos",
+        "http://www.loc.gov/resource/hhh.ny0049.photos.114594p",
+        "http://www.loc.gov/resource/hhh.ny0049.photos.114595p",
+        "http://www.loc.gov/resource/hhh.ny0049.photos.114596p",
+        "http://www.loc.gov/resource/hhh.ny0049.photos.114597p",
+        "http://www.loc.gov/resource/hhh.ny0049.photos.114598p"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "stein, e j",
+        "winter, william f, jr",
+        "historic american buildings survey"
+      ],
+      "description": [
+        "Photo(s): 5"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T21:17:12.341Z",
+      "group": [
+        "hh-5",
+        "habshaer-group-5"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/ny0049/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0049/photos/114594p_150px.jpg#h=150&w=110",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0049/photos/114594pr.jpg#h=640&w=468",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0049/photos/114594pv.jpg#h=1024&w=748"
+      ],
+      "index": 5,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "watervliet",
+        "albany county"
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "prints and photographs division",
+        "american memory"
+      ],
+      "score": 26.487007,
+      "shelf_id": "HABS NY,1-COL,29-",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "shakers",
+        "workshops"
+      ],
+      "timestamp": "2025-01-13T21:19:33.556Z",
+      "title": "Shaker Church Family Brethren's Workshop, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/ny0049/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "https://www.loc.gov/pictures/item/ny0050/",
+        "http://www.loc.gov/item/ny0050/",
+        "http://www.loc.gov/pictures/item/ny0050/",
+        "https://www.loc.gov/pictures/collection/hh/item/ny0050/",
+        "http://www.loc.gov/pictures/collection/hh/item/ny0050/",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0050/data/ny0050data.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0050/data/ny0050data.pdf",
+        "https://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0050/supp/ny0050supp.pdf",
+        "http://cdn.loc.gov/master/pnp/habshaer/ny/ny0000/ny0050/supp/ny0050supp.pdf",
+        "https://stage.loc.gov/pictures/search/?q=photograph: ny0050&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://stage.loc.gov/pictures/search/?q=photograph: ny0050&fi=number&op=phrase&va=exact&co =hh&st=gallery&sg = true",
+        "http://www.loc.gov/resource/hhh.ny0050data/",
+        "http://www.loc.gov/resource/hhh.ny0050supp/",
+        "http://www.loc.gov/resource/hhh.ny0050.photos/",
+        "http://www.loc.gov/resource/hhh.ny0050.photos"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "stein, e j",
+        "historic american buildings survey"
+      ],
+      "description": [
+        "Photo(s): 1"
+      ],
+      "digitized": true,
+      "extract_timestamp": "2025-01-13T21:17:12.341Z",
+      "group": [
+        "hh-5",
+        "habshaer-group-5"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/ny0050/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0050/photos/114601p_150px.jpg#h=106&w=150",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0050/photos/114601pr.jpg#h=454&w=640",
+        "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0050/photos/114601pv.jpg#h=727&w=1024"
+      ],
+      "index": 6,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "watervliet",
+        "albany county"
+      ],
+      "mime_type": [
+        "image/gif",
+        "application/pdf"
+      ],
+      "online_format": [
+        "image",
+        "pdf"
+      ],
+      "original_format": [
+        "photo, print, drawing"
+      ],
+      "partof": [
+        "historic american buildings survey/historic american engineering record/historic american landscapes survey",
+        "prints and photographs division",
+        "american memory"
+      ],
+      "score": 26.487007,
+      "shelf_id": "HABS NY,1-COL,30-",
+      "site": [
+        "pictures"
+      ],
+      "subject": [
+        "houses",
+        "shakers"
+      ],
+      "timestamp": "2025-01-13T21:19:33.556Z",
+      "title": "Shaker Church Family Dwelling House (second), Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+      "type": [
+        "still image"
+      ],
+      "url": "https://www.loc.gov/item/ny0050/"
+    }
+  ],
+  "options": {
+    "access_group": [
+      ""
+    ],
+    "access_group_raw": "",
+    "all": null,
+    "api_version": "1",
+    "app_context": null,
+    "application_version": "$Revision$",
+    "attribute": null,
+    "attribute!": null,
+    "attribute_map": null,
+    "cache_tags": [
+      "hh-5",
+      "habshaer-group-5",
+      "hh-3",
+      "habshaer-group-3",
+      "sanborn",
+      "gmd.mar",
+      "catalog-split-02",
+      "catalog",
+      "general-maps",
+      "main-catalog-split-02",
+      "catalog-split-10",
+      "main-catalog-split-10"
+    ],
+    "callback": null,
+    "clip": null,
+    "clip_image_width": null,
+    "clip_rotation": null,
+    "content_filter": null,
+    "content_replacement": "",
+    "count": null,
+    "dates": null,
+    "default_count": 25,
+    "delimiter": null,
+    "digital_id": null,
+    "display_level": null,
+    "distance": null,
+    "downloadOption": null,
+    "duration": 0.7100667953491211,
+    "embed": [],
+    "embed!": [],
+    "error_response_status": null,
+    "excludeTerms": null,
+    "facetLimits": "",
+    "facetPrefix": null,
+    "facet_count": null,
+    "facet_style": null,
+    "field": null,
+    "format": "json",
+    "host": "www.loc.gov",
+    "ical": false,
+    "id": "ny0074/",
+    "iiif": false,
+    "index": null,
+    "inputEncoding": "UTF-8",
+    "item": null,
+    "items": null,
+    "keys": null,
+    "language": null,
+    "latlong": null,
+    "method": "GET",
+    "newSearch": null,
+    "new_clip_url": false,
+    "onsite": false,
+    "operator": null,
+    "outputEncoding": "UTF-8",
+    "page_campaigns": [],
+    "path_info": "/item/ny0074/",
+    "port": "443",
+    "proxypath": null,
+    "query_string": "fo=json",
+    "redirect_proxy": false,
+    "redirect_to_item": null,
+    "referer": "",
+    "region": "",
+    "release_id": 123456789,
+    "request_host": "www.loc.gov",
+    "request_params": {
+      "fo": [
+        "json"
+      ]
+    },
+    "request_url": "https://www.loc.gov/item/ny0074/?fo=json",
+    "resource": "",
+    "resource_sequence": null,
+    "scheme": "https",
+    "searchIn": null,
+    "searchTerms": "",
+    "segments": null,
+    "shards": [
+      "00"
+    ],
+    "site_id": null,
+    "site_type": null,
+    "solrQuery": "",
+    "sortBy": null,
+    "sortOrder": null,
+    "startPage": null,
+    "style": null,
+    "suggested": null,
+    "target": null,
+    "template": "layouts/item/layout",
+    "timestamp": 1781475274.756961,
+    "tz_aware": null,
+    "unionFacets": "",
+    "webcast_permalink": null
+  },
+  "related": {
+    "group_record": null,
+    "lot_link": null,
+    "neighbors": "https://www.loc.gov/pictures/related/?&co=hh&pk=ny0074&st=gallery&sb=call_number#focus",
+    "survey_link": null
+  },
+  "related_items": [
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/sanborn06307_003/",
+        "https://hdl.loc.gov/loc.gmd/g3804tm.g3804tm_g06307190301",
+        "http://www.loc.gov/resource/g3804tm.g3804tm_g06307190301/"
+      ],
+      "campaigns": [],
+      "date": "1903",
+      "dates": [
+        "1903"
+      ],
+      "description": [
+        "1903-4 Vol. 1, 1903. 82 sheet(s). 4 skeleton maps. Bound. Other places as they appear on original: Green Island, Watervliet."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2024-10-08T18:07:02.775Z",
+      "group": [
+        "sanborn"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/sanborn06307_003/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380m/g3804m/g3804tm/g3804tm_g06307190301/06307_01_1903-0000.gif",
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380m/g3804m/g3804tm/g3804tm_g06307190301/06307_01_1903-titl.gif#h=150&w=104",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380m:g3804m:g3804tm:g3804tm_g06307190301:06307_01_1903-titl/full/pct:12.5/0/default.jpg#h=1048&w=727",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380m:g3804m:g3804tm:g3804tm_g06307190301:06307_01_1903-titl/full/pct:25/0/default.jpg#h=2096&w=1454"
+      ],
+      "index": 1,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "rensselaer county",
+        "troy",
+        "watervliet",
+        "green island",
+        "united states"
+      ],
+      "mime_type": [
+        "image/gif",
+        "image/jpg",
+        "image/jp2"
+      ],
+      "number": [
+        "2024-01-04t13:15:50"
+      ],
+      "online_format": [
+        "image"
+      ],
+      "original_format": [
+        "map"
+      ],
+      "partof": [
+        "sanborn maps",
+        "american memory",
+        "geography and map division"
+      ],
+      "score": 11.500749,
+      "shelf_id": "http://www.loc.gov/item/sanborn06307_003/",
+      "site": [
+        "ammem"
+      ],
+      "timestamp": "2024-10-08T19:40:24.473Z",
+      "title": "Sanborn Fire Insurance Map from Troy, Rensselaer County, New York.",
+      "type": [
+        "cartographic"
+      ],
+      "url": "https://www.loc.gov/item/sanborn06307_003/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/sanborn06307_004/",
+        "https://hdl.loc.gov/loc.gmd/g3804tm.g3804tm_g06307190402",
+        "http://www.loc.gov/resource/g3804tm.g3804tm_g06307190402/"
+      ],
+      "campaigns": [],
+      "date": "1904",
+      "dates": [
+        "1904"
+      ],
+      "description": [
+        "1904, vol. 2. 87 sheet(s). 6 skeleton maps. Bound. Other places as they appear on original: Green Island, Watervliet."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2024-10-08T18:07:02.775Z",
+      "group": [
+        "sanborn"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/sanborn06307_004/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380m/g3804m/g3804tm/g3804tm_g06307190402/06307_02_1904-0000.gif",
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380m/g3804m/g3804tm/g3804tm_g06307190402/06307_02_1904-titl.gif#h=150&w=102",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380m:g3804m:g3804tm:g3804tm_g06307190402:06307_02_1904-titl/full/pct:12.5/0/default.jpg#h=1048&w=713",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380m:g3804m:g3804tm:g3804tm_g06307190402:06307_02_1904-titl/full/pct:25/0/default.jpg#h=2096&w=1427"
+      ],
+      "index": 2,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "rensselaer county",
+        "troy",
+        "watervliet",
+        "green island",
+        "united states"
+      ],
+      "mime_type": [
+        "image/gif",
+        "image/jpg",
+        "image/jp2"
+      ],
+      "number": [
+        "2024-01-04t13:15:57"
+      ],
+      "online_format": [
+        "image"
+      ],
+      "original_format": [
+        "map"
+      ],
+      "partof": [
+        "sanborn maps",
+        "american memory",
+        "geography and map division"
+      ],
+      "score": 11.500749,
+      "shelf_id": "http://www.loc.gov/item/sanborn06307_004/",
+      "site": [
+        "ammem"
+      ],
+      "timestamp": "2024-10-08T19:40:24.473Z",
+      "title": "Sanborn Fire Insurance Map from Troy, Rensselaer County, New York.",
+      "type": [
+        "cartographic"
+      ],
+      "url": "https://www.loc.gov/item/sanborn06307_004/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/sanborn06307_006/",
+        "https://hdl.loc.gov/loc.gmd/g3804tm.g3804tm_g06307195102",
+        "http://www.loc.gov/resource/g3804tm.g3804tm_g06307195102/"
+      ],
+      "campaigns": [],
+      "date": "1951",
+      "dates": [
+        "1951"
+      ],
+      "description": [
+        "Vol. 2, 1904 - Feb 1951. 102 sheet(s). 137. Other places as they appear on original: Center Brunswick, Watervliet, parts of Towns of Brunswick, Colonie."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2024-10-08T18:07:02.775Z",
+      "group": [
+        "sanborn"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/sanborn06307_006/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380m/g3804m/g3804tm/g3804tm_g06307195102/06307_02_1951-0000.gif",
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380m/g3804m/g3804tm/g3804tm_g06307195102/06307_02_1951-covr.gif#h=150&w=114",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380m:g3804m:g3804tm:g3804tm_g06307195102:06307_02_1951-covr/full/pct:12.5/0/default.jpg#h=1033&w=786",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380m:g3804m:g3804tm:g3804tm_g06307195102:06307_02_1951-covr/full/pct:25/0/default.jpg#h=2067&w=1572"
+      ],
+      "index": 3,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "colonie",
+        "rensselaer county",
+        "troy",
+        "center brunswick",
+        "watervliet",
+        "united states",
+        "brunswick"
+      ],
+      "mime_type": [
+        "image/gif",
+        "image/jpg",
+        "image/jp2"
+      ],
+      "number": [
+        "2024-01-04t13:16:29"
+      ],
+      "online_format": [
+        "image"
+      ],
+      "original_format": [
+        "map"
+      ],
+      "partof": [
+        "sanborn maps",
+        "american memory",
+        "geography and map division"
+      ],
+      "score": 11.500749,
+      "shelf_id": "http://www.loc.gov/item/sanborn06307_006/",
+      "site": [
+        "ammem"
+      ],
+      "timestamp": "2024-10-08T19:40:24.473Z",
+      "title": "Sanborn Fire Insurance Map from Troy, Rensselaer County, New York.",
+      "type": [
+        "cartographic"
+      ],
+      "url": "https://www.loc.gov/item/sanborn06307_006/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://www.loc.gov/item/sanborn06307_008/",
+        "https://hdl.loc.gov/loc.gmd/g3804tm.g3804tm_g06307195502",
+        "http://www.loc.gov/resource/g3804tm.g3804tm_g06307195502/"
+      ],
+      "campaigns": [],
+      "date": "1955",
+      "dates": [
+        "1955"
+      ],
+      "description": [
+        "1955 Vol. 2. 103 sheet(s). 35 X 29 cm. Bound. Other places as they appear on original: Center Brunswick, part of Watervliet, parts of the Towns of Brunswick, Colonie."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2024-10-08T18:07:02.775Z",
+      "group": [
+        "sanborn"
+      ],
+      "hassegments": true,
+      "id": "http://www.loc.gov/item/sanborn06307_008/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380m/g3804m/g3804tm/g3804tm_g06307195502/06307_02_1955-0000.gif",
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380m/g3804m/g3804tm/g3804tm_g06307195502/06307_02_1955-titl.gif#h=150&w=122",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380m:g3804m:g3804tm:g3804tm_g06307195502:06307_02_1955-titl/full/pct:12.5/0/default.jpg#h=676&w=550",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380m:g3804m:g3804tm:g3804tm_g06307195502:06307_02_1955-titl/full/pct:25/0/default.jpg#h=1352&w=1100"
+      ],
+      "index": 4,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "colonie",
+        "rensselaer county",
+        "troy",
+        "center brunswick",
+        "watervliet",
+        "united states",
+        "brunswick"
+      ],
+      "mime_type": [
+        "image/gif",
+        "image/jpg",
+        "image/jp2"
+      ],
+      "number": [
+        "2024-01-04t13:16:29"
+      ],
+      "online_format": [
+        "image"
+      ],
+      "original_format": [
+        "map"
+      ],
+      "partof": [
+        "sanborn maps",
+        "american memory",
+        "geography and map division"
+      ],
+      "score": 11.500749,
+      "shelf_id": "http://www.loc.gov/item/sanborn06307_008/",
+      "site": [
+        "ammem"
+      ],
+      "timestamp": "2024-10-08T19:40:24.473Z",
+      "title": "Sanborn Fire Insurance Map from Troy, Rensselaer County, New York.",
+      "type": [
+        "cartographic"
+      ],
+      "url": "https://www.loc.gov/item/sanborn06307_008/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2016585052",
+        "http://www.loc.gov/item/2016585052/",
+        "https://search.catalog.loc.gov/instances/55c74902-071e-5974-a9f4-55615c5675f2",
+        "https://hdl.loc.gov/loc.gmd/g3804t.la002343",
+        "http://www.loc.gov/resource/g3804t.la002343/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "barker, wm. j. (william j.)",
+        "barton, william",
+        "w. barton & j. chace jr"
+      ],
+      "date": "1858",
+      "dates": [
+        "1858"
+      ],
+      "description": [
+        "City cadastral street map showing lot/tract lines, lot numbers, names of owners of rural tracts, building coverage, ward boundaries, and ward numbers. Also covers West Troy (now City of Watervliet). Oriented with north toward the upper right. \"Entered according to act of Congress in the year 1858 by William Barton in the Clerks Office of the District Court for the Northern District of New York.\" No coloration is present. LC copy imperfect: Small areas lightly soiled/stained. Includes notes, statistical table, historical list of names of Troy city mayors, illustrations of prominent buildings, and advertisements. Available also through the Library of Congress Web site as a raster image."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-29T15:40:29.782Z",
+      "group": [
+        "gmd.mar",
+        "catalog-split-02",
+        "catalog",
+        "general-maps",
+        "main-catalog-split-02"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2016585052/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380/g3804/g3804t/la002343.gif",
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380/g3804/g3804t/la002343.gif#h=126&w=150",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380:g3804:g3804t:la002343/full/pct:12.5/0/default.jpg#h=2408&w=2875",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380:g3804:g3804t:la002343/full/pct:25/0/default.jpg#h=4816&w=5750"
+      ],
+      "index": 5,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "new york (state)",
+        "watervliet",
+        "troy",
+        "united states"
+      ],
+      "mime_type": [
+        "image/gif",
+        "image/tiff",
+        "image/jpeg",
+        "image/jp2"
+      ],
+      "number": [
+        "2025-06-07t07:04:28.100000",
+        "sheet",
+        "2016-06-22t09:32:03",
+        "2016585052"
+      ],
+      "online_format": [
+        "image"
+      ],
+      "original_format": [
+        "map"
+      ],
+      "partof": [
+        "catalog",
+        "general maps",
+        "geography and map division",
+        "county landownership maps"
+      ],
+      "score": 11.488338,
+      "shelf_id": "G3804.T7G46 1858 .B3",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "troy (n.y.)",
+        "maps",
+        "buildings, structures, etc",
+        "watervliet (n.y.)",
+        "landowners",
+        "cadastral maps",
+        "new york (state)",
+        "administrative and political divisions",
+        "troy",
+        "real oroperty",
+        "watervliet",
+        "united states",
+        "real property",
+        "buildings"
+      ],
+      "timestamp": "2026-04-29T16:09:11.150Z",
+      "title": "City of Troy, N.Y. : from actual surveys",
+      "type": [
+        "cartographic"
+      ],
+      "url": "https://www.loc.gov/item/2016585052/"
+    },
+    {
+      "access_restricted": false,
+      "aka": [
+        "http://lccn.loc.gov/2011593678",
+        "http://www.loc.gov/item/2011593678/",
+        "https://search.catalog.loc.gov/instances/f27fed2c-e5f8-5b9e-99a5-6a2b0f5cdd51",
+        "https://hdl.loc.gov/loc.gmd/g3804t.wd000523",
+        "http://www.loc.gov/resource/g3804t.wd000523/"
+      ],
+      "campaigns": [],
+      "contributor": [
+        "sampson, davenport & co",
+        "walling, henry francis"
+      ],
+      "date": "1873",
+      "dates": [
+        "1873"
+      ],
+      "description": [
+        "Shows radial distances from court house. Hand col. to show ward areas, ward numbers, principal buildings, and railroads. \"Published by Sampson, Davenport & Co. expressly for the city directory.\" Includes notes. LC copy imperfect: Torn at left margin, also at fold lines, removed from city directory. Available also through the Library of Congress Web site as a raster image."
+      ],
+      "digitized": true,
+      "extract_timestamp": "2026-04-29T15:39:54.578Z",
+      "group": [
+        "gmd.mar",
+        "catalog-split-10",
+        "catalog",
+        "general-maps",
+        "main-catalog-split-10"
+      ],
+      "hassegments": false,
+      "id": "http://www.loc.gov/item/2011593678/",
+      "image_url": [
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380/g3804/g3804t/wd000523.gif",
+        "https://tile.loc.gov/storage-services/service/gmd/gmd380/g3804/g3804t/wd000523.gif#h=187&w=150",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380:g3804:g3804t:wd000523/full/pct:12.5/0/default.jpg#h=1037&w=830",
+        "https://tile.loc.gov/image-services/iiif/service:gmd:gmd380:g3804:g3804t:wd000523/full/pct:25/0/default.jpg#h=2074&w=1661"
+      ],
+      "index": 6,
+      "language": [
+        "english"
+      ],
+      "location": [
+        "new york",
+        "new york (state)",
+        "watervliet",
+        "troy",
+        "green island",
+        "united states"
+      ],
+      "mime_type": [
+        "image/gif",
+        "image/tiff",
+        "image/jpeg",
+        "image/jp2"
+      ],
+      "number": [
+        "2012-01-03t12:33:41",
+        "sheet",
+        "2011593678",
+        "2025-06-07t04:50:56.600000"
+      ],
+      "online_format": [
+        "image"
+      ],
+      "original_format": [
+        "map"
+      ],
+      "partof": [
+        "catalog",
+        "cities and towns",
+        "geography and map division"
+      ],
+      "score": 11.488338,
+      "shelf_id": "G3804.T7 1873 .W3",
+      "site": [
+        "catalog"
+      ],
+      "subject": [
+        "troy (n.y.)",
+        "maps",
+        "new york (state)",
+        "administrative and political divisions",
+        "green island (n.y.)",
+        "troy",
+        "watervliet (n.y.)",
+        "united states",
+        "watervliet",
+        "green island"
+      ],
+      "timestamp": "2026-04-29T16:03:39.858Z",
+      "title": "Map of Troy, also West Troy, and Green Island",
+      "type": [
+        "cartographic"
+      ],
+      "url": "https://www.loc.gov/item/2011593678/"
+    }
+  ],
+  "reproductions": "<h3>If Digital Images Are Displaying</h3>\n\n<p>You can download online images yourself.  Alternatively, you can purchase copies of various types through Library of Congress Duplication Services.</p>\n\n<p>HABS/HAER/HALS materials have generally been scanned at high resolution that is suitable for most publication purposes (see <a href=\"/ppoc/hh/resources/digitizing.html\">Digitizing the Collection</a> for further details about the digital images).</p>\n\n<ul>\n<p>\n<li><strong>Photographs--</strong>All photographs are printed from digital files to preserve the fragile originals.\n</li>\n<ul>\n<li>Make note of the Call Number and Item Number that appear under the photograph in the multiple-image display (e.g., HAER, NY,52-BRIG,4-2).\n</li>\n<li>If possible, include a printout of the photograph.\n</li>\n</ul>\n</p>\n\n<p>\n<li><strong>Drawings--</strong>All drawings are printed from digital files to preserve the fragile originals.\n</li>\n<ul>\n<li>Make note of the Survey Number (e.g., HAER NY - 143) and Sheet Number (e.g., &quot;Sheet 1 of 4&quot;), which appear on the edge of the drawing. (NOTE: These numbers are visible in the Tiff &quot;Reference Image&quot; display.)\n</li>\n<li>If possible, include a printout of the drawing. \n</li>\n</ul>\n</p>\n\n<p>\n<li><strong>Data Pages</strong>\n</li>\n<ul>\n<li>Make note of the Call Number in the catalog record.\n</li>\n</ul>\n</p>\n</ul>\n\n<h3>If Digital Images Are Not Displaying</h3>\n\n<p>In the rare case that a digital image for HABS/HAER/HALS documentation is not displaying online, select images for reproduction through one of these methods:</p>\n<ul>\n<p>\n<li>Visit the Prints & Photographs Reading Room and request to view the group (general information about service in the reading room is available at: <a href=\"https://www.loc.gov/rr/print/info/001_ref.html\">https://www.loc.gov/rr/print/info/001_ref.html</a>). It is best to contact reference staff in advance (see: <a href=\"https://www.loc.gov/rr/print/address.html\">https://www.loc.gov/rr/print/address.html</a>) to make sure the material is on site.  OR\n</li>\n</p>\n\n<p>\n<li>P&amp;P reading room staff can provide up to 15 quick copies of items per calendar year (many original items in the holdings are too old or fragile to make such copies, but generally HABS/HAER/HALS materials are in good enough condition to be placed on photocopy machines). For assistance, see our <a href=\"https://www.loc.gov/rr/askalib/ask-print.html\">Ask a Librarian</a> page OR\n</li>\n</p>\n\n<p>\n<li>Hire a freelance researcher to do further selection for you (a list of researchers in available at: <a href=\"https://www.loc.gov/rr/print/resource/013_pic.html\">https://www.loc.gov/rr/print/resource/013_pic.html</a>).\n</li>\n</p>\n\n<p>\n<li>You can purchase copies of various types, including quick copies, through Library of Congress Duplication Services (price lists, contact information, and order forms for Library of Congress Duplication Services are available on the <a href=\"https://www.loc.gov/duplicationservices/\">Duplication Services Web site</a>):\n</li>\n</p>\n\n<ul>\n<li>Make note of the Call Number listed above. \n</li>\n<li>Look at the Medium field above. If it lists more than one item: \n</li>\n<ul>\n<li>The entire group can be ordered as photocopies or high-quality copies. \n</li>\n<li>All the items in a particular medium (e.g., all drawings, all photographs) can be ordered as photocopies or high-quality copies.   \n</li>\n</ul>\n</ul>\n</ul>",
+  "resources": [
+    {
+      "caption": "Photos from Survey HABS NY-3272 ",
+      "files": [
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 16349292,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/114523pu.tif",
+            "width": 0
+          },
+          {
+            "height": 107,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 3848,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 456,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 41170,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 729,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 107946,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.114523p",
+            "mimetype": "application/json",
+            "title": "1.  Historic American Buildings Survey, William F. Winter, Jr., Photographer, 1920's or 1930's GENERAL VIEW OF WATERVLIET SHAKERS SOUTH FAMILY, Gift of New York State Department of Education. - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ],
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 16973678,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/114524pu.tif",
+            "width": 0
+          },
+          {
+            "height": 107,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 3730,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114524p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 456,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 42288,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114524pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 729,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 109433,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114524pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.114524p",
+            "mimetype": "application/json",
+            "title": "2.  Historic American Buildings Survey, N.E. Baldwin, Photographer, November 1939, GENERAL VIEW OF WATERVLIET SHAKERS SOUTH FAMILY, Gift of New York State Department of Education. - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ],
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 16881906,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/114525pu.tif",
+            "width": 0
+          },
+          {
+            "height": 107,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 4279,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114525p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 457,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 51093,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114525pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 731,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 131783,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114525pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.114525p",
+            "mimetype": "application/json",
+            "title": "3.  Historic American Buildings Survey, N.E. Baldwin, Photographer, November 1939, GENERAL VIEW OF WATERVLIET SHAKERS SOUTH FAMILY, FROM BARN, Gift of New York State Department of Education. - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ],
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 17139172,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/114526pu.tif",
+            "width": 0
+          },
+          {
+            "height": 109,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 4415,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114526p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 463,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 53436,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114526pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 741,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 137878,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114526pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.114526p",
+            "mimetype": "application/json",
+            "title": "4.  Historic American Buildings Survey, N.E. Baldwin, Photographer, November 1939, GENERAL VIEW OF WATERVLIET SHAKERS SOUTH FAMILY, FROM BARN - closer-up, Gift of New York State Department of Education. - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ],
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 17254170,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/114527pu.tif",
+            "width": 0
+          },
+          {
+            "height": 110,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 4980,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114527p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 467,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 57887,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114527pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 748,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 144999,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114527pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.114527p",
+            "mimetype": "application/json",
+            "title": "5.  Historic American Buildings Survey, N.E. Baldwin, Photographer, July 1940, GENERAL VIEW OF 'QUADRANGLE' OF WATERVLIET SHAKERS SOUTH FAMILY, Gift of New York State Department of Education. - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ],
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 16887610,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/114528pu.tif",
+            "width": 0
+          },
+          {
+            "height": 108,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 6265,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114528p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 462,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 75239,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114528pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 740,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 182412,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114528pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.114528p",
+            "mimetype": "application/json",
+            "title": "6.  Historic American Buildings Survey, N.E. Baldwin, Photographer, July 1940, GENERAL VIEW OF WATERVLIET SHAKERS SOUTH FAMILY SHOWING SMALL BARN AND SUPERINTENDENT'S HOUSE, Gift of New York State Department of Education. - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ],
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 25041782,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/381276pu.tif",
+            "width": 0
+          },
+          {
+            "height": 108,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 6601,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381276p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 462,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 83250,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381276pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 739,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 201606,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381276pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.381276p",
+            "mimetype": "application/json",
+            "title": "7. Sister's sales shop, northwesterly elevation - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ],
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 24971410,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/381277pu.tif",
+            "width": 0
+          },
+          {
+            "height": 107,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 5701,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381277p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 456,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 68366,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381277pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 730,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 166836,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381277pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.381277p",
+            "mimetype": "application/json",
+            "title": "8. Perspective view of (unidentified) building, front facade - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ],
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 25114464,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/photos/381278pu.tif",
+            "width": 0
+          },
+          {
+            "height": 108,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 5376,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381278p_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 462,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 71425,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381278pr.jpg",
+            "width": 640
+          },
+          {
+            "height": 740,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 177351,
+            "type": "bw_photos",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/381278pv.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.photos.381278p",
+            "mimetype": "application/json",
+            "title": "9. Perspective view of (unidentified) building at edge of pasture - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ]
+      ],
+      "image": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/photos/114523p_150px.jpg",
+      "url": "https://www.loc.gov/resource/hhh.ny0074.photos"
+    },
+    {
+      "caption": "Drawings from Survey HABS NY-3272 ",
+      "files": [
+        [
+          {
+            "height": 0,
+            "levels": 1,
+            "mimetype": "image/tiff",
+            "size": 1334112,
+            "type": "drawing",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/sheet/00001a.tif",
+            "width": 0
+          },
+          {
+            "height": 122,
+            "levels": 1,
+            "mimetype": "image/jpg",
+            "size": 7073,
+            "type": "drawing",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/sheet/00001_150px.jpg",
+            "width": 150
+          },
+          {
+            "height": 520,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 133336,
+            "type": "drawing",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/sheet/00001r.jpg",
+            "width": 640
+          },
+          {
+            "height": 832,
+            "levels": 1,
+            "mimetype": "image/jpeg",
+            "size": 288874,
+            "type": "drawing",
+            "url": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/sheet/00001v.jpg",
+            "width": 1024
+          },
+          {
+            "aka": "https://www.loc.gov/resource/hhh.ny0074.sheet.00001a",
+            "mimetype": "application/json",
+            "title": "1. Group plan of buildings of the South family of Shakers - Shaker South Family, General Views, Watervliet Shaker Road, Colonie Township, Watervliet, Albany County, NY",
+            "use": "caption"
+          }
+        ]
+      ],
+      "image": "https://tile.loc.gov/storage-services/service/pnp/habshaer/ny/ny0000/ny0074/sheet/00001_150px.jpg",
+      "url": "https://www.loc.gov/resource/hhh.ny0074.sheet"
+    },
+    {
+      "caption": "Data Pages from Survey HABS NY-3272 ",
+      "files": [
+        [
+          {
+            "height": 1,
+            "levels": 1,
+            "mimetype": "application/pdf",
+            "size": 277253,
+            "type": "data",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074data.pdf",
+            "width": 1
+          }
+        ]
+      ],
+      "image": "/static/images/original-format/manuscript-mixed-material.svg"
+    },
+    {
+      "caption": "Photo Captions from Survey HABS NY-3272 ",
+      "files": [
+        [
+          {
+            "height": 1,
+            "levels": 1,
+            "mimetype": "application/pdf",
+            "size": 17149,
+            "type": "cap",
+            "url": "https://tile.loc.gov/storage-services/master/pnp/habshaer/ny/ny0000/ny0074/data/ny0074cap.pdf",
+            "width": 1
+          }
+        ]
+      ],
+      "image": "/static/images/original-format/manuscript-mixed-material.svg"
+    }
+  ],
+  "thesaurus_entry": null,
+  "timestamp": 1781475275467,
+  "unrestricted": true
+}
