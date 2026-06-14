@@ -1,0 +1,319 @@
+{
+  "generated_at": "2026-06-14T21:48:52.944Z",
+  "audited_source_count": 2,
+  "status": "pass",
+  "source_reports": [
+    {
+      "source_id": "nber-culture-history",
+      "label": "NBER culture/history working papers",
+      "date_kind": "publication-date",
+      "status": "pass",
+      "note": "NBER rows should use page-level citation_publication_date metadata, not search-result display dates or crawl timestamps.",
+      "counts": {
+        "rows": 50,
+        "rows_with_year": 50,
+        "rows_with_iso_date": 50,
+        "rows_with_source_label": 50,
+        "rows_with_fetch_date_only_risk": 0,
+        "rows_with_study_period_risk": 0
+      },
+      "rates": {
+        "year_rate": 1,
+        "iso_date_rate": 1,
+        "source_labeled_rate": 1
+      },
+      "accepted_sources": [
+        "meta:citation_publication_date"
+      ],
+      "failures": [],
+      "examples": [
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1306780-en",
+          "title": "Tatonnement and Price Setting in General Equilibrium",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1316585-en",
+          "title": "Water Works: Causes and Consequences of Safe Drinking Water in America",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319786-en",
+          "title": "Characterizing the File Drawer: Evidence from a Meta-Analysis of Parent-Interventions Around the World",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319793-en",
+          "title": "Incentives, Evidence, and Reminders for Bureaucrats: Overcoming Barriers to Policy Scale Up",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319794-en",
+          "title": "Regional Economic Impacts and Emission Responses under Solar Radiation Modification",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319795-en",
+          "title": "Wagering the Bread Money: Sports Betting Legalization and Food Sufficiency",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319796-en",
+          "title": "How Frontline Supervisors Shape Priorities: Evidence from Police Lieutenants",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319797-en",
+          "title": "Reducing Gun Violence at Scale",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319799-en",
+          "title": "The Effect of Height on Adolescents' Body Image Perceptions and Behaviors",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319800-en",
+          "title": "Measuring Housing Quality Using Revealed Preference: A Geographic PageRank Approach",
+          "date_kind": "publication-date",
+          "publication_year": "2026",
+          "publication_date": "2026-06-08",
+          "content_date_source": "meta:citation_publication_date",
+          "has_year": true,
+          "has_iso_date": true,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        }
+      ]
+    },
+    {
+      "source_id": "ssrn-humanities-adjacent",
+      "label": "SSRN-adjacent Crossref posted-content metadata",
+      "date_kind": "posted-or-issued-year",
+      "status": "pass",
+      "note": "SSRN rows currently come from Crossref posted-content metadata; publication_year is treated as an issued/posted year, not SSRN page full-text evidence.",
+      "counts": {
+        "rows": 25,
+        "rows_with_year": 25,
+        "rows_with_iso_date": 0,
+        "rows_with_source_label": 25,
+        "rows_with_fetch_date_only_risk": 0,
+        "rows_with_study_period_risk": 0
+      },
+      "rates": {
+        "year_rate": 1,
+        "iso_date_rate": 0,
+        "source_labeled_rate": 1
+      },
+      "accepted_sources": [
+        "crossref:posted-content:issued"
+      ],
+      "failures": [],
+      "examples": [
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-4897315",
+          "title": "Law and Humanities Quarterly Reviews",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2024,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-63485-jtkc2-xxj94",
+          "title": "More on the Humanities Research Network at SSRN",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2007,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-5641831",
+          "title": "Digital Humanities, AI, and Comparative Literature: An Epistemological Reconfiguration",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2025,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-5532238",
+          "title": "Interdisciplinary Educational Contributions to Humanities, Literary Studies, and Maritime Sciences",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2025,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-5532198",
+          "title": "Multiple Researches for Dialogues Across Humanities, Literature, and Maritime Sciences",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2025,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-5330017",
+          "title": "From Cogito to Code: The Philosophy of Consciousness in Digital Humanities",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2025,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-6518478",
+          "title": "From Technology to Culture: The Interaction between Contemporary Western Digital Humanities and Posthumanism",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2026,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-4983232",
+          "title": "Shaping the Future of Distance Learning: A Study of Humanities Students' Online Learning Preferences",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2024,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-5719356",
+          "title": "Chun Huanga, Kehao Xingb*, aSchool of Humanities and Management, Zhejiang Chinese Medical University",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2025,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        },
+        {
+          "local_id": "ssrn-humanities-adjacent:10-2139-ssrn-5284806",
+          "title": "Syntaxology — Bridging the Humanities and the Sciences: A Co-evolutionary Semi-Autonomous Recursive AI Society Model",
+          "date_kind": "posted-or-issued-year",
+          "publication_year": 2025,
+          "publication_date": "",
+          "content_date_source": "crossref:posted-content:issued",
+          "has_year": true,
+          "has_iso_date": false,
+          "has_accepted_source_label": true,
+          "fetch_date_only_risk": false,
+          "study_period_risk": false
+        }
+      ]
+    }
+  ]
+}

@@ -106,6 +106,8 @@ The SSRN-adjacent replacement imports Crossref posted-content metadata for human
 
 The NBER date enrichment route fetches public NBER working-paper HTML pages for existing `nber-culture-history` metadata rows and extracts `citation_publication_date` metadata into `publication_year` and `publication_date`. It stores raw HTML responses and a run manifest, does not fetch PDFs, and improves humanities-adjacent policy/history records enough for source-class content-date completeness gates to require high coverage.
 
+The date-quality audit at `audits/date-quality.{json,md}` checks source-specific date semantics for NBER and SSRN-adjacent rows. It distinguishes NBER page-level publication dates from SSRN-adjacent Crossref issued/posted years and fails validation if source labels, year coverage, ISO-date coverage where required, or fetch-date-only risk checks regress.
+
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 
 The dedicated Wikidata ingest adds linked-open-data cultural entities across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts. It stores raw SPARQL JSON responses, normalized source-document rows, rights rows, and `audits/wikidata-cultural-entities-last-run.json`.

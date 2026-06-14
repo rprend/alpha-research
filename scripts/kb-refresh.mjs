@@ -15,6 +15,7 @@ const commands = [
   { name: "import local Gutenberg texts", cmd: "node", args: ["scripts/kb-import-gutenberg-local.mjs", "--limit=200", "--max-bytes=250000"] },
   { name: "rebuild analytical tables and SQLite", cmd: "node", args: ["scripts/kb-build-analytical-tables.mjs"] },
   { name: "refresh coverage and rights audits", cmd: "node", args: ["scripts/kb-audit-coverage.mjs"] },
+  { name: "refresh source-specific date-quality audit", cmd: "node", args: ["scripts/kb-audit-date-quality.mjs"] },
   { name: "refresh blocked-source and replacement audits", cmd: "node", args: ["scripts/kb-audit-blocked-sources.mjs"] },
   { name: "rebuild keyword index", cmd: "node", args: ["scripts/kb-build-search-index.mjs"] },
   { name: "rebuild semantic hash index", cmd: "node", args: ["scripts/kb-build-semantic-index.mjs"] },

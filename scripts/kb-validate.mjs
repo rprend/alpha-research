@@ -45,14 +45,17 @@ async function validateOperationalAudits(registry, errors) {
   const replacementsPath = path.join(auditsDir, "failed-route-replacements.json");
   const blockedPath = path.join(auditsDir, "blocked-sources.json");
   const coveragePath = path.join(auditsDir, "source-coverage.json");
+  const dateQualityPath = path.join(auditsDir, "date-quality.json");
   if (!existsSync(replacementsPath)) errors.push("missing failed-route replacement audit; run pnpm kb:audit:blocked");
   if (!existsSync(blockedPath)) errors.push("missing blocked-source audit; run pnpm kb:audit:blocked");
   if (!existsSync(coveragePath)) errors.push("missing source coverage audit; run pnpm kb:audit");
+  if (!existsSync(dateQualityPath)) errors.push("missing date-quality audit; run node scripts/kb-audit-date-quality.mjs");
   if (errors.length) return;
 
   const replacements = await readJson(replacementsPath);
   const blocked = await readJson(blockedPath);
   const coverage = await readJson(coveragePath);
+  const dateQuality = await readJson(dateQualityPath);
 
   for (const plan of replacements.replacement_plans ?? []) {
     if (!sourceIds.has(plan.source_id)) errors.push(`failed-route replacement plan references unknown source: ${plan.source_id}`);
@@ -105,6 +108,14 @@ async function validateOperationalAudits(registry, errors) {
         `fetched ${formatRate(row.fetch_date_rate)}`,
         `content-date ${formatRate(row.content_date_rate)}/${formatRate(row.required_content_date_rate)}`,
       ].join(" "));
+    }
+  }
+  if (dateQuality.status !== "pass") {
+    errors.push("date-quality audit status is not pass");
+  }
+  for (const source of dateQuality.source_reports ?? []) {
+    if (source.status !== "pass") {
+      errors.push(`date-quality gate failed for ${source.source_id}: ${(source.failures ?? []).join("; ") || "unknown failure"}`);
     }
   }
 }

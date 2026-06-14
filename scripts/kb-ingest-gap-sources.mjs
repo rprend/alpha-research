@@ -245,10 +245,17 @@ function normalizeSsrnAdjacentCrossref(payload, source) {
   return rows.map((row) => {
     const title = cleanHtml(first(row.title));
     const doi = row.DOI ?? "";
+    const issuedParts = row.issued?.["date-parts"]?.[0] ?? [];
+    const publicationYear = issuedParts[0] ?? "";
+    const publicationDate = issuedParts.length >= 3
+      ? `${issuedParts[0]}-${String(issuedParts[1]).padStart(2, "0")}-${String(issuedParts[2]).padStart(2, "0")}`
+      : "";
     const text = `${title} ${doi} ${row.publisher ?? ""} ${first(row["container-title"])} ${row.subject?.join?.(" ") ?? ""}`;
     return baseDoc(source, doi || row.URL || title, title, row.URL, {
       type: "working-paper-metadata",
-      publication_year: row.issued?.["date-parts"]?.[0]?.[0] ?? "",
+      publication_year: publicationYear,
+      publication_date: publicationDate,
+      content_date_source: "crossref:posted-content:issued",
       venue: first(row["container-title"]) || "SSRN-adjacent posted content",
       doi,
       publisher: row.publisher ?? "",
