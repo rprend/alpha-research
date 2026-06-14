@@ -1,16 +1,16 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T18:42:58.147Z
+Generated at: 2026-06-14T18:48:16.125Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 4347
+Documents: 4527
 
 ## Text Scope
 
 | Value | Count |
 | --- | ---: |
 | metadata-only | 4323 |
-| stored-full-text | 20 |
+| stored-full-text | 200 |
 | stored-local-analysis-text | 4 |
 
 ## Sources
@@ -37,7 +37,7 @@ Documents: 4347
 | nber-culture-history | 50 |
 | openalex-humanities | 273 |
 | princeton-humanities-departments | 4 |
-| project-gutenberg | 20 |
+| project-gutenberg | 200 |
 | public-books | 10 |
 | smithsonian-open-access | 25 |
 | stanford-humanities-departments | 6 |

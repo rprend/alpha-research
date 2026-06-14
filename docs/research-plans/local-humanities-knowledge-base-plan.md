@@ -536,7 +536,7 @@ Started on 2026-06-13:
 - Phase 2 now has a dedicated DOAJ humanities ingest: `pnpm kb:ingest:doaj` pulls article and journal metadata across humanities queries from DOAJ, stores raw responses, and appends normalized work, venue, source-document, and rights rows.
 - Phase 2/3 now has a gap-source ingest: `pnpm kb:ingest:gaps` targets registered sources without local records, including Smithsonian, Columbia department pages, DH conference pages, journal metadata through Crossref, and blocked-route probes for sources that need replacement routes.
 - Phase 6 now has a blocked-source audit: `pnpm kb:audit:blocked` writes source-specific memos for routes that require permission, replacement, or terms review.
-- Phase 2 also imports a bounded Project Gutenberg public-domain text sample from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
+- Phase 2 also imports a 200-text Project Gutenberg public-domain corpus from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
 - Phase 2 now has a bounded web metadata ingest: `pnpm kb:ingest:web` imports responding public routes for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly. Wayback and LARB failures are logged for route replacement.
 - Phase 3 has a bounded department-page corpus: `pnpm kb:ingest:departments` fetches selected public humanities department pages, stores raw HTML and extracted local-analysis text, and writes `pages`/`departments` staging rows. Harvard and Princeton routes returned 403 and are logged in `failed-routes.jsonl`.
 - Phase 3 now has a Wayback CDX snapshot ingest: `pnpm kb:ingest:wayback` reads department-page targets, stores raw CDX responses, and writes historical capture metadata without storing archived page text.
@@ -552,8 +552,8 @@ Current local footprint as of the latest local status:
 - 33 registered sources.
 - 28 registered sources with local documents.
 - Registry statuses: 23 active, 5 blocked, 4 seeded-from-experiment, 1 planned.
-- 4378 source documents.
-- 2733 works.
+- 4558 source documents.
+- 2913 works.
 - 1779 source-provided authors.
 - 2269 venues.
 - 14 institutions.
@@ -562,14 +562,15 @@ Current local footprint as of the latest local status:
 - 541 source-provided topics.
 - 507 cultural objects.
 - 34 department/web pages.
-- 4378 rights rows.
+- 4558 rights rows.
 - 2539 records from the dedicated DOAJ humanities ingest, including 1450 article records and 1089 journal records from 32 raw article/journal API route responses.
+- 200 public-domain Project Gutenberg text files imported from the local Gutenberg experiment cache.
 - 4 strict homepage Wayback CDX department-page snapshot metadata records from 2020-2026 across 4 target routes; broader wildcard captures were rejected to avoid query-string noise.
-- 24 local text files.
+- 204 local text files.
 - 12/12 staging JSONL tables.
 - 12/12 processed Parquet tables.
 - SQLite FTS indexes 24 source-document rows and 4 page rows with stored local text content, plus metadata for the broader corpus.
-- Semantic hash index covers 4347 rights-filtered documents, including 20 public-domain full-text records and 4 local-analysis page-text records.
+- Semantic hash index covers 4527 rights-filtered documents, including 200 public-domain full-text records and 4 local-analysis page-text records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 

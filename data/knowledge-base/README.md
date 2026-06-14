@@ -69,7 +69,7 @@ Current normalized staging outputs:
 - `indexes/source-documents-keyword-index.json`
 - `indexes/semantic-hash-index.json`
 
-The KB also imports a bounded local Project Gutenberg text sample from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
+The KB also imports 200 public-domain Project Gutenberg texts from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
 
 The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly when their public routes respond. Failed routes are retained in `audits/failed-routes.jsonl`.
 

@@ -43,9 +43,9 @@ const index = {
   document_count: docs.length,
   source_counts: countBy(docs.map((doc) => doc.row), "source_id"),
   rights_scope_counts: countBy(docs, "text_scope"),
-  idf: Object.fromEntries([...documentFrequency.entries()].map(([token, count]) => [token, idf(count, docs.length)])),
   documents: docs.map((doc) => {
     const vector = vectorize(doc.tokens, documentFrequency, docs.length);
+    const term_hashes = [...new Set(doc.tokens.map((token) => hashToken(token)))].sort((a, b) => a - b);
     return {
       local_id: doc.row.local_id,
       source_id: doc.row.source_id,
@@ -60,6 +60,7 @@ const index = {
       redistribution_status: doc.rights.redistribution_status ?? "",
       quote_status: doc.rights.quote_status ?? "",
       token_count: doc.tokens.length,
+      term_hashes,
       vector,
     };
   }),

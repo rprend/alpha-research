@@ -16,14 +16,22 @@ if (!query) {
 const indexPath = path.join(indexesDir, "semantic-hash-index.json");
 const index = await readJson(indexPath);
 const queryTokens = tokenize(query);
+const queryTermHashes = new Set(queryTokens.map((token) => hashToken(token)));
 const queryVector = vectorizeQuery(queryTokens, index);
 const scored = index.documents
-  .map((document) => ({
-    ...document,
-    score: cosine(queryVector, document.vector),
-  }))
+  .map((document) => {
+    const overlap = exactOverlap(queryTermHashes, document.term_hashes ?? []);
+    const vectorScore = cosine(queryVector, document.vector);
+    return {
+      ...document,
+      lexical_overlap: overlap.count,
+      lexical_score: overlap.score,
+      vector_score: vectorScore,
+      score: overlap.count > 0 ? vectorScore + overlap.score : 0,
+    };
+  })
   .filter((document) => document.score > 0)
-  .sort((a, b) => b.score - a.score || a.local_id.localeCompare(b.local_id))
+  .sort((a, b) => b.score - a.score || b.lexical_overlap - a.lexical_overlap || a.local_id.localeCompare(b.local_id))
   .slice(0, Number.isFinite(limit) ? limit : 10);
 
 console.log(JSON.stringify({
@@ -44,6 +52,8 @@ console.log(JSON.stringify({
     text_scope: document.text_scope,
     redistribution_status: document.redistribution_status,
     quote_status: document.quote_status,
+    lexical_overlap: document.lexical_overlap,
+    vector_score: Number(document.vector_score.toFixed(6)),
     score: Number(document.score.toFixed(6)),
   })),
 }, null, 2));
@@ -73,7 +83,7 @@ function vectorizeQuery(tokens, index) {
   const hashed = new Map();
   for (const [token, count] of counts.entries()) {
     const dim = hashToken(token) % index.dimensions;
-    const weight = (1 + Math.log(count)) * (index.idf[token] ?? 1);
+    const weight = (1 + Math.log(count)) * (index.idf?.[token] ?? 1);
     hashed.set(dim, (hashed.get(dim) ?? 0) + weight);
   }
   const norm = Math.sqrt([...hashed.values()].reduce((sum, value) => sum + value * value, 0)) || 1;
@@ -88,6 +98,20 @@ function cosine(left, right) {
     score += value * (right[dim] ?? 0);
   }
   return score;
+}
+
+function exactOverlap(queryTerms, documentTerms) {
+  let count = 0;
+  let weighted = 0;
+  for (const term of documentTerms) {
+    if (!queryTerms.has(term)) continue;
+    count += 1;
+    weighted += 1;
+  }
+  return {
+    count,
+    score: queryTerms.size ? weighted / queryTerms.size : 0,
+  };
 }
 
 function hashToken(token) {

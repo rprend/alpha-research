@@ -7,6 +7,7 @@ const commands = [
   ["node", ["scripts/kb-ingest-web-metadata.mjs", "--limit=10"]],
   ["node", ["scripts/kb-ingest-wayback-snapshots.mjs", "--per-target=3"]],
   ["node", ["scripts/kb-import-experiment-seeds.mjs"]],
+  ["node", ["scripts/kb-import-gutenberg-local.mjs", "--limit=200", "--max-bytes=250000"]],
   ["node", ["scripts/kb-build-analytical-tables.mjs"]],
   ["node", ["scripts/kb-audit-coverage.mjs"]],
   ["node", ["scripts/kb-audit-blocked-sources.mjs"]],
