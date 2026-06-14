@@ -8,6 +8,20 @@ The immediate goal is to set up the local knowledge base before pursuing more in
 
 The work should therefore prioritize local completeness, source breadth, refreshability, rights metadata, and queryable indexes. Specific research questions remain important, but they should function as downstream tests of the knowledge base: each question should reveal what the local corpus can already support, what evidence is missing, and which targeted acquisition job would make the corpus stronger.
 
+## 2026-06-14 Current Objective
+
+Build the local humanities knowledge base first, then use individual research questions as tests of that knowledge base. The desired end state is a laptop-local research substrate that can support a Substack or site for empirical humanities essays without re-scraping the internet from scratch every time.
+
+The knowledge base should make it possible to ask questions about long-run cultural change, institutional language, canon drift, public humanities, scholarly topics, museum metadata, and public-domain texts by starting from local data. When local evidence is insufficient, the system should report the gap precisely, fetch only the missing or stale material, and save the new evidence back into the repository.
+
+The next concrete work should therefore continue in this order:
+
+1. Preserve and improve the local source registry, rights taxonomy, raw snapshots, normalized tables, stored text, indexes, and audits.
+2. Keep expanding broad source coverage across scholarly metadata, department pages, cultural collections, linked entities, conferences, journals, and public-domain or openly licensed texts.
+3. Convert promoted research briefs into runnable local-data experiments only after they prove that the KB can support a reusable study direction.
+4. Make `pnpm kb:question` the default front door for new research questions, so every question starts with local evidence, claim strength, caveats, and missing-data plans.
+5. Treat publication ideas as outputs of the knowledge base, not as one-off scraping projects.
+
 ## Saved Artifact
 
 This file is the canonical plan for the local humanities knowledge base. It should be updated when the knowledge-base goal changes, when a major source class is added, when the storage contract changes, or when the next build steps materially change.
