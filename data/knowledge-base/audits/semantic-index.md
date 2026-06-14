@@ -1,15 +1,15 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T20:22:44.203Z
+Generated at: 2026-06-14T20:28:25.804Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 6431
+Documents: 6488
 
 ## Text Scope
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 6025 |
+| metadata-only | 6082 |
 | stored-full-text | 200 |
 | stored-local-analysis-text | 206 |
 
@@ -21,16 +21,17 @@ Documents: 6431
 | columbia-humanities-departments | 8 |
 | crossref-humanities | 178 |
 | dh-conference-programs | 25 |
-| doaj-humanities | 2948 |
+| doaj-humanities | 2957 |
 | expanded-university-humanities-departments | 250 |
 | harvard-humanities-departments | 5 |
 | humanities-centers-public-pages | 12 |
 | humanities-literature-radar | 53 |
 | internet-archive-metadata | 160 |
 | journal-critical-inquiry | 24 |
-| journal-digital-humanities-quarterly | 10 |
+| journal-digital-humanities-quarterly | 20 |
 | journal-new-literary-history | 25 |
 | journal-pmla | 25 |
+| lareviewofbooks | 18 |
 | library-of-congress | 308 |
 | met-collection-api | 255 |
 | mla-convention-programs | 1 |
@@ -43,7 +44,7 @@ Documents: 6431
 | smithsonian-open-access | 225 |
 | stanford-humanities-departments | 110 |
 | uchicago-humanities-departments | 47 |
-| wayback-machine-cdx | 3 |
+| wayback-machine-cdx | 23 |
 | wikidata-cultural-entities | 919 |
 | yale-humanities-departments | 70 |
 

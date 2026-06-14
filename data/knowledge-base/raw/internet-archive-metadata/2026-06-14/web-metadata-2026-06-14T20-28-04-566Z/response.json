@@ -1,0 +1,275 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 30,
+    "params": {
+      "query": "subject:humanities AND mediatype:texts",
+      "qin": "subject:(humanities) AND mediatype:(texts)",
+      "fields": "identifier,title,creator,date,collection,licenseurl",
+      "wt": "json",
+      "rows": 20,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 18504,
+    "start": 0,
+    "docs": [
+      {
+        "collection": [
+          "internetarchivebooks",
+          "americana",
+          "printdisabled",
+          "bpljordan-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol",
+          "uslprototype"
+        ],
+        "creator": "Moore, Martha (Martha A.)",
+        "date": "1995-01-01T00:00:00Z",
+        "identifier": "undermermaidange00moor",
+        "title": "Under the mermaid angel"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Egorova, Olʹga",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "rozovaiapantera0000egor",
+        "title": "Rozovai͡a pantera"
+      },
+      {
+        "collection": [
+          "opensource"
+        ],
+        "identifier": "at-this-college-the-english-dept.-is-out.-human-narratives-is-in.-the-new-york-times",
+        "title": "At This College, The English Dept. Is Out. ‘ Human Narratives’ Is In. The New York Times"
+      },
+      {
+        "collection": [
+          "trent_university",
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-a29",
+          "fav-hae89",
+          "fav-mmos",
+          "fav-stratbot",
+          "ambslibrary-ol",
+          "barryuniversity-ol",
+          "binghamton-ol",
+          "cua-ol",
+          "dartmouthlibrary-ol",
+          "drakeuniversity-ol",
+          "framingham-ol",
+          "gwulibraries-ol",
+          "ithacacollege-ol",
+          "johnshopkins-ol",
+          "kalamazoocollege-ol",
+          "randolph-macon-college-ol",
+          "riceuniversity-ol",
+          "rochester-ol",
+          "unb-ol",
+          "uni-ol",
+          "universityofarizona-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol"
+        ],
+        "creator": "Natanson, Maurice Alexander, 1924-",
+        "date": "1973-01-01T00:00:00Z",
+        "identifier": "phenomenologysoc0000nata",
+        "title": "Phenomenology and the social sciences"
+      },
+      {
+        "collection": [
+          "pub_american-academy-of-religion-journal",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1942-05-01T00:00:00Z",
+        "identifier": "sim_american-academy-of-religion-journal_1942-05_10_2",
+        "title": "The Journal of Bible and Religion 1942-05: Vol 10 Iss 2"
+      },
+      {
+        "collection": [
+          "pub_american-scholar",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "2006-01-01T00:00:00Z",
+        "identifier": "sim_american-scholar_2006_75_index",
+        "title": "The American Scholar 2006: Vol 75 Index"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Roshchina, Natalii͡a",
+        "date": "2005-01-01T00:00:00Z",
+        "identifier": "plachpalacha0000rosh",
+        "title": "Plach palacha"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "americana",
+          "inlibrary",
+          "printdisabled"
+        ],
+        "creator": "Edited by Reference",
+        "date": "2000-01-01T00:00:00Z",
+        "identifier": "grantfindercompl00edit",
+        "title": "GrantFinder : the complete guide to postgraduate funding worldwide"
+      },
+      {
+        "collection": [
+          "pub_modern-fiction-studies",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1958-01-01T00:00:00Z",
+        "identifier": "sim_modern-fiction-studies_1958_4_index",
+        "title": "Modern Fiction Studies 1958: Vol 4 Index"
+      },
+      {
+        "collection": [
+          "pub_daedalus",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1957-05-01T00:00:00Z",
+        "identifier": "sim_daedalus_1957-05_86_3",
+        "title": "Daedalus 1957-05: Vol 86 Iss 3"
+      },
+      {
+        "collection": [
+          "internetarchivebooks",
+          "printdisabled",
+          "fav-lovetoreadtheory",
+          "binghamton-ol",
+          "johnshopkins-ol",
+          "marymount-ol",
+          "riceuniversity-ol",
+          "rochester-ol",
+          "unb-ol",
+          "uni-ol",
+          "universityofarizona-ol",
+          "universityofcoloradoboulder-ol",
+          "universityofoklahoma-ol"
+        ],
+        "date": "1995-01-01T00:00:00Z",
+        "identifier": "afterpoliticalco0002unse",
+        "title": "After political correctness : the humanities and society in the 1990s"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1917-08-23T00:00:00Z",
+        "identifier": "sim_christian-century_1917-08-23_34_34",
+        "title": "The Christian Century 1917-08-23: Vol 34 Iss 34"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1911-10-05T00:00:00Z",
+        "identifier": "sim_christian-century_1911-10-05_28_40",
+        "title": "The Christian Century 1911-10-05: Vol 28 Iss 40"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1930-03-26T00:00:00Z",
+        "identifier": "sim_christian-century_1930-03-26_47_13",
+        "title": "The Christian Century 1930-03-26: Vol 47 Iss 13"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1905-02-09T00:00:00Z",
+        "identifier": "sim_christian-century_1905-02-09_22_6",
+        "title": "The Christian Century 1905-02-09: Vol 22 Iss 6"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1901-03-07T00:00:00Z",
+        "identifier": "sim_christian-century_1901-03-07_18_10",
+        "title": "The Christian Century 1901-03-07: Vol 18 Iss 10"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1925-10-15T00:00:00Z",
+        "identifier": "sim_christian-century_1925-10-15_42_42",
+        "title": "The Christian Century 1925-10-15: Vol 42 Iss 42"
+      },
+      {
+        "collection": [
+          "trent_university",
+          "internetarchivebooks",
+          "inlibrary",
+          "printdisabled",
+          "fav-rip_thorn"
+        ],
+        "date": "1971-01-01T00:00:00Z",
+        "identifier": "essaysinhonorofd0000unse",
+        "title": "Essays in honor of David Lyall Patrick"
+      },
+      {
+        "collection": [
+          "pub_georgia-review",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "2004-01-01T00:00:00Z",
+        "identifier": "sim_georgia-review_2004_58_index",
+        "title": "The Georgia Review 2004: Vol 58 Index"
+      },
+      {
+        "collection": [
+          "pub_daedalus",
+          "sim_microfilm",
+          "periodicals"
+        ],
+        "date": "1880-05-01T00:00:00Z",
+        "identifier": "sim_daedalus_may-1880-june-1881_16",
+        "title": "Proceedings of the American Academy of Arts and Sciences May 1880-June 1881: Vol 16"
+      }
+    ]
+  }
+}

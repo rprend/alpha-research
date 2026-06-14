@@ -1,0 +1,19 @@
+{
+  "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
+  "source_id": "wayback-machine-cdx",
+  "started_at": "2026-06-14T20:28:05.781Z",
+  "completed_at": "2026-06-14T20:28:09.044Z",
+  "status": "success",
+  "access_route": "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=20",
+  "raw_outputs": [
+    "data/knowledge-base/raw/wayback-machine-cdx/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 20,
+  "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
+  "errors": []
+}

@@ -983,7 +983,7 @@
       "source_class": "journals-and-reviews",
       "homepage_url": "https://lareviewofbooks.org/",
       "access_routes": [
-        "site feeds",
+        "https://lareviewofbooks.org/",
         "article pages"
       ],
       "license": "Site terms; public web text copyright retained",
@@ -1008,10 +1008,11 @@
       "known_risks": [
         "copyrighted article text",
         "site changes",
-        "author normalization"
+        "author normalization",
+        "legacy /feed/ route returns 404; use public homepage metadata until a documented feed/API appears"
       ],
-      "last_checked_at": "2026-06-13",
-      "ingest_status": "blocked"
+      "last_checked_at": "2026-06-14",
+      "ingest_status": "active"
     },
     {
       "source_id": "open-syllabus",

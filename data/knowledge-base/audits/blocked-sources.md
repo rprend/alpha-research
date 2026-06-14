@@ -1,7 +1,8 @@
 # KB Blocked Sources
 
-Generated at: 2026-06-14T20:04:09.265Z
-Blocked sources: 5
+Generated at: 2026-06-14T20:29:09.696Z
+Blocked sources: 4
+Resolved historical failures: 6
 
 ## hathitrust-bibliographic-metadata
 
@@ -26,18 +27,6 @@ Blocked sources: 5
 - Latest route: https://www.historians.org/events/annual-meeting/
 - Latest errors: https://www.historians.org/events/annual-meeting/: HTTP 403 Forbidden
 - Next decision: Requires route replacement, manual export, permissioned API access, or terms review; do not bypass access controls.
-
-## lareviewofbooks
-
-- Name: Los Angeles Review of Books
-- Class: journals-and-reviews
-- Redistribution: local-analysis-only
-- Metadata allowed: true
-- Full text allowed: false
-- Failed route count: 6
-- Latest route: https://lareviewofbooks.org/feed/
-- Latest errors: HTTP 404 Not Found
-- Next decision: Find a current feed, sitemap, archive route, or alternate metadata source before retrying.
 
 ## open-syllabus
 
@@ -65,4 +54,4 @@ Blocked sources: 5
 
 ## Failed Route Replacement Plans
 
-See `data/knowledge-base/audits/failed-route-replacements.md` for 16 source-level replacement plans.
+See `data/knowledge-base/audits/failed-route-replacements.md` for 10 source-level replacement plans.

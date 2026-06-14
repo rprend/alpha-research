@@ -10,6 +10,7 @@ import {
 const registry = await loadRegistry();
 const sources = registry.sources ?? [];
 const failedRoutes = await readJsonl(path.join(auditsDir, "failed-routes.jsonl"));
+const ingestRuns = await readJsonl(path.join(auditsDir, "ingest-runs.jsonl"));
 const failedBySource = new Map();
 for (const route of failedRoutes) {
   if (!route.source_id) continue;
@@ -17,7 +18,9 @@ for (const route of failedRoutes) {
   existing.push(route);
   failedBySource.set(route.source_id, existing);
 }
-const replacementPlans = buildReplacementPlans(failedBySource, sources);
+const successfulBySource = latestSuccessfulRunsBySource(ingestRuns);
+const replacementPlans = buildReplacementPlans(failedBySource, sources, successfulBySource);
+const resolvedFailures = buildResolvedFailures(failedBySource, sources, successfulBySource);
 
 const blockedSources = sources
   .filter((source) => source.ingest_status === "blocked")
@@ -49,6 +52,8 @@ const report = {
   generated_at: new Date().toISOString(),
   blocked_source_count: blockedSources.length,
   blocked_sources: blockedSources,
+  resolved_failure_count: resolvedFailures.length,
+  resolved_failures: resolvedFailures,
   replacement_plan_count: replacementPlans.length,
   replacement_plans: replacementPlans,
 };
@@ -57,6 +62,8 @@ await writeJson(path.join(auditsDir, "blocked-sources.json"), report);
 await writeText(path.join(auditsDir, "blocked-sources.md"), renderMarkdown(report));
 await writeJson(path.join(auditsDir, "failed-route-replacements.json"), {
   generated_at: report.generated_at,
+  resolved_failure_count: resolvedFailures.length,
+  resolved_failures: resolvedFailures,
   replacement_plan_count: replacementPlans.length,
   replacement_plans: replacementPlans,
 });
@@ -81,7 +88,40 @@ function nextDecision(source, latestFailure) {
   return "Needs source-specific route and rights review before another automated ingest.";
 }
 
-function buildReplacementPlans(failedBySource, sources) {
+function latestSuccessfulRunsBySource(ingestRuns) {
+  const successfulBySource = new Map();
+  for (const run of ingestRuns) {
+    if (!run.source_id || run.status !== "success") continue;
+    const completedAt = run.completed_at ?? "";
+    const current = successfulBySource.get(run.source_id);
+    if (!current || completedAt > (current.completed_at ?? "")) successfulBySource.set(run.source_id, run);
+  }
+  return successfulBySource;
+}
+
+function buildResolvedFailures(failedBySource, sources, successfulBySource) {
+  const sourceById = new Map(sources.map((source) => [source.source_id, source]));
+  const resolved = [];
+  for (const [sourceId, failures] of failedBySource.entries()) {
+    const latestFailure = failures.at(-1);
+    const latestSuccess = successfulBySource.get(sourceId);
+    if (!latestSuccess || (latestSuccess.completed_at ?? "") <= (latestFailure?.completed_at ?? "")) continue;
+    resolved.push({
+      source_id: sourceId,
+      name: sourceById.get(sourceId)?.name ?? sourceId,
+      source_class: sourceById.get(sourceId)?.source_class ?? "unknown",
+      failure_count: failures.length,
+      latest_failure_at: latestFailure?.completed_at ?? "",
+      latest_success_at: latestSuccess.completed_at ?? "",
+      successful_route: latestSuccess.access_route ?? "",
+      record_count: latestSuccess.record_count ?? 0,
+      resolution_note: "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan.",
+    });
+  }
+  return resolved.sort((a, b) => a.source_id.localeCompare(b.source_id));
+}
+
+function buildReplacementPlans(failedBySource, sources, successfulBySource) {
   const sourceById = new Map(sources.map((source) => [source.source_id, source]));
   const plans = [];
   for (const [sourceId, failures] of failedBySource.entries()) {
@@ -93,6 +133,8 @@ function buildReplacementPlans(failedBySource, sources) {
       redistribution_status: "unknown",
     };
     const latestFailure = failures.at(-1);
+    const latestSuccess = successfulBySource.get(sourceId);
+    if (latestSuccess && (latestSuccess.completed_at ?? "") > (latestFailure?.completed_at ?? "")) continue;
     const errorText = failures.flatMap((failure) => failure.errors ?? []).join(" ");
     const failedRoutes = [...new Set(failures.map((failure) => failure.access_route).filter(Boolean))];
     const targetSummary = summarizeTargets(failures);
@@ -262,6 +304,7 @@ function renderMarkdown(report) {
     "",
     `Generated at: ${report.generated_at}`,
     `Blocked sources: ${report.blocked_source_count}`,
+    `Resolved historical failures: ${report.resolved_failure_count}`,
     "",
     ...report.blocked_sources.flatMap((source) => [
       `## ${source.source_id}`,
@@ -289,8 +332,17 @@ function renderReplacementMarkdown(report) {
     "# KB Failed Route Replacement Plans",
     "",
     `Generated at: ${report.generated_at}`,
+    `Resolved historical failures: ${report.resolved_failure_count}`,
     `Replacement plans: ${report.replacement_plan_count}`,
     "",
+    ...(report.resolved_failures.length ? [
+      "## Resolved Historical Failures",
+      "",
+      ...report.resolved_failures.flatMap((failure) => [
+        `- ${failure.source_id}: latest successful route ${failure.successful_route || "unknown"} at ${failure.latest_success_at || "unknown"} (${failure.record_count} records).`,
+      ]),
+      "",
+    ] : []),
     ...report.replacement_plans.flatMap((plan) => [
       `## ${plan.source_id}`,
       "",

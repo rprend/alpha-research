@@ -1,0 +1,19 @@
+{
+  "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
+  "source_id": "public-books",
+  "started_at": "2026-06-14T20:28:09.044Z",
+  "completed_at": "2026-06-14T20:28:09.263Z",
+  "status": "success",
+  "access_route": "https://www.publicbooks.org/feed/",
+  "raw_outputs": [
+    "data/knowledge-base/raw/public-books/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.txt"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 10,
+  "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
+  "errors": []
+}

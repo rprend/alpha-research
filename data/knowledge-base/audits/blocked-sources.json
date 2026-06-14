@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T20:04:09.265Z",
-  "blocked_source_count": 5,
+  "generated_at": "2026-06-14T20:29:09.696Z",
+  "blocked_source_count": 4,
   "blocked_sources": [
     {
       "source_id": "hathitrust-bibliographic-metadata",
@@ -49,29 +49,6 @@
       ]
     },
     {
-      "source_id": "lareviewofbooks",
-      "name": "Los Angeles Review of Books",
-      "source_class": "journals-and-reviews",
-      "redistribution_status": "local-analysis-only",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "failure_count": 6,
-      "latest_failure": {
-        "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
-        "access_route": "https://lareviewofbooks.org/feed/",
-        "completed_at": "2026-06-14T20:02:56.346Z",
-        "errors": [
-          "HTTP 404 Not Found"
-        ]
-      },
-      "next_decision": "Find a current feed, sitemap, archive route, or alternate metadata source before retrying.",
-      "known_risks": [
-        "copyrighted article text",
-        "site changes",
-        "author normalization"
-      ]
-    },
-    {
       "source_id": "open-syllabus",
       "name": "Open Syllabus",
       "source_class": "syllabi-teaching-corpora",
@@ -112,7 +89,76 @@
       ]
     }
   ],
-  "replacement_plan_count": 16,
+  "resolved_failure_count": 6,
+  "resolved_failures": [
+    {
+      "source_id": "doaj-humanities",
+      "name": "DOAJ Humanities Open Access Metadata",
+      "source_class": "scholarly-metadata",
+      "failure_count": 2,
+      "latest_failure_at": "2026-06-14T19:57:06.628Z",
+      "latest_success_at": "2026-06-14T20:28:04.857Z",
+      "successful_route": "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20",
+      "record_count": 20,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "lareviewofbooks",
+      "name": "Los Angeles Review of Books",
+      "source_class": "journals-and-reviews",
+      "failure_count": 6,
+      "latest_failure_at": "2026-06-14T20:02:56.346Z",
+      "latest_success_at": "2026-06-14T20:28:09.368Z",
+      "successful_route": "https://lareviewofbooks.org/",
+      "record_count": 18,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "library-of-congress",
+      "name": "Library of Congress Collections",
+      "source_class": "cultural-collections",
+      "failure_count": 1,
+      "latest_failure_at": "2026-06-14T19:00:00.360Z",
+      "latest_success_at": "2026-06-14T20:02:34.343Z",
+      "successful_route": "source-specific cultural collections API routes",
+      "record_count": 50,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "met-collection-api",
+      "name": "Metropolitan Museum of Art Collection API",
+      "source_class": "cultural-collections",
+      "failure_count": 1,
+      "latest_failure_at": "2026-06-14T18:59:25.392Z",
+      "latest_success_at": "2026-06-14T20:02:33.316Z",
+      "successful_route": "source-specific cultural collections API routes",
+      "record_count": 50,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "wayback-machine-cdx",
+      "name": "Internet Archive Wayback CDX",
+      "source_class": "web-archives",
+      "failure_count": 20,
+      "latest_failure_at": "2026-06-14T20:04:03.662Z",
+      "latest_success_at": "2026-06-14T20:28:09.044Z",
+      "successful_route": "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=20",
+      "record_count": 20,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "wikidata-cultural-entities",
+      "name": "Wikidata Cultural Entities",
+      "source_class": "linked-open-data",
+      "failure_count": 3,
+      "latest_failure_at": "2026-06-14T19:56:24.010Z",
+      "latest_success_at": "2026-06-14T20:02:20.514Z",
+      "successful_route": "https://query.wikidata.org/sparql",
+      "record_count": 25,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    }
+  ],
+  "replacement_plan_count": 10,
   "replacement_plans": [
     {
       "source_id": "harvard-humanities-departments",
@@ -120,8 +166,8 @@
       "source_class": "university-department-web",
       "ingest_status": "seeded-from-experiment",
       "redistribution_status": "local-analysis-only",
-      "failure_count": 14,
-      "latest_failure_at": "2026-06-14T19:49:18.974Z",
+      "failure_count": 18,
+      "latest_failure_at": "2026-06-14T20:21:59.769Z",
       "latest_error": "HTTP 403 Forbidden",
       "failed_routes": [
         "https://english.fas.harvard.edu/",
@@ -154,8 +200,8 @@
       "source_class": "university-department-web",
       "ingest_status": "active",
       "redistribution_status": "local-analysis-only",
-      "failure_count": 12,
-      "latest_failure_at": "2026-06-14T19:49:30.609Z",
+      "failure_count": 15,
+      "latest_failure_at": "2026-06-14T20:22:16.649Z",
       "latest_error": "HTTP 403 Forbidden",
       "failed_routes": [
         "https://lsa.umich.edu/english",
@@ -190,8 +236,8 @@
       "source_class": "university-department-web",
       "ingest_status": "planned",
       "redistribution_status": "local-analysis-only",
-      "failure_count": 10,
-      "latest_failure_at": "2026-06-14T19:14:40.327Z",
+      "failure_count": 14,
+      "latest_failure_at": "2026-06-14T20:22:00.960Z",
       "latest_error": "HTTP 403 Forbidden",
       "failed_routes": [
         "https://english.princeton.edu/",
@@ -215,8 +261,8 @@
       "source_class": "university-department-web",
       "ingest_status": "active",
       "redistribution_status": "local-analysis-only",
-      "failure_count": 7,
-      "latest_failure_at": "2026-06-14T19:49:24.052Z",
+      "failure_count": 9,
+      "latest_failure_at": "2026-06-14T20:22:06.009Z",
       "latest_error": "HTTP 403 Forbidden",
       "failed_routes": [
         "https://english.columbia.edu/",
@@ -238,28 +284,6 @@
       ],
       "next_action": "Create source-specific alternate target entries for Columbia University English and Comparative Literature department-sitemap, Columbia University History department-sitemap, Columbia University Philosophy department-sitemap using public about/news/events/faculty routes that return 200.",
       "do_not_do": "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls."
-    },
-    {
-      "source_id": "lareviewofbooks",
-      "name": "Los Angeles Review of Books",
-      "source_class": "journals-and-reviews",
-      "ingest_status": "blocked",
-      "redistribution_status": "local-analysis-only",
-      "failure_count": 6,
-      "latest_failure_at": "2026-06-14T20:02:56.346Z",
-      "latest_error": "HTTP 404 Not Found",
-      "failed_routes": [
-        "https://lareviewofbooks.org/feed/"
-      ],
-      "affected_targets": [],
-      "replacement_status": "replacement-needed",
-      "replacement_routes": [
-        "Find the current RSS/feed URL from the site homepage or sitemap.",
-        "Use WordPress discovery endpoints such as /wp-json/wp/v2/posts only if public and allowed.",
-        "Use Crossref/OpenAlex/Internet Archive metadata as fallback for bibliographic discovery."
-      ],
-      "next_action": "Replace the stale feed URL before another automated ingest.",
-      "do_not_do": "Do not repeatedly retry the known 404 feed route."
     },
     {
       "source_id": "uchicago-humanities-departments",
@@ -337,44 +361,6 @@
       "do_not_do": "Do not ask for secrets in chat or retry unauthorized API routes anonymously."
     },
     {
-      "source_id": "wayback-machine-cdx",
-      "name": "Internet Archive Wayback CDX",
-      "source_class": "web-archives",
-      "ingest_status": "seeded-from-experiment",
-      "redistribution_status": "metadata-only",
-      "failure_count": 20,
-      "latest_failure_at": "2026-06-14T20:04:03.662Z",
-      "latest_error": "This operation was aborted",
-      "failed_routes": [
-        "https://web.archive.org/cdx?url=philosophy.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
-        "https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
-        "https://web.archive.org/cdx?url=complit.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
-        "https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2",
-        "https://web.archive.org/cdx?url=history.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2",
-        "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2",
-        "https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2",
-        "https://web.archive.org/cdx?url=complit.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2"
-      ],
-      "affected_targets": [
-        "Harvard University English department-home",
-        "Yale University English department-home",
-        "University of Chicago Humanities Division division-home",
-        "Harvard University History department-home",
-        "Yale University History department-home",
-        "Princeton University History department-home",
-        "Harvard University Philosophy department-home",
-        "Yale University Comparative Literature department-home"
-      ],
-      "replacement_status": "retry-with-smaller-route",
-      "replacement_routes": [
-        "Use exact URL CDX queries before wildcard queries.",
-        "Reduce limits and avoid collapse parameters for unstable routes.",
-        "Persist partial CDX responses and retry failed targets individually."
-      ],
-      "next_action": "Split wildcard CDX targets into exact canonical URLs and retry with smaller limits.",
-      "do_not_do": "Do not treat archived page text as redistributable without separate rights review."
-    },
-    {
       "source_id": "smithsonian-open-access",
       "name": "Smithsonian Open Access",
       "source_class": "cultural-collections",
@@ -417,27 +403,6 @@
       "do_not_do": "Do not scrape blocked catalog pages or store restricted full text."
     },
     {
-      "source_id": "wikidata-cultural-entities",
-      "name": "Wikidata Cultural Entities",
-      "source_class": "linked-open-data",
-      "ingest_status": "active",
-      "redistribution_status": "derived-metadata-ok",
-      "failure_count": 3,
-      "latest_failure_at": "2026-06-14T19:56:24.010Z",
-      "latest_error": "HTTP 502 Bad Gateway",
-      "failed_routes": [
-        "https://query.wikidata.org/sparql"
-      ],
-      "affected_targets": [],
-      "replacement_status": "source-specific-review-needed",
-      "replacement_routes": [
-        "Review source terms, robots, documented APIs, sitemaps, and public exports.",
-        "Prefer metadata routes over page scraping where available."
-      ],
-      "next_action": "Write a source-specific acquisition note before retrying.",
-      "do_not_do": "Do not repeatedly retry the same failed route without a changed route or terms decision."
-    },
-    {
       "source_id": "aha-annual-meeting-programs",
       "name": "American Historical Association Annual Meeting Programs",
       "source_class": "conference-programs",
@@ -457,70 +422,6 @@
       ],
       "next_action": "Write a source-specific acquisition note before retrying.",
       "do_not_do": "Do not repeatedly retry the same failed route without a changed route or terms decision."
-    },
-    {
-      "source_id": "doaj-humanities",
-      "name": "DOAJ Humanities Open Access Metadata",
-      "source_class": "scholarly-metadata",
-      "ingest_status": "active",
-      "redistribution_status": "metadata-ok",
-      "failure_count": 2,
-      "latest_failure_at": "2026-06-14T19:57:06.628Z",
-      "latest_error": "This operation was aborted",
-      "failed_routes": [
-        "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=10"
-      ],
-      "affected_targets": [],
-      "replacement_status": "partial-route-retry",
-      "replacement_routes": [
-        "Retry the documented source API route with smaller page sizes and source-specific timeout/backoff.",
-        "Keep successful local records and treat this as a partial route failure, not a source-wide block."
-      ],
-      "next_action": "Use the source-specific ingest audit to identify which route/page failed, then retry only that route with lower limits.",
-      "do_not_do": "Do not discard successful local records or reclassify the whole source as blocked because one route timed out."
-    },
-    {
-      "source_id": "library-of-congress",
-      "name": "Library of Congress Collections",
-      "source_class": "cultural-collections",
-      "ingest_status": "active",
-      "redistribution_status": "metadata-ok",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-14T19:00:00.360Z",
-      "latest_error": "This operation was aborted",
-      "failed_routes": [
-        "source-specific cultural collections API routes"
-      ],
-      "affected_targets": [],
-      "replacement_status": "partial-route-retry",
-      "replacement_routes": [
-        "Retry the documented source API route with smaller page sizes and source-specific timeout/backoff.",
-        "Keep successful local records and treat this as a partial route failure, not a source-wide block."
-      ],
-      "next_action": "Use the source-specific ingest audit to identify which route/page failed, then retry only that route with lower limits.",
-      "do_not_do": "Do not discard successful local records or reclassify the whole source as blocked because one route timed out."
-    },
-    {
-      "source_id": "met-collection-api",
-      "name": "Metropolitan Museum of Art Collection API",
-      "source_class": "cultural-collections",
-      "ingest_status": "active",
-      "redistribution_status": "metadata-ok",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-14T18:59:25.392Z",
-      "latest_error": "HTTP 403 Forbidden",
-      "failed_routes": [
-        "source-specific cultural collections API routes"
-      ],
-      "affected_targets": [],
-      "replacement_status": "partial-route-review",
-      "replacement_routes": [
-        "Check whether the failed route is an individual item/detail endpoint while broader search/list endpoints still work.",
-        "Keep successful local records and mark missing detail routes in the source-specific ingest audit.",
-        "Prefer documented bulk/list APIs or lower-volume detail retries where terms allow."
-      ],
-      "next_action": "Review source-specific audit output before retrying; retry only the failed route class, not the entire source.",
-      "do_not_do": "Do not bypass 403 responses or treat item-level blocks as permission to scrape alternate restricted pages."
     }
   ]
 }

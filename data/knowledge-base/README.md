@@ -87,7 +87,7 @@ The department-sitemap ingest fetches public `sitemap.xml` routes for configured
 
 The blocked-source audit writes both `audits/blocked-sources.{json,md}` and `audits/failed-route-replacements.{json,md}`. The replacement audit covers blocked sources and active-source route failures, so stale feeds, 403 department pages, Wayback instability, rate limits, and partial API timeouts each have an explicit next action before another ingest attempt.
 
-The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly when their public routes respond. Failed routes are retained in `audits/failed-routes.jsonl`.
+The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, Los Angeles Review of Books, and Digital Humanities Quarterly when their public routes respond. LARB's legacy `/feed/` route returned 404, so the current replacement route imports metadata from public homepage Next.js data without storing article text. Failed historical routes are retained in `audits/failed-routes.jsonl`, while `audits/failed-route-replacements.md` separates resolved historical failures from active replacement plans.
 
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 

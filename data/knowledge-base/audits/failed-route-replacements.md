@@ -1,7 +1,17 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T20:04:09.265Z
-Replacement plans: 16
+Generated at: 2026-06-14T20:29:09.696Z
+Resolved historical failures: 6
+Replacement plans: 10
+
+## Resolved Historical Failures
+
+- doaj-humanities: latest successful route https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20 at 2026-06-14T20:28:04.857Z (20 records).
+- lareviewofbooks: latest successful route https://lareviewofbooks.org/ at 2026-06-14T20:28:09.368Z (18 records).
+- library-of-congress: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:34.343Z (50 records).
+- met-collection-api: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:33.316Z (50 records).
+- wayback-machine-cdx: latest successful route https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=20 at 2026-06-14T20:28:09.044Z (20 records).
+- wikidata-cultural-entities: latest successful route https://query.wikidata.org/sparql at 2026-06-14T20:02:20.514Z (25 records).
 
 ## harvard-humanities-departments
 
@@ -9,8 +19,8 @@ Replacement plans: 16
 - Class: university-department-web
 - Ingest status: seeded-from-experiment
 - Replacement status: replacement-needed
-- Failure count: 14
-- Latest failure: 2026-06-14T19:49:18.974Z
+- Failure count: 18
+- Latest failure: 2026-06-14T20:21:59.769Z
 - Latest error: HTTP 403 Forbidden
 - Affected targets: Harvard University English department-sitemap; Harvard University History department-sitemap; Harvard University Philosophy department-sitemap; Harvard University Classics department-sitemap
 - Failed routes:
@@ -35,8 +45,8 @@ Replacement plans: 16
 - Class: university-department-web
 - Ingest status: active
 - Replacement status: replacement-needed
-- Failure count: 12
-- Latest failure: 2026-06-14T19:49:30.609Z
+- Failure count: 15
+- Latest failure: 2026-06-14T20:22:16.649Z
 - Latest error: HTTP 403 Forbidden
 - Affected targets: University of California, Berkeley History department-sitemap; University of California, Berkeley Rhetoric department-sitemap; University of Michigan English Language and Literature department-sitemap; University of Michigan History department-sitemap; University of Pennsylvania English department-sitemap; University of Pennsylvania History department-sitemap
 - Failed routes:
@@ -61,8 +71,8 @@ Replacement plans: 16
 - Class: university-department-web
 - Ingest status: planned
 - Replacement status: replacement-needed
-- Failure count: 10
-- Latest failure: 2026-06-14T19:14:40.327Z
+- Failure count: 14
+- Latest failure: 2026-06-14T20:22:00.960Z
 - Latest error: HTTP 403 Forbidden
 - Affected targets: No target metadata.
 - Failed routes:
@@ -83,8 +93,8 @@ Replacement plans: 16
 - Class: university-department-web
 - Ingest status: active
 - Replacement status: replacement-needed
-- Failure count: 7
-- Latest failure: 2026-06-14T19:49:24.052Z
+- Failure count: 9
+- Latest failure: 2026-06-14T20:22:06.009Z
 - Latest error: HTTP 403 Forbidden
 - Affected targets: Columbia University English and Comparative Literature department-sitemap; Columbia University History department-sitemap; Columbia University Philosophy department-sitemap
 - Failed routes:
@@ -99,25 +109,6 @@ Replacement plans: 16
   - Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed.
 - Next action: Create source-specific alternate target entries for Columbia University English and Comparative Literature department-sitemap, Columbia University History department-sitemap, Columbia University Philosophy department-sitemap using public about/news/events/faculty routes that return 200.
 - Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
-
-## lareviewofbooks
-
-- Name: Los Angeles Review of Books
-- Class: journals-and-reviews
-- Ingest status: blocked
-- Replacement status: replacement-needed
-- Failure count: 6
-- Latest failure: 2026-06-14T20:02:56.346Z
-- Latest error: HTTP 404 Not Found
-- Affected targets: No target metadata.
-- Failed routes:
-  - https://lareviewofbooks.org/feed/
-- Replacement routes:
-  - Find the current RSS/feed URL from the site homepage or sitemap.
-  - Use WordPress discovery endpoints such as /wp-json/wp/v2/posts only if public and allowed.
-  - Use Crossref/OpenAlex/Internet Archive metadata as fallback for bibliographic discovery.
-- Next action: Replace the stale feed URL before another automated ingest.
-- Do not do: Do not repeatedly retry the known 404 feed route.
 
 ## uchicago-humanities-departments
 
@@ -178,32 +169,6 @@ Replacement plans: 16
 - Next action: Keep the source blocked until an authorized metadata route or allowed export is available.
 - Do not do: Do not ask for secrets in chat or retry unauthorized API routes anonymously.
 
-## wayback-machine-cdx
-
-- Name: Internet Archive Wayback CDX
-- Class: web-archives
-- Ingest status: seeded-from-experiment
-- Replacement status: retry-with-smaller-route
-- Failure count: 20
-- Latest failure: 2026-06-14T20:04:03.662Z
-- Latest error: This operation was aborted
-- Affected targets: Harvard University English department-home; Yale University English department-home; University of Chicago Humanities Division division-home; Harvard University History department-home; Yale University History department-home; Princeton University History department-home; Harvard University Philosophy department-home; Yale University Comparative Literature department-home
-- Failed routes:
-  - https://web.archive.org/cdx?url=philosophy.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
-  - https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
-  - https://web.archive.org/cdx?url=complit.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
-  - https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
-  - https://web.archive.org/cdx?url=history.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
-  - https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
-  - https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
-  - https://web.archive.org/cdx?url=complit.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
-- Replacement routes:
-  - Use exact URL CDX queries before wildcard queries.
-  - Reduce limits and avoid collapse parameters for unstable routes.
-  - Persist partial CDX responses and retry failed targets individually.
-- Next action: Split wildcard CDX targets into exact canonical URLs and retry with smaller limits.
-- Do not do: Do not treat archived page text as redistributable without separate rights review.
-
 ## smithsonian-open-access
 
 - Name: Smithsonian Open Access
@@ -240,24 +205,6 @@ Replacement plans: 16
 - Next action: Replace catalog-page scraping with documented metadata download/export workflow after terms review.
 - Do not do: Do not scrape blocked catalog pages or store restricted full text.
 
-## wikidata-cultural-entities
-
-- Name: Wikidata Cultural Entities
-- Class: linked-open-data
-- Ingest status: active
-- Replacement status: source-specific-review-needed
-- Failure count: 3
-- Latest failure: 2026-06-14T19:56:24.010Z
-- Latest error: HTTP 502 Bad Gateway
-- Affected targets: No target metadata.
-- Failed routes:
-  - https://query.wikidata.org/sparql
-- Replacement routes:
-  - Review source terms, robots, documented APIs, sitemaps, and public exports.
-  - Prefer metadata routes over page scraping where available.
-- Next action: Write a source-specific acquisition note before retrying.
-- Do not do: Do not repeatedly retry the same failed route without a changed route or terms decision.
-
 ## aha-annual-meeting-programs
 
 - Name: American Historical Association Annual Meeting Programs
@@ -275,58 +222,3 @@ Replacement plans: 16
   - Prefer metadata routes over page scraping where available.
 - Next action: Write a source-specific acquisition note before retrying.
 - Do not do: Do not repeatedly retry the same failed route without a changed route or terms decision.
-
-## doaj-humanities
-
-- Name: DOAJ Humanities Open Access Metadata
-- Class: scholarly-metadata
-- Ingest status: active
-- Replacement status: partial-route-retry
-- Failure count: 2
-- Latest failure: 2026-06-14T19:57:06.628Z
-- Latest error: This operation was aborted
-- Affected targets: No target metadata.
-- Failed routes:
-  - https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=10
-- Replacement routes:
-  - Retry the documented source API route with smaller page sizes and source-specific timeout/backoff.
-  - Keep successful local records and treat this as a partial route failure, not a source-wide block.
-- Next action: Use the source-specific ingest audit to identify which route/page failed, then retry only that route with lower limits.
-- Do not do: Do not discard successful local records or reclassify the whole source as blocked because one route timed out.
-
-## library-of-congress
-
-- Name: Library of Congress Collections
-- Class: cultural-collections
-- Ingest status: active
-- Replacement status: partial-route-retry
-- Failure count: 1
-- Latest failure: 2026-06-14T19:00:00.360Z
-- Latest error: This operation was aborted
-- Affected targets: No target metadata.
-- Failed routes:
-  - source-specific cultural collections API routes
-- Replacement routes:
-  - Retry the documented source API route with smaller page sizes and source-specific timeout/backoff.
-  - Keep successful local records and treat this as a partial route failure, not a source-wide block.
-- Next action: Use the source-specific ingest audit to identify which route/page failed, then retry only that route with lower limits.
-- Do not do: Do not discard successful local records or reclassify the whole source as blocked because one route timed out.
-
-## met-collection-api
-
-- Name: Metropolitan Museum of Art Collection API
-- Class: cultural-collections
-- Ingest status: active
-- Replacement status: partial-route-review
-- Failure count: 1
-- Latest failure: 2026-06-14T18:59:25.392Z
-- Latest error: HTTP 403 Forbidden
-- Affected targets: No target metadata.
-- Failed routes:
-  - source-specific cultural collections API routes
-- Replacement routes:
-  - Check whether the failed route is an individual item/detail endpoint while broader search/list endpoints still work.
-  - Keep successful local records and mark missing detail routes in the source-specific ingest audit.
-  - Prefer documented bulk/list APIs or lower-volume detail retries where terms allow.
-- Next action: Review source-specific audit output before retrying; retry only the failed route class, not the entire source.
-- Do not do: Do not bypass 403 responses or treat item-level blocks as permission to scrape alternate restricted pages.

@@ -52,9 +52,9 @@ const ingests = [
   },
   {
     source_id: "lareviewofbooks",
-    access_route: "https://lareviewofbooks.org/feed/",
+    access_route: "https://lareviewofbooks.org/",
     format: "text",
-    normalize: normalizeRssLike("lareviewofbooks"),
+    normalize: normalizeLarbHomepage,
   },
   {
     source_id: "journal-digital-humanities-quarterly",
@@ -228,6 +228,45 @@ function normalizeRssLike(sourceId) {
       });
     });
   };
+}
+
+function normalizeLarbHomepage(text, source) {
+  const match = String(text).match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/);
+  if (!match) return normalizeArticleLinks(text, source, "https://lareviewofbooks.org");
+  const data = JSON.parse(match[1]);
+  const pageProps = data.props?.pageProps ?? {};
+  const docs = [
+    ...(pageProps.articles?.docs ?? []),
+    ...(pageProps.popular_articles?.docs ?? []),
+  ];
+  return dedupe(docs.map((article) => {
+    const slug = article.slug ?? "";
+    const postType = article.post_type ?? "article";
+    const url = slug ? `https://lareviewofbooks.org/${postType}/${slug}/` : "";
+    return baseDoc(source, article.id ?? slug, cleanHtml(article.title ?? ""), url, {
+      type: "public-review-article",
+      publication_year: article.publish_date ?? "",
+      venue: source.registry?.name ?? "Los Angeles Review of Books",
+      creator: (article.contributors ?? []).map((contributor) => contributor.name).filter(Boolean).join("; "),
+      description: cleanHtml(article.description ?? article.excerpt ?? ""),
+      sections: (article.sections ?? []).map((section) => section.title).filter(Boolean).join("; "),
+      route_replacement_note: "Imported from public Next.js homepage metadata after legacy /feed/ returned 404.",
+    });
+  }).filter((row) => row.title || row.source_url), "local_id");
+}
+
+function normalizeArticleLinks(text, source, baseUrl) {
+  const links = [...String(text).matchAll(/<a[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)]
+    .map((match) => ({
+      href: match[1],
+      title: cleanHtml(match[2]),
+    }))
+    .filter((entry) => /^\/(?:article|feature|av|quarterly)\//.test(entry.href) && entry.title.length > 8);
+  return dedupe(links.map((entry) => baseDoc(source, entry.href, entry.title, new URL(entry.href, baseUrl).toString(), {
+    type: "public-review-article",
+    venue: source.registry?.name ?? source.source_id,
+    route_replacement_note: "Imported from public homepage article links after legacy /feed/ returned 404.",
+  })), "local_id");
 }
 
 function normalizeDhqIndex(text, source) {

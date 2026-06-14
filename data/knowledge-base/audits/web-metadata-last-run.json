@@ -1,91 +1,95 @@
 {
-  "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
-  "generated_at": "2026-06-14T20:02:57.364Z",
+  "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
+  "generated_at": "2026-06-14T20:28:10.481Z",
   "source_count": 7,
-  "success_count": 5,
-  "failed_count": 2,
+  "success_count": 7,
+  "failed_count": 0,
   "records": [
     {
-      "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
+      "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
       "source_id": "doaj-humanities",
-      "started_at": "2026-06-14T20:02:34.864Z",
-      "completed_at": "2026-06-14T20:02:35.088Z",
+      "started_at": "2026-06-14T20:28:04.600Z",
+      "completed_at": "2026-06-14T20:28:04.857Z",
       "status": "success",
-      "access_route": "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=10",
+      "access_route": "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20",
       "raw_outputs": [
-        "data/knowledge-base/raw/doaj-humanities/2026-06-14/web-metadata-2026-06-14T20-02-34-829Z/response.json"
+        "data/knowledge-base/raw/doaj-humanities/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/works.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 10,
+      "record_count": 20,
       "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
       "errors": []
     },
     {
-      "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
+      "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
       "source_id": "internet-archive-metadata",
-      "started_at": "2026-06-14T20:02:35.089Z",
-      "completed_at": "2026-06-14T20:02:35.590Z",
+      "started_at": "2026-06-14T20:28:04.857Z",
+      "completed_at": "2026-06-14T20:28:05.433Z",
       "status": "success",
-      "access_route": "https://archive.org/advancedsearch.php?q=subject%3A(humanities)%20AND%20mediatype%3A(texts)&fl[]=identifier&fl[]=title&fl[]=creator&fl[]=date&fl[]=collection&fl[]=licenseurl&rows=10&page=1&output=json",
+      "access_route": "https://archive.org/advancedsearch.php?q=subject%3A(humanities)%20AND%20mediatype%3A(texts)&fl[]=identifier&fl[]=title&fl[]=creator&fl[]=date&fl[]=collection&fl[]=licenseurl&rows=20&page=1&output=json",
       "raw_outputs": [
-        "data/knowledge-base/raw/internet-archive-metadata/2026-06-14/web-metadata-2026-06-14T20-02-34-829Z/response.json"
+        "data/knowledge-base/raw/internet-archive-metadata/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/works.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 10,
+      "record_count": 20,
       "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
       "errors": []
     },
     {
-      "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
+      "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
       "source_id": "nber-culture-history",
-      "started_at": "2026-06-14T20:02:35.591Z",
-      "completed_at": "2026-06-14T20:02:36.009Z",
+      "started_at": "2026-06-14T20:28:05.434Z",
+      "completed_at": "2026-06-14T20:28:05.778Z",
       "status": "success",
-      "access_route": "https://www.nber.org/api/v1/working_page_listing/contentType/working_paper/_/_/search?search=culture%20history&page=1&perPage=10",
+      "access_route": "https://www.nber.org/api/v1/working_page_listing/contentType/working_paper/_/_/search?search=culture%20history&page=1&perPage=20",
       "raw_outputs": [
-        "data/knowledge-base/raw/nber-culture-history/2026-06-14/web-metadata-2026-06-14T20-02-34-829Z/response.json"
+        "data/knowledge-base/raw/nber-culture-history/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/works.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 10,
+      "record_count": 20,
       "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
       "errors": []
     },
     {
-      "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
+      "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
       "source_id": "wayback-machine-cdx",
-      "started_at": "2026-06-14T20:02:36.010Z",
-      "completed_at": "2026-06-14T20:02:56.014Z",
-      "status": "failed",
-      "access_route": "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "This operation was aborted"
-      ]
+      "started_at": "2026-06-14T20:28:05.781Z",
+      "completed_at": "2026-06-14T20:28:09.044Z",
+      "status": "success",
+      "access_route": "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=20",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wayback-machine-cdx/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/works.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 20,
+      "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
+      "errors": []
     },
     {
-      "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
+      "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
       "source_id": "public-books",
-      "started_at": "2026-06-14T20:02:56.017Z",
-      "completed_at": "2026-06-14T20:02:56.202Z",
+      "started_at": "2026-06-14T20:28:09.044Z",
+      "completed_at": "2026-06-14T20:28:09.263Z",
       "status": "success",
       "access_route": "https://www.publicbooks.org/feed/",
       "raw_outputs": [
-        "data/knowledge-base/raw/public-books/2026-06-14/web-metadata-2026-06-14T20-02-34-829Z/response.txt"
+        "data/knowledge-base/raw/public-books/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.txt"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
@@ -97,36 +101,40 @@
       "errors": []
     },
     {
-      "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
+      "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
       "source_id": "lareviewofbooks",
-      "started_at": "2026-06-14T20:02:56.203Z",
-      "completed_at": "2026-06-14T20:02:56.346Z",
-      "status": "failed",
-      "access_route": "https://lareviewofbooks.org/feed/",
-      "raw_outputs": [],
-      "processed_outputs": [],
-      "record_count": 0,
-      "rights_review": "Not reviewed because fetch failed.",
-      "errors": [
-        "HTTP 404 Not Found"
-      ]
-    },
-    {
-      "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
-      "source_id": "journal-digital-humanities-quarterly",
-      "started_at": "2026-06-14T20:02:56.347Z",
-      "completed_at": "2026-06-14T20:02:57.306Z",
+      "started_at": "2026-06-14T20:28:09.264Z",
+      "completed_at": "2026-06-14T20:28:09.368Z",
       "status": "success",
-      "access_route": "https://www.digitalhumanities.org/dhq/vol/18/4/index.html",
+      "access_route": "https://lareviewofbooks.org/",
       "raw_outputs": [
-        "data/knowledge-base/raw/journal-digital-humanities-quarterly/2026-06-14/web-metadata-2026-06-14T20-02-34-829Z/response.txt"
+        "data/knowledge-base/raw/lareviewofbooks/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.txt"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/works.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 10,
+      "record_count": 18,
+      "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
+      "errors": []
+    },
+    {
+      "run_id": "web-metadata-2026-06-14T20-28-04-566Z",
+      "source_id": "journal-digital-humanities-quarterly",
+      "started_at": "2026-06-14T20:28:09.369Z",
+      "completed_at": "2026-06-14T20:28:10.421Z",
+      "status": "success",
+      "access_route": "https://www.digitalhumanities.org/dhq/vol/18/4/index.html",
+      "raw_outputs": [
+        "data/knowledge-base/raw/journal-digital-humanities-quarterly/2026-06-14/web-metadata-2026-06-14T20-28-04-566Z/response.txt"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/works.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 20,
       "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
       "errors": []
     }
