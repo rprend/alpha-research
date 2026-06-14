@@ -1,6 +1,6 @@
 # KB Source Coverage
 
-Generated at: 2026-06-14T21:24:56.501Z
+Generated at: 2026-06-14T21:32:25.653Z
 Sources with local documents: 33/34
 Unregistered local source IDs: 0
 
@@ -19,3 +19,18 @@ No unregistered local source IDs.
 ## Sources Without Local Documents
 
 - open-syllabus (syllabi-teaching-corpora, blocked, blocked-or-needs-review)
+
+## Source-Class Quality Gates
+
+- conference-programs: pass (3/2 sources, 51/25 docs)
+- cultural-collections: pass (4/3 sources, 988/500 docs)
+- experiment-derived: pass (2/2 sources, 77/25 docs)
+- humanities-adjacent-policy-history: pass (2/2 sources, 75/50 docs)
+- journals-and-reviews: pass (6/4 sources, 123/75 docs)
+- linked-open-data: pass (1/1 sources, 919/250 docs)
+- open-text-metadata: pass (2/1 sources, 165/100 docs)
+- public-domain-texts: pass (1/1 sources, 200/100 docs)
+- scholarly-metadata: pass (3/3 sources, 3438/500 docs)
+- syllabi-teaching-corpora: pass (0/0 sources, 0/0 docs)
+- university-department-web: pass (8/6 sources, 533/250 docs)
+- web-archives: pass (1/1 sources, 23/10 docs)

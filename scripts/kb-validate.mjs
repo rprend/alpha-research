@@ -90,6 +90,11 @@ async function validateOperationalAudits(registry, errors) {
       errors.push(`source lacks local documents and is not covered by blocked-source audit: ${source.source_id}`);
     }
   }
+  for (const row of coverage.source_class_quality ?? []) {
+    if (row.status !== "pass") {
+      errors.push(`source-class quality gate failed for ${row.source_class}: ${row.sources_with_documents}/${row.required_sources_with_documents} sources and ${row.document_count}/${row.required_document_count} documents`);
+    }
+  }
 }
 
 function validateLocalArtifacts(errors) {

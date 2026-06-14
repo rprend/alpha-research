@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T21:24:56.501Z",
+  "generated_at": "2026-06-14T21:32:25.653Z",
   "source_count": 34,
   "source_classes": {
     "conference-programs": 3,
@@ -66,6 +66,334 @@
       "source_class": "syllabi-teaching-corpora",
       "ingest_status": "blocked",
       "redistribution_status": "blocked-or-needs-review"
+    }
+  ],
+  "source_class_quality": [
+    {
+      "source_class": "conference-programs",
+      "source_count": 3,
+      "blocked_source_count": 0,
+      "sources_with_documents": 3,
+      "document_count": 51,
+      "source_ids": [
+        {
+          "source_id": "mla-convention-programs",
+          "document_count": 1,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "aha-annual-meeting-programs",
+          "document_count": 25,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "dh-conference-programs",
+          "document_count": 25,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 2,
+      "required_document_count": 25,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "cultural-collections",
+      "source_count": 4,
+      "blocked_source_count": 0,
+      "sources_with_documents": 4,
+      "document_count": 988,
+      "source_ids": [
+        {
+          "source_id": "library-of-congress",
+          "document_count": 308,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "met-collection-api",
+          "document_count": 255,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "cleveland-museum-open-access",
+          "document_count": 200,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "smithsonian-open-access",
+          "document_count": 225,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 3,
+      "required_document_count": 500,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "experiment-derived",
+      "source_count": 2,
+      "blocked_source_count": 0,
+      "sources_with_documents": 2,
+      "document_count": 77,
+      "source_ids": [
+        {
+          "source_id": "humanities-literature-radar",
+          "document_count": 53,
+          "ingest_status": "seeded-from-experiment"
+        },
+        {
+          "source_id": "museum-language-drift",
+          "document_count": 24,
+          "ingest_status": "seeded-from-experiment"
+        }
+      ],
+      "required_sources_with_documents": 2,
+      "required_document_count": 25,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "humanities-adjacent-policy-history",
+      "source_count": 2,
+      "blocked_source_count": 0,
+      "sources_with_documents": 2,
+      "document_count": 75,
+      "source_ids": [
+        {
+          "source_id": "nber-culture-history",
+          "document_count": 50,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "ssrn-humanities-adjacent",
+          "document_count": 25,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 2,
+      "required_document_count": 50,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "journals-and-reviews",
+      "source_count": 6,
+      "blocked_source_count": 0,
+      "sources_with_documents": 6,
+      "document_count": 123,
+      "source_ids": [
+        {
+          "source_id": "journal-new-literary-history",
+          "document_count": 25,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "journal-critical-inquiry",
+          "document_count": 25,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "journal-pmla",
+          "document_count": 25,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "journal-digital-humanities-quarterly",
+          "document_count": 20,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "public-books",
+          "document_count": 10,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "lareviewofbooks",
+          "document_count": 18,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 4,
+      "required_document_count": 75,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "linked-open-data",
+      "source_count": 1,
+      "blocked_source_count": 0,
+      "sources_with_documents": 1,
+      "document_count": 919,
+      "source_ids": [
+        {
+          "source_id": "wikidata-cultural-entities",
+          "document_count": 919,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 1,
+      "required_document_count": 250,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "open-text-metadata",
+      "source_count": 2,
+      "blocked_source_count": 0,
+      "sources_with_documents": 2,
+      "document_count": 165,
+      "source_ids": [
+        {
+          "source_id": "internet-archive-metadata",
+          "document_count": 160,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "hathitrust-bibliographic-metadata",
+          "document_count": 5,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 1,
+      "required_document_count": 100,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "public-domain-texts",
+      "source_count": 1,
+      "blocked_source_count": 0,
+      "sources_with_documents": 1,
+      "document_count": 200,
+      "source_ids": [
+        {
+          "source_id": "project-gutenberg",
+          "document_count": 200,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 1,
+      "required_document_count": 100,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "scholarly-metadata",
+      "source_count": 3,
+      "blocked_source_count": 0,
+      "sources_with_documents": 3,
+      "document_count": 3438,
+      "source_ids": [
+        {
+          "source_id": "openalex-humanities",
+          "document_count": 273,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "crossref-humanities",
+          "document_count": 208,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "doaj-humanities",
+          "document_count": 2957,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 3,
+      "required_document_count": 500,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "syllabi-teaching-corpora",
+      "source_count": 1,
+      "blocked_source_count": 1,
+      "sources_with_documents": 0,
+      "document_count": 0,
+      "source_ids": [
+        {
+          "source_id": "open-syllabus",
+          "document_count": 0,
+          "ingest_status": "blocked"
+        }
+      ],
+      "required_sources_with_documents": 0,
+      "required_document_count": 0,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "university-department-web",
+      "source_count": 8,
+      "blocked_source_count": 0,
+      "sources_with_documents": 8,
+      "document_count": 533,
+      "source_ids": [
+        {
+          "source_id": "harvard-humanities-departments",
+          "document_count": 9,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "yale-humanities-departments",
+          "document_count": 70,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "princeton-humanities-departments",
+          "document_count": 16,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "stanford-humanities-departments",
+          "document_count": 110,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "uchicago-humanities-departments",
+          "document_count": 51,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "columbia-humanities-departments",
+          "document_count": 8,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "expanded-university-humanities-departments",
+          "document_count": 257,
+          "ingest_status": "active"
+        },
+        {
+          "source_id": "humanities-centers-public-pages",
+          "document_count": 12,
+          "ingest_status": "active"
+        }
+      ],
+      "required_sources_with_documents": 6,
+      "required_document_count": 250,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
+    },
+    {
+      "source_class": "web-archives",
+      "source_count": 1,
+      "blocked_source_count": 0,
+      "sources_with_documents": 1,
+      "document_count": 23,
+      "source_ids": [
+        {
+          "source_id": "wayback-machine-cdx",
+          "document_count": 23,
+          "ingest_status": "seeded-from-experiment"
+        }
+      ],
+      "required_sources_with_documents": 1,
+      "required_document_count": 10,
+      "status": "pass",
+      "note": "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition."
     }
   ]
 }

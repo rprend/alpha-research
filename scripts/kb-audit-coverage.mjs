@@ -21,6 +21,7 @@ const freshness = sourceFreshness(sources);
 
 const registrySourceIds = new Set(sources.map((source) => source.source_id));
 const sourceIdsWithLocalDocs = new Set(sourceDocuments.map((row) => row.source_id).filter(Boolean));
+const sourceDocumentsBySource = countBy(sourceDocuments, "source_id");
 const registeredSourceIdsWithLocalDocs = Array.from(sourceIdsWithLocalDocs)
   .filter((sourceId) => registrySourceIds.has(sourceId))
   .sort();
@@ -51,6 +52,7 @@ const coverage = {
       redistribution_status: source.redistribution_status,
     })),
 };
+coverage.source_class_quality = sourceClassQuality(sources, sourceDocumentsBySource);
 
 const rightsSummary = {
   generated_at: coverage.generated_at,
@@ -99,7 +101,58 @@ function renderCoverage(coverage) {
     "",
     ...coverage.sources_without_local_documents.map((source) => `- ${source.source_id} (${source.source_class}, ${source.ingest_status}, ${source.redistribution_status})`),
     "",
+    "## Source-Class Quality Gates",
+    "",
+    ...coverage.source_class_quality.map((row) => `- ${row.source_class}: ${row.status} (${row.sources_with_documents}/${row.required_sources_with_documents} sources, ${row.document_count}/${row.required_document_count} docs)`),
+    "",
   ].join("\n");
+}
+
+function sourceClassQuality(sources, sourceDocumentsBySource) {
+  const thresholds = {
+    "scholarly-metadata": { min_sources_with_documents: 3, min_documents: 500 },
+    "linked-open-data": { min_sources_with_documents: 1, min_documents: 250 },
+    "public-domain-texts": { min_sources_with_documents: 1, min_documents: 100 },
+    "open-text-metadata": { min_sources_with_documents: 1, min_documents: 100 },
+    "cultural-collections": { min_sources_with_documents: 3, min_documents: 500 },
+    "university-department-web": { min_sources_with_documents: 6, min_documents: 250 },
+    "conference-programs": { min_sources_with_documents: 2, min_documents: 25 },
+    "journals-and-reviews": { min_sources_with_documents: 4, min_documents: 75 },
+    "humanities-adjacent-policy-history": { min_sources_with_documents: 2, min_documents: 50 },
+    "web-archives": { min_sources_with_documents: 1, min_documents: 10 },
+    "experiment-derived": { min_sources_with_documents: 2, min_documents: 25 },
+  };
+  const byClass = new Map();
+  for (const source of sources) {
+    const current = byClass.get(source.source_class) ?? {
+      source_class: source.source_class,
+      source_count: 0,
+      blocked_source_count: 0,
+      sources_with_documents: 0,
+      document_count: 0,
+      source_ids: [],
+    };
+    const count = sourceDocumentsBySource[source.source_id] ?? 0;
+    current.source_count += 1;
+    if (source.ingest_status === "blocked") current.blocked_source_count += 1;
+    if (count > 0) current.sources_with_documents += 1;
+    current.document_count += count;
+    current.source_ids.push({ source_id: source.source_id, document_count: count, ingest_status: source.ingest_status });
+    byClass.set(source.source_class, current);
+  }
+  return Array.from(byClass.values()).map((row) => {
+    const threshold = thresholds[row.source_class] ?? { min_sources_with_documents: 1, min_documents: 1 };
+    const requiredSources = Math.min(threshold.min_sources_with_documents, Math.max(0, row.source_count - row.blocked_source_count));
+    const requiredDocs = row.source_count === row.blocked_source_count ? 0 : threshold.min_documents;
+    const passes = row.sources_with_documents >= requiredSources && row.document_count >= requiredDocs;
+    return {
+      ...row,
+      required_sources_with_documents: requiredSources,
+      required_document_count: requiredDocs,
+      status: passes ? "pass" : "fail",
+      note: "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition.",
+    };
+  }).sort((a, b) => a.source_class.localeCompare(b.source_class));
 }
 
 function renderRights(summary) {
