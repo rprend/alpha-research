@@ -1,6 +1,6 @@
 # KB Date Precision Derivation
 
-Generated at: 2026-06-14T22:07:08.040Z
+Generated at: 2026-06-14T22:10:56.598Z
 Source-document updates: 1039
 Work updates: 51
 
@@ -8,8 +8,8 @@ Work updates: 51
 
 | Bucket | Rows |
 | --- | ---: |
-| aha-annual-meeting-programs:event-year:year | 18 |
-| aha-annual-meeting-programs:undated-conference-metadata:none | 7 |
+| aha-annual-meeting-programs:event-year:year | 21 |
+| aha-annual-meeting-programs:undated-conference-metadata:none | 4 |
 | cleveland-museum-open-access:object-date:century-ish | 18 |
 | cleveland-museum-open-access:object-date:range | 65 |
 | cleveland-museum-open-access:object-date:range-bce | 11 |
@@ -36,8 +36,8 @@ Work updates: 51
 
 | Bucket | Rows |
 | --- | ---: |
-| aha-annual-meeting-programs:event-year:year | 18 |
-| aha-annual-meeting-programs:undated-conference-metadata:none | 7 |
+| aha-annual-meeting-programs:event-year:year | 21 |
+| aha-annual-meeting-programs:undated-conference-metadata:none | 4 |
 | dh-conference-programs:page-post-date:day | 25 |
 | mla-convention-programs:event-year:year | 1 |
 

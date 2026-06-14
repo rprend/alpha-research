@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-14T22:07:08.040Z",
+  "generated_at": "2026-06-14T22:10:56.598Z",
   "source_document_updates": 1039,
   "work_updates": 51,
   "source_document_counts": {
-    "aha-annual-meeting-programs:event-year:year": 18,
-    "aha-annual-meeting-programs:undated-conference-metadata:none": 7,
+    "aha-annual-meeting-programs:event-year:year": 21,
+    "aha-annual-meeting-programs:undated-conference-metadata:none": 4,
     "cleveland-museum-open-access:object-date:century-ish": 18,
     "cleveland-museum-open-access:object-date:range": 65,
     "cleveland-museum-open-access:object-date:range-bce": 11,
@@ -28,8 +28,8 @@
     "smithsonian-open-access:undated-cultural-metadata:none": 19
   },
   "work_counts": {
-    "aha-annual-meeting-programs:event-year:year": 18,
-    "aha-annual-meeting-programs:undated-conference-metadata:none": 7,
+    "aha-annual-meeting-programs:event-year:year": 21,
+    "aha-annual-meeting-programs:undated-conference-metadata:none": 4,
     "dh-conference-programs:page-post-date:day": 25,
     "mla-convention-programs:event-year:year": 1
   },

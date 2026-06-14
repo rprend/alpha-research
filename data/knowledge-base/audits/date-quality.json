@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T22:07:14.893Z",
+  "generated_at": "2026-06-14T22:11:03.492Z",
   "audited_source_count": 5,
   "status": "pass",
   "source_reports": [
@@ -491,7 +491,7 @@
       "note": "Conference rows mix page/post dates, event-year records, and program metadata. The audit requires broad year coverage and fetch provenance, but does not treat these dates as normalized event dates yet.",
       "counts": {
         "rows": 51,
-        "rows_with_year": 44,
+        "rows_with_year": 47,
         "rows_with_iso_date": 25,
         "rows_with_source_label": 0,
         "rows_with_fetch_timestamp": 51,
@@ -500,7 +500,7 @@
         "rows_with_study_period_risk": 0
       },
       "rates": {
-        "year_rate": 0.8627,
+        "year_rate": 0.9216,
         "iso_date_rate": 0.4902,
         "source_labeled_rate": 0,
         "fetch_rate": 1,

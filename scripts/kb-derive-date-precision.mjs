@@ -69,14 +69,20 @@ function deriveConferenceDate(row) {
   const sourceYear = yearFrom(row.publication_year);
   const titleYear = yearFrom(title);
   const urlYear = yearFrom(url);
-  const eventYear = titleYear || urlYear || (row.source_id === "mla-convention-programs" ? sourceYear : "");
+  const ahaShortYear = row.source_id === "aha-annual-meeting-programs" ? ahaYearFromShortCode(`${title} ${url}`) : "";
+  const ahaOrdinalYear = row.source_id === "aha-annual-meeting-programs" ? ahaYearFromOrdinal(`${title} ${url}`) : "";
+  const eventYear = ahaShortYear || titleYear || urlYear || ahaOrdinalYear || (row.source_id === "mla-convention-programs" ? sourceYear : "");
   if (eventYear && /annual meeting|convention|conference|program|aha\d{2}|mla/i.test(`${title} ${url}`)) {
     return {
       content_date_kind: "event-year",
       content_date_precision: "year",
       content_year_start: eventYear,
       content_year_end: eventYear,
-      content_date_source: row.content_date_source || "derived:conference-title-or-url",
+      content_date_source: eventYear === ahaShortYear
+        ? "derived:aha-short-code"
+        : eventYear === ahaOrdinalYear
+          ? "derived:aha-ordinal-meeting-number"
+          : row.content_date_source || "derived:conference-title-or-url",
     };
   }
   if (/^\d{4}-\d{2}-\d{2}/.test(String(row.publication_year ?? ""))) {
@@ -221,6 +227,21 @@ function yearRange(value) {
 
 function yearFrom(value) {
   return String(value ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ?? "";
+}
+
+function ahaYearFromShortCode(value) {
+  const match = String(value ?? "").match(/\bAHA\s?(\d{2})\b/i);
+  if (!match) return "";
+  const year = 2000 + Number(match[1]);
+  return year >= 2000 && year <= 2099 ? String(year) : "";
+}
+
+function ahaYearFromOrdinal(value) {
+  const match = String(value ?? "").match(/\b(\d{2,3})(?:st|nd|rd|th)\s+Annual Meeting\b/i);
+  if (!match) return "";
+  const ordinal = Number(match[1]);
+  const year = ordinal + 1886;
+  return year >= 1884 && year <= 2099 ? String(year) : "";
 }
 
 function renderMarkdown(report) {
