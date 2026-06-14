@@ -1,13 +1,42 @@
 {
   "question": "What scholarly literature discusses digital humanities and public humanities?",
   "unit_of_analysis": "work/article metadata record",
-  "suggested_method": "start with source-stratified local evidence review, then convert matched records into a longitudinal table",
+  "suggested_method": "start with source-stratified local evidence review, then convert matched records into a longitudinal publication/venue table",
   "time_handling": "local evidence includes year-like values from 2004 to 2022; verify dates before longitudinal claims",
   "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
   "candidate_outputs": [
     "source coverage table by source_id and rights status",
     "top matching records with URLs and quote restrictions",
     "time-series table after date normalization",
-    "missing-data memo for blocked, planned, and low-evidence sources"
-  ]
+    "missing-data memo for blocked, planned, and low-evidence sources",
+    "publication-year trend table by venue and source",
+    "top venue and publisher table for matched works",
+    "author/institution coverage table after identity normalization"
+  ],
+  "publication_concept": {
+    "essay_title_options": [
+      "Scholarly Literature Discusses Digital Humanities Public Humanities",
+      "What Local Humanities Data Shows About scholarly literature discusses digital humanities public humanities",
+      "A Field Map Of scholarly literature discusses digital humanities public humanities"
+    ],
+    "candidate_charts_tables": [
+      "Matched works by publication year",
+      "Top venues and publishers for matched records",
+      "Open-access and rights coverage by source"
+    ],
+    "claim_strength_rating": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+    "missing_evidence_list": [
+      "doaj-humanities: 2948 local docs, no direct hits",
+      "journal-digital-humanities-quarterly: 10 local docs, no direct hits",
+      "public-books: 10 local docs, no direct hits",
+      "journal-critical-inquiry: 25 local docs, no direct hits",
+      "journal-new-literary-history: 25 local docs, no direct hits",
+      "journal-pmla: 25 local docs, no direct hits"
+    ],
+    "suggested_follow_up_acquisition": [
+      "Expand OpenAlex/Crossref/DOAJ page limits for matched venues and concepts.",
+      "Normalize authors, venues, years, DOI joins, and citation/reference edges before publication claims."
+    ],
+    "why_this_matters": "This question can now start from local scholarly-metadata, journals-and-reviews evidence instead of fresh scraping, with 18 direct hits and top local sources including OpenAlex Humanities Metadata, Crossref Humanities DOI Metadata, DOAJ Humanities Open Access Metadata."
+  }
 }

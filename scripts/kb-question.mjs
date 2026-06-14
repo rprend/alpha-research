@@ -61,6 +61,8 @@ const evidenceRows = evidence.results.map((result) => ({
   rights: rightsMap.get(result.local_id) ?? null,
 }));
 const studyDesign = buildStudyDesign(question, sourceMap, evidenceRows);
+const publicationConcept = buildPublicationConcept(question, sourceMap, evidenceRows, studyDesign);
+const studyTemplate = buildStudyTemplate(question, sourceMap, evidenceRows, studyDesign, publicationConcept);
 
 await writeJson(path.join(outDir, "source-map.json"), sourceMap);
 await writeJson(path.join(outDir, "evidence.json"), {
@@ -72,9 +74,11 @@ await writeJson(path.join(outDir, "evidence.json"), {
   results: evidenceRows,
 });
 await writeJson(path.join(outDir, "study-design.json"), studyDesign);
+await writeJson(path.join(outDir, "publication-concept.json"), publicationConcept);
 await writeText(path.join(outDir, "brief.md"), renderBrief(sourceMap, evidenceRows, studyDesign));
 await writeText(path.join(outDir, "queries.sql"), renderQueries(sourceMap, evidence.fts_query));
 await writeText(path.join(outDir, "missing-data.md"), renderMissingData(sourceMap, blockedAudit, evidenceRows));
+await writeText(path.join(outDir, "study-template.md"), renderStudyTemplate(studyTemplate));
 
 console.log(`Wrote local KB research brief to docs/research-briefs/${questionSlug}/brief.md`);
 
@@ -148,6 +152,12 @@ function renderBrief(sourceMap, evidenceRows, studyDesign) {
     "",
     ...studyDesign.candidate_outputs.map((item) => `- ${item}`),
     "",
+    "## Publication Concept",
+    "",
+    `- Working title: ${studyDesign.publication_concept.essay_title_options[0]}`,
+    `- Why this matters: ${studyDesign.publication_concept.why_this_matters}`,
+    `- Follow-up acquisition: ${studyDesign.publication_concept.suggested_follow_up_acquisition[0]}`,
+    "",
     "## Planned Or Missing Leads",
     "",
     plannedLeads.length
@@ -171,6 +181,7 @@ function renderBrief(sourceMap, evidenceRows, studyDesign) {
 
 function renderQueries(sourceMap, ftsQuery) {
   const ids = sourceMap.matched_sources.map((source) => `'${source.source_id.replaceAll("'", "''")}'`).join(", ");
+  const preferredClasses = sourceMap.inferred_intent.preferred_source_classes.map((sourceClass) => `'${sourceClass.replaceAll("'", "''")}'`).join(", ");
   return [
     "-- SQLite queries over the local humanities KB.",
     "",
@@ -179,6 +190,15 @@ function renderQueries(sourceMap, ftsQuery) {
     "SELECT *",
     "FROM source_documents",
     ids ? `WHERE source_id IN (${ids});` : "WHERE false;",
+    "",
+    "-- Source-class coverage for this question route.",
+    "SELECT sd.source_id, COUNT(*) AS docs",
+    "FROM source_documents sd",
+    ids ? `WHERE sd.source_id IN (${ids})` : "WHERE false",
+    "GROUP BY sd.source_id",
+    "ORDER BY docs DESC;",
+    "",
+    preferredClasses ? `-- Preferred source classes: ${preferredClasses}` : "-- No preferred source class inferred.",
     "",
     "SELECT local_id, source_id, source_url, title, type, venue, department,",
     "       snippet(source_documents_fts, -1, '[', ']', '...', 18) AS snippet,",
@@ -285,6 +305,10 @@ function inferQuestionIntent(question) {
     secondary.push("conference-programs", "linked-open-data");
     if (!explicitInstitutional) deprioritized.push("university-department-web");
   }
+  if (/\b(entity|entities|movement|movements|occupation|occupations|institution|institutions|field map|concept map|knowledge graph)\b/.test(text)) {
+    preferred.unshift("linked-open-data");
+    secondary.push("scholarly-metadata", "open-text-metadata");
+  }
   if (/\b(museum|collection|collections|object|objects|art|artist|artists|acquisition|accession|exhibition|archive|archives)\b/.test(text)) {
     preferred.push("cultural-collections");
     secondary.push("linked-open-data", "open-text-metadata");
@@ -336,16 +360,23 @@ async function readOptionalJson(file) {
 
 function buildStudyDesign(question, sourceMap, evidenceRows) {
   const sourceClasses = new Set(sourceMap.matched_sources.map((source) => source.source_class));
+  const preferredClasses = new Set(sourceMap.inferred_intent.preferred_source_classes);
   const years = evidenceRows
     .map((row) => String(row.publication_year ?? row.fetched_at ?? "").match(/\d{4}/)?.[0])
     .filter(Boolean);
-  const hasUniversity = sourceClasses.has("university-department-web");
-  const hasScholarly = sourceClasses.has("scholarly-metadata") || sourceClasses.has("journals-and-reviews");
-  const hasCollections = sourceClasses.has("cultural-collections");
+  const hasUniversity = preferredClasses.has("university-department-web") || (!preferredClasses.size && sourceClasses.has("university-department-web"));
+  const hasScholarly = preferredClasses.has("scholarly-metadata") || preferredClasses.has("journals-and-reviews") || (!preferredClasses.size && (sourceClasses.has("scholarly-metadata") || sourceClasses.has("journals-and-reviews")));
+  const hasCollections = preferredClasses.has("cultural-collections") || (!preferredClasses.size && sourceClasses.has("cultural-collections"));
+  const hasTexts = preferredClasses.has("public-domain-texts") || preferredClasses.has("open-text-metadata");
+  const hasLinkedData = preferredClasses.has("linked-open-data");
+  const publicationConcept = buildPublicationConcept(question, sourceMap, evidenceRows, {
+    source_classes: [...sourceClasses],
+    claim_strength: evidenceRows.length >= 10 ? "moderate local evidence for scoping; needs source-specific normalization before publication claims" : evidenceRows.length ? "thin local evidence; useful for scoping, not yet for strong claims" : "no direct local evidence hits; use source map as acquisition plan",
+  });
   return {
     question,
-    unit_of_analysis: hasUniversity ? "source page or institutional document" : hasScholarly ? "work/article metadata record" : hasCollections ? "collection object or public metadata record" : "source document",
-    suggested_method: hasUniversity ? "compare term frequencies and framing across institution, department, source type, and capture/fetch year" : "start with source-stratified local evidence review, then convert matched records into a longitudinal table",
+    unit_of_analysis: hasUniversity ? "source page or institutional document" : hasLinkedData ? "linked cultural entity, person, work, movement, institution, or concept" : hasScholarly ? "work/article metadata record" : hasCollections ? "collection object or public metadata record" : hasTexts ? "public-domain text or bibliographic metadata record" : "source document",
+    suggested_method: hasUniversity ? "compare term frequencies and framing across institution, department, source type, and capture/fetch year" : hasLinkedData ? "build an entity table first, then join people, works, movements, institutions, and concepts to scholarly or collection records" : hasCollections ? "compare object metadata fields across institution, department, classification, date, rights, and image availability" : hasScholarly ? "start with source-stratified local evidence review, then convert matched records into a longitudinal publication/venue table" : hasTexts ? "build a rights-filtered text/metadata evidence table, then separate quote-ready full text from discovery-only records" : "start with source-stratified local evidence review, then convert matched records into a longitudinal table",
     time_handling: years.length ? `local evidence includes year-like values from ${Math.min(...years.map(Number))} to ${Math.max(...years.map(Number))}; verify dates before longitudinal claims` : "date coverage is weak in direct hits; first normalize dates from matched source records",
     claim_strength: evidenceRows.length >= 10 ? "moderate local evidence for scoping; needs source-specific normalization before publication claims" : evidenceRows.length ? "thin local evidence; useful for scoping, not yet for strong claims" : "no direct local evidence hits; use source map as acquisition plan",
     candidate_outputs: [
@@ -353,8 +384,222 @@ function buildStudyDesign(question, sourceMap, evidenceRows) {
       "top matching records with URLs and quote restrictions",
       "time-series table after date normalization",
       "missing-data memo for blocked, planned, and low-evidence sources",
+      ...candidateOutputsFor(sourceClasses),
     ],
+    publication_concept: publicationConcept,
   };
+}
+
+function candidateOutputsFor(sourceClasses) {
+  if (sourceClasses.has("university-department-web")) {
+    return [
+      "term-frequency table by school, department, page_type, and fetch year",
+      "institution-by-concept heatmap for department language",
+      "page-type comparison table for home/about/news/events/faculty pages",
+    ];
+  }
+  if (sourceClasses.has("scholarly-metadata") || sourceClasses.has("journals-and-reviews")) {
+    return [
+      "publication-year trend table by venue and source",
+      "top venue and publisher table for matched works",
+      "author/institution coverage table after identity normalization",
+    ];
+  }
+  if (sourceClasses.has("cultural-collections")) {
+    return [
+      "object count table by institution, department, classification, and date",
+      "rights/image availability table by collection source",
+      "acquisition/accession-year trend table where source metadata supports it",
+    ];
+  }
+  if (sourceClasses.has("public-domain-texts") || sourceClasses.has("open-text-metadata")) {
+    return [
+      "public-domain text hit table with source URLs and quote status",
+      "genre/bookshelf coverage table",
+      "term/context concordance table over reusable full text",
+    ];
+  }
+  return [];
+}
+
+function buildPublicationConcept(question, sourceMap, evidenceRows, studyDesign) {
+  const preferred = sourceMap.inferred_intent?.preferred_source_classes ?? [];
+  const primarySources = sourceMap.matched_sources.filter((source) => preferred.includes(source.source_class));
+  const topSourceNames = (primarySources.length ? primarySources : sourceMap.matched_sources).slice(0, 3).map((source) => source.name);
+  const claimStrength = studyDesign.claim_strength ?? "unknown until local evidence is reviewed";
+  const routeLabel = preferred.length ? preferred.join(", ") : "mixed humanities sources";
+  return {
+    essay_title_options: [
+      titleCaseFromQuestion(question),
+      `What Local Humanities Data Shows About ${shortTopic(question)}`,
+      `A Field Map Of ${shortTopic(question)}`,
+    ],
+    candidate_charts_tables: candidateChartsFor(preferred),
+    claim_strength_rating: claimStrength,
+    missing_evidence_list: missingEvidenceList(sourceMap, evidenceRows),
+    suggested_follow_up_acquisition: followUpAcquisitionFor(preferred, sourceMap),
+    why_this_matters: `This question can now start from local ${routeLabel} evidence instead of fresh scraping, with ${evidenceRows.length} direct hits and top local sources including ${topSourceNames.join(", ") || "no matched local sources yet"}.`,
+  };
+}
+
+function candidateChartsFor(preferredClasses) {
+  if (preferredClasses.includes("university-department-web")) {
+    return [
+      "Department-page hit counts by school and page_type",
+      "Concept frequency by department over fetch/archive year",
+      "Matched source coverage by institution and rights status",
+    ];
+  }
+  if (preferredClasses.includes("linked-open-data")) {
+    return [
+      "Entity counts by type, occupation, movement, institution, and source",
+      "Co-occurrence table for people, works, movements, and concepts",
+      "Coverage table for Wikidata-linked entities versus scholarly records",
+    ];
+  }
+  if (preferredClasses.includes("scholarly-metadata")) {
+    return [
+      "Matched works by publication year",
+      "Top venues and publishers for matched records",
+      "Open-access and rights coverage by source",
+    ];
+  }
+  if (preferredClasses.includes("cultural-collections")) {
+    return [
+      "Objects by institution and classification",
+      "Creation/acquisition year coverage histogram",
+      "Rights and image availability by source",
+    ];
+  }
+  if (preferredClasses.includes("public-domain-texts")) {
+    return [
+      "Matched texts by author/date/genre",
+      "Concordance table for key terms",
+      "Public-domain quote-ready evidence table",
+    ];
+  }
+  return [
+    "Source coverage by source class",
+    "Evidence hit table with rights status",
+    "Missing evidence by source status",
+  ];
+}
+
+function missingEvidenceList(sourceMap, evidenceRows) {
+  const evidenceSourceIds = new Set(evidenceRows.map((row) => row.source_id));
+  const missing = sourceMap.matched_sources
+    .filter((source) => source.local_document_count === 0 || !evidenceSourceIds.has(source.source_id))
+    .slice(0, 6)
+    .map((source) => `${source.source_id}: ${source.local_document_count} local docs, ${evidenceSourceIds.has(source.source_id) ? "has direct hits" : "no direct hits"}`);
+  return missing.length ? missing : ["No immediate missing source-class evidence among matched local sources; normalize dates/entities before stronger claims."];
+}
+
+function followUpAcquisitionFor(preferredClasses, sourceMap) {
+  if (preferredClasses.includes("university-department-web")) {
+    return [
+      "Run deeper source-specific department crawlers for faculty/events/news/program pages on successful domains.",
+      "Add replacement public routes or Wayback metadata for 403 department homepages.",
+    ];
+  }
+  if (preferredClasses.includes("linked-open-data")) {
+    return [
+      "Expand Wikidata cultural-entity pulls for matched occupations, movements, works, institutions, and humanities concepts.",
+      "Join entity IDs to OpenAlex/Crossref/DOAJ records before claiming field-level coverage.",
+    ];
+  }
+  if (preferredClasses.includes("scholarly-metadata")) {
+    return [
+      "Expand OpenAlex/Crossref/DOAJ page limits for matched venues and concepts.",
+      "Normalize authors, venues, years, DOI joins, and citation/reference edges before publication claims.",
+    ];
+  }
+  if (preferredClasses.includes("cultural-collections")) {
+    return [
+      "Expand cultural-collection API pulls by institution, classification, and accession/acquisition fields.",
+      "Record item-level rights and image availability before quoting or reproducing object descriptions.",
+    ];
+  }
+  if (preferredClasses.includes("public-domain-texts")) {
+    return [
+      "Expand Project Gutenberg/public-domain text imports for matched authors, genres, and bookshelves.",
+      "Store text-normalization manifests and boilerplate removal reports before close-reading outputs.",
+    ];
+  }
+  return [
+    "Promote the highest-scoring source class into a source-specific ingest after checking rights and local coverage.",
+  ];
+}
+
+function buildStudyTemplate(question, sourceMap, evidenceRows, studyDesign, publicationConcept) {
+  return {
+    question,
+    source_classes: sourceMap.inferred_intent.preferred_source_classes,
+    local_tables: ["source_documents", "rights", "pages", "works", "objects", "venues", "authors", "citations", "topics"],
+    unit_of_analysis: studyDesign.unit_of_analysis,
+    claim_strength: studyDesign.claim_strength,
+    minimum_next_steps: [
+      "Review evidence.json for quote restrictions and source URLs.",
+      "Run queries.sql against data/knowledge-base/processed/knowledge-base.sqlite.",
+      "Normalize dates and source-specific identifiers before longitudinal claims.",
+      "Use missing-data.md before any fresh scrape.",
+    ],
+    publication_concept: publicationConcept,
+    evidence_count: evidenceRows.length,
+  };
+}
+
+function renderStudyTemplate(template) {
+  return [
+    `# Study Template: ${template.question}`,
+    "",
+    "## Local Tables",
+    "",
+    ...template.local_tables.map((table) => `- ${table}`),
+    "",
+    "## Unit Of Analysis",
+    "",
+    template.unit_of_analysis,
+    "",
+    "## Claim Strength",
+    "",
+    template.claim_strength,
+    "",
+    "## Minimum Next Steps",
+    "",
+    ...template.minimum_next_steps.map((step) => `- ${step}`),
+    "",
+    "## Publication Concept",
+    "",
+    ...template.publication_concept.essay_title_options.map((title) => `- ${title}`),
+    "",
+    "## Candidate Charts And Tables",
+    "",
+    ...template.publication_concept.candidate_charts_tables.map((item) => `- ${item}`),
+    "",
+    "## Follow-Up Acquisition",
+    "",
+    ...template.publication_concept.suggested_follow_up_acquisition.map((item) => `- ${item}`),
+    "",
+    "## Why This Matters",
+    "",
+    template.publication_concept.why_this_matters,
+    "",
+  ].join("\n");
+}
+
+function titleCaseFromQuestion(question) {
+  return shortTopic(question)
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function shortTopic(question) {
+  const words = String(question)
+    .replace(/[?!.]+$/g, "")
+    .split(/\s+/)
+    .filter((word) => !/^(what|which|how|does|do|did|has|have|the|a|an|in|on|of|to|for|and|or|with)$/i.test(word));
+  return words.slice(0, 8).join(" ") || "The Question";
 }
 
 function toFtsQuery(value) {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T19:20:50.425Z",
+  "generated_at": "2026-06-14T19:26:44.275Z",
   "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
   "sqlite_path": "data/knowledge-base/processed/knowledge-base.sqlite",
   "fts_query": "\"humanities\" OR \"departments\" OR \"visible\" OR \"faculty\" OR \"events\" OR \"news\" OR \"public\" OR \"language\"",

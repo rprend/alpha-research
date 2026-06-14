@@ -1,0 +1,272 @@
+{
+  "generated_at": "2026-06-14T19:26:44.970Z",
+  "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
+  "inferred_intent": {
+    "preferred_source_classes": [
+      "public-domain-texts",
+      "open-text-metadata"
+    ],
+    "secondary_source_classes": [
+      "linked-open-data",
+      "scholarly-metadata"
+    ],
+    "deprioritized_source_classes": []
+  },
+  "local_evidence_count": 18,
+  "matched_sources": [
+    {
+      "source_id": "project-gutenberg",
+      "name": "Project Gutenberg Catalog And Texts",
+      "source_class": "public-domain-texts",
+      "score": 28,
+      "local_document_count": 200,
+      "ingest_status": "active",
+      "redistribution_status": "public-domain-text-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": true,
+      "research_use_cases": [
+        "public-domain literary corpus",
+        "semantic benchmark",
+        "canon and genre studies"
+      ],
+      "known_risks": [
+        "metadata inconsistencies",
+        "edition and translation ambiguity",
+        "boilerplate contamination"
+      ]
+    },
+    {
+      "source_id": "internet-archive-metadata",
+      "name": "Internet Archive Metadata",
+      "source_class": "open-text-metadata",
+      "score": 20,
+      "local_document_count": 150,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "book and archive discovery",
+        "public-domain candidate finding",
+        "collection mapping"
+      ],
+      "known_risks": [
+        "item rights vary",
+        "OCR quality varies",
+        "metadata duplication"
+      ]
+    },
+    {
+      "source_id": "openalex-humanities",
+      "name": "OpenAlex Humanities Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 16,
+      "local_document_count": 273,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "humanities literature radar",
+        "canon drift scholarly signal",
+        "venue and institution mapping"
+      ],
+      "known_risks": [
+        "concept filters can be noisy",
+        "biomedical false positives require exclusion terms",
+        "abstracts are inverted-index metadata, not always full text"
+      ]
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "name": "Expanded University Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "score": 15,
+      "local_document_count": 38,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "institutional language drift",
+        "public/private university comparison",
+        "humanities department topic mapping"
+      ],
+      "known_risks": [
+        "heterogeneous web platforms",
+        "copyrighted page text",
+        "URL churn",
+        "historical snapshot gaps"
+      ]
+    },
+    {
+      "source_id": "doaj-humanities",
+      "name": "DOAJ Humanities Open Access Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 13,
+      "local_document_count": 2948,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "open humanities journal radar",
+        "OA venue discovery",
+        "publication trend tracking"
+      ],
+      "known_risks": [
+        "API fields differ across records",
+        "article coverage is not complete for every journal"
+      ]
+    },
+    {
+      "source_id": "wikidata-cultural-entities",
+      "name": "Wikidata Cultural Entities",
+      "source_class": "linked-open-data",
+      "score": 13,
+      "local_document_count": 757,
+      "ingest_status": "active",
+      "redistribution_status": "derived-metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "author and movement registry",
+        "cultural entity graph",
+        "institution/place joins"
+      ],
+      "known_risks": [
+        "coverage bias",
+        "ontology drift",
+        "label gaps",
+        "SPARQL rate limits"
+      ]
+    },
+    {
+      "source_id": "crossref-humanities",
+      "name": "Crossref Humanities DOI Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 13,
+      "local_document_count": 208,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "journal publication radar",
+        "publisher and venue normalization",
+        "DOI joins"
+      ],
+      "known_risks": [
+        "subject metadata is uneven",
+        "not all humanities venues use DOIs",
+        "license fields vary by publisher"
+      ]
+    },
+    {
+      "source_id": "met-collection-api",
+      "name": "Metropolitan Museum of Art Collection API",
+      "source_class": "cultural-collections",
+      "score": 11,
+      "local_document_count": 255,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "museum collection shape",
+        "department and acquisition trends",
+        "object metadata comparison"
+      ],
+      "known_risks": [
+        "object detail calls required",
+        "rights vary",
+        "date normalization burden"
+      ]
+    },
+    {
+      "source_id": "stanford-humanities-departments",
+      "name": "Stanford Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "score": 11,
+      "local_document_count": 17,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "institutional language drift",
+        "digital humanities and AI language tracking",
+        "department comparison"
+      ],
+      "known_risks": [
+        "site route diversity",
+        "copyrighted page text",
+        "historical snapshot gaps"
+      ]
+    },
+    {
+      "source_id": "cleveland-museum-open-access",
+      "name": "Cleveland Museum of Art Open Access API",
+      "source_class": "cultural-collections",
+      "score": 10,
+      "local_document_count": 200,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "first public museum essay",
+        "collection-shape analysis",
+        "license/image coverage"
+      ],
+      "known_risks": [
+        "accession year proxy risk",
+        "date normalization",
+        "provenance sparsity"
+      ]
+    },
+    {
+      "source_id": "journal-new-literary-history",
+      "name": "New Literary History Metadata",
+      "source_class": "journals-and-reviews",
+      "score": 10,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "literary theory topic trends",
+        "journal radar",
+        "canon and method discourse"
+      ],
+      "known_risks": [
+        "full text restricted",
+        "abstract availability varies",
+        "metadata source joins needed"
+      ]
+    },
+    {
+      "source_id": "museum-language-drift",
+      "name": "Museum Language Drift Experiment Seeds",
+      "source_class": "experiment-derived",
+      "score": 10,
+      "local_document_count": 24,
+      "ingest_status": "seeded-from-experiment",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "museum language drift prototypes",
+        "public culture essay seeds",
+        "Wayback route planning"
+      ],
+      "known_risks": [
+        "experiment-derived sampling",
+        "copyrighted page text",
+        "historical capture gaps",
+        "should not be mistaken for collection-wide museum metadata"
+      ]
+    }
+  ]
+}

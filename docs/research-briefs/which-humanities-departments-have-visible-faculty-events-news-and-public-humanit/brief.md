@@ -1,6 +1,6 @@
 # Local KB Brief: Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?
 
-Generated at: 2026-06-14T19:20:50.425Z
+Generated at: 2026-06-14T19:26:44.275Z
 Inferred source priority: university-department-web
 
 ## Local Evidence Sources
@@ -44,6 +44,15 @@ Inferred source priority: university-department-web
 - top matching records with URLs and quote restrictions
 - time-series table after date normalization
 - missing-data memo for blocked, planned, and low-evidence sources
+- term-frequency table by school, department, page_type, and fetch year
+- institution-by-concept heatmap for department language
+- page-type comparison table for home/about/news/events/faculty pages
+
+## Publication Concept
+
+- Working title: Humanities Departments Visible Faculty, Events, News, Public Humanities
+- Why this matters: This question can now start from local university-department-web evidence instead of fresh scraping, with 18 direct hits and top local sources including Expanded University Humanities Department Public Pages, Stanford Humanities Department Public Pages, Yale Humanities Department Public Pages.
+- Follow-up acquisition: Run deeper source-specific department crawlers for faculty/events/news/program pages on successful domains.
 
 ## Planned Or Missing Leads
 

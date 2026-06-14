@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T19:21:06.436Z",
+  "generated_at": "2026-06-14T19:26:44.508Z",
   "question": "What scholarly literature discusses digital humanities and public humanities?",
   "sqlite_path": "data/knowledge-base/processed/knowledge-base.sqlite",
   "fts_query": "\"scholarly\" OR \"literature\" OR \"discusses\" OR \"digital\" OR \"humanities\" OR \"public\"",

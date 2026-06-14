@@ -1,6 +1,6 @@
 # Local KB Brief: What scholarly literature discusses digital humanities and public humanities?
 
-Generated at: 2026-06-14T19:21:06.436Z
+Generated at: 2026-06-14T19:26:44.508Z
 Inferred source priority: scholarly-metadata, journals-and-reviews
 
 ## Local Evidence Sources
@@ -34,7 +34,7 @@ Inferred source priority: scholarly-metadata, journals-and-reviews
 ## Preliminary Study Design
 
 - Unit of analysis: work/article metadata record
-- Suggested method: start with source-stratified local evidence review, then convert matched records into a longitudinal table
+- Suggested method: start with source-stratified local evidence review, then convert matched records into a longitudinal publication/venue table
 - Time handling: local evidence includes year-like values from 2004 to 2022; verify dates before longitudinal claims
 - Claim strength: moderate local evidence for scoping; needs source-specific normalization before publication claims
 
@@ -44,6 +44,15 @@ Inferred source priority: scholarly-metadata, journals-and-reviews
 - top matching records with URLs and quote restrictions
 - time-series table after date normalization
 - missing-data memo for blocked, planned, and low-evidence sources
+- publication-year trend table by venue and source
+- top venue and publisher table for matched works
+- author/institution coverage table after identity normalization
+
+## Publication Concept
+
+- Working title: Scholarly Literature Discusses Digital Humanities Public Humanities
+- Why this matters: This question can now start from local scholarly-metadata, journals-and-reviews evidence instead of fresh scraping, with 18 direct hits and top local sources including OpenAlex Humanities Metadata, Crossref Humanities DOI Metadata, DOAJ Humanities Open Access Metadata.
+- Follow-up acquisition: Expand OpenAlex/Crossref/DOAJ page limits for matched venues and concepts.
 
 ## Planned Or Missing Leads
 
