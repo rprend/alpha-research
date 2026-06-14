@@ -36,6 +36,17 @@ If Codex exits successfully but the required deliverable files are missing or in
 
 `result.json` must parse as a JSON object with `answer`, `claims`, `evidence`, `confidence`, `limitations`, and `sourceDatasetIds`. `tables` and `charts` are optional arrays for companion metadata. Claims should reference evidence records so agents can inspect why the answer is trustworthy without reading the whole report.
 
+Claim-adjudication runs use the same artifact bundle, with an additional structured contract inside `result.json`. When a user asks Alpha Research to test, rate, decompose, fact-check, or adjudicate a broad claim, the runner prompt requires a `claimAdjudication` object with:
+
+- `originalClaim`: the claim in its native wording.
+- `decomposedClaims`: falsifiable empirical subclaims, plus any definitional, normative, or non-observable residues.
+- `dataSourcePlan`: candidate sources, observable proxies, joins, transformations, and expected limits for each subclaim.
+- `observabilityAssessment`: per-subclaim ratings that separate highly observable, partially observable, and non-observable issues.
+- `hypothesisRatings`: ratings for H1, H2, and H3, each with rationale, evidence references, and limitations.
+- `finalRating`: one of H1, H2, or H3.
+
+The hypothesis scale is intentionally generic: H1 means the broad claim is basically supported, H2 means it is technically narrow or partly supported but substantively misleading, and H3 means the claim uses the wrong frame or is contradicted/orthogonal to the observed reality.
+
 `work.md` must include commands run, an intermediate reasoning summary, blockers, and reproduction notes. It is the compact agent artifact for recovery and follow-up work, not the primary human answer.
 
 `canonical-dataset-bootstrap` jobs are the exception to the user-facing report contract. They are employee-side dataset maintenance jobs and must complete with `dataset_briefing.md`, source inventories, docs mirror manifests, and any required JSON/CSV artifacts specified in run config. `work.md` is optional bookkeeping for bootstrap jobs, not a completion gate. They should not write `report.html` unless the bootstrap prompt explicitly asks for one.

@@ -86,6 +86,15 @@ assert(
   'Runner event, status, and artifact callback endpoints must remain wired.',
 )
 
+assert(
+  workerSource.includes('generic claim-adjudication run') &&
+    workerSource.includes('hypothesisRatings for H1, H2, and H3') &&
+    remoteRunnerSource.includes('CLAIM_ADJUDICATION_FIELDS') &&
+    remoteRunnerSource.includes('CLAIM_ADJUDICATION_RATINGS = {"H1", "H2", "H3"}') &&
+    remoteRunnerSource.includes('result.json claimAdjudication.finalRating must be H1, H2, or H3'),
+  'Claim-adjudication workflow must preserve planner guidance, runner schema, and H1/H2/H3 validation.',
+)
+
 for (const token of [
   'MODAL_AGENT_ENDPOINT_URL',
   'MODAL_AGENT_SUBMIT_TOKEN',

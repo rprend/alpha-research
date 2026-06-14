@@ -84,6 +84,14 @@ RESULT_REQUIRED_FIELDS = [
     "limitations",
     "sourceDatasetIds",
 ]
+CLAIM_ADJUDICATION_FIELDS = [
+    "originalClaim",
+    "decomposedClaims",
+    "dataSourcePlan",
+    "observabilityAssessment",
+    "hypothesisRatings",
+]
+CLAIM_ADJUDICATION_RATINGS = {"H1", "H2", "H3"}
 
 
 def session_title() -> str:
@@ -388,6 +396,9 @@ def build_remote_agent_prompt():
             "Make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect.",
             "Use work.md for generated file lists, scripts, assets, implementation steps, and command logs unless those details directly support a research finding in the report.",
             "When the evidence is insufficient for a strong conclusion, state the evidentiary limits plainly and explain what additional data or analysis is needed.",
+            "If the request asks to test, rate, decompose, fact-check, or adjudicate a broad claim, use the generic claim-adjudication workflow: preserve the original claim, decompose it into falsifiable empirical subclaims, map each subclaim to observable proxies and data sources, explicitly flag non-observable or normative issues, analyze the available evidence, then rate the original claim across H1/H2/H3.",
+            "For claim-adjudication runs, define H1 as the broad claim is basically supported, H2 as the claim is technically narrow or partly supported but substantively misleading, and H3 as the claim uses the wrong frame or is contradicted/orthogonal to the observed reality.",
+            "For claim-adjudication runs, result.json must include a claimAdjudication object with keys: originalClaim, decomposedClaims, dataSourcePlan, observabilityAssessment, hypothesisRatings, and finalRating. decomposedClaims, dataSourcePlan, observabilityAssessment, and hypothesisRatings must be non-empty arrays. Each hypothesisRatings item must include hypothesisId H1, H2, or H3 plus rating, rationale, evidenceRefs, and limitations.",
             "Write result.json with keys: answer, claims, evidence, confidence, limitations, sourceDatasetIds, and optional tables and charts metadata.",
             "Each claim in result.json should reference evidence entries, and sourceDatasetIds must include the dataset ids used for the answer.",
             "",
@@ -550,6 +561,42 @@ def validate_result_json(path: Path) -> list[str]:
         errors.append("result.json tables must be an array when present")
     if "charts" in payload and not isinstance(payload.get("charts"), list):
         errors.append("result.json charts must be an array when present")
+    claim_adjudication = payload.get("claimAdjudication")
+    if claim_adjudication is not None:
+        if not isinstance(claim_adjudication, dict):
+            errors.append("result.json claimAdjudication must be an object when present")
+        else:
+            for field in CLAIM_ADJUDICATION_FIELDS:
+                if field not in claim_adjudication:
+                    errors.append(f"result.json claimAdjudication is missing required field: {field}")
+            original_claim = claim_adjudication.get("originalClaim")
+            if not isinstance(original_claim, str) or not original_claim.strip():
+                errors.append("result.json claimAdjudication.originalClaim must be a non-empty string")
+            for field in ["decomposedClaims", "dataSourcePlan", "observabilityAssessment", "hypothesisRatings"]:
+                value = claim_adjudication.get(field)
+                if not isinstance(value, list) or not value:
+                    errors.append(f"result.json claimAdjudication.{field} must be a non-empty array")
+            ratings = claim_adjudication.get("hypothesisRatings")
+            if isinstance(ratings, list):
+                seen = set()
+                for index, item in enumerate(ratings):
+                    if not isinstance(item, dict):
+                        errors.append(f"result.json claimAdjudication.hypothesisRatings[{index}] must be an object")
+                        continue
+                    hypothesis_id = item.get("hypothesisId")
+                    if hypothesis_id not in CLAIM_ADJUDICATION_RATINGS:
+                        errors.append(f"result.json claimAdjudication.hypothesisRatings[{index}].hypothesisId must be H1, H2, or H3")
+                    else:
+                        seen.add(hypothesis_id)
+                    for field in ["rating", "rationale", "evidenceRefs", "limitations"]:
+                        if field not in item:
+                            errors.append(f"result.json claimAdjudication.hypothesisRatings[{index}] is missing {field}")
+                missing_ratings = sorted(CLAIM_ADJUDICATION_RATINGS - seen)
+                if missing_ratings:
+                    errors.append("result.json claimAdjudication.hypothesisRatings is missing " + ", ".join(missing_ratings))
+            final_rating = claim_adjudication.get("finalRating")
+            if final_rating not in CLAIM_ADJUDICATION_RATINGS:
+                errors.append("result.json claimAdjudication.finalRating must be H1, H2, or H3")
     return errors
 
 
