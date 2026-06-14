@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-06-14T22:24:01.770Z",
+  "question": "What scholarly literature discusses digital humanities and public humanities?",
+  "source_count": 9,
+  "work_rows": 2479,
+  "rows_with_year": 2414,
+  "rows_with_venue": 2441,
+  "rows_with_doi": 2103,
+  "year_min": 1899,
+  "year_max": 2026,
+  "rights_statuses": {
+    "local-analysis-only": 30,
+    "metadata-ok": 2349,
+    "metadata-only": 100
+  },
+  "findings": {
+    "corpus": [
+      "2479 matched local work/article metadata records across 9 sources.",
+      "2414 records have publication years spanning 1899-2026.",
+      "1845 dated records are from 2015 or later in the local matched corpus."
+    ],
+    "top_sources": [
+      "doaj-humanities: 1868 records, 1862 with years",
+      "openalex-humanities: 273 records, 273 with years",
+      "crossref-humanities: 208 records, 179 with years",
+      "dh-conference-programs: 25 records, 25 with years",
+      "journal-critical-inquiry: 25 records, 25 with years",
+      "journal-new-literary-history: 25 records, 25 with years"
+    ],
+    "top_venues": [
+      "doaj-oai: 399 records (2026-2026)",
+      "crossref: 48 records (2026-2026)",
+      "Art History: 47 records (1978-2025)",
+      "Frontiers in Psychology: 31 records (2012-2025)",
+      "Digital humanities quarterly: 28 records (2007-2022)",
+      "Critical Inquiry: 25 records (1975-2023)",
+      "DH2026: 25 records (2025-2026)",
+      "New Literary History: 25 records (1995-2022)"
+    ],
+    "term_families": [
+      "crossref-humanities digital_humanities: 105 metadata mentions across 60 records",
+      "doaj-humanities ai_data_methods: 91 metadata mentions across 84 records",
+      "crossref-humanities ai_data_methods: 54 metadata mentions across 48 records",
+      "doaj-humanities digital_humanities: 54 metadata mentions across 53 records",
+      "openalex-humanities ai_data_methods: 38 metadata mentions across 32 records",
+      "doaj-humanities archives_memory: 33 metadata mentions across 32 records",
+      "doaj-humanities inclusion_field_boundary: 27 metadata mentions across 25 records",
+      "journal-digital-humanities-quarterly digital_humanities: 20 metadata mentions across 20 records"
+    ],
+    "year_signals": [
+      "2026 ai_data_methods: 83 mentions",
+      "2020 digital_humanities: 17 mentions",
+      "2024 ai_data_methods: 16 mentions",
+      "2012 digital_humanities: 16 mentions",
+      "2022 digital_humanities: 14 mentions",
+      "2018 digital_humanities: 14 mentions",
+      "2025 ai_data_methods: 11 mentions",
+      "2019 ai_data_methods: 10 mentions"
+    ],
+    "representative_titles": [
+      "2023: Untapped data resources. Applying NER for historical archival records of state authorities (doaj-humanities)",
+      "2026: Hooked on a Feeling: A Computational Approach Towards Understanding Songwriting as Cultural Memory (doaj-humanities)",
+      "2024: ‘Anti-essentialism and digital humanities: a defense of the field against epistemological challenges’ (doaj-humanities)",
+      "2024: Historical Documents and Automatic Text Recognition: Introduction (doaj-humanities)",
+      "2024: Old Permic Universal Dependencies Treebank (doaj-humanities)",
+      "2023: Le projet OPTIMICE : une optimisation de la qualité des traductions de métadonnées par la collaboration entre acteurs du monde scientifique et traduction automatique (doaj-humanities)",
+      "2022: Archive Infrastructure and Spoken Language Corpora for Saami Languages in Finland (doaj-humanities)",
+      "2021: Digitalization of Party History Archives and Application Experience of Digital Humanities Tools (doaj-humanities)"
+    ]
+  },
+  "caveats": [
+    "This analysis uses local KB metadata fields, mostly titles, venues, source labels, years, and rights rows; it does not analyze paywalled article full text.",
+    "Term-family counts are title/venue metadata signals, not full-topic model classifications.",
+    "DOAJ volume is broad humanities metadata and needs source-specific venue/topic filtering before strong claims about digital humanities prevalence.",
+    "Person-level, institution-level, and citation-network claims require stronger authority matching than the current deterministic candidate clusters.",
+    "Quotation-heavy publication requires source-specific quote review even when metadata redistribution is allowed."
+  ]
+}

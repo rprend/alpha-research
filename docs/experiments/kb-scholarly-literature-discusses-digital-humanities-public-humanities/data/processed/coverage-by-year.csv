@@ -1,0 +1,70 @@
+publication_year,rows,rows_with_doi,source_count,top_sources
+1899,1,1,1,journal-pmla=1
+1900,1,1,1,journal-pmla=1
+1918,1,1,1,journal-pmla=1
+1946,1,1,1,journal-pmla=1
+1947,1,1,1,doaj-humanities=1
+1951,2,2,2,openalex-humanities=1; journal-pmla=1
+1954,2,2,1,doaj-humanities=2
+1956,1,1,1,openalex-humanities=1
+1957,1,1,1,journal-pmla=1
+1959,1,1,1,openalex-humanities=1
+1962,2,1,2,journal-pmla=1; doaj-humanities=1
+1964,1,1,1,journal-pmla=1
+1966,2,2,2,openalex-humanities=1; crossref-humanities=1
+1968,1,1,1,journal-pmla=1
+1971,1,0,1,openalex-humanities=1
+1972,1,1,1,crossref-humanities=1
+1974,1,1,1,openalex-humanities=1
+1975,1,1,1,journal-critical-inquiry=1
+1976,2,1,2,journal-pmla=1; doaj-humanities=1
+1977,4,4,2,crossref-humanities=3; openalex-humanities=1
+1978,2,2,2,crossref-humanities=1; journal-critical-inquiry=1
+1979,4,4,3,crossref-humanities=2; openalex-humanities=1; journal-critical-inquiry=1
+1980,3,3,3,openalex-humanities=1; crossref-humanities=1; journal-critical-inquiry=1
+1981,4,3,3,crossref-humanities=2; journal-critical-inquiry=1; doaj-humanities=1
+1982,3,3,2,journal-pmla=2; crossref-humanities=1
+1983,5,4,3,openalex-humanities=2; crossref-humanities=2; doaj-humanities=1
+1984,2,1,2,journal-critical-inquiry=1; doaj-humanities=1
+1985,3,3,3,openalex-humanities=1; crossref-humanities=1; doaj-humanities=1
+1986,5,3,2,openalex-humanities=4; doaj-humanities=1
+1987,6,6,4,journal-pmla=2; doaj-humanities=2; openalex-humanities=1; crossref-humanities=1
+1988,5,2,3,openalex-humanities=2; doaj-humanities=2; crossref-humanities=1
+1989,7,6,4,openalex-humanities=3; journal-critical-inquiry=2; journal-pmla=1; doaj-humanities=1
+1990,6,5,3,doaj-humanities=4; crossref-humanities=1; journal-critical-inquiry=1
+1991,7,6,4,openalex-humanities=2; crossref-humanities=2; doaj-humanities=2; journal-critical-inquiry=1
+1992,5,5,2,doaj-humanities=3; openalex-humanities=2
+1993,6,5,2,crossref-humanities=4; doaj-humanities=2
+1994,5,5,2,openalex-humanities=4; doaj-humanities=1
+1995,9,6,4,doaj-humanities=4; openalex-humanities=3; crossref-humanities=1; journal-new-literary-history=1
+1996,12,8,5,doaj-humanities=5; journal-pmla=3; journal-new-literary-history=2; openalex-humanities=1
+1997,9,7,4,crossref-humanities=3; openalex-humanities=2; journal-new-literary-history=2; doaj-humanities=2
+1998,6,5,4,journal-new-literary-history=2; doaj-humanities=2; openalex-humanities=1; journal-pmla=1
+1999,7,7,3,openalex-humanities=4; doaj-humanities=2; journal-new-literary-history=1
+2000,12,12,4,doaj-humanities=5; openalex-humanities=4; journal-new-literary-history=2; crossref-humanities=1
+2001,14,12,5,doaj-humanities=6; journal-new-literary-history=3; openalex-humanities=2; crossref-humanities=2
+2002,9,9,4,openalex-humanities=4; crossref-humanities=3; journal-new-literary-history=1; doaj-humanities=1
+2003,9,6,3,doaj-humanities=5; openalex-humanities=2; crossref-humanities=2
+2004,8,5,3,doaj-humanities=5; crossref-humanities=2; openalex-humanities=1
+2005,20,14,4,doaj-humanities=10; crossref-humanities=6; openalex-humanities=3; journal-new-literary-history=1
+2006,9,7,5,doaj-humanities=4; openalex-humanities=2; crossref-humanities=1; journal-new-literary-history=1
+2007,12,9,2,doaj-humanities=9; openalex-humanities=3
+2008,24,20,5,doaj-humanities=12; crossref-humanities=6; openalex-humanities=4; journal-new-literary-history=1
+2009,25,17,4,doaj-humanities=20; crossref-humanities=3; openalex-humanities=1; journal-critical-inquiry=1
+2010,43,31,5,doaj-humanities=22; openalex-humanities=13; crossref-humanities=4; journal-new-literary-history=2
+2011,42,24,3,doaj-humanities=28; openalex-humanities=12; journal-critical-inquiry=2
+2012,59,39,3,doaj-humanities=39; openalex-humanities=14; crossref-humanities=6
+2013,75,62,4,doaj-humanities=46; openalex-humanities=19; crossref-humanities=9; journal-new-literary-history=1
+2014,59,47,3,doaj-humanities=39; openalex-humanities=17; crossref-humanities=3
+2015,73,63,5,doaj-humanities=41; openalex-humanities=23; crossref-humanities=7; journal-new-literary-history=1
+2016,88,65,4,doaj-humanities=66; openalex-humanities=14; crossref-humanities=7; journal-pmla=1
+2017,100,79,3,doaj-humanities=80; openalex-humanities=15; crossref-humanities=5
+2018,112,95,6,doaj-humanities=88; openalex-humanities=13; crossref-humanities=5; journal-critical-inquiry=3
+2019,102,86,4,doaj-humanities=81; openalex-humanities=19; crossref-humanities=1; journal-new-literary-history=1
+2020,113,104,5,doaj-humanities=82; openalex-humanities=22; crossref-humanities=7; journal-new-literary-history=1
+2021,137,118,3,doaj-humanities=123; openalex-humanities=7; crossref-humanities=7
+2022,135,130,5,doaj-humanities=125; crossref-humanities=5; openalex-humanities=2; journal-pmla=2
+2023,160,143,4,doaj-humanities=142; openalex-humanities=11; crossref-humanities=5; journal-critical-inquiry=2
+2024,143,135,2,doaj-humanities=142; openalex-humanities=1
+2025,175,154,4,doaj-humanities=150; dh-conference-programs=17; crossref-humanities=5; openalex-humanities=3
+2026,507,459,4,doaj-humanities=449; crossref-humanities=49; dh-conference-programs=8; openalex-humanities=1

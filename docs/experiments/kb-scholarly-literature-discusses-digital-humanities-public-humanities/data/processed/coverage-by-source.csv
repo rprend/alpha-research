@@ -1,0 +1,10 @@
+source_id,rows,rows_with_year,rows_with_venue,rows_with_doi,min_year,max_year,rights_statuses
+doaj-humanities,1868,1862,1868,1563,1947,2026,metadata-ok=1868
+openalex-humanities,273,273,240,257,1951,2026,metadata-ok=273
+crossref-humanities,208,179,203,208,1966,2026,metadata-ok=208
+dh-conference-programs,25,25,25,0,2025,2026,metadata-only=25
+journal-critical-inquiry,25,25,25,25,1975,2023,metadata-only=25
+journal-new-literary-history,25,25,25,25,1995,2022,metadata-only=25
+journal-pmla,25,25,25,25,1899,2022,metadata-only=25
+journal-digital-humanities-quarterly,20,0,20,0,,,local-analysis-only=20
+public-books,10,0,10,0,,,local-analysis-only=10

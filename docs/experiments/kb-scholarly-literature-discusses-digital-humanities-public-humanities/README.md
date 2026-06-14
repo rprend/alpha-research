@@ -25,6 +25,24 @@ What scholarly literature discusses digital humanities and public humanities?
 From the repository root:
 
 ```bash
+node docs/experiments/kb-scholarly-literature-discusses-digital-humanities-public-humanities/scripts/build-analysis.mjs
+```
+
+This writes:
+
+- `data/processed/coverage-by-source.csv`
+- `data/processed/coverage-by-year.csv`
+- `data/processed/coverage-by-venue.csv`
+- `data/processed/term-family-by-source.csv`
+- `data/processed/term-family-by-year.csv`
+- `data/processed/representative-records.csv`
+- `reports/result.json`
+- `reports/work.md`
+- `reports/public-draft.md`
+
+The original SQL sketch remains available:
+
+```bash
 sqlite3 data/knowledge-base/processed/knowledge-base.sqlite < docs/experiments/kb-scholarly-literature-discusses-digital-humanities-public-humanities/config/queries.sql
 ```
 
