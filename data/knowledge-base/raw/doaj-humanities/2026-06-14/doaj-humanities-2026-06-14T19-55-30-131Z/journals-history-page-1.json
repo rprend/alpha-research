@@ -1,0 +1,2669 @@
+{
+  "total": 2574,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T19:55:43.163156Z",
+  "query": "history",
+  "results": [
+    {
+      "last_updated": "2026-01-15T10:34:44Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://ama.sgu.ru/en/content/peer-review-procedure",
+          "board_url": "https://ama.sgu.ru/en/content/editorial-board"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ama.sgu.ru/en/content/guidelines-for-authors"
+        },
+        "keywords": [
+          "archaeology",
+          "ancient history"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://ama.sgu.ru/en/content/guidelines-for-authors"
+        },
+        "subject": [
+          {
+            "code": "CC1-960",
+            "scheme": "LCC",
+            "term": "Archaeology"
+          }
+        ],
+        "language": [
+          "RU",
+          "EN"
+        ],
+        "title": "Античный мир и археология",
+        "pissn": "0320-961X",
+        "article": {
+          "license_display_example_url": "https://ama.sgu.ru/system/files_force/text-pdf/2023/05/solomatina_ama_xxi.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Digital archiving policy"
+          ],
+          "url": "https://ama.sgu.ru/en/content/jeneral-information"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://ama.sgu.ru/en",
+          "journal": "https://ama.sgu.ru/",
+          "oa_statement": "https://ama.sgu.ru/en/content/jeneral-information",
+          "author_instructions": "https://ama.sgu.ru/en/content/guidelines-for-authors",
+          "license_terms": "https://ama.sgu.ru/en/content/jeneral-information"
+        },
+        "oa_start": 2009,
+        "alternative_title": "Ancient World and Archeology",
+        "apc": {
+          "has_apc": false,
+          "url": "https://ama.sgu.ru/en/content/jeneral-information"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 20,
+        "deposit_policy": {
+          "service": [
+            "Journal website"
+          ],
+          "url": "https://ama.sgu.ru/en/content/jeneral-information",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "RU",
+          "name": "Saratov State University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-07-26"
+      },
+      "created_date": "2023-06-17T17:16:58Z",
+      "id": "00213ce79d434a95a6ef1153753aeec5"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:39Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "board_url": "http://revistascientificas.filo.uba.ar/index.php/petm/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://revistascientificas.filo.uba.ar/index.php/petm/about/submissions"
+        },
+        "keywords": [
+          "medieval philosophy",
+          "humanities",
+          "middle ages",
+          "medieval thought"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "eissn": "2683-9636",
+        "language": [
+          "ES",
+          "PT",
+          "IT",
+          "DE",
+          "FR",
+          "EN"
+        ],
+        "title": "Patristica et Mediaevalia",
+        "pissn": "0325-2280",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad de Buenos Aires, Facultad de Filosofía y Letras, Sección de Estudios de Filosofía Medieval"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "journal": "http://revistascientificas.filo.uba.ar/index.php/petm/index",
+          "oa_statement": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "author_instructions": "http://revistascientificas.filo.uba.ar/index.php/petm/about/submissions",
+          "license_terms": "http://revistascientificas.filo.uba.ar/index.php/petm/index"
+        },
+        "oa_start": 2019,
+        "apc": {
+          "has_apc": false,
+          "url": "http://revistascientificas.filo.uba.ar/index.php/petm/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 15,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "AR",
+          "name": "Universidad de Buenos Aires"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-02-18"
+      },
+      "created_date": "2020-10-13T18:59:48Z",
+      "id": "0057e40afd8d4818903f1c5b74d95b6e"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:07Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "history",
+          "early modern history"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          },
+          {
+            "code": "D204-475",
+            "scheme": "LCC",
+            "term": "Modern history, 1453-"
+          }
+        ],
+        "eissn": "1699-7778",
+        "language": [
+          "EN",
+          "FR",
+          "ES"
+        ],
+        "title": "Tiempos Modernos: Revista Electrónica de Historia Moderna",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "Publisher's own license",
+            "SA": false,
+            "url": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/submissions#copyrightNotice"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/editorialPolicies#focusAndScope",
+          "journal": "http://www.tiemposmodernos.org",
+          "oa_statement": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/submissions#authorGuidelines",
+          "license_terms": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2000,
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.tiemposmodernos.org/tm3/index.php/tm/about/editorialPolicies#openAccessPolicy"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 25,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Asociación Mundos Modernos"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-02-25"
+      },
+      "created_date": "2005-06-27T12:46:42Z",
+      "id": "009c4371a0d7441e8725115317fc7979"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:02Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://journal.uny.ac.id/index.php/hsjpi/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://journal.uny.ac.id/index.php/hsjpi/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://journal.uny.ac.id/index.php/hsjpi/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "history",
+          "economics",
+          "sociology",
+          "geography"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "eissn": "2460-7916",
+        "language": [
+          "ID"
+        ],
+        "title": "Harmoni Sosial: Jurnal Pendidikan IPS",
+        "article": {
+          "license_display_example_url": "https://journal.uny.ac.id/index.php/hsjpi/article/view/26740/13190",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "ID",
+          "name": "Program Pascasarjana"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://journal.uny.ac.id/index.php/hsjpi/about/editorialPolicies#focusAndScope",
+          "journal": "http://journal.uny.ac.id/index.php/hsjpi",
+          "oa_statement": "https://journal.uny.ac.id/index.php/hsjpi/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://journal.uny.ac.id/index.php/hsjpi/about/submissions#authorGuidelines",
+          "license_terms": "http://journal.uny.ac.id/index.php/hsjpi/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2014,
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 600000,
+              "currency": "IDR"
+            }
+          ],
+          "url": "http://journal.uny.ac.id/index.php/hsjpi/about/submissions#authorFees"
+        },
+        "other_charges": {
+          "has_other_charges": true,
+          "url": "http://journal.uny.ac.id/index.php/hsjpi/about/submissions#authorFees"
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "Universitas Negeri Yogyakarta"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-03-03"
+      },
+      "id": "00ab07bee006472491791e157008e421",
+      "created_date": "2016-02-04T13:24:54Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:58Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about",
+          "board_url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "humanities",
+          "social sciences",
+          "politics",
+          "international relations",
+          "history",
+          "anthropology"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "A",
+            "scheme": "LCC",
+            "term": "General Works"
+          }
+        ],
+        "eissn": "0718-5014",
+        "language": [
+          "PT",
+          "ES"
+        ],
+        "title": "Estudios Avanzados",
+        "pissn": "0718-5022",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad de Santiago de Chile, Instituto de Estudios Avanzados"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.revistas.usach.cl/ojs/index.php/ideas/about",
+          "journal": "http://www.revistas.usach.cl/ojs/index.php/ideas/index",
+          "oa_statement": "http://www.revistas.usach.cl/ojs/index.php/ideas/about",
+          "author_instructions": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/submissions",
+          "license_terms": "http://www.revistas.usach.cl/ojs/index.php/ideas/about"
+        },
+        "oa_start": 2009,
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/submissions#onlineSubmissions"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/submissions#onlineSubmissions"
+        },
+        "publication_time_weeks": 9,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CL",
+          "name": "Universidad de Santiago de Chile"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2015-06-10"
+      },
+      "id": "00c839990af24aa1a3aa72a87a8c4058",
+      "created_date": "2015-06-10T15:35:51Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:25Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://journals.uniurb.it/index.php/cgdv/about/submissions",
+          "board_url": "https://journals.uniurb.it/index.php/cgdv/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://journals.uniurb.it/index.php/cgdv/about/submissions"
+        },
+        "keywords": [
+          "living law",
+          "law history",
+          "human rights",
+          "juridical culture"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "K",
+            "scheme": "LCC",
+            "term": "Law"
+          }
+        ],
+        "eissn": "2384-8901",
+        "language": [
+          "EN",
+          "IT"
+        ],
+        "title": "Cultura giuridica e diritto vivente",
+        "article": {
+          "license_display_example_url": "https://journals.uniurb.it/index.php/cgdv/article/view/3047",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Università degli Studi di Urbino Carlo Bo"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://journals.uniurb.it/index.php/cgdv/about",
+          "journal": "https://journals.uniurb.it/index.php/cgdv/index",
+          "oa_statement": "https://journals.uniurb.it/index.php/cgdv/about",
+          "author_instructions": "https://journals.uniurb.it/index.php/cgdv/about/submissions",
+          "license_terms": "https://journals.uniurb.it/index.php/cgdv/about"
+        },
+        "oa_start": 2014,
+        "apc": {
+          "has_apc": false,
+          "url": "https://journals.uniurb.it/index.php/cgdv/about#OApolicy"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 4,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IT",
+          "name": "Università degli Studi di Urbino Carlo Bo"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-04-20"
+      },
+      "id": "00eca38c29154810bfc831e79a78cc24",
+      "created_date": "2017-10-26T13:47:28Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:55Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about",
+          "board_url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about/submissions"
+        },
+        "keywords": [
+          "philosophy",
+          "phenomenology",
+          "hermeneutics",
+          "enlightenment",
+          "history of philosophy"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "eissn": "1668-723X",
+        "language": [
+          "PT",
+          "ES"
+        ],
+        "title": "Tópicos",
+        "pissn": "1666-485X",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad Nacional del Litoral"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "CLOCKSS"
+          ],
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about",
+          "journal": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos",
+          "oa_statement": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about",
+          "author_instructions": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about/submissions",
+          "license_terms": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "oa_start": 2003,
+        "alternative_title": "Revista de Filosofía de Santa Fe",
+        "apc": {
+          "has_apc": false,
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "AR",
+          "name": "Asociación Revista de Filosofía de Santa Fe"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2020-04-21"
+      },
+      "id": "00edc2b73d0a496490055e6773eedebc",
+      "created_date": "2020-04-21T16:20:43Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:08Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://www.frontiersin.org/about/peer-review",
+          "board_url": "https://www.frontiersin.org/journals/conservation-science/editors"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.frontiersin.org/journals/conservation-science/about#copyright-statement"
+        },
+        "keywords": [
+          "animal conservation",
+          "genomics",
+          "biodiversity",
+          "plant conservation",
+          "wildlife conservation",
+          "wildlife management"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://www.frontiersin.org/guidelines/policies-and-publication-ethics#research-integrity-how-to-reuse-text"
+        },
+        "subject": [
+          {
+            "code": "QH1-199.5",
+            "scheme": "LCC",
+            "term": "General. Including nature conservation, geographical distribution"
+          }
+        ],
+        "eissn": "2673-611X",
+        "language": [
+          "EN"
+        ],
+        "title": "Frontiers in Conservation Science",
+        "article": {
+          "license_display_example_url": "https://www.frontiersin.org/articles/10.3389/fcosc.2020.630967",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "CLOCKSS"
+          ],
+          "url": "https://www.frontiersin.org/about/collaborators"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.frontiersin.org/journals/conservation-science/about#about-scope",
+          "journal": "https://www.frontiersin.org/journals/conservation-science",
+          "oa_statement": "https://www.frontiersin.org/journals/conservation-science/about#about-open",
+          "author_instructions": "https://www.frontiersin.org/journals/conservation-science/for-authors/author-guidelines",
+          "license_terms": "https://www.frontiersin.org/journals/conservation-science/about#about-open"
+        },
+        "oa_start": 2020,
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 1950,
+              "currency": "CHF"
+            }
+          ],
+          "url": "https://www.frontiersin.org/journals/conservation-science/for-authors/publishing-fees"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 13,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/38105",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "CH",
+          "name": "Frontiers Media S.A."
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": true,
+          "url": "https://www.frontiersin.org/journals/conservation-science/for-authors/publishing-fees"
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-05-13"
+      },
+      "id": "00f804eb7e21489ba9d2c6097f62db86",
+      "created_date": "2021-03-26T11:52:19Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:42Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/processpolicy",
+          "board_url": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/copyright"
+        },
+        "keywords": [
+          "asia pacific region",
+          "economic",
+          "social",
+          "security",
+          "political affairs",
+          "strategic development"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/plagiarism"
+        },
+        "subject": [
+          {
+            "code": "DS1-937",
+            "scheme": "LCC",
+            "term": "History of Asia"
+          },
+          {
+            "code": "JQ1-6651",
+            "scheme": "LCC",
+            "term": "Political institutions and public administration - Asia (Asian studies only)"
+          },
+          {
+            "code": "H53",
+            "scheme": "LCC",
+            "term": "Social sciences and state - Asia (Asian studies only)"
+          }
+        ],
+        "language": [
+          "EN"
+        ],
+        "title": "Asia Pacific",
+        "pissn": "1810-035X",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/scope",
+          "journal": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC",
+          "oa_statement": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/OAP",
+          "author_instructions": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/AG",
+          "license_terms": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/licence"
+        },
+        "oa_start": 2017,
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 120,
+              "currency": "USD"
+            }
+          ],
+          "url": "https://sujo.usindh.edu.pk/index.php/ASIA-PACIFIC/APPC"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "PK",
+          "name": "University of Sindh"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-08-30"
+      },
+      "id": "010a02b2d9744d0699ddc5718c9f1a1d",
+      "created_date": "2023-08-30T12:50:47Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:11Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://plural.upsc.md/?page_id=104",
+          "board_url": "https://plural.upsc.md/?page_id=102"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://plural.upsc.md/?page_id=597"
+        },
+        "keywords": [
+          "history",
+          "culture",
+          "society"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://plural.upsc.md/?page_id=815"
+        },
+        "subject": [
+          {
+            "code": "DJK1-77",
+            "scheme": "LCC",
+            "term": "History of Eastern Europe"
+          }
+        ],
+        "eissn": "2345-184X",
+        "language": [
+          "RU",
+          "RO",
+          "DE",
+          "FR",
+          "EN"
+        ],
+        "title": "Plural: History, Culture, Society",
+        "pissn": "2345-1262",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "History and Geography Department, „Ion Creangă” State Pedagogical University"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://plural.upsc.md/?page_id=98",
+          "journal": "https://plural.upsc.md/",
+          "oa_statement": "https://plural.upsc.md/?page_id=597",
+          "author_instructions": "https://plural.upsc.md/?page_id=115",
+          "license_terms": "https://plural.upsc.md/?page_id=597"
+        },
+        "oa_start": 2015,
+        "apc": {
+          "has_apc": false,
+          "url": "https://plural.upsc.md/?page_id=597"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 16,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "MD",
+          "name": "Editura ARC"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-02-25"
+      },
+      "id": "0111c0739df045c1871717d272d2da48",
+      "created_date": "2017-03-23T09:21:08Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:36Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "islam",
+          "islamic text",
+          "islamic humanities",
+          "muslim societies",
+          "islamic history"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          },
+          {
+            "code": "BP1-610",
+            "scheme": "LCC",
+            "term": "Islam. Bahai Faith. Theosophy, etc."
+          },
+          {
+            "code": "BP1-253",
+            "scheme": "LCC",
+            "term": "Islam"
+          }
+        ],
+        "eissn": "2406-825X",
+        "language": [
+          "EN"
+        ],
+        "title": "Indonesian Journal of Islam and Muslim Societies",
+        "pissn": "2089-1490",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#focusAndScope",
+          "journal": "http://ijims.iainsalatiga.ac.id",
+          "oa_statement": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#authorGuidelines",
+          "license_terms": "https://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2011,
+        "alternative_title": "IJIMS",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 3000000,
+              "currency": "IDR"
+            }
+          ],
+          "url": "https://ijims.iainsalatiga.ac.id/index.php/ijims/pages/view/Author%20fees"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "IAIN Salatiga"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-12-14"
+      },
+      "id": "0119451d86ea40b39f76b1c71592dd82",
+      "created_date": "2016-04-04T16:35:12Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:36:17Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://economiatyp.uam.mx/index.php/ETYP/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://economiatyp.uam.mx/index.php/ETYP/about/displayMembership/4"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": false
+        },
+        "keywords": [
+          "economic convergence",
+          "economic policies",
+          "economic development",
+          "economics of technological innovation"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "http://economiatyp.uam.mx/index.php/ETYP/about/editorialPolicies#custom-1"
+        },
+        "subject": [
+          {
+            "code": "HC10-1085",
+            "scheme": "LCC",
+            "term": "Economic history and conditions"
+          },
+          {
+            "code": "HB71-74",
+            "scheme": "LCC",
+            "term": "Economics as a science"
+          }
+        ],
+        "eissn": "2448-7481",
+        "language": [
+          "EN",
+          "ES"
+        ],
+        "title": "Economía Teoría y Práctica",
+        "pissn": "0188-3380",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad Autónoma Metropolitana"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://economiatyp.uam.mx/index.php/ETYP/about/editorialPolicies#focusAndScope",
+          "journal": "http://economiatyp.uam.mx/",
+          "oa_statement": "http://economiatyp.uam.mx/index.php/ETYP/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://economiatyp.uam.mx/index.php/ETYP/about/editorialPolicies#custom-0",
+          "license_terms": "http://economiatyp.uam.mx/index.php/ETYP/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2008,
+        "apc": {
+          "has_apc": false,
+          "url": "http://economiatyp.uam.mx/index.php/ETYP/about/editorialPolicies#custom-2"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "http://economiatyp.uam.mx/index.php/ETYP/about/editorialPolicies#custom-2"
+        },
+        "publication_time_weeks": 40,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "MX",
+          "name": "Universidad Autónoma Metropolitana"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2018-08-08"
+      },
+      "id": "013e5a6329704c3e91f28389d237cc01",
+      "created_date": "2017-06-10T20:02:56Z"
+    },
+    {
+      "last_updated": "2026-06-08T11:00:36Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://msgh-journal.com/index.php/journal/review-expertise",
+          "board_url": "https://msgh-journal.com/index.php/journal/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://msgh-journal.com/index.php/journal/ethik"
+        },
+        "keywords": [
+          "german history",
+          "central and eastern european history",
+          "germanic diasporas",
+          "ukrainian-german relations",
+          "historiography"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://msgh-journal.com/index.php/journal/review-expertise"
+        },
+        "subject": [
+          {
+            "code": "DD1-905",
+            "scheme": "LCC",
+            "term": "History of Germany"
+          }
+        ],
+        "eissn": "3083-6891",
+        "language": [
+          "DE",
+          "EN",
+          "UK"
+        ],
+        "title": "Сучасні дослідження з німецької історії",
+        "pissn": "2616-9479",
+        "article": {
+          "license_display_example_url": "https://msgh-journal.com/index.php/journal/article/view/118/101",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "V. I. Vernadskyi National Library of Ukraine"
+          ],
+          "url": "https://msgh-journal.com/index.php/journal"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://msgh-journal.com/index.php/journal/goals",
+          "journal": "https://msgh-journal.com/index.php/journal",
+          "oa_statement": "https://msgh-journal.com/index.php/journal/ethik",
+          "author_instructions": "https://msgh-journal.com/index.php/journal/about/submissions",
+          "license_terms": "https://msgh-journal.com/index.php/journal/ethik"
+        },
+        "oa_start": 2018,
+        "alternative_title": "Modern Studies in German History",
+        "apc": {
+          "has_apc": false,
+          "url": "https://msgh-journal.com/index.php/journal/ethik"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "UA",
+          "name": "Oles Honchar Dnipro National University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "0157f99c1d54431ba4cd9c441ac9970f",
+      "created_date": "2026-06-08T11:00:36Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:24Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://revistapolis.ro/instructions-to-authors/?lang=en",
+          "board_url": "https://revistapolis.ro/editorial-board/?lang=en"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://revistapolis.ro/instructions-to-authors/?lang=en"
+        },
+        "keywords": [
+          "political science",
+          "political philosophy",
+          "sociology",
+          "history",
+          "political thought",
+          "european studies"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "JZ2-6530",
+            "scheme": "LCC",
+            "term": "International relations"
+          }
+        ],
+        "eissn": "2344-5750",
+        "language": [
+          "EN",
+          "RO"
+        ],
+        "title": "Polis: Revista de Stiinte Politice",
+        "pissn": "1221-9762",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "RO",
+          "name": "Facultatea de Stiinte Politice si Administrative - Universitatea \"Petre Andrei\" din Iasi"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistapolis.ro/?lang=en",
+          "journal": "https://revistapolis.ro/",
+          "oa_statement": "https://revistapolis.ro/?lang=en",
+          "author_instructions": "https://revistapolis.ro/instructions-to-authors/?lang=en#tab-id-2",
+          "license_terms": "https://revistapolis.ro/?lang=en"
+        },
+        "oa_start": 2013,
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistapolis.ro/?lang=en"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "RO",
+          "name": "Editura Institutul European Iasi"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-05-01"
+      },
+      "id": "016456c603b34a23bdcd0ee4a6da1feb",
+      "created_date": "2014-08-21T14:42:02Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:15Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://apcz.umk.pl/BPMH/about",
+          "board_url": "https://apcz.umk.pl/BPMH/about"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "http://pmh.umk.pl/wp-content/uploads/2018/04/3.-DE-Licence-contract-APCz-2017.pdf"
+        },
+        "keywords": [
+          "history of europe",
+          "history of central europe",
+          "polish-german relations"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "DAW1001-1051",
+            "scheme": "LCC",
+            "term": "History of Central Europe"
+          },
+          {
+            "code": "DJK1-77",
+            "scheme": "LCC",
+            "term": "History of Eastern Europe"
+          }
+        ],
+        "eissn": "2391-792X",
+        "language": [
+          "DE",
+          "EN"
+        ],
+        "title": "Biuletyn Polskiej Misji Historycznej",
+        "pissn": "2083-7755",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Polish Historical Mission"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://apcz.umk.pl/BPMH/about",
+          "journal": "http://apcz.umk.pl/czasopisma//index.php/BPMH/index",
+          "oa_statement": "https://apcz.umk.pl/BPMH/about",
+          "author_instructions": "https://apcz.umk.pl/BPMH/about",
+          "license_terms": "http://apcz.umk.pl/czasopisma//index.php/BPMH/about/editorialPolicies#openAccessPolicy"
+        },
+        "oa_start": 2009,
+        "alternative_title": "Bulletin der Polnischen Historischen Mission",
+        "apc": {
+          "has_apc": false,
+          "url": "https://apcz.umk.pl/BPMH/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "PL",
+          "name": "Nicolaus Copernicus University in Toruń"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-09-12"
+      },
+      "created_date": "2018-10-29T17:12:13Z",
+      "id": "0172a38967194633a60c0b2fdca581f5"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:12Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://tet.rkk.hu/index.php/TeT/publication_ethics_statement",
+          "board_url": "https://tet.rkk.hu/index.php/TeT/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://tet.rkk.hu/index.php/TeT/licence"
+        },
+        "keywords": [
+          "regional studies",
+          "human geography",
+          "social sciences",
+          "cultural studies",
+          "economics"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://tet.rkk.hu/index.php/TeT/publication_ethics_statement"
+        },
+        "subject": [
+          {
+            "code": "D",
+            "scheme": "LCC",
+            "term": "History (General) and history of Europe"
+          },
+          {
+            "code": "HC10-1085",
+            "scheme": "LCC",
+            "term": "Economic history and conditions"
+          },
+          {
+            "code": "HD72-88",
+            "scheme": "LCC",
+            "term": "Economic growth, development, planning"
+          },
+          {
+            "code": "HM401-1281",
+            "scheme": "LCC",
+            "term": "Sociology (General)"
+          },
+          {
+            "code": "JZ2-6530",
+            "scheme": "LCC",
+            "term": "International relations"
+          }
+        ],
+        "eissn": "2062-9923",
+        "language": [
+          "EN",
+          "HU"
+        ],
+        "title": "Tér és Társadalom",
+        "pissn": "0237-7683",
+        "article": {
+          "license_display_example_url": "https://tet.rkk.hu/index.php/TeT/article/view/3413/5642",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "National Széchényi Library Budapest"
+          ],
+          "url": "https://epa.oszk.hu/html/vgi/kardexlap.phtml?aktev=2022&id=2251"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://tet.rkk.hu/index.php/TeT/about",
+          "journal": "https://tet.rkk.hu/index.php/TeT",
+          "oa_statement": "https://tet.rkk.hu/index.php/TeT/licence",
+          "author_instructions": "https://tet.rkk.hu/index.php/TeT/about/submissions",
+          "license_terms": "https://tet.rkk.hu/index.php/TeT/licence"
+        },
+        "oa_start": 2022,
+        "alternative_title": "Space and Society",
+        "apc": {
+          "has_apc": false,
+          "url": "https://tet.rkk.hu/index.php/TeT/about/submissions"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 25,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/37999",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "HU",
+          "name": "Centre for Economic and Regional Studies Eötvös Lóránd Research Network"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-08-29"
+      },
+      "created_date": "2022-06-23T11:51:36Z",
+      "id": "01d47d3810d5488abe48a1dc931107f5"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:23Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://unissa.edu.bn/journal/index.php/ijus",
+          "board_url": "https://unissa.edu.bn/journal/index.php/ijus/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement"
+        },
+        "keywords": [
+          "islamic history and civilization",
+          "islamic development management",
+          "islamic economy/banking and finance",
+          "islamic education",
+          "religious studies",
+          "islamic thought and philosophy"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement"
+        },
+        "subject": [
+          {
+            "code": "NA1-9428",
+            "scheme": "LCC",
+            "term": "Architecture"
+          }
+        ],
+        "eissn": "2617-9407",
+        "language": [
+          "EN",
+          "AR"
+        ],
+        "title": "International Journal of 'Umrānic Studies",
+        "pissn": "2617-9393",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "BN",
+          "name": "Universiti Islam Sultan Sharif Ali (UNISSA)"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Internet Archive"
+          ],
+          "url": "https://web.archive.org/web/20230000000000*/https://unissa.edu.bn/"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://unissa.edu.bn/journal/index.php/ijus",
+          "journal": "https://unissa.edu.bn/journal/index.php/ijus",
+          "oa_statement": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement",
+          "author_instructions": "https://unissa.edu.bn/journal/index.php/ijus/article-submission-guidelines",
+          "license_terms": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement"
+        },
+        "oa_start": 2018,
+        "alternative_title": "المجلة العالمية للدراسات العمرانية",
+        "apc": {
+          "has_apc": false,
+          "url": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 8,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "BN",
+          "name": "Universiti Islam Sultan Sharif Ali Press (UNISSA Press)"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-03-02"
+      },
+      "id": "01eac932526c47399dc675c2c3906077",
+      "created_date": "2023-03-02T20:13:30Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:13Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "http://www.ojs.unito.it/index.php/spazidellamusica/about#peerReviewProcess",
+          "board_url": "http://www.ojs.unito.it/index.php/spazidellamusica/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://www.ojs.unito.it/index.php/spazidellamusica/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "musicology",
+          "instruments",
+          "history",
+          "criticism",
+          "practice of music"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "M1-5000",
+            "scheme": "LCC",
+            "term": "Music"
+          }
+        ],
+        "eissn": "2240-7944",
+        "language": [
+          "EN",
+          "IT"
+        ],
+        "title": "Gli Spazi della Musica",
+        "article": {
+          "license_display_example_url": "http://www.ojs.unito.it/index.php/spazidellamusica/article/view/1799",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.ojs.unito.it/index.php/spazidellamusica/about#focusAndScope",
+          "journal": "http://www.ojs.unito.it/index.php/spazidellamusica",
+          "oa_statement": "http://www.ojs.unito.it/index.php/spazidellamusica/about#openAccessPolicy",
+          "author_instructions": "http://www.ojs.unito.it/index.php/spazidellamusica/about/submissions#onlineSubmissions",
+          "license_terms": "http://www.ojs.unito.it/index.php/spazidellamusica/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2012,
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.ojs.unito.it/index.php/spazidellamusica/about#apc"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "http://www.ojs.unito.it/index.php/spazidellamusica/about#apc"
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IT",
+          "name": "Università degli Studi di Torino"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2020-08-17"
+      },
+      "id": "01f5266f1b1849c2a0956da2c348dd5e",
+      "created_date": "2013-11-28T14:30:58Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:58Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://journals.lub.lu.se/nordidactica/riktlinjer",
+          "board_url": "https://journals.lub.lu.se/nordidactica/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.kau.se/nordidactica/bidra/forfattarens-rattigheter"
+        },
+        "keywords": [
+          "social science education",
+          "history education",
+          "geography education"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "eissn": "2000-9879",
+        "language": [
+          "SV",
+          "NO",
+          "EN",
+          "DA"
+        ],
+        "title": "Nordidactica: Journal of Humanities and Social Science Education",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "SE",
+          "name": "Centre for the Social Sciences Didactics"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "Publisher's own license",
+            "SA": false,
+            "url": "https://journals.lub.lu.se/nordidactica/index"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://journals.lub.lu.se/nordidactica/about",
+          "journal": "https://journals.lub.lu.se/nordidactica/index",
+          "oa_statement": "https://journals.lub.lu.se/nordidactica/index",
+          "author_instructions": "https://journals.lub.lu.se/nordidactica/about/submissions",
+          "license_terms": "https://journals.lub.lu.se/nordidactica/index"
+        },
+        "oa_start": 2011,
+        "alternative_title": "Nordidactica: Journal of Humanities & Social Science Education",
+        "apc": {
+          "has_apc": false,
+          "url": "https://journals.lub.lu.se/nordidactica/index"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 32,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "SE",
+          "name": "Karlstads Universitet"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-04-02"
+      },
+      "id": "0210d0100fb844b2abddd43d4b082084",
+      "created_date": "2011-09-12T14:03:38Z"
+    },
+    {
+      "last_updated": "2026-02-15T20:37:10Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.plutojournals.com/wp-content/uploads/Zamani-Author-Guidelines-Submission.pdf",
+          "board_url": "https://www.plutojournals.com/zamani/"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI",
+            "JSTOR identifiers"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.plutojournals.com/open-access-2/"
+        },
+        "keywords": [
+          "african history",
+          "political history",
+          "pan-african studies",
+          "methodological approaches",
+          "africa-world relationships",
+          "african perspectives"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://www.plutojournals.com/codeofconduct/"
+        },
+        "subject": [
+          {
+            "code": "DT1-3415",
+            "scheme": "LCC",
+            "term": "History of Africa"
+          }
+        ],
+        "language": [
+          "EN"
+        ],
+        "title": "Zamani: A Journal of African Historical Studies",
+        "pissn": "2961-6484",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "TZ",
+          "name": "University of Dar es Salaam"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Portico",
+            "ScienceOpen"
+          ],
+          "url": "https://www.scienceopen.com/collection/0a05dc0d-550a-4d53-ade8-7b4af0f8870d"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.plutojournals.com/zamani/",
+          "journal": "https://www.plutojournals.com/zamani/",
+          "oa_statement": "https://www.plutojournals.com/zamani/",
+          "author_instructions": "https://www.plutojournals.com/wp-content/uploads/Zamani-Author-Guidelines-Submission.pdf",
+          "license_terms": "https://www.plutojournals.com/zamani/"
+        },
+        "oa_start": 2025,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.plutojournals.com/open-access-2/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "GB",
+          "name": "Pluto Journals"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "0237e66494b34e31a585f359db33f72b",
+      "created_date": "2026-02-15T20:37:10Z"
+    },
+    {
+      "last_updated": "2026-05-31T17:40:28Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://historical-weapons.com/information-for-authors/#peer-review-policy",
+          "board_url": "https://historical-weapons.com/editorial-board/"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://historical-weapons.com/authors-copyright/"
+        },
+        "keywords": [
+          "weapons",
+          "history",
+          "art",
+          "handicraft",
+          "art of war"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://historical-weapons.com/policy-of-screening-for-plagiarism/"
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          },
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          }
+        ],
+        "eissn": "2713-1491",
+        "language": [
+          "EN",
+          "RU"
+        ],
+        "title": "Историческое оружиеведение",
+        "article": {
+          "license_display_example_url": "https://historical-weapons.com/wp-content/uploads/dvalishvili_io_15_2025.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "eLIBRARY.RU"
+          ],
+          "url": "https://www.elibrary.ru/title_about_new.asp?id=57987"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://historical-weapons.com/aims-and-scope/",
+          "journal": "https://historical-weapons.com/",
+          "oa_statement": "https://historical-weapons.com/information-for-authors/#open-access-policy",
+          "author_instructions": "https://historical-weapons.com/information-for-authors/",
+          "license_terms": "https://historical-weapons.com/license-terms/"
+        },
+        "oa_start": 2017,
+        "alternative_title": "Weapons History Journal",
+        "apc": {
+          "has_apc": false,
+          "url": "https://historical-weapons.com/article-processing-charges/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "RU",
+          "name": "Center of Support and Development of Actual Research in the Field of Historical Weaponry"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2026-05-26"
+      },
+      "created_date": "2020-07-11T16:37:51Z",
+      "id": "025907e8b6fc40fdba07808fdf6bfad8"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:49Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://archeologickerozhledy.cz/index.php/ar/peerreview",
+          "board_url": "https://archeologickerozhledy.cz/index.php/ar/editorialboard"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://archeologickerozhledy.cz/index.php/ar/copyright"
+        },
+        "keywords": [
+          "archaeology",
+          "prehistory",
+          "central europe",
+          "excavation"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "DAW1001-1051",
+            "scheme": "LCC",
+            "term": "History of Central Europe"
+          },
+          {
+            "code": "D51-90",
+            "scheme": "LCC",
+            "term": "Ancient history"
+          }
+        ],
+        "eissn": "2570-9151",
+        "language": [
+          "SK",
+          "CS",
+          "EN"
+        ],
+        "title": "Archeologické Rozhledy",
+        "pissn": "0323-1267",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://archeologickerozhledy.cz/index.php/ar/about",
+          "journal": "https://archeologickerozhledy.cz",
+          "oa_statement": "https://archeologickerozhledy.cz/index.php/ar/oa",
+          "author_instructions": "https://archeologickerozhledy.cz/index.php/ar/authguid",
+          "license_terms": "https://archeologickerozhledy.cz/index.php/ar/oa"
+        },
+        "oa_start": 2019,
+        "apc": {
+          "has_apc": false,
+          "url": "https://archeologickerozhledy.cz/index.php/ar/oa"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 15,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CZ",
+          "name": "Institute of Archaeology of the Czech Academy of Sciences, Prague"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-01-11"
+      },
+      "id": "025f0830cb8949bba7975ba174e022f0",
+      "created_date": "2023-01-11T14:55:48Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:07Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.sibscript.ru/jour/about/editorialPolicies#custom-0",
+          "board_url": "https://www.sibscript.ru/jour/pages/view/EditorialC"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.sibscript.ru/jour/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "archeology",
+          "history of russia",
+          "linguistics",
+          "literature",
+          "psychology",
+          "western siberia"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://www.sibscript.ru/jour/about/editorialPolicies#custom-6"
+        },
+        "replaces": [
+          "2078-8975",
+          "2078-8983"
+        ],
+        "subject": [
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "eissn": "2949-2092",
+        "language": [
+          "DE",
+          "IT",
+          "FR",
+          "EN",
+          "RU"
+        ],
+        "title": "СибСкрипт",
+        "pissn": "2949-2122",
+        "article": {
+          "license_display_example_url": "https://www.sibscript.ru/jour/article/view/5423/4543",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Scientific electronic library"
+          ],
+          "national_library": [
+            "Russian State Library"
+          ],
+          "url": "https://www.sibscript.ru/jour/about/editorialPolicies#archiving"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.sibscript.ru/jour/about/editorialPolicies#focusAndScope",
+          "journal": "https://www.sibscript.ru",
+          "oa_statement": "https://www.sibscript.ru/jour/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "https://www.sibscript.ru/jour/about/submissions#authorGuidelines",
+          "license_terms": "https://www.sibscript.ru/jour/about/editorialPolicies#custom-13"
+        },
+        "oa_start": 2008,
+        "alternative_title": "SibScript",
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.sibscript.ru/jour/about/editorialPolicies#custom-8"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "service": [
+            "Copyright Notice"
+          ],
+          "url": "https://www.sibscript.ru/jour/about/submissions#copyrightNotice",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "RU",
+          "name": "Kemerovo State University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-07-30"
+      },
+      "created_date": "2023-07-13T12:18:31Z",
+      "id": "02819e8a5d0a421a93e8bdb5140dcf7f"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:31Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "board_url": "https://www.ricerchedisconfine.info/chi-siamo/"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "Handles"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "keywords": [
+          "art history",
+          "theatre",
+          "performing arts",
+          "cinema"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "GN1-890",
+            "scheme": "LCC",
+            "term": "Anthropology"
+          },
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "eissn": "2038-8411",
+        "language": [
+          "FR",
+          "IT",
+          "EN"
+        ],
+        "title": "Ricerche di S/Confine",
+        "article": {
+          "license_display_example_url": "https://www.repository.unipr.it/bitstream/1889/5078/1/MODENA-post.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.ricerchedisconfine.info/chi-siamo/",
+          "journal": "https://www.ricerchedisconfine.info/chi-siamo/",
+          "oa_statement": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "author_instructions": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "license_terms": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "oa_start": 2010,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/35607",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "IT",
+          "name": "Università di Parma"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-11-09"
+      },
+      "created_date": "2010-09-30T16:32:06Z",
+      "id": "02869d2ed1ff4e31bbcd0c9c7dda057f"
+    },
+    {
+      "last_updated": "2026-01-15T10:40:00Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://ejournal.undip.ac.id/index.php/jscl/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://ejournal.undip.ac.id/index.php/jscl/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ejournal.undip.ac.id/index.php/jscl/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "history",
+          "politics",
+          "cultural history",
+          "economic history",
+          "historical approach",
+          "maritime history"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "http://ejournal.undip.ac.id/index.php/jscl/about/editorialPolicies#custom-2"
+        },
+        "subject": [
+          {
+            "code": "D",
+            "scheme": "LCC",
+            "term": "History (General) and history of Europe"
+          },
+          {
+            "code": "DS1-937",
+            "scheme": "LCC",
+            "term": "History of Asia"
+          }
+        ],
+        "eissn": "2443-0110",
+        "language": [
+          "EN",
+          "ID"
+        ],
+        "title": "Jurnal Sejarah Citra Lekha",
+        "article": {
+          "license_display_example_url": "https://ejournal.undip.ac.id/index.php/jscl/article/view/68716/pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Universitas Diponegoro, Departemen Sejarah Fakultas Ilmu Budaya"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://ejournal.undip.ac.id/index.php/jscl/about/editorialPolicies#focusAndScope",
+          "journal": "http://ejournal.undip.ac.id/index.php/jscl/",
+          "oa_statement": "http://ejournal.undip.ac.id/index.php/jscl/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://ejournal.undip.ac.id/index.php/jscl/about/submissions#authorGuidelines",
+          "license_terms": "http://ejournal.undip.ac.id/index.php/jscl/about/editorialPolicies#custom-3"
+        },
+        "oa_start": 2016,
+        "alternative_title": "JSCL",
+        "apc": {
+          "has_apc": false,
+          "url": "http://ejournal.undip.ac.id/index.php/jscl/about/editorialPolicies#custom-1"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "Universitas Diponegoro"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2026-01-02"
+      },
+      "id": "02b62b764e404444b3e6955c17770c89",
+      "created_date": "2017-10-02T11:44:03Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/journals/history?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/journals/history?page=103&pageSize=25"
+}

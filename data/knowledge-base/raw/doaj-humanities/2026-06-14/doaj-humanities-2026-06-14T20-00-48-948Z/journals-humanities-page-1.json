@@ -1,0 +1,2655 @@
+{
+  "total": 941,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T20:00:51.005118Z",
+  "query": "humanities",
+  "results": [
+    {
+      "last_updated": "2026-01-15T10:34:39Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "board_url": "http://revistascientificas.filo.uba.ar/index.php/petm/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://revistascientificas.filo.uba.ar/index.php/petm/about/submissions"
+        },
+        "keywords": [
+          "medieval philosophy",
+          "humanities",
+          "middle ages",
+          "medieval thought"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "eissn": "2683-9636",
+        "language": [
+          "ES",
+          "PT",
+          "IT",
+          "DE",
+          "FR",
+          "EN"
+        ],
+        "title": "Patristica et Mediaevalia",
+        "pissn": "0325-2280",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad de Buenos Aires, Facultad de Filosofía y Letras, Sección de Estudios de Filosofía Medieval"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "journal": "http://revistascientificas.filo.uba.ar/index.php/petm/index",
+          "oa_statement": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "author_instructions": "http://revistascientificas.filo.uba.ar/index.php/petm/about/submissions",
+          "license_terms": "http://revistascientificas.filo.uba.ar/index.php/petm/index"
+        },
+        "oa_start": 2019,
+        "apc": {
+          "has_apc": false,
+          "url": "http://revistascientificas.filo.uba.ar/index.php/petm/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 15,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "AR",
+          "name": "Universidad de Buenos Aires"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-02-18"
+      },
+      "created_date": "2020-10-13T18:59:48Z",
+      "id": "0057e40afd8d4818903f1c5b74d95b6e"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:30Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://journals.openedition.org/samaj/142",
+          "board_url": "https://journals.openedition.org/samaj/156"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://journals.openedition.org/samaj/?page=informations"
+        },
+        "keywords": [
+          "social sciences",
+          "south asia",
+          "humanities"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "eissn": "1960-6060",
+        "language": [
+          "EN"
+        ],
+        "title": "South Asia Multidisciplinary Academic Journal",
+        "article": {
+          "license_display_example_url": "https://journals.openedition.org/samaj/8706",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://journals.openedition.org/samaj/142",
+          "journal": "https://journals.openedition.org/samaj/",
+          "oa_statement": "https://journals.openedition.org/samaj/?page=informations",
+          "author_instructions": "https://journals.openedition.org/samaj/157",
+          "license_terms": "https://journals.openedition.org/samaj/?page=informations"
+        },
+        "oa_start": 2007,
+        "alternative_title": "SAMAJ",
+        "apc": {
+          "has_apc": false,
+          "url": "https://journals.openedition.org/samaj/?page=informations"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 32,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "FR",
+          "name": "Centre d’Etudes de l’Inde et de l’Asie du Sud"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-12-04"
+      },
+      "id": "008bdcc4d805489999669b9d8fa8005a",
+      "created_date": "2009-05-12T11:34:28Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:58Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about",
+          "board_url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "humanities",
+          "social sciences",
+          "politics",
+          "international relations",
+          "history",
+          "anthropology"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "A",
+            "scheme": "LCC",
+            "term": "General Works"
+          }
+        ],
+        "eissn": "0718-5014",
+        "language": [
+          "PT",
+          "ES"
+        ],
+        "title": "Estudios Avanzados",
+        "pissn": "0718-5022",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad de Santiago de Chile, Instituto de Estudios Avanzados"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.revistas.usach.cl/ojs/index.php/ideas/about",
+          "journal": "http://www.revistas.usach.cl/ojs/index.php/ideas/index",
+          "oa_statement": "http://www.revistas.usach.cl/ojs/index.php/ideas/about",
+          "author_instructions": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/submissions",
+          "license_terms": "http://www.revistas.usach.cl/ojs/index.php/ideas/about"
+        },
+        "oa_start": 2009,
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/submissions#onlineSubmissions"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "http://www.revistas.usach.cl/ojs/index.php/ideas/about/submissions#onlineSubmissions"
+        },
+        "publication_time_weeks": 9,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CL",
+          "name": "Universidad de Santiago de Chile"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2015-06-10"
+      },
+      "id": "00c839990af24aa1a3aa72a87a8c4058",
+      "created_date": "2015-06-10T15:35:51Z"
+    },
+    {
+      "last_updated": "2026-03-11T09:37:52Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://journals.openedition.org/td/?page=informations",
+          "board_url": "https://journals.openedition.org/td/269"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI",
+            "Handles"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://journals.openedition.org/td/?page=informations"
+        },
+        "keywords": [
+          "linguistics",
+          "literature",
+          "language",
+          "literary theory",
+          "art and humanities",
+          "literary criticism"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "eissn": "2545-2061",
+        "language": [
+          "PL",
+          "EN"
+        ],
+        "title": "Teksty Drugie",
+        "pissn": "0867-0633",
+        "article": {
+          "license_display_example_url": "https://journals.openedition.org/td/30689",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://journals.openedition.org/td/268",
+          "journal": "https://journals.openedition.org/td",
+          "oa_statement": "https://journals.openedition.org/td/?page=informations",
+          "author_instructions": "https://journals.openedition.org/td/1975",
+          "license_terms": "https://journals.openedition.org/td/?page=informations"
+        },
+        "oa_start": 2015,
+        "apc": {
+          "has_apc": false,
+          "url": "https://journals.openedition.org/td/?page=informations"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 20,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "PL",
+          "name": "The Institute of Literary Research of the Polish Academy of Sciences"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "01168d231660400a9a9fe82a1f9066c0",
+      "created_date": "2026-03-11T09:37:52Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:36Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "islam",
+          "islamic text",
+          "islamic humanities",
+          "muslim societies",
+          "islamic history"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          },
+          {
+            "code": "BP1-610",
+            "scheme": "LCC",
+            "term": "Islam. Bahai Faith. Theosophy, etc."
+          },
+          {
+            "code": "BP1-253",
+            "scheme": "LCC",
+            "term": "Islam"
+          }
+        ],
+        "eissn": "2406-825X",
+        "language": [
+          "EN"
+        ],
+        "title": "Indonesian Journal of Islam and Muslim Societies",
+        "pissn": "2089-1490",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#focusAndScope",
+          "journal": "http://ijims.iainsalatiga.ac.id",
+          "oa_statement": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#authorGuidelines",
+          "license_terms": "https://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2011,
+        "alternative_title": "IJIMS",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 3000000,
+              "currency": "IDR"
+            }
+          ],
+          "url": "https://ijims.iainsalatiga.ac.id/index.php/ijims/pages/view/Author%20fees"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "IAIN Salatiga"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-12-14"
+      },
+      "id": "0119451d86ea40b39f76b1c71592dd82",
+      "created_date": "2016-04-04T16:35:12Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:57Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistas.uniandes.edu.co/index.php/nys/editorial-policy",
+          "board_url": "https://revistas.uniandes.edu.co/index.php/nys/executive-board"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistas.uniandes.edu.co/index.php/nys/editorial-policy"
+        },
+        "keywords": [
+          "environmental studies",
+          "sustainability",
+          "biodiversity",
+          "conservation",
+          "nature",
+          "humanities"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistas.uniandes.edu.co/index.php/nys/editorial-policy"
+        },
+        "subject": [
+          {
+            "code": "K3581-3598",
+            "scheme": "LCC",
+            "term": "Environmental law"
+          },
+          {
+            "code": "GE1-350",
+            "scheme": "LCC",
+            "term": "Environmental sciences"
+          }
+        ],
+        "eissn": "2805-8631",
+        "language": [
+          "PT",
+          "EN",
+          "ES"
+        ],
+        "title": "Naturaleza y Sociedad: Desafíos Medioambientales",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistas.uniandes.edu.co/index.php/nys/about",
+          "journal": "https://revistas.uniandes.edu.co/index.php/nys/index",
+          "oa_statement": "https://revistas.uniandes.edu.co/index.php/nys/about",
+          "author_instructions": "https://revistas.uniandes.edu.co/index.php/nys/article-guidelines",
+          "license_terms": "https://revistas.uniandes.edu.co/index.php/nys/editorial-policy"
+        },
+        "oa_start": 2021,
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistas.uniandes.edu.co/index.php/nys/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 15,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CO",
+          "name": "Universidad de los Andes (Bogotá)"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-05-30"
+      },
+      "id": "019bd3434578480e9290009a371be1f1",
+      "created_date": "2024-05-30T06:28:54Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:54Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://jpl.letras.ulisboa.pt/submissions/",
+          "board_url": "https://jpl.letras.ulisboa.pt/editorialteam/"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://jpl.letras.ulisboa.pt/submissions/"
+        },
+        "keywords": [
+          "portuguese-based languages",
+          "comparative linguistics",
+          "iberian languages",
+          "language acquisition",
+          "language variations"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://jpl.letras.ulisboa.pt/site/research-integrity/"
+        },
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "eissn": "2397-5563",
+        "language": [
+          "EN"
+        ],
+        "title": "Journal of Portuguese Linguistics",
+        "article": {
+          "license_display_example_url": "https://jpl.letras.ulisboa.pt/article/id/5681/",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "labels": [
+          "ojc"
+        ],
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "CLOCKSS",
+            "LOCKSS",
+            "Portico"
+          ],
+          "url": "https://jpl.letras.ulisboa.pt/site/about/"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://jpl.letras.ulisboa.pt/site/about/",
+          "journal": "https://jpl.letras.ulisboa.pt",
+          "oa_statement": "https://jpl.letras.ulisboa.pt/site/about/",
+          "author_instructions": "https://jpl.letras.ulisboa.pt/site/author-guidelines/",
+          "license_terms": "https://jpl.letras.ulisboa.pt/submissions/"
+        },
+        "oa_start": 2002,
+        "apc": {
+          "has_apc": false,
+          "url": "https://jpl.letras.ulisboa.pt/submissions/"
+        },
+        "other_charges": {
+          "has_other_charges": true,
+          "url": "https://jpl.letras.ulisboa.pt/submissions/"
+        },
+        "publication_time_weeks": 75,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/21746",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "GB",
+          "name": "Open Library of Humanities"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-12-18"
+      },
+      "created_date": "2017-03-29T14:50:35Z",
+      "id": "01c576110a744c9db5c25fe29363d7bb"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:53Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/evaluacion_por_pares",
+          "board_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "keywords": [
+          "social sciences",
+          "philosophy",
+          "humanities",
+          "political theory",
+          "communication",
+          "culture"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/evaluacion_por_pares"
+        },
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "eissn": "2600-5735",
+        "language": [
+          "ES"
+        ],
+        "title": "Revista Textos y Contextos",
+        "pissn": "1390-695X",
+        "article": {
+          "license_display_example_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/article/view/3932",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "EC",
+          "name": "Universidad Central del Ecuador"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about",
+          "journal": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/index",
+          "oa_statement": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about",
+          "author_instructions": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about/submissions",
+          "license_terms": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "oa_start": 2019,
+        "alternative_title": "Textos y Contextos",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 11,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "EC",
+          "name": "Universidad Central del Ecuador"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-08-29"
+      },
+      "id": "01fe3bf2e3b843ba8d1929d4aff3c26d",
+      "created_date": "2022-08-29T20:08:32Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:58Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://journals.lub.lu.se/nordidactica/riktlinjer",
+          "board_url": "https://journals.lub.lu.se/nordidactica/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.kau.se/nordidactica/bidra/forfattarens-rattigheter"
+        },
+        "keywords": [
+          "social science education",
+          "history education",
+          "geography education"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "eissn": "2000-9879",
+        "language": [
+          "SV",
+          "NO",
+          "EN",
+          "DA"
+        ],
+        "title": "Nordidactica: Journal of Humanities and Social Science Education",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "SE",
+          "name": "Centre for the Social Sciences Didactics"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "Publisher's own license",
+            "SA": false,
+            "url": "https://journals.lub.lu.se/nordidactica/index"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://journals.lub.lu.se/nordidactica/about",
+          "journal": "https://journals.lub.lu.se/nordidactica/index",
+          "oa_statement": "https://journals.lub.lu.se/nordidactica/index",
+          "author_instructions": "https://journals.lub.lu.se/nordidactica/about/submissions",
+          "license_terms": "https://journals.lub.lu.se/nordidactica/index"
+        },
+        "oa_start": 2011,
+        "alternative_title": "Nordidactica: Journal of Humanities & Social Science Education",
+        "apc": {
+          "has_apc": false,
+          "url": "https://journals.lub.lu.se/nordidactica/index"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 32,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "SE",
+          "name": "Karlstads Universitet"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-04-02"
+      },
+      "id": "0210d0100fb844b2abddd43d4b082084",
+      "created_date": "2011-09-12T14:03:38Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:59Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://read.dukeupress.edu/liquid-blackness/pages/Submission_Guidelines",
+          "board_url": "https://read.dukeupress.edu/liquid-blackness/pages/Editorial_Board"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://read.dukeupress.edu/liquid-blackness"
+        },
+        "keywords": [
+          "black studies",
+          "cultural studies",
+          "ethnic studies",
+          "humanities",
+          "social sciences"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          },
+          {
+            "code": "HT51-1595",
+            "scheme": "LCC",
+            "term": "Communities. Classes. Races"
+          }
+        ],
+        "eissn": "2692-3874",
+        "language": [
+          "EN"
+        ],
+        "title": "Liquid Blackness",
+        "article": {
+          "license_display_example_url": "https://read.dukeupress.edu/liquid-blackness/article/5/1/5/173283/Black-Study-GSUThe-Album",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://read.dukeupress.edu/liquid-blackness",
+          "journal": "https://www.dukeupress.edu/liquid-blackness",
+          "oa_statement": "https://www.dukeupress.edu/liquid-blackness",
+          "author_instructions": "https://read.dukeupress.edu/liquid-blackness/pages/Submission_Guidelines",
+          "license_terms": "https://read.dukeupress.edu/liquid-blackness"
+        },
+        "oa_start": 2021,
+        "alternative_title": "Journal of Aesthetics and Black Studies",
+        "apc": {
+          "has_apc": false,
+          "url": "https://read.dukeupress.edu/liquid-blackness"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 48,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/38998",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "US",
+          "name": "Duke University Press"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-09-01"
+      },
+      "id": "0273c130737749e59cce481eac9dc704",
+      "created_date": "2021-09-01T14:12:47Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:47Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://buijhs.journals.ekb.eg/journal/process",
+          "board_url": "https://buijhs.journals.ekb.eg/journal/editorial.board"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://buijhs.journals.ekb.eg/journal/authors.note"
+        },
+        "keywords": [
+          "social sciences",
+          "humanities",
+          "sociology"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://buijhs.journals.ekb.eg/journal/authors.note"
+        },
+        "subject": [
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "eissn": "2314-8810",
+        "language": [
+          "DE",
+          "EN",
+          "FR"
+        ],
+        "title": "Beni-Suef University International Journal of Humanities and Social Sciences",
+        "pissn": "2314-8802",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://buijhs.journals.ekb.eg/journal/aim_scope",
+          "journal": "https://buijhs.journals.ekb.eg/",
+          "oa_statement": "https://buijhs.journals.ekb.eg/journal/about",
+          "author_instructions": "https://buijhs.journals.ekb.eg/journal/authors.note",
+          "license_terms": "https://buijhs.journals.ekb.eg/journal/authors.note"
+        },
+        "oa_start": 2020,
+        "alternative_title": "BSU International Journal of Humanities and Social Sciences",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 250,
+              "currency": "USD"
+            }
+          ],
+          "url": "https://buijhs.journals.ekb.eg/journal/authors.note"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "EG",
+          "name": "Beni-Suef University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-12-19"
+      },
+      "id": "02e3ff63cd99414ca4a72b1ea7f933e3",
+      "created_date": "2022-04-20T12:57:59Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:57Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "board_url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "keywords": [
+          "literary studies",
+          "literary theory",
+          "history of slovak literature",
+          "cultural studies",
+          "textology",
+          "digital humanities"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "language": [
+          "CS",
+          "SK"
+        ],
+        "title": "Slovenska Literatura",
+        "pissn": "0037-6973",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Internet Archive",
+            "Institutional repository of the Slovak Academy of Sciences"
+          ],
+          "url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "journal": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "oa_statement": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "author_instructions": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "license_terms": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "oa_start": 2017,
+        "alternative_title": "Slovak Literature",
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "SK",
+          "name": "Slovak Academy of Sciences, Institute of Slovak Literature"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-03-31"
+      },
+      "id": "02e67b7929554cc48b201305ece74205",
+      "created_date": "2022-03-31T09:36:10Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:52Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub",
+          "board_url": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://brill.com/fileasset/downloads_products/Author_Instructions/JOCH.pdf"
+        },
+        "keywords": [
+          "asian studies",
+          "china",
+          "history",
+          "philosophy",
+          "literature",
+          "culture"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://brill.com/page/ethics/publication-ethics-cope-compliance"
+        },
+        "subject": [
+          {
+            "code": "DS1-937",
+            "scheme": "LCC",
+            "term": "History of Asia"
+          },
+          {
+            "code": "H53",
+            "scheme": "LCC",
+            "term": "Social sciences and state - Asia (Asian studies only)"
+          }
+        ],
+        "eissn": "2352-1341",
+        "language": [
+          "EN"
+        ],
+        "title": "Journal of Chinese Humanities",
+        "pissn": "2352-1333",
+        "article": {
+          "license_display_example_url": "https://brill.com/view/journals/joch/7/1-2/article-p4_2.xml?ebody=pdf-49903",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Portico",
+            "Dutch National Library"
+          ],
+          "url": "https://brill.com/page/144?language=en"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub",
+          "journal": "https://brill.com/view/journals/joch/joch-overview.xml",
+          "oa_statement": "https://brill.com/view/journals/joch/joch-overview.xml",
+          "author_instructions": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub",
+          "license_terms": "https://brill.com/view/journals/joch/joch-overview.xml"
+        },
+        "oa_start": 2020,
+        "apc": {
+          "has_apc": false,
+          "url": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 16,
+        "deposit_policy": {
+          "service": [
+            "publisher site"
+          ],
+          "url": "https://brill.com/page/oalicenses/open-access-licenses",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "NL",
+          "name": "Brill"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-05-02"
+      },
+      "id": "0366027a854840d2a4962e4eb4cd7739",
+      "created_date": "2022-05-02T14:18:56Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:36:27Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://jst-ud.vn/jst-ud/instruction/peer-review-proccess",
+          "board_url": "https://jst-ud.vn/jst-ud/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://jst-ud.vn/jst-ud/about/licence"
+        },
+        "keywords": [
+          "humanities",
+          "natural science",
+          "social science",
+          "advanced engineering",
+          "economics",
+          "information and communications technology"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://jst-ud.vn/jst-ud/instruction/similatity-check"
+        },
+        "subject": [
+          {
+            "code": "T",
+            "scheme": "LCC",
+            "term": "Technology"
+          }
+        ],
+        "language": [
+          "EN",
+          "VI"
+        ],
+        "title": "Tạp chí Khoa học và Công nghệ",
+        "pissn": "1859-1531",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://jst-ud.vn/jst-ud/about/aim-and-scope",
+          "journal": "https://jst-ud.vn/",
+          "oa_statement": "https://jst-ud.vn/jst-ud/about/openaccess",
+          "author_instructions": "https://jst-ud.vn/jst-ud/instruction/author-guideline",
+          "license_terms": "https://jst-ud.vn/jst-ud/about/licence"
+        },
+        "oa_start": 2014,
+        "alternative_title": "The University of Danang - Journal of Science and Technology",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 1000000,
+              "currency": "VND"
+            }
+          ],
+          "url": "https://jst-ud.vn/jst-ud/instruction/paper-processing-fee"
+        },
+        "other_charges": {
+          "has_other_charges": true,
+          "url": "https://jst-ud.vn/jst-ud/instruction/paper-processing-fee"
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "VN",
+          "name": "The University of Danang"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-04-15"
+      },
+      "id": "03cf37eec7d1411bb6827ac8a6da4655",
+      "created_date": "2024-04-15T16:18:51Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:30Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistas.ugm.cl/index.php/rakad/REVISION",
+          "board_url": "https://revistas.ugm.cl/index.php/rakad/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistas.ugm.cl/index.php/rakad/about/privacy"
+        },
+        "keywords": [
+          "philosophy",
+          "psychology",
+          "humanities",
+          "social sciences",
+          "education",
+          "sociology"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistas.ugm.cl/index.php/rakad/Etica"
+        },
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "eissn": "0718-9397",
+        "language": [
+          "ES",
+          "EN"
+        ],
+        "title": "Akadèmeia",
+        "pissn": "0717-9936",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistas.ugm.cl/index.php/rakad/about",
+          "journal": "https://revistas.ugm.cl/index.php/rakad/index",
+          "oa_statement": "https://revistas.ugm.cl/index.php/rakad/REVISION",
+          "author_instructions": "https://revistas.ugm.cl/index.php/rakad/about/submissions",
+          "license_terms": "https://revistas.ugm.cl/index.php/rakad/REVISION"
+        },
+        "oa_start": 2016,
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistas.ugm.cl/index.php/rakad/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CL",
+          "name": "Universidad Gabriela Mistral (UGM)"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-11-30"
+      },
+      "id": "03f4b36d0e024e66b0e92843dcc070c8",
+      "created_date": "2023-11-30T07:39:40Z"
+    },
+    {
+      "last_updated": "2026-04-21T13:33:02Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistas.unicartagena.edu.co/index.php/PersAfro/about/peerevaluation",
+          "board_url": "https://revistas.unicartagena.edu.co/index.php/PersAfro/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistas.unicartagena.edu.co/index.php/PersAfro/about/submissions"
+        },
+        "keywords": [
+          "racialization",
+          "afro-latin american arts and humanities",
+          "black intelectuals",
+          "critical race studies",
+          "blackness",
+          "anti-racism"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistas.unicartagena.edu.co/index.php/PersAfro/about/turnitin"
+        },
+        "subject": [
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          },
+          {
+            "code": "HT51-1595",
+            "scheme": "LCC",
+            "term": "Communities. Classes. Races"
+          }
+        ],
+        "eissn": "2805-7090",
+        "language": [
+          "ES",
+          "EN",
+          "PT",
+          "FR"
+        ],
+        "title": "Perspectivasafro",
+        "article": {
+          "license_display_example_url": "https://revistas.unicartagena.edu.co/index.php/PersAfro/article/view/5774/4366",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistas.unicartagena.edu.co/index.php/PersAfro/about",
+          "journal": "https://revistas.unicartagena.edu.co/index.php/PersAfro/index",
+          "oa_statement": "https://revistas.unicartagena.edu.co/index.php/PersAfro/about/openaccess",
+          "author_instructions": "https://revistas.unicartagena.edu.co/index.php/PersAfro/about/submissions#guidelines",
+          "license_terms": "https://revistas.unicartagena.edu.co/index.php/PersAfro/license"
+        },
+        "oa_start": 2021,
+        "alternative_title": "PerspectivasAfro: Revista de Investigación en Estudios Afrolatinoamericanos y Afrocaribeños",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistas.unicartagena.edu.co/index.php/PersAfro/about/openaccess"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CO",
+          "name": "Universidad de Cartagena"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "03fe89e1e2964e04b63ec9dcf0588db6",
+      "created_date": "2026-04-21T13:33:02Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:23Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/evaluacion",
+          "board_url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/consejoeditorial"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/derechoautor"
+        },
+        "keywords": [
+          "humanities",
+          "social sciences",
+          "history of art",
+          "cultural heritage management",
+          "latin america"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "eissn": "2618-5555",
+        "language": [
+          "ES"
+        ],
+        "title": "Cuadernos de Historia del Arte",
+        "pissn": "0070-1688",
+        "article": {
+          "license_display_example_url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/article/view/2376/1743",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Universidad Nacional de Cuyo. Facultad de Filosofía y Letras. Insstituto de Historia del Arte"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/enfoqueyalcance",
+          "journal": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/index",
+          "oa_statement": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/enfoqueyalcance",
+          "author_instructions": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/normasparaautores",
+          "license_terms": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/catalogacionycalidadeditorial"
+        },
+        "oa_start": 2017,
+        "apc": {
+          "has_apc": false,
+          "url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/enfoqueyalcance"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/enfoqueyalcance"
+        },
+        "publication_time_weeks": 17,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "AR",
+          "name": "Universidad Nacional de Cuyo. Facultad de Filosofía y Letras. Insstituto de Historia del Arte"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2020-05-28"
+      },
+      "id": "041baa2be2da41f3888b2025e1b8a549",
+      "created_date": "2020-05-28T18:46:31Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:16Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistas.uclave.org/index.php/mayeutica/peerReviewProcess",
+          "board_url": "https://revistas.uclave.org/index.php/mayeutica/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistas.uclave.org/index.php/mayeutica/sectionPolicies"
+        },
+        "keywords": [
+          "cultural history",
+          "art",
+          "humanities",
+          "culture",
+          "literature",
+          "human development"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistas.uclave.org/index.php/mayeutica/sectionPolicies"
+        },
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "eissn": "2477-9261",
+        "language": [
+          "EN",
+          "ES"
+        ],
+        "title": "Mayéutica: Revista Científica de Humanidades y Artes",
+        "pissn": "2343-6158",
+        "article": {
+          "license_display_example_url": "https://revistas.uclave.org/index.php/mayeutica/article/view/4477/2856",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "VE",
+          "name": "Universidad Centroccidental Lisandro Alvarado, Decanato Experimental de Humanidades y Artes"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistas.uclave.org/index.php/mayeutica/focusandscope",
+          "journal": "https://revistas.uclave.org/index.php/mayeutica",
+          "oa_statement": "https://revistas.uclave.org/index.php/mayeutica/focusandscope",
+          "author_instructions": "https://revistas.uclave.org/index.php/mayeutica/about/submissions",
+          "license_terms": "https://revistas.uclave.org/index.php/mayeutica/focusandscope"
+        },
+        "oa_start": 2013,
+        "alternative_title": "Mayéutica",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistas.uclave.org/index.php/mayeutica/focusandscope"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 8,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "VE",
+          "name": "Universidad Centroccidental Lisandro Alvarado"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-03-10"
+      },
+      "id": "041f8eadf2d046d3937d57f9c35ca681",
+      "created_date": "2016-10-03T09:57:32Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:13Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/pdf/trans_statement_jhass.pdf",
+          "board_url": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/editorial_team.htm"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/pdf/trans_statement_jhass.pdf"
+        },
+        "keywords": [
+          "humanities",
+          "social sciences"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/pdf/trans_statement_jhass.pdf"
+        },
+        "subject": [
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "eissn": "2632-279X",
+        "language": [
+          "EN"
+        ],
+        "title": "Journal of Humanities and Applied Social Sciences",
+        "article": {
+          "license_display_example_url": "https://www.emerald.com/insight/content/doi/10.1108/JHASS-11-2019-0073/full/html",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Cairo University"
+        },
+        "preservation": {
+          "has_preservation": false,
+          "url": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/pdf/trans_statement_jhass.pdf"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/index.htm",
+          "journal": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/index.htm",
+          "oa_statement": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/pdf/trans_statement_jhass.pdf",
+          "author_instructions": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/authors.htm",
+          "license_terms": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/pdf/trans_statement_jhass.pdf"
+        },
+        "oa_start": 2019,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/pdf/trans_statement_jhass.pdf"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "https://www.emeraldgrouppublishing.com/services/publishing/jhass/pdf/trans_statement_jhass.pdf"
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "GB",
+          "name": "Emerald Publishing"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2020-03-16"
+      },
+      "id": "042f0be1962f4fd39fd6576f6c72fd7e",
+      "created_date": "2020-03-16T17:08:54Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:24Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#peerReviewProcess",
+          "board_url": "https://periodicos.fundaj.gov.br/CIC/about/displayMembership/11"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#custom-3"
+        },
+        "keywords": [
+          "social science",
+          "humanities"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#custom-1"
+        },
+        "subject": [
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "eissn": "2526-9372",
+        "language": [
+          "PT"
+        ],
+        "title": "Ciência & Trópico",
+        "pissn": "0304-2685",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false,
+          "url": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#archiving"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#focusAndScope",
+          "journal": "https://periodicos.fundaj.gov.br/CIC/index",
+          "oa_statement": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "https://periodicos.fundaj.gov.br/CIC/about/submissions#authorGuidelines",
+          "license_terms": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#custom-2"
+        },
+        "oa_start": 2012,
+        "alternative_title": "Revista C&Trópico",
+        "apc": {
+          "has_apc": false,
+          "url": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#custom-0"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "https://periodicos.fundaj.gov.br/CIC/about/editorialPolicies#custom-0"
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "service": [
+            "Diadorim"
+          ],
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "BR",
+          "name": "Fundação Joaquim Nabuco (Joaquim Nabuco Foundation)"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2019-08-30"
+      },
+      "id": "0458de4c6b4b4071b7afaa153544e4b2",
+      "created_date": "2019-07-08T19:38:42Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:44Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://conexoes.ifce.edu.br/index.php/conexoes/about/submissions",
+          "board_url": "https://conexoes.ifce.edu.br/index.php/conexoes/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://conexoes.ifce.edu.br/index.php/conexoes/about/submissions"
+        },
+        "keywords": [
+          "multidisciplinary teaching",
+          "engineering",
+          "humanities",
+          "exact sciences",
+          "health sciences",
+          "biological sciences"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://conexoes.ifce.edu.br/index.php/conexoes/politica-editorial"
+        },
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          },
+          {
+            "code": "Q",
+            "scheme": "LCC",
+            "term": "Science"
+          },
+          {
+            "code": "R",
+            "scheme": "LCC",
+            "term": "Medicine"
+          },
+          {
+            "code": "S",
+            "scheme": "LCC",
+            "term": "Agriculture"
+          },
+          {
+            "code": "T",
+            "scheme": "LCC",
+            "term": "Technology"
+          }
+        ],
+        "eissn": "2176-0144",
+        "language": [
+          "PT",
+          "EN"
+        ],
+        "title": "Conexões: Ciência e Tecnologia",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Cariniana Network"
+          ],
+          "url": "https://portal.issn.org/resource/ISSN/2176-0144"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://conexoes.ifce.edu.br/index.php/conexoes/about",
+          "journal": "https://conexoes.ifce.edu.br/index.php/conexoes",
+          "oa_statement": "https://conexoes.ifce.edu.br/index.php/conexoes/about",
+          "author_instructions": "https://conexoes.ifce.edu.br/index.php/conexoes/about/submissions",
+          "license_terms": "https://conexoes.ifce.edu.br/index.php/conexoes/about/submissions"
+        },
+        "oa_start": 2010,
+        "apc": {
+          "has_apc": false,
+          "url": "https://conexoes.ifce.edu.br/index.php/conexoes/politica-editorial"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 30,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "BR",
+          "name": "Instituto Federal de Educação, Ciência e Tecnologia do Ceará"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-08-09"
+      },
+      "id": "04adbdec4535475eb7b591c028e0520e",
+      "created_date": "2024-08-09T11:44:51Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:02Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://revistas.academia.cl/index.php/rantros/about",
+          "board_url": "http://revistas.academia.cl/index.php/rantros/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://revistas.academia.cl/index.php/rantros/about"
+        },
+        "keywords": [
+          "antropology",
+          "social sciences",
+          "humanities",
+          "latin america"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "GN1-890",
+            "scheme": "LCC",
+            "term": "Anthropology"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "eissn": "0719-5532",
+        "language": [
+          "ES",
+          "PT"
+        ],
+        "title": "Antropologías del Sur",
+        "pissn": "0719-4498",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://revistas.academia.cl/index.php/rantros/about",
+          "journal": "http://revistas.academia.cl/index.php/rantros",
+          "oa_statement": "http://revistas.academia.cl/index.php/rantros/about",
+          "author_instructions": "http://revistas.academia.cl/index.php/rantros/about/submissions",
+          "license_terms": "http://revistas.academia.cl/index.php/rantros/about"
+        },
+        "oa_start": 2014,
+        "apc": {
+          "has_apc": false,
+          "url": "http://revistas.academia.cl/index.php/rantros/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 11,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CL",
+          "name": "Universidad Academia de Humanismo Cristiano"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-08-27"
+      },
+      "created_date": "2017-05-08T18:39:11Z",
+      "id": "04f77616598242b2ba3ad15664f74c53"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:15Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://periodicos.ufsm.br/sociaisehumanas/about/editorialPolicies#peerReviewProcess",
+          "board_url": "https://periodicos.ufsm.br/sociaisehumanas/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://periodicos.ufsm.br/sociaisehumanas/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "administration",
+          "communications",
+          "psychology",
+          "international relations"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "eissn": "2317-1758",
+        "language": [
+          "PT"
+        ],
+        "title": "Revista Sociais e Humanas",
+        "pissn": "0103-0620",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidade Federal de Santa Maria (UFSM)"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Cariniana Network"
+          ],
+          "url": "https://periodicos.ufsm.br/sociaisehumanas/about/editorialPolicies#archiving"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://periodicos.ufsm.br/sociaisehumanas/about/editorialPolicies#focusAndScope",
+          "journal": "https://periodicos.ufsm.br/sociaisehumanas/index",
+          "oa_statement": "https://periodicos.ufsm.br/sociaisehumanas/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "https://periodicos.ufsm.br/sociaisehumanas/about/submissions#authorGuidelines",
+          "license_terms": "https://periodicos.ufsm.br/sociaisehumanas/about/submissions#copyrightNotice"
+        },
+        "oa_start": 1998,
+        "apc": {
+          "has_apc": false,
+          "url": "https://periodicos.ufsm.br/sociaisehumanas/about/editorialPolicies#openAccessPolicy"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 16,
+        "deposit_policy": {
+          "service": [
+            "Diadorim"
+          ],
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "BR",
+          "name": "Universidade Federal de Santa Maria (UFSM)"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-09-13"
+      },
+      "created_date": "2019-04-30T17:02:13Z",
+      "id": "04f8e793ebb94680b2aa32008fe3a5ed"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:19Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://meioambientebrasil.com.br/index.php/MABRA/about/editorialPolicies#peerReviewProcess",
+          "board_url": "https://meioambientebrasil.com.br/index.php/MABRA/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://meioambientebrasil.com.br/index.php/MABRA/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "environment",
+          "environmental sciences",
+          "social sciences",
+          "humanities",
+          "human geography",
+          "physical geography"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://meioambientebrasil.com.br/index.php/MABRA/about/editorialPolicies#custom-0"
+        },
+        "subject": [
+          {
+            "code": "GE1-350",
+            "scheme": "LCC",
+            "term": "Environmental sciences"
+          },
+          {
+            "code": "TD1-1066",
+            "scheme": "LCC",
+            "term": "Environmental technology. Sanitary engineering"
+          }
+        ],
+        "eissn": "2675-3065",
+        "language": [
+          "ES",
+          "PT",
+          "EN"
+        ],
+        "title": "Meio Ambiente (Brasil)",
+        "article": {
+          "license_display_example_url": "https://meioambientebrasil.com.br/index.php/MABRA/article/view/152/113",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://meioambientebrasil.com.br/index.php/MABRA/about/editorialPolicies#focusAndScope",
+          "journal": "https://meioambientebrasil.com.br/index.php/MABRA/index",
+          "oa_statement": "https://meioambientebrasil.com.br/index.php/MABRA/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "https://meioambientebrasil.com.br/index.php/MABRA/about/submissions#authorGuidelines",
+          "license_terms": "https://meioambientebrasil.com.br/index.php/MABRA/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2019,
+        "alternative_title": "MABRA",
+        "apc": {
+          "has_apc": false,
+          "url": "https://meioambientebrasil.com.br/index.php/MABRA/about/submissions#authorFees"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 16,
+        "deposit_policy": {
+          "service": [
+            "Diadorim"
+          ],
+          "url": "https://diadorim.ibict.br/handle/1/2784",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "BR",
+          "name": "Reativar Ambiental"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-01-28"
+      },
+      "id": "05792aef022d4a7f81671684dc22605d",
+      "created_date": "2022-01-28T09:54:47Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:10Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Editorial review",
+            "Anonymous peer review"
+          ],
+          "review_url": "https://st-open.unist.hr/index.php/st-open/editorial-process",
+          "board_url": "https://st-open.unist.hr/index.php/st-open/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://st-open.unist.hr/index.php/st-open/editorial-policies"
+        },
+        "keywords": [
+          "overlay",
+          "humanities",
+          "social sciences",
+          "natural sciences",
+          "life sciences",
+          "engineering"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://st-open.unist.hr/index.php/st-open/editorial-process"
+        },
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "eissn": "2718-3734",
+        "language": [
+          "EN"
+        ],
+        "title": "St-Open",
+        "article": {
+          "license_display_example_url": "https://st-open.unist.hr/index.php/st-open/article/view/107/86",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "PKP PN"
+          ],
+          "national_library": [
+            "HRČAK- Portal hrvatskih znanstvenih i stručnih časopisa"
+          ],
+          "url": "https://hrcak.srce.hr/st-open"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://st-open.unist.hr/index.php/st-open/about",
+          "journal": "https://st-open.unist.hr/index.php/st-open",
+          "oa_statement": "https://st-open.unist.hr/index.php/st-open/about",
+          "author_instructions": "https://st-open.unist.hr/index.php/st-open/manuscript-preparation",
+          "license_terms": "https://st-open.unist.hr/index.php/st-open/about"
+        },
+        "oa_start": 2020,
+        "apc": {
+          "has_apc": false,
+          "url": "https://st-open.unist.hr/index.php/st-open/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 30,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://st-open.unist.hr/index.php/st-open/about",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "HR",
+          "name": "University of Split"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-01-19"
+      },
+      "id": "058598b918794deea43f5f97a050e2c0",
+      "created_date": "2024-01-19T13:36:36Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/journals/humanities?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/journals/humanities?page=38&pageSize=25"
+}

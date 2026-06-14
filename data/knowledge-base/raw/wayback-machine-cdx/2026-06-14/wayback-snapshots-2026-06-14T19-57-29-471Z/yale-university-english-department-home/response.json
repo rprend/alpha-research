@@ -1,0 +1,30 @@
+[
+  [
+    "timestamp",
+    "original",
+    "statuscode",
+    "mimetype",
+    "digest"
+  ],
+  [
+    "20200107200903",
+    "https://english.yale.edu/",
+    "200",
+    "text/html",
+    "WKQL6R6VB2OJCUMI6QICNVCDKALYIWSP"
+  ],
+  [
+    "20201027152537",
+    "https://english.yale.edu/?mini=2020-08",
+    "200",
+    "text/html",
+    "3MUNTCZ5VQJYRQ3MK3X2P4A5MA7RP5GZ"
+  ],
+  [
+    "20201027152306",
+    "https://english.yale.edu/?mini=2020-10",
+    "200",
+    "text/html",
+    "NEUDIJNPJTQ7R4VUWGOKPNT4KLYZC36T"
+  ]
+]

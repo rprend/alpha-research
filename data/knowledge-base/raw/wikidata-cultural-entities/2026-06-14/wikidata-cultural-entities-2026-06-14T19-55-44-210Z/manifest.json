@@ -1,0 +1,182 @@
+{
+  "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+  "source_id": "wikidata-cultural-entities",
+  "generated_at": "2026-06-14T19:56:32.715Z",
+  "per_query": 25,
+  "source_count": 9,
+  "success_count": 6,
+  "failed_count": 3,
+  "record_count": 121,
+  "records_by_category": {
+    "artists": 21,
+    "authors": 17,
+    "concepts": 25,
+    "genres": 22,
+    "movements": 24,
+    "philosophers": 12
+  },
+  "records": [
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "authors",
+      "started_at": "2026-06-14T19:55:44.235Z",
+      "completed_at": "2026-06-14T19:55:55.382Z",
+      "status": "success",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T19-55-44-210Z/01-authors.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": []
+    },
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "artists",
+      "started_at": "2026-06-14T19:55:55.883Z",
+      "completed_at": "2026-06-14T19:56:08.797Z",
+      "status": "success",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T19-55-44-210Z/02-artists.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": []
+    },
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "philosophers",
+      "started_at": "2026-06-14T19:56:09.298Z",
+      "completed_at": "2026-06-14T19:56:11.770Z",
+      "status": "success",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T19-55-44-210Z/03-philosophers.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": []
+    },
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "works",
+      "started_at": "2026-06-14T19:56:12.270Z",
+      "completed_at": "2026-06-14T19:56:21.374Z",
+      "status": "failed",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": [
+        "HTTP 502 Bad Gateway"
+      ]
+    },
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "movements",
+      "started_at": "2026-06-14T19:56:21.875Z",
+      "completed_at": "2026-06-14T19:56:22.121Z",
+      "status": "success",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T19-55-44-210Z/05-movements.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": []
+    },
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "genres",
+      "started_at": "2026-06-14T19:56:22.621Z",
+      "completed_at": "2026-06-14T19:56:22.928Z",
+      "status": "success",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T19-55-44-210Z/06-genres.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": []
+    },
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "institutions",
+      "started_at": "2026-06-14T19:56:23.429Z",
+      "completed_at": "2026-06-14T19:56:23.473Z",
+      "status": "failed",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": [
+        "HTTP 502 Bad Gateway"
+      ]
+    },
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "journals",
+      "started_at": "2026-06-14T19:56:23.974Z",
+      "completed_at": "2026-06-14T19:56:24.010Z",
+      "status": "failed",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": [
+        "HTTP 502 Bad Gateway"
+      ]
+    },
+    {
+      "run_id": "wikidata-cultural-entities-2026-06-14T19-55-44-210Z",
+      "source_id": "wikidata-cultural-entities",
+      "route_slug": "concepts",
+      "started_at": "2026-06-14T19:56:24.511Z",
+      "completed_at": "2026-06-14T19:56:32.188Z",
+      "status": "success",
+      "access_route": "https://query.wikidata.org/sparql",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T19-55-44-210Z/09-concepts.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 25,
+      "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
+      "errors": []
+    }
+  ]
+}

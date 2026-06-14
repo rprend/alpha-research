@@ -1,7 +1,7 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T19:50:55.513Z
-Replacement plans: 15
+Generated at: 2026-06-14T20:04:09.265Z
+Replacement plans: 16
 
 ## harvard-humanities-departments
 
@@ -106,8 +106,8 @@ Replacement plans: 15
 - Class: journals-and-reviews
 - Ingest status: blocked
 - Replacement status: replacement-needed
-- Failure count: 4
-- Latest failure: 2026-06-13T16:41:51.214Z
+- Failure count: 6
+- Latest failure: 2026-06-14T20:02:56.346Z
 - Latest error: HTTP 404 Not Found
 - Affected targets: No target metadata.
 - Failed routes:
@@ -184,19 +184,19 @@ Replacement plans: 15
 - Class: web-archives
 - Ingest status: seeded-from-experiment
 - Replacement status: retry-with-smaller-route
-- Failure count: 10
-- Latest failure: 2026-06-14T18:29:20.316Z
+- Failure count: 20
+- Latest failure: 2026-06-14T20:04:03.662Z
 - Latest error: This operation was aborted
-- Affected targets: Harvard University English department-home; Yale University English department-home; University of Chicago Humanities Division division-home; Harvard University History department-home; Yale University History department-home; Princeton University History department-home
+- Affected targets: Harvard University English department-home; Yale University English department-home; University of Chicago Humanities Division division-home; Harvard University History department-home; Yale University History department-home; Princeton University History department-home; Harvard University Philosophy department-home; Yale University Comparative Literature department-home
 - Failed routes:
-  - https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
-  - https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
-  - https://web.archive.org/cdx?url=humanities.uchicago.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
-  - https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10
-  - https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10
-  - https://web.archive.org/cdx?url=history.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10
-  - https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10
-  - https://web.archive.org/cdx?url=history.princeton.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10
+  - https://web.archive.org/cdx?url=philosophy.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
+  - https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
+  - https://web.archive.org/cdx?url=complit.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3
+  - https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
+  - https://web.archive.org/cdx?url=history.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
+  - https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
+  - https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
+  - https://web.archive.org/cdx?url=complit.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2
 - Replacement routes:
   - Use exact URL CDX queries before wildcard queries.
   - Reduce limits and avoid collapse parameters for unstable routes.
@@ -210,8 +210,8 @@ Replacement plans: 15
 - Class: cultural-collections
 - Ingest status: active
 - Replacement status: rate-limit-backoff
-- Failure count: 1
-- Latest failure: 2026-06-14T19:01:47.833Z
+- Failure count: 3
+- Latest failure: 2026-06-14T20:02:34.741Z
 - Latest error: HTTP 429 Too Many Requests
 - Affected targets: No target metadata.
 - Failed routes:
@@ -240,6 +240,24 @@ Replacement plans: 15
 - Next action: Replace catalog-page scraping with documented metadata download/export workflow after terms review.
 - Do not do: Do not scrape blocked catalog pages or store restricted full text.
 
+## wikidata-cultural-entities
+
+- Name: Wikidata Cultural Entities
+- Class: linked-open-data
+- Ingest status: active
+- Replacement status: source-specific-review-needed
+- Failure count: 3
+- Latest failure: 2026-06-14T19:56:24.010Z
+- Latest error: HTTP 502 Bad Gateway
+- Affected targets: No target metadata.
+- Failed routes:
+  - https://query.wikidata.org/sparql
+- Replacement routes:
+  - Review source terms, robots, documented APIs, sitemaps, and public exports.
+  - Prefer metadata routes over page scraping where available.
+- Next action: Write a source-specific acquisition note before retrying.
+- Do not do: Do not repeatedly retry the same failed route without a changed route or terms decision.
+
 ## aha-annual-meeting-programs
 
 - Name: American Historical Association Annual Meeting Programs
@@ -264,8 +282,8 @@ Replacement plans: 15
 - Class: scholarly-metadata
 - Ingest status: active
 - Replacement status: partial-route-retry
-- Failure count: 1
-- Latest failure: 2026-06-13T16:25:24.203Z
+- Failure count: 2
+- Latest failure: 2026-06-14T19:57:06.628Z
 - Latest error: This operation was aborted
 - Affected targets: No target metadata.
 - Failed routes:

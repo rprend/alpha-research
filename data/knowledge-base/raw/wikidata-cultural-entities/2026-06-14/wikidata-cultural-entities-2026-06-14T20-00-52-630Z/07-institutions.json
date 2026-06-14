@@ -1,0 +1,540 @@
+{
+  "head": {
+    "vars": [
+      "entity",
+      "entityLabel",
+      "entityDescription",
+      "inception",
+      "countryLabel"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q12432"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1885-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Michigan Technological University"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "University in Houghton, Michigan"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q13338"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1971-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "University of Bordeaux 1"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "former French university founded in 1971, replaced and abolished in 2014"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q15142"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1863-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "University of Massachusetts Amherst"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "public university in Massachusetts, USA"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q15144"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1964-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "University of Massachusetts Boston"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American public university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q15570"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1963-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "The Chinese University of Hong Kong"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "public research university in Hong Kong established in 1963"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q16947"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1907-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Tongji University"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "university located in Shanghai, China"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q16955"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1911-03-30T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Tsinghua University"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "public university in Beijing, China"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q23101"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1940-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Beijing Institute of Technology"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q23102"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1953-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Harbin Engineering University"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Chinese university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q23110"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1952-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Nanjing University of Aeronautics and Astronautics"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q23966"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1930-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Kharkiv Petro Vasylenko National Technical University of Agriculture"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ukrainian university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q23977"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1967-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Kharkiv State University of Food Technology and Trade"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ukrainian university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q23985"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1962-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Khmelnytskyi National University"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ukrainian university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q24144"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1923-11-11T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Kharkiv Medical Academy of Post-graduate Education"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ukrainian university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q24399"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1932-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "University of Saint Joseph"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "university in West Hartford, Connecticut"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q24420"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1935-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Kharkiv College of Textile and Design"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "university in Kharkiv, Ukraine"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q27265"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1622-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "University of Salzburg"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "university in Austria"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q27265"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1962-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "University of Salzburg"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "university in Austria"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q28695"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1640-03-26T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "University of Helsinki"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "public university in Helsinki, Finland"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q29131"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1982-08-29T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "IAIN Ambon"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "State Islamic University in Ambon City, Maluku , Indonesia"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q29716"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1933-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Universidad Autónoma Nuevo León"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "public university in the state Nuevo León in Mexico"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q29718"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1991-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Jaume I University"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "public university of Castelló"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q29731"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1988-05-13T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Universidad Mayor"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Chilean private university"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q31519"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1348-04-15T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Charles University"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "oldest and largest university in the Czech Republic"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q31867"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1973-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "National University of Costa Rica"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "public university in Costa Rica"
+        }
+      }
+    ]
+  }
+}

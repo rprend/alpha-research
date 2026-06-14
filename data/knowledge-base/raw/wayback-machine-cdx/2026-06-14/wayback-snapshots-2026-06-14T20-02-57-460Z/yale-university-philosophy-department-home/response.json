@@ -1,0 +1,23 @@
+[
+  [
+    "timestamp",
+    "original",
+    "statuscode",
+    "mimetype",
+    "digest"
+  ],
+  [
+    "20200113214624",
+    "https://philosophy.yale.edu/",
+    "200",
+    "text/html",
+    "A6XVVHUG7WIAZSHOQ5Q5M5JUXMFGBMBK"
+  ],
+  [
+    "20250324091401",
+    "https://philosophy.yale.edu/?page=0",
+    "200",
+    "text/html",
+    "NTCOQZ5YHR3LZBQYDCDG6EMD5ODYBMZ4"
+  ]
+]

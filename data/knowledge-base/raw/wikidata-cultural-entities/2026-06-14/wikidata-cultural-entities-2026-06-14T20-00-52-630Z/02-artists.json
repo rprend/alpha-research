@@ -1,0 +1,760 @@
+{
+  "head": {
+    "vars": [
+      "entity",
+      "entityLabel",
+      "entityDescription",
+      "birth",
+      "death",
+      "countryLabel",
+      "movementLabel"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q40096"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1968-09-25T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Will Smith"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American actor, film producer and rapper (born 1968)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United States"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q40479"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1969-01-12T00:00:00Z"
+        },
+        "entityLabel": {
+          "type": "literal",
+          "value": "Q40479"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "English novelist (b. 1969)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United Kingdom"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q40503"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2005-02-19T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Alma Deutscher"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "British composer, pianist and violinist"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United Kingdom"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q40580"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1961-04-12T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Lisa Gerrard"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Australian musician, singer and composer"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Australia"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41074"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1927-12-25T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ram Narayan"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Indian classical sarangi player (1927–2024)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "India"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2024-11-09T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41074"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1927-12-25T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Ram Narayan"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Indian classical sarangi player (1927–2024)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "British Raj"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2024-11-09T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41076"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1969-03-27T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Mariah Carey"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American singer (born 1969)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United States"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41173"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1992-08-20T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Demi Lovato"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American singer, songwriter, and actress (born 1992)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United States"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41223"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1890-02-10T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Boris Pasternak"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Russian writer (1890–1960)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Soviet Union"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1960-05-30T00:00:00Z"
+        },
+        "movementLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Futurism"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41223"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1890-02-10T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Boris Pasternak"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Russian writer (1890–1960)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Russian Empire"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1960-05-30T00:00:00Z"
+        },
+        "movementLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Futurism"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41281"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1949-07-17T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Martik Qaraxanyan"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Iranian guitarist and singer"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Iran"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41309"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1811-10-22T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Franz Liszt"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Hungarian romantic composer and virtuoso pianist (1811-1886)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Austria–Hungary"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1886-07-31T00:00:00Z"
+        },
+        "movementLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Romantic music"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41309"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1811-10-22T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Franz Liszt"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Hungarian romantic composer and virtuoso pianist (1811-1886)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Austrian Empire"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1886-07-31T00:00:00Z"
+        },
+        "movementLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Romantic music"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41309"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1811-10-22T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Franz Liszt"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Hungarian romantic composer and virtuoso pianist (1811-1886)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Kingdom of Hungary"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1886-07-31T00:00:00Z"
+        },
+        "movementLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Romantic music"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41408"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1898-06-05T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Federico García Lorca"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Spanish poet, dramatist and prose writer (1898–1936)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Spain"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1936-08-19T00:00:00Z"
+        },
+        "movementLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Generation of ‘27"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41555"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1819-06-20T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Jacques Offenbach"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "German-born French composer (1819–1880)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "France"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1880-10-05T00:00:00Z"
+        },
+        "movementLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Romanticism"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41555"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1819-06-20T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Jacques Offenbach"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "German-born French composer (1819–1880)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Kingdom of Prussia"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1880-10-05T00:00:00Z"
+        },
+        "movementLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Romanticism"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41594"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1980-12-18T00:00:00Z"
+        },
+        "entityLabel": {
+          "type": "literal",
+          "value": "Q41594"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American singer, songwriter and actress"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United States"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41618"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "0866-09-23T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Leo VI the Wise"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Byzantine Emperor"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Byzantine Empire"
+        },
+        "death": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "0912-05-16T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q41780"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1961-07-08T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Karl Seglem"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Norwegian jazz musician"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Norway"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q42018"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1952-10-27T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Anuradha Paudwal"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Indian playback singer"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "India"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q42025"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1970-04-10T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Q-Tip"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American rapper, singer and record producer"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United States"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q42402"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1958-09-22T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Andrea Bocelli"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Italian tenor and singer-songwriter (born 1958)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Italy"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q42455"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1965-11-21T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Björk"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Icelandic singer (born 1965)"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Iceland"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q42493"
+        },
+        "birth": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1984-10-25T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Katy Perry"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "American singer"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United States"
+        }
+      }
+    ]
+  }
+}

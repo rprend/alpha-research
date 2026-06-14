@@ -1,0 +1,86 @@
+{
+  "objectID": 483042,
+  "isHighlight": false,
+  "accessionNumber": "1984.207",
+  "accessionYear": "1984",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 162129,
+      "role": "Artist",
+      "name": "Joan Miró",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500014094",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q152384",
+      "gender": ""
+    }
+  ],
+  "department": "Modern and Contemporary Art",
+  "objectName": "Painting",
+  "title": "Painting",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Joan Miró",
+  "artistDisplayBio": "Spanish, Barcelona 1893–1983 Palma de Mallorca",
+  "artistSuffix": "",
+  "artistAlphaSort": "Miró, Joan",
+  "artistNationality": "Spanish",
+  "artistBeginDate": "1893",
+  "artistEndDate": "1983",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q152384",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500014094",
+  "objectDate": "1927",
+  "objectBeginDate": 1927,
+  "objectEndDate": 1927,
+  "medium": "Tempera and oil on canvas",
+  "dimensions": "28 3/4 x 36 1/4 in. (73 x 92.1 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 73,
+        "Width": 92.1
+      }
+    },
+    {
+      "elementName": "Framed",
+      "elementDescription": "F.1984.207 Silver wood w/AR plexi",
+      "elementMeasurements": {
+        "Depth": 4.4450088,
+        "Height": 77.4702,
+        "Width": 96.5202
+      }
+    }
+  ],
+  "creditLine": "Gift of Pierre Matisse, in memory of Pierre Loeb, 1984",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Paintings",
+  "rightsAndReproduction": "© 2026 Artists Rights Society (ARS), New York",
+  "linkResource": "",
+  "metadataDate": "2026-03-31T09:41:00.23Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/483042",
+  "tags": null,
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q19920901",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

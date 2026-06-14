@@ -1,0 +1,475 @@
+{
+  "head": {
+    "vars": [
+      "entity",
+      "entityLabel",
+      "entityDescription",
+      "inception",
+      "countryLabel"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q4692"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Renaissance"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "cultural movement that spanned the period roughly from the 14th to the 17th century"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q6010"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "rapping"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "artistic form of vocal delivery and emotive expression that incorporates \"rhyme, rhythmic speech, and [commonly] street vernacular\""
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1970-01-01T00:00:00Z"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "United States"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q6034"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Dada"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "avant-garde art movement in the early 20th century"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1910-01-01T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q14378"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Neoclassicism"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Western cultural movement inspired by ancient Greece and Rome"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q17516"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "street art"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "art that is public and temporary in public spaces"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q24312"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Munich Secession"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "association of artists (1892-1938, 1946-)"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1892-04-04T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q34636"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Art Nouveau"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "international philosophy and style of art, architecture and applied art"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1890-01-01T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q35874"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "humour"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "tendency of someone to point out and emphasize the comical nature of something (or the mental state that leads to this tendency)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q37068"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Romanticism"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "artistic, literary, musical, and intellectual movement"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q37484"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "epic poem"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "lengthy narrative poem, ordinarily detailing heroic deeds"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q37853"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Baroque"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "cultural movement, starting around 1600"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q38166"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "modern art"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "artistic works produced during the period extending roughly from the 1860s to the 1970s"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1860-01-01T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q38976"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "First Athenian School"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "poetical movement active in Athens, Greece from 1830 to 1880"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q39427"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "surrealism"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "international cultural movement that began in the early 1920s"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1920-01-01T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q40415"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Impressionism"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "19th-century art movement"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1860-01-01T00:00:00Z"
+        },
+        "countryLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Normandy"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q42934"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "cubism"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "early-20th-century avant-garde art movement"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1907-01-01T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q46805"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Romanesque art"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "artistic style of Europe from approximately 1000 AD to the 13th century"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q46825"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Gothic art"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "style of Medieval art developed in Northern France"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q47783"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Postmodernism"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "philosophical and artistic movement"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q55995"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Naturalism"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "art movement"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q62506"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Caravaggisti"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "followers of the 16th-century Italian Baroque painter Caravaggio"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80113"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Expressionism"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "modernist art movement"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q102932"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "avant-garde"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "works that are experimental or innovative"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q108908"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Fluxus"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "international network of artists, composers and designers"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1960-01-01T00:00:00Z"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q124354"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Bauhaus"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "school in Germany that combined crafts and the fine arts"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1919-01-01T00:00:00Z"
+        }
+      }
+    ]
+  }
+}

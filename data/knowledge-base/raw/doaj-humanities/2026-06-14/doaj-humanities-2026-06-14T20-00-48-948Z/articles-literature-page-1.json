@@ -1,0 +1,1761 @@
+{
+  "total": 1179638,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T20:00:49.461253Z",
+  "query": "literature",
+  "results": [
+    {
+      "last_updated": "2025-08-19T20:49:19Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.46570/utjms.vol5-2018-250",
+            "type": "doi"
+          },
+          {
+            "id": "2469-6706",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "country": "US",
+          "issns": [
+            "2469-6706"
+          ],
+          "publisher": "The University of Toledo",
+          "language": [
+            "EN"
+          ],
+          "title": "Translation"
+        },
+        "month": "October",
+        "year": "2018",
+        "subject": [
+          {
+            "code": "R5-920",
+            "scheme": "LCC",
+            "term": "Medicine (General)"
+          }
+        ],
+        "author": [
+          {
+            "name": "Sarah Perz"
+          },
+          {
+            "name": "Timothy Suttle"
+          },
+          {
+            "name": "Puneet Sindhwani"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://openjournals.utoledo.edu/index.php/translation/article/view/250"
+          }
+        ],
+        "abstract": "Background: The presence of a ureter in a hernia sac presents a unique surgical challenge and can increase the likelihood of ureteral injury at the time of surgery as they are often not identified pre-operatively. Here we present our institutional experience and thorough systematic review in order to provide guidance on the urologist’s role in this situation.\n\nMaterials and Methods: A PubMed and Medline search was conducted to identify relevant literature published in the year 2000 or later. Case reports and case series in the English language were included using terms “ureter and hernia”, “herniated ureter”, “ureteral hernia”, inguinal hernia and ureter”.\n\nResults: The presence of a ureter in an inguinal hernia sac is an uncommon finding. When present, many are not identified pre-operatively, which places the patient at risk for ureteral injury during herniorrhaphy.Patients with ureters contained in their inguinal hernias, that were identified pre-operatively or intra-operatively and not injured, recovered well. Post-operative imaging, when performed, showed stabilization or improvement of hydronephrosis and a more normal course of the ureter. One case reported the identification of ureteral involvement post-operatively after injury, which resulted in worsened renal function and required a re-operation.\n\nConclusions:The presence of a ureter in an inguinal hernia can be differently managed. The primary goal should be avoidance of injury intra-operatively.",
+        "title": "Management of Ureters Involved in Inguinal Hernias"
+      },
+      "id": "0000050db1b64c49ab6a87547afd75bb",
+      "created_date": "2021-06-23T17:26:18Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:37:52Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2397-1835",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5334/gjgl.858",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2397-1835"
+          ],
+          "publisher": "Open Library of Humanities",
+          "language": [
+            "EN"
+          ],
+          "title": "Glossa"
+        },
+        "month": "7",
+        "keywords": [
+          "event distributivity",
+          "event plurality",
+          "spatial distribution",
+          "exhaustivity",
+          "distributive share/key",
+          "atomicity"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-9117-4692",
+            "affiliation": "University of Groningen, Groningen, NL; University of Nantes, Nantes",
+            "name": "Ana Bosnić"
+          },
+          {
+            "affiliation": "University of Nantes, Nantes",
+            "name": "Hamida Demirdache"
+          },
+          {
+            "affiliation": "University of Groningen, Groningen",
+            "name": "Jennifer Spenader"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.glossa-journal.org/article/id/5326/"
+          },
+          {
+            "content_type": "application/pdf",
+            "type": "fulltext",
+            "url": "https://www.glossa-journal.org/article/5326/galley/12924/download/"
+          }
+        ],
+        "abstract": "In some languages, distributive markers/quantifiers can attach to the argument that is being distributed (the distributive share), as opposed to the restrictor of the sentence (the distributive key). Researchers agree that distributive share markers can also distribute over events (and not only individuals), but disagree as to what these markers are semantically – universal distributive quantifiers or event plurality (pluractional) markers. In this paper, we experimentally probe spatial event distribution. On a universal quantification account, exhaustive distribution over a spatial distributive key is enforced, while on the pluractional analysis there is no such requirement. We carried out two picture verification experiments to test exhaustivity requirements in intransitive sentences with distributive share markers from two typologically different languages: the Serbian marker po and the Korean marker -ssik. We found evidence for an exhaustivity requirement over pluralities of non-atomic individuals (groups), but not over designated spatial locations. We interpret these findings as evidence that the semantics of (spatial) event distribution with distributive share markers involves a (spatial) distributive key. Specifically, po/-ssik have a universal quantificational force (with a meaning akin to per (each)) establishing a distributive relation between individual events and elements of the spatial distributive key. Plural individuals made salient in the visual input can serve to divide up the spatial key into chunks of space that have to be exhausted.",
+        "title": "Dancing monkeys in Serbian and Korean – exhaustivity requirements on distributive share markers"
+      },
+      "id": "00001b143f38430aba0fb84857cf279a",
+      "created_date": "2024-06-19T09:10:43Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:09:56Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "https://doi.org/10.24434/j.scoms.2022.03.3340",
+            "type": "doi"
+          },
+          {
+            "id": "1424-4896",
+            "type": "pissn"
+          },
+          {
+            "id": "2296-4150",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "22",
+          "number": "3",
+          "country": "CH",
+          "issns": [
+            "1424-4896",
+            "2296-4150"
+          ],
+          "publisher": "Seismo Verlag",
+          "language": [
+            "DE",
+            "EN",
+            "FR",
+            "IT"
+          ],
+          "title": "Studies in Communication Sciences"
+        },
+        "month": "12",
+        "end_page": "435",
+        "keywords": [
+          "interpersonal communication",
+          "face-to-face communication",
+          "digital communication",
+          "computer-mediated communication",
+          "social interaction",
+          "survey data",
+          "covid-19",
+          "u. s."
+        ],
+        "year": "2022",
+        "start_page": "417",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0003-0379-710X",
+            "affiliation": "University of Zurich, Department of Communication and Media Research IKMZ",
+            "name": "Jonathan Gruber"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-4199-4868",
+            "affiliation": "University of Zurich, Department of Communication and Media Research IKMZ",
+            "name": "Eszter Hargittai"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8750-3492",
+            "affiliation": "University of Zurich, Department of Communication and Media Research IKMZ",
+            "name": "Minh Hao Nguyen"
+          }
+        ],
+        "link": [],
+        "abstract": "Face-to-face communication is important for building and maintaining relationships. The COVID-19 pandemic led to severe limitations in people’s face-to-face interactions, resulting in most people relying more heavily on digital communication for social connection. Existing research has contributed to the understanding of how face-to-face communication is used alongside digital communication. However, we know little about what elements of face-to-face interactions people miss especially when in-person meetings are heavily reduced, and how this is related to their use of digital communication for social connection. In this study, we draw upon survey data that we collected in spring 2020 from a national sample of U. S. adults to answer these questions. We find that most people missed elements of face-to-face interactions and particularly valued spontaneous interactions, physical closeness, and independence from technology about in-person interactions. More frequent and increasing use of popular digital modes such as voice calls, video calls, text messages, and social media were all positively related to missing face-to-face communication. Our results contribute to the understanding of the role and value of in-person interactions in a digital world.",
+        "title": "The value of face-to-face communication in the digital world: What people miss about in-person interactions when those are limited"
+      },
+      "id": "000024651d9743f0b8ebcd9779f8ee2a",
+      "created_date": "2023-01-04T12:23:30Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:59:20Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2277-954X",
+            "type": "pissn"
+          },
+          {
+            "id": "2277-9167",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1055/s-0041-1722834",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "number": "01",
+          "country": "IN",
+          "issns": [
+            "2277-9167",
+            "2277-954X"
+          ],
+          "publisher": "Thieme Medical and Scientific Publishers Pvt. Ltd.",
+          "language": [
+            "EN"
+          ],
+          "title": "Indian Journal of Neurosurgery"
+        },
+        "month": "3",
+        "end_page": "069",
+        "keywords": [
+          "skin lesions",
+          "covid-19",
+          "personal protective equipment"
+        ],
+        "year": "2022",
+        "start_page": "067",
+        "subject": [
+          {
+            "code": "RD1-811",
+            "scheme": "LCC",
+            "term": "Surgery"
+          },
+          {
+            "code": "RC346-429",
+            "scheme": "LCC",
+            "term": "Neurology. Diseases of the nervous system"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Neurosurgery, All India Institute of Medical Sciences, New Delhi, India",
+            "name": "Rajeev Sharma"
+          },
+          {
+            "affiliation": "Department of Neuroanaesthesiology and Critical Care, Jai Prakash Narayan Apex Trauma Center, All India Institute of Medical Sciences, New Delhi, India",
+            "name": "Ashish Bindra"
+          },
+          {
+            "affiliation": "Department of Critical and Intensive Care, Jai Prakash Narayan Apex Trauma Center, All India Institute of Medical Sciences, New Delhi, India",
+            "name": "Kapil Dev Soni"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "Text",
+            "type": "fulltext",
+            "url": "http://www.thieme-connect.de/DOI/DOI?10.1055/s-0041-1722834"
+          }
+        ],
+        "abstract": "Nasal bridge is a common site suffering personal protective equipment-induced skin damages over face among first-line health care workers in this coronavirus disease 2019 pandemic. We hereby report folliculitis as a complication following regular use of N95 respirator and goggles, unreported in literature till now.",
+        "title": "Personal Protective Equipment-Related Nasal Bridge Folliculitis in a Corona Warrior"
+      },
+      "created_date": "2021-06-15T22:43:43Z",
+      "id": "000028bc82064985b4c55532287e61ef"
+    },
+    {
+      "last_updated": "2025-08-19T20:12:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0031-0387",
+            "type": "pissn"
+          },
+          {
+            "id": "2272-7639",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/pallas.3612",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "102",
+          "country": "FR",
+          "issns": [
+            "0031-0387",
+            "2272-7639"
+          ],
+          "publisher": "Presses universitaires du Midi",
+          "language": [
+            "FR"
+          ],
+          "title": "Pallas"
+        },
+        "month": "11",
+        "end_page": "116",
+        "keywords": [
+          "verbs of fearing",
+          "syntactic constructions",
+          "semantics"
+        ],
+        "year": "2016",
+        "start_page": "109",
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "name": "Olga Álvarez Huerta"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://journals.openedition.org/pallas/3612"
+          }
+        ],
+        "abstract": "This paper examines the use of vereor in Latin literature, in order to clarify its meaning and distinguish it from other verbs of fearing, with which it shares meaning features as well as syntactic constructions. In this study, great importance is attached to the testimony of Cicero, an author who combines the status of speaker and scholar of the language. This paper argues that vereor expresses a complex feeling conceptualising three elements at the same time: respect, shame, and apprehension.",
+        "title": "Sintaxis y semántica de lat. uereor"
+      },
+      "id": "0000476b00ed46c783382caa321e9353",
+      "created_date": "2023-02-09T16:31:54Z"
+    },
+    {
+      "last_updated": "2025-09-02T00:01:47Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2352-0132",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1016/j.ijnss.2023.09.022",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "10",
+          "number": "4",
+          "country": "NL",
+          "issns": [
+            "2352-0132"
+          ],
+          "publisher": "Elsevier",
+          "language": [
+            "EN"
+          ],
+          "title": "International Journal of Nursing Sciences"
+        },
+        "month": "10",
+        "end_page": "445",
+        "keywords": [
+          "Cardiac rehabilitation",
+          "Heart failure",
+          "Home care services",
+          "Nurse",
+          "Nursing care"
+        ],
+        "year": "2023",
+        "start_page": "435",
+        "subject": [
+          {
+            "code": "RT1-120",
+            "scheme": "LCC",
+            "term": "Nursing"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Nursing, Shanghai Sixth People’s Hospital Affiliated to Shanghai Jiao Tong University School of Medicine, Shanghai, China",
+            "name": "Tiantian Ruan"
+          },
+          {
+            "affiliation": "Department of Nursing, Shanghai Sixth People’s Hospital Affiliated to Shanghai Jiao Tong University School of Medicine, Shanghai, China",
+            "name": "Mengqi Xu"
+          },
+          {
+            "affiliation": "Corresponding author.; Department of Nursing, Shanghai Sixth People’s Hospital Affiliated to Shanghai Jiao Tong University School of Medicine, Shanghai, China",
+            "name": "Lingyan Zhu"
+          },
+          {
+            "affiliation": "Department of Nursing, Shanghai Sixth People’s Hospital Affiliated to Shanghai Jiao Tong University School of Medicine, Shanghai, China",
+            "name": "Yuan Ding"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.sciencedirect.com/science/article/pii/S2352013223001151"
+          }
+        ],
+        "abstract": "Objectives: This study aimed to review and summarize the studies of nurse-coordinated home-based cardiac rehabilitation for patients with heart failure. Methods: The review was performed using Arksey and O’Malley’s scoping review framework. A systematic search was conducted across eight databases, including PubMed, Embase, Web of Science, EBSCO, China Biomedical Literature Service System (SinoMed), China National Knowledge Infrastructure (CNKI), Wanfang Database, and Chinese Science and Technology Journals (CSTJ) Database, and Chinese Clinical Trial Registry, from inception to 30 April 2023. Articles relevant to the nurse-coordinated home-based cardiac rehabilitation for patients with heart failure were included. Results: Eighteen studies were included in this review. These studies showed that nurses primarily focused on patient assessment, home-based cardiac rehabilitation planning and guidance, and follow-up. The studies also reported positive outcomes in patient safety, feasibility, and efficacy of the programs coordinated by nurses. Conclusions: Home-based cardiac rehabilitation coordinated by nurses is beneficial to patients with heart failure. Future research will explore the potential of nurses in home-based cardiac rehabilitation for patients with heart failure, determine optimal evaluation criteria, and formulate safe, effective, and economical rehabilitation programs suitable for the patients.",
+        "title": "Nurse-coordinated home-based cardiac rehabilitation for patients with heart failure: A scoping review"
+      },
+      "id": "00004ed6a1e3492e9c94aecb13ecc51a",
+      "created_date": "2023-11-08T04:08:53Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:21:27Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2338-8528",
+            "type": "pissn"
+          },
+          {
+            "id": "2579-8111",
+            "type": "eissn"
+          },
+          {
+            "id": "10.26499/rnh.v8i1.636",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "1",
+          "country": "ID",
+          "issns": [
+            "2338-8528",
+            "2579-8111"
+          ],
+          "publisher": "Badan Pengembangan dan Pembinaan Bahasa",
+          "language": [
+            "EN",
+            "ID"
+          ],
+          "title": "Ranah: Jurnal Kajian Bahasa"
+        },
+        "month": "6",
+        "keywords": [
+          "Penguasaan Kosakata",
+          "Unsur Intrinsik Cerpen",
+          "Siswa SMP",
+          "Kendari"
+        ],
+        "year": "2019",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Kantor Bahasa Sulawesi Tenggara",
+            "name": "Firman A.D."
+          },
+          {
+            "affiliation": "Kantor Bahasa Sulawesi Tenggara",
+            "name": "Heksa Biopsi Puji Hastuti"
+          },
+          {
+            "affiliation": "Kantor Bahasa Sulawesi Tenggara",
+            "name": "NFN Sukmawati"
+          },
+          {
+            "affiliation": "Kantor Bahasa Sulawesi Tenggara",
+            "name": "NFN Rahmawati"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://ojs.badanbahasa.kemdikbud.go.id/jurnal/index.php/jurnal_ranah/article/view/636"
+          }
+        ],
+        "abstract": "This research problem is how is the relation between vocabulary mastery and short story intrinsical components comprehension ability of VIII grade students in Kendari City. The research is aimed to describe how vocabulary mastery and comprehending short story intrinsical components ability and how the relationship between both of them by the students. This research used statistic method. Data was analyzed descriptive-quantitatively and parametric-quantitatively by using Product Moment Correlation and Linear Regression. After doing descriptive-quantitative analysis, in order to understand the relationship intervariabel, then was conducted correlation test. Result of this research shows that vocabulary mastery have average values 8,84 (48%) which included in medium category. Vocabulary mastery indicator which have most prominent contribution is words comprehending that has pejorative-amelirative meaning, extension-constriction meaning by average value 2,75 (32,7%). Meanwhile, comprehending short story intrinsical components ability has average value 10,42 (45,25), which included generally in medium category. Indicator of comprehending short story intrinsical components ability which have most prominent contribution is figure and characterization by average value 3,23 (44,25%). Vocabulary mastery has positive and significant correlation with comprehending short story intrinsical components ability of SMP students at value rxy= 0,359 >rtable = 0,250 and value of Sig (ρ)<a = 0,05, and txy = 14,246 >ttable = 1,645 dan value of Sig (ρ)<a = 0,05. Contribution value vocabulary mastery (X) toward comprehending short story intrinsical components ability (Y) is 12,9%, and the rest, is influenced by other factors that are not related with this research.\n\n \n\nABSTRAK\n\nPermasalahan dalam penelitian ini adalah bagaimana hubungan penguasaan kosakata dengan kemampuan memahami unsur intrinsik  VIII SM di Kota Kendari. Dengan demikian, tujuannya adalah mendeskripsikan penguasaan kosakata dan kemampuan memahami unsur intrinsik cerpen dan memperlihatkan ada atau tidak adanya hubungan antara penguasaan kosakata dengan kemampuan memahami unsur intrinsik cerpen siswa. Penelitian menggunakan metode statistik. Data dianalisis secara kuantitatif deskriptif dan kuantitatif parametris dengan menggunakan uji Korelasi Product Moment dan Regresi Linear. Setelah analisis deskriptif kuantitatif, dilakukan tahap uji korelasi untuk mengetahui hubungan antarvariabel. Hasil penelitian ini menunjukkan bahwa penguasaan kosakata siswa SMP memiliki nilai rata-rata 8,84 (48%) yang masuk dalam kategori sedang. Indikator penguasaan kosakata yang paling menonjol memberikan kontribusi ialah memahami kata yang mengalami ameliorasi-peyorasi, perluasan-penyempitan dengan nilai rata-rata 2,75 (32,7%). Sementara, kemampuan memahami unsur intrinsik cerpen siswa SMP memiliki nilai rata-rata 10,42 (45,25), pada umumnya termasuk kategori sedang. Indikator kemampuan memahami unsur intrinsik cerpen yang paling menonjol memberikan kontribusi ialah indikator memahami tokoh dan penokohan dalam cerpen dengan nilai rata-rata 3,23 (44,25%). Penguasaan kosakata memiliki hubungan yang positif dan signifikan dengan kemampuan memahami unsur intrinsik cerpen pada siswa SMP kelas VIII di Kota Kendari, dengan nilai rhitung = 0,359 >rtabel = 0,250 dan nilai Sig (ρ)<a = 0,05, dan thitung = 14,246 >ttabel = 1,645 dan nilai Sig (ρ)<a = 0,05. Besarnya kontribusi penguasaan kosakata (X) terhadap kemampuan memahami unsur intrinsik cerpen (Y) siswa SMP adalah 12,9%, dan selebihnya dipengaruhi oleh faktor lain yang tidak terkait dengan penelitian ini.",
+        "title": "Analisis Hubungan Penguasaan Kosakata dan Kemampuan Memahami Unsur Intrinsik Cerpen Siswa SMP di Kota Kendari"
+      },
+      "created_date": "2019-07-10T03:12:21Z",
+      "id": "0000676a494e418ea43f0aa9cfa47360"
+    },
+    {
+      "last_updated": "2025-08-19T19:19:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2071-2405",
+            "type": "pissn"
+          },
+          {
+            "id": "2658-5235",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "4 (34)",
+          "country": "RU",
+          "issns": [
+            "2071-2405",
+            "2658-5235"
+          ],
+          "publisher": "Ural State Pedagogical University",
+          "language": [
+            "RU"
+          ],
+          "title": "Филологический класс"
+        },
+        "month": "4",
+        "end_page": "73",
+        "keywords": [
+          "subject organization of a lyrical poem, lyrical subject, carrier of lyrical feeling"
+        ],
+        "year": "2013",
+        "start_page": "68",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://filclass.ru/en/archive/2013/34/ya-i-ty-v-stikhotvorenii-a-feta-kogda-chitala-ty-muchitelnye-stroki-4"
+          }
+        ],
+        "abstract": "The article considers the subject organization of the poem and the components which helps to understand its narrative specifics. The author of the article analyses the lyric subject as a carrier of feeling, his/her ability to express himself or herself by means of one of the persons («I», «You»and «It»), a complex relationship between «I» and «You» as the carriers of emotional experience.",
+        "title": "\"I\" and \"You\" in Afanasy Fet’s Poem “When You Were Reading Those Tormented Lines...”"
+      },
+      "created_date": "2020-04-23T11:46:42Z",
+      "id": "0000843e0417402e932c9f325fc7a44f"
+    },
+    {
+      "last_updated": "2025-08-19T15:09:30Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2313-2337",
+            "type": "pissn"
+          },
+          {
+            "id": "2408-9001",
+            "type": "eissn"
+          },
+          {
+            "id": "10.22363/2313-2337-2020-24-4-1039-1062",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "24",
+          "number": "4",
+          "country": "RU",
+          "issns": [
+            "2313-2337",
+            "2408-9001"
+          ],
+          "publisher": "Peoples’ Friendship University of Russia (RUDN University)",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "RUDN Journal of Law"
+        },
+        "month": "12",
+        "end_page": "1062",
+        "keywords": [
+          "public interest",
+          "public procurement",
+          "financial right",
+          "budget law",
+          "budget resources",
+          "efficiency",
+          "financial expenses"
+        ],
+        "year": "2020",
+        "start_page": "1039",
+        "subject": [
+          {
+            "code": "K",
+            "scheme": "LCC",
+            "term": "Law"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Russian State University of Justice",
+            "name": "Vitaly V. Kikavets"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://journals.rudn.ru/law/article/viewFile/25252/18903"
+          }
+        ],
+        "abstract": "The basis of legal relations in public procurement are private and public interests. The purpose of the study is a substantive assessment of the authors hypothesis that the purpose of legal regulation and financial support of public procurement is to satisfy the public interest expressed in the form of a public need for goods, works, and services. The methodological basis of the study rests on historical and systematic approach, analysis, synthesis and comparative-legal methods. The results of the analysis of normative legal acts regulating public procurement, doctrinal literature and practice showed that public interest denounced in the form of public need is realized through public procurement. Public and private interests can be realized exclusively jointly since these needs cannot objectively be met individually. In general, ensuring public as well as private interests boils down to defining and legally securing the rights and obligations of the customer and their officials, which safeguards them in the process of meeting public needs through public procurement. The study revealed the dependence of the essence of public interest on the political regime, which determines the ratio of public and private interests. Public interest in public procurement is suggested to understand as the value-significant selective position of an official or another person authorized by the government, which is expressed in the form of the public need for the necessary benefit; gaining such benefit involves both legal regulation and financial security. The purpose of legal regulation of public procurement is to satisfy public interest. These concepts should be legally enshrined in Law No. 44-FZ.",
+        "title": "PUBLIC INTEREST IN PUBLIC PROCUREMENT"
+      },
+      "id": "0000896b8e2348bc9fd9e756a2c776df",
+      "created_date": "2021-01-14T15:34:48Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:11:35Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1617-9625",
+            "type": "eissn"
+          },
+          {
+            "id": "10.18332/tid/169663",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "21",
+          "number": "September",
+          "country": "GR",
+          "issns": [
+            "1617-9625"
+          ],
+          "publisher": "European Publishing",
+          "language": [
+            "EN"
+          ],
+          "title": "Tobacco Induced Diseases"
+        },
+        "month": "9",
+        "end_page": "10",
+        "keywords": [
+          "tobacco products",
+          "cigarette smoking",
+          "electronic nicotine delivery systems",
+          "heated tobacco products",
+          "vaping"
+        ],
+        "year": "2023",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RC705-779",
+            "scheme": "LCC",
+            "term": "Diseases of the respiratory system"
+          },
+          {
+            "code": "RC254-282",
+            "scheme": "LCC",
+            "term": "Neoplasms. Tumors. Oncology. Including cancer and carcinogens"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-5094-6107",
+            "affiliation": "Department of Health Administration, College of\nHealth and Welfare, Dankook University, Cheonan-si,\nRepublic of Korea",
+            "name": "Jieun Hwang"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://www.tobaccoinduceddiseases.org/Comparison-of-attempts-and-plans-to-quit-tobacco-products-among-single-dual-and-triple,169663,0,2.html"
+          }
+        ],
+        "abstract": "Introduction\nTobacco users are categorized as single, dual, and triple users based\non the number of tobacco products (cigarettes, e-cigarettes, and heated tobacco\nproducts) used. This study addressed a literature gap by examining how adult\nKorean tobacco users’ quit attempts/plans differed based on the user type, and\nthe associated psychosocial and subjective health-related factors.\n\nMethods\nWe used a questionnaire to examine participants' self-reported health,\nstress, health concerns, health behavior, tobacco addiction, intentions/plans to\nquit, and demographic characteristics. Data were analyzed using chi-squared tests,\none-way analysis of variance, and multiple linear regression.\n\nResults\nOf the 1288 tobacco users, 55.4%, 28.3%, and 16.4% were single, dual, and\ntriple users, respectively. Self-rated health and stress were lowest among single\nusers and highest among triple users. Most user types had intentions/plans to\nquit, especially triple users. Quit attempts and plans increased with increasing\nhealth behaviors and time elapsed before first tobacco use in the morning, but\ndecreased with higher stress and self-rated addiction.\n\nConclusions\nIntentions/plans to quit tobacco use varied based on the type of tobacco\nuser. Multiple users had higher self-rated health, plans to quit, and self-reported\naddiction; they considered themselves healthy or engaged in healthy behaviors\nto offset problems from tobacco use and used multiple tobacco products to quit\nsmoking. Highly stressed users had fewer plans to quit and used tobacco for stress\nrelief. Thus, the provision of accurate information about tobacco products and\nstress management is important to promote successful quitting.",
+        "title": "Comparison of attempts and plans to quit tobacco products among single, dual, and triple users"
+      },
+      "id": "00008a4795f848b284551092724f67c8",
+      "created_date": "2023-10-25T08:34:47Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:42:10Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.46728/pspj.2024.v44.i1.p3-11",
+            "type": "doi"
+          },
+          {
+            "id": "1857-2502",
+            "type": "pissn"
+          },
+          {
+            "id": "2537-6276",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "44",
+          "number": "1",
+          "country": "MD",
+          "issns": [
+            "1857-2502",
+            "2537-6276"
+          ],
+          "publisher": "Association of Psychologists Practitioners, Moldova",
+          "language": [
+            "EN",
+            "RO",
+            "RU"
+          ],
+          "title": "Psihologie"
+        },
+        "month": "6",
+        "end_page": "11",
+        "keywords": [
+          "divorce",
+          "personality disorder",
+          "emerging personality patterns",
+          "current clinical signs."
+        ],
+        "year": "2024",
+        "start_page": "3",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8019-8907",
+            "affiliation": "Universitatea Pedagogică de Stat ” Ion Creangă”. Moldova",
+            "name": " OLĂRESCU Valentina"
+          },
+          {
+            "orcid_id": "https://orcid.org/0009-0008-7084-7836",
+            "affiliation": "Direcția pentru protecția copilului, sector 2, București",
+            "name": " DICU Adriana"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://key.upsc.md/wp-content/uploads/2024/05/PSPJ-V44-Iss1-2024-p3-11.pdf"
+          }
+        ],
+        "abstract": "This article delves into the psychological literature concerning divorce and its impact on the personality development of preadolescents aged 9-12. Researchers in this field emphasize the significant role of family and socio-cultural environments in shaping a child’s personality, considering personality as a system embedded within a matrix of socio-cultural systems. \r\nThe Millon Pre-Adolescent Clinical Inventory (MPACI) test was employed to identify personality disorders among preadolescents affected by parental separation. The underlying hypothesis posits that preadolescents with divorced parents would exhibit personality disorders, and significant differences would emerge in the personality patterns between preadolescents from divorced families and those from intact families. Statistical analysis of the results corroborated this hypothesis, shedding light on the nuanced effects of divorce on preadolescent personality development.\r\n",
+        "title": "THE CONSEQUENCES OF PARENTS’ DIVORCE ON CHILDREN’S PERSONALITY"
+      },
+      "id": "00008e9e29d34ca5a75e2a904dfc2e8b",
+      "created_date": "2024-06-05T16:24:30Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:20:15Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2267-1242",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1051/e3sconf/202345403011",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "454",
+          "country": "FR",
+          "issns": [
+            "2267-1242"
+          ],
+          "publisher": "EDP Sciences",
+          "language": [
+            "EN",
+            "FR"
+          ],
+          "title": "E3S Web of Conferences"
+        },
+        "year": "2023",
+        "start_page": "03011",
+        "subject": [
+          {
+            "code": "GE1-350",
+            "scheme": "LCC",
+            "term": "Environmental sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Computer Engineering Technology, College of Vocational Studies, IPB University",
+            "name": "Widodo Bayu"
+          },
+          {
+            "affiliation": "Software Engineering Technology, College of Vocational Studies, IPB University",
+            "name": "Dewi Renanti Medhanita"
+          },
+          {
+            "affiliation": "Software Engineering Technology, College of Vocational Studies, IPB University",
+            "name": "Indriasari Sofiyanti"
+          },
+          {
+            "affiliation": "Agribusiness Management, College of Vocational Studies, IPB University",
+            "name": "Sastrawan Uding"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2023/91/e3sconf_icas2023_03011.pdf"
+          }
+        ],
+        "abstract": "As the digital world evolves, safeguarding digital assets becomes crucial for organizations, particularly educational institutions. LSP SV-IPB, as a vocational certification body, manages student data, academic records, and other valuable information. Therefore, it is essential to implement an effective protection strategy. The research aims to develop and implement digital asset protection strategies at the LSP SV-IPB. The protection focuses on data storage management so that passive data is properly stored as the main backup and transactional data runs efficiently. The Synology Network Attached Storage (NAS) was proposed as the development model. NAS has proven efficient in managing data and providing reliable backups. Through NAS, passive data can be properly archived and protected, while transactional data can be accessed and processed at optimal speed. Hence, literature studies, software analysis, and experiments on the network environment were conducted. Model development was conducted using the design and implementation of NAS infrastructure at the LSP SV-IPB. Data collection covered the effective and efficient use of NAS in maintaining data integrity and mitigating the risk of losing important information. The results of this study are expected to contribute to the development of an efficient and reliable digital asset protection strategy within the LSP SV-IPB environment.",
+        "title": "Implementation of Synology NAS-Based Storage System Type DS220+ at LSP-SV IPB"
+      },
+      "id": "00009373b6624d6098b2498842fb854d",
+      "created_date": "2024-01-26T10:32:47Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:05:32Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5334/sta.cb",
+            "type": "doi"
+          },
+          {
+            "id": "2165-2627",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "2",
+          "number": "2",
+          "country": "GB",
+          "issns": [
+            "2165-2627"
+          ],
+          "publisher": "Centre for Security Governance",
+          "language": [
+            "EN"
+          ],
+          "title": "Stability : International Journal of Security and Development"
+        },
+        "month": "08",
+        "keywords": [
+          "civilian protection",
+          "civil-military relations"
+        ],
+        "year": "2013",
+        "start_page": "Art. 40",
+        "subject": [
+          {
+            "code": "JZ2-6530",
+            "scheme": "LCC",
+            "term": "International relations"
+          },
+          {
+            "code": "JA1-92",
+            "scheme": "LCC",
+            "term": "Political science (General)"
+          }
+        ],
+        "author": [
+          {
+            "name": "Stuart Gordon"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.stabilityjournal.org/article/view/131"
+          }
+        ],
+        "abstract": "Whilst the protection of civilians (POC) in conflict has been a recurring feature of the humanitarian discourse the same has not been true in military doctrines, where the protection of civilians has long been cast in terms of arms bearers upholding their responsibilities under international humanitarian law (IHL). However, opportunities for and pressures on military actors to develop more specific capacities and approaches in this field have grown: partly as a response to the changing nature, location and scope of conflict, particularly the increasing proportion of internal conflicts fought by irregular armed groups in urban environments. It is also a response to the scale and complexity of protection challenges in the Balkans, Rwanda, Darfur and Libya - each of which has clearly demonstrated that threats to civilians are complex and dynamic and that no single international actor is capable of mitigating them without significant support from other institutions (O’Callaghan and Pantuliano, 2007). Despite the enormous growth in opportunities for interaction between militaries and humanitarians there is only a very limited literature on their interaction over protection issues and evaluations of the emerging doctrines. Consequently this article charts the growth in military policies towards POC in the UN, UK, NATO and a range of other states as well as drawing attention to the challenges that still remain in operationalising responses.",
+        "title": "The Protection of Civilians: An Evolving Paradigm?"
+      },
+      "created_date": "2013-10-02T12:43:59Z",
+      "id": "000097012e57431c8628200b2a60a868"
+    },
+    {
+      "last_updated": "2025-08-19T19:28:19Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.7860/JCDR/2015/13835.6332",
+            "type": "doi"
+          },
+          {
+            "id": "2249-782X",
+            "type": "pissn"
+          },
+          {
+            "id": "0973-709X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "8",
+          "country": "IN",
+          "issns": [
+            "0973-709X",
+            "2249-782X"
+          ],
+          "publisher": "JCDR Research and Publications Private Limited",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Clinical and Diagnostic Research"
+        },
+        "month": "8",
+        "end_page": "ED21",
+        "keywords": [
+          "controversial histogenesis",
+          "skin adnexal tumour",
+          "wide excision"
+        ],
+        "year": "2015",
+        "start_page": "ED20",
+        "subject": [
+          {
+            "code": "R",
+            "scheme": "LCC",
+            "term": "Medicine"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "Professor and H.O.D, Department of Pathology, Government Medical College, Anantapuramu, Andhra Pradesh, India.",
+            "name": "Neeraja Myreddy"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Associate Professor, Department of Pathology, Government Medical College, Anantapuramu, Andhra Pradesh, India.",
+            "name": "Venkata Ramanababu Pagatikaluva"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Tutor, Department of Pathology, Governmant Medical College, Anantapuramu, Andhra Pradesh, India.",
+            "name": "Suman Thirunamala Chenchu Subbarayula"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Assistant Professor, Department of Pathology, Government Medical College, Anantapuramu, Andhra Pradesh, India.",
+            "name": "Sravani Peddaganganna Gari"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Assistant Professor, Department of Pathology, Government Medical College, Anantapuramu, Andhra Pradesh, India.",
+            "name": "Bhavani Chinnappa Gari"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://jcdr.net/articles/PDF/6332/13835_CE[Ra1]_F(AK)_PF1(VSUAK)_PFA(AK)_PF2(PAG).pdf"
+          }
+        ],
+        "abstract": "The origin of hidradenoma was from the eccrine sweat glands, generally found in the head, face, and upper extremity regions. This lesion\r\nhas not been reported to be large enough to present in the ear lobule. Hence, its description in the otolaryngology literature is extremely\r\nrare. The rarity of this neoplasm and failure to identify its morphologic features may lead to misdiagnosis. We present a benign clear\r\ncell hidradenoma of the right ear lobule in a 45-year adult male. We encountered a tumour measuring 4 cm in diameter. Mass shows\r\nulcerated surface, bleeds on touch and remained a diagnostic dilemma till an excision biopsy was carried out and a histopathological\r\nreport confirmed that it was a hidradenoma of clear cell variant. The aim of presenting this case report was interesting in the fact that it\r\nhas added clear cell hidradenoma in the final diagnosis, in an uncommon site of presentation.",
+        "title": "Clear Cell Hidradenoma of the Ear Lobule: An Unusual Site of Presentation"
+      },
+      "id": "0000a01133334c048785794f02836455",
+      "created_date": "2020-07-18T11:01:38Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:25:47Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2474-252X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5811/cpcem.24999",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "2",
+          "country": "US",
+          "issns": [
+            "2474-252X"
+          ],
+          "publisher": "eScholarship Publishing, University of California",
+          "language": [
+            "EN"
+          ],
+          "title": "Clinical Practice and Cases in Emergency Medicine"
+        },
+        "month": "2",
+        "end_page": "241",
+        "year": "2025",
+        "start_page": "239",
+        "subject": [
+          {
+            "code": "RC86-88.9",
+            "scheme": "LCC",
+            "term": "Medical emergencies. Critical care. Intensive care. First aid"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Cincinnati College of Medicine, Department of Emergency Medicine, Cincinnati, Ohio",
+            "name": "Patrick Minges"
+          },
+          {
+            "affiliation": "University of Cincinnati College of Medicine, Department of Emergency Medicine, Cincinnati, Ohio",
+            "name": "Martina Diaz McDermott"
+          },
+          {
+            "affiliation": "University of Cincinnati College of Medicine, Department of Emergency Medicine, Cincinnati, Ohio",
+            "name": "Jazmyn Shaw"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://escholarship.org/uc/item/0zt8b4vv"
+          }
+        ],
+        "abstract": "Case Presentation: A 30-year-old female with a history of alcoholic cirrhosis and esophageal varices presented with massive hematemesis. A gastric balloon tamponade device was subsequently placed to temporize variceal hemorrhage, and point-of-care ultrasound (POCUS) was used to confirm the appropriate placement of the gastric balloon before complete inflation. We describe a novel use of ultrasound for use in severely ill patients with gastrointestinal (GI) bleeding. Discussion: A fluid-filled and distended stomach has long been recognized as a cause of a false-positive focused assessment with sonography in trauma exam but may also be a vital piece of information in the scenario of a patient with suspected upper GI hemorrhage. There is very little description in the literature of using POCUS to confirm the appropriate placement of a gastric tamponade balloon with none by emergency physicians.. Ultrasound may offer advantages over plain radiography in this application given its speed and safety; thus, its utility for this task is worth further investigation.",
+        "title": "Use of Point-of-care Ultrasound for Placement of a Gastric Tamponade Balloon"
+      },
+      "id": "0000b97a6b854b7eaba5ea46bad31af4",
+      "created_date": "2025-05-22T13:33:51Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:19:01Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1887-4592",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4995/redu.2021.15841",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "19",
+          "number": "2",
+          "country": "ES",
+          "issns": [
+            "1887-4592"
+          ],
+          "publisher": "Universitat Politècnica de València",
+          "language": [
+            "EN",
+            "ES"
+          ],
+          "title": "Red U"
+        },
+        "month": "12",
+        "end_page": "109",
+        "keywords": [
+          "educación superior",
+          "universidad",
+          "personal académico docente",
+          "evaluación del docente",
+          "identidad",
+          "neoliberalismo"
+        ],
+        "year": "2021",
+        "start_page": "91",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universidad de Granada",
+            "name": "Javier Mula-Falcón"
+          },
+          {
+            "affiliation": "Universidad de Granada",
+            "name": "Cristina Cruz-González"
+          },
+          {
+            "affiliation": "Universidad de Granada",
+            "name": "Katia Caballero"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://polipapers.upv.es/index.php/REDU/article/view/15841"
+          }
+        ],
+        "abstract": "In recent decades, Higher Education has undergone a gradual but progressive transformation worldwide. Globalisation has promoted convergence mechanisms between states to achieve common standards in Higher Education; among them, those who seek to guarantee the quality of university teaching. The aim of this research is to analyse the most recent studies carried out on the impact that new teaching evaluation systems have on academics. For this purpose, a systematic review of the literature has been developed in which three different databases have been used (Wos, Scopus and ERIC). After searching and applying the inclusion / exclusion criteria, a total of 15 documents were selected. The articles were subjected to a thematic analysis and also of their characteristics. Among the most outstanding results, the development of fragmented academic identities that have an impact on the work and the wellbeing of the academics is detected. Also, the presence of contradictory opinions on teaching evaluation. Likewise, possible alternatives on teaching evaluation systems are mentioned. To conclude, a series of future lines of research are outlined, such as the consideration of more varied samples that allow more detailed comparisons between various variables, the development of longitudinal studies, and the promotion of alternatives to the current systems of evaluation.",
+        "title": "The teaching evaluation systems and its impact on academics. A systematic review"
+      },
+      "id": "0000c5bee11d4052bf6c486435024517",
+      "created_date": "2021-12-31T08:40:10Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:48:34Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0860-9411",
+            "type": "pissn"
+          },
+          {
+            "id": "2719-3586",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "30",
+          "country": "PL",
+          "issns": [
+            "0860-9411",
+            "2719-3586"
+          ],
+          "publisher": "The John Paul II Catholic University of Lublin",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "IT",
+            "PL"
+          ],
+          "title": "Vox Patrum"
+        },
+        "month": "March",
+        "keywords": [
+          "recenzja"
+        ],
+        "year": "1996",
+        "subject": [
+          {
+            "code": "BR60-67",
+            "scheme": "LCC",
+            "term": "Early Christian literature. Fathers of the Church, etc."
+          },
+          {
+            "code": "BL51-65",
+            "scheme": "LCC",
+            "term": "Philosophy of religion. Psychology of religion. Religion in relation to other subjects"
+          },
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Polska",
+            "name": "Wincenty Myszor"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://czasopisma.kul.pl/index.php/vp/article/view/7543"
+          }
+        ],
+        "abstract": "\nrecenzja\n",
+        "title": "Majella Franzmann, Jesus in the Nag Hammdi Writings, Edinburgh 1996, T. and T. Clarc Ltd, ss. 294"
+      },
+      "id": "0000df8d5056429b8e920e6df29d7b38",
+      "created_date": "2023-08-05T21:03:18Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:54:19Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.36317/kaj/2023/v1.i57.12324",
+            "type": "doi"
+          },
+          {
+            "id": "1994-8999",
+            "type": "pissn"
+          },
+          {
+            "id": "2664-469X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "58",
+          "country": "IQ",
+          "issns": [
+            "1994-8999",
+            "2664-469X"
+          ],
+          "publisher": "Unviversity of Kufa, Faculty of Arts",
+          "language": [
+            "AR",
+            "EN",
+            "FR"
+          ],
+          "title": "آداب الكوفة"
+        },
+        "month": "December",
+        "keywords": [
+          "الرمز",
+          "المكان",
+          "الطلل",
+          "الشاعر",
+          "الحاجري"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "جامعة كربلاء/كلية التربية للعلوم الإنسانية/قسم اللغة العربية",
+            "name": "محمد المهداوي "
+          },
+          {
+            "affiliation": "جامعة كربلاء/كلية التربية للعلوم الإنسانية/قسم اللغة العربية",
+            "name": "صادق محمد "
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journal.uokufa.edu.iq/index.php/kufa_arts/article/view/12324"
+          }
+        ],
+        "abstract": "\nتعد الرموز من التقانات المهمة  التي تثير فضول المتلقي وتزيد رغبته في الوصول الى قصد الشاعر ، والكشف عن دلالاتها القارة داخل نتاجه الشعري ، فديناميكية الرمز تكفل ولوج القارئ الى عمق النص ، فعمل القارئ يصبح فضاء لقراءات متعددة ، ذات الدلالة البعيدة عن الواقع المذكور ، إذ ان الرمز المكاني في النص الأدبي أداة فاعلة في كشف الخبايا النصية المفروزة من دلالاته في بعده المعبر عن البوح المكنون في أهواء الشاعر المكبوتة في دواخلها والمنطوية على ذاتها ، لذا فان اختيار هذا الموضوع يعد محاولة لتسليط الضوء على تلك الرموز وبخاصة الطللية منها ، وإظهار أهميتها في شعر حسام الدين الحاجري ، وما دامت الرموز متعلقة بالقارئ أكثر من ارتباطها بالنص ، لذا وجب على القارئ تفكيك تلك الرموز ، فهذا البحث قائم على رصدها والكشف عن مكنوناتها وبخاصة الرموز (الطللية) بوصفها مكانا محملا بأبعاد وايحاءات كثيرة .\n",
+        "title": "رمزية المكان (الطلل) في شعر حسام الدين الحاجري  "
+      },
+      "id": "0000f2b1156c42dd8344cfe9d4c15272",
+      "created_date": "2023-12-29T10:00:44Z"
+    },
+    {
+      "last_updated": "2025-12-22T08:28:18Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1810-0201",
+            "type": "pissn"
+          },
+          {
+            "id": "2782-5825",
+            "type": "eissn"
+          },
+          {
+            "id": "10.20310/1810-0201-2023-28-1-89-102",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "28",
+          "number": "1",
+          "country": "RU",
+          "issns": [
+            "1810-0201",
+            "2782-5825"
+          ],
+          "publisher": "Derzhavin Tambov State University",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Вестник Тамбовского университета. Серия: Гуманитарные науки"
+        },
+        "month": "3",
+        "end_page": "102",
+        "keywords": [
+          "training video materials",
+          "authentic video materials",
+          "digital learning environment",
+          "quality assessment criteria for training video materials",
+          "stages of video material development"
+        ],
+        "year": "2023",
+        "start_page": "89",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Lomonosov Moscow State University",
+            "name": "A. V. Zamkovaya"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://vestsutmb.elpub.ru/jour/article/view/173"
+          }
+        ],
+        "abstract": "Modern technology is expanding the possibilities of classes and determining the need for new forms of learning. The study of multimedia technology is currently developing in an academic way. Visuals in general play a huge, sometimes decisive role in digital communication. The article is devoted to the usage of video materials in the foreign language classes, the author considers the methods of video resources usage in the process of teaching foreign languages, aimed at forming communicative competence of the students. The author analyses psycho-didactic possibilities of audiovisual teaching materials. Particular attention is paid to the peculiarities of clip thinking, the level of visual literacy and the typology of video resources for teaching foreign languages. The aim of the article is to develop a methodology of applying teaching and authentic video resources in the process of foreign language teaching aimed at forming audiovisual literacy and communicative competence of students. The author concludes that the rational use of video materials and video resources contributes to a deeper involvement of students in learning a foreign language, stimulates the development of creative thinking, social skills, contributes to the mastery of knowledge, skills and abilities of understanding, speaking and writing.",
+        "title": "Didactic-methodic and psychological features of the use of video materials in teaching a foreign language"
+      },
+      "created_date": "2025-09-23T09:06:44Z",
+      "id": "000110559a1d4188af140ccc3fbb2be6"
+    },
+    {
+      "last_updated": "2025-08-20T00:21:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1309-0658",
+            "type": "pissn"
+          },
+          {
+            "id": "1309-0674",
+            "type": "eissn"
+          },
+          {
+            "id": "10.18863/pgy.972163",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "14",
+          "number": "2",
+          "country": "TR",
+          "issns": [
+            "1309-0658",
+            "1309-0674"
+          ],
+          "publisher": "Psikiyatride Güncel Yaklaşımlar",
+          "language": [
+            "EN",
+            "TR"
+          ],
+          "title": "Psikiyatride Güncel Yaklaşımlar"
+        },
+        "month": "6",
+        "end_page": "234",
+        "keywords": [
+          "chronic pain",
+          "fibromyalgia",
+          "multidisciplinary treatments",
+          "psychological intervention"
+        ],
+        "year": "2022",
+        "start_page": "221",
+        "subject": [
+          {
+            "code": "RC435-571",
+            "scheme": "LCC",
+            "term": "Psychiatry"
+          }
+        ],
+        "author": [
+          {
+            "name": "Rumeysa Eda Kanık Tezcan"
+          },
+          {
+            "name": "Özden Yalçınkaya Alkar"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://dergipark.org.tr/tr/download/article-file/1883464"
+          }
+        ],
+        "abstract": "Fibromyalgia is a musculoskeletal pain syndrome characterized with the presence of sensitive points and widespread chronic pain and restricts one's daily life activities and decreases the quality of life. The etiology of fibromyalgia is unclear, but there are numerous hypotheses regarding the emergence and progression of the disease. Among these, the biopsychosocial model offers a holistic framework in which biological, psychological and social mechanisms play a role in the development of fibromyalgia. Since the etiology of the disease is not yet understood, effective methods for its treatment have not been found, thus, interventions aim to reduce the effect of fibromyalgia and increase psychological and physiological functionality. This article aims to examine the psyhcological intervention areas and methods for fibromyalgia patients. In the literature, it is concluded that pain avoidance beliefs and behaviors, self-efficacy, physical activity, sleep quality, self-compassion, emotional skills, coping strategies, personality, comorbid psychopathology are the factors related with the emergence of the disease, severity of pain, and adherence to treatment in fibromyalgia patients. In this context, Cognitive-Behavioral Therapy (CBT), physical exercises, sleep management Acceptance and Commitment Therapy (ACT), compassion focused psychotherapies, mindfulness based psychotherapies, emotion expression and emotion regulation techniques, and biofeedback are recommended as effective methods which can be included in the treatment plans of fibromyalgia patients. Moreover, considering the psychosocial factors in the assessment processes was essential to establish individualized treatment plans. In addition, the importance of multidisciplinary approaches in the treatment processes of fibromyalgia has been discussed within the framework of the biopsychosocial model.",
+        "title": "Psychological Factors Associated with Fibromyalgia and the Areas of Psychological Intervention"
+      },
+      "id": "00013351eb084a66a228be3d71326c95",
+      "created_date": "2022-06-29T08:26:08Z"
+    },
+    {
+      "last_updated": "2025-08-19T15:27:30Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1645-2089",
+            "type": "pissn"
+          },
+          {
+            "id": "2183-3575",
+            "type": "eissn"
+          },
+          {
+            "id": "10.17231/comsoc.24(2013).1791",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "24",
+          "country": "PT",
+          "issns": [
+            "1645-2089",
+            "2183-3575"
+          ],
+          "publisher": "Centro de Estudos de Comunicação e Sociedade (CECS)",
+          "language": [
+            "EN",
+            "PT"
+          ],
+          "title": "Comunicação e Sociedade"
+        },
+        "month": "4",
+        "end_page": "317",
+        "year": "2014",
+        "start_page": "312",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Associação Brasileira de Estudos e Pesquisas em Moda (ABEPEM); Centro de Pesquisa Sociosemióticas – CPS, PUC",
+            "name": "Kathia Castilho"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://revistacomsoc.pt/article/view/921"
+          }
+        ],
+        "abstract": "Fashion seems to have definitely come into fashion again — and into people’s lives. It is no longer related to a way of dressing...",
+        "title": "André Carvalhal (2014) A Moda Imita a Vida, Estação das Letras e Cores (278 páginas – brochura)"
+      },
+      "created_date": "2019-10-16T10:23:11Z",
+      "id": "000133c10a5a4ba196d3124cddfe9638"
+    },
+    {
+      "last_updated": "2026-01-02T00:01:41Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.15688/jvolsu2.2015.5.13",
+            "type": "doi"
+          },
+          {
+            "id": "1998-9911",
+            "type": "pissn"
+          },
+          {
+            "id": "2409-1979",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "29",
+          "number": "5",
+          "country": "RU",
+          "issns": [
+            "1998-9911",
+            "2409-1979"
+          ],
+          "publisher": "Volgograd State University",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Вестник Волгоградского государственного университета: Серия 2. Языкознание"
+        },
+        "month": "12",
+        "end_page": "119",
+        "keywords": [
+          "onym",
+          "text coherency",
+          "literary text",
+          "global text coherency",
+          "onym functions",
+          "text paradigm",
+          "onymic frame."
+        ],
+        "year": "2015",
+        "start_page": "114",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "",
+            "name": "Tatyana Valentinovna Milevskaya"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://dx.doi.org/10.15688/jvolsu2.2015.5.13"
+          }
+        ],
+        "abstract": "The article deals with the onomastic space structure in the literary text and its constituents functions in realization of coherency as a text forming category. It is stated that providing global text coherence onyms could represent both denotative coreference and significative coherence of nomination units. The data of the studies have proved that the following units take part in providing text coherency of the novel \"The Twelve Chairs\" by I. Ilf and E. Petrov: anthroponyms, toponyms, and ergonyms. Having used a frame approach to the proper names analysis the authors could modify and clearly specify a detailed onym functional classification (which is known in linguistics of onyms), pointing to the necessary to distinguish six instead of three groups of onyms according to their functions in providing text coherency: 1) onyms that maintain coherency of the whole text; 2)onyms that construct space-time coordinates of the literary picture of the world; 3) onyms that are both naming the characters who directly interact with the protagonists and designing external relations of the text passage; 4) onyms that organize internal relations of the text passage and represent the main characters of the text passage; 5) onyms that form space-time background of the text passage; 6) optional onyms, which do not play a significant role in the text coherency. With the particular examples the authors proved that some onyms could simultaneously perform different functions forming both external and internal links.",
+        "title": "Proper Names and Their Functions in the Text Coherency Formation (at the Material of the Novels “The Twelve Chairs” and “The Little Golden Calf” by I. Ilf and E. Petrov)"
+      },
+      "created_date": "2016-03-13T21:32:58Z",
+      "id": "000145ec1a0b4cc0a3489e72a5bbad45"
+    },
+    {
+      "last_updated": "2025-08-19T18:40:44Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0037-0894",
+            "type": "pissn"
+          },
+          {
+            "id": "1988-320X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3989/sefarad.1992.v52.i1.995",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "52",
+          "number": "1",
+          "country": "ES",
+          "issns": [
+            "0037-0894",
+            "1988-320X"
+          ],
+          "publisher": "Consejo Superior de Investigaciones Científicas",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Sefarad : Revista de Estudios Hebraicos y Sefardíes"
+        },
+        "month": "6",
+        "end_page": "162",
+        "year": "1992",
+        "start_page": "155",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "BM1-990",
+            "scheme": "LCC",
+            "term": "Judaism"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "CSIC",
+            "name": "Encarnación Marín Padilla"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://sefarad.revistas.csic.es/index.php/sefarad/article/view/1015"
+          }
+        ],
+        "abstract": "Este estudio comenta algunos aspectos de la vida de Juce Gotina, sastre judío que residió en Épila, villa aragonesa del señorío de los Ximénez de Urrca, en el siglo XV. Juce fue hijo de Jaco Gotina y nieto del judío zaragozano Nahamen Gotina y de Estruga Albala.",
+        "title": "Acaeceres en la vida de Juce Gotina, sastre judío de la villa de Épila (siglo XV)"
+      },
+      "id": "0001557499464671b6cd7b20c500adfa",
+      "created_date": "2021-05-05T14:00:07Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:58:15Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.22201/ffyl.01860526p.1987.3.998",
+            "type": "doi"
+          },
+          {
+            "id": "0186-0526",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "country": "MX",
+          "issns": [
+            "0186-0526",
+            "2683-3352"
+          ],
+          "publisher": "Universidad Nacional Autónoma de México (UNAM), Facultad de Filosofía y Letras",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "PT"
+          ],
+          "title": "Anuario de Letras Modernas"
+        },
+        "month": "September",
+        "year": "1990",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "name": "Flora Botton-Burlá"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://revistas.filos.unam.mx/index.php/anuariodeletrasmodernas/article/view/998"
+          }
+        ],
+        "title": "La sombra del otro: un estudio sobre el doble"
+      },
+      "id": "0001570a5f114c1a8cf3070a57f02ea0",
+      "created_date": "2021-03-16T18:43:58Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:34:37Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0860-9411",
+            "type": "pissn"
+          },
+          {
+            "id": "2719-3586",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "country": "PL",
+          "issns": [
+            "0860-9411",
+            "2719-3586"
+          ],
+          "publisher": "The John Paul II Catholic University of Lublin",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "IT",
+            "PL"
+          ],
+          "title": "Vox Patrum"
+        },
+        "month": "September",
+        "keywords": [
+          "recenzja"
+        ],
+        "year": "1988",
+        "subject": [
+          {
+            "code": "BR60-67",
+            "scheme": "LCC",
+            "term": "Early Christian literature. Fathers of the Church, etc."
+          },
+          {
+            "code": "BL51-65",
+            "scheme": "LCC",
+            "term": "Philosophy of religion. Psychology of religion. Religion in relation to other subjects"
+          },
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Polska",
+            "name": "Wacław Eborowicz"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://czasopisma.kul.pl/index.php/vp/article/view/10805"
+          }
+        ],
+        "abstract": "\nrecenzja\n",
+        "title": "Ks. Stanisław Kowalczyk, Człowiek i Bóg w nauce świętego Augustyna, Warszawa 1987, ODiSS, ss. 276."
+      },
+      "id": "00015f3d76c149539687c2a1b8267115",
+      "created_date": "2023-08-05T21:04:39Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/articles/literature?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/articles/literature?page=47186&pageSize=25"
+}

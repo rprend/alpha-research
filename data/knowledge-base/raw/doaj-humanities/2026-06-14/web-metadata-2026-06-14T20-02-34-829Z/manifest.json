@@ -1,0 +1,19 @@
+{
+  "run_id": "web-metadata-2026-06-14T20-02-34-829Z",
+  "source_id": "doaj-humanities",
+  "started_at": "2026-06-14T20:02:34.864Z",
+  "completed_at": "2026-06-14T20:02:35.088Z",
+  "status": "success",
+  "access_route": "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=10",
+  "raw_outputs": [
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/web-metadata-2026-06-14T20-02-34-829Z/response.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 10,
+  "rights_review": "Source registry rights fields apply; metadata only unless otherwise stated.",
+  "errors": []
+}

@@ -1,0 +1,1884 @@
+{
+  "total": 905722,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T20:00:49.652107Z",
+  "query": "history",
+  "results": [
+    {
+      "last_updated": "2025-08-19T17:34:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.15826/qr.2018.1.293",
+            "type": "doi"
+          },
+          {
+            "id": "2311-911X",
+            "type": "pissn"
+          },
+          {
+            "id": "2313-6871",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "number": "1",
+          "country": "RU",
+          "issns": [
+            "2311-911X",
+            "2313-6871"
+          ],
+          "publisher": "Ural Federal University",
+          "language": [
+            "DE",
+            "EN",
+            "FR",
+            "RU"
+          ],
+          "title": "Quaestio Rossica"
+        },
+        "month": "April",
+        "keywords": [
+          "миграция; миграционные режимы; миграционные практики; сезонная занятость; урбанизация"
+        ],
+        "year": "2018",
+        "subject": [
+          {
+            "code": "DK1-4735",
+            "scheme": "LCC",
+            "term": "History of Russia. Soviet Union. Former Soviet Republics"
+          }
+        ],
+        "author": [
+          {
+            "name": "Oleg Gorbachev"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://qr.urfu.ru/ojs/index.php/qr/article/view/3092"
+          }
+        ],
+        "abstract": "\nСтатья продолжает тему «самовольных мигрантов», поднятую Л. Сигельбаумом и Л. П. Мох в работе “Escaping in Twentieth-Century Russia”. По мнению автора, Российское государство в течение большей части XX столетия наиболее остро реагировало на нарушения политического режима, часто предпочитая не замечать экономическую миграцию. Это происходило из-за тщательно скрываемой неспособности власти тотально контролировать население. Нарушения режима территориальных перемещений индивидуальными мигрантами были возможны по причине несогласованных действий центральных и местных органов власти. По мере постепенной либерализации советской системы во второй половине XX в. у мигрантов появлялось все больше возможностей для легальных перемещений. Отказ от силового регулирования миграционных потоков, вытеснение политического фактора в миграциях экономических привели к сужению пространства «самовольности».\n",
+        "title": "Мигранты и Российское государство в XX веке: возможности и ограничения"
+      },
+      "id": "00000831a043476ea9ab61ec6807990b",
+      "created_date": "2022-02-11T17:14:50Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:18:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s12939-024-02142-2",
+            "type": "doi"
+          },
+          {
+            "id": "1475-9276",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "23",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1475-9276"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "International Journal for Equity in Health"
+        },
+        "month": "3",
+        "end_page": "13",
+        "keywords": [
+          "Photovoice",
+          "Resilience",
+          "Adverse childhood experiences",
+          "Adverse community environments",
+          "Participatory action research",
+          "Health equity"
+        ],
+        "year": "2024",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RA1-1270",
+            "scheme": "LCC",
+            "term": "Public aspects of medicine"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "School of Medicine, Queen’s University",
+            "name": "Yvonne Tan"
+          },
+          {
+            "affiliation": "Department of Public Health Sciences, Queen’s University",
+            "name": "Danielle Pinder"
+          },
+          {
+            "affiliation": "Department of Public Health Sciences, Queen’s University",
+            "name": "Imaan Bayoumi"
+          },
+          {
+            "affiliation": "Department of Family Medicine, Queen’s University",
+            "name": "Rifaa Carter"
+          },
+          {
+            "affiliation": "Department of Family Medicine, Queen’s University",
+            "name": "Michele Cole"
+          },
+          {
+            "affiliation": "Department of Family Medicine, Queen’s University",
+            "name": "Logan Jackson"
+          },
+          {
+            "affiliation": "Department of Family Medicine, Queen’s University",
+            "name": "Autumn Watson"
+          },
+          {
+            "affiliation": "Department of Family Medicine, Queen’s University",
+            "name": "Bruce Knox"
+          },
+          {
+            "affiliation": "Department of Family Medicine, Queen’s University",
+            "name": "Sophy Chan-Nguyen"
+          },
+          {
+            "affiliation": "Department of Family Medicine, Queen’s University",
+            "name": "Meghan Ford"
+          },
+          {
+            "affiliation": "Department of Public Health Sciences, Queen’s University",
+            "name": "Colleen M. Davison"
+          },
+          {
+            "affiliation": "Department of Public Health Sciences, Queen’s University",
+            "name": "Susan A. Bartels"
+          },
+          {
+            "affiliation": "Department of Public Health Sciences, Queen’s University",
+            "name": "Eva Purkey"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s12939-024-02142-2"
+          }
+        ],
+        "abstract": "Abstract Background Adverse childhood experiences (ACEs), in combination with adverse community environments, can result in traumatic stress reactions, increasing a person’s risk for chronic physical and mental health conditions. Family resilience refers to the ability of families to withstand and rebound from adversity; it involves coping with disruptions as well as positive growth in the face of sudden or challenging life events, trauma, or adversities. This study aimed to identify factors contributing to family and community resilience from the perspective of families who self-identified as having a history of adversity and being resilient during the COVID-19 pandemic. Methods This study used Photovoice, a visual participatory research method which asks participants to take photographs to illustrate their responses to a research question. Participants consisted of a maximum variation sample of families who demonstrated family level resilience in the context of the pair of ACEs during the COVID-19 pandemic. Family members were asked to collect approximately five images or videos that illustrated the facilitators and barriers to well-being for their family in their community. Semi-structured in-depth interviews were conducted using the SHOWeD framework to allow participants to share and elucidate the meaning of their photos. Using thematic analysis, two researchers then independently completed line-by-line coding of interview transcripts before collaborating to develop consensus regarding key themes and interpretations. Results Nine families were enrolled in the study. We identified five main themes that enhanced family resilience: (1) social support networks; (2) factors fostering children's development; (3) access and connection to nature; (4) having a space of one’s own; and (5) access to social services and community resources. Conclusions In the context of additional stresses related to the COVID-19 pandemic, resilient behaviours and strategies for families were identified. The creation or development of networks of intra- and inter-community bonds; the promotion of accessible parenting, housing, and other social services; and the conservation and expansion of natural environments may support resilience and health.",
+        "title": "Family and community resilience: a Photovoice study"
+      },
+      "id": "000030e584384c02bc6a99205fa771eb",
+      "created_date": "2024-03-24T12:13:44Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:12:36Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s40478-018-0619-9",
+            "type": "doi"
+          },
+          {
+            "id": "2051-5960",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2051-5960"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "Acta Neuropathologica Communications"
+        },
+        "month": "11",
+        "end_page": "9",
+        "keywords": [
+          "Chronic traumatic encephalopathy",
+          "TMEM106B",
+          "Neuroinflammation",
+          "Football",
+          "Traumatic brain injury",
+          "Tau"
+        ],
+        "year": "2018",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RC346-429",
+            "scheme": "LCC",
+            "term": "Neurology. Diseases of the nervous system"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Jonathan D. Cherry"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Jesse Mez"
+          },
+          {
+            "affiliation": "Department of Pathology, Fishberg Department of Neuroscience, Friedman Brain Institute, Ronald M. Loeb Center for Alzheimer’s Disease, Icahn School of Medicine at Mount Sinai School",
+            "name": "John F. Crary"
+          },
+          {
+            "affiliation": "Department of Biostatistics, Boston University School of Public Health",
+            "name": "Yorghos Tripodis"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Victor E. Alvarez"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Ian Mahar"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Bertrand R. Huber"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Michael L. Alosco"
+          },
+          {
+            "affiliation": "Department of Veterans Affairs Medical Center",
+            "name": "Raymond Nicks"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Bobak Abdolmohammadi"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Patrick T. Kiernan"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Laney Evers"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Sarah Svirsky"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Katharine Babcock"
+          },
+          {
+            "affiliation": "VA Boston Healthcare System",
+            "name": "Hannah M. Gardner"
+          },
+          {
+            "affiliation": "VA Boston Healthcare System",
+            "name": "Gaoyuan Meng"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Christopher J. Nowinski"
+          },
+          {
+            "affiliation": "Department of Biostatistics, Boston University School of Public Health",
+            "name": "Brett M. Martin"
+          },
+          {
+            "affiliation": "Department of Neurology, Boston University School of Medicine",
+            "name": "Brigid Dwyer"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Neil W. Kowall"
+          },
+          {
+            "affiliation": "Department of Anatomy and Neurobiology, Boston University School of Medicine",
+            "name": "Robert C. Cantu"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Lee E. Goldstein"
+          },
+          {
+            "affiliation": "Department of Neurology, Boston University School of Medicine",
+            "name": "Douglas I. Katz"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Robert A. Stern"
+          },
+          {
+            "affiliation": "Department of Neurology, Boston University School of Medicine",
+            "name": "Lindsay A. Farrer"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Ann C. McKee"
+          },
+          {
+            "affiliation": "Boston University Alzheimer’s Disease and CTE Center, Boston University School of Medicine",
+            "name": "Thor D. Stein"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://link.springer.com/article/10.1186/s40478-018-0619-9"
+          }
+        ],
+        "abstract": "Abstract The genetic basis of chronic traumatic encephalopathy (CTE) is poorly understood. Variation in transmembrane protein 106B (TMEM106B) has been associated with enhanced neuroinflammation during aging and with TDP-43-related neurodegenerative disease, and rs3173615, a missense coding SNP in TMEM106B, has been implicated as a functional variant in these processes. Neuroinflammation and TDP-43 pathology are prominent features in CTE. The purpose of this study was to determine whether genetic variation in TMEM106B is associated with CTE risk, pathological features, and ante-mortem dementia. Eighty-six deceased male athletes with a history of participation in American football, informant-reported Caucasian, and a positive postmortem diagnosis of CTE without comorbid neurodegenerative disease were genotyped for rs3173615. The minor allele frequency (MAF = 0.42) in participants with CTE did not differ from previously reported neurologically normal controls (MAF = 0.43). However, in a case-only analysis among CTE cases, the minor allele was associated with reduced phosphorylated tau (ptau) pathology in the dorsolateral frontal cortex (DLFC) (AT8 density, odds ratio [OR] of increasing one quartile = 0.42, 95% confidence interval [CI] 0.22–0.79, p = 0.008), reduced neuroinflammation in the DLFC (CD68 density, OR of increasing one quartile = 0.53, 95% CI 0.29–0.98, p = 0.043), and increased synaptic protein density (β = 0.306, 95% CI 0.065–0.546, p = 0.014). Among CTE cases, TMEM106B minor allele was also associated with reduced ante-mortem dementia (OR = 0.40, 95% CI 0.16–0.99, p = 0.048), but was not associated with TDP-43 pathology. All case-only models were adjusted for age at death and duration of football play. Taken together, variation in TMEM106B may have a protective effect on CTE-related outcomes.",
+        "title": "Variation in TMEM106B in chronic traumatic encephalopathy"
+      },
+      "created_date": "2018-11-04T12:37:46Z",
+      "id": "00003741594643f4996e2555a01e03c7"
+    },
+    {
+      "last_updated": "2025-08-19T18:04:12Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1775-4275",
+            "type": "pissn"
+          },
+          {
+            "id": "10.4000/aitia.8614",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "number": "1",
+          "country": "FR",
+          "issns": [
+            "1775-4275"
+          ],
+          "publisher": "ENS Éditions",
+          "language": [
+            "EN",
+            "FR",
+            "IT"
+          ],
+          "title": "Aitia"
+        },
+        "month": "08",
+        "year": "2021",
+        "subject": [
+          {
+            "code": "DF10-951",
+            "scheme": "LCC",
+            "term": "History of Greece"
+          }
+        ],
+        "author": [
+          {
+            "name": "Christophe Cusset"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://journals.openedition.org/aitia/8614"
+          }
+        ],
+        "title": "Alain Blanchard, Les Bucoliques de Théocrite. Construction et déconstruction d’un recueil"
+      },
+      "id": "00005970ca21405994fd5fa75aa42ab9",
+      "created_date": "2021-12-02T09:54:33Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:10:59Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1696-2060",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "24",
+          "country": "ES",
+          "issns": [
+            "1696-2060"
+          ],
+          "publisher": "Asociación de Historia Actual",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "IT",
+            "PT"
+          ],
+          "title": "Historia Actual On-Line"
+        },
+        "month": "04",
+        "end_page": "229",
+        "year": "2011",
+        "start_page": "227",
+        "subject": [
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          }
+        ],
+        "author": [
+          {
+            "name": "Gema León Ravina"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.historia-actual.org/Publicaciones/index.php/haol/article/view/552"
+          }
+        ],
+        "title": "Torres Clemente, Elena, Manuel de Falla. Málaga, Editorial Argubal, 2007, 206 pp."
+      },
+      "created_date": "2011-04-15T15:49:55Z",
+      "id": "000061069b204c938719d9b1a0e1bbaf"
+    },
+    {
+      "last_updated": "2025-08-20T02:07:51Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.37653/juah.2025.188309",
+            "type": "doi"
+          },
+          {
+            "id": "1995-8463",
+            "type": "pissn"
+          },
+          {
+            "id": "2706-6673",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "22",
+          "number": "2",
+          "country": "IQ",
+          "issns": [
+            "1995-8463",
+            "2706-6673"
+          ],
+          "publisher": "University of Anbar",
+          "language": [
+            "AR",
+            "EN"
+          ],
+          "title": "مجلة جامعة الأنبار للعلوم الإنسانية"
+        },
+        "month": "6",
+        "end_page": "526",
+        "keywords": [
+          "statistical relations",
+          "workforce"
+        ],
+        "year": "2025",
+        "start_page": "510",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "University of Anbar",
+            "name": "Hind Waleed Farhan"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-4108-1292",
+            "affiliation": "University of Anbar",
+            "name": "Khalid Akbar Abdullah"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://juah.uoanbar.edu.iq/article_188309.html"
+          }
+        ],
+        "abstract": "Aims: This current study aimed to analyze the demographic characteristics of ‎the agricultural workforce and demonstrate the impact of these characteristics ‎on agricultural activity in terms of production and diversity. It also aimed to ‎clarify the population distribution of the workforce according to demographic ‎and economic indicators, and finally to evaluate its relationship with ‎agricultural activities. Methodology: A descriptive and analytical approach was ‎adopted, relying on statistical data available from official and field sources. The ‎study also tried to determine the size of the workforce and its geographical, age, ‎educational distribution, and analyze the extent of its contribution to ‎agricultural activity. The correlation coefficient was used to measure the ‎relationship between labor force characteristics and agricultural production ‎indicators in the studied areas. Results: After analyzing all the gathered data, ‎the results showed a positive correlation between the density of the agricultural ‎workforce and the level of agricultural production in most of the studied areas, ‎especially in areas with adequate infrastructure and agricultural services. It also ‎showed that the productive age group of the workforce represents the highest ‎percentage of those employed in this sector, in addition to the concentration of ‎workers with limited education in traditional agricultural activities, which limits ‎the expansion of modern methods. Conclusions: It can be concluded that ‎workforce represents one of the fundamental pillars of agricultural sector ‎development, and that improving its demographic and educational characteristics ‎would contribute to increasing agricultural production efficiency significantly. The ‎study emphasized the importance of supporting agricultural training programs and ‎developing workers' skills in order to achieve optimal use of human resources in this ‎vital sector.‎",
+        "title": "Statistical Relations of The Agricultural Workforce in the Rural of ‎Ramadi ‎District"
+      },
+      "id": "00007485b2cf4fdcb916fedf51bebae1",
+      "created_date": "2025-06-18T20:18:21Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:36:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1681-9004",
+            "type": "pissn"
+          },
+          {
+            "id": "2500-302X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.24930/1681-9004-2019-19-2-191-208",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "0",
+          "number": "2",
+          "country": "RU",
+          "issns": [
+            "1681-9004",
+            "2500-302X"
+          ],
+          "publisher": "A.N. Zavaritsky Institute of Geology and Geochemistry",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Литосфера"
+        },
+        "month": "6",
+        "end_page": "208",
+        "keywords": [
+          "paleo-arc",
+          "back-arc setting",
+          "plume",
+          "collision",
+          "subduction"
+        ],
+        "year": "2019",
+        "start_page": "191",
+        "subject": [
+          {
+            "code": "TA703-712",
+            "scheme": "LCC",
+            "term": "Engineering geology. Rock mechanics. Soil mechanics. Underground construction"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Institute of Geology UFRC of RAS.",
+            "name": "D. N. Salikhov"
+          },
+          {
+            "affiliation": "A.N. Zavaritsky Institute of Geology and Geochemistry UB of RAS.",
+            "name": "V. V. Kholodnov"
+          },
+          {
+            "affiliation": "A.N. Zavaritsky Institute of Geology and Geochemistry UB of RAS.",
+            "name": "V. N. Puchkov"
+          },
+          {
+            "affiliation": "Institute of Geology UFRC of RAS.",
+            "name": "I. R. Rakhimov"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://www.lithosphere.ru/jour/article/view/1158"
+          }
+        ],
+        "abstract": "Subject. A systematization of Late-Paleozoic magmatic formations of the Magnitogorsk zone of the Southern Urals in the process of an accretion of the Magnitogorsk paleoarc to the margin of the East European continent (EEC) with formation in Famenian and Carboniferous active continent margin of South-Uralian accretionary-collisional belt was given in the work. Materials and methods. A generalization of published and manuscript materials characterizing magmatism and ore-mineralization of Magnitogorsk zone for the Devonian-Carboniferous-Permian time carried out, additional investigations of chemical composition of rocks (XRF, ISP-MS) characterizing process of accretion, subduction and plume activity, microelement distribution in them was made, the composition of rock-forming and accessory minerals (EPMA) was studied. Results. It is found that the South-Uralian accretionary-collisional belt was beginning to form in the late phase of the development of the Magnitogorsk island arc in the process its collision with EEC margin with formation in the Frasnian and Carboniferous of active continental margin. The products of Late-island-arc volcanism are represented by the porphyrite formation and in the eastern frame of the arc - by subalkaline monzonite-shoshonite-latite volcanic-intrusive association with intermediate characteristics between the subductional and interplate formations. Synchronously with them, in the backarc setting, picrite and meymechite volcanics − derivatives of a mantle plume are formed. In process of substitution of tectonic-magmatic regime from island-arc to margin-continental intraplate-type mantle series were forming. During this period, hot asthenospheric diapirs (plumes) were rising to the bottom of new-formed (accreted) margin-continental lithosphere. Along with the magmatic associations of intraplate type and rock series of intermediate geochemical type, this geodynamic situation in the Southern Urals is characterized by a presence of great volumes of mantle-crust granitoids of gabbro-tonalite-granodiorite-granite type, that were formed with a manifold manifestation of anatexis in a time interval of 365-290 Ma. Conclusion. On the whole the originality of Magnitogorsk zone geological history in the Devonian and Carboniferous, peculiarities of magmatic complexes formed here due to various geodynamic settings, are making this zone an extraordinary interesting and important object to study of processes of plume-lithosheric and mantle-crust interaction.",
+        "title": "Subduction, collision and plumes in the epoch of the Late Paleozoic magmatism of the Magnitogorsk zone (the Southern Urals)"
+      },
+      "created_date": "2020-04-10T10:10:20Z",
+      "id": "00007bb43979494fac773ce8962317ef"
+    },
+    {
+      "last_updated": "2025-08-20T02:25:47Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2474-252X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5811/cpcem.24999",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "2",
+          "country": "US",
+          "issns": [
+            "2474-252X"
+          ],
+          "publisher": "eScholarship Publishing, University of California",
+          "language": [
+            "EN"
+          ],
+          "title": "Clinical Practice and Cases in Emergency Medicine"
+        },
+        "month": "2",
+        "end_page": "241",
+        "year": "2025",
+        "start_page": "239",
+        "subject": [
+          {
+            "code": "RC86-88.9",
+            "scheme": "LCC",
+            "term": "Medical emergencies. Critical care. Intensive care. First aid"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Cincinnati College of Medicine, Department of Emergency Medicine, Cincinnati, Ohio",
+            "name": "Patrick Minges"
+          },
+          {
+            "affiliation": "University of Cincinnati College of Medicine, Department of Emergency Medicine, Cincinnati, Ohio",
+            "name": "Martina Diaz McDermott"
+          },
+          {
+            "affiliation": "University of Cincinnati College of Medicine, Department of Emergency Medicine, Cincinnati, Ohio",
+            "name": "Jazmyn Shaw"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://escholarship.org/uc/item/0zt8b4vv"
+          }
+        ],
+        "abstract": "Case Presentation: A 30-year-old female with a history of alcoholic cirrhosis and esophageal varices presented with massive hematemesis. A gastric balloon tamponade device was subsequently placed to temporize variceal hemorrhage, and point-of-care ultrasound (POCUS) was used to confirm the appropriate placement of the gastric balloon before complete inflation. We describe a novel use of ultrasound for use in severely ill patients with gastrointestinal (GI) bleeding. Discussion: A fluid-filled and distended stomach has long been recognized as a cause of a false-positive focused assessment with sonography in trauma exam but may also be a vital piece of information in the scenario of a patient with suspected upper GI hemorrhage. There is very little description in the literature of using POCUS to confirm the appropriate placement of a gastric tamponade balloon with none by emergency physicians.. Ultrasound may offer advantages over plain radiography in this application given its speed and safety; thus, its utility for this task is worth further investigation.",
+        "title": "Use of Point-of-care Ultrasound for Placement of a Gastric Tamponade Balloon"
+      },
+      "id": "0000b97a6b854b7eaba5ea46bad31af4",
+      "created_date": "2025-05-22T13:33:51Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:24:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0210-4466",
+            "type": "pissn"
+          },
+          {
+            "id": "1988-3102",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3989/asclepio.2007.v59.i1.221",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "59",
+          "number": "1",
+          "country": "ES",
+          "issns": [
+            "0210-4466",
+            "1988-3102"
+          ],
+          "publisher": "Consejo Superior de Investigaciones Científicas",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "IT",
+            "PT"
+          ],
+          "title": "Asclepio: Revista de Historia de la Medicina y de la Ciencia"
+        },
+        "month": "6",
+        "end_page": "202",
+        "keywords": [
+          "prostitución",
+          "españa",
+          "siglo xix",
+          "doctorado",
+          "manuel pizarro jiménez"
+        ],
+        "year": "2007",
+        "start_page": "167",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "R131-687",
+            "scheme": "LCC",
+            "term": "History of medicine. Medical expeditions"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universidad de Sevilla",
+            "name": "Juan L. Carrillo"
+          },
+          {
+            "affiliation": "Universidad de Sevilla",
+            "name": "Encarnación Bernal"
+          },
+          {
+            "affiliation": "Universidad de Sevilla",
+            "name": "María Luisa Calero"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://asclepio.revistas.csic.es/index.php/asclepio/article/view/221"
+          }
+        ],
+        "abstract": "El presente artículo es una aproximación al problema de la prostitución en la España de la segunda mitad del siglo XIX. Se aporta el texto del «discurso doctrinal» que sirvió al higienista sevillano Manuel Pizarro Jiménez (1821-1892) para obtener su segundo doctorado en medicina y se discute su posición ante la prostitución —un abolicionista defensor de la regeneración recompensada— a la luz de sus condicionamientos sociales y personales. Se aporta un inventario crítico de su producción impresa, así como diversos documentos en relación con este doctorado.",
+        "title": "El higienista Manuel Pizarro Jiménez (1821-1892) y su discurso doctrinal «De la prostitución y de su influencia en las costumbres, en la moralidad y en la salud pública» (1870)"
+      },
+      "id": "0000e368c93b447492393f025d1c0838",
+      "created_date": "2021-05-05T09:21:11Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:29:38Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2158-2440",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1177/21582440221097377",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "US",
+          "issns": [
+            "2158-2440"
+          ],
+          "publisher": "SAGE Publishing",
+          "language": [
+            "EN"
+          ],
+          "title": "SAGE Open"
+        },
+        "month": "5",
+        "year": "2022",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitat Politècnica de València, Spain",
+            "name": "Beatriz Garcia-Ortega"
+          },
+          {
+            "affiliation": "Universitat Politècnica de València, Spain",
+            "name": "Javier Galan-Cubillo"
+          },
+          {
+            "affiliation": "Universitat Politècnica de València, Spain",
+            "name": "Blanca de-Miguel-Molina"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1177/21582440221097377"
+          }
+        ],
+        "abstract": "This paper assesses whether and to which extent the COVID-19 pandemic, which represents a scenario of high moral intensity, is influencing the moral reasoning of top CEOs (chief executive officers) in the paradigmatic case of the automotive industry and how this moral reasoning relates to their CSR response to the crisis and their CSR plans in the long run. To this end, we took the CEO letters before and after the pandemic outbreak of the top 15 automotive companies, and applied Weber’s method to conduct a moral reasoning categorization, along with an examination of their CSR approach and initiatives. The results show a predominant moral paralysis among these CEOs, where positive reactions addressed are philanthropic in nature and more likely to be a transient response to the crisis, rather than a sustained long-term improvement of their CSR rooted in a significant moral approach enhancement. Furthermore, CEOs at the lowest stages of moral reasoning, primarily focused on their own business and immediate stakeholders, are less likely to highlight these philanthropic initiatives. The outcome evidences the convenience of addressing CSR from the lens of moral reasoning, and it further draws the attention of the scientific community, companies and their top management, stakeholders, and society to the relevance of investigating and considering the moral reasoning of top management in large corporations and its implications.",
+        "title": "CSR and CEO’s Moral Reasoning in the Automotive Industry in the Era of COVID-19"
+      },
+      "id": "0000ea0a2f3046379a3b6e8fbdfb28ce",
+      "created_date": "2022-05-19T23:35:10Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:52:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s12874-025-02478-5",
+            "type": "doi"
+          },
+          {
+            "id": "1471-2288",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "25",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1471-2288"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "BMC Medical Research Methodology"
+        },
+        "month": "1",
+        "end_page": "7",
+        "keywords": [
+          "National health and nutrition examination survey",
+          "Cancer history",
+          "Cancer incidence",
+          "Cancer epidemiology",
+          "Environmental toxicant exposure"
+        ],
+        "year": "2025",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "R5-920",
+            "scheme": "LCC",
+            "term": "Medicine (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Interdisciplinary Program in Bioinformatics, College of Natural Sciences, Seoul National University",
+            "name": "Jinyoung Moon"
+          },
+          {
+            "affiliation": "Department of Ophthalmology, Kangnam Sacred Heart Hospital, Hallym University College of Medicine",
+            "name": "Yongseok Mun"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s12874-025-02478-5"
+          }
+        ],
+        "abstract": "Abstract Background The US National Health and Nutrition Examination Survey (NHANES) dataset does not include a specific question or laboratory test to confirm a history of cancer diagnosis. However, if straightforward variables for cancer history are introduced, US NHANES could be effectively utilized in future cancer epidemiology studies. To address this gap, the authors developed a cancer patient database from the US NHANES datasets by employing multiple R programming codes. Methods To illustrate the practical application of this methodology to a real-world problem, the authors extracted the R codes applied in an academic paper published in another journal on January 30th, 2024 ( https://doi.org/10.1016/j.heliyon.2024.e24337 ). This paper will focus on the construction of the database and analysis using R codes. Entire. Results In the first example, the urine concentration of monocarboxynonyl phthalate, monocarboxyoctyl phthalate, mono-2-ethyl-5-carboxypentyl phthalate, and mono-2-hydroxy-iso-butyl phthalate (all ng/mL) were used as the independent variable, instead of the serum concentration of perfluorooctanoic acid (PFOA), perfluorooctane sulfonic acid (PFOS), perfluorohexane sulfonic acid (PFHxS), and perfluorononanoic acid (PFNA), respectively. In the second example, the serum concentration of 2,3,3’,4,4’-Pentachlorobiphenyl (PCB105), 2,3,4,4´,5-Pentachlorobiphenyl (PCB114), 2,3’,4,4’,5-Pentachlorobiphenyl (PCB118), and 2,2’,3,4,4’,5’- and 2,3,3’,4,4’,6-Hexachlorobiphenyl (PCB138) were used as the independent variable, instead of the serum concentration of PFOA, PFOS, PFHxS, and PFNA, respectively. Discussion This research offers a comprehensive set of R codes aimed at creating a single, user-friendly variable that encapsulates the history of each type of cancer while also considering the age at which the diagnosis was made. The US NHANES provides a wealth of critical data on environmental toxicant exposures. By employing these R codes, researchers can potentially discover numerous new associations between environmental toxicant exposures and cancer diagnoses. Ultimately, these codes could significantly advance the field of cancer epidemiology in relation to environmental toxicant exposure.",
+        "title": "Construction of the cancer patients’ database based on the US National Health and Nutrition Examination Survey (NHANES) datasets for cancer epidemiology research"
+      },
+      "id": "0000ea8042054e8b90b724bdfbbaeeb6",
+      "created_date": "2025-01-26T12:39:34Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:54:19Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.36317/kaj/2023/v1.i57.12324",
+            "type": "doi"
+          },
+          {
+            "id": "1994-8999",
+            "type": "pissn"
+          },
+          {
+            "id": "2664-469X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "58",
+          "country": "IQ",
+          "issns": [
+            "1994-8999",
+            "2664-469X"
+          ],
+          "publisher": "Unviversity of Kufa, Faculty of Arts",
+          "language": [
+            "AR",
+            "EN",
+            "FR"
+          ],
+          "title": "آداب الكوفة"
+        },
+        "month": "December",
+        "keywords": [
+          "الرمز",
+          "المكان",
+          "الطلل",
+          "الشاعر",
+          "الحاجري"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "جامعة كربلاء/كلية التربية للعلوم الإنسانية/قسم اللغة العربية",
+            "name": "محمد المهداوي "
+          },
+          {
+            "affiliation": "جامعة كربلاء/كلية التربية للعلوم الإنسانية/قسم اللغة العربية",
+            "name": "صادق محمد "
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journal.uokufa.edu.iq/index.php/kufa_arts/article/view/12324"
+          }
+        ],
+        "abstract": "\nتعد الرموز من التقانات المهمة  التي تثير فضول المتلقي وتزيد رغبته في الوصول الى قصد الشاعر ، والكشف عن دلالاتها القارة داخل نتاجه الشعري ، فديناميكية الرمز تكفل ولوج القارئ الى عمق النص ، فعمل القارئ يصبح فضاء لقراءات متعددة ، ذات الدلالة البعيدة عن الواقع المذكور ، إذ ان الرمز المكاني في النص الأدبي أداة فاعلة في كشف الخبايا النصية المفروزة من دلالاته في بعده المعبر عن البوح المكنون في أهواء الشاعر المكبوتة في دواخلها والمنطوية على ذاتها ، لذا فان اختيار هذا الموضوع يعد محاولة لتسليط الضوء على تلك الرموز وبخاصة الطللية منها ، وإظهار أهميتها في شعر حسام الدين الحاجري ، وما دامت الرموز متعلقة بالقارئ أكثر من ارتباطها بالنص ، لذا وجب على القارئ تفكيك تلك الرموز ، فهذا البحث قائم على رصدها والكشف عن مكنوناتها وبخاصة الرموز (الطللية) بوصفها مكانا محملا بأبعاد وايحاءات كثيرة .\n",
+        "title": "رمزية المكان (الطلل) في شعر حسام الدين الحاجري  "
+      },
+      "id": "0000f2b1156c42dd8344cfe9d4c15272",
+      "created_date": "2023-12-29T10:00:44Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:47:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1532-2807",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/pore.2024.1611929",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "30",
+          "country": "CH",
+          "issns": [
+            "1532-2807"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Pathology and Oncology Research"
+        },
+        "month": "1",
+        "keywords": [
+          "S1P",
+          "anti-ceramide antibody",
+          "NSCLC",
+          "biomarkers",
+          "lung cancer"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "RC254-282",
+            "scheme": "LCC",
+            "term": "Neoplasms. Tumors. Oncology. Including cancer and carcinogens"
+          },
+          {
+            "code": "RB1-214",
+            "scheme": "LCC",
+            "term": "Pathology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Pulmonology, Semmelweis University, Budapest, Hungary",
+            "name": "Lilla Bűdi"
+          },
+          {
+            "affiliation": "Department of Pulmonology, Semmelweis University, Budapest, Hungary",
+            "name": "Dániel Hammer"
+          },
+          {
+            "affiliation": "Department of Pulmonology, Semmelweis University, Budapest, Hungary",
+            "name": "Rita Varga"
+          },
+          {
+            "affiliation": "Department of Pulmonology, Semmelweis University, Budapest, Hungary",
+            "name": "Veronika Müller"
+          },
+          {
+            "affiliation": "Medical Imaging Centre, Semmelweis University, Budapest, Hungary",
+            "name": "Ádám Domonkos Tárnoki"
+          },
+          {
+            "affiliation": "Medical Imaging Centre, Semmelweis University, Budapest, Hungary",
+            "name": "Dávid László Tárnoki"
+          },
+          {
+            "affiliation": "Department of Pulmonology, Semmelweis University, Budapest, Hungary",
+            "name": "Martina Mészáros"
+          },
+          {
+            "affiliation": "Wythenshawe Hospital, Manchester University National Health Service Foundation Trust, Manchester Academic Health Science Centre, Manchester, United Kingdom",
+            "name": "András Bikov"
+          },
+          {
+            "affiliation": "Division of Infection, Immunity and Respiratory Medicine, Faculty of Biology, Medicine and Health, The University of Manchester, Manchester, United Kingdom",
+            "name": "András Bikov"
+          },
+          {
+            "affiliation": "Department of Pulmonology, Semmelweis University, Budapest, Hungary",
+            "name": "Péter Horváth"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.por-journal.com/articles/10.3389/pore.2024.1611929/full"
+          }
+        ],
+        "abstract": "ObjectivesSpingosine-1-phosphate (S1P) and ceramides are bioactive sphingolipids that influence cancer cell fate. Anti-ceramide antibodies might inhibit the effects of ceramide. The aim of this study was to assess the potential role of circulating S1P and anti-ceramide antibody as biomarkers in non-small cell lung cancer (NSCLC).MethodsWe recruited 66 subjects (34 controls and 32 patients with NSCLC). Patient history and clinical variables were taken from all participants. Venous blood samples were collected to evaluate plasma biomarkers. If bronchoscopy was performed, bronchial washing fluid (BWF) was also analyzed. We measured the levels of S1P and anti-ceramide antibody with ELISA.ResultsS1P levels were significantly higher in the NSCLC group (3770.99 ± 762.29 ng/mL vs. 366.53 ± 249.38 ng/mL, patients with NSCLC vs. controls, respectively, p &lt; 0.001). Anti-ceramide antibody levels were significantly elevated in the NSCLC group (278.70 ± 19.26 ng/mL vs. 178.60 ± 18 ng/mL, patients with NSCLC vs. controls, respectively, p = 0.007). Age or BMI had no significant effect on anti-ceramide antibody or S1P levels. BWF samples had higher levels of anti-ceramide antibody (155.29 ± 27.58 ng/mL vs. 105.87 ± 9.99 ng/mL, patients with NSCLC vs. controls, respectively, p &lt; 0.001). Overall survival (OS) was 13.36 months. OS was not affected by anti-ceramide antibody or S1P levels.ConclusionHigher levels of S1P and anti-ceramide antibody were associated with active cancer. These results suggest that sphingolipid alterations might be important features of NSCLC.",
+        "title": "Anti-ceramide antibody and sphingosine-1-phosphate as potential biomarkers of unresectable non-small cell lung cancer"
+      },
+      "id": "000104a158e04d62bd3d7688536bba7f",
+      "created_date": "2025-01-06T04:11:12Z"
+    },
+    {
+      "last_updated": "2026-01-19T16:12:20Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1765-2766",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/transatlantica.14872",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2",
+          "country": "FR",
+          "issns": [
+            "1765-2766"
+          ],
+          "publisher": "Association Française d'Etudes Américaines",
+          "language": [
+            "EN",
+            "FR"
+          ],
+          "title": "Transatlantica"
+        },
+        "month": "09",
+        "keywords": [
+          "exile",
+          "immigration",
+          "otherness",
+          "Bruce Springsteen",
+          "ballad",
+          "Tom Joad"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "E-F",
+            "scheme": "LCC",
+            "term": "History America"
+          },
+          {
+            "code": "E11-143",
+            "scheme": "LCC",
+            "term": "America"
+          }
+        ],
+        "author": [
+          {
+            "name": "Khaled Chouana"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/transatlantica/14872"
+          }
+        ],
+        "abstract": "The aim of this paper is to explore the experience of exile in two folk ballads by Bruce Springsteen, “American Land” (2006) and “The Ghost of Tom Joad” (1995). The paper examines the aesthetic and poetic aspects of the two ballads. “American Land” tells the story of a new immigrant who settles in America and portrays it as a Promised Land. In “The Ghost of Tom Joad,” Springsteen suggests that ordinary people undergo a metaphorical exile that has led John Steinbeck’s protagonist Tom Joad in The Grapes of Wrath (1939) to express his anger against the injustice of the Great Depression.",
+        "title": "Of Exile in America: The Immigrant Experience in “American Land” (2006) and “The Ghost of Tom Joad” (1995) by Bruce Springsteen"
+      },
+      "id": "00012bdc1c914f0d996acfea9e7f6010",
+      "created_date": "2026-01-19T16:12:20Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:07:25Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0017-3916",
+            "type": "pissn"
+          },
+          {
+            "id": "2159-3159",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "50",
+          "number": "3",
+          "country": "US",
+          "issns": [
+            "0017-3916",
+            "2159-3159"
+          ],
+          "publisher": "Duke University",
+          "language": [
+            "EN"
+          ],
+          "title": "Greek, Roman, and Byzantine Studies"
+        },
+        "month": "12",
+        "end_page": "436",
+        "year": "2010",
+        "start_page": "411",
+        "subject": [
+          {
+            "code": "DF10-951",
+            "scheme": "LCC",
+            "term": "History of Greece"
+          }
+        ],
+        "author": [
+          {
+            "name": "Sofie Remijsen"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://grbs.library.duke.edu/article/view/1491"
+          }
+        ],
+        "abstract": "<span style=\"font-family: Times; font-size: medium;\">In Malalas' account of games at Antioch, the confusions and doublets reflect his simplification of diverse festivals; the first Olympics there should be dated to A.D. 212 rather than earlier.</span>",
+        "title": "The Introduction of the Antiochene Olympics: A Proposal for a New Date"
+      },
+      "created_date": "2016-11-28T17:00:25Z",
+      "id": "00013d3bb62947a9b6fe4bc67f2cfef3"
+    },
+    {
+      "last_updated": "2025-08-19T18:12:35Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2405-8440",
+            "type": "pissn"
+          },
+          {
+            "id": "10.1016/j.heliyon.2019.e01338",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "3",
+          "country": "GB",
+          "issns": [
+            "2405-8440"
+          ],
+          "publisher": "Elsevier",
+          "language": [
+            "EN"
+          ],
+          "title": "Heliyon"
+        },
+        "month": "03",
+        "end_page": "",
+        "keywords": [
+          "Education",
+          "Computer science",
+          "Sociology"
+        ],
+        "year": "2019",
+        "start_page": "e01338",
+        "subject": [
+          {
+            "code": "Q1-390",
+            "scheme": "LCC",
+            "term": "Science (General)"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Social Sciences and Applied Languages, Alfonso X el Sabio University, Madrid, Spain; Corresponding author.",
+            "name": "Roberto Sánchez-Cabrero"
+          },
+          {
+            "affiliation": "Department of Social Sciences and Applied Languages, Alfonso X el Sabio University, Madrid, Spain",
+            "name": "Óscar Costa-Román"
+          },
+          {
+            "affiliation": "Department of Languages and Education, Nebrija University, Madrid, Spain",
+            "name": "Francisco Javier Pericacho-Gómez"
+          },
+          {
+            "affiliation": "Department of Geography and History, National Distance Education University (UNED), Madrid, Spain",
+            "name": "Miguel Ángel Novillo-López"
+          },
+          {
+            "affiliation": "Department of Social Sciences and Applied Languages, Alfonso X el Sabio University, Madrid, Spain",
+            "name": "Amaya Arigita-García"
+          },
+          {
+            "affiliation": "Department of Social Sciences and Applied Languages, Alfonso X el Sabio University, Madrid, Spain",
+            "name": "Amelia Barrientos-Fernández"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.sciencedirect.com/science/article/pii/S2405844018352095"
+          }
+        ],
+        "abstract": "This study describes the social and demographic profile of the first generation of users of marketed virtual reality (VR) viewers in Spain and, subsequently, it assesses the interest in its use as a learning tool. For that purpose, an online questionnaire created ad hoc was administered to a sample of 117 participants. The relationship between twelve variables was analysed comparing means through the Snedecor's F distribution and the contingency tables through the Chi-squared test and Somers' D. Among other issues, it was concluded that the virtual reality user profile at present corresponds to a person older than 36, mainly men, with higher education and having acquired their viewer no longer than one year ago. Concerning the interests of virtual reality users as a learning tool, only a few of them currently use virtual reality for this aim, but they mainly show an interest in using the virtual reality as a learning method and they feel optimism regarding the future use of this technology as a learning tool. However, this is not the case among users of video game consoles (PSVR), who are mainly men not interested in their use as a learning tool at present. Finally, it can be stated that current use as a learning tool among teachers and students is occasional and preferably via smartphones.",
+        "title": "Early virtual reality adopters in Spain: sociodemographic profile and interest in the use of virtual reality as a learning tool"
+      },
+      "id": "000155557c404167b93c3ceaf4f38f68",
+      "created_date": "2019-04-02T01:49:37Z"
+    },
+    {
+      "last_updated": "2025-11-30T13:00:13Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s12877-025-06624-y",
+            "type": "doi"
+          },
+          {
+            "id": "1471-2318",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "25",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1471-2318"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "BMC Geriatrics"
+        },
+        "month": "11",
+        "end_page": "11",
+        "keywords": [
+          "Sedative-hypnotics",
+          "Benzodiazepines",
+          "Falls",
+          "Fractures",
+          "Elderly",
+          "Polypharmacy"
+        ],
+        "year": "2025",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RC952-954.6",
+            "scheme": "LCC",
+            "term": "Geriatrics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Student Research Committee, School of Medicine, Shiraz University of Medical Sciences",
+            "name": "Mohammad Hossein Imani"
+          },
+          {
+            "affiliation": "School of Medicine, Iran University of Medical Sciences",
+            "name": "Amir Hossein Imani"
+          },
+          {
+            "affiliation": "Cardiovascular Research Center, Shiraz University of Medical Sciences",
+            "name": "Amirhossein Saem"
+          },
+          {
+            "affiliation": "Department of Geriatric Medicine, Geriatric Mental Health Research Center, Firoozabadi Clinical Research Development Unit (FACRDU), School of Medicine, Iran University of Medical Sciences",
+            "name": "Maryam Niksolat"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s12877-025-06624-y"
+          }
+        ],
+        "abstract": "Abstract Background Falls are a leading cause of injury, hospitalization, and mortality among older adults. Sedative-hypnotic medications, especially benzodiazepines and Z-drugs, have been implicated as potential contributors to fall risk and fracture. This study investigated the prevalence of sedative-hypnotic drug use in elderly patients with falls and its association with fracture outcomes. Methods A cross-sectional study was conducted on 200 patients aged ≥ 60 years presenting with falls to Rasool Akram Hospital, Tehran (2023–2024). Demographics, comorbidities, and medication history were extracted from medical records. Sedative-hypnotic use was recorded, and outcomes included fracture occurrence confirmed by imaging. Statistical analyses included chi-square tests and multivariate logistic regression. Results Among 200 patients (mean age 73 ± 8 years; 65.5% female), 55.5% sustained a fracture. Sedative-hypnotic use was identified in 15.5% (n = 31). Fracture prevalence was higher in sedative users compared to non-users (74% vs. 52%), but the difference was not statistically significant (p = 0.08). Benzodiazepines were the most commonly used class (15.5%). Losartan use was more frequent in fracture patients (29.7% vs. 12.4%) and showed a significant association in logistic regression (OR 3.28; 95% CI: 1.48–7.26; p = 0.003). Conclusions Sedative-hypnotic use was common among elderly patients presenting with falls; although fracture risk was higher in users, the association did not reach statistical significance, likely due to limited sample size. The observed link between losartan and fractures should be interpreted cautiously and warrants further investigation. Medication review remains a critical component of fall-prevention strategies in geriatric care.",
+        "title": "Sedative-hypnotic drug use and risk of falls and fractures in elderly patients: a cross-sectional study"
+      },
+      "id": "00015ef436644085932d45ced847de42",
+      "created_date": "2025-11-30T13:00:12Z"
+    },
+    {
+      "last_updated": "2025-12-12T16:03:43Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2158-2440",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1177/21582440251405566",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "country": "US",
+          "issns": [
+            "2158-2440"
+          ],
+          "publisher": "SAGE Publishing",
+          "language": [
+            "EN"
+          ],
+          "title": "SAGE Open"
+        },
+        "month": "12",
+        "year": "2025",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Fuzhou University of International Studies and Trade, China",
+            "name": "Zhi Zhang"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1177/21582440251405566"
+          }
+        ],
+        "abstract": "As smart city development deepens, its impact on the urban-rural income gap has become a key concern for both the government and society. This article uses panel data from Chinese prefecture-level cities between 2010 and 2022, treating the pilot smart city policy as a quasi-natural experiment, and applying a multi-period difference-in-differences (DID) method to empirically examine how smart city construction affects the urban-rural income gap. It also analyzes the role of economic agglomeration in this process. The research indicates that smart city development has significantly increased the incomes of urban and rural residents and has positively contributed to sharing development benefits between these areas. Mechanism analysis shows that economic agglomeration plays an important mediating and threshold role—smart cities indirectly influence the urban-rural income distribution by fostering economic agglomeration, with this effect showing nonlinear characteristics at different levels of agglomeration. Based on these findings, the article proposes policy recommendations aimed at optimizing economic agglomeration models and advancing urban-rural integrated development, offering theoretical insights and practical strategies for narrowing the income gap and promoting common prosperity.",
+        "title": "Will the Construction of Smart Cities Increase the Urban-Rural Income Gap? An Analysis Based on the Perspective of Economic Agglomeration"
+      },
+      "id": "0001689814024b3da89c27ac07bb0e99",
+      "created_date": "2025-12-12T16:03:43Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:06:21Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s41257-020-00034-1",
+            "type": "doi"
+          },
+          {
+            "id": "2366-1003",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2366-1003"
+          ],
+          "publisher": "SpringerOpen",
+          "language": [
+            "EN"
+          ],
+          "title": "International Journal of Anthropology and Ethnology"
+        },
+        "month": "7",
+        "end_page": "16",
+        "keywords": [
+          "Regional ethnic autonomy",
+          "Ethnic issues",
+          "Chinese nation"
+        ],
+        "year": "2020",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "GN1-890",
+            "scheme": "LCC",
+            "term": "Anthropology"
+          },
+          {
+            "code": "GN301-674",
+            "scheme": "LCC",
+            "term": "Ethnology. Social and cultural anthropology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Research Office of Ethnic Theory, The Institute of Ethnology and Anthropology, The Chinese Academy of Social Sciences",
+            "name": "Jianyue Chen"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://link.springer.com/article/10.1186/s41257-020-00034-1"
+          }
+        ],
+        "abstract": "Abstract The founding of the People’s Republic of China (PRC) established and consolidated a new type of socialist ethnic relations, and the people of all ethnic groups in China have embarked on a socialist road since then. This “had never occurred in thousands of years” in the history of China’s ethnic relations and was based on the correct path for solving ethnic issues with Chinese characteristics pioneered by the Communist Party of China (CPC), the institutional core of which is the system of regional ethnic autonomy. So to speak, the system of regional ethnic autonomy, as a fundamental political system of the country, is the reconstruction of the important content and system of ethnic relations and the reconstruction of the governance system of a unified multi-ethnic country. Around the year of 1949, the Chinese communists planned the system of regional ethnic autonomy in a systematical and comprehensive manner, and established a basic discourse guiding the ethnic work, ethnic policies and ethnic studies in the PRC. On the basis of historical literature, this paper arranges and sorts out the ethic policies and thinking context at the early stage of the governance by the CPC.",
+        "title": "Regional ethnic autonomy: thinking and actions on the reconstruction of a unified multi-ethnic country by the CPC"
+      },
+      "id": "000172cc992047ed90a40791e43af622",
+      "created_date": "2020-07-12T12:45:32Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:29:45Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.56583/fs.2732",
+            "type": "doi"
+          },
+          {
+            "id": "1899-3109",
+            "type": "pissn"
+          },
+          {
+            "id": "2956-4085",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "18",
+          "number": "1",
+          "country": "PL",
+          "issns": [
+            "1899-3109",
+            "2956-4085"
+          ],
+          "publisher": "Akademia Zamojska",
+          "language": [
+            "DE",
+            "EN",
+            "ES",
+            "FR",
+            "PL"
+          ],
+          "title": "Facta Simonidis"
+        },
+        "month": "June",
+        "keywords": [
+          "komunikowanie religijne",
+          "strategie komunikowania",
+          "buddyjskie związki wyznaniowe"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Akademia Mazowiecka w Płocku",
+            "name": "Andrzej Kansy"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://czaz.akademiazamojska.edu.pl/index.php/fs/article/view/2732"
+          }
+        ],
+        "abstract": "\nW artykule przedstawiono wyniki badań na temat strategii komunikowania buddyjskich związków wyznaniowych zarejestrowanych w Polsce. Badanie przeprowadzono metodami analizy treści oraz analizy danych zastanych. Wykorzystano założenia etnografii wirtualnej, która ma na celu poznanie i opisanie zachowań ludzi i zjawisk dostępnych w internecie oraz ich efektów. Stwierdzono m.in., że buddyjskie związki wyznaniowe stosują nowe media do realizacji strategii komunikacji. Są one ukierunkowane na: autoprezentację, budowanie relacji między członkami wspólnoty, propagowanie buddyzmu, aksjologizację. Strony internetowe realizują wymienione strategie, zwłaszcza w zakresie autoprezentacji. Profile w mediach społecznościowych służą głównie budowaniu relacji oraz aksjologizacji. Buddyzm w Polsce nie jest zjawiskiem masowym, ale istotnym dla kultury polskiej. Badania w tym zakresie służą więc budowaniu wzajemnego szacunku w warunkach wielokulturowych społeczeństw.\n",
+        "title": "Strategie komunikowania buddyjskich związków wyznaniowych w Polsce"
+      },
+      "id": "0001783b74534f8193b2a1e3074be04c",
+      "created_date": "2025-07-04T07:49:18Z"
+    },
+    {
+      "last_updated": "2025-08-19T21:35:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1735-9260",
+            "type": "pissn"
+          },
+          {
+            "id": "1735-9279",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "27",
+          "number": "158",
+          "country": "IR",
+          "issns": [
+            "1735-9260",
+            "1735-9279"
+          ],
+          "publisher": "Mazandaran University of Medical Sciences",
+          "language": [
+            "EN",
+            "FA"
+          ],
+          "title": "Journal of Mazandaran University of Medical Sciences"
+        },
+        "month": "3",
+        "end_page": "204",
+        "keywords": [
+          "gabapentin",
+          "psychotic disorder",
+          "case report"
+        ],
+        "year": "2018",
+        "start_page": "200",
+        "subject": [
+          {
+            "code": "R",
+            "scheme": "LCC",
+            "term": "Medicine"
+          },
+          {
+            "code": "R5-920",
+            "scheme": "LCC",
+            "term": "Medicine (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "\n             Psychiatry Resident, Mazandaran University of Medical Sciences, Sari, Iran    \n\t      ",
+            "name": "Pezhman Hadinezhad"
+          },
+          {
+            "affiliation": "\n             Professor of psychiatry, Department of Psychiatry, Psychiatry and Behavioral Sciences Research Center, Faculty member of Mazandaran University of Medical Sciences, Sari, Iran    \n\t      ",
+            "name": "Hamzeh Hosseini"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://jmums.mazums.ac.ir/article-1-10400-en.html"
+          }
+        ],
+        "abstract": "Gabapentin was first approved for treatment of epilepsy by FDA, but later it received more attention due to its effects on pain relief, especially neuropathic pain and post-herpetic neuralgia, and in treatment of anxiety and insomnia. The most common side effects of gabapentin include somnolence, ataxia, and fatigue. However, no studies have reported gabapentin induced psychotic disorder. Here, we report a patient on gabapentin with symptoms of delusional disorder.\nA 42-year-old married housewife without any history of psychiatric disorder, received gabapentin (100 mg once a day) for treatment of first time insomnia. Psychotic symptoms including persecutory delusion occurred and about 12 hours after the onset of symptoms the patient discontinued gabapentin for 24 hours. Consequently, all symptoms were quickly subsided. The patient's assessment was performed using the Naranjo scale. The patient’s score was 9, thus other possible causes of psychosis were ruled out. According to this report, gabapentin could induce psychotic symptoms in patients who have not even had a history of drug use or specific illnesses.",
+        "title": "A Case Report of Gabapentin-induced Psychotic Disorder"
+      },
+      "id": "000187d7c9e84c68b636753888c65ad9",
+      "created_date": "2023-01-25T07:42:23Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:52:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.7573/dic.2020-3-2",
+            "type": "doi"
+          },
+          {
+            "id": "1740-4398",
+            "type": "pissn"
+          },
+          {
+            "id": "1740-4398",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "country": "GB",
+          "issns": [
+            "1740-4398"
+          ],
+          "publisher": "BioExcel Publishing Ltd",
+          "language": [
+            "EN"
+          ],
+          "title": "Drugs in Context"
+        },
+        "month": "7",
+        "end_page": "5",
+        "keywords": [
+          "genitourinary syndrome of menopause",
+          "ospemifene",
+          "selective estrogen receptor modulators",
+          "vulvar and vaginal atrophy"
+        ],
+        "year": "2020",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RM1-950",
+            "scheme": "LCC",
+            "term": "Therapeutics. Pharmacology"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "",
+            "name": "Santiago Palacios"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.drugsincontext.com/ospemifene-for-vulvar-and-vaginal-atrophy:-an-overview/"
+          }
+        ],
+        "abstract": "The menopause-related decline in estrogen levels leads to an array of genital, sexual, and urinary symptoms collectively known as genitourinary syndrome of menopause. The constellation of symptoms associated with vulvar and vaginal atrophy (VVA) can have a profoundly detrimental effect on a woman’s sexual function, relationships, and quality of life. Ospemifene is a selective estrogen receptor modulator indicated for treatment of moderate-to-severe symptomatic VVA in postmenopausal women who are not candidates for local vaginal estrogen therapy or have contraindications for estrogen products. Ospemifene is administered orally, thus avoiding the inconveniences of local therapy, and can be used in women with VVA and a history of breast cancer after completing all (including adjuvant) breast cancer treatment. As well as restoring vaginal health in symptomatic VVA, ospemifene may have collateral benefits of importance to postmenopausal women. In this Special Issue entitled “Treatment of Vulvar and Vaginal Atrophy: Clinical Experience with Ospemifene,” illustrative case studies examine the experiences of women with VVA during treatment with ospemifene. Specific topics include the effects of ospemifene on bone markers; its use in breast cancer survivors and in women with dyslipidemia, urinary incontinence, or VVA-related sexual dysfunction; and its concomitant use with laser therapy.",
+        "title": "Ospemifene for vulvar and vaginal atrophy: an overview"
+      },
+      "id": "0001c8ae35bb4c7b9e3e4d64a3d473d2",
+      "created_date": "2020-07-01T14:00:44Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:41:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2254-4496",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "1",
+          "country": "ES",
+          "issns": [
+            "2254-4496"
+          ],
+          "publisher": "Editorial Delirio",
+          "language": [
+            "EN",
+            "ES",
+            "FR"
+          ],
+          "title": "Caracteres: Estudios Culturales y Críticos de la Esfera Digital"
+        },
+        "month": "5",
+        "end_page": "143",
+        "keywords": [
+          "la estrategia del simbionte",
+          "fernando broncano",
+          "review"
+        ],
+        "year": "2012",
+        "start_page": "139",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Daniel Escandell Montiel"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://revistacaracteres.net/revista/vol1n1mayo2012/resena-la-estrategia-del-simbionte-de-fernando-broncano/"
+          }
+        ],
+        "abstract": "Review of the book \"La estrategia del simbionte\" written by Fernando Broncano.",
+        "title": "Reseña: La estrategia del simbionte, de Fernando Broncano"
+      },
+      "created_date": "2013-04-09T22:20:24Z",
+      "id": "0001ee84372e45108db01dbec8feb30e"
+    },
+    {
+      "last_updated": "2025-08-20T03:47:33Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.7203/SCRIPTA.8.9326",
+            "type": "doi"
+          },
+          {
+            "id": "2340-4841",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "8",
+          "country": "ES",
+          "issns": [
+            "2340-4841"
+          ],
+          "publisher": "Universitat de València",
+          "language": [
+            "CA",
+            "EN",
+            "ES",
+            "IT"
+          ],
+          "title": "Scripta: Revista Internacional de Literatura i Cultura Medieval i Moderna"
+        },
+        "month": "12",
+        "end_page": "360",
+        "year": "2016",
+        "start_page": "356",
+        "subject": [
+          {
+            "code": "D204-475",
+            "scheme": "LCC",
+            "term": "Modern history, 1453-"
+          },
+          {
+            "code": "D111-203",
+            "scheme": "LCC",
+            "term": "Medieval history"
+          },
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitat Pompeu Fabra",
+            "name": "Marta Marfany Simó"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://ojs.uv.es/index.php/scripta/article/view/9326/8795"
+          }
+        ],
+        "abstract": "Review to Delle Donne, Fulvio & Torró, Jaume (eds.) L’immagine di Alfonso il Magnanimo tra letteratura e storia, tra Corona d’Aragona e Italia - La imatge d’Algons el Magnànim en la literatura i la Historiografia entre la Corona d’Aragó i Itàlia, Firenze, SISMEL -Edizioni del Galluzzo , 2016, XII + 300 p. ISBN: 978-88-8450-691-7",
+        "title": "Ressenya a Delle Donne, Fulvio & Torró, Jaume (eds.) L’immagine di Alfonso il Magnanimo tra letteratura e storia, tra Corona d’Aragona e Italia - La imatge d’Algons el Magnànim en la literatura i la Historiografia entre la Corona d’Aragó i Itàlia, Florència, SISMEL -Edizioni del Galluzzo , 2016, XII + 300 p. ISBN: 978-88-8450-691-7"
+      },
+      "created_date": "2017-03-02T14:13:58Z",
+      "id": "0001f0e4124d409bb0ab4d03c0399edd"
+    },
+    {
+      "last_updated": "2025-08-19T16:46:32Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5565/rev/rubrica.224",
+            "type": "doi"
+          },
+          {
+            "id": "2014-5748",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "10",
+          "number": "19",
+          "country": "ES",
+          "issns": [
+            "2014-5748"
+          ],
+          "publisher": "Universitat Autònoma de Barcelona",
+          "language": [
+            "CA",
+            "EN",
+            "ES"
+          ],
+          "title": "Rúbrica Contemporánea"
+        },
+        "month": "June",
+        "keywords": [
+          "femater",
+          "agrourbano",
+          "Horta",
+          "desperdicios",
+          "Valencia"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "D204-475",
+            "scheme": "LCC",
+            "term": "Modern history, 1453-"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitat de València",
+            "name": "Jorge Ramón Ros"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://revistes.uab.cat/rubrica/article/view/224"
+          }
+        ],
+        "abstract": "Este artículo analiza, por un lado, cómo eran percibidas las relaciones entre l'Horta y la ciudad de Valencia por las autoridades municipales y la prensa a través de sus representaciones de los fematers (agricultores encargados de la recogida de desperdicios urbanos); y por otro, cómo la última generación de este oficio ha dado sentido a sus recorridos pasados entre el campo y la ciudad. De acuerdo a las fuentes interpretadas (documentación interna consistorial, literatura, prensa y entrevistas orales) son contrastados tres contextos distintos. En primer lugar, el de sus conflictos sociales con el incipiente gobierno blasquista a principios del siglo XX; en segundo lugar, una etapa de malestar agrario generalizado entre la I Guerra Mundial y el trienio bolchevique (1916-1921) y por último, en los albores del desarrollismo franquista en Valencia, etapa en la que desempeñaron su trabajo los fematers entrevistados.",
+        "title": "El campo en la ciudad. Representaciones y experiencias de los \"fematers\" en sus recorridos por Valencia (1878-1960)"
+      },
+      "id": "00021f02b4ac45709fb3d7d8754087e6",
+      "created_date": "2021-11-26T10:24:48Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/articles/history?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/articles/history?page=36229&pageSize=25"
+}

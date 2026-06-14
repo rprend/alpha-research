@@ -1,6 +1,6 @@
 # KB Blocked Sources
 
-Generated at: 2026-06-14T19:50:55.513Z
+Generated at: 2026-06-14T20:04:09.265Z
 Blocked sources: 5
 
 ## hathitrust-bibliographic-metadata
@@ -34,7 +34,7 @@ Blocked sources: 5
 - Redistribution: local-analysis-only
 - Metadata allowed: true
 - Full text allowed: false
-- Failed route count: 4
+- Failed route count: 6
 - Latest route: https://lareviewofbooks.org/feed/
 - Latest errors: HTTP 404 Not Found
 - Next decision: Find a current feed, sitemap, archive route, or alternate metadata source before retrying.
@@ -65,4 +65,4 @@ Blocked sources: 5
 
 ## Failed Route Replacement Plans
 
-See `data/knowledge-base/audits/failed-route-replacements.md` for 15 source-level replacement plans.
+See `data/knowledge-base/audits/failed-route-replacements.md` for 16 source-level replacement plans.

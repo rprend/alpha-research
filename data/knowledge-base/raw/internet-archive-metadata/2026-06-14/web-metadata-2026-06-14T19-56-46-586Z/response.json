@@ -1,0 +1,138 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 29,
+    "params": {
+      "query": "subject:humanities AND mediatype:texts",
+      "qin": "subject:(humanities) AND mediatype:(texts)",
+      "fields": "identifier,title,creator,date,collection,licenseurl",
+      "wt": "json",
+      "rows": 10,
+      "start": 0
+    }
+  },
+  "response": {
+    "numFound": 18502,
+    "start": 0,
+    "docs": [
+      {
+        "collection": [
+          "journals_contributions",
+          "journals"
+        ],
+        "creator": "Azerbaijan Science Center",
+        "date": "2018-01-01T00:00:00Z",
+        "identifier": "ei-2018",
+        "title": "SCIENTIFIC WORK"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1924-10-09T00:00:00Z",
+        "identifier": "sim_christian-century_1924-10-09_41_41",
+        "title": "The Christian Century 1924-10-09: Vol 41 Iss 41"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1925-02-12T00:00:00Z",
+        "identifier": "sim_christian-century_1925-02-12_42_7",
+        "title": "The Christian Century 1925-02-12: Vol 42 Iss 7"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1906-03-01T00:00:00Z",
+        "identifier": "sim_christian-century_1906-03-01_23_9",
+        "title": "The Christian Century 1906-03-01: Vol 23 Iss 9"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1915-07-15T00:00:00Z",
+        "identifier": "sim_christian-century_1915-07-15_32_28",
+        "title": "The Christian Century 1915-07-15: Vol 32 Iss 28"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1900-02-22T00:00:00Z",
+        "identifier": "sim_christian-century_1900-02-22_17_8",
+        "title": "The Christian Century 1900-02-22: Vol 17 Iss 8"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1900-09-20T00:00:00Z",
+        "identifier": "sim_christian-century_1900-09-20_17_38",
+        "title": "The Christian Century 1900-09-20: Vol 17 Iss 38"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1916-12-07T00:00:00Z",
+        "identifier": "sim_christian-century_1916-12-07_33_49",
+        "title": "The Christian Century 1916-12-07: Vol 33 Iss 49"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1915-11-25T00:00:00Z",
+        "identifier": "sim_christian-century_1915-11-25_32_47",
+        "title": "The Christian Century 1915-11-25: Vol 32 Iss 47"
+      },
+      {
+        "collection": [
+          "pub_christian-century",
+          "sim_microfilm",
+          "periodicals",
+          "graduatetheologicalunion",
+          "americana"
+        ],
+        "date": "1910-01-27T00:00:00Z",
+        "identifier": "sim_christian-century_1910-01-27_27_4",
+        "title": "The Christian Century 1910-01-27: Vol 27 Iss 4"
+      }
+    ]
+  }
+}

@@ -1,0 +1,540 @@
+{
+  "head": {
+    "vars": [
+      "entity",
+      "entityLabel",
+      "entityDescription",
+      "inception",
+      "countryLabel"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083289"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 36, Church near Durham"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.kk)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083293"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 11: Parson's Bridge, Cardingshire"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.l)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083295"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 37, A Study"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.ll)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083298"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 12, Dolbadern Castle, Llanberris Lake, North Wales"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.m)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083302"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 38, View at Deptford"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.mm)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083305"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 13, Duncomb Park, Yorkshire: No. 5"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.n)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083308"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 39, View at Ashdted, Surrey"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.nn)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083310"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 14, Tan-y-Bwlch, Merionethshire, North Wales"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.o)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083313"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 40, Lakenham, near Norwich"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.oo)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083316"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 15, Cader Iris, North Wales"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.p)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083319"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 41, House at Bristol"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.pp)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083323"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 16, A Study"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.q)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083325"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 42, Capel Carrig, Caernarvonshire"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.qq)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083328"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 17, A Study"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.r)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083330"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1814-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 43, A Norfolk Plough"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.rr)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083338"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 44, Sketch after Rembrandt"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.ss)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083342"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 19, Postwick Grove, Norfolk"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.t)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083344"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 45, French Beggars"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.tt)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083348"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 20, Felbrigg Heath, Norfolk"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.u)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083350"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 46, Sketch after Teniers"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.uu)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083351"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 21, View in North Wales"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.v)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083355"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 47, A Study"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.vv)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083358"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 22, Whitby"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.w)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083360"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 48, A Study"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.ww)"
+        }
+      },
+      {
+        "entity": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q80083362"
+        },
+        "inception": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "1838-01-01T00:00:00Z"
+        },
+        "entityLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "Liber Studiorum: Plate 23, Ruins at Beeston, Norfolk: No. 3"
+        },
+        "entityDescription": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "bound volume by John Sell Cotman (British, 1782-1842) (2014.692.x)"
+        }
+      }
+    ]
+  }
+}

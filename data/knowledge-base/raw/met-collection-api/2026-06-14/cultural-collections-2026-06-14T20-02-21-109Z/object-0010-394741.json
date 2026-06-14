@@ -1,0 +1,101 @@
+{
+  "objectID": 394741,
+  "isHighlight": false,
+  "accessionNumber": "53.600.1079(2)",
+  "accessionYear": "1953",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/dp/original/DP826251.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/dp/web-large/DP826251.jpg",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 164077,
+      "role": "Artist",
+      "name": "Louis Félix de La Rue",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500030262",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q3260531",
+      "gender": ""
+    },
+    {
+      "constituentID": 161703,
+      "role": "Artist",
+      "name": "After François Boucher",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500032143",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q180932",
+      "gender": ""
+    }
+  ],
+  "department": "Drawings and Prints",
+  "objectName": "Print",
+  "title": "Painting",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Louis Félix de La Rue",
+  "artistDisplayBio": "French, Paris 1731–1765 Paris",
+  "artistSuffix": "",
+  "artistAlphaSort": "La Rue, Louis Félix de",
+  "artistNationality": "French",
+  "artistBeginDate": "1731",
+  "artistEndDate": "1765",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q3260531",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500030262",
+  "objectDate": "",
+  "objectBeginDate": 1731,
+  "objectEndDate": 1765,
+  "medium": "Etching",
+  "dimensions": "sheet: 7 11/16 x 11 in. (19.6 x 27.9 cm)",
+  "measurements": [
+    {
+      "elementName": "Sheet",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 19.6,
+        "Width": 27.9
+      }
+    }
+  ],
+  "creditLine": "Harris Brisbane Dick Fund, 1953",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Prints",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/394741",
+  "tags": [
+    {
+      "term": "Painting",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300054216",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q11629"
+    },
+    {
+      "term": "Sculpture",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300047090",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q860861"
+    },
+    {
+      "term": "Heads",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300375054",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q3409626"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

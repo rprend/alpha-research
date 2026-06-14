@@ -1,6 +1,6 @@
 # KB Analytical Tables
 
-Generated at: 2026-06-14T19:50:16.414Z
+Generated at: 2026-06-14T20:04:04.712Z
 
 | Table | Rows | CSV |
 | --- | ---: | --- |
@@ -11,13 +11,13 @@ Generated at: 2026-06-14T19:50:16.414Z
 | authors | 1779 | `data/knowledge-base/processed/authors.csv` / `data/knowledge-base/processed/authors.parquet` |
 | canonical_people | 1713 | `data/knowledge-base/processed/canonical_people.csv` / `data/knowledge-base/processed/canonical_people.parquet` |
 | institutions | 17 | `data/knowledge-base/processed/institutions.csv` / `data/knowledge-base/processed/institutions.parquet` |
-| venues | 2270 | `data/knowledge-base/processed/venues.csv` / `data/knowledge-base/processed/venues.parquet` |
+| venues | 2271 | `data/knowledge-base/processed/venues.csv` / `data/knowledge-base/processed/venues.parquet` |
 | collections | 40 | `data/knowledge-base/processed/collections.csv` / `data/knowledge-base/processed/collections.parquet` |
 | citations | 34859 | `data/knowledge-base/processed/citations.csv` / `data/knowledge-base/processed/citations.parquet` |
 | work_references | 25204 | `data/knowledge-base/processed/work_references.csv` / `data/knowledge-base/processed/work_references.parquet` |
 | topics | 1062 | `data/knowledge-base/processed/topics.csv` / `data/knowledge-base/processed/topics.parquet` |
-| source_documents | 6208 | `data/knowledge-base/processed/source_documents.csv` / `data/knowledge-base/processed/source_documents.parquet` |
-| rights | 6208 | `data/knowledge-base/processed/rights.csv` / `data/knowledge-base/processed/rights.parquet` |
+| source_documents | 6379 | `data/knowledge-base/processed/source_documents.csv` / `data/knowledge-base/processed/source_documents.parquet` |
+| rights | 6379 | `data/knowledge-base/processed/rights.csv` / `data/knowledge-base/processed/rights.parquet` |
 
 ## SQLite
 

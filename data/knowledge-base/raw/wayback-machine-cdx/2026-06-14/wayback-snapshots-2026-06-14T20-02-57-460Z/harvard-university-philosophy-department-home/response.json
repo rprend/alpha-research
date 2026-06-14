@@ -1,0 +1,23 @@
+[
+  [
+    "timestamp",
+    "original",
+    "statuscode",
+    "mimetype",
+    "digest"
+  ],
+  [
+    "20200107150904",
+    "https://philosophy.fas.harvard.edu/",
+    "200",
+    "text/html",
+    "BA7ZP3VET5C3LVDQTGZ3GQXEK3YDRRHA"
+  ],
+  [
+    "20251228084923",
+    "https://philosophy.fas.harvard.edu/?sv_list_box_delta=1481209511&amp%3Bpager_id=0&amp%3Bdestination=home&amp%3Bpage=1",
+    "200",
+    "text/html",
+    "G76VPSZQPMCI6PRMFIO2AN7TFSUNQ24Q"
+  ]
+]

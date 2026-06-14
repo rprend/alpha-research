@@ -1,0 +1,129 @@
+{
+  "objectID": 733808,
+  "isHighlight": true,
+  "accessionNumber": "2017.64a–f",
+  "accessionYear": "2017",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 194574,
+      "role": "Artist",
+      "name": "Francis Alÿs",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500116308",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q84569273",
+      "gender": ""
+    }
+  ],
+  "department": "Modern and Contemporary Art",
+  "objectName": "Painting",
+  "title": "The Liar, the copy of the Liar - 1",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Francis Alÿs",
+  "artistDisplayBio": "Belgian, born Antwerp, 1959",
+  "artistSuffix": "",
+  "artistAlphaSort": "Alÿs, Francis",
+  "artistNationality": "Belgian",
+  "artistBeginDate": "1959",
+  "artistEndDate": "9999",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q84569273",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500116308",
+  "objectDate": "1991–94",
+  "objectBeginDate": 1991,
+  "objectEndDate": 1994,
+  "medium": "Enamel on metal sheet, oil on paperboard with masking tape and oil and wax on canvas glued to particle board",
+  "dimensions": "a - painting 1 (by Emilio Rivera): 29 3/4 × 22 3/8 × 1 in. (75.6 × 56.8 × 2.5 cm)\r\nb - painting 2 (by Enrique Huerta): 39 7/8 × 30 1/4 × 3/4 in. (101.3 × 76.8 × 1.9 cm)\r\nc - painting 3 (by Juan García): 48 5/8 × 36 3/4 × 1 in. (123.5 × 93.3 × 2.5 cm)\r\nd - painting 4 (by Francis Alÿs): 11 1/4 × 7 1/4 × 1/2 in. (28.6 × 18.4 × 1.3 cm)\r\ne - painting 5 (by Francis Alÿs): 9 1/2 × 7 1/8 × 3/4 in. (24.1 × 18.1 × 1.9 cm)\r\nf - painting 6 (Found sign painting): 32 5/8 × 20 3/4 × 1 1/4 in. (82.9 × 52.7 × 3.2 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": "e - painting 5",
+      "elementMeasurements": {
+        "Depth": 1.9050038,
+        "Height": 24.130049,
+        "Width": 18.097536
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "d - painting 4",
+      "elementMeasurements": {
+        "Depth": 1.2700025,
+        "Height": 28.575058,
+        "Width": 18.415037
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "c - painting 3",
+      "elementMeasurements": {
+        "Depth": 2.540005,
+        "Height": 123.507744,
+        "Width": 93.02769
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "b - painting 2",
+      "elementMeasurements": {
+        "Depth": 1.9050038,
+        "Height": 101.2827,
+        "Width": 76.83515
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "a - painting 1",
+      "elementMeasurements": {
+        "Depth": 2.540005,
+        "Height": 75.56515,
+        "Width": 56.832615
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "f - painting 6",
+      "elementMeasurements": {
+        "Depth": 3.1750064,
+        "Height": 83.185165,
+        "Width": 52.705105
+      }
+    }
+  ],
+  "creditLine": "Purchase, Lila Acheson Wallace Gift, 2017",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Paintings",
+  "rightsAndReproduction": "© Francis Alys",
+  "linkResource": "",
+  "metadataDate": "2024-08-27T04:54:25.67Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/733808",
+  "tags": [
+    {
+      "term": "Men",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025928",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q8441"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q126120206",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

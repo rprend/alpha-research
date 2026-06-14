@@ -1,0 +1,1693 @@
+{
+  "total": 307373,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T19:55:42.531988Z",
+  "query": "language linguistics",
+  "results": [
+    {
+      "last_updated": "2025-08-19T23:37:52Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2397-1835",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5334/gjgl.858",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2397-1835"
+          ],
+          "publisher": "Open Library of Humanities",
+          "language": [
+            "EN"
+          ],
+          "title": "Glossa"
+        },
+        "month": "7",
+        "keywords": [
+          "event distributivity",
+          "event plurality",
+          "spatial distribution",
+          "exhaustivity",
+          "distributive share/key",
+          "atomicity"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-9117-4692",
+            "affiliation": "University of Groningen, Groningen, NL; University of Nantes, Nantes",
+            "name": "Ana Bosnić"
+          },
+          {
+            "affiliation": "University of Nantes, Nantes",
+            "name": "Hamida Demirdache"
+          },
+          {
+            "affiliation": "University of Groningen, Groningen",
+            "name": "Jennifer Spenader"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.glossa-journal.org/article/id/5326/"
+          },
+          {
+            "content_type": "application/pdf",
+            "type": "fulltext",
+            "url": "https://www.glossa-journal.org/article/5326/galley/12924/download/"
+          }
+        ],
+        "abstract": "In some languages, distributive markers/quantifiers can attach to the argument that is being distributed (the distributive share), as opposed to the restrictor of the sentence (the distributive key). Researchers agree that distributive share markers can also distribute over events (and not only individuals), but disagree as to what these markers are semantically – universal distributive quantifiers or event plurality (pluractional) markers. In this paper, we experimentally probe spatial event distribution. On a universal quantification account, exhaustive distribution over a spatial distributive key is enforced, while on the pluractional analysis there is no such requirement. We carried out two picture verification experiments to test exhaustivity requirements in intransitive sentences with distributive share markers from two typologically different languages: the Serbian marker po and the Korean marker -ssik. We found evidence for an exhaustivity requirement over pluralities of non-atomic individuals (groups), but not over designated spatial locations. We interpret these findings as evidence that the semantics of (spatial) event distribution with distributive share markers involves a (spatial) distributive key. Specifically, po/-ssik have a universal quantificational force (with a meaning akin to per (each)) establishing a distributive relation between individual events and elements of the spatial distributive key. Plural individuals made salient in the visual input can serve to divide up the spatial key into chunks of space that have to be exhausted.",
+        "title": "Dancing monkeys in Serbian and Korean – exhaustivity requirements on distributive share markers"
+      },
+      "id": "00001b143f38430aba0fb84857cf279a",
+      "created_date": "2024-06-19T09:10:43Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:09:56Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "https://doi.org/10.24434/j.scoms.2022.03.3340",
+            "type": "doi"
+          },
+          {
+            "id": "1424-4896",
+            "type": "pissn"
+          },
+          {
+            "id": "2296-4150",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "22",
+          "number": "3",
+          "country": "CH",
+          "issns": [
+            "1424-4896",
+            "2296-4150"
+          ],
+          "publisher": "Seismo Verlag",
+          "language": [
+            "DE",
+            "EN",
+            "FR",
+            "IT"
+          ],
+          "title": "Studies in Communication Sciences"
+        },
+        "month": "12",
+        "end_page": "435",
+        "keywords": [
+          "interpersonal communication",
+          "face-to-face communication",
+          "digital communication",
+          "computer-mediated communication",
+          "social interaction",
+          "survey data",
+          "covid-19",
+          "u. s."
+        ],
+        "year": "2022",
+        "start_page": "417",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0003-0379-710X",
+            "affiliation": "University of Zurich, Department of Communication and Media Research IKMZ",
+            "name": "Jonathan Gruber"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-4199-4868",
+            "affiliation": "University of Zurich, Department of Communication and Media Research IKMZ",
+            "name": "Eszter Hargittai"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8750-3492",
+            "affiliation": "University of Zurich, Department of Communication and Media Research IKMZ",
+            "name": "Minh Hao Nguyen"
+          }
+        ],
+        "link": [],
+        "abstract": "Face-to-face communication is important for building and maintaining relationships. The COVID-19 pandemic led to severe limitations in people’s face-to-face interactions, resulting in most people relying more heavily on digital communication for social connection. Existing research has contributed to the understanding of how face-to-face communication is used alongside digital communication. However, we know little about what elements of face-to-face interactions people miss especially when in-person meetings are heavily reduced, and how this is related to their use of digital communication for social connection. In this study, we draw upon survey data that we collected in spring 2020 from a national sample of U. S. adults to answer these questions. We find that most people missed elements of face-to-face interactions and particularly valued spontaneous interactions, physical closeness, and independence from technology about in-person interactions. More frequent and increasing use of popular digital modes such as voice calls, video calls, text messages, and social media were all positively related to missing face-to-face communication. Our results contribute to the understanding of the role and value of in-person interactions in a digital world.",
+        "title": "The value of face-to-face communication in the digital world: What people miss about in-person interactions when those are limited"
+      },
+      "id": "000024651d9743f0b8ebcd9779f8ee2a",
+      "created_date": "2023-01-04T12:23:30Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:19:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2071-2405",
+            "type": "pissn"
+          },
+          {
+            "id": "2658-5235",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "4 (34)",
+          "country": "RU",
+          "issns": [
+            "2071-2405",
+            "2658-5235"
+          ],
+          "publisher": "Ural State Pedagogical University",
+          "language": [
+            "RU"
+          ],
+          "title": "Филологический класс"
+        },
+        "month": "4",
+        "end_page": "73",
+        "keywords": [
+          "subject organization of a lyrical poem, lyrical subject, carrier of lyrical feeling"
+        ],
+        "year": "2013",
+        "start_page": "68",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://filclass.ru/en/archive/2013/34/ya-i-ty-v-stikhotvorenii-a-feta-kogda-chitala-ty-muchitelnye-stroki-4"
+          }
+        ],
+        "abstract": "The article considers the subject organization of the poem and the components which helps to understand its narrative specifics. The author of the article analyses the lyric subject as a carrier of feeling, his/her ability to express himself or herself by means of one of the persons («I», «You»and «It»), a complex relationship between «I» and «You» as the carriers of emotional experience.",
+        "title": "\"I\" and \"You\" in Afanasy Fet’s Poem “When You Were Reading Those Tormented Lines...”"
+      },
+      "created_date": "2020-04-23T11:46:42Z",
+      "id": "0000843e0417402e932c9f325fc7a44f"
+    },
+    {
+      "last_updated": "2025-12-22T08:28:18Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1810-0201",
+            "type": "pissn"
+          },
+          {
+            "id": "2782-5825",
+            "type": "eissn"
+          },
+          {
+            "id": "10.20310/1810-0201-2023-28-1-89-102",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "28",
+          "number": "1",
+          "country": "RU",
+          "issns": [
+            "1810-0201",
+            "2782-5825"
+          ],
+          "publisher": "Derzhavin Tambov State University",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Вестник Тамбовского университета. Серия: Гуманитарные науки"
+        },
+        "month": "3",
+        "end_page": "102",
+        "keywords": [
+          "training video materials",
+          "authentic video materials",
+          "digital learning environment",
+          "quality assessment criteria for training video materials",
+          "stages of video material development"
+        ],
+        "year": "2023",
+        "start_page": "89",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Lomonosov Moscow State University",
+            "name": "A. V. Zamkovaya"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://vestsutmb.elpub.ru/jour/article/view/173"
+          }
+        ],
+        "abstract": "Modern technology is expanding the possibilities of classes and determining the need for new forms of learning. The study of multimedia technology is currently developing in an academic way. Visuals in general play a huge, sometimes decisive role in digital communication. The article is devoted to the usage of video materials in the foreign language classes, the author considers the methods of video resources usage in the process of teaching foreign languages, aimed at forming communicative competence of the students. The author analyses psycho-didactic possibilities of audiovisual teaching materials. Particular attention is paid to the peculiarities of clip thinking, the level of visual literacy and the typology of video resources for teaching foreign languages. The aim of the article is to develop a methodology of applying teaching and authentic video resources in the process of foreign language teaching aimed at forming audiovisual literacy and communicative competence of students. The author concludes that the rational use of video materials and video resources contributes to a deeper involvement of students in learning a foreign language, stimulates the development of creative thinking, social skills, contributes to the mastery of knowledge, skills and abilities of understanding, speaking and writing.",
+        "title": "Didactic-methodic and psychological features of the use of video materials in teaching a foreign language"
+      },
+      "created_date": "2025-09-23T09:06:44Z",
+      "id": "000110559a1d4188af140ccc3fbb2be6"
+    },
+    {
+      "last_updated": "2025-08-19T15:27:30Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1645-2089",
+            "type": "pissn"
+          },
+          {
+            "id": "2183-3575",
+            "type": "eissn"
+          },
+          {
+            "id": "10.17231/comsoc.24(2013).1791",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "24",
+          "country": "PT",
+          "issns": [
+            "1645-2089",
+            "2183-3575"
+          ],
+          "publisher": "Centro de Estudos de Comunicação e Sociedade (CECS)",
+          "language": [
+            "EN",
+            "PT"
+          ],
+          "title": "Comunicação e Sociedade"
+        },
+        "month": "4",
+        "end_page": "317",
+        "year": "2014",
+        "start_page": "312",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Associação Brasileira de Estudos e Pesquisas em Moda (ABEPEM); Centro de Pesquisa Sociosemióticas – CPS, PUC",
+            "name": "Kathia Castilho"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://revistacomsoc.pt/article/view/921"
+          }
+        ],
+        "abstract": "Fashion seems to have definitely come into fashion again — and into people’s lives. It is no longer related to a way of dressing...",
+        "title": "André Carvalhal (2014) A Moda Imita a Vida, Estação das Letras e Cores (278 páginas – brochura)"
+      },
+      "created_date": "2019-10-16T10:23:11Z",
+      "id": "000133c10a5a4ba196d3124cddfe9638"
+    },
+    {
+      "last_updated": "2025-08-19T18:40:44Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0037-0894",
+            "type": "pissn"
+          },
+          {
+            "id": "1988-320X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3989/sefarad.1992.v52.i1.995",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "52",
+          "number": "1",
+          "country": "ES",
+          "issns": [
+            "0037-0894",
+            "1988-320X"
+          ],
+          "publisher": "Consejo Superior de Investigaciones Científicas",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Sefarad : Revista de Estudios Hebraicos y Sefardíes"
+        },
+        "month": "6",
+        "end_page": "162",
+        "year": "1992",
+        "start_page": "155",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "BM1-990",
+            "scheme": "LCC",
+            "term": "Judaism"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "CSIC",
+            "name": "Encarnación Marín Padilla"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://sefarad.revistas.csic.es/index.php/sefarad/article/view/1015"
+          }
+        ],
+        "abstract": "Este estudio comenta algunos aspectos de la vida de Juce Gotina, sastre judío que residió en Épila, villa aragonesa del señorío de los Ximénez de Urrca, en el siglo XV. Juce fue hijo de Jaco Gotina y nieto del judío zaragozano Nahamen Gotina y de Estruga Albala.",
+        "title": "Acaeceres en la vida de Juce Gotina, sastre judío de la villa de Épila (siglo XV)"
+      },
+      "id": "0001557499464671b6cd7b20c500adfa",
+      "created_date": "2021-05-05T14:00:07Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:21:44Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1615-634X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5771/1615-634x-2015-1-95",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "63",
+          "number": "1",
+          "country": "DE",
+          "issns": [
+            "1615-634X",
+            "2942-3317"
+          ],
+          "publisher": "Nomos Verlagsgesellschaft mbH & Co. KG",
+          "language": [
+            "DE",
+            "EN"
+          ],
+          "title": "Medien & Kommunikationswissenschaft"
+        },
+        "month": "2",
+        "end_page": "97",
+        "year": "2015",
+        "start_page": "95",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Hans-Dieter Kübler"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://www.nomos-elibrary.de/10.5771/1615-634x-2015-1-95"
+          }
+        ],
+        "title": "Angela Tillmann / Sandra Fleischer / Kai-Uwe Hugger (Hrsg.) (2014): Handbuch Kinder und Medien. Wiesbaden: Springer VS"
+      },
+      "id": "00017fa12e944b18af04e558055f99a8",
+      "created_date": "2023-03-22T06:55:06Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:16:04Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1945-0222",
+            "type": "pissn"
+          },
+          {
+            "id": "1945-0222",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "number": "1",
+          "country": "US",
+          "issns": [
+            "1945-0222"
+          ],
+          "publisher": "eScholarship Publishing, University of California",
+          "language": [
+            "EN"
+          ],
+          "title": "L2 Journal"
+        },
+        "month": "4",
+        "end_page": "140",
+        "year": "2011",
+        "start_page": "116",
+        "subject": [
+          {
+            "code": "LB5-3640",
+            "scheme": "LCC",
+            "term": "Theory and practice of education"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Wisconsin-Madison",
+            "name": "Friederike Fichtner"
+          },
+          {
+            "affiliation": "University of Wisconsin-Madison",
+            "name": "Katie Chapman"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://escholarship.org/uc/item/9dw9z83c#main"
+          }
+        ],
+        "abstract": "Foreign language teachers are often migrants. They have traveled and lived in other countries either to learn or to teach a language. In 2005, Domna Stanton characterized language teaching as a cosmopolitan act-- “a complex encounter made in a sympathetic effort to see the world as [others] see it and, as a consequence, to denaturalize our own views” (629). Do foreign language teachers ‘denaturalize’ their views of their native culture through their encounters with the other culture? Could it be that “engagement with the Other necessarily mean[s] an abnegation of the inherited culture” (Mani, 2007, p.29)?\r\n\r\nThis study investigated not only in how far foreign language teachers affiliate with more than one culture but also how this cultural identity affects their classroom practice. To what extent do foreign language instructors claim multiple cultural identities? What advantages and disadvantages do foreign language instructors experience in the classroom in respect to their cultural identities? To what extent do foreign language instructors feel their cultural identity is relevant in the classroom? Results showed that foreign language instructors engage with their cultural affiliations intellectually, by embracing but not embodying “the other” culture.",
+        "title": "The Cultural Identities of Foreign Language Teachers"
+      },
+      "created_date": "2018-07-26T13:46:37Z",
+      "id": "00019781f298449d8919475380ee6809"
+    },
+    {
+      "last_updated": "2025-08-19T19:41:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2254-4496",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "1",
+          "country": "ES",
+          "issns": [
+            "2254-4496"
+          ],
+          "publisher": "Editorial Delirio",
+          "language": [
+            "EN",
+            "ES",
+            "FR"
+          ],
+          "title": "Caracteres: Estudios Culturales y Críticos de la Esfera Digital"
+        },
+        "month": "5",
+        "end_page": "143",
+        "keywords": [
+          "la estrategia del simbionte",
+          "fernando broncano",
+          "review"
+        ],
+        "year": "2012",
+        "start_page": "139",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Daniel Escandell Montiel"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://revistacaracteres.net/revista/vol1n1mayo2012/resena-la-estrategia-del-simbionte-de-fernando-broncano/"
+          }
+        ],
+        "abstract": "Review of the book \"La estrategia del simbionte\" written by Fernando Broncano.",
+        "title": "Reseña: La estrategia del simbionte, de Fernando Broncano"
+      },
+      "created_date": "2013-04-09T22:20:24Z",
+      "id": "0001ee84372e45108db01dbec8feb30e"
+    },
+    {
+      "last_updated": "2025-08-20T02:49:05Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "https://doi.org/10.24335/gacz-8q41",
+            "type": "doi"
+          },
+          {
+            "id": "0459-6935",
+            "type": "pissn"
+          },
+          {
+            "id": "2720-3891",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "52/2",
+          "number": "Polskie Towarzystwo Logopedyczne ",
+          "country": "PL",
+          "issns": [
+            "0459-6935",
+            "2720-3891"
+          ],
+          "publisher": "Polish Speech Therapy Society",
+          "language": [
+            "EN",
+            "PL"
+          ],
+          "title": "Logopedia"
+        },
+        "month": "12",
+        "end_page": "35",
+        "keywords": [
+          "samogłoska [i]",
+          "miękkie spółgłoski",
+          "depalatalizacja",
+          "wada wymowy"
+        ],
+        "year": "2024",
+        "start_page": "13",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-9289-4683",
+            "affiliation": "Uniwersytet Szczeciński",
+            "name": "Lilianna Konopska "
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.logopedia-ptl.pl/index.php/logopedia/article/view/247"
+          }
+        ],
+        "abstract": "W pracy podjęto zagadnienia itowego układu języka w realizacjach fonemu samogłoskowego /i/, a także fonemów spółgłoskowych, w których realizację wpisany jest itowy układ języka. Omówiono wyniki współczesnych badań logopedycznych nad wybranymi anatomiczno-czynnościowymi uwarunkowaniami wadliwych realizacji fonemów spółgłoskowych /ɕ, ʑ, ʨ, ʥ, ɲ, j/ oraz /i/, a także zjawisko depalatalizacji.",
+        "title": "Wadliwa pozycja języka w realizacjach fonemu samogłoskowego /i/ oraz w realizacjach fonemów spółgłoskowych /ɕ, ʑ, ʨ, ʥ, ɲ, j"
+      },
+      "id": "000227683cae43c6932bab21de212750",
+      "created_date": "2024-11-28T19:57:13Z"
+    },
+    {
+      "last_updated": "2025-09-16T03:26:00Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.35905/inspiring.v7i2.9567",
+            "type": "doi"
+          },
+          {
+            "id": "2620-8350",
+            "type": "pissn"
+          },
+          {
+            "id": "2721-2130",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "number": "2",
+          "country": "ID",
+          "issns": [
+            "2620-8350",
+            "2721-2130"
+          ],
+          "publisher": "Institut Agama Islam Negeri Parepare",
+          "language": [
+            "EN"
+          ],
+          "title": "Inspiring"
+        },
+        "month": "September",
+        "keywords": [
+          "Artificial Intelligence",
+          "Creative Writing",
+          "Nigeria Undergraduates"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Bauchi State University, Gadau- Nigeria",
+            "name": "Abubakar Salihu"
+          },
+          {
+            "affiliation": "Bauchi State University, Gadau- Nigeria",
+            "name": "Muhammad Mukhtar Aliyu"
+          },
+          {
+            "affiliation": "Sekolah Tinggi Agama Islam Negeri Majene, Indonesia",
+            "name": "Nur Fadillah  Nurchalis"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://ejurnal.iainpare.ac.id/index.php/inspiring/article/view/9567"
+          }
+        ],
+        "abstract": "\nArtificial intelligence (AI) has a profound influence on various facets of modern-day society, notably within the realm of education. Its application in educational settings is extensive, primarily aimed at improving the methods of instruction and knowledge acquisition. Thus, this research investigates the impact of AI tools (ChatGPT, Google Bard) on the creative writing skills of Nigerian undergraduates using a pretest-posttest quasi-experimental research design. Eighty (80) third-year undergraduates participated in the study. Data were collected using pretest-posttest writing tasks. The writing scripts were graded using creative writing assessment rubrics. Paired sample t-test analysis was conducted to compare the pretest-posttest writing scores using SPSS. The results of the analysis showed a significant improvement in the participants’ overall writing scores after using the AI tools. The results also show significant improvement in all the aspects of creative writing: image, voice, characterization and story. Finally, the study makes some recommendations for practice and further studies.\n\r\n\n \n",
+        "title": "Impact of Artificial Intelligence (Chatgpt and Google-Bard) on Undergraduates’ Creative Writing Skills at A University in Northeastern Nigeria"
+      },
+      "id": "00024697a59046f591655fb54fe0ac51",
+      "created_date": "2025-09-16T03:25:59Z"
+    },
+    {
+      "last_updated": "2026-06-02T00:01:23Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0002-5216",
+            "type": "pissn"
+          },
+          {
+            "id": "1981-5794",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "53",
+          "number": "2",
+          "country": "BR",
+          "issns": [
+            "0002-5216",
+            "1981-5794"
+          ],
+          "publisher": "Universidade Estadual Paulista Júlio de Mesquita Filho",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Alfa: Revista de Lingüística"
+        },
+        "month": "12",
+        "year": "2009",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "name": "Revista Alfa"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://seer.fclar.unesp.br/alfa/article/view/2135"
+          }
+        ],
+        "title": "Volume 53 (2)"
+      },
+      "created_date": "2012-09-10T21:30:50Z",
+      "id": "0002971084f44186ae619ca201f6d716"
+    },
+    {
+      "last_updated": "2025-08-19T19:33:57Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5842/58-0-838",
+            "type": "doi"
+          },
+          {
+            "id": "1726-541X",
+            "type": "pissn"
+          },
+          {
+            "id": "2224-3380",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "58",
+          "number": "0",
+          "country": "ZA",
+          "issns": [
+            "1726-541X",
+            "2224-3380"
+          ],
+          "publisher": "Stellenbosch University",
+          "language": [
+            "AF",
+            "EN"
+          ],
+          "title": "Stellenbosch Papers in Linguistics Plus"
+        },
+        "month": "12",
+        "end_page": "106",
+        "keywords": [
+          "associative copulative",
+          "verb classes",
+          "bodily discomfort",
+          "troponymy",
+          "northern sotho"
+        ],
+        "year": "2019",
+        "start_page": "89",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "PL8000-8844",
+            "scheme": "LCC",
+            "term": "African languages and literature"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "University of South Africa, South Africa",
+            "name": "Mojapelo, Mampaka Lydia"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://spilplus.journals.ac.za/pub/article/view/838"
+          }
+        ],
+        "abstract": "This article discusses one of the meanings expressed by the associative copulative construction with -na le, ‘have’ in Northern Sotho, namely to ‘physically experience discomfort’, ‘suffer from’ or ‘be ill with’ something. In light of alternative available verbs that are employed to express the same concept in specific ways, this article aims to investigate the occurrence of such alternative verbs, their semantic relationship with -na le ‘have’ and with each other. A lexical semantics investigation involving verb classes, selectional restrictions and paradigmatic sense relations reveals that -na le ‘have’ functions as a superordinate in a troponymy relationship with these verbs. It also shows that these verbs are not on the same level in the hierarchical scheme, placing -bolaya ‘kill’, -tshwenya ‘trouble’ and -swara ‘catch’/ ‘hold’ just below -na le ‘have’ as they select both body-part and affliction arguments. The rest of the verbs are positioned on a lower level, selecting either body-part or affliction.",
+        "title": "The associative copulative and expression of bodily discomfort in Northern Sotho"
+      },
+      "id": "0002b387c4004c4eaef3c4b0de334673",
+      "created_date": "2020-07-21T08:11:54Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:44:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.12797/LV.12.2017.23.01",
+            "type": "doi"
+          },
+          {
+            "id": "1896-2122",
+            "type": "pissn"
+          },
+          {
+            "id": "2392-1226",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "23",
+          "country": "PL",
+          "issns": [
+            "1896-2122",
+            "2392-1226"
+          ],
+          "publisher": "Ksiegarnia Akademicka Publishing",
+          "language": [
+            "DE",
+            "EN",
+            "FR",
+            "PL",
+            "RU"
+          ],
+          "title": "LingVaria"
+        },
+        "month": "May",
+        "keywords": [
+          "językoznawstwo słowiańskie",
+          "slawistyka",
+          "czasopisma naukowe",
+          "metodologia badań językoznawczych",
+          "metanauka"
+        ],
+        "year": "2017",
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Uniwersytet Mikołaja Kopernika, Toruń",
+            "name": "Michał Głuszkowski"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.akademicka.pl/lv/article/view/409"
+          }
+        ],
+        "abstract": "How Much Linguistics in Slavistics, How Much Slavistics in Linguistics?\nThe author makes an attempt to discuss the current role of linguistics among other disciplines of Slavonic studies (Slavistics), i.e. literature and cultural studies. The second part of the question in the title refers to the place of Slavonic linguistic studies within contemporary Polish linguistics. On the basis of preliminary observations and queries one may propose several hypotheses: 1) Slavonic linguistics in Poland differs significantly from the research on Polish language, both with regard to methodology and topics; 1.a) Inside Slavonic linguistics there is another division, between Russian and non-Russian Slavistics; 2) Slavonic and Polish Linguistics are also divided in the frames of Polish universities and Academy of Sciences; c) The main scientific forums, such as journals and conferences, reflect the divisions mentioned above, what results in relatively isolated communities in various fields of Slavonic linguistics, i.e. research on Polish, Russian and other Slavonic languages. To justify and illustrate the hypotheses in question, the author analyses the organizational structures of selected scientific centres, the contents of the most distinguished linguistic journals in Poland, as well as themes of conferences and the International Congress of Slavists.",
+        "title": "Ile lingwistyki w slawistyce, ile slawistyki w lingwistyce?"
+      },
+      "id": "0002bb4c1dfc47e2bfae621b9d837990",
+      "created_date": "2021-11-27T13:01:05Z"
+    },
+    {
+      "last_updated": "2025-11-04T11:29:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0868-4731",
+            "type": "pissn"
+          },
+          {
+            "id": "1736-7506",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "54",
+          "number": "4",
+          "country": "EE",
+          "issns": [
+            "0868-4731",
+            "1736-7506"
+          ],
+          "publisher": "Estonian Academy Publishers",
+          "language": [
+            "DE",
+            "EN",
+            "RU"
+          ],
+          "title": "Linguistica Uralica"
+        },
+        "month": "11",
+        "end_page": "313",
+        "year": "2018",
+        "start_page": "312",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Mari State University; e-mail: sernur@rambler.ru",
+            "name": "Valerij Maksimov"
+          },
+          {
+            "affiliation": "Mari Research Institute of Language, Literature and History; E-mail: olsemar@rambler.ru",
+            "name": "Oleg Sergejev"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://kirj.ee/public/Linguistica_Uralica/2018/issue_4/ling-2018-4-312-313.pdf"
+          }
+        ],
+        "abstract": "",
+        "title": "К 70-летию со дня рождения А. Н. Куклина (1948—2018) [Anatolij Kuklin (1948—2018); pp. 312-313"
+      },
+      "id": "0002dab86f904ebc9350045121028ee1",
+      "created_date": "2025-11-04T11:29:49Z"
+    },
+    {
+      "last_updated": "2025-08-19T21:41:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "https://doi.org/10.11606/issn.2238-2593.organicom.2022.205774",
+            "type": "doi"
+          },
+          {
+            "id": "2238-2593",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "19",
+          "number": "40",
+          "country": "BR",
+          "issns": [
+            "2238-2593"
+          ],
+          "publisher": "Universidade de São Paulo (USP)",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "PT"
+          ],
+          "title": "Organicom"
+        },
+        "month": "3",
+        "end_page": "236",
+        "keywords": [
+          "literatura",
+          "diáspora asiática",
+          "identidade",
+          "estudos culturais",
+          "racismo"
+        ],
+        "year": "2023",
+        "start_page": "228",
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "Universidad de Valencia",
+            "name": "Paloma Chen"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.revistas.usp.br/organicom/article/view/205774"
+          }
+        ],
+        "abstract": "Reflexões situadas em uma identidade sino-utiel-valenciana-wenzhounesa-espanhola são vistas como experiências particulares e minoritárias pela hegemonia ocidental, que atribui rótulos de hipersexualização, fetichização, exotismo e criminalização às mulheres asiáticas. Diante do cânone reconhecido pelas instituições educativas eurobrancas como literatura universal, autoras e criadoras migrantes e pessoas racializadas reivindicam espaços com obras literárias e artísticas sobre noções críticas como identidade, legado ou memória, em linguagens fronteiriças, mestiças, fraturadas. Assim, desarmam o sujeito dessubjetivado e desencarnado chamado “autor”, que domina um sistema literário que exclui ao invés de incluir.",
+        "title": "Eu tenho apenas uma literatura e não é minha: reflexões de uma experiência sino-espanhola"
+      },
+      "id": "000322db417c4da38d68a4e2b95f7204",
+      "created_date": "2023-04-05T14:29:02Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:08:12Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2748-3479",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1515/jccall-2024-0006",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "DE",
+          "issns": [
+            "2748-3479"
+          ],
+          "publisher": "De Gruyter",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of China Computer-Assisted Language Learning"
+        },
+        "month": "11",
+        "end_page": "55",
+        "keywords": [
+          "mobile language learning",
+          "less-commonly taught languages",
+          "technology-enhanced language learning",
+          "ai-supported language learning"
+        ],
+        "year": "2024",
+        "start_page": "23",
+        "subject": [
+          {
+            "code": "P98-98.5",
+            "scheme": "LCC",
+            "term": "Computational linguistics. Natural language processing"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Beijing Foreign Studies University, Beijing, China",
+            "name": "Tang Jinlan"
+          },
+          {
+            "affiliation": "North China Electric Power University, Beijing, China",
+            "name": "Zhai Yuming"
+          },
+          {
+            "affiliation": "Beijing Foreign Studies University, Beijing, China",
+            "name": "Li Lingxiao"
+          },
+          {
+            "affiliation": "Beijing Foreign Studies University, Beijing, China",
+            "name": "Liu Peixin"
+          },
+          {
+            "affiliation": "Beijing Foreign Studies University, Beijing, China",
+            "name": "Deng Hongxun"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://doi.org/10.1515/jccall-2024-0006"
+          }
+        ],
+        "abstract": "The increasing development of emerging technologies contributes to ubiquitous and personalized language learning. Hence this study reported a project of designing and applying mobile learning for a less-commonly taught language, Fijian language, at a university in China. Guided by the natural approach and the immersion method of foreign language learning, and principles of multimedia learning, a Fijian language learning application was designed and applied, involving creating a Fijian language environment via situational simulation and offering sufficient language practice and immediate feedback based on speech evaluation and adaptive learning. The rationale, course design, technology support, along with students’ Fijian learning experiences gauged from a questionnaire and an online group interview are documented and discussed. Learners reported increased interest, improvements in spoken communication and learner autonomy. The study will yield implications to future mobile language learning resources design and the pedagogy of integrating the application into teaching and learning of foreign languages.",
+        "title": "Mobile learning for less-commonly taught languages: design and application"
+      },
+      "created_date": "2025-06-02T04:49:18Z",
+      "id": "00037ad2c4814fe68293298969cf4559"
+    },
+    {
+      "last_updated": "2025-08-19T18:48:31Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1133-1127",
+            "type": "pissn"
+          },
+          {
+            "id": "2340-8561",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "28",
+          "number": "2",
+          "country": "ES",
+          "issns": [
+            "1133-1127",
+            "2340-8561"
+          ],
+          "publisher": "Universidad de Las Palmas de Gran Canaria",
+          "language": [
+            "DE",
+            "EN",
+            "ES",
+            "FR"
+          ],
+          "title": "Revista de Lenguas para Fines Específicos"
+        },
+        "month": "December",
+        "keywords": [
+          "subtitling",
+          "translation",
+          "foreign language learning",
+          "vocabulary acquisition",
+          "second language acquisition"
+        ],
+        "year": "2022",
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "name": "Chengcheng Wang Wang"
+          },
+          {
+            "name": "Jorge Díaz Cintas"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://ojsspdc.ulpgc.es/ojs/index.php/LFE/article/view/1450"
+          }
+        ],
+        "abstract": "\nUsing subtitles and subtitling as a means of diversifying foreign language teaching and learning has become increasingly popular in recent decades, particularly across Europe, where the European Commission has promoted, among others, the development of projects like ClipFlair, a web-based subtitling platform for foreign language learning (FLL). As part of this boost of research on FLL through subtitling, this empirical study was conducted in mainland China, where the role of subtitling in foreign language classroom has not been widely recognised by scholars. Carried out on seventeen higher education level Chinese L1 students, the experiment studied the effects of performing subtitling activities on English L2 vocabulary acquisition and discovered that doing subtitling tasks from L2 to L1 can result in a significantly better performance in vocabulary acquisition than doing intralingual subtitling activities (L2 to L2) or doing non-subtitling activities.\n",
+        "title": "The Riches of Hands-on Subtitling in the Foreign Language Classroom"
+      },
+      "id": "0003866075b449428102924d5ed4fa0a",
+      "created_date": "2022-12-16T18:32:24Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:15:25Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2148-4066",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "15",
+          "country": "TR",
+          "issns": [
+            "2148-4066"
+          ],
+          "publisher": "Karadeniz Technical University",
+          "language": [
+            "EN"
+          ],
+          "title": "Nalans"
+        },
+        "month": "1",
+        "end_page": "iii",
+        "year": "2021",
+        "start_page": "i",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "",
+            "name": "Barış Ağır"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "",
+            "name": "Zümre Gizem  Yılmaz Karahan"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://nalans.com/index.php/nalans/article/view/350"
+          }
+        ],
+        "title": "Thinking Beyond Humanity"
+      },
+      "created_date": "2021-06-15T04:12:58Z",
+      "id": "0003d3b5cde3486abc46d06159824e92"
+    },
+    {
+      "last_updated": "2025-08-19T23:17:46Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2297-900X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fcomm.2024.1386279",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "country": "CH",
+          "issns": [
+            "2297-900X"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Communication"
+        },
+        "month": "4",
+        "keywords": [
+          "developmental language disorder",
+          "phonological awareness",
+          "visual attention",
+          "eyetracking",
+          "phonological processing"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "María Fernanda Lara-Díaz"
+          },
+          {
+            "name": "Judy Costanza Beltrán Rojas"
+          },
+          {
+            "name": "Yennifer Aponte Rippe"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fcomm.2024.1386279/full"
+          }
+        ],
+        "abstract": "IntroductionDevelopmental Language Disorder (DLD) is a neurobiological condition characterized by insufficient language and communication development, with no underlying physical, sensory, or cognitive explanations. A prominent feature among children with DLD is their struggle with phonological processing, a pivotal skill for later reading proficiency. Recent research suggests that children with DLD may also exhibit impairments in various non-linguistic cognitive abilities, including memory, attention, and perception. Of particular importance is visual attention, which plays a critical role in integrating visual perceptual information with diverse cognitive and linguistic processes.ObjectiveTo characterize visual attention during phonological processing tasks in Colombian children with DLD.MethodologyThis study employed a cross-sectional descriptive experimental design involving 20 children diagnosed with Developmental Language Disorder (DLD) and 20 children without language difficulties. All participants underwent language, vocabulary, and phonological awareness tests. Additionally, an experimental task utilizing the eye-tracking method was designed and administered to measure phonological processing with phonological and lexical distractors.ResultsChildren with DLD exhibited diminished performance on phonological awareness tasks, as evidenced by their lower scores. This was further supported by the experimental phonological processing task, where an interference effect was observed in the presence of lexical distractors for word recognition, but not with phonological distractors.ConclusionChildren with DLD demonstrated deficiencies in both phonological awareness and visual attention skills during linguistic and phonological processing tasks. They also exhibit reduced sensitivity in identifying phonological relations such as rhyme. The study discusses these findings along with their clinical implications, emphasizing the importance of assessing online processing abilities in children with DLD and considering the influence of other cognitive abilities on their linguistic performance.",
+        "title": "Visual attention and phonological processing in children with developmental language disorder"
+      },
+      "id": "0003e8fd21664ae5b3f83344b6fd9968",
+      "created_date": "2024-04-29T04:26:34Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:00:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5206/ls.2018.3792",
+            "type": "doi"
+          },
+          {
+            "id": "2561-925X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "18",
+          "number": "1",
+          "country": "CA",
+          "issns": [
+            "2561-925X"
+          ],
+          "publisher": "Western Libraries, The University of Western Ontario",
+          "language": [
+            "EN"
+          ],
+          "title": "Locke Studies"
+        },
+        "month": "July",
+        "keywords": [
+          "Margaret Cavendish",
+          "History of Science",
+          "Libertarian Freedom",
+          "Occasionalism",
+          "Gender"
+        ],
+        "year": "2018",
+        "subject": [
+          {
+            "code": "BL1-2790",
+            "scheme": "LCC",
+            "term": "Religions. Mythology. Rationalism"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Iowa",
+            "name": "David Cunning"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://ojs.lib.uwo.ca/index.php/locke/article/view/3792"
+          }
+        ],
+        "abstract": "\nA review of Deborah Boyle's recent book The Well-Ordered Universe: The Philosophy of Margaret Cavendish (Oxford, UK: Oxford University Press, 2017).\n",
+        "title": "Review of The Well-Ordered Universe: The Philosophy of Margaret Cavendish by Deborah Boyle"
+      },
+      "id": "000436b83df34ee3a3b261136801bba7",
+      "created_date": "2022-12-22T17:00:31Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:10:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0101-1812",
+            "type": "pissn"
+          },
+          {
+            "id": "1982-2014",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "34",
+          "number": "56",
+          "country": "BR",
+          "issns": [
+            "0101-1812",
+            "1982-2014"
+          ],
+          "publisher": "Universidade de Santa Cruz do Sul",
+          "language": [
+            "PT"
+          ],
+          "title": "Signo"
+        },
+        "month": "8",
+        "end_page": "98",
+        "year": "2009",
+        "start_page": "90",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "author": [
+          {
+            "name": "Nize Maria Campos Pellanda"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://online.unisc.br/seer/index.php/signo/article/view/964"
+          }
+        ],
+        "abstract": "Este artigo trata da leitura abordada com ênfase no espaço digital e sustentada nos pressupostos do paradigma da complexidade. O texto inicia com uma caracterização breve da nova cultura digital e suas possibilidades em termos de uma potencialização das condições de construção do sujeito/ construção de subjetividade. A cibercultura torna-se possível a partir de uma abordagem complexa da realidade, ou seja,  da consideração de diferentes dimensões dos fenômenos de forma integrada. Nesse sentido, a leitura é considera como uma ação complexa por não separar cognição da constituição de si, no processo de ler. Alguns dados de pesquisa sobre leitura com adolescentes de classes populares são trazidos para ilustrar os elementos teóricos discutidos.",
+        "title": "LEITURA DIGITAL E COMPLEXIFICAÇÃO: REFLEXÕES SOBRE A CONSTITUIÇÃO DE SI"
+      },
+      "created_date": "2014-06-02T19:00:05Z",
+      "id": "000556195b2047b0bf633b405510470f"
+    },
+    {
+      "last_updated": "2025-08-19T15:57:05Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2213-7653",
+            "type": "eissn"
+          },
+          {
+            "id": "10.18146/tmg.212",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "17",
+          "number": "1",
+          "country": "NL",
+          "issns": [
+            "2213-7653"
+          ],
+          "publisher": "Netherlands Institute for Sound and Vision",
+          "language": [
+            "EN",
+            "NL"
+          ],
+          "title": "Tijdschrift voor Mediageschiedenis"
+        },
+        "month": "09",
+        "year": "2014",
+        "start_page": "83",
+        "subject": [
+          {
+            "code": "TK5101-6720",
+            "scheme": "LCC",
+            "term": "Telecommunication"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Boudewijn, Petra"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "{'x': 'http://www.crossref.org/schema/4.4.2', 'j': 'http://www.ncbi.nlm.nih.gov/JATS1'}",
+            "type": "fulltext",
+            "url": "https://www.tmgonline.nl/article/10.18146/tmg.212/"
+          }
+        ],
+        "title": "De indische pers en de literatuur"
+      },
+      "id": "0006a24eb3fa4f00b22c3db6ce596f29",
+      "created_date": "2020-05-16T20:20:13Z"
+    },
+    {
+      "last_updated": "2025-08-19T21:22:43Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2393-0624",
+            "type": "pissn"
+          },
+          {
+            "id": "2393-1078",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "11",
+          "country": "RO",
+          "issns": [
+            "2393-0624",
+            "2393-1078"
+          ],
+          "publisher": "Casa Cărții de Știință",
+          "language": [
+            "EN"
+          ],
+          "title": "Cultural Intertexts"
+        },
+        "month": "12",
+        "end_page": "83",
+        "keywords": [
+          "emigrant press",
+          "ideology",
+          "frontier",
+          "georgia",
+          "ussr"
+        ],
+        "year": "2021",
+        "start_page": "71",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "Iakob Gogebashvili Telavi State University, Georgia",
+            "name": "Ketevan GIGASHVILI"
+          },
+          {
+            "orcid_id": "",
+            "affiliation": "Iakob Gogebashvili Telavi State University, Georgia",
+            "name": "Mzia GIGASHVILI"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://b00e8ea91c.clvaw-cdnwnd.com/4fb470e8cbb34a32a0dc1701f8d7322d/200000405-7973679738/71-83%20Gigashvili.pdf"
+          }
+        ],
+        "abstract": "This paper examines the Georgian migrant press, which emerged as a result of the flight\r\nof Georgian intellectuals from the Soviet Communist regime. It reviews publications\r\nsuch as Chveni Drosha (Our Flag), Tavisuphali Sakartvelo (Free Georgia), Bedi\r\nKartlisa (Destiny of Kartli) and others, which became cultural-intellectual and\r\nnational islands beyond ideological frontiers. After the occupation of Georgia, the efforts\r\nof emigrants focused on generating an information war against the Soviet occupation.\r\nThe emigrants living in Paris were especially active in this regard. The newspapers and\r\nmagazines were mainly issued in Georgian, but also in English, French, and German.\r\nSpecial attention is paid to the historical, literary and scientific journal Bedi\r\nKartlisa (Revue de Kartvélologie), founded in Paris, in 1948, by Nino Salia. The\r\njournal brought together Kartvelologists living abroad, and played an important role\r\nin promoting Georgian history, literature, science, and culture. In this magazine,\r\nGeorgian and foreign journalists, prominent writers and scientists worked together.\r\nThe study aims to examine the pathos and the main topics of the emigrant press, based\r\non the analysis of a large number of magazines and personal archives of Georgian\r\nemigrants. Their role in keeping the Georgian national soul alive abroad, disclosing the\r\nregime, introducing the Georgian intellectual and spiritual culture to the Europeans\r\nand transferring European ideas to Georgia are among the most relevant findings. The\r\nrole of these magazines is invaluable not only in the history of Georgian journalism,\r\nbut also in the history of the Georgian national struggle.",
+        "title": "Georgian Cultural-Intellectual and National Islands beyond Ideological Frontiers"
+      },
+      "id": "0006d62a09c04272b0cbfd734b50d20c",
+      "created_date": "2022-10-08T07:20:10Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:07:24Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1575-5886",
+            "type": "pissn"
+          },
+          {
+            "id": "10.1344/BiD2014.32.16",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "number": "32",
+          "country": "ES",
+          "issns": [
+            "1575-5886"
+          ],
+          "publisher": "Universitat de Barcelona - Facultat d'Informació i Mitjans Audiovisuals",
+          "language": [
+            "CA",
+            "EN",
+            "ES",
+            "IT",
+            "PT"
+          ],
+          "title": "BiD: Textos Universitaris de Biblioteconomia i Documentació"
+        },
+        "month": "6",
+        "keywords": [
+          "Brazil",
+          "Free access",
+          "Researchers",
+          "Visibility",
+          "Journals"
+        ],
+        "year": "2014",
+        "subject": [
+          {
+            "code": "Z",
+            "scheme": "LCC",
+            "term": "Bibliography. Library science. Information resources"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Pinheiro, Liliana Vierira"
+          },
+          {
+            "name": "Da Silva, Edna Lúcia"
+          },
+          {
+            "name": "Rodríguez, Rosangela Schwarz"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://bid.ub.edu/32/vieira1.htm"
+          }
+        ],
+        "abstract": "Introducció: la producció és part essencial de l'activitat científica i la seva visibilitat és un indicador per avaluar la ciència. Les revistes científiques s'han transformat i el moviment d'accés obert ha impulsat canvis en el model de comunicació científica.\n\nObjectiu: l'objectiu d'aquest estudi és analitzar les revistes que utilitzen els investigadors de ciències de la informació del Brasil per publicar i la seva visibilitat a les bases de dades Web of Science i Scopus, comparant les publicacions amb accés obert i accés restringit. -- Metodologia: recerca quantitativa, exploratòria i documental que té com a corpus d'anàlisi la producció científica en revistes dels investigadors becats en recerca productiva del Conselho Nacional de Desenvolvimento Científico e Tecnológico de l'àrea de Ciències de la Informació del Brasil. -- Resultats: es conclou que els investigadors publiquen prioritàriament en revistes nacionals d'accés obert i que la visibilitat d'aquestes publicacions en bases de dades internacionals no presenta diferències significatives comparada amb la de les publicacions d'accés restringit.Introduction:\nProduction is an essential part of scientific activity and its visibility is an indicator for the evaluation of science. Scientific journals have been transformed and the open access movement has driven changes in our scholarly communication model.\n\nObjective: This paper analyses the scientific journals used by researchers in information science in Brazil and the visibility of these journals in the Web of Science (WoS) and Scopus databases by comparing the scientific production published in open access and restricted-access journals. -- Methodology:\nQuantitative, exploratory and documentary analysis was made using the scientific production of researchers in information science in Brazil that receive productivity grants from the Brazilian National Research and Development Council (CNPq). -- Results: It was found that researchers published primarily in open access national journals, and that the visibility of these journals in international databases did not significantly differ to the visibility of restricted-access publications.",
+        "title": "Revistes usades pels investigadors de ciències de la informació del Brasil per publicar i la seva visibilitat en les bases de dades Web of Science i Scopus"
+      },
+      "created_date": "2019-01-23T06:06:45Z",
+      "id": "0007016578d7490ba19bc01c285b4f03"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/articles/language%20linguistics?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/articles/language%20linguistics?page=12295&pageSize=25"
+}

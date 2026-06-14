@@ -549,18 +549,18 @@ Started on 2026-06-13:
 - Phase 4 now has SQLite FTS retrieval over metadata and stored local text content: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
 - Phase 4 now has deterministic offline vector-style retrieval: `pnpm kb:index:semantic` builds `data/knowledge-base/indexes/semantic-hash-index.json` and `pnpm kb:search:semantic "<terms>"` searches rights-filtered metadata and stored text.
 - Phase 5 has a reusable local-data workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, evidence file, query sketch, missing-data memo, `date-coverage.json`, `publication-concept.json`, and `study-template.md` under `docs/research-briefs/`. It infers source-class priorities from the question, records the routing decision in `source-map.json`, boosts institutional, scholarly, cultural-collection, linked-open-data, or text-corpus evidence, and separates content-year coverage from fetch-year coverage before suggesting longitudinal claims.
-- Phase 6 has starter maintenance automation: `pnpm kb:refresh` validates, inventories, rebuilds analytical tables, refreshes coverage/rights/stale-source audits, rebuilds the index, and updates KB status.
+- Phase 6 has bounded maintenance automation: `pnpm kb:refresh` validates, inventories, refreshes bounded source-specific metadata routes, refreshes department sitemap summaries, runs a bounded Wayback CDX smoke with explicit timeout/limit settings, rebuilds analytical tables and both indexes, refreshes coverage/rights/stale-source/blocked-source audits, updates KB status, and writes a local question-smoke brief to prove the rebuilt KB can answer a question.
 
 Current local footprint as of the latest local status:
 
 - 34 registered sources.
 - 29 registered sources with local documents.
 - Registry statuses: 24 active, 5 blocked, 4 seeded-from-experiment, 1 planned.
-- 6208 source documents.
+- 6379 source documents.
 - 2913 works.
 - 1779 source-provided authors.
 - 1713 deterministic candidate canonical people, including 61 multi-record clusters and 4 multi-source clusters.
-- 2270 venues.
+- 2271 venues.
 - 17 institutions.
 - 40 derived collections.
 - 34859 source-provided citation/reference edges.
@@ -569,17 +569,17 @@ Current local footprint as of the latest local status:
 - 1012 cultural objects.
 - 432 department/web page rows, including fetched public page text plus 325 metadata-only sitemap URL rows.
 - 52 department summaries.
-- 6208 rights rows.
+- 6379 rights rows.
 - 2539 records from the dedicated DOAJ humanities ingest, including 1450 article records and 1089 journal records from 32 raw article/journal API route responses.
 - 757 Wikidata cultural entity records across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts.
 - 505 additional cultural-collection object records from the dedicated Met/Cleveland/Library of Congress/Smithsonian ingest; Met object-detail routes partially succeeded and blocked object IDs are retained in the ingest audit.
 - 200 public-domain Project Gutenberg text files imported from the local Gutenberg experiment cache.
-- 4 strict homepage Wayback CDX department-page snapshot metadata records from 2020-2026 across 4 target routes; broader wildcard captures were rejected to avoid query-string noise.
+- 3 strict homepage Wayback CDX department-page snapshot metadata records from the latest bounded refresh smoke, with broader Wayback acquisition kept as a source-specific job because some CDX routes time out or fail.
 - 277 local text files.
 - 14/14 staging JSONL tables.
 - 14/14 processed Parquet tables.
 - SQLite FTS indexes metadata for the broader corpus plus stored local text content for public-domain books and local-analysis department/web pages.
-- Semantic hash index covers 6177 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
+- Semantic hash index covers 6348 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 
@@ -593,7 +593,7 @@ Remaining before the full knowledge-base goal is complete:
 - Expand university/department web corpus acquisition beyond the current shallow discovery pass; the first discovery run found mostly about pages and a few news pages, so faculty/events/program routes need source-specific selectors and sitemap/RSS support.
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add neural embedding retrieval later if a local model or approved embedding service is configured; the current semantic hash index is deterministic and offline.
-- Add refresh/staleness automation for every active source route, including route replacement for 403/failed department pages.
+- Expand refresh/staleness automation from bounded source smokes to source-specific active-route schedules, including route replacement for 403/404 department pages.
 
 Next build steps:
 

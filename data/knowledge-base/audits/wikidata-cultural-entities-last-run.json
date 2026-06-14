@@ -1,192 +1,192 @@
 {
-  "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+  "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
   "source_id": "wikidata-cultural-entities",
-  "generated_at": "2026-06-14T18:53:29.094Z",
-  "per_query": 100,
+  "generated_at": "2026-06-14T20:02:21.066Z",
+  "per_query": 25,
   "source_count": 9,
   "success_count": 9,
   "failed_count": 0,
-  "record_count": 757,
+  "record_count": 187,
   "records_by_category": {
-    "artists": 72,
-    "authors": 55,
-    "concepts": 100,
-    "genres": 76,
-    "institutions": 97,
-    "journals": 88,
-    "movements": 97,
-    "philosophers": 72,
-    "works": 100
+    "artists": 20,
+    "authors": 16,
+    "concepts": 25,
+    "genres": 19,
+    "institutions": 24,
+    "journals": 22,
+    "movements": 24,
+    "philosophers": 12,
+    "works": 25
   },
   "records": [
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "authors",
-      "started_at": "2026-06-14T18:52:26.686Z",
-      "completed_at": "2026-06-14T18:52:38.582Z",
+      "started_at": "2026-06-14T20:00:52.652Z",
+      "completed_at": "2026-06-14T20:01:11.826Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/01-authors.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/01-authors.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     },
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "artists",
-      "started_at": "2026-06-14T18:52:39.082Z",
-      "completed_at": "2026-06-14T18:52:49.216Z",
+      "started_at": "2026-06-14T20:01:12.327Z",
+      "completed_at": "2026-06-14T20:01:25.766Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/02-artists.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/02-artists.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     },
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "philosophers",
-      "started_at": "2026-06-14T18:52:49.716Z",
-      "completed_at": "2026-06-14T18:52:57.218Z",
+      "started_at": "2026-06-14T20:01:26.266Z",
+      "completed_at": "2026-06-14T20:01:28.074Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/03-philosophers.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/03-philosophers.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     },
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "works",
-      "started_at": "2026-06-14T18:52:57.718Z",
-      "completed_at": "2026-06-14T18:53:16.534Z",
+      "started_at": "2026-06-14T20:01:28.575Z",
+      "completed_at": "2026-06-14T20:01:54.966Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/04-works.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/04-works.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     },
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "movements",
-      "started_at": "2026-06-14T18:53:17.035Z",
-      "completed_at": "2026-06-14T18:53:17.600Z",
+      "started_at": "2026-06-14T20:01:55.466Z",
+      "completed_at": "2026-06-14T20:01:55.642Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/05-movements.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/05-movements.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     },
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "genres",
-      "started_at": "2026-06-14T18:53:18.101Z",
-      "completed_at": "2026-06-14T18:53:18.621Z",
+      "started_at": "2026-06-14T20:01:56.143Z",
+      "completed_at": "2026-06-14T20:01:56.420Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/06-genres.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/06-genres.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     },
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "institutions",
-      "started_at": "2026-06-14T18:53:19.121Z",
-      "completed_at": "2026-06-14T18:53:25.107Z",
+      "started_at": "2026-06-14T20:01:56.921Z",
+      "completed_at": "2026-06-14T20:02:03.944Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/07-institutions.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/07-institutions.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     },
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "journals",
-      "started_at": "2026-06-14T18:53:25.606Z",
-      "completed_at": "2026-06-14T18:53:27.616Z",
+      "started_at": "2026-06-14T20:02:04.444Z",
+      "completed_at": "2026-06-14T20:02:05.853Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/08-journals.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/08-journals.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     },
     {
-      "run_id": "wikidata-cultural-entities-2026-06-14T18-52-26-665Z",
+      "run_id": "wikidata-cultural-entities-2026-06-14T20-00-52-630Z",
       "source_id": "wikidata-cultural-entities",
       "route_slug": "concepts",
-      "started_at": "2026-06-14T18:53:28.117Z",
-      "completed_at": "2026-06-14T18:53:28.547Z",
+      "started_at": "2026-06-14T20:02:06.354Z",
+      "completed_at": "2026-06-14T20:02:20.514Z",
       "status": "success",
       "access_route": "https://query.wikidata.org/sparql",
       "raw_outputs": [
-        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T18-52-26-665Z/09-concepts.json"
+        "data/knowledge-base/raw/wikidata-cultural-entities/2026-06-14/wikidata-cultural-entities-2026-06-14T20-00-52-630Z/09-concepts.json"
       ],
       "processed_outputs": [
         "data/knowledge-base/processed/source_documents.jsonl",
         "data/knowledge-base/processed/rights.jsonl"
       ],
-      "record_count": 100,
+      "record_count": 25,
       "rights_review": "Wikidata metadata is treated as CC0 linked open data.",
       "errors": []
     }

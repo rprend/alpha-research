@@ -1,0 +1,23 @@
+[
+  [
+    "timestamp",
+    "original",
+    "statuscode",
+    "mimetype",
+    "digest"
+  ],
+  [
+    "20200108060711",
+    "https://classics.fas.harvard.edu/",
+    "200",
+    "text/html",
+    "J44PYK47YQYEELZWAWWTFLUA6YRBQRLR"
+  ],
+  [
+    "20220621194530",
+    "https://classics.fas.harvard.edu/?trumbaEmbed=view%3Devent%26eventid%3D153378346",
+    "200",
+    "text/html",
+    "D67YLMVMFFCOJ5DFXQOZ75CAFFDQHHV4"
+  ]
+]

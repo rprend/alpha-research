@@ -1,0 +1,94 @@
+{
+  "objectID": 453250,
+  "isHighlight": false,
+  "accessionNumber": "1985.2",
+  "accessionYear": "1985",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/is/original/DP231354.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/is/web-large/DP231354.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/is/original/sf1985-2.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/DT4829.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 130222,
+      "role": "Artist",
+      "name": "Painting by Riza-yi &#39;Abbasi",
+      "constituentULAN_URL": "(not assigned)",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q380726",
+      "gender": ""
+    }
+  ],
+  "department": "Islamic Art",
+  "objectName": "Illustrated single work",
+  "title": "Study of a Bird",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "Painting by",
+  "artistDisplayName": "Riza-yi 'Abbasi",
+  "artistDisplayBio": "Iranian, ca. 1565–d. 1635",
+  "artistSuffix": "",
+  "artistAlphaSort": "Riza-yi `Abbasi",
+  "artistNationality": "Iranian",
+  "artistBeginDate": "1540",
+  "artistEndDate": "1660",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q380726",
+  "artistULAN_URL": "(not assigned)",
+  "objectDate": "dated 1043 AH/1634 CE",
+  "objectBeginDate": 1633,
+  "objectEndDate": 1635,
+  "medium": "Ink, opaque watercolor, gold, and silver on paper",
+  "dimensions": "Overall:\r\n             H. 4 1/4 in. (10.8 cm)\r\n             W. 7 1/4 in. (18.4 cm)\r\nPainting:\r\n             H.3 7/8 in. (9.8 cm)\r\n             W. 6 7/8 in. (17.5 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 10.8,
+        "Width": 18.4
+      }
+    },
+    {
+      "elementName": "Other",
+      "elementDescription": "Dimensions of painting",
+      "elementMeasurements": {
+        "Height": 9.8,
+        "Width": 17.5
+      }
+    }
+  ],
+  "creditLine": "Louis E. and Theresa S. Seley Purchase Fund for Islamic Art and Rogers Fund, 1985",
+  "geographyType": "Attributed to",
+  "city": "Isfahan",
+  "state": "",
+  "county": "",
+  "country": "Iran",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Codices",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2026-01-21T04:52:24.343Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/453250",
+  "tags": [
+    {
+      "term": "Birds",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300266506",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q5113"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116275532",
+  "isTimelineWork": false,
+  "GalleryNumber": "462"
+}

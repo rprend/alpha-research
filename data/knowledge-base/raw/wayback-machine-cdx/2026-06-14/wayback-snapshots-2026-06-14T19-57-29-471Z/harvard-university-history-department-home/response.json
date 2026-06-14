@@ -1,0 +1,30 @@
+[
+  [
+    "timestamp",
+    "original",
+    "statuscode",
+    "mimetype",
+    "digest"
+  ],
+  [
+    "20200303174532",
+    "https://history.fas.harvard.edu/",
+    "200",
+    "text/html",
+    "L5CIVJHD4E77776IPEBPHGNUVZGOCDFE"
+  ],
+  [
+    "20200409144714",
+    "https://history.fas.harvard.edu/101",
+    "200",
+    "text/html",
+    "LWZNFJMEW3K2FEE5Z2MNEF3MHIXASQFM"
+  ],
+  [
+    "20200409153728",
+    "https://history.fas.harvard.edu/101-courses",
+    "200",
+    "text/html",
+    "DPJ5O36NFQ4RTZDZP5ZGMAUP6EWMCPSS"
+  ]
+]

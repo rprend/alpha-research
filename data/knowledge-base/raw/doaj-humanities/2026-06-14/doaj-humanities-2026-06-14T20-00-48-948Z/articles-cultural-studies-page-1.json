@@ -1,0 +1,1940 @@
+{
+  "total": 47889,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T20:00:50.691149Z",
+  "query": "cultural studies",
+  "results": [
+    {
+      "last_updated": "2025-08-19T19:49:21Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2383-0689",
+            "type": "pissn"
+          },
+          {
+            "id": "2383-0697",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "2",
+          "country": "IR",
+          "issns": [
+            "2383-0689",
+            "2383-0697"
+          ],
+          "publisher": "Institute for Humanities and Cultural Studies (IHCS)",
+          "language": [
+            "FA"
+          ],
+          "title": "حکمت معاصر"
+        },
+        "month": "3",
+        "end_page": "119",
+        "keywords": [
+          "mystical experience",
+          "Transcendent mysticism",
+          "Immanent mysticism",
+          "Meditation and neuro - psychological states of mystical experience"
+        ],
+        "year": "2011",
+        "start_page": "107",
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Assistant Professor ,Institute for Humanities and Cultural Studies",
+            "name": "Hadi Vakili"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://wisdom.ihcs.ac.ir/article_81_feabc4db68cd98ad675685419d7eab5d.pdf"
+          }
+        ],
+        "abstract": "No doubt mysticism is the essence of religious experience and this experience for both those who have religious beliefs and those who have not such beliefs typically causes changes in life. Regardless of the difficulty of describing the mystical experiences which seems very far from the conceptual framework of normal moods, it appears that the similarities among the various religious traditions for various mystical states can be outlined. These similarities include: the experience of unity, the feeling of being beyond time and space, sense of sacredness, a sense of joy and happiness, unity and awareness of the public with a vacuum and an eternal ultimate reality. Mystical states can be divided into two distinct categories: transcendent and immanent. Though Mysticism and spiritual meditation have some considerable similarities to each other, but they certainly look different. These two mystical tendencies in east & west religious faiths in the world to be seen with difference. Differences over the interpretation of mystical experiences may be caused by cultural and linguistic differences and distinctions. Psychological interpretations, neuro psychological and cognitive science of mystical experiences of the research approach is innovative in the world.",
+        "title": "Mystical Experience: Its Nature Features"
+      },
+      "created_date": "2018-07-22T17:44:01Z",
+      "id": "0002a44cb3fc4d4a80720694da941b36"
+    },
+    {
+      "last_updated": "2025-08-19T17:44:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.12797/LV.12.2017.23.01",
+            "type": "doi"
+          },
+          {
+            "id": "1896-2122",
+            "type": "pissn"
+          },
+          {
+            "id": "2392-1226",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "23",
+          "country": "PL",
+          "issns": [
+            "1896-2122",
+            "2392-1226"
+          ],
+          "publisher": "Ksiegarnia Akademicka Publishing",
+          "language": [
+            "DE",
+            "EN",
+            "FR",
+            "PL",
+            "RU"
+          ],
+          "title": "LingVaria"
+        },
+        "month": "May",
+        "keywords": [
+          "językoznawstwo słowiańskie",
+          "slawistyka",
+          "czasopisma naukowe",
+          "metodologia badań językoznawczych",
+          "metanauka"
+        ],
+        "year": "2017",
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Uniwersytet Mikołaja Kopernika, Toruń",
+            "name": "Michał Głuszkowski"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journals.akademicka.pl/lv/article/view/409"
+          }
+        ],
+        "abstract": "How Much Linguistics in Slavistics, How Much Slavistics in Linguistics?\nThe author makes an attempt to discuss the current role of linguistics among other disciplines of Slavonic studies (Slavistics), i.e. literature and cultural studies. The second part of the question in the title refers to the place of Slavonic linguistic studies within contemporary Polish linguistics. On the basis of preliminary observations and queries one may propose several hypotheses: 1) Slavonic linguistics in Poland differs significantly from the research on Polish language, both with regard to methodology and topics; 1.a) Inside Slavonic linguistics there is another division, between Russian and non-Russian Slavistics; 2) Slavonic and Polish Linguistics are also divided in the frames of Polish universities and Academy of Sciences; c) The main scientific forums, such as journals and conferences, reflect the divisions mentioned above, what results in relatively isolated communities in various fields of Slavonic linguistics, i.e. research on Polish, Russian and other Slavonic languages. To justify and illustrate the hypotheses in question, the author analyses the organizational structures of selected scientific centres, the contents of the most distinguished linguistic journals in Poland, as well as themes of conferences and the International Congress of Slavists.",
+        "title": "Ile lingwistyki w slawistyce, ile slawistyki w lingwistyce?"
+      },
+      "id": "0002bb4c1dfc47e2bfae621b9d837990",
+      "created_date": "2021-11-27T13:01:05Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:24:03Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s12982-025-00422-y",
+            "type": "doi"
+          },
+          {
+            "id": "3005-0774",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "22",
+          "number": "1",
+          "country": "CH",
+          "issns": [
+            "3005-0774"
+          ],
+          "publisher": "Springer",
+          "language": [
+            "EN"
+          ],
+          "title": "Discover Public Health"
+        },
+        "month": "1",
+        "end_page": "16",
+        "keywords": [
+          "Nigeria",
+          "Antibiotics",
+          "Resistance",
+          "Neonates",
+          "Healthcare",
+          "Policy"
+        ],
+        "year": "2025",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RA1-1270",
+            "scheme": "LCC",
+            "term": "Public aspects of medicine"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Medicine, Ladoke Akintola University of Technology",
+            "name": "Victor Oluwatomiwa Ajekiigbe"
+          },
+          {
+            "affiliation": "Siberian State Medical University",
+            "name": "Ikponmwosa Jude Ogieuhi"
+          },
+          {
+            "affiliation": "Obafemi Awolowo Teaching Hospital Complex",
+            "name": "Temiloluwa Adebayo Odeniyi"
+          },
+          {
+            "affiliation": "Department of Medicine, Ladoke Akintola University of Technology",
+            "name": "Praise Oluwatobi Ogunleke"
+          },
+          {
+            "affiliation": "Department of Medicine, Ladoke Akintola University of Technology",
+            "name": "Josiah Temitope Olatunde"
+          },
+          {
+            "affiliation": "Faculty of Clinical Science, College of Medicine, University of Ibadan",
+            "name": "Adedoyin Veronica Babalola"
+          },
+          {
+            "affiliation": "Department of Medicine, Ladoke Akintola University of Technology",
+            "name": "Akintunde Abisoye Omoleke"
+          },
+          {
+            "affiliation": "Department of Medicine, Ladoke Akintola University of Technology",
+            "name": "Tolulope Felix Omitade"
+          },
+          {
+            "affiliation": "Department of Medicine, Ladoke Akintola University of Technology",
+            "name": "Damilare Emmanuel Olakanmi"
+          },
+          {
+            "affiliation": "Department of Public Health, University of Cambridge Cambridgeshire Old Trinity Schools",
+            "name": "Adewunmi Akingbola"
+          },
+          {
+            "affiliation": "Faculty of Clinical Sciences, University of Calabar",
+            "name": "Chidera Stanley Anthony"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s12982-025-00422-y"
+          }
+        ],
+        "abstract": "Abstract A well-documented mounting public health crisis is the antibiotic crisis, which is most significantly felt in low-resource countries like Nigeria. This article sheds light on the rising level of antibiotic resistance in newborns in Nigeria, a trend that poses a severe threat to neonatal survival and public health at large. A thorough database search was carried out using terms associated with antibiotic resistance in Nigerian neonates, including PubMed, Google Scholar, and other scholarly sources. Only original research conducted between the start of the study and June 2024 was included; articles without an English translation were not. Independent reviewers handled data management and screening. There has been an increasing prevalence of sepsis among newborns primarily due to Gram-negative bacteria, which highlights the urgency and need to be addressed. Studies show a significant rise in multi-drug-resistant infections, with almost half of Escherichia coli and 86% of Staphylococcus aureus strains among newborns resistant to conventionally used antibiotics like penicillin. Some reasons for the continuous trend include but are not limited to unregulated antibiotic purchase and use, inadequate surveillance systems, and cultural determinants and socioeconomic issues. Effective strategies are needed to curb the neonatal antibiotic crisis in Nigeria. This problem can be mitigated by enhancing public education, strengthening healthcare infrastructure, advocating for better maternal health, and promoting the rational use of antibiotics. Additionally, more research into non-antibiotic medications and understanding the barriers to compliance need to be addressed.",
+        "title": "Understanding Nigeria’s antibiotic resistance crisis among neonates and its future implications"
+      },
+      "id": "00034af344d24ef590b54527f567dbb1",
+      "created_date": "2025-02-02T12:09:04Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:43:56Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.52200/docomomo.69.07",
+            "type": "doi"
+          },
+          {
+            "id": "1380-3204",
+            "type": "pissn"
+          },
+          {
+            "id": "2773-1634",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "69",
+          "country": "NL",
+          "issns": [
+            "1380-3204",
+            "2773-1634"
+          ],
+          "publisher": "Docomomo International",
+          "language": [
+            "EN"
+          ],
+          "title": "Docomomo Journal"
+        },
+        "month": "December",
+        "keywords": [
+          "Rukurato Hall",
+          "Bunyoro-Kitara Kingdom",
+          "Great Hall",
+          "Kwame Nkrumah University of Science & Technology",
+          "KNUST",
+          "Conservation"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "NA1-9428",
+            "scheme": "LCC",
+            "term": "Architecture"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Shared Heritage Africa Fellow",
+            "name": "Timothy Latim"
+          },
+          {
+            "affiliation": "Shared Heritage Africa Fellow",
+            "name": "Jonathan Kplorla Agbeh"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://docomomojournal.com/index.php/journal/article/view/673"
+          }
+        ],
+        "abstract": "\nThis article presents two modernist building case studies, one each from East and West Africa which explore approaches to modernist public building conservation. The Rukurato Hall in East Africa, formerly used as a regional assembly hall for the Bunyoro Kingdom in Uganda, is now used as the parliament building of the Bunyoro Kitara Kingdom.\nThe Great Hall in West Africa at the Kumasi University of Science and Technology (KNUST) serves as an institutional hall; it is a monument of academic and cultural significance in Kumasi. This article delves into the historical evolution of the Great Hall, which has hosted numerous essential events, ranging from local academic gatherings to distinguished international conferences since 1967. The Great Hall’s rich heritage and architectural prominence have been subject to various interventions aimed at conserving its essence. The examination of these interventions in maintaining the integrity of the building while adapting to the changing needs of the university underscores the delicate balance required between modernization and safeguarding cultural and architectural legacies.\nBoth case studies present contrasting views on the challenges of conservation in the African context, resulting in different conservation efforts. In the case of the Rukurato Hall, arguable the loss of function for a significant period, before reinstatement in the late 1990s and challenges of funding have greatly influenced the ability to realize conservation ambitions. In the Great Hall, whilst conservation funds were secured, and the conservation effort was successful, the use of the Hall has been ‘controlled’ and various actions have arguably tested the authenticity of the conservation process transforming the building aesthetic in the process. This article employs methods of document analysis, archival research, and interviews with key stakeholders.\n",
+        "title": "Rukurato Hall, Banyoro, Uganda and the Great Hall, KNUST, Ghana"
+      },
+      "id": "00035516aa194ba4b05a7b79ba4f2912",
+      "created_date": "2024-03-01T17:11:15Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:21:03Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1749-9771",
+            "type": "eissn"
+          },
+          {
+            "id": "10.2218/forum.31.5494",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "number": "31",
+          "country": "GB",
+          "issns": [
+            "1749-9771"
+          ],
+          "publisher": "University of Edinburgh",
+          "language": [
+            "EN"
+          ],
+          "title": "Forum"
+        },
+        "month": "3",
+        "year": "2021",
+        "subject": [
+          {
+            "code": "N",
+            "scheme": "LCC",
+            "term": "Fine Arts"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "name": "Debangana Mishra"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://journals.ed.ac.uk/forum/article/view/5494"
+          }
+        ],
+        "abstract": "This article will be focusing on Ishmael Reed’s Mumbo Jumbo (1972), a vibrant postmodernist text, which offers a fresh perspective on the rise of black popular culture in the form of Jes Grew, which is largely informed by jazz and neo-hoodoo aesthetics. Jes Grew, the phenomenon which binds the multifaceted text in cohesion and brings together elements from History, Jazz and Afrofuturism, is communicated by using the metaphor of a virulent disease- the Jes Grew pandemic. The article is a work in cultural studies, attempting to map the evolution of the counter culture that Jes Grew represents and its effect on identity. This mapping is achieved by viewing the equation of the Jazz counter-culture with the Jes Grew pandemic. Jes Grew decodes the cultural and racial politics Mumbo Jumbo is invested in by destabilising the meaning and perspective attached to ‘disease’ and adapting it to an entirely new climate of cultural reclamation and celebration by deconstructing the dominant culture defined illness (Jes Grew in the text) and reinterpreting it as potentially healing and liberating. The discussion of the politics and aesthetics of this counter-culture mainly hinges on the central metaphor of the Jes Grew pandemic operating throughout the narrative. Raymond Williams’ work on culture studies and Stuart Hall’s theory on the formation and representation of cultural identities are particularly helpful in discussing the issues of culture and identity that are in dialogue with the narrative.",
+        "title": "Exploring the Virulent Jazz Counterculture in Mumbo Jumbo"
+      },
+      "created_date": "2021-11-23T09:50:51Z",
+      "id": "000499761ad64312ad189c180da8bda9"
+    },
+    {
+      "last_updated": "2026-04-25T11:10:55Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2476-6402",
+            "type": "pissn"
+          },
+          {
+            "id": "2476-5864",
+            "type": "eissn"
+          },
+          {
+            "id": "10.22054/urdp.2023.55092.1248",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "28",
+          "country": "IR",
+          "issns": [
+            "2476-6402",
+            "2476-5864"
+          ],
+          "publisher": "Allameh Tabataba'i University Press",
+          "language": [
+            "FA"
+          ],
+          "title": "برنامه‌ریزی توسعه شهری و منطقه‌ای"
+        },
+        "month": "3",
+        "end_page": "237",
+        "keywords": [
+          "public transportation",
+          "tehran city",
+          "district 11 of tehran",
+          "tod"
+        ],
+        "year": "2024",
+        "start_page": "197",
+        "subject": [
+          {
+            "code": "HT165.5-169.9",
+            "scheme": "LCC",
+            "term": "City planning"
+          },
+          {
+            "code": "HT170-178",
+            "scheme": "LCC",
+            "term": "Urban renewal. Urban redevelopment"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Graduated in geography and urban planning, Central Tehran Branch, Islamic Azad University, Tehran, Iran",
+            "name": "Sayyed Jalal  Aldin Hosseini"
+          },
+          {
+            "affiliation": "Associate Professor, Department of Geography &Urban Planning, Central Tehran Branch, Islamic  Azad University, Tehran, Iran",
+            "name": "Azita Rajabi"
+          },
+          {
+            "affiliation": "Assistant Professor, Department of Geography & Urban Planning, Payam Noor University, Tehran",
+            "name": "Afshin Safahan"
+          },
+          {
+            "affiliation": "Associate Professor, Department of Geography &Urban Planning, Central Tehran Branch, Islamic  Azad University, Tehran, Iran",
+            "name": "Aliasghar Rezvani"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://urdp.atu.ac.ir/article_16487_a2a3f517dac5a8b3038566c5e3748446.pdf"
+          }
+        ],
+        "abstract": "Transit-Oriented Development (TOD) represents a significant facet of sustainable urban planning aimed at addressing urban traffic challenges through the strategic expansion of public transportation systems. District 11 within the municipality of Tehran exemplifies a central locality grappling with substantial traffic congestion and a multitude of challenges within its urban transportation network. This study endeavors to scrutinize the prospects of TOD implementation in District 11, with a focus on transforming the prevailing car-centric environment into a more human-centered space. Utilizing TOD indicators as evaluative benchmarks, the study seeks to gauge the district's current status and assess its potential for TOD integration. Employing an applied descriptive research approach, data acquisition via extensive literature review and document examination is conducted. Subsequent analysis is performed utilizing ArcGIS software, with methodologies such as the Kindal coefficient and Analytical Hierarchy Process facilitating data interpretation. Findings indicate a promising foundation for TOD implementation in District 11; however, the current setting lacks the necessary capacity to evolve into a fully-realized TOD hub. Addressing this shortfall necessitates comprehensive alterations in the area's spatial configurations to enable its transition into a robust TOD nucleus.\nKeywords: Public Transportation, Tehran City, District 11 of Tehran, TOD.\n \n \nIntroduction\nIn light of the adverse repercussions of urban sprawl and the overreliance on private automobiles, contemporary urban planning has increasingly shifted its focus towards human-centered methodologies that prioritize pedestrian amenities, safety considerations, and overall societal well-being. A pivotal aspect of this paradigm shift is the strategic elevation of public transportation systems and associated reforms to foster sustainable urban environments. Globally recognized as a transformative approach in urban planning, transit-oriented development has emerged as a beacon of innovation, particularly in burgeoning cities plagued by spatial inadequacies and heightened urban densities. This progressive approach endeavors to optimize public transportation efficiency, reclaim thoroughfares from vehicular dominance, and nurture communities designed with human experiences at the core.\nThe prevailing oversight in transportation planning has exacerbated disparities between supply and demand, exacerbating challenges in densely populated urban locales. This study delves into the meticulous evaluation of transit-oriented urban transportation metrics within Tehran's District 11, benchmarking them against international best practices while appraising their potential to serve as the scaffolding for transit-oriented development initiatives. Key considerations such as the density of transit stations, accessibility metrics, pedestrian infrastructure quality, road network configurations, block dimensions, intersection densities, land-use diversity, and residential unit densities play a pivotal role in this evaluation.\nRecognizing transportation as a linchpin for sustainable urban progress, the research underscores its profound impact on social dynamics, economic vitality, and environmental sustainability. It advocates for a holistic appraisal of transportation systems as an imperative requisite for nurturing sustainable urban developments.\nLiterature Review\nIn a scholarly inquiry conducted by Khazaei (2018) on the analysis and assessment of sustainable urban transportation indicators, a comprehensive array of 39 economic, social, and environmental metrics were employed to evaluate the sustainability of transportation within the purview of planning management bodies. Subsequently, Piran et al. (2019) undertook a study utilizing structural equation modeling techniques to analyze sustainable urban transportation indicators, focusing on Tehran Metro Lines 1 and 2. Their findings underscored that, from the citizens' perspective, physical indicators associated with quality of life emerged as the most significant drivers of change within sustainable urban transportation frameworks, whereas the accessibility metrics to densely populated areas exhibited minimal impact in comparison.\nBarari (2020) delved into an investigation of the efficacy of green economy components within urban transportation strategies, with Sari city as a case study. Leveraging a multi-criteria decision-making model, specifically the DEMATEL phase, Barari determined that the sub-criteria of development and non-motorized transportation wielded the most substantial weight and direct influence, thereby exerting a pivotal role in advancing green transportation initiatives within Sari city.\nMoreover, the scholarly discourse encapsulated in the works of Litman (2015), Levin et al. (2016), Ovink et al. (2017), Noland et al. (2017), Ma et al. (2018), and others underscores the paramount significance of transportation as a foundational element in shaping urban landscapes. These scholars advocate for a paradigm shift towards human-centric environments over vehicle-centric spaces, thereby addressing critical human mobility concerns.\nAdditionally, Chen et al. (2022) propounded a methodology for assessing the resilience of urban transportation systems through the lens of economic, social, organizational, and technological dimensions. Their proposed framework aims to furnish managers and decision-makers with a comprehensive comprehension of transportation resilience, thereby elucidating its practical import in fortifying the foundations of a sustainable urban transportation system.\nMoreover, Tiwaree et al. (2023) undertook a meticulous exploration into the principles of transportation development, with a particular emphasis on form analysis within two distinct study areas. Their study meticulously examines the economic and social characteristics intertwined with travel patterns, striving to establish a cogent linkage between urban form and the potential benefits engendered by the ethos of public transportation-oriented development.\nMethodology\nThe present study adopts a descriptive-analytical approach in its delineation and application. Comprising two distinct stages, namely a comprehensive literature review and subsequent field investigation, the research endeavor unfolds intricately. Initially, a meticulous compilation of theoretical underpinnings pertinent to transit-oriented development norms was systematically amassed through a rigorous examination of both internal and external scholarly sources, alongside a thorough review of antecedent studies. Leveraging a synthesis and critical analysis of these scholarly insights, a series of ranking tables were meticulously crafted. These tables were predicated upon a diverse set of criteria encompassing the number of stations, station accessibility, pedestrian pathway quality, proximity to major hubs, network street configuration, block dimensions, intersection density, land-use diversity, activation of urban edges, district classification, and residential unit density. Subsequently, the meticulously developed standards were then applied to assess the current status of the designated study areas through a judicious application of statistical tools and sophisticated software methodologies, with a particular emphasis placed on Geographic Information System (GIS) software, notably ARC GIS 10.3. This technological arsenal facilitated the evaluation and cartographic representation of the intricate road network structures within the study area, notably Zone 11, a pivotal locale situated at the heart of Tehran. Encompassing a land expanse of 12 square kilometers, Zone 11 constitutes approximately 1.8% of Tehran's total terrain and shares its boundaries with Zones 6, 10, 12, 16, and 17. Renowned for hosting a plethora of critical political, economic, and educational institutions, including foreign embassies, military installations, and bustling markets, Zone 11 emerges as a strategically imperative locale that attracts a substantial footfall of visitors. The area's allure is further accentuated by its rich historical legacy and vibrant cultural milieu, with a profusion of iconic landmarks and cultural hubs dotting its landscape. The confluence of major thoroughfares, central squares, and the bustling railway station engenders a daily flurry of vehicular and pedestrian traffic, with an estimated two million passengers traversing through the area routinely. The coexistence of antiquated garages and architectural marvels, alongside esteemed cultural edifices such as theaters, Unity Hall, and the Cultural Axis of the Revolution, lends a distinctive charm to Zone 11, mandating concerted urban development and reinvigoration initiatives for its sustained growth and vitality.\nResults\nDrawing upon the established benchmarks set forth by the Institute for Transportation and Development Policies (ITDP) for scrutinizing criteria governing public transport development, this evaluation centers on three pivotal indicators pertaining to land-use mix. The analysis hinges on delving into the array of land-use typologies surrounding public transport nodes, utilizing a hybrid methodology that melds quantitative assessments with qualitative insights. Tables 1 and 2 encapsulate the nuanced land-use profiles characterizing Zone 11 in the urban matrix of Tehran, offering a detailed exposition of the prevailing landscape.\nEvidently, both demarcated zones exhibit a consonance with the four delineated land-use categories, albeit showcasing varying degrees of quality and intensity across these domains. Within Zone 11, the domain earmarked for transport and storage commands a dominant presence, constituting a substantial 37% of the terrain, with administrative facilities accounting for an additional 6%, thereby collectively claiming over 40% of the land area. Meanwhile, residential land utilization emerges as the predominant feature, commanding a significant 44.51%, whereas commercial activities occupy a modest 5.96%, with educational establishments occupying a minor 1.78% share. Such a diverse mosaic underscores a heterogeneous blend of land uses within the locale.\nHowever, the diagnostic evaluation intimates a discernible lacuna in the facilitation of conducive conditions for public transport augmentation, primarily a result of the pervasive prevalence of land-use categories that deviate from the overarching objective of serving as pivotal origins and destinations for commuting endeavors. This discrepancy assumes significance, particularly in light of the critical adjacency of pivotal amenities and infrastructural nodes such as markets, railway hubs, and medical facilities situated beyond the purview of the immediate study terrain, thus warranting a recalibration of the existing urban fabric to harmonize with the imperatives of efficient public transport infrastructure.\nTable 2. Land-use Density in Tehran Zone 11\n\n\n\n\nLand Use Type\n\n\nArea\n\n\nPercentage\n\n\nDensity\n\n\n\n\n\n\nResidential\n\n\n95.536\n\n\n51.44\n\n\n22.37\n\n\n\n\nCommercial\n\n\n91.71\n\n\n9.65\n\n\n9.92\n\n\n\n\nEducational\n\n\n55.21\n\n\n7.81\n\n\n8.90\n\n\n\n\nHigher Education\n\n\n35.4\n\n\n3.60\n\n\n1.80\n\n\n\n\nCultural\n\n\n21.7\n\n\n6.00\n\n\n3.00\n\n\n\n\nReligious\n\n\n41.6\n\n\n5.40\n\n\n2.60\n\n\n\n\nTourism\n\n\n87.1\n\n\n1.50\n\n\n0.80\n\n\n\n\nHealthcare\n\n\n5.19\n\n\n6.11\n\n\n8.10\n\n\n\n\nRecreational\n\n\n4\n\n\n3.30\n\n\n1.60\n\n\n\n\nSports\n\n\n2.3\n\n\n2.50\n\n\n1.20\n\n\n\n\nAdministrative\n\n\n13.24\n\n\n2\n\n\n1\n\n\n\n\nTable 2. Entropy Index Results\n\n\n\n\nZone 11 Tehran\n\n\nA\n\n\nInA\n\n\nA*InA\n\n\n\n\n\n\nResidential\n\n\n0.31\n\n\n1.34\n\n\n0.32\n\n\n\n\nCommercial\n\n\n0.06\n\n\n-3.16\n\n\n-0.75\n\n\n\n\nAdministrative\n\n\n0.3\n\n\n-0.61\n\n\n-0.42\n\n\n\n\nOpen Space\n\n\n0.14\n\n\n-1.28\n\n\n-0.298\n\n\n\n\n∑Σ\n\n\n1\n\n\n-\n\n\n-1.058\n\n\n\n\nThe outcomes of the entropy index analysis substantiate a notable degree of constancy in land use amalgamation within the studied context. By heeding the prescriptions outlined in Tehran's overarching urban blueprint for Zone 11 and aligning with the envisaged shifts in land use dynamics, the region stands poised to ascend towards a more optimal equilibrium by operationalizing the recommended land use configurations. Such strategic interventions hold promise in fostering the realization of a public transport-centric development agenda, underpinned by a judicious calibration of land use patterns conducive to enhancing the overall fabric of the urban milieu.\nDiscussi0on\nThe scholarly research conducted in Zone 11 of Tehran scrutinizes the pertinent development metrics concerning transit-oriented urban transportation. Findings exhibit a spectrum of adherence to global benchmarks, characterized by instances of relative congruence alongside notable disparities. The investigation discerns latent prospects for the region to metamorphose into a pivotal locus of transit-oriented development, underscored by the imperative of effecting sweeping spatial transformations. Strategic directives encompass the augmentation of commercial and recreational diversification in the proximity of transit nodes, the amelioration of economic vitality, and the prioritization of seamless public transportation integration. Remedial actions entail the overhaul of road infrastructures, the optimization of pedestrian realms, and the implementation of meticulous transit-oriented development blueprints. While certain locales may encounter impediments in effecting land use modifications, others proffer auspicious conditions conducive to assuming the mantle of transit-oriented nuclei.",
+        "title": "Evaluation of Indicators for the Realization of the Development of Public-Oriented Urban Transportation (Study Case: District 11 of Tehran)"
+      },
+      "created_date": "2024-09-30T09:03:18Z",
+      "id": "0008f7f440fa4f289077344da033d5e8"
+    },
+    {
+      "last_updated": "2025-10-06T06:25:57Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1658-354X",
+            "type": "pissn"
+          },
+          {
+            "id": "0975-3125",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4103/sja.sja_164_25",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "19",
+          "number": "4",
+          "country": "IN",
+          "issns": [
+            "1658-354X",
+            "0975-3125"
+          ],
+          "publisher": "Wolters Kluwer Medknow Publications",
+          "language": [
+            "EN"
+          ],
+          "title": "Saudi Journal of Anaesthesia"
+        },
+        "month": "10",
+        "end_page": "504",
+        "keywords": [
+          "anesthesiologist",
+          "artificial intelligence",
+          "attitude",
+          "ethics",
+          "perception"
+        ],
+        "year": "2025",
+        "start_page": "498",
+        "subject": [
+          {
+            "code": "RD78.3-87.3",
+            "scheme": "LCC",
+            "term": "Anesthesiology"
+          }
+        ],
+        "author": [
+          {
+            "name": "Selin Erel"
+          },
+          {
+            "name": "Aslıhan G. Kılıç"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://journals.lww.com/10.4103/sja.sja_164_25"
+          }
+        ],
+        "abstract": "Background:\nExisting studies on anesthesiologists’ attitudes toward artificial intelligence (AI) leave a global understanding underexplored. This cross-sectional study aims to investigate Turkish anesthesiologists’ attitudes toward AI, examining its perceived benefits, limitations, and associated ethical concerns. Insights from this study aim to enhance understanding of AI’s role in anesthesiology within a cultural and ethical context.\nMethods:\nThis nationwide study surveyed Turkish anesthesiologists. Descriptive statistics summarized categorical variables, Pearson’s Chi-square test compared variables between groups. Binary logistic regression analyzed associations between demographic factors and positive attitudes toward AI.\nResults:\nAmong 293 valid responses, 69.6% of participants expressed positive attitudes toward AI. Gender (P = 0.01), employment setting (P < 0.001), and prior AI experience (P < 0.001) were significant predictors of positive attitudes. AI applications most frequently endorsed included preoperative assessments (93.1%), academic support (95.2%), and medical education (91.2%). Ethical concerns were prominent, with liability ambiguity (87.3%) and privacy issues (62.8%) being the most cited. Logistic regression revealed that participants aged 46–55 were significantly more likely to exhibit positive attitudes (OR = 3.744, P = 0.03), while those with over 15 years of experience were less likely to do so (OR = 0.105, P = 0.04).\nConclusions:\nTurkish anesthesiologists exhibited predominantly positive attitudes toward AI, with prior experience playing a significant role in shaping perceptions. While AI was embraced for academic, educational, and noninvasive tasks, skepticism was present toward its application in invasive procedures. These findings highlight AI’s potential to enhance efficiency and patient safety while underscoring the need for comprehensive legal and ethical frameworks.",
+        "title": "The use of artificial intelligence in anesthesiology: Attitudes and ethical concerns of anesthesiologists"
+      },
+      "id": "000a9f4006e84b34a408045efa534e0d",
+      "created_date": "2025-10-06T06:25:57Z"
+    },
+    {
+      "last_updated": "2026-04-21T10:22:50Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2542-4823",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1177/25424823261431318",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "10",
+          "country": "GB",
+          "issns": [
+            "2542-4823"
+          ],
+          "publisher": "SAGE Publishing",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Alzheimer's Disease Reports"
+        },
+        "month": "3",
+        "year": "2026",
+        "subject": [
+          {
+            "code": "R5-920",
+            "scheme": "LCC",
+            "term": "Medicine (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "\nBiomedical Innovations Research for Translational Health Sciences, Department of Biochemistry and Molecular Biology, College of Medicine, , Manila, Philippines",
+            "name": "Fresthel Monica M Climacosa"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Eric David B Ornos"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Erwin Rommel S Diwa"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Mary Gale R Guantia"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Almeera P Qureshi"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Nicole Clarence Louise L Gapaz"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Aira B Dacasin"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Joannes Luke B Asis"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Ajina C Carampel"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Angelica M Dela Cruz"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Francis James A Gordovez"
+          },
+          {
+            "affiliation": "\nDepartment of Laboratories, , University of the Philippines Manila, Manila, Philippines",
+            "name": "John Carlo B Reyes"
+          },
+          {
+            "affiliation": "\nInstitute of Biology, , Quezon City, Philippines",
+            "name": "Ian Kim B Tabios"
+          },
+          {
+            "affiliation": "\nDepartment of Biochemistry and Molecular Biology, College of Medicine, , Manila, Philippines",
+            "name": "Rafael Vincent M Manalo"
+          },
+          {
+            "affiliation": "\nMulti-Omics Research Program for Health, College of Medicine, , Manila, Philippines",
+            "name": "Joana Marie C Cruz"
+          },
+          {
+            "affiliation": "\nDepartment of Neurology, Institute of Neurological Sciences, , Pasig City, Philippines",
+            "name": "Veeda Michelle M Anlacan"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1177/25424823261431318"
+          }
+        ],
+        "abstract": "Background The Monitoring drug Efficacy through Multi-Omics Research Initiative in Alzheimer's Disease (MEMORI-AD) study aims to characterize drug response to donepezil and memantine in a Filipino cohort with late-onset Alzheimer's disease (AD). To enhance enrollment, community-based dementia screening and recruitment were conducted across barangays in Manila. Objective This study describes the experiences and challenges in community-based recruitment for multi-omics research in vulnerable populations. Methods After coordinating with local officials for approval, recruitment targeted residents aged 65 years and above. A public health lecture on dementia was held, followed by rapid screening using the “10 Warning Signs of Dementia” questionnaire by the Alzheimer's Disease Association of the Philippines and the AD-8 Dementia Screening Interview. Eligible participants were invited for clinical screening, including laboratory work, neuropsychological tests, and neuroimaging. Reasons for non-consent and withdrawal were recorded. Results Of 301 eligible participants, 42 (14.0%) were suspected of dementia and eligible for work-up. Among them, 14 (33.3%) did not consent, 15 (53.6%) initially consented but withdrew, and 13 (46.4%) completed the assessment. Only 2 patients were enrolled. The main cause for non-consent was disinterest (n = 8, 57.1%), followed by unavailability of a legally authorized representative (LAR) (n = 3, 21.4%), which was also the primary reason for withdrawal (n = 9, 60%).​ Conclusions Recruitment of vulnerable Filipinos in multi-omics research within a lower-middle income country faced significant barriers, encompassing economic, psychosocial, and health constraints, largely due to disinterest and unavailability of LAR. Further studies on family dynamics, socioeconomic, and cultural factors could offer insights to overcome these recruitment barriers. Trial Registration Number Philippine Health Research Registry ID PHRR230220-0054116; ClinicalTrials.gov ID NCT05801380.",
+        "title": "Challenges in community-based recruitment of Alzheimer's disease cases: Experience of the monitoring drug efficacy through multi-omics research initiative in Alzheimer's disease (MEMORI-AD) study"
+      },
+      "id": "000b955a67e24ea1b2073bc18f5a00a0",
+      "created_date": "2026-04-21T10:22:50Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:43:43Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2476-6879",
+            "type": "pissn"
+          },
+          {
+            "id": "2538-1563",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "10",
+          "number": "1",
+          "country": "IR",
+          "issns": [
+            "2476-6879",
+            "2538-1563"
+          ],
+          "publisher": "Shahid Sadoughi University of Medical Sciences",
+          "language": [
+            "FA"
+          ],
+          "title": "Rāhburdhā-yi Mudīriyyat dar Niẓām-i Salāmat"
+        },
+        "month": "5",
+        "end_page": "66",
+        "keywords": [
+          "challenge",
+          "solution",
+          "health workers",
+          "workforce management",
+          "scoping review"
+        ],
+        "year": "2025",
+        "start_page": "57",
+        "subject": [
+          {
+            "code": "R5-920",
+            "scheme": "LCC",
+            "term": "Medicine (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "\n             Professor, Department of Health Management, Policy and Economics, School of Public Health, Tehran University of Medical Sciences, Tehran, Iran    \n\t      ",
+            "name": "Ali Mohammad Mossadeghrad"
+          },
+          {
+            "affiliation": "\n             MD student, Department of Medicine, School of Medicine, Tehran University of Medical Sciences, Tehran, Iran    \n\t      ",
+            "name": "Shervin Mossavarali"
+          },
+          {
+            "affiliation": "\n             MD student, Department of Medicine, School of Medicine, Tehran University of Medical Sciences, Tehran, Iran    \n\t      ",
+            "name": "Seyed Hamid Hosseini Neishabouri"
+          },
+          {
+            "affiliation": "\n             MD student, Department of Medicine, School of Medicine, Tehran University of Medical Sciences, Tehran, Iran    \n\t      ",
+            "name": "Arman Khanjani"
+          },
+          {
+            "affiliation": "\n             Ph.D. student of Health Care Management Department of Health Management, Policy and Economics, School of Public Health, Tehran University of Medical Sciences, Tehran, Iran    \n\t      ",
+            "name": "Shabnam Afraz"
+          },
+          {
+            "affiliation": "\n             MD student, Department of Medicine, School of Medicine, Tehran University of Medical Sciences, Tehran, Iran    \n\t      ",
+            "name": "Alireza Jafari Azad"
+          },
+          {
+            "affiliation": "\n             Ph.D. student of Health Care Management Department of Health Management, Policy and Economics, School of Public Health, Tehran University of Medical Sciences, Tehran, Iran    \n\t      ",
+            "name": "hoda Ghobeishipour"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://mshsj.ssu.ac.ir/article-1-806-en.pdf"
+          }
+        ],
+        "abstract": "Objective: Employees’ management is the process of planning, organizing, directing, and controlling human resources within an organization, which is of great importance and it is necessary to pay attention to its various dimensions, including the provision, distribution, and retention of employees. In the present study, the challenges and problems in the field of personnel are examined and then solutions to reduce these challenges are discussed.\nInformation sources and selected methods for study:  A scoping review was conducted in August 2023 to identify the challenges faced by healthcare workers and suggest appropriate solutions. The search was performed across English-language databases, including PubMed, Scopus, Web of Science, as well as Persian-language databases SID and Magiran, and search engines Google Scholar and Google. Title and abstract screening were independently carried out by three authors. After the screening and full-text review, data extraction was performed on 104 relevant studies. Data analysis was conducted using the Ritchie and Spencer framework analysis method.\nResults: A total of 27 challenges related to the healthcare workforce were identified and categorized into three domains: recruitment, distribution, and retention. The most critical challenges included unequal distribution of physicians, workforce shortages, job burnout, and migration of healthcare workers, all of which significantly impact the quality of healthcare services. Regarding workforce recruitment, key strategies included utilizing trainees, training non-specialist staff, and expanding educational capacities. To address distribution disparities, policies such as strengthening family physician programs, telemedicine, and offering financial incentives were proposed. In terms of workforce retention, effective solutions included welfare support, psychological counseling, stress management programs, and work-life balance initiatives.\nConclusion: To improve the condition of health workers, policymakers must adopt an integrated, evidence-based approach addressing the three areas of recruitment, distribution, and retention. Moreover, proposed strategies should be contextualized based on each country's economic, social, and cultural conditions and implemented through intersectoral collaboration and sufficient resource allocation to ensure long-term effectiveness.",
+        "title": "Challenges and Strategies in Healthcare Workforce Management: A Scoping Review"
+      },
+      "id": "000c412d7f8943c08134816b4a8fae2e",
+      "created_date": "2025-08-17T07:36:52Z"
+    },
+    {
+      "last_updated": "2026-03-18T17:56:46Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5944/reec.31.2018.21592",
+            "type": "doi"
+          },
+          {
+            "id": "2174-5382",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "31",
+          "country": "ES",
+          "issns": [
+            "1137-8654",
+            "2174-5382"
+          ],
+          "publisher": "Universidad Nacional de Educación a Distancia (UNED)",
+          "language": [
+            "EN",
+            "ES",
+            "FR"
+          ],
+          "title": "Revista Española de Educación Comparada"
+        },
+        "month": "June",
+        "keywords": [
+          "Soviet education",
+          "Soviet empire",
+          "childhood",
+          "comparative education"
+        ],
+        "year": "2018",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          },
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "author": [
+          {
+            "name": "Iveta Silova"
+          },
+          {
+            "name": "Garine Palandjian"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://revistas.uned.es/index.php/REEC/article/view/21592"
+          }
+        ],
+        "abstract": "\nChildren constituted a key element of the Soviet empire-building project, reconfiguring childhoods and refashioning the colonial space itself.  Children of different ethnicities across the territories of the Soviet republics were to be united by the Russian language and a sense of Soviet patriotism, manifest in such political slogans as “friendship of all people,” “interethnic equalisation,” and “internationalism.” Education curriculum and activities were utilised to facilitate social and cultural “merging” of all ethnic groups on the basis of the Soviet Russian language and culture.  At the same time, the Soviet empire advanced the idea of “unity in diversity,” allowing national minorities the right to self-determination and some political autonomy within a socialist context. Drawing on post-colonial theory and critical geography studies, this article looks at how early literacy textbooks were used to shape Soviet childhood by regulating children’s minds, bodies, habits, as well as “locating” them in the empire’s space and time. The article provides a brief historical context of the Soviet empire-building project, followed by a cross-national analysis of early literacy textbooks published in Russia, Armenia, Latvia, and Ukraine. Our goal is to highlight the continuities, contradictions, and ruptures in the vision of the Soviet childhood - and the Soviet future more broadly - as it travelled from the Empire’s centre (Moscow) to its geographically diverse peripheries (Armenia, Latvia, and Ukraine). \n",
+        "title": "Soviet Empire, Childhood, and Education"
+      },
+      "id": "000d7797ae79406bbfa98a09949b5e0e",
+      "created_date": "2026-03-18T17:56:46Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:33:09Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2005-727X",
+            "type": "pissn"
+          },
+          {
+            "id": "2005-7288",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3946/kjme.2025.320",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "37",
+          "number": "1",
+          "country": "KR",
+          "issns": [
+            "2005-727X",
+            "2005-7288"
+          ],
+          "publisher": "Korean Society of Medical Education",
+          "language": [
+            "EN"
+          ],
+          "title": "Korean Journal of Medical Education"
+        },
+        "month": "3",
+        "end_page": "34",
+        "keywords": [
+          "diversity",
+          "equity",
+          "inclusion",
+          "intersectional framework",
+          "racism",
+          "socioeconomic status"
+        ],
+        "year": "2025",
+        "start_page": "23",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          },
+          {
+            "code": "R5-920",
+            "scheme": "LCC",
+            "term": "Medicine (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "\nDepartment of Medical Education, Yonsei University Wonju College of Medicine, Wonju, Korea",
+            "name": "Kyung Hye Park"
+          },
+          {
+            "affiliation": "\nDepartment of Internal Medicine, Hallym University College of Medicine, Chuncheon, Korea",
+            "name": "Ki-Byung Lee"
+          },
+          {
+            "affiliation": "\nDepartment of Medical Education, Inje University College of Medicine, Busan, Korea",
+            "name": "HyeRin Roh"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://www.kjme.kr/upload/pdf/kjme-2025-320.pdf"
+          }
+        ],
+        "abstract": "Purpose Most of studies about racial or ethnic biases among medical students have been conducted in English-speaking developed countries. This study explores the hybridity and transformation of Korean medical students’ biases, arguing that a nation’s identity and culture are constantly in a state of ever-changing hybridity. Methods This research used a qualitative document analysis. The study participants were 600 pre-clinical medical students at two medical colleges in Korea, who enrolled in anti-bias programs and subsequently submitted self-reflection essays. Data collection focused on biases related to race, ethnicity, nationality, and medical practices as doctors. Bhabha’s cultural hybridity concepts guided the coding of the data in order to explore the hybridity and transformation of the students’ biases. Results The students presented cultural biases toward patients and doctors with ambivalence related to a person’s high socioeconomic status and open-mindedness, as well as doctors’ excellence and superiority as Korean authoritative figures. Since the students had ambivalent and complex biases toward patients and doctors, they felt unhomeliness as Korean doctors encountering international patients in Korean clinics. However, after discovering their contradictory assumptions, they transformed their unhomeliness into new hybrid identities. The students’ biases were rarely based on race but instead were based on nationality, specifically national class by national income. Conclusion Understanding the changing hybrid nature of identities and culture from a cultural hybridity perspective could help clarify medical students’ complex and changing biases and improve anti-bias education. Korean medical students’ hybridized positions suggest that anti-bias education goes beyond focusing on prestige or racism.",
+        "title": "Retrospective study of cultural biases and their reflections among Korean medical students: a cultural hybridity perspective"
+      },
+      "id": "000ee4117deb4ea6b500e04ff65b5146",
+      "created_date": "2025-05-19T07:58:05Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:36:13Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.35765/mjse.2023.1224.08",
+            "type": "doi"
+          },
+          {
+            "id": "2543-7585",
+            "type": "pissn"
+          },
+          {
+            "id": "2543-8409",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "2 (24)",
+          "country": "PL",
+          "issns": [
+            "2543-7585",
+            "2543-8409"
+          ],
+          "publisher": "Ignatianum University Press",
+          "language": [
+            "EN",
+            "ES"
+          ],
+          "title": "Multidisciplinary Journal of School Education"
+        },
+        "month": "December",
+        "keywords": [
+          "smartphone",
+          "addiction",
+          "problematic mobile phone use",
+          "adolescents",
+          "pedagogical diagnosis"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Kazimierz Wielki University, Bydgoszcz",
+            "name": "Aleksandra Błachnio"
+          },
+          {
+            "affiliation": "Ignatianum University in Cracow",
+            "name": "Ryszarda Cierzniewska"
+          },
+          {
+            "affiliation": "Kazimierz Wielki University, Bydgoszcz",
+            "name": "Hasan Mosazadeh"
+          },
+          {
+            "affiliation": "WSB University, Dąbrowa Górnicza",
+            "name": "Zofia Szarota"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://czasopisma.ignatianum.edu.pl/jpe/article/view/2866"
+          }
+        ],
+        "abstract": "\nResearch objectives: Adolescence is one of the most difficult developmental periods. Studies have documented ill-being among adolescents (Chen & Lucock, 2022; Alimoradi et al., 2022; Lakkunarajah et al., 2022; Li et al., 2022). Furthermore, compared to adults, adolescents are vulnerable to smartphone addiction (Kwon et al., 2013). The aim of the present study was to investigate the extent to which mobile phone use bears the hallmarks of excessive smartphone addiction or so-called phonoholism (Barabsa, 2018).\n\r\n\nResearch methods: The Polish version of the Mobile Phone Problem Use Scale for Adolescents (MPPUSA) was used (Krzyżak-Szymańska; 2018). A total of 684 adolescents aged between 12 and 18 years took part in the study. They were students from three schools – one primary and two secondary schools (a high school + technical school and a technical school + vocational school). The surveys are representative of these institutions.\n\r\n\nA short description of the context: As the scale has more than nine different cultural adaptations, the Polish data can be related to current global trends.\n\r\n\nResearch findings: The results show that 14% of Polish adolescents are at risk and 3% use mobile phones problematically. Statistically significant relationships were found between the variable describing phone use among adolescents and both gender and type of school.\n\r\n\nConclusions and/or recommendations: The MPPUSA only partially meets the needs of pedagogical diagnosis. There is little evidence from adolescents or data relating to students’ perspectives on phonoholism. The school pedagogue or class teacher should ask specific, multidimensional questions when diagnosing the problem. They should also use the clues from this preliminary diagnosis of the phenomenon in everyday school life concerning internet use.\n",
+        "title": "Measurement and Pedagogical Diagnosis of Phonoholism Among Adolescents"
+      },
+      "id": "000f1b9243c442ba8ebf3dfafe01b7db",
+      "created_date": "2023-12-31T17:03:05Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:28:46Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-1078",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyg.2023.1129428",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "14",
+          "country": "CH",
+          "issns": [
+            "1664-1078"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychology"
+        },
+        "month": "7",
+        "keywords": [
+          "psychedelic history",
+          "LSD",
+          "prisons",
+          "Canada",
+          "mad scientists"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "name": "Andrew Jones"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2023.1129428/full"
+          }
+        ],
+        "abstract": "Since reports about CIA-funded LSD studies came out in the 1970s, psychedelic drugs have invoked images of unethical experimentation and “mad scientists” in the public imagination. Even now, as the stigma surrounding psychedelics diminishes in the 21st century, the figure of the “mad scientist” continues to occupy a space in what Ido Hartogsohn calls the “collective set and setting,” the larger framework of cultural understandings that shape how individuals experience psychedelic drugs. Scientists and humanities scholars who study these drugs have responded to this issue by drawing boundaries between those who used psychedelics carefully and those who used them ignorantly. Yet these boundaries were not always so clear in the past. Drawing on historical examples of LSD’s use as a correctional tool in Canada, I show how enthusiasm about the drug’s potential led several experienced and knowledgeable psychedelic therapists to use it on vulnerable populations in diverse institutional settings, such as correctional facilities. These examples reveal how the institutional context of modern industrial societies shaped the application of psychedelic therapy in the past and suggest that today’s therapists need to carefully consider how this broader context impacts their work.",
+        "title": "Confronting the figure of the “mad scientist” in psychedelic history: LSD’s use as a correctional tool in the postwar period"
+      },
+      "id": "000f8198418d453ebccc683acafc7a2d",
+      "created_date": "2023-07-14T01:44:27Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:52:00Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-1078",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyg.2017.01003",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "country": "CH",
+          "issns": [
+            "1664-1078"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychology"
+        },
+        "month": "06",
+        "keywords": [
+          "depressive attributional style",
+          "Buddhist",
+          "karma",
+          "ultimate internal controllability",
+          "psychological adjustments"
+        ],
+        "year": "2017",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Psychology, School of Social Science, Tsinghua UniversityBeijing, China",
+            "name": "Michelle T. Liu"
+          },
+          {
+            "affiliation": "Department of Biomedical Engineering, School of Medicine, Tsinghua UniversityBeijing, China",
+            "name": "Fei Wang"
+          },
+          {
+            "affiliation": "Department of Psychology, School of Social Science, Tsinghua UniversityBeijing, China",
+            "name": "Kaiping Peng"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://journal.frontiersin.org/article/10.3389/fpsyg.2017.01003/full"
+          }
+        ],
+        "abstract": "Numerous studies have shown that depression-prone people are characterized by a chronic style of attributing failures to internal, stable, and global causes, sometimes labeled as the “depressive attributional style.” Much less is known, however, about how social-cultural factors such as religious beliefs might modulate these processes. In the current study, we hypothesized that Buddhism’s view of ultimate internal controllability plays a buffering role against the depressive attributional style and reduces its negative impacts. We administrated measures of attributional styles and psychological adjustments to a sample of Chinese Buddhists as well as a control group recruited in China. Data analyses showed that Buddhists were more likely to attribute bad outcomes to internal, stable, and global causes, but their well-being was less affected by it. Thus, these results indicate that the “depressive” attributional style is not that depressive for Buddhists, after all.",
+        "title": "The “Depressive” Attributional Style Is Not That Depressive for Buddhists"
+      },
+      "created_date": "2017-06-28T04:56:51Z",
+      "id": "001170e6f45f4af09ceffbb6913d3924"
+    },
+    {
+      "last_updated": "2025-08-20T01:06:10Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/educsci14111243",
+            "type": "doi"
+          },
+          {
+            "id": "2227-7102",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "14",
+          "number": "11",
+          "country": "CH",
+          "issns": [
+            "2227-7102"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Education Sciences"
+        },
+        "month": "11",
+        "keywords": [
+          "biology teaching",
+          "cross-cultural",
+          "lesson study",
+          "NGSS"
+        ],
+        "year": "2024",
+        "start_page": "1243",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Science Education, De La Salle University, 2401 Taft Avenue, Manila 1004, Philippines",
+            "name": "Jason Jimenez"
+          },
+          {
+            "affiliation": "Department of Science Education, De La Salle University, 2401 Taft Avenue, Manila 1004, Philippines",
+            "name": "Denis Dyvee Errabo"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2227-7102/14/11/1243"
+          }
+        ],
+        "abstract": "This study explored Next Generation Science Standards (NGSS) in cross-cultural biology teaching through collaborative lesson studies involving educators from the USA and the Philippines. We employed grounded theory and examined iterative feedback processes during lesson development to refine learning exemplars. Learning exemplars validation affirmed their alignment with both NGSS and the Philippine science education frameworks, ensuring cultural relevance and educational rigor. Five key themes were identified as pivotal: retrieval of prior knowledge, fostering meaningful learning experiences, enhancing memory and retention, fostering active engagement, and cultivating critical thinking skills—integral for developing culturally responsive curricula. Moreover, students became independent learners, responsible for their learning, reflective and critical thinkers, problem solvers, inquiry-oriented, creative, collaborative communicators, modelers, data analysts, persistent, adaptable, and self-directed. Implications include enhancing educational policies to support cultural diversity and integrating cross-cultural learning exemplars to enhance global teaching practices. This study underscored the transformative potential of cross-cultural collaboration in advancing science education, fostering engaging learning environments, and preparing students for global citizenship.",
+        "title": "Cross-Cultural Biology Teaching Using Next-Generation Science Standards"
+      },
+      "id": "0011876a4fb04f54812742625845a878",
+      "created_date": "2024-11-26T18:01:29Z"
+    },
+    {
+      "last_updated": "2025-12-15T12:21:07Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2383-0484",
+            "type": "pissn"
+          },
+          {
+            "id": "2383-0492",
+            "type": "eissn"
+          },
+          {
+            "id": "10.30465/shc.2025.51540.2615",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "number": "1",
+          "country": "IR",
+          "issns": [
+            "2383-0484",
+            "2383-0492"
+          ],
+          "publisher": "Institute for Humanities and Cultural Studies",
+          "language": [
+            "FA"
+          ],
+          "title": "تحقیقات تاریخ اجتماعی"
+        },
+        "month": "10",
+        "end_page": "294",
+        "keywords": [
+          "\"اسکان عشایر\"",
+          "توسعه\"",
+          "\"کوچ‌روی\"",
+          "\"مناطق لک نشین\"",
+          "\"مدرنیزاسیون ناموزون\""
+        ],
+        "year": "2025",
+        "start_page": "263",
+        "subject": [
+          {
+            "code": "HN1-995",
+            "scheme": "LCC",
+            "term": "Social history and conditions. Social problems. Social reform"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "دانشیار گروه جامعه‌شناسی، دانشگاه رازی، کرمانشاه، ایران",
+            "name": "سیاوش قلی پور"
+          },
+          {
+            "affiliation": "دانشیار گروه جامعه‌شناسی، دانشگاه رازی، کرمانشاه،  ایران",
+            "name": "جلیل کریمی"
+          },
+          {
+            "affiliation": "کارشناسی ارشد جامعه‌شناسی، دانشگاه رازی، کرمانشاه، ایران",
+            "name": "حدیث السادات موسوی"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://socialhistory.ihcs.ac.ir/article_10348_490f0f7ce2d2f0b6c837111d59279db4.pdf"
+          }
+        ],
+        "abstract": "این پژوهش به بررسی فرایند اسکان عشایر در مناطق لک نشین می‌پردازد. روش پژوهش توصیفی و تحلیلی است و فنون گردآوری داده بررسی اسناد و مصاحبه است. داده‌ها از طریق سازماندهی داده تجزیه‌وتحلیل شدند. یافته‌های پژوهش نشان می‌دهد: لک‌ها در دور قاجار کوچ رو و دارای نظام ایلی بودند. آنان در کوهستان‌های زاگرس میانی و دشت‌های اطراف، ییلاق و قشلاق می‌کردند و به‌عنوان یک نیروی اجتماعی نقش مؤثری در مناسبات سیاسی داشتند. در دوره رضاشاه اصلاحات گوناگونی مانند توسعه کشاورزی، توسعه صنعتی، توسعه راه‌ها، گسترش دیوان‌سالاری و اسکان عشایر در زاگرس میانی انجام گرفت. سهم مناطق لک نشین از این اصلاحات، احداث جاده شوسه خرم‌آباد - هرسین و اسکان عشایر بود که مورد اخیر به نحوی آمرانه و خونبار اجرا شد. این سیاست از سال ۱۳۰۲ شروع و در سال ۱۳۱۲ پایان یافت و سبب زوال شیوۀ زیست کوچ‌روی و تلف‌شدن دام‌‌ها شد. لک‌ها برای درامان‌ماندن از دست نیروهایِ ارتش، به نقاط صعب‌العبور پناه بردند و نوعی فرهنگ مقاومت را بنا نهادند. پس از شهریور ۱۳۲۰ به کوچروی بازگشتند؛ اما کم‌کم متوجه شدند دوران این شیوه از زندگی به سر آمده است. به‌طورکلی اسکان عشایر به همراه جغرافیایی کوهستانیِ مناطق لک نشین سبب «مدرنیزاسیون ناموزون» در زاگرس میانی شد. کردها و لرها در مقایسه با لک‌ها سازگاری بیشتری با شرایط جدید پیدا کردند و در دهه‌های پس از آن وضعیت به‌مراتب بهتری داشتند. از آن زمان تا کنون وضعیت توسعه‌نیافتگی مناطق لک نشین همچنان پایدار مانده است و مهم‌ترین پیامد آن مهاجرفرستی است.",
+        "title": "اسکان عشایر و پیامدهای آن در مناطق لک نشین"
+      },
+      "id": "00169dfbc557413eae394bda852b7978",
+      "created_date": "2025-12-15T12:21:07Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:45:23Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s12912-025-03322-3",
+            "type": "doi"
+          },
+          {
+            "id": "1472-6955",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "24",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1472-6955"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "BMC Nursing"
+        },
+        "month": "7",
+        "end_page": "9",
+        "keywords": [
+          "Artificial intelligence technologies",
+          "Nursing",
+          "Psychological",
+          "Scale"
+        ],
+        "year": "2025",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RT1-120",
+            "scheme": "LCC",
+            "term": "Nursing"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Orthopedics, School of Medicine, Mianyang Central Hospital, University of Electronic Science and Technology of China",
+            "name": "Rong Hu"
+          },
+          {
+            "affiliation": "Department of Orthopedics, School of Medicine, Mianyang Central Hospital, University of Electronic Science and Technology of China",
+            "name": "Yan-fei Ma"
+          },
+          {
+            "affiliation": "Department of Orthopedics, School of Medicine, Mianyang Central Hospital, University of Electronic Science and Technology of China",
+            "name": "Chun-yan Wang"
+          },
+          {
+            "affiliation": "Department of Orthopedics, School of Medicine, Mianyang Central Hospital, University of Electronic Science and Technology of China",
+            "name": "Xiao-ya Li"
+          },
+          {
+            "affiliation": "Department of Orthopedics, School of Medicine, Mianyang Central Hospital, University of Electronic Science and Technology of China",
+            "name": "Hua-ping Huang"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s12912-025-03322-3"
+          }
+        ],
+        "abstract": "Abstract Aim This study aimed to test the psychometric properties of the Attitudes Toward Artificial Intelligence in Nursing Scale (ASUAITIN) in Chinese culture. Methods A convenience sampling method was employed to recruit 499 clinical nurses from Sichuan Province, China. Following the Brislin model, the ASUAITIN scale underwent forward translation, synthesis, and back-translation. Cultural adaptation and revisions were conducted through expert consultation and pilot testing, resulting in the finalized ASUAITIN-C. The structural validity of the scale was evaluated using exploratory factor analysis (EFA) and confirmatory factor analysis (CFA). Reliability was assessed through internal consistency and test-retest reliability. Results The ASUAITIN-C consists of 15 items and two factors, which account for 73.278% of the total variance. The overall Cronbach’s α coefficient of the ASUAITIN-C is 0.785, while the Cronbach’s α values for the two subdimensions are 0.920 and 0.948, respectively. The test-retest reliability over two months, measured by the intraclass correlation coefficient (ICC), is 0.91. Conclusion Studies have shown that this questionnaire is a valid and reliable tool for assessing nurses’ attitudes toward using artificial intelligence in the nursing field.",
+        "title": "Validity and reliability of the Chinese translation of the attitude scale towards the use of artificial intelligence technologies in nursing (ASUAITIN)- a cross-sectional study"
+      },
+      "id": "00183d11bb914393a9edf2acfc8028c4",
+      "created_date": "2025-08-15T14:11:51Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:39:32Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.17159/sajs.2020/7860",
+            "type": "doi"
+          },
+          {
+            "id": "1996-7489",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "116",
+          "number": "11/12",
+          "country": "ZA",
+          "issns": [
+            "0038-2353",
+            "1996-7489"
+          ],
+          "publisher": "Academy of Science of South Africa",
+          "language": [
+            "EN"
+          ],
+          "title": "South African Journal of Science"
+        },
+        "month": "November",
+        "keywords": [
+          "biocontrol",
+          "Monsonia burkeana",
+          "Moringa oleifera",
+          "soil-borne diseases",
+          "seed treatment"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "Q",
+            "scheme": "LCC",
+            "term": "Science"
+          },
+          {
+            "code": "Q1-390",
+            "scheme": "LCC",
+            "term": "Science (General)"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Plant Production, Soil Science and Agricultural Engineering, University of Limpopo, Polokwane, South Africa",
+            "name": "Mapula T.P. Hlokwe"
+          },
+          {
+            "affiliation": "Department of Plant Production, Soil Science and Agricultural Engineering, University of Limpopo, Polokwane, South Africa",
+            "name": "Mapotso Kena"
+          },
+          {
+            "affiliation": "Department of Plant Production, Soil Science and Agricultural Engineering, University of Limpopo, Polokwane, South Africa",
+            "name": "David N. Mamphiswana"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.sajs.co.za/article/view/7860"
+          }
+        ],
+        "abstract": "Seedling production under smallholder farming systems can be negatively affected by both abiotic and biotic factors. Seedling damping-off caused by Rhizoctonia solani is one of the major biotic factors which causes significant yield reduction. Management is mainly based on the application of synthetic fungicides and cultural practices. However, both methods have limitations which result in their inefficiency. Several studies have reported on the use of plant extracts and biological control to manage plant diseases. The aim of this study was to formulate an effective and practical approach to manage tomato seedling damping-off using extracts of Monsonia burkeana and Moringa oleifera and a biological control agent Trichoderma harzianum. The efficacy of both extracts was investigated under laboratory conditions to determine the most suppressive concentration to R. solani growth. Methanolic extracts from both plants significantly suppressed pathogen growth at different concentrations. M. burkeana significantly reduced R. solani growth at 8 g/mL (71%) relative to control whilst Moringa oleifera extract reduced pathogen growth by 60% at a concentration of 6 g/mL. The highest suppressive concentrations were further evaluated under greenhouse conditions to test their efficacy on seedling damping-off. In damping-off treatments, both plant extracts and T. harzianum also significantly reduced (p=0.5) pre- and post-emergence damping-off incidence. M. burkeana recorded the highest suppression at 78%, followed by M. oleifera at 64%. Trichoderma harzianum reduced incidence of damping-off by 60% and this was higher than both plant extract treatments.\n\r\n\nSignificance:\n\r\n\r\n• The use of M. burkeana and M. oleifera extracts and T. harzianum effectively suppressed pathogen growth and disease incidence and can be used to reduce the use of synthetic pesticides that are harmful to the environment and human health.\n\r\n• Application of plant extracts and biological control agents as possible alternatives to synthetic fungicides is considered a sustainable and affordable practice for smallholder farmers.",
+        "title": "Application of plant extracts and Trichoderma harzianum for the management of tomato seedling damping-off caused by Rhizoctonia solani"
+      },
+      "id": "0018c1045cb14c8d9461dde8dfe5080d",
+      "created_date": "2021-01-21T06:00:24Z"
+    },
+    {
+      "last_updated": "2026-06-05T14:30:07Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.25158/L15.1.6",
+            "type": "doi"
+          },
+          {
+            "id": "2469-4053",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "number": "1",
+          "country": "US",
+          "issns": [
+            "2469-4053"
+          ],
+          "publisher": "Cultural Studies Association",
+          "language": [
+            "EN"
+          ],
+          "title": "Lateral"
+        },
+        "month": "5",
+        "keywords": [
+          "june jordan",
+          "cultural studies",
+          "culture wars"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "GN301-674",
+            "scheme": "LCC",
+            "term": "Ethnology. Social and cultural anthropology"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0009-0000-3975-0720",
+            "affiliation": "University of California, Santa Cruz",
+            "name": "Josen Masangkay Diaz"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://csalateral.org/section/years-in-cultural-studies/introduction-diaz/"
+          }
+        ],
+        "abstract": "As an introduction to the Years section of Lateral, this essay suggests that the present-day “culture war” offers an opportunity for cultural studies to reflect upon the narration of time, especially through the invocation of important years in history.",
+        "title": "Introduction: A Reflection on Years"
+      },
+      "id": "001ad31ca29a4a17b4b3e5b27df50799",
+      "created_date": "2026-06-05T14:30:07Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:57:15Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-1078",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyg.2018.00079",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "country": "CH",
+          "issns": [
+            "1664-1078"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychology"
+        },
+        "month": "2",
+        "keywords": [
+          "demographic shifts",
+          "perceived legitimacy of status",
+          "majority",
+          "minority",
+          "United States",
+          "Portugal"
+        ],
+        "year": "2018",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Psychology, Trinity College, Hartford, CT, United States",
+            "name": "H. Robert Outten"
+          },
+          {
+            "affiliation": "Department of Psychology, Trinity College, Hartford, CT, United States",
+            "name": "Timothy Lee"
+          },
+          {
+            "affiliation": "Institute of Social Sciences, University of Lisbon, Lisbon, Portugal",
+            "name": "Rui Costa-Lopes"
+          },
+          {
+            "affiliation": "Department of Psychology, Simon Fraser University, Burnaby, BC, Canada",
+            "name": "Michael T. Schmitt"
+          },
+          {
+            "affiliation": "Institute of Social Sciences, University of Lisbon, Lisbon, Portugal",
+            "name": "Jorge Vala"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://journal.frontiersin.org/article/10.3389/fpsyg.2018.00079/full"
+          }
+        ],
+        "abstract": "Using concepts from social identity theory (Tajfel and Turner, 1979), we examined whether racial/ethnic majority group members' reactions to future demographic shifts is a function of the degree to which they perceive their ingroup's higher-status in society to be legitimate. In two studies, participants who varied in the degree to which they perceived their group's status to be legitimate were either exposed to real projections for 2060 (i.e., large decline in proportion of population that is the “majority” group), or fake projections for 2060—that resembled current figures (i.e., small decline). In Study 1, White Americans who perceived their status to be highly legitimate expressed greater intergroup threat, and negative feelings (anger and fear) toward minorities after exposure to projections with a large decline in the relative size of the White American population. In contrast, demographic shift condition had no effect on intergroup threat and negative feelings toward minorities among White Americans who perceived their status to be relatively illegitimate; negative feelings and threat remained low across both conditions. Similarly, in Study 2, ethnic Portuguese people in Portugal exposed to projections in which there was a large decline in the relative size of the ethnic Portuguese population experienced more intergroup threat and expressed a greater desire to engage in anti-immigration behaviors. The effect of demographic shift condition on intergroup threat and anti-immigration behaviors was stronger among ethnic Portuguese who perceived their status to be legitimate compared to ethnic Portuguese people who perceived their status to be relatively illegitimate. These results highlight that across different cultural contexts, majority group members' beliefs about the legitimacy of intergroup relations can affect their reactions to the prospect of increased diversity.",
+        "title": "Majority Group Members' Negative Reactions to Future Demographic Shifts Depend on the Perceived Legitimacy of Their Status: Findings from the United States and Portugal"
+      },
+      "created_date": "2018-02-13T11:18:38Z",
+      "id": "001af9b1bfc340b7a58e6514aeef05df"
+    },
+    {
+      "last_updated": "2025-08-19T20:44:36Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2000-9879",
+            "type": "pissn"
+          },
+          {
+            "id": "2000-9879",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "2015",
+          "number": "2015:2",
+          "country": "SE",
+          "issns": [
+            "2000-9879"
+          ],
+          "publisher": "Karlstads Universitet",
+          "language": [
+            "DA",
+            "EN",
+            "NO",
+            "SV"
+          ],
+          "title": "Nordidactica: Journal of Humanities and Social Science Education"
+        },
+        "month": "8",
+        "end_page": "113",
+        "keywords": [
+          "YOUNG PEOPLE",
+          "LIFE VIEWS",
+          "LIFE VALUES",
+          "FRIENDSHIP",
+          "FEAR",
+          "DIVERSITY",
+          "MULTICULTURAL SOCIETY"
+        ],
+        "year": "2015",
+        "start_page": "94",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "",
+            "name": "Gunnar J. Gunnarsson"
+          },
+          {
+            "affiliation": "",
+            "name": "Gunnar E. Finnbogason"
+          },
+          {
+            "affiliation": "",
+            "name": "Hanna Ragnarsdóttir "
+          },
+          {
+            "affiliation": "",
+            "name": "Halla Jónsdóttir"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://urn.kb.se/resolve?urn=urn:nbn:se:kau:diva-36698 "
+          }
+        ],
+        "abstract": "This article introduces initial findings from a study on young people‘s (18 years and older) life views and life values in Iceland. The research project is located within a broad theoretical framework and uses interdisciplinary approaches of religious education, multicultural studies and pedagogy. Methodological approaches are both quantitative and qualitative. The first part of the research is a survey which was conducted among altogether 904 students in seven upper secondary schools in the Reykjavík area and other areas of Iceland in 2011 and 2012. In addition to covering measures of background variables and religious affiliations, statements in the survey included themes such as views of life, self-understanding, relation to others, values and value judgments, religions, and diversity and social change. The article focuses especially on findings from the survey related to friendship, attitudes towards diversity, fear and insecurity in a multicultural society. The findings indicate that the participants generally have positive attitudes towards diversity. The majority of participants find it inspiring to have friends of different origins and find it important to respect different cultural and religious traditions. The majority of participants also have strong opinions against racism and bullying. Friends are important and most of the participants are of the opinion that friends are one of the things that provide security. At the same time only a minority is afraid of being unpopular, losing the confidence of their friends or being bullied. But when the fear is about disgracing oneself or about not being able to meet the requirements at school the proportion is higher. Although the economic crisis in Iceland seems to have an effect on the life of the young people answering the survey, most of them are of the opinion that the future holds a lot of opportunities. The results are useful for further discussions on young people´s life views, self-understanding, and social and moral competence, for example in school context and in connection with subjects like Social Studies, Religious Education, Life Skills Education and Intercultural Education.",
+        "title": "Frendship, diversity and fear: young people’s life views and life values in a multicultural society"
+      },
+      "created_date": "2015-12-23T10:38:12Z",
+      "id": "001dca988374430b8e8956b3d03ae988"
+    },
+    {
+      "last_updated": "2026-04-10T08:51:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2986-8041",
+            "type": "eissn"
+          },
+          {
+            "id": "10.33367/jtme.v4i1.8472",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "number": "1",
+          "country": "ID",
+          "issns": [
+            "2986-8041"
+          ],
+          "publisher": "Mathematics Education Departement, Tribakti Lirboyo Islamic University",
+          "language": [
+            "EN"
+          ],
+          "title": "Noumerico"
+        },
+        "month": "4",
+        "end_page": "67",
+        "keywords": [
+          "ethnomathematics",
+          "ornaments",
+          "tegowangi temple",
+          "geometric"
+        ],
+        "year": "2026",
+        "start_page": "55",
+        "subject": [
+          {
+            "code": "QA1-939",
+            "scheme": "LCC",
+            "term": "Mathematics"
+          },
+          {
+            "code": "LB5-3640",
+            "scheme": "LCC",
+            "term": "Theory and practice of education"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitas Nusantara PGRI Kediri",
+            "name": "Bryant Candra  Wijaya"
+          },
+          {
+            "affiliation": "Universitas Nusantara PGRI Kediri",
+            "name": "Fanny Rahma Eka  Aprianny"
+          },
+          {
+            "affiliation": "Universitas Nusantara PGRI Kediri",
+            "name": "Amelia Putri  Wahyuni"
+          },
+          {
+            "affiliation": "Universitas Nusantara PGRI Kediri",
+            "name": "Jatmiko Jatmiko"
+          },
+          {
+            "affiliation": "Universitas Nusantara PGRI Kediri",
+            "name": "Aprilia Dwi  Handayani"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://ejournal.uit-lirboyo.ac.id/index.php/noumerico/article/view/8472"
+          }
+        ],
+        "abstract": "This study explores geometric concepts embedded in the ornaments of Tegowangi Temple through an ethnomathematical perspective. Previous studies on temple-based ethnomathematics have primarily focused on general geometric forms, with limited attention to specific concepts and their pedagogical relevance, particularly in the context of Tegowangi Temple. Addressing this gap, this research aims to identify and analyse the concepts of reflection, similarity, and circles within the temple’s ornamental structures. A qualitative exploratory design with an ethnographic approach was employed. Data were collected through observation, interviews, and documentation, and analysed using domain and taxonomic analysis to interpret mathematical representations within cultural artefacts. The findings reveal that reflection is evident in the symmetrical structure of corner kala ornaments, in the similarity of the yoni's proportional dimensions, and in circular concepts in the decorative patterns of the Perwara Temple. These concepts were derived through systematic visual and structural analysis of ornament forms. Conceptually, the study contributes to a deeper understanding of geometry in cultural contexts, while pedagogically, it provides contextual learning resources for junior high school mathematics",
+        "title": "Ethnomathematical Exploration of Geometric Concepts in Tegowangi Temple Ornaments"
+      },
+      "id": "002289d272cc456aa09cfaeb2d225351",
+      "created_date": "2026-04-10T08:51:16Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:36:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2183-2439",
+            "type": "eissn"
+          },
+          {
+            "id": "10.17645/mac.8749",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "number": "0",
+          "country": "PT",
+          "issns": [
+            "2183-2439"
+          ],
+          "publisher": "Cogitatio",
+          "language": [
+            "EN"
+          ],
+          "title": "Media and Communication"
+        },
+        "month": "2",
+        "keywords": [
+          "chinese culture",
+          "chinese mobile games",
+          "intangible cultural heritage",
+          "cultural heritage representation"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Media and Communication, Erasmus University Rotterdam, The Netherlands",
+            "name": "Yixiang Que"
+          },
+          {
+            "affiliation": "Department of Media and Communication, Erasmus University Rotterdam, The Netherlands",
+            "name": "Teresa de La Hera"
+          },
+          {
+            "affiliation": "Department of Media and Communication, Erasmus University Rotterdam, The Netherlands",
+            "name": "Jeroen Jansz"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://www.cogitatiopress.com/mediaandcommunication/article/view/8749"
+          }
+        ],
+        "abstract": "This study delves into the representation of intangible Chinese cultural heritage in Chinese mobile games. Nowadays, even with huge economic potential, Chinese mobile games are still faced with negative comments, especially from parents. To develop their reputation, Chinese mobile games have portrayed considerate Chinese intangible cultural heritage (ICH). The representation of cultural heritage in video games has been a subject of discussion for a long time, while console and computer games and tangible cultural heritage have been at the centre of academic studies. Hence, we strived to investigate how Chinese ICH is depicted in Chinese mobile games. A thematic analysis was conducted on data collected through analytical gameplay of 30 Chinese mobile games selected from Apple’s App Store and the Chinese TapTap platform. Our analysis indicates that Chinese ICH is represented in Chinese mobile games to fulfil the persona of game characters, to create a more engaging and immersive game world experience, to provide more intense combat moments, to offer visually enjoyable virtual goods, and to deliver culturally driven updates during traditional festivals. Among the various forms of Chinese ICH, Chinese traditional craftsmanship is found to be used most frequently because of the huge effort it requires to be mastered, which could be educational to players. Theatrical traditions were found to be depicted in most game elements because they combine visual, audio, and motional elements. Lastly, folk and classical literature is portrayed in Chinese mobile games to provide a narrative resource that culturally resonates with players.",
+        "title": "Dive Into the Past: Chinese Intangible Cultural Heritage Represented in Chinese Mobile Games"
+      },
+      "id": "00252e762aae4a499aa623b28ba971d3",
+      "created_date": "2025-02-13T08:42:54Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:56:06Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-0640",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyt.2021.622628",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "CH",
+          "issns": [
+            "1664-0640"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychiatry"
+        },
+        "month": "2",
+        "keywords": [
+          "subjective recovery",
+          "person-oriented recovery",
+          "meta-analysis",
+          "psychosis",
+          "schizophrenia",
+          "personal recovery"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "RC435-571",
+            "scheme": "LCC",
+            "term": "Psychiatry"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Emergis Institute for Mental Healthcare, Kloetinge, Netherlands",
+            "name": "J. C. P. Leendertse"
+          },
+          {
+            "affiliation": "Department of Psychiatry, Erasmus University Medical Centre, Rotterdam, Netherlands",
+            "name": "J. C. P. Leendertse"
+          },
+          {
+            "affiliation": "Department of Psychiatry, Erasmus University Medical Centre, Rotterdam, Netherlands",
+            "name": "A. I. Wierdsma"
+          },
+          {
+            "affiliation": "Department of Clinical Psychology, VU University and Amsterdam Public Health Research Institute, Amsterdam, Netherlands",
+            "name": "D. van den Berg"
+          },
+          {
+            "affiliation": "Research and Innovation, Parnassia Psychiatric Institute, The Hague, Netherlands",
+            "name": "D. van den Berg"
+          },
+          {
+            "affiliation": "Emergis Institute for Mental Healthcare, Kloetinge, Netherlands",
+            "name": "A. M. Ruissen"
+          },
+          {
+            "affiliation": "Department of Psychiatry, Erasmus University Medical Centre, Rotterdam, Netherlands",
+            "name": "A. M. Ruissen"
+          },
+          {
+            "affiliation": "Department of Psychiatry, Haaglanden Medical Centre, The Hague, Netherlands",
+            "name": "A. M. Ruissen"
+          },
+          {
+            "affiliation": "School of Health Sciences, Institute of Mental Health, University of Nottingham, Nottingham, United Kingdom",
+            "name": "M. Slade"
+          },
+          {
+            "affiliation": "Lentis Research, Lentis Psychiatric Institute, Groningen, Netherlands",
+            "name": "S. Castelein"
+          },
+          {
+            "affiliation": "Faculty of Behavioural and Social Sciences, Clinical Psychology, University of Groningen, Groningen, Netherlands",
+            "name": "S. Castelein"
+          },
+          {
+            "affiliation": "Department of Psychiatry, Erasmus University Medical Centre, Rotterdam, Netherlands",
+            "name": "C. L. Mulder"
+          },
+          {
+            "affiliation": "Research and Innovation, Parnassia Psychiatric Institute, The Hague, Netherlands",
+            "name": "C. L. Mulder"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2021.622628/full"
+          }
+        ],
+        "abstract": "Background: Personal recovery (PR) is a subjective, multidimensional concept, and quantitative research using PR as an outcome is rapidly increasing. This systematic review is intended to support the design of interventions that contribute to PR in psychotic disorders, by providing an overview of associated factors and their weighted importance to PR: clinical factors, social factors, and socio-demographic characteristics are included, and factors related to the concept of PR (organized into CHIME dimensions).Methods: A systematic literature search was conducted from inception to March 2020. Quantitative studies that had used a validated questionnaire assessing the concept of PR were included. Mean effect sizes for the relationship between PR-scale total scores and related factors were calculated using meta-analyses. Sources of heterogeneity were examined using meta-regression tests.Results: Forty-six studies, that used (a total of) eight PR measures, showed that in clinical factors, affective symptoms had a medium negative association with PR-scale total scores (r = −0.44, 95%CI −0.50 to −0.37), while positive, negative and general symptoms had small negative correlations. No association was found with neuro-cognition. Social factors (support, work and housing, and functioning) showed small positive correlations. Gender and age differences had barely been researched. Large associations were found for PR-scale total scores with the CHIME dimensions hope (r = 0.56, 95%CI 0.48–0.63), meaning in life (r = 0.48, 95%CI 0.38–0.58) and empowerment (r = 0.53, 95%CI 0.42–0.63); while medium associations were found with connectedness (r = 0.34, 95%CI 0.43–0.65) and identity (r = 0.43, 95%CI 0.35–0.50). Levels of heterogeneity were high, sources included: the variety of PR measures, variations in sample characteristics, publication bias, variations in outcome measures, and cultural differences.Discussion: Most interventions in mental healthcare aim to reduce symptoms and improve functioning. With regard to stimulating PR, these interventions may benefit from also focusing on enhancing hope, empowerment, and meaning in life. The strength of these findings is limited by the challenges of comparing separate CHIME dimensions with questionnaires assessing the concept of PR, and by the high levels of heterogeneity observed. Future research should focus on the interaction between elements of PR and clinical and social factors over time.",
+        "title": "Personal Recovery in People With a Psychotic Disorder: A Systematic Review and Meta-Analysis of Associated Factors"
+      },
+      "id": "0026e54e18304354b888607dc42d176c",
+      "created_date": "2021-02-23T06:12:04Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:43:33Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.37680/absorbent_mind.v4i1.4844",
+            "type": "doi"
+          },
+          {
+            "id": "2798-1282",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "number": "1",
+          "country": "ID",
+          "issns": [
+            "2798-1282"
+          ],
+          "publisher": "Institut Agama Islam Sunan Giri Ponorogo",
+          "language": [
+            "EN",
+            "ID"
+          ],
+          "title": "Absorbent Mind"
+        },
+        "month": "February",
+        "keywords": [
+          "Challenges",
+          "Early Childhood Education",
+          "Future Prospects",
+          "Innovations"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          },
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Institut Agama Islam Sunan Giri (INSURI) Ponorogo",
+            "name": "Asfahani Asfahani"
+          },
+          {
+            "affiliation": "OSH Association UK Pakistan; Pakistan",
+            "name": "Zohaib Hassan Sain"
+          },
+          {
+            "affiliation": "Universitas Hasyim Asy'ari, Indonesia",
+            "name": "Emy Yunita Rahma Pratiwi"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://ejournal.insuriponorogo.ac.id/index.php/absorbent_mind/article/view/4844"
+          }
+        ],
+        "abstract": "\nThe article \"Transformation Early Childhood Education in Iraq: Challenges, Innovations, and Future Prospects\" provides a comprehensive analysis of the current landscape of early childhood education (ECE) in Iraq. Through a systematic literature review methodology, the study identifies and examines the major challenges facing ECE in Iraq, including inadequate funding, shortage of qualified educators, and cultural barriers. Moreover, the research explores innovative approaches and promising initiatives aimed at revitalizing ECE in Iraq, such as community-driven projects, technology-enabled solutions, and government-led reforms. By synthesizing empirical evidence with theoretical frameworks and situating the research within the socio-political context of Iraq, the analysis offers valuable insights for informing evidence-based decision-making and practice in the field of early childhood education. The study concludes with recommendations for future research, emphasizing the need for longitudinal studies, intersectional analyses, and rigorous evaluations to drive meaningful change and foster equitable access to quality ECE for all children in Iraq.\n",
+        "title": "Transformation Early Childhood Education in Iraq: Challenges, Innovations, and Future Prospects"
+      },
+      "id": "002817ba963548e78b629c7d56d5b45e",
+      "created_date": "2024-02-22T11:04:12Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/articles/cultural%20studies?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/articles/cultural%20studies?page=1916&pageSize=25"
+}

@@ -1,0 +1,2681 @@
+{
+  "total": 290,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T20:00:51.755619Z",
+  "query": "art history",
+  "results": [
+    {
+      "last_updated": "2026-05-31T17:40:28Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://historical-weapons.com/information-for-authors/#peer-review-policy",
+          "board_url": "https://historical-weapons.com/editorial-board/"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://historical-weapons.com/authors-copyright/"
+        },
+        "keywords": [
+          "weapons",
+          "history",
+          "art",
+          "handicraft",
+          "art of war"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://historical-weapons.com/policy-of-screening-for-plagiarism/"
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          },
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          }
+        ],
+        "eissn": "2713-1491",
+        "language": [
+          "EN",
+          "RU"
+        ],
+        "title": "Историческое оружиеведение",
+        "article": {
+          "license_display_example_url": "https://historical-weapons.com/wp-content/uploads/dvalishvili_io_15_2025.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "eLIBRARY.RU"
+          ],
+          "url": "https://www.elibrary.ru/title_about_new.asp?id=57987"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://historical-weapons.com/aims-and-scope/",
+          "journal": "https://historical-weapons.com/",
+          "oa_statement": "https://historical-weapons.com/information-for-authors/#open-access-policy",
+          "author_instructions": "https://historical-weapons.com/information-for-authors/",
+          "license_terms": "https://historical-weapons.com/license-terms/"
+        },
+        "oa_start": 2017,
+        "alternative_title": "Weapons History Journal",
+        "apc": {
+          "has_apc": false,
+          "url": "https://historical-weapons.com/article-processing-charges/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "RU",
+          "name": "Center of Support and Development of Actual Research in the Field of Historical Weaponry"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2026-05-26"
+      },
+      "created_date": "2020-07-11T16:37:51Z",
+      "id": "025907e8b6fc40fdba07808fdf6bfad8"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:31Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "board_url": "https://www.ricerchedisconfine.info/chi-siamo/"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "Handles"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "keywords": [
+          "art history",
+          "theatre",
+          "performing arts",
+          "cinema"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "GN1-890",
+            "scheme": "LCC",
+            "term": "Anthropology"
+          },
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "eissn": "2038-8411",
+        "language": [
+          "FR",
+          "IT",
+          "EN"
+        ],
+        "title": "Ricerche di S/Confine",
+        "article": {
+          "license_display_example_url": "https://www.repository.unipr.it/bitstream/1889/5078/1/MODENA-post.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.ricerchedisconfine.info/chi-siamo/",
+          "journal": "https://www.ricerchedisconfine.info/chi-siamo/",
+          "oa_statement": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "author_instructions": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "license_terms": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "oa_start": 2010,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/35607",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "IT",
+          "name": "Università di Parma"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-11-09"
+      },
+      "created_date": "2010-09-30T16:32:06Z",
+      "id": "02869d2ed1ff4e31bbcd0c9c7dda057f"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:15Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "history",
+          "history of art",
+          "archealogy",
+          "krakow"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "D",
+            "scheme": "LCC",
+            "term": "History (General) and history of Europe"
+          },
+          {
+            "code": "N",
+            "scheme": "LCC",
+            "term": "Fine Arts"
+          }
+        ],
+        "eissn": "2391-6702",
+        "language": [
+          "RU",
+          "PL",
+          "IT",
+          "DE",
+          "EN"
+        ],
+        "title": "Folia Historica Cracoviensia",
+        "pissn": "0867-8294",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "The Pontifical University of John Paul II in Krakow"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia/about/history",
+          "journal": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia",
+          "oa_statement": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia/about/submissions#onlineSubmissions",
+          "license_terms": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia/about/editorialPolicies#custom-0"
+        },
+        "oa_start": 2012,
+        "apc": {
+          "has_apc": false,
+          "url": "http://czasopisma.upjp2.edu.pl/foliahistoricacracoviensia/index"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 6,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "PL",
+          "name": "The Pontifical University of John Paul II in Krakow"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-03-03"
+      },
+      "created_date": "2016-01-22T13:35:09Z",
+      "id": "032104f9ec4a450a8d549cbe516b9835"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:47Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://peregrinations.kenyon.edu/submissions/",
+          "board_url": "https://peregrinations.kenyon.edu/about/"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://peregrinations.kenyon.edu/about/"
+        },
+        "keywords": [
+          "architectural history",
+          "art history",
+          "medieval history",
+          "religion"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          },
+          {
+            "code": "D111-203",
+            "scheme": "LCC",
+            "term": "Medieval history"
+          }
+        ],
+        "eissn": "1554-8678",
+        "language": [
+          "EN"
+        ],
+        "title": "Peregrinations",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://peregrinations.kenyon.edu/about/",
+          "journal": "https://digital.kenyon.edu/perejournal/",
+          "oa_statement": "https://peregrinations.kenyon.edu/about/",
+          "author_instructions": "https://peregrinations.kenyon.edu/submissions/",
+          "license_terms": "https://peregrinations.kenyon.edu/about/"
+        },
+        "oa_start": 2002,
+        "apc": {
+          "has_apc": false,
+          "url": "https://peregrinations.kenyon.edu/about/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "US",
+          "name": "International Society for the Study of Pilgrimage Art"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-04-12"
+      },
+      "id": "033879122fdd41e6b85f6b95920c836a",
+      "created_date": "2005-06-28T11:30:51Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:23Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/evaluacion",
+          "board_url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/consejoeditorial"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/derechoautor"
+        },
+        "keywords": [
+          "humanities",
+          "social sciences",
+          "history of art",
+          "cultural heritage management",
+          "latin america"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "eissn": "2618-5555",
+        "language": [
+          "ES"
+        ],
+        "title": "Cuadernos de Historia del Arte",
+        "pissn": "0070-1688",
+        "article": {
+          "license_display_example_url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/article/view/2376/1743",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Universidad Nacional de Cuyo. Facultad de Filosofía y Letras. Insstituto de Historia del Arte"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/enfoqueyalcance",
+          "journal": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/index",
+          "oa_statement": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/enfoqueyalcance",
+          "author_instructions": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/normasparaautores",
+          "license_terms": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/catalogacionycalidadeditorial"
+        },
+        "oa_start": 2017,
+        "apc": {
+          "has_apc": false,
+          "url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/enfoqueyalcance"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "http://revistas.uncu.edu.ar/ojs3/index.php/cuadernoshistoarte/enfoqueyalcance"
+        },
+        "publication_time_weeks": 17,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "AR",
+          "name": "Universidad Nacional de Cuyo. Facultad de Filosofía y Letras. Insstituto de Historia del Arte"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2020-05-28"
+      },
+      "id": "041baa2be2da41f3888b2025e1b8a549",
+      "created_date": "2020-05-28T18:46:31Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:16Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistas.uclave.org/index.php/mayeutica/peerReviewProcess",
+          "board_url": "https://revistas.uclave.org/index.php/mayeutica/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistas.uclave.org/index.php/mayeutica/sectionPolicies"
+        },
+        "keywords": [
+          "cultural history",
+          "art",
+          "humanities",
+          "culture",
+          "literature",
+          "human development"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistas.uclave.org/index.php/mayeutica/sectionPolicies"
+        },
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "eissn": "2477-9261",
+        "language": [
+          "EN",
+          "ES"
+        ],
+        "title": "Mayéutica: Revista Científica de Humanidades y Artes",
+        "pissn": "2343-6158",
+        "article": {
+          "license_display_example_url": "https://revistas.uclave.org/index.php/mayeutica/article/view/4477/2856",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "VE",
+          "name": "Universidad Centroccidental Lisandro Alvarado, Decanato Experimental de Humanidades y Artes"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistas.uclave.org/index.php/mayeutica/focusandscope",
+          "journal": "https://revistas.uclave.org/index.php/mayeutica",
+          "oa_statement": "https://revistas.uclave.org/index.php/mayeutica/focusandscope",
+          "author_instructions": "https://revistas.uclave.org/index.php/mayeutica/about/submissions",
+          "license_terms": "https://revistas.uclave.org/index.php/mayeutica/focusandscope"
+        },
+        "oa_start": 2013,
+        "alternative_title": "Mayéutica",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistas.uclave.org/index.php/mayeutica/focusandscope"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 8,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "VE",
+          "name": "Universidad Centroccidental Lisandro Alvarado"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-03-10"
+      },
+      "id": "041f8eadf2d046d3937d57f9c35ca681",
+      "created_date": "2016-10-03T09:57:32Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:24Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#review-policy",
+          "board_url": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#editors"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#journal"
+        },
+        "keywords": [
+          "central europe",
+          "history",
+          "archaeology",
+          "art history"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#journal"
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          },
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          }
+        ],
+        "language": [
+          "SK",
+          "EN",
+          "CS",
+          "PL"
+        ],
+        "title": "Historia Slavorum Occidentis",
+        "pissn": "2084-1213",
+        "article": {
+          "license_display_example_url": "https://czasopisma.marszalek.com.pl/images/pliki/hso/44/hso4401.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Adam Mickiewicz University, Institute of History"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#journal",
+          "journal": "https://czasopisma.marszalek.com.pl/en/10-15804/hso",
+          "oa_statement": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#journal",
+          "author_instructions": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#submission",
+          "license_terms": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#submission"
+        },
+        "oa_start": 2011,
+        "apc": {
+          "has_apc": false,
+          "url": "https://czasopisma.marszalek.com.pl/en/10-15804/hso#submission"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "PL",
+          "name": "Wydawnictwo Adam Marszałek"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-06-05"
+      },
+      "id": "04cf4cb2db0f4439a7a59e6b8c528404",
+      "created_date": "2025-06-05T15:22:56Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:48Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.tate.org.uk/research/tate-papers/about",
+          "board_url": "https://www.tate.org.uk/research/tate-papers/about"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.tate.org.uk/research/tate-papers/about"
+        },
+        "keywords": [
+          "british art",
+          "modern international art",
+          "museum practice",
+          "art history",
+          "contemporary international art"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "N",
+            "scheme": "LCC",
+            "term": "Fine Arts"
+          },
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "eissn": "1753-9854",
+        "language": [
+          "EN"
+        ],
+        "title": "Tate Papers",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.tate.org.uk/research/tate-papers/about",
+          "journal": "http://www.tate.org.uk/research/publications/tate-papers",
+          "oa_statement": "https://www.tate.org.uk/research/tate-papers/about",
+          "author_instructions": "https://www.tate.org.uk/research/tate-papers/how-to-submit",
+          "license_terms": "https://www.tate.org.uk/research/tate-papers/about"
+        },
+        "oa_start": 2004,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.tate.org.uk/research/tate-papers/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 30,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "GB",
+          "name": "Tate"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-12-03"
+      },
+      "id": "05df0e461a514f5aba36dc1a1bdfbede",
+      "created_date": "2007-03-13T16:49:40Z"
+    },
+    {
+      "last_updated": "2026-03-12T17:49:52Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistes.uab.cat/locus/about#custom-1",
+          "board_url": "https://revistes.uab.cat/locus/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistes.uab.cat/locus/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "art",
+          "history",
+          "iconography"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "eissn": "2014-8798",
+        "language": [
+          "ES",
+          "PT",
+          "IT",
+          "FR",
+          "EN",
+          "CA"
+        ],
+        "title": "Locvs Amoenvs",
+        "pissn": "1135-9722",
+        "article": {
+          "license_display_example_url": "https://revistes.uab.cat/locus/article/view/v16-martens",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Universitat Autonoma de Barcelona"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "PKP PN"
+          ],
+          "url": "https://portal.issn.org/resource/ISSN/2014-8798"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistes.uab.cat/locus/about#focusAndScope",
+          "journal": "https://revistes.uab.cat/locus",
+          "oa_statement": "https://revistes.uab.cat/locus/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "https://revistes.uab.cat/locus/about/submissions#authorGuidelines",
+          "license_terms": "https://revistes.uab.cat/locus/about/submissions#copyrightNotice"
+        },
+        "oa_start": 1995,
+        "alternative_title": "Locus Amoenus",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistes.uab.cat/locus/about#custom-3"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 25,
+        "deposit_policy": {
+          "service": [
+            "Dulcinea",
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/38460",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Universitat Autònoma de Barcelona"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2026-03-12"
+      },
+      "id": "061e5b617f01482ba92f6463dcda1b3a",
+      "created_date": "2019-03-22T03:18:34Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:45Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://brill.com/fileasset/downloads_products/Author_Instructions/OW.pdf",
+          "board_url": "https://brill.com/view/journals/ow/ow-overview.xml?rskey=GWBTOK&result=25&contents=editorialcontent-62994"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://brill.com/fileasset/downloads_products/Author_Instructions/OW.pdf"
+        },
+        "keywords": [
+          "art history",
+          "history",
+          "literature",
+          "cultural studies",
+          "languages & linguistics",
+          "social sciences"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://brill.com/page/ethics/publication-ethics-cope-compliance"
+        },
+        "subject": [
+          {
+            "code": "CB3-482",
+            "scheme": "LCC",
+            "term": "History of Civilization"
+          },
+          {
+            "code": "DT1-3415",
+            "scheme": "LCC",
+            "term": "History of Africa"
+          }
+        ],
+        "eissn": "2667-0755",
+        "language": [
+          "EN"
+        ],
+        "title": "Old World",
+        "article": {
+          "license_display_example_url": "https://brill.com/view/journals/ow/2/1/article-p1_006.xml?ebody=pdf-63199",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "CN",
+          "name": "The Research Centre for History and Culture"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Portico"
+          ],
+          "national_library": [
+            "Dutch National Library"
+          ],
+          "url": "https://brill.com/page/144?language=en"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://brill.com/view/journals/ow/ow-overview.xml?rskey=GWBTOK&result=25&contents=toc-49628",
+          "journal": "https://brill.com/view/journals/ow/ow-overview.xml",
+          "oa_statement": "https://brill.com/view/journals/ow/ow-overview.xml?rskey=GWBTOK&result=25&contents=toc-49628",
+          "author_instructions": "https://brill.com/fileasset/downloads_products/Author_Instructions/OW.pdf",
+          "license_terms": "https://brill.com/view/journals/ow/ow-overview.xml"
+        },
+        "oa_start": 2021,
+        "alternative_title": "Old World: Journal of Ancient Africa and Eurasia",
+        "apc": {
+          "has_apc": false,
+          "url": "https://brill.com/view/journals/ow/ow-overview.xml?rskey=GWBTOK&result=25&contents=artsub"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 26,
+        "deposit_policy": {
+          "service": [
+            "Publisher site"
+          ],
+          "url": "https://brill.com/page/oalicenses/open-access-licenses",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "NL",
+          "name": "Brill"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-03-15"
+      },
+      "id": "075518b548fc41e795169c48391b5cdd",
+      "created_date": "2023-03-15T13:30:51Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:24Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://czasopisma.uksw.edu.pl/index.php/an/recenzja",
+          "board_url": "https://czasopisma.uksw.edu.pl/index.php/an/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://czasopisma.uksw.edu.pl/index.php/an/oa"
+        },
+        "keywords": [
+          "art",
+          "architecture",
+          "craft",
+          "didactics of art history",
+          "iconograph"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "eissn": "2719-3659",
+        "language": [
+          "PL",
+          "EN"
+        ],
+        "title": "Artifex Novus",
+        "pissn": "2544-5014",
+        "article": {
+          "license_display_example_url": "https://czasopisma.uksw.edu.pl/index.php/an/article/view/14422/13140",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "Biblioteka Narodowa w Warszawie",
+            "Jagielońska Biblioteka Cyfrowa"
+          ],
+          "url": "https://czasopisma.uksw.edu.pl/index.php/an/about"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://czasopisma.uksw.edu.pl/index.php/an/about",
+          "journal": "https://czasopisma.uksw.edu.pl/index.php/an",
+          "oa_statement": "https://czasopisma.uksw.edu.pl/index.php/an/oa",
+          "author_instructions": "https://czasopisma.uksw.edu.pl/index.php/an/zasady",
+          "license_terms": "https://czasopisma.uksw.edu.pl/index.php/an/oa"
+        },
+        "oa_start": 2017,
+        "apc": {
+          "has_apc": false,
+          "url": "https://czasopisma.uksw.edu.pl/index.php/an/oa"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 32,
+        "deposit_policy": {
+          "service": [
+            "Most Wiedzy"
+          ],
+          "url": "https://czasopisma.uksw.edu.pl/index.php/an/about",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "PL",
+          "name": "Cardinal Stefan Wyszynski University in Warsaw"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-02-24"
+      },
+      "id": "0ae4ecbed0cd457a9434631e9ee96717",
+      "created_date": "2025-02-24T16:28:40Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:38Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://journal.walisongo.ac.id/index.php/walisongo/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://journal.walisongo.ac.id/index.php/walisongo/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://journal.walisongo.ac.id/index.php/walisongo/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "law",
+          "philosophy",
+          "mysticism",
+          "history",
+          "art",
+          "theology"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "BP1-253",
+            "scheme": "LCC",
+            "term": "Islam"
+          }
+        ],
+        "eissn": "2461-064X",
+        "language": [
+          "ID",
+          "EN"
+        ],
+        "title": "Walisongo: Jurnal Penelitian Sosial Keagamaan",
+        "pissn": "0852-7172",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "ID",
+          "name": "Institute for Research and Community Services (LP2M)"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://journal.walisongo.ac.id/index.php/walisongo/about/editorialPolicies#focusAndScope",
+          "journal": "http://journal.walisongo.ac.id/index.php/walisongo",
+          "oa_statement": "https://journal.walisongo.ac.id/index.php/walisongo/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://journal.walisongo.ac.id/index.php/walisongo/about/submissions#authorGuidelines",
+          "license_terms": "http://journal.walisongo.ac.id/index.php/walisongo/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2011,
+        "alternative_title": "Jurnal Walisongo",
+        "apc": {
+          "has_apc": false,
+          "url": "https://journal.walisongo.ac.id/index.php/walisongo/about/submissions#authorFees"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 6,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "Walisongo State Islamic University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-03-16"
+      },
+      "created_date": "2016-05-25T18:13:25Z",
+      "id": "0cb061fea2044589b77bc9fe8e2ddf6b"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:54Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://revues.imist.ma/index.php/Lixus/about",
+          "board_url": "https://revues.imist.ma/index.php/Lixus/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revues.imist.ma/index.php/Lixus/COPYRIGHTNOTICE"
+        },
+        "keywords": [
+          "muslim slaves",
+          "islamic art",
+          "sufi women",
+          "resistance",
+          "decolonization of social",
+          "agricultural colonisation"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revues.imist.ma/index.php/Lixus/OriginalityandPlagiarism"
+        },
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "eissn": "2605-6259",
+        "language": [
+          "AR",
+          "EN"
+        ],
+        "title": "ﻣﺠﻠﺔ ﻟﻴﻜﺴﻮﺱ ﺍﻻﻟﻜﺘﺮﻭﻧﻴﺔ",
+        "article": {
+          "license_display_example_url": "https://revues.imist.ma/index.php/Lixus/accessandlicencing",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "university mohammed V"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revues.imist.ma/index.php/Lixus/about",
+          "journal": "https://revues.imist.ma/index.php/Lixus/about",
+          "oa_statement": "https://revues.imist.ma/index.php/Lixus/about",
+          "author_instructions": "https://revues.imist.ma/index.php/Lixus/about/submissions#authorGuidelines",
+          "license_terms": "https://revues.imist.ma/index.php/Lixus/COPYRIGHTNOTICE"
+        },
+        "oa_start": 2020,
+        "alternative_title": "The Lixus Journal of History and Humanities",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revues.imist.ma/index.php/Lixus/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 5,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "MA",
+          "name": "Oubihi Mohammed"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-12-15"
+      },
+      "id": "0e3791ebf9d544f5a4ae9959dc835061",
+      "created_date": "2025-12-15T21:50:59Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:36:38Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://www.jaco-sj.com/journal/process?lang=en",
+          "board_url": "http://www.jaco-sj.com/journal/editorial.board?lang=en"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "http://www.jaco-sj.com/journal/process?ethics&lang=en"
+        },
+        "keywords": [
+          "art",
+          "civilization",
+          "orient",
+          "architecture",
+          "art history",
+          "mythology"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "http://www.jaco-sj.com/journal/process?ethics&lang=en"
+        },
+        "replaces": [
+          "2345-6647"
+        ],
+        "subject": [
+          {
+            "code": "CB3-482",
+            "scheme": "LCC",
+            "term": "History of Civilization"
+          },
+          {
+            "code": "N",
+            "scheme": "LCC",
+            "term": "Fine Arts"
+          }
+        ],
+        "eissn": "2345-6620",
+        "language": [
+          "EN",
+          "FA"
+        ],
+        "title": "هنر و تمدن شرق",
+        "pissn": "2345-6612",
+        "article": {
+          "license_display_example_url": "http://www.jaco-sj.com/jufile?ar_sfile=1272013&lang=en",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "National Library of Iran"
+          ],
+          "url": "http://opac.nlai.ir/opac-prod/search/briefListSearch.do?command=FULL_VIEW&id=3658921&pageStatus=0&sortKeyValue1=sortkey_title&sortKeyValue2=sortkey_author"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.jaco-sj.com/journal/aim_scope?lang=en",
+          "journal": "http://www.jaco-sj.com/?lang=en",
+          "oa_statement": "http://www.jaco-sj.com/?lang=en",
+          "author_instructions": "http://www.jaco-sj.com/page_115.html?lang=en",
+          "license_terms": "http://www.jaco-sj.com/?lang=en"
+        },
+        "oa_start": 2013,
+        "alternative_title": "Journal of Art & Civilization of the Orient",
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.jaco-sj.com/?lang=en"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IR",
+          "name": "Nazar"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-08-24"
+      },
+      "id": "0f128df8782249f2b06f5bcc6a53363b",
+      "created_date": "2021-08-24T09:49:12Z"
+    },
+    {
+      "last_updated": "2026-03-24T18:58:18Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://czasopisma.uksw.edu.pl/index.php/sc/recenzja",
+          "board_url": "https://czasopisma.uksw.edu.pl/index.php/sc/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://czasopisma.uksw.edu.pl/index.php/sc/about"
+        },
+        "keywords": [
+          "history",
+          "art history",
+          "archeology"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          },
+          {
+            "code": "D51-90",
+            "scheme": "LCC",
+            "term": "Ancient history"
+          }
+        ],
+        "eissn": "2720-0515",
+        "language": [
+          "PL",
+          "EN",
+          "IT",
+          "ES",
+          "DE"
+        ],
+        "title": "Saeculum Christianum",
+        "pissn": "1232-1575",
+        "article": {
+          "license_display_example_url": "https://czasopisma.uksw.edu.pl/index.php/sc/article/view/10275/9058",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://czasopisma.uksw.edu.pl/index.php/sc/about",
+          "journal": "https://czasopisma.uksw.edu.pl/index.php/sc/index",
+          "oa_statement": "https://czasopisma.uksw.edu.pl/index.php/sc/oa",
+          "author_instructions": "https://czasopisma.uksw.edu.pl/index.php/sc/instrukcja",
+          "license_terms": "https://czasopisma.uksw.edu.pl/index.php/sc/oa"
+        },
+        "oa_start": 2018,
+        "apc": {
+          "has_apc": false,
+          "url": "https://czasopisma.uksw.edu.pl/index.php/sc/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 25,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/39612",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "PL",
+          "name": "Cardinal Stefan Wyszynski University in Warsaw"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-03-29"
+      },
+      "created_date": "2023-03-29T07:42:16Z",
+      "id": "0f763a2b28b045be9f5ddedc4b783496"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:29Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Editorial review",
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://dergipark.org.tr/en/pub/palmet/policy",
+          "board_url": "https://dergipark.org.tr/en/pub/palmet/board"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://dergipark.org.tr/en/pub/palmet/policy"
+        },
+        "keywords": [
+          "turkish art",
+          "islamic art",
+          "byzantine art",
+          "medieval arts",
+          "european art",
+          "contemporary arts"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://dergipark.org.tr/en/pub/palmet/policy"
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "eissn": "2822-3551",
+        "language": [
+          "EN",
+          "TR"
+        ],
+        "title": "Palmet Dergisi",
+        "article": {
+          "license_display_example_url": "https://dergipark.org.tr/en/download/article-file/4309200",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://dergipark.org.tr/en/pub/palmet/aim-and-scope",
+          "journal": "https://dergipark.org.tr/en/pub/palmet",
+          "oa_statement": "https://dergipark.org.tr/en/pub/palmet/policy",
+          "author_instructions": "https://dergipark.org.tr/en/pub/palmet/writing-rules",
+          "license_terms": "https://dergipark.org.tr/en/pub/palmet/policy"
+        },
+        "oa_start": 2024,
+        "alternative_title": "Journal of Palmette",
+        "apc": {
+          "has_apc": false,
+          "url": "https://dergipark.org.tr/en/pub/palmet/policy"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "TR",
+          "name": "Atatürk University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-07-09"
+      },
+      "id": "12165cd1a4174ec592da42ec1ff821a6",
+      "created_date": "2025-07-09T17:46:39Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:32Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://www.ademasderevista.com/index.php/ADD/about/submissions",
+          "board_url": "http://www.ademasderevista.com/index.php/ADD/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://www.ademasderevista.com/index.php/ADD/about#acercade5"
+        },
+        "keywords": [
+          "art",
+          "design",
+          "history",
+          "decorative arts"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "NK1-9990",
+            "scheme": "LCC",
+            "term": "Decorative arts"
+          },
+          {
+            "code": "NC1-1940",
+            "scheme": "LCC",
+            "term": "Drawing. Design. Illustration"
+          }
+        ],
+        "eissn": "2444-121X",
+        "language": [
+          "IT",
+          "PT",
+          "FR",
+          "EN",
+          "ES"
+        ],
+        "title": "Además de",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.ademasderevista.com/index.php/ADD/about",
+          "journal": "http://www.ademasderevista.com/index.php/ADD",
+          "oa_statement": "http://www.ademasderevista.com/index.php/ADD/about#acercade3",
+          "author_instructions": "http://www.ademasderevista.com/index.php/ADD/about/submissions",
+          "license_terms": "http://www.ademasderevista.com/index.php/ADD/about#acercade4"
+        },
+        "oa_start": 2015,
+        "alternative_title": "Revista Online de Artes Decorativas y Diseño",
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.ademasderevista.com/index.php/ADD/about#acercade4"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 8,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Asociación de Amigos del Museo Nacional de Artes Decorativas"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-06-04"
+      },
+      "id": "1239e5c6fce140c6b2801a5320425631",
+      "created_date": "2021-06-04T11:08:54Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:41Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://www.medioevi.it/index.php/medioevi/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://www.medioevi.it/index.php/medioevi/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://www.medioevi.it/index.php/medioevi/about/submissions#copyrightNotice/"
+        },
+        "keywords": [
+          "romance philosophy",
+          "medieval art",
+          "medieval history",
+          "literature and culture of the middle ages"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "PC1-5498",
+            "scheme": "LCC",
+            "term": "Romanic languages"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "eissn": "2465-2326",
+        "language": [
+          "ES",
+          "IT",
+          "FR",
+          "EN",
+          "CA"
+        ],
+        "title": "Medioevi",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Università degli Studi di Verona"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.medioevi.it/index.php/medioevi/about/editorialPolicies#focusAndScope",
+          "journal": "http://www.medioevi.it/index.php/medioevi",
+          "oa_statement": "http://www.medioevi.it/index.php/medioevi/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://www.medioevi.it/index.php/medioevi/about/submissions",
+          "license_terms": "http://www.medioevi.it/index.php/medioevi/about/editorialPolicies#openAccessPolicy"
+        },
+        "oa_start": 2015,
+        "alternative_title": "Medioevi: Rivista di Letterature e Culture Medievali",
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.medioevi.it/index.php/medioevi/about/editorialPolicies#custom-2"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 30,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IT",
+          "name": "Università degli Studi di Verona"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-01-24"
+      },
+      "created_date": "2018-01-08T14:44:22Z",
+      "id": "12c8f65f75dc42ccb56cdcbf83224bf7"
+    },
+    {
+      "last_updated": "2026-03-13T11:15:22Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://conservation-science.unibo.it/about#peerReviewProcess",
+          "board_url": "https://conservation-science.unibo.it/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://conservation-science.unibo.it/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "art history",
+          "archaeology",
+          "environment",
+          "restoration",
+          "conservation",
+          "valorization"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          }
+        ],
+        "eissn": "1973-9494",
+        "language": [
+          "IT",
+          "EN"
+        ],
+        "title": "Conservation Science in Cultural Heritage",
+        "pissn": "1974-4951",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "IT",
+          "name": "University of Bologna – Dipartimento di Beni Culturali"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://conservation-science.unibo.it/about#focusAndScope",
+          "journal": "https://conservation-science.unibo.it",
+          "oa_statement": "https://conservation-science.unibo.it/about#openAccessPolicy",
+          "author_instructions": "https://conservation-science.unibo.it/about/submissions#authorGuidelines",
+          "license_terms": "https://conservation-science.unibo.it/about#openAccessPolicy"
+        },
+        "oa_start": 2001,
+        "alternative_title": "Quaderni di Scienza della Conservazione",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 499,
+              "currency": "EUR"
+            }
+          ],
+          "url": "https://conservation-science.unibo.it/about#publicationFees"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 15,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/29471",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "IT",
+          "name": "University of Bologna"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2026-03-13"
+      },
+      "id": "142d9116950c4f45a09dc99ee4145b08",
+      "created_date": "2009-05-15T10:58:19Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:27Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://muse.jhu.edu/journal/716/doc/journal_716_2.html",
+          "board_url": "https://muse.jhu.edu/issue/47645/information/editorial.pdf#toc_header"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://muse.jhu.edu/journal/716/doc/journal_716_4.html"
+        },
+        "keywords": [
+          "art history",
+          "southeast asia",
+          "modernities",
+          "contemporary art",
+          "art practice",
+          "curatorial studies"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "eissn": "2425-0147",
+        "language": [
+          "EN"
+        ],
+        "title": "Southeast of Now",
+        "pissn": "2424-9947",
+        "article": {
+          "license_display_example_url": "https://muse.jhu.edu/article/851953/pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Portico"
+          ],
+          "url": "https://muse.jhu.edu/journal/716/doc/journal_716_4.html"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://muse.jhu.edu/journal/716/",
+          "journal": "https://muse.jhu.edu/journal/716",
+          "oa_statement": "https://muse.jhu.edu/journal/716/doc/journal_716_4.html",
+          "author_instructions": "https://muse.jhu.edu/journal/716/doc/guidelines.html",
+          "license_terms": "https://muse.jhu.edu/journal/716/doc/journal_716_4.html"
+        },
+        "oa_start": 2018,
+        "alternative_title": "Southeast of Now: Directions in Contemporary and Modern Art in Asia",
+        "apc": {
+          "has_apc": false,
+          "url": "https://muse.jhu.edu/journal/716/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 30,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "SG",
+          "name": "National University of Singapore Press"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-06-20"
+      },
+      "id": "1454dc668ddf46e7bafcde14193e327d",
+      "created_date": "2022-06-20T08:55:48Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:46Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://jhistory.um.ac.ir/journal/process?lang=en",
+          "board_url": "https://jhistory.um.ac.ir/journal/editorial.board?lang=en"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://jhistory.um.ac.ir/journal/about?lang=en"
+        },
+        "keywords": [
+          "history of islamic culture",
+          "political history of islam",
+          "history of science in islam",
+          "history of islamic civilization",
+          "history of islamic art"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://jhistory.um.ac.ir/journal/about?lang=en"
+        },
+        "subject": [
+          {
+            "code": "BL660-2680",
+            "scheme": "LCC",
+            "term": "History and principles of religions"
+          }
+        ],
+        "eissn": "2538-4341",
+        "language": [
+          "FA"
+        ],
+        "title": "تاریخ و فرهنگ",
+        "pissn": "2228-706X",
+        "article": {
+          "license_display_example_url": "https://jhistory.um.ac.ir/article_44550_725400ac5f99a8bd112c4fc38e553b80.pdf?lang=en",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "Islamic World Science and Technology Monitoring and Citation Institute",
+            "Iranian Portal of Scientific Journals"
+          ],
+          "url": "https://jhistory.um.ac.ir/journal/about?lang=en"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://jhistory.um.ac.ir/journal/aim_scope?lang=en",
+          "journal": "https://jhistory.um.ac.ir/?lang=en",
+          "oa_statement": "https://jhistory.um.ac.ir/journal/about?lang=en",
+          "author_instructions": "https://jhistory.um.ac.ir/journal/authors.note?lang=en",
+          "license_terms": "https://jhistory.um.ac.ir/journal/about?lang=en"
+        },
+        "oa_start": 2010,
+        "alternative_title": "History and Culture",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 6000000,
+              "currency": "IRR"
+            }
+          ],
+          "url": "https://jhistory.um.ac.ir/journal/about?lang=en"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 14,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IR",
+          "name": "Ferdowsi University of Mashhad"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-06-19"
+      },
+      "id": "14925d04baf14368b2850bb65afe974d",
+      "created_date": "2024-06-19T23:27:20Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:57Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://iupress.istanbul.edu.tr/en/journal/jah/information/peer-review",
+          "board_url": "https://iupress.istanbul.edu.tr/en/journal/jah/information/boards"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://iupress.istanbul.edu.tr/en/journal/jah/information/policies"
+        },
+        "keywords": [
+          "art history",
+          "byzantine art",
+          "turkish-islamic art",
+          "western art",
+          "contemporary art"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://iupress.istanbul.edu.tr/en/journal/jah/information/peer-review"
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "eissn": "2717-6940",
+        "language": [
+          "EN",
+          "TR",
+          "FR",
+          "DE"
+        ],
+        "title": "Sanat Tarihi Yıllığı",
+        "pissn": "0579-4080",
+        "article": {
+          "license_display_example_url": "https://cdn.istanbul.edu.tr/file/JTA6CLJ8T5/B1F371AAA32E45B0843FFE273E5A9785",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://iupress.istanbul.edu.tr/en/journal/jah/information/aim-and-scope",
+          "journal": "https://iupress.istanbul.edu.tr/en/journal/jah/home",
+          "oa_statement": "https://iupress.istanbul.edu.tr/en/journal/jah/information/policies",
+          "author_instructions": "https://iupress.istanbul.edu.tr/en/journal/jah/information/author-guidelines",
+          "license_terms": "https://iupress.istanbul.edu.tr/en/journal/jah/information/policies"
+        },
+        "oa_start": 2001,
+        "alternative_title": "Journal of Art History",
+        "apc": {
+          "has_apc": false,
+          "url": "https://iupress.istanbul.edu.tr/en/journal/jah/information/policies"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 17,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "TR",
+          "name": "Istanbul University Press"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-02-12"
+      },
+      "created_date": "2021-09-27T20:34:03Z",
+      "id": "16f12cbce5b64f1aa85782347a475fef"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:22Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.ssbsa.unisi.it/it/la-diana/codice-etico",
+          "board_url": "https://www.ssbsa.unisi.it/it/la-diana/la-rivista"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://www.ssbsa.unisi.it/it/la-diana/la-rivista"
+        },
+        "keywords": [
+          "art history",
+          "art criticism",
+          "art collecting",
+          "conservation studies",
+          "museum and exhibition studies",
+          "cultural heritage"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          },
+          {
+            "code": "AM1-501",
+            "scheme": "LCC",
+            "term": "Museums. Collectors and collecting"
+          }
+        ],
+        "eissn": "2784-9597",
+        "language": [
+          "IT",
+          "EN",
+          "FR",
+          "ES",
+          "DE"
+        ],
+        "title": "La Diana",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "IT",
+          "name": "Università degli Studi di Siena"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.ssbsa.unisi.it/it/la-diana/la-rivista",
+          "journal": "https://www.ssbsa.unisi.it/it/la-diana",
+          "oa_statement": "https://www.ssbsa.unisi.it/it/la-diana/la-rivista",
+          "author_instructions": "https://www.ssbsa.unisi.it/it/la-diana/call-papers",
+          "license_terms": "https://www.ssbsa.unisi.it/it/la-diana/la-rivista"
+        },
+        "oa_start": 2021,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.ssbsa.unisi.it/it/la-diana/codice-etico"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "service": [
+            "publisher's own site"
+          ],
+          "url": "https://www.ssbsa.unisi.it/it/la-diana/la-rivista",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "IT",
+          "name": "Firenze University Press"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-01-23"
+      },
+      "id": "173c3964e5444907b9cf418432548539",
+      "created_date": "2022-07-12T13:40:04Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:40:04Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistaseug.ugr.es/index.php/caug/about",
+          "board_url": "https://revistaseug.ugr.es/index.php/caug/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistaseug.ugr.es/index.php/caug/about/submissions"
+        },
+        "keywords": [
+          "history of art",
+          "fine arts"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          },
+          {
+            "code": "NA9000-9428",
+            "scheme": "LCC",
+            "term": "Aesthetics of cities. City planning and beautifying"
+          }
+        ],
+        "eissn": "2445-4567",
+        "language": [
+          "ES"
+        ],
+        "title": "Cuadernos de Arte de la Universidad de Granada",
+        "pissn": "0210-962X",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad de Granada, Departamento de Historia del Arte"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "PKP PN"
+          ],
+          "url": "https://portal.issn.org/resource/ISSN/2445-4567"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistaseug.ugr.es/index.php/caug/about",
+          "journal": "https://revistaseug.ugr.es/index.php/caug",
+          "oa_statement": "https://revistaseug.ugr.es/index.php/caug/about",
+          "author_instructions": "https://revistaseug.ugr.es/index.php/caug/about/submissions",
+          "license_terms": "https://revistaseug.ugr.es/index.php/caug/about"
+        },
+        "oa_start": 2007,
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistaseug.ugr.es/index.php/caug/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Universidad de Granada"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2026-01-06"
+      },
+      "created_date": "2018-04-14T13:36:37Z",
+      "id": "179e0a8c0c114f659f1fcdfa225c2d47"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:13Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistas.usal.es/index.php/1989-9289/about",
+          "board_url": "https://revistas.usal.es/index.php/1989-9289/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://revistas.usal.es/index.php/1989-9289/about"
+        },
+        "keywords": [
+          "archaeology",
+          "art",
+          "interdisciplinary studies",
+          "humanities"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistas.usal.es/index.php/1989-9289/about"
+        },
+        "subject": [
+          {
+            "code": "D",
+            "scheme": "LCC",
+            "term": "History (General) and history of Europe"
+          },
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          }
+        ],
+        "eissn": "1989-9289",
+        "language": [
+          "ES",
+          "PT",
+          "IT",
+          "FR",
+          "EN"
+        ],
+        "title": "El Futuro del Pasado",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistas.usal.es/index.php/1989-9289/about",
+          "journal": "https://revistas.usal.es/uno/index.php/1989-9289/index",
+          "oa_statement": "https://revistas.usal.es/index.php/1989-9289/about",
+          "author_instructions": "https://revistas.usal.es/index.php/1989-9289/about/submissions",
+          "license_terms": "https://revistas.usal.es/index.php/1989-9289/about"
+        },
+        "oa_start": 2010,
+        "alternative_title": "El Futuro del Pasado: Revista Electrónica de Historia",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistas.usal.es/index.php/1989-9289/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "service": [
+            "Dulcinea"
+          ],
+          "url": "https://www.accesoabierto.net/dulcinea/ficha2065",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Ediciones Universidad de Salamanca"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-03-29"
+      },
+      "id": "18ae3989b67743c0b3bebd30af628c4d",
+      "created_date": "2010-06-01T08:23:13Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/journals/art%20history?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/journals/art%20history?page=12&pageSize=25"
+}

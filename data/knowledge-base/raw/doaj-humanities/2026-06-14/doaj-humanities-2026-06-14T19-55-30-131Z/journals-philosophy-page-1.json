@@ -1,0 +1,2694 @@
+{
+  "total": 2069,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T19:55:43.289102Z",
+  "query": "philosophy",
+  "results": [
+    {
+      "last_updated": "2026-01-15T10:38:19Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/procedura_recenzji",
+          "board_url": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/zespol_redakcyjny"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/informacja_o_prawach_autorskich"
+        },
+        "keywords": [
+          "pedagogy",
+          "psychology",
+          "international relations",
+          "management",
+          "administration",
+          "political science"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/procedura_wydawnicza"
+        },
+        "subject": [
+          {
+            "code": "L",
+            "scheme": "LCC",
+            "term": "Education"
+          },
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "eissn": "2449-7983",
+        "language": [
+          "EN",
+          "PL"
+        ],
+        "title": "Społeczeństwo, Edukacja, Język",
+        "pissn": "2353-1266",
+        "article": {
+          "license_display_example_url": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/article/view/331/564",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/about",
+          "journal": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej",
+          "oa_statement": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/open_access1",
+          "author_instructions": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/instrukcje_dla_autorow",
+          "license_terms": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/open_access1"
+        },
+        "oa_start": 2016,
+        "alternative_title": "Society, Education, Language",
+        "apc": {
+          "has_apc": false,
+          "url": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "service": [
+            "Publisher's site"
+          ],
+          "url": "https://czasopismanaukowe.mazowiecka.edu.pl/index.php/sej/polityka_deponowania",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "PL",
+          "name": "Academic Publishing of the Masovian University in Płock"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-04-15"
+      },
+      "id": "0002ac568e2f4a84a27ddad33e61eca9",
+      "created_date": "2025-04-15T08:00:05Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:08Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistapsicologia.uchile.cl/index.php/RDP/politicas",
+          "board_url": "https://revistapsicologia.uchile.cl/index.php/RDP/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false
+        },
+        "keywords": [
+          "psychology",
+          "psychometry",
+          "neurosciences",
+          "psychosocial research methodologies"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "eissn": "0719-0581",
+        "language": [
+          "ES"
+        ],
+        "title": "Revista de Psicología",
+        "pissn": "0716-8039",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad de Chile, Facultad de Ciencias Sociales"
+        },
+        "preservation": {
+          "has_preservation": false,
+          "url": "https://revistapsicologia.uchile.cl/index.php/RDP/politicas"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistapsicologia.uchile.cl/index.php/RDP/about",
+          "journal": "https://revistapsicologia.uchile.cl",
+          "oa_statement": "https://revistapsicologia.uchile.cl/index.php/RDP/politicas",
+          "author_instructions": "https://revistapsicologia.uchile.cl/index.php/RDP/about/submissions",
+          "license_terms": "https://revistapsicologia.uchile.cl/index.php/RDP/about/submissions"
+        },
+        "oa_start": 1990,
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistapsicologia.uchile.cl/index.php/RDP/politicas"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "https://revistapsicologia.uchile.cl/index.php/RDP/politicas"
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CL",
+          "name": "Universidad de Chile"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2019-08-30"
+      },
+      "id": "000c7f26fdd042548a40a9c6e58d7006",
+      "created_date": "2019-02-03T19:45:59Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:39Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "board_url": "http://revistascientificas.filo.uba.ar/index.php/petm/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://revistascientificas.filo.uba.ar/index.php/petm/about/submissions"
+        },
+        "keywords": [
+          "medieval philosophy",
+          "humanities",
+          "middle ages",
+          "medieval thought"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "eissn": "2683-9636",
+        "language": [
+          "ES",
+          "PT",
+          "IT",
+          "DE",
+          "FR",
+          "EN"
+        ],
+        "title": "Patristica et Mediaevalia",
+        "pissn": "0325-2280",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad de Buenos Aires, Facultad de Filosofía y Letras, Sección de Estudios de Filosofía Medieval"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "journal": "http://revistascientificas.filo.uba.ar/index.php/petm/index",
+          "oa_statement": "http://revistascientificas.filo.uba.ar/index.php/petm/about",
+          "author_instructions": "http://revistascientificas.filo.uba.ar/index.php/petm/about/submissions",
+          "license_terms": "http://revistascientificas.filo.uba.ar/index.php/petm/index"
+        },
+        "oa_start": 2019,
+        "apc": {
+          "has_apc": false,
+          "url": "http://revistascientificas.filo.uba.ar/index.php/petm/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 15,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "AR",
+          "name": "Universidad de Buenos Aires"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-02-18"
+      },
+      "created_date": "2020-10-13T18:59:48Z",
+      "id": "0057e40afd8d4818903f1c5b74d95b6e"
+    },
+    {
+      "last_updated": "2026-02-01T18:34:52Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://periodicos.ufsc.br/index.php/principia/about",
+          "board_url": "https://periodicos.ufsc.br/index.php/principia/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://periodicos.ufsc.br/index.php/principia/oa"
+        },
+        "keywords": [
+          "theory of knowledge",
+          "philosophy of science",
+          "philosophy of language",
+          "ontology",
+          "logic",
+          "epistemology"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "eissn": "1808-1711",
+        "language": [
+          "ES",
+          "PT",
+          "EN"
+        ],
+        "title": "Principia: An International Journal of Epistemology",
+        "pissn": "1414-4247",
+        "article": {
+          "license_display_example_url": "https://periodicos.ufsc.br/index.php/principia/article/view/109665/60968",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "LOCKSS"
+          ],
+          "url": "https://periodicos.ufsc.br/index.php/principia/about"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://periodicos.ufsc.br/index.php/principia/about",
+          "journal": "https://periodicos.ufsc.br/index.php/principia/index",
+          "oa_statement": "https://periodicos.ufsc.br/index.php/principia/oa",
+          "author_instructions": "https://periodicos.ufsc.br/index.php/principia/about/submissions",
+          "license_terms": "https://periodicos.ufsc.br/index.php/principia/oa"
+        },
+        "oa_start": 1997,
+        "apc": {
+          "has_apc": false,
+          "url": "https://periodicos.ufsc.br/index.php/principia/oa"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 18,
+        "deposit_policy": {
+          "service": [
+            "Diadorim"
+          ],
+          "url": "https://diadorim.ibict.br/vufind/Record/3884?sid=6346650",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "BR",
+          "name": "Universidade Federal de Santa Catarina"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "0077c5e06f224446aac192d4f0e7defd",
+      "created_date": "2012-03-07T18:31:45Z"
+    },
+    {
+      "last_updated": "2026-05-21T08:54:01Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://lmcs.episciences.org/page/authors-information",
+          "board_url": "https://lmcs.episciences.org/page/editorial-board"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://lmcs.episciences.org/page/authors-copyright"
+        },
+        "keywords": [
+          "theoretical computer science",
+          "logical methods"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "BC1-199",
+            "scheme": "LCC",
+            "term": "Logic"
+          },
+          {
+            "code": "QA75.5-76.95",
+            "scheme": "LCC",
+            "term": "Electronic computers. Computer science"
+          }
+        ],
+        "eissn": "1860-5974",
+        "language": [
+          "EN"
+        ],
+        "title": "Logical Methods in Computer Science",
+        "article": {
+          "license_display_example_url": "https://lmcs.episciences.org/2020/pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Logical Methods in Computer Science e.V."
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://lmcs.episciences.org/page/purpose",
+          "journal": "https://lmcs.episciences.org/",
+          "oa_statement": "https://lmcs.episciences.org/",
+          "author_instructions": "https://lmcs.episciences.org/page/authors-information",
+          "license_terms": "https://lmcs.episciences.org/page/authors-copyright"
+        },
+        "oa_start": 2004,
+        "alternative_title": "LMCS",
+        "apc": {
+          "has_apc": false,
+          "url": "https://lmcs.episciences.org/page/faq"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 33,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/21792",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "DE",
+          "name": "Logical Methods in Computer Science e.V."
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-12-19"
+      },
+      "created_date": "2004-09-24T15:36:18Z",
+      "id": "00cf9ec0afd04cbaa36d5997c06f8edc"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:55Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about",
+          "board_url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about/submissions"
+        },
+        "keywords": [
+          "philosophy",
+          "phenomenology",
+          "hermeneutics",
+          "enlightenment",
+          "history of philosophy"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "eissn": "1668-723X",
+        "language": [
+          "PT",
+          "ES"
+        ],
+        "title": "Tópicos",
+        "pissn": "1666-485X",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Universidad Nacional del Litoral"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "CLOCKSS"
+          ],
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about",
+          "journal": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos",
+          "oa_statement": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about",
+          "author_instructions": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about/submissions",
+          "license_terms": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "oa_start": 2003,
+        "alternative_title": "Revista de Filosofía de Santa Fe",
+        "apc": {
+          "has_apc": false,
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Topicos/about"
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "AR",
+          "name": "Asociación Revista de Filosofía de Santa Fe"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2020-04-21"
+      },
+      "id": "00edc2b73d0a496490055e6773eedebc",
+      "created_date": "2020-04-21T16:20:43Z"
+    },
+    {
+      "last_updated": "2026-02-05T11:36:24Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://publicacoes.ispa.pt/index.php/ap/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://publicacoes.ispa.pt/index.php/ap/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://publicacoes.ispa.pt/index.php/ap/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "psychology",
+          "clinical/health psychology",
+          "education/educational psychology",
+          "social/organizational psychology",
+          "developmental psychology",
+          "research methods and psychometrics in psychology"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "http://publicacoes.ispa.pt/index.php/ap/about/editorialPolicies#custom-1"
+        },
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "eissn": "2182-2980",
+        "language": [
+          "EN"
+        ],
+        "title": "Análise Psicológica",
+        "pissn": "0870-8231",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "CLOCKSS"
+          ],
+          "url": "https://portal.issn.org/resource/ISSN/2182-2980"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://publicacoes.ispa.pt/index.php/ap/about/editorialPolicies#focusAndScope",
+          "journal": "http://publicacoes.ispa.pt/index.php/ap/index",
+          "oa_statement": "http://publicacoes.ispa.pt/index.php/ap/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://publicacoes.ispa.pt/index.php/ap/about/submissions#authorGuidelines",
+          "license_terms": "http://publicacoes.ispa.pt/index.php/ap/about/editorialPolicies#custom-0"
+        },
+        "oa_start": 2012,
+        "apc": {
+          "has_apc": false,
+          "url": "http://publicacoes.ispa.pt/index.php/ap/about/editorialPolicies#custom-2"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 40,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "PT",
+          "name": "ISPA - CRL"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "00f96817e12b468bbf9edefbad614882",
+      "created_date": "2026-01-16T14:46:19Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:06Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://sanad.iau.ir/en/Journal/jsrp/Page/process",
+          "board_url": "https://sanad.iau.ir/en/Journal/jsrp/EditorialBoard"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://sanad.iau.ir/en/Journal/jsrp/Page/ethics"
+        },
+        "keywords": [
+          "educational psychology",
+          "clinical psychology",
+          "general psychology",
+          "applied linguistics",
+          "industrial and organizational psychology",
+          "health psychology"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://sanad.iau.ir/en/Journal/jsrp"
+        },
+        "subject": [
+          {
+            "code": "LC8-6691",
+            "scheme": "LCC",
+            "term": "Special aspects of education"
+          },
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          }
+        ],
+        "eissn": "2676-5128",
+        "language": [
+          "FA"
+        ],
+        "title": "دانش و پژوهش در روان‌شناسی کاربردی",
+        "pissn": "2676-3303",
+        "article": {
+          "license_display_example_url": "https://sanad.iau.ir/en/Journal/jsrp/Article/894317",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "IRAN NATIONAL LIBRARY"
+          ],
+          "url": "https://sanad.iau.ir/en/Journal/jsrp/Page/ethics"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://sanad.iau.ir/en/Journal/jsrp/Page/aim_scope",
+          "journal": "https://sanad.iau.ir/en/Journal/jsrp",
+          "oa_statement": "https://sanad.iau.ir/en/Journal/jsrp",
+          "author_instructions": "https://sanad.iau.ir/en/Journal/jsrp/Page/authors",
+          "license_terms": "https://sanad.iau.ir/en/Journal/jsrp/Page/ethics"
+        },
+        "oa_start": 2011,
+        "alternative_title": "Knowledge and Research in Applied Psychology",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 10000000,
+              "currency": "IRR"
+            }
+          ],
+          "url": "https://sanad.iau.ir/en/Journal/jsrp/Page/authors"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 48,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IR",
+          "name": "Islamic Azad University, Isfahan"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-01-17"
+      },
+      "id": "0109fb66eb2f49689c85cafe84d9aedf",
+      "created_date": "2022-12-21T07:17:22Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:36Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "islam",
+          "islamic text",
+          "islamic humanities",
+          "muslim societies",
+          "islamic history"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          },
+          {
+            "code": "BP1-610",
+            "scheme": "LCC",
+            "term": "Islam. Bahai Faith. Theosophy, etc."
+          },
+          {
+            "code": "BP1-253",
+            "scheme": "LCC",
+            "term": "Islam"
+          }
+        ],
+        "eissn": "2406-825X",
+        "language": [
+          "EN"
+        ],
+        "title": "Indonesian Journal of Islam and Muslim Societies",
+        "pissn": "2089-1490",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#focusAndScope",
+          "journal": "http://ijims.iainsalatiga.ac.id",
+          "oa_statement": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#authorGuidelines",
+          "license_terms": "https://ijims.iainsalatiga.ac.id/index.php/ijims/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2011,
+        "alternative_title": "IJIMS",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 3000000,
+              "currency": "IDR"
+            }
+          ],
+          "url": "https://ijims.iainsalatiga.ac.id/index.php/ijims/pages/view/Author%20fees"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "IAIN Salatiga"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-12-14"
+      },
+      "id": "0119451d86ea40b39f76b1c71592dd82",
+      "created_date": "2016-04-04T16:35:12Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:32Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://sophia.ups.edu.ec/index.php/sophia/reviewprocess",
+          "board_url": "https://sophia.ups.edu.ec/index.php/sophia/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://sophia.ups.edu.ec/index.php/sophia/accesoabierto"
+        },
+        "keywords": [
+          "philosophy of education",
+          "epistemology of education",
+          "theories of education",
+          "methods of education"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://sophia.ups.edu.ec/index.php/sophia/antiplagio"
+        },
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "eissn": "1390-8626",
+        "language": [
+          "ES",
+          "EN"
+        ],
+        "title": "Sophía: Colección de Filosofía de la Educación",
+        "pissn": "1390-3861",
+        "article": {
+          "license_display_example_url": "https://sophia.ups.edu.ec/index.php/sophia/article/view/29.2020.01",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "Universidad Politécnica Salesiana"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://sophia.ups.edu.ec/index.php/sophia/enfoque",
+          "journal": "https://sophia.ups.edu.ec/index.php/sophia/",
+          "oa_statement": "https://sophia.ups.edu.ec/index.php/sophia/accesoabierto",
+          "author_instructions": "https://sophia.ups.edu.ec/index.php/sophia/about/submissions",
+          "license_terms": "https://sophia.ups.edu.ec/index.php/sophia/accesoabierto"
+        },
+        "oa_start": 2009,
+        "alternative_title": "Sophía",
+        "apc": {
+          "has_apc": false,
+          "url": "https://sophia.ups.edu.ec/index.php/sophia/accesoabierto"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://sophia.ups.edu.ec/index.php/sophia/accesoabierto",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "EC",
+          "name": "Universidad Politécnica Salesiana"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-12-12"
+      },
+      "created_date": "2016-03-07T15:22:57Z",
+      "id": "0120495c80df467b9d4880e8f08becb3"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:20Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.integrative-journal.com/index.php/ijip/about",
+          "board_url": "https://www.integrative-journal.com/index.php/ijip/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.integrative-journal.com/index.php/ijip/about"
+        },
+        "keywords": [
+          "psychotherapy",
+          "integrative psychotherapy",
+          "psychology",
+          "transactional analysis",
+          "eclectic psychotherapy",
+          "counselling"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "RC475-489",
+            "scheme": "LCC",
+            "term": "Therapeutics. Psychotherapy"
+          },
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "eissn": "2156-9703",
+        "language": [
+          "EN"
+        ],
+        "title": "International Journal of Integrative Psychotherapy",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "International Integrative Psychotherapy Association"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.integrative-journal.com/index.php/ijip/about",
+          "journal": "https://www.integrative-journal.com/index.php/ijip",
+          "oa_statement": "https://www.integrative-journal.com/index.php/ijip/about",
+          "author_instructions": "https://www.integrative-journal.com/index.php/ijip/about/submissions",
+          "license_terms": "https://www.integrative-journal.com/index.php/ijip/about"
+        },
+        "oa_start": 2010,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.integrative-journal.com/index.php/ijip/about"
+        },
+        "other_charges": {
+          "has_other_charges": true,
+          "url": "https://www.integrative-journal.com/index.php/ijip/about"
+        },
+        "publication_time_weeks": 8,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "US",
+          "name": "International Integrative Psychotherapy Association"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-04-14"
+      },
+      "created_date": "2010-10-20T14:39:26Z",
+      "id": "01599b1b9a0541b5a62614322c71d51a"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:24Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://revistapolis.ro/instructions-to-authors/?lang=en",
+          "board_url": "https://revistapolis.ro/editorial-board/?lang=en"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://revistapolis.ro/instructions-to-authors/?lang=en"
+        },
+        "keywords": [
+          "political science",
+          "political philosophy",
+          "sociology",
+          "history",
+          "political thought",
+          "european studies"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "JZ2-6530",
+            "scheme": "LCC",
+            "term": "International relations"
+          }
+        ],
+        "eissn": "2344-5750",
+        "language": [
+          "EN",
+          "RO"
+        ],
+        "title": "Polis: Revista de Stiinte Politice",
+        "pissn": "1221-9762",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "RO",
+          "name": "Facultatea de Stiinte Politice si Administrative - Universitatea \"Petre Andrei\" din Iasi"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistapolis.ro/?lang=en",
+          "journal": "https://revistapolis.ro/",
+          "oa_statement": "https://revistapolis.ro/?lang=en",
+          "author_instructions": "https://revistapolis.ro/instructions-to-authors/?lang=en#tab-id-2",
+          "license_terms": "https://revistapolis.ro/?lang=en"
+        },
+        "oa_start": 2013,
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistapolis.ro/?lang=en"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "RO",
+          "name": "Editura Institutul European Iasi"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-05-01"
+      },
+      "id": "016456c603b34a23bdcd0ee4a6da1feb",
+      "created_date": "2014-08-21T14:42:02Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:55Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://jnc.psychopen.eu/index.php/jnc/peer-review",
+          "board_url": "https://jnc.psychopen.eu/index.php/jnc/about-team"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://jnc.psychopen.eu/index.php/jnc/policies"
+        },
+        "keywords": [
+          "numerical cognition",
+          "psychology",
+          "spatial reasoning",
+          "psychology of mathematics",
+          "mathematical education"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://jnc.psychopen.eu/index.php/jnc/additional-features"
+        },
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          },
+          {
+            "code": "QA1-939",
+            "scheme": "LCC",
+            "term": "Mathematics"
+          }
+        ],
+        "eissn": "2363-8761",
+        "language": [
+          "EN"
+        ],
+        "title": "Journal of Numerical Cognition",
+        "article": {
+          "license_display_example_url": "https://jnc.psychopen.eu/index.php/jnc/article/view/7299",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "labels": [
+          "ojc"
+        ],
+        "institution": {
+          "name": "Mathematical Cognition and Learning Society (MCLS)"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "CLOCKSS"
+          ],
+          "url": "https://jnc.psychopen.eu/index.php/jnc/additional-features"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://jnc.psychopen.eu/index.php/jnc/about-scope",
+          "journal": "http://jnc.psychopen.eu",
+          "oa_statement": "https://jnc.psychopen.eu/index.php/jnc/policies",
+          "author_instructions": "https://jnc.psychopen.eu/index.php/jnc/author-guidelines",
+          "license_terms": "https://jnc.psychopen.eu/index.php/jnc/policies"
+        },
+        "oa_start": 2015,
+        "apc": {
+          "has_apc": false,
+          "url": "https://jnc.psychopen.eu/index.php/jnc/policies"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 40,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/31279",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "DE",
+          "name": "PsychOpen GOLD/ Leibniz Insitute for Psychology"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-12-19"
+      },
+      "created_date": "2016-07-25T15:44:15Z",
+      "id": "01769d63fa5f402095babf10c38a014e"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:11Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revista.seminarioconciliardemedellin.org/index.php/revista/politica-etica",
+          "board_url": "https://revista.seminarioconciliardemedellin.org/index.php/revista/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://revista.seminarioconciliardemedellin.org/index.php/revista/about"
+        },
+        "keywords": [
+          "teology",
+          "philosophy",
+          "religion"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revista.seminarioconciliardemedellin.org/index.php/revista/politica-etica"
+        },
+        "subject": [
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          }
+        ],
+        "eissn": "2744-8770",
+        "language": [
+          "ES"
+        ],
+        "title": "Revista Seminario Mayor de Medellín",
+        "pissn": "1657-8600",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "PKP PN"
+          ],
+          "url": "https://portal.issn.org/resource/ISSN/2744-8770"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revista.seminarioconciliardemedellin.org/index.php/revista/about",
+          "journal": "https://revista.seminarioconciliardemedellin.org/index.php/revista",
+          "oa_statement": "https://revista.seminarioconciliardemedellin.org/index.php/revista/about",
+          "author_instructions": "https://revista.seminarioconciliardemedellin.org/index.php/revista/directrices-autores",
+          "license_terms": "https://revista.seminarioconciliardemedellin.org/index.php/revista/about"
+        },
+        "oa_start": 2021,
+        "apc": {
+          "has_apc": false,
+          "url": "https://revista.seminarioconciliardemedellin.org/index.php/revista/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "CO",
+          "name": "Seminario Mayor de Medellín"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-06-10"
+      },
+      "id": "018200c5999c42aaa5462c852ca7ddb5",
+      "created_date": "2025-06-10T08:15:32Z"
+    },
+    {
+      "last_updated": "2026-05-16T21:08:12Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/peerreviewprocess",
+          "board_url": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/Copyright"
+        },
+        "keywords": [
+          "biblical studies",
+          "theology biblical",
+          "systematic theology",
+          "missiology",
+          "theology",
+          "christian theology"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/Plagiarismchecker"
+        },
+        "subject": [
+          {
+            "code": "BS1-2970",
+            "scheme": "LCC",
+            "term": "The Bible"
+          }
+        ],
+        "eissn": "2798-1444",
+        "language": [
+          "EN",
+          "ID"
+        ],
+        "title": "Predica Verbum",
+        "pissn": "2798-1495",
+        "article": {
+          "license_display_example_url": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/article/view/114/45",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "ID",
+          "name": "Sekolah Tinggi Teologi Injili Indonesia Yogyakarta"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/focusandscope",
+          "journal": "https://www.ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/index",
+          "oa_statement": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/Openaccesspolicy",
+          "author_instructions": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/authorguidelines",
+          "license_terms": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/Copyright"
+        },
+        "oa_start": 2021,
+        "apc": {
+          "has_apc": false,
+          "url": "https://ejournal.sttii-yogyakarta.ac.id/index.php/predicaverbum/Authorfee"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "Research Institutions and Community Development Services (LPPM-STTII Yogyakarta)"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "01d0883ca40a423282086f304b80e361",
+      "created_date": "2026-05-16T21:08:12Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:23Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://unissa.edu.bn/journal/index.php/ijus",
+          "board_url": "https://unissa.edu.bn/journal/index.php/ijus/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement"
+        },
+        "keywords": [
+          "islamic history and civilization",
+          "islamic development management",
+          "islamic economy/banking and finance",
+          "islamic education",
+          "religious studies",
+          "islamic thought and philosophy"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement"
+        },
+        "subject": [
+          {
+            "code": "NA1-9428",
+            "scheme": "LCC",
+            "term": "Architecture"
+          }
+        ],
+        "eissn": "2617-9407",
+        "language": [
+          "EN",
+          "AR"
+        ],
+        "title": "International Journal of 'Umrānic Studies",
+        "pissn": "2617-9393",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "BN",
+          "name": "Universiti Islam Sultan Sharif Ali (UNISSA)"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Internet Archive"
+          ],
+          "url": "https://web.archive.org/web/20230000000000*/https://unissa.edu.bn/"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://unissa.edu.bn/journal/index.php/ijus",
+          "journal": "https://unissa.edu.bn/journal/index.php/ijus",
+          "oa_statement": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement",
+          "author_instructions": "https://unissa.edu.bn/journal/index.php/ijus/article-submission-guidelines",
+          "license_terms": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement"
+        },
+        "oa_start": 2018,
+        "alternative_title": "المجلة العالمية للدراسات العمرانية",
+        "apc": {
+          "has_apc": false,
+          "url": "https://unissa.edu.bn/journal/index.php/ijus/malpractice-statement"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 8,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "BN",
+          "name": "Universiti Islam Sultan Sharif Ali Press (UNISSA Press)"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-03-02"
+      },
+      "id": "01eac932526c47399dc675c2c3906077",
+      "created_date": "2023-03-02T20:13:30Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:30Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistas.ucv.edu.pe/index.php/psiquemag/peerReviewProcess",
+          "board_url": "https://revistas.ucv.edu.pe/index.php/psiquemag/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistas.ucv.edu.pe/index.php/psiquemag/copyrightLicensing"
+        },
+        "keywords": [
+          "psychology",
+          "clinical psychology",
+          "developmental and educational psychology",
+          "mental health"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistas.ucv.edu.pe/index.php/psiquemag/peerReviewProcess"
+        },
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          },
+          {
+            "code": "RZ400-408",
+            "scheme": "LCC",
+            "term": "Mental healing"
+          },
+          {
+            "code": "R",
+            "scheme": "LCC",
+            "term": "Medicine"
+          }
+        ],
+        "eissn": "2307-0846",
+        "language": [
+          "ES",
+          "EN"
+        ],
+        "title": "Psiquemag",
+        "article": {
+          "license_display_example_url": "https://revistas.ucv.edu.pe/index.php/psiquemag/article/view/2341/2099",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistas.ucv.edu.pe/index.php/psiquemag/about",
+          "journal": "https://revistas.ucv.edu.pe/index.php/psiquemag/index",
+          "oa_statement": "https://revistas.ucv.edu.pe/index.php/psiquemag/openaccess",
+          "author_instructions": "https://revistas.ucv.edu.pe/index.php/psiquemag/about/submissions",
+          "license_terms": "https://revistas.ucv.edu.pe/index.php/psiquemag/copyrightLicensing"
+        },
+        "oa_start": 2012,
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistas.ucv.edu.pe/index.php/psiquemag/openaccess"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/43866",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "PE",
+          "name": "Universidad César Vallejo"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-04-30"
+      },
+      "id": "01eefdda728a4885a8438cb3ef7929a9",
+      "created_date": "2024-04-30T00:49:53Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:53Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/evaluacion_por_pares",
+          "board_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "keywords": [
+          "social sciences",
+          "philosophy",
+          "humanities",
+          "political theory",
+          "communication",
+          "culture"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/evaluacion_por_pares"
+        },
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "eissn": "2600-5735",
+        "language": [
+          "ES"
+        ],
+        "title": "Revista Textos y Contextos",
+        "pissn": "1390-695X",
+        "article": {
+          "license_display_example_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/article/view/3932",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "EC",
+          "name": "Universidad Central del Ecuador"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about",
+          "journal": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/index",
+          "oa_statement": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about",
+          "author_instructions": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about/submissions",
+          "license_terms": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "oa_start": 2019,
+        "alternative_title": "Textos y Contextos",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 11,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "EC",
+          "name": "Universidad Central del Ecuador"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-08-29"
+      },
+      "id": "01fe3bf2e3b843ba8d1929d4aff3c26d",
+      "created_date": "2022-08-29T20:08:32Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:25Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review",
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.altex.org/index.php/altex/about/submissions",
+          "board_url": "https://www.altex.org/index.php/altex/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.altex.org/index.php/altex/about"
+        },
+        "keywords": [
+          "in vitro methods",
+          "alternatives to animal experiments",
+          "toxicology",
+          "bioethics"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://www.altex.org/index.php/altex/about/submissions"
+        },
+        "subject": [
+          {
+            "code": "R723-726",
+            "scheme": "LCC",
+            "term": "Medical philosophy. Medical ethics"
+          }
+        ],
+        "eissn": "1868-596X",
+        "language": [
+          "EN"
+        ],
+        "title": "ALTEX: Alternatives to Animal Experimentation",
+        "article": {
+          "license_display_example_url": "https://doi.org/10.14573/altex.2010211",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "CH",
+          "name": "Society ALTEX Edition"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.altex.org/index.php/altex/about",
+          "journal": "https://www.altex.org",
+          "oa_statement": "https://www.altex.org/index.php/altex/about",
+          "author_instructions": "https://www.altex.org/index.php/altex/about/submissions",
+          "license_terms": "https://www.altex.org/index.php/altex/about"
+        },
+        "oa_start": 2011,
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 2500,
+              "currency": "EUR"
+            }
+          ],
+          "url": "https://www.altex.org/index.php/altex/about/submissions"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 18,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/30707?template=romeo",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "DE",
+          "name": "Springer-Verlag"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": true,
+          "url": "https://www.altex.org/index.php/altex/about/submissions"
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-05-22"
+      },
+      "id": "02cee15e1e6a48a79f9414f9793c5fbf",
+      "created_date": "2013-06-11T14:41:50Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:25Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "http://nic.shahed.ac.ir/journal/process?lang=en",
+          "board_url": "http://nic.shahed.ac.ir/journal/editorial.board?lang=en"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://nic.shahed.ac.ir/?lang=en"
+        },
+        "keywords": [
+          "islamic society",
+          "islamic empire",
+          "islamic civilization",
+          "islamic studies",
+          "islam"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "http://nic.shahed.ac.ir/?lang=en"
+        },
+        "subject": [
+          {
+            "code": "KBP1-4860",
+            "scheme": "LCC",
+            "term": "Islamic law"
+          },
+          {
+            "code": "BP1-253",
+            "scheme": "LCC",
+            "term": "Islam"
+          }
+        ],
+        "eissn": "2676-525X",
+        "language": [
+          "FA"
+        ],
+        "title": "مطالعات بنیادین تمدن نوین اسلامی",
+        "article": {
+          "license_display_example_url": "http://nic.shahed.ac.ir/article_3680_cbe4a9fad98326c38798044350ee083e.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "IR",
+          "name": "Association of Iranian Political Sociology"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Internet Archive",
+            "Islamic World Science Citation Center (ISC)"
+          ],
+          "url": "https://ecc.isc.ac/showJournal/39141"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://nic.shahed.ac.ir/journal/aim_scope?lang=en",
+          "journal": "http://nic.shahed.ac.ir/?lang=en",
+          "oa_statement": "http://nic.shahed.ac.ir/?lang=en",
+          "author_instructions": "http://nic.shahed.ac.ir/page_30.html?lang=en",
+          "license_terms": "http://nic.shahed.ac.ir/?lang=en"
+        },
+        "oa_start": 2018,
+        "alternative_title": "Scientific Journal of New Islamic Civilization Fundamental Studies",
+        "apc": {
+          "has_apc": false,
+          "url": "http://nic.shahed.ac.ir/?lang=en"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 18,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IR",
+          "name": "Shahed University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-09-27"
+      },
+      "id": "0318fd58dc204c628df836a1d8f907f8",
+      "created_date": "2022-09-27T08:51:40Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:13Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://ejournals.bc.edu/index.php/scjr/about/submissions",
+          "board_url": "https://ejournals.bc.edu/index.php/scjr/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ejournals.bc.edu/index.php/scjr/about/submissions"
+        },
+        "keywords": [
+          "theology",
+          "jewish-christian relations",
+          "interfaith cooperation",
+          "christian-jewish studies"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "BM1-990",
+            "scheme": "LCC",
+            "term": "Judaism"
+          },
+          {
+            "code": "BR1-1725",
+            "scheme": "LCC",
+            "term": "Christianity"
+          }
+        ],
+        "eissn": "1930-3777",
+        "language": [
+          "EN"
+        ],
+        "title": "Studies in Christian-Jewish Relations",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "US",
+          "name": "Council of Centers on Jewish-Christian Relations"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "PKP PN"
+          ],
+          "url": "https://portal.issn.org/resource/ISSN/1930-3777#"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://ejournals.bc.edu/index.php/scjr/about",
+          "journal": "https://ejournals.bc.edu/index.php/scjr/index",
+          "oa_statement": "https://ejournals.bc.edu/index.php/scjr/about",
+          "author_instructions": "https://ejournals.bc.edu/index.php/scjr/about/submissions",
+          "license_terms": "https://ejournals.bc.edu/index.php/scjr/about/submissions"
+        },
+        "oa_start": 2005,
+        "apc": {
+          "has_apc": false,
+          "url": "https://ejournals.bc.edu/index.php/scjr/about/submissions"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 20,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "US",
+          "name": "Center for Christian-Jewish Learning at Boston College"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-07-15"
+      },
+      "id": "031b814c15f8442a91a751c65f88deb3",
+      "created_date": "2021-07-15T11:06:23Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:54Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://publicaciones.unirioja.es/ojs/index.php/brocar/about/editorialPolicies#peerReviewProcess",
+          "board_url": "https://publicaciones.unirioja.es/ojs/index.php/brocar/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://publicaciones.unirioja.es/ojs/index.php/brocar/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "history",
+          "culture",
+          "philosophy",
+          "middle ages",
+          "modern ages",
+          "contemporary history"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://publicaciones.unirioja.es/ojs/index.php/jes/about/editorialPolicies#custom-2"
+        },
+        "subject": [
+          {
+            "code": "D",
+            "scheme": "LCC",
+            "term": "History (General) and history of Europe"
+          }
+        ],
+        "eissn": "1885-8155",
+        "language": [
+          "EN",
+          "FR",
+          "PT",
+          "ES"
+        ],
+        "title": "Brocar. Cuadernos de investigación histórica",
+        "pissn": "1885-8309",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://publicaciones.unirioja.es/ojs/index.php/brocar/about/editorialPolicies#focusAndScope",
+          "journal": "https://publicaciones.unirioja.es/revistas/brocar",
+          "oa_statement": "https://publicaciones.unirioja.es/ojs/index.php/brocar/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "https://publicaciones.unirioja.es/ojs/index.php/brocar/about/submissions#authorGuidelines",
+          "license_terms": "https://publicaciones.unirioja.es/ojs/index.php/brocar/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2017,
+        "apc": {
+          "has_apc": false,
+          "url": "https://publicaciones.unirioja.es/ojs/index.php/brocar/about/submissions#authorGuidelines"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 50,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Universidad de La Rioja"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-02-07"
+      },
+      "id": "032826aefec8499aa1cca1e6a9235358",
+      "created_date": "2017-11-20T16:16:00Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:52Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub",
+          "board_url": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://brill.com/fileasset/downloads_products/Author_Instructions/JOCH.pdf"
+        },
+        "keywords": [
+          "asian studies",
+          "china",
+          "history",
+          "philosophy",
+          "literature",
+          "culture"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://brill.com/page/ethics/publication-ethics-cope-compliance"
+        },
+        "subject": [
+          {
+            "code": "DS1-937",
+            "scheme": "LCC",
+            "term": "History of Asia"
+          },
+          {
+            "code": "H53",
+            "scheme": "LCC",
+            "term": "Social sciences and state - Asia (Asian studies only)"
+          }
+        ],
+        "eissn": "2352-1341",
+        "language": [
+          "EN"
+        ],
+        "title": "Journal of Chinese Humanities",
+        "pissn": "2352-1333",
+        "article": {
+          "license_display_example_url": "https://brill.com/view/journals/joch/7/1-2/article-p4_2.xml?ebody=pdf-49903",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Portico",
+            "Dutch National Library"
+          ],
+          "url": "https://brill.com/page/144?language=en"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub",
+          "journal": "https://brill.com/view/journals/joch/joch-overview.xml",
+          "oa_statement": "https://brill.com/view/journals/joch/joch-overview.xml",
+          "author_instructions": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub",
+          "license_terms": "https://brill.com/view/journals/joch/joch-overview.xml"
+        },
+        "oa_start": 2020,
+        "apc": {
+          "has_apc": false,
+          "url": "https://brill.com/view/journals/joch/joch-overview.xml?contents=artsub"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 16,
+        "deposit_policy": {
+          "service": [
+            "publisher site"
+          ],
+          "url": "https://brill.com/page/oalicenses/open-access-licenses",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "NL",
+          "name": "Brill"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-05-02"
+      },
+      "id": "0366027a854840d2a4962e4eb4cd7739",
+      "created_date": "2022-05-02T14:18:56Z"
+    },
+    {
+      "last_updated": "2026-05-12T19:17:36Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.eap.ee/trames-style-sheet/?v=a57b8491d1d8#general",
+          "board_url": "https://www.eap.ee/trames-editorial-board/?v=a57b8491d1d8"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.eap.ee/trames-policy-statement/?v=a57b8491d1d8#copy"
+        },
+        "keywords": [
+          "philology",
+          "linguistics",
+          "religion",
+          "anthropology",
+          "sociology",
+          "political science"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          },
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          }
+        ],
+        "eissn": "1736-7514",
+        "language": [
+          "EN"
+        ],
+        "title": "Trames",
+        "pissn": "1406-0922",
+        "article": {
+          "license_display_example_url": "https://www.eap.ee/wp-content/plugins/kirj/pub/TRAMES-1-2022-3-21_20220223153759.pdf?v=a57b8491d1d8",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "EE",
+          "name": "Estonian Academy of Sciences"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "Eesti Rahvusraamatukogu"
+          ],
+          "url": "https://dea.digar.ee/publication/AKtrames"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.eap.ee/trames-editorial-programme/?v=a57b8491d1d8",
+          "journal": "https://www.eap.ee/trames",
+          "oa_statement": "https://www.eap.ee/trames-policy-statement/?v=f214a7d42e0d#open",
+          "author_instructions": "https://www.eap.ee/trames-style-sheet/?v=a57b8491d1d8",
+          "license_terms": "https://www.eap.ee/trames-policy-statement/?v=a57b8491d1d8#copy"
+        },
+        "oa_start": 2021,
+        "alternative_title": "Trames: A Journal of the Humanities and Social Sciences",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 600,
+              "currency": "EUR"
+            }
+          ],
+          "url": "https://www.eap.ee/trames-policy-statement/?v=a57b8491d1d8#charges"
+        },
+        "other_charges": {
+          "has_other_charges": true,
+          "url": "https://www.eap.ee/trames-policy-statement/?v=a57b8491d1d8#charges"
+        },
+        "publication_time_weeks": 17,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "EE",
+          "name": "Estonian Academy Publishers"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": true,
+          "url": "https://www.eap.ee/trames-policy-statement/?v=a57b8491d1d8#charges"
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "036957066fbe4bf1973c959a265b3b0c",
+      "created_date": "2022-05-02T09:25:33Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:55Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/PeerReviewProcess",
+          "board_url": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/CopyrightNotice"
+        },
+        "keywords": [
+          "islami education",
+          "islamic thought",
+          "islamic philosophy",
+          "islamic education policy"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/plagiarismscreening"
+        },
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "eissn": "2808-4330",
+        "language": [
+          "ID",
+          "EN"
+        ],
+        "title": "Adabuna",
+        "pissn": "2809-4212",
+        "article": {
+          "license_display_example_url": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/article/view/1900/873",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/focusandscope",
+          "journal": "https://ejournal.uiidalwa.ac.id/index.php/adabuna",
+          "oa_statement": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/OpenAccessPolicy",
+          "author_instructions": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/AuthorGuidelines",
+          "license_terms": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/licensing"
+        },
+        "oa_start": 2021,
+        "alternative_title": "Adabuna: Jurnal Pendidikan dan Pemikiran",
+        "apc": {
+          "has_apc": false,
+          "url": "https://ejournal.uiidalwa.ac.id/index.php/adabuna/AuthorFree"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 4,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "Program Studi Doktor Pendidikan Agama Islam Universitas Islam Internasional Darullughah Wadda'wah"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-01-07"
+      },
+      "id": "039112352da74218846ea102e66e908b",
+      "created_date": "2025-01-07T22:43:33Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/journals/philosophy?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/journals/philosophy?page=83&pageSize=25"
+}

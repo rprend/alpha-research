@@ -1,0 +1,30 @@
+[
+  [
+    "timestamp",
+    "original",
+    "statuscode",
+    "mimetype",
+    "digest"
+  ],
+  [
+    "20200107112143",
+    "https://english.fas.harvard.edu/",
+    "200",
+    "text/html",
+    "VK5ZPZUHLTO6LCFYU5BDO55K3TKOLYDT"
+  ],
+  [
+    "20231108071835",
+    "https://english.fas.harvard.edu/2040",
+    "200",
+    "text/html",
+    "2Q6N5W25YZOOV3YTWDIL4RCUQIN7NVGI"
+  ],
+  [
+    "20200408153632",
+    "https://english.fas.harvard.edu/285sa-south-asian-poetry",
+    "200",
+    "text/html",
+    "UF3MQO7LCBJXHQFCQQM7I56TG5MKG2VG"
+  ]
+]

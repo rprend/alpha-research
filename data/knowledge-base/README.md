@@ -41,6 +41,8 @@ pnpm kb:question "How has public humanities language changed in top university d
 
 `kb:question` is the first gate for study design. It infers source-class priorities from the question, ranks local sources with that routing decision, and writes a reproducible brief, evidence file, source map, SQL sketch, study design, date coverage summary, publication concept, study template, and missing-data memo under `docs/research-briefs/`. The date coverage artifact separates content years from fetch years so longitudinal claims are not inferred from crawl timestamps.
 
+`kb:refresh` is the maintenance gate. It validates the registry, refreshes bounded source-specific metadata routes, refreshes department sitemap summaries, runs a bounded Wayback CDX smoke with explicit timeout/limit settings, rebuilds analytical tables and both indexes, refreshes audits/status, and generates a local question-smoke brief. Broad acquisition remains source-specific; refresh is intentionally bounded so routine maintenance can finish predictably while still proving the local KB can answer a question.
+
 ## Current State
 
 The initial implementation defines the local KB structure and source registry, inventories existing experiment artifacts, and runs a bounded core metadata ingest for six public sources:
@@ -95,5 +97,7 @@ The dedicated cultural-collections ingest adds richer object metadata from Met, 
 The Wayback snapshot ingest adds CDX capture metadata for department-page targets in `config/department-pages.json`. It stores capture metadata and archive URLs only; archived page text is not stored.
 
 The analytical table build now adds a deterministic candidate identity layer: `processed/canonical_people.*` clusters source author records by normalized name, and `processed/work_references.*` clusters citation/reference edges by DOI, OpenAlex ID, or normalized source label. The audit at `audits/identity-resolution.{json,md}` reports record counts, repeated references, and limitations. These tables are suitable for exploratory field maps and QA, but they are not manual authority control.
+
+The refresh workflow now writes a question-smoke brief at `docs/research-briefs/what-local-evidence-exists-for-public-humanities-language-in-departments/`, proving that a fresh local maintenance run can generate a brief, source map, evidence file, identity summary, query sketch, missing-data memo, and study template from the rebuilt local database.
 
 This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. The semantic hash index provides deterministic offline vector-style retrieval over metadata plus rights-filtered stored text; it is not a neural embedding model. Author, citation, venue, institution, collection, topic, canonical-person, and work-reference tables are derived from current local source records and raw snapshots; candidate identity clusters still need authority matching before strong person-level or citation-network claims.

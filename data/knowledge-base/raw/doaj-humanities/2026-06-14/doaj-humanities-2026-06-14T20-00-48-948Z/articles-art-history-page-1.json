@@ -1,0 +1,1756 @@
+{
+  "total": 14685,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T20:00:50.093041Z",
+  "query": "art history",
+  "results": [
+    {
+      "last_updated": "2025-10-28T16:56:07Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/rel16101260",
+            "type": "doi"
+          },
+          {
+            "id": "2077-1444",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "16",
+          "number": "10",
+          "country": "CH",
+          "issns": [
+            "2077-1444"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Religions"
+        },
+        "month": "09",
+        "keywords": [
+          "Carpaccio",
+          "<i>teleri</i>",
+          "jews",
+          "Muslims",
+          "fabric",
+          "St. Stephen"
+        ],
+        "year": "2025",
+        "start_page": "1260",
+        "subject": [
+          {
+            "code": "BL1-2790",
+            "scheme": "LCC",
+            "term": "Religions. Mythology. Rationalism"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "School of Humanities, University of Auckland, Auckland 1010, New Zealand",
+            "name": "Clare Wilde"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2077-1444/16/10/1260"
+          }
+        ],
+        "abstract": "The first monographic exhibition dedicated to Vittore Carpaccio (ca. 1460–1525) in the US, and the first outside of Italy, was hosted at the National Gallery of Art in Washington, DC, from 20 Nov 2022 to 23 February 2023 (from where it went to Venice). Building on the research of art historians and experts on Venice and the larger Mediterranean region in the early modern period, this paper examines Carpaccio’s depiction of various “Turks” in some of the large narrative painting cycles (<i>teleri</i>) commissioned by the devotional confraternities (<i>scuole</i>) in Renaissance Venice. While Carpaccio’s and the larger Venetian familiarity with Islam, including Turks, has been studied, this paper compares various female figures in the St. Stephen cycle with those in his St. George cycle, situating them in the larger historical context of the commissioning <i>scuole</i> (Scuola di Santo Stefano and Scuola di San Giorgio degli Schiavoni, respectively). While attempting to uncover the significance, if not the identities, of a few individuals who stand out from the crowd, this paper urges caution when attempting to discern social history from a painting, much as we take literary texts (particularly those written well before our own times) with a grain of salt.",
+        "title": "Turks in the <i>Teleri</i>? Interpreting Earrings, Stripes, and Veils in Carpaccio’s Narrative Cycles"
+      },
+      "id": "0002b3e2d92f4be5b0028b08f66ed489",
+      "created_date": "2025-10-28T16:56:07Z"
+    },
+    {
+      "last_updated": "2025-11-26T14:58:19Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/land14112233",
+            "type": "doi"
+          },
+          {
+            "id": "2073-445X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "14",
+          "number": "11",
+          "country": "CH",
+          "issns": [
+            "2073-445X"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Land"
+        },
+        "month": "11",
+        "keywords": [
+          "remote sensing",
+          "SAR",
+          "optical",
+          "shoreline changes",
+          "land use land cover changes",
+          "archaeology"
+        ],
+        "year": "2025",
+        "start_page": "2233",
+        "subject": [
+          {
+            "code": "S",
+            "scheme": "LCC",
+            "term": "Agriculture"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Institute of Heritage Science, National Research Council, Via Cardinale Guglielmo Sanfelice 8, 80134 Napoli, Italy",
+            "name": "Nicodemo Abate"
+          },
+          {
+            "affiliation": "Institute of Heritage Science, National Research Council, Via Cardinale Guglielmo Sanfelice 8, 80134 Napoli, Italy",
+            "name": "Diego Ronchi"
+          },
+          {
+            "affiliation": "Institute of Heritage Science, National Research Council, Via Cardinale Guglielmo Sanfelice 8, 80134 Napoli, Italy",
+            "name": "Sara Elettra Zaia"
+          },
+          {
+            "affiliation": "Institute of Heritage Science, National Research Council, Via Cardinale Guglielmo Sanfelice 8, 80134 Napoli, Italy",
+            "name": "Gabriele Ciccone"
+          },
+          {
+            "affiliation": "Institute of Heritage Science, National Research Council, Via Cardinale Guglielmo Sanfelice 8, 80134 Napoli, Italy",
+            "name": "Alessia Frisetti"
+          },
+          {
+            "affiliation": "Institute of Heritage Science, National Research Council, Via Cardinale Guglielmo Sanfelice 8, 80134 Napoli, Italy",
+            "name": "Maria Sileo"
+          },
+          {
+            "affiliation": "Institute of Heritage Science, National Research Council, Via Cardinale Guglielmo Sanfelice 8, 80134 Napoli, Italy",
+            "name": "Nicola Masini"
+          },
+          {
+            "affiliation": "Institute of Methodology of Environmental Analysis, National Research Council, C.da S. Loja sn, 85050 Tito Scalo, Italy",
+            "name": "Rosa Lasaponara"
+          },
+          {
+            "affiliation": "Institute of Heritage Science, National Research Council, Via Cardinale Guglielmo Sanfelice 8, 80134 Napoli, Italy",
+            "name": "Tatiana Pedrazzi"
+          },
+          {
+            "affiliation": "Department of History, Archaeology, Geography, Art and Entertainment, University of Florence, Via S. Gallo, 10, 50129 Florence, Italy",
+            "name": "Marina Pucci"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2073-445X/14/11/2233"
+          }
+        ],
+        "abstract": "This study presents a multi-resolution and multi-temporal remote sensing approach to assess human-induced changes in cultural landscapes, with a focus on the archaeological site of Amrit (Syria) within the MapDam project. By integrating satellite archives (KH, Landsat series, NASADEM) with ancillary geospatial data (OpenStreetMap) and advanced analytical methods, four decades (1984–2024) of land-use/land-cover (LULC) change and shoreline dynamics were reconstructed. Machine learning classification (Random Forest) achieved high accuracy (Test Accuracy = 0.94; Kappa = 0.89), enabling robust LULC mapping, while predictive modelling of urban expansion, calibrated through a Gradient Boosting Machine, attained a Figure of Merit of 0.157, confirming strong predictive reliability. The results reveal path-dependent urban growth concentrated on low-slope terrains (≤5°) and consistent with proximity to infrastructure, alongside significant shoreline regression after 1974. A Business-as-Usual projection for 2024–2034 estimates 8.676 ha of new anthropisation, predominantly along accessible plains and peri-urban fringes. Beyond quantitative outcomes, this study demonstrates the replicability and scalability of open-source, data-driven workflows using Google Earth Engine and Python 3.14, making them applicable to other high-risk heritage contexts. This transparent methodology is particularly critical in conflict zones or in regions where cultural assets are neglected due to economic constraints, political agendas, or governance limitations, offering a powerful tool to document and safeguard endangered archaeological landscapes.",
+        "title": "Multi-Resolution and Multi-Temporal Satellite Remote Sensing Analysis to Understand Human-Induced Changes in the Landscape for the Protection of Cultural Heritage: The Case Study of the MapDam Project, Syria"
+      },
+      "id": "00075716908542e0b97629d1ac55ff1a",
+      "created_date": "2025-11-26T14:58:19Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:50:12Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s42269-023-01141-7",
+            "type": "doi"
+          },
+          {
+            "id": "2522-8307",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "47",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2522-8307"
+          ],
+          "publisher": "SpringerOpen",
+          "language": [
+            "EN"
+          ],
+          "title": "Bulletin of the National Research Centre"
+        },
+        "month": "12",
+        "end_page": "12",
+        "keywords": [
+          "HIV",
+          "Malaria",
+          "Prevalence",
+          "Tanzania"
+        ],
+        "year": "2023",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "Q",
+            "scheme": "LCC",
+            "term": "Science"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Health, Nyang’hwale District Council",
+            "name": "Hamad Nnimbo"
+          },
+          {
+            "affiliation": "Department of Microbiology and Immunology, Muhimbili University of Health and Allied Sciences",
+            "name": "Doreen Kamori"
+          },
+          {
+            "affiliation": "Tanzania Field Epidemiology and Laboratory Training Program",
+            "name": "Nsiande Lema"
+          },
+          {
+            "affiliation": "Department of Laboratory, Kitete Regional Referral Hospital",
+            "name": "Abdallah Mohamed"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s42269-023-01141-7"
+          }
+        ],
+        "abstract": "Abstract Background HIV and malaria are serious public health concerns, particularly in Tanzania. HIV-infected individuals are more likely to get malaria and its complications. However, data on the interaction of the two diseases in Tanzania are limited. This cross-sectional study aimed to determine the prevalence of malaria infection and associated factors among HIV-infected adults attending HIV care and treatment clinic at Kitete regional referral hospital in Tabora region, Tanzania. Methodology The cross-sectional study was carried out between March and May 2022 at Kitete regional referral hospital in Tanzania. A total of 246 HIV-infected adults were selected by systematic random sampling. Malaria was diagnosed using both malaria rapid diagnostic test (mRDT) and malaria microscopy. Social demographic data were collected using a structured questionnaire, while clinical history and laboratory parameters were extracted from patients’ files. Data were analyzed using STATA version 15.1, and a p value < 0.05 was considered statistically significant. The study included consenting HIV+ adults and excluded pregnant women and recent antimalarial users. Results Twenty-six out of 242 participants 10.7% (95% CI 6.9–15.6%) tested positive for malaria using mRDT, while 20 out of 242 participants 8.3% (95% CI 4.9–13.1%) tested positive for malaria using blood smear for malaria microscopy. Independent factors associated with malaria infection were living in rural areas (aOR = 2.81, 95% CI = 1.06–7.45, p = 0.038), poor adherence to anti-retroviral therapy (aOR = 3.66, 95% CI = 1.04–12.7, p = 0.043), HIV viral load of ≥ 1000 copies/mL (aOR = 3.2, 95% CI = 1.00–10.5, p = 0.02, CD4 count ≤ 350 cells/µL (aOR = 2.8, 95% CI = 1.10–7.30, p = 0.03), while using mosquito nets (aOR = 0.27, 95% CI = 0.08–0.90, p = 0.033) and receiving health education (aOR = 0.26, 95% CI = 0.09–0.71, p = 0.009) were protective factors. Conclusions The study reveals a concerning prevalence of malaria infection among adult HIV patients at Kitete regional referral hospital. Risk factors identified include a high HIV viral load, low CD4 count, lack of health education, rural residence, and non-use of mosquito nets. The results emphasize the necessity for focused health education, enhanced access to preventive measures, and consistent adherence to ART to reduce the risk of malaria in this vulnerable population.",
+        "title": "Prevalence of malaria infection and factors associated among HIV-infected adult patients attending HIV care and treatment clinic at Kitete regional referral hospital in Tabora region, Tanzania: a cross-sectional study"
+      },
+      "id": "00134bc761794c49bc837fa27d507c80",
+      "created_date": "2023-12-10T12:06:20Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:07:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.5194/nhess-21-2523-2021",
+            "type": "doi"
+          },
+          {
+            "id": "1561-8633",
+            "type": "pissn"
+          },
+          {
+            "id": "1684-9981",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "21",
+          "country": "DE",
+          "issns": [
+            "1561-8633",
+            "1684-9981"
+          ],
+          "publisher": "Copernicus Publications",
+          "language": [
+            "EN"
+          ],
+          "title": "Natural Hazards and Earth System Sciences"
+        },
+        "month": "08",
+        "end_page": "2541",
+        "year": "2021",
+        "start_page": "2523",
+        "subject": [
+          {
+            "code": "TD1-1066",
+            "scheme": "LCC",
+            "term": "Environmental technology. Sanitary engineering"
+          },
+          {
+            "code": "G",
+            "scheme": "LCC",
+            "term": "Geography. Anthropology. Recreation"
+          },
+          {
+            "code": "GE1-350",
+            "scheme": "LCC",
+            "term": "Environmental sciences"
+          },
+          {
+            "code": "QE1-996.5",
+            "scheme": "LCC",
+            "term": "Geology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "LEGOS UMR5566, CNRS/CNES/IRD/UPS, 31400 Toulouse, France",
+            "name": "Md. J. U. Khan"
+          },
+          {
+            "affiliation": "LEGOS UMR5566, CNRS/CNES/IRD/UPS, 31400 Toulouse, France",
+            "name": "F. Durand"
+          },
+          {
+            "affiliation": "Laboratório de Geoquímica, Instituto de Geociencias, Universidade de Brasilia, Brasília, Brazil",
+            "name": "F. Durand"
+          },
+          {
+            "affiliation": "UMR 7266 LIENSs,  CNRS – La Rochelle University, 17000 La Rochelle, France",
+            "name": "X. Bertin"
+          },
+          {
+            "affiliation": "LEGOS UMR5566, CNRS/CNES/IRD/UPS, 31400 Toulouse, France",
+            "name": "L. Testut"
+          },
+          {
+            "affiliation": "UMR 7266 LIENSs,  CNRS – La Rochelle University, 17000 La Rochelle, France",
+            "name": "L. Testut"
+          },
+          {
+            "affiliation": "UMR 7266 LIENSs,  CNRS – La Rochelle University, 17000 La Rochelle, France",
+            "name": "Y. Krien"
+          },
+          {
+            "affiliation": "currently at: SHOM (DOPS/STM/REC), Toulouse, France",
+            "name": "Y. Krien"
+          },
+          {
+            "affiliation": "Institute of Water and Flood Management (IWFM), Bangladesh University of Engineering and Technology (BUET),\nDhaka-1000, Bangladesh",
+            "name": "A. K. M. S. Islam"
+          },
+          {
+            "affiliation": "UMR 7266 LIENSs,  CNRS – La Rochelle University, 17000 La Rochelle, France",
+            "name": "M. Pezerat"
+          },
+          {
+            "affiliation": "Flood Forecasting and Warning Centre, BWDB, Dhaka, Bangladesh",
+            "name": "S. Hossain"
+          },
+          {
+            "affiliation": "Department of Geography and Environmental Science, University of Reading, Reading, UK",
+            "name": "S. Hossain"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "PDF",
+            "type": "fulltext",
+            "url": "https://nhess.copernicus.org/articles/21/2523/2021/nhess-21-2523-2021.pdf"
+          }
+        ],
+        "abstract": "<p>The Bay of Bengal is a well-known breeding ground to some of the deadliest cyclones in history. Despite recent advancements, the complex morphology and hydrodynamics of this large delta and the associated modelling complexity impede accurate storm surge forecasting in this highly vulnerable region. Here we present a proof of concept of a physically consistent and computationally efficient storm surge forecasting system tractable in real time with limited resources. With a state-of-the-art wave-coupled hydrodynamic numerical modelling system, we forecast the recent Supercyclone Amphan in real time. From the available observations, we assessed the quality of our modelling framework. We affirmed the evidence of the key ingredients needed for an efficient, real-time surge and inundation forecast along this active and complex coastal region. This article shows the proof of the maturity of our framework for operational implementation, which can particularly improve the quality of localized forecast for effective decision-making over the Bengal delta shorelines as well as over other similar cyclone-prone regions.</p>",
+        "title": "Towards an efficient storm surge and inundation forecasting system over the Bengal delta: chasing the Supercyclone Amphan"
+      },
+      "id": "001746c0727f4b6f97b90529d01ec246",
+      "created_date": "2021-08-25T11:00:20Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:40:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2587-9731",
+            "type": "eissn"
+          },
+          {
+            "id": "10.56620/2587-9731-2025-2-134-150",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "2",
+          "country": "RU",
+          "issns": [
+            "2587-9731"
+          ],
+          "publisher": "Gnesin Russian Academy of Music",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Современные проблемы музыкознания"
+        },
+        "end_page": "150",
+        "year": "2025",
+        "start_page": "134",
+        "subject": [
+          {
+            "code": "M1-5000",
+            "scheme": "LCC",
+            "term": "Music"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0009-0004-9378-8462",
+            "name": "Jianfu Li"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "{'x': 'http://www.crossref.org/schema/4.4.2', 'j': 'http://www.ncbi.nlm.nih.gov/JATS1'}",
+            "type": "fulltext",
+            "url": "https://gnesinsjournal.ru/index.php/CM/article/view/197"
+          }
+        ],
+        "abstract": "\n    This article presents a discussion about Xiangtong Xi (香童戏), a traditional musical theatrical form associated with the Baoshan area of China’s Yunnan province. Xiangtong Xi drama originated from the folk religious and mystical rites of the southwestern regions of China. It organically combines elements such as singing, recitation, acting and martial arts techniques that are characteristic of the musical culture of the region. This genre has its own cult music and traditional performance style. At the same time, supporting and preserving the traditions of their art, Xiangtong Xi artists throughout the history of its existence have developed and continue to develop Xiangtong Xi music by studying the singing melodies and musical styles of other cultures, musical genres and movements and introducing their elements into their performances. The basis for such borrowings is primarily local folk music and songs, as well as other traditional musical genres of the region.\nKeywords: Xiangtong Xi, musical drama, ritual music, religious music, Prince’s Chant, Even Chant, Universal Chant, Chant of the Black God, plague god’s chant, percussion instruments\nFor citation: Li Jianfu (2025). Traditional Regional Features in Xiangtong Xi Musical Drama. Contemporary Musicology, 9(2), 134–150. https://doi.org/10.56620/2587-9731-2025-2-134-150",
+        "title": "Traditional Regional Features in Xiangtong Xi Musical Drama"
+      },
+      "id": "001a2c78ec1147219dbbe87cb8c98a93",
+      "created_date": "2025-07-09T10:38:55Z"
+    },
+    {
+      "last_updated": "2025-08-19T21:15:35Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2267-1242",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1051/e3sconf/202017902069",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "179",
+          "country": "FR",
+          "issns": [
+            "2267-1242"
+          ],
+          "publisher": "EDP Sciences",
+          "language": [
+            "EN",
+            "FR"
+          ],
+          "title": "E3S Web of Conferences"
+        },
+        "year": "2020",
+        "start_page": "02069",
+        "subject": [
+          {
+            "code": "GE1-350",
+            "scheme": "LCC",
+            "term": "Environmental sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": " Art School, HuangShan University",
+            "name": "Sun Fuliang"
+          },
+          {
+            "affiliation": " Art School, HuangShan University",
+            "name": "Shu Wei"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://www.e3s-conferences.org/articles/e3sconf/pdf/2020/39/e3sconf_ewre2020_02069.pdf"
+          }
+        ],
+        "abstract": "Xipi Lacquer Art in Huizhou was once well-known all over China with the brilliant Huizhou merchants and it was once also annihilated in the river of long history. The surface of Huizhou Xipi Lacquer Art is so bright that it can serve as a mirror, and the swirling, complicated and changing patterns endow it with mysterious and gorgeous beauty. In modern times, since the technique of Huizhou Xipi Lacquer Art recovered all that was lost, its special aesthetic sense of beauty and the craftsman’s pursuit of superlative craftsmanship have led to the increasing emphasis on the objects produced by it for people to appreciate. This deviates from the public’s demand for stable quality and economic utility, and it is difficult to integrate into the consumer market. In this paper, through the in-depth analysis of the history and context of Huizhou Xipi Lacquer Art, the author combines with the theory of contemporary product design to explore the advantages and disadvantages of Huizhou Xipi Lacquer Art into modern product design. Besides, the author uses the scientific research method to find a breakthrough for the two symbiosis and concludes the approach to realize the innovation and development of the excellent traditional technology in the era of science and technology.",
+        "title": "Research on the Innovative Approach of Intergrowth of Xipi Lacquer Art in Huizhou and Modern Product Design"
+      },
+      "id": "0027b99e54024cb19b1095225a84e3a1",
+      "created_date": "2021-08-11T12:45:09Z"
+    },
+    {
+      "last_updated": "2025-08-20T01:59:20Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.22455/2500-4247-2020-5-1-10-21",
+            "type": "doi"
+          },
+          {
+            "id": "2500-4247",
+            "type": "pissn"
+          },
+          {
+            "id": "2541-8564",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "RU",
+          "issns": [
+            "2500-4247",
+            "2541-8564"
+          ],
+          "publisher": "Russian Academy of Sciences, A.M. Gorky Institute of World Literature",
+          "language": [
+            "EN",
+            "FR",
+            "RU"
+          ],
+          "title": "Studia Litterarum"
+        },
+        "month": "3",
+        "end_page": "21",
+        "keywords": [
+          "character’s appearance",
+          "literary portrait",
+          "portrait genre in visual arts",
+          "n.i. zhinkin",
+          "a. bely",
+          "the silver age."
+        ],
+        "year": "2020",
+        "start_page": "10",
+        "subject": [
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "A.M. Gorky Institute of World Literature of the Russian Academy of Sciences",
+            "name": "Natalia A. Drovaleva"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://studlit.ru/images/NDrovaleva.pdf"
+          }
+        ],
+        "abstract": "Numerous papers have been written on the topic of portrait creation in literature, viewing it both directly and indirectly, however it remains a topical issue up to this day. It is evidently necessary to systemize the data, gathered by numerous literary research on the portrait characteristics. In this regard, it appears productive to point out the theoretical and methodological particularities of researching a character’s appearance in literature, the existing research notions on the portrait in fiction literature and visual arts and the notable peculiarities of creating a character’s appearance, using examples from prose works of the Silver Age specifically. This period saw the rise of tendencies that consisted of moving away from an actual depiction of reality and the obligatory establishment of connections between external and internal features of the character. By examining various scholarly theories, the author points out that as a result of close attention to the artistic portrait, typical for the end of the 20th century, many works of that period that studied the particularities of characters’ appearance mirrored the notions about graphic and artistic portraits. Traditionally the portrait was researched in connection with the general history of art, and its depicting and artistic function was being actualized. However, it is not the primary function of the portrait, even if it could prove to be productive to research it in the case of painting writers or writing painters (for example M.A. Voloshin and K.A. Korovin). The author draws a specific conclusion that it would be impractical to distinguish a portrait as a closed integrity, and that the phrase “appearance visualization” seems to be the most fitting for describing the portrait features in works of fiction, as opposed to the literary portraits in biographical literature that portray and recreate the image of an existing person.",
+        "title": "Visualization of the Character's Appearance in Fiction"
+      },
+      "id": "002b06f568cb4df2ba786b62b52f846e",
+      "created_date": "2020-03-25T13:13:45Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:48:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2042-4752",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "country": "GB",
+          "issns": [
+            "2042-4752"
+          ],
+          "publisher": "Department of Art History, University of Birmingham",
+          "language": [
+            "EN"
+          ],
+          "title": "Journal of Art Historiography"
+        },
+        "month": "12",
+        "end_page": "SM2",
+        "keywords": [
+          "German nineteenth century art history writing",
+          "Rumohr",
+          "Kugler",
+          "Schnaase",
+          "Burckhardt",
+          "Springer",
+          "Justi",
+          "Schelling’s",
+          "Hegel’s philosophy of art",
+          "Empiricism",
+          "connoisseurship",
+          "biographical approaches",
+          "iconography",
+          "formalism"
+        ],
+        "year": "2013",
+        "start_page": "9",
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "GN1-890",
+            "scheme": "LCC",
+            "term": "Anthropology"
+          }
+        ],
+        "author": [
+          {
+            "name": "Stefan Muthesius"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://arthistoriography.files.wordpress.com/2013/12/muthesius-report-2.pdf"
+          }
+        ],
+        "abstract": "This article is based on what has been outlined in ‘Part I’ and on additional references to other new German  work, as well as to articles by two of the protagonists of the 1870s and 1880s, Anton Springer and Moritz Thausing. The central issue is the nineteenth century’s desire for a Verwissenschaftlichung of the subject, to render the subject ‘purely  scientific’. Principally this concerns the way in which older kinds of connoisseurship were juxtaposed to the new claims of a strictly ‘historical’ approach.  Much shorter sections touch on aspects of style, iconography and form, as well as on the history of the provision of illustrations.",
+        "title": "‘Towards an “exakte Kunstwissenschaft”(?). Part II: The new German art history in the nineteenth century: a summary of some problems'"
+      },
+      "created_date": "2013-12-07T12:57:28Z",
+      "id": "002c8b1f5d204b4cbf56fcb93dca35b6"
+    },
+    {
+      "last_updated": "2025-08-20T00:20:34Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2296-701X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fevo.2024.1299472",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "CH",
+          "issns": [
+            "2296-701X"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Ecology and Evolution"
+        },
+        "month": "1",
+        "keywords": [
+          "dendrochronology",
+          "climate reconstructions",
+          "drought",
+          "wildfires",
+          "Southern Mediterranean"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "QH359-425",
+            "scheme": "LCC",
+            "term": "Evolution"
+          },
+          {
+            "code": "QH540-549.5",
+            "scheme": "LCC",
+            "term": "Ecology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Botany and Microbiology Department, Faculty of Science, Helwan University, Cairo, Egypt",
+            "name": "Emad Farahat"
+          },
+          {
+            "affiliation": "Forest Dynamics, Dendrosciences, Swiss Federal Research Institute (WSL), Birmensdorf, Switzerland",
+            "name": "Holger Gärtner"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fevo.2024.1299472/full"
+          }
+        ],
+        "abstract": "The southern Mediterranean region, particularly North Africa, is a crucial area for biodiversity conservation. However, the impacts of climate change on plant species in this region are not well understood. Dendroecology, the study of tree rings, is a valuable technique for analyzing the effects of environmental changes on woody plants over time. In this study, we intend to assess the state of the art in dendrochronological research in North Africa and identify knowledge gaps and limitations in the field. The period of analysis spans from 1979 to 2023. We used all the available literature in Dendrobox and Google Scholar during this period. Our study revealed several research gaps in the region, including the need for more studies on the history of forest fires and their relationship to climate conditions in Morocco, Algeria, and Tunisia, the impact of climate on the anatomical characteristics of growth rings, and the effects of climate change on tree species diversity and forest health. Applying this technique in the future would allow for detailed insights into the effect of climate on the internal structure and growth of forest trees. The findings of this study will help guide future research and contribute to a better understanding of the climate-growth relationship of woody plants in North Africa.",
+        "title": "Dendrochronological studies in North Africa: reality and prospects"
+      },
+      "id": "002d41fb46b04085ac1be649535e900b",
+      "created_date": "2024-01-23T04:36:56Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:08:07Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0354-6055",
+            "type": "pissn"
+          },
+          {
+            "id": "2217-8074",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5937/arhurb1234066S",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "2012",
+          "number": "34",
+          "country": "RS",
+          "issns": [
+            "0354-6055",
+            "2217-8074"
+          ],
+          "publisher": "Institute of Architecture and Urban and Spatial Planning of Serbia",
+          "language": [
+            "SR"
+          ],
+          "title": "Arhitektura i Urbanizam"
+        },
+        "end_page": "71",
+        "keywords": [
+          "minimalism",
+          "modernism",
+          "postmodernism",
+          "new modernism",
+          "mass culture",
+          "architectural discourse"
+        ],
+        "year": "2012",
+        "start_page": "66",
+        "subject": [
+          {
+            "code": "NA1-9428",
+            "scheme": "LCC",
+            "term": "Architecture"
+          },
+          {
+            "code": "HT101-395",
+            "scheme": "LCC",
+            "term": "Urban groups. The city. Urban sociology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "n/a",
+            "name": "Stevanović Vladimir"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://scindeks-clanci.ceon.rs/data/pdf/0354-6055/2012/0354-60551234066S.pdf"
+          }
+        ],
+        "abstract": "The paper analyzes architectural discourse that is formed around the term minimalism, between 1976 and 1999, a period that I consider constitutive for theorization of the term. The presentation is directed by two hypotheses: I) minimalism in architecture does not have a continuous stream of origin, development, and is not a style, direction, movement, school, genre or trend in terms of how it is defined in disciplines such as art history, aesthetics and art theory II) the fact that it's rare for an architect to declare himself a minimalist suggests that minimalism in architecture is actually a product or construct of an architectural discourse that emerged from the need to consolidate the existing obvious and widespread formal idiom in architecture partly during and after post-modernism. It is indicative that the writing of history of minimalism in architecture, in its most intensive period - the nineties, takes place mainly in three cities: London, Barcelona and Milan. In this sense, we can examine how each of these centers emphasized its role, through the ambition of minimalism in architecture to appear as an authentic local creation.",
+        "title": "Constituent period in theoretization of minimalism in architecture"
+      },
+      "created_date": "2017-01-21T20:30:10Z",
+      "id": "002f2b387c494d528c49c15c2f3606b7"
+    },
+    {
+      "last_updated": "2025-08-19T17:30:09Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2242-0665",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "number": "4",
+          "country": "FI",
+          "issns": [
+            "2242-0665"
+          ],
+          "publisher": "Society for Art History in Finland",
+          "language": [
+            "FI"
+          ],
+          "title": "Tahiti"
+        },
+        "month": "August",
+        "year": "2016",
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "author": [
+          {
+            "name": "Renja Suominen-Kokkonen"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://tahiti.journal.fi/article/view/85642"
+          }
+        ],
+        "abstract": "In this article the question of how studies of wooden churches in Finland were influenced by Strzygowski, one of the most important European art historians of his day, is also of interest from the perspective of Finnish art history. Discussion and growing interest in the old wooden church building tradition is traced in particular in the work of Lars Pettersson (1918–1993), who began his career in art-historical research in the late 1930s. Throughout his career, Pettersson studied historic wooden churches and chapels in both Finland and Russian Karelia. With reference to a few selected examples concerning the cross-plan churches of Petäjävesi and Ruovesi, my article focuses on how Pettersson’s studies reveal an alternating dialectic of acceptance of and opposition to Strzygowski’s views and ideas. A comparison of their methods reveals a number of similar trains of thought. This cannot be just a coincidence, since Pettersson was already familiar with several studies by Josef Strzygowski when he was writing his master’s thesis. Pettersson’s work as a researcher was naturally influenced by many other factors, such as working for several years for the State Archaeological Commission and the role of the Swedish architect and Professor Erik Lundberg as his doctoral supervisor. It is nonetheless necessary to consider Strzygowski’s and Pettersson’s shared methods of art-historical research which their contemporaries regarded as important.",
+        "title": "Studies of Wooden Churches in Finland"
+      },
+      "created_date": "2019-09-30T13:54:17Z",
+      "id": "002fca734da94f96aefa7c3e69db1e10"
+    },
+    {
+      "last_updated": "2025-08-19T23:20:30Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/heritage6010030",
+            "type": "doi"
+          },
+          {
+            "id": "2571-9408",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "number": "1",
+          "country": "CH",
+          "issns": [
+            "2571-9408"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Heritage"
+        },
+        "month": "01",
+        "end_page": "586",
+        "keywords": [
+          "volcanic pozzolan",
+          "<i>pulvis puteolana</i>",
+          "Phlegraean pumices and tuffs",
+          "X-ray fluorescence",
+          "discriminant analysis",
+          "Roman mortars and binder"
+        ],
+        "year": "2023",
+        "start_page": "567",
+        "subject": [
+          {
+            "code": "CC1-960",
+            "scheme": "LCC",
+            "term": "Archaeology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Cultural Heritage: Archaeology, History of Art, Cinema and Music (DBC), University of Padua, Piazza Capitaniato 7, 35139 Padua, Italy",
+            "name": "Simone Dilaria"
+          },
+          {
+            "affiliation": "Department of Cultural Heritage: Archaeology, History of Art, Cinema and Music (DBC), University of Padua, Piazza Capitaniato 7, 35139 Padua, Italy",
+            "name": "Caterina Previato"
+          },
+          {
+            "affiliation": "Department of Cultural Heritage: Archaeology, History of Art, Cinema and Music (DBC), University of Padua, Piazza Capitaniato 7, 35139 Padua, Italy",
+            "name": "Jacopo Bonetto"
+          },
+          {
+            "affiliation": "Department of Cultural Heritage: Archaeology, History of Art, Cinema and Music (DBC), University of Padua, Piazza Capitaniato 7, 35139 Padua, Italy",
+            "name": "Michele Secco"
+          },
+          {
+            "affiliation": "Department of Cultural Heritage: Archaeology, History of Art, Cinema and Music (DBC), University of Padua, Piazza Capitaniato 7, 35139 Padua, Italy",
+            "name": "Arturo Zara"
+          },
+          {
+            "affiliation": "Department of Biology, Ecology and Earth Sciences (DiBEST), University of Calabria, Via P. Bucci, 87036 Arcavacata di Rende, Italy",
+            "name": "Raffaella De Luca"
+          },
+          {
+            "affiliation": "Department of Biology, Ecology and Earth Sciences (DiBEST), University of Calabria, Via P. Bucci, 87036 Arcavacata di Rende, Italy",
+            "name": "Domenico Miriello"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2571-9408/6/1/30"
+          }
+        ],
+        "abstract": "In this paper, we discuss the presence of volcanic pozzolans in the structural mortars of the Roman Temple of Nora in Sardinia (3rd c. AD), represented by pyroclastic rocks (pumices and tuffs) employed as coarse and fine aggregates. The provenance of these materials from the Phlegraean Fields was highlighted through a multi-analytical approach, involving Polarized Light Microscopy on thin sections (PLM), Scanning Electron Microscopy with Energy Dispersive Spectroscopy (SEM-EDS), Quantitative Phase Analysis by X-ray Powder Diffraction (QPA-XRPD), and X-ray Fluorescence (XRF) investigations. These volcanic pozzolans, outcropping in the Bay of Naples between Pozzuoli and the Vesuvius, are traditionally associated with the <i>pulvis puteolana</i>, the famous pozzolanic ash prescribed by Vitruvius and Pliny in order to confer strength and waterproofing capabilities to ancient concretes. This is the first evidence of the trade of this volcanic material from the Neapolitan area to Sardinia, starting at least by the Middle Imperial Age. The use of the <i>pulvis puteolana</i> in the Roman Temple of Nora seems primarily targeted to strengthen above-ground masonries, while waterproofing capabilities were not strictly pursued. This opens new questions about the construction reasons for which the demand and commercialization for this product was intended.",
+        "title": "Volcanic Pozzolan from the Phlegraean Fields in the Structural Mortars of the Roman Temple of Nora (Sardinia)"
+      },
+      "id": "0031e01a95c540958f73c9a932df38ab",
+      "created_date": "2023-01-20T14:55:25Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:44:28Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2041-9015",
+            "type": "eissn"
+          },
+          {
+            "id": "10.14324/111.444.2041-9015.1128",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "28",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "0965-9315",
+            "2041-9015"
+          ],
+          "publisher": "University College London",
+          "language": [
+            "EN"
+          ],
+          "title": "Papers from the Institute of Archaeology"
+        },
+        "month": "4",
+        "year": "2019",
+        "subject": [
+          {
+            "code": "CC1-960",
+            "scheme": "LCC",
+            "term": "Archaeology"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://student-journals.ucl.ac.uk/pia/article/id/1128/"
+          }
+        ],
+        "abstract": "To download this paper, please click here.This paper discusses the impact of ideas about the historical and racial origins of the Holy Family that are captured in the painting Anno Domini or the Flight into Egypt (1883/4) by Edwin Longsden Long. Anno Domini fits into a wider 19th-century popular visual and literary narrative around Egypt and its ancient and biblical past. This general narrative, and its racial constructions, has been explored within reception theory and art history, but often overlooked in histories of archaeology and Egyptology. This paper unpacks how Anno Domini fits into a well-known orientalist way of seeing Egypt but also reflects ideas about race that were prevalent in archaeology and other newly established scientific disciplines at the time. The construction of the Virgin Mary and Christ child as White Europeans in Anno Domini both reflects and had an impact on constructions of race in Britain and on ancient (and modern) peoples in the Holy Land and Egypt in the late nineteenth century.These constructions fed the growing use of scientific terminology to give such racist imagery authority, as found in A. H. Sayce's ‘Sunday school book’ The Races of the Old Testament (1891). Sayce’s popular book used photographs taken by the archaeologist Flinders Petrie in 1887 of different 'racial types' from Egyptian monuments. Anno Domini vividly illustrates the preoccupation with race and identity found in archaeological interpretations of and motivations for recording material culture from ancient Egypt. This paper illustrates how art, archaeology, orientalism and racial theory fused and fed each other.",
+        "title": "Seeing Race in Biblical Egypt: Edwin Longsden Long’s Anno Domini (1883) and A. H. Sayce’s The Races of the Old Testament (1891)"
+      },
+      "id": "00322d1b9a2444f7bfa9717b88f961e7",
+      "created_date": "2021-05-24T18:31:08Z"
+    },
+    {
+      "last_updated": "2025-08-19T15:53:49Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2242-0665",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "3",
+          "number": "4",
+          "country": "FI",
+          "issns": [
+            "2242-0665"
+          ],
+          "publisher": "Society for Art History in Finland",
+          "language": [
+            "FI"
+          ],
+          "title": "Tahiti"
+        },
+        "month": "12",
+        "year": "2013",
+        "subject": [
+          {
+            "code": "NX440-632",
+            "scheme": "LCC",
+            "term": "History of the arts"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "",
+            "name": "Tuuli Lähdesmäki"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://tahiti.fi/04-2013/paakirjoitus/"
+          }
+        ],
+        "title": "Taidehistorian tohtorikoulutus liikkeessä"
+      },
+      "created_date": "2018-03-29T17:19:36Z",
+      "id": "003cdea1711e4b51bfe85a1e2d8828a2"
+    },
+    {
+      "last_updated": "2025-08-19T17:35:59Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1735-708X",
+            "type": "pissn"
+          },
+          {
+            "id": "2676-7759",
+            "type": "eissn"
+          },
+          {
+            "id": "10.22034/ias.2020.236323.1275",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "18",
+          "number": "41",
+          "country": "IR",
+          "issns": [
+            "1735-708X",
+            "2676-7759"
+          ],
+          "publisher": "The Institute of Islamic Art Studies",
+          "language": [
+            "FA"
+          ],
+          "title": "هنر اسلامی"
+        },
+        "month": "5",
+        "keywords": [
+          "traditional motifs",
+          "accompaniment",
+          "inlaid art",
+          "tehran",
+          "contemporary period"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "هیات علمی دانشگاه سمنان",
+            "name": "mehdi amraei"
+          },
+          {
+            "affiliation": "Faculty of Shahed University",
+            "name": "Morteza Afshar"
+          },
+          {
+            "affiliation": "Assistant Professor of Faculty of Art, Shahed University, Tehran",
+            "name": "Khashayar Ghazizade"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://www.sysislamicartjournal.ir/article_127463_d41d8cd98f00b204e9800998ecf8427e.pdf"
+          }
+        ],
+        "abstract": "Inlaid art has undergone alternations from the beginning of its existence in Iran until the present era. Companionship in inlaid art can be examined from several perspectives; the first is the association of this art with the nature of its raw materials, which takes on a diverse shape and form due to the characteristics of these materials; second, the role of wood art accompaniment as an art complement to inlaid art from the point of view of technique and procedure, however, the most significant of these are the effects of traditional patterns on inlaid art in terms of design and the developments that occur in the field of contemporary inlay and so far comprehensively has not been purposefully studied. This research is accomplished via a descriptive and analytical methods by the means of library data. The findings of the research indicate that these accompaniments have always been associated with remarkable innovations and developments in contemporary inlaid art, and this research focuses on the analysis of traditional motifs in contemporary inlays in order to achieve changes in the inlaid art by relying on the contemporary artworks of Tehran; in such a way that the influence of traditional motifs in achieving luxurious formulations can be achieved. It is certain that inlaid art, due to the inherent need for role and design, has continuously benefited from the combination of beautiful and executable designs and designs in each period throughout history, and in the contemporary period with artistic developments in Tehran and the presence of prominent artists in the capital. Art has also manifested itself with new, valuable and glorious innovations and formulations that are unprecedented in the history of Iranian inlay.\nResearch aims:\n1. A study of traditional motifs in Iranian inlaid art.\n2. An overview on the widespread effects of designs on contemporary Iranian inlay.\nResearch questions:\n1. What is the role of traditional patterns in the \"design\" of the magnificent works of contemporary inlay?\n2. How are the bases for using traditional motifs in contemporary inlay formed?",
+        "title": "The Analysis of Traditional Motifs in the Form of Contemporary Inlay in Tehran"
+      },
+      "id": "0040d6a5b95e411db4bce2a3fe619b00",
+      "created_date": "2021-10-09T07:50:52Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:27:11Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/arts13010021",
+            "type": "doi"
+          },
+          {
+            "id": "2076-0752",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "number": "1",
+          "country": "CH",
+          "issns": [
+            "2076-0752"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Arts"
+        },
+        "month": "01",
+        "keywords": [
+          "contemporary art",
+          "sculpture",
+          "Black feminism",
+          "modernism",
+          "haptic",
+          "collective memory"
+        ],
+        "year": "2024",
+        "start_page": "21",
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Art and Art History, DePauw University, Greencastle, IN 46135, USA",
+            "name": "Sarah Louise Cowan"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2076-0752/13/1/21"
+          }
+        ],
+        "abstract": "Modernist propositions long have been understood as atemporal—somehow outside of time—or insistently hailing the future. This temporal framework suppresses the contributions of those excluded from modernist canons, particularly Black women. In this article, visual and material analysis of sculptural works produced in the 1970s and 1980s by U.S. Black women artists Beverly Buchanan, Senga Nengudi, and Betye Saar reveal how Black feminists have engaged with modernist protocols in order to redress cultural erasures of Black women. These practices exemplify <i>Black feminist modernisms</i>, or creative practices that unsettle the racist and sexist logics of dominant cultural institutions. Each of these artists utilizes haptic surfaces as a method for defying institutional modernism’s obfuscation of the past. The analysis focuses on Buchanan’s defiance of memorial erasures, Nengudi’s reenactment of labor, including in its historical forms, and Saar’s adaptation of generational memory-making processes. Ultimately, these artists’ rejection of a “timeless” modernism demands that viewers understand the present moment in relationship to a still-evolving past. In this way, Buchanan, Nengudi, and Saar position the present as an accumulation, rather than transcendence, of historical occurrences.",
+        "title": "To Touch Time: U.S. Black Feminist Modernist Sculpture in the 1970s and 1980s"
+      },
+      "id": "0041d5b690604ec5a996d837f35bdcce",
+      "created_date": "2024-02-23T15:06:53Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:05:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s12889-024-19653-w",
+            "type": "doi"
+          },
+          {
+            "id": "1471-2458",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "24",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1471-2458"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "BMC Public Health"
+        },
+        "month": "8",
+        "end_page": "11",
+        "keywords": [
+          "Preconception care",
+          "HIV-positive",
+          "Women",
+          "Utilization",
+          "Southern",
+          "Ethiopia"
+        ],
+        "year": "2024",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RA1-1270",
+            "scheme": "LCC",
+            "term": "Public aspects of medicine"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Public Health, Hossana College of Health Science",
+            "name": "Bezabih Fikire"
+          },
+          {
+            "affiliation": "School of Public Health, College of Medicine and Health Science, Wachemo University",
+            "name": "Tagesse Sedoro"
+          },
+          {
+            "affiliation": "Department of Public Health, Hossana College of Health Science",
+            "name": "Habtamu Hasen"
+          },
+          {
+            "affiliation": "School of Public Health, College of Medicine and Health Science, Wachemo University",
+            "name": "Dejene Ermias Mekango"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s12889-024-19653-w"
+          }
+        ],
+        "abstract": "Abstract Background Globally, the HIV pandemic makes preconception care even more crucial due to the additional risks for sexual and vertical transmission of HIV. However, there is limited evidence on the utilization of preconception care among high-risk women in Ethiopia. The purpose of this research is to assess preconception care utilization and associated factors among HIV-positive women of reproductive age who attend ART clinics in public hospitals in the Hadiya zone of Southern Ethiopia in 2023. Methods A cross-sectional study design employing a mixed methods approach was used among 297 study participants from July 1-Semptember 1, 2022. Data were collected by pretested structured questionnaires. The data were analyzed by SPSS statistical software version 25. Logistic regression, Adjusted Odds Ratio (AOR) with a 95% confidence interval was computed, and variables with a p-value < 0.05 were considered statistically significant. Qualitative data were analyzed using open code version 4.03. Results This study revealed that 19.9% (95%Cl: 15.4, 24.2) of study participants use preconception care. Women’s autonomy (AOR = 3.65; 95% CI: 1.14, 11.68;P = 0.03), knowledge of PCC (AOR = 3.05; 95% CI: 1.13, 8.22; P = 0.001), getting family/husband support (AOR = 4.06; 95% CI: 1.56, 10.53;P = 0.022), discussions with healthcare providers (AOR = 5.60; 95% CI: 2.26, 13.90;P = 0.002), availability of room for PCC (AOR = 3.77; 95% CI: 1.38, 10.31;P = 0.009), getting all laboratory services (AOR = 4.19; 95% CI: 1.61, 10.94; P = 0.002), and history of medical problems (AOR = 2.94; 95% CI: 11.01, 8.62;P = 0.036) were significantly associated with PCC use. Conclusion The level of PCC use in the current study area is low. Women’s autonomy, knowledge of PCC, obtaining support from family or husband, engaging in discussions with healthcare providers, having access to a PCC room, access to all laboratory services, and having a history of medical problems are significantly associated with PCC use. Our findings suggest integrating PCC into routine HIV care, boosting women’s autonomy, and integrating family support with healthcare providers.",
+        "title": "Preconception care use and associated factors among HIV positive reproductive age women attending ART clinics at public hospitals in the Hadiya zone, southern Ethiopia: a mixed method approach"
+      },
+      "id": "0044f344d5244deabf58edb4a5795d64",
+      "created_date": "2024-08-11T11:35:01Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:43:44Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/1471-2288-9-11",
+            "type": "doi"
+          },
+          {
+            "id": "1471-2288",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1471-2288"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "BMC Medical Research Methodology"
+        },
+        "month": "2",
+        "year": "2009",
+        "start_page": "11",
+        "subject": [
+          {
+            "code": "R5-920",
+            "scheme": "LCC",
+            "term": "Medicine (General)"
+          }
+        ],
+        "author": [
+          {
+            "name": "Pape Sarah A"
+          },
+          {
+            "name": "Monstrey Stan"
+          },
+          {
+            "name": "Hoeksema Henk"
+          },
+          {
+            "name": "Jeng James C"
+          },
+          {
+            "name": "Weinand Christian"
+          },
+          {
+            "name": "Baker Rose D"
+          },
+          {
+            "name": "Spence Robert"
+          },
+          {
+            "name": "Wilson David"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://www.biomedcentral.com/1471-2288/9/11"
+          }
+        ],
+        "abstract": "<p>Abstract</p> <p>Background</p> <p>Laser-Doppler imaging (LDI) of cutaneous blood flow is beginning to be used by burn surgeons to predict the healing time of burn wounds; predicted healing time is used to determine wound treatment as either dressings or surgery. In this paper, we do a statistical analysis of the performance of the technique.</p> <p>Methods</p> <p>We used data from a study carried out by five burn centers: LDI was done once between days 2 to 5 post burn, and healing was assessed at both 14 days and 21 days post burn. Random-effects ordinal logistic regression and other models such as the continuation ratio model were used to model healing-time as a function of the LDI data, and of demographic and wound history variables. Statistical methods were also used to study the false-color palette, which enables the laser-Doppler imager to be used by clinicians as a decision-support tool.</p> <p>Results</p> <p>Overall performance is that diagnoses are over 90% correct. Related questions addressed were what was the best blood flow summary statistic and whether, given the blood flow measurements, demographic and observational variables had any additional predictive power (age, sex, race, % total body surface area burned (%TBSA), site and cause of burn, day of LDI scan, burn center). It was found that mean laser-Doppler flux over a wound area was the best statistic, and that, given the same mean flux, women recover slightly more slowly than men. Further, the likely degradation in predictive performance on moving to a patient group with larger %TBSA than those in the data sample was studied, and shown to be small.</p> <p>Conclusion</p> <p>Modeling healing time is a complex statistical problem, with random effects due to multiple burn areas per individual, and censoring caused by patients missing hospital visits and undergoing surgery. This analysis applies state-of-the art statistical methods such as the bootstrap and permutation tests to a medical problem of topical interest. New medical findings are that age and %TBSA are not important predictors of healing time when the LDI results are known, whereas gender does influence recovery time, even when blood flow is controlled for.</p> <p>The conclusion regarding the palette is that an optimum three-color palette can be chosen 'automatically', but the optimum choice of a 5-color palette cannot be made solely by optimizing the percentage of correct diagnoses.</p>",
+        "title": "Using ordinal logistic regression to evaluate the performance of laser-Doppler predictions of burn-healing time"
+      },
+      "created_date": "2009-04-12T00:00:00Z",
+      "id": "0051f7cc674a461ca377cd7bbd0f1ebc"
+    },
+    {
+      "last_updated": "2025-08-19T22:58:13Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2190-3328",
+            "type": "eissn"
+          },
+          {
+            "id": "10.11588/riha.2023.1.92215",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "country": "CH",
+          "issns": [
+            "2190-3328"
+          ],
+          "publisher": "International Association of Research Institutes in the History of Art (RIHA)",
+          "language": [
+            "DE",
+            "EN",
+            "ES",
+            "FR",
+            "IT"
+          ],
+          "title": "RIHA Journal"
+        },
+        "month": "3",
+        "keywords": [
+          "surrealism",
+          "avant-garde",
+          "antonin artaud",
+          "marcel schwob",
+          "paolo uccello",
+          "quattrocento"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "N",
+            "scheme": "LCC",
+            "term": "Fine Arts"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "University of Amsterdam",
+            "name": "Tessel M. Bauduin"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://journals.ub.uni-heidelberg.de/index.php/rihajournal/article/view/92215"
+          }
+        ],
+        "abstract": "In the 1920s and '30s the fourteenth-century Italian artist Paolo Uccello was appropriated as a precursor of Surrealism in the French surrealist discourse. Pivotal were two texts, a mini-play and an essay, that the playwright Antonin Artaud, then in his surrealist phase, dedicated to Uccello between 1924 and 1926. This article analyses both texts and shows the construction, by Artaud, of Uccello as his potential double, and especially as someone dedicated to mind over matter, a key facet of Uccello’s reception as a fellow traveler of Surrealism. It identifies an artwork ascribed to Uccello, discussed by Artaud and thought imaginary, as a panel currently in the Louvre. Finally, it shows that an imagined biography of the artist by the symbolist writer Marcel Schwob forms the key hypotext for Artaud and other surrealists, with strong echoes of Vasari’s vita of Uccello, which was in turn Schwob’s hypotext.",
+        "title": "0296 Paolo Uccello in French Surrealism: Doubling Antonin Artaud"
+      },
+      "id": "0057bc0dab474502b909733d56af3b66",
+      "created_date": "2023-09-29T07:32:47Z"
+    },
+    {
+      "last_updated": "2026-06-04T13:54:01Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0085-1892",
+            "type": "pissn"
+          },
+          {
+            "id": "2983-855X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4000/kikirpa.526",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "38",
+          "country": "BE",
+          "issns": [
+            "0085-1892",
+            "2983-855X"
+          ],
+          "publisher": "Institut royal du Patrimoine artistique - Koninklijk Instituut voor het Kunstpatrimonium",
+          "language": [
+            "EN",
+            "FR",
+            "WA"
+          ],
+          "title": "Bulletin de l’Institut Royal du Patrimoine Artistique"
+        },
+        "month": "09",
+        "end_page": "59",
+        "keywords": [
+          "art history",
+          "seventeenth century",
+          "painting",
+          "Michaelina Wautier",
+          "Charles Wautier",
+          "attribution"
+        ],
+        "year": "2023",
+        "start_page": "36",
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          }
+        ],
+        "author": [
+          {
+            "name": "Jahel Sanzsalazar"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://journals.openedition.org/kikirpa/526"
+          }
+        ],
+        "abstract": "This article will examine two very accomplished paintings, in terms of their size and quality: the Death of Seneca and Apollo flaying Marsyas, two works that can be directly connected to those by ‘Wautier’, having been recorded in the collection of the City of Brussels architect, Pierre de Doncker in 1764. Stylistically, the first relates to works by Charles Wautier, whilst the second is more connected to the paintings of Michaelina, making it possible to identify each of the artists as authors of one and the other works. Inviting us to make comparisons as well as observe differences, that enable us to better understand their practice and approach, in an attempt to distinguish the oeuvre of the sibling painters whose vital and artistic fusion cannot be refuted, and undeniably remains a challenge for today’s scholars.",
+        "title": "La mort à l’honneur. Sénèque et Marsyas, deux tableaux des Wautier retrouvés"
+      },
+      "id": "005b5b30b4044896a8390b555b2c00ad",
+      "created_date": "2026-06-04T13:54:01Z"
+    },
+    {
+      "last_updated": "2025-10-02T00:05:15Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.31866/2617-2674.7.2.2024.318991",
+            "type": "doi"
+          },
+          {
+            "id": "2617-2674",
+            "type": "pissn"
+          },
+          {
+            "id": "2617-4049",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "number": "2",
+          "country": "UA",
+          "issns": [
+            "2617-2674",
+            "2617-4049"
+          ],
+          "publisher": "Kyiv National University of Culture and Arts Publishing Center",
+          "language": [
+            "EN",
+            "UK"
+          ],
+          "title": "Вісник Київського національного університету культури і мистецтв. Серія: Аудіовізуальне мистецтво і виробництво"
+        },
+        "month": "December",
+        "keywords": [
+          "culture",
+          "author's cinematography",
+          "director",
+          "subject of creativity",
+          "Middle East cinema",
+          "national traditions"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "N",
+            "scheme": "LCC",
+            "term": "Fine Arts"
+          },
+          {
+            "code": "N1-9211",
+            "scheme": "LCC",
+            "term": "Visual arts"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "National Academy of Culture and Arts Management",
+            "name": "Галина Погребняк"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://audiovisual-art.knukim.edu.ua/article/view/318991"
+          }
+        ],
+        "abstract": "\nThe purpose of the research is to identify relevant narratives in the work of directors-authors of Middle Eastern cinema and its functioning in the space of international film festivals. Research methodology. The analytical method was used to develop the topic, which is necessary for studying the art history and cultural aspects of the problem. The researcher used the techniques of systematisation and generalisation, which came in handy for arguing the originality of the phenomenon of film directing in Middle Eastern countries, its place in modern culture-creating processes, as well as the determination of objective regularities that characterise directing practices in the contemporary intercultural space. A cross-cultural method was also applied, which contributed to identifying the peculiarities of the presentation of films by Middle Eastern directors at international film festivals. The cultural approach determined the generalised socio-cultural orientation of the research on the cinematography of Middle Eastern countries. The scientific novelty of the research lies in the fact that the problem of intercultural cooperation in the production and distribution of films in Middle Eastern countries in the context of the functioning of international support programs became the subject of a particular study for the first time; the work of filmmakers whose films were created as international projects and presented at international film festivals is singled out and characterised; the practicality of using the systematic method in the study of new narratives of films of the Middle Eastern region is proven. Conclusions. Familiarisation with the materials presented in the article expands the arsenal of knowledge about the specifics of the content and distribution of films by Middle Eastern directors within the framework of intercultural projects. It enables their use in educational courses on the theory and history of culture, cinema and directing.\n",
+        "title": "Authorial Narratives in the Work of Middle Eastern Directors"
+      },
+      "id": "005e4bf4d4e9409088b35b15046d442e",
+      "created_date": "2025-01-15T14:04:05Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:09:42Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.51461/projectbaikal.71.1961",
+            "type": "doi"
+          },
+          {
+            "id": "2307-4485",
+            "type": "pissn"
+          },
+          {
+            "id": "2309-3072",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "19",
+          "number": "71",
+          "country": "RU",
+          "issns": [
+            "2307-4485",
+            "2309-3072"
+          ],
+          "publisher": "Russian Academy of Architecture and Construction Sciences",
+          "language": [
+            "RU"
+          ],
+          "title": "Проект Байкал"
+        },
+        "month": "June",
+        "keywords": [
+          "Vasily Semenovich Goryunov",
+          "non-linear model of architectural history",
+          "style",
+          "Art Nouveau period",
+          "eclecticism",
+          "“anti-eclectic movement”"
+        ],
+        "year": "2022",
+        "subject": [
+          {
+            "code": "NA1-9428",
+            "scheme": "LCC",
+            "term": "Architecture"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Ural Federal University named after B. N. Yeltsin",
+            "name": "Елена Багина"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://projectbaikal.com/index.php/pb/article/view/1961"
+          }
+        ],
+        "abstract": "\nThe traditional consideration of architectural history as a linear process, where one style successively replaces another, still dominates, but does not explain many phenomena. V.S. Goryunov substantiated a fundamentally different, non-linear model of the historical process in architecture on the basis of architecture of the 19th – early 20th centuries. V. S. Goryunov and M. P. Tubli proposed a stylistic polyphony of architecture with the introduction of the concepts of “Art Nouveau period” and “anti-eclectic movement”. In October 2021, a collection of articles by V. S. Goryunov entitled “Theoretical Problems of the History of Architecture” was published. The articles in this collection represent the main theoretical ideas of the scientist.\n",
+        "title": "Thus said Hippocrates"
+      },
+      "id": "006981a834eb43d78c547750d71dcdab",
+      "created_date": "2022-06-12T04:25:45Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:03:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2149-9535",
+            "type": "pissn"
+          },
+          {
+            "id": "2636-7777",
+            "type": "eissn"
+          },
+          {
+            "id": "10.24186/vakanuvis.688693",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "TR",
+          "issns": [
+            "2149-9535",
+            "2636-7777"
+          ],
+          "publisher": "Serkan Yazıcı",
+          "language": [
+            "EN",
+            "TR"
+          ],
+          "title": "Vakanüvis Uluslararası Tarih Araştırmaları Dergisi"
+        },
+        "month": "3",
+        "end_page": "477",
+        "keywords": [
+          "цивилизация",
+          "история",
+          "турецкий",
+          "исламский",
+          "искусство",
+          "medeniyet",
+          "tarih",
+          "türk",
+          "i̇slam",
+          "sanat",
+          "civilization",
+          "history",
+          "turkish",
+          "islam",
+          "art"
+        ],
+        "year": "2020",
+        "start_page": "463",
+        "subject": [
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "KASTAMONU ÜNİVERSİTESİ",
+            "name": "Vesile  ŞEMŞEK"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://dergipark.org.tr/tr/pub/vakanuvis/issue/52650/688693?publisher=vakanuvis"
+          }
+        ],
+        "abstract": "İslam Medeniyeti, bu dini kabul etmiş milletlerin, İslam’ın etkisi altında kalarak meydana getirdikleri medeniyetin ortak tanımıdır. Bu kavram, Müslümanlığı kabul etmiş milletlerin tarihinde ayrı ayrı incelenemeyeceği gibi başlı başına tek bir medeniyet olarak da incelenemez. Çünkü, bir İslam dini vardır, fakat bağımsız bir İslam medeniyeti yoktur. Bu da İslamın bir milletin dini olmaması, bütün insanlığa göğüs açan bir din olmasındandır. Bu sebeple İslam medeniyeti demek, Arap - Türk - İran medeniyetleri demektir. Bilimde, şiirde, edebiyatta, mimarlıkta durum böyledir. Yalnız hukukta, İslam medeniyeti, kendine has bir özellik taşımaktadır. Askerlik ve yönetim düzeninde ise, Türklerin etkisi çok büyüktür. İslam medeniyetinin hukuki açıdan, bu medeniyetin en önemli yönünü meydana getirmektedir. Mutlak bir kardeşlik esasına dayanan İslamiyet, Müslümanlar arasındaki zümre farkını kaldırarak, ahlaki yönden yeni ve sağlam esaslar getirmektedir. Nitekim,  bu nedenle bile, İslamiyet, bir ahlak medeniyeti olarak da tanımlanabilir. \nİslam medeniyeti içinde bulunan topluluklara ve devlet düzenine yeni kurallar getirerek, her sanat ve yönetim şekli, bu medeniyetin içinde genelleşmiş ve toplu olarak İslam medeniyetini ifade eder olmuştur. Bu arada çeşitli sanat kollarında ilerlemeler olmuş resim ve heykeltıraşlığın İslamlıkta yasak olmasına ve hiç bir gelişme kazanamamasına karşılık, mimarlık alanında çok büyük ilerlemeler kazanılmıştır. İslam medeniyeti, bilim alanında da, Türk, Arap ve Acem bilim adamlarının aracılığı ile büyük gelişmeler kazanmış, Ortaçağ boyunca Avrupa ve Asya ülkelerinde iz bırakan bilim adamlarının yetişmesine yol açmıştır.\nRusça hazırladığımız bu ilmi araştırmanın nihai hedefi, İslam’ın, farklı medeniyetlere kattığı ilmi ve kültürel değerleri ortaya çıkarmaktır. Ayrıca, aynı zamanda bir ahlak medeniyeti olan İslam Medeniyetinin, tarihi gelişim sürecindeki faaliyetlere yönelik bilgileri, bütün Rusya coğrafyasında yaşayan halklara ulaştırmak ve aktarmaktır.",
+        "title": "İslam Medeniyet Tarihinin ‘’Altın Çağ’’ında Yapılan İlmi Ve Kültürel Naailiyetler Üzerine Bazı Görüşler"
+      },
+      "id": "006a1e6d70114e39a180a91bfd9cca6e",
+      "created_date": "2020-03-09T16:44:44Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:02:16Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.35632/ajis.v24i3.1543",
+            "type": "doi"
+          },
+          {
+            "id": "2690-3733",
+            "type": "pissn"
+          },
+          {
+            "id": "2690-3741",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "24",
+          "number": "3",
+          "country": "US",
+          "issns": [
+            "2690-3733",
+            "2690-3741"
+          ],
+          "publisher": "International Institute of Islamic Thought",
+          "language": [
+            "EN"
+          ],
+          "title": "American Journal of Islam and Society"
+        },
+        "month": "July",
+        "year": "2007",
+        "subject": [
+          {
+            "code": "BP1-253",
+            "scheme": "LCC",
+            "term": "Islam"
+          }
+        ],
+        "author": [
+          {
+            "name": "Muhammed Haron"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.ajis.org/index.php/ajiss/article/view/1543"
+          }
+        ],
+        "abstract": "Turkish-African relations began with the formation of the Ottoman Empire.\nEarly relations were confined to parts of modern-day Tunisia, Libya and\nEgypt, which the empire ruled for centuries. Later on, the empire spread to\nother parts of Africa, as shown by such emerging scholars as Hatice Ugur,\nwho wrote Osmanli Afrikasi’nda Bir Sultanlik Zengibar (Istanbul: 2005),\nand the scholarly works of Eric Germaine and others. Their research has\nbeen bolstered by the variety of extant documents that still need to be studied and explored (cf. A. Kavas, ed. Solidarity of Ottoman-African Muslims:\nUnder the Light of the Documents [Istanbul: 2006]). However, emerging\nAfrican scholars interested in these manuscripts will have to be trained in\nand come to grips with Ottoman Turkish before making any headway.\nRenewed efforts are now undeway to forge links with Africa’s Muslim\ncommunities and representatives. The Research Center for Islamic History,\nArt, and Culture (IRCICA), an international institution that falls under the\nauspices of the Organization of Islamic Conference (OIC), has created the\nnecessary opportunities to cement and strengthen links with African Muslim\ncommunities via specific structures, such as the Islamic University of Uganda\nand the University of Johannesburg. In the wake of these significant efforts,\nthe Presidency of Religious Affairs (more popularly known in Turkey as the\nDiyanat [hereinafter Presidency]) has also shown its desire to pursue external\nrelations with religious communities outside Turkey. Over the past few\nyears, the Presidency has played a significant role in “religious affairs” both\nin and beyond Turkey in order to pursue its religious portfolio and religious\nagenda. Although the predominantly Muslim societies of the Muslim heartlands\nview Turkey, in general, as the most secular Muslim society, a strand of\nreligiosity has been observed in its various social levels and sectors.\nTherefore, Turkish society cannot be said to be exclusively secular ...",
+        "title": "African Muslim Leaders and Turkey’s Diyanat"
+      },
+      "id": "006dd263b534483f9e882d15984c1020",
+      "created_date": "2021-10-29T19:43:20Z"
+    },
+    {
+      "last_updated": "2025-10-27T09:25:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.18352/bmgn-lchr.8597",
+            "type": "doi"
+          },
+          {
+            "id": "0165-0505",
+            "type": "pissn"
+          },
+          {
+            "id": "2211-2898",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "128",
+          "number": "3",
+          "country": "NL",
+          "issns": [
+            "0165-0505",
+            "2211-2898"
+          ],
+          "publisher": "openjournals.nl",
+          "language": [
+            "EN",
+            "NL"
+          ],
+          "title": "BMGN: Low Countries Historical Review"
+        },
+        "month": "September",
+        "keywords": [
+          "Art",
+          "History of science"
+        ],
+        "year": "2013",
+        "subject": [
+          {
+            "code": "DH1-925",
+            "scheme": "LCC",
+            "term": "History of Low Countries - Benelux Countries"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Royal Netherlands Historical Society (editorial secretary)",
+            "name": "Sachiko Kusukawa"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://bmgn-lchr.nl/article/view/6080"
+          }
+        ],
+        "title": "Eric Jorink and Bart Ramakers (eds.), Art and science in the Early Modern Netherlands. Kunst en wetenschap in de vroegmoderne Nederlanden"
+      },
+      "id": "0075c34e55994aae9c2823a6eb10b581",
+      "created_date": "2025-10-27T09:25:17Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/articles/art%20history?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/articles/art%20history?page=588&pageSize=25"
+}

@@ -1,0 +1,22 @@
+{
+  "run_id": "wayback-snapshots-2026-06-14T19-57-29-471Z",
+  "source_id": "wayback-machine-cdx",
+  "started_at": "2026-06-14T19:58:40.455Z",
+  "completed_at": "2026-06-14T19:58:52.879Z",
+  "status": "success",
+  "access_route": "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
+  "target_source_id": "yale-humanities-departments",
+  "target_school": "Yale University",
+  "target_department": "English",
+  "target_page_type": "department-home",
+  "raw_outputs": [
+    "data/knowledge-base/raw/wayback-machine-cdx/2026-06-14/wayback-snapshots-2026-06-14T19-57-29-471Z/yale-university-english-department-home/response.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 1,
+  "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+  "errors": []
+}

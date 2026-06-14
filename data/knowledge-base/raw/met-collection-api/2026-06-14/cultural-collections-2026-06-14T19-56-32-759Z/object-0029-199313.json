@@ -1,0 +1,151 @@
+{
+  "objectID": 199313,
+  "isHighlight": false,
+  "accessionNumber": "43.99",
+  "accessionYear": "1943",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/es/original/DP-25866-001.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/es/web-large/DP-25866-001.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/es/original/DT5157.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 163574,
+      "role": "Artist",
+      "name": "After a painting by baron François Gérard",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500115453",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q163543",
+      "gender": ""
+    },
+    {
+      "constituentID": 163552,
+      "role": "Manufactory",
+      "name": "Manufacture Nationale des Gobelins",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500310583",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q732312",
+      "gender": ""
+    },
+    {
+      "constituentID": 163544,
+      "role": "Workshop director",
+      "name": "Workshop of Michel Henri Cozette",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500080732",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q83330715",
+      "gender": ""
+    },
+    {
+      "constituentID": 164053,
+      "role": "Maker",
+      "name": "Woven by Harland the Elder",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500524357",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 162445,
+      "role": "Maker",
+      "name": "Woven by Abel Nicolas Sollier",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500331842",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 163890,
+      "role": "Maker",
+      "name": "Woven by Charles Duruy",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500524344",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 163227,
+      "role": "Patron",
+      "name": "Commissioned by Napoléon Bonaparte",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500434783",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q517",
+      "gender": ""
+    }
+  ],
+  "department": "European Sculpture and Decorative Arts",
+  "objectName": "Tapestry",
+  "title": "Portrait of Napoleon I",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "After a painting by",
+  "artistDisplayName": "baron François Gérard",
+  "artistDisplayBio": "French, Rome 1770–1837 Paris",
+  "artistSuffix": "",
+  "artistAlphaSort": "Gérard, François, baron",
+  "artistNationality": "French",
+  "artistBeginDate": "1770",
+  "artistEndDate": "1837",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q163543",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500115453",
+  "objectDate": "designed 1805, woven 1808–11",
+  "objectBeginDate": 1805,
+  "objectEndDate": 1811,
+  "medium": "Wool, silk, silver-gilt thread (26-28 warps per inch, 10-12 per cm.); gilded pine frame",
+  "dimensions": "87 1/2 × 57 1/2 in. (222.3 × 146.1 cm)\r\nFramed: 8 ft. 9 3/4 in. × 75 3/4 in. (268.6 × 192.4 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Length": 222.25044,
+        "Width": 146.0503
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "Framed",
+      "elementMeasurements": {
+        "Length": 268.60553,
+        "Width": 192.40538
+      }
+    }
+  ],
+  "creditLine": "Purchase, Joseph Pulitzer Bequest, 1943",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Textiles-Tapestries",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-05T04:54:35.18Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/199313",
+  "tags": [
+    {
+      "term": "Napoleon I",
+      "AAT_URL": "http://vocab.getty.edu/page/ulan/500122388",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q517"
+    },
+    {
+      "term": "Men",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025928",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q8441"
+    },
+    {
+      "term": "Portraits",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300015637",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q134307"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116308197",
+  "isTimelineWork": true,
+  "GalleryNumber": "553"
+}

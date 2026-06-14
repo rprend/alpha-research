@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T19:50:55.513Z",
-  "replacement_plan_count": 15,
+  "generated_at": "2026-06-14T20:04:09.265Z",
+  "replacement_plan_count": 16,
   "replacement_plans": [
     {
       "source_id": "harvard-humanities-departments",
@@ -133,8 +133,8 @@
       "source_class": "journals-and-reviews",
       "ingest_status": "blocked",
       "redistribution_status": "local-analysis-only",
-      "failure_count": 4,
-      "latest_failure_at": "2026-06-13T16:41:51.214Z",
+      "failure_count": 6,
+      "latest_failure_at": "2026-06-14T20:02:56.346Z",
       "latest_error": "HTTP 404 Not Found",
       "failed_routes": [
         "https://lareviewofbooks.org/feed/"
@@ -230,18 +230,18 @@
       "source_class": "web-archives",
       "ingest_status": "seeded-from-experiment",
       "redistribution_status": "metadata-only",
-      "failure_count": 10,
-      "latest_failure_at": "2026-06-14T18:29:20.316Z",
+      "failure_count": 20,
+      "latest_failure_at": "2026-06-14T20:04:03.662Z",
       "latest_error": "This operation was aborted",
       "failed_routes": [
-        "https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
-        "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
-        "https://web.archive.org/cdx?url=humanities.uchicago.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
-        "https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
-        "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
-        "https://web.archive.org/cdx?url=history.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
-        "https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
-        "https://web.archive.org/cdx?url=history.princeton.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10"
+        "https://web.archive.org/cdx?url=philosophy.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
+        "https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
+        "https://web.archive.org/cdx?url=complit.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=3",
+        "https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2",
+        "https://web.archive.org/cdx?url=history.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2",
+        "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2",
+        "https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2",
+        "https://web.archive.org/cdx?url=complit.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=2"
       ],
       "affected_targets": [
         "Harvard University English department-home",
@@ -249,7 +249,9 @@
         "University of Chicago Humanities Division division-home",
         "Harvard University History department-home",
         "Yale University History department-home",
-        "Princeton University History department-home"
+        "Princeton University History department-home",
+        "Harvard University Philosophy department-home",
+        "Yale University Comparative Literature department-home"
       ],
       "replacement_status": "retry-with-smaller-route",
       "replacement_routes": [
@@ -266,8 +268,8 @@
       "source_class": "cultural-collections",
       "ingest_status": "active",
       "redistribution_status": "metadata-ok",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-14T19:01:47.833Z",
+      "failure_count": 3,
+      "latest_failure_at": "2026-06-14T20:02:34.741Z",
       "latest_error": "HTTP 429 Too Many Requests",
       "failed_routes": [
         "source-specific cultural collections API routes"
@@ -303,6 +305,27 @@
       "do_not_do": "Do not scrape blocked catalog pages or store restricted full text."
     },
     {
+      "source_id": "wikidata-cultural-entities",
+      "name": "Wikidata Cultural Entities",
+      "source_class": "linked-open-data",
+      "ingest_status": "active",
+      "redistribution_status": "derived-metadata-ok",
+      "failure_count": 3,
+      "latest_failure_at": "2026-06-14T19:56:24.010Z",
+      "latest_error": "HTTP 502 Bad Gateway",
+      "failed_routes": [
+        "https://query.wikidata.org/sparql"
+      ],
+      "affected_targets": [],
+      "replacement_status": "source-specific-review-needed",
+      "replacement_routes": [
+        "Review source terms, robots, documented APIs, sitemaps, and public exports.",
+        "Prefer metadata routes over page scraping where available."
+      ],
+      "next_action": "Write a source-specific acquisition note before retrying.",
+      "do_not_do": "Do not repeatedly retry the same failed route without a changed route or terms decision."
+    },
+    {
       "source_id": "aha-annual-meeting-programs",
       "name": "American Historical Association Annual Meeting Programs",
       "source_class": "conference-programs",
@@ -329,8 +352,8 @@
       "source_class": "scholarly-metadata",
       "ingest_status": "active",
       "redistribution_status": "metadata-ok",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-13T16:25:24.203Z",
+      "failure_count": 2,
+      "latest_failure_at": "2026-06-14T19:57:06.628Z",
       "latest_error": "This operation was aborted",
       "failed_routes": [
         "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=10"

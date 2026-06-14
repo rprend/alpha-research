@@ -1,0 +1,1770 @@
+{
+  "total": 581346,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T19:55:41.441017Z",
+  "query": "philosophy",
+  "results": [
+    {
+      "last_updated": "2025-09-02T00:01:47Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1819-7671",
+            "type": "pissn"
+          },
+          {
+            "id": "2542-1948",
+            "type": "eissn"
+          },
+          {
+            "id": "10.18500/1819-7671-2022-22-3-339-344",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "22",
+          "number": "3",
+          "country": "RU",
+          "issns": [
+            "1819-7671",
+            "2542-1948"
+          ],
+          "publisher": "Saratov State University",
+          "language": [
+            "EN",
+            "RU"
+          ],
+          "title": "Известия Саратовского университета. Новая серия: Серия Философия. Психология. Педагогика"
+        },
+        "month": "9",
+        "end_page": "344",
+        "keywords": [
+          "uvenile media",
+          "educational potential of media material",
+          "education of patriotism in adolescents and youth",
+          "model of organizing patriotic education"
+        ],
+        "year": "2022",
+        "start_page": "339",
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Perm State University, 15 Bukireva St., Perm 614990, Russia",
+            "name": "Kosolapova, Larisa Alexandrovna"
+          },
+          {
+            "affiliation": "Perm State University, 15 Bukireva St., Perm 614990, Russia",
+            "name": "Myasnikova, Diana Igorevna"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://phpp.sgu.ru/sites/phpp.sgu.ru/files/2022/09/filosofiya_2022_3_339-344.pdf"
+          }
+        ],
+        "abstract": "Introduction. The conducted research is aimed at identifying the methodological foundations, content, methods and mechanisms for organizing the patriotic education in adolescents and \"Z generation\" youth. The article defines the essential characteristics of the education processes and creation of juvenile media, and substantiates the possibility and potential of integrating these processes. Theoretical analysis. The scientific novelty lies in the development and theoretical justification of the Model of organizing the patriotic education in the “Generation Z” youth with the involvement of the juvnile media resource, which includes methodological, target-oriented, activity and result blocks, and which is based on a combination of humanistic, personal, activity, and integrative approaches to the process of educating adolescents, allowing to ensure the integrity and functionality of the Model. The mechanism of education is the pedagogical support of the value-semantic self-determination of a young person at each stage of a young media journalist work on media material. In the process of creating media material, a chain of upbringing methods is used (according to Z. I. Vasilyeva): goal-setting – informational and educational – evaluative. Conclusion. As a result of the study, the possibility of using the potential of juvenile media in the process of patriotic education in generation Z teenagers is substantiated: the purpose, the main mechanism, the content and methods of the upbringing process, the structure and indicators of the result of the patriotic upbringing of adolescents and the \"Generation Z\" youth with the involvement of the juvenile media resource.",
+        "title": "Model of cultivating patriotism in adolescents and \"generation Z\" youth using the resource of juvenile media"
+      },
+      "id": "000027496d4d42fd8a4c24eb5ea86e06",
+      "created_date": "2022-11-11T03:42:18Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:40:51Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-1078",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyg.2013.00479",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "country": "CH",
+          "issns": [
+            "1664-1078"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychology"
+        },
+        "month": "7",
+        "keywords": [
+          "interference",
+          "motor learning",
+          "reaching movements",
+          "after-effects",
+          "manipulandum"
+        ],
+        "year": "2013",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Karlsruhe Institute of Technology",
+            "name": "Anne eFocke"
+          },
+          {
+            "affiliation": "Karlsruhe Institute of Technology",
+            "name": "Christian eStockinger"
+          },
+          {
+            "affiliation": "Karlsruhe Institute of Technology",
+            "name": "Christina eDiepold"
+          },
+          {
+            "affiliation": "Max Planck Institute for Human Cognitive and Brain Sciences Leipzig",
+            "name": "Marco eTaubert"
+          },
+          {
+            "affiliation": "Karlsruhe Institute of Technology",
+            "name": "Thorsten eStein"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://journal.frontiersin.org/Journal/10.3389/fpsyg.2013.00479/full"
+          }
+        ],
+        "abstract": "In computational neuroscience it is generally accepted that human motor memory contains neural representations of the physics of the musculoskeletal system and the objects in the environment. These representations are called internal models. Force field studies, in which subjects have to adapt to dynamic perturbations induced by a robotic manipulandum, are an established tool to analyze the characteristics of such internal models. The aim of the current study was to investigate whether catch trials during force field learning could influence the consolidation of motor memory in more complex tasks. Thereby, the force field was more than double the force field of previous studies (35 Ns/m). Moreover, the arm of the subjects was not supported. A total of forty-six subjects participated in this study and performed center-out movements at a robotic manipulandum in two different force fields. Two control groups learned force field A on day 1 and were retested in the same force field on day 3 (AA). Two test groups additionally learned an interfering force field B (=-A) on day 2 (ABA). The difference between the two test and control groups, respectively, was the absence (0%) or presence (19%) of catch trials, in which the force field was turned off suddenly. The results showed consolidation of force field A on day 3 for both control groups. Test groups showed no consolidation of force field A (19% catch trials) and even poorer performance on day 3 (0% catch trials). In conclusion, it can be stated that catch trials seem to have a positive effect on the performance on day 3 but do not trigger a consolidation process as shown in previous studies that used a lower force field viscosity with supported arm. These findings indicate that the results of previous studies in which less complex tasks were analyzed, cannot be fully transferred to more complex tasks. Moreover, the effects of catch trials in these situations are insufficiently understood and further research is needed.",
+        "title": "The influence of catch trials on the consolidation of motor memory in force field adaptation tasks"
+      },
+      "created_date": "2014-05-22T09:41:53Z",
+      "id": "000028c72ae5477c8014dcdb65beea11"
+    },
+    {
+      "last_updated": "2025-08-19T23:07:42Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/philosophies7010019",
+            "type": "doi"
+          },
+          {
+            "id": "2409-9287",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "number": "1",
+          "country": "CH",
+          "issns": [
+            "2409-9287"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Philosophies"
+        },
+        "month": "02",
+        "keywords": [
+          "voice syncretism",
+          "middle voice",
+          "passive",
+          "anticausative",
+          "reflexive",
+          "reciprocal"
+        ],
+        "year": "2022",
+        "start_page": "19",
+        "subject": [
+          {
+            "code": "BC1-199",
+            "scheme": "LCC",
+            "term": "Logic"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of English and American Studies, Humboldt University of Berlin, 10117 Berlin, Germany",
+            "name": "Despina Oikonomou"
+          },
+          {
+            "affiliation": "Department of English and American Studies, Humboldt University of Berlin, 10117 Berlin, Germany",
+            "name": "Artemis Alexiadou"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2409-9287/7/1/19"
+          }
+        ],
+        "abstract": "Voice syncretism is widely attested crosslinguistically. In this paper, we discuss three different types of Voice syncretism, under which the same morpheme participates in different configurations. We provide an approach under which the same Voice head can convey different interpretations depending on the environment it appears in, thus building on the notion of allosemy. We show that, in all cases under investigation, allosemy is closely associated with the existence of idiosyncratic patterns. By contrast, we notice that allosemy and idiosyncrasy are not present in analytic passive and causative constructions across different languages. We argue that the distinguishing feature between the two types of constructions is whether the passive and the causative interpretation comes from the Voice head, thus forming a single domain with the vP or whether passive and causative semantics are realized by distinct heads above the Voice layer, thus forming two distinct domains.",
+        "title": "Voice Syncretism Crosslinguistically: The View from Minimalism"
+      },
+      "id": "00002ed36dc047af87a89d41245de037",
+      "created_date": "2022-02-24T15:35:54Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:53:50Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2086-3721",
+            "type": "pissn"
+          },
+          {
+            "id": "2685-6050",
+            "type": "eissn"
+          },
+          {
+            "id": "10.15548/ju.v5i2.567",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "2",
+          "country": "ID",
+          "issns": [
+            "2086-3721",
+            "2685-6050"
+          ],
+          "publisher": "Fakultas Ushuluddin dan Studi Agama UIN Imam Bonjol Padang",
+          "language": [
+            "AR",
+            "EN",
+            "ID"
+          ],
+          "title": "Jurnal Ulunnuha"
+        },
+        "month": "7",
+        "end_page": "73",
+        "keywords": [
+          "aspek, mukjizat, al-qur’an, kesehatan"
+        ],
+        "year": "2019",
+        "start_page": "63",
+        "subject": [
+          {
+            "code": "BP1-253",
+            "scheme": "LCC",
+            "term": "Islam"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitas Muhammadiyah Sumatera Barat",
+            "name": "Yogi Imam Perdana"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://ejournal.uinib.ac.id/jurnal/index.php/ulunnuha/article/view/567"
+          }
+        ],
+        "abstract": "This article studies the al-Qur’an’s miracle about healthy. Method used in this writing descriptive qualitative. Result of study indicate that al-Qur’an has the spesial guidance about healthy, among of them how to keep the healthy, how to improve the healthy, consume the right food, how to treat the illness and the balance between physical and spiritualneeds.",
+        "title": "ASPEK KEMUKJIZATAN AL-QUR’AN  TENTANG KESEHATAN"
+      },
+      "id": "0000512b6ffa45f0b4463711358fadd5",
+      "created_date": "2022-06-06T01:29:56Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:20:39Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-1078",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyg.2016.01580",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "7",
+          "country": "CH",
+          "issns": [
+            "1664-1078"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychology"
+        },
+        "month": "10",
+        "keywords": [
+          "Aging",
+          "creativity",
+          "divergent thinking",
+          "Embodied Cognition",
+          "Cognitive Processes"
+        ],
+        "year": "2016",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "National Taiwan University",
+            "name": "Chun-Yu Kuo"
+          },
+          {
+            "affiliation": "National Pingtung University",
+            "name": "Chun-Yu Kuo"
+          },
+          {
+            "affiliation": "National Taiwan University",
+            "name": "Yei-Yu Yeh"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://journal.frontiersin.org/Journal/10.3389/fpsyg.2016.01580/full"
+          }
+        ],
+        "abstract": "Prior research has shown that free walking can enhance creative thinking. Nevertheless, it remains unclear whether bidirectional body-mind links are essential for the positive effect of free walking on creative thinking. Moreover, it is unknown whether the positive effect can be generalized to older adults. In Experiment 1, we replicated previous findings with two additional groups of young participants. Participants in the rectangular-walking condition walked along a rectangular path while generating unusual uses for chopsticks. Participants in the free-walking group walked freely as they wished, and participants in the free-generation condition generated unconstrained free paths while the participants in the random-experienced condition walked those paths. Only the free-walking group showed better performance in fluency, flexibility, and originality. In Experiment 2, two groups of older adults were randomly assigned to the free-walking and rectangular-walking conditions. The free-walking group showed better performance than the rectangular-walking group. Moreover, older adults in the free-walking group outperformed young adults in the rectangular-walking group in originality and performed comparably in fluency and flexibility. Bidirectional links between proprioceptive-motor kinematics and metaphorical abstract concepts can enhance divergent thinking for both young and older adults.",
+        "title": "Sensorimotor-Conceptual Integration in Free Walking Enhances Divergent Thinking for Young and Older Adults"
+      },
+      "created_date": "2016-12-22T06:12:38Z",
+      "id": "00006e44d9f34286aa76b3d3a656d1b5"
+    },
+    {
+      "last_updated": "2025-08-19T22:42:10Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.46728/pspj.2024.v44.i1.p3-11",
+            "type": "doi"
+          },
+          {
+            "id": "1857-2502",
+            "type": "pissn"
+          },
+          {
+            "id": "2537-6276",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "44",
+          "number": "1",
+          "country": "MD",
+          "issns": [
+            "1857-2502",
+            "2537-6276"
+          ],
+          "publisher": "Association of Psychologists Practitioners, Moldova",
+          "language": [
+            "EN",
+            "RO",
+            "RU"
+          ],
+          "title": "Psihologie"
+        },
+        "month": "6",
+        "end_page": "11",
+        "keywords": [
+          "divorce",
+          "personality disorder",
+          "emerging personality patterns",
+          "current clinical signs."
+        ],
+        "year": "2024",
+        "start_page": "3",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0001-8019-8907",
+            "affiliation": "Universitatea Pedagogică de Stat ” Ion Creangă”. Moldova",
+            "name": " OLĂRESCU Valentina"
+          },
+          {
+            "orcid_id": "https://orcid.org/0009-0008-7084-7836",
+            "affiliation": "Direcția pentru protecția copilului, sector 2, București",
+            "name": " DICU Adriana"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://key.upsc.md/wp-content/uploads/2024/05/PSPJ-V44-Iss1-2024-p3-11.pdf"
+          }
+        ],
+        "abstract": "This article delves into the psychological literature concerning divorce and its impact on the personality development of preadolescents aged 9-12. Researchers in this field emphasize the significant role of family and socio-cultural environments in shaping a child’s personality, considering personality as a system embedded within a matrix of socio-cultural systems. \r\nThe Millon Pre-Adolescent Clinical Inventory (MPACI) test was employed to identify personality disorders among preadolescents affected by parental separation. The underlying hypothesis posits that preadolescents with divorced parents would exhibit personality disorders, and significant differences would emerge in the personality patterns between preadolescents from divorced families and those from intact families. Statistical analysis of the results corroborated this hypothesis, shedding light on the nuanced effects of divorce on preadolescent personality development.\r\n",
+        "title": "THE CONSEQUENCES OF PARENTS’ DIVORCE ON CHILDREN’S PERSONALITY"
+      },
+      "id": "00008e9e29d34ca5a75e2a904dfc2e8b",
+      "created_date": "2024-06-05T16:24:30Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:30:11Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-1078",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyg.2023.1189055",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "14",
+          "country": "CH",
+          "issns": [
+            "1664-1078"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychology"
+        },
+        "month": "10",
+        "keywords": [
+          "mobile English learning resources",
+          "mobile-assisted language learning",
+          "Chinese university students",
+          "unified theory of acceptance and use of technology",
+          "structural equation modeling"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Guangling College, Yangzhou University, Yangzhou, Jiangsu, China",
+            "name": "Fengdan Shen"
+          },
+          {
+            "affiliation": "Nagoya University, Nagoya, Japan",
+            "name": "Fengdan Shen"
+          },
+          {
+            "affiliation": "College of International Studies, Yangzhou University, Yangzhou, Jiangsu, China",
+            "name": "Linling Liang"
+          },
+          {
+            "affiliation": "College of International Studies, Yangzhou University, Yangzhou, Jiangsu, China",
+            "name": "Yufang Feng"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2023.1189055/full"
+          }
+        ],
+        "abstract": "This study aimed to examine the factors that potentially impact the self-directed use of mobile English learning resources (MELR). The participants were 206 Chinese undergraduate EFL learners at Yangzhou University in Mainland China. Applying and modifying the Unified Theory of Acceptance and Use of Technology (UTAUT), this study involved six constructs, including students’ performance expectancy, effort expectancy, social influence, facilitating conditions, perceived playfulness, and behavioral intention to use MELR. The structural equation modeling (SEM) technique was adopted to analyze the data collected from the questionnaire. The findings showed that facilitating conditions acted as the most significant predictor of behavioral intention to adopt MELR, followed by effort expectancy, perceived playfulness, and performance expectancy. However, social influence did not have significant effects on students’ use of MELR. Pedagogical implications for teachers and students were also presented in the end.",
+        "title": "A study on factors influencing Chinese undergraduate EFL learners’ self-directed use of mobile English learning resources"
+      },
+      "id": "00009987320f45ddb7fcf43bf4c43eb9",
+      "created_date": "2023-10-10T07:08:59Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:24:51Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s41235-017-0060-9",
+            "type": "doi"
+          },
+          {
+            "id": "2365-7464",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "2",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2365-7464"
+          ],
+          "publisher": "SpringerOpen",
+          "language": [
+            "EN"
+          ],
+          "title": "Cognitive Research"
+        },
+        "month": "5",
+        "end_page": "28",
+        "keywords": [
+          "Virtual reality",
+          "Mixed reality",
+          "Embodied science",
+          "Science education",
+          "Physics",
+          "STEM"
+        ],
+        "year": "2017",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "BF309-499",
+            "scheme": "LCC",
+            "term": "Consciousness. Cognition"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Psychology, Arizona State University",
+            "name": "Mina C. Johnson-Glenberg"
+          },
+          {
+            "affiliation": "Modeling Instruction Institute",
+            "name": "Colleen Megowan-Romanowicz"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://link.springer.com/article/10.1186/s41235-017-0060-9"
+          }
+        ],
+        "abstract": "Abstract A mixed design was created using text and game-like multimedia to instruct in the content of physics. The study assessed which variables predicted learning gains after a 1-h lesson on the electric field. The three manipulated variables were: (1) level of embodiment; (2) level of active generativity; and (3) presence of story narrative. Two types of tests were administered: (1) a traditional text-based physics test answered with a keyboard; and (2) a more embodied, transfer test using the Wacom large tablet where learners could use gestures (long swipes) to create vectors and answers. The 166 participants were randomly assigned to four conditions: (1) symbols and text; (2) low embodied; (3) high embodied/active; or (4) high embodied/active with narrative. The last two conditions were active because the on-screen content could be manipulated with gross body gestures gathered via the Kinect sensor. Results demonstrated that the three groups that included embodiment learned significantly more than the symbols and text group on the traditional keyboard post-test. When knowledge was assessed with the Wacom tablet format that facilitated gestures, the two active gesture-based groups scored significantly higher. In addition, engagement scores were significantly higher for the two active embodied groups. The Wacom results suggest test sensitivity issues; the more embodied test revealed greater gains in learning for the more embodied conditions. We recommend that as more embodied learning comes to the fore, more sensitive tests that incorporate gesture be used to accurately assess learning. The predicted differences in engagement and learning for the condition with the graphically rich story narrative were not supported. We hypothesize that a narrative effect for motivation and learning may be difficult to uncover in a lab experiment where participants are primarily motivated by course credit. Several design principles for mediated and embodied science education are proposed.",
+        "title": "Embodied science and mixed reality: How gesture and motion capture affect physics education"
+      },
+      "created_date": "2018-08-20T19:39:29Z",
+      "id": "0000d5221d324e7da7d6c4d8dcd43ef2"
+    },
+    {
+      "last_updated": "2025-08-19T19:48:34Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0860-9411",
+            "type": "pissn"
+          },
+          {
+            "id": "2719-3586",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "30",
+          "country": "PL",
+          "issns": [
+            "0860-9411",
+            "2719-3586"
+          ],
+          "publisher": "The John Paul II Catholic University of Lublin",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "IT",
+            "PL"
+          ],
+          "title": "Vox Patrum"
+        },
+        "month": "March",
+        "keywords": [
+          "recenzja"
+        ],
+        "year": "1996",
+        "subject": [
+          {
+            "code": "BR60-67",
+            "scheme": "LCC",
+            "term": "Early Christian literature. Fathers of the Church, etc."
+          },
+          {
+            "code": "BL51-65",
+            "scheme": "LCC",
+            "term": "Philosophy of religion. Psychology of religion. Religion in relation to other subjects"
+          },
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Polska",
+            "name": "Wincenty Myszor"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://czasopisma.kul.pl/index.php/vp/article/view/7543"
+          }
+        ],
+        "abstract": "\nrecenzja\n",
+        "title": "Majella Franzmann, Jesus in the Nag Hammdi Writings, Edinburgh 1996, T. and T. Clarc Ltd, ss. 294"
+      },
+      "id": "0000df8d5056429b8e920e6df29d7b38",
+      "created_date": "2023-08-05T21:03:18Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:53:56Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.24316/prometeica.v0i12.151",
+            "type": "doi"
+          },
+          {
+            "id": "1852-9488",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "12",
+          "country": "BR",
+          "issns": [
+            "1852-9488"
+          ],
+          "publisher": "Universidade Federal de São Paulo",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Prometeica"
+        },
+        "month": "January",
+        "year": "2016",
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          },
+          {
+            "code": "Q",
+            "scheme": "LCC",
+            "term": "Science"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "CICC",
+            "name": "Rafael Miranda Redondo"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://periodicos.unifesp.br/index.php/prometeica/article/view/1611"
+          }
+        ],
+        "abstract": "En el artículo a continuación abordamos la recepción de la obra de Castoriadis enAmerica Latina a través de un ejercicio de dialogo con uno de los autores del numero 11de PROMETEICA, Emanuele Profumi. En particular nos ocupamos de ilustrar elcontexto en el que dicha obra es recibida por los medios académicos y políticos en elcontinente gracias a los desarrollos de Castoriadis en torno al fenómeno descrito deaumento de la insignificancia, poniendo un énfasis particular en la noción dedescomposición social en cuya base se encontraría la crisis de autoreferencia en lasociedad contemporánea. Para argumentar la relevancia de la noción dedescomposición social hacemos uso de la manera como Castoriadis aborda la cuestióndel proyecto social en occidente y de la manera como su ausencia tiene un efectodefinitivo para la relación de occidente a nivel global y muy particularmente respecto alabismo que lo separa del mundo Árabe. Damos cuenta de todo ello teniendo delante losrecientes atentados en Paris y el conflicto actual que involucra las potencias mundialesy el Estado Islámico.",
+        "title": "LA NEGACIÓN DEL OTRO COMO OTRO ES INSIGNIFICANCIA EN ACCIÓN"
+      },
+      "id": "000108bf594247bf9f7f4ece966c3553",
+      "created_date": "2017-09-16T01:46:33Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:24:12Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1390-3861",
+            "type": "pissn"
+          },
+          {
+            "id": "1390-8626",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "34",
+          "country": "EC",
+          "issns": [
+            "1390-3861",
+            "1390-8626"
+          ],
+          "publisher": "Universidad Politécnica Salesiana",
+          "language": [
+            "EN",
+            "ES"
+          ],
+          "title": "Sophía: Colección de Filosofía de la Educación"
+        },
+        "month": "January",
+        "keywords": [
+          "Educación",
+          "diversidad sociocultural",
+          "sociología de la educación",
+          "inclusión",
+          "equidad",
+          "política educativa"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universidad Autónoma de Barcelona",
+            "name": "Juan Antonio Carrasco-Bahamonde"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://revistas.ups.edu.ec/index.php/sophia/article/view/6421"
+          }
+        ],
+        "abstract": "\nExiste consenso en torno a que la disciplina sociológica brindó un marco para comprender las relaciones\nentre los sistemas educativos y los contextos sociales más amplios en que se emplazan. No obstante, los retratos\nque ha esbozado aquella tradición en torno a la escuela, adquieren significados contrastantes. Las perspectivas que explora este articulo surgen como una respuesta a la obsolescencia de los modelos determinísticos del cambio educativo y su dificultad para explicar aquellos procesos de cambio que tienen lugar en la escuela. El\npresente artículo ofrece una reflexión teórica en torno a la cuestión de la diversidad sociocultural, a partir de la\ndistinción entre los órdenes instrumental y expresivo en la escuela, delimitando la diversidad como un ámbito problemático y brindando herramientas conceptuales a partir de las aportaciones de Durkheim y Bernstein. El abordaje propuesto está anclado a la distinción entre los modelos de relaciones integrativas basadas en la\nsolidaridad orgánica y mecánica, presentando un esfuerzo sistemático de teorización en torno al ámbito\nde prácticas educativas. Finalmente, se concluye que las políticas educativas se enfrentan a un dilema entre\nla exigencia de rendimientos especializados y un conjunto de competencias, valores y creencias basales en el\ncontexto de sociedades que se complejizan y diversifican aceleradamente y aspiran a una coexistencia entre las\ndinámicas de cambio tecnológico y profundización democrática.\n",
+        "title": "Contribuciones sociológicas de Durkheim y Bernstein sobre la diversidad sociocultural en la escuela"
+      },
+      "id": "000111f1e3ea45de8c0800a08b1bd326",
+      "created_date": "2023-01-16T22:50:46Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:23:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2261-2424",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1051/shsconf/202112503002",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "125",
+          "country": "FR",
+          "issns": [
+            "2261-2424"
+          ],
+          "publisher": "EDP Sciences",
+          "language": [
+            "EN",
+            "FR"
+          ],
+          "title": "SHS Web of Conferences"
+        },
+        "keywords": [
+          "urban environment",
+          "disability",
+          "well-being of a person with a disability",
+          "urban well-being",
+          "professional self-realization"
+        ],
+        "year": "2021",
+        "start_page": "03002",
+        "subject": [
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Financial University under the Government of the Russian Federation, Department of Sociology",
+            "name": "Raidugin Dmitry Sergeevich"
+          },
+          {
+            "affiliation": "Financial University under the Government of the Russian Federation, Department of Sociology",
+            "name": "Naberushkina Elmira Kamalovna"
+          },
+          {
+            "affiliation": "Financial University under the Government of the Russian Federation, Department of Sociology",
+            "name": "Voevodina Ekaterina Vladimirovna"
+          },
+          {
+            "affiliation": "Financial University under the Government of the Russian Federation, Department of Sociology",
+            "name": "Kubyakin Yevgeny Olegovich"
+          },
+          {
+            "affiliation": "Krasnodar University of the Ministry of Internal Affairs of Russia, Department of Philosophy and Sociology",
+            "name": "Plotnikov Vladimir Valeryevich"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://www.shs-conferences.org/articles/shsconf/pdf/2021/36/shsconf_tlm2021_03002.pdf"
+          }
+        ],
+        "abstract": "The article is a review of the part of the research conducted in the framework of the grant of the Russian Foundation for Basic Research “Urban well-being of people with disabilities”. The immediate subject of the article is professional self-realization as a factor of urban well-being of a person with a disability. Well-being is understood as a subjectively constructed phenomenon, that is, through the prism of people with disabilities’ own perceptions of the sufficiency of conditions created in the urban environment for their professional self-realization and, as a consequence, for well-being in general. Professional self-realization has become one of the six factor groups that directly or indirectly influence the urban well-being of citizens with disabilities. Along with professional self-realization, the factors of urban well-being in the framework of the study were: trust in the government and involvement in management processes; the level of implementation of basic values; psychological comfort; accessibility of the spatial environment; and finally, the quality of social services. The five factor groups listed above are not discussed in the article, but the reader should have an idea of the context in which professional self-realization is studied. The study included two sub-samples, reflecting the specifics of a megalopolis (Moscow) and a regional center (Saratov).",
+        "title": "Professional self-realization of disabled persons in an urban environment"
+      },
+      "created_date": "2021-12-02T17:15:28Z",
+      "id": "000122e43c2b45699ea0e6b840617730"
+    },
+    {
+      "last_updated": "2026-02-19T18:17:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.46938/tv.2011.121",
+            "type": "doi"
+          },
+          {
+            "id": "1210-0250",
+            "type": "pissn"
+          },
+          {
+            "id": "1804-6347",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "33",
+          "number": "4",
+          "country": "CZ",
+          "issns": [
+            "1210-0250",
+            "1804-6347"
+          ],
+          "publisher": "Czech Academy of Sciences, Institute of Philosophy",
+          "language": [
+            "CS",
+            "DE",
+            "EN",
+            "SK"
+          ],
+          "title": "Teorie vědy"
+        },
+        "month": "March",
+        "keywords": [
+          "pravidlá",
+          "racionalita",
+          "spoločnosť",
+          "teória hier"
+        ],
+        "year": "2012",
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Katedra filozofie a společenských věd, FF UHK",
+            "name": "Ladislav Koreň"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://teorievedy.flu.cas.cz/index.php/tv/article/view/121"
+          }
+        ],
+        "abstract": "\nPravidlá: spoločnosť, jazyk a racionalita\n\nAbstrakt:Táto kritická štúdia sa zameriava na problematiku spolupráce  a pravidiel, diskutovanú Jaroslavom  Peregrinom v  knihe Človek a  pravidla (Praha: Dokořán 2011). Okrem  extenzívneho exkurzu do  osnovy  Peregrinových hlavných myšlienok  a  argumentov budú systematicky  analyzované niektoré kľúčové otázky  patriace do tejto interdisciplinárnej  teoretickej oblasti, pričom sa kriticky  posúdia niektoré prvky Peregrinovho  špecifického prístupu. Konkrétne,  budem argumentovať, že Peregrinom preferovaná koncepcia pravidla  - ako propozičného poznania, že  niečo by malo (nemalo) nejako byť -  nemôže dobre slúžiť jeho zámerom,  ak chce udržať jeho evolučný prístup  k pravidlám. \n\nRules: Society, Language,  Rationality \n\nAbstract:This critical review focuses  on the topic of cooperation and rules  discussed in the book by Jaroslav  Peregrin: Človek a  pravidla [Man  and Rules] (Praha: Dokořán 2011).  Except of an extensive excurse into  the structure of Peregrin's main ideas  and arguments, it aims to provide  a  systematic analysis of some central issues in this interdisciplinary  theoretical field, while discussing  some elements of Peregrin's specific  approach. In particular, it will be  argued that Peregrin's preferred  conception of rule - as propositional  knowledge to the effect that something ought to be (or ought not to be)  a certain way - cannot serve well his  purposes, if Peregrin is to keep his  evolutionary perspective on rules.\n",
+        "title": "Pravidlá: spoločnosť, jazyk a racionalita"
+      },
+      "id": "000143ebf3914b89aaffd35b533d1667",
+      "created_date": "2026-02-19T18:17:58Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:40:44Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0037-0894",
+            "type": "pissn"
+          },
+          {
+            "id": "1988-320X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3989/sefarad.1992.v52.i1.995",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "52",
+          "number": "1",
+          "country": "ES",
+          "issns": [
+            "0037-0894",
+            "1988-320X"
+          ],
+          "publisher": "Consejo Superior de Investigaciones Científicas",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Sefarad : Revista de Estudios Hebraicos y Sefardíes"
+        },
+        "month": "6",
+        "end_page": "162",
+        "year": "1992",
+        "start_page": "155",
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          },
+          {
+            "code": "BM1-990",
+            "scheme": "LCC",
+            "term": "Judaism"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "CSIC",
+            "name": "Encarnación Marín Padilla"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://sefarad.revistas.csic.es/index.php/sefarad/article/view/1015"
+          }
+        ],
+        "abstract": "Este estudio comenta algunos aspectos de la vida de Juce Gotina, sastre judío que residió en Épila, villa aragonesa del señorío de los Ximénez de Urrca, en el siglo XV. Juce fue hijo de Jaco Gotina y nieto del judío zaragozano Nahamen Gotina y de Estruga Albala.",
+        "title": "Acaeceres en la vida de Juce Gotina, sastre judío de la villa de Épila (siglo XV)"
+      },
+      "id": "0001557499464671b6cd7b20c500adfa",
+      "created_date": "2021-05-05T14:00:07Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:34:37Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0860-9411",
+            "type": "pissn"
+          },
+          {
+            "id": "2719-3586",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "country": "PL",
+          "issns": [
+            "0860-9411",
+            "2719-3586"
+          ],
+          "publisher": "The John Paul II Catholic University of Lublin",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "IT",
+            "PL"
+          ],
+          "title": "Vox Patrum"
+        },
+        "month": "September",
+        "keywords": [
+          "recenzja"
+        ],
+        "year": "1988",
+        "subject": [
+          {
+            "code": "BR60-67",
+            "scheme": "LCC",
+            "term": "Early Christian literature. Fathers of the Church, etc."
+          },
+          {
+            "code": "BL51-65",
+            "scheme": "LCC",
+            "term": "Philosophy of religion. Psychology of religion. Religion in relation to other subjects"
+          },
+          {
+            "code": "B",
+            "scheme": "LCC",
+            "term": "Philosophy. Psychology. Religion"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Polska",
+            "name": "Wacław Eborowicz"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://czasopisma.kul.pl/index.php/vp/article/view/10805"
+          }
+        ],
+        "abstract": "\nrecenzja\n",
+        "title": "Ks. Stanisław Kowalczyk, Człowiek i Bóg w nauce świętego Augustyna, Warszawa 1987, ODiSS, ss. 276."
+      },
+      "id": "00015f3d76c149539687c2a1b8267115",
+      "created_date": "2023-08-05T21:04:39Z"
+    },
+    {
+      "last_updated": "2025-08-19T21:36:05Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s41235-022-00452-z",
+            "type": "doi"
+          },
+          {
+            "id": "2365-7464",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2365-7464"
+          ],
+          "publisher": "SpringerOpen",
+          "language": [
+            "EN"
+          ],
+          "title": "Cognitive Research"
+        },
+        "month": "1",
+        "end_page": "12",
+        "keywords": [
+          "Episodic memory",
+          "Free recall",
+          "Temporal clustering",
+          "Children",
+          "Naturalistic",
+          "Real-world events"
+        ],
+        "year": "2023",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "BF309-499",
+            "scheme": "LCC",
+            "term": "Consciousness. Cognition"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Psychology, York University",
+            "name": "Thanujeni Pathman"
+          },
+          {
+            "affiliation": "Department of Psychology, York University",
+            "name": "Lina Deker"
+          },
+          {
+            "affiliation": "Department of Psychology, York University",
+            "name": "Puneet Kaur Parmar"
+          },
+          {
+            "affiliation": "Department of Psychology, York University",
+            "name": "Mark Christopher Adkins"
+          },
+          {
+            "affiliation": "Department of Psychology, Vanderbilt University",
+            "name": "Sean M. Polyn"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s41235-022-00452-z"
+          }
+        ],
+        "abstract": "Abstract Free-recall paradigms have greatly influenced our understanding of memory. The majority of this research involves laboratory-based events (e.g., word lists) that are studied and tested within minutes. This literature shows that adults recall events in a temporally organized way, with successive responses often coming from neighboring list positions (i.e., temporal clustering) and with enhanced memorability of items from the end of a list (i.e., recency). Temporal clustering effects are so robust that temporal organization is described as a fundamental memory property. Yet relatively little is known about the development of this temporal structure across childhood, and even less about children’s memory search for real-world events occurring over an extended period. In the present work, children (N = 144; 3 age groups: 4–5-year-olds, 6–7-year-olds, 8–10-year-olds) took part in a 5-day summer camp at a local zoo. The camp involved various dynamic events, including daily animal exhibit visits. On day 5, children were asked to recall all the animals they visited. We found that overall recall performance, in terms of number of animals recalled, improved steadily across childhood. Temporal organization and recency effects showed different developmental patterns. Temporal clustering was evident in the response sequences for all age groups and became progressively stronger across childhood. In contrast, the recency advantage, when characterized as a proportion of total responses, was stable across age groups. Thus, recall dynamics in early childhood parallel that seen in adulthood, with continued development of temporal organization across middle to late childhood.",
+        "title": "Children’s memory “in the wild”: examining the temporal organization of free recall from a week-long camp at a local zoo"
+      },
+      "id": "0001b0acde1c4f1d80b9ee6f7b525acc",
+      "created_date": "2023-01-29T12:02:22Z"
+    },
+    {
+      "last_updated": "2026-04-24T21:56:15Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1516-3687",
+            "type": "pissn"
+          },
+          {
+            "id": "1980-6906",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5935/1980-6906/psicologia.v21n2p232-251",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "21",
+          "number": "2",
+          "country": "BR",
+          "issns": [
+            "1516-3687",
+            "1980-6906"
+          ],
+          "publisher": "Universidade Presbiteriana Mackenzie",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Psicologia"
+        },
+        "month": "8",
+        "end_page": "251",
+        "keywords": [
+          "trabalho da mulher;",
+          " precarização; ",
+          "desigualdade de gênero; ",
+          "divi-são sexual do trabalho; ",
+          "condições de trabalho"
+        ],
+        "year": "2019",
+        "start_page": "211",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universidade de Fortaleza",
+            "name": "Natalia Lopes Braga"
+          },
+          {
+            "affiliation": "Universidade de Fortaleza",
+            "name": "Noália Magna de Araújo"
+          },
+          {
+            "affiliation": "Universidade de Fortaleza",
+            "name": "Regina Heloisa Maciel"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://editorarevistas.mackenzie.br/index.php/ptp/article/view/11435"
+          }
+        ],
+        "abstract": "A pesquisa objetivou identificar e descrever as condições do trabalho da mulher relatadas na literatura científica brasileira. Para isso, foi realizada uma revisão sistemática integrativa nas bases de dados Scielo e Pepsic, utilizando como descritores “trabalho feminino” e “trabalho AND gênero”. Foram selecionados 22 artigos cujas análises permitiram a divisão dos resultados em três categorais: Relações de gênero e conflitos no ambiente laboral; Trabalho e família; e Precarização do trabalho. Os resultados mostraram que o ingresso das mulheres no mundo do trabalho é perpassado por condições que envolvem precariedade, relações de poder e divisão sexual. As diferenças de gênero permanecem arraigadas ao contexto laboral, sendo estas muitas vezes tratadas de forma naturalizada. A conquista de um espaço no mundo do trabalho por parte das mulheres aconteceu de modo paralelo à perpetuação de obrigações para com a família e instaurou, como consequência, a dupla (ou tripla) jornada de trabalho feminina.",
+        "title": "Condições do Trabalho da Mulher: Uma Revisão Integrativa da Literatura Brasileira"
+      },
+      "id": "0001b19ae394441881b77f49236838ab",
+      "created_date": "2026-04-24T21:56:15Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:43:53Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-1078",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyg.2021.700180",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "CH",
+          "issns": [
+            "1664-1078"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychology"
+        },
+        "month": "9",
+        "keywords": [
+          "social commerce",
+          "visual aesthetics",
+          "visual communication",
+          "micro-celebrity",
+          "self-construal",
+          "visual information adoption unimodel"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "name": "Yongzhong Yang"
+          },
+          {
+            "name": "Yunyan Tang"
+          },
+          {
+            "name": "Yu Zhang"
+          },
+          {
+            "name": "Ruo Yang"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2021.700180/full"
+          }
+        ],
+        "abstract": "The visual revolution and attention economy of the digital world have put visual aesthetic communication into the primary position of social media marketing. However, this phenomenon remains underexplored within social commerce research. This study thus develops a visual information adoption unimodel (VIAUM), to explore the relationship between visual aesthetics and social commerce intentions. Users with social commerce experience are invited to complete our online survey, and 321 valid data are collected. The results reveal that visual aesthetics has direct and indirect (via perceived usefulness) effects on the social commerce intention of users. Besides, interdependent self-construal (InterSC) strengthens the direct effect between visual aesthetics and social commerce intention. In contrast, independent self-construal weakens the mediation effects of perceived usefulness. This study is among the first attempts to empirically examine the intervening mechanism and boundary conditions between the visual aesthetics of self-presentation of micro-celebrity and the social commerce intention of consumers.",
+        "title": "Exploring the Relationship Between Visual Aesthetics and Social Commerce Through Visual Information Adoption Unimodel"
+      },
+      "id": "0001f707d4ab493dbcacb42e1990518e",
+      "created_date": "2021-09-06T05:25:02Z"
+    },
+    {
+      "last_updated": "2025-08-20T00:58:13Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2625-3410",
+            "type": "eissn"
+          },
+          {
+            "id": "10.32872/cpe.12353",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "number": "3",
+          "country": "DE",
+          "issns": [
+            "2625-3410"
+          ],
+          "publisher": "PsychOpen GOLD/ Leibniz Institute for Psychology",
+          "language": [
+            "EN"
+          ],
+          "title": "Clinical Psychology in Europe"
+        },
+        "month": "9",
+        "keywords": [
+          "deliberate practice",
+          "working alliance",
+          "cognitive behavioural therapy",
+          "professional development",
+          "psychotherapy outcomes",
+          "therapist effects"
+        ],
+        "year": "2024",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0003-0720-8130",
+            "affiliation": "Department of Psychology, Stockholm University, Stockholm, Sweden",
+            "name": "Håkan Lagerberg"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0001-6214-0787",
+            "affiliation": "Department of Psychology, University at Albany, State University of New York, Albany, NY, USA",
+            "name": "James F. Boswell"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-3126-2575",
+            "affiliation": "Department of Psychological and Brain Sciences, University of Massachusetts, Amherst, MA, USA",
+            "name": "Michael J. Constantino"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-4753-6745",
+            "affiliation": "Department of Behavioural Sciences and Learning, Linköping University, Linköping, Sweden",
+            "name": "Gerhard Andersson"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0002-2172-8813",
+            "affiliation": "Department of Psychology, Stockholm University, Stockholm, Sweden",
+            "name": "Per Carlbring"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://doi.org/10.32872/cpe.12353"
+          }
+        ],
+        "abstract": "[Background] Deliberate Practice (DP), which underscores the importance of expert mentorship, personalized learning objectives, feedback, and repetition, has been suggested as a method to enhance the effectiveness of therapists. [Method] The study tested the efficacy of an eight-week, structured, group-based online course, enriched with peer feedback, for 37 Cognitive Behavioral Therapists. The goal was to assess whether this intervention could boost the quality of therapist-patient alliances, as compared to a control group. To measure this, therapists had their patients anonymously fill out the Session Alliance Inventory both before and after the course. The trial encompassed 120 patient alliance ratings at baseline and 64 at the post-course measurement. The DP course was comprised of a 75-minute remote video workshop each week for eight weeks, supplemented by related study materials. Each workshop focused on a specific skill, such as responding to client resistance, and included 55 minutes of concentrated role-play activities, providing ample opportunities for repetition and feedback. [Results] Using a linear mixed model we did not find an effect on patient alliance ratings. However, we observed a trend (p = .054) indicating that the DP group decreased their alliance ratings (Cohen’s d = -0.40), while the control group demonstrated an increase in their scores (d = 0.49). [Conclusion] This pilot study did not find support for DP leading to better patient-rated alliance compared to a waitlist control. However, the study had several methodological limitations. Further and more rigorous investigation of the effects of DP on patient outcomes is recommended.",
+        "title": "Does Practice Make Perfect? The Effects of an Eight-Week Manualized Deliberate Practice Course With Peer Feedback on Patient-Rated Working Alliance in Adults: A Pilot Randomized Controlled Trial"
+      },
+      "id": "00020ad468794cc18caf93608d43c975",
+      "created_date": "2024-12-09T10:40:29Z"
+    },
+    {
+      "last_updated": "2026-03-02T22:21:58Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2330-4014",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3998/ergo.8584",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "0",
+          "country": "US",
+          "issns": [
+            "2330-4014"
+          ],
+          "publisher": "Michigan Publishing",
+          "language": [
+            "EN"
+          ],
+          "title": "Ergo, An Open Access Journal of Philosophy"
+        },
+        "month": "11",
+        "year": "2025",
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Philosophy, Tilburg University",
+            "name": "Matteo Colombo"
+          },
+          {
+            "affiliation": "Department of Philosophy, Tilburg University",
+            "name": "Michael Cohen"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://journals.publishing.umich.edu/ergo/article/id/8584/"
+          },
+          {
+            "content_type": "application/pdf",
+            "type": "fulltext",
+            "url": "https://journals.publishing.umich.edu/ergo/article/8584/galley/5446/download/"
+          }
+        ],
+        "abstract": "The geometry of the environment can affect numerous psychological, social, and ecological processes. But its roles in social learning and the dynamics of descriptive norms remain unclear. Here we use agent-based modeling to explore how environments with different geometric shapes can influence social learning to produce variations in the extent of universally shared descriptive norms. Our simulations show that an environment with an irregular layout facilitates the emergence of multiple descriptive norms in a population, whereas an environment with a regular grid plan constrains social learning to produce a behaviorally homogeneous population.",
+        "title": "Paths to Diversity: A Simulation of Conformity in Environments with Different Geometries"
+      },
+      "id": "00021e27386f4415a6ff1356ee0add05",
+      "created_date": "2026-03-02T22:21:58Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:36:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.11606/issn.1981-1624.v4i7p73-77",
+            "type": "doi"
+          },
+          {
+            "id": "1415-7128",
+            "type": "pissn"
+          },
+          {
+            "id": "1981-1624",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "4",
+          "number": "7",
+          "country": "BR",
+          "issns": [
+            "1415-7128",
+            "1981-1624"
+          ],
+          "publisher": "Universidade de São Paulo",
+          "language": [
+            "PT"
+          ],
+          "title": "Estilos da Clínica"
+        },
+        "month": "December",
+        "keywords": [
+          "Linguagem",
+          "alienação",
+          "intervenção"
+        ],
+        "year": "1999",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "name": "Alain Vanier"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://www.revistas.usp.br/estic/article/view/60768"
+          }
+        ],
+        "abstract": "Este artigo expõe uma leitura psicanalítica do autismo como um modo de proteção particular, que se constrói, distinguindo então este quadro de uma simples parada no desenvolvimento. Esta construção dá-se quando a criança obtura a fenda existente entre mãe e criança, constituindo-se como objeto que completa o fantasma do outro.",
+        "title": "Breves apontamentos sobre o autismo"
+      },
+      "id": "0002266e3396481d968912095b711f07",
+      "created_date": "2020-09-02T05:05:23Z"
+    },
+    {
+      "last_updated": "2025-08-19T15:46:22Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1664-1078",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fpsyg.2022.812893",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "country": "CH",
+          "issns": [
+            "1664-1078"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Psychology"
+        },
+        "month": "1",
+        "keywords": [
+          "postpartum depression",
+          "preterm infants",
+          "mothers",
+          "fathers",
+          "temperament"
+        ],
+        "year": "2022",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Faculty of Psychology, University of Warsaw, Warsaw, Poland",
+            "name": "Grazyna Kmita"
+          },
+          {
+            "affiliation": "Institute of Mother and Child, Warsaw, Poland",
+            "name": "Grazyna Kmita"
+          },
+          {
+            "affiliation": "Institute of Mother and Child, Warsaw, Poland",
+            "name": "Eliza Kiepura"
+          },
+          {
+            "affiliation": "Faculty of Psychology, University of Warsaw, Warsaw, Poland",
+            "name": "Alicja Niedźwiecka"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2022.812893/full"
+          }
+        ],
+        "abstract": "Postpartum depression is more prevalent in mothers and fathers of preterm infants compared to parents of full-term infants and may have long-term detrimental consequences for parental mental health and child development. The temperamental profile of an infant has been postulated as one of the important factors associated with parental depressiveness in the first months postpartum. This study aimed to examine the longitudinal relationship between depressive symptoms and perceived infant temperament at 3 months corrected age, and depressive symptoms at 6 months corrected age among mothers and fathers of infants born preterm. We assessed 59 families with infants born before the 34th gestational week using the Edinburgh Postnatal Depression Scale (EDPS) and the Infant Behavior Questionnaire-Revised. We found that mothers’ scores on EPDS and infants’ Orienting/regulation at 3 months corrected age predicted mothers’ EPDS scores at 6 months corrected age. In particular, higher depressive scores were related to higher depressive symptoms at 6 months corrected age, whereas higher infant Orienting/regulation was related to lower depressive symptoms at 6 months corrected age. Due to the low internal consistency of EPDS at 6 months for fathers, we were unable to conduct similar analyses for fathers. Our results point to the importance of considering both early indices of maternal mood as well as mother-reported measures of preterm infant temperament in the attempts to predict levels of maternal depressiveness in later months of an infant’s life. Further studies are urgently needed in order to better understand the associations between depressiveness and infant temperament in fathers, and with more consideration for the severity of the effects of infant prematurity.",
+        "title": "Maternal Mood and Perception of Infant Temperament at Three Months Predict Depressive Symptoms Scores in Mothers of Preterm Infants at Six Months"
+      },
+      "id": "0002489c4cfb419b9979ae4d55f1168d",
+      "created_date": "2022-01-26T08:42:51Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:59:40Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2252-0031",
+            "type": "pissn"
+          },
+          {
+            "id": "2476-647X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.22054/jpe.2021.55757.2226",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "10",
+          "number": "39",
+          "country": "IR",
+          "issns": [
+            "2252-0031",
+            "2476-647X"
+          ],
+          "publisher": "Allameh Tabataba'i University Press",
+          "language": [
+            "FA"
+          ],
+          "title": "Ravānshināsī-i Afrād-i Istis̠nāyī"
+        },
+        "month": "9",
+        "end_page": "54",
+        "keywords": [
+          "deafness",
+          "neurodevelopmental disorders",
+          "systematic review"
+        ],
+        "year": "2020",
+        "start_page": "19",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Assistant Professor, Department of Psychology and Education of Exceptional Children, Allameh Tabatabai University, Tehran, Iran.",
+            "name": "Fatemeh Nikkhoo"
+          },
+          {
+            "affiliation": "phd Faculty of Psychology and Education, Allameh Tabataba&#039;i University, Tehran, Iran",
+            "name": "asgar chubdari"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "https://jpe.atu.ac.ir/article_12328_098d50ba045e9533a38b622a52af600a.pdf"
+          }
+        ],
+        "abstract": "The comorbidity of neurodevelopmental disorders regarding deafness has been confirmed in several studies, which further emphasizes the necessity of paying more attention to diagnostic and rehabilitation approaches in this field. The primary objective of the present study was to provide a systematic review of neurodevelopmental disorders which are associated with deafness in children. The present review study was conducted and obtained through comprehensive search and utilizing keywords including: deafness, comorbid disorder, neurodevelopmental disorder, and hearing impairment in Web of Science, Google Scholar, ScienceDirect databases that had been published between 2009 and 2019. Ultimately, 23 scientific papers were chosen in accordance with the primary objective of the research project and the inclusion criteria & research findings were then extracted. Out of the 24 chosen papers, 13 papers (56.52%) had focused on etiology and the prevalence of disorders, 7 papers (30.43%) had focused on evaluation, 3 papers (13.04%) had focused on rehabilitation and intervention. A. Bearing in mind that comorbid disorders affect the effectiveness of intervention programs and treatments such as hearing aids, cochlear implants, and rehabilitation, it is considered essential to pay close attention to expert evaluations and experts' knowledge & awareness regarding the early diagnosis of comorbid disorders which are associated with deafness",
+        "title": "Neurodevelopmental Disorders Comorbid with Deafness in Children: A Systematic Review of Previous Studies"
+      },
+      "created_date": "2023-01-30T12:26:38Z",
+      "id": "000285af657d4fe793aa14cec3257515"
+    },
+    {
+      "last_updated": "2025-08-19T19:49:21Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2383-0689",
+            "type": "pissn"
+          },
+          {
+            "id": "2383-0697",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "2",
+          "country": "IR",
+          "issns": [
+            "2383-0689",
+            "2383-0697"
+          ],
+          "publisher": "Institute for Humanities and Cultural Studies (IHCS)",
+          "language": [
+            "FA"
+          ],
+          "title": "حکمت معاصر"
+        },
+        "month": "3",
+        "end_page": "119",
+        "keywords": [
+          "mystical experience",
+          "Transcendent mysticism",
+          "Immanent mysticism",
+          "Meditation and neuro - psychological states of mystical experience"
+        ],
+        "year": "2011",
+        "start_page": "107",
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Assistant Professor ,Institute for Humanities and Cultural Studies",
+            "name": "Hadi Vakili"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://wisdom.ihcs.ac.ir/article_81_feabc4db68cd98ad675685419d7eab5d.pdf"
+          }
+        ],
+        "abstract": "No doubt mysticism is the essence of religious experience and this experience for both those who have religious beliefs and those who have not such beliefs typically causes changes in life. Regardless of the difficulty of describing the mystical experiences which seems very far from the conceptual framework of normal moods, it appears that the similarities among the various religious traditions for various mystical states can be outlined. These similarities include: the experience of unity, the feeling of being beyond time and space, sense of sacredness, a sense of joy and happiness, unity and awareness of the public with a vacuum and an eternal ultimate reality. Mystical states can be divided into two distinct categories: transcendent and immanent. Though Mysticism and spiritual meditation have some considerable similarities to each other, but they certainly look different. These two mystical tendencies in east & west religious faiths in the world to be seen with difference. Differences over the interpretation of mystical experiences may be caused by cultural and linguistic differences and distinctions. Psychological interpretations, neuro psychological and cognitive science of mystical experiences of the research approach is innovative in the world.",
+        "title": "Mystical Experience: Its Nature Features"
+      },
+      "created_date": "2018-07-22T17:44:01Z",
+      "id": "0002a44cb3fc4d4a80720694da941b36"
+    },
+    {
+      "last_updated": "2025-10-28T16:56:07Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/rel16101260",
+            "type": "doi"
+          },
+          {
+            "id": "2077-1444",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "16",
+          "number": "10",
+          "country": "CH",
+          "issns": [
+            "2077-1444"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Religions"
+        },
+        "month": "09",
+        "keywords": [
+          "Carpaccio",
+          "<i>teleri</i>",
+          "jews",
+          "Muslims",
+          "fabric",
+          "St. Stephen"
+        ],
+        "year": "2025",
+        "start_page": "1260",
+        "subject": [
+          {
+            "code": "BL1-2790",
+            "scheme": "LCC",
+            "term": "Religions. Mythology. Rationalism"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "School of Humanities, University of Auckland, Auckland 1010, New Zealand",
+            "name": "Clare Wilde"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2077-1444/16/10/1260"
+          }
+        ],
+        "abstract": "The first monographic exhibition dedicated to Vittore Carpaccio (ca. 1460–1525) in the US, and the first outside of Italy, was hosted at the National Gallery of Art in Washington, DC, from 20 Nov 2022 to 23 February 2023 (from where it went to Venice). Building on the research of art historians and experts on Venice and the larger Mediterranean region in the early modern period, this paper examines Carpaccio’s depiction of various “Turks” in some of the large narrative painting cycles (<i>teleri</i>) commissioned by the devotional confraternities (<i>scuole</i>) in Renaissance Venice. While Carpaccio’s and the larger Venetian familiarity with Islam, including Turks, has been studied, this paper compares various female figures in the St. Stephen cycle with those in his St. George cycle, situating them in the larger historical context of the commissioning <i>scuole</i> (Scuola di Santo Stefano and Scuola di San Giorgio degli Schiavoni, respectively). While attempting to uncover the significance, if not the identities, of a few individuals who stand out from the crowd, this paper urges caution when attempting to discern social history from a painting, much as we take literary texts (particularly those written well before our own times) with a grain of salt.",
+        "title": "Turks in the <i>Teleri</i>? Interpreting Earrings, Stripes, and Veils in Carpaccio’s Narrative Cycles"
+      },
+      "id": "0002b3e2d92f4be5b0028b08f66ed489",
+      "created_date": "2025-10-28T16:56:07Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/articles/philosophy?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/articles/philosophy?page=23254&pageSize=25"
+}

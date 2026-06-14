@@ -1,0 +1,2655 @@
+{
+  "total": 2386,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T20:00:51.132116Z",
+  "query": "literature",
+  "results": [
+    {
+      "last_updated": "2026-05-14T17:08:35Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://ejournal.umpri.ac.id/index.php/smart/about/editorialPolicies#focusAndScope",
+          "board_url": "http://ejournal.umpri.ac.id/index.php/smart/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false
+        },
+        "keywords": [
+          "applied linguistics",
+          "english language"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          },
+          {
+            "code": "PE1-3729",
+            "scheme": "LCC",
+            "term": "English language"
+          }
+        ],
+        "eissn": "2356-203X",
+        "language": [
+          "EN"
+        ],
+        "title": "Jurnal Smart",
+        "pissn": "2356-2048",
+        "article": {
+          "license_display_example_url": "https://ejournal.umpri.ac.id/index.php/smart/article/view/900/414",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "name": "APSPBI"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://ejournal.umpri.ac.id/index.php/smart/about/editorialPolicies#focusAndScope",
+          "journal": "http://ejournal.umpri.ac.id/index.php/smart/index",
+          "oa_statement": "http://ejournal.umpri.ac.id/index.php/smart/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://ejournal.umpri.ac.id/index.php/smart/about/submissions#authorGuidelines",
+          "license_terms": "https://ejournal.umpri.ac.id/index.php/smart/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2015,
+        "alternative_title": "SMART STKIPMPL",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 300000,
+              "currency": "IDR"
+            }
+          ],
+          "url": "http://ejournal.umpri.ac.id/index.php/smart/about/editorialPolicies#custom-1"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "Universitas Muhammadiyah Pringsewu"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2020-11-18"
+      },
+      "created_date": "2020-11-18T03:18:09Z",
+      "id": "00b0ef650cd741759107b15462a2c25a"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:22Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://sanad.iau.ir/Journal/jal/Page/process",
+          "board_url": "https://sanad.iau.ir/Journal/jal/EditorialBoard"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://sanad.iau.ir/Journal/jal/Page/ethics"
+        },
+        "keywords": [
+          "foreign language",
+          "applied linguistics",
+          "bilingual education",
+          "psycholinguistics",
+          "applied phonetics"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://sanad.iau.ir/Journal/jal/Page/authors"
+        },
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "eissn": "2645-3584",
+        "language": [
+          "EN"
+        ],
+        "title": "Journal of English Language Pedagogy and Practice",
+        "pissn": "2645-3576",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "IR",
+          "name": "Research Deputy"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://sanad.iau.ir/Journal/jal/Page/aim_scope",
+          "journal": "https://sanad.iau.ir/journal/jal/",
+          "oa_statement": "https://sanad.iau.ir/Journal/jal/Page/about_journal",
+          "author_instructions": "https://sanad.iau.ir/Journal/jal/Page/authors",
+          "license_terms": "https://sanad.iau.ir/Journal/jal/Page/about_journal"
+        },
+        "oa_start": 2008,
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 15000000,
+              "currency": "IRR"
+            }
+          ],
+          "url": "https://sanad.iau.ir/Journal/jal/Page/about_journal"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 16,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IR",
+          "name": "Islamic Azad University, Tabriz Branch"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-05-01"
+      },
+      "id": "00db4a1485de46da8bc2c8b6d748fa22",
+      "created_date": "2019-01-27T17:03:54Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:19Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://jurnal.umk.ac.id/index.php/kredo/pages/view/peerreviewprocess",
+          "board_url": "https://jurnal.umk.ac.id/index.php/kredo/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://jurnal.umk.ac.id/index.php/kredo/pages/view/copyright"
+        },
+        "keywords": [
+          "language",
+          "literature",
+          "linguistic studies"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://jurnal.umk.ac.id/index.php/kredo/about/editorialPolicies#custom-0"
+        },
+        "subject": [
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "eissn": "2599-316X",
+        "language": [
+          "ID"
+        ],
+        "title": "Kredo: Jurnal Ilmiah Bahasa dan Sastra",
+        "pissn": "2598-3202",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC-SA",
+            "SA": true,
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://jurnal.umk.ac.id/index.php/kredo/pages/view/focusandscope",
+          "journal": "https://jurnal.umk.ac.id/index.php/kredo",
+          "oa_statement": "https://jurnal.umk.ac.id/index.php/kredo/pages/view/openAccessPolicy",
+          "author_instructions": "https://jurnal.umk.ac.id/index.php/kredo/about/submissions#authorGuidelines",
+          "license_terms": "https://jurnal.umk.ac.id/index.php/kredo/pages/view/copyright"
+        },
+        "oa_start": 2017,
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 500000,
+              "currency": "IDR"
+            }
+          ],
+          "url": "https://jurnal.umk.ac.id/index.php/kredo/about/submissions#authorFees"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ID",
+          "name": "Universitas Muria Kudus"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": true,
+          "url": "https://jurnal.umk.ac.id/index.php/kredo/about/submissions#authorFees"
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-02-03"
+      },
+      "id": "00eab5634fd34ab9afa8dd5d63e53141",
+      "created_date": "2021-02-03T04:34:33Z"
+    },
+    {
+      "last_updated": "2026-03-11T09:37:52Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://journals.openedition.org/td/?page=informations",
+          "board_url": "https://journals.openedition.org/td/269"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI",
+            "Handles"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://journals.openedition.org/td/?page=informations"
+        },
+        "keywords": [
+          "linguistics",
+          "literature",
+          "language",
+          "literary theory",
+          "art and humanities",
+          "literary criticism"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "eissn": "2545-2061",
+        "language": [
+          "PL",
+          "EN"
+        ],
+        "title": "Teksty Drugie",
+        "pissn": "0867-0633",
+        "article": {
+          "license_display_example_url": "https://journals.openedition.org/td/30689",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://journals.openedition.org/td/268",
+          "journal": "https://journals.openedition.org/td",
+          "oa_statement": "https://journals.openedition.org/td/?page=informations",
+          "author_instructions": "https://journals.openedition.org/td/1975",
+          "license_terms": "https://journals.openedition.org/td/?page=informations"
+        },
+        "oa_start": 2015,
+        "apc": {
+          "has_apc": false,
+          "url": "https://journals.openedition.org/td/?page=informations"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 20,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "PL",
+          "name": "The Institute of Literary Research of the Polish Academy of Sciences"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true
+      },
+      "id": "01168d231660400a9a9fe82a1f9066c0",
+      "created_date": "2026-03-11T09:37:52Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:50Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://linguarumuniverse.weebly.com/authors.html",
+          "board_url": "https://linguarumuniverse.weebly.com/editors.html"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://linguarumuniverse.weebly.com/authors.html"
+        },
+        "keywords": [
+          "linguistics",
+          "literary studies",
+          "cultural studies",
+          "teaching methodology"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "eissn": "3033-0815",
+        "language": [
+          "SK",
+          "DE",
+          "FR",
+          "EN",
+          "BG"
+        ],
+        "title": "Linguarum Universe",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://linguarumuniverse.weebly.com/home.html",
+          "journal": "https://linguarumuniverse.weebly.com/home.html",
+          "oa_statement": "https://linguarumuniverse.weebly.com/home.html",
+          "author_instructions": "https://linguarumuniverse.weebly.com/authors.html",
+          "license_terms": "https://linguarumuniverse.weebly.com/home.html"
+        },
+        "oa_start": 2024,
+        "apc": {
+          "has_apc": false,
+          "url": "https://linguarumuniverse.weebly.com/authors.html"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 8,
+        "deposit_policy": {
+          "service": [
+            "Copyright"
+          ],
+          "url": "https://linguarumuniverse.weebly.com/authors.html",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "BG",
+          "name": "Academic Research and Culture Association"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-02-21"
+      },
+      "id": "01c3bb0515e44ba18e8fbe9a2c1c08e9",
+      "created_date": "2025-02-21T13:10:21Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:54Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://jpl.letras.ulisboa.pt/submissions/",
+          "board_url": "https://jpl.letras.ulisboa.pt/editorialteam/"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://jpl.letras.ulisboa.pt/submissions/"
+        },
+        "keywords": [
+          "portuguese-based languages",
+          "comparative linguistics",
+          "iberian languages",
+          "language acquisition",
+          "language variations"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://jpl.letras.ulisboa.pt/site/research-integrity/"
+        },
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "eissn": "2397-5563",
+        "language": [
+          "EN"
+        ],
+        "title": "Journal of Portuguese Linguistics",
+        "article": {
+          "license_display_example_url": "https://jpl.letras.ulisboa.pt/article/id/5681/",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "labels": [
+          "ojc"
+        ],
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "CLOCKSS",
+            "LOCKSS",
+            "Portico"
+          ],
+          "url": "https://jpl.letras.ulisboa.pt/site/about/"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://jpl.letras.ulisboa.pt/site/about/",
+          "journal": "https://jpl.letras.ulisboa.pt",
+          "oa_statement": "https://jpl.letras.ulisboa.pt/site/about/",
+          "author_instructions": "https://jpl.letras.ulisboa.pt/site/author-guidelines/",
+          "license_terms": "https://jpl.letras.ulisboa.pt/submissions/"
+        },
+        "oa_start": 2002,
+        "apc": {
+          "has_apc": false,
+          "url": "https://jpl.letras.ulisboa.pt/submissions/"
+        },
+        "other_charges": {
+          "has_other_charges": true,
+          "url": "https://jpl.letras.ulisboa.pt/submissions/"
+        },
+        "publication_time_weeks": 75,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/21746",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "GB",
+          "name": "Open Library of Humanities"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-12-18"
+      },
+      "created_date": "2017-03-29T14:50:35Z",
+      "id": "01c576110a744c9db5c25fe29363d7bb"
+    },
+    {
+      "last_updated": "2026-01-15T10:36:03Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://rhema-journal.com/Regulations%20on%20acceptance%20and%20review%20of%20materials.pdf",
+          "board_url": "http://rhema-journal.com/editorial_en.html"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://rhema-journal.com/submissions_en.html"
+        },
+        "keywords": [
+          "linguistics",
+          "philology",
+          "textology",
+          "education",
+          "literary theory"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "language": [
+          "RU",
+          "EN"
+        ],
+        "title": "Rhema. Рема",
+        "pissn": "2500-2953",
+        "article": {
+          "license_display_example_url": "https://rhema-journal.com/Rema_2021_3_Liubimova_Kolesnikova.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "RU",
+          "name": "Moscow Pedagogical State University, Federal State Budgetary Educational Institution of Higher Education"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "national_library": [
+            "The Russian State Library"
+          ],
+          "url": "https://rhema-journal.com/index_en.html"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://rhema-journal.com/index_en.html",
+          "journal": "http://rhema-journal.com/index_en.html",
+          "oa_statement": "http://rhema-journal.com/index_en.html",
+          "author_instructions": "http://rhema-journal.com/submissions_en.html",
+          "license_terms": "http://rhema-journal.com/submissions_en.html"
+        },
+        "oa_start": 2015,
+        "alternative_title": "Rhema. Rema",
+        "apc": {
+          "has_apc": false,
+          "url": "http://rhema-journal.com/submissions_en.html"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 16,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "RU",
+          "name": "Moscow Pedagogical State University, Federal State Budgetary Educational Institution of Higher Education"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-02-16"
+      },
+      "id": "01cd21804253463a90b710795e880155",
+      "created_date": "2020-05-23T12:38:31Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:15Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://dergipark.org.tr/en/pub/erciyesiletisim/page/2555",
+          "board_url": "https://dergipark.org.tr/en/pub/erciyesiletisim/board"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://dergipark.org.tr/en/pub/erciyesiletisim/page/8361"
+        },
+        "keywords": [
+          "communication",
+          "journalism",
+          "media studies"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://dergipark.org.tr/en/pub/erciyesiletisim/page/8981"
+        },
+        "subject": [
+          {
+            "code": "PN4699-5650",
+            "scheme": "LCC",
+            "term": "Journalism. The periodical press, etc."
+          }
+        ],
+        "eissn": "2667-5811",
+        "language": [
+          "TR",
+          "EN"
+        ],
+        "title": "Erciyes İletişim Dergisi",
+        "article": {
+          "license_display_example_url": "https://dergipark.org.tr/en/download/article-file/3221027",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "TR",
+          "name": "Erciyes University, Faculty of Communication"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://dergipark.org.tr/en/pub/erciyesiletisim/aim-and-scope",
+          "journal": "https://dergipark.org.tr/en/pub/erciyesiletisim",
+          "oa_statement": "https://dergipark.org.tr/en/pub/erciyesiletisim/page/8841",
+          "author_instructions": "https://dergipark.org.tr/en/pub/erciyesiletisim/writing-rules",
+          "license_terms": "https://dergipark.org.tr/en/pub/erciyesiletisim/page/8841"
+        },
+        "oa_start": 2009,
+        "alternative_title": "Journal of Erciyes Communication",
+        "apc": {
+          "has_apc": false,
+          "url": "https://dergipark.org.tr/en/pub/erciyesiletisim/price-policy"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 15,
+        "deposit_policy": {
+          "service": [
+            "https://dergipark.org.tr/tr/pub/erciyesiletisim/archive"
+          ],
+          "url": "https://dergipark.org.tr/en/pub/erciyesiletisim/page/15441",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "TR",
+          "name": "Erciyes University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-12-01"
+      },
+      "id": "01cdf839ce9a487ba27d61e2ec4469f0",
+      "created_date": "2023-12-01T09:40:43Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:37:14Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://www.arabmediasociety.com/publishing-policies/",
+          "board_url": "https://www.arabmediasociety.com/editorial-board/"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://www.arabmediasociety.com/open_source_statement/"
+        },
+        "keywords": [
+          "arab",
+          "media studies",
+          "communication",
+          "social sciences",
+          "journalism",
+          "cultural studies"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://www.arabmediasociety.com/ethical-guidelines/"
+        },
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "eissn": "1687-7721",
+        "language": [
+          "AR",
+          "EN"
+        ],
+        "title": "Arab Media and Society",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.arabmediasociety.com/about-us/",
+          "journal": "https://www.arabmediasociety.com",
+          "oa_statement": "https://www.arabmediasociety.com/open_source_statement/",
+          "author_instructions": "https://www.arabmediasociety.com/call-for-papers/",
+          "license_terms": "https://www.arabmediasociety.com/open_source_statement/"
+        },
+        "oa_start": 2014,
+        "alternative_title": "Arab Media & Society",
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.arabmediasociety.com/open_source_statement/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "EG",
+          "name": "The Research and Publications Division in the Kamal Adham Center for Television and Digital Journalism at the American University in Cairo"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-02-27"
+      },
+      "id": "01d2b815b7cd4aa689da477f3564ad73",
+      "created_date": "2025-02-27T14:54:50Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:53Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/evaluacion_por_pares",
+          "board_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "keywords": [
+          "social sciences",
+          "philosophy",
+          "humanities",
+          "political theory",
+          "communication",
+          "culture"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/evaluacion_por_pares"
+        },
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "eissn": "2600-5735",
+        "language": [
+          "ES"
+        ],
+        "title": "Revista Textos y Contextos",
+        "pissn": "1390-695X",
+        "article": {
+          "license_display_example_url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/article/view/3932",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "institution": {
+          "country": "EC",
+          "name": "Universidad Central del Ecuador"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about",
+          "journal": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/index",
+          "oa_statement": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about",
+          "author_instructions": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about/submissions",
+          "license_terms": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "oa_start": 2019,
+        "alternative_title": "Textos y Contextos",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistadigital.uce.edu.ec/index.php/CONTEXTOS/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 11,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "EC",
+          "name": "Universidad Central del Ecuador"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-08-29"
+      },
+      "id": "01fe3bf2e3b843ba8d1929d4aff3c26d",
+      "created_date": "2022-08-29T20:08:32Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:57Z",
+      "bibjson": {
+        "discontinued_date": "2015-12-31",
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://periodicos.claec.org/index.php/cc/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://periodicos.claec.org/index.php/cc/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "http://periodicos.claec.org/index.php/cc/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "political culture",
+          "art",
+          "languages",
+          "literature",
+          "cultural studies",
+          "culture"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "eissn": "2447-018X",
+        "language": [
+          "PT"
+        ],
+        "title": "Conexões Culturais",
+        "article": {
+          "license_display_example_url": "http://periodicos.claec.org/index.php/cc/article/view/17",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://periodicos.claec.org/index.php/cc/about/editorialPolicies#focusAndScope",
+          "journal": "https://periodicos.claec.org/index.php/relacult/index",
+          "oa_statement": "http://periodicos.claec.org/index.php/cc/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://periodicos.claec.org/index.php/cc/about/submissions#authorGuidelines",
+          "license_terms": "http://periodicos.claec.org/index.php/cc/about/submissions#privacyStatement"
+        },
+        "oa_start": 2015,
+        "alternative_title": "Revista de Linguagens, Artes e Estudos em Cultura",
+        "apc": {
+          "has_apc": false,
+          "url": "http://periodicos.claec.org/index.php/cc/about/submissions"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 8,
+        "deposit_policy": {
+          "service": [
+            "Diadorim"
+          ],
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "BR",
+          "name": "Centro Latinoamericano de Estudos em Cultura"
+        },
+        "is_replaced_by": [
+          "2525-7870"
+        ],
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-02-29"
+      },
+      "created_date": "2016-02-03T15:48:57Z",
+      "id": "0209da9a4a08451a8b015bf27518cadc"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:32Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://journals.univ-temouchent.edu.dz/index.php/RAL/peerreview",
+          "board_url": "https://journals.univ-temouchent.edu.dz/index.php/RAL/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "ARK"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://journals.univ-temouchent.edu.dz/index.php/RAL/copyright"
+        },
+        "keywords": [
+          "literature",
+          "linguistics",
+          "translation",
+          "education",
+          "civilisation",
+          "arts"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://journals.univ-temouchent.edu.dz/index.php/RAL/palgsimi"
+        },
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "eissn": "2661-7447",
+        "language": [
+          "ES",
+          "FR",
+          "EN"
+        ],
+        "title": "Revue Algérienne des Lettres",
+        "pissn": "2602-621X",
+        "article": {
+          "license_display_example_url": "https://journals.univ-temouchent.edu.dz/index.php/RAL/article/view/387/354",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://journals.univ-temouchent.edu.dz/index.php/RAL/about",
+          "journal": "https://journals.univ-temouchent.edu.dz/index.php/RAL",
+          "oa_statement": "https://journals.univ-temouchent.edu.dz/index.php/RAL/openaccess",
+          "author_instructions": "https://journals.univ-temouchent.edu.dz/index.php/RAL/gen",
+          "license_terms": "https://journals.univ-temouchent.edu.dz/index.php/RAL/copyright"
+        },
+        "oa_start": 2017,
+        "alternative_title": "The Algerian Journal of Letters",
+        "apc": {
+          "has_apc": false,
+          "url": "https://journals.univ-temouchent.edu.dz/index.php/RAL/openaccess"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/44832",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "DZ",
+          "name": "University of Ain Temouchent"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-08-17"
+      },
+      "id": "021f7f98dac844e082f5b2d4c9950cdd",
+      "created_date": "2024-08-17T19:38:14Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:54Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review"
+          ],
+          "review_url": "https://bas.journals.uvt.ro/peer-review/",
+          "board_url": "https://bas.journals.uvt.ro/editors/"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://bas.journals.uvt.ro/wp-content/uploads/2022/05/2022Transfer_of_Copyright_agreement.pdf"
+        },
+        "keywords": [
+          "literature",
+          "cultural studies",
+          "british literature",
+          "american literature",
+          "english language"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "PS1-3576",
+            "scheme": "LCC",
+            "term": "American literature"
+          },
+          {
+            "code": "PR1-9680",
+            "scheme": "LCC",
+            "term": "English literature"
+          }
+        ],
+        "eissn": "2457-7715",
+        "language": [
+          "EN"
+        ],
+        "title": "British and American Studies",
+        "pissn": "1224-3086",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "country": "RO",
+          "name": "Romanian Society of English and American Studies"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://bas.journals.uvt.ro/aims-and-scope/",
+          "journal": "https://bas.journals.uvt.ro/",
+          "oa_statement": "https://bas.journals.uvt.ro/",
+          "author_instructions": "https://bas.journals.uvt.ro/wp-content/uploads/2022/05/ss_bas2015.pdf",
+          "license_terms": "https://bas.journals.uvt.ro/"
+        },
+        "oa_start": 2015,
+        "alternative_title": "B.A.S.",
+        "apc": {
+          "has_apc": false,
+          "url": "https://bas.journals.uvt.ro/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 30,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "RO",
+          "name": "Editura Universității de Vest"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-11-23"
+      },
+      "id": "0271501d689944ae8c7ea0321a0d1275",
+      "created_date": "2016-12-13T18:35:52Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:07Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.sibscript.ru/jour/about/editorialPolicies#custom-0",
+          "board_url": "https://www.sibscript.ru/jour/pages/view/EditorialC"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.sibscript.ru/jour/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "archeology",
+          "history of russia",
+          "linguistics",
+          "literature",
+          "psychology",
+          "western siberia"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://www.sibscript.ru/jour/about/editorialPolicies#custom-6"
+        },
+        "replaces": [
+          "2078-8975",
+          "2078-8983"
+        ],
+        "subject": [
+          {
+            "code": "D1-2009",
+            "scheme": "LCC",
+            "term": "History (General)"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "eissn": "2949-2092",
+        "language": [
+          "DE",
+          "IT",
+          "FR",
+          "EN",
+          "RU"
+        ],
+        "title": "СибСкрипт",
+        "pissn": "2949-2122",
+        "article": {
+          "license_display_example_url": "https://www.sibscript.ru/jour/article/view/5423/4543",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Scientific electronic library"
+          ],
+          "national_library": [
+            "Russian State Library"
+          ],
+          "url": "https://www.sibscript.ru/jour/about/editorialPolicies#archiving"
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.sibscript.ru/jour/about/editorialPolicies#focusAndScope",
+          "journal": "https://www.sibscript.ru",
+          "oa_statement": "https://www.sibscript.ru/jour/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "https://www.sibscript.ru/jour/about/submissions#authorGuidelines",
+          "license_terms": "https://www.sibscript.ru/jour/about/editorialPolicies#custom-13"
+        },
+        "oa_start": 2008,
+        "alternative_title": "SibScript",
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.sibscript.ru/jour/about/editorialPolicies#custom-8"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 24,
+        "deposit_policy": {
+          "service": [
+            "Copyright Notice"
+          ],
+          "url": "https://www.sibscript.ru/jour/about/submissions#copyrightNotice",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "RU",
+          "name": "Kemerovo State University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-07-30"
+      },
+      "created_date": "2023-07-13T12:18:31Z",
+      "id": "02819e8a5d0a421a93e8bdb5140dcf7f"
+    },
+    {
+      "last_updated": "2026-01-15T10:36:50Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "http://www.revistaiberica.org/index.php/iberica/about/submissions",
+          "board_url": "http://www.revistaiberica.org/index.php/iberica/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "http://www.revistaiberica.org/index.php/iberica/about/submissions"
+        },
+        "keywords": [
+          "languages for specific purposes",
+          "discourse analysis",
+          "professional discourse",
+          "academic discourse"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "http://www.revistaiberica.org/index.php/iberica/about/submissions"
+        },
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "eissn": "2340-2784",
+        "language": [
+          "EN"
+        ],
+        "title": "Ibérica",
+        "pissn": "1139-7241",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.revistaiberica.org/index.php/iberica/about",
+          "journal": "https://revistaiberica.org/index.php/iberica",
+          "oa_statement": "https://revistaiberica.org/index.php/iberica/about",
+          "author_instructions": "http://www.revistaiberica.org/index.php/iberica/about/submissions",
+          "license_terms": "https://revistaiberica.org/index.php/iberica"
+        },
+        "oa_start": 1999,
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.revistaiberica.org/index.php/iberica/about/submissions"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 52,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Asociación Europea de Lenguas para Fines Específicos"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-05-18"
+      },
+      "id": "0282455465c24c579eb0523933803655",
+      "created_date": "2006-09-11T15:48:52Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:31Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "board_url": "https://www.ricerchedisconfine.info/chi-siamo/"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "Handles"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "keywords": [
+          "art history",
+          "theatre",
+          "performing arts",
+          "cinema"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "GN1-890",
+            "scheme": "LCC",
+            "term": "Anthropology"
+          },
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "eissn": "2038-8411",
+        "language": [
+          "FR",
+          "IT",
+          "EN"
+        ],
+        "title": "Ricerche di S/Confine",
+        "article": {
+          "license_display_example_url": "https://www.repository.unipr.it/bitstream/1889/5078/1/MODENA-post.pdf",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.ricerchedisconfine.info/chi-siamo/",
+          "journal": "https://www.ricerchedisconfine.info/chi-siamo/",
+          "oa_statement": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "author_instructions": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/",
+          "license_terms": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "oa_start": 2010,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.ricerchedisconfine.info/contatti-e-info-per-gli-autori/"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 10,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/35607",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "IT",
+          "name": "Università di Parma"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2024-11-09"
+      },
+      "created_date": "2010-09-30T16:32:06Z",
+      "id": "02869d2ed1ff4e31bbcd0c9c7dda057f"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:15Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://textopoetico.emnuvens.com.br/rtp/about/editorialPolicies#peerReviewProcess",
+          "board_url": "http://textopoetico.emnuvens.com.br/rtp/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false
+        },
+        "keywords": [
+          "poetry",
+          "poem"
+        ],
+        "plagiarism": {
+          "detection": false
+        },
+        "subject": [
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          },
+          {
+            "code": "PQ1-3999",
+            "scheme": "LCC",
+            "term": "French literature - Italian literature - Spanish literature - Portuguese literature"
+          }
+        ],
+        "eissn": "1808-5385",
+        "language": [
+          "PT"
+        ],
+        "title": "Texto Poético",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false,
+          "url": "http://textopoetico.emnuvens.com.br/rtp/about/editorialPolicies#archiving"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://textopoetico.emnuvens.com.br/rtp/about/editorialPolicies#focusAndScope",
+          "journal": "http://textopoetico.emnuvens.com.br/rtp/index",
+          "oa_statement": "http://textopoetico.emnuvens.com.br/rtp/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "http://textopoetico.emnuvens.com.br/rtp/about/submissions#authorGuidelines",
+          "license_terms": "http://textopoetico.emnuvens.com.br/rtp/about/submissions#copyrightNotice"
+        },
+        "oa_start": 2004,
+        "apc": {
+          "has_apc": false,
+          "url": "http://textopoetico.emnuvens.com.br/rtp/about/editorialPolicies#openAccessPolicy"
+        },
+        "other_charges": {
+          "has_other_charges": false,
+          "url": "http://textopoetico.emnuvens.com.br/rtp/about/editorialPolicies#openAccessPolicy"
+        },
+        "publication_time_weeks": 14,
+        "deposit_policy": {
+          "service": [
+            "Diadorim"
+          ],
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "BR",
+          "name": "Universidade Federal de Goiás"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2020-07-23"
+      },
+      "id": "028c1dafa8d141768610ca3a039c2959",
+      "created_date": "2020-07-23T17:18:39Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:13Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://journal.fi/nm/about",
+          "board_url": "https://journal.fi/nm/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": false,
+          "url": "https://journal.fi/nm/about/submissions"
+        },
+        "keywords": [
+          "linguistics",
+          "philology"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "eissn": "2736-9714",
+        "language": [
+          "IT",
+          "ES",
+          "DE",
+          "FR",
+          "EN"
+        ],
+        "title": "Neuphilologische Mitteilungen",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://journal.fi/nm/about",
+          "journal": "https://journal.fi/nm/",
+          "oa_statement": "https://journal.fi/nm/about",
+          "author_instructions": "https://journal.fi/nm/about/submissions",
+          "license_terms": "https://journal.fi/nm/about"
+        },
+        "oa_start": 2020,
+        "apc": {
+          "has_apc": false,
+          "url": "https://journal.fi/nm/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 40,
+        "deposit_policy": {
+          "service": [
+            "Publisher's own website"
+          ],
+          "url": "https://journal.fi/nm/about",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "FI",
+          "name": "Modern Language Society of Helsinki"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-06-04"
+      },
+      "id": "029923e8e9544dfabfeb7313a359d042",
+      "created_date": "2021-06-04T12:07:49Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:34:19Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "http://www.urmia.ac.ir/ijltr/pages/submission%20guidelines.aspx",
+          "board_url": "http://www.urmia.ac.ir/ijltr/pages/editorial%20board.aspx"
+        },
+        "pid_scheme": {
+          "has_pid_scheme": false
+        },
+        "copyright": {
+          "author_retains": false
+        },
+        "keywords": [
+          "langauge",
+          "teaching",
+          "learning",
+          "l2",
+          "efl",
+          "esl"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "http://www.urmia.ac.ir/ijltr/pages/submission%20guidelines.aspx"
+        },
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          },
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "language": [
+          "EN"
+        ],
+        "title": "Iranian Journal of Language Teaching Research",
+        "pissn": "2322-1291",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "Teaching English Language and Literature Society of Iran"
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "type": "Publisher's own license",
+            "url": "http://www.urmia.ac.ir/ijltr/pages/submission%20guidelines.aspx"
+          }
+        ],
+        "ref": {
+          "aims_scope": "http://www.urmia.ac.ir/ijltr/default.aspx",
+          "journal": "http://ijltr.urmia.ac.ir/",
+          "oa_statement": "http://www.urmia.ac.ir/ijltr/default.aspx",
+          "author_instructions": "http://www.urmia.ac.ir/ijltr/pages/submission%20guidelines.aspx",
+          "license_terms": "http://www.urmia.ac.ir/ijltr/pages/submission%20guidelines.aspx"
+        },
+        "oa_start": 2013,
+        "apc": {
+          "has_apc": false,
+          "url": "http://www.urmia.ac.ir/ijltr/default.aspx"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 15,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "IR",
+          "name": "Urmia University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2014-07-14"
+      },
+      "created_date": "2014-07-14T13:52:42Z",
+      "id": "02d821123673428b83d65c6db2612a14"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:19Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://jci.numl.edu.pk/index.php/jci/PeerReviewPolicyDutiesofReviewers",
+          "board_url": "https://jci.numl.edu.pk/index.php/jci/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://jci.numl.edu.pk/index.php/jci/Copyright"
+        },
+        "keywords": [
+          "literature",
+          "linguistics",
+          "language",
+          "education",
+          "literary theory",
+          "analysis"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://jci.numl.edu.pk/index.php/jci/plagiarismpolicy"
+        },
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          },
+          {
+            "code": "P98-98.5",
+            "scheme": "LCC",
+            "term": "Computational linguistics. Natural language processing"
+          }
+        ],
+        "eissn": "2789-4665",
+        "language": [
+          "EN"
+        ],
+        "title": "NUML Journal of Critical Inquiry",
+        "pissn": "2222-5706",
+        "article": {
+          "license_display_example_url": "https://jci.numl.edu.pk/index.php/jci/article/view/223/81",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://jci.numl.edu.pk/index.php/jci/scope",
+          "journal": "https://jci.numl.edu.pk/index.php/jci",
+          "oa_statement": "https://jci.numl.edu.pk/index.php/jci/openaccess",
+          "author_instructions": "https://jci.numl.edu.pk/index.php/jci/about/submissions",
+          "license_terms": "https://jci.numl.edu.pk/index.php/jci/license"
+        },
+        "oa_start": 2021,
+        "alternative_title": "NUML JCI",
+        "apc": {
+          "has_apc": true,
+          "max": [
+            {
+              "price": 20000,
+              "currency": "PKR"
+            }
+          ],
+          "url": "https://jci.numl.edu.pk/index.php/jci/PublicationPolicyPayments"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 18,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "PK",
+          "name": "National University of Modern Languages (NUML), Islamabad"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": true,
+          "url": "https://jci.numl.edu.pk/index.php/jci/PublicationPolicyPayments"
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-12-08"
+      },
+      "id": "02da8aba976b4e83ae443e7707017e3a",
+      "created_date": "2022-12-08T00:19:28Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:35:57Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "board_url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "keywords": [
+          "literary studies",
+          "literary theory",
+          "history of slovak literature",
+          "cultural studies",
+          "textology",
+          "digital humanities"
+        ],
+        "plagiarism": {
+          "detection": false,
+          "url": ""
+        },
+        "subject": [
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "language": [
+          "CS",
+          "SK"
+        ],
+        "title": "Slovenska Literatura",
+        "pissn": "0037-6973",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "Internet Archive",
+            "Institutional repository of the Slovak Academy of Sciences"
+          ],
+          "url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-NC-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "journal": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "oa_statement": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "author_instructions": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52",
+          "license_terms": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "oa_start": 2017,
+        "alternative_title": "Slovak Literature",
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.sav.sk/?lang=en&doc=journal-list&journal_no=52"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 12,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "SK",
+          "name": "Slovak Academy of Sciences, Institute of Slovak Literature"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2022-03-31"
+      },
+      "id": "02e67b7929554cc48b201305ece74205",
+      "created_date": "2022-03-31T09:36:10Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:39Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://www.degruyter.com/journal/key/ling/html#submit",
+          "board_url": "https://www.degruyter.com/journal/key/ling/html#editorial"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://www.degruyter.com/journal/key/ling/html#overview"
+        },
+        "keywords": [
+          "linguistic theory",
+          "psycholinguistics",
+          "linguistic typology",
+          "language acquisition",
+          "sociolinguistics",
+          "historical linguistics"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://www.degruyter.com/journal/key/ling/html#submit"
+        },
+        "subject": [
+          {
+            "code": "P1-1091",
+            "scheme": "LCC",
+            "term": "Philology. Linguistics"
+          }
+        ],
+        "eissn": "1613-396X",
+        "language": [
+          "EN"
+        ],
+        "title": "Linguistics",
+        "pissn": "0024-3949",
+        "article": {
+          "license_display_example_url": "https://www.degruyter.com/document/doi/10.1515/ling-2021-0013/html",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "labels": [
+          "s2o"
+        ],
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://www.degruyter.com/journal/key/ling/html#overview",
+          "journal": "https://www.degruyter.com/journal/key/ling/html",
+          "oa_statement": "https://www.degruyter.com/journal/key/ling/html#overview",
+          "author_instructions": "https://www.degruyter.com/publication/journal_key/LING/downloadAsset/LING_Information_for_Authors.pdf",
+          "license_terms": "https://www.degruyter.com/journal/key/ling/html#overview"
+        },
+        "oa_start": 2022,
+        "apc": {
+          "has_apc": false,
+          "url": "https://www.degruyter.com/journal/key/ling/html#overview"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 38,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/3301",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "DE",
+          "name": "De Gruyter"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-03-07"
+      },
+      "created_date": "2024-04-10T11:01:38Z",
+      "id": "02eae8178bbe403cbc7bea29bf7d2e16"
+    },
+    {
+      "last_updated": "2026-01-15T10:39:00Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Peer review",
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://ojs.uv.es/index.php/JLE/about/editorialPolicies#peerReviewProcess",
+          "board_url": "https://ojs.uv.es/index.php/JLE/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://ojs.uv.es/index.php/JLE/about/submissions#copyrightNotice"
+        },
+        "keywords": [
+          "empirical studies of literature",
+          "literary education",
+          "children's literature",
+          "libraries and reading",
+          "innovation and literary education"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://ojs.uv.es/index.php/JLE/about/editorialPolicies#custom-2"
+        },
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          },
+          {
+            "code": "LC8-6691",
+            "scheme": "LCC",
+            "term": "Special aspects of education"
+          }
+        ],
+        "eissn": "2659-3149",
+        "language": [
+          "ES",
+          "EN",
+          "CA",
+          "DE",
+          "FR"
+        ],
+        "title": "Journal of Literary Education",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": true,
+            "BY": true,
+            "type": "CC BY-ND",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nd/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://ojs.uv.es/index.php/JLE/about/editorialPolicies#focusAndScope",
+          "journal": "https://ojs.uv.es/index.php/JLE/index",
+          "oa_statement": "https://ojs.uv.es/index.php/JLE/about/editorialPolicies#openAccessPolicy",
+          "author_instructions": "https://ojs.uv.es/index.php/JLE/about/submissions#onlineSubmissions",
+          "license_terms": "https://ojs.uv.es/index.php/JLE/about/editorialPolicies#openAccessPolicy"
+        },
+        "oa_start": 2018,
+        "alternative_title": "JLE",
+        "apc": {
+          "has_apc": false,
+          "url": "https://ojs.uv.es/index.php/JLE/about/editorialPolicies#focusAndScope"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 17,
+        "deposit_policy": {
+          "service": [
+            "Open Policy Finder"
+          ],
+          "url": "https://openpolicyfinder.jisc.ac.uk/id/publication/43001",
+          "has_policy": true
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Universitat de València"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2023-10-23"
+      },
+      "id": "02f9cfe420914439b3087b415d3f06f9",
+      "created_date": "2023-10-23T05:59:11Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:38:28Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Anonymous peer review"
+          ],
+          "review_url": "https://dergipark.org.tr/en/pub/ikad/page/13965",
+          "board_url": "https://dergipark.org.tr/en/pub/ikad/board"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://dergipark.org.tr/en/pub/ikad/page/18740"
+        },
+        "keywords": [
+          "communication theory",
+          "media studies",
+          "journalism",
+          "public relations",
+          "cinema"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://dergipark.org.tr/en/pub/ikad/policy"
+        },
+        "subject": [
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "eissn": "2147-4524",
+        "language": [
+          "TR",
+          "EN"
+        ],
+        "title": "İletişim Kuram ve Araştırma Dergisi",
+        "article": {
+          "license_display": [
+            "No"
+          ]
+        },
+        "institution": {
+          "name": "İletişim Fakültesi"
+        },
+        "preservation": {
+          "has_preservation": true,
+          "service": [
+            "LOCKSS"
+          ],
+          "url": "https://dergipark.org.tr/en/pub/ikad/lockss-manifest"
+        },
+        "license": [
+          {
+            "NC": true,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY-NC",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://dergipark.org.tr/en/pub/ikad/aim-and-scope",
+          "journal": "https://dergipark.org.tr/en/pub/ikad",
+          "oa_statement": "https://dergipark.org.tr/en/pub/ikad/page/18740",
+          "author_instructions": "https://dergipark.org.tr/en/pub/ikad/writing-rules",
+          "license_terms": "https://dergipark.org.tr/en/pub/ikad/page/18740"
+        },
+        "oa_start": 2018,
+        "alternative_title": "Communication Theory & Research",
+        "apc": {
+          "has_apc": false,
+          "url": "https://dergipark.org.tr/en/pub/ikad/page/18750"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 20,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "TR",
+          "name": "Ankara Haci Bayram Veli University"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2025-06-05"
+      },
+      "id": "02feeb59b3574a41b41df97cfb6450f3",
+      "created_date": "2016-02-15T11:45:48Z"
+    },
+    {
+      "last_updated": "2026-01-15T10:33:21Z",
+      "bibjson": {
+        "editorial": {
+          "review_process": [
+            "Double anonymous peer review"
+          ],
+          "review_url": "https://revistas.ucm.es/index.php/TRET/about",
+          "board_url": "https://revistas.ucm.es/index.php/TRET/about/editorialTeam"
+        },
+        "pid_scheme": {
+          "scheme": [
+            "DOI"
+          ],
+          "has_pid_scheme": true
+        },
+        "copyright": {
+          "author_retains": true,
+          "url": "https://revistas.ucm.es/index.php/TRET/about/submissions"
+        },
+        "keywords": [
+          "theatre",
+          "performance",
+          "dramatic literature",
+          "spain",
+          "latin america"
+        ],
+        "plagiarism": {
+          "detection": true,
+          "url": "https://revistas.ucm.es/index.php/TRET/about"
+        },
+        "subject": [
+          {
+            "code": "N1-9211",
+            "scheme": "LCC",
+            "term": "Visual arts"
+          }
+        ],
+        "eissn": "2659-806X",
+        "language": [
+          "ES"
+        ],
+        "title": "Talía",
+        "article": {
+          "license_display_example_url": "https://revistas.ucm.es/index.php/TRET/article/view/70369/4564456554292",
+          "license_display": [
+            "Embed"
+          ]
+        },
+        "preservation": {
+          "has_preservation": false
+        },
+        "license": [
+          {
+            "NC": false,
+            "ND": false,
+            "BY": true,
+            "type": "CC BY",
+            "SA": false,
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "ref": {
+          "aims_scope": "https://revistas.ucm.es/index.php/TRET/about",
+          "journal": "https://revistas.ucm.es/index.php/TRET/index",
+          "oa_statement": "https://revistas.ucm.es/index.php/TRET/about",
+          "author_instructions": "https://revistas.ucm.es/index.php/TRET/about/submissions",
+          "license_terms": "https://revistas.ucm.es/index.php/TRET/about/submissions"
+        },
+        "oa_start": 2019,
+        "alternative_title": "Revista de Estudios Teatrales",
+        "apc": {
+          "has_apc": false,
+          "url": "https://revistas.ucm.es/index.php/TRET/about"
+        },
+        "other_charges": {
+          "has_other_charges": false
+        },
+        "publication_time_weeks": 20,
+        "deposit_policy": {
+          "has_policy": false
+        },
+        "publisher": {
+          "country": "ES",
+          "name": "Ediciones Complutense (Universidad Complutense de Madrid)"
+        },
+        "boai": true,
+        "waiver": {
+          "has_waiver": false
+        }
+      },
+      "admin": {
+        "ticked": true,
+        "last_full_review": "2021-05-19"
+      },
+      "id": "0305e7c1472e440cb435454818b3d9fb",
+      "created_date": "2021-05-19T12:04:57Z"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/journals/literature?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/journals/literature?page=96&pageSize=25"
+}

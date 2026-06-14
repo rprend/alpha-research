@@ -1,0 +1,40 @@
+{
+  "run_id": "doaj-humanities-2026-06-14T19-55-30-131Z",
+  "source_id": "doaj-humanities",
+  "started_at": "2026-06-14T19:55:30.171Z",
+  "completed_at": "2026-06-14T19:55:44.176Z",
+  "status": "success",
+  "access_route": "https://doaj.org/api/search/articles/humanities?page=1&pageSize=25 | https://doaj.org/api/search/articles/literature?page=1&pageSize=25 | https://doaj.org/api/search/articles/history?page=1&pageSize=25 | https://doaj.org/api/search/articles/philosophy?page=1&pageSize=25 | https://doaj.org/api/search/articles/art%20history?page=1&pageSize=25 | https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=25 | https://doaj.org/api/search/articles/cultural%20studies?page=1&pageSize=25 | https://doaj.org/api/search/articles/language%20linguistics?page=1&pageSize=25 | https://doaj.org/api/search/journals/humanities?page=1&pageSize=25 | https://doaj.org/api/search/journals/literature?page=1&pageSize=25 | https://doaj.org/api/search/journals/history?page=1&pageSize=25 | https://doaj.org/api/search/journals/philosophy?page=1&pageSize=25 | https://doaj.org/api/search/journals/art%20history?page=1&pageSize=25 | https://doaj.org/api/search/journals/digital%20humanities?page=1&pageSize=25 | https://doaj.org/api/search/journals/cultural%20studies?page=1&pageSize=25 | https://doaj.org/api/search/journals/language%20linguistics?page=1&pageSize=25",
+  "raw_outputs": [
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/articles-humanities-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/articles-literature-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/articles-history-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/articles-philosophy-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/articles-art-history-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/articles-digital-humanities-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/articles-cultural-studies-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/articles-language-linguistics-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/journals-humanities-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/journals-literature-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/journals-history-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/journals-philosophy-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/journals-art-history-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/journals-digital-humanities-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/journals-cultural-studies-page-1.json",
+    "data/knowledge-base/raw/doaj-humanities/2026-06-14/doaj-humanities-2026-06-14T19-55-30-131Z/journals-language-linguistics-page-1.json"
+  ],
+  "processed_outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/processed/venues.jsonl",
+    "data/knowledge-base/processed/rights.jsonl"
+  ],
+  "record_count": 326,
+  "article_count": 173,
+  "journal_count": 153,
+  "page_size": 25,
+  "max_pages": 1,
+  "query_count": 8,
+  "rights_review": "DOAJ metadata import only. Full-text links are retained as source URLs, but full text is not stored by this script.",
+  "errors": []
+}

@@ -1,0 +1,1808 @@
+{
+  "total": 163447,
+  "page": 1,
+  "pageSize": 25,
+  "timestamp": "2026-06-14T20:00:49.197748Z",
+  "query": "humanities",
+  "results": [
+    {
+      "last_updated": "2025-08-19T23:37:52Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2397-1835",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5334/gjgl.858",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2397-1835"
+          ],
+          "publisher": "Open Library of Humanities",
+          "language": [
+            "EN"
+          ],
+          "title": "Glossa"
+        },
+        "month": "7",
+        "keywords": [
+          "event distributivity",
+          "event plurality",
+          "spatial distribution",
+          "exhaustivity",
+          "distributive share/key",
+          "atomicity"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "https://orcid.org/0000-0002-9117-4692",
+            "affiliation": "University of Groningen, Groningen, NL; University of Nantes, Nantes",
+            "name": "Ana Bosnić"
+          },
+          {
+            "affiliation": "University of Nantes, Nantes",
+            "name": "Hamida Demirdache"
+          },
+          {
+            "affiliation": "University of Groningen, Groningen",
+            "name": "Jennifer Spenader"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.glossa-journal.org/article/id/5326/"
+          },
+          {
+            "content_type": "application/pdf",
+            "type": "fulltext",
+            "url": "https://www.glossa-journal.org/article/5326/galley/12924/download/"
+          }
+        ],
+        "abstract": "In some languages, distributive markers/quantifiers can attach to the argument that is being distributed (the distributive share), as opposed to the restrictor of the sentence (the distributive key). Researchers agree that distributive share markers can also distribute over events (and not only individuals), but disagree as to what these markers are semantically – universal distributive quantifiers or event plurality (pluractional) markers. In this paper, we experimentally probe spatial event distribution. On a universal quantification account, exhaustive distribution over a spatial distributive key is enforced, while on the pluractional analysis there is no such requirement. We carried out two picture verification experiments to test exhaustivity requirements in intransitive sentences with distributive share markers from two typologically different languages: the Serbian marker po and the Korean marker -ssik. We found evidence for an exhaustivity requirement over pluralities of non-atomic individuals (groups), but not over designated spatial locations. We interpret these findings as evidence that the semantics of (spatial) event distribution with distributive share markers involves a (spatial) distributive key. Specifically, po/-ssik have a universal quantificational force (with a meaning akin to per (each)) establishing a distributive relation between individual events and elements of the spatial distributive key. Plural individuals made salient in the visual input can serve to divide up the spatial key into chunks of space that have to be exhausted.",
+        "title": "Dancing monkeys in Serbian and Korean – exhaustivity requirements on distributive share markers"
+      },
+      "id": "00001b143f38430aba0fb84857cf279a",
+      "created_date": "2024-06-19T09:10:43Z"
+    },
+    {
+      "last_updated": "2025-08-20T02:05:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1854-1941",
+            "type": "eissn"
+          },
+          {
+            "id": "10.14720/aas.2021.117.3.1794",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "117",
+          "number": "3",
+          "country": "SI",
+          "issns": [
+            "1581-9175",
+            "1854-1941"
+          ],
+          "publisher": "University of Ljubljana Press (Založba Univerze v Ljubljani)",
+          "language": [
+            "EN",
+            "SL"
+          ],
+          "title": "Acta Agriculturae Slovenica"
+        },
+        "month": "11",
+        "end_page": "14",
+        "keywords": [
+          "soil",
+          "potash mobilizing bacteria",
+          "plant growth promoting rhizobacteria",
+          "soil potassium",
+          "potassium availability"
+        ],
+        "year": "2021",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "S",
+            "scheme": "LCC",
+            "term": "Agriculture"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Odisha University of Agriculture and Technology, India",
+            "name": "Aiswarya PANDA"
+          },
+          {
+            "affiliation": "Department of Microbiology, College of Basic Science and Humanities, OUAT., India",
+            "name": "Ankita DASH"
+          },
+          {
+            "affiliation": "Department of Microbiology, College of Basic Science and Humanities, OUAT., India",
+            "name": "Bibhuti Bhusan MISHRA"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://journals.uni-lj.si/aas/article/view/13032"
+          }
+        ],
+        "abstract": "Potassium is essential for plant metabolism; improves immunity to stress and increase crop productivity. Soil contains insoluble form of potassium, which is unavailable for plant absorption. Potash mobilizing bacteria (KMB) solubilise complex potassium and make it available to plant. KMB with plant growth promoting (PGP) traits could enhance growth and crop productivity. Here we attempt to screen KMBs with PGP traits from different agroclimatic zones of Odisha and study dynamics of potassium in soil. Isolation of KMB and determination of PGP traits was performed with standard protocols. Pot culture experiment was aimed to study their effect on sunflower crop. Available soil potassium was quantified using inductively coupled plasma-optical emission spectrometry (ICP-OES). Thirty KMBs were isolated from different agro-climatic zones of Odisha, out of which 6 isolates exhibited maximum PGP traits. Moreover, after adding inoculums the available soil potassium decreased over 0 to 30 days as compared to control, with increase in shoot length. T7 (consortium) reported maximum (144 %) increase in shoot length. Available soil potassium content decreased with increase in time. A maximum decrease was reported in T7 (26.31 %), suggesting potassium accumulation by plant.",
+        "title": "Potassium mobilization and plant growth promotion by soil bacteria isolated from different agroclimatic zones of Odisha, India"
+      },
+      "created_date": "2021-11-10T08:32:57Z",
+      "id": "00003d3ded154e7099ab9fbc3ddae7ac"
+    },
+    {
+      "last_updated": "2025-08-20T02:07:51Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.37653/juah.2025.188309",
+            "type": "doi"
+          },
+          {
+            "id": "1995-8463",
+            "type": "pissn"
+          },
+          {
+            "id": "2706-6673",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "22",
+          "number": "2",
+          "country": "IQ",
+          "issns": [
+            "1995-8463",
+            "2706-6673"
+          ],
+          "publisher": "University of Anbar",
+          "language": [
+            "AR",
+            "EN"
+          ],
+          "title": "مجلة جامعة الأنبار للعلوم الإنسانية"
+        },
+        "month": "6",
+        "end_page": "526",
+        "keywords": [
+          "statistical relations",
+          "workforce"
+        ],
+        "year": "2025",
+        "start_page": "510",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "orcid_id": "",
+            "affiliation": "University of Anbar",
+            "name": "Hind Waleed Farhan"
+          },
+          {
+            "orcid_id": "https://orcid.org/0000-0003-4108-1292",
+            "affiliation": "University of Anbar",
+            "name": "Khalid Akbar Abdullah"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://juah.uoanbar.edu.iq/article_188309.html"
+          }
+        ],
+        "abstract": "Aims: This current study aimed to analyze the demographic characteristics of ‎the agricultural workforce and demonstrate the impact of these characteristics ‎on agricultural activity in terms of production and diversity. It also aimed to ‎clarify the population distribution of the workforce according to demographic ‎and economic indicators, and finally to evaluate its relationship with ‎agricultural activities. Methodology: A descriptive and analytical approach was ‎adopted, relying on statistical data available from official and field sources. The ‎study also tried to determine the size of the workforce and its geographical, age, ‎educational distribution, and analyze the extent of its contribution to ‎agricultural activity. The correlation coefficient was used to measure the ‎relationship between labor force characteristics and agricultural production ‎indicators in the studied areas. Results: After analyzing all the gathered data, ‎the results showed a positive correlation between the density of the agricultural ‎workforce and the level of agricultural production in most of the studied areas, ‎especially in areas with adequate infrastructure and agricultural services. It also ‎showed that the productive age group of the workforce represents the highest ‎percentage of those employed in this sector, in addition to the concentration of ‎workers with limited education in traditional agricultural activities, which limits ‎the expansion of modern methods. Conclusions: It can be concluded that ‎workforce represents one of the fundamental pillars of agricultural sector ‎development, and that improving its demographic and educational characteristics ‎would contribute to increasing agricultural production efficiency significantly. The ‎study emphasized the importance of supporting agricultural training programs and ‎developing workers' skills in order to achieve optimal use of human resources in this ‎vital sector.‎",
+        "title": "Statistical Relations of The Agricultural Workforce in the Rural of ‎Ramadi ‎District"
+      },
+      "id": "00007485b2cf4fdcb916fedf51bebae1",
+      "created_date": "2025-06-18T20:18:21Z"
+    },
+    {
+      "last_updated": "2025-08-19T17:24:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0210-4466",
+            "type": "pissn"
+          },
+          {
+            "id": "1988-3102",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3989/asclepio.2007.v59.i1.221",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "59",
+          "number": "1",
+          "country": "ES",
+          "issns": [
+            "0210-4466",
+            "1988-3102"
+          ],
+          "publisher": "Consejo Superior de Investigaciones Científicas",
+          "language": [
+            "EN",
+            "ES",
+            "FR",
+            "IT",
+            "PT"
+          ],
+          "title": "Asclepio: Revista de Historia de la Medicina y de la Ciencia"
+        },
+        "month": "6",
+        "end_page": "202",
+        "keywords": [
+          "prostitución",
+          "españa",
+          "siglo xix",
+          "doctorado",
+          "manuel pizarro jiménez"
+        ],
+        "year": "2007",
+        "start_page": "167",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "R131-687",
+            "scheme": "LCC",
+            "term": "History of medicine. Medical expeditions"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universidad de Sevilla",
+            "name": "Juan L. Carrillo"
+          },
+          {
+            "affiliation": "Universidad de Sevilla",
+            "name": "Encarnación Bernal"
+          },
+          {
+            "affiliation": "Universidad de Sevilla",
+            "name": "María Luisa Calero"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://asclepio.revistas.csic.es/index.php/asclepio/article/view/221"
+          }
+        ],
+        "abstract": "El presente artículo es una aproximación al problema de la prostitución en la España de la segunda mitad del siglo XIX. Se aporta el texto del «discurso doctrinal» que sirvió al higienista sevillano Manuel Pizarro Jiménez (1821-1892) para obtener su segundo doctorado en medicina y se discute su posición ante la prostitución —un abolicionista defensor de la regeneración recompensada— a la luz de sus condicionamientos sociales y personales. Se aporta un inventario crítico de su producción impresa, así como diversos documentos en relación con este doctorado.",
+        "title": "El higienista Manuel Pizarro Jiménez (1821-1892) y su discurso doctrinal «De la prostitución y de su influencia en las costumbres, en la moralidad y en la salud pública» (1870)"
+      },
+      "id": "0000e368c93b447492393f025d1c0838",
+      "created_date": "2021-05-05T09:21:11Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:29:38Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2158-2440",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1177/21582440221097377",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "country": "US",
+          "issns": [
+            "2158-2440"
+          ],
+          "publisher": "SAGE Publishing",
+          "language": [
+            "EN"
+          ],
+          "title": "SAGE Open"
+        },
+        "month": "5",
+        "year": "2022",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universitat Politècnica de València, Spain",
+            "name": "Beatriz Garcia-Ortega"
+          },
+          {
+            "affiliation": "Universitat Politècnica de València, Spain",
+            "name": "Javier Galan-Cubillo"
+          },
+          {
+            "affiliation": "Universitat Politècnica de València, Spain",
+            "name": "Blanca de-Miguel-Molina"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1177/21582440221097377"
+          }
+        ],
+        "abstract": "This paper assesses whether and to which extent the COVID-19 pandemic, which represents a scenario of high moral intensity, is influencing the moral reasoning of top CEOs (chief executive officers) in the paradigmatic case of the automotive industry and how this moral reasoning relates to their CSR response to the crisis and their CSR plans in the long run. To this end, we took the CEO letters before and after the pandemic outbreak of the top 15 automotive companies, and applied Weber’s method to conduct a moral reasoning categorization, along with an examination of their CSR approach and initiatives. The results show a predominant moral paralysis among these CEOs, where positive reactions addressed are philanthropic in nature and more likely to be a transient response to the crisis, rather than a sustained long-term improvement of their CSR rooted in a significant moral approach enhancement. Furthermore, CEOs at the lowest stages of moral reasoning, primarily focused on their own business and immediate stakeholders, are less likely to highlight these philanthropic initiatives. The outcome evidences the convenience of addressing CSR from the lens of moral reasoning, and it further draws the attention of the scientific community, companies and their top management, stakeholders, and society to the relevance of investigating and considering the moral reasoning of top management in large corporations and its implications.",
+        "title": "CSR and CEO’s Moral Reasoning in the Automotive Industry in the Era of COVID-19"
+      },
+      "id": "0000ea0a2f3046379a3b6e8fbdfb28ce",
+      "created_date": "2022-05-19T23:35:10Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:54:19Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.36317/kaj/2023/v1.i57.12324",
+            "type": "doi"
+          },
+          {
+            "id": "1994-8999",
+            "type": "pissn"
+          },
+          {
+            "id": "2664-469X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "58",
+          "country": "IQ",
+          "issns": [
+            "1994-8999",
+            "2664-469X"
+          ],
+          "publisher": "Unviversity of Kufa, Faculty of Arts",
+          "language": [
+            "AR",
+            "EN",
+            "FR"
+          ],
+          "title": "آداب الكوفة"
+        },
+        "month": "December",
+        "keywords": [
+          "الرمز",
+          "المكان",
+          "الطلل",
+          "الشاعر",
+          "الحاجري"
+        ],
+        "year": "2023",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "جامعة كربلاء/كلية التربية للعلوم الإنسانية/قسم اللغة العربية",
+            "name": "محمد المهداوي "
+          },
+          {
+            "affiliation": "جامعة كربلاء/كلية التربية للعلوم الإنسانية/قسم اللغة العربية",
+            "name": "صادق محمد "
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://journal.uokufa.edu.iq/index.php/kufa_arts/article/view/12324"
+          }
+        ],
+        "abstract": "\nتعد الرموز من التقانات المهمة  التي تثير فضول المتلقي وتزيد رغبته في الوصول الى قصد الشاعر ، والكشف عن دلالاتها القارة داخل نتاجه الشعري ، فديناميكية الرمز تكفل ولوج القارئ الى عمق النص ، فعمل القارئ يصبح فضاء لقراءات متعددة ، ذات الدلالة البعيدة عن الواقع المذكور ، إذ ان الرمز المكاني في النص الأدبي أداة فاعلة في كشف الخبايا النصية المفروزة من دلالاته في بعده المعبر عن البوح المكنون في أهواء الشاعر المكبوتة في دواخلها والمنطوية على ذاتها ، لذا فان اختيار هذا الموضوع يعد محاولة لتسليط الضوء على تلك الرموز وبخاصة الطللية منها ، وإظهار أهميتها في شعر حسام الدين الحاجري ، وما دامت الرموز متعلقة بالقارئ أكثر من ارتباطها بالنص ، لذا وجب على القارئ تفكيك تلك الرموز ، فهذا البحث قائم على رصدها والكشف عن مكنوناتها وبخاصة الرموز (الطللية) بوصفها مكانا محملا بأبعاد وايحاءات كثيرة .\n",
+        "title": "رمزية المكان (الطلل) في شعر حسام الدين الحاجري  "
+      },
+      "id": "0000f2b1156c42dd8344cfe9d4c15272",
+      "created_date": "2023-12-29T10:00:44Z"
+    },
+    {
+      "last_updated": "2025-08-19T22:11:00Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1671-251X",
+            "type": "pissn"
+          },
+          {
+            "id": "10.13272/j.issn.1671-251x.2022010052",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "48",
+          "number": "6",
+          "country": "CN",
+          "issns": [
+            "1671-251X"
+          ],
+          "publisher": "Editorial Department of Industry and Mine Automation",
+          "language": [
+            "ZH"
+          ],
+          "title": "Gong-kuang zidonghua"
+        },
+        "month": "6",
+        "end_page": "35",
+        "keywords": [
+          "coal mine auxiliary transportation",
+          "intelligent auxiliary transportation",
+          "information management and control",
+          "automatic connection",
+          "vehicle positioning and dispatching",
+          "driving assistance",
+          "auxiliary operation robot",
+          "unmanned driving"
+        ],
+        "year": "2022",
+        "start_page": "27",
+        "subject": [
+          {
+            "code": "TN1-997",
+            "scheme": "LCC",
+            "term": "Mining engineering. Metallurgy"
+          }
+        ],
+        "author": [
+          {
+            "name": "CHANG Kai"
+          },
+          {
+            "name": "LIU Zhigeng"
+          },
+          {
+            "name": "YUAN Xiaoming"
+          },
+          {
+            "affiliation": "School of Humanities and Law, Shanxi Jinzhong Institute of Technology, Jinzhong 030600, China",
+            "name": "LI Yuan"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "http://www.gkzdh.cn/article/doi/10.13272/j.issn.1671-251x.2022010052"
+          }
+        ],
+        "abstract": "This paper introduces the development and application status of intelligent auxiliary transportation technology in open-pit coal mine and underground coal mines at home and abroad. The intelligent auxiliary transportation system of open-pit coal mine has realized the functions of unmanned driving, automatic loading, automatic unloading, active obstacle avoidance and intelligent dispatching of mining trucks in fixed sections. And the system has achieved good application results in engineering practice. At present, the auxiliary transportation intelligence of underground coal mine is still in the development stage of single machine intelligence of equipment. The intelligent auxiliary transportation system integrating vehicle scheduling, operation status monitoring, traffic command, material control and other functions has not yet been formed. The main problems of intelligent auxiliary transportation system in underground coal mine are analyzed. The underground positioning system has low precision and poor real-time performance. The dispatching system function lacks effective integration. The driving assistance system module is not perfect. The unmanned driving technology lags behind and the test conditions are lacking. Based on the relevant requirements of intelligent auxiliary transportation in Coal Mine Intelligent Construction Guide (2021 edition), this paper puts forward the overall goal of the construction of intelligent auxiliary transportation. According to the overall goal, the intelligent coal mine auxiliary transportation system framework is designed. ① Coding and centralized loading transportation of materials realizes the whole process information management and control of materials from storage, coding, loading, transportation, unloading and recycling. ② Automatic loading and unloading and automatic connection realizes the automatic transfer and connection of materials among rail locomotives, monorail cranes, trackless and other different auxiliary transportation modes. ③ Accurate positioning and intelligent navigation achieves accurate real-time positioning, route planning and real-time navigation of personnel and transportation equipment. ④ Intelligent vehicle dispatching realizes the functions of auxiliary transportation comprehensive information display, data transmission, status monitoring, dispatching command and health management. ⑤ Driving assistance system builds several intelligent subsystems, such as anti fatigue driving warning, 360° panoramic look around monitoring, collision prevention, traffic sign identification, auxiliary braking for downhill driving, adaptive lighting, etc. Driving assistance system improves the safety of locomotive operation. ⑥ The auxiliary operation robot realizes the robot automatic operation of underground auxiliary operation scenes. The auxiliary operation robot reduces the number of personnel and improves the overall automation level of auxiliary operation. ⑦ Unmanned driving realizes the normal unmanned driving operation of locomotives in underground coal mine. The research can provide reference for the construction and development of intelligent auxiliary transportation system.",
+        "title": "Analysis of the status and framework design of intelligentcoal mine auxiliary transportation system"
+      },
+      "id": "00012f6ef0264ae2b6c7881272fb956f",
+      "created_date": "2023-03-17T01:02:33Z"
+    },
+    {
+      "last_updated": "2025-12-12T16:03:43Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2158-2440",
+            "type": "eissn"
+          },
+          {
+            "id": "10.1177/21582440251405566",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "15",
+          "country": "US",
+          "issns": [
+            "2158-2440"
+          ],
+          "publisher": "SAGE Publishing",
+          "language": [
+            "EN"
+          ],
+          "title": "SAGE Open"
+        },
+        "month": "12",
+        "year": "2025",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H",
+            "scheme": "LCC",
+            "term": "Social Sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Fuzhou University of International Studies and Trade, China",
+            "name": "Zhi Zhang"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1177/21582440251405566"
+          }
+        ],
+        "abstract": "As smart city development deepens, its impact on the urban-rural income gap has become a key concern for both the government and society. This article uses panel data from Chinese prefecture-level cities between 2010 and 2022, treating the pilot smart city policy as a quasi-natural experiment, and applying a multi-period difference-in-differences (DID) method to empirically examine how smart city construction affects the urban-rural income gap. It also analyzes the role of economic agglomeration in this process. The research indicates that smart city development has significantly increased the incomes of urban and rural residents and has positively contributed to sharing development benefits between these areas. Mechanism analysis shows that economic agglomeration plays an important mediating and threshold role—smart cities indirectly influence the urban-rural income distribution by fostering economic agglomeration, with this effect showing nonlinear characteristics at different levels of agglomeration. Based on these findings, the article proposes policy recommendations aimed at optimizing economic agglomeration models and advancing urban-rural integrated development, offering theoretical insights and practical strategies for narrowing the income gap and promoting common prosperity.",
+        "title": "Will the Construction of Smart Cities Increase the Urban-Rural Income Gap? An Analysis Based on the Perspective of Economic Agglomeration"
+      },
+      "id": "0001689814024b3da89c27ac07bb0e99",
+      "created_date": "2025-12-12T16:03:43Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:32:54Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1186/s12940-021-00738-7",
+            "type": "doi"
+          },
+          {
+            "id": "1476-069X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "20",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "1476-069X"
+          ],
+          "publisher": "BMC",
+          "language": [
+            "EN"
+          ],
+          "title": "Environmental Health"
+        },
+        "month": "5",
+        "end_page": "15",
+        "keywords": [
+          "Air pollution",
+          "Asian/Pacific Islanders",
+          "Gestational Diabetes Mellitus",
+          "Pregnancy",
+          "Volatile Organic Compounds",
+          "Ethnic enclave"
+        ],
+        "year": "2021",
+        "start_page": "1",
+        "subject": [
+          {
+            "code": "RC963-969",
+            "scheme": "LCC",
+            "term": "Industrial medicine. Industrial hygiene"
+          },
+          {
+            "code": "RA1-1270",
+            "scheme": "LCC",
+            "term": "Public aspects of medicine"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Public Health program, Department of Population Health, School of Medicine & Health Sciences, University of North Dakota",
+            "name": "Andrew D. Williams"
+          },
+          {
+            "affiliation": "School of Social Sciences, Humanities and Arts, Health Science Research Institute, University of California",
+            "name": "Sandie Ha"
+          },
+          {
+            "affiliation": "Maternal and Child Health Program, Department of Family Science, University of Maryland College Park",
+            "name": "Edmond Shenassa"
+          },
+          {
+            "affiliation": "OHSU-PSU School of Public Health, Portland State University",
+            "name": "Lynne C. Messer"
+          },
+          {
+            "affiliation": "Epidemiology Branch, Division of Intramural Population Health Research, Eunice Kennedy Shriver National Institute of Child Health and Human Development",
+            "name": "Jenna Kanner"
+          },
+          {
+            "affiliation": "Epidemiology Branch, Division of Intramural Population Health Research, Eunice Kennedy Shriver National Institute of Child Health and Human Development",
+            "name": "Pauline Mendola"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://doi.org/10.1186/s12940-021-00738-7"
+          }
+        ],
+        "abstract": "Abstract Background Asian/Pacific Islander (API) communities in the United States often reside in metropolitan areas with distinct social and environmental attributes. Residence in an ethnic enclave, a socially distinct area, is associated with lower gestational diabetes mellitus (GDM) risk, yet exposure to high levels of air pollution, including volatile organic compounds (VOCS), is associated with increased GDM risk. We examined the joint effects of ethnic enclaves and VOCs to better understand GDM risk among API women, the group with the highest prevalence of GDM. Methods We examined 9069 API births in the Consortium on Safe Labor (19 hospitals, 2002–2008). API ethnic enclaves were defined as areas ≥66th percentile for percent API residents, dissimilarity (geographic dispersal of API and White residents), and isolation (degree that API individuals interact with another API individual). High levels of 14 volatile organic compounds (VOC) were defined as ≥75th percentile. Four joint categories were created for each VOC: Low VOC/Enclave (reference group), Low VOC/No Enclave, High VOC/Enclave, High VOC/No Enclave. GDM was reported in medical records. Hierarchical logistic regression estimated odds ratios (OR) and 95% confidence intervals (95%CI) between joint exposures and GDM, adjusted for maternal factors and area-level poverty. Risk was estimated for 3-months preconception and first trimester exposures. Results Enclave residence was associated with lower GDM risk regardless of VOC exposure. Preconception benzene exposure was associated with increased risk when women resided outside enclaves [High VOC/No Enclave (OR:3.45, 95%CI:1.77,6.72)], and the effect was somewhat mitigated within enclaves, [High VOC/Enclave (OR:2.07, 95%:1.09,3.94)]. Risks were similar for 12 of 14 VOCs during preconception and 10 of 14 during the first trimester. Conclusions API residence in non-enclave areas is associated with higher GDM risk, regardless of VOC level. Ethnic enclave residence may mitigate effects of VOC exposure, perhaps due to lower stress levels. The potential benefit of ethnic enclaves warrants further study.",
+        "title": "Joint effects of ethnic enclave residence and ambient volatile organic compounds exposure on risk of gestational diabetes mellitus among Asian/Pacific Islander women in the United States"
+      },
+      "id": "0001769c5628407db7ddf965c39edbc5",
+      "created_date": "2021-05-09T12:23:45Z"
+    },
+    {
+      "last_updated": "2025-08-20T03:29:45Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.56583/fs.2732",
+            "type": "doi"
+          },
+          {
+            "id": "1899-3109",
+            "type": "pissn"
+          },
+          {
+            "id": "2956-4085",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "18",
+          "number": "1",
+          "country": "PL",
+          "issns": [
+            "1899-3109",
+            "2956-4085"
+          ],
+          "publisher": "Akademia Zamojska",
+          "language": [
+            "DE",
+            "EN",
+            "ES",
+            "FR",
+            "PL"
+          ],
+          "title": "Facta Simonidis"
+        },
+        "month": "June",
+        "keywords": [
+          "komunikowanie religijne",
+          "strategie komunikowania",
+          "buddyjskie związki wyznaniowe"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Akademia Mazowiecka w Płocku",
+            "name": "Andrzej Kansy"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://czaz.akademiazamojska.edu.pl/index.php/fs/article/view/2732"
+          }
+        ],
+        "abstract": "\nW artykule przedstawiono wyniki badań na temat strategii komunikowania buddyjskich związków wyznaniowych zarejestrowanych w Polsce. Badanie przeprowadzono metodami analizy treści oraz analizy danych zastanych. Wykorzystano założenia etnografii wirtualnej, która ma na celu poznanie i opisanie zachowań ludzi i zjawisk dostępnych w internecie oraz ich efektów. Stwierdzono m.in., że buddyjskie związki wyznaniowe stosują nowe media do realizacji strategii komunikacji. Są one ukierunkowane na: autoprezentację, budowanie relacji między członkami wspólnoty, propagowanie buddyzmu, aksjologizację. Strony internetowe realizują wymienione strategie, zwłaszcza w zakresie autoprezentacji. Profile w mediach społecznościowych służą głównie budowaniu relacji oraz aksjologizacji. Buddyzm w Polsce nie jest zjawiskiem masowym, ale istotnym dla kultury polskiej. Badania w tym zakresie służą więc budowaniu wzajemnego szacunku w warunkach wielokulturowych społeczeństw.\n",
+        "title": "Strategie komunikowania buddyjskich związków wyznaniowych w Polsce"
+      },
+      "id": "0001783b74534f8193b2a1e3074be04c",
+      "created_date": "2025-07-04T07:49:18Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:41:14Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2254-4496",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "1",
+          "country": "ES",
+          "issns": [
+            "2254-4496"
+          ],
+          "publisher": "Editorial Delirio",
+          "language": [
+            "EN",
+            "ES",
+            "FR"
+          ],
+          "title": "Caracteres: Estudios Culturales y Críticos de la Esfera Digital"
+        },
+        "month": "5",
+        "end_page": "143",
+        "keywords": [
+          "la estrategia del simbionte",
+          "fernando broncano",
+          "review"
+        ],
+        "year": "2012",
+        "start_page": "139",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "P87-96",
+            "scheme": "LCC",
+            "term": "Communication. Mass media"
+          }
+        ],
+        "author": [
+          {
+            "name": "Daniel Escandell Montiel"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "http://revistacaracteres.net/revista/vol1n1mayo2012/resena-la-estrategia-del-simbionte-de-fernando-broncano/"
+          }
+        ],
+        "abstract": "Review of the book \"La estrategia del simbionte\" written by Fernando Broncano.",
+        "title": "Reseña: La estrategia del simbionte, de Fernando Broncano"
+      },
+      "created_date": "2013-04-09T22:20:24Z",
+      "id": "0001ee84372e45108db01dbec8feb30e"
+    },
+    {
+      "last_updated": "2025-08-19T19:49:21Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2383-0689",
+            "type": "pissn"
+          },
+          {
+            "id": "2383-0697",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "1",
+          "number": "2",
+          "country": "IR",
+          "issns": [
+            "2383-0689",
+            "2383-0697"
+          ],
+          "publisher": "Institute for Humanities and Cultural Studies (IHCS)",
+          "language": [
+            "FA"
+          ],
+          "title": "حکمت معاصر"
+        },
+        "month": "3",
+        "end_page": "119",
+        "keywords": [
+          "mystical experience",
+          "Transcendent mysticism",
+          "Immanent mysticism",
+          "Meditation and neuro - psychological states of mystical experience"
+        ],
+        "year": "2011",
+        "start_page": "107",
+        "subject": [
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Assistant Professor ,Institute for Humanities and Cultural Studies",
+            "name": "Hadi Vakili"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://wisdom.ihcs.ac.ir/article_81_feabc4db68cd98ad675685419d7eab5d.pdf"
+          }
+        ],
+        "abstract": "No doubt mysticism is the essence of religious experience and this experience for both those who have religious beliefs and those who have not such beliefs typically causes changes in life. Regardless of the difficulty of describing the mystical experiences which seems very far from the conceptual framework of normal moods, it appears that the similarities among the various religious traditions for various mystical states can be outlined. These similarities include: the experience of unity, the feeling of being beyond time and space, sense of sacredness, a sense of joy and happiness, unity and awareness of the public with a vacuum and an eternal ultimate reality. Mystical states can be divided into two distinct categories: transcendent and immanent. Though Mysticism and spiritual meditation have some considerable similarities to each other, but they certainly look different. These two mystical tendencies in east & west religious faiths in the world to be seen with difference. Differences over the interpretation of mystical experiences may be caused by cultural and linguistic differences and distinctions. Psychological interpretations, neuro psychological and cognitive science of mystical experiences of the research approach is innovative in the world.",
+        "title": "Mystical Experience: Its Nature Features"
+      },
+      "created_date": "2018-07-22T17:44:01Z",
+      "id": "0002a44cb3fc4d4a80720694da941b36"
+    },
+    {
+      "last_updated": "2025-10-28T16:56:07Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.3390/rel16101260",
+            "type": "doi"
+          },
+          {
+            "id": "2077-1444",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "16",
+          "number": "10",
+          "country": "CH",
+          "issns": [
+            "2077-1444"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Religions"
+        },
+        "month": "09",
+        "keywords": [
+          "Carpaccio",
+          "<i>teleri</i>",
+          "jews",
+          "Muslims",
+          "fabric",
+          "St. Stephen"
+        ],
+        "year": "2025",
+        "start_page": "1260",
+        "subject": [
+          {
+            "code": "BL1-2790",
+            "scheme": "LCC",
+            "term": "Religions. Mythology. Rationalism"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "School of Humanities, University of Auckland, Auckland 1010, New Zealand",
+            "name": "Clare Wilde"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.mdpi.com/2077-1444/16/10/1260"
+          }
+        ],
+        "abstract": "The first monographic exhibition dedicated to Vittore Carpaccio (ca. 1460–1525) in the US, and the first outside of Italy, was hosted at the National Gallery of Art in Washington, DC, from 20 Nov 2022 to 23 February 2023 (from where it went to Venice). Building on the research of art historians and experts on Venice and the larger Mediterranean region in the early modern period, this paper examines Carpaccio’s depiction of various “Turks” in some of the large narrative painting cycles (<i>teleri</i>) commissioned by the devotional confraternities (<i>scuole</i>) in Renaissance Venice. While Carpaccio’s and the larger Venetian familiarity with Islam, including Turks, has been studied, this paper compares various female figures in the St. Stephen cycle with those in his St. George cycle, situating them in the larger historical context of the commissioning <i>scuole</i> (Scuola di Santo Stefano and Scuola di San Giorgio degli Schiavoni, respectively). While attempting to uncover the significance, if not the identities, of a few individuals who stand out from the crowd, this paper urges caution when attempting to discern social history from a painting, much as we take literary texts (particularly those written well before our own times) with a grain of salt.",
+        "title": "Turks in the <i>Teleri</i>? Interpreting Earrings, Stripes, and Veils in Carpaccio’s Narrative Cycles"
+      },
+      "id": "0002b3e2d92f4be5b0028b08f66ed489",
+      "created_date": "2025-10-28T16:56:07Z"
+    },
+    {
+      "last_updated": "2025-08-19T16:01:09Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.13128/LEA-1824-484x-22348",
+            "type": "doi"
+          },
+          {
+            "id": "1824-484X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "6",
+          "country": "IT",
+          "issns": [
+            "1824-484X"
+          ],
+          "publisher": "Firenze University Press",
+          "language": [
+            "EN",
+            "IT"
+          ],
+          "title": "Lea"
+        },
+        "month": "December",
+        "keywords": [
+          "comparative literature",
+          "digital humanities",
+          "ecocriticism",
+          "ecofeminism"
+        ],
+        "year": "2017",
+        "subject": [
+          {
+            "code": "P",
+            "scheme": "LCC",
+            "term": "Language and Literature"
+          }
+        ],
+        "author": [
+          {
+            "name": "Diego Salvadori"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://oajournals.fupress.net/index.php/bsfm-lea/article/view/7765"
+          }
+        ],
+        "abstract": "In this article we present the database Dove/nondove, which aims aims to collect and list the texts of female authors who’ve wrote about places and spaces. The goal is to create a global hypertext, monitoring the evolution of specific themes (landscape and environment, pollution and ecological crisis, human non-human relation) in the Feminine literature.",
+        "title": "Dove/non dove. \"Il parco virtuale\": una nota esplicativa"
+      },
+      "created_date": "2018-09-17T08:21:56Z",
+      "id": "000353e7c7cd4a8a90fe8e09a10f3333"
+    },
+    {
+      "last_updated": "2025-08-19T22:06:51Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2076-0787",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3390/h5010005",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "CH",
+          "issns": [
+            "2076-0787"
+          ],
+          "publisher": "MDPI AG",
+          "language": [
+            "EN"
+          ],
+          "title": "Humanities"
+        },
+        "month": "1",
+        "keywords": [
+          "deep map",
+          "spatial humanities",
+          "GIS",
+          "psychogeography",
+          "site-specific",
+          "performance",
+          "ethnography",
+          "embodiment",
+          "non-representational"
+        ],
+        "year": "2016",
+        "start_page": "5",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Communication and Media, School of the Arts, University of Liverpool, 19 Abercromby Square, Liverpool L69 4ZG, UK",
+            "name": "Les Roberts"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://www.mdpi.com/2076-0787/5/1/5"
+          }
+        ],
+        "abstract": "This paper provides an introduction to the Humanities Special Issue on “Deep Mapping”. It sets out the rationale for the collection and explores the broad-ranging nature of perspectives and practices that fall within the “undisciplined” interdisciplinary domain of spatial humanities. Sketching a cross-current of ideas that have begun to coalesce around the concept of “deep mapping”, the paper argues that rather than attempting to outline a set of defining characteristics and “deep” cartographic features, a more instructive approach is to pay closer attention to the multivalent ways deep mapping is performatively put to work. Casting a critical and reflexive gaze over the developing discourse of deep mapping, it is argued that what deep mapping “is” cannot be reduced to the otherwise a-spatial and a-temporal fixity of the “deep map”. In this respect, as an undisciplined survey of this increasing expansive field of study and practice, the paper explores the ways in which deep mapping can engage broader discussion around questions of spatial anthropology.",
+        "title": "Deep Mapping and Spatial Anthropology"
+      },
+      "created_date": "2016-01-15T08:00:14Z",
+      "id": "00044bd6ed3a4a3eadd9c6c2f6b343c3"
+    },
+    {
+      "last_updated": "2025-12-15T20:56:31Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1080/2331186X.2025.2546125",
+            "type": "doi"
+          },
+          {
+            "id": "2331-186X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "12",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2331-186X"
+          ],
+          "publisher": "Taylor & Francis Group",
+          "language": [
+            "EN"
+          ],
+          "title": "Cogent Education"
+        },
+        "month": "12",
+        "keywords": [
+          "Bilingual teaching",
+          "teacher factors",
+          "student factors",
+          "teaching effects",
+          "structural equation model (SEM)",
+          "Arts & Humanities"
+        ],
+        "year": "2025",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Panzhihua University, Panzhihua, China",
+            "name": "Liyun Zeng"
+          },
+          {
+            "affiliation": "Panzhihua University, Panzhihua, China",
+            "name": "Xuankai Huang"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.tandfonline.com/doi/10.1080/2331186X.2025.2546125"
+          }
+        ],
+        "abstract": "Bilingual teaching resources are insufficient in applied universities across the Southwest China. This study constructs a Structural Equation Model (SEM) based on four latent variables: student factors, teacher factors, external factors, and teaching effects. Data were collected through a questionnaire administered to 550 undergraduates majoring in specific disciplines of architecture and civil engineering at applied universities in Southwest China. Quantitative analysis yielded the following key findings: (1) external factors have a direct and positive influence on both teacher and student variables, with teaching resources exerting the strongest effect among external factors; (2) teacher factors positively affect student factors, with teachers’ attitudes playing the most critical role; and (3) both teacher and student factors significantly impact bilingual teaching effectiveness, with student quality being the most influential component among student-related variables. By integrating external, teacher, and student dimensions, the study proposes targeted strategies to improve bilingual education outcomes. The study provides new insights into the key determinants of bilingual teaching effectiveness and fills a research gap by applying SEM to quantitatively analyze bilingual education in the context of applied universities. It also offers valuable implications for educational administrators and government policymakers seeking to enhance the quality of bilingual education in Southwest China.",
+        "title": "Research on the influencing factors of bilingual teaching in applied universities in Southwest China based on structural equation model"
+      },
+      "id": "0004d7a74f274e10930324d0cebe7d9b",
+      "created_date": "2025-09-01T08:50:56Z"
+    },
+    {
+      "last_updated": "2025-08-19T18:03:27Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.30827/dreh.v0i6.6973",
+            "type": "doi"
+          },
+          {
+            "id": "2182-018X",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "number": "6",
+          "country": "ES",
+          "issns": [
+            "2182-0171",
+            "2182-018X"
+          ],
+          "publisher": "Universidad de Granada",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "DEDiCA"
+        },
+        "month": "March",
+        "keywords": [
+          "emociones",
+          "estilos musicales",
+          "niños",
+          "escuela de música y danza"
+        ],
+        "year": "2014",
+        "subject": [
+          {
+            "code": "L7-991",
+            "scheme": "LCC",
+            "term": "Education (General)"
+          },
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Escuela Municipal de Música y Danza de Melilla",
+            "name": "Yulaila Buzzian Benaisa"
+          },
+          {
+            "affiliation": "Universidad de Granada",
+            "name": "Lucía Herrera Torres"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://revistaseug.ugr.es/index.php/dedica/article/view/6973"
+          }
+        ],
+        "abstract": "Esta investigación pretende determinar qué tipo de emociones despierta en los niños la escucha de determinados géneros musicales. Participaron 74 estudiantes de la Escuela Municipal de Música y Danza de la ciudad autónoma de Melilla (España) con edades de 4-8 años. Se midieron cuatro tipos de respuesta emocional en los estudiantes: Alegría, Tristeza, Miedo y Enfado. Para ello, se ofrecieron 12 melodías que podían pertenecer a uno de los tres estilos musicales siguientes: Música Clásica, Música Popular y Música Folklórica. Para la selección de las piezas musicales se contó con un juicio de expertos y se dotó al instrumento de recogida de información de fiabilidad y validez. Los resultados pusieron de manifiesto una clara identificación de la respuesta emocional de Alegría así como un criterio de valoración de las piezas musicales escuchadas en función del criterio “me gusta” o “no me gusta”.",
+        "title": "Música y emociones en niños de 4 a 8 años"
+      },
+      "id": "0004fd938f214e80995d0506ead20d30",
+      "created_date": "2019-01-10T16:47:08Z"
+    },
+    {
+      "last_updated": "2025-08-19T20:52:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.29043/liminar.v17i1.645",
+            "type": "doi"
+          },
+          {
+            "id": "1665-8027",
+            "type": "pissn"
+          },
+          {
+            "id": "2007-8900",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "17",
+          "number": "1",
+          "country": "MX",
+          "issns": [
+            "1665-8027",
+            "2007-8900"
+          ],
+          "publisher": "Universidad de Ciencias y Artes de Chiapas",
+          "language": [
+            "ES"
+          ],
+          "title": "Liminar: Estudios Sociales y Humanísticos"
+        },
+        "month": "January",
+        "keywords": [
+          "microhistoria",
+          "martinato",
+          "espiritismo vernáculo",
+          "religiosidad popular"
+        ],
+        "year": "2019",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "H1-99",
+            "scheme": "LCC",
+            "term": "Social sciences (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Centro de Estudios Superiores de México y Centroamérica. Universidad de Ciencias y Artes de Chiapas",
+            "name": "Antonio García Espada"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "http://liminar.cesmeca.mx/index.php/r1/article/view/645"
+          }
+        ],
+        "abstract": "En 1941, una investigación policial activada por una misteriosa denuncia contra un grupo de jornaleros salvadoreños evidencia un complejo entramado en la circulación de opinión pública entre clases sociales fuertemente dicotomizadas. La policía no logró formarse una idea clara del delito imputado a los jornaleros, que no obstante fueron obligados a cesar todas sus prácticas. Una lectura acuciosa del expediente evidencia el intento de los jornaleros de apropiarse de prestigiosas técnicas espirituales de la élite salvadoreña. A pesar del desenlace del proceso, la estrategia acabó triunfando y dando forma a una de las expresiones más originales de religiosidad vernácula.",
+        "title": "El queso y los frijoles. El cosmos de un jornalero salvadoreño del siglo XX"
+      },
+      "id": "0006e53df6e14b33b2d0e7122b4a126e",
+      "created_date": "2020-01-18T06:46:23Z"
+    },
+    {
+      "last_updated": "2025-08-19T19:32:17Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1179-1578",
+            "type": "pissn"
+          }
+        ],
+        "journal": {
+          "volume": "Volume 15",
+          "country": "GB",
+          "issns": [
+            "1179-1578"
+          ],
+          "publisher": "Dove Medical Press",
+          "language": [
+            "EN"
+          ],
+          "title": "Psychology Research and Behavior Management"
+        },
+        "month": "5",
+        "end_page": "1146",
+        "keywords": [
+          "infertility",
+          "treatment quality",
+          "fertiqol",
+          "coping mechanisms",
+          "mental health",
+          "reproductive healthcare",
+          "treatment tolerability",
+          "treatment environment",
+          "psychological well-being"
+        ],
+        "year": "2022",
+        "start_page": "1131",
+        "subject": [
+          {
+            "code": "BF1-990",
+            "scheme": "LCC",
+            "term": "Psychology"
+          },
+          {
+            "code": "HF5548.7-5548.85",
+            "scheme": "LCC",
+            "term": "Industrial psychology"
+          }
+        ],
+        "author": [
+          {
+            "name": "Hassan SUN"
+          },
+          {
+            "name": "Zahra A"
+          },
+          {
+            "name": "Parveen N"
+          },
+          {
+            "name": "Iqbal N"
+          },
+          {
+            "name": "Mumtaz S"
+          },
+          {
+            "name": "Batool A"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://www.dovepress.com/quality-of-infertility-care-services-and-emotional-health-of-south-asi-peer-reviewed-fulltext-article-PRBM"
+          }
+        ],
+        "abstract": "Sehar-un-Nisa Hassan,1,2 Aqeela Zahra,3 Nuzhat Parveen,4 Naveed Iqbal,4 Sarwat Mumtaz,5 Asma Batool6 1Department of Public Health, College of Public Health and Health Informatics, University of Ha’il, Ha’il, 81451, Kingdom of Saudi Arabia; 2Department of Behavioral Sciences, School of Social Sciences and Humanities, National University of Sciences and Technology (NUST), Islamabad, Pakistan; 3Department of Family and Community Medicine, College of Medicine, University of Ha’il, Ha’il, 81451, Kingdom of Saudi Arabia; 4Department of Obstetrics and Gynecology, College of Medicine, University of Ha’il, Ha’il, 81451, Kingdom of Saudi Arabia; 5Department of Health Management, College of Public Health and Health Informatics, University of Ha’il, Ha’il, 81451, Kingdom of Saudi Arabia; 6Obstetrics and Gynecology, Maternity and Children Hospital Ha’il, Ha’il, Kingdom of Saudi ArabiaCorrespondence: Sehar-un-Nisa Hassan, Department of Public Health, College of Public Health and Health Informatics, University of Ha’il, Ha’il, 81451, Kingdom of Saudi Arabia, Tel +966 5576 629 275, Email s.nisa@uoh.edu.sa; sehar_nisa@hotmail.com Nuzhat Parveen, Department of Obstetrics and Gynecology, College of Medicine, University of Ha’il, Ha’il, 81451, Kingdom of Saudi Arabia, Email n.parveen@uoh.edu.saAbstract: Background: Treatment tolerability and treatment environment are two major spheres of infertility care that may associate with women’s emotional health and coping mechanisms.Aim: The present study aimed at assessing the relationship between infertility treatment quality and various aspects of emotion-focus coping, problem-focus coping, and avoidance coping mechanisms.Method: The study was completed by using standardized tools and data from this descriptive, cross-sectional, correlational study were collected from 350 women undergoing infertility treatments in private reproductive healthcare centers in Quetta, Pakistan.Findings: Treatment tolerability was found to be positively associated with positive reframing (p < 0.02) and negatively associated with the use of emotional support (p < 0.03); acceptance (p < 0.01); humor (p < 0.03); behavioral disengagement (p < 0.01) and venting (p < 0.01). The quality of the treatment environment demonstrated a negative correlation between religious coping (p < 0.02) and behavioral disengagement (p < 0.01), whereas it showed a positive correlation with active coping (p < 0.03) and planning (p < 0.02). The linear regression analysis demonstrated that treatment tolerability significantly increased with positive reframing (R2 = 0.118, F(304) = 2.22, p < 0.03). Behavioral disengagement significantly decreased with better treatment environment (R2 = 0.111, F(304) = 2.09, p < 0.02).Discussion: We discussed the findings keeping in view the role of social, cultural, and economic factors related to infertility care in the context South-Asian culture, and recommendations are made to promote women’s mental health and coping by improving some specific aspects of infertility treatment quality.Conclusions: High treatment tolerability may associate with some useful aspects of emotion-focus coping, such as positive reframing, whereas low treatment tolerability may associate with avoidance coping, such as behavioral disengagement and venting. Besides, the quality of the infertility treatment environment enables women to use problem-focus coping mechanisms, such as planning and active coping.Keywords: infertility, treatment quality, FertiQol, coping mechanisms, mental health, reproductive healthcare, treatment tolerability, treatment environment, psychological well-being",
+        "title": "Quality of Infertility Care Services and Emotional Health of South Asian Women"
+      },
+      "id": "0007355994fb4f3f8d32b26695f25536",
+      "created_date": "2022-05-10T19:45:08Z"
+    },
+    {
+      "last_updated": "2025-08-19T15:01:45Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2296-665X",
+            "type": "eissn"
+          },
+          {
+            "id": "10.3389/fenvs.2020.581591",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "8",
+          "country": "CH",
+          "issns": [
+            "2296-665X"
+          ],
+          "publisher": "Frontiers Media S.A.",
+          "language": [
+            "EN"
+          ],
+          "title": "Frontiers in Environmental Science"
+        },
+        "month": "12",
+        "keywords": [
+          "water quality index",
+          "Yamuna river",
+          "physico-chemical parameters",
+          "water pollution",
+          "Dehradun city"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "GE1-350",
+            "scheme": "LCC",
+            "term": "Environmental sciences"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of Electronics and Communication Engineering, Faculty of Engineering and Technology, SRM Institute of Science and Technology, Delhi- NCR Campus, Ghaziabad, India",
+            "name": "Rohit Sharma"
+          },
+          {
+            "affiliation": "Department of Computer Science and Engineering, Gandhi Institute of Engineering and Technology University, Gunupur, India",
+            "name": "Raghvendra Kumar"
+          },
+          {
+            "affiliation": "School of Computer Engineering, Kalinga Institute of Industrial Technology Deemed to Be University, Bhubaneswar, India",
+            "name": "Suresh Chandra Satapathy"
+          },
+          {
+            "affiliation": "Department of Civil, Environmental and Natural Resources Engineering, Lulea University of Technology, Lulea, Sweden",
+            "name": "Nadhir Al-Ansari"
+          },
+          {
+            "affiliation": "Department of Electronics and Communication Engineering, Krishna Institute of Engineering and Technology, Group of Institutions, Ghaziabad, India",
+            "name": "Krishna Kant Singh"
+          },
+          {
+            "affiliation": "Department of Computer Science, SRM Institute of Science and Technology, NCR Campus, Ghaziabad, India",
+            "name": "Rajendra Prasad Mahapatra"
+          },
+          {
+            "affiliation": "Department of Applied Sciences and Humanities, Teerthankar Mahaveer University, Moradabad, India",
+            "name": "Anuj Kumar Agarwal"
+          },
+          {
+            "affiliation": "Institute of Research and Development, Duy Tan University, Da Nang, Vietnam",
+            "name": "Hiep Van Le"
+          },
+          {
+            "affiliation": "Geotechnical Engineering and Artificial Intelligence Research Group (GEOAI), University of Transport Technology, Hanoi, Vietnam",
+            "name": "Binh Thai Pham"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "HTML",
+            "type": "fulltext",
+            "url": "https://www.frontiersin.org/articles/10.3389/fenvs.2020.581591/full"
+          }
+        ],
+        "abstract": "The Yamuna river has become one of the most polluted rivers in India as well as in the world because of the high-density population growth and speedy industrialization. The Yamuna river is severely polluted and needs urgent revival. The Yamuna river in Dehradun is polluted due to exceptional tourist activity, poor sewage facilities, and insufficient wastewater management amenities. The measurement of the quality can be done by water quality assessment. In this study, the water quality index has been calculated for the Yamuna river at Dehradun using monthly measurements of 12 physicochemical parameters. Trend forecasting for river water pollution has been performed using different parameters for the years 2020–2024 at Dehradun. The study shows that the values of four parameters namely, Temperature, Total Coliform, TDS, and Hardness are increasing yearly, whereas the values of pH and DO are not rising heavily. The considered physicochemical parameters for the study are TDS, Chlorides, Alkalinity, DO, Temperature, COD, BOD, pH, Magnesium, Hardness, Total Coliform, and Calcium. As per the results and trend analysis, the value of total coliform, temperature, and hardness are rising year by year, which is a matter of concern. The values of the considered physicochemical parameters have been monitored using various monitoring stations installed by the Central Pollution Control Board (CPCB), India.",
+        "title": "Analysis of Water Pollution Using Different Physicochemical Parameters: A Study of Yamuna River"
+      },
+      "id": "00074811c4b6453a9cc9963d8f89e8b0",
+      "created_date": "2020-12-11T07:11:30Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:21:53Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2753-8494",
+            "type": "eissn"
+          },
+          {
+            "id": "10.16995/zff.7942",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "9",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2192-0885",
+            "2753-8494"
+          ],
+          "publisher": "Open Library of Humanities",
+          "language": [
+            "DE"
+          ],
+          "title": "Zeitschrift für Fantastikforschung"
+        },
+        "month": "11",
+        "keywords": [
+          "Science Fiction",
+          "Film",
+          "Literatur",
+          "Deutschland"
+        ],
+        "year": "2021",
+        "subject": [
+          {
+            "code": "PN1-6790",
+            "scheme": "LCC",
+            "term": "Literature (General)"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Universität zu Köln",
+            "name": "Hans Esselborn"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://zff.openlibhums.org/article/id/7942/"
+          },
+          {
+            "content_type": "application/pdf",
+            "type": "fulltext",
+            "url": "https://zff.openlibhums.org/article/7942/galley/21054/download/"
+          }
+        ],
+        "abstract": "Review of Beyond Tomorrow. German Science Fiction and Utopian Thought in the 20th and 21st Centuries by Ingo Cornils.",
+        "title": "Cornils, Ingo. Beyond Tomorrow. German Science Fiction and Utopian Thought in the 20th and 21st Centuries. Camden House, 2020."
+      },
+      "id": "000767b494254d5ca891b4a2a5b8edf7",
+      "created_date": "2024-06-19T09:54:39Z"
+    },
+    {
+      "last_updated": "2026-06-12T10:18:38Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "10.1080/23311983.2026.2680621",
+            "type": "doi"
+          },
+          {
+            "id": "2331-1983",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2331-1983"
+          ],
+          "publisher": "Taylor & Francis Group",
+          "language": [
+            "EN"
+          ],
+          "title": "Cogent Arts & Humanities"
+        },
+        "month": "12",
+        "keywords": [
+          "Turkish TV series",
+          "mixed method",
+          "audience",
+          "ımpact studies",
+          "Tunisia",
+          "Communication Studies"
+        ],
+        "year": "2026",
+        "subject": [
+          {
+            "code": "N",
+            "scheme": "LCC",
+            "term": "Fine Arts"
+          },
+          {
+            "code": "NX1-820",
+            "scheme": "LCC",
+            "term": "Arts in general"
+          },
+          {
+            "code": "A",
+            "scheme": "LCC",
+            "term": "General Works"
+          },
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Faculty of Fine Arts, Department of Radio, Television and Cinema, Harran University, Şanlıurfa, Turkey",
+            "name": "Ferhat Kaçar"
+          },
+          {
+            "affiliation": "Faculty of Communication, Department of Cinema, Atatürk University, Erzurum, Turkey",
+            "name": "İrfan Hıdıroğlu"
+          }
+        ],
+        "link": [
+          {
+            "type": "fulltext",
+            "url": "https://www.tandfonline.com/doi/10.1080/23311983.2026.2680621"
+          }
+        ],
+        "abstract": "The Turkish television series industry has experienced significant growth over the past twenty years and has gained widespread popularity both domestically and internationally. This expansion has generated economic value while reinforcing Turkey’s soft power and cultural exchange. A striking example of this influence is observed in Tunisia, where Turkish series have attracted considerable interest. This study examines the impact of Turkish series on cultural interactions and perceptions of Turkey within Tunisia’s socio-cultural context. The research utilizes a mixed-methods design, combining qualitative interviews conducted with 33 participants and a quantitative survey. The study focuses on university students as a key sample of Tunisia’s active young population. Data was collected through a scale administered to a group of 465 participants, primarily consisting of these students. The findings reveal that socio-demographic variables, particularly education and age, play a significant role in shaping viewer preferences. Furthermore, the results indicate a strong cultural affinity between Tunisians and Turks, which increases engagement with Turkish media and creates a more positive perception of Turkey’s historical heritage. This affinity strengthens interest in Turkish productions among the younger educated population, leading to greater recognition of Turkey’s cultural identity in Tunisia.",
+        "title": "Exploring the cultural influence of Turkish TV dramas: a mixed‑methods study among Tunisian viewers"
+      },
+      "id": "0007ea98b2124cefa7893f34c77ba305",
+      "created_date": "2026-06-12T10:18:38Z"
+    },
+    {
+      "last_updated": "2025-08-19T23:03:45Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "2397-1835",
+            "type": "eissn"
+          },
+          {
+            "id": "10.5334/gjgl.664",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "5",
+          "number": "1",
+          "country": "GB",
+          "issns": [
+            "2397-1835"
+          ],
+          "publisher": "Open Library of Humanities",
+          "language": [
+            "EN"
+          ],
+          "title": "Glossa"
+        },
+        "month": "1",
+        "keywords": [
+          "Focus movement",
+          "antilocality",
+          "resumptive pronouns",
+          "subject-only resumption"
+        ],
+        "year": "2020",
+        "subject": [
+          {
+            "code": "P101-410",
+            "scheme": "LCC",
+            "term": "Language. Linguistic theory. Comparative grammar"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": " ",
+            "name": "Peter William Smith"
+          },
+          {
+            "affiliation": " ",
+            "name": "Samuel Alhassan Issah"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "text/html",
+            "type": "fulltext",
+            "url": "https://www.glossa-journal.org/article/id/5252/"
+          },
+          {
+            "content_type": "application/pdf",
+            "type": "fulltext",
+            "url": "https://www.glossa-journal.org/article/5252/galley/12794/download/"
+          }
+        ],
+        "abstract": "This paper offers a description and account of the patterns of ex-situ focus in Dagbani. We show that there are two syntactic strategies for creating ex-situ focus in the language, one involving A’-movement to the left periphery, and the second involving base generation in the left periphery combined with coreference to a resumptive pronoun. Furthermore, we argue that subjects are difficult to move from Spec,TP to Spec,CP in the left-periphery because of anti-locality, which creates a tension when trying to focus subjects, which are required to derivationally fill the specifier of both positions. We further show that what looks to be a two-way distinction between the behaviour of subjects and non-subjects in the language is in fact a three-way distinction between subjects that are focussed to a local left-periphery, subjects that are focussed to a non-local left-periphery, and non-subjects. These distinctions arise due to there being two methods for Dagbani to resolve the antilocality problem of subject movement, and so local subjects solve the problem differently to non-local subjects.",
+        "title": "Subject and non-subject ex-situ focus in Dagbani"
+      },
+      "id": "0007ff62c07a4318a93e17087985e7d1",
+      "created_date": "2024-06-19T09:11:58Z"
+    },
+    {
+      "last_updated": "2025-08-19T21:30:34Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "0258-2279",
+            "type": "pissn"
+          },
+          {
+            "id": "2219-8237",
+            "type": "eissn"
+          },
+          {
+            "id": "10.4102/lit.v43i1.1863",
+            "type": "doi"
+          }
+        ],
+        "journal": {
+          "volume": "43",
+          "number": "1",
+          "country": "ZA",
+          "issns": [
+            "0258-2279",
+            "2219-8237"
+          ],
+          "publisher": "AOSIS",
+          "language": [
+            "AF",
+            "EN"
+          ],
+          "title": "Literator"
+        },
+        "month": "10",
+        "end_page": "e6",
+        "keywords": [
+          "articles",
+          "demonstratives",
+          "english",
+          "interlanguage",
+          "isizulu",
+          "language transfer"
+        ],
+        "year": "2022",
+        "start_page": "e1",
+        "subject": [
+          {
+            "code": "PL8000-8844",
+            "scheme": "LCC",
+            "term": "African languages and literature"
+          }
+        ],
+        "author": [
+          {
+            "affiliation": "Department of General Linguistics and Modern Languages, Faculty of Humanities and Social Sciences, University of Zululand, Kwa-Dlangezwa",
+            "name": "Elliot M. Mncwango"
+          }
+        ],
+        "link": [
+          {
+            "content_type": "html",
+            "type": "fulltext",
+            "url": "https://literator.org.za/index.php/literator/article/view/1863"
+          }
+        ],
+        "abstract": "An analysis of the use of demonstratives in isiZulu (izabizwana zokukhomba) has shown that they go beyond the known deictic functions of demonstratives as used in other languages like English. In isiZulu, demonstratives tend to also denote specificity, a function normally performed by the definite article in English. This article, therefore, compares the functions of articles in English to those of demonstratives in isiZulu, with the aim to demonstrate the similarities in terms of use between the two languages. This added function of demonstratives, it is argued, may account for some of the errors in English second language learners’ use of articles, as evidenced by data from written exercises of learners whose first language is isiZulu. The findings suggest that second language learners of English tend to confuse articles because of the differences between the two languages, especially during their (learners’) interlanguage stage.\n\nContribution: The article highlights a significant difference in the use of demonstratives between English and isiZulu due to the added function of specificity in isiZulu demonstrative (isabizwana sokukhomba) which is performed by the definite article in English. It also demonstrates how, without an article system, isiZulu can convey meaning like any language with an article system.",
+        "title": "A contrastive analysis of articles in English and demonstratives in isiZulu"
+      },
+      "id": "00080bf2f97e4285bbad53b96fdb26c2",
+      "created_date": "2022-11-03T08:26:35Z"
+    },
+    {
+      "last_updated": "2026-06-08T14:23:13Z",
+      "bibjson": {
+        "identifier": [
+          {
+            "id": "1575-6823",
+            "type": "pissn"
+          },
+          {
+            "id": "2340-2199",
+            "type": "eissn"
+          }
+        ],
+        "journal": {
+          "volume": "13",
+          "number": "25",
+          "country": "ES",
+          "issns": [
+            "1575-6823",
+            "2340-2199"
+          ],
+          "publisher": "Universidad de Sevilla",
+          "language": [
+            "EN",
+            "ES",
+            "PT"
+          ],
+          "title": "Araucaria"
+        },
+        "end_page": "193",
+        "keywords": [
+          "filosofía positivista",
+          "política",
+          "progreso",
+          "ciencia"
+        ],
+        "year": "2011",
+        "start_page": "182",
+        "subject": [
+          {
+            "code": "AZ20-999",
+            "scheme": "LCC",
+            "term": "History of scholarship and learning. The humanities"
+          },
+          {
+            "code": "J",
+            "scheme": "LCC",
+            "term": "Political science"
+          },
+          {
+            "code": "B1-5802",
+            "scheme": "LCC",
+            "term": "Philosophy (General)"
+          }
+        ],
+        "author": [
+          {
+            "name": "Zenobio Saldivia M."
+          }
+        ],
+        "link": [
+          {
+            "content_type": "pdf",
+            "type": "fulltext",
+            "url": "http://www.redalyc.org/articulo.oa?id=28217003010"
+          }
+        ],
+        "abstract": "Se analiza el aporte de la filosofía positivista a la ciencia nacional de fines del siglo xix en Chile, especialmente la contribución de sus principales exponentes: José Victorino Lastarria, los Hnos. Lagarrigue y Valentín Letelier entre otros; así como la posterior influencia de tales ideas en el marco sociocultural y político del período, en especial, en relación al manejo de las categorías de liberalismo, progreso y desarrollo científico y tecnológico. Finalmente, a partir de la fuerza de tales inquietudes, se extrapola cómo estas ideas están presentes en la filosofía de la época del Bicentenario de la Independencia de Chile.",
+        "title": "El positivismo y las ciencias en el período finisecular del Chile decimonónico"
+      },
+      "created_date": "2013-03-01T23:28:25Z",
+      "id": "000982c5f6ce4aa89dccbb8ee3e70914"
+    }
+  ],
+  "next": "https://doaj.org/api/v4/search/articles/humanities?page=2&pageSize=25",
+  "last": "https://doaj.org/api/v4/search/articles/humanities?page=6538&pageSize=25"
+}

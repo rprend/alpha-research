@@ -1,0 +1,120 @@
+{
+  "objectID": 451268,
+  "isHighlight": true,
+  "accessionNumber": "55.121.10.22",
+  "accessionYear": "1955",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/is/original/DT200627.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/is/web-large/DT200627.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/is/original/DT200628.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf55-121-10-22a.jpg",
+    "https://images.metmuseum.org/CRDImages/is/original/sf55-121-10-22b.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 162812,
+      "role": "Artist",
+      "name": "Painting by Govardhan",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500334204",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q5588580",
+      "gender": ""
+    },
+    {
+      "constituentID": 133379,
+      "role": "Calligrapher",
+      "name": "Mir &#39;Ali Haravi",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    }
+  ],
+  "department": "Islamic Art",
+  "objectName": "Album leaf",
+  "title": "\"Akbar With Lion and Calf\", Folio from the Shah Jahan Album",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "Painting by",
+  "artistDisplayName": "Govardhan",
+  "artistDisplayBio": "active ca. 1596–1645",
+  "artistSuffix": "",
+  "artistAlphaSort": "Govardhan",
+  "artistNationality": "",
+  "artistBeginDate": "1596",
+  "artistEndDate": "1645",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q5588580",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500334204",
+  "objectDate": "verso: ca. 1630; recto: ca. 1530–50",
+  "objectBeginDate": 1505,
+  "objectEndDate": 1655,
+  "medium": "Ink, opaque watercolor, and gold on paper",
+  "dimensions": "H. 15 5/16 in. (38.9 cm)\r\nW. 10 1/8 in. (25.7 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 38.8938,
+        "Width": 25.7176
+      }
+    }
+  ],
+  "creditLine": "Purchase, Rogers Fund and The Kevorkian Foundation Gift, 1955",
+  "geographyType": "Attributed to",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "India",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Codices",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2026-03-02T04:55:04.403Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/451268",
+  "tags": [
+    {
+      "term": "Musical Instruments",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300041620",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q34379"
+    },
+    {
+      "term": "Men",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025928",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q8441"
+    },
+    {
+      "term": "Lambs",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300250289",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q4575936"
+    },
+    {
+      "term": "Lions",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300310388",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q140"
+    },
+    {
+      "term": "Angels",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300379004",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q235113"
+    },
+    {
+      "term": "Crowns",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300046020",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q170984"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q29385140",
+  "isTimelineWork": true,
+  "GalleryNumber": ""
+}
