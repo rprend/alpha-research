@@ -540,8 +540,9 @@ Started on 2026-06-13:
 - Phase 6 now has blocked-source and failed-route replacement audits: `pnpm kb:audit:blocked` writes source-specific memos for blocked sources and `failed-route-replacements.{json,md}` with next actions for active-source route failures such as 403 department pages, stale feeds, Wayback CDX instability, partial API timeouts, rate limits, and permissioned APIs.
 - Phase 2 also imports a 200-text Project Gutenberg public-domain corpus from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
 - Phase 2 now has a bounded web metadata ingest: `pnpm kb:ingest:web` imports responding public routes for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly. Wayback and LARB failures are logged for route replacement.
-- Phase 3 has an expanded department-page corpus: `pnpm kb:ingest:departments` fetches public humanities department pages from the target list in `data/knowledge-base/config/department-pages.json`, discovers shallow same-origin about/news/events/faculty/program links from successful homepages, stores raw HTML and extracted local-analysis text, appends/dedupes durable `pages`/`departments` staging rows, and logs 403 routes in `failed-routes.jsonl` for replacement planning.
+- Phase 3 has an expanded department-page corpus: `pnpm kb:ingest:departments` fetches public humanities department pages from the target list in `data/knowledge-base/config/department-pages.json`, discovers balanced same-origin about/news/events/faculty/program links from successful homepages, stores raw HTML and extracted local-analysis text, appends/dedupes durable `pages`/`departments` staging rows, and logs 403 routes in `failed-routes.jsonl` for replacement planning.
 - Phase 3 now has a department-sitemap metadata route: `node scripts/kb-ingest-department-sitemaps.mjs` fetches public `sitemap.xml` routes for configured department targets, stores raw sitemap XML, and appends metadata-only URL records without storing page text. The first run succeeded for 22 of 40 sitemap targets and added 325 department URL metadata records; blocked or absent sitemaps remain in `failed-routes.jsonl`.
+- Phase 3 now has a balanced department route expansion: `pnpm kb:ingest:departments -- --discover-per-target=5 --discover-per-page-type=1 --sitemap-upgrade-limit=25` samples across about/news/events/faculty/program links instead of taking only the first ranked links, rejects non-HTML document/media routes, and can upgrade bounded sitemap URL metadata into stored local-analysis page text when the public URL returns HTML.
 - Phase 3 now has a Wayback CDX snapshot ingest: `pnpm kb:ingest:wayback` reads department-page targets, stores raw CDX responses, and writes historical capture metadata without storing archived page text.
 - Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables, Parquet tables, and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` using metadata plus previews of stored text; `pnpm kb:search "<terms>"` queries the local keyword index.
 - Phase 4 now derives author, citation, venue, institution, collection, and topic tables from current normalized local records and raw snapshots; source-provided names and references still need normalization before strong identity or citation-network claims.
@@ -558,7 +559,7 @@ Current local footprint as of the latest local status:
 - 34 registered sources.
 - 29 registered sources with local documents.
 - Registry statuses: 24 active, 5 blocked, 4 seeded-from-experiment, 1 planned.
-- 6379 source documents.
+- 6462 source documents.
 - 2913 works.
 - 1779 source-provided authors.
 - 1713 deterministic candidate canonical people, including 61 multi-record clusters and 4 multi-source clusters.
@@ -569,32 +570,32 @@ Current local footprint as of the latest local status:
 - 25204 deterministic candidate work-reference clusters, including 19011 high-confidence DOI/OpenAlex-keyed references and 3765 repeated references.
 - 1062 source-provided topics.
 - 1012 cultural objects.
-- 432 department/web page rows, including fetched public page text plus 325 metadata-only sitemap URL rows.
+- 515 department/web page rows, including 206 text-bearing department rows and 279 remaining metadata-only sitemap URL rows.
 - 52 department summaries.
-- 6379 rights rows.
+- 6462 rights rows.
 - 2539 records from the dedicated DOAJ humanities ingest, including 1450 article records and 1089 journal records from 32 raw article/journal API route responses.
 - 757 Wikidata cultural entity records across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts.
 - 505 additional cultural-collection object records from the dedicated Met/Cleveland/Library of Congress/Smithsonian ingest; Met object-detail routes partially succeeded and blocked object IDs are retained in the ingest audit.
 - 200 public-domain Project Gutenberg text files imported from the local Gutenberg experiment cache.
 - 3 strict homepage Wayback CDX department-page snapshot metadata records from the latest bounded refresh smoke, with broader Wayback acquisition kept as a source-specific job because some CDX routes time out or fail.
-- 277 local text files.
+- 394 local text files.
 - 14/14 staging JSONL tables.
 - 14/14 processed Parquet tables.
 - SQLite FTS indexes metadata for the broader corpus plus stored local text content for public-domain books and local-analysis department/web pages.
-- Semantic hash index covers 6348 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
+- Semantic hash index covers 6431 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 - Five first-pass promoted experiment scaffolds under `docs/experiments/kb-*`, indexed by `data/knowledge-base/audits/promoted-experiments.md`.
-- One promoted experiment with runnable analysis outputs for department visibility/public humanities language.
+- One promoted experiment with runnable analysis outputs for department visibility/public humanities language, now refreshed against 515 page rows and 206 text rows.
 
 This is a foundation and harness, not the complete knowledge base.
 
 Remaining before the full knowledge-base goal is complete:
 
 - Improve candidate person/work identity resolution with authority matching, ORCID/OpenAlex/Wikidata joins, and conflict detection before making strong person-level or citation-network claims.
-- Add more broad, source-specific ingest jobs rather than bounded samples, especially deeper department-page crawling, humanities centers, conference programs, and further Project Gutenberg/catalog-cultural collection expansion.
+- Add more broad, source-specific ingest jobs rather than bounded samples, especially humanities centers, conference programs, and further Project Gutenberg/catalog-cultural collection expansion.
 - Continue executing the replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for LARB, Harvard, Columbia, Michigan, Penn, Yale, UChicago, Wayback CDX, and remaining 403/404/timeout routes; do not bypass access controls. Prefer alternate public pages, source-specific sitemap indexes, school directories, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages or default sitemaps block polite fetches.
-- Expand university/department web corpus acquisition beyond the current shallow discovery pass; the first discovery run found mostly about pages and a few news pages, so faculty/events/program routes need source-specific selectors and sitemap/RSS support.
+- Expand university/department web corpus acquisition beyond the current balanced shallow discovery pass; faculty/events/program text coverage is materially improved, but blocked Harvard/Princeton routes, remaining sitemap-only rows, and source-specific directory/RSS routes still need replacement work.
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add neural embedding retrieval later if a local model or approved embedding service is configured; the current semantic hash index is deterministic and offline.
 - Expand the remaining promoted first-pass experiments into runnable analysis scripts and publication handoff packets after source-specific normalization, rights review, and claim adjudication.
@@ -602,7 +603,7 @@ Remaining before the full knowledge-base goal is complete:
 
 Next build steps:
 
-1. Add source-specific department crawlers that discover about/news/events/faculty links from successful domains while retaining rights and route manifests.
+1. Add source-specific replacement routes for blocked Harvard/Princeton department pages and remaining sitemap-only department URLs while retaining rights and route manifests.
 2. Add explicit replacement memos for blocked LARB and 403 department routes, using alternate public routes or Wayback metadata where available.
 3. Expand broad metadata acquisition for OpenAlex/Crossref, Project Gutenberg, and cultural-collection APIs; DOAJ and Wikidata now have dedicated routes but should be expanded beyond the current page limits when needed.
 4. Execute the source replacement plans for blocked/stale/403 routes and promote successful replacements into source-specific ingest configs.

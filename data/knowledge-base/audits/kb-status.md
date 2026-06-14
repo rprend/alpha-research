@@ -1,6 +1,6 @@
 # Local Humanities Knowledge Base Status
 
-Generated at: 2026-06-14T20:04:10.962Z
+Generated at: 2026-06-14T20:22:45.526Z
 Status: phase-2-staging-active
 Sources: 34
 
@@ -46,8 +46,8 @@ Sources: 34
 - Processed tables: 14/14
 - Processed staging JSONL: 14/14
 - Analytical CSV/Parquet/SQLite: 31/31
-- Raw files: 735
-- Text files: 277
+- Raw files: 993
+- Text files: 394
 - Index files: 2
 
 ## Missing Processed Tables

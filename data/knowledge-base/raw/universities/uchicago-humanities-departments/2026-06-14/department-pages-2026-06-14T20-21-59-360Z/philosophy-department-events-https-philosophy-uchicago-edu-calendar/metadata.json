@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T20-21-59-360Z",
+  "source_id": "uchicago-humanities-departments",
+  "url": "https://philosophy.uchicago.edu/calendar",
+  "school": "University of Chicago",
+  "department": "Philosophy",
+  "page_type": "department-events",
+  "discovery_source_url": "https://philosophy.uchicago.edu/",
+  "fetched_at": "2026-06-14T20:22:02.958Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/uchicago-humanities-departments/2026-06-14/department-pages-2026-06-14T20-21-59-360Z/philosophy-department-events-https-philosophy-uchicago-edu-calendar/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/uchicago-humanities-departments/university-of-chicago-philosophy-department-events-https-philosophy-uchicago-edu-calendar.txt",
+  "text_chars": 154
+}

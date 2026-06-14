@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T20-21-59-360Z",
+  "source_id": "stanford-humanities-departments",
+  "url": "https://english.stanford.edu/about/about-department",
+  "school": "Stanford University",
+  "department": "English",
+  "page_type": "department-about",
+  "discovery_source_url": "https://english.stanford.edu/",
+  "fetched_at": "2026-06-14T20:22:01.097Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/stanford-humanities-departments/2026-06-14/department-pages-2026-06-14T20-21-59-360Z/english-department-about-https-english-stanford-edu-about-about-department/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/stanford-humanities-departments/stanford-university-english-department-about-https-english-stanford-edu-about-about-department.txt",
+  "text_chars": 3884
+}

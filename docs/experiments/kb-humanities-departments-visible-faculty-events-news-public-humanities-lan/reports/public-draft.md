@@ -4,23 +4,23 @@ The local humanities knowledge base can already distinguish two different kinds 
 
 ## What The Current Local Corpus Supports
 
-The promoted experiment covers 432 department/web page rows from matched university-department sources. Of those, 77 have local-analysis text and 325 are metadata-only sitemap URLs.
+The promoted experiment covers 515 department/web page rows from matched university-department sources. Of those, 206 have local-analysis text and 279 are metadata-only sitemap URLs.
 
 The strongest text-level signals in this first pass are:
 
-- expanded-university-humanities-departments: faculty_visibility appears 293 times across 32 text pages.
-- expanded-university-humanities-departments: event_visibility appears 81 times across 24 text pages.
-- expanded-university-humanities-departments: news_visibility appears 80 times across 25 text pages.
-- expanded-university-humanities-departments: inclusion_ethics appears 50 times across 16 text pages.
-- stanford-humanities-departments: faculty_visibility appears 49 times across 10 text pages.
+- expanded-university-humanities-departments: faculty_visibility appears 926 times across 75 text pages.
+- expanded-university-humanities-departments: event_visibility appears 330 times across 60 text pages.
+- expanded-university-humanities-departments: news_visibility appears 206 times across 52 text pages.
+- stanford-humanities-departments: faculty_visibility appears 172 times across 35 text pages.
+- expanded-university-humanities-departments: inclusion_ethics appears 167 times across 38 text pages.
 
 By page type, the current local text and metadata suggest these starting points:
 
-- department-about: faculty_visibility appears 237 times.
-- department-home: faculty_visibility appears 168 times.
-- department-home: news_visibility appears 75 times.
-- department-home: event_visibility appears 71 times.
-- department-about: inclusion_ethics appears 64 times.
+- department-faculty: faculty_visibility appears 445 times.
+- department-about: faculty_visibility appears 321 times.
+- department-home: faculty_visibility appears 215 times.
+- department-events: faculty_visibility appears 204 times.
+- department-events: event_visibility appears 198 times.
 
 ## What This Does Not Yet Prove
 

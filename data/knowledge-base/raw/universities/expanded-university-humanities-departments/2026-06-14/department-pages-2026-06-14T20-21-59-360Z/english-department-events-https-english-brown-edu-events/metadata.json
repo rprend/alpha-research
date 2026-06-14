@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T20-21-59-360Z",
+  "source_id": "expanded-university-humanities-departments",
+  "url": "https://english.brown.edu/events",
+  "school": "Brown University",
+  "department": "English",
+  "page_type": "department-events",
+  "discovery_source_url": "https://english.brown.edu/",
+  "fetched_at": "2026-06-14T20:22:17.536Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/expanded-university-humanities-departments/2026-06-14/department-pages-2026-06-14T20-21-59-360Z/english-department-events-https-english-brown-edu-events/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/expanded-university-humanities-departments/brown-university-english-department-events-https-english-brown-edu-events.txt",
+  "text_chars": 150
+}

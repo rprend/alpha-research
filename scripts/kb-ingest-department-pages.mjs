@@ -25,7 +25,9 @@ const runDate = new Date().toISOString().slice(0, 10);
 const runId = `department-pages-${new Date().toISOString().replace(/[:.]/g, "-")}`;
 const timeoutMs = Number.parseInt(getArg("--timeout-ms") ?? "20000", 10);
 const limit = Number.parseInt(getArg("--limit") ?? String(targetConfig.targets.length), 10);
-const discoverPerTarget = Number.parseInt(getArg("--discover-per-target") ?? "2", 10);
+const discoverPerTarget = Number.parseInt(getArg("--discover-per-target") ?? "5", 10);
+const discoverPerPageType = Number.parseInt(getArg("--discover-per-page-type") ?? "1", 10);
+const sitemapUpgradeLimit = Number.parseInt(getArg("--sitemap-upgrade-limit") ?? "0", 10);
 
 const pages = [];
 const existingPages = await readJsonl(path.join(processedDir, "pages.jsonl"));
@@ -33,7 +35,7 @@ const sourceDocuments = await readJsonl(path.join(processedDir, "source_document
 const rights = await readJsonl(path.join(processedDir, "rights.jsonl"));
 const failures = [];
 const existingPageIds = new Set(existingPages.map((page) => page.local_id));
-const existingPageUrls = new Set(existingPages.map((page) => normalizeUrl(page.source_url)).filter(Boolean));
+const existingPageByUrl = new Map(existingPages.map((page) => [normalizeUrl(page.source_url), page]).filter(([url]) => Boolean(url)));
 
 for (const target of targetConfig.targets.slice(0, limit)) {
   try {
@@ -49,6 +51,16 @@ for (const target of targetConfig.targets.slice(0, limit)) {
     }
   } catch (error) {
     await recordFailure(target, error, new Date().toISOString(), "configured-page");
+  }
+}
+
+if (sitemapUpgradeLimit > 0) {
+  for (const target of sitemapUpgradeTargets().slice(0, sitemapUpgradeLimit)) {
+    try {
+      await ingestTargetPage(target);
+    } catch (error) {
+      await recordFailure(target, error, new Date().toISOString(), "sitemap-metadata-upgrade");
+    }
   }
 }
 
@@ -110,6 +122,10 @@ async function fetchText(url) {
       },
     });
     if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
+    const contentType = response.headers.get("content-type") ?? "";
+    if (contentType && !/text\/html|application\/xhtml\+xml/i.test(contentType)) {
+      throw new Error(`Unsupported content type ${contentType}`);
+    }
     return await response.text();
   } finally {
     clearTimeout(timeout);
@@ -118,9 +134,10 @@ async function fetchText(url) {
 
 async function ingestTargetPage(target) {
   const source = registryById.get(target.source_id) ?? {};
-  const localId = `${target.source_id}:${slug(`${target.school}-${target.department}-${target.page_type}-${target.url}`)}`;
   const urlKey = normalizeUrl(target.url);
-  if (existingPageIds.has(localId) || existingPageUrls.has(urlKey)) {
+  const existingPage = existingPageByUrl.get(urlKey);
+  const localId = existingPage?.local_id ?? `${target.source_id}:${slug(`${target.school}-${target.department}-${target.page_type}-${target.url}`)}`;
+  if (existingPage?.text_path || existingPageIds.has(localId) && !existingPage) {
     if (target.discovery_source_url) return { html: "", skipped: true };
     return { html: await fetchText(target.url), skipped: true };
   }
@@ -153,8 +170,8 @@ async function ingestTargetPage(target) {
   const page = {
     local_id: localId,
     source_id: target.source_id,
-    school: target.school,
-    department: target.department,
+    school: target.school || existingPage?.school || "",
+    department: target.department || existingPage?.department || "",
     page_type: target.page_type,
     source_url: target.url,
     title,
@@ -165,7 +182,7 @@ async function ingestTargetPage(target) {
   };
   pages.push(page);
   existingPageIds.add(localId);
-  existingPageUrls.add(urlKey);
+  existingPageByUrl.set(urlKey, page);
   sourceDocuments.push({
     local_id: localId,
     source_id: target.source_id,
@@ -214,6 +231,7 @@ function discoverTargets(target, html) {
   const links = [];
   const base = new URL(target.url);
   const seen = new Set([normalizeUrl(target.url)]);
+  const byType = new Map();
   const pattern = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
   let match;
   while ((match = pattern.exec(String(html)))) {
@@ -226,20 +244,27 @@ function discoverTargets(target, html) {
       continue;
     }
     if (url.origin !== base.origin) continue;
+    if (isNonHtmlAsset(url.pathname)) continue;
     url.hash = "";
     const normalized = normalizeUrl(url.href);
     if (seen.has(normalized)) continue;
     const pageType = classifyPageType(`${url.pathname} ${label}`);
     if (!pageType) continue;
     seen.add(normalized);
-    links.push({
+    const typedLinks = byType.get(pageType) ?? [];
+    typedLinks.push({
       ...target,
       url: normalized,
       page_type: pageType,
       discovery_source_url: target.url,
     });
+    byType.set(pageType, typedLinks);
   }
-  return links.sort((a, b) => pageTypeRank(a.page_type) - pageTypeRank(b.page_type) || a.url.localeCompare(b.url));
+  for (const pageType of ["department-about", "department-news", "department-events", "department-faculty", "department-programs"]) {
+    const typedLinks = (byType.get(pageType) ?? []).sort((a, b) => a.url.localeCompare(b.url));
+    links.push(...typedLinks.slice(0, discoverPerPageType));
+  }
+  return links.slice(0, discoverPerTarget);
 }
 
 function classifyPageType(value) {
@@ -250,6 +275,10 @@ function classifyPageType(value) {
   if (/faculty|people|directory/.test(text)) return "department-faculty";
   if (/graduate|undergraduate|program|course|curriculum/.test(text)) return "department-programs";
   return "";
+}
+
+function isNonHtmlAsset(pathname) {
+  return /\.(?:7z|avi|csv|doc|docx|gif|gz|ics|jpeg|jpg|json|mov|mp3|mp4|odp|ods|odt|pdf|png|ppt|pptx|rss|svg|tar|tsv|txt|webp|xls|xlsx|xml|zip)$/i.test(String(pathname));
 }
 
 function pageTypeRank(pageType) {
@@ -263,10 +292,29 @@ function pageTypeRank(pageType) {
 }
 
 function normalizeUrl(value) {
+  if (!value) return "";
   const url = new URL(value);
   url.hash = "";
   url.search = "";
   return url.href.replace(/\/$/, "");
+}
+
+function sitemapUpgradeTargets() {
+  const configuredSourceIds = new Set(targetConfig.targets.map((target) => target.source_id));
+  return existingPages
+    .filter((page) => configuredSourceIds.has(page.source_id))
+    .filter((page) => !page.text_path && page.source_url)
+    .filter((page) => String(page.page_type).endsWith("-sitemap-url"))
+    .map((page) => ({
+      source_id: page.source_id,
+      school: page.school,
+      department: page.department,
+      page_type: String(page.page_type).replace(/-sitemap-url$/, ""),
+      url: page.source_url,
+      discovery_source_url: "metadata-only sitemap URL already stored in KB",
+    }))
+    .filter((target) => ["department-about", "department-news", "department-events", "department-faculty", "department-programs", "department"].includes(target.page_type))
+    .sort((a, b) => pageTypeRank(a.page_type) - pageTypeRank(b.page_type) || a.url.localeCompare(b.url));
 }
 
 function summarizeDepartments(pages) {

@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T20-21-59-360Z",
+  "source_id": "yale-humanities-departments",
+  "url": "https://philosophy.yale.edu/faculty",
+  "school": "Yale University",
+  "department": "Philosophy",
+  "page_type": "department-faculty",
+  "discovery_source_url": "https://philosophy.yale.edu/",
+  "fetched_at": "2026-06-14T20:22:00.357Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/yale-humanities-departments/2026-06-14/department-pages-2026-06-14T20-21-59-360Z/philosophy-department-faculty-https-philosophy-yale-edu-faculty/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/yale-humanities-departments/yale-university-philosophy-department-faculty-https-philosophy-yale-edu-faculty.txt",
+  "text_chars": 2201
+}
