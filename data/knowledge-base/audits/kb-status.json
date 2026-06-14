@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T18:08:01.189Z",
+  "generated_at": "2026-06-14T18:10:09.428Z",
   "status": "phase-2-staging-active",
   "source_count": 33,
   "source_classes": {
@@ -17,9 +17,10 @@
     "web-archives": 1
   },
   "ingest_statuses": {
+    "active": 23,
     "blocked": 5,
-    "planned": 17,
-    "seeded-from-experiment": 11
+    "planned": 1,
+    "seeded-from-experiment": 4
   },
   "redistribution_statuses": {
     "blocked-or-needs-review": 1,

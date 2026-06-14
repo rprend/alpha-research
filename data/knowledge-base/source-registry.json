@@ -1,130 +1,264 @@
 {
   "version": 1,
-  "updated_at": "2026-06-13",
+  "updated_at": "2026-06-14",
   "sources": [
     {
       "source_id": "openalex-humanities",
       "name": "OpenAlex Humanities Metadata",
       "source_class": "scholarly-metadata",
       "homepage_url": "https://openalex.org/",
-      "access_routes": ["https://api.openalex.org/works", "https://api.openalex.org/authors", "https://api.openalex.org/institutions", "https://api.openalex.org/concepts"],
+      "access_routes": [
+        "https://api.openalex.org/works",
+        "https://api.openalex.org/authors",
+        "https://api.openalex.org/institutions",
+        "https://api.openalex.org/concepts"
+      ],
       "license": "CC0 for OpenAlex metadata",
       "redistribution_status": "metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use polite API paging and mailto identification for larger pulls.",
       "update_cadence": "monthly",
-      "expected_fields": ["work_id", "doi", "title", "publication_year", "authorships", "concepts", "venue", "open_access"],
-      "research_use_cases": ["humanities literature radar", "canon drift scholarly signal", "venue and institution mapping"],
-      "known_risks": ["concept filters can be noisy", "biomedical false positives require exclusion terms", "abstracts are inverted-index metadata, not always full text"],
+      "expected_fields": [
+        "work_id",
+        "doi",
+        "title",
+        "publication_year",
+        "authorships",
+        "concepts",
+        "venue",
+        "open_access"
+      ],
+      "research_use_cases": [
+        "humanities literature radar",
+        "canon drift scholarly signal",
+        "venue and institution mapping"
+      ],
+      "known_risks": [
+        "concept filters can be noisy",
+        "biomedical false positives require exclusion terms",
+        "abstracts are inverted-index metadata, not always full text"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "seeded-from-experiment"
+      "ingest_status": "active"
     },
     {
       "source_id": "crossref-humanities",
       "name": "Crossref Humanities DOI Metadata",
       "source_class": "scholarly-metadata",
       "homepage_url": "https://www.crossref.org/",
-      "access_routes": ["https://api.crossref.org/works"],
+      "access_routes": [
+        "https://api.crossref.org/works"
+      ],
       "license": "Crossref metadata API terms",
       "redistribution_status": "metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use polite API access and contact metadata for larger jobs.",
       "update_cadence": "monthly",
-      "expected_fields": ["doi", "title", "container-title", "publisher", "issued", "author", "subject"],
-      "research_use_cases": ["journal publication radar", "publisher and venue normalization", "DOI joins"],
-      "known_risks": ["subject metadata is uneven", "not all humanities venues use DOIs", "license fields vary by publisher"],
+      "expected_fields": [
+        "doi",
+        "title",
+        "container-title",
+        "publisher",
+        "issued",
+        "author",
+        "subject"
+      ],
+      "research_use_cases": [
+        "journal publication radar",
+        "publisher and venue normalization",
+        "DOI joins"
+      ],
+      "known_risks": [
+        "subject metadata is uneven",
+        "not all humanities venues use DOIs",
+        "license fields vary by publisher"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "doaj-humanities",
       "name": "DOAJ Humanities Open Access Metadata",
       "source_class": "scholarly-metadata",
       "homepage_url": "https://doaj.org/",
-      "access_routes": ["https://doaj.org/api/search/articles", "https://doaj.org/api/search/journals"],
+      "access_routes": [
+        "https://doaj.org/api/search/articles",
+        "https://doaj.org/api/search/journals"
+      ],
       "license": "DOAJ API and data terms",
       "redistribution_status": "metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Review current DOAJ API terms before bulk download.",
       "update_cadence": "monthly",
-      "expected_fields": ["id", "bibjson.title", "bibjson.journal", "bibjson.year", "bibjson.subject", "bibjson.link"],
-      "research_use_cases": ["open humanities journal radar", "OA venue discovery", "publication trend tracking"],
-      "known_risks": ["API fields differ across records", "article coverage is not complete for every journal"],
+      "expected_fields": [
+        "id",
+        "bibjson.title",
+        "bibjson.journal",
+        "bibjson.year",
+        "bibjson.subject",
+        "bibjson.link"
+      ],
+      "research_use_cases": [
+        "open humanities journal radar",
+        "OA venue discovery",
+        "publication trend tracking"
+      ],
+      "known_risks": [
+        "API fields differ across records",
+        "article coverage is not complete for every journal"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "wikidata-cultural-entities",
       "name": "Wikidata Cultural Entities",
       "source_class": "linked-open-data",
       "homepage_url": "https://www.wikidata.org/",
-      "access_routes": ["https://query.wikidata.org/", "https://dumps.wikimedia.org/wikidatawiki/entities/"],
+      "access_routes": [
+        "https://query.wikidata.org/",
+        "https://dumps.wikimedia.org/wikidatawiki/entities/"
+      ],
       "license": "CC0",
       "redistribution_status": "derived-metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use bounded SPARQL for probes; use dumps for large extraction.",
       "update_cadence": "monthly",
-      "expected_fields": ["qid", "label", "description", "instance_of", "occupation", "birth_date", "country", "movement"],
-      "research_use_cases": ["author and movement registry", "cultural entity graph", "institution/place joins"],
-      "known_risks": ["coverage bias", "ontology drift", "label gaps", "SPARQL rate limits"],
+      "expected_fields": [
+        "qid",
+        "label",
+        "description",
+        "instance_of",
+        "occupation",
+        "birth_date",
+        "country",
+        "movement"
+      ],
+      "research_use_cases": [
+        "author and movement registry",
+        "cultural entity graph",
+        "institution/place joins"
+      ],
+      "known_risks": [
+        "coverage bias",
+        "ontology drift",
+        "label gaps",
+        "SPARQL rate limits"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "seeded-from-experiment"
+      "ingest_status": "active"
     },
     {
       "source_id": "project-gutenberg",
       "name": "Project Gutenberg Catalog And Texts",
       "source_class": "public-domain-texts",
       "homepage_url": "https://www.gutenberg.org/",
-      "access_routes": ["https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv.gz", "https://www.gutenberg.org/files/"],
+      "access_routes": [
+        "https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv.gz",
+        "https://www.gutenberg.org/files/"
+      ],
       "license": "Public domain in the United States for included texts; Gutenberg trademark/license notes apply",
       "redistribution_status": "public-domain-text-ok",
       "full_text_allowed": true,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Respect Gutenberg robot policy and strip boilerplate for analysis.",
       "update_cadence": "quarterly",
-      "expected_fields": ["gutenberg_id", "title", "author", "language", "subjects", "bookshelves", "text_url"],
-      "research_use_cases": ["public-domain literary corpus", "semantic benchmark", "canon and genre studies"],
-      "known_risks": ["metadata inconsistencies", "edition and translation ambiguity", "boilerplate contamination"],
+      "expected_fields": [
+        "gutenberg_id",
+        "title",
+        "author",
+        "language",
+        "subjects",
+        "bookshelves",
+        "text_url"
+      ],
+      "research_use_cases": [
+        "public-domain literary corpus",
+        "semantic benchmark",
+        "canon and genre studies"
+      ],
+      "known_risks": [
+        "metadata inconsistencies",
+        "edition and translation ambiguity",
+        "boilerplate contamination"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "seeded-from-experiment"
+      "ingest_status": "active"
     },
     {
       "source_id": "internet-archive-metadata",
       "name": "Internet Archive Metadata",
       "source_class": "open-text-metadata",
       "homepage_url": "https://archive.org/",
-      "access_routes": ["https://archive.org/advancedsearch.php", "https://archive.org/metadata/"],
+      "access_routes": [
+        "https://archive.org/advancedsearch.php",
+        "https://archive.org/metadata/"
+      ],
       "license": "Item-level rights vary",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use metadata first; review item-level rights before text storage.",
       "update_cadence": "quarterly",
-      "expected_fields": ["identifier", "title", "creator", "date", "collection", "licenseurl", "downloads"],
-      "research_use_cases": ["book and archive discovery", "public-domain candidate finding", "collection mapping"],
-      "known_risks": ["item rights vary", "OCR quality varies", "metadata duplication"],
+      "expected_fields": [
+        "identifier",
+        "title",
+        "creator",
+        "date",
+        "collection",
+        "licenseurl",
+        "downloads"
+      ],
+      "research_use_cases": [
+        "book and archive discovery",
+        "public-domain candidate finding",
+        "collection mapping"
+      ],
+      "known_risks": [
+        "item rights vary",
+        "OCR quality varies",
+        "metadata duplication"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "hathitrust-bibliographic-metadata",
       "name": "HathiTrust Bibliographic Metadata",
       "source_class": "open-text-metadata",
       "homepage_url": "https://www.hathitrust.org/",
-      "access_routes": ["https://www.hathitrust.org/data"],
+      "access_routes": [
+        "https://www.hathitrust.org/data"
+      ],
       "license": "HathiTrust metadata/data terms",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use metadata and rights fields; do not store restricted full text.",
       "update_cadence": "quarterly",
-      "expected_fields": ["htid", "title", "author", "publication_date", "rights", "language", "oclc"],
-      "research_use_cases": ["bibliographic coverage", "edition normalization", "library corpus discovery"],
-      "known_risks": ["rights filtering required", "multi-volume normalization", "access restrictions"],
+      "expected_fields": [
+        "htid",
+        "title",
+        "author",
+        "publication_date",
+        "rights",
+        "language",
+        "oclc"
+      ],
+      "research_use_cases": [
+        "bibliographic coverage",
+        "edition normalization",
+        "library corpus discovery"
+      ],
+      "known_risks": [
+        "rights filtering required",
+        "multi-volume normalization",
+        "access restrictions"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "blocked"
     },
@@ -133,88 +267,185 @@
       "name": "Library of Congress Collections",
       "source_class": "cultural-collections",
       "homepage_url": "https://www.loc.gov/",
-      "access_routes": ["https://www.loc.gov/apis/json-and-yaml/"],
+      "access_routes": [
+        "https://www.loc.gov/apis/json-and-yaml/"
+      ],
       "license": "Item-level rights vary; many metadata records are public",
       "redistribution_status": "metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Preserve item rights fields and source URLs.",
       "update_cadence": "quarterly",
-      "expected_fields": ["item_id", "title", "date", "subjects", "locations", "contributors", "rights", "url"],
-      "research_use_cases": ["archive collection mapping", "visual/material culture metadata", "historical source discovery"],
-      "known_risks": ["rights vary by item", "date fields are messy", "collection coverage is uneven"],
+      "expected_fields": [
+        "item_id",
+        "title",
+        "date",
+        "subjects",
+        "locations",
+        "contributors",
+        "rights",
+        "url"
+      ],
+      "research_use_cases": [
+        "archive collection mapping",
+        "visual/material culture metadata",
+        "historical source discovery"
+      ],
+      "known_risks": [
+        "rights vary by item",
+        "date fields are messy",
+        "collection coverage is uneven"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "seeded-from-experiment"
+      "ingest_status": "active"
     },
     {
       "source_id": "met-collection-api",
       "name": "Metropolitan Museum of Art Collection API",
       "source_class": "cultural-collections",
       "homepage_url": "https://metmuseum.github.io/",
-      "access_routes": ["https://collectionapi.metmuseum.org/public/collection/v1/objects"],
+      "access_routes": [
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects"
+      ],
       "license": "Met Collection API terms; object/image rights vary",
       "redistribution_status": "metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Preserve object-level public-domain and image fields.",
       "update_cadence": "quarterly",
-      "expected_fields": ["objectID", "title", "artistDisplayName", "objectDate", "department", "culture", "isPublicDomain"],
-      "research_use_cases": ["museum collection shape", "department and acquisition trends", "object metadata comparison"],
-      "known_risks": ["object detail calls required", "rights vary", "date normalization burden"],
+      "expected_fields": [
+        "objectID",
+        "title",
+        "artistDisplayName",
+        "objectDate",
+        "department",
+        "culture",
+        "isPublicDomain"
+      ],
+      "research_use_cases": [
+        "museum collection shape",
+        "department and acquisition trends",
+        "object metadata comparison"
+      ],
+      "known_risks": [
+        "object detail calls required",
+        "rights vary",
+        "date normalization burden"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "seeded-from-experiment"
+      "ingest_status": "active"
     },
     {
       "source_id": "cleveland-museum-open-access",
       "name": "Cleveland Museum of Art Open Access API",
       "source_class": "cultural-collections",
       "homepage_url": "https://openaccess-api.clevelandart.org/",
-      "access_routes": ["https://openaccess-api.clevelandart.org/api/artworks/"],
+      "access_routes": [
+        "https://openaccess-api.clevelandart.org/api/artworks/"
+      ],
       "license": "Cleveland Museum Open Access metadata and item-level image rights",
       "redistribution_status": "metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Preserve image/license fields and provenance caveats.",
       "update_cadence": "quarterly",
-      "expected_fields": ["id", "title", "creation_date", "department", "type", "culture", "accession_number", "images", "share_license_status"],
-      "research_use_cases": ["first public museum essay", "collection-shape analysis", "license/image coverage"],
-      "known_risks": ["accession year proxy risk", "date normalization", "provenance sparsity"],
+      "expected_fields": [
+        "id",
+        "title",
+        "creation_date",
+        "department",
+        "type",
+        "culture",
+        "accession_number",
+        "images",
+        "share_license_status"
+      ],
+      "research_use_cases": [
+        "first public museum essay",
+        "collection-shape analysis",
+        "license/image coverage"
+      ],
+      "known_risks": [
+        "accession year proxy risk",
+        "date normalization",
+        "provenance sparsity"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "seeded-from-experiment"
+      "ingest_status": "active"
     },
     {
       "source_id": "smithsonian-open-access",
       "name": "Smithsonian Open Access",
       "source_class": "cultural-collections",
       "homepage_url": "https://www.si.edu/openaccess",
-      "access_routes": ["https://api.si.edu/openaccess/api/v1.0/search"],
+      "access_routes": [
+        "https://api.si.edu/openaccess/api/v1.0/search"
+      ],
       "license": "Smithsonian Open Access terms; item-level restrictions may apply",
       "redistribution_status": "metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Requires API key for some routes; do not expose secrets.",
       "update_cadence": "quarterly",
-      "expected_fields": ["id", "title", "unitCode", "type", "date", "topic", "place", "online_media"],
-      "research_use_cases": ["multi-museum comparison", "collection taxonomy", "media availability"],
-      "known_risks": ["API key management", "field heterogeneity", "unit-specific metadata differences"],
+      "expected_fields": [
+        "id",
+        "title",
+        "unitCode",
+        "type",
+        "date",
+        "topic",
+        "place",
+        "online_media"
+      ],
+      "research_use_cases": [
+        "multi-museum comparison",
+        "collection taxonomy",
+        "media availability"
+      ],
+      "known_risks": [
+        "API key management",
+        "field heterogeneity",
+        "unit-specific metadata differences"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "harvard-humanities-departments",
       "name": "Harvard Humanities Department Public Pages",
       "source_class": "university-department-web",
       "homepage_url": "https://www.harvard.edu/",
-      "access_routes": ["department about pages", "news pages", "events pages", "faculty pages"],
+      "access_routes": [
+        "department about pages",
+        "news pages",
+        "events pages",
+        "faculty pages"
+      ],
       "license": "Public web pages; copyright retained by institution",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Respect robots.txt; store extracted text for local analysis with source URL and fetch date.",
       "update_cadence": "quarterly",
-      "expected_fields": ["school", "department", "page_type", "url", "title", "fetched_at", "extracted_text"],
-      "research_use_cases": ["institutional language drift", "public humanities language", "discipline framing"],
-      "known_risks": ["site redesigns", "copyrighted page text", "department list maintenance"],
+      "expected_fields": [
+        "school",
+        "department",
+        "page_type",
+        "url",
+        "title",
+        "fetched_at",
+        "extracted_text"
+      ],
+      "research_use_cases": [
+        "institutional language drift",
+        "public humanities language",
+        "discipline framing"
+      ],
+      "known_risks": [
+        "site redesigns",
+        "copyrighted page text",
+        "department list maintenance"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "seeded-from-experiment"
     },
@@ -223,34 +454,76 @@
       "name": "Yale Humanities Department Public Pages",
       "source_class": "university-department-web",
       "homepage_url": "https://www.yale.edu/",
-      "access_routes": ["department about pages", "news pages", "events pages", "faculty pages"],
+      "access_routes": [
+        "department about pages",
+        "news pages",
+        "events pages",
+        "faculty pages"
+      ],
       "license": "Public web pages; copyright retained by institution",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Respect robots.txt and keep source URLs attached to extracted text.",
       "update_cadence": "quarterly",
-      "expected_fields": ["school", "department", "page_type", "url", "title", "fetched_at", "extracted_text"],
-      "research_use_cases": ["institutional language drift", "department topic shifts", "humanities center mapping"],
-      "known_risks": ["site structure changes", "page type ambiguity", "historical coverage gaps"],
+      "expected_fields": [
+        "school",
+        "department",
+        "page_type",
+        "url",
+        "title",
+        "fetched_at",
+        "extracted_text"
+      ],
+      "research_use_cases": [
+        "institutional language drift",
+        "department topic shifts",
+        "humanities center mapping"
+      ],
+      "known_risks": [
+        "site structure changes",
+        "page type ambiguity",
+        "historical coverage gaps"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "seeded-from-experiment"
+      "ingest_status": "active"
     },
     {
       "source_id": "princeton-humanities-departments",
       "name": "Princeton Humanities Department Public Pages",
       "source_class": "university-department-web",
       "homepage_url": "https://www.princeton.edu/",
-      "access_routes": ["department about pages", "news pages", "events pages", "faculty pages"],
+      "access_routes": [
+        "department about pages",
+        "news pages",
+        "events pages",
+        "faculty pages"
+      ],
       "license": "Public web pages; copyright retained by institution",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use polite fetching and source-specific route manifests.",
       "update_cadence": "quarterly",
-      "expected_fields": ["school", "department", "page_type", "url", "title", "fetched_at", "extracted_text"],
-      "research_use_cases": ["institutional language drift", "elite humanities comparison", "program framing"],
-      "known_risks": ["robots and terms review required", "page text redistribution limits", "department taxonomy drift"],
+      "expected_fields": [
+        "school",
+        "department",
+        "page_type",
+        "url",
+        "title",
+        "fetched_at",
+        "extracted_text"
+      ],
+      "research_use_cases": [
+        "institutional language drift",
+        "elite humanities comparison",
+        "program framing"
+      ],
+      "known_risks": [
+        "robots and terms review required",
+        "page text redistribution limits",
+        "department taxonomy drift"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "planned"
     },
@@ -259,88 +532,185 @@
       "name": "Stanford Humanities Department Public Pages",
       "source_class": "university-department-web",
       "homepage_url": "https://www.stanford.edu/",
-      "access_routes": ["department about pages", "news pages", "events pages", "faculty pages"],
+      "access_routes": [
+        "department about pages",
+        "news pages",
+        "events pages",
+        "faculty pages"
+      ],
       "license": "Public web pages; copyright retained by institution",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Respect robots.txt and avoid aggressive crawling.",
       "update_cadence": "quarterly",
-      "expected_fields": ["school", "department", "page_type", "url", "title", "fetched_at", "extracted_text"],
-      "research_use_cases": ["institutional language drift", "digital humanities and AI language tracking", "department comparison"],
-      "known_risks": ["site route diversity", "copyrighted page text", "historical snapshot gaps"],
+      "expected_fields": [
+        "school",
+        "department",
+        "page_type",
+        "url",
+        "title",
+        "fetched_at",
+        "extracted_text"
+      ],
+      "research_use_cases": [
+        "institutional language drift",
+        "digital humanities and AI language tracking",
+        "department comparison"
+      ],
+      "known_risks": [
+        "site route diversity",
+        "copyrighted page text",
+        "historical snapshot gaps"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "uchicago-humanities-departments",
       "name": "University of Chicago Humanities Department Public Pages",
       "source_class": "university-department-web",
       "homepage_url": "https://www.uchicago.edu/",
-      "access_routes": ["department about pages", "news pages", "events pages", "faculty pages"],
+      "access_routes": [
+        "department about pages",
+        "news pages",
+        "events pages",
+        "faculty pages"
+      ],
       "license": "Public web pages; copyright retained by institution",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Respect robots.txt and preserve fetch metadata.",
       "update_cadence": "quarterly",
-      "expected_fields": ["school", "department", "page_type", "url", "title", "fetched_at", "extracted_text"],
-      "research_use_cases": ["institutional language drift", "humanities division language", "disciplinary self-description"],
-      "known_risks": ["site heterogeneity", "page version ambiguity", "copyright limits"],
+      "expected_fields": [
+        "school",
+        "department",
+        "page_type",
+        "url",
+        "title",
+        "fetched_at",
+        "extracted_text"
+      ],
+      "research_use_cases": [
+        "institutional language drift",
+        "humanities division language",
+        "disciplinary self-description"
+      ],
+      "known_risks": [
+        "site heterogeneity",
+        "page version ambiguity",
+        "copyright limits"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "columbia-humanities-departments",
       "name": "Columbia Humanities Department Public Pages",
       "source_class": "university-department-web",
       "homepage_url": "https://www.columbia.edu/",
-      "access_routes": ["department about pages", "news pages", "events pages", "faculty pages"],
+      "access_routes": [
+        "department about pages",
+        "news pages",
+        "events pages",
+        "faculty pages"
+      ],
       "license": "Public web pages; copyright retained by institution",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Respect robots.txt and keep route manifests.",
       "update_cadence": "quarterly",
-      "expected_fields": ["school", "department", "page_type", "url", "title", "fetched_at", "extracted_text"],
-      "research_use_cases": ["institutional language drift", "urban university humanities comparison", "department news tracking"],
-      "known_risks": ["distributed department sites", "route discovery burden", "copyright limits"],
+      "expected_fields": [
+        "school",
+        "department",
+        "page_type",
+        "url",
+        "title",
+        "fetched_at",
+        "extracted_text"
+      ],
+      "research_use_cases": [
+        "institutional language drift",
+        "urban university humanities comparison",
+        "department news tracking"
+      ],
+      "known_risks": [
+        "distributed department sites",
+        "route discovery burden",
+        "copyright limits"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "mla-convention-programs",
       "name": "MLA Convention Programs",
       "source_class": "conference-programs",
       "homepage_url": "https://www.mla.org/",
-      "access_routes": ["MLA convention program pages and exports where available"],
+      "access_routes": [
+        "MLA convention program pages and exports where available"
+      ],
       "license": "MLA site/program terms",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Review current program access and terms before ingest.",
       "update_cadence": "annual",
-      "expected_fields": ["session_title", "participant", "affiliation", "date", "topic", "program_url"],
-      "research_use_cases": ["field-topic radar", "conference discourse trends", "discipline network mapping"],
-      "known_risks": ["program format changes", "rights review required", "participant name normalization"],
+      "expected_fields": [
+        "session_title",
+        "participant",
+        "affiliation",
+        "date",
+        "topic",
+        "program_url"
+      ],
+      "research_use_cases": [
+        "field-topic radar",
+        "conference discourse trends",
+        "discipline network mapping"
+      ],
+      "known_risks": [
+        "program format changes",
+        "rights review required",
+        "participant name normalization"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "aha-annual-meeting-programs",
       "name": "American Historical Association Annual Meeting Programs",
       "source_class": "conference-programs",
       "homepage_url": "https://www.historians.org/",
-      "access_routes": ["annual meeting program pages and exports where available"],
+      "access_routes": [
+        "annual meeting program pages and exports where available"
+      ],
       "license": "AHA site/program terms",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Review current access and terms before ingest.",
       "update_cadence": "annual",
-      "expected_fields": ["session_title", "participant", "affiliation", "date", "topic", "program_url"],
-      "research_use_cases": ["history field-topic radar", "conference discourse trends", "institutional participation"],
-      "known_risks": ["program format changes", "rights review required", "topic normalization"],
+      "expected_fields": [
+        "session_title",
+        "participant",
+        "affiliation",
+        "date",
+        "topic",
+        "program_url"
+      ],
+      "research_use_cases": [
+        "history field-topic radar",
+        "conference discourse trends",
+        "institutional participation"
+      ],
+      "known_risks": [
+        "program format changes",
+        "rights review required",
+        "topic normalization"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "blocked"
     },
@@ -349,124 +719,256 @@
       "name": "Digital Humanities Conference Programs",
       "source_class": "conference-programs",
       "homepage_url": "https://dh2026.adho.org/",
-      "access_routes": ["ADHO/DH conference program pages and proceedings"],
+      "access_routes": [
+        "ADHO/DH conference program pages and proceedings"
+      ],
       "license": "Conference-specific terms",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Program/proceedings terms vary by year.",
       "update_cadence": "annual",
-      "expected_fields": ["paper_title", "author", "affiliation", "abstract", "keywords", "year", "url"],
-      "research_use_cases": ["digital humanities topic tracking", "method diffusion", "AI/computation language drift"],
-      "known_risks": ["year-specific formats", "abstract rights", "duplicate author identities"],
+      "expected_fields": [
+        "paper_title",
+        "author",
+        "affiliation",
+        "abstract",
+        "keywords",
+        "year",
+        "url"
+      ],
+      "research_use_cases": [
+        "digital humanities topic tracking",
+        "method diffusion",
+        "AI/computation language drift"
+      ],
+      "known_risks": [
+        "year-specific formats",
+        "abstract rights",
+        "duplicate author identities"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "journal-new-literary-history",
       "name": "New Literary History Metadata",
       "source_class": "journals-and-reviews",
       "homepage_url": "https://www.press.jhu.edu/journals/new-literary-history",
-      "access_routes": ["publisher metadata pages", "Crossref joins", "Project MUSE metadata where allowed"],
+      "access_routes": [
+        "publisher metadata pages",
+        "Crossref joins",
+        "Project MUSE metadata where allowed"
+      ],
       "license": "Publisher terms; metadata via Crossref where available",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use metadata sources; do not store paywalled full text.",
       "update_cadence": "quarterly",
-      "expected_fields": ["article_title", "author", "issue", "year", "doi", "abstract", "url"],
-      "research_use_cases": ["literary theory topic trends", "journal radar", "canon and method discourse"],
-      "known_risks": ["full text restricted", "abstract availability varies", "metadata source joins needed"],
+      "expected_fields": [
+        "article_title",
+        "author",
+        "issue",
+        "year",
+        "doi",
+        "abstract",
+        "url"
+      ],
+      "research_use_cases": [
+        "literary theory topic trends",
+        "journal radar",
+        "canon and method discourse"
+      ],
+      "known_risks": [
+        "full text restricted",
+        "abstract availability varies",
+        "metadata source joins needed"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "journal-critical-inquiry",
       "name": "Critical Inquiry Metadata",
       "source_class": "journals-and-reviews",
       "homepage_url": "https://criticalinquiry.uchicago.edu/",
-      "access_routes": ["journal pages", "Crossref joins", "publisher metadata"],
+      "access_routes": [
+        "journal pages",
+        "Crossref joins",
+        "publisher metadata"
+      ],
       "license": "Publisher terms; metadata via Crossref where available",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use metadata and abstracts only where permitted.",
       "update_cadence": "quarterly",
-      "expected_fields": ["article_title", "author", "issue", "year", "doi", "abstract", "url"],
-      "research_use_cases": ["critical theory discourse tracking", "journal radar", "topic drift"],
-      "known_risks": ["full text restricted", "metadata inconsistency", "abstract rights review"],
+      "expected_fields": [
+        "article_title",
+        "author",
+        "issue",
+        "year",
+        "doi",
+        "abstract",
+        "url"
+      ],
+      "research_use_cases": [
+        "critical theory discourse tracking",
+        "journal radar",
+        "topic drift"
+      ],
+      "known_risks": [
+        "full text restricted",
+        "metadata inconsistency",
+        "abstract rights review"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "journal-pmla",
       "name": "PMLA Metadata",
       "source_class": "journals-and-reviews",
       "homepage_url": "https://www.cambridge.org/core/journals/pmla",
-      "access_routes": ["publisher metadata pages", "Crossref joins"],
+      "access_routes": [
+        "publisher metadata pages",
+        "Crossref joins"
+      ],
       "license": "Publisher terms; metadata via Crossref where available",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Do not store restricted full text; use DOI metadata and public abstracts where permitted.",
       "update_cadence": "quarterly",
-      "expected_fields": ["article_title", "author", "issue", "year", "doi", "abstract", "url"],
-      "research_use_cases": ["field-topic radar", "discipline discourse", "literary studies trend tracking"],
-      "known_risks": ["publisher access limits", "abstract availability varies", "metadata joins required"],
+      "expected_fields": [
+        "article_title",
+        "author",
+        "issue",
+        "year",
+        "doi",
+        "abstract",
+        "url"
+      ],
+      "research_use_cases": [
+        "field-topic radar",
+        "discipline discourse",
+        "literary studies trend tracking"
+      ],
+      "known_risks": [
+        "publisher access limits",
+        "abstract availability varies",
+        "metadata joins required"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "journal-digital-humanities-quarterly",
       "name": "Digital Humanities Quarterly",
       "source_class": "journals-and-reviews",
       "homepage_url": "https://www.digitalhumanities.org/dhq/",
-      "access_routes": ["journal issue pages", "article XML/HTML where available"],
+      "access_routes": [
+        "journal issue pages",
+        "article XML/HTML where available"
+      ],
       "license": "DHQ publication terms",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Review current article terms before storing full text.",
       "update_cadence": "quarterly",
-      "expected_fields": ["article_title", "author", "issue", "year", "abstract", "keywords", "url"],
-      "research_use_cases": ["digital humanities method trends", "AI/computation discourse", "open journal radar"],
-      "known_risks": ["license review required", "format variation", "author identity normalization"],
+      "expected_fields": [
+        "article_title",
+        "author",
+        "issue",
+        "year",
+        "abstract",
+        "keywords",
+        "url"
+      ],
+      "research_use_cases": [
+        "digital humanities method trends",
+        "AI/computation discourse",
+        "open journal radar"
+      ],
+      "known_risks": [
+        "license review required",
+        "format variation",
+        "author identity normalization"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "public-books",
       "name": "Public Books",
       "source_class": "journals-and-reviews",
       "homepage_url": "https://www.publicbooks.org/",
-      "access_routes": ["site feeds", "article pages"],
+      "access_routes": [
+        "site feeds",
+        "article pages"
+      ],
       "license": "Site terms; public web text copyright retained",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Store metadata and short extracted snippets only after terms review.",
       "update_cadence": "monthly",
-      "expected_fields": ["title", "author", "date", "category", "url", "description"],
-      "research_use_cases": ["public humanities discourse", "review essay radar", "topic emergence"],
-      "known_risks": ["copyrighted article text", "category drift", "site route changes"],
+      "expected_fields": [
+        "title",
+        "author",
+        "date",
+        "category",
+        "url",
+        "description"
+      ],
+      "research_use_cases": [
+        "public humanities discourse",
+        "review essay radar",
+        "topic emergence"
+      ],
+      "known_risks": [
+        "copyrighted article text",
+        "category drift",
+        "site route changes"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "lareviewofbooks",
       "name": "Los Angeles Review of Books",
       "source_class": "journals-and-reviews",
       "homepage_url": "https://lareviewofbooks.org/",
-      "access_routes": ["site feeds", "article pages"],
+      "access_routes": [
+        "site feeds",
+        "article pages"
+      ],
       "license": "Site terms; public web text copyright retained",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Respect robots.txt and avoid redistributing full article text.",
       "update_cadence": "monthly",
-      "expected_fields": ["title", "author", "date", "category", "url", "description"],
-      "research_use_cases": ["public literary discourse", "review topic radar", "culture essay trends"],
-      "known_risks": ["copyrighted article text", "site changes", "author normalization"],
+      "expected_fields": [
+        "title",
+        "author",
+        "date",
+        "category",
+        "url",
+        "description"
+      ],
+      "research_use_cases": [
+        "public literary discourse",
+        "review topic radar",
+        "culture essay trends"
+      ],
+      "known_risks": [
+        "copyrighted article text",
+        "site changes",
+        "author normalization"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "blocked"
     },
@@ -475,16 +977,35 @@
       "name": "Open Syllabus",
       "source_class": "syllabi-teaching-corpora",
       "homepage_url": "https://opensyllabus.org/",
-      "access_routes": ["public interfaces and export routes where terms allow"],
+      "access_routes": [
+        "public interfaces and export routes where terms allow"
+      ],
       "license": "Open Syllabus terms; access/export terms require review",
       "redistribution_status": "blocked-or-needs-review",
       "full_text_allowed": false,
       "metadata_allowed": false,
       "robots_or_terms_notes": "Do not ingest until export/access terms are confirmed.",
       "update_cadence": "manual-review",
-      "expected_fields": ["work", "author", "course", "institution", "field", "rank", "year"],
-      "research_use_cases": ["canon drift teaching signal", "assignment trend analysis", "discipline comparison"],
-      "known_risks": ["access restrictions", "redistribution limits", "coverage bias", "institution anonymization"],
+      "expected_fields": [
+        "work",
+        "author",
+        "course",
+        "institution",
+        "field",
+        "rank",
+        "year"
+      ],
+      "research_use_cases": [
+        "canon drift teaching signal",
+        "assignment trend analysis",
+        "discipline comparison"
+      ],
+      "known_risks": [
+        "access restrictions",
+        "redistribution limits",
+        "coverage bias",
+        "institution anonymization"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "blocked"
     },
@@ -493,34 +1014,70 @@
       "name": "NBER Humanities-Adjacent Culture And History Papers",
       "source_class": "humanities-adjacent-policy-history",
       "homepage_url": "https://www.nber.org/",
-      "access_routes": ["NBER working paper search and metadata pages"],
+      "access_routes": [
+        "NBER working paper search and metadata pages"
+      ],
       "license": "NBER site and working paper terms",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use metadata and links; do not store working paper PDFs without rights review.",
       "update_cadence": "monthly",
-      "expected_fields": ["paper_id", "title", "authors", "date", "program", "abstract", "url"],
-      "research_use_cases": ["economics of culture", "history and institutions literature radar", "humanities-adjacent methods"],
-      "known_risks": ["not primarily humanities", "PDF rights", "topic filtering burden"],
+      "expected_fields": [
+        "paper_id",
+        "title",
+        "authors",
+        "date",
+        "program",
+        "abstract",
+        "url"
+      ],
+      "research_use_cases": [
+        "economics of culture",
+        "history and institutions literature radar",
+        "humanities-adjacent methods"
+      ],
+      "known_risks": [
+        "not primarily humanities",
+        "PDF rights",
+        "topic filtering burden"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "ssrn-humanities-adjacent",
       "name": "SSRN Humanities-Adjacent Metadata",
       "source_class": "humanities-adjacent-policy-history",
       "homepage_url": "https://www.ssrn.com/",
-      "access_routes": ["SSRN search and paper metadata pages"],
+      "access_routes": [
+        "SSRN search and paper metadata pages"
+      ],
       "license": "SSRN terms; paper rights vary",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Review access terms before automated ingest.",
       "update_cadence": "monthly",
-      "expected_fields": ["paper_id", "title", "authors", "date", "abstract", "keywords", "url"],
-      "research_use_cases": ["working paper radar", "cultural policy and legal humanities", "preprint trend tracking"],
-      "known_risks": ["terms review required", "paper rights vary", "field filtering noise"],
+      "expected_fields": [
+        "paper_id",
+        "title",
+        "authors",
+        "date",
+        "abstract",
+        "keywords",
+        "url"
+      ],
+      "research_use_cases": [
+        "working paper radar",
+        "cultural policy and legal humanities",
+        "preprint trend tracking"
+      ],
+      "known_risks": [
+        "terms review required",
+        "paper rights vary",
+        "field filtering noise"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "blocked"
     },
@@ -529,16 +1086,35 @@
       "name": "Internet Archive Wayback CDX",
       "source_class": "web-archives",
       "homepage_url": "https://web.archive.org/",
-      "access_routes": ["https://web.archive.org/cdx"],
+      "access_routes": [
+        "https://web.archive.org/cdx"
+      ],
       "license": "Archived page rights vary; CDX metadata access terms apply",
       "redistribution_status": "metadata-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use CDX for discovery; archived content rights and availability vary.",
       "update_cadence": "on-demand",
-      "expected_fields": ["urlkey", "timestamp", "original", "mimetype", "statuscode", "digest", "length"],
-      "research_use_cases": ["institutional language drift", "historical department pages", "museum web history"],
-      "known_risks": ["archive gaps", "blocked captures", "rights vary", "temporal sampling bias"],
+      "expected_fields": [
+        "urlkey",
+        "timestamp",
+        "original",
+        "mimetype",
+        "statuscode",
+        "digest",
+        "length"
+      ],
+      "research_use_cases": [
+        "institutional language drift",
+        "historical department pages",
+        "museum web history"
+      ],
+      "known_risks": [
+        "archive gaps",
+        "blocked captures",
+        "rights vary",
+        "temporal sampling bias"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "seeded-from-experiment"
     },
@@ -547,34 +1123,75 @@
       "name": "Humanities Center Public Pages",
       "source_class": "university-department-web",
       "homepage_url": "https://www.nhalliance.org/member_humanities_centers",
-      "access_routes": ["center home pages", "events pages", "news pages", "program pages"],
+      "access_routes": [
+        "center home pages",
+        "events pages",
+        "news pages",
+        "program pages"
+      ],
       "license": "Public web pages; copyright retained by each institution",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Create per-site route manifests and respect robots.txt.",
       "update_cadence": "quarterly",
-      "expected_fields": ["center", "institution", "page_type", "url", "title", "fetched_at", "extracted_text"],
-      "research_use_cases": ["public humanities discourse", "event topic radar", "institutional priorities"],
-      "known_risks": ["site heterogeneity", "copyrighted page text", "center list maintenance"],
+      "expected_fields": [
+        "center",
+        "institution",
+        "page_type",
+        "url",
+        "title",
+        "fetched_at",
+        "extracted_text"
+      ],
+      "research_use_cases": [
+        "public humanities discourse",
+        "event topic radar",
+        "institutional priorities"
+      ],
+      "known_risks": [
+        "site heterogeneity",
+        "copyrighted page text",
+        "center list maintenance"
+      ],
       "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "ingest_status": "active"
     },
     {
       "source_id": "humanities-literature-radar",
       "name": "Humanities Literature Radar Experiment Seeds",
       "source_class": "experiment-derived",
       "homepage_url": "docs/experiments/humanities-literature-radar/",
-      "access_routes": ["docs/experiments/humanities-literature-radar/data/processed/works.json"],
+      "access_routes": [
+        "docs/experiments/humanities-literature-radar/data/processed/works.json"
+      ],
       "license": "Inherited from original metadata sources recorded in the experiment output",
       "redistribution_status": "metadata-ok",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use as local seed metadata only; broad replacement should come from source-specific OpenAlex, Crossref, DOAJ, Humanities Commons, and arXiv routes.",
       "update_cadence": "manual-review",
-      "expected_fields": ["source_name", "source_record_id", "title", "year", "venue", "doi", "url", "abstract"],
-      "research_use_cases": ["literature radar bootstrapping", "field map prototypes", "question workbench examples"],
-      "known_risks": ["experiment-derived sampling", "source-specific rights vary", "contains non-humanities false positives", "should not be mistaken for broad source coverage"],
+      "expected_fields": [
+        "source_name",
+        "source_record_id",
+        "title",
+        "year",
+        "venue",
+        "doi",
+        "url",
+        "abstract"
+      ],
+      "research_use_cases": [
+        "literature radar bootstrapping",
+        "field map prototypes",
+        "question workbench examples"
+      ],
+      "known_risks": [
+        "experiment-derived sampling",
+        "source-specific rights vary",
+        "contains non-humanities false positives",
+        "should not be mistaken for broad source coverage"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "seeded-from-experiment"
     },
@@ -583,16 +1200,35 @@
       "name": "Museum Language Drift Experiment Seeds",
       "source_class": "experiment-derived",
       "homepage_url": "docs/experiments/museum-language-drift/",
-      "access_routes": ["docs/experiments/museum-language-drift/data/processed/second-layer-pages.json"],
+      "access_routes": [
+        "docs/experiments/museum-language-drift/data/processed/second-layer-pages.json"
+      ],
       "license": "Public web page metadata and snippets; copyright retained by source institutions",
       "redistribution_status": "local-analysis-only",
       "full_text_allowed": false,
       "metadata_allowed": true,
       "robots_or_terms_notes": "Use as local-analysis seed records only; broad replacement should use per-museum route manifests and terms review.",
       "update_cadence": "manual-review",
-      "expected_fields": ["museum", "page_type", "year", "url", "archive_url", "title", "text_preview"],
-      "research_use_cases": ["museum language drift prototypes", "public culture essay seeds", "Wayback route planning"],
-      "known_risks": ["experiment-derived sampling", "copyrighted page text", "historical capture gaps", "should not be mistaken for collection-wide museum metadata"],
+      "expected_fields": [
+        "museum",
+        "page_type",
+        "year",
+        "url",
+        "archive_url",
+        "title",
+        "text_preview"
+      ],
+      "research_use_cases": [
+        "museum language drift prototypes",
+        "public culture essay seeds",
+        "Wayback route planning"
+      ],
+      "known_risks": [
+        "experiment-derived sampling",
+        "copyrighted page text",
+        "historical capture gaps",
+        "should not be mistaken for collection-wide museum metadata"
+      ],
       "last_checked_at": "2026-06-13",
       "ingest_status": "seeded-from-experiment"
     }

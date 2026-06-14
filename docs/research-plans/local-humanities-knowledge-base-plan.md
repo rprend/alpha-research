@@ -548,6 +548,7 @@ Current local footprint as of the latest committed status:
 
 - 33 registered sources.
 - 28 registered sources with local documents.
+- Registry statuses: 23 active, 5 blocked, 4 seeded-from-experiment, 1 planned.
 - 1845 source documents.
 - 1283 works.
 - 1779 source-provided authors.
