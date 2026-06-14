@@ -1,6 +1,6 @@
 # KB Analytical Tables
 
-Generated at: 2026-06-14T18:07:25.546Z
+Generated at: 2026-06-14T18:15:03.765Z
 
 | Table | Rows | CSV |
 | --- | ---: | --- |
@@ -23,6 +23,7 @@ Generated at: 2026-06-14T18:07:25.546Z
 - Created: true
 - FTS created: true
 - FTS tables: source_documents_fts, pages_fts
+- FTS rows with local text content: source_documents_fts=24, pages_fts=4
 
 ## Parquet
 

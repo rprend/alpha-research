@@ -175,7 +175,7 @@ function renderQueries(sourceMap, ftsQuery) {
     ids ? `WHERE source_id IN (${ids});` : "WHERE false;",
     "",
     "SELECT local_id, source_id, source_url, title, type, venue, department,",
-    "       snippet(source_documents_fts, 3, '[', ']', '...', 18) AS snippet,",
+    "       snippet(source_documents_fts, -1, '[', ']', '...', 18) AS snippet,",
     "       bm25(source_documents_fts) AS rank",
     "FROM source_documents_fts",
     `WHERE source_documents_fts MATCH '${ftsQuery.replaceAll("'", "''")}'`,
@@ -223,7 +223,7 @@ function searchLocalEvidence(query, limit) {
 .mode json
 WITH source_hits AS (
   SELECT 'source_document' AS result_type, local_id, source_id, source_url, title, type, venue, department, publication_year,
-         snippet(source_documents_fts, 3, '[', ']', '...', 18) AS snippet,
+         snippet(source_documents_fts, -1, '[', ']', '...', 18) AS snippet,
          bm25(source_documents_fts) AS rank
   FROM source_documents_fts
   WHERE source_documents_fts MATCH ${sqlString(ftsQuery)}
@@ -231,7 +231,7 @@ WITH source_hits AS (
 ),
 page_hits AS (
   SELECT 'page' AS result_type, local_id, source_id, source_url, title, page_type AS type, school AS venue, department, '' AS publication_year,
-         snippet(pages_fts, 6, '[', ']', '...', 18) AS snippet,
+         snippet(pages_fts, -1, '[', ']', '...', 18) AS snippet,
          bm25(pages_fts) AS rank
   FROM pages_fts
   WHERE pages_fts MATCH ${sqlString(ftsQuery)}

@@ -540,7 +540,7 @@ Started on 2026-06-13:
 - Phase 3 has a bounded department-page corpus: `pnpm kb:ingest:departments` fetches selected public humanities department pages, stores raw HTML and extracted local-analysis text, and writes `pages`/`departments` staging rows. Harvard and Princeton routes returned 403 and are logged in `failed-routes.jsonl`.
 - Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables, Parquet tables, and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` using metadata plus previews of stored text; `pnpm kb:search "<terms>"` queries the local keyword index.
 - Phase 4 now derives author, citation, venue, institution, collection, and topic tables from current normalized local records and raw snapshots; source-provided names and references still need normalization before strong identity or citation-network claims.
-- Phase 4 now has SQLite FTS retrieval: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
+- Phase 4 now has SQLite FTS retrieval over metadata and stored local text content: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
 - Phase 5 has a bounded starter workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, query sketch, and missing-data memo under `docs/research-briefs/`.
 - Phase 6 has starter maintenance automation: `pnpm kb:refresh` validates, inventories, rebuilds analytical tables, refreshes coverage/rights/stale-source audits, rebuilds the index, and updates KB status.
 
@@ -563,6 +563,7 @@ Current local footprint as of the latest committed status:
 - 24 local text files.
 - 12/12 staging JSONL tables.
 - 12/12 processed Parquet tables.
+- SQLite FTS indexes 24 source-document rows and 4 page rows with stored local text content, plus metadata for the broader corpus.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 
@@ -575,7 +576,7 @@ Remaining before the full knowledge-base goal is complete:
 - Replace failed public routes for Wayback CDX, LARB, Harvard, and Princeton or keep them as blocked-source memos.
 - Expand university/department web corpus acquisition beyond the first successful routes.
 - Expand full text storage only for public-domain or clearly licensed sources.
-- Add richer SQLite FTS or semantic retrieval over stored text contents, not just document metadata.
+- Add semantic retrieval over allowed stored text after the current SQLite full-text layer stabilizes.
 - Add refresh/staleness automation for every active source route, including route replacement for 403/failed department pages.
 
 Next build steps:

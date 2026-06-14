@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T18:07:25.546Z",
+  "generated_at": "2026-06-14T18:15:03.765Z",
   "tables": [
     {
       "table": "works",
@@ -251,7 +251,11 @@
     "fts_tables": [
       "source_documents_fts",
       "pages_fts"
-    ]
+    ],
+    "fts_text_rows": {
+      "source_documents_fts": 24,
+      "pages_fts": 4
+    }
   },
   "parquet": {
     "created": true,
@@ -391,6 +395,18 @@
       "bytes": 734535
     },
     {
+      "file": "source_documents_fts_input.csv",
+      "path": "data/knowledge-base/processed/source_documents_fts_input.csv",
+      "exists": true,
+      "bytes": 1700511
+    },
+    {
+      "file": "pages_fts_input.csv",
+      "path": "data/knowledge-base/processed/pages_fts_input.csv",
+      "exists": true,
+      "bytes": 21525
+    },
+    {
       "file": "rights.csv",
       "path": "data/knowledge-base/processed/rights.csv",
       "exists": true,
@@ -406,7 +422,7 @@
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 16924672
+      "bytes": 17522688
     }
   ]
 }

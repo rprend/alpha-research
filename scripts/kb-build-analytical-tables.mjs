@@ -93,6 +93,7 @@ const report = {
     created: false,
     fts_created: false,
     fts_tables: ["source_documents_fts", "pages_fts"],
+    fts_text_rows: {},
   },
   parquet: {
     created: false,
@@ -120,12 +121,15 @@ for (const spec of tableSpecs) {
 }
 report.parquet.created = true;
 
+const ftsInputs = await writeFtsInputs();
+report.sqlite.fts_text_rows = Object.fromEntries(ftsInputs.map((input) => [input.table, input.rows_with_text_content]));
+
 const sqlitePath = path.join(processedDir, "knowledge-base.sqlite");
 if (existsSync(sqlitePath)) {
   await fs.rm(sqlitePath);
 }
 
-const sql = buildSql(tableSpecs);
+const sql = buildSql(tableSpecs, ftsInputs);
 const result = spawnSync("sqlite3", [sqlitePath], {
   input: sql,
   encoding: "utf8",
@@ -405,7 +409,52 @@ function writeParquet(spec, parquetPath) {
   }
 }
 
-function buildSql(specs) {
+async function writeFtsInputs() {
+  const sourceColumns = ["local_id", "source_id", "source_url", "title", "type", "publication_year", "venue", "doi", "department", "description", "text_path", "text_content"];
+  const pageColumns = ["local_id", "source_id", "source_url", "school", "department", "page_type", "title", "text_path", "text_content"];
+  const sourceRows = await enrichRowsWithText(await readJsonl(path.join(processedDir, "source_documents.jsonl")));
+  const pageRows = await enrichRowsWithText(await readJsonl(path.join(processedDir, "pages.jsonl")));
+  const sourcePath = path.join(processedDir, "source_documents_fts_input.csv");
+  const pagesPath = path.join(processedDir, "pages_fts_input.csv");
+  await writeText(sourcePath, toCsv(sourceRows, sourceColumns));
+  await writeText(pagesPath, toCsv(pageRows, pageColumns));
+  return [
+    {
+      table: "source_documents_fts",
+      path: sourcePath,
+      columns: sourceColumns,
+      rows: sourceRows.length,
+      rows_with_text_content: sourceRows.filter((row) => row.text_content).length,
+    },
+    {
+      table: "pages_fts",
+      path: pagesPath,
+      columns: pageColumns,
+      rows: pageRows.length,
+      rows_with_text_content: pageRows.filter((row) => row.text_content).length,
+    },
+  ];
+}
+
+async function enrichRowsWithText(rows) {
+  const enriched = [];
+  for (const row of rows) {
+    enriched.push({
+      ...row,
+      text_content: await readLocalText(row.text_path),
+    });
+  }
+  return enriched;
+}
+
+async function readLocalText(textPath) {
+  if (!textPath) return "";
+  const absolute = path.isAbsolute(textPath) ? textPath : path.join(process.cwd(), textPath);
+  if (!existsSync(absolute)) return "";
+  return fs.readFile(absolute, "utf8");
+}
+
+function buildSql(specs, ftsInputs) {
   const parts = [
     ".mode csv",
   ];
@@ -415,12 +464,14 @@ function buildSql(specs) {
     parts.push(`CREATE TABLE ${spec.table} (${spec.columns.map((column) => `${column} TEXT`).join(", ")});`);
     parts.push(`.import --skip 1 ${JSON.stringify(csvPath)} ${spec.table}`);
   }
+  const sourceFts = ftsInputs.find((input) => input.table === "source_documents_fts");
+  const pagesFts = ftsInputs.find((input) => input.table === "pages_fts");
   parts.push("DROP TABLE IF EXISTS source_documents_fts;");
-  parts.push("CREATE VIRTUAL TABLE source_documents_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, title, type, publication_year, venue, doi, department, description, text_path UNINDEXED);");
-  parts.push("INSERT INTO source_documents_fts(local_id, source_id, source_url, title, type, publication_year, venue, doi, department, description, text_path) SELECT local_id, source_id, source_url, title, type, publication_year, venue, doi, department, description, text_path FROM source_documents;");
+  parts.push("CREATE VIRTUAL TABLE source_documents_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, title, type, publication_year, venue, doi, department, description, text_path UNINDEXED, text_content);");
+  parts.push(`.import --skip 1 ${JSON.stringify(sourceFts.path)} source_documents_fts`);
   parts.push("DROP TABLE IF EXISTS pages_fts;");
-  parts.push("CREATE VIRTUAL TABLE pages_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, school, department, page_type, title, text_path UNINDEXED);");
-  parts.push("INSERT INTO pages_fts(local_id, source_id, source_url, school, department, page_type, title, text_path) SELECT local_id, source_id, source_url, school, department, page_type, title, text_path FROM pages;");
+  parts.push("CREATE VIRTUAL TABLE pages_fts USING fts5(local_id UNINDEXED, source_id UNINDEXED, source_url UNINDEXED, school, department, page_type, title, text_path UNINDEXED, text_content);");
+  parts.push(`.import --skip 1 ${JSON.stringify(pagesFts.path)} pages_fts`);
   return `${parts.join("\n")}\n`;
 }
 
@@ -441,6 +492,7 @@ function renderMarkdown(report) {
     `- Created: ${report.sqlite.created}`,
     `- FTS created: ${report.sqlite.fts_created}`,
     `- FTS tables: ${report.sqlite.fts_tables.join(", ")}`,
+    `- FTS rows with local text content: ${Object.entries(report.sqlite.fts_text_rows).map(([table, count]) => `${table}=${count}`).join(", ")}`,
     "",
     "## Parquet",
     "",

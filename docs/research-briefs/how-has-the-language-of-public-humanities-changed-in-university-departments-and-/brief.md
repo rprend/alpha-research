@@ -1,21 +1,21 @@
 # Local KB Brief: How has the language of public humanities changed in university departments and humanities centers over time?
 
-Generated at: 2026-06-13T16:51:20.942Z
+Generated at: 2026-06-14T18:15:07.122Z
 
 ## Local Evidence Sources
 
-- openalex-humanities: 273 local docs; 9 direct evidence hits (scholarly-metadata, seeded-from-experiment, metadata-ok)
-- crossref-humanities: 208 local docs; 2 direct evidence hits (scholarly-metadata, planned, metadata-ok)
-- uchicago-humanities-departments: 1 local docs; 1 direct evidence hits (university-department-web, planned, local-analysis-only)
-- yale-humanities-departments: 5 local docs; 0 direct evidence hits (university-department-web, seeded-from-experiment, local-analysis-only)
-- cleveland-museum-open-access: 150 local docs; 0 direct evidence hits (cultural-collections, seeded-from-experiment, metadata-ok)
-- project-gutenberg: 20 local docs; 0 direct evidence hits (public-domain-texts, seeded-from-experiment, public-domain-text-ok)
-- harvard-humanities-departments: 5 local docs; 0 direct evidence hits (university-department-web, seeded-from-experiment, local-analysis-only)
-- doaj-humanities: 409 local docs; 0 direct evidence hits (scholarly-metadata, planned, metadata-ok)
-- library-of-congress: 158 local docs; 0 direct evidence hits (cultural-collections, seeded-from-experiment, metadata-ok)
-- met-collection-api: 150 local docs; 0 direct evidence hits (cultural-collections, seeded-from-experiment, metadata-ok)
-- humanities-literature-radar: 53 local docs; 0 direct evidence hits (experiment-derived, seeded-from-experiment, metadata-ok)
-- museum-language-drift: 24 local docs; 0 direct evidence hits (experiment-derived, seeded-from-experiment, local-analysis-only)
+- openalex-humanities: 273 local docs; 9 direct evidence hits (scholarly-metadata, active, metadata-ok)
+- crossref-humanities: 208 local docs; 2 direct evidence hits (scholarly-metadata, active, metadata-ok)
+- uchicago-humanities-departments: 1 local docs; 1 direct evidence hits (university-department-web, active, local-analysis-only)
+- doaj-humanities: 409 local docs; 0 direct evidence hits (scholarly-metadata, active, metadata-ok)
+- stanford-humanities-departments: 6 local docs; 0 direct evidence hits (university-department-web, active, local-analysis-only)
+- yale-humanities-departments: 5 local docs; 0 direct evidence hits (university-department-web, active, local-analysis-only)
+- columbia-humanities-departments: 1 local docs; 0 direct evidence hits (university-department-web, active, local-analysis-only)
+- cleveland-museum-open-access: 150 local docs; 0 direct evidence hits (cultural-collections, active, metadata-ok)
+- internet-archive-metadata: 150 local docs; 0 direct evidence hits (open-text-metadata, active, metadata-only)
+- project-gutenberg: 20 local docs; 0 direct evidence hits (public-domain-texts, active, public-domain-text-ok)
+- humanities-centers-public-pages: 12 local docs; 0 direct evidence hits (university-department-web, active, local-analysis-only)
+- library-of-congress: 158 local docs; 0 direct evidence hits (cultural-collections, active, metadata-ok)
 
 ## Local Evidence Hits
 

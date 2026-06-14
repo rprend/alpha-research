@@ -10,15 +10,15 @@ No blocked matched sources.
 
 ## Local Sources Without Direct Evidence Hits
 
-- yale-humanities-departments: 5 local docs, but no direct SQLite FTS hit for the question terms.
-- cleveland-museum-open-access: 150 local docs, but no direct SQLite FTS hit for the question terms.
-- project-gutenberg: 20 local docs, but no direct SQLite FTS hit for the question terms.
-- harvard-humanities-departments: 5 local docs, but no direct SQLite FTS hit for the question terms.
 - doaj-humanities: 409 local docs, but no direct SQLite FTS hit for the question terms.
+- stanford-humanities-departments: 6 local docs, but no direct SQLite FTS hit for the question terms.
+- yale-humanities-departments: 5 local docs, but no direct SQLite FTS hit for the question terms.
+- columbia-humanities-departments: 1 local docs, but no direct SQLite FTS hit for the question terms.
+- cleveland-museum-open-access: 150 local docs, but no direct SQLite FTS hit for the question terms.
+- internet-archive-metadata: 150 local docs, but no direct SQLite FTS hit for the question terms.
+- project-gutenberg: 20 local docs, but no direct SQLite FTS hit for the question terms.
+- humanities-centers-public-pages: 12 local docs, but no direct SQLite FTS hit for the question terms.
 - library-of-congress: 158 local docs, but no direct SQLite FTS hit for the question terms.
-- met-collection-api: 150 local docs, but no direct SQLite FTS hit for the question terms.
-- humanities-literature-radar: 53 local docs, but no direct SQLite FTS hit for the question terms.
-- museum-language-drift: 24 local docs, but no direct SQLite FTS hit for the question terms.
 
 ## Next Acquisition Decision
 

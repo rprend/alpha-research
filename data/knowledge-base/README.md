@@ -60,6 +60,8 @@ Current normalized staging outputs:
 - `processed/rights.jsonl`
 - `processed/*.csv`
 - `processed/*.parquet`
+- `processed/source_documents_fts_input.csv`
+- `processed/pages_fts_input.csv`
 - `processed/knowledge-base.sqlite`
 - `indexes/source-documents-keyword-index.json`
 
@@ -67,4 +69,4 @@ The KB also imports a bounded local Project Gutenberg text sample from the exist
 
 The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly when their public routes respond. Failed routes are retained in `audits/failed-routes.jsonl`.
 
-This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. Author, citation, venue, institution, collection, and topic tables are derived from current local source records and raw snapshots; source-provided names and references still require normalization before strong identity or citation-network claims.
+This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. Author, citation, venue, institution, collection, and topic tables are derived from current local source records and raw snapshots; source-provided names and references still require normalization before strong identity or citation-network claims.

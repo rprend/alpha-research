@@ -250,6 +250,8 @@ export function analyticalAvailability() {
     "topics.parquet",
     "source_documents.csv",
     "source_documents.parquet",
+    "source_documents_fts_input.csv",
+    "pages_fts_input.csv",
     "rights.csv",
     "rights.parquet",
     "knowledge-base.sqlite",
