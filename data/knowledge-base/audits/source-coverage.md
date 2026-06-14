@@ -1,16 +1,16 @@
 # KB Source Coverage
 
-Generated at: 2026-06-14T22:14:42.814Z
+Generated at: 2026-06-14T22:19:26.901Z
 Sources with local documents: 33/34
 Unregistered local source IDs: 0
 
 ## Local Records
 
-- source_documents: 6592
+- source_documents: 6591
 - works: 3005
 - objects: 1012
-- pages: 533
-- rights: 6592
+- pages: 532
+- rights: 6591
 
 ## Unregistered Local Source IDs
 
@@ -32,7 +32,7 @@ No unregistered local source IDs.
 - public-domain-texts: pass (1/1 sources, 200/100 docs)
 - scholarly-metadata: pass (3/3 sources, 3438/500 docs)
 - syllabi-teaching-corpora: pass (0/0 sources, 0/0 docs)
-- university-department-web: pass (8/6 sources, 533/250 docs)
+- university-department-web: pass (8/6 sources, 532/250 docs)
 - web-archives: pass (1/1 sources, 23/10 docs)
 
 ## Source-Class Completeness Gates

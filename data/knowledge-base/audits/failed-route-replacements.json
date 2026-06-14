@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T22:07:15.327Z",
-  "resolved_failure_count": 15,
+  "generated_at": "2026-06-14T22:19:27.101Z",
+  "resolved_failure_count": 14,
   "resolved_failures": [
     {
       "source_id": "aha-annual-meeting-programs",
@@ -39,11 +39,11 @@
       "source_id": "expanded-university-humanities-departments",
       "name": "Expanded University Humanities Department Public Pages",
       "source_class": "university-department-web",
-      "failure_count": 21,
-      "latest_failure_at": "2026-06-14T21:09:38.993Z",
-      "latest_success_at": "2026-06-14T20:42:04.005Z",
-      "successful_route": "https://history.berkeley.edu/news | https://rhetoric.berkeley.edu/people | https://rhetoric.berkeley.edu/people/faculty/lecturers | https://www.english.upenn.edu/about | https://www.english.upenn.edu/about/academic-freedom-statement | https://www.english.upenn.edu/events/2026/06/19/juneteenth-no-classes | https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center | http://english.duke.edu/2023-e-newsletter-chair | http://english.duke.edu/2023-e-newsletter-graduate | http://english.duke.edu/2023-e-newsletter-other | http://english.duke.edu/2023-e-newsletter-undergraduate | http://english.duke.edu/2024-e-newsletter-chair | http://english.duke.edu/2024-e-newsletter-faculty | http://english.duke.edu/2024-e-newsletter-graduate | http://english.duke.edu/2024-e-newsletter-other | http://english.duke.edu/2024-e-newsletter-undergraduate",
-      "record_count": 16,
+      "failure_count": 22,
+      "latest_failure_at": "2026-06-14T22:18:22.003Z",
+      "latest_success_at": "2026-06-14T22:18:24.183Z",
+      "successful_route": "http://english.duke.edu/2025-e-newsletter-chair | http://english.duke.edu/2025-e-newsletter-faculty | http://english.duke.edu/2025-e-newsletter-graduate | http://english.duke.edu/2025-e-newsletter-other | http://english.duke.edu/2025-e-newsletter-undergraduate | http://english.duke.edu/2026-e-newsletter-chair | http://history.duke.edu/ | http://history.duke.edu/12-month-funding-requirements | http://history.duke.edu/2019-history-honors-students | http://history.duke.edu/2021-history-honors-students | http://history.duke.edu/2022-history-honors-students | http://history.duke.edu/2023-history-honors-students | http://history.duke.edu/2024-history-honors-students | http://history.duke.edu/aaron-lawson-griffith | http://history.duke.edu/about | http://history.duke.edu/about/location | http://history.duke.edu/about/solidarity-against-anti-asian-violence | http://history.duke.edu/abram-smith | http://history.duke.edu/adriane-d-lentz-smith | http://history.duke.edu/alex-brandli | http://history.duke.edu/alex-roland | http://history.duke.edu/alika-bourgette | http://history.duke.edu/alona-whitebird-medina | http://history.duke.edu/alumni | http://history.duke.edu/alumni/adam-rodriguez-ba-2014 | http://history.duke.edu/alumni/adriana-salazar-ba-2004 | https://history.brown.edu/associated-links | https://history.brown.edu/community | https://history.brown.edu/graduate-student-spotlight-laura-perille-15 | https://history.brown.edu/graduate/current-students/history-graduate-handbook | https://history.brown.edu/graduate/current-students/student-spotlights | https://history.brown.edu/graduate/life-after-brown | https://history.brown.edu/graduate/life-after-brown/life-after-brown | https://history.brown.edu/graduate/ma-program | https://history.brown.edu/graduate/phd-program/doctoral-dissertation | https://history.brown.edu/graduate/phd-program/funding-and-financial-aid | https://history.brown.edu/graduate/phd-program/phd-program-outline | https://history.brown.edu/graduate/phd-program/phds-awarded",
+      "record_count": 38,
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
     },
     {
@@ -78,17 +78,6 @@
       "successful_route": "https://lareviewofbooks.org/",
       "record_count": 18,
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
-    },
-    {
-      "source_id": "library-of-congress",
-      "name": "Library of Congress Collections",
-      "source_class": "cultural-collections",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-14T19:00:00.360Z",
-      "latest_success_at": "2026-06-14T20:02:34.343Z",
-      "successful_route": "source-specific cultural collections API routes",
-      "record_count": 50,
-      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
       "source_id": "princeton-humanities-departments",
@@ -129,9 +118,9 @@
       "source_class": "university-department-web",
       "failure_count": 3,
       "latest_failure_at": "2026-06-14T19:49:23.051Z",
-      "latest_success_at": "2026-06-14T21:09:40.673Z",
-      "successful_route": "https://humanities.uchicago.edu/news | https://humanities.uchicago.edu/articles/2025/11/phd-student-naomi-harris-publishes-three-new-hittite-poems-paris-review | https://humanities.uchicago.edu/events | https://humanities.uchicago.edu/newsevents",
-      "record_count": 4,
+      "latest_success_at": "2026-06-14T22:18:24.183Z",
+      "successful_route": "http://history.uchicago.edu/2022-ssd-diploma-and-hooding-ceremony | http://history.uchicago.edu/2024-chairs-welcome | http://history.uchicago.edu/404-error | http://history.uchicago.edu/about | http://history.uchicago.edu/about/alumni-updates | http://history.uchicago.edu/about/bookshelf | http://history.uchicago.edu/about/bookshelf/alumni-books | http://history.uchicago.edu/about/bookshelf/recent-faculty-publications | http://history.uchicago.edu/about/contact | http://history.uchicago.edu/about/department-accolades/faculty | http://history.uchicago.edu/about/department-accolades/phd-students | http://history.uchicago.edu/about/department-accolades/undergraduates | http://history.uchicago.edu/about/departmental-newsletters | http://history.uchicago.edu/about/diversity-and-inclusion | http://history.uchicago.edu/about/diversity-and-inclusion/university-resources | http://history.uchicago.edu/about/faculty-committees | http://history.uchicago.edu/about/give | http://history.uchicago.edu/about/job-opportunities | http://history.uchicago.edu/about/newsletter/awards-and-publications | http://history.uchicago.edu/about/newsletter/elizabeth-hines-spotlight",
+      "record_count": 20,
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
     },
     {
@@ -162,14 +151,39 @@
       "source_class": "university-department-web",
       "failure_count": 2,
       "latest_failure_at": "2026-06-14T19:49:19.491Z",
-      "latest_success_at": "2026-06-14T20:42:04.005Z",
-      "successful_route": "http://complit.yale.edu/about/department-history",
+      "latest_success_at": "2026-06-14T22:18:24.183Z",
+      "successful_route": "http://philosophy.yale.edu/climate-community/history",
       "record_count": 1,
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 1,
+  "replacement_plan_count": 2,
   "replacement_plans": [
+    {
+      "source_id": "library-of-congress",
+      "name": "Library of Congress Collections",
+      "source_class": "cultural-collections",
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "failure_count": 5,
+      "latest_failure_at": "2026-06-14T22:14:35.541Z",
+      "latest_error": "",
+      "failed_routes": [
+        "source-specific cultural collections API routes",
+        "https://www.loc.gov/collections/lewis-carroll-scrapbook/about-this-collection/?fo=json",
+        "https://www.loc.gov/preservation/conservators/bachbase/bbcbooks/detail/bbcbooks239.html?fo=json",
+        "https://www.loc.gov/preservation/conservators/bachbase/bbcbooks/detail/bbcbooks23.html?fo=json",
+        "https://www.loc.gov/preservation/conservators/bachbase/bbcbooks/detail/bbcbooks208.html?fo=json"
+      ],
+      "affected_targets": [],
+      "replacement_status": "partial-route-retry",
+      "replacement_routes": [
+        "Retry the documented source API route with smaller page sizes and source-specific timeout/backoff.",
+        "Keep successful local records and treat this as a partial route failure, not a source-wide block."
+      ],
+      "next_action": "Use the source-specific ingest audit to identify which route/page failed, then retry only that route with lower limits.",
+      "do_not_do": "Do not discard successful local records or reclassify the whole source as blocked because one route timed out."
+    },
     {
       "source_id": "met-collection-api",
       "name": "Metropolitan Museum of Art Collection API",

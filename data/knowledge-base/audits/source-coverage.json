@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T22:14:42.814Z",
+  "generated_at": "2026-06-14T22:19:26.901Z",
   "source_count": 34,
   "source_classes": {
     "conference-programs": 3,
@@ -54,11 +54,11 @@
   "unregistered_source_ids_with_local_documents": [],
   "unregistered_source_count_with_local_documents": 0,
   "local_records": {
-    "source_documents": 6592,
+    "source_documents": 6591,
     "works": 3005,
     "objects": 1012,
-    "pages": 533,
-    "rights": 6592
+    "pages": 532,
+    "rights": 6591
   },
   "sources_without_local_documents": [
     {
@@ -329,7 +329,7 @@
       "source_count": 8,
       "blocked_source_count": 0,
       "sources_with_documents": 8,
-      "document_count": 533,
+      "document_count": 532,
       "source_ids": [
         {
           "source_id": "harvard-humanities-departments",
@@ -353,7 +353,7 @@
         },
         {
           "source_id": "uchicago-humanities-departments",
-          "document_count": 51,
+          "document_count": 50,
           "ingest_status": "active"
         },
         {
@@ -552,17 +552,17 @@
     },
     {
       "source_class": "university-department-web",
-      "document_count": 533,
-      "rights_rows": 533,
-      "metadata_allowed_rows": 533,
-      "quote_status_rows": 533,
-      "fetch_date_rows": 533,
+      "document_count": 532,
+      "rights_rows": 532,
+      "metadata_allowed_rows": 532,
+      "quote_status_rows": 532,
+      "fetch_date_rows": 532,
       "content_date_rows": 73,
       "rights_coverage_rate": 1,
       "metadata_allowed_rate": 1,
       "quote_status_rate": 1,
       "fetch_date_rate": 1,
-      "content_date_rate": 0.137,
+      "content_date_rate": 0.1372,
       "required_content_date_rate": 0,
       "status": "pass",
       "note": "Completeness regression gate for provenance dates and rights fields by source class; content-date thresholds are class-specific."

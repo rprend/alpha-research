@@ -1,11 +1,11 @@
 local_id,source_id,school,department,homepage_url,page_count,first_seen_at,last_seen_at
-columbia-humanities-departments:columbia-university-history,columbia-humanities-departments,Columbia University,History,https://history.columbia.edu/,1,2026-06-14T21:24:34.262Z,2026-06-14T21:24:34.262Z
+columbia-humanities-departments:columbia-university-history,columbia-humanities-departments,Columbia University,History,https://history.columbia.edu/,8,2026-06-14T19:09:42.884Z,2026-06-14T21:24:34.262Z
 expanded-university-humanities-departments:brown-university-english,expanded-university-humanities-departments,Brown University,English,https://english.brown.edu/,24,2026-06-14T19:09:47.207Z,2026-06-14T20:22:21.658Z
-expanded-university-humanities-departments:brown-university-history,expanded-university-humanities-departments,Brown University,History,https://history.brown.edu/,24,2026-06-14T19:09:47.575Z,2026-06-14T20:22:19.060Z
+expanded-university-humanities-departments:brown-university-history,expanded-university-humanities-departments,Brown University,History,https://history.brown.edu/,24,2026-06-14T19:09:47.575Z,2026-06-14T22:18:24.135Z
 expanded-university-humanities-departments:cornell-university-english,expanded-university-humanities-departments,Cornell University,English,https://english.cornell.edu/,26,2026-06-14T19:09:46.642Z,2026-06-14T20:22:16.822Z
 expanded-university-humanities-departments:cornell-university-history,expanded-university-humanities-departments,Cornell University,History,https://history.cornell.edu/,25,2026-06-14T19:09:46.845Z,2026-06-14T20:22:17.057Z
-expanded-university-humanities-departments:duke-university-english,expanded-university-humanities-departments,Duke University,English,https://english.duke.edu/,27,2026-06-14T19:09:48.194Z,2026-06-14T20:42:03.966Z
-expanded-university-humanities-departments:duke-university-history,expanded-university-humanities-departments,Duke University,History,https://history.duke.edu/,27,2026-06-14T19:09:48.458Z,2026-06-14T20:22:20.302Z
+expanded-university-humanities-departments:duke-university-english,expanded-university-humanities-departments,Duke University,English,https://english.duke.edu/,27,2026-06-14T19:09:48.194Z,2026-06-14T22:18:03.579Z
+expanded-university-humanities-departments:duke-university-history,expanded-university-humanities-departments,Duke University,History,https://history.duke.edu/,27,2026-06-14T19:09:48.458Z,2026-06-14T22:18:10.604Z
 expanded-university-humanities-departments:new-york-university-english,expanded-university-humanities-departments,New York University,English,https://as.nyu.edu/departments/english.html,1,2026-06-14T19:09:47.731Z,2026-06-14T19:09:47.731Z
 expanded-university-humanities-departments:new-york-university-history,expanded-university-humanities-departments,New York University,History,https://as.nyu.edu/departments/history.html,1,2026-06-14T19:09:47.905Z,2026-06-14T19:09:47.905Z
 expanded-university-humanities-departments:university-of-california-berkeley-english,expanded-university-humanities-departments,"University of California, Berkeley",English,https://english.berkeley.edu/,26,2026-06-14T19:09:43.260Z,2026-06-14T20:22:06.210Z
@@ -45,7 +45,7 @@ stanford-humanities-departments:stanford-university-history,stanford-humanities-
 stanford-humanities-departments:stanford-university-philosophy,stanford-humanities-departments,Stanford University,Philosophy,https://philosophy.stanford.edu/,26,2026-06-14T19:09:37.428Z,2026-06-14T20:22:21.945Z
 stanford-humanities-departments:stanford-university-strategic-plan,stanford-humanities-departments,Stanford University,strategic-plan,https://ideal.stanford.edu/,1,2026-06-14T20:04:03.902Z,2026-06-14T20:04:03.902Z
 uchicago-humanities-departments:university-of-chicago-english,uchicago-humanities-departments,University of Chicago,English,https://english.uchicago.edu/,7,2026-06-14T19:09:42.391Z,2026-06-14T20:22:02.564Z
-uchicago-humanities-departments:university-of-chicago-history,uchicago-humanities-departments,University of Chicago,History,https://history.uchicago.edu/,27,2026-06-14T19:09:42.503Z,2026-06-14T20:22:02.844Z
+uchicago-humanities-departments:university-of-chicago-history,uchicago-humanities-departments,University of Chicago,History,https://history.uchicago.edu/,27,2026-06-14T19:09:42.503Z,2026-06-14T22:18:20.845Z
 uchicago-humanities-departments:university-of-chicago-humanities-division,uchicago-humanities-departments,University of Chicago,Humanities Division,https://humanities.uchicago.edu/,10,2026-06-14T19:09:42.300Z,2026-06-14T21:09:33.313Z
 uchicago-humanities-departments:university-of-chicago-philosophy,uchicago-humanities-departments,University of Chicago,Philosophy,https://philosophy.uchicago.edu/,7,2026-06-14T19:09:42.662Z,2026-06-14T20:22:03.012Z
 yale-humanities-departments:yale-university-catalog,yale-humanities-departments,Yale University,catalog,https://catalog.yale.edu/,1,2026-06-14T20:04:03.902Z,2026-06-14T20:04:03.902Z
@@ -53,5 +53,5 @@ yale-humanities-departments:yale-university-commencement-speech,yale-humanities-
 yale-humanities-departments:yale-university-comparative-literature,yale-humanities-departments,Yale University,Comparative Literature,https://complit.yale.edu/,27,2026-06-14T19:09:17.554Z,2026-06-14T20:41:55.869Z
 yale-humanities-departments:yale-university-english,yale-humanities-departments,Yale University,English,https://english.yale.edu/,7,2026-06-14T19:09:17.189Z,2026-06-14T20:21:59.974Z
 yale-humanities-departments:yale-university-history,yale-humanities-departments,Yale University,History,https://history.yale.edu/,7,2026-06-14T19:09:17.257Z,2026-06-14T20:22:00.248Z
-yale-humanities-departments:yale-university-philosophy,yale-humanities-departments,Yale University,Philosophy,https://philosophy.yale.edu/,26,2026-06-14T19:09:17.365Z,2026-06-14T20:22:00.381Z
+yale-humanities-departments:yale-university-philosophy,yale-humanities-departments,Yale University,Philosophy,https://philosophy.yale.edu/,26,2026-06-14T19:09:17.365Z,2026-06-14T22:18:21.023Z
 yale-humanities-departments:yale-university-president-message,yale-humanities-departments,Yale University,president-message,https://president.yale.edu/,1,2026-06-14T20:04:03.902Z,2026-06-14T20:04:03.902Z

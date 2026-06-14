@@ -1,9 +1,9 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T22:14:42.305Z
+Generated at: 2026-06-14T22:19:26.437Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 6561
+Documents: 6560
 Shards: 14
 Shard size: 500
 
@@ -11,9 +11,9 @@ Shard size: 500
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 6127 |
+| metadata-only | 6068 |
 | stored-full-text | 200 |
-| stored-local-analysis-text | 234 |
+| stored-local-analysis-text | 292 |
 
 ## Sources
 
@@ -48,7 +48,7 @@ Shard size: 500
 | smithsonian-open-access | 225 |
 | ssrn-humanities-adjacent | 25 |
 | stanford-humanities-departments | 110 |
-| uchicago-humanities-departments | 51 |
+| uchicago-humanities-departments | 50 |
 | wayback-machine-cdx | 23 |
 | wikidata-cultural-entities | 919 |
 | yale-humanities-departments | 70 |

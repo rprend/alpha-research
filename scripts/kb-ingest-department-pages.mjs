@@ -145,6 +145,9 @@ async function ingestTargetPage(target) {
   const html = await fetchText(target.url);
   const text = cleanHtml(html);
   const title = extractTitle(html) || `${target.school} ${target.department}`;
+  if (isSoftNotFound(title, text)) {
+    throw new Error(`Soft 404 page detected: ${title || target.url}`);
+  }
   const targetSlug = slug(`${target.department}-${target.page_type}-${target.url}`);
   const textSlug = slug(`${target.school}-${target.department}-${target.page_type}-${target.url}`);
   const rawTargetDir = path.join(rawDir, "universities", target.source_id, runDate, runId, targetSlug);
@@ -280,6 +283,13 @@ function classifyPageType(value) {
 
 function isNonHtmlAsset(pathname) {
   return /\.(?:7z|avi|csv|doc|docx|gif|gz|ics|jpeg|jpg|json|mov|mp3|mp4|odp|ods|odt|pdf|png|ppt|pptx|rss|svg|tar|tsv|txt|webp|xls|xlsx|xml|zip)$/i.test(String(pathname));
+}
+
+function isSoftNotFound(title, text) {
+  const normalizedTitle = String(title ?? "").toLowerCase();
+  const normalizedText = String(text ?? "").toLowerCase().slice(0, 2000);
+  return /\b404\b|page not found|not found/.test(normalizedTitle)
+    || (/page not found|does not exist|requested page could not be found/.test(normalizedText) && String(text ?? "").length < 2000);
 }
 
 function pageTypeRank(pageType) {
