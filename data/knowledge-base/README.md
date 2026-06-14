@@ -53,6 +53,7 @@ Current normalized staging outputs:
 - `processed/departments.jsonl`
 - `processed/rights.jsonl`
 - `processed/*.csv`
+- `processed/*.parquet`
 - `processed/knowledge-base.sqlite`
 - `indexes/source-documents-keyword-index.json`
 
@@ -60,4 +61,4 @@ The KB also imports a bounded local Project Gutenberg text sample from the exist
 
 The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly when their public routes respond. Failed routes are retained in `audits/failed-routes.jsonl`.
 
-This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL/CSV/SQLite files are the current local analytical layer. Parquet/DuckDB output still requires adding a Parquet writer or DuckDB dependency.
+This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. Some Parquet entity and relation tables are schema-valid placeholders until dedicated author, institution, venue, collection, citation, and topic ingests populate them.

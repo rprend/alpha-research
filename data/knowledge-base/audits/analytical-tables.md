@@ -1,15 +1,21 @@
 # KB Analytical Tables
 
-Generated at: 2026-06-13T16:45:34.843Z
+Generated at: 2026-06-14T17:58:28.607Z
 
 | Table | Rows | CSV |
 | --- | ---: | --- |
-| works | 1283 | `data/knowledge-base/processed/works.csv` |
-| objects | 507 | `data/knowledge-base/processed/objects.csv` |
-| pages | 34 | `data/knowledge-base/processed/pages.csv` |
-| departments | 5 | `data/knowledge-base/processed/departments.csv` |
-| source_documents | 1845 | `data/knowledge-base/processed/source_documents.csv` |
-| rights | 1845 | `data/knowledge-base/processed/rights.csv` |
+| works | 1283 | `data/knowledge-base/processed/works.csv` / `data/knowledge-base/processed/works.parquet` |
+| objects | 507 | `data/knowledge-base/processed/objects.csv` / `data/knowledge-base/processed/objects.parquet` |
+| pages | 34 | `data/knowledge-base/processed/pages.csv` / `data/knowledge-base/processed/pages.parquet` |
+| departments | 5 | `data/knowledge-base/processed/departments.csv` / `data/knowledge-base/processed/departments.parquet` |
+| authors | 0 | `data/knowledge-base/processed/authors.csv` / `data/knowledge-base/processed/authors.parquet` |
+| institutions | 0 | `data/knowledge-base/processed/institutions.csv` / `data/knowledge-base/processed/institutions.parquet` |
+| venues | 0 | `data/knowledge-base/processed/venues.csv` / `data/knowledge-base/processed/venues.parquet` |
+| collections | 0 | `data/knowledge-base/processed/collections.csv` / `data/knowledge-base/processed/collections.parquet` |
+| citations | 0 | `data/knowledge-base/processed/citations.csv` / `data/knowledge-base/processed/citations.parquet` |
+| topics | 0 | `data/knowledge-base/processed/topics.csv` / `data/knowledge-base/processed/topics.parquet` |
+| source_documents | 1845 | `data/knowledge-base/processed/source_documents.csv` / `data/knowledge-base/processed/source_documents.parquet` |
+| rights | 1845 | `data/knowledge-base/processed/rights.csv` / `data/knowledge-base/processed/rights.parquet` |
 
 ## SQLite
 
@@ -18,4 +24,8 @@ Generated at: 2026-06-13T16:45:34.843Z
 - FTS created: true
 - FTS tables: source_documents_fts, pages_fts
 
-Note: Parquet output still requires a Parquet writer dependency such as pyarrow or DuckDB. CSV plus SQLite are the current local analytical layer.
+## Parquet
+
+- Created: true
+- Writer: `scripts/kb-jsonl-to-parquet.py`
+- Empty entity/relation tables are schema-valid placeholders until dedicated author, institution, venue, collection, citation, and topic ingests populate them.

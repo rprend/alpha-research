@@ -72,7 +72,7 @@ console.log(`Sources: ${status.source_count}`);
 console.log(`Rights coverage: ${Object.entries(status.redistribution_statuses).map(([key, value]) => `${key}=${value}`).join(", ")}`);
 console.log(`Processed tables: ${status.tables.existing_count}/${status.tables.expected_count}`);
 console.log(`Processed staging JSONL: ${status.staging_tables.existing_count}/${status.staging_tables.expected_count}`);
-console.log(`Analytical CSV/SQLite: ${status.analytical_tables.existing_count}/${status.analytical_tables.expected_count}`);
+console.log(`Analytical CSV/Parquet/SQLite: ${status.analytical_tables.existing_count}/${status.analytical_tables.expected_count}`);
 console.log(`Raw files: ${status.local_files.raw_count}; text files: ${status.local_files.text_count}; index files: ${status.local_files.index_count}`);
 if (errors.length) {
   process.exitCode = 1;
@@ -108,14 +108,14 @@ function renderMarkdown(status) {
     "",
     `- Processed tables: ${status.tables.existing_count}/${status.tables.expected_count}`,
     `- Processed staging JSONL: ${status.staging_tables.existing_count}/${status.staging_tables.expected_count}`,
-    `- Analytical CSV/SQLite: ${status.analytical_tables.existing_count}/${status.analytical_tables.expected_count}`,
+    `- Analytical CSV/Parquet/SQLite: ${status.analytical_tables.existing_count}/${status.analytical_tables.expected_count}`,
     `- Raw files: ${status.local_files.raw_count}`,
     `- Text files: ${status.local_files.text_count}`,
     `- Index files: ${status.local_files.index_count}`,
     "",
     "## Missing Processed Tables",
     "",
-    ...status.tables.missing.map((file) => `- ${file}`),
+    status.tables.missing.length ? status.tables.missing.map((file) => `- ${file}`).join("\n") : "No missing processed tables.",
     "",
     "## Missing Staging Tables",
     "",

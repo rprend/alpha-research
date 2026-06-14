@@ -1,6 +1,6 @@
 # Local Humanities Knowledge Base Status
 
-Generated at: 2026-06-13T16:45:35.125Z
+Generated at: 2026-06-14T17:58:36.753Z
 Status: phase-2-staging-active
 Sources: 33
 
@@ -42,27 +42,16 @@ Sources: 33
 
 ## Local Data Availability
 
-- Processed tables: 0/12
+- Processed tables: 12/12
 - Processed staging JSONL: 6/6
-- Analytical CSV/SQLite: 7/7
+- Analytical CSV/Parquet/SQLite: 25/25
 - Raw files: 98
 - Text files: 24
 - Index files: 1
 
 ## Missing Processed Tables
 
-- works.parquet
-- authors.parquet
-- institutions.parquet
-- venues.parquet
-- departments.parquet
-- collections.parquet
-- objects.parquet
-- pages.parquet
-- citations.parquet
-- topics.parquet
-- source_documents.parquet
-- rights.parquet
+No missing processed tables.
 
 ## Missing Staging Tables
 

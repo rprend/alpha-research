@@ -538,7 +538,7 @@ Started on 2026-06-13:
 - Phase 2 also imports a bounded Project Gutenberg public-domain text sample from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
 - Phase 2 now has a bounded web metadata ingest: `pnpm kb:ingest:web` imports responding public routes for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly. Wayback and LARB failures are logged for route replacement.
 - Phase 3 has a bounded department-page corpus: `pnpm kb:ingest:departments` fetches selected public humanities department pages, stores raw HTML and extracted local-analysis text, and writes `pages`/`departments` staging rows. Harvard and Princeton routes returned 403 and are logged in `failed-routes.jsonl`.
-- Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` using metadata plus previews of stored text; `pnpm kb:search "<terms>"` queries the local keyword index.
+- Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables, Parquet tables, and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` using metadata plus previews of stored text; `pnpm kb:search "<terms>"` queries the local keyword index.
 - Phase 4 now has SQLite FTS retrieval: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
 - Phase 5 has a bounded starter workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, query sketch, and missing-data memo under `docs/research-briefs/`.
 - Phase 6 has starter maintenance automation: `pnpm kb:refresh` validates, inventories, rebuilds analytical tables, refreshes coverage/rights/stale-source audits, rebuilds the index, and updates KB status.
@@ -560,7 +560,7 @@ This is a foundation and harness, not the complete knowledge base.
 
 Remaining before the full knowledge-base goal is complete:
 
-- Replace JSONL/CSV/SQLite staging tables with durable Parquet/DuckDB analytical tables once a Parquet writer or DuckDB dependency is available.
+- Populate the currently empty author, institution, venue, collection, citation, and topic Parquet tables with source-specific normalized records.
 - Add broad, source-specific ingest jobs rather than bounded samples.
 - Replace failed public routes for Wayback CDX, LARB, Harvard, and Princeton or keep them as blocked-source memos.
 - Expand university/department web corpus acquisition beyond the first successful routes.
