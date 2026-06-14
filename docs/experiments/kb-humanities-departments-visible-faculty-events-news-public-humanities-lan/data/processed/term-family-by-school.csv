@@ -3,44 +3,44 @@ Duke University,faculty_visibility,297,23,23
 Cornell University,faculty_visibility,245,14,14
 "University of California, Los Angeles",faculty_visibility,235,12,14
 "University of California, Berkeley",faculty_visibility,220,19,25
+University of Chicago,faculty_visibility,181,26,31
 Stanford University,faculty_visibility,172,35,51
-University of Chicago,faculty_visibility,164,22,27
 Brown University,faculty_visibility,146,14,20
 Duke University,event_visibility,141,23,23
 Yale University,faculty_visibility,141,28,30
 "University of California, Los Angeles",event_visibility,123,13,14
 Stanford University,event_visibility,116,24,51
-University of Chicago,inclusion_ethics,91,15,27
+University of Chicago,event_visibility,112,24,31
+University of Chicago,inclusion_ethics,91,15,31
 "University of California, Berkeley",news_visibility,85,10,25
 Yale University,event_visibility,75,16,30
 University of Pennsylvania,faculty_visibility,75,6,10
-University of Chicago,event_visibility,74,20,27
 Stanford University,inclusion_ethics,70,16,51
 Duke University,news_visibility,68,23,23
 Brown University,news_visibility,65,7,20
 Duke University,inclusion_ethics,61,10,23
 Stanford University,ai_digital,56,17,51
+University of Chicago,news_visibility,56,18,31
 Cornell University,inclusion_ethics,51,10,14
 "University of California, Los Angeles",inclusion_ethics,43,11,14
-University of Chicago,news_visibility,43,14,27
 "University of California, Berkeley",event_visibility,40,12,25
 "University of California, Los Angeles",news_visibility,39,11,14
 Cornell University,event_visibility,38,10,14
+University of Chicago,ai_digital,36,13,31
 University of Pennsylvania,event_visibility,36,3,10
 Yale University,inclusion_ethics,36,15,30
 Columbia University,faculty_visibility,35,6,7
 Stanford University,news_visibility,34,14,51
-University of Chicago,ai_digital,33,10,27
 "University of California, Berkeley",inclusion_ethics,33,7,25
 Stanford University,public_humanities,31,15,51
 Yale University,news_visibility,28,10,30
 Duke University,ai_digital,25,6,23
 Columbia University,event_visibility,20,5,7
+University of Chicago,public_humanities,20,10,31
 Brown University,event_visibility,19,10,20
 Princeton University,event_visibility,19,3,3
 "University of California, Los Angeles",public_humanities,17,6,14
 Cornell University,news_visibility,16,9,14
-University of Chicago,public_humanities,16,7,27
 "University of California, Berkeley",public_humanities,16,6,25
 Brown University,public_humanities,16,8,20
 Yale University,public_humanities,15,6,30

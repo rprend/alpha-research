@@ -18,6 +18,7 @@ yale-humanities-departments,Yale University,department-sitemap-url,sitemap-only,
 expanded-university-humanities-departments,Brown University,department-events-sitemap-url,sitemap-only,8,0,metadata-only=8
 stanford-humanities-departments,Stanford University,department-home,success,8,8,local-analysis-only=8
 uchicago-humanities-departments,University of Chicago,department-about,success,8,8,local-analysis-only=8
+uchicago-humanities-departments,University of Chicago,department-news,success,7,7,local-analysis-only=7
 expanded-university-humanities-departments,"University of California, Berkeley",department-about,success,6,6,local-analysis-only=6
 princeton-humanities-departments,Princeton University,department-sitemap-url,sitemap-only,6,0,metadata-only=6
 expanded-university-humanities-departments,Cornell University,department-about,success,5,5,local-analysis-only=5
@@ -33,8 +34,8 @@ stanford-humanities-departments,Stanford University,department-events,success,4,
 stanford-humanities-departments,Stanford University,department-faculty,success,4,4,local-analysis-only=4
 stanford-humanities-departments,Stanford University,department-news,success,4,4,local-analysis-only=4
 stanford-humanities-departments,Stanford University,department-programs,success,4,4,local-analysis-only=4
+uchicago-humanities-departments,University of Chicago,department-events,success,4,4,local-analysis-only=4
 uchicago-humanities-departments,University of Chicago,department-faculty,success,4,4,local-analysis-only=4
-uchicago-humanities-departments,University of Chicago,department-news,success,4,4,local-analysis-only=4
 uchicago-humanities-departments,University of Chicago,department-programs,success,4,4,local-analysis-only=4
 yale-humanities-departments,Yale University,department-events,success,4,4,local-analysis-only=4
 yale-humanities-departments,Yale University,department-faculty,success,4,4,local-analysis-only=4
@@ -52,7 +53,6 @@ princeton-humanities-departments,Princeton University,department-events,success,
 princeton-humanities-departments,Princeton University,department-news-sitemap-url,sitemap-only,3,0,metadata-only=3
 stanford-humanities-departments,Stanford University,catalog,200,3,0,local-analysis-only=3
 stanford-humanities-departments,Stanford University,department-sitemap-url,sitemap-only,3,0,metadata-only=3
-uchicago-humanities-departments,University of Chicago,department-events,success,3,3,local-analysis-only=3
 uchicago-humanities-departments,University of Chicago,department-home,success,3,3,local-analysis-only=3
 columbia-humanities-departments,Columbia University,department-about,success,2,2,local-analysis-only=2
 expanded-university-humanities-departments,University of Pennsylvania,department-about,success,2,2,local-analysis-only=2

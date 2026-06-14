@@ -173,6 +173,18 @@ function buildReplacementPlans(failedBySource, sources, successfulBySource) {
 function knownReplacementResolvesFailures(source, latestSuccess, failures) {
   if (!source || !latestSuccess || !latestSuccess.record_count) return false;
   const failedRoutes = failures.map((failure) => failure.access_route ?? "");
+  if (source.source_class === "university-department-web") {
+    const successRoute = latestSuccess.access_route ?? "";
+    const failedRouteSet = new Set(failedRoutes.filter(Boolean));
+    const successfulRoutes = successRoute.split(/\s+\|\s+/).filter(Boolean);
+    const hasReplacementRoute = successfulRoutes.some((route) => !failedRouteSet.has(route));
+    const hasDepartmentFailure = failures.some((failure) =>
+      /configured-page|discovered-page|department-sitemap|sitemap-metadata-upgrade/i.test(failure.route_kind ?? "") ||
+      failure.target_department ||
+      failure.target_school
+    );
+    return hasDepartmentFailure && hasReplacementRoute;
+  }
   if (source.source_id === "lareviewofbooks") {
     return /lareviewofbooks\.org\/?$/i.test(latestSuccess.access_route ?? "") &&
       failedRoutes.length > 0 &&

@@ -145,6 +145,20 @@
     {
       "source_id": "uchicago-humanities-departments",
       "school": "University of Chicago",
+      "department": "Humanities Division",
+      "page_type": "department-news",
+      "url": "https://humanities.uchicago.edu/news"
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "school": "University of Chicago",
+      "department": "Humanities Division",
+      "page_type": "department-events",
+      "url": "https://humanities.uchicago.edu/events"
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "school": "University of Chicago",
       "department": "English",
       "page_type": "department-home",
       "url": "https://english.uchicago.edu/"
@@ -155,6 +169,13 @@
       "department": "History",
       "page_type": "department-home",
       "url": "https://history.uchicago.edu/"
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "school": "University of Chicago",
+      "department": "History",
+      "page_type": "department-events",
+      "url": "https://history.uchicago.edu/events-page"
     },
     {
       "source_id": "uchicago-humanities-departments",

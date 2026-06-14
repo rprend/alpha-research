@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-14T20:43:51.209Z",
+  "generated_at": "2026-06-14T21:11:41.190Z",
   "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
   "source_count": 8,
-  "page_rows": 525,
-  "text_rows": 226,
+  "page_rows": 529,
+  "text_rows": 230,
   "sitemap_only_rows": 269,
   "rights_statuses": {
-    "local-analysis-only": 256,
+    "local-analysis-only": 260,
     "metadata-only": 269
   },
   "findings": {
@@ -22,22 +22,22 @@
       "expanded-university-humanities-departments event_visibility: 397 mentions across 71/108 text pages",
       "expanded-university-humanities-departments news_visibility: 280 mentions across 63/108 text pages",
       "expanded-university-humanities-departments inclusion_ethics: 195 mentions across 41/108 text pages",
+      "uchicago-humanities-departments faculty_visibility: 181 mentions across 26/31 text pages",
       "stanford-humanities-departments faculty_visibility: 172 mentions across 35/51 text pages",
-      "uchicago-humanities-departments faculty_visibility: 164 mentions across 22/27 text pages",
       "yale-humanities-departments faculty_visibility: 141 mentions across 28/30 text pages",
       "stanford-humanities-departments event_visibility: 116 mentions across 24/51 text pages"
     ],
     "page_type_signals": [
       "department-faculty faculty_visibility: 473 mentions",
-      "department-news faculty_visibility: 407 mentions",
+      "department-news faculty_visibility: 423 mentions",
       "department-about faculty_visibility: 352 mentions",
-      "department-events event_visibility: 229 mentions",
+      "department-events event_visibility: 240 mentions",
       "department-home faculty_visibility: 215 mentions",
-      "department-events faculty_visibility: 205 mentions",
-      "department-news news_visibility: 165 mentions",
-      "department-programs event_visibility: 149 mentions"
+      "department-events faculty_visibility: 206 mentions",
+      "department-news news_visibility: 177 mentions",
+      "department-news event_visibility: 154 mentions"
     ],
-    "text_vs_metadata": "226 rows include local-analysis text; 269 rows are metadata-only sitemap URLs."
+    "text_vs_metadata": "230 rows include local-analysis text; 269 rows are metadata-only sitemap URLs."
   },
   "caveats": [
     "Counts describe the local KB corpus, not the universe of humanities departments.",

@@ -568,15 +568,15 @@ Started on 2026-06-13:
 - Phase 5 now has a brief-to-experiment promotion path: `node scripts/kb-promote-brief-experiment.mjs` converts local-data briefs into first-pass `docs/experiments/kb-*` experiment scaffolds with copied SQL/source maps, readiness gates, article outlines, claim checklists, evidence samples, and missing-data memos. The first promotion run created five experiment candidates for department visibility/public humanities, scholarly digital/public humanities literature, museum metadata, cultural entity field maps, and public-domain canon/text studies.
 - The first promoted experiment now has a runnable analysis/report pipeline: `docs/experiments/kb-humanities-departments-visible-faculty-events-news-public-humanities-lan/scripts/build-analysis.mjs` reads the local KB pages/rights tables plus stored local-analysis text, writes coverage and term-family CSVs, and produces `reports/result.json`, `reports/work.md`, and `reports/public-draft.md`.
 - Phase 6 has bounded maintenance automation: `pnpm kb:refresh` validates, inventories, refreshes bounded source-specific metadata routes, refreshes department sitemap summaries, runs a bounded Wayback CDX smoke with explicit timeout/limit settings, rebuilds analytical tables and both indexes, refreshes coverage/rights/stale-source/blocked-source audits, updates KB status, and writes a local question-smoke brief to prove the rebuilt KB can answer a question.
-- Phase 6 now distinguishes active route failures from resolved historical failures: `pnpm kb:audit:blocked` reads successful ingest runs as well as failed routes, records AHA/LARB/Wayback/DOAJ/Princeton/expanded-university/Smithsonian/HathiTrust and other resolved historical failures, recognizes documented retired-route replacements such as LARB homepage metadata replacing the stale `/feed/` route, treats Smithsonian `DEMO_KEY` 429s as cooldown failures when a prior successful route exists, and leaves 4 active source-level replacement plans.
-- Phase 3/6 now has source-specific department route replacement accounting: `pnpm kb:ingest:departments` emits per-source success records when alternate public department routes work. Princeton now has public event-page replacements for English, Philosophy, and Art and Archaeology. The expanded university source now has public replacement text for Berkeley History, Berkeley Rhetoric, Penn English, and additional discovered Duke English pages. Harvard, Columbia, UChicago sitemap routes, and SSRN remain active replacement or permission-review work.
+- Phase 6 now distinguishes active route failures from resolved historical failures: `pnpm kb:audit:blocked` reads successful ingest runs as well as failed routes, records AHA/LARB/Wayback/DOAJ/Princeton/Columbia/expanded-university/UChicago/Smithsonian/HathiTrust and other resolved historical failures, recognizes documented retired-route replacements such as LARB homepage metadata replacing the stale `/feed/` route, treats Smithsonian `DEMO_KEY` 429s as cooldown failures when a prior successful route exists, treats successful university department replacement routes as source-level recovery while retaining failed target URLs for cleanup, and leaves 2 active source-level replacement plans.
+- Phase 3/6 now has source-specific department route replacement accounting: `pnpm kb:ingest:departments` emits per-source success records when alternate public department routes work. Princeton now has public event-page replacements for English, Philosophy, and Art and Archaeology. The expanded university source now has public replacement text for Berkeley History, Berkeley Rhetoric, Penn English, and additional discovered Duke English pages. UChicago now has public Humanities Division news/events replacement pages for absent sitemap routes. Harvard and SSRN remain active replacement or permission-review work.
 
 Current local footprint as of the latest local status:
 
 - 34 registered sources.
 - 32 registered sources with local documents.
 - Registry statuses: 28 active, 2 blocked, 4 seeded-from-experiment.
-- 6554 source documents.
+- 6558 source documents.
 - 2975 works.
 - 1779 source-provided authors.
 - 1713 deterministic candidate canonical people, including 61 multi-record clusters and 4 multi-source clusters.
@@ -587,9 +587,9 @@ Current local footprint as of the latest local status:
 - 25204 deterministic candidate work-reference clusters, including 19011 high-confidence DOI/OpenAlex-keyed references and 3765 repeated references.
 - 1062 source-provided topics.
 - 1012 cultural objects.
-- 525 department/web page rows, including 256 local-analysis department/web rows, 226 rows with stored text files, and 269 remaining metadata-only sitemap URL rows.
+- 529 department/web page rows, including 260 local-analysis department/web rows, 230 rows with stored text files, and 269 remaining metadata-only sitemap URL rows.
 - 52 department summaries.
-- 6554 rights rows.
+- 6558 rights rows.
 - 18 Los Angeles Review of Books metadata records from the public homepage replacement route, with article text still excluded.
 - 20 American Historical Association annual-meeting metadata records from public WordPress JSON replacement routes, with program/page text still excluded.
 - 2539 records from the dedicated DOAJ humanities ingest, including 1450 article records and 1089 journal records from 32 raw article/journal API route responses.
@@ -598,15 +598,15 @@ Current local footprint as of the latest local status:
 - 5 HathiTrust Bibliographic API metadata records linked from Internet Archive humanities candidates; HathiTrust full text is still excluded.
 - 200 public-domain Project Gutenberg text files imported from the local Gutenberg experiment cache.
 - 3 strict homepage Wayback CDX department-page snapshot metadata records from the latest bounded refresh smoke, with broader Wayback acquisition kept as a source-specific job because some CDX routes time out or fail.
-- 414 local text files.
+- 418 local text files.
 - 14/14 staging JSONL tables.
 - 14/14 processed Parquet tables.
 - SQLite FTS indexes metadata for the broader corpus plus stored local text content for public-domain books and local-analysis department/web pages.
-- Semantic hash index covers 6523 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
+- Semantic hash index covers 6527 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 - Five first-pass promoted experiment scaffolds under `docs/experiments/kb-*`, indexed by `data/knowledge-base/audits/promoted-experiments.md`.
-- One promoted experiment with runnable analysis outputs for department visibility/public humanities language, refreshed against 525 page rows and 226 stored-text rows.
+- One promoted experiment with runnable analysis outputs for department visibility/public humanities language, refreshed against 529 page rows and 230 stored-text rows.
 
 This is a foundation and harness, not the complete knowledge base.
 
@@ -614,8 +614,8 @@ Remaining before the full knowledge-base goal is complete:
 
 - Improve candidate person/work identity resolution with authority matching, ORCID/OpenAlex/Wikidata joins, and conflict detection before making strong person-level or citation-network claims.
 - Add more broad, source-specific ingest jobs rather than bounded samples, especially humanities centers, deeper conference-program metadata, and further Project Gutenberg/catalog-cultural collection expansion.
-- Continue executing the active replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for Harvard, Columbia, UChicago sitemap routes, and SSRN; target-level 403s for Michigan, Penn History, and some Princeton pages remain in `failed-routes.jsonl` even though their source-level replacement status has improved, and Smithsonian should be retried only after cooldown or with a non-demo API key. Do not bypass access controls. Prefer alternate public pages, source-specific sitemap indexes, school directories, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages or default sitemaps block polite fetches.
-- Expand university/department web corpus acquisition beyond the current balanced shallow discovery pass; faculty/events/program text coverage is materially improved, Princeton has working event-page replacements, and the expanded-university source has Berkeley/Penn/Duke replacements, but blocked Harvard/Columbia routes, remaining sitemap-only rows, and source-specific directory/RSS routes still need replacement work.
+- Continue executing the active replacement plans in `data/knowledge-base/audits/failed-route-replacements.md` for Harvard and SSRN; target-level 403s for Columbia English/Philosophy, Michigan, Penn History, and some Princeton pages remain in `failed-routes.jsonl` even though their source-level replacement status has improved, and Smithsonian should be retried only after cooldown or with a non-demo API key. Do not bypass access controls. Prefer alternate public pages, source-specific sitemap indexes, school directories, RSS/news routes, official APIs, smaller CDX queries, or Wayback metadata when current homepages or default sitemaps block polite fetches.
+- Expand university/department web corpus acquisition beyond the current balanced shallow discovery pass; faculty/events/program text coverage is materially improved, Princeton has working event-page replacements, UChicago has working Humanities Division news/events replacement pages, and the expanded-university source has Berkeley/Penn/Duke replacements, but blocked Harvard routes, remaining sitemap-only rows, and source-specific directory/RSS routes still need replacement work.
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add neural embedding retrieval later if a local model or approved embedding service is configured; the current semantic hash index is deterministic and offline.
 - Expand the remaining promoted first-pass experiments into runnable analysis scripts and publication handoff packets after source-specific normalization, rights review, and claim adjudication.

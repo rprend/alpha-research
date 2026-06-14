@@ -1,9 +1,9 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T21:01:41.085Z
+Generated at: 2026-06-14T21:10:02.262Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 6523
+Documents: 6527
 
 ## Text Scope
 
@@ -11,7 +11,7 @@ Documents: 6523
 | --- | ---: |
 | metadata-only | 6097 |
 | stored-full-text | 200 |
-| stored-local-analysis-text | 226 |
+| stored-local-analysis-text | 230 |
 
 ## Sources
 
@@ -45,7 +45,7 @@ Documents: 6523
 | public-books | 10 |
 | smithsonian-open-access | 225 |
 | stanford-humanities-departments | 110 |
-| uchicago-humanities-departments | 47 |
+| uchicago-humanities-departments | 51 |
 | wayback-machine-cdx | 23 |
 | wikidata-cultural-entities | 919 |
 | yale-humanities-departments | 70 |
