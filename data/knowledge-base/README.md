@@ -106,7 +106,7 @@ The SSRN-adjacent replacement imports Crossref posted-content metadata for human
 
 The NBER date enrichment route fetches public NBER working-paper HTML pages for existing `nber-culture-history` metadata rows and extracts `citation_publication_date` metadata into `publication_year` and `publication_date`. It stores raw HTML responses and a run manifest, does not fetch PDFs, and improves humanities-adjacent policy/history records enough for source-class content-date completeness gates to require high coverage.
 
-The date-quality audit at `audits/date-quality.{json,md}` checks source-specific date semantics for NBER and SSRN-adjacent rows. It distinguishes NBER page-level publication dates from SSRN-adjacent Crossref issued/posted years and fails validation if source labels, year coverage, ISO-date coverage where required, or fetch-date-only risk checks regress.
+The date-quality audit at `audits/date-quality.{json,md}` checks source-specific date semantics for NBER, SSRN-adjacent rows, conference programs, department web pages, and cultural collections. It distinguishes NBER page-level publication dates, SSRN-adjacent Crossref issued/posted years, mixed conference page/event-year metadata, department crawl snapshots, and cultural object/item dates, and fails validation if coverage or provenance regress below the source-appropriate gates.
 
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 
