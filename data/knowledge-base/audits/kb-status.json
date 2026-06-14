@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T18:03:52.792Z",
+  "generated_at": "2026-06-14T18:08:01.189Z",
   "status": "phase-2-staging-active",
   "source_count": 33,
   "source_classes": {
@@ -48,7 +48,7 @@
         "file": "authors.parquet",
         "path": "data/knowledge-base/processed/authors.parquet",
         "exists": true,
-        "bytes": 1713
+        "bytes": 103272
       },
       {
         "file": "institutions.parquet",
@@ -90,7 +90,7 @@
         "file": "citations.parquet",
         "path": "data/knowledge-base/processed/citations.parquet",
         "exists": true,
-        "bytes": 1455
+        "bytes": 816794
       },
       {
         "file": "topics.parquet",
@@ -127,7 +127,7 @@
         "file": "authors.jsonl",
         "path": "data/knowledge-base/processed/authors.jsonl",
         "exists": true,
-        "bytes": 0
+        "bytes": 623277
       },
       {
         "file": "institutions.jsonl",
@@ -169,7 +169,7 @@
         "file": "citations.jsonl",
         "path": "data/knowledge-base/processed/citations.jsonl",
         "exists": true,
-        "bytes": 0
+        "bytes": 14314425
       },
       {
         "file": "topics.jsonl",
@@ -248,13 +248,13 @@
         "file": "authors.csv",
         "path": "data/knowledge-base/processed/authors.csv",
         "exists": true,
-        "bytes": 108
+        "bytes": 356641
       },
       {
         "file": "authors.parquet",
         "path": "data/knowledge-base/processed/authors.parquet",
         "exists": true,
-        "bytes": 1713
+        "bytes": 103272
       },
       {
         "file": "institutions.csv",
@@ -296,13 +296,13 @@
         "file": "citations.csv",
         "path": "data/knowledge-base/processed/citations.csv",
         "exists": true,
-        "bytes": 98
+        "bytes": 9713499
       },
       {
         "file": "citations.parquet",
         "path": "data/knowledge-base/processed/citations.parquet",
         "exists": true,
-        "bytes": 1455
+        "bytes": 816794
       },
       {
         "file": "topics.csv",
@@ -344,7 +344,7 @@
         "file": "knowledge-base.sqlite",
         "path": "data/knowledge-base/processed/knowledge-base.sqlite",
         "exists": true,
-        "bytes": 6029312
+        "bytes": 16924672
       }
     ]
   },

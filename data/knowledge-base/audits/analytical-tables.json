@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T18:03:49.715Z",
+  "generated_at": "2026-06-14T18:07:25.546Z",
   "tables": [
     {
       "table": "works",
@@ -90,7 +90,7 @@
       "source": "data/knowledge-base/processed/authors.jsonl",
       "csv": "data/knowledge-base/processed/authors.csv",
       "parquet": "data/knowledge-base/processed/authors.parquet",
-      "rows": 0,
+      "rows": 1779,
       "columns": [
         "local_id",
         "source_id",
@@ -168,7 +168,7 @@
       "source": "data/knowledge-base/processed/citations.jsonl",
       "csv": "data/knowledge-base/processed/citations.csv",
       "parquet": "data/knowledge-base/processed/citations.parquet",
-      "rows": 0,
+      "rows": 34859,
       "columns": [
         "local_id",
         "source_id",
@@ -310,13 +310,13 @@
       "file": "authors.csv",
       "path": "data/knowledge-base/processed/authors.csv",
       "exists": true,
-      "bytes": 108
+      "bytes": 356641
     },
     {
       "file": "authors.parquet",
       "path": "data/knowledge-base/processed/authors.parquet",
       "exists": true,
-      "bytes": 1713
+      "bytes": 103272
     },
     {
       "file": "institutions.csv",
@@ -358,13 +358,13 @@
       "file": "citations.csv",
       "path": "data/knowledge-base/processed/citations.csv",
       "exists": true,
-      "bytes": 98
+      "bytes": 9713499
     },
     {
       "file": "citations.parquet",
       "path": "data/knowledge-base/processed/citations.parquet",
       "exists": true,
-      "bytes": 1455
+      "bytes": 816794
     },
     {
       "file": "topics.csv",
@@ -406,7 +406,7 @@
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 6029312
+      "bytes": 16924672
     }
   ]
 }

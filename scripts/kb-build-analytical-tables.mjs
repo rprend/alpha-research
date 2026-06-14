@@ -5,8 +5,10 @@ import path from "node:path";
 import {
   analyticalAvailability,
   auditsDir,
+  listFilesRecursive,
   processedDir,
   readJsonl,
+  rawDir,
   slug,
   toCsv,
   writeJson,
@@ -148,12 +150,108 @@ async function deriveEntityTables() {
     readJsonl(path.join(processedDir, "pages.jsonl")),
     readJsonl(path.join(processedDir, "source_documents.jsonl")),
   ]);
-  await writeJsonl(path.join(processedDir, "authors.jsonl"), []);
+  const { authors, citations } = await deriveAuthorsAndCitationsFromRaw();
+  await writeJsonl(path.join(processedDir, "authors.jsonl"), authors);
   await writeJsonl(path.join(processedDir, "venues.jsonl"), deriveVenues([...works, ...sourceDocuments]));
   await writeJsonl(path.join(processedDir, "institutions.jsonl"), deriveInstitutions({ pages, objects }));
   await writeJsonl(path.join(processedDir, "collections.jsonl"), deriveCollections(objects));
-  await writeJsonl(path.join(processedDir, "citations.jsonl"), []);
+  await writeJsonl(path.join(processedDir, "citations.jsonl"), citations);
   await writeJsonl(path.join(processedDir, "topics.jsonl"), deriveTopics(objects));
+}
+
+async function deriveAuthorsAndCitationsFromRaw() {
+  const authors = new Map();
+  const citations = new Map();
+  const files = listFilesRecursive(rawDir).filter((file) =>
+    file.endsWith(".json") && (file.includes(`${path.sep}openalex-humanities${path.sep}`) || file.includes(`${path.sep}crossref-humanities${path.sep}`))
+  );
+  for (const file of files) {
+    if (file.endsWith(`${path.sep}manifest.json`)) continue;
+    let payload;
+    try {
+      payload = JSON.parse(await fs.readFile(file, "utf8"));
+    } catch {
+      continue;
+    }
+    if (file.includes(`${path.sep}openalex-humanities${path.sep}`)) {
+      for (const row of payload.results ?? []) {
+        const sourceWorkId = `openalex-humanities:${slugish(row.id)}`;
+        for (const authorship of row.authorships ?? []) {
+          const author = authorship.author ?? {};
+          const name = cleanLabel(author.display_name || authorship.raw_author_name);
+          if (!name) continue;
+          const nativeId = author.id || authorship.raw_author_name || name;
+          authors.set(`openalex-humanities:${slugish(nativeId)}`, {
+            local_id: `openalex-humanities:author:${slugish(nativeId)}`,
+            source_id: "openalex-humanities",
+            source_native_id: nativeId,
+            source_url: author.id || row.id || "",
+            name,
+            fetched_at: row.updated_date || row.publication_date || "",
+            birth_year: "",
+            death_year: "",
+            institution: cleanLabel(authorship.institutions?.[0]?.display_name),
+            occupation: "",
+          });
+        }
+        for (const citedWorkId of row.referenced_works ?? []) {
+          const cited = cleanLabel(citedWorkId);
+          if (!cited) continue;
+          citations.set(`${sourceWorkId}:cites:${slugish(cited)}`, {
+            local_id: `${sourceWorkId}:cites:${slugish(cited)}`,
+            source_id: "openalex-humanities",
+            source_work_id: sourceWorkId,
+            cited_work_id: cited,
+            source_url: row.id || "",
+            fetched_at: row.updated_date || row.publication_date || "",
+            citation_context: "",
+            confidence: "source-provided",
+          });
+        }
+      }
+    }
+    if (file.includes(`${path.sep}crossref-humanities${path.sep}`)) {
+      for (const row of payload.message?.items ?? []) {
+        const doi = cleanLabel(row.DOI);
+        const sourceWorkId = doi ? `crossref-humanities:${slugish(doi)}` : "";
+        for (const author of row.author ?? []) {
+          const name = cleanLabel([author.given, author.family].filter(Boolean).join(" ") || author.name);
+          if (!name) continue;
+          const nativeId = `${name}:${author.ORCID || ""}`;
+          authors.set(`crossref-humanities:${slugish(nativeId)}`, {
+            local_id: `crossref-humanities:author:${slugish(nativeId)}`,
+            source_id: "crossref-humanities",
+            source_native_id: author.ORCID || name,
+            source_url: author.ORCID || (doi ? `https://doi.org/${doi}` : ""),
+            name,
+            fetched_at: crossrefDate(row.indexed) || crossrefDate(row.deposited) || "",
+            birth_year: "",
+            death_year: "",
+            institution: cleanLabel(author.affiliation?.[0]?.name),
+            occupation: cleanLabel(author.role?.[0]?.role),
+          });
+        }
+        for (const reference of row.reference ?? []) {
+          const cited = cleanLabel(reference.DOI || reference.doi || reference["article-title"] || reference.key);
+          if (!sourceWorkId || !cited) continue;
+          citations.set(`${sourceWorkId}:cites:${slugish(cited)}`, {
+            local_id: `${sourceWorkId}:cites:${slugish(cited)}`,
+            source_id: "crossref-humanities",
+            source_work_id: sourceWorkId,
+            cited_work_id: cited,
+            source_url: doi ? `https://doi.org/${doi}` : "",
+            fetched_at: crossrefDate(row.indexed) || crossrefDate(row.deposited) || "",
+            citation_context: "",
+            confidence: "source-provided",
+          });
+        }
+      }
+    }
+  }
+  return {
+    authors: sortRows(authors.values(), "name"),
+    citations: sortRows(citations.values(), "source_work_id"),
+  };
 }
 
 function deriveVenues(rows) {
@@ -278,6 +376,14 @@ function institutionNameForSource(sourceId) {
 
 function cleanLabel(value) {
   return String(value ?? "").replace(/\s+/g, " ").trim();
+}
+
+function crossrefDate(value) {
+  return value?.["date-time"] || value?.["date-parts"]?.[0]?.filter(Boolean).join("-") || "";
+}
+
+function slugish(value) {
+  return String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 140);
 }
 
 function sortRows(rows, field) {
