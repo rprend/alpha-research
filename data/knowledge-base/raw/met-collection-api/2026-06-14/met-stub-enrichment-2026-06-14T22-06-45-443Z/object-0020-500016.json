@@ -1,0 +1,87 @@
+{
+  "objectID": 500016,
+  "isHighlight": false,
+  "accessionNumber": "2013.245.24",
+  "accessionYear": "2013",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/ma/original/DP704453.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ma/web-large/DP704453.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/ma/original/DP704454.jpg"
+  ],
+  "constituents": [
+    {
+      "constituentID": 147037,
+      "role": "Designer",
+      "name": "Séraphin Soudbinine",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500329978",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q4445553",
+      "gender": ""
+    }
+  ],
+  "department": "Modern and Contemporary Art",
+  "objectName": "Sculpture",
+  "title": "Sculpture",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Designer",
+  "artistPrefix": "",
+  "artistDisplayName": "Séraphin Soudbinine",
+  "artistDisplayBio": "French (born Russia), Nijni- Novgorod 1870–1944",
+  "artistSuffix": "",
+  "artistAlphaSort": "Soudbinine, Séraphin",
+  "artistNationality": "French",
+  "artistBeginDate": "1870",
+  "artistEndDate": "1944",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q4445553",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500329978",
+  "objectDate": "1928 ?",
+  "objectBeginDate": 1928,
+  "objectEndDate": 1928,
+  "medium": "Stoneware",
+  "dimensions": "27 × 26 3/4 × 9 1/8 in., 29.2 lb. (68.6 × 67.9 × 23.2 cm, 13.2 kg)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Depth": 23.177546,
+        "Height": 68.58014,
+        "Weight": 13.245033,
+        "Width": 67.94514
+      }
+    }
+  ],
+  "creditLine": "Robert A. Ellison Jr. Collection, Gift of Robert A. Ellison Jr., 2013",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Ceramics-Pottery",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-10-02T04:53:22.577Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/500016",
+  "tags": [
+    {
+      "term": "Birds",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300266506",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q5113"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

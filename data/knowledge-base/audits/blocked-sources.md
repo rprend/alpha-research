@@ -1,8 +1,8 @@
 # KB Blocked Sources
 
-Generated at: 2026-06-14T21:24:56.277Z
+Generated at: 2026-06-14T22:07:15.327Z
 Blocked sources: 1
-Resolved historical failures: 16
+Resolved historical failures: 15
 
 ## open-syllabus
 
@@ -18,4 +18,4 @@ Resolved historical failures: 16
 
 ## Failed Route Replacement Plans
 
-See `data/knowledge-base/audits/failed-route-replacements.md` for 0 source-level replacement plans.
+See `data/knowledge-base/audits/failed-route-replacements.md` for 1 source-level replacement plans.

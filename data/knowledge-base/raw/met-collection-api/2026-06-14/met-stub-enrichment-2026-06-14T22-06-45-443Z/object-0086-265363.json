@@ -1,0 +1,85 @@
+{
+  "objectID": 265363,
+  "isHighlight": false,
+  "accessionNumber": "1987.1100.308",
+  "accessionYear": "1987",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 54875,
+      "role": "Artist",
+      "name": "Fay Sturtevant Lincoln",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500115343",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q92763752",
+      "gender": ""
+    }
+  ],
+  "department": "Photographs",
+  "objectName": "Photograph",
+  "title": "",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Fay Sturtevant Lincoln",
+  "artistDisplayBio": "American, 1894–1975",
+  "artistSuffix": "",
+  "artistAlphaSort": "Lincoln, Fay Sturtevant",
+  "artistNationality": "American",
+  "artistBeginDate": "1894",
+  "artistEndDate": "1975",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q92763752",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500115343",
+  "objectDate": "ca. 1949",
+  "objectBeginDate": 1944,
+  "objectEndDate": 1954,
+  "medium": "Gelatin silver print",
+  "dimensions": "23.8 x 17.9 cm (9 3/8 x 7 1/16 in.)\r\nFrame: approx. 20 x 16 in.",
+  "measurements": [
+    {
+      "elementName": "Mount",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 24.1,
+        "Width": 18.2
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 23.8,
+        "Width": 17.9
+      }
+    }
+  ],
+  "creditLine": "Ford Motor Company Collection, Gift of Ford Motor Company and John C. Waddell, 1987",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Photographs",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/265363",
+  "tags": null,
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q98822727",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

@@ -1,0 +1,370 @@
+{
+  "objectID": 288149,
+  "isHighlight": false,
+  "accessionNumber": "1982.1182.492–.591",
+  "accessionYear": "1982",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 59811,
+      "role": "Publisher",
+      "name": "Keystone View Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59892,
+      "role": "Author",
+      "name": "James Mason Hutchings",
+      "constituentULAN_URL": "(not assigned)",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q3161244",
+      "gender": ""
+    },
+    {
+      "constituentID": 59893,
+      "role": "Artist",
+      "name": "G. H. Aldrich &amp; Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 169986,
+      "role": "Artist",
+      "name": "Unknown",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+      "gender": ""
+    },
+    {
+      "constituentID": 169986,
+      "role": "Artist",
+      "name": "Unknown",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+      "gender": ""
+    },
+    {
+      "constituentID": 59894,
+      "role": "Publisher",
+      "name": "C. W. Woodward",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59825,
+      "role": "Publisher",
+      "name": "Strohmeyer &amp; Wyman",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 164155,
+      "role": "Publisher",
+      "name": "Underwood &amp; Underwood",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500033291",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q2492951",
+      "gender": ""
+    },
+    {
+      "constituentID": 59818,
+      "role": "Artist",
+      "name": "H. C. White Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59861,
+      "role": "Publisher",
+      "name": "American Scenery",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59895,
+      "role": "Publisher",
+      "name": "Views in California",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59835,
+      "role": "Artist",
+      "name": "American Stereoscopic Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59836,
+      "role": "Publisher",
+      "name": "Quaker Oats Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59896,
+      "role": "Publisher",
+      "name": "S. F. Sanderson",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59838,
+      "role": "Publisher",
+      "name": "New H Series",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59897,
+      "role": "Publisher",
+      "name": "S. W. Kelley",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59797,
+      "role": "Artist",
+      "name": "George W. Griffith",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59800,
+      "role": "Publisher",
+      "name": "Griffith &amp; Griffith, American",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59843,
+      "role": "Publisher",
+      "name": "Popular Series",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59898,
+      "role": "Author",
+      "name": "John Muir",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500224954",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q379580",
+      "gender": ""
+    },
+    {
+      "constituentID": 59812,
+      "role": "Photography Studio",
+      "name": "Sun Sculpture Works and Studios",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59899,
+      "role": "Publisher",
+      "name": "Dodge, Collier, &amp; Perkins",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59900,
+      "role": "Publisher",
+      "name": "J. Merrill &amp; Son",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59837,
+      "role": "Publisher",
+      "name": "Continent Stereoscopic Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59901,
+      "role": "Artist",
+      "name": "Andrew Price",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59876,
+      "role": "Publisher",
+      "name": "American Series",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59796,
+      "role": "Publisher",
+      "name": "H. Ropes &amp; Co., American",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59829,
+      "role": "Publisher",
+      "name": "Canvassers",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59828,
+      "role": "Publisher",
+      "name": "J. F. Jarvis",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59827,
+      "role": "Publisher",
+      "name": "Standard Series",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59902,
+      "role": "Publisher",
+      "name": "A. Fuller",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59903,
+      "role": "Publisher",
+      "name": "Lovejoy &amp; Foster",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59873,
+      "role": "Publisher",
+      "name": "American Views",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 92583,
+      "role": "Artist",
+      "name": "Truman Ward Ingersoll",
+      "constituentULAN_URL": "(not assigned)",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q59238987",
+      "gender": ""
+    }
+  ],
+  "department": "Photographs",
+  "objectName": "Stereographs",
+  "title": "[Group of 100 Stereograph Views of California Nature and Landscapes With a Focus on Yosemite]",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Publisher",
+  "artistPrefix": "",
+  "artistDisplayName": "Keystone View Company",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "Keystone View Company",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "1860s–1910s",
+  "objectBeginDate": 1860,
+  "objectEndDate": 1919,
+  "medium": "Albumen silver prints",
+  "dimensions": "Mounts approximately: 8.6 x 17.5 cm (3 3/8 x 6 7/8 in.) to 11.4 x 17.8 cm (4 1/2 x 7 in.)",
+  "measurements": [
+    {
+      "elementName": "Mount",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 11.4,
+        "Width": 17.78
+      }
+    },
+    {
+      "elementName": "Mount",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 8.6,
+        "Width": 17.5
+      }
+    }
+  ],
+  "creditLine": "Gift of Weston J. Naef, in memory of Kathleen W. Naef and Weston J. Naef Sr., 1982",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Photographs",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/288149",
+  "tags": [
+    {
+      "term": "Human Figures",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300404114",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q5937779"
+    },
+    {
+      "term": "Horses",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300250148",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q726"
+    },
+    {
+      "term": "Forests",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300387598",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q4421"
+    },
+    {
+      "term": "Landscapes",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300132294",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q191163"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

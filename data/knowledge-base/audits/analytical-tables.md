@@ -1,6 +1,6 @@
 # KB Analytical Tables
 
-Generated at: 2026-06-14T22:01:25.182Z
+Generated at: 2026-06-14T22:07:08.233Z
 
 | Table | Rows | CSV |
 | --- | ---: | --- |
@@ -12,7 +12,7 @@ Generated at: 2026-06-14T22:01:25.182Z
 | canonical_people | 1713 | `data/knowledge-base/processed/canonical_people.csv` / `data/knowledge-base/processed/canonical_people.parquet` |
 | institutions | 17 | `data/knowledge-base/processed/institutions.csv` / `data/knowledge-base/processed/institutions.parquet` |
 | venues | 2275 | `data/knowledge-base/processed/venues.csv` / `data/knowledge-base/processed/venues.parquet` |
-| collections | 40 | `data/knowledge-base/processed/collections.csv` / `data/knowledge-base/processed/collections.parquet` |
+| collections | 43 | `data/knowledge-base/processed/collections.csv` / `data/knowledge-base/processed/collections.parquet` |
 | citations | 34859 | `data/knowledge-base/processed/citations.csv` / `data/knowledge-base/processed/citations.parquet` |
 | work_references | 25204 | `data/knowledge-base/processed/work_references.csv` / `data/knowledge-base/processed/work_references.parquet` |
 | topics | 1062 | `data/knowledge-base/processed/topics.csv` / `data/knowledge-base/processed/topics.parquet` |

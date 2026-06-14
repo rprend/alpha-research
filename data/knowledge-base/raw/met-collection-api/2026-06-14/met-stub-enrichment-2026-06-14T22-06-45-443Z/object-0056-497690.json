@@ -1,0 +1,93 @@
+{
+  "objectID": 497690,
+  "isHighlight": false,
+  "accessionNumber": "1984.562.37",
+  "accessionYear": "1984",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 169986,
+      "role": "Artist",
+      "name": "Unknown",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+      "gender": ""
+    }
+  ],
+  "department": "Modern and Contemporary Art",
+  "objectName": "Photograph",
+  "title": "Photograph",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Unknown",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "Unknown",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+  "objectDate": "early 20th century",
+  "objectBeginDate": 1900,
+  "objectEndDate": 1950,
+  "medium": "Photograph",
+  "dimensions": "7 3/4 x 8 in. (19.7 x 20.3 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 19.68504,
+        "Width": 20.32004
+      }
+    }
+  ],
+  "creditLine": "Gift of Lee Schoen, 1984",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Archives",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2023-01-09T12:29:55.66Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/497690",
+  "tags": [
+    {
+      "term": "Interiors",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300391239",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q2998430"
+    },
+    {
+      "term": "Leaves",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300011892",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q33971"
+    },
+    {
+      "term": "Furniture",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300037680",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q14745"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

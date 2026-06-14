@@ -1,8 +1,8 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T21:24:56.277Z
-Resolved historical failures: 16
-Replacement plans: 0
+Generated at: 2026-06-14T22:07:15.327Z
+Resolved historical failures: 15
+Replacement plans: 1
 
 ## Resolved Historical Failures
 
@@ -14,7 +14,6 @@ Replacement plans: 0
 - hathitrust-bibliographic-metadata: latest successful route Internet Archive identifiers -> HathiTrust Bibliographic API brief endpoint at 2026-06-14T21:01:23.282Z (5 records).
 - lareviewofbooks: latest successful route https://lareviewofbooks.org/ at 2026-06-14T20:28:09.368Z (18 records).
 - library-of-congress: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:34.343Z (50 records).
-- met-collection-api: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:33.316Z (50 records).
 - princeton-humanities-departments: latest successful route https://english.princeton.edu/events | https://philosophy.princeton.edu/events | https://artandarchaeology.princeton.edu/events at 2026-06-14T20:42:04.005Z (3 records).
 - smithsonian-open-access: latest successful route source-specific cultural collections API routes at 2026-06-14T19:00:08.030Z (200 records).
 - ssrn-humanities-adjacent: latest successful route https://api.crossref.org/works?filter=type:posted-content&query=SSRN%20humanities&rows=25 | https://api.crossref.org/works?filter=type:posted-content&query=SSRN%20digital%20humanities%20culture%20history&rows=25 at 2026-06-14T21:24:40.914Z (25 records).
@@ -22,3 +21,26 @@ Replacement plans: 0
 - wayback-machine-cdx: latest successful route https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=20 at 2026-06-14T20:28:09.044Z (20 records).
 - wikidata-cultural-entities: latest successful route https://query.wikidata.org/sparql at 2026-06-14T20:02:20.514Z (25 records).
 - yale-humanities-departments: latest successful route http://complit.yale.edu/about/department-history at 2026-06-14T20:42:04.005Z (1 records).
+
+## met-collection-api
+
+- Name: Metropolitan Museum of Art Collection API
+- Class: cultural-collections
+- Ingest status: active
+- Replacement status: partial-route-review
+- Failure count: 5
+- Latest failure: 2026-06-14T22:07:00.214Z
+- Latest error: No error text.
+- Affected targets: No target metadata.
+- Failed routes:
+  - source-specific cultural collections API routes
+  - https://collectionapi.metmuseum.org/public/collection/v1/objects/655853
+  - https://collectionapi.metmuseum.org/public/collection/v1/objects/291426
+  - https://collectionapi.metmuseum.org/public/collection/v1/objects/291419
+  - https://collectionapi.metmuseum.org/public/collection/v1/objects/120990
+- Replacement routes:
+  - Check whether the failed route is an individual item/detail endpoint while broader search/list endpoints still work.
+  - Keep successful local records and mark missing detail routes in the source-specific ingest audit.
+  - Prefer documented bulk/list APIs or lower-volume detail retries where terms allow.
+- Next action: Review source-specific audit output before retrying; retry only the failed route class, not the entire source.
+- Do not do: Do not bypass 403 responses or treat item-level blocks as permission to scrape alternate restricted pages.

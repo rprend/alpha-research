@@ -1,0 +1,179 @@
+{
+  "objectID": 288139,
+  "isHighlight": false,
+  "accessionNumber": "1982.1182.386–.400",
+  "accessionYear": "1982",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 169986,
+      "role": "Artist",
+      "name": "Unknown",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+      "gender": ""
+    },
+    {
+      "constituentID": 59871,
+      "role": "Publisher",
+      "name": "H. L. &amp; G. E. Williams",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59872,
+      "role": "Artist",
+      "name": "Whiting Brothers",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59803,
+      "role": "Artist",
+      "name": "C. H. Graves",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59804,
+      "role": "Publisher",
+      "name": "Universal Photo Art Co.",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59811,
+      "role": "Publisher",
+      "name": "Keystone View Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59798,
+      "role": "Artist",
+      "name": "Benneville Lloyd Singley",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500450249",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q50412386",
+      "gender": ""
+    },
+    {
+      "constituentID": 59826,
+      "role": "Publisher",
+      "name": "Union View Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59822,
+      "role": "Publisher",
+      "name": "Stereoscopic Gems",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 164155,
+      "role": "Publisher",
+      "name": "Underwood &amp; Underwood",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500033291",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q2492951",
+      "gender": ""
+    },
+    {
+      "constituentID": 59812,
+      "role": "Photography Studio",
+      "name": "Sun Sculpture Works and Studios",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59873,
+      "role": "Publisher",
+      "name": "American Views",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    }
+  ],
+  "department": "Photographs",
+  "objectName": "Stereographs",
+  "title": "[Group of 15 Stereograph Views of Bridges]",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Unknown",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "Unknown",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+  "objectDate": "1850s–1910s",
+  "objectBeginDate": 1850,
+  "objectEndDate": 1919,
+  "medium": "Albumen silver prints",
+  "dimensions": "Mounts approximately: 8.8 x 17.3 cm (3 7/16 x 6 13/16 in.) to 10.8 x 17.8 cm (4 1/4 x 7 in.)",
+  "measurements": [
+    {
+      "elementName": "Mount",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 10.8,
+        "Width": 17.8
+      }
+    },
+    {
+      "elementName": "Mount",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 8.8,
+        "Width": 17.3
+      }
+    }
+  ],
+  "creditLine": "Gift of Weston J. Naef, in memory of Kathleen W. Naef and Weston J. Naef Sr., 1982",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Photographs",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/288139",
+  "tags": [
+    {
+      "term": "Bridges",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300386855",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q12280"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

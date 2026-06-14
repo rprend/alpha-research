@@ -1,0 +1,97 @@
+{
+  "objectID": 477247,
+  "isHighlight": false,
+  "accessionNumber": "2007.9",
+  "accessionYear": "2007",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/md/original/DP145578.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/md/web-large/DP145578.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/md/original/DP145575.jpg",
+    "https://images.metmuseum.org/CRDImages/md/original/DP145577.jpg",
+    "https://images.metmuseum.org/CRDImages/md/original/DP145576.jpg"
+  ],
+  "constituents": null,
+  "department": "Medieval Art",
+  "objectName": "Pendant brooch",
+  "title": "Pendant Brooch with Cameo of Enthroned Virgin and Child and Christ Pantokrator",
+  "culture": "Byzantine",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "",
+  "artistPrefix": "",
+  "artistDisplayName": "",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "late 1000s–1100s (cameo); 1100s–1300s (mount)",
+  "objectBeginDate": 1075,
+  "objectEndDate": 1399,
+  "medium": "Chalcedony cameo; gold mount with pearls, emeralds, garnets, sapphires, and a sardonyx intaglio",
+  "dimensions": "Overall: 2 13/16 x 2 3/16 x 5/8 in. (7.2 x 5.5 x 1.6 cm)\r\nChalcedony: 1 1/2 x 1 1/4 in. (3.8 x 3.2 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Depth": 1.6,
+        "Height": 7.2,
+        "Width": 5.5
+      }
+    },
+    {
+      "elementName": "Other",
+      "elementDescription": "Chalcedony only",
+      "elementMeasurements": {
+        "Height": 3.8,
+        "Width": 3.2
+      }
+    }
+  ],
+  "creditLine": "Purchase, Acquisitions Fund, Christopher C. Grisanti and Suzanne P. Fawbush, Austin B. Chinn, and Katharine R. Brown Gifts, Gifts of Marx Freres, J. Pierpont Morgan, and Mrs. Frank D. Millett, by exchange, and funds from various donors, 2007",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Lapidary Work-Chalcedony",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-12-18T09:36:43.22Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/477247",
+  "tags": [
+    {
+      "term": "Angels",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300379004",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q235113"
+    },
+    {
+      "term": "Christ",
+      "AAT_URL": "http://vocab.getty.edu/page/ia/901000087",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q642420"
+    },
+    {
+      "term": "Madonna and Child",
+      "AAT_URL": "http://vocab.getty.edu/page/ia/901000052",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q9309699"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116280046",
+  "isTimelineWork": true,
+  "GalleryNumber": "303"
+}

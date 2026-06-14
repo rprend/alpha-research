@@ -1,0 +1,83 @@
+{
+  "objectID": 682737,
+  "isHighlight": false,
+  "accessionNumber": "1972.585.16b",
+  "accessionYear": "1972",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 163379,
+      "role": "Artist",
+      "name": "Rudy Burckhardt",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500085966",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q7377582",
+      "gender": ""
+    }
+  ],
+  "department": "Photographs",
+  "objectName": "Photograph",
+  "title": "",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Rudy Burckhardt",
+  "artistDisplayBio": "American (born Switzerland), Basel 1914–1999 Searsmont, Maine",
+  "artistSuffix": "",
+  "artistAlphaSort": "Burckhardt, Rudy",
+  "artistNationality": "American, born Switzerland",
+  "artistBeginDate": "1914",
+  "artistEndDate": "1999",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q7377582",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500085966",
+  "objectDate": "ca. 1939",
+  "objectBeginDate": 1938,
+  "objectEndDate": 1940,
+  "medium": "Gelatin silver print",
+  "dimensions": "17.2 x 24.4 cm (6 3/4 x 9 5/8 in.)",
+  "measurements": [
+    {
+      "elementName": "Image",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 17.145035,
+        "Width": 24.44755
+      }
+    }
+  ],
+  "creditLine": "Purchase, Florance Waterbury Bequest, 1972",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Photographs",
+  "rightsAndReproduction": "© 2026 Artists Rights Society (ARS), New York",
+  "linkResource": "",
+  "metadataDate": "2026-01-07T04:49:48.69Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/682737",
+  "tags": [
+    {
+      "term": "Advertisements",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300193993",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q39911916"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

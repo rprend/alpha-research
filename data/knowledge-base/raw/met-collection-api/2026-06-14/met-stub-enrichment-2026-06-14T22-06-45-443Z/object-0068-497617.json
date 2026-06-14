@@ -1,0 +1,91 @@
+{
+  "objectID": 497617,
+  "isHighlight": false,
+  "accessionNumber": "1984.562.14",
+  "accessionYear": "1984",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 169986,
+      "role": "Artist",
+      "name": "Unknown",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+      "gender": ""
+    }
+  ],
+  "department": "Modern and Contemporary Art",
+  "objectName": "Photograph",
+  "title": "Photograph",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Unknown",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "Unknown",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+  "objectDate": "ca. 1930",
+  "objectBeginDate": 1925,
+  "objectEndDate": 1935,
+  "medium": "Photograph",
+  "dimensions": "7 3/8 x 9 1/4 in. (18.7 x 23.5 cm)\r\nWith mount: 9 7/8 x 14 in. (25.1 x 35.6 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 18.732538,
+        "Width": 23.495047
+      }
+    },
+    {
+      "elementName": "Overall",
+      "elementDescription": "With mount",
+      "elementMeasurements": {
+        "Height": 25.08255,
+        "Width": 35.56007
+      }
+    }
+  ],
+  "creditLine": "Gift of Lee Schoen, 1984",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Archives",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2023-01-09T12:29:55.66Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/497617",
+  "tags": [
+    {
+      "term": "Furniture",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300037680",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q14745"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

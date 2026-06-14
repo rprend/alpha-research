@@ -1,6 +1,6 @@
 # KB Rights Summary
 
-Generated at: 2026-06-14T21:24:56.501Z
+Generated at: 2026-06-14T22:07:15.126Z
 Rights rows: 6592
 Local metadata-allowed rows: 6592
 Local full-text-allowed rows: 200

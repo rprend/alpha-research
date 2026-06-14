@@ -1,0 +1,85 @@
+{
+  "objectID": 51170,
+  "isHighlight": true,
+  "accessionNumber": "1993.387.14",
+  "accessionYear": "1993",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/as/original/DP145420.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/as/web-large/DP145420.jpg",
+  "additionalImages": [
+    "https://images.metmuseum.org/CRDImages/as/original/DP145419.jpg"
+  ],
+  "constituents": null,
+  "department": "Asian Art",
+  "objectName": "FIgure",
+  "title": "Standing Avalokiteshvara, the Bodhisattva of Infinite Compassion",
+  "culture": "Vietnam",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "",
+  "artistPrefix": "",
+  "artistDisplayName": "",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "ca. 7th century",
+  "objectBeginDate": 550,
+  "objectEndDate": 750,
+  "medium": "Gilt bronze",
+  "dimensions": "H. 14 3/8 in. (36.5 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 36.5
+      }
+    }
+  ],
+  "creditLine": "Gift of Enid A. Haupt, 1993",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Sculpture",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-04-04T04:52:52.6Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/51170",
+  "tags": [
+    {
+      "term": "Buddhism",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300073738",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q748"
+    },
+    {
+      "term": "Avalokiteshvara",
+      "AAT_URL": "http://vocab.getty.edu/page/ia/901000085",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q193849"
+    },
+    {
+      "term": "Bodhisattvas",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300264360",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q178149"
+    }
+  ],
+  "objectWikidata_URL": "https://www.wikidata.org/wiki/Q116374262",
+  "isTimelineWork": false,
+  "GalleryNumber": "245"
+}

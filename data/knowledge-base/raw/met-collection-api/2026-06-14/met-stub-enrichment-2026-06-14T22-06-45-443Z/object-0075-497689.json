@@ -1,0 +1,88 @@
+{
+  "objectID": 497689,
+  "isHighlight": false,
+  "accessionNumber": "1984.562.36",
+  "accessionYear": "1984",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 151739,
+      "role": "Artist",
+      "name": "Julius Shulman",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500036562",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q1352701",
+      "gender": ""
+    }
+  ],
+  "department": "Modern and Contemporary Art",
+  "objectName": "Photograph",
+  "title": "Photograph",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Julius Shulman",
+  "artistDisplayBio": "American, New York 1910–2009 Los Angeles, California",
+  "artistSuffix": "",
+  "artistAlphaSort": "Shulman, Julius",
+  "artistNationality": "American",
+  "artistBeginDate": "1910",
+  "artistEndDate": "2009",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q1352701",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500036562",
+  "objectDate": "1951",
+  "objectBeginDate": 1951,
+  "objectEndDate": 1951,
+  "medium": "Photograph",
+  "dimensions": "6 1/8 x 7 7/8 in. (15.6 x 20 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 15.557531,
+        "Width": 20.00254
+      }
+    }
+  ],
+  "creditLine": "Gift of Lee Schoen, 1984",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Archives",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2023-01-09T12:29:55.66Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/497689",
+  "tags": [
+    {
+      "term": "Interiors",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300391239",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q2998430"
+    },
+    {
+      "term": "Men",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025928",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q8441"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

@@ -1,0 +1,205 @@
+{
+  "objectID": 288120,
+  "isHighlight": false,
+  "accessionNumber": "1982.1182.208–.255",
+  "accessionYear": "1982",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 59818,
+      "role": "Publisher",
+      "name": "H. C. White Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59811,
+      "role": "Publisher",
+      "name": "Keystone View Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 164155,
+      "role": "Publisher",
+      "name": "Underwood &amp; Underwood",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500033291",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q2492951",
+      "gender": ""
+    },
+    {
+      "constituentID": 59812,
+      "role": "Photography Studio",
+      "name": "Sun Sculpture Works and Studios",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 55112,
+      "role": "Artist",
+      "name": "Kilburn Brothers",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500033342",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q55689567",
+      "gender": ""
+    },
+    {
+      "constituentID": 55113,
+      "role": "Publisher",
+      "name": "Edward Kilburn",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500119163",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q52218610",
+      "gender": ""
+    },
+    {
+      "constituentID": 59835,
+      "role": "Publisher",
+      "name": "American Stereoscopic Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59836,
+      "role": "Publisher",
+      "name": "Quaker Oats Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59837,
+      "role": "Publisher",
+      "name": "Continent Stereoscopic Company",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59798,
+      "role": "Artist",
+      "name": "Benneville Lloyd Singley",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500450249",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q50412386",
+      "gender": ""
+    },
+    {
+      "constituentID": 59838,
+      "role": "Publisher",
+      "name": "New H Series",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59839,
+      "role": "Artist",
+      "name": "W. S. Conant",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 59827,
+      "role": "Publisher",
+      "name": "Standard Series",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    },
+    {
+      "constituentID": 169986,
+      "role": "Artist",
+      "name": "Unknown",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+      "gender": ""
+    }
+  ],
+  "department": "Photographs",
+  "objectName": "Stereographs",
+  "title": "[Group of 48 Stereograph Views of Arizona and the Surrounding Area]",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Publisher",
+  "artistPrefix": "",
+  "artistDisplayName": "H. C. White Company",
+  "artistDisplayBio": "American",
+  "artistSuffix": "",
+  "artistAlphaSort": "H. C. White Company",
+  "artistNationality": "American",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "1880s–1910s",
+  "objectBeginDate": 1880,
+  "objectEndDate": 1919,
+  "medium": "Albumen silver prints",
+  "dimensions": "Mounts approximately: 8.9 x 17.8 cm (3 1/2 x 7 in.) to 10.6 x 17.4 cm (4 3/16 x 6 7/8 in.)",
+  "measurements": [
+    {
+      "elementName": "Mount",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 10.6,
+        "Width": 17.4
+      }
+    },
+    {
+      "elementName": "Mount",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 8.89,
+        "Width": 17.78
+      }
+    }
+  ],
+  "creditLine": "Gift of Weston J. Naef, in memory of Kathleen W. Naef and Weston J. Naef Sr., 1982",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Photographs",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-03-06T04:54:30Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/288120",
+  "tags": [
+    {
+      "term": "Men",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025928",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q8441"
+    },
+    {
+      "term": "Women",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300025943",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q467"
+    },
+    {
+      "term": "Landscapes",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300132294",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q191163"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-14T21:24:54.356Z",
+  "generated_at": "2026-06-14T22:07:13.117Z",
   "source": "data/knowledge-base/processed/source_documents.jsonl",
   "document_count": 7125,
-  "term_count": 73546,
+  "term_count": 73480,
   "documents": {
     "openalex-humanities:https://openalex.org/W2488845447": {
       "source_id": "openalex-humanities",
@@ -10982,240 +10982,240 @@
     },
     "met-collection-api:288149": {
       "source_id": "met-collection-api",
-      "title": "Met object 288149",
+      "title": "[Group of 100 Stereograph Views of California Nature and Landscapes With a Focus on Yosemite]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288149",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288118": {
       "source_id": "met-collection-api",
-      "title": "Met object 288118",
+      "title": "[Group of 107 Stereograph Views of Animals]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288118",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288121": {
       "source_id": "met-collection-api",
-      "title": "Met object 288121",
+      "title": "[Group of 41 Stereograph Views of Astronomy Related Scenes]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288121",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:465966": {
       "source_id": "met-collection-api",
-      "title": "Met object 465966",
+      "title": "Crib of the Infant Jesus",
       "source_url": "https://www.metmuseum.org/art/collection/search/465966",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:312342": {
       "source_id": "met-collection-api",
-      "title": "Met object 312342",
+      "title": "Nkisi (power figure)",
       "source_url": "https://www.metmuseum.org/art/collection/search/312342",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:24860": {
       "source_id": "met-collection-api",
-      "title": "Met object 24860",
+      "title": "Rapier of Prince-Elector Christian II of Saxony (1583–1611)",
       "source_url": "https://www.metmuseum.org/art/collection/search/24860",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:464023": {
       "source_id": "met-collection-api",
-      "title": "Met object 464023",
+      "title": "Processional Cross",
       "source_url": "https://www.metmuseum.org/art/collection/search/464023",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:310453": {
       "source_id": "met-collection-api",
-      "title": "Met object 310453",
+      "title": "Nkishi (community power figure)",
       "source_url": "https://www.metmuseum.org/art/collection/search/310453",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288300": {
       "source_id": "met-collection-api",
-      "title": "Met object 288300",
+      "title": "[Group of 31 Stereograph Views of Children With Animals]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288300",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:313905": {
       "source_id": "met-collection-api",
-      "title": "Met object 313905",
+      "title": "Gable Mask",
       "source_url": "https://www.metmuseum.org/art/collection/search/313905",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:901425": {
       "source_id": "met-collection-api",
-      "title": "Met object 901425",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/901425",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:901424": {
       "source_id": "met-collection-api",
-      "title": "Met object 901424",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/901424",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:901423": {
       "source_id": "met-collection-api",
-      "title": "Met object 901423",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/901423",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:901422": {
       "source_id": "met-collection-api",
-      "title": "Met object 901422",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/901422",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:901426": {
       "source_id": "met-collection-api",
-      "title": "Met object 901426",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/901426",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:394727": {
       "source_id": "met-collection-api",
-      "title": "Met object 394727",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/394727",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:232047": {
       "source_id": "met-collection-api",
-      "title": "Met object 232047",
+      "title": "Jewish Woman of Algiers",
       "source_url": "https://www.metmuseum.org/art/collection/search/232047",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:316019": {
       "source_id": "met-collection-api",
-      "title": "Met object 316019",
+      "title": "Ganagana (ancestor figure)",
       "source_url": "https://www.metmuseum.org/art/collection/search/316019",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:481530": {
       "source_id": "met-collection-api",
-      "title": "Met object 481530",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/481530",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:500016": {
       "source_id": "met-collection-api",
-      "title": "Met object 500016",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/500016",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:481526": {
       "source_id": "met-collection-api",
-      "title": "Met object 481526",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/481526",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:449853": {
       "source_id": "met-collection-api",
-      "title": "Met object 449853",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/449853",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:481529": {
       "source_id": "met-collection-api",
-      "title": "Met object 481529",
+      "title": "Sculpture",
       "source_url": "https://www.metmuseum.org/art/collection/search/481529",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:311021": {
       "source_id": "met-collection-api",
-      "title": "Met object 311021",
+      "title": "Helmet crest from a nja masquerade",
       "source_url": "https://www.metmuseum.org/art/collection/search/311021",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288302": {
       "source_id": "met-collection-api",
-      "title": "Met object 288302",
+      "title": "[Group of 21 Stereograph Views of China]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288302",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:310988": {
       "source_id": "met-collection-api",
-      "title": "Met object 310988",
+      "title": "Gela or glaè (mask)",
       "source_url": "https://www.metmuseum.org/art/collection/search/310988",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:477247": {
       "source_id": "met-collection-api",
-      "title": "Met object 477247",
+      "title": "Pendant Brooch with Cameo of Enthroned Virgin and Child and Christ Pantokrator",
       "source_url": "https://www.metmuseum.org/art/collection/search/477247",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:310950": {
       "source_id": "met-collection-api",
-      "title": "Met object 310950",
+      "title": "Kpeliye’e headdress",
       "source_url": "https://www.metmuseum.org/art/collection/search/310950",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:318622": {
       "source_id": "met-collection-api",
-      "title": "Met object 318622",
+      "title": "Pendant mask of Ìyọ́bà Idià",
       "source_url": "https://www.metmuseum.org/art/collection/search/318622",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:313546": {
       "source_id": "met-collection-api",
-      "title": "Met object 313546",
+      "title": "Helmet Mask  (Temes Mbalmbal)",
       "source_url": "https://www.metmuseum.org/art/collection/search/313546",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:312460": {
       "source_id": "met-collection-api",
-      "title": "Met object 312460",
+      "title": "Dance crest",
       "source_url": "https://www.metmuseum.org/art/collection/search/312460",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288319": {
       "source_id": "met-collection-api",
-      "title": "Met object 288319",
+      "title": "[Group of 47 Stereograph Views of the 1904 St. Louis World's Fair and Louisiana Purchase Exposition]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288319",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:229104": {
       "source_id": "met-collection-api",
-      "title": "Met object 229104",
+      "title": "Bib for a statutette",
       "source_url": "https://www.metmuseum.org/art/collection/search/229104",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:194110": {
       "source_id": "met-collection-api",
-      "title": "Met object 194110",
+      "title": "Watch",
       "source_url": "https://www.metmuseum.org/art/collection/search/194110",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:438814": {
@@ -11227,79 +11227,79 @@
     },
     "met-collection-api:231788": {
       "source_id": "met-collection-api",
-      "title": "Met object 231788",
+      "title": "Woman from the French Colonies",
       "source_url": "https://www.metmuseum.org/art/collection/search/231788",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:208538": {
       "source_id": "met-collection-api",
-      "title": "Met object 208538",
+      "title": "Alexander Danilovich Menshikov (1673–1729)",
       "source_url": "https://www.metmuseum.org/art/collection/search/208538",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:312426": {
       "source_id": "met-collection-api",
-      "title": "Met object 312426",
+      "title": "Bwanga (power object)",
       "source_url": "https://www.metmuseum.org/art/collection/search/312426",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288139": {
       "source_id": "met-collection-api",
-      "title": "Met object 288139",
+      "title": "[Group of 15 Stereograph Views of Bridges]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288139",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288147": {
       "source_id": "met-collection-api",
-      "title": "Met object 288147",
+      "title": "[Group of 26 Stereograph Views of San Francisco, California]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288147",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288303": {
       "source_id": "met-collection-api",
-      "title": "Met object 288303",
+      "title": "[Group of 6 Stereograph Views of Christmas Scenes]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288303",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288305": {
       "source_id": "met-collection-api",
-      "title": "Met object 288305",
+      "title": "[Group of 37 Stereograph Views of the Garden of the Gods and Other Colorado Scenery, United States of America]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288305",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:288120": {
       "source_id": "met-collection-api",
-      "title": "Met object 288120",
+      "title": "[Group of 48 Stereograph Views of Arizona and the Surrounding Area]",
       "source_url": "https://www.metmuseum.org/art/collection/search/288120",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:249232": {
       "source_id": "met-collection-api",
-      "title": "Met object 249232",
+      "title": "Couch and footstool with bone carvings and glass inlays",
       "source_url": "https://www.metmuseum.org/art/collection/search/249232",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:312169": {
       "source_id": "met-collection-api",
-      "title": "Met object 312169",
+      "title": "Reliquary",
       "source_url": "https://www.metmuseum.org/art/collection/search/312169",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:58697": {
       "source_id": "met-collection-api",
-      "title": "Met object 58697",
+      "title": "Case (Inrō) with Design of Grasshopper on Stalk of Flowering Lily",
       "source_url": "https://www.metmuseum.org/art/collection/search/58697",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:21656": {
@@ -11311,226 +11311,226 @@
     },
     "met-collection-api:471050": {
       "source_id": "met-collection-api",
-      "title": "Met object 471050",
+      "title": "Sculpture of a Wise Man (from a Group with the Adoration of the Magi)",
       "source_url": "https://www.metmuseum.org/art/collection/search/471050",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:51170": {
       "source_id": "met-collection-api",
-      "title": "Met object 51170",
+      "title": "Standing Avalokiteshvara, the Bodhisattva of Infinite Compassion",
       "source_url": "https://www.metmuseum.org/art/collection/search/51170",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:42733": {
       "source_id": "met-collection-api",
-      "title": "Met object 42733",
+      "title": "Buddha Maitreya (Mile)",
       "source_url": "https://www.metmuseum.org/art/collection/search/42733",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:120983": {
       "source_id": "met-collection-api",
-      "title": "Met object 120983",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/120983",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497625": {
       "source_id": "met-collection-api",
-      "title": "Met object 497625",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497625",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497623": {
       "source_id": "met-collection-api",
-      "title": "Met object 497623",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497623",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497620": {
       "source_id": "met-collection-api",
-      "title": "Met object 497620",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497620",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497684": {
       "source_id": "met-collection-api",
-      "title": "Met object 497684",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497684",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497685": {
       "source_id": "met-collection-api",
-      "title": "Met object 497685",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497685",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497687": {
       "source_id": "met-collection-api",
-      "title": "Met object 497687",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497687",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497690": {
       "source_id": "met-collection-api",
-      "title": "Met object 497690",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497690",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497680": {
       "source_id": "met-collection-api",
-      "title": "Met object 497680",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497680",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497694": {
       "source_id": "met-collection-api",
-      "title": "Met object 497694",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497694",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497682": {
       "source_id": "met-collection-api",
-      "title": "Met object 497682",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497682",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497688": {
       "source_id": "met-collection-api",
-      "title": "Met object 497688",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497688",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497693": {
       "source_id": "met-collection-api",
-      "title": "Met object 497693",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497693",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497604": {
       "source_id": "met-collection-api",
-      "title": "Met object 497604",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497604",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497622": {
       "source_id": "met-collection-api",
-      "title": "Met object 497622",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497622",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497610": {
       "source_id": "met-collection-api",
-      "title": "Met object 497610",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497610",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497692": {
       "source_id": "met-collection-api",
-      "title": "Met object 497692",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497692",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497612": {
       "source_id": "met-collection-api",
-      "title": "Met object 497612",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497612",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497618": {
       "source_id": "met-collection-api",
-      "title": "Met object 497618",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497618",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497617": {
       "source_id": "met-collection-api",
-      "title": "Met object 497617",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497617",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497683": {
       "source_id": "met-collection-api",
-      "title": "Met object 497683",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497683",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497681": {
       "source_id": "met-collection-api",
-      "title": "Met object 497681",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497681",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497686": {
       "source_id": "met-collection-api",
-      "title": "Met object 497686",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497686",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497621": {
       "source_id": "met-collection-api",
-      "title": "Met object 497621",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497621",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497624": {
       "source_id": "met-collection-api",
-      "title": "Met object 497624",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497624",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497619": {
       "source_id": "met-collection-api",
-      "title": "Met object 497619",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497619",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:497689": {
       "source_id": "met-collection-api",
-      "title": "Met object 497689",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/497689",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:682737": {
       "source_id": "met-collection-api",
       "title": "Met object 682737",
       "source_url": "https://www.metmuseum.org/art/collection/search/682737",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:682738": {
       "source_id": "met-collection-api",
       "title": "Met object 682738",
       "source_url": "https://www.metmuseum.org/art/collection/search/682738",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:655853": {
@@ -11544,28 +11544,28 @@
       "source_id": "met-collection-api",
       "title": "Met object 291411",
       "source_url": "https://www.metmuseum.org/art/collection/search/291411",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:291421": {
       "source_id": "met-collection-api",
       "title": "Met object 291421",
       "source_url": "https://www.metmuseum.org/art/collection/search/291421",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:291413": {
       "source_id": "met-collection-api",
       "title": "Met object 291413",
       "source_url": "https://www.metmuseum.org/art/collection/search/291413",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:291408": {
       "source_id": "met-collection-api",
       "title": "Met object 291408",
       "source_url": "https://www.metmuseum.org/art/collection/search/291408",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:291426": {
@@ -11579,7 +11579,7 @@
       "source_id": "met-collection-api",
       "title": "Met object 291412",
       "source_url": "https://www.metmuseum.org/art/collection/search/291412",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:291419": {
@@ -11593,7 +11593,7 @@
       "source_id": "met-collection-api",
       "title": "Met object 265363",
       "source_url": "https://www.metmuseum.org/art/collection/search/265363",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:120990": {
@@ -11605,79 +11605,79 @@
     },
     "met-collection-api:120996": {
       "source_id": "met-collection-api",
-      "title": "Met object 120996",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/120996",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:120993": {
       "source_id": "met-collection-api",
-      "title": "Met object 120993",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/120993",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:120995": {
       "source_id": "met-collection-api",
-      "title": "Met object 120995",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/120995",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:120994": {
       "source_id": "met-collection-api",
-      "title": "Met object 120994",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/120994",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:121016": {
       "source_id": "met-collection-api",
-      "title": "Met object 121016",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/121016",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:121015": {
       "source_id": "met-collection-api",
-      "title": "Met object 121015",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/121015",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:121017": {
       "source_id": "met-collection-api",
-      "title": "Met object 121017",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/121017",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:121007": {
       "source_id": "met-collection-api",
-      "title": "Met object 121007",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/121007",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:121008": {
       "source_id": "met-collection-api",
-      "title": "Met object 121008",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/121008",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:121028": {
       "source_id": "met-collection-api",
-      "title": "Met object 121028",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/121028",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "met-collection-api:121012": {
       "source_id": "met-collection-api",
-      "title": "Met object 121012",
+      "title": "Photograph",
       "source_url": "https://www.metmuseum.org/art/collection/search/121012",
-      "type": "museum-object-stub",
+      "type": "museum-object",
       "text_path": ""
     },
     "nber-culture-history:i768l2-sitesearch-entity-node-1319801-en": {
@@ -46166,6 +46166,7 @@
       "cleveland-museum-open-access:108541",
       "cleveland-museum-open-access:128072",
       "cleveland-museum-open-access:110232",
+      "met-collection-api:288149",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315310-en",
       "doaj-humanities:10-24224-2227-1295-2024-13-5-48-66",
       "doaj-humanities:10-3389-fpsyg-2018-00299",
@@ -46366,6 +46367,7 @@
       "cleveland-museum-open-access:153603",
       "cleveland-museum-open-access:142792",
       "cleveland-museum-open-access:144961",
+      "met-collection-api:288118",
       "doaj-humanities:10-3389-fmicb-2022-968532",
       "project-gutenberg:pg-982",
       "project-gutenberg:pg-3316",
@@ -48969,6 +48971,7 @@
       "stanford-humanities-departments:stanford-university-art-and-art-history-department-programs-sitemap-url-https-art-stanford-edu-academics-courses"
     ],
     "386": [
+      "met-collection-api:42733",
       "doaj-humanities:10-1186-s13006-025-00741-5"
     ],
     "389": [
@@ -49649,6 +49652,7 @@
     "534": [
       "cleveland-museum-open-access:94979",
       "cleveland-museum-open-access:93992",
+      "met-collection-api:42733",
       "doaj-humanities:2b63ebb2b2854466805c6afb44dfdb4f"
     ],
     "535": [
@@ -51550,6 +51554,9 @@
     "1582": [
       "doaj-humanities:10-11588-riha-2025-3-113742"
     ],
+    "1583": [
+      "met-collection-api:24860"
+    ],
     "1584": [
       "met-collection-api:437164"
     ],
@@ -51633,6 +51640,7 @@
       "cleveland-museum-open-access:143152"
     ],
     "1611": [
+      "met-collection-api:24860",
       "doaj-humanities:10-21776-ub-mnj-2023-009-01-9",
       "doaj-humanities:10-5206-notabene-v16i1-16612",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-home",
@@ -51649,6 +51657,7 @@
       "met-collection-api:49068",
       "met-collection-api:910555",
       "met-collection-api:78057",
+      "met-collection-api:58697",
       "cleveland-museum-open-access:149106",
       "cleveland-museum-open-access:136311",
       "met-collection-api:53441"
@@ -51838,6 +51847,7 @@
       "cleveland-museum-open-access:149105",
       "cleveland-museum-open-access:149107",
       "cleveland-museum-open-access:149108",
+      "met-collection-api:208538",
       "wikidata-cultural-entities:Q687",
       "cleveland-museum-open-access:149106",
       "yale-humanities-departments:yale-university-philosophy-department-faculty-https-philosophy-yale-edu-faculty"
@@ -52022,6 +52032,7 @@
       "doaj-humanities:0036f2b069444fc6828974f0be29e60a"
     ],
     "1729": [
+      "met-collection-api:208538",
       "project-gutenberg:pg-1080",
       "wikidata-cultural-entities:Q63500"
     ],
@@ -52938,6 +52949,7 @@
       "met-collection-api:57329",
       "met-collection-api:49068",
       "met-collection-api:78057",
+      "met-collection-api:58697",
       "doaj-humanities:10-14198-pasado-23503",
       "project-gutenberg:pg-4207",
       "project-gutenberg:pg-2354",
@@ -53330,6 +53342,7 @@
       "project-gutenberg:pg-870",
       "library-of-congress:http-www-loc-gov-item-2024777869",
       "cleveland-museum-open-access:135185",
+      "met-collection-api:288319",
       "doaj-humanities:10-37646-xihmai-v9i18-247",
       "doaj-humanities:0047cfcf23d84bd08d9ea0ca7a609f2d",
       "doaj-humanities:10-20310-1810-0201-2018-23-176-154-164",
@@ -58015,9 +58028,6 @@
     "24804": [
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
     ],
-    "24860": [
-      "met-collection-api:24860"
-    ],
     "25000": [
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
     ],
@@ -58189,9 +58199,6 @@
     "41788": [
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
     ],
-    "42733": [
-      "met-collection-api:42733"
-    ],
     "42955": [
       "doaj-humanities:10-1155-ijfr-6638081"
     ],
@@ -58242,9 +58249,6 @@
     "51106": [
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
     ],
-    "51170": [
-      "met-collection-api:51170"
-    ],
     "51417": [
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
     ],
@@ -58271,9 +58275,6 @@
     ],
     "56620": [
       "doaj-humanities:10-56620-2587-9731-2025-2-134-150"
-    ],
-    "58697": [
-      "met-collection-api:58697"
     ],
     "59950": [
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
@@ -58350,44 +58351,8 @@
     "101967": [
       "expanded-university-humanities-departments:cornell-university-history-department-programs-https-history-cornell-edu-course-flyers"
     ],
-    "120983": [
-      "met-collection-api:120983"
-    ],
     "120990": [
       "met-collection-api:120990"
-    ],
-    "120993": [
-      "met-collection-api:120993"
-    ],
-    "120994": [
-      "met-collection-api:120994"
-    ],
-    "120995": [
-      "met-collection-api:120995"
-    ],
-    "120996": [
-      "met-collection-api:120996"
-    ],
-    "121007": [
-      "met-collection-api:121007"
-    ],
-    "121008": [
-      "met-collection-api:121008"
-    ],
-    "121012": [
-      "met-collection-api:121012"
-    ],
-    "121015": [
-      "met-collection-api:121015"
-    ],
-    "121016": [
-      "met-collection-api:121016"
-    ],
-    "121017": [
-      "met-collection-api:121017"
-    ],
-    "121028": [
-      "met-collection-api:121028"
     ],
     "130006": [
       "doaj-humanities:0006a208e10248e7a38af6d3d2cfca3f"
@@ -58407,9 +58372,6 @@
     "181221": [
       "yale-humanities-departments:yale-university-history-department-about-https-history-yale-edu-about-us-current-job-searches"
     ],
-    "194110": [
-      "met-collection-api:194110"
-    ],
     "202021": [
       "doaj-humanities:008f9239f29c4191994a841e321f99a5"
     ],
@@ -58420,59 +58382,11 @@
       "yale-humanities-departments:yale-university-history-department-home",
       "yale-humanities-departments:yale-university-history-department-about-https-history-yale-edu-about-us"
     ],
-    "208538": [
-      "met-collection-api:208538"
-    ],
-    "229104": [
-      "met-collection-api:229104"
-    ],
-    "231788": [
-      "met-collection-api:231788"
-    ],
-    "232047": [
-      "met-collection-api:232047"
-    ],
-    "249232": [
-      "met-collection-api:249232"
-    ],
     "265363": [
       "met-collection-api:265363"
     ],
     "269779": [
       "doaj-humanities:008f9239f29c4191994a841e321f99a5"
-    ],
-    "288118": [
-      "met-collection-api:288118"
-    ],
-    "288120": [
-      "met-collection-api:288120"
-    ],
-    "288121": [
-      "met-collection-api:288121"
-    ],
-    "288139": [
-      "met-collection-api:288139"
-    ],
-    "288147": [
-      "met-collection-api:288147"
-    ],
-    "288149": [
-      "met-collection-api:288149"
-    ],
-    "288300": [
-      "met-collection-api:288300"
-    ],
-    "288302": [
-      "met-collection-api:288302"
-    ],
-    "288303": [
-      "met-collection-api:288303"
-    ],
-    "288305": [
-      "met-collection-api:288305"
-    ],
-    "288319": [
-      "met-collection-api:288319"
     ],
     "291408": [
       "met-collection-api:291408"
@@ -58498,45 +58412,6 @@
     "310006": [
       "doaj-humanities:0006a208e10248e7a38af6d3d2cfca3f"
     ],
-    "310453": [
-      "met-collection-api:310453"
-    ],
-    "310950": [
-      "met-collection-api:310950"
-    ],
-    "310988": [
-      "met-collection-api:310988"
-    ],
-    "311021": [
-      "met-collection-api:311021"
-    ],
-    "312169": [
-      "met-collection-api:312169"
-    ],
-    "312342": [
-      "met-collection-api:312342"
-    ],
-    "312426": [
-      "met-collection-api:312426"
-    ],
-    "312460": [
-      "met-collection-api:312460"
-    ],
-    "313546": [
-      "met-collection-api:313546"
-    ],
-    "313905": [
-      "met-collection-api:313905"
-    ],
-    "316019": [
-      "met-collection-api:316019"
-    ],
-    "318622": [
-      "met-collection-api:318622"
-    ],
-    "394727": [
-      "met-collection-api:394727"
-    ],
     "400715": [
       "doaj-humanities:0006c1a586224b08b991fcc27ee17c33"
     ],
@@ -58545,111 +58420,6 @@
     ],
     "421499": [
       "library-of-congress:http-www-loc-gov-item-coprecbooks-00502140814"
-    ],
-    "449853": [
-      "met-collection-api:449853"
-    ],
-    "464023": [
-      "met-collection-api:464023"
-    ],
-    "465966": [
-      "met-collection-api:465966"
-    ],
-    "471050": [
-      "met-collection-api:471050"
-    ],
-    "477247": [
-      "met-collection-api:477247"
-    ],
-    "481526": [
-      "met-collection-api:481526"
-    ],
-    "481529": [
-      "met-collection-api:481529"
-    ],
-    "481530": [
-      "met-collection-api:481530"
-    ],
-    "497604": [
-      "met-collection-api:497604"
-    ],
-    "497610": [
-      "met-collection-api:497610"
-    ],
-    "497612": [
-      "met-collection-api:497612"
-    ],
-    "497617": [
-      "met-collection-api:497617"
-    ],
-    "497618": [
-      "met-collection-api:497618"
-    ],
-    "497619": [
-      "met-collection-api:497619"
-    ],
-    "497620": [
-      "met-collection-api:497620"
-    ],
-    "497621": [
-      "met-collection-api:497621"
-    ],
-    "497622": [
-      "met-collection-api:497622"
-    ],
-    "497623": [
-      "met-collection-api:497623"
-    ],
-    "497624": [
-      "met-collection-api:497624"
-    ],
-    "497625": [
-      "met-collection-api:497625"
-    ],
-    "497680": [
-      "met-collection-api:497680"
-    ],
-    "497681": [
-      "met-collection-api:497681"
-    ],
-    "497682": [
-      "met-collection-api:497682"
-    ],
-    "497683": [
-      "met-collection-api:497683"
-    ],
-    "497684": [
-      "met-collection-api:497684"
-    ],
-    "497685": [
-      "met-collection-api:497685"
-    ],
-    "497686": [
-      "met-collection-api:497686"
-    ],
-    "497687": [
-      "met-collection-api:497687"
-    ],
-    "497688": [
-      "met-collection-api:497688"
-    ],
-    "497689": [
-      "met-collection-api:497689"
-    ],
-    "497690": [
-      "met-collection-api:497690"
-    ],
-    "497692": [
-      "met-collection-api:497692"
-    ],
-    "497693": [
-      "met-collection-api:497693"
-    ],
-    "497694": [
-      "met-collection-api:497694"
-    ],
-    "500016": [
-      "met-collection-api:500016"
     ],
     "532000": [
       "library-of-congress:http-www-loc-gov-item-coprecbooks-00498796916"
@@ -58683,21 +58453,6 @@
     ],
     "900929": [
       "project-gutenberg:pg-2878"
-    ],
-    "901422": [
-      "met-collection-api:901422"
-    ],
-    "901423": [
-      "met-collection-api:901423"
-    ],
-    "901424": [
-      "met-collection-api:901424"
-    ],
-    "901425": [
-      "met-collection-api:901425"
-    ],
-    "901426": [
-      "met-collection-api:901426"
     ],
     "904858": [
       "humanities-literature-radar:oai-doaj-org-article-998f440fde7d4a57ad166926b3504026"
@@ -73786,6 +73541,7 @@
       "project-gutenberg:pg-1189"
     ],
     "adoration": [
+      "met-collection-api:471050",
       "project-gutenberg:pg-5285",
       "project-gutenberg:pg-4654",
       "project-gutenberg:pg-2490"
@@ -81493,6 +81249,7 @@
     "alexander": [
       "project-gutenberg:pg-739",
       "library-of-congress:http-www-loc-gov-item-2024777869",
+      "met-collection-api:208538",
       "doaj-humanities:10-58529-2782-6511-2022-1-3-70-75",
       "doaj-humanities:10-22394-2412-9410-2023-9-4-268-285",
       "project-gutenberg:pg-1331",
@@ -81635,7 +81392,8 @@
       "project-gutenberg:pg-3603"
     ],
     "algiers": [
-      "project-gutenberg:pg-727"
+      "project-gutenberg:pg-727",
+      "met-collection-api:232047"
     ],
     "algo": [
       "doaj-humanities:10-1590-1980-4369e2020011",
@@ -86839,6 +86597,7 @@
       "library-of-congress:http-lccn-loc-gov-2016365528",
       "library-of-congress:http-www-loc-gov-item-hlas-bi96001665",
       "library-of-congress:http-www-loc-gov-item-hlas-bi2022000042",
+      "met-collection-api:288305",
       "smithsonian-open-access:ld1-1646149545906-1646149825927-0",
       "columbia-humanities-departments:https-history-columbia-edu",
       "journal-pmla:10-1632-s0030812900174905",
@@ -90330,6 +90089,7 @@
     ],
     "ancestor": [
       "project-gutenberg:pg-879",
+      "met-collection-api:316019",
       "project-gutenberg:pg-1670",
       "project-gutenberg:pg-3175",
       "project-gutenberg:pg-2510",
@@ -91512,6 +91272,8 @@
       "humanities-literature-radar:oai-doaj-org-article-2ee6466b13bb4eb98ab46195e87a3f16",
       "humanities-literature-radar:oai-doaj-org-article-54337a57366842ee9049fa5f7be27aa0",
       "internet-archive-metadata:tendermomentsinw0000unse",
+      "met-collection-api:288118",
+      "met-collection-api:288300",
       "doaj-humanities:10-1186-s41235-022-00452-z",
       "doaj-humanities:10-1186-s12958-018-0448-5",
       "doaj-humanities:10-3390-ani14192903",
@@ -99566,6 +99328,7 @@
       "humanities-literature-radar:oai-doaj-org-article-558b3958078544889c4485f08c20b602",
       "humanities-literature-radar:oai-doaj-org-article-3824b0452e334fbe9f5e938f68465901",
       "library-of-congress:http-www-loc-gov-item-hlas-bi84105873",
+      "met-collection-api:288120",
       "dh-conference-programs:2136",
       "doaj-humanities:10-1186-s12940-021-00738-7",
       "doaj-humanities:001dca988374430b8e8956b3d03ae988",
@@ -100555,6 +100318,7 @@
     ],
     "arizona": [
       "humanities-literature-radar:r69hh-4zq82",
+      "met-collection-api:288120",
       "project-gutenberg:pg-3316",
       "project-gutenberg:pg-277",
       "project-gutenberg:pg-4768",
@@ -100805,6 +100569,7 @@
     ],
     "armor": [
       "humanities-literature-radar:oai-doaj-org-article-e7024ef555744d0b82622bffaf64472f",
+      "met-collection-api:24860",
       "project-gutenberg:pg-4665",
       "project-gutenberg:pg-2646",
       "project-gutenberg:pg-877",
@@ -100837,6 +100602,7 @@
       "project-gutenberg:pg-879",
       "humanities-literature-radar:mxnp5-0g716",
       "humanities-literature-radar:qr6my-zbp35",
+      "met-collection-api:24860",
       "doaj-humanities:10-5334-sta-cb",
       "doaj-humanities:10-1186-s40814-017-0162-7",
       "project-gutenberg:pg-5295",
@@ -102173,6 +101939,44 @@
       "met-collection-api:248130",
       "met-collection-api:256186",
       "met-collection-api:449863",
+      "met-collection-api:465966",
+      "met-collection-api:464023",
+      "met-collection-api:481530",
+      "met-collection-api:500016",
+      "met-collection-api:481526",
+      "met-collection-api:449853",
+      "met-collection-api:481529",
+      "met-collection-api:477247",
+      "met-collection-api:249232",
+      "met-collection-api:58697",
+      "met-collection-api:51170",
+      "met-collection-api:42733",
+      "met-collection-api:497625",
+      "met-collection-api:497623",
+      "met-collection-api:497620",
+      "met-collection-api:497684",
+      "met-collection-api:497685",
+      "met-collection-api:497687",
+      "met-collection-api:497690",
+      "met-collection-api:497680",
+      "met-collection-api:497694",
+      "met-collection-api:497682",
+      "met-collection-api:497688",
+      "met-collection-api:497693",
+      "met-collection-api:497604",
+      "met-collection-api:497622",
+      "met-collection-api:497610",
+      "met-collection-api:497692",
+      "met-collection-api:497612",
+      "met-collection-api:497618",
+      "met-collection-api:497617",
+      "met-collection-api:497683",
+      "met-collection-api:497681",
+      "met-collection-api:497686",
+      "met-collection-api:497621",
+      "met-collection-api:497624",
+      "met-collection-api:497619",
+      "met-collection-api:497689",
       "columbia-humanities-departments:https-history-columbia-edu",
       "journal-new-literary-history:10-1353-nlh-0-0142",
       "journal-critical-inquiry:10-1086-698179",
@@ -104343,6 +104147,11 @@
       "internet-archive-metadata:sim-daedalus-may-1880-june-1881-16",
       "library-of-congress:http-www-loc-gov-item-hlas-bi74100781",
       "met-collection-api:199313",
+      "met-collection-api:232047",
+      "met-collection-api:229104",
+      "met-collection-api:194110",
+      "met-collection-api:231788",
+      "met-collection-api:208538",
       "dh-conference-programs:2126",
       "doaj-humanities:10-36317-kaj-2023-v1-i57-12324",
       "doaj-humanities:10-1080-23311983-2026-2680621",
@@ -105343,6 +105152,9 @@
       "met-collection-api:49068",
       "met-collection-api:910555",
       "met-collection-api:78057",
+      "met-collection-api:58697",
+      "met-collection-api:51170",
+      "met-collection-api:42733",
       "doaj-humanities:10-1186-s12940-021-00738-7",
       "doaj-humanities:0007355994fb4f3f8d32b26695f25536",
       "doaj-humanities:10-14568-cp9-7",
@@ -108366,6 +108178,7 @@
       "project-gutenberg:pg-5192"
     ],
     "astronomy": [
+      "met-collection-api:288121",
       "doaj-humanities:10-5334-kula-30",
       "doaj-humanities:10-22103-jis-2021-16544-2071",
       "doaj-humanities:10-1029-2022cn000204",
@@ -112875,7 +112688,8 @@
       "humanities-literature-radar:oai-doaj-org-article-184ef5238dae4d2b987ba8c88f9fdc07"
     ],
     "avalokiteshvara": [
-      "cleveland-museum-open-access:148021"
+      "cleveland-museum-open-access:148021",
+      "met-collection-api:51170"
     ],
     "avalon": [
       "expanded-university-humanities-departments:cornell-university-history-department-faculty-https-history-cornell-edu-faculty"
@@ -129053,6 +128867,7 @@
       "yale-humanities-departments:yale-university-english-department-faculty-https-english-yale-edu-books-faculty-books"
     ],
     "bib": [
+      "met-collection-api:229104",
       "doaj-humanities:10-5282-o-bib-6116",
       "doaj-humanities:10-5282-o-bib-5761",
       "doaj-humanities:06f0da0ff5e644a6bfedc3253c7fa2e8",
@@ -133998,7 +133813,8 @@
       "project-gutenberg:pg-4255"
     ],
     "bodhisattva": [
-      "cleveland-museum-open-access:148021"
+      "cleveland-museum-open-access:148021",
+      "met-collection-api:51170"
     ],
     "bodhisattvas": [
       "humanities-literature-radar:hbwn2-4ea65",
@@ -134880,6 +134696,7 @@
       "humanities-literature-radar:oai-doaj-org-article-21c278c3918047e3903fd4aff28e2d7d",
       "canon-drift-feasibility:toni-morrison-paracrine-and-endocrine-actions-of-bone-the-functions-of-secretory-proteins-from-osteoblasts-osteocytes-and-osteoclasts-2018-1",
       "cleveland-museum-open-access:156112",
+      "met-collection-api:249232",
       "smithsonian-open-access:ld1-1646149545906-1646149878843-2",
       "doaj-humanities:10-4103-jhnps-jhnps-19-18",
       "doaj-humanities:10-7573-dic-2020-3-2",
@@ -140212,6 +140029,7 @@
       "humanities-literature-radar:10-1002-ace-70025",
       "humanities-literature-radar:oai-doaj-org-article-5abbcf9550744d0d9ad7948bed2e3607",
       "library-of-congress:http-www-loc-gov-item-2025873582",
+      "met-collection-api:288139",
       "project-gutenberg:pg-375",
       "project-gutenberg:pg-5198",
       "project-gutenberg:pg-4697",
@@ -141846,6 +141664,7 @@
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
     ],
     "brooch": [
+      "met-collection-api:477247",
       "project-gutenberg:pg-3021",
       "project-gutenberg:pg-1742"
     ],
@@ -142954,6 +142773,7 @@
       "cleveland-museum-open-access:142560",
       "cleveland-museum-open-access:114974",
       "cleveland-museum-open-access:147010",
+      "met-collection-api:42733",
       "doaj-humanities:10-17977-um038v5i42022p412",
       "project-gutenberg:pg-1321",
       "uchicago-humanities-departments:university-of-chicago-philosophy-department-programs-https-philosophy-uchicago-edu-courses"
@@ -144943,6 +144763,9 @@
     ],
     "bust": [
       "project-gutenberg:pg-5287",
+      "met-collection-api:232047",
+      "met-collection-api:231788",
+      "met-collection-api:208538",
       "project-gutenberg:pg-1422",
       "project-gutenberg:pg-4755",
       "project-gutenberg:pg-1742",
@@ -145919,6 +145742,9 @@
     "bwa": [
       "cleveland-museum-open-access:144495"
     ],
+    "bwanga": [
+      "met-collection-api:312426"
+    ],
     "bwarnee": [
       "internet-archive-metadata:marginsinclassro0000unse-p4y1"
     ],
@@ -146888,6 +146714,8 @@
     "california": [
       "project-gutenberg:pg-2572",
       "humanities-literature-radar:oai-doaj-org-article-ce24f7491f404bf084109f2dd7f97d5b",
+      "met-collection-api:288149",
+      "met-collection-api:288147",
       "doaj-humanities:10-3390-rs13204130",
       "doaj-humanities:doi-10-14195-2182-8830-4-2-18",
       "doaj-humanities:10-2196-21867",
@@ -148050,6 +147878,9 @@
     "camels": [
       "project-gutenberg:pg-1821",
       "project-gutenberg:pg-5303"
+    ],
+    "cameo": [
+      "met-collection-api:477247"
     ],
     "camera": [
       "humanities-literature-radar:http-arxiv-org-abs-2606-13267v1",
@@ -152878,6 +152709,7 @@
       "project-gutenberg:pg-3314"
     ],
     "carvings": [
+      "met-collection-api:249232",
       "project-gutenberg:pg-877"
     ],
     "cary": [
@@ -153012,6 +152844,7 @@
       "library-of-congress:http-www-loc-gov-item-2019667733",
       "library-of-congress:http-www-loc-gov-item-2024847766",
       "met-collection-api:452948",
+      "met-collection-api:58697",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315312-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315322-en",
       "journal-new-literary-history:10-1353-nlh-1998-0030",
@@ -162689,6 +162522,7 @@
       "cleveland-museum-open-access:114684",
       "cleveland-museum-open-access:102549",
       "cleveland-museum-open-access:132367",
+      "met-collection-api:477247",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319807-en",
       "doaj-humanities:10-17853-1994-5639-2019-8-90-111",
       "doaj-humanities:10-1080-02673843-2025-2536803",
@@ -162944,6 +162778,7 @@
       "library-of-congress:http-www-loc-gov-item-23008557",
       "cleveland-museum-open-access:113202",
       "cleveland-museum-open-access:135007",
+      "met-collection-api:288300",
       "doaj-humanities:0007355994fb4f3f8d32b26695f25536",
       "doaj-humanities:https-doi-org-10-38159-ehass-20267129",
       "doaj-humanities:10-4102-hts-v79i3-8085",
@@ -163341,6 +163176,7 @@
       "cleveland-museum-open-access:93992",
       "cleveland-museum-open-access:135007",
       "cleveland-museum-open-access:117940",
+      "met-collection-api:288302",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319811-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315326-en",
       "journal-critical-inquiry:10-1086-659352",
@@ -164372,6 +164208,7 @@
     "christ": [
       "cleveland-museum-open-access:168322",
       "cleveland-museum-open-access:136217",
+      "met-collection-api:477247",
       "doaj-humanities:10-19166-dil-v6i1-7884",
       "doaj-humanities:10-4102-hts-v43i3-2261",
       "doaj-humanities:10-14324-111-444-2041-9015-1128",
@@ -164476,6 +164313,7 @@
       "internet-archive-metadata:sim-christian-century-1935-07-17-52-29",
       "internet-archive-metadata:sim-christian-century-1937-07-28-54-30",
       "cleveland-museum-open-access:141644",
+      "met-collection-api:24860",
       "doaj-humanities:10-1057-s41599-026-06710-5",
       "doaj-humanities:0000df8d5056429b8e920e6df29d7b38",
       "doaj-humanities:00015f3d76c149539687c2a1b8267115",
@@ -164645,6 +164483,7 @@
     ],
     "christmas": [
       "project-gutenberg:pg-2878",
+      "met-collection-api:288303",
       "project-gutenberg:pg-4207",
       "project-gutenberg:pg-1664",
       "project-gutenberg:pg-519",
@@ -170011,6 +169850,7 @@
       "project-gutenberg:pg-263"
     ],
     "cloisters": [
+      "met-collection-api:471050",
       "met-collection-api:472310"
     ],
     "cloistral": [
@@ -174022,6 +173862,7 @@
     ],
     "colonies": [
       "library-of-congress:http-www-loc-gov-item-30025708",
+      "met-collection-api:231788",
       "doaj-humanities:10-4000-erea-5197",
       "doaj-humanities:000eebe57c0444e591d5ec2ebe9e8596",
       "doaj-humanities:29e869ef66304fb590e9c9b199851a9d",
@@ -174209,6 +174050,7 @@
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-events-https-english-ucla-edu-events"
     ],
     "colorado": [
+      "met-collection-api:288305",
       "project-gutenberg:pg-278",
       "project-gutenberg:pg-277",
       "project-gutenberg:pg-4768",
@@ -177586,6 +177428,7 @@
       "crossref-humanities:10-63744-qth6vgmb9vvt",
       "internet-archive-metadata:china-201603",
       "internet-archive-metadata:wantforothers",
+      "met-collection-api:310453",
       "dh-conference-programs:3409",
       "doaj-humanities:10-1177-21582440221097377",
       "doaj-humanities:0007355994fb4f3f8d32b26695f25536",
@@ -178831,6 +178674,7 @@
       "humanities-literature-radar:oai-doaj-org-article-333e6349dce44bfbaef4b56722f7b3f4",
       "humanities-literature-radar:oai-doaj-org-article-83cac751cef045c184fe0ffffd17d235",
       "cleveland-museum-open-access:148021",
+      "met-collection-api:51170",
       "doaj-humanities:10-18863-pgy-972163",
       "doaj-humanities:10-19166-dil-v6i1-7884",
       "project-gutenberg:pg-5331",
@@ -190077,6 +189921,36 @@
       "internet-archive-metadata:knowledgeforcont0000cron",
       "cleveland-museum-open-access:142792",
       "met-collection-api:733808",
+      "met-collection-api:481530",
+      "met-collection-api:500016",
+      "met-collection-api:481526",
+      "met-collection-api:481529",
+      "met-collection-api:497625",
+      "met-collection-api:497623",
+      "met-collection-api:497620",
+      "met-collection-api:497684",
+      "met-collection-api:497685",
+      "met-collection-api:497687",
+      "met-collection-api:497690",
+      "met-collection-api:497680",
+      "met-collection-api:497694",
+      "met-collection-api:497682",
+      "met-collection-api:497688",
+      "met-collection-api:497693",
+      "met-collection-api:497604",
+      "met-collection-api:497622",
+      "met-collection-api:497610",
+      "met-collection-api:497692",
+      "met-collection-api:497612",
+      "met-collection-api:497618",
+      "met-collection-api:497617",
+      "met-collection-api:497683",
+      "met-collection-api:497681",
+      "met-collection-api:497686",
+      "met-collection-api:497621",
+      "met-collection-api:497624",
+      "met-collection-api:497619",
+      "met-collection-api:497689",
       "doaj-humanities:001c3eeafb1849c58dfa5f464b79a644",
       "doaj-humanities:10-26565-2227-1864-2024-95-07",
       "doaj-humanities:10-24224-2227-1295-2025-14-10-291-324",
@@ -196390,6 +196264,18 @@
     ],
     "costume": [
       "project-gutenberg:pg-1064",
+      "met-collection-api:120983",
+      "met-collection-api:120996",
+      "met-collection-api:120993",
+      "met-collection-api:120995",
+      "met-collection-api:120994",
+      "met-collection-api:121016",
+      "met-collection-api:121015",
+      "met-collection-api:121017",
+      "met-collection-api:121007",
+      "met-collection-api:121008",
+      "met-collection-api:121028",
+      "met-collection-api:121012",
       "doaj-humanities:0293620e80cf48bfac1ddf1239d71bf8",
       "project-gutenberg:pg-4756",
       "project-gutenberg:pg-3385",
@@ -196578,6 +196464,7 @@
     "couch": [
       "project-gutenberg:pg-5299",
       "project-gutenberg:pg-5287",
+      "met-collection-api:249232",
       "project-gutenberg:pg-3603",
       "project-gutenberg:pg-3267",
       "project-gutenberg:pg-4654",
@@ -200827,6 +200714,8 @@
       "project-gutenberg:pg-4399"
     ],
     "crest": [
+      "met-collection-api:311021",
+      "met-collection-api:312460",
       "project-gutenberg:pg-1757",
       "project-gutenberg:pg-5289",
       "project-gutenberg:pg-5168",
@@ -200957,6 +200846,7 @@
       "doaj-humanities:00159a2d940f42e38a13367ebfc5266f"
     ],
     "crib": [
+      "met-collection-api:465966",
       "project-gutenberg:pg-3174"
     ],
     "cribb": [
@@ -202506,6 +202396,7 @@
       "humanities-literature-radar:oai-doaj-org-article-9cd8dbf368c645598c787b22576f8f14",
       "humanities-literature-radar:oai-doaj-org-article-42d1df37ef1748d29aef527411f320aa",
       "humanities-literature-radar:oai-doaj-org-article-3824b0452e334fbe9f5e938f68465901",
+      "met-collection-api:464023",
       "doaj-humanities:10-3390-h5010005",
       "doaj-humanities:0007355994fb4f3f8d32b26695f25536",
       "doaj-humanities:10-1186-s12904-022-00909-4",
@@ -208563,6 +208454,7 @@
       "humanities-literature-radar:r69hh-4zq82",
       "humanities-literature-radar:oai-doaj-org-article-36d5b2f0a898480ea0682387585cfee6",
       "cleveland-museum-open-access:111811",
+      "met-collection-api:312460",
       "doaj-humanities:10-1080-23311983-2024-2308765",
       "doaj-humanities:10-1515-soeu-2022-0051",
       "doaj-humanities:10-22456-2236-3254-104286",
@@ -208970,6 +208862,9 @@
     ],
     "danielsson": [
       "doaj-humanities:008f9239f29c4191994a841e321f99a5"
+    ],
+    "danilovich": [
+      "met-collection-api:208538"
     ],
     "danish": [
       "doaj-humanities:00835040fcf44cf2b039a898ae5efa4d",
@@ -214969,6 +214864,11 @@
       "cleveland-museum-open-access:152834",
       "cleveland-museum-open-access:119326",
       "met-collection-api:199313",
+      "met-collection-api:232047",
+      "met-collection-api:229104",
+      "met-collection-api:194110",
+      "met-collection-api:231788",
+      "met-collection-api:208538",
       "doaj-humanities:0181a63b9c7f4686991b0bf23b357359",
       "doaj-humanities:10-4312-dp-35-14",
       "doaj-humanities:10-4000-insitu-29022",
@@ -223013,6 +222913,7 @@
       "cleveland-museum-open-access:156112",
       "cleveland-museum-open-access:152834",
       "cleveland-museum-open-access:119326",
+      "met-collection-api:58697",
       "dh-conference-programs:16",
       "doaj-humanities:10-13272-j-issn-1671-251x-2022010052",
       "doaj-humanities:10-1080-23311983-2026-2680621",
@@ -243812,6 +243713,7 @@
       "cleveland-museum-open-access:108544",
       "met-collection-api:351287",
       "met-collection-api:691053",
+      "met-collection-api:394727",
       "doaj-humanities:10-1068-ic294",
       "doaj-humanities:10-1344-co2009-3-207-212",
       "doaj-humanities:10-11588-riha-2025-3-113742",
@@ -248476,6 +248378,7 @@
       "met-collection-api:51868",
       "met-collection-api:51867",
       "met-collection-api:544502",
+      "met-collection-api:42733",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319811-en",
       "doaj-humanities:10-1007-s44195-023-00044-4",
       "doaj-humanities:10-3390-rel15121523",
@@ -252645,6 +252548,7 @@
     "edo": [
       "met-collection-api:49068",
       "met-collection-api:78057",
+      "met-collection-api:58697",
       "met-collection-api:53441"
     ],
     "edouardiens": [
@@ -256225,6 +256129,7 @@
       "stanford-humanities-departments:stanford-university-philosophy-department-news-https-philosophy-stanford-edu-academics-undergraduate-program-philosophy-major-philosophy-subplan-history-and-philosophy-science"
     ],
     "elector": [
+      "met-collection-api:24860",
       "project-gutenberg:pg-3626",
       "project-gutenberg:pg-5"
     ],
@@ -265050,6 +264955,7 @@
     "enthroned": [
       "cleveland-museum-open-access:102549",
       "cleveland-museum-open-access:132367",
+      "met-collection-api:477247",
       "project-gutenberg:pg-2490"
     ],
     "enthusiasm": [
@@ -273199,7 +273105,12 @@
       "cleveland-museum-open-access:130457",
       "met-collection-api:199313",
       "met-collection-api:436122",
+      "met-collection-api:232047",
+      "met-collection-api:229104",
+      "met-collection-api:194110",
       "met-collection-api:438814",
+      "met-collection-api:231788",
+      "met-collection-api:208538",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319820-en",
       "dh-conference-programs:2128",
       "journal-critical-inquiry:10-1086-659352",
@@ -282269,6 +282180,7 @@
     ],
     "exposition": [
       "project-gutenberg:pg-2589",
+      "met-collection-api:288319",
       "doaj-humanities:10-22054-urdp-2023-55092-1248",
       "project-gutenberg:pg-613",
       "smithsonian-open-access:ld1-1646149545906-1646150900148-0",
@@ -286661,6 +286573,7 @@
       "humanities-literature-radar:oai-doaj-org-article-86470b270e0744b09b71a1b01b65cbab",
       "humanities-literature-radar:oai-doaj-org-article-f584ae1b983b49daac12969e596ece31",
       "humanities-literature-radar:oai-doaj-org-article-70f2f473c8844862b0ef27c410cc8149",
+      "met-collection-api:288319",
       "doaj-humanities:10-5194-isprs-archives-xlviii-4-w1-2022-201-2022",
       "doaj-humanities:10-1016-j-athplu-2024-10-001",
       "doaj-humanities:020a44d5a5be40a7be942cd227bd5de9",
@@ -295425,6 +295338,12 @@
       "cleveland-museum-open-access:155665",
       "cleveland-museum-open-access:153765",
       "cleveland-museum-open-access:130939",
+      "met-collection-api:312342",
+      "met-collection-api:310453",
+      "met-collection-api:316019",
+      "met-collection-api:312169",
+      "met-collection-api:51170",
+      "met-collection-api:42733",
       "doaj-humanities:10-3389-fpsyg-2023-1129428",
       "doaj-humanities:10-14710-ihis-v1i2-1916",
       "doaj-humanities:10-3390-h14120234",
@@ -301639,6 +301558,7 @@
       "project-gutenberg:pg-4654"
     ],
     "flowering": [
+      "met-collection-api:58697",
       "doaj-humanities:10-1016-j-sftr-2026-101836",
       "project-gutenberg:pg-4207",
       "project-gutenberg:pg-3131",
@@ -302343,6 +302263,7 @@
       "humanities-literature-radar:oai-doaj-org-article-ce24f7491f404bf084109f2dd7f97d5b",
       "humanities-literature-radar:oai-doaj-org-article-de33d527dd20451eb4e27f8324e31854",
       "humanities-literature-radar:oai-doaj-org-article-8bf011bb53d34187aa38b20ac63cc6f8",
+      "met-collection-api:288149",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319819-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1316600-en",
       "columbia-humanities-departments:https-history-columbia-edu",
@@ -304759,6 +304680,9 @@
       "project-gutenberg:pg-2927",
       "project-gutenberg:pg-1657",
       "expanded-university-humanities-departments:cornell-university-english-department-news-https-english-cornell-edu-history"
+    ],
+    "footstool": [
+      "met-collection-api:249232"
     ],
     "footwear": [
       "humanities-literature-radar:oai-doaj-org-article-acd26459536743b0b591abce17140cc1",
@@ -310427,6 +310351,7 @@
       "library-of-congress:http-www-loc-gov-item-hlas-bi84107604",
       "library-of-congress:http-www-loc-gov-item-hlas-bi82107511",
       "cleveland-museum-open-access:136217",
+      "met-collection-api:288147",
       "doaj-humanities:0007c1927f4644418fd0fcb2a8f24932",
       "doaj-humanities:10-3989-revindias-2024-1784",
       "doaj-humanities:075c4fa1da9340a39b90be02f1b177fe",
@@ -311350,6 +311275,7 @@
       "cleveland-museum-open-access:173641",
       "cleveland-museum-open-access:128072",
       "cleveland-museum-open-access:130457",
+      "met-collection-api:231788",
       "doaj-humanities:002b94d7d2154629ae4404689f1aac0f",
       "doaj-humanities:10-4000-erea-5197",
       "doaj-humanities:10-7203-tirant-24-21955",
@@ -316094,6 +316020,7 @@
       "project-gutenberg:pg-878"
     ],
     "gable": [
+      "met-collection-api:313905",
       "doaj-humanities:10-11588-riha-2024-1-104700",
       "project-gutenberg:pg-5272",
       "project-gutenberg:pg-994",
@@ -317031,6 +316958,9 @@
       "project-gutenberg:pg-5275",
       "project-gutenberg:pg-5279"
     ],
+    "ganagana": [
+      "met-collection-api:316019"
+    ],
     "ganando": [
       "doaj-humanities:10-7195-ri14-v16i1-1117"
     ],
@@ -317367,6 +317297,7 @@
       "museum-language-drift:experiment-museum-tate-exhibition-2015-22",
       "internet-archive-metadata:whattoolsdoweuse0000park-c0i3",
       "internet-archive-metadata:bim-eighteenth-century-books-printed-for-e-cur-curll-edmund-1735",
+      "met-collection-api:288305",
       "project-gutenberg:pg-5286",
       "project-gutenberg:pg-4921",
       "project-gutenberg:pg-4207",
@@ -318789,6 +318720,9 @@
       "doaj-humanities:10-1186-s40494-021-00599-w",
       "doaj-humanities:10-21165-gel-v13i2-1325",
       "doaj-humanities:24ee32f1d59c4e8996c8ac077e551d9c"
+    ],
+    "gela": [
+      "met-collection-api:310988"
     ],
     "gelais": [
       "project-gutenberg:pg-5285"
@@ -324786,6 +324720,9 @@
     "gjennom": [
       "doaj-humanities:10-23865-barn-v42-5600"
     ],
+    "gla": [
+      "met-collection-api:310988"
+    ],
     "glacial": [
       "humanities-literature-radar:oai-doaj-org-article-efc139ae76bc4304b04f7f66e554abd7",
       "project-gutenberg:pg-2928",
@@ -325105,6 +325042,7 @@
       "project-gutenberg:pg-1544",
       "project-gutenberg:pg-879",
       "humanities-literature-radar:oai-doaj-org-article-42d1df37ef1748d29aef527411f320aa",
+      "met-collection-api:249232",
       "doaj-humanities:10-1590-0001-3765202020180745",
       "doaj-humanities:10-37939-jrmc-v26i4-2013",
       "doaj-humanities:01aa7b6d425f466f8f8e90c8c67bfeea",
@@ -326966,6 +326904,7 @@
       "project-gutenberg:pg-2934"
     ],
     "gods": [
+      "met-collection-api:288305",
       "doaj-humanities:10-4102-hts-v79i1-8234",
       "doaj-humanities:10-5334-bha-20104",
       "doaj-humanities:10-30958-ajha-11-3-3",
@@ -330689,6 +330628,7 @@
       "project-gutenberg:pg-442"
     ],
     "grasshopper": [
+      "met-collection-api:58697",
       "project-gutenberg:pg-877",
       "project-gutenberg:pg-1934"
     ],
@@ -331858,6 +331798,7 @@
       "cleveland-museum-open-access:110232",
       "met-collection-api:248130",
       "met-collection-api:256186",
+      "met-collection-api:249232",
       "doaj-humanities:10-26907-2541-7738-2020-1-177-190",
       "doaj-humanities:00013d3bb62947a9b6fe4bc67f2cfef3",
       "doaj-humanities:000651f16937483cbae51fd3e76b38a9",
@@ -333377,6 +333318,18 @@
       "humanities-literature-radar:oai-doaj-org-article-ec733e1ec8314f8e974c5ec1fcbf408f",
       "humanities-literature-radar:oai-doaj-org-article-0a0e4becb63e4b35bf352301eaba1303",
       "humanities-literature-radar:oai-doaj-org-article-42d1df37ef1748d29aef527411f320aa",
+      "met-collection-api:288149",
+      "met-collection-api:288118",
+      "met-collection-api:288121",
+      "met-collection-api:288300",
+      "met-collection-api:288302",
+      "met-collection-api:288319",
+      "met-collection-api:288139",
+      "met-collection-api:288147",
+      "met-collection-api:288303",
+      "met-collection-api:288305",
+      "met-collection-api:288120",
+      "met-collection-api:471050",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319801-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1316599-en",
       "dh-conference-programs:3636",
@@ -341627,6 +341580,7 @@
       "cleveland-museum-open-access:130939",
       "cleveland-museum-open-access:161427",
       "cleveland-museum-open-access:147010",
+      "met-collection-api:312426",
       "doaj-humanities:003b5981fba7431dab880a5fc8f52adf",
       "doaj-humanities:10-7860-jcdr-2015-13835-6332",
       "doaj-humanities:10-4103-jhnps-jhnps-19-18",
@@ -341796,6 +341750,10 @@
     ],
     "headboards": [
       "project-gutenberg:pg-3313"
+    ],
+    "headdress": [
+      "met-collection-api:310950",
+      "met-collection-api:312460"
     ],
     "headed": [
       "humanities-literature-radar:oai-doaj-org-article-9a0d9fc330de4ef39df07a1be019bd83",
@@ -344517,6 +344475,8 @@
       "uchicago-humanities-departments:university-of-chicago-history-department-news-https-history-uchicago-edu-news"
     ],
     "helmet": [
+      "met-collection-api:311021",
+      "met-collection-api:313546",
       "project-gutenberg:pg-1664",
       "project-gutenberg:pg-3175",
       "project-gutenberg:pg-929"
@@ -364999,6 +364959,7 @@
       "doaj-humanities:0006c1a586224b08b991fcc27ee17c33"
     ],
     "idi": [
+      "met-collection-api:318622",
       "doaj-humanities:10-37879-belleten-2008-889"
     ],
     "idiom": [
@@ -368412,6 +368373,7 @@
       "humanities-literature-radar:oai-doaj-org-article-0ab5be0bf0e44869af995ef4bdf6a5d0",
       "humanities-literature-radar:oai-doaj-org-article-2f50bbf753a0439b945cf9a7882ab40a",
       "humanities-literature-radar:oai-doaj-org-article-43021eed1822471d868cc88d2638d7aa",
+      "met-collection-api:249232",
       "doaj-humanities:00174975989343a09aa01836f6e583ac",
       "doaj-humanities:10-4000-erea-5197",
       "doaj-humanities:000b9950b9d84ffa8908d6e51d632596",
@@ -376522,6 +376484,7 @@
       "project-gutenberg:pg-879",
       "humanities-literature-radar:oai-doaj-org-article-e1fa01dc4d1b4c8496bd05c4d4e79ca9",
       "cleveland-museum-open-access:168322",
+      "met-collection-api:465966",
       "doaj-humanities:10-4000-15rp7",
       "doaj-humanities:10-3389-fpsyg-2022-812893",
       "doaj-humanities:10-1186-s13006-025-00741-5",
@@ -376896,6 +376859,7 @@
       "project-gutenberg:pg-274"
     ],
     "infinite": [
+      "met-collection-api:51170",
       "doaj-humanities:10-22078-jpst-2022-4395-1712",
       "doaj-humanities:018a8105b8a34f04a5f27517d047bb00",
       "doaj-humanities:070f567d1a45438280bbaf6cceedee0b",
@@ -379532,11 +379496,13 @@
       "cleveland-museum-open-access:129799",
       "cleveland-museum-open-access:148021",
       "cleveland-museum-open-access:142560",
+      "met-collection-api:249232",
       "doaj-humanities:10-22034-ias-2020-236323-1275",
       "project-gutenberg:pg-442"
     ],
     "inlays": [
       "cleveland-museum-open-access:156112",
+      "met-collection-api:249232",
       "doaj-humanities:10-22034-ias-2020-236323-1275"
     ],
     "inlerinin": [
@@ -380317,6 +380283,9 @@
     ],
     "inquysicyoun": [
       "project-gutenberg:pg-2878"
+    ],
+    "inr": [
+      "met-collection-api:58697"
     ],
     "inrita": [
       "project-gutenberg:pg-1321"
@@ -381743,6 +381712,18 @@
       "openalex-humanities:https-openalex-org-w4235328403",
       "openalex-humanities:https-openalex-org-w2147097143",
       "openalex-humanities:https-openalex-org-w2010189956",
+      "met-collection-api:120983",
+      "met-collection-api:120996",
+      "met-collection-api:120993",
+      "met-collection-api:120995",
+      "met-collection-api:120994",
+      "met-collection-api:121016",
+      "met-collection-api:121015",
+      "met-collection-api:121017",
+      "met-collection-api:121007",
+      "met-collection-api:121008",
+      "met-collection-api:121028",
+      "met-collection-api:121012",
       "dh-conference-programs:3710",
       "dh-conference-programs:3573",
       "mla-convention-programs:https-www-mla-org-events-2027-mla-convention",
@@ -390566,6 +390547,7 @@
       "met-collection-api:451259",
       "met-collection-api:454624",
       "met-collection-api:449863",
+      "met-collection-api:449853",
       "doaj-humanities:10-3390-rel15030365",
       "doaj-humanities:10-16995-zygon-18951",
       "doaj-humanities:10-4102-hts-v79i1-8234",
@@ -395124,6 +395106,7 @@
       "project-gutenberg:pg-5198"
     ],
     "jesus": [
+      "met-collection-api:465966",
       "doaj-humanities:0000df8d5056429b8e920e6df29d7b38",
       "doaj-humanities:0009feb2c323448fa6ffd367c8207567",
       "doaj-humanities:10-4102-ve-v45i1-3169",
@@ -395266,6 +395249,7 @@
     ],
     "jewish": [
       "humanities-literature-radar:oai-doaj-org-article-00dacc41ca51458191dde597d399d49c",
+      "met-collection-api:232047",
       "journal-critical-inquiry:10-1086-723674",
       "doaj-humanities:10-24224-2227-1295-2025-14-10-291-324",
       "doaj-humanities:0003b6c7862442f6a5d3dfca5300a1f1",
@@ -407218,6 +407202,9 @@
     "kpc2": [
       "humanities-literature-radar:oai-doaj-org-article-182cb9152b884eb5bdea7e9ac8a3f743"
     ],
+    "kpeliye": [
+      "met-collection-api:310950"
+    ],
     "kpi": [
       "doaj-humanities:0e1a151c655548b194b12d622641bbfe"
     ],
@@ -410027,6 +410014,7 @@
       "humanities-literature-radar:oai-doaj-org-article-e09eda0c910740f08197a4d9245c4874",
       "humanities-literature-radar:oai-doaj-org-article-6c71cd746e224d06ae980b5f364c2821",
       "met-collection-api:78057",
+      "met-collection-api:288149",
       "doaj-humanities:10-26565-2227-1864-2024-95-07",
       "doaj-humanities:10-18055-finis1624",
       "doaj-humanities:10-24224-2227-1295-2025-14-10-291-324",
@@ -423238,6 +423226,7 @@
     ],
     "lily": [
       "project-gutenberg:pg-1544",
+      "met-collection-api:58697",
       "project-gutenberg:pg-5295",
       "project-gutenberg:pg-5291",
       "project-gutenberg:pg-1664",
@@ -434354,6 +434343,7 @@
       "humanities-literature-radar:6pkfd-62313",
       "humanities-literature-radar:d2vhf-sqh21",
       "cleveland-museum-open-access:138464",
+      "met-collection-api:288319",
       "doaj-humanities:10-22103-jcl-2023-20194-3526",
       "project-gutenberg:pg-4207",
       "project-gutenberg:pg-5272",
@@ -434399,6 +434389,7 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news"
     ],
     "louisiana": [
+      "met-collection-api:288319",
       "doaj-humanities:10-4000-erea-5197",
       "project-gutenberg:pg-3382",
       "project-gutenberg:pg-3131",
@@ -438160,6 +438151,7 @@
       "doaj-humanities:0710eea25f63414cae3780245bb9cb8f"
     ],
     "magi": [
+      "met-collection-api:471050",
       "project-gutenberg:pg-5168",
       "project-gutenberg:pg-2627"
     ],
@@ -439568,6 +439560,9 @@
     "maitresse": [
       "project-gutenberg:pg-1555"
     ],
+    "maitreya": [
+      "met-collection-api:42733"
+    ],
     "maiuro": [
       "columbia-humanities-departments:columbia-university-history-department-faculty-https-history-columbia-edu-faculty-main-affiliated-faculty"
     ],
@@ -440938,6 +440933,7 @@
       "humanities-literature-radar:oai-doaj-org-article-358567bfc95249c1ac40a36e1a5ad9cf",
       "humanities-literature-radar:oai-doaj-org-article-a39c15486cce41a8bd584bd1e6d36b5a",
       "cleveland-museum-open-access:127239",
+      "met-collection-api:310453",
       "doaj-humanities:https-doi-org-10-38159-ehass-20267129",
       "doaj-humanities:10-17853-1994-5639-2019-8-90-111",
       "doaj-humanities:10-5937-zrffp54-47476",
@@ -441355,6 +441351,7 @@
       "library-of-congress:http-www-loc-gov-item-hlas-bi82107719",
       "cleveland-museum-open-access:127571",
       "met-collection-api:446568",
+      "met-collection-api:471050",
       "smithsonian-open-access:ld1-1646149545906-1646150594434-0",
       "journal-critical-inquiry:10-1086-448520",
       "doaj-humanities:10-29162-pv-42-1-1060",
@@ -445938,6 +445935,12 @@
       "project-gutenberg:pg-1064",
       "humanities-literature-radar:oai-doaj-org-article-76de71ca65e74a77833b03c4c2bc3b6d",
       "cleveland-museum-open-access:144495",
+      "met-collection-api:313905",
+      "met-collection-api:311021",
+      "met-collection-api:310988",
+      "met-collection-api:310950",
+      "met-collection-api:318622",
+      "met-collection-api:313546",
       "doaj-humanities:10-3389-fpsyg-2012-00280",
       "project-gutenberg:pg-5331",
       "project-gutenberg:pg-5298",
@@ -446024,6 +446027,7 @@
     ],
     "masquerade": [
       "project-gutenberg:pg-1064",
+      "met-collection-api:311021",
       "project-gutenberg:pg-5198",
       "project-gutenberg:pg-1062",
       "project-gutenberg:pg-5281"
@@ -448886,6 +448890,9 @@
     ],
     "mazzotti": [
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-news-https-history-berkeley-edu-news"
+    ],
+    "mbalmbal": [
+      "met-collection-api:313546"
     ],
     "mbi": [
       "doaj-humanities:10-1186-s12889-023-15604-z"
@@ -451795,6 +451802,9 @@
       "cleveland-museum-open-access:97165",
       "cleveland-museum-open-access:132367",
       "cleveland-museum-open-access:135931",
+      "met-collection-api:465966",
+      "met-collection-api:464023",
+      "met-collection-api:477247",
       "doaj-humanities:10-26907-2541-7738-2020-1-177-190",
       "doaj-humanities:10-7203-scripta-8-9326",
       "doaj-humanities:10-4000-medievalista-889",
@@ -454365,6 +454375,9 @@
     "mense": [
       "doaj-humanities:10-38140-at-v21i1-1538"
     ],
+    "menshikov": [
+      "met-collection-api:208538"
+    ],
     "mensonge": [
       "doaj-humanities:10-4000-etudesromanes-2788"
     ],
@@ -455832,81 +455845,6 @@
       "humanities-literature-radar:oai-doaj-org-article-caf839424321489e83227268c0f3e0cb",
       "humanities-literature-radar:oai-doaj-org-article-dc6fd587c5d04ccc8189dc78c0b3daec",
       "humanities-literature-radar:oai-doaj-org-article-a39c15486cce41a8bd584bd1e6d36b5a",
-      "met-collection-api:288149",
-      "met-collection-api:288118",
-      "met-collection-api:288121",
-      "met-collection-api:465966",
-      "met-collection-api:312342",
-      "met-collection-api:24860",
-      "met-collection-api:464023",
-      "met-collection-api:310453",
-      "met-collection-api:288300",
-      "met-collection-api:313905",
-      "met-collection-api:901425",
-      "met-collection-api:901424",
-      "met-collection-api:901423",
-      "met-collection-api:901422",
-      "met-collection-api:901426",
-      "met-collection-api:394727",
-      "met-collection-api:232047",
-      "met-collection-api:316019",
-      "met-collection-api:481530",
-      "met-collection-api:500016",
-      "met-collection-api:481526",
-      "met-collection-api:449853",
-      "met-collection-api:481529",
-      "met-collection-api:311021",
-      "met-collection-api:288302",
-      "met-collection-api:310988",
-      "met-collection-api:477247",
-      "met-collection-api:310950",
-      "met-collection-api:318622",
-      "met-collection-api:313546",
-      "met-collection-api:312460",
-      "met-collection-api:288319",
-      "met-collection-api:229104",
-      "met-collection-api:194110",
-      "met-collection-api:231788",
-      "met-collection-api:208538",
-      "met-collection-api:312426",
-      "met-collection-api:288139",
-      "met-collection-api:288147",
-      "met-collection-api:288303",
-      "met-collection-api:288305",
-      "met-collection-api:288120",
-      "met-collection-api:249232",
-      "met-collection-api:312169",
-      "met-collection-api:58697",
-      "met-collection-api:471050",
-      "met-collection-api:51170",
-      "met-collection-api:42733",
-      "met-collection-api:120983",
-      "met-collection-api:497625",
-      "met-collection-api:497623",
-      "met-collection-api:497620",
-      "met-collection-api:497684",
-      "met-collection-api:497685",
-      "met-collection-api:497687",
-      "met-collection-api:497690",
-      "met-collection-api:497680",
-      "met-collection-api:497694",
-      "met-collection-api:497682",
-      "met-collection-api:497688",
-      "met-collection-api:497693",
-      "met-collection-api:497604",
-      "met-collection-api:497622",
-      "met-collection-api:497610",
-      "met-collection-api:497692",
-      "met-collection-api:497612",
-      "met-collection-api:497618",
-      "met-collection-api:497617",
-      "met-collection-api:497683",
-      "met-collection-api:497681",
-      "met-collection-api:497686",
-      "met-collection-api:497621",
-      "met-collection-api:497624",
-      "met-collection-api:497619",
-      "met-collection-api:497689",
       "met-collection-api:682737",
       "met-collection-api:682738",
       "met-collection-api:655853",
@@ -455919,17 +455857,6 @@
       "met-collection-api:291419",
       "met-collection-api:265363",
       "met-collection-api:120990",
-      "met-collection-api:120996",
-      "met-collection-api:120993",
-      "met-collection-api:120995",
-      "met-collection-api:120994",
-      "met-collection-api:121016",
-      "met-collection-api:121015",
-      "met-collection-api:121017",
-      "met-collection-api:121007",
-      "met-collection-api:121008",
-      "met-collection-api:121028",
-      "met-collection-api:121012",
       "doaj-humanities:10-22363-2313-2337-2020-24-4-1039-1062",
       "doaj-humanities:10-3390-computers12110236",
       "doaj-humanities:https-doi-org-10-5206-cjsotl-rcacea-2017-2-7",
@@ -458433,6 +458360,23 @@
       "met-collection-api:316763",
       "met-collection-api:313787",
       "met-collection-api:313650",
+      "met-collection-api:312342",
+      "met-collection-api:310453",
+      "met-collection-api:313905",
+      "met-collection-api:901425",
+      "met-collection-api:901424",
+      "met-collection-api:901423",
+      "met-collection-api:901422",
+      "met-collection-api:901426",
+      "met-collection-api:316019",
+      "met-collection-api:311021",
+      "met-collection-api:310988",
+      "met-collection-api:310950",
+      "met-collection-api:318622",
+      "met-collection-api:313546",
+      "met-collection-api:312460",
+      "met-collection-api:312426",
+      "met-collection-api:312169",
       "dh-conference-programs:2128",
       "doaj-humanities:10-2298-zrvi1249113l",
       "doaj-humanities:10-22439-fs-v0i11-3216",
@@ -459963,6 +459907,7 @@
     ],
     "mile": [
       "humanities-literature-radar:oai-doaj-org-article-f215e3d1f4e34fe2a6866698fac54df6",
+      "met-collection-api:42733",
       "doaj-humanities:10-4000-sdj-3103",
       "project-gutenberg:pg-4921",
       "project-gutenberg:pg-3380",
@@ -464740,6 +464685,36 @@
       "cleveland-museum-open-access:146416",
       "cleveland-museum-open-access:130457",
       "met-collection-api:733808",
+      "met-collection-api:481530",
+      "met-collection-api:500016",
+      "met-collection-api:481526",
+      "met-collection-api:481529",
+      "met-collection-api:497625",
+      "met-collection-api:497623",
+      "met-collection-api:497620",
+      "met-collection-api:497684",
+      "met-collection-api:497685",
+      "met-collection-api:497687",
+      "met-collection-api:497690",
+      "met-collection-api:497680",
+      "met-collection-api:497694",
+      "met-collection-api:497682",
+      "met-collection-api:497688",
+      "met-collection-api:497693",
+      "met-collection-api:497604",
+      "met-collection-api:497622",
+      "met-collection-api:497610",
+      "met-collection-api:497692",
+      "met-collection-api:497612",
+      "met-collection-api:497618",
+      "met-collection-api:497617",
+      "met-collection-api:497683",
+      "met-collection-api:497681",
+      "met-collection-api:497686",
+      "met-collection-api:497621",
+      "met-collection-api:497624",
+      "met-collection-api:497619",
+      "met-collection-api:497689",
       "columbia-humanities-departments:https-history-columbia-edu",
       "journal-new-literary-history:10-1353-nlh-1996-0033",
       "journal-pmla:10-1632-s0030812900174905",
@@ -478735,6 +478710,7 @@
       "openalex-humanities:https-openalex-org-w2777639606",
       "crossref-humanities:10-1163-9789004651470-009",
       "library-of-congress:http-lccn-loc-gov-2006017202",
+      "met-collection-api:288149",
       "doaj-humanities:10-1177-21582440221097377",
       "doaj-humanities:0002a44cb3fc4d4a80720694da941b36",
       "doaj-humanities:10-3390-h5010005",
@@ -486630,6 +486606,9 @@
     "nizovi": [
       "doaj-humanities:10-31664-ripu-2021-45-14"
     ],
+    "nja": [
+      "met-collection-api:311021"
+    ],
     "njak": [
       "doaj-humanities:0397f67bca1d49cb907b6e63430b4f15",
       "doaj-humanities:27470c34b4de417ca4319d24b2e7dcd8"
@@ -486667,6 +486646,12 @@
     ],
     "nkiras2": [
       "humanities-literature-radar:oai-doaj-org-article-234b0532cb794350a9f18814f2c8207e"
+    ],
+    "nkishi": [
+      "met-collection-api:310453"
+    ],
+    "nkisi": [
+      "met-collection-api:312342"
     ],
     "nkrumah": [
       "ssrn-humanities-adjacent:10-2139-ssrn-4987963"
@@ -488719,6 +488704,7 @@
       "humanities-literature-radar:oai-doaj-org-article-f18a5fd28b4441c0ae7d57e93af5c91c",
       "internet-archive-metadata:visitnorthernire0000oxla",
       "cleveland-museum-open-access:97155",
+      "met-collection-api:42733",
       "doaj-humanities:0009cf641d0c4864ba18d8ce24ead4a9",
       "doaj-humanities:10-56583-fs-97",
       "doaj-humanities:10-1057-s41599-026-06776-1",
@@ -507250,6 +507236,7 @@
       "openalex-humanities:https-openalex-org-w2165474034",
       "internet-archive-metadata:bim-eighteenth-century-anecdotes-and-other-curi-1788",
       "library-of-congress:http-www-loc-gov-item-09024526",
+      "met-collection-api:288305",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319808-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319813-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315317-en",
@@ -515293,6 +515280,9 @@
       "project-gutenberg:pg-1635",
       "project-gutenberg:pg-5420",
       "project-gutenberg:pg-3183"
+    ],
+    "pantokrator": [
+      "met-collection-api:477247"
     ],
     "panton": [
       "project-gutenberg:pg-1171"
@@ -523701,6 +523691,8 @@
     "pendant": [
       "humanities-literature-radar:2n16y-rp975",
       "cleveland-museum-open-access:125101",
+      "met-collection-api:477247",
+      "met-collection-api:318622",
       "met-collection-api:451270"
     ],
     "pendantes": [
@@ -526521,6 +526513,7 @@
       "met-collection-api:49068",
       "met-collection-api:910555",
       "met-collection-api:78057",
+      "met-collection-api:58697",
       "doaj-humanities:10-1177-21582440251405566",
       "doaj-humanities:10-3390-rel16101260",
       "doaj-humanities:10-3389-fpsyg-2023-1129428",
@@ -531697,6 +531690,52 @@
       "doaj-humanities:10-5194-isprsarchives-xl-5-w2-611-2013"
     ],
     "photograph": [
+      "met-collection-api:120983",
+      "met-collection-api:497625",
+      "met-collection-api:497623",
+      "met-collection-api:497620",
+      "met-collection-api:497684",
+      "met-collection-api:497685",
+      "met-collection-api:497687",
+      "met-collection-api:497690",
+      "met-collection-api:497680",
+      "met-collection-api:497694",
+      "met-collection-api:497682",
+      "met-collection-api:497688",
+      "met-collection-api:497693",
+      "met-collection-api:497604",
+      "met-collection-api:497622",
+      "met-collection-api:497610",
+      "met-collection-api:497692",
+      "met-collection-api:497612",
+      "met-collection-api:497618",
+      "met-collection-api:497617",
+      "met-collection-api:497683",
+      "met-collection-api:497681",
+      "met-collection-api:497686",
+      "met-collection-api:497621",
+      "met-collection-api:497624",
+      "met-collection-api:497619",
+      "met-collection-api:497689",
+      "met-collection-api:682737",
+      "met-collection-api:682738",
+      "met-collection-api:291411",
+      "met-collection-api:291421",
+      "met-collection-api:291413",
+      "met-collection-api:291408",
+      "met-collection-api:291412",
+      "met-collection-api:265363",
+      "met-collection-api:120996",
+      "met-collection-api:120993",
+      "met-collection-api:120995",
+      "met-collection-api:120994",
+      "met-collection-api:121016",
+      "met-collection-api:121015",
+      "met-collection-api:121017",
+      "met-collection-api:121007",
+      "met-collection-api:121008",
+      "met-collection-api:121028",
+      "met-collection-api:121012",
       "doaj-humanities:10-30959-ptj-v6i3-171",
       "doaj-humanities:10-3390-heritage8110478",
       "project-gutenberg:pg-3257",
@@ -531832,6 +531871,25 @@
       "humanities-literature-radar:oai-doaj-org-article-e4c53da6ccf0466bb857efdf1994e819",
       "humanities-literature-radar:oai-doaj-org-article-40379d6b17074d06a2c86e35e0225d50",
       "humanities-literature-radar:oai-doaj-org-article-a7cda6bb00cf4a55930fc85cd1bdb9bf",
+      "met-collection-api:288149",
+      "met-collection-api:288118",
+      "met-collection-api:288121",
+      "met-collection-api:288300",
+      "met-collection-api:288302",
+      "met-collection-api:288319",
+      "met-collection-api:288139",
+      "met-collection-api:288147",
+      "met-collection-api:288303",
+      "met-collection-api:288305",
+      "met-collection-api:288120",
+      "met-collection-api:682737",
+      "met-collection-api:682738",
+      "met-collection-api:291411",
+      "met-collection-api:291421",
+      "met-collection-api:291413",
+      "met-collection-api:291408",
+      "met-collection-api:291412",
+      "met-collection-api:265363",
       "doaj-humanities:10-1186-s12939-024-02142-2",
       "doaj-humanities:10-1068-ic294",
       "doaj-humanities:10-14324-111-444-2041-9015-1128",
@@ -545925,6 +545983,9 @@
       "internet-archive-metadata:whosrunningnatio0000gayk",
       "library-of-congress:http-lccn-loc-gov-2013422172",
       "cleveland-museum-open-access:155783",
+      "met-collection-api:312342",
+      "met-collection-api:310453",
+      "met-collection-api:312426",
       "doaj-humanities:10-1080-23311983-2026-2680621",
       "doaj-humanities:10-1063-5-0202907",
       "doaj-humanities:10-29224-insanveinsan-453020",
@@ -553190,6 +553251,7 @@
       "project-gutenberg:pg-1064",
       "project-gutenberg:pg-5287",
       "met-collection-api:448463",
+      "met-collection-api:24860",
       "doaj-humanities:0009634af82240eda5958af9b9840137",
       "doaj-humanities:10-4000-e-spania-23361",
       "doaj-humanities:10-56620-2587-9731-2025-2-134-150",
@@ -553632,6 +553694,7 @@
       "humanities-centers-public-pages:experiment-university-university-of-pennsylvania-catalog-2026-18",
       "met-collection-api:351287",
       "met-collection-api:691053",
+      "met-collection-api:394727",
       "doaj-humanities:10-18523-kmhj106719-2017-4-85-93",
       "doaj-humanities:10-4000-erea-5197",
       "doaj-humanities:000f57034d2744e2b63b527dd62bbcfe",
@@ -553924,6 +553987,7 @@
       "met-collection-api:351287",
       "met-collection-api:691053",
       "met-collection-api:436122",
+      "met-collection-api:394727",
       "project-gutenberg:pg-1475",
       "project-gutenberg:pg-2646",
       "project-gutenberg:pg-3021",
@@ -556115,6 +556179,7 @@
       "expanded-university-humanities-departments:university-of-california-berkeley-history-department-events-https-history-berkeley-edu-events-commencement"
     ],
     "processional": [
+      "met-collection-api:464023",
       "wikidata-cultural-entities:Q180853",
       "cleveland-museum-open-access:145192",
       "met-collection-api:437497",
@@ -566679,6 +566744,7 @@
       "cleveland-museum-open-access:149108",
       "cleveland-museum-open-access:137319",
       "cleveland-museum-open-access:117940",
+      "met-collection-api:288319",
       "doaj-humanities:10-1186-s12982-025-00422-y",
       "doaj-humanities:10-22034-jnamm-2025-547949-1156",
       "doaj-humanities:00bdbd2a8f614b8a911374bba6b823d6",
@@ -574506,6 +574572,7 @@
     ],
     "rapier": [
       "project-gutenberg:pg-1063",
+      "met-collection-api:24860",
       "project-gutenberg:pg-1062"
     ],
     "rapimento": [
@@ -585521,6 +585588,7 @@
       "humanities-literature-radar:oai-doaj-org-article-a39c15486cce41a8bd584bd1e6d36b5a",
       "humanities-literature-radar:oai-doaj-org-article-42d1df37ef1748d29aef527411f320aa",
       "humanities-literature-radar:oai-doaj-org-article-3e0c7c80d4d64c3289b6c5b138e4c257",
+      "met-collection-api:288121",
       "mla-convention-programs:https-www-mla-org-events-2027-mla-convention",
       "doaj-humanities:10-1080-2331186x-2025-2546125",
       "doaj-humanities:0007355994fb4f3f8d32b26695f25536",
@@ -587469,6 +587537,7 @@
       "project-gutenberg:pg-771"
     ],
     "reliquary": [
+      "met-collection-api:312169",
       "cleveland-museum-open-access:112316"
     ],
     "reliques": [
@@ -604427,6 +604496,23 @@
       "met-collection-api:316763",
       "met-collection-api:313787",
       "met-collection-api:313650",
+      "met-collection-api:312342",
+      "met-collection-api:310453",
+      "met-collection-api:313905",
+      "met-collection-api:901425",
+      "met-collection-api:901424",
+      "met-collection-api:901423",
+      "met-collection-api:901422",
+      "met-collection-api:901426",
+      "met-collection-api:316019",
+      "met-collection-api:311021",
+      "met-collection-api:310988",
+      "met-collection-api:310950",
+      "met-collection-api:318622",
+      "met-collection-api:313546",
+      "met-collection-api:312460",
+      "met-collection-api:312426",
+      "met-collection-api:312169",
       "project-gutenberg:pg-56",
       "met-collection-api:310003",
       "met-collection-api:311985",
@@ -605297,6 +605383,7 @@
       "cleveland-museum-open-access:110232",
       "met-collection-api:248130",
       "met-collection-api:256186",
+      "met-collection-api:249232",
       "doaj-humanities:10-26907-2541-7738-2020-1-177-190",
       "doaj-humanities:https-doi-org-10-38159-ehass-20212123",
       "doaj-humanities:0001e3ecc3c14e329bfcbd8ef6f5152e",
@@ -611959,6 +612046,7 @@
     ],
     "san": [
       "project-gutenberg:pg-727",
+      "met-collection-api:288147",
       "doaj-humanities:10-3390-rel16101260",
       "doaj-humanities:http-dx-doi-org-10-2536-liminar-v15i1-493",
       "doaj-humanities:10-29043-liminar-v18i2-770",
@@ -613840,6 +613928,7 @@
     "saxony": [
       "project-gutenberg:pg-870",
       "cleveland-museum-open-access:112876",
+      "met-collection-api:24860",
       "doaj-humanities:10-11588-riha-2024-1-104700",
       "cleveland-museum-open-access:112316"
     ],
@@ -615043,6 +615132,7 @@
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses"
     ],
     "scenery": [
+      "met-collection-api:288305",
       "doaj-humanities:10-7336-academicus-2012-05-07",
       "doaj-humanities:014c829dadf94909ac59dcef08d5bd00",
       "project-gutenberg:pg-4207",
@@ -615063,6 +615153,8 @@
       "cleveland-museum-open-access:149105",
       "cleveland-museum-open-access:149107",
       "cleveland-museum-open-access:149108",
+      "met-collection-api:288121",
+      "met-collection-api:288303",
       "doaj-humanities:10-13272-j-issn-1671-251x-2022010052",
       "doaj-humanities:10-1068-ic294",
       "doaj-humanities:10-35218-armca-2019-1-01",
@@ -621096,7 +621188,24 @@
       "cleveland-museum-open-access:130457",
       "cleveland-museum-open-access:99445",
       "met-collection-api:199313",
+      "met-collection-api:901425",
+      "met-collection-api:901424",
+      "met-collection-api:901423",
+      "met-collection-api:901422",
+      "met-collection-api:901426",
+      "met-collection-api:394727",
+      "met-collection-api:232047",
+      "met-collection-api:481530",
+      "met-collection-api:500016",
+      "met-collection-api:481526",
+      "met-collection-api:449853",
+      "met-collection-api:481529",
+      "met-collection-api:229104",
+      "met-collection-api:194110",
+      "met-collection-api:231788",
+      "met-collection-api:208538",
       "met-collection-api:21656",
+      "met-collection-api:471050",
       "doaj-humanities:10-3390-arts13010021",
       "doaj-humanities:0126a6749da64465a2b323b8f4f923f3",
       "doaj-humanities:10-3390-rel12110994",
@@ -661079,6 +661188,7 @@
     "stalk": [
       "project-gutenberg:pg-1137",
       "project-gutenberg:pg-1543",
+      "met-collection-api:58697",
       "project-gutenberg:pg-1664",
       "project-gutenberg:pg-3316",
       "project-gutenberg:pg-5292",
@@ -661596,6 +661706,7 @@
       "humanities-literature-radar:oai-doaj-org-article-de763bc16eef4aa589bbc5ca22d422a5",
       "cleveland-museum-open-access:142560",
       "cleveland-museum-open-access:147010",
+      "met-collection-api:51170",
       "doaj-humanities:10-16995-zygon-18951",
       "doaj-humanities:10-1051-e3sconf-202567702011",
       "doaj-humanities:0181a63b9c7f4686991b0bf23b357359",
@@ -663259,6 +663370,7 @@
       "library-of-congress:http-www-loc-gov-item-02017780",
       "library-of-congress:http-www-loc-gov-item-12006404",
       "cleveland-museum-open-access:117940",
+      "met-collection-api:288305",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319801-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319805-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315315-en",
@@ -663763,6 +663875,7 @@
       "project-gutenberg:pg-3385"
     ],
     "statuette": [
+      "met-collection-api:229104",
       "cleveland-museum-open-access:157016",
       "met-collection-api:255275"
     ],
@@ -663901,6 +664014,9 @@
       "project-gutenberg:pg-5297",
       "project-gutenberg:pg-5198",
       "uchicago-humanities-departments:university-of-chicago-english-department-programs-https-english-uchicago-edu-courses"
+    ],
+    "statutette": [
+      "met-collection-api:229104"
     ],
     "statutory": [
       "humanities-literature-radar:oai-doaj-org-article-39d9ad3af8964ac298f0277b959a305f",
@@ -664961,9 +665077,31 @@
       "doaj-humanities:10-32330-nusha-1448634"
     ],
     "stereograph": [
+      "met-collection-api:288149",
+      "met-collection-api:288118",
+      "met-collection-api:288121",
+      "met-collection-api:288300",
+      "met-collection-api:288302",
+      "met-collection-api:288319",
+      "met-collection-api:288139",
+      "met-collection-api:288147",
+      "met-collection-api:288303",
+      "met-collection-api:288305",
+      "met-collection-api:288120",
       "library-of-congress:http-www-loc-gov-item-2021645848"
     ],
     "stereographs": [
+      "met-collection-api:288149",
+      "met-collection-api:288118",
+      "met-collection-api:288121",
+      "met-collection-api:288300",
+      "met-collection-api:288302",
+      "met-collection-api:288319",
+      "met-collection-api:288139",
+      "met-collection-api:288147",
+      "met-collection-api:288303",
+      "met-collection-api:288305",
+      "met-collection-api:288120",
       "library-of-congress:http-www-loc-gov-item-2021645848"
     ],
     "stereopticon": [
@@ -670764,104 +670902,10 @@
       "project-gutenberg:pg-2934"
     ],
     "stub": [
-      "met-collection-api:288149",
-      "met-collection-api:288118",
-      "met-collection-api:288121",
-      "met-collection-api:465966",
-      "met-collection-api:312342",
-      "met-collection-api:24860",
-      "met-collection-api:464023",
-      "met-collection-api:310453",
-      "met-collection-api:288300",
-      "met-collection-api:313905",
-      "met-collection-api:901425",
-      "met-collection-api:901424",
-      "met-collection-api:901423",
-      "met-collection-api:901422",
-      "met-collection-api:901426",
-      "met-collection-api:394727",
-      "met-collection-api:232047",
-      "met-collection-api:316019",
-      "met-collection-api:481530",
-      "met-collection-api:500016",
-      "met-collection-api:481526",
-      "met-collection-api:449853",
-      "met-collection-api:481529",
-      "met-collection-api:311021",
-      "met-collection-api:288302",
-      "met-collection-api:310988",
-      "met-collection-api:477247",
-      "met-collection-api:310950",
-      "met-collection-api:318622",
-      "met-collection-api:313546",
-      "met-collection-api:312460",
-      "met-collection-api:288319",
-      "met-collection-api:229104",
-      "met-collection-api:194110",
-      "met-collection-api:231788",
-      "met-collection-api:208538",
-      "met-collection-api:312426",
-      "met-collection-api:288139",
-      "met-collection-api:288147",
-      "met-collection-api:288303",
-      "met-collection-api:288305",
-      "met-collection-api:288120",
-      "met-collection-api:249232",
-      "met-collection-api:312169",
-      "met-collection-api:58697",
-      "met-collection-api:471050",
-      "met-collection-api:51170",
-      "met-collection-api:42733",
-      "met-collection-api:120983",
-      "met-collection-api:497625",
-      "met-collection-api:497623",
-      "met-collection-api:497620",
-      "met-collection-api:497684",
-      "met-collection-api:497685",
-      "met-collection-api:497687",
-      "met-collection-api:497690",
-      "met-collection-api:497680",
-      "met-collection-api:497694",
-      "met-collection-api:497682",
-      "met-collection-api:497688",
-      "met-collection-api:497693",
-      "met-collection-api:497604",
-      "met-collection-api:497622",
-      "met-collection-api:497610",
-      "met-collection-api:497692",
-      "met-collection-api:497612",
-      "met-collection-api:497618",
-      "met-collection-api:497617",
-      "met-collection-api:497683",
-      "met-collection-api:497681",
-      "met-collection-api:497686",
-      "met-collection-api:497621",
-      "met-collection-api:497624",
-      "met-collection-api:497619",
-      "met-collection-api:497689",
-      "met-collection-api:682737",
-      "met-collection-api:682738",
       "met-collection-api:655853",
-      "met-collection-api:291411",
-      "met-collection-api:291421",
-      "met-collection-api:291413",
-      "met-collection-api:291408",
       "met-collection-api:291426",
-      "met-collection-api:291412",
       "met-collection-api:291419",
-      "met-collection-api:265363",
-      "met-collection-api:120990",
-      "met-collection-api:120996",
-      "met-collection-api:120993",
-      "met-collection-api:120995",
-      "met-collection-api:120994",
-      "met-collection-api:121016",
-      "met-collection-api:121015",
-      "met-collection-api:121017",
-      "met-collection-api:121007",
-      "met-collection-api:121008",
-      "met-collection-api:121028",
-      "met-collection-api:121012"
+      "met-collection-api:120990"
     ],
     "stubble": [
       "project-gutenberg:pg-5292",
@@ -681336,6 +681380,7 @@
       "humanities-literature-radar:oai-doaj-org-article-0064859e3d144d1ea30b7f1a6900994f",
       "humanities-literature-radar:oai-doaj-org-article-4578ad097d41420689ceaba771507d9f",
       "humanities-literature-radar:oai-doaj-org-article-43021eed1822471d868cc88d2638d7aa",
+      "met-collection-api:288120",
       "doaj-humanities:10-3389-fpsyg-2023-1129428",
       "doaj-humanities:10-33823-jfs-2021-3-1-91",
       "doaj-humanities:10-22054-urdp-2023-55092-1248",
@@ -691169,6 +691214,9 @@
     ],
     "temeritate": [
       "project-gutenberg:pg-274"
+    ],
+    "temes": [
+      "met-collection-api:313546"
     ],
     "temir": [
       "doaj-humanities:10-15688-jvolsu4-2021-4-9"
@@ -729836,6 +729884,7 @@
       "library-of-congress:http-www-loc-gov-item-coprecbooks-00502947710",
       "library-of-congress:http-www-loc-gov-item-02017780",
       "library-of-congress:http-www-loc-gov-item-12006404",
+      "met-collection-api:288305",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319805-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1319808-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315315-en",
@@ -744574,6 +744623,17 @@
       "humanities-literature-radar:oai-doaj-org-article-2f50bbf753a0439b945cf9a7882ab40a",
       "humanities-literature-radar:oai-doaj-org-article-0a0e4becb63e4b35bf352301eaba1303",
       "humanities-literature-radar:oai-doaj-org-article-8bf011bb53d34187aa38b20ac63cc6f8",
+      "met-collection-api:288149",
+      "met-collection-api:288118",
+      "met-collection-api:288121",
+      "met-collection-api:288300",
+      "met-collection-api:288302",
+      "met-collection-api:288319",
+      "met-collection-api:288139",
+      "met-collection-api:288147",
+      "met-collection-api:288303",
+      "met-collection-api:288305",
+      "met-collection-api:288120",
       "doaj-humanities:10-29224-insanveinsan-453020",
       "doaj-humanities:001dca988374430b8e8956b3d03ae988",
       "doaj-humanities:10-1186-s12909-025-07983-1",
@@ -745465,6 +745525,7 @@
       "cleveland-museum-open-access:114684",
       "cleveland-museum-open-access:102549",
       "cleveland-museum-open-access:132367",
+      "met-collection-api:477247",
       "doaj-humanities:10-14324-111-444-2041-9015-1128",
       "doaj-humanities:10-3390-rel14070930",
       "doaj-humanities:10-3390-rel13020169",
@@ -751541,6 +751602,7 @@
       "project-gutenberg:pg-870",
       "project-gutenberg:pg-1544",
       "humanities-literature-radar:oai-doaj-org-article-0bfadb4100b947c3849eb4ecf27a2725",
+      "met-collection-api:194110",
       "project-gutenberg:pg-5294",
       "project-gutenberg:pg-4921",
       "project-gutenberg:pg-5331",
@@ -754169,6 +754231,7 @@
     "wei": [
       "crossref-humanities:10-1515-9789882203075-004",
       "cleveland-museum-open-access:93992",
+      "met-collection-api:42733",
       "expanded-university-humanities-departments:university-of-california-los-angeles-english-department-events-https-english-ucla-edu-events"
     ],
     "weialala": [
@@ -764859,6 +764922,23 @@
       "met-collection-api:316763",
       "met-collection-api:313787",
       "met-collection-api:313650",
+      "met-collection-api:312342",
+      "met-collection-api:310453",
+      "met-collection-api:313905",
+      "met-collection-api:901425",
+      "met-collection-api:901424",
+      "met-collection-api:901423",
+      "met-collection-api:901422",
+      "met-collection-api:901426",
+      "met-collection-api:316019",
+      "met-collection-api:311021",
+      "met-collection-api:310988",
+      "met-collection-api:310950",
+      "met-collection-api:318622",
+      "met-collection-api:313546",
+      "met-collection-api:312460",
+      "met-collection-api:312426",
+      "met-collection-api:312169",
       "met-collection-api:21656",
       "doaj-humanities:10-55476-001c-155051",
       "doaj-humanities:10-22378-he-2025-10-4-648-670",
@@ -765397,6 +765477,7 @@
       "project-gutenberg:pg-5287",
       "project-gutenberg:pg-1544",
       "humanities-literature-radar:oai-doaj-org-article-558b3958078544889c4485f08c20b602",
+      "met-collection-api:471050",
       "doaj-humanities:10-1088-2632-2153-ae1f05",
       "doaj-humanities:10-14568-cp2016005",
       "doaj-humanities:10-22103-jcl-2023-20194-3526",
@@ -767378,6 +767459,8 @@
       "cleveland-museum-open-access:140161",
       "cleveland-museum-open-access:124089",
       "cleveland-museum-open-access:155860",
+      "met-collection-api:232047",
+      "met-collection-api:231788",
       "dh-conference-programs:3573",
       "doaj-humanities:10-22108-ecs-2025-146464-1144",
       "doaj-humanities:10-1080-02673843-2025-2536803",
@@ -772459,6 +772542,7 @@
       "internet-archive-metadata:worldsstrangestf0000klep",
       "internet-archive-metadata:whatinworldisgre0000gaar-v8k5",
       "library-of-congress:http-www-loc-gov-item-hlas-bi00000062",
+      "met-collection-api:288319",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315323-en",
       "columbia-humanities-departments:https-history-columbia-edu",
       "dh-conference-programs:18",
@@ -778876,7 +778960,8 @@
       "doaj-humanities:10-21608-tjhss-2023-322448"
     ],
     "yosemite": [
-      "cleveland-museum-open-access:172815"
+      "cleveland-museum-open-access:172815",
+      "met-collection-api:288149"
     ],
     "yoshino": [
       "doaj-humanities:10-31866-2410-1915-26-2025-340336"

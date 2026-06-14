@@ -1,0 +1,85 @@
+{
+  "objectID": 312169,
+  "isHighlight": false,
+  "accessionNumber": "1979.206.287a-e",
+  "accessionYear": "1979",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 222880,
+      "role": "Artist",
+      "name": "Kota artist",
+      "constituentULAN_URL": "",
+      "constituentWikidata_URL": "",
+      "gender": ""
+    }
+  ],
+  "department": "The Michael C. Rockefeller Wing",
+  "objectName": "Reliquary figure",
+  "title": "Reliquary",
+  "culture": "Kota peoples",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Kota artist",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "Kota artist",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "",
+  "artistULAN_URL": "",
+  "objectDate": "19th–first half of 20th century",
+  "objectBeginDate": 1800,
+  "objectEndDate": 1950,
+  "medium": "Wood, cane, pigment, raffia palm, leaves, copper alloy, resin, primate skull, spire shell",
+  "dimensions": "H. 15 × W. 15 × D. 13 × L. (mat) 31 3/4 in. (38.1 × 38.1 × 33 × 80.6 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Depth": 33.020065,
+        "Height": 38.100075,
+        "Length": 80.645164,
+        "Width": 38.100075
+      }
+    }
+  ],
+  "creditLine": "The Michael C. Rockefeller Memorial Collection, Bequest of Nelson A. Rockefeller, 1979",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "Gabon",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Wood-Vessels",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-10-11T04:50:34.32Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/312169",
+  "tags": [
+    {
+      "term": "Reliquaries",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300187549",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q722604"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": "344"
+}

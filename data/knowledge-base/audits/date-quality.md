@@ -1,6 +1,6 @@
 # KB Date Quality Audit
 
-Generated at: 2026-06-14T22:01:29.700Z
+Generated at: 2026-06-14T22:07:14.893Z
 Status: pass
 
 ## nber-culture-history
@@ -76,7 +76,7 @@ Department web rows are current-page crawl snapshots unless a source-specific ev
 Status: pass
 Date kind: object-or-item-date
 Rows: 988
-Year coverage: 87%
+Year coverage: 96%
 ISO date coverage: 0%
 Source-label coverage: 0%
 Fetch timestamp coverage: 100%

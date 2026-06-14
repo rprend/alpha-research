@@ -1,0 +1,83 @@
+{
+  "objectID": 497625,
+  "isHighlight": false,
+  "accessionNumber": "1984.562.22",
+  "accessionYear": "1984",
+  "isPublicDomain": false,
+  "primaryImage": "",
+  "primaryImageSmall": "",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 169986,
+      "role": "Artist",
+      "name": "Unknown",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+      "gender": ""
+    }
+  ],
+  "department": "Modern and Contemporary Art",
+  "objectName": "Photograph",
+  "title": "Photograph",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Unknown",
+  "artistDisplayBio": "",
+  "artistSuffix": "",
+  "artistAlphaSort": "Unknown",
+  "artistNationality": "",
+  "artistBeginDate": "",
+  "artistEndDate": "",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q24238356",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500125274",
+  "objectDate": "ca. 1928",
+  "objectBeginDate": 1923,
+  "objectEndDate": 1933,
+  "medium": "Photograph",
+  "dimensions": "8 1/4 x 6 1/2 in. (21 x 16.5 cm)",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 20.955042,
+        "Width": 16.510033
+      }
+    }
+  ],
+  "creditLine": "Gift of Lee Schoen, 1984",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Archives",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2023-01-09T12:29:55.66Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/497625",
+  "tags": [
+    {
+      "term": "Tables",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300039548",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q14748"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}

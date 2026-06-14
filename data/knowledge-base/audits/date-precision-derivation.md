@@ -1,6 +1,6 @@
 # KB Date Precision Derivation
 
-Generated at: 2026-06-14T22:01:24.988Z
+Generated at: 2026-06-14T22:07:08.040Z
 Source-document updates: 1039
 Work updates: 51
 
@@ -19,15 +19,15 @@ Work updates: 51
 | library-of-congress:item-date:range | 75 |
 | library-of-congress:item-date:year | 219 |
 | library-of-congress:undated-cultural-metadata:none | 14 |
-| met-collection-api:accession-year:year | 29 |
-| met-collection-api:object-date:century | 3 |
-| met-collection-api:object-date:century-ish | 6 |
-| met-collection-api:object-date:century-qualified | 15 |
-| met-collection-api:object-date:century-range | 1 |
-| met-collection-api:object-date:range | 30 |
+| met-collection-api:accession-year:year | 33 |
+| met-collection-api:object-date:century | 9 |
+| met-collection-api:object-date:century-ish | 18 |
+| met-collection-api:object-date:century-qualified | 29 |
+| met-collection-api:object-date:century-range | 3 |
+| met-collection-api:object-date:range | 41 |
 | met-collection-api:object-date:range-bce | 5 |
-| met-collection-api:object-date:year | 68 |
-| met-collection-api:undated-cultural-metadata:none | 98 |
+| met-collection-api:object-date:year | 113 |
+| met-collection-api:undated-cultural-metadata:none | 4 |
 | mla-convention-programs:event-year:year | 1 |
 | smithsonian-open-access:object-date:century-ish | 206 |
 | smithsonian-open-access:undated-cultural-metadata:none | 19 |

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T21:24:56.277Z",
-  "resolved_failure_count": 16,
+  "generated_at": "2026-06-14T22:07:15.327Z",
+  "resolved_failure_count": 15,
   "resolved_failures": [
     {
       "source_id": "aha-annual-meeting-programs",
@@ -91,17 +91,6 @@
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
-      "source_id": "met-collection-api",
-      "name": "Metropolitan Museum of Art Collection API",
-      "source_class": "cultural-collections",
-      "failure_count": 1,
-      "latest_failure_at": "2026-06-14T18:59:25.392Z",
-      "latest_success_at": "2026-06-14T20:02:33.316Z",
-      "successful_route": "source-specific cultural collections API routes",
-      "record_count": 50,
-      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
-    },
-    {
       "source_id": "princeton-humanities-departments",
       "name": "Princeton Humanities Department Public Pages",
       "source_class": "university-department-web",
@@ -179,6 +168,33 @@
       "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 0,
-  "replacement_plans": []
+  "replacement_plan_count": 1,
+  "replacement_plans": [
+    {
+      "source_id": "met-collection-api",
+      "name": "Metropolitan Museum of Art Collection API",
+      "source_class": "cultural-collections",
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "failure_count": 5,
+      "latest_failure_at": "2026-06-14T22:07:00.214Z",
+      "latest_error": "",
+      "failed_routes": [
+        "source-specific cultural collections API routes",
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/655853",
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/291426",
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/291419",
+        "https://collectionapi.metmuseum.org/public/collection/v1/objects/120990"
+      ],
+      "affected_targets": [],
+      "replacement_status": "partial-route-review",
+      "replacement_routes": [
+        "Check whether the failed route is an individual item/detail endpoint while broader search/list endpoints still work.",
+        "Keep successful local records and mark missing detail routes in the source-specific ingest audit.",
+        "Prefer documented bulk/list APIs or lower-volume detail retries where terms allow."
+      ],
+      "next_action": "Review source-specific audit output before retrying; retry only the failed route class, not the entire source.",
+      "do_not_do": "Do not bypass 403 responses or treat item-level blocks as permission to scrape alternate restricted pages."
+    }
+  ]
 }

@@ -1,0 +1,85 @@
+{
+  "objectID": 291421,
+  "isHighlight": false,
+  "accessionNumber": "2005.100.967.1 (15)",
+  "accessionYear": "2005",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/ph/original/DP-30374-017.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/ph/web-large/DP-30374-017.jpg",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 55371,
+      "role": "Artist",
+      "name": "Maxime Du Camp",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500021954",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q918268",
+      "gender": ""
+    }
+  ],
+  "department": "Photographs",
+  "objectName": "Photograph",
+  "title": "",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Maxime Du Camp",
+  "artistDisplayBio": "French, 1822–1894",
+  "artistSuffix": "",
+  "artistAlphaSort": "Du Camp, Maxime",
+  "artistNationality": "French",
+  "artistBeginDate": "1822",
+  "artistEndDate": "1894",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q918268",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500021954",
+  "objectDate": "1849–51",
+  "objectBeginDate": 1849,
+  "objectEndDate": 1851,
+  "medium": "Salted paper print",
+  "dimensions": "Image: 5 9/16 × 8 9/16 in. (14.1 × 21.8 cm)\r\nMount: 8 3/8 × 11 9/16 in. (21.2 × 29.4 cm)",
+  "measurements": [
+    {
+      "elementName": "Image",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 14.1,
+        "Width": 21.8
+      }
+    },
+    {
+      "elementName": "Mount",
+      "elementDescription": null,
+      "elementMeasurements": {
+        "Height": 21.2,
+        "Width": 29.4
+      }
+    }
+  ],
+  "creditLine": "Gilman Collection, Museum Purchase, 2005",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Photographs",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2025-09-27T04:50:39.59Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/291421",
+  "tags": null,
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}
