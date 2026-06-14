@@ -26,6 +26,7 @@ From the repository root:
 
 ```bash
 sqlite3 data/knowledge-base/processed/knowledge-base.sqlite < docs/experiments/kb-humanities-departments-visible-faculty-events-news-public-humanities-lan/config/queries.sql
+node docs/experiments/kb-humanities-departments-visible-faculty-events-news-public-humanities-lan/scripts/build-analysis.mjs
 ```
 
 Review these before drafting:
@@ -33,7 +34,20 @@ Review these before drafting:
 - `reports/claim-checklist.md`
 - `reports/article-outline.md`
 - `reports/missing-data.md`
+- `reports/work.md`
+- `reports/public-draft.md`
+- `reports/result.json`
 - `data/derived/evidence-sample.json`
+
+The analysis script writes:
+
+- `data/processed/coverage-by-source-page-type.csv`
+- `data/processed/term-family-by-source.csv`
+- `data/processed/term-family-by-school.csv`
+- `data/processed/term-family-by-page-type.csv`
+- `reports/result.json`
+- `reports/work.md`
+- `reports/public-draft.md`
 
 ## Candidate Publication
 
