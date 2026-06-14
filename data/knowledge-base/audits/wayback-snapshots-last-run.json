@@ -1,0 +1,178 @@
+{
+  "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+  "generated_at": "2026-06-14T18:29:22.611Z",
+  "target_count": 8,
+  "success_count": 4,
+  "empty_count": 0,
+  "failed_count": 4,
+  "snapshot_count": 4,
+  "from_year": "2020",
+  "to_year": "2026",
+  "per_target": 10,
+  "records": [
+    {
+      "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+      "source_id": "wayback-machine-cdx",
+      "started_at": "2026-06-14T18:26:26.854Z",
+      "completed_at": "2026-06-14T18:26:56.857Z",
+      "status": "failed",
+      "access_route": "https://web.archive.org/cdx?url=english.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
+      "target_source_id": "harvard-humanities-departments",
+      "target_school": "Harvard University",
+      "target_department": "English",
+      "target_page_type": "department-home",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+      "errors": [
+        "This operation was aborted"
+      ]
+    },
+    {
+      "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+      "source_id": "wayback-machine-cdx",
+      "started_at": "2026-06-14T18:26:56.858Z",
+      "completed_at": "2026-06-14T18:27:26.861Z",
+      "status": "failed",
+      "access_route": "https://web.archive.org/cdx?url=history.fas.harvard.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
+      "target_source_id": "harvard-humanities-departments",
+      "target_school": "Harvard University",
+      "target_department": "History",
+      "target_page_type": "department-home",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+      "errors": [
+        "This operation was aborted"
+      ]
+    },
+    {
+      "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+      "source_id": "wayback-machine-cdx",
+      "started_at": "2026-06-14T18:27:26.863Z",
+      "completed_at": "2026-06-14T18:27:51.303Z",
+      "status": "success",
+      "access_route": "https://web.archive.org/cdx?url=english.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
+      "target_source_id": "yale-humanities-departments",
+      "target_school": "Yale University",
+      "target_department": "English",
+      "target_page_type": "department-home",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wayback-machine-cdx/2026-06-14/wayback-snapshots-2026-06-14T18-26-26-848Z/yale-university-english-department-home/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 1,
+      "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+      "errors": []
+    },
+    {
+      "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+      "source_id": "wayback-machine-cdx",
+      "started_at": "2026-06-14T18:27:51.303Z",
+      "completed_at": "2026-06-14T18:28:21.304Z",
+      "status": "failed",
+      "access_route": "https://web.archive.org/cdx?url=history.yale.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
+      "target_source_id": "yale-humanities-departments",
+      "target_school": "Yale University",
+      "target_department": "History",
+      "target_page_type": "department-home",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+      "errors": [
+        "This operation was aborted"
+      ]
+    },
+    {
+      "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+      "source_id": "wayback-machine-cdx",
+      "started_at": "2026-06-14T18:28:21.307Z",
+      "completed_at": "2026-06-14T18:28:50.313Z",
+      "status": "success",
+      "access_route": "https://web.archive.org/cdx?url=english.princeton.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
+      "target_source_id": "princeton-humanities-departments",
+      "target_school": "Princeton University",
+      "target_department": "English",
+      "target_page_type": "department-home",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wayback-machine-cdx/2026-06-14/wayback-snapshots-2026-06-14T18-26-26-848Z/princeton-university-english-department-home/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 1,
+      "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+      "errors": []
+    },
+    {
+      "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+      "source_id": "wayback-machine-cdx",
+      "started_at": "2026-06-14T18:28:50.314Z",
+      "completed_at": "2026-06-14T18:29:20.316Z",
+      "status": "failed",
+      "access_route": "https://web.archive.org/cdx?url=history.princeton.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
+      "target_source_id": "princeton-humanities-departments",
+      "target_school": "Princeton University",
+      "target_department": "History",
+      "target_page_type": "department-home",
+      "raw_outputs": [],
+      "processed_outputs": [],
+      "record_count": 0,
+      "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+      "errors": [
+        "This operation was aborted"
+      ]
+    },
+    {
+      "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+      "source_id": "wayback-machine-cdx",
+      "started_at": "2026-06-14T18:29:20.318Z",
+      "completed_at": "2026-06-14T18:29:21.240Z",
+      "status": "success",
+      "access_route": "https://web.archive.org/cdx?url=english.stanford.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
+      "target_source_id": "stanford-humanities-departments",
+      "target_school": "Stanford University",
+      "target_department": "English",
+      "target_page_type": "department-home",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wayback-machine-cdx/2026-06-14/wayback-snapshots-2026-06-14T18-26-26-848Z/stanford-university-english-department-home/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 1,
+      "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+      "errors": []
+    },
+    {
+      "run_id": "wayback-snapshots-2026-06-14T18-26-26-848Z",
+      "source_id": "wayback-machine-cdx",
+      "started_at": "2026-06-14T18:29:21.241Z",
+      "completed_at": "2026-06-14T18:29:22.590Z",
+      "status": "success",
+      "access_route": "https://web.archive.org/cdx?url=humanities.uchicago.edu%2F*&from=2020&to=2026&collapse=urlkey&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&limit=10",
+      "target_source_id": "uchicago-humanities-departments",
+      "target_school": "University of Chicago",
+      "target_department": "Humanities Division",
+      "target_page_type": "division-home",
+      "raw_outputs": [
+        "data/knowledge-base/raw/wayback-machine-cdx/2026-06-14/wayback-snapshots-2026-06-14T18-26-26-848Z/university-of-chicago-humanities-division-division-home/response.json"
+      ],
+      "processed_outputs": [
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl"
+      ],
+      "record_count": 1,
+      "rights_review": "Wayback CDX metadata only; archived page text not stored.",
+      "errors": []
+    }
+  ]
+}

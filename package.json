@@ -36,6 +36,7 @@
     "kb:ingest:departments": "node scripts/kb-ingest-department-pages.mjs",
     "kb:import:gutenberg": "node scripts/kb-import-gutenberg-local.mjs",
     "kb:ingest:web": "node scripts/kb-ingest-web-metadata.mjs",
+    "kb:ingest:wayback": "node scripts/kb-ingest-wayback-snapshots.mjs",
     "kb:import:experiments": "node scripts/kb-import-experiment-seeds.mjs",
     "kb:search": "node scripts/kb-search.mjs",
     "kb:audit": "node scripts/kb-audit-coverage.mjs",

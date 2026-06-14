@@ -1,6 +1,6 @@
 # Local KB Brief: How has the language of public humanities changed in university departments and humanities centers over time?
 
-Generated at: 2026-06-14T18:15:07.122Z
+Generated at: 2026-06-14T18:29:48.214Z
 
 ## Local Evidence Sources
 

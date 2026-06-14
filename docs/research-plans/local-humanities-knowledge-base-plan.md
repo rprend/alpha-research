@@ -538,6 +538,7 @@ Started on 2026-06-13:
 - Phase 2 also imports a bounded Project Gutenberg public-domain text sample from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
 - Phase 2 now has a bounded web metadata ingest: `pnpm kb:ingest:web` imports responding public routes for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly. Wayback and LARB failures are logged for route replacement.
 - Phase 3 has a bounded department-page corpus: `pnpm kb:ingest:departments` fetches selected public humanities department pages, stores raw HTML and extracted local-analysis text, and writes `pages`/`departments` staging rows. Harvard and Princeton routes returned 403 and are logged in `failed-routes.jsonl`.
+- Phase 3 now has a Wayback CDX snapshot ingest: `pnpm kb:ingest:wayback` reads department-page targets, stores raw CDX responses, and writes historical capture metadata without storing archived page text.
 - Phase 4 has a bounded local analytical/search layer: `pnpm kb:tables` writes CSV tables, Parquet tables, and `data/knowledge-base/processed/knowledge-base.sqlite`; `pnpm kb:index` builds `data/knowledge-base/indexes/source-documents-keyword-index.json` using metadata plus previews of stored text; `pnpm kb:search "<terms>"` queries the local keyword index.
 - Phase 4 now derives author, citation, venue, institution, collection, and topic tables from current normalized local records and raw snapshots; source-provided names and references still need normalization before strong identity or citation-network claims.
 - Phase 4 now has SQLite FTS retrieval over metadata and stored local text content: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
@@ -549,7 +550,7 @@ Current local footprint as of the latest committed status:
 - 33 registered sources.
 - 28 registered sources with local documents.
 - Registry statuses: 23 active, 5 blocked, 4 seeded-from-experiment, 1 planned.
-- 1845 source documents.
+- 1839 source documents.
 - 1283 works.
 - 1779 source-provided authors.
 - 333 venues.
@@ -559,7 +560,8 @@ Current local footprint as of the latest committed status:
 - 541 source-provided topics.
 - 507 cultural objects.
 - 34 department/web pages.
-- 1845 rights rows.
+- 1839 rights rows.
+- 4 strict homepage Wayback CDX department-page snapshot metadata records from 2020-2026 across 4 target routes; broader wildcard captures were rejected to avoid query-string noise.
 - 24 local text files.
 - 12/12 staging JSONL tables.
 - 12/12 processed Parquet tables.
@@ -573,7 +575,7 @@ Remaining before the full knowledge-base goal is complete:
 
 - Normalize source-provided author identities and citation/reference edges into cleaner person/work graphs.
 - Add broad, source-specific ingest jobs rather than bounded samples.
-- Replace failed public routes for Wayback CDX, LARB, Harvard, and Princeton or keep them as blocked-source memos.
+- Continue replacement or retry plans for failed LARB, Harvard English current-page, Yale English CDX, and remaining 403/timeout routes; do not bypass access controls.
 - Expand university/department web corpus acquisition beyond the first successful routes.
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add semantic retrieval over allowed stored text after the current SQLite full-text layer stabilizes.

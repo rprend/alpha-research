@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-13T16:41:52.668Z",
+  "generated_at": "2026-06-14T18:29:33.779Z",
   "source": "data/knowledge-base/processed/source_documents.jsonl",
-  "document_count": 1879,
-  "term_count": 22689,
+  "document_count": 1873,
+  "term_count": 22695,
   "documents": {
     "openalex-humanities:https://openalex.org/W2488845447": {
       "source_id": "openalex-humanities",
@@ -5644,76 +5644,6 @@
       "title": "The Collective Memory Reader",
       "source_url": "http://bvbr.bib-bvb.de:8991/F?func=service&amp;doc_library=BVB01&amp;local_base=BVB01&amp;doc_number=021144857&amp;sequence=000001&amp;line_number=0001&amp;func_code=DB_RECORDS&amp;service_type=MEDIA",
       "type": "canon-drift-sample-work",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200107200903": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200107200903",
-      "source_url": "https://web.archive.org/web/20200107200903/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200108075605": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200108075605",
-      "source_url": "https://web.archive.org/web/20200108075605/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200108143904": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200108143904",
-      "source_url": "https://web.archive.org/web/20200108143904/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200109174750": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200109174750",
-      "source_url": "https://web.archive.org/web/20200109174750/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200219104855": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200219104855",
-      "source_url": "https://web.archive.org/web/20200219104855/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200322172516": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200322172516",
-      "source_url": "https://web.archive.org/web/20200322172516/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200401104343": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200401104343",
-      "source_url": "https://web.archive.org/web/20200401104343/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200414140025": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200414140025",
-      "source_url": "https://web.archive.org/web/20200414140025/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200513162855": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200513162855",
-      "source_url": "https://web.archive.org/web/20200513162855/https://english.yale.edu/",
-      "type": "web-archive-cdx",
-      "text_path": ""
-    },
-    "wayback-machine-cdx:https-english-yale-edu-20200719163825": {
-      "source_id": "wayback-machine-cdx",
-      "title": "https://english.yale.edu/ @ 20200719163825",
-      "source_url": "https://web.archive.org/web/20200719163825/https://english.yale.edu/",
-      "type": "web-archive-cdx",
       "text_path": ""
     },
     "openalex-humanities:https-openalex-org-w2067404301": {
@@ -12918,6 +12848,34 @@
       "source_url": "https://www.mla.org/Events/2027-MLA-Convention",
       "type": "conference-page",
       "text_path": ""
+    },
+    "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu": {
+      "source_id": "wayback-machine-cdx",
+      "title": "Yale University English department-home snapshot 20200107200903",
+      "source_url": "https://web.archive.org/web/20200107200903/https://english.yale.edu/",
+      "type": "web-archive-cdx",
+      "text_path": ""
+    },
+    "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu": {
+      "source_id": "wayback-machine-cdx",
+      "title": "Princeton University English department-home snapshot 20200101164844",
+      "source_url": "https://web.archive.org/web/20200101164844/https://english.princeton.edu/",
+      "type": "web-archive-cdx",
+      "text_path": ""
+    },
+    "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu": {
+      "source_id": "wayback-machine-cdx",
+      "title": "Stanford University English department-home snapshot 20200109201447",
+      "source_url": "https://web.archive.org/web/20200109201447/https://english.stanford.edu/",
+      "type": "web-archive-cdx",
+      "text_path": ""
+    },
+    "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu": {
+      "source_id": "wayback-machine-cdx",
+      "title": "University of Chicago Humanities Division division-home snapshot 20200120233051",
+      "source_url": "https://web.archive.org/web/20200120233051/http://humanities.uchicago.edu/",
+      "type": "web-archive-cdx",
+      "text_path": ""
     }
   },
   "postings": {
@@ -13211,7 +13169,11 @@
       "humanities-literature-radar:3hwe5-mpv57",
       "humanities-literature-radar:oai-doaj-org-article-184ef5238dae4d2b987ba8c88f9fdc07",
       "humanities-literature-radar:oai-doaj-org-article-c6ac67377a194483933bf8a7bfbe099c",
-      "humanities-literature-radar:oai-doaj-org-article-283a4a2d05a242aea4b520bb85fe3161"
+      "humanities-literature-radar:oai-doaj-org-article-283a4a2d05a242aea4b520bb85fe3161",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "202": [
       "humanities-literature-radar:oai-doaj-org-article-724aafbc44754789b4df69afbb32fd8c"
@@ -14703,6 +14665,10 @@
       "openalex-humanities:https-openalex-org-w3046275966",
       "internet-archive-metadata:wantforothers",
       "nber-culture-history:i768l2-sitesearch-entity-node-1316600-en",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu",
       "stanford-humanities-departments:experiment-university-stanford-university-catalog-2020-24",
       "humanities-centers-public-pages:experiment-university-massachusetts-institute-of-technology-commencement-speech-2020-26"
     ],
@@ -14928,6 +14894,10 @@
       "dh-conference-programs:1855",
       "dh-conference-programs:1782",
       "dh-conference-programs:14",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu",
       "stanford-humanities-departments:experiment-university-stanford-university-commencement-speech-2026-5",
       "humanities-centers-public-pages:experiment-university-university-of-pennsylvania-catalog-2026-18"
     ],
@@ -15865,35 +15835,17 @@
     "2003b": [
       "humanities-literature-radar:oai-doaj-org-article-35aceabb4606455ea81b04f6e3092699"
     ],
+    "20200101164844": [
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu"
+    ],
     "20200107200903": [
-      "wayback-machine-cdx:https-english-yale-edu-20200107200903"
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu"
     ],
-    "20200108075605": [
-      "wayback-machine-cdx:https-english-yale-edu-20200108075605"
+    "20200109201447": [
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu"
     ],
-    "20200108143904": [
-      "wayback-machine-cdx:https-english-yale-edu-20200108143904"
-    ],
-    "20200109174750": [
-      "wayback-machine-cdx:https-english-yale-edu-20200109174750"
-    ],
-    "20200219104855": [
-      "wayback-machine-cdx:https-english-yale-edu-20200219104855"
-    ],
-    "20200322172516": [
-      "wayback-machine-cdx:https-english-yale-edu-20200322172516"
-    ],
-    "20200401104343": [
-      "wayback-machine-cdx:https-english-yale-edu-20200401104343"
-    ],
-    "20200414140025": [
-      "wayback-machine-cdx:https-english-yale-edu-20200414140025"
-    ],
-    "20200513162855": [
-      "wayback-machine-cdx:https-english-yale-edu-20200513162855"
-    ],
-    "20200719163825": [
-      "wayback-machine-cdx:https-english-yale-edu-20200719163825"
+    "20200120233051": [
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "2022mark": [
       "internet-archive-metadata:paradoxesofartph0000pask-i3l9"
@@ -16013,6 +15965,9 @@
     ],
     "5th": [
       "canon-drift-feasibility:w-e-b-du-bois-the-5th-edition-of-the-world-health-organization-classification-of-haematolymphoid-tumours-lymphoid-neoplasms-2022-65"
+    ],
+    "5wvteeecgy4t2sr5tackg5lpw3dofx6k": [
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "60kg": [
       "humanities-literature-radar:oai-doaj-org-article-f45027ac960d451191bd2a514250da9b"
@@ -23378,16 +23333,6 @@
       "humanities-literature-radar:d2vhf-sqh21",
       "humanities-literature-radar:10-1007-s42803-026-00125-z",
       "canon-drift-feasibility:william-shakespeare-detection-and-resolution-of-rumours-in-social-media-a-survey-2017-45",
-      "wayback-machine-cdx:https-english-yale-edu-20200107200903",
-      "wayback-machine-cdx:https-english-yale-edu-20200108075605",
-      "wayback-machine-cdx:https-english-yale-edu-20200108143904",
-      "wayback-machine-cdx:https-english-yale-edu-20200109174750",
-      "wayback-machine-cdx:https-english-yale-edu-20200219104855",
-      "wayback-machine-cdx:https-english-yale-edu-20200322172516",
-      "wayback-machine-cdx:https-english-yale-edu-20200401104343",
-      "wayback-machine-cdx:https-english-yale-edu-20200414140025",
-      "wayback-machine-cdx:https-english-yale-edu-20200513162855",
-      "wayback-machine-cdx:https-english-yale-edu-20200719163825",
       "internet-archive-metadata:grantfindercompl00edit",
       "internet-archive-metadata:sim-modern-fiction-studies-1958-4-index",
       "internet-archive-metadata:china-201603",
@@ -23528,10 +23473,18 @@
       "internet-archive-metadata:bim-eighteenth-century-anecdotes-and-other-curi-1788",
       "internet-archive-metadata:bim-eighteenth-century-joe-millers-jests-or-1772",
       "internet-archive-metadata:bim-eighteenth-century-1735-3",
-      "mla-convention-programs:https-www-mla-org-events-2027-mla-convention"
+      "mla-convention-programs:https-www-mla-org-events-2027-mla-convention",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "archived": [
-      "humanities-literature-radar:7fnz7-4wt32"
+      "humanities-literature-radar:7fnz7-4wt32",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "archives": [
       "humanities-centers-public-pages:experiment-university-university-of-california-berkeley-catalog-2026-16",
@@ -33448,7 +33401,11 @@
       "humanities-literature-radar:oai-doaj-org-article-c5ff2862c59a43fa83a337ebb7e2a0c9",
       "humanities-literature-radar:oai-doaj-org-article-d861f8e5204e4c139850005eba2e41b6",
       "humanities-literature-radar:oai-doaj-org-article-0bfadb4100b947c3849eb4ecf27a2725",
-      "humanities-literature-radar:oai-doaj-org-article-43021eed1822471d868cc88d2638d7aa"
+      "humanities-literature-radar:oai-doaj-org-article-43021eed1822471d868cc88d2638d7aa",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "captured": [
       "humanities-literature-radar:http-arxiv-org-abs-2606-13427v1",
@@ -34412,16 +34369,10 @@
       "humanities-literature-radar:oai-doaj-org-article-6066ec5fddb04aea82939ab7370c6e19"
     ],
     "cdx": [
-      "wayback-machine-cdx:https-english-yale-edu-20200107200903",
-      "wayback-machine-cdx:https-english-yale-edu-20200108075605",
-      "wayback-machine-cdx:https-english-yale-edu-20200108143904",
-      "wayback-machine-cdx:https-english-yale-edu-20200109174750",
-      "wayback-machine-cdx:https-english-yale-edu-20200219104855",
-      "wayback-machine-cdx:https-english-yale-edu-20200322172516",
-      "wayback-machine-cdx:https-english-yale-edu-20200401104343",
-      "wayback-machine-cdx:https-english-yale-edu-20200414140025",
-      "wayback-machine-cdx:https-english-yale-edu-20200513162855",
-      "wayback-machine-cdx:https-english-yale-edu-20200719163825"
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "cease": [
       "project-gutenberg:pg-2817",
@@ -35812,6 +35763,7 @@
       "museum-language-drift:experiment-museum-art-institute-of-chicago-annual-report-2026-8",
       "museum-language-drift:experiment-museum-art-institute-of-chicago-provenance-2026-9",
       "museum-language-drift:experiment-museum-art-institute-of-chicago-annual-report-2020-19",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu",
       "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
     ],
     "chicken": [
@@ -38014,7 +37966,11 @@
       "humanities-literature-radar:yc2pd-shr90",
       "humanities-literature-radar:oai-doaj-org-article-a326f70e56194386bdf3d20933b2b89d",
       "humanities-literature-radar:oai-doaj-org-article-5b7748029e8c4d10a188ba572e8e8c56",
-      "humanities-literature-radar:oai-doaj-org-article-64ac1a9d35154c9fa40d15259ef88f86"
+      "humanities-literature-radar:oai-doaj-org-article-64ac1a9d35154c9fa40d15259ef88f86",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "collapsed": [
       "humanities-literature-radar:oai-doaj-org-article-a326f70e56194386bdf3d20933b2b89d"
@@ -47776,6 +47732,9 @@
       "humanities-literature-radar:oai-doaj-org-article-65095e062ae74d5f9d3e8566e766199c",
       "humanities-literature-radar:oai-doaj-org-article-8169d396d9c54ff3b73ea4b4d3ccb418",
       "columbia-humanities-departments:https-history-columbia-edu",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
       "yale-humanities-departments:yale-university-english-department-home",
       "yale-humanities-departments:yale-university-history-department-home",
       "stanford-humanities-departments:stanford-university-english-department-home",
@@ -49899,7 +49858,11 @@
     ],
     "digest": [
       "humanities-literature-radar:oai-doaj-org-article-bd09b0014ee0469c9e2a698f2d7b36cd",
-      "mla-convention-programs:https-www-mla-org-events-2027-mla-convention"
+      "mla-convention-programs:https-www-mla-org-events-2027-mla-convention",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "digestion": [
       "canon-drift-feasibility:jane-austen-role-of-polysaccharides-in-food-digestion-and-health-2015-29"
@@ -51594,6 +51557,7 @@
       "humanities-literature-radar:oai-doaj-org-article-9a0d9fc330de4ef39df07a1be019bd83",
       "humanities-literature-radar:oai-doaj-org-article-202a0cbfa95d408d8290476b5449a88a",
       "dh-conference-programs:2128",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu",
       "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
     ],
     "divisions": [
@@ -54689,16 +54653,10 @@
       "harvard-humanities-departments:experiment-university-harvard-university-president-message-2026-1",
       "humanities-centers-public-pages:experiment-university-university-of-california-berkeley-catalog-2026-16",
       "museum-language-drift:experiment-museum-j-paul-getty-museum-annual-report-2020-21",
-      "wayback-machine-cdx:https-english-yale-edu-20200107200903",
-      "wayback-machine-cdx:https-english-yale-edu-20200108075605",
-      "wayback-machine-cdx:https-english-yale-edu-20200108143904",
-      "wayback-machine-cdx:https-english-yale-edu-20200109174750",
-      "wayback-machine-cdx:https-english-yale-edu-20200219104855",
-      "wayback-machine-cdx:https-english-yale-edu-20200322172516",
-      "wayback-machine-cdx:https-english-yale-edu-20200401104343",
-      "wayback-machine-cdx:https-english-yale-edu-20200414140025",
-      "wayback-machine-cdx:https-english-yale-edu-20200513162855",
-      "wayback-machine-cdx:https-english-yale-edu-20200719163825"
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "eduardo": [
       "library-of-congress:http-www-loc-gov-item-hlas-bi90010019"
@@ -56909,16 +56867,6 @@
       "humanities-literature-radar:oai-doaj-org-article-60747f546ca74234affdbe56da338874",
       "canon-drift-feasibility:jane-austen-negation-in-english-and-other-languages-2025-24",
       "canon-drift-feasibility:william-shakespeare-negation-in-english-and-other-languages-2025-42",
-      "wayback-machine-cdx:https-english-yale-edu-20200107200903",
-      "wayback-machine-cdx:https-english-yale-edu-20200108075605",
-      "wayback-machine-cdx:https-english-yale-edu-20200108143904",
-      "wayback-machine-cdx:https-english-yale-edu-20200109174750",
-      "wayback-machine-cdx:https-english-yale-edu-20200219104855",
-      "wayback-machine-cdx:https-english-yale-edu-20200322172516",
-      "wayback-machine-cdx:https-english-yale-edu-20200401104343",
-      "wayback-machine-cdx:https-english-yale-edu-20200414140025",
-      "wayback-machine-cdx:https-english-yale-edu-20200513162855",
-      "wayback-machine-cdx:https-english-yale-edu-20200719163825",
       "openalex-humanities:https-openalex-org-w2023736093",
       "openalex-humanities:https-openalex-org-w1684349371",
       "crossref-humanities:10-1515-9780748628520-006",
@@ -56927,6 +56875,9 @@
       "library-of-congress:http-www-loc-gov-item-hlas-bi82106284",
       "dh-conference-programs:2128",
       "dh-conference-programs:2126",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
       "yale-humanities-departments:yale-university-english-department-home",
       "stanford-humanities-departments:stanford-university-english-department-home"
     ],
@@ -63374,6 +63325,12 @@
     ],
     "filosofii": [
       "library-of-congress:http-lccn-loc-gov-2022551725"
+    ],
+    "filter": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "filtered": [
       "humanities-literature-radar:oai-doaj-org-article-26eea7dd2882472c81130566e22c9c08"
@@ -73594,6 +73551,10 @@
       "columbia-humanities-departments:https-history-columbia-edu",
       "dh-conference-programs:1782",
       "dh-conference-programs:18",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu",
       "yale-humanities-departments:yale-university-english-department-home",
       "yale-humanities-departments:yale-university-history-department-home",
       "stanford-humanities-departments:stanford-university-english-department-home",
@@ -74364,11 +74325,16 @@
       "humanities-literature-radar:oai-doaj-org-article-234b0532cb794350a9f18814f2c8207e"
     ],
     "html": [
-      "project-gutenberg:pg-235"
+      "project-gutenberg:pg-235",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "http": [
       "project-gutenberg:pg-235",
-      "project-gutenberg:pg-2878"
+      "project-gutenberg:pg-2878",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "https": [
       "humanities-literature-radar:4a16t-6bm06",
@@ -74381,16 +74347,10 @@
       "humanities-literature-radar:6pkfd-62313",
       "humanities-literature-radar:d2vhf-sqh21",
       "humanities-literature-radar:oai-doaj-org-article-60d842a3311e42a6b495c43ebe1d6078",
-      "wayback-machine-cdx:https-english-yale-edu-20200107200903",
-      "wayback-machine-cdx:https-english-yale-edu-20200108075605",
-      "wayback-machine-cdx:https-english-yale-edu-20200108143904",
-      "wayback-machine-cdx:https-english-yale-edu-20200109174750",
-      "wayback-machine-cdx:https-english-yale-edu-20200219104855",
-      "wayback-machine-cdx:https-english-yale-edu-20200322172516",
-      "wayback-machine-cdx:https-english-yale-edu-20200401104343",
-      "wayback-machine-cdx:https-english-yale-edu-20200414140025",
-      "wayback-machine-cdx:https-english-yale-edu-20200513162855",
-      "wayback-machine-cdx:https-english-yale-edu-20200719163825"
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "hua": [
       "crossref-humanities:10-1515-9789882203075-004"
@@ -74736,6 +74696,7 @@
       "dh-conference-programs:14",
       "journal-pmla:10-1632-s0030812900147832",
       "mla-convention-programs:https-www-mla-org-events-2027-mla-convention",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu",
       "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
     ],
     "humanity": [
@@ -80651,7 +80612,11 @@
       "humanities-literature-radar:oai-doaj-org-article-65095e062ae74d5f9d3e8566e766199c",
       "humanities-literature-radar:oai-doaj-org-article-7f6857f7dfd248e197395255bc8dd48b",
       "openalex-humanities:https-openalex-org-w2111619626",
-      "smithsonian-open-access:ld1-1646149545906-1646149784141-0"
+      "smithsonian-open-access:ld1-1646149545906-1646149784141-0",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "internetarchivebooks": [
       "internet-archive-metadata:undermermaidange00moor",
@@ -83188,6 +83153,12 @@
       "project-gutenberg:pg-5276",
       "project-gutenberg:pg-5299",
       "project-gutenberg:pg-1544"
+    ],
+    "json": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "juan": [
       "library-of-congress:http-www-loc-gov-item-hlas-bi86105753",
@@ -87199,7 +87170,11 @@
       "humanities-literature-radar:oai-doaj-org-article-803810894c90494d963fbfdcee6def07",
       "humanities-literature-radar:oai-doaj-org-article-7c843b9c48774d839ac491dc801c44c8",
       "humanities-literature-radar:oai-doaj-org-article-c6091d65f4ad477b9fdfd5fb2c6b07e9",
-      "humanities-literature-radar:oai-doaj-org-article-db36db0694484acc828ad79890b897c2"
+      "humanities-literature-radar:oai-doaj-org-article-db36db0694484acc828ad79890b897c2",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "limita": [
       "humanities-literature-radar:oai-doaj-org-article-eec6d231545a4dbfa6fbce38a7778220"
@@ -90024,7 +89999,11 @@
       "openalex-humanities:https-openalex-org-w2964303497",
       "openalex-humanities:https-openalex-org-w2149706766",
       "openalex-humanities:https-openalex-org-w4236137412",
-      "smithsonian-open-access:ld1-1646149545906-1646150594434-0"
+      "smithsonian-open-access:ld1-1646149545906-1646150594434-0",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "machineries": [
       "humanities-literature-radar:oai-doaj-org-article-0e6abe34f27741b5b9742515d592df81"
@@ -94193,7 +94172,11 @@
       "journal-pmla:10-1632-s0030812900149454",
       "journal-pmla:10-1632-s0030812900190558",
       "journal-pmla:10-1632-s003081290006020x",
-      "journal-pmla:10-1632-s0030812900146140"
+      "journal-pmla:10-1632-s0030812900146140",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "metagenome": [
       "humanities-literature-radar:oai-doaj-org-article-2c40fb499df54b6b877b65569fc32f5f"
@@ -95259,6 +95242,12 @@
     "miltonpubliclibrary": [
       "internet-archive-metadata:stanleycup0000wise",
       "internet-archive-metadata:silapantoufletev0000mlyn"
+    ],
+    "mimetype": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "mimic": [
       "humanities-literature-radar:zkz53-f1270",
@@ -99367,6 +99356,9 @@
       "library-of-congress:http-www-loc-gov-item-2022695189",
       "library-of-congress:http-www-loc-gov-item-2024850088",
       "library-of-congress:http-www-loc-gov-item-2025883673"
+    ],
+    "navgbtikvwml2cfeop7h6zifpfylmhp3": [
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu"
     ],
     "navicular": [
       "humanities-literature-radar:oai-doaj-org-article-a326f70e56194386bdf3d20933b2b89d"
@@ -104827,7 +104819,11 @@
       "humanities-literature-radar:d2vhf-sqh21",
       "humanities-literature-radar:oai-doaj-org-article-184ef5238dae4d2b987ba8c88f9fdc07",
       "humanities-literature-radar:oai-doaj-org-article-60d842a3311e42a6b495c43ebe1d6078",
-      "mla-convention-programs:https-www-mla-org-events-2027-mla-convention"
+      "mla-convention-programs:https-www-mla-org-events-2027-mla-convention",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "organ": [
       "humanities-literature-radar:oai-doaj-org-article-fbe674badf884e958d7056b960f33b88",
@@ -105051,7 +105047,11 @@
       "humanities-literature-radar:oai-doaj-org-article-1a05e41ba0ac42b5a87771026fd8b0b4",
       "humanities-literature-radar:oai-doaj-org-article-edd65398385045c6a9376bdb1203247e",
       "humanities-literature-radar:oai-doaj-org-article-64ac1a9d35154c9fa40d15259ef88f86",
-      "internet-archive-metadata:bim-eighteenth-century-a-letter-from-the-rt-ho-burke-edmund-1797-0"
+      "internet-archive-metadata:bim-eighteenth-century-a-letter-from-the-rt-ho-burke-edmund-1797-0",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "originally": [
       "humanities-literature-radar:oai-doaj-org-article-5abbcf9550744d0d9ad7948bed2e3607"
@@ -105760,7 +105760,11 @@
       "nber-culture-history:i768l2-sitesearch-entity-node-1315308-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315310-en",
       "nber-culture-history:i768l2-sitesearch-entity-node-1315316-en",
-      "nber-culture-history:i768l2-sitesearch-entity-node-1316597-en"
+      "nber-culture-history:i768l2-sitesearch-entity-node-1316597-en",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "outputs": [
       "humanities-literature-radar:oai-doaj-org-article-22f6fd9cd6954a75937f075c153f15ce",
@@ -106416,6 +106420,10 @@
       "dh-conference-programs:16",
       "dh-conference-programs:14",
       "mla-convention-programs:https-www-mla-org-events-2027-mla-convention",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu",
       "harvard-humanities-departments:experiment-university-harvard-university-catalog-2026-0"
     ],
     "pagerank": [
@@ -114259,6 +114267,7 @@
       "princeton-humanities-departments:experiment-university-princeton-university-strategic-plan-2016-27",
       "openalex-humanities:https-openalex-org-w1986293481",
       "cleveland-museum-open-access:98268",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
       "princeton-humanities-departments:experiment-university-princeton-university-strategic-plan-2026-9",
       "princeton-humanities-departments:experiment-university-princeton-university-catalog-2026-10",
       "princeton-humanities-departments:experiment-university-princeton-university-commencement-speech-2026-11",
@@ -126229,7 +126238,11 @@
       "project-gutenberg:pg-1063",
       "project-gutenberg:pg-879",
       "humanities-literature-radar:oai-doaj-org-article-8768ee8bdbcb47b3b984282d3a38bc33",
-      "humanities-literature-radar:oai-doaj-org-article-59bf0f7044504955966a93804988e5e1"
+      "humanities-literature-radar:oai-doaj-org-article-59bf0f7044504955966a93804988e5e1",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "routes": [
       "doaj-humanities:00a29a4f77d54b9b9fc27b10736e6877",
@@ -128147,7 +128160,11 @@
       "internet-archive-metadata:whenistartschool0000dung",
       "internet-archive-metadata:glaubensimpulseb0000bise",
       "internet-archive-metadata:bim-eighteenth-century-the-duty-of-being-public-chambre-richard-1710",
-      "library-of-congress:http-www-loc-gov-item-10027586"
+      "library-of-congress:http-www-loc-gov-item-10027586",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "schoolboy": [
       "project-gutenberg:pg-739"
@@ -133055,7 +133072,11 @@
     ],
     "snapshot": [
       "museum-language-drift:experiment-museum-art-institute-of-chicago-annual-report-2026-8",
-      "museum-language-drift:experiment-museum-art-institute-of-chicago-annual-report-2020-19"
+      "museum-language-drift:experiment-museum-art-institute-of-chicago-annual-report-2020-19",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "snatch": [
       "project-gutenberg:pg-739"
@@ -135567,6 +135588,7 @@
       "stanford-humanities-departments:experiment-university-stanford-university-catalog-2015-23",
       "stanford-humanities-departments:experiment-university-stanford-university-catalog-2020-24",
       "openalex-humanities:https-openalex-org-w4234048930",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
       "stanford-humanities-departments:stanford-university-english-department-home",
       "stanford-humanities-departments:experiment-university-stanford-university-strategic-plan-2026-3",
       "stanford-humanities-departments:experiment-university-stanford-university-catalog-2026-4",
@@ -135931,7 +135953,17 @@
       "humanities-literature-radar:oai-doaj-org-article-130b7e30bf674f25bf81233debe16a65",
       "humanities-literature-radar:oai-doaj-org-article-5abbcf9550744d0d9ad7948bed2e3607",
       "crossref-humanities:10-1163-9789004651470-009",
-      "journal-new-literary-history:10-1353-nlh-2000-0023"
+      "journal-new-literary-history:10-1353-nlh-2000-0023",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
+    ],
+    "statuscode": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "statut": [
       "humanities-literature-radar:oai-doaj-org-article-2f99193d5be549c7b4e95da7fb055fe5"
@@ -142385,7 +142417,11 @@
       "internet-archive-metadata:bim-eighteenth-century-a-master-key-to-popery-gavin-antonio-1726-0",
       "internet-archive-metadata:bim-eighteenth-century-anecdotes-and-other-curi-1788",
       "internet-archive-metadata:bim-eighteenth-century-joe-millers-jests-or-1772",
-      "internet-archive-metadata:bim-eighteenth-century-1735-3"
+      "internet-archive-metadata:bim-eighteenth-century-1735-3",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "textbook": [
       "humanities-literature-radar:oai-doaj-org-article-eb55a7ca631e45b894260ffdfefedea1"
@@ -144981,6 +145017,12 @@
     ],
     "timescales": [
       "humanities-literature-radar:oai-doaj-org-article-32871077b3484039af3bf408fea73e1b"
+    ],
+    "timestamp": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "timid": [
       "project-gutenberg:pg-870",
@@ -148117,7 +148159,11 @@
       "humanities-literature-radar:oai-doaj-org-article-f564ce4e415a47bba1cc96c28b9e9d25",
       "humanities-literature-radar:oai-doaj-org-article-42d1df37ef1748d29aef527411f320aa",
       "canon-drift-feasibility:w-e-b-du-bois-autoantibodies-against-type-i-ifns-in-patients-with-life-threatening-covid-19-2020-67",
-      "canon-drift-feasibility:w-e-b-du-bois-inborn-errors-of-type-i-ifn-immunity-in-patients-with-life-threatening-covid-19-2020-72"
+      "canon-drift-feasibility:w-e-b-du-bois-inborn-errors-of-type-i-ifn-immunity-in-patients-with-life-threatening-covid-19-2020-72",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "types": [
       "humanities-literature-radar:oai-doaj-org-article-e4d7406c0d4842718861d92ed1b695a4",
@@ -148207,7 +148253,8 @@
       "humanities-literature-radar:jddaq-h8321"
     ],
     "uchicago": [
-      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home"
+      "uchicago-humanities-departments:university-of-chicago-humanities-division-division-home",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "uclouvain": [
       "humanities-literature-radar:oai-doaj-org-article-0bbe7e6bf502468fa30cca82ca534a85"
@@ -148229,6 +148276,9 @@
     ],
     "uflare": [
       "doaj-humanities:007ff6e36f9b4fa8a57dd3376fce4bb3"
+    ],
+    "ufsox7rg3odomhk2sja63n34bfk2fz6p": [
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu"
     ],
     "uganda": [
       "humanities-literature-radar:oai-doaj-org-article-f215e3d1f4e34fe2a6866698fac54df6"
@@ -149533,6 +149583,10 @@
       "dh-conference-programs:2128",
       "dh-conference-programs:2126",
       "journal-critical-inquiry:10-1086-695371",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu",
       "yale-humanities-departments:yale-university-english-department-home",
       "yale-humanities-departments:yale-university-history-department-home",
       "stanford-humanities-departments:stanford-university-english-department-home",
@@ -150166,6 +150220,18 @@
     "urine": [
       "humanities-literature-radar:oai-doaj-org-article-cb969c41ac66449abf069da9757060c5",
       "humanities-literature-radar:oai-doaj-org-article-8f957111cfda4087aa1a16da3afeb43b"
+    ],
+    "url": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
+    ],
+    "urlkey": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "urology": [
       "humanities-literature-radar:oai-doaj-org-article-cb969c41ac66449abf069da9757060c5"
@@ -153432,6 +153498,12 @@
       "humanities-literature-radar:oai-doaj-org-article-1c0ad7f5f7a243aba2c31f5ea6a02b5b",
       "humanities-literature-radar:oai-doaj-org-article-7ff1ac577f844c62918c756ab04655cd"
     ],
+    "wayback": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
+    ],
     "wayfinder": [
       "stanford-humanities-departments:stanford-university-english-department-home"
     ],
@@ -153593,19 +153665,13 @@
       "humanities-literature-radar:oai-doaj-org-article-aa6d39507c7c46418b76a5f1cdf463e1",
       "canon-drift-feasibility:jane-austen-the-platformization-of-the-web-making-web-data-platform-ready-2015-25",
       "canon-drift-feasibility:william-shakespeare-a-multi-agent-approach-for-web-adaptation-2014-50",
-      "wayback-machine-cdx:https-english-yale-edu-20200107200903",
-      "wayback-machine-cdx:https-english-yale-edu-20200108075605",
-      "wayback-machine-cdx:https-english-yale-edu-20200108143904",
-      "wayback-machine-cdx:https-english-yale-edu-20200109174750",
-      "wayback-machine-cdx:https-english-yale-edu-20200219104855",
-      "wayback-machine-cdx:https-english-yale-edu-20200322172516",
-      "wayback-machine-cdx:https-english-yale-edu-20200401104343",
-      "wayback-machine-cdx:https-english-yale-edu-20200414140025",
-      "wayback-machine-cdx:https-english-yale-edu-20200513162855",
-      "wayback-machine-cdx:https-english-yale-edu-20200719163825",
       "openalex-humanities:https-openalex-org-w2145535121",
       "openalex-humanities:https-openalex-org-w2127847431",
-      "nber-culture-history:i768l2-sitesearch-entity-node-1316600-en"
+      "nber-culture-history:i768l2-sitesearch-entity-node-1316600-en",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
+      "wayback-machine-cdx:princeton-university-english-department-home-20200101164844-https-english-princeton-edu",
+      "wayback-machine-cdx:stanford-university-english-department-home-20200109201447-https-english-stanford-edu",
+      "wayback-machine-cdx:university-of-chicago-humanities-division-division-home-20200120233051-http-humanities-uchicago-edu"
     ],
     "webapp": [
       "humanities-literature-radar:http-arxiv-org-abs-2606-13310v1"
@@ -155802,6 +155868,9 @@
     "wizard": [
       "humanities-literature-radar:http-arxiv-org-abs-2606-12972v1"
     ],
+    "wkql6r6vb2ojcumi6qicnvcdkalyiwsp": [
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu"
+    ],
     "wlsmv": [
       "humanities-literature-radar:oai-doaj-org-article-3694287c3c664e9a9ff160a7809efb62"
     ],
@@ -157946,16 +158015,7 @@
       "yale-humanities-departments:experiment-university-yale-university-catalog-2026-12",
       "yale-humanities-departments:experiment-university-yale-university-president-message-2026-13",
       "yale-humanities-departments:experiment-university-yale-university-commencement-speech-2026-14",
-      "wayback-machine-cdx:https-english-yale-edu-20200107200903",
-      "wayback-machine-cdx:https-english-yale-edu-20200108075605",
-      "wayback-machine-cdx:https-english-yale-edu-20200108143904",
-      "wayback-machine-cdx:https-english-yale-edu-20200109174750",
-      "wayback-machine-cdx:https-english-yale-edu-20200219104855",
-      "wayback-machine-cdx:https-english-yale-edu-20200322172516",
-      "wayback-machine-cdx:https-english-yale-edu-20200401104343",
-      "wayback-machine-cdx:https-english-yale-edu-20200414140025",
-      "wayback-machine-cdx:https-english-yale-edu-20200513162855",
-      "wayback-machine-cdx:https-english-yale-edu-20200719163825",
+      "wayback-machine-cdx:yale-university-english-department-home-20200107200903-https-english-yale-edu",
       "yale-humanities-departments:yale-university-english-department-home",
       "yale-humanities-departments:yale-university-history-department-home",
       "yale-humanities-departments:experiment-university-yale-university-catalog-2026-12",

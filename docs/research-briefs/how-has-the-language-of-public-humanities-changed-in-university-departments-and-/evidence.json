@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T18:15:07.122Z",
+  "generated_at": "2026-06-14T18:29:48.214Z",
   "question": "How has the language of public humanities changed in university departments and humanities centers over time?",
   "sqlite_path": "data/knowledge-base/processed/knowledge-base.sqlite",
   "fts_query": "\"language\" OR \"public\" OR \"humanities\" OR \"university\" OR \"departments\" OR \"centers\"",
@@ -16,7 +16,7 @@
       "department": "",
       "publication_year": "2011",
       "snippet": "The Computational Turn: Thinking about the Digital [Humanities]",
-      "rank": -8.746214417323108,
+      "rank": -8.654677119894945,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W62784252",
         "source_id": "openalex-humanities",
@@ -38,7 +38,7 @@
       "department": "",
       "publication_year": "2019",
       "snippet": "Debates in the Digital [Humanities] 2019",
-      "rank": -8.424933335692739,
+      "rank": -8.337939170825578,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W419149097",
         "source_id": "openalex-humanities",
@@ -60,7 +60,7 @@
       "department": "",
       "publication_year": "2012",
       "snippet": "Debates in the Digital [Humanities]",
-      "rank": -8.380952812784592,
+      "rank": -8.294573581360074,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W2729097583",
         "source_id": "openalex-humanities",
@@ -82,7 +82,7 @@
       "department": "",
       "publication_year": "2020",
       "snippet": "Afrolatin@ Digital [Humanities] or Rethinking Inclusion in the Digital [Humanities]",
-      "rank": -5.02534744223706,
+      "rank": -5.003216851284301,
       "rights": {
         "local_id": "crossref-humanities:10.5744/florida/9781683401476.003.0008",
         "source_id": "crossref-humanities",
@@ -104,7 +104,7 @@
       "department": "",
       "publication_year": "2007",
       "snippet": "Digital [Humanities] Quarterly",
-      "rank": -4.927063991669679,
+      "rank": -4.904881441807971,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W2284922225",
         "source_id": "openalex-humanities",
@@ -126,7 +126,7 @@
       "department": "",
       "publication_year": "",
       "snippet": "Digital [Humanities]",
-      "rank": -4.895377852085475,
+      "rank": -4.873464910946906,
       "rights": {
         "local_id": "crossref-humanities:10.1057/9781137337016.0023",
         "source_id": "crossref-humanities",
@@ -148,7 +148,7 @@
       "department": "",
       "publication_year": "2012",
       "snippet": "Debates in the Digital [Humanities]",
-      "rank": -4.772606580159545,
+      "rank": -4.751722807297871,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W4245219258",
         "source_id": "openalex-humanities",
@@ -193,7 +193,7 @@
       "department": "",
       "publication_year": "2015",
       "snippet": "A New Companion to Digital [Humanities]",
-      "rank": -4.124451539464289,
+      "rank": -4.106775987965677,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W2488845447",
         "source_id": "openalex-humanities",
@@ -215,7 +215,7 @@
       "department": "",
       "publication_year": "2013",
       "snippet": "Journal of Digital [Humanities]",
-      "rank": -4.124451539464289,
+      "rank": -4.106775987965677,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W2611199518",
         "source_id": "openalex-humanities",
@@ -237,7 +237,7 @@
       "department": "",
       "publication_year": "2012",
       "snippet": "Understanding Digital [Humanities]",
-      "rank": -4.1022245550678464,
+      "rank": -4.084728653277323,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W1520193715",
         "source_id": "openalex-humanities",
@@ -259,7 +259,7 @@
       "department": "",
       "publication_year": "2004",
       "snippet": "A Companion to Digital [Humanities]",
-      "rank": -3.9737359554578005,
+      "rank": -3.9572607054593756,
       "rights": {
         "local_id": "openalex-humanities:https://openalex.org/W1564237561",
         "source_id": "openalex-humanities",
