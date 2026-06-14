@@ -124,6 +124,7 @@ assert(existsSync(join(root, 'scripts/kb-ingest-core-samples.mjs')), 'Missing lo
 assert(existsSync(join(root, 'scripts/kb-ingest-broad-metadata.mjs')), 'Missing local humanities KB broad metadata ingest script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-doaj.mjs')), 'Missing local humanities KB DOAJ ingest script.')
 assert(existsSync(join(root, 'scripts/kb-ingest-gap-sources.mjs')), 'Missing local humanities KB gap-source ingest script.')
+assert(existsSync(join(root, 'scripts/kb-ingest-wikidata.mjs')), 'Missing local humanities KB Wikidata ingest script.')
 assert(existsSync(join(root, 'scripts/kb-build-search-index.mjs')), 'Missing local humanities KB search index script.')
 assert(existsSync(join(root, 'scripts/kb-build-semantic-index.mjs')), 'Missing local humanities KB semantic index script.')
 assert(existsSync(join(root, 'scripts/kb-build-analytical-tables.mjs')), 'Missing local humanities KB analytical table script.')

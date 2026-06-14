@@ -1,15 +1,15 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T18:48:16.125Z
+Generated at: 2026-06-14T18:53:42.279Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 4527
+Documents: 5274
 
 ## Text Scope
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 4323 |
+| metadata-only | 5070 |
 | stored-full-text | 200 |
 | stored-local-analysis-text | 4 |
 
@@ -43,7 +43,7 @@ Documents: 4527
 | stanford-humanities-departments | 6 |
 | uchicago-humanities-departments | 1 |
 | wayback-machine-cdx | 4 |
-| wikidata-cultural-entities | 10 |
+| wikidata-cultural-entities | 757 |
 | yale-humanities-departments | 5 |
 
 This is a local hashed TF-IDF retrieval layer over metadata plus rights-filtered stored text. It is deterministic and offline; it is not a neural embedding model.

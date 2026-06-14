@@ -32,6 +32,7 @@
     "kb:ingest:broad": "node scripts/kb-ingest-broad-metadata.mjs",
     "kb:ingest:doaj": "node scripts/kb-ingest-doaj.mjs",
     "kb:ingest:gaps": "node scripts/kb-ingest-gap-sources.mjs",
+    "kb:ingest:wikidata": "node scripts/kb-ingest-wikidata.mjs",
     "kb:index": "node scripts/kb-build-search-index.mjs",
     "kb:index:semantic": "node scripts/kb-build-semantic-index.mjs",
     "kb:tables": "node scripts/kb-build-analytical-tables.mjs",
