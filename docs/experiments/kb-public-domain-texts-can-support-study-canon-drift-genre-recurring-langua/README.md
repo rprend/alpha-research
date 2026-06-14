@@ -25,6 +25,14 @@ Which public-domain texts can support a study of canon drift, genre, and recurri
 From the repository root:
 
 ```bash
+node docs/experiments/kb-public-domain-texts-can-support-study-canon-drift-genre-recurring-langua/scripts/build-analysis.mjs
+```
+
+The script reads the local KB `source_documents`, `works`, `rights`, and stored Project Gutenberg text files. It writes analysis tables under `data/processed/` and refreshes `reports/result.json`, `reports/work.md`, and `reports/public-draft.md`.
+
+The original SQL scaffold can still be run for ad hoc inspection:
+
+```bash
 sqlite3 data/knowledge-base/processed/knowledge-base.sqlite < docs/experiments/kb-public-domain-texts-can-support-study-canon-drift-genre-recurring-langua/config/queries.sql
 ```
 

@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-06-14T22:37:31.453Z",
+  "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
+  "source_count": 2,
+  "total_records": 360,
+  "quote_ready_texts": 200,
+  "discovery_only_records": 160,
+  "total_text_chars": 5226709,
+  "total_words_estimate": 921506,
+  "rights_statuses": {
+    "metadata-only": 160,
+    "public-domain-text-ok": 200
+  },
+  "quote_statuses": {
+    "metadata-only-no-quotes": 160,
+    "quote-public-domain": 200
+  },
+  "findings": {
+    "corpus": [
+      "200 local texts are quote-ready public-domain files, totaling 921,506 estimated words.",
+      "160 matched records are discovery-only metadata, mostly useful for acquisition planning rather than immediate quotation.",
+      "200 quote-ready texts have subject metadata and 200 have bookshelf metadata."
+    ],
+    "top_sources": [
+      "project-gutenberg: 200 records, 200 with local text, 200 quote-ready",
+      "internet-archive-metadata: 160 records, 0 with local text, 0 quote-ready"
+    ],
+    "rights": [
+      "public-domain-text-ok/quote-public-domain: 200 records",
+      "metadata-only/metadata-only-no-quotes: 160 records"
+    ],
+    "top_bookshelves": [
+      "Category: Short Stories: 47 texts",
+      "Category: British Literature: 45 texts",
+      "Category: Humour: 43 texts",
+      "Category: American Literature: 38 texts",
+      "Category: Poetry: 37 texts",
+      "Category: Essays, Letters & Speeches: 34 texts",
+      "Category: French Literature: 34 texts",
+      "Category: Novels: 23 texts"
+    ],
+    "top_subjects": [
+      "Fables, French -- Translations into English: 24 texts",
+      "French poetry -- Translations into English: 24 texts",
+      "Short stories: 17 texts",
+      "Fiction: 10 texts",
+      "Poetry: 9 texts",
+      "Essays: 8 texts",
+      "French fiction -- Translations into English: 6 texts",
+      "Classical literature: 4 texts"
+    ],
+    "term_families": [
+      "emotion_interiority: 3012 mentions across 191 texts",
+      "religion_morality: 1774 mentions across 179 texts",
+      "social_world: 1386 mentions across 190 texts",
+      "genre_form: 950 mentions across 186 texts",
+      "empire_race_nation: 948 mentions across 159 texts",
+      "canon_language: 502 mentions across 158 texts",
+      "science_modernity: 465 mentions across 112 texts"
+    ],
+    "representative_titles": [
+      "John Jacob Astor (Hubbard, Elbert, 1856-1915, 6,511 words)",
+      "Rab and His Friends (Brown, John, 1810-1882, 6,479 words)",
+      "Trees, and Other Poems (Kilmer, Joyce, 1886-1918, 6,282 words)",
+      "Some Causes of the Prevailing Discontent (Warner, Charles Dudley, 1829-1900, 6,274 words)",
+      "The Rubaiyat of Omar Khayyam Jr. (Irwin, Wallace, 1876-1959, 6,189 words)",
+      "The City That Was: A Requiem of Old San Francisco (Irwin, Will, 1873-1948, 6,166 words)",
+      "Goldsmith's Friend Abroad Again (Twain, Mark, 1835-1910, 6,139 words)",
+      "First Project Gutenberg Collection of Edgar Allan Poe (Poe, Edgar Allan, 1809-1849, 6,018 words)"
+    ],
+    "readiness": "The KB can already support a first local-text scoping essay about quote-ready public-domain texts and recurring language families."
+  },
+  "caveats": [
+    "This experiment analyzes local Project Gutenberg text files and Internet Archive metadata already stored in the KB; it performs no fresh web scraping.",
+    "Project Gutenberg texts are quote-ready under the local KB rights rows, but source-specific Gutenberg license/trademark notes still matter for republication packaging.",
+    "Internet Archive rows are discovery-only metadata in this experiment; they are not treated as locally quote-ready full text.",
+    "Publication-year coverage for imported Gutenberg rows is weak, so this pass supports corpus scoping and genre/language study more strongly than chronological canon-drift claims.",
+    "Term-family counts are transparent dictionary signals over stored text, not a topic model or literary interpretation."
+  ]
+}

@@ -1,0 +1,3 @@
+source_id,rows,rows_with_local_text,quote_ready_rows,discovery_only_rows,rows_with_subjects,rows_with_bookshelves,total_words,rights_statuses
+project-gutenberg,200,200,200,0,200,200,921506,public-domain-text-ok=200
+internet-archive-metadata,160,0,0,160,0,0,0,metadata-only=160
