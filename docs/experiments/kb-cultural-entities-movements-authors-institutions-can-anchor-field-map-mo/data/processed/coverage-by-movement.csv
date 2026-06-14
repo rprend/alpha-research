@@ -1,0 +1,49 @@
+movement,entities,with_evidence,evidence_links,avg_anchor_score,example_entities
+Baroque music,4,0,0,4.00,Jean-Philippe Rameau; Johann Sebastian Bach; Antonio Vivaldi; Simon Lohet
+Romanticism,4,0,0,4.00,France Prešeren; Hector Berlioz; George Sand; Jacques Offenbach
+Romantic music,3,1,1,4.67,Ludwig van Beethoven; Frédéric Chopin; Franz Liszt
+Symbolism,3,0,0,4.00,Arthur Rimbaud; Charles Baudelaire; Paul Verlaine
+classical music,2,0,0,4.00,Jean-Baptiste Lully; Bertran de Born
+Classicism,2,1,1,5.00,Molière; Jean Racine
+German Renaissance,2,0,0,4.00,Konrad of Megenberg; Wilhelm Xylander
+impressionism in music,2,0,0,4.00,Maurice Ravel; Claude Debussy
+literary realism,2,0,0,4.00,Stendhal; Fyodor Dostoyevsky
+medieval music,2,0,0,3.88,Adam de la Halle; Bernard de Ventadour
+surrealism,2,0,0,4.00,J. Bernlef; David Lynch
+troubadoric poetry,2,0,0,4.00,Arnaut Daniel; Comtesse de Die
+anti-war movement,1,0,0,4.00,Noam Chomsky
+atheism,1,0,0,4.00,Thomas Metzinger
+Bloomsbury Group,1,0,0,4.00,John Maynard Keynes
+Classical period,1,0,0,4.00,Wolfgang Amadeus Mozart
+Dada,1,0,0,4.00,Louis Aragon
+deism,1,1,1,5.00,Voltaire
+Dolce Stil Novo,1,0,0,4.00,Dante Alighieri
+empiricism,1,0,0,4.00,John Locke
+English Renaissance,1,1,12,16.00,William Shakespeare
+Enlightenment philosophy,1,0,0,4.00,Denis Diderot
+Félibrige,1,0,0,4.00,Charles Maurras
+freethought,1,1,1,6.00,Émile Zola
+French Romanticism,1,0,0,4.00,Q535
+Futurism,1,0,0,4.00,Boris Pasternak
+Generation of ‘27,1,1,1,6.00,Federico García Lorca
+Genoa school,1,0,0,4.00,Fabrizio De André
+German idealism,1,1,1,5.00,Immanuel Kant
+Harlem Renaissance,1,0,0,4.00,Duke Ellington
+Hegelianism,1,0,0,4.00,Georg Wilhelm Friedrich Hegel
+High Renaissance,1,1,1,6.00,Leonardo da Vinci
+Hundred Schools of Thought,1,0,0,3.50,Laozi
+Hussards,1,0,0,4.00,Paul Morand
+Inklings,1,0,0,4.00,J. R. R. Tolkien
+Marxism,1,0,0,4.00,Jean-Paul Sartre
+modernist literature,1,0,0,4.00,Franz Kafka
+Neoclassicism,1,0,0,4.00,Pierre Corneille
+nominalism,1,0,0,4.00,Peter Abelard
+nonviolence,1,0,0,4.00,Mahatma Gandhi
+Platonism,1,1,7,10.50,Plato
+prose,1,0,0,4.00,Mikhail Bulgakov
+Ram Rath Yatra,1,0,0,4.00,Narendra Modi
+rationalism,1,0,0,4.00,René Descartes
+Romanticism in Italy,1,0,0,4.00,Alessandro Manzoni
+spiritualism,1,0,0,4.00,Caspar Schwenckfeld
+value criticism,1,0,0,4.00,Robert Kurz
+Western philosophy,1,0,0,4.00,Walter Kaufmann

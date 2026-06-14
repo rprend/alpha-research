@@ -1,0 +1,100 @@
+country,entities,with_evidence,evidence_links,avg_anchor_score,example_entities
+United States,89,6,20,3.96,Abraham Lincoln; Ken Jennings; Bob Dylan; Carl Sagan; Patti Smith
+United Kingdom,59,8,20,4.08,Q42; J. R. R. Tolkien; John Lennon; Kate Bush; Kim Wilde
+Germany,48,1,1,3.78,Michael Schmidt-Salomon; Friedrich Wilhelm Grund; Walter Kaufmann; Robert Spaemann; Johann Salomo Semler
+France,24,1,1,4.01,Paul Morand; Arthur Rimbaud; Charles Baudelaire; Stendhal; Émile Zola
+Kingdom of Prussia,14,1,1,3.86,Albrecht Ritschl; Adam Müller; Christian August Crusius; Karl Lamprecht; Henrik Steffens
+Kingdom of France,12,2,2,4.15,Denis Diderot; Molière; Jean Racine; Pierre Corneille; François Villon
+Kingdom of the Netherlands,12,0,0,3.73,J. Bernlef; Harry Mulisch; Wave Motion; Journal of Ethnopharmacology; Autonomous Agents and Multi-Agent Systems
+Russian Empire,7,0,0,3.86,Mikhail Bulgakov; Fyodor Dostoyevsky; Hans Schmidt; Friedrich von Adelung; Johann Eduard Erdmann
+Europe,6,2,21,8.75,berceuse; post-rock; free jazz; new age music; opera
+Italy,6,0,0,3.75,Nuovo Cimento; European Transactions on Telecommunications; Franco Battiato; Angelo Branduardi; Daniele Luppi
+Joseon,6,0,0,3.25,Q12592980; Q12593215; Q12599124; Q12600124; Q16176694
+United Kingdom of Great Britain and Ireland,6,0,0,3.79,Charlie Chaplin; Charles Darwin; Hubert Clifford; John Maynard Keynes; John Barrow
+Sweden,5,0,0,3.65,Dag Hammarskjöld; Swedish hip hop; Simon Brehm; Thore Ehrling; Marit Paulsen
+Australia,4,0,0,3.75,Julian Assange; Miles Franklin; noise rock; Lisa Gerrard
+German Empire,4,0,0,3.63,Franz Leopold Neumann; Paul Kirchhoff; Erich Adickes; Jugendstil
+Jamaica,4,1,1,4.00,Bob Marley; drum and bass; dub music; reggae
+Kingdom of Italy,4,0,0,3.88,Dario Fo; Alessandro Manzoni; Totò; Fabrizio De André
+Canada,3,0,0,3.75,Stephen Harper; Leonard Cohen; Céline Dion
+Cisleithania,3,0,0,3.83,Franz Kafka; Albert Einstein; Jaroslav Hašek
+Finland,3,0,0,3.75,Pirkko-Liisa Lehtosalo-Hilander; viking metal; Ville Valo
+India,3,0,0,3.92,Mahatma Gandhi; Narendra Modi; Anuradha Paudwal
+Iran,3,0,0,3.75,Siamak Aghaei; Siamak Jahangiri; Martik Qaraxanyan
+Kingdom of Saxony,3,0,0,3.75,Richard Wagner; Gotthilf Heinrich von Schubert; Moritz Wilhelm Drobisch
+Kingdom of Württemberg,3,0,0,3.83,Friedrich Theodor Vischer; Carl Friedrich von Weizsäcker; Georg Wilhelm Friedrich Hegel
+Norway,3,0,0,3.75,Roald Amundsen; Espen Rud; Karl Seglem
+Spain,3,1,1,4.50,pasodoble; flamenco; Federico García Lorca
+Austria–Hungary,2,0,0,3.75,Ozjasz Thon; Principles of Economics
+Classical Athens,2,2,11,9.38,Plato; Socrates
+Dominion of India,2,0,0,3.75,Jawaharlal Nehru; Indira Gandhi
+Greece,2,0,0,3.50,Tom Hanks; Thirties Generation
+Holy Roman Empire,2,0,0,4.00,Caspar Schwenckfeld; Wilhelm Xylander
+Kingdom of England,2,1,12,10.00,William Shakespeare; John Locke
+Kingdom of Great Britain,2,0,0,3.75,George Washington; Francis Coventry
+Korean Empire,2,0,0,3.25,Q12591957; Q12594958
+Portugal,2,0,0,3.75,fado; Luísa Sobral
+Republic of Florence,2,1,1,5.00,Leonardo da Vinci; Dante Alighieri
+Russia,2,0,0,3.50,Journal of Experimental and Theoretical Physics; Ilya Oleynikov
+Singapore,2,0,0,3.75,Journal of Computational Acoustics; International Journal of Cooperative Information Systems
+South Korea,2,0,0,3.50,Ban Ki-moon; Q16219487
+Soviet Union,2,0,0,3.50,Vladimir Vysotsky; Q25617357
+statelessness,2,1,1,4.25,Joseph Brodsky; Karl Marx
+Abbasid Caliphate,1,0,0,3.25,Q3503636
+Albania,1,0,0,3.75,Kastro Zizo
+Ancient Rome,1,0,0,3.25,Julius Caesar
+Argentina,1,0,0,3.75,Jorge Luis Borges
+Armenia,1,0,0,3.75,Charles Aznavour
+Belarusian People's Republic,1,0,0,3.75,Yanka Kupala
+Belgium,1,0,0,3.75,Jacques Brel
+British Raj,1,0,0,3.75,Ram Narayan
+Byzantine Empire,1,0,0,3.25,Leo VI the Wise
+Catalan countries,1,0,0,3.25,nova cançó
+Congress Poland,1,0,0,4.00,Frédéric Chopin
+Cuba,1,0,0,3.25,Q30310857
+Duchy of Anhalt,1,0,0,3.75,Heymann Steinthal
+Egypt,1,0,0,3.75,Boutros Boutros-Ghali
+Electorate of Cologne,1,1,1,6.00,Ludwig van Beethoven
+Electorate of Saxony,1,0,0,3.75,Carl Hindenburg
+Empire of Brazil,1,0,0,3.75,Pedro I of Brazil
+German Democratic Republic,1,0,0,3.75,Rudolf Bahro
+German Reich,1,0,0,3.75,Ludwig Geiger
+Ghana,1,0,0,3.75,Stevie Wonder
+Goryeo,1,0,0,3.25,Q12598457
+Grand Duchy of Finland,1,0,0,3.75,Ernst Mielck
+Grand Duchy of Hesse,1,0,0,3.75,Adolf Reinach
+Grand Duchy of Tuscany,1,0,0,4.00,Jean-Baptiste Lully
+Iceland,1,0,0,3.75,Björk
+Illyrian Provinces,1,0,0,4.00,France Prešeren
+Indonesia,1,0,0,3.25,gamelan
+Ireland,1,0,0,3.75,Fionn Regan
+Israel,1,0,0,3.75,Israel Medical Association Journal
+Japan,1,0,0,3.25,Progress of Theoretical and Experimental Physics
+Kingdom of Bavaria,1,0,0,3.75,Georg Friedrich Daumer
+Kingdom of Castile,1,0,0,3.75,Blanche of Castile
+Kingdom of Denmark,1,0,0,3.75,Johannes Nikolaus Tetens
+Kingdom of Hanover,1,0,0,3.75,Philip Marheineke
+Kingdom of Hungary,1,0,0,4.00,Franz Liszt
+Kingdom of Poland,1,1,1,4.75,Nicolaus Copernicus
+Kingdom of Portugal,1,0,0,3.75,Q590
+Kingdom of Sardinia,1,0,0,3.75,Giuseppe Garibaldi
+Latin America,1,1,1,5.75,salsa
+Mexico,1,1,6,10.75,conjunto
+Myanmar,1,0,0,3.75,U Thant
+Netherlands,1,0,0,3.75,Chemometrics and Intelligent Laboratory Systems
+Normandy,1,1,6,12.75,Impressionism
+Poland,1,0,0,3.75,International Journal of Applied Mathematics and Computer Science
+Polish–Lithuanian Commonwealth,1,0,0,3.75,Franciszek Karpiński
+Prince-Archbishopric of Salzburg,1,0,0,4.00,Wolfgang Amadeus Mozart
+Prince-Bishopric of Liège,1,0,0,4.00,Simon Lohet
+Puerto Rico,1,0,0,3.75,reggaeton
+Republic of Venice,1,0,0,4.00,Antonio Vivaldi
+Romania,1,0,0,3.75,Alexandra Stan
+Royal Prussia,1,0,0,3.75,Bartholomaeus Keckermann
+Russian Socialist Federative Soviet Republic,1,0,0,3.25,agitprop
+Saxe-Altenburg,1,0,0,3.75,Friedrich Karl Forberg
+Saxe-Eisenach,1,0,0,4.00,Johann Sebastian Bach
+Syria,1,0,0,3.75,Bassam Tibi
+Togo,1,0,0,3.75,Toofan
+West Germany,1,0,0,3.75,Jiří Gruša
+Zhou dynasty,1,0,0,3.50,Laozi

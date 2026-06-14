@@ -1,0 +1,6 @@
+entity_type,entities,with_evidence,evidence_links,avg_anchor_score,example_entities
+candidate_person_cluster,1713,11,13,0.01,1958 Birth Cohort Controls; A Elder; A Hirumi; A Rossett; A Rovai
+source_author,1713,11,13,0.01,1958 Birth Cohort Controls; A Elder; A Hirumi; A John Camm; A Rossett
+source_topic,1058,332,2139,1.42,"(elmer ephraim); (stavin' chain); 103-14 roosevelt ave; 13th air force; 148th airborne air control squadron, 20th air force"
+linked_entity,919,94,346,3.89,George Washington; Q42; Abraham Lincoln; Ken Jennings; Stephen Harper
+institution,17,7,10,2.87,Brown University; Cleveland Museum of Art; Columbia University; Cornell University; Duke University

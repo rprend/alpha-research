@@ -25,6 +25,14 @@ Which cultural entities, movements, authors, and institutions can anchor a field
 From the repository root:
 
 ```bash
+node docs/experiments/kb-cultural-entities-movements-authors-institutions-can-anchor-field-map-mo/scripts/build-analysis.mjs
+```
+
+The script reads local KB source documents, works, authors, candidate canonical people, institutions, topics, and rights rows. It writes entity-anchor and evidence-link tables under `data/processed/` and refreshes `reports/result.json`, `reports/work.md`, and `reports/public-draft.md`.
+
+The original SQL scaffold can still be run for ad hoc inspection:
+
+```bash
 sqlite3 data/knowledge-base/processed/knowledge-base.sqlite < docs/experiments/kb-cultural-entities-movements-authors-institutions-can-anchor-field-map-mo/config/queries.sql
 ```
 

@@ -1,0 +1,18 @@
+category,entities,with_evidence,evidence_links,avg_anchor_score,example_entities
+author,1713,11,13,0.01,1958 Birth Cohort Controls; A Elder; A Hirumi; A John Camm; A Rossett
+name-only,1707,11,13,0.01,1958 Birth Cohort Controls; A Elder; A Hirumi; A Rossett; A Rovai
+source-subject,1058,332,2139,1.42,"(elmer ephraim); (stavin' chain); 103-14 roosevelt ave; 13th air force; 148th airborne air control squadron, 20th air force"
+concepts,125,21,88,3.77,anthropomorphism; Q135729; payment amount; Zahlenland; Zahlungsanordnung
+works,125,0,0,3.21,Q457230; Q464896; Q467381; Ijonnok; Anweisung zur Teutschen Orthographie
+movements,120,31,121,4.42,Renaissance; Dada; Neoclassicism; street art; Munich Secession
+artists,109,4,4,3.87,Patti Smith; Leonardo da Vinci; Dario Fo; Charlie Chaplin; Jean-Philippe Rameau
+genres,98,22,83,4.48,rapping; Britpop; gothic metal; polyphony; gospel music
+institutions,97,0,0,3.49,Michigan Technological University; University of Bordeaux 1; University of Massachusetts Amherst; University of Massachusetts Boston; The Chinese University of Hong Kong
+journals,88,6,18,3.90,The World Factbook; Journal of Experimental and Theoretical Physics; Notices of the American Mathematical Society; Wave Motion; Journal of Computational Acoustics
+philosophers,84,3,3,3.80,Walter Kaufmann; Johannes Nikolaus Tetens; Albrecht Ritschl; Adam Müller; Franz Leopold Neumann
+authors,73,7,29,4.28,George Washington; Q42; Abraham Lincoln; Ken Jennings; Stephen Harper
+university,14,7,10,3.00,Brown University; Columbia University; Cornell University; Duke University; Harvard University
+medium-low,4,0,0,2.00,Daniel J. Cohen; Dave Parry; Gary Hall; Patrik Svensson
+high,2,0,0,0.00,André Pacheco; Silke Schwandt
+museum,2,0,0,2.25,Cleveland Museum of Art; Metropolitan Museum of Art
+library/archive,1,0,0,2.25,Library of Congress

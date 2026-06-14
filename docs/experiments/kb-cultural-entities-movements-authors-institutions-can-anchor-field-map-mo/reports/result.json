@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-06-14T22:43:01.299Z",
+  "question": "Which cultural entities, movements, authors, and institutions can anchor a field map of modern humanities topics?",
+  "source_count": 12,
+  "entity_rows": 5420,
+  "evidence_links": 2521,
+  "entities_with_evidence": 455,
+  "source_document_rows": 4847,
+  "work_rows": 2828,
+  "findings": {
+    "corpus": [
+      "5420 candidate entity anchors are available across linked entities, author rows, person clusters, institutions, and source topics.",
+      "455 anchors have exact-label links into local works or source-document metadata.",
+      "250 top evidence links are written for manual inspection."
+    ],
+    "top_types": [
+      "candidate_person_cluster: 1713 entities, 11 with evidence",
+      "source_author: 1713 entities, 11 with evidence",
+      "source_topic: 1058 entities, 332 with evidence",
+      "linked_entity: 919 entities, 94 with evidence",
+      "institution: 17 entities, 7 with evidence"
+    ],
+    "top_sources": [
+      "openalex-humanities: 3274 entities",
+      "library-of-congress: 1059 entities",
+      "wikidata-cultural-entities: 919 entities",
+      "crossref-humanities: 148 entities",
+      "expanded-university-humanities-departments: 7 entities",
+      "crossref-humanities; openalex-humanities: 4 entities",
+      "cleveland-museum-open-access: 1 entities",
+      "columbia-humanities-departments: 1 entities"
+    ],
+    "top_categories": [
+      "author: 1713 entities",
+      "name-only: 1707 entities",
+      "source-subject: 1058 entities",
+      "concepts: 125 entities",
+      "works: 125 entities",
+      "movements: 120 entities",
+      "artists: 109 entities",
+      "genres: 98 entities"
+    ],
+    "top_countries": [
+      "United States: 89 entities",
+      "United Kingdom: 59 entities",
+      "Germany: 48 entities",
+      "France: 24 entities",
+      "Kingdom of Prussia: 14 entities",
+      "Kingdom of France: 12 entities",
+      "Kingdom of the Netherlands: 12 entities",
+      "Russian Empire: 7 entities"
+    ],
+    "top_movements": [
+      "Baroque music: 4 entities",
+      "Romanticism: 4 entities",
+      "Romantic music: 3 entities",
+      "Symbolism: 3 entities",
+      "classical music: 2 entities",
+      "Classicism: 2 entities",
+      "German Renaissance: 2 entities",
+      "impressionism in music: 2 entities"
+    ],
+    "top_anchors": [
+      "musical (linked_entity, score 20.75)",
+      "Renaissance (linked_entity, score 19)",
+      "Symbolism (linked_entity, score 17.5)",
+      "authority (linked_entity, score 17)",
+      "evidence (linked_entity, score 17)",
+      "Baroque (linked_entity, score 17)",
+      "Romanticism (linked_entity, score 17)",
+      "opera (linked_entity, score 16.75)",
+      "William Shakespeare (linked_entity, score 16)",
+      "Nature (linked_entity, score 15.75)"
+    ]
+  },
+  "caveats": [
+    "This is a local field-map scaffold, not final authority control. Candidate people clusters are deterministic name clusters and must be reviewed before person-level claims.",
+    "Evidence links use exact normalized label matching against local titles, authors, descriptions, venues, subjects, and topic labels; absence of a link does not mean absence from the field.",
+    "Wikidata categories and source-provided topics are useful anchors but contain broad cultural and public figures, so publication claims need source-specific filtering.",
+    "The pipeline uses local metadata and stored KB tables only. It does not fetch new entity data or resolve external identifiers beyond existing KB rows.",
+    "Rights metadata is inherited from the source document rows; quote decisions still require source-specific review."
+  ]
+}
