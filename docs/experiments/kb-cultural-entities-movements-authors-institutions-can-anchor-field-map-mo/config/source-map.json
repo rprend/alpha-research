@@ -1,0 +1,275 @@
+{
+  "generated_at": "2026-06-14T19:30:53.113Z",
+  "question": "Which cultural entities, movements, authors, and institutions can anchor a field map of modern humanities topics?",
+  "inferred_intent": {
+    "preferred_source_classes": [
+      "linked-open-data",
+      "scholarly-metadata",
+      "journals-and-reviews"
+    ],
+    "secondary_source_classes": [
+      "conference-programs",
+      "linked-open-data",
+      "scholarly-metadata",
+      "open-text-metadata"
+    ],
+    "deprioritized_source_classes": [
+      "university-department-web"
+    ]
+  },
+  "local_evidence_count": 18,
+  "matched_sources": [
+    {
+      "source_id": "crossref-humanities",
+      "name": "Crossref Humanities DOI Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 26,
+      "local_document_count": 208,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "journal publication radar",
+        "publisher and venue normalization",
+        "DOI joins"
+      ],
+      "known_risks": [
+        "subject metadata is uneven",
+        "not all humanities venues use DOIs",
+        "license fields vary by publisher"
+      ]
+    },
+    {
+      "source_id": "openalex-humanities",
+      "name": "OpenAlex Humanities Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 24,
+      "local_document_count": 273,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "humanities literature radar",
+        "canon drift scholarly signal",
+        "venue and institution mapping"
+      ],
+      "known_risks": [
+        "concept filters can be noisy",
+        "biomedical false positives require exclusion terms",
+        "abstracts are inverted-index metadata, not always full text"
+      ]
+    },
+    {
+      "source_id": "doaj-humanities",
+      "name": "DOAJ Humanities Open Access Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 22,
+      "local_document_count": 2948,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "open humanities journal radar",
+        "OA venue discovery",
+        "publication trend tracking"
+      ],
+      "known_risks": [
+        "API fields differ across records",
+        "article coverage is not complete for every journal"
+      ]
+    },
+    {
+      "source_id": "wikidata-cultural-entities",
+      "name": "Wikidata Cultural Entities",
+      "source_class": "linked-open-data",
+      "score": 22,
+      "local_document_count": 757,
+      "ingest_status": "active",
+      "redistribution_status": "derived-metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "author and movement registry",
+        "cultural entity graph",
+        "institution/place joins"
+      ],
+      "known_risks": [
+        "coverage bias",
+        "ontology drift",
+        "label gaps",
+        "SPARQL rate limits"
+      ]
+    },
+    {
+      "source_id": "journal-new-literary-history",
+      "name": "New Literary History Metadata",
+      "source_class": "journals-and-reviews",
+      "score": 17,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "literary theory topic trends",
+        "journal radar",
+        "canon and method discourse"
+      ],
+      "known_risks": [
+        "full text restricted",
+        "abstract availability varies",
+        "metadata source joins needed"
+      ]
+    },
+    {
+      "source_id": "journal-pmla",
+      "name": "PMLA Metadata",
+      "source_class": "journals-and-reviews",
+      "score": 17,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "field-topic radar",
+        "discipline discourse",
+        "literary studies trend tracking"
+      ],
+      "known_risks": [
+        "publisher access limits",
+        "abstract availability varies",
+        "metadata joins required"
+      ]
+    },
+    {
+      "source_id": "journal-digital-humanities-quarterly",
+      "name": "Digital Humanities Quarterly",
+      "source_class": "journals-and-reviews",
+      "score": 17,
+      "local_document_count": 10,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "digital humanities method trends",
+        "AI/computation discourse",
+        "open journal radar"
+      ],
+      "known_risks": [
+        "license review required",
+        "format variation",
+        "author identity normalization"
+      ]
+    },
+    {
+      "source_id": "public-books",
+      "name": "Public Books",
+      "source_class": "journals-and-reviews",
+      "score": 17,
+      "local_document_count": 10,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "public humanities discourse",
+        "review essay radar",
+        "topic emergence"
+      ],
+      "known_risks": [
+        "copyrighted article text",
+        "category drift",
+        "site route changes"
+      ]
+    },
+    {
+      "source_id": "journal-critical-inquiry",
+      "name": "Critical Inquiry Metadata",
+      "source_class": "journals-and-reviews",
+      "score": 16,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "critical theory discourse tracking",
+        "journal radar",
+        "topic drift"
+      ],
+      "known_risks": [
+        "full text restricted",
+        "metadata inconsistency",
+        "abstract rights review"
+      ]
+    },
+    {
+      "source_id": "project-gutenberg",
+      "name": "Project Gutenberg Catalog And Texts",
+      "source_class": "public-domain-texts",
+      "score": 14,
+      "local_document_count": 200,
+      "ingest_status": "active",
+      "redistribution_status": "public-domain-text-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": true,
+      "research_use_cases": [
+        "public-domain literary corpus",
+        "semantic benchmark",
+        "canon and genre studies"
+      ],
+      "known_risks": [
+        "metadata inconsistencies",
+        "edition and translation ambiguity",
+        "boilerplate contamination"
+      ]
+    },
+    {
+      "source_id": "internet-archive-metadata",
+      "name": "Internet Archive Metadata",
+      "source_class": "open-text-metadata",
+      "score": 14,
+      "local_document_count": 150,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "book and archive discovery",
+        "public-domain candidate finding",
+        "collection mapping"
+      ],
+      "known_risks": [
+        "item rights vary",
+        "OCR quality varies",
+        "metadata duplication"
+      ]
+    },
+    {
+      "source_id": "dh-conference-programs",
+      "name": "Digital Humanities Conference Programs",
+      "source_class": "conference-programs",
+      "score": 12,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "digital humanities topic tracking",
+        "method diffusion",
+        "AI/computation language drift"
+      ],
+      "known_risks": [
+        "year-specific formats",
+        "abstract rights",
+        "duplicate author identities"
+      ]
+    }
+  ]
+}

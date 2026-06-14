@@ -1,0 +1,136 @@
+{
+  "experiment_id": "kb-scholarly-literature-discusses-digital-humanities-public-humanities",
+  "generated_at": "2026-06-14T20:11:33.279Z",
+  "source_brief": "docs/research-briefs/what-scholarly-literature-discusses-digital-humanities-and-public-humanities/",
+  "question": "What scholarly literature discusses digital humanities and public humanities?",
+  "unit_of_analysis": "work/article metadata record",
+  "suggested_method": "start with source-stratified local evidence review, then convert matched records into a longitudinal publication/venue table",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "date_coverage_rating": "strong-enough-for-scoping",
+  "local_tables": [
+    "source_documents",
+    "rights",
+    "works",
+    "venues",
+    "authors",
+    "canonical_people",
+    "citations",
+    "work_references"
+  ],
+  "source_summary": [
+    {
+      "source_id": "openalex-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 273,
+      "direct_evidence_hits": 10,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "crossref-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 208,
+      "direct_evidence_hits": 8,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "doaj-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 2948,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "journal-digital-humanities-quarterly",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 10,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "public-books",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 10,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "journal-critical-inquiry",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "journal-new-literary-history",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "journal-pmla",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "wikidata-cultural-entities",
+      "source_class": "linked-open-data",
+      "local_document_count": 757,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "derived-metadata-ok"
+    },
+    {
+      "source_id": "dh-conference-programs",
+      "source_class": "conference-programs",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "met-collection-api",
+      "source_class": "cultural-collections",
+      "local_document_count": 255,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "cleveland-museum-open-access",
+      "source_class": "cultural-collections",
+      "local_document_count": 200,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    }
+  ],
+  "rights_summary": {
+    "metadata-ok": 18
+  },
+  "expected_outputs": [
+    "reports/readiness.md",
+    "reports/readiness.json",
+    "reports/article-outline.md",
+    "reports/claim-checklist.md",
+    "config/source-map.json",
+    "config/queries.sql",
+    "data/derived/evidence-sample.json"
+  ],
+  "next_actions": [
+    "Run config/queries.sql against data/knowledge-base/processed/knowledge-base.sqlite.",
+    "Review evidence sample and rights statuses before quoting any source text.",
+    "Promote only claims marked publication-ready in reports/claim-checklist.md.",
+    "Use the missing-data memo before starting any fresh scrape."
+  ]
+}

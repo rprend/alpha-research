@@ -1,0 +1,26 @@
+{
+  "essay_title_options": [
+    "Public-domain Texts Can Support Study Canon Drift, Genre,",
+    "What Local Humanities Data Shows About public-domain texts can support study canon drift, genre,",
+    "A Field Map Of public-domain texts can support study canon drift, genre,"
+  ],
+  "candidate_charts_tables": [
+    "Matched texts by author/date/genre",
+    "Concordance table for key terms",
+    "Public-domain quote-ready evidence table"
+  ],
+  "claim_strength_rating": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "missing_evidence_list": [
+    "internet-archive-metadata: 150 local docs, no direct hits",
+    "openalex-humanities: 273 local docs, no direct hits",
+    "doaj-humanities: 2948 local docs, no direct hits",
+    "wikidata-cultural-entities: 757 local docs, no direct hits",
+    "crossref-humanities: 208 local docs, no direct hits",
+    "met-collection-api: 255 local docs, no direct hits"
+  ],
+  "suggested_follow_up_acquisition": [
+    "Expand Project Gutenberg/public-domain text imports for matched authors, genres, and bookshelves.",
+    "Store text-normalization manifests and boilerplate removal reports before close-reading outputs."
+  ],
+  "why_this_matters": "This question can now start from local public-domain-texts, open-text-metadata evidence instead of fresh scraping, with 18 direct hits and top local sources including Project Gutenberg Catalog And Texts, Internet Archive Metadata."
+}

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-06-14T20:11:33.275Z",
+  "status": "first-pass-experiment-ready",
+  "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "publication_concept": "Humanities Departments Visible Faculty, Events, News, Public Humanities",
+  "gates": [
+    {
+      "gate": "local evidence",
+      "passed": true,
+      "detail": "18 direct local evidence hits."
+    },
+    {
+      "gate": "source provenance",
+      "passed": true,
+      "detail": "12 matched sources have local documents."
+    },
+    {
+      "gate": "rights review",
+      "passed": true,
+      "detail": "Evidence rights statuses: local-analysis-only=18."
+    },
+    {
+      "gate": "date handling",
+      "passed": true,
+      "detail": "fetch-date-only-or-missing: Matched local records lack enough content-date fields for longitudinal claims; use fetch dates only for crawl coverage, not historical interpretation."
+    },
+    {
+      "gate": "identity/reference caveats",
+      "passed": true,
+      "detail": "No identity summary present; use source identifiers only."
+    }
+  ],
+  "failed_gates": []
+}

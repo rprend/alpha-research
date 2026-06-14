@@ -1,0 +1,139 @@
+{
+  "experiment_id": "kb-cultural-entities-movements-authors-institutions-can-anchor-field-map-mo",
+  "generated_at": "2026-06-14T20:11:33.287Z",
+  "source_brief": "docs/research-briefs/which-cultural-entities-movements-authors-and-institutions-can-anchor-a-field-ma/",
+  "question": "Which cultural entities, movements, authors, and institutions can anchor a field map of modern humanities topics?",
+  "unit_of_analysis": "linked cultural entity, person, work, movement, institution, or concept",
+  "suggested_method": "build an entity table first, then join people, works, movements, institutions, and concepts to scholarly or collection records",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "date_coverage_rating": "strong-enough-for-scoping",
+  "local_tables": [
+    "source_documents",
+    "rights",
+    "works",
+    "venues",
+    "authors",
+    "canonical_people",
+    "citations",
+    "work_references",
+    "topics"
+  ],
+  "source_summary": [
+    {
+      "source_id": "crossref-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 208,
+      "direct_evidence_hits": 1,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "openalex-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 273,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "doaj-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 2948,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "wikidata-cultural-entities",
+      "source_class": "linked-open-data",
+      "local_document_count": 757,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "derived-metadata-ok"
+    },
+    {
+      "source_id": "journal-new-literary-history",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "journal-pmla",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "journal-digital-humanities-quarterly",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 10,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "public-books",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 10,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "journal-critical-inquiry",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "project-gutenberg",
+      "source_class": "public-domain-texts",
+      "local_document_count": 200,
+      "direct_evidence_hits": 7,
+      "ingest_status": "active",
+      "redistribution_status": "public-domain-text-ok"
+    },
+    {
+      "source_id": "internet-archive-metadata",
+      "source_class": "open-text-metadata",
+      "local_document_count": 150,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "dh-conference-programs",
+      "source_class": "conference-programs",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    }
+  ],
+  "rights_summary": {
+    "local-analysis-only": 10,
+    "metadata-ok": 1,
+    "public-domain-text-ok": 7
+  },
+  "expected_outputs": [
+    "reports/readiness.md",
+    "reports/readiness.json",
+    "reports/article-outline.md",
+    "reports/claim-checklist.md",
+    "config/source-map.json",
+    "config/queries.sql",
+    "data/derived/evidence-sample.json"
+  ],
+  "next_actions": [
+    "Run config/queries.sql against data/knowledge-base/processed/knowledge-base.sqlite.",
+    "Review evidence sample and rights statuses before quoting any source text.",
+    "Promote only claims marked publication-ready in reports/claim-checklist.md.",
+    "Use the missing-data memo before starting any fresh scrape."
+  ]
+}

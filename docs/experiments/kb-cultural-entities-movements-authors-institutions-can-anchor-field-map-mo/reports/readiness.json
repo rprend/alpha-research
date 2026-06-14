@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-06-14T20:11:33.287Z",
+  "status": "first-pass-experiment-ready",
+  "question": "Which cultural entities, movements, authors, and institutions can anchor a field map of modern humanities topics?",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "publication_concept": "Cultural Entities, Movements, Authors, Institutions Can Anchor Field",
+  "gates": [
+    {
+      "gate": "local evidence",
+      "passed": true,
+      "detail": "18 direct local evidence hits."
+    },
+    {
+      "gate": "source provenance",
+      "passed": true,
+      "detail": "12 matched sources have local documents."
+    },
+    {
+      "gate": "rights review",
+      "passed": true,
+      "detail": "Evidence rights statuses: local-analysis-only=10, metadata-ok=1, public-domain-text-ok=7."
+    },
+    {
+      "gate": "date handling",
+      "passed": true,
+      "detail": "strong-enough-for-scoping: 3934 matched local records carry content years spanning 1400-2026; 7 matched sources look longitudinal-ready for scoping."
+    },
+    {
+      "gate": "identity/reference caveats",
+      "passed": true,
+      "detail": "No identity summary present; use source identifiers only."
+    }
+  ],
+  "failed_gates": []
+}

@@ -1,0 +1,132 @@
+{
+  "experiment_id": "kb-public-domain-texts-can-support-study-canon-drift-genre-recurring-langua",
+  "generated_at": "2026-06-14T20:11:33.289Z",
+  "source_brief": "docs/research-briefs/which-public-domain-texts-can-support-a-study-of-canon-drift-genre-and-recurring/",
+  "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
+  "unit_of_analysis": "public-domain text or bibliographic metadata record",
+  "suggested_method": "build a rights-filtered text/metadata evidence table, then separate quote-ready full text from discovery-only records",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "date_coverage_rating": "source-specific-only",
+  "local_tables": [
+    "source_documents",
+    "rights",
+    "works"
+  ],
+  "source_summary": [
+    {
+      "source_id": "project-gutenberg",
+      "source_class": "public-domain-texts",
+      "local_document_count": 200,
+      "direct_evidence_hits": 16,
+      "ingest_status": "active",
+      "redistribution_status": "public-domain-text-ok"
+    },
+    {
+      "source_id": "internet-archive-metadata",
+      "source_class": "open-text-metadata",
+      "local_document_count": 150,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "openalex-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 273,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 38,
+      "direct_evidence_hits": 2,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "doaj-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 2948,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "wikidata-cultural-entities",
+      "source_class": "linked-open-data",
+      "local_document_count": 757,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "derived-metadata-ok"
+    },
+    {
+      "source_id": "crossref-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 208,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "met-collection-api",
+      "source_class": "cultural-collections",
+      "local_document_count": 255,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "stanford-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 17,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "cleveland-museum-open-access",
+      "source_class": "cultural-collections",
+      "local_document_count": 200,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "journal-new-literary-history",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "museum-language-drift",
+      "source_class": "experiment-derived",
+      "local_document_count": 24,
+      "direct_evidence_hits": 0,
+      "ingest_status": "seeded-from-experiment",
+      "redistribution_status": "local-analysis-only"
+    }
+  ],
+  "rights_summary": {
+    "local-analysis-only": 2,
+    "public-domain-text-ok": 16
+  },
+  "expected_outputs": [
+    "reports/readiness.md",
+    "reports/readiness.json",
+    "reports/article-outline.md",
+    "reports/claim-checklist.md",
+    "config/source-map.json",
+    "config/queries.sql",
+    "data/derived/evidence-sample.json"
+  ],
+  "next_actions": [
+    "Run config/queries.sql against data/knowledge-base/processed/knowledge-base.sqlite.",
+    "Review evidence sample and rights statuses before quoting any source text.",
+    "Promote only claims marked publication-ready in reports/claim-checklist.md.",
+    "Use the missing-data memo before starting any fresh scrape."
+  ]
+}

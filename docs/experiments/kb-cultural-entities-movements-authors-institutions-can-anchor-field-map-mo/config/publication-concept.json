@@ -1,0 +1,26 @@
+{
+  "essay_title_options": [
+    "Cultural Entities, Movements, Authors, Institutions Can Anchor Field",
+    "What Local Humanities Data Shows About cultural entities, movements, authors, institutions can anchor field",
+    "A Field Map Of cultural entities, movements, authors, institutions can anchor field"
+  ],
+  "candidate_charts_tables": [
+    "Entity counts by type, occupation, movement, institution, and source",
+    "Co-occurrence table for people, works, movements, and concepts",
+    "Coverage table for Wikidata-linked entities versus scholarly records"
+  ],
+  "claim_strength_rating": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "missing_evidence_list": [
+    "openalex-humanities: 273 local docs, no direct hits",
+    "doaj-humanities: 2948 local docs, no direct hits",
+    "wikidata-cultural-entities: 757 local docs, no direct hits",
+    "journal-new-literary-history: 25 local docs, no direct hits",
+    "journal-pmla: 25 local docs, no direct hits",
+    "journal-digital-humanities-quarterly: 10 local docs, no direct hits"
+  ],
+  "suggested_follow_up_acquisition": [
+    "Expand Wikidata cultural-entity pulls for matched occupations, movements, works, institutions, and humanities concepts.",
+    "Join entity IDs to OpenAlex/Crossref/DOAJ records before claiming field-level coverage."
+  ],
+  "why_this_matters": "This question can now start from local linked-open-data, scholarly-metadata, journals-and-reviews evidence instead of fresh scraping, with 18 direct hits and top local sources including Crossref Humanities DOI Metadata, OpenAlex Humanities Metadata, DOAJ Humanities Open Access Metadata."
+}

@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-06-14T20:11:33.290Z",
+  "promoted_count": 5,
+  "promoted": [
+    {
+      "experiment_id": "kb-humanities-departments-visible-faculty-events-news-public-humanities-lan",
+      "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
+      "source_brief": "docs/research-briefs/which-humanities-departments-have-visible-faculty-events-news-and-public-humanit/",
+      "experiment_dir": "docs/experiments/kb-humanities-departments-visible-faculty-events-news-public-humanities-lan/",
+      "readiness_status": "first-pass-experiment-ready",
+      "evidence_count": 18,
+      "matched_source_count": 12
+    },
+    {
+      "experiment_id": "kb-scholarly-literature-discusses-digital-humanities-public-humanities",
+      "question": "What scholarly literature discusses digital humanities and public humanities?",
+      "source_brief": "docs/research-briefs/what-scholarly-literature-discusses-digital-humanities-and-public-humanities/",
+      "experiment_dir": "docs/experiments/kb-scholarly-literature-discusses-digital-humanities-public-humanities/",
+      "readiness_status": "first-pass-experiment-ready",
+      "evidence_count": 18,
+      "matched_source_count": 12
+    },
+    {
+      "experiment_id": "kb-museum-collections-describe-acquisition-classification-public-domain-ima",
+      "question": "How do museum collections describe acquisition, classification, and public-domain image availability?",
+      "source_brief": "docs/research-briefs/how-do-museum-collections-describe-acquisition-classification-and-public-domain-/",
+      "experiment_dir": "docs/experiments/kb-museum-collections-describe-acquisition-classification-public-domain-ima/",
+      "readiness_status": "first-pass-experiment-ready",
+      "evidence_count": 18,
+      "matched_source_count": 12
+    },
+    {
+      "experiment_id": "kb-cultural-entities-movements-authors-institutions-can-anchor-field-map-mo",
+      "question": "Which cultural entities, movements, authors, and institutions can anchor a field map of modern humanities topics?",
+      "source_brief": "docs/research-briefs/which-cultural-entities-movements-authors-and-institutions-can-anchor-a-field-ma/",
+      "experiment_dir": "docs/experiments/kb-cultural-entities-movements-authors-institutions-can-anchor-field-map-mo/",
+      "readiness_status": "first-pass-experiment-ready",
+      "evidence_count": 18,
+      "matched_source_count": 12
+    },
+    {
+      "experiment_id": "kb-public-domain-texts-can-support-study-canon-drift-genre-recurring-langua",
+      "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
+      "source_brief": "docs/research-briefs/which-public-domain-texts-can-support-a-study-of-canon-drift-genre-and-recurring/",
+      "experiment_dir": "docs/experiments/kb-public-domain-texts-can-support-study-canon-drift-genre-recurring-langua/",
+      "readiness_status": "first-pass-experiment-ready",
+      "evidence_count": 18,
+      "matched_source_count": 12
+    }
+  ]
+}

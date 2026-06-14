@@ -1,0 +1,44 @@
+{
+  "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
+  "unit_of_analysis": "public-domain text or bibliographic metadata record",
+  "suggested_method": "build a rights-filtered text/metadata evidence table, then separate quote-ready full text from discovery-only records",
+  "time_handling": "content-date coverage spans 1710-2020; use date-coverage.json to separate content years from fetch years before longitudinal claims",
+  "date_coverage_summary": "147 matched local records carry content years spanning 1710-2020; 1 matched sources look longitudinal-ready for scoping.",
+  "date_coverage_rating": "source-specific-only",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "candidate_outputs": [
+    "source coverage table by source_id and rights status",
+    "top matching records with URLs and quote restrictions",
+    "time-series table after date normalization",
+    "missing-data memo for blocked, planned, and low-evidence sources",
+    "public-domain text hit table with source URLs and quote status",
+    "genre/bookshelf coverage table",
+    "term/context concordance table over reusable full text"
+  ],
+  "publication_concept": {
+    "essay_title_options": [
+      "Public-domain Texts Can Support Study Canon Drift, Genre,",
+      "What Local Humanities Data Shows About public-domain texts can support study canon drift, genre,",
+      "A Field Map Of public-domain texts can support study canon drift, genre,"
+    ],
+    "candidate_charts_tables": [
+      "Matched texts by author/date/genre",
+      "Concordance table for key terms",
+      "Public-domain quote-ready evidence table"
+    ],
+    "claim_strength_rating": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+    "missing_evidence_list": [
+      "internet-archive-metadata: 150 local docs, no direct hits",
+      "openalex-humanities: 273 local docs, no direct hits",
+      "doaj-humanities: 2948 local docs, no direct hits",
+      "wikidata-cultural-entities: 757 local docs, no direct hits",
+      "crossref-humanities: 208 local docs, no direct hits",
+      "met-collection-api: 255 local docs, no direct hits"
+    ],
+    "suggested_follow_up_acquisition": [
+      "Expand Project Gutenberg/public-domain text imports for matched authors, genres, and bookshelves.",
+      "Store text-normalization manifests and boilerplate removal reports before close-reading outputs."
+    ],
+    "why_this_matters": "This question can now start from local public-domain-texts, open-text-metadata evidence instead of fresh scraping, with 18 direct hits and top local sources including Project Gutenberg Catalog And Texts, Internet Archive Metadata."
+  }
+}

@@ -35,6 +35,7 @@ pnpm kb:refresh
 pnpm kb:search "public humanities"
 pnpm kb:search:semantic "public humanities"
 pnpm kb:question "How has public humanities language changed in top university departments since 2000?"
+node scripts/kb-promote-brief-experiment.mjs
 ```
 
 `kb:status` is the first gate for future research questions. It reports source count, rights coverage, table availability, stale registry checks, and missing ingest state.
@@ -99,5 +100,7 @@ The Wayback snapshot ingest adds CDX capture metadata for department-page target
 The analytical table build now adds a deterministic candidate identity layer: `processed/canonical_people.*` clusters source author records by normalized name, and `processed/work_references.*` clusters citation/reference edges by DOI, OpenAlex ID, or normalized source label. The audit at `audits/identity-resolution.{json,md}` reports record counts, repeated references, and limitations. These tables are suitable for exploratory field maps and QA, but they are not manual authority control.
 
 The refresh workflow now writes a question-smoke brief at `docs/research-briefs/what-local-evidence-exists-for-public-humanities-language-in-departments/`, proving that a fresh local maintenance run can generate a brief, source map, evidence file, identity summary, query sketch, missing-data memo, and study template from the rebuilt local database.
+
+The brief-promotion workflow converts local-data briefs into first-pass experiment folders under `docs/experiments/kb-*`. It copies the source map and SQL, writes a readiness gate, article outline, claim checklist, missing-data memo, evidence sample, and experiment plan. The first promotion run created five experiment scaffolds and an index at `audits/promoted-experiments.{json,md}`. These are downstream publication candidates; they do not supersede rights review or source-specific normalization.
 
 This does not claim full local acquisition yet. Sources with `ingest_status` of `planned` or `seeded-from-experiment` still need dedicated ingest jobs before they can support broad claims. The staging JSONL, CSV, Parquet, and SQLite files are the current local analytical layer. SQLite FTS indexes metadata plus stored local text content for records that have legal `text_path` files. The semantic hash index provides deterministic offline vector-style retrieval over metadata plus rights-filtered stored text; it is not a neural embedding model. Author, citation, venue, institution, collection, topic, canonical-person, and work-reference tables are derived from current local source records and raw snapshots; candidate identity clusters still need authority matching before strong person-level or citation-network claims.

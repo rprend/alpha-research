@@ -1,0 +1,44 @@
+{
+  "question": "How do museum collections describe acquisition, classification, and public-domain image availability?",
+  "unit_of_analysis": "collection object or public metadata record",
+  "suggested_method": "compare object metadata fields across institution, department, classification, date, rights, and image availability",
+  "time_handling": "content-date coverage spans 1404-2026; use date-coverage.json to separate content years from fetch years before longitudinal claims",
+  "date_coverage_summary": "592 matched local records carry content years spanning 1404-2026; 3 matched sources look longitudinal-ready for scoping.",
+  "date_coverage_rating": "strong-enough-for-scoping",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "candidate_outputs": [
+    "source coverage table by source_id and rights status",
+    "top matching records with URLs and quote restrictions",
+    "time-series table after date normalization",
+    "missing-data memo for blocked, planned, and low-evidence sources",
+    "object count table by institution, department, classification, and date",
+    "rights/image availability table by collection source",
+    "acquisition/accession-year trend table where source metadata supports it"
+  ],
+  "publication_concept": {
+    "essay_title_options": [
+      "Museum Collections Describe Acquisition, Classification, Public-domain Image Availability",
+      "What Local Humanities Data Shows About museum collections describe acquisition, classification, public-domain image availability",
+      "A Field Map Of museum collections describe acquisition, classification, public-domain image availability"
+    ],
+    "candidate_charts_tables": [
+      "Objects by institution and classification",
+      "Creation/acquisition year coverage histogram",
+      "Rights and image availability by source"
+    ],
+    "claim_strength_rating": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+    "missing_evidence_list": [
+      "smithsonian-open-access: 225 local docs, no direct hits",
+      "library-of-congress: 308 local docs, no direct hits",
+      "internet-archive-metadata: 150 local docs, no direct hits",
+      "wikidata-cultural-entities: 757 local docs, no direct hits",
+      "project-gutenberg: 200 local docs, no direct hits",
+      "expanded-university-humanities-departments: 38 local docs, no direct hits"
+    ],
+    "suggested_follow_up_acquisition": [
+      "Expand cultural-collection API pulls by institution, classification, and accession/acquisition fields.",
+      "Record item-level rights and image availability before quoting or reproducing object descriptions."
+    ],
+    "why_this_matters": "This question can now start from local cultural-collections evidence instead of fresh scraping, with 18 direct hits and top local sources including Metropolitan Museum of Art Collection API, Cleveland Museum of Art Open Access API, Smithsonian Open Access."
+  }
+}

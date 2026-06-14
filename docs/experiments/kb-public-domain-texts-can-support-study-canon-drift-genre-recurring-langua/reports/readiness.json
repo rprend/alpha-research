@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-06-14T20:11:33.289Z",
+  "status": "first-pass-experiment-ready",
+  "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "publication_concept": "Public-domain Texts Can Support Study Canon Drift, Genre,",
+  "gates": [
+    {
+      "gate": "local evidence",
+      "passed": true,
+      "detail": "18 direct local evidence hits."
+    },
+    {
+      "gate": "source provenance",
+      "passed": true,
+      "detail": "12 matched sources have local documents."
+    },
+    {
+      "gate": "rights review",
+      "passed": true,
+      "detail": "Evidence rights statuses: local-analysis-only=2, public-domain-text-ok=16."
+    },
+    {
+      "gate": "date handling",
+      "passed": true,
+      "detail": "source-specific-only: 147 matched local records carry content years spanning 1710-2020; 1 matched sources look longitudinal-ready for scoping."
+    },
+    {
+      "gate": "identity/reference caveats",
+      "passed": true,
+      "detail": "No identity summary present; use source identifiers only."
+    }
+  ],
+  "failed_gates": []
+}

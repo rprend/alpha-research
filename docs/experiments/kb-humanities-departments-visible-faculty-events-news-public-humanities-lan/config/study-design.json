@@ -1,0 +1,44 @@
+{
+  "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
+  "unit_of_analysis": "source page or institutional document",
+  "suggested_method": "compare term frequencies and framing across institution, department, source type, and capture/fetch year",
+  "time_handling": "date coverage is weak; first normalize source-specific date fields and avoid longitudinal claims based only on fetch dates",
+  "date_coverage_summary": "Matched local records lack enough content-date fields for longitudinal claims; use fetch dates only for crawl coverage, not historical interpretation.",
+  "date_coverage_rating": "fetch-date-only-or-missing",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "candidate_outputs": [
+    "source coverage table by source_id and rights status",
+    "top matching records with URLs and quote restrictions",
+    "time-series table after date normalization",
+    "missing-data memo for blocked, planned, and low-evidence sources",
+    "term-frequency table by school, department, page_type, and fetch year",
+    "institution-by-concept heatmap for department language",
+    "page-type comparison table for home/about/news/events/faculty pages"
+  ],
+  "publication_concept": {
+    "essay_title_options": [
+      "Humanities Departments Visible Faculty, Events, News, Public Humanities",
+      "What Local Humanities Data Shows About humanities departments visible faculty, events, news, public humanities",
+      "A Field Map Of humanities departments visible faculty, events, news, public humanities"
+    ],
+    "candidate_charts_tables": [
+      "Department-page hit counts by school and page_type",
+      "Concept frequency by department over fetch/archive year",
+      "Matched source coverage by institution and rights status"
+    ],
+    "claim_strength_rating": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+    "missing_evidence_list": [
+      "harvard-humanities-departments: 5 local docs, no direct hits",
+      "princeton-humanities-departments: 4 local docs, no direct hits",
+      "dh-conference-programs: 25 local docs, no direct hits",
+      "doaj-humanities: 2948 local docs, no direct hits",
+      "openalex-humanities: 273 local docs, no direct hits",
+      "crossref-humanities: 208 local docs, no direct hits"
+    ],
+    "suggested_follow_up_acquisition": [
+      "Run deeper source-specific department crawlers for faculty/events/news/program pages on successful domains.",
+      "Add replacement public routes or Wayback metadata for 403 department homepages."
+    ],
+    "why_this_matters": "This question can now start from local university-department-web evidence instead of fresh scraping, with 18 direct hits and top local sources including Expanded University Humanities Department Public Pages, Stanford Humanities Department Public Pages, Yale Humanities Department Public Pages."
+  }
+}

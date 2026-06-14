@@ -549,6 +549,7 @@ Started on 2026-06-13:
 - Phase 4 now has SQLite FTS retrieval over metadata and stored local text content: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
 - Phase 4 now has deterministic offline vector-style retrieval: `pnpm kb:index:semantic` builds `data/knowledge-base/indexes/semantic-hash-index.json` and `pnpm kb:search:semantic "<terms>"` searches rights-filtered metadata and stored text.
 - Phase 5 has a reusable local-data workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, evidence file, query sketch, missing-data memo, `date-coverage.json`, `publication-concept.json`, and `study-template.md` under `docs/research-briefs/`. It infers source-class priorities from the question, records the routing decision in `source-map.json`, boosts institutional, scholarly, cultural-collection, linked-open-data, or text-corpus evidence, and separates content-year coverage from fetch-year coverage before suggesting longitudinal claims.
+- Phase 5 now has a brief-to-experiment promotion path: `node scripts/kb-promote-brief-experiment.mjs` converts local-data briefs into first-pass `docs/experiments/kb-*` experiment scaffolds with copied SQL/source maps, readiness gates, article outlines, claim checklists, evidence samples, and missing-data memos. The first promotion run created five experiment candidates for department visibility/public humanities, scholarly digital/public humanities literature, museum metadata, cultural entity field maps, and public-domain canon/text studies.
 - Phase 6 has bounded maintenance automation: `pnpm kb:refresh` validates, inventories, refreshes bounded source-specific metadata routes, refreshes department sitemap summaries, runs a bounded Wayback CDX smoke with explicit timeout/limit settings, rebuilds analytical tables and both indexes, refreshes coverage/rights/stale-source/blocked-source audits, updates KB status, and writes a local question-smoke brief to prove the rebuilt KB can answer a question.
 
 Current local footprint as of the latest local status:
@@ -582,6 +583,7 @@ Current local footprint as of the latest local status:
 - Semantic hash index covers 6348 rights-filtered documents, including public-domain full-text records, local-analysis page-text records, and metadata-only sitemap URL records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
+- Five first-pass promoted experiment scaffolds under `docs/experiments/kb-*`, indexed by `data/knowledge-base/audits/promoted-experiments.md`.
 
 This is a foundation and harness, not the complete knowledge base.
 
@@ -593,6 +595,7 @@ Remaining before the full knowledge-base goal is complete:
 - Expand university/department web corpus acquisition beyond the current shallow discovery pass; the first discovery run found mostly about pages and a few news pages, so faculty/events/program routes need source-specific selectors and sitemap/RSS support.
 - Expand full text storage only for public-domain or clearly licensed sources.
 - Add neural embedding retrieval later if a local model or approved embedding service is configured; the current semantic hash index is deterministic and offline.
+- Expand promoted first-pass experiments into runnable analysis scripts and publication handoff packets after source-specific normalization, rights review, and claim adjudication.
 - Expand refresh/staleness automation from bounded source smokes to source-specific active-route schedules, including route replacement for 403/404 department pages.
 
 Next build steps:
@@ -601,4 +604,4 @@ Next build steps:
 2. Add explicit replacement memos for blocked LARB and 403 department routes, using alternate public routes or Wayback metadata where available.
 3. Expand broad metadata acquisition for OpenAlex/Crossref, Project Gutenberg, and cultural-collection APIs; DOAJ and Wikidata now have dedicated routes but should be expanded beyond the current page limits when needed.
 4. Execute the source replacement plans for blocked/stale/403 routes and promote successful replacements into source-specific ingest configs.
-5. Convert the five proof templates into first-pass experiments only after confirming source-class coverage, dates, and quote/rights limits.
+5. Convert the promoted first-pass experiments into runnable analysis/report pipelines only after confirming source-class coverage, dates, and quote/rights limits.

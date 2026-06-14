@@ -1,0 +1,132 @@
+{
+  "experiment_id": "kb-humanities-departments-visible-faculty-events-news-public-humanities-lan",
+  "generated_at": "2026-06-14T20:11:33.276Z",
+  "source_brief": "docs/research-briefs/which-humanities-departments-have-visible-faculty-events-news-and-public-humanit/",
+  "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
+  "unit_of_analysis": "source page or institutional document",
+  "suggested_method": "compare term frequencies and framing across institution, department, source type, and capture/fetch year",
+  "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "date_coverage_rating": "fetch-date-only-or-missing",
+  "local_tables": [
+    "source_documents",
+    "rights",
+    "pages",
+    "departments"
+  ],
+  "source_summary": [
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 38,
+      "direct_evidence_hits": 2,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "stanford-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 17,
+      "direct_evidence_hits": 4,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "yale-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 15,
+      "direct_evidence_hits": 4,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 12,
+      "direct_evidence_hits": 4,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "columbia-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 4,
+      "direct_evidence_hits": 1,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "humanities-centers-public-pages",
+      "source_class": "university-department-web",
+      "local_document_count": 12,
+      "direct_evidence_hits": 3,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 5,
+      "direct_evidence_hits": 0,
+      "ingest_status": "seeded-from-experiment",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 4,
+      "direct_evidence_hits": 0,
+      "ingest_status": "planned",
+      "redistribution_status": "local-analysis-only"
+    },
+    {
+      "source_id": "dh-conference-programs",
+      "source_class": "conference-programs",
+      "local_document_count": 25,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only"
+    },
+    {
+      "source_id": "doaj-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 2948,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "openalex-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 273,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    },
+    {
+      "source_id": "crossref-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 208,
+      "direct_evidence_hits": 0,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok"
+    }
+  ],
+  "rights_summary": {
+    "local-analysis-only": 18
+  },
+  "expected_outputs": [
+    "reports/readiness.md",
+    "reports/readiness.json",
+    "reports/article-outline.md",
+    "reports/claim-checklist.md",
+    "config/source-map.json",
+    "config/queries.sql",
+    "data/derived/evidence-sample.json"
+  ],
+  "next_actions": [
+    "Run config/queries.sql against data/knowledge-base/processed/knowledge-base.sqlite.",
+    "Review evidence sample and rights statuses before quoting any source text.",
+    "Promote only claims marked publication-ready in reports/claim-checklist.md.",
+    "Use the missing-data memo before starting any fresh scrape."
+  ]
+}
