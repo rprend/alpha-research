@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T20:42:25.603Z",
+  "generated_at": "2026-06-14T20:47:58.325Z",
   "blocked_source_count": 3,
   "blocked_sources": [
     {
@@ -66,7 +66,7 @@
       ]
     }
   ],
-  "resolved_failure_count": 9,
+  "resolved_failure_count": 10,
   "resolved_failures": [
     {
       "source_id": "aha-annual-meeting-programs",
@@ -100,6 +100,17 @@
       "successful_route": "https://history.berkeley.edu/news | https://rhetoric.berkeley.edu/people | https://rhetoric.berkeley.edu/people/faculty/lecturers | https://www.english.upenn.edu/about | https://www.english.upenn.edu/about/academic-freedom-statement | https://www.english.upenn.edu/events/2026/06/19/juneteenth-no-classes | https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center | http://english.duke.edu/2023-e-newsletter-chair | http://english.duke.edu/2023-e-newsletter-graduate | http://english.duke.edu/2023-e-newsletter-other | http://english.duke.edu/2023-e-newsletter-undergraduate | http://english.duke.edu/2024-e-newsletter-chair | http://english.duke.edu/2024-e-newsletter-faculty | http://english.duke.edu/2024-e-newsletter-graduate | http://english.duke.edu/2024-e-newsletter-other | http://english.duke.edu/2024-e-newsletter-undergraduate",
       "record_count": 16,
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "lareviewofbooks",
+      "name": "Los Angeles Review of Books",
+      "source_class": "journals-and-reviews",
+      "failure_count": 7,
+      "latest_failure_at": "2026-06-14T20:33:43.035Z",
+      "latest_success_at": "2026-06-14T20:28:09.368Z",
+      "successful_route": "https://lareviewofbooks.org/",
+      "record_count": 18,
+      "resolution_note": "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
     },
     {
       "source_id": "library-of-congress",
@@ -168,7 +179,7 @@
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 7,
+  "replacement_plan_count": 6,
   "replacement_plans": [
     {
       "source_id": "harvard-humanities-departments",
@@ -233,28 +244,6 @@
       ],
       "next_action": "Create source-specific alternate target entries for Columbia University English and Comparative Literature department-sitemap, Columbia University History department-sitemap, Columbia University Philosophy department-sitemap using public about/news/events/faculty routes that return 200.",
       "do_not_do": "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls."
-    },
-    {
-      "source_id": "lareviewofbooks",
-      "name": "Los Angeles Review of Books",
-      "source_class": "journals-and-reviews",
-      "ingest_status": "active",
-      "redistribution_status": "local-analysis-only",
-      "failure_count": 7,
-      "latest_failure_at": "2026-06-14T20:33:43.035Z",
-      "latest_error": "https://lareviewofbooks.org/feed/: HTTP 404 Not Found",
-      "failed_routes": [
-        "https://lareviewofbooks.org/feed/"
-      ],
-      "affected_targets": [],
-      "replacement_status": "replacement-needed",
-      "replacement_routes": [
-        "Find the current RSS/feed URL from the site homepage or sitemap.",
-        "Use WordPress discovery endpoints such as /wp-json/wp/v2/posts only if public and allowed.",
-        "Use Crossref/OpenAlex/Internet Archive metadata as fallback for bibliographic discovery."
-      ],
-      "next_action": "Replace the stale feed URL before another automated ingest.",
-      "do_not_do": "Do not repeatedly retry the known 404 feed route."
     },
     {
       "source_id": "uchicago-humanities-departments",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T20:04:09.220Z",
+  "generated_at": "2026-06-14T20:47:58.553Z",
   "source_count": 34,
   "source_classes": {
     "conference-programs": 3,
@@ -16,6 +16,7 @@
     "web-archives": 1
   },
   "source_ids_with_local_documents": [
+    "aha-annual-meeting-programs",
     "cleveland-museum-open-access",
     "columbia-humanities-departments",
     "crossref-humanities",
@@ -30,6 +31,7 @@
     "journal-digital-humanities-quarterly",
     "journal-new-literary-history",
     "journal-pmla",
+    "lareviewofbooks",
     "library-of-congress",
     "met-collection-api",
     "mla-convention-programs",
@@ -46,15 +48,15 @@
     "wikidata-cultural-entities",
     "yale-humanities-departments"
   ],
-  "source_count_with_local_documents": 29,
+  "source_count_with_local_documents": 31,
   "unregistered_source_ids_with_local_documents": [],
   "unregistered_source_count_with_local_documents": 0,
   "local_records": {
-    "source_documents": 6379,
-    "works": 2913,
+    "source_documents": 6549,
+    "works": 2970,
     "objects": 1012,
-    "pages": 432,
-    "rights": 6379
+    "pages": 525,
+    "rights": 6549
   },
   "sources_without_local_documents": [
     {
@@ -62,18 +64,6 @@
       "source_class": "open-text-metadata",
       "ingest_status": "blocked",
       "redistribution_status": "metadata-only"
-    },
-    {
-      "source_id": "aha-annual-meeting-programs",
-      "source_class": "conference-programs",
-      "ingest_status": "blocked",
-      "redistribution_status": "metadata-only"
-    },
-    {
-      "source_id": "lareviewofbooks",
-      "source_class": "journals-and-reviews",
-      "ingest_status": "blocked",
-      "redistribution_status": "local-analysis-only"
     },
     {
       "source_id": "open-syllabus",

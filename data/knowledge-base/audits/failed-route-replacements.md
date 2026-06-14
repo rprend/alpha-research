@@ -1,14 +1,15 @@
 # KB Failed Route Replacement Plans
 
-Generated at: 2026-06-14T20:42:25.603Z
-Resolved historical failures: 9
-Replacement plans: 7
+Generated at: 2026-06-14T20:47:58.325Z
+Resolved historical failures: 10
+Replacement plans: 6
 
 ## Resolved Historical Failures
 
 - aha-annual-meeting-programs: latest successful route https://www.historians.org/wp-json/wp/v2/search?search=annual%20meeting%20program&per_page=20 | https://www.historians.org/wp-json/wp/v2/pages?search=annual%20meeting%20program&per_page=20 at 2026-06-14T20:34:13.681Z (20 records).
 - doaj-humanities: latest successful route https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20 at 2026-06-14T20:28:04.857Z (20 records).
 - expanded-university-humanities-departments: latest successful route https://history.berkeley.edu/news | https://rhetoric.berkeley.edu/people | https://rhetoric.berkeley.edu/people/faculty/lecturers | https://www.english.upenn.edu/about | https://www.english.upenn.edu/about/academic-freedom-statement | https://www.english.upenn.edu/events/2026/06/19/juneteenth-no-classes | https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center | http://english.duke.edu/2023-e-newsletter-chair | http://english.duke.edu/2023-e-newsletter-graduate | http://english.duke.edu/2023-e-newsletter-other | http://english.duke.edu/2023-e-newsletter-undergraduate | http://english.duke.edu/2024-e-newsletter-chair | http://english.duke.edu/2024-e-newsletter-faculty | http://english.duke.edu/2024-e-newsletter-graduate | http://english.duke.edu/2024-e-newsletter-other | http://english.duke.edu/2024-e-newsletter-undergraduate at 2026-06-14T20:42:04.005Z (16 records).
+- lareviewofbooks: latest successful route https://lareviewofbooks.org/ at 2026-06-14T20:28:09.368Z (18 records).
 - library-of-congress: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:34.343Z (50 records).
 - met-collection-api: latest successful route source-specific cultural collections API routes at 2026-06-14T20:02:33.316Z (50 records).
 - princeton-humanities-departments: latest successful route https://english.princeton.edu/events | https://philosophy.princeton.edu/events | https://artandarchaeology.princeton.edu/events at 2026-06-14T20:42:04.005Z (3 records).
@@ -64,25 +65,6 @@ Replacement plans: 7
   - Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed.
 - Next action: Create source-specific alternate target entries for Columbia University English and Comparative Literature department-sitemap, Columbia University History department-sitemap, Columbia University Philosophy department-sitemap using public about/news/events/faculty routes that return 200.
 - Do not do: Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls.
-
-## lareviewofbooks
-
-- Name: Los Angeles Review of Books
-- Class: journals-and-reviews
-- Ingest status: active
-- Replacement status: replacement-needed
-- Failure count: 7
-- Latest failure: 2026-06-14T20:33:43.035Z
-- Latest error: https://lareviewofbooks.org/feed/: HTTP 404 Not Found
-- Affected targets: No target metadata.
-- Failed routes:
-  - https://lareviewofbooks.org/feed/
-- Replacement routes:
-  - Find the current RSS/feed URL from the site homepage or sitemap.
-  - Use WordPress discovery endpoints such as /wp-json/wp/v2/posts only if public and allowed.
-  - Use Crossref/OpenAlex/Internet Archive metadata as fallback for bibliographic discovery.
-- Next action: Replace the stale feed URL before another automated ingest.
-- Do not do: Do not repeatedly retry the known 404 feed route.
 
 ## uchicago-humanities-departments
 

@@ -1,8 +1,8 @@
 # KB Blocked Sources
 
-Generated at: 2026-06-14T20:42:25.603Z
+Generated at: 2026-06-14T20:47:58.325Z
 Blocked sources: 3
-Resolved historical failures: 9
+Resolved historical failures: 10
 
 ## hathitrust-bibliographic-metadata
 
@@ -42,4 +42,4 @@ Resolved historical failures: 9
 
 ## Failed Route Replacement Plans
 
-See `data/knowledge-base/audits/failed-route-replacements.md` for 7 source-level replacement plans.
+See `data/knowledge-base/audits/failed-route-replacements.md` for 6 source-level replacement plans.

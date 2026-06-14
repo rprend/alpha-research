@@ -105,17 +105,21 @@ function buildResolvedFailures(failedBySource, sources, successfulBySource) {
   for (const [sourceId, failures] of failedBySource.entries()) {
     const latestFailure = failures.at(-1);
     const latestSuccess = successfulBySource.get(sourceId);
-    if (!latestSuccess || (latestSuccess.completed_at ?? "") <= (latestFailure?.completed_at ?? "")) continue;
+    const source = sourceById.get(sourceId);
+    const replacementResolved = knownReplacementResolvesFailures(source, latestSuccess, failures);
+    if (!latestSuccess || ((latestSuccess.completed_at ?? "") <= (latestFailure?.completed_at ?? "") && !replacementResolved)) continue;
     resolved.push({
       source_id: sourceId,
-      name: sourceById.get(sourceId)?.name ?? sourceId,
-      source_class: sourceById.get(sourceId)?.source_class ?? "unknown",
+      name: source?.name ?? sourceId,
+      source_class: source?.source_class ?? "unknown",
       failure_count: failures.length,
       latest_failure_at: latestFailure?.completed_at ?? "",
       latest_success_at: latestSuccess.completed_at ?? "",
       successful_route: latestSuccess.access_route ?? "",
       record_count: latestSuccess.record_count ?? 0,
-      resolution_note: "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan.",
+      resolution_note: replacementResolved
+        ? "A source-specific replacement route is now documented and has a successful ingest, so later retries of the retired route are retained as historical failures but no longer require an active replacement plan."
+        : "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan.",
     });
   }
   return resolved.sort((a, b) => a.source_id.localeCompare(b.source_id));
@@ -134,7 +138,10 @@ function buildReplacementPlans(failedBySource, sources, successfulBySource) {
     };
     const latestFailure = failures.at(-1);
     const latestSuccess = successfulBySource.get(sourceId);
-    if (latestSuccess && (latestSuccess.completed_at ?? "") > (latestFailure?.completed_at ?? "")) continue;
+    if (latestSuccess && (
+      (latestSuccess.completed_at ?? "") > (latestFailure?.completed_at ?? "") ||
+      knownReplacementResolvesFailures(source, latestSuccess, failures)
+    )) continue;
     const errorText = failures.flatMap((failure) => failure.errors ?? []).join(" ");
     const failedRoutes = [...new Set(failures.map((failure) => failure.access_route).filter(Boolean))];
     const targetSummary = summarizeTargets(failures);
@@ -161,6 +168,17 @@ function buildReplacementPlans(failedBySource, sources, successfulBySource) {
     b.failure_count - a.failure_count ||
     a.source_id.localeCompare(b.source_id)
   );
+}
+
+function knownReplacementResolvesFailures(source, latestSuccess, failures) {
+  if (!source || !latestSuccess || !latestSuccess.record_count) return false;
+  const failedRoutes = failures.map((failure) => failure.access_route ?? "");
+  if (source.source_id === "lareviewofbooks") {
+    return /lareviewofbooks\.org\/?$/i.test(latestSuccess.access_route ?? "") &&
+      failedRoutes.length > 0 &&
+      failedRoutes.every((route) => /lareviewofbooks\.org\/feed\/?$/i.test(route));
+  }
+  return false;
 }
 
 function replacementPlanFor(source, latestFailure, errorText, failedRoutes, targetSummary) {
