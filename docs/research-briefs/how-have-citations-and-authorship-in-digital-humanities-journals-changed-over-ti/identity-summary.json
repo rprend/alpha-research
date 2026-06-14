@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-06-14T19:45:36.929Z",
+  "question": "How have citations and authorship in digital humanities journals changed over time?",
+  "sqlite_path": "data/knowledge-base/processed/knowledge-base.sqlite",
+  "terms": [
+    "citations",
+    "authorship",
+    "digital",
+    "humanities",
+    "journals"
+  ],
+  "sql_like_clauses": {
+    "people": "(canonical_name LIKE '%citations%' ESCAPE '\\' OR source_author_ids LIKE '%citations%' ESCAPE '\\' OR institution_hints LIKE '%citations%' ESCAPE '\\') OR (canonical_name LIKE '%authorship%' ESCAPE '\\' OR source_author_ids LIKE '%authorship%' ESCAPE '\\' OR institution_hints LIKE '%authorship%' ESCAPE '\\') OR (canonical_name LIKE '%digital%' ESCAPE '\\' OR source_author_ids LIKE '%digital%' ESCAPE '\\' OR institution_hints LIKE '%digital%' ESCAPE '\\') OR (canonical_name LIKE '%humanities%' ESCAPE '\\' OR source_author_ids LIKE '%humanities%' ESCAPE '\\' OR institution_hints LIKE '%humanities%' ESCAPE '\\') OR (canonical_name LIKE '%journals%' ESCAPE '\\' OR source_author_ids LIKE '%journals%' ESCAPE '\\' OR institution_hints LIKE '%journals%' ESCAPE '\\')",
+    "work_references": "(reference_label LIKE '%citations%' ESCAPE '\\' OR reference_key LIKE '%citations%' ESCAPE '\\' OR source_work_ids LIKE '%citations%' ESCAPE '\\') OR (reference_label LIKE '%authorship%' ESCAPE '\\' OR reference_key LIKE '%authorship%' ESCAPE '\\' OR source_work_ids LIKE '%authorship%' ESCAPE '\\') OR (reference_label LIKE '%digital%' ESCAPE '\\' OR reference_key LIKE '%digital%' ESCAPE '\\' OR source_work_ids LIKE '%digital%' ESCAPE '\\') OR (reference_label LIKE '%humanities%' ESCAPE '\\' OR reference_key LIKE '%humanities%' ESCAPE '\\' OR source_work_ids LIKE '%humanities%' ESCAPE '\\') OR (reference_label LIKE '%journals%' ESCAPE '\\' OR reference_key LIKE '%journals%' ESCAPE '\\' OR source_work_ids LIKE '%journals%' ESCAPE '\\')"
+  },
+  "people": [],
+  "work_references": [
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:doi-10-1017-cbo9780511597473",
+      "reference_label": "10.1017/CBO9780511597473",
+      "reference_type": "doi",
+      "source_count": "1",
+      "citation_count": "5",
+      "source_ids": "crossref-humanities",
+      "source_work_ids": "crossref-humanities:10-1017-cho9781139018456-005; crossref-humanities:10-1017-cho9781139018456-038; crossref-humanities:10-1017-cho9781139018456-040; crossref-humanities:10-1017-chol9780521300094-015; crossref-humanities:10-1017-chol9780521300148-021",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:doi-10-2307-2861952",
+      "reference_label": "10.2307/2861952",
+      "reference_type": "doi",
+      "source_count": "1",
+      "citation_count": "5",
+      "source_ids": "crossref-humanities",
+      "source_work_ids": "crossref-humanities:10-1017-chol9780521300070-011; crossref-humanities:10-1017-chol9780521300070-014; crossref-humanities:10-1017-chol9780521300070-015; crossref-humanities:10-1017-chol9780521300070-020; crossref-humanities:10-1017-chol9780521300094-015",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:openalex-w2164861810",
+      "reference_label": "https://openalex.org/W2164861810",
+      "reference_type": "openalex-work",
+      "source_count": "1",
+      "citation_count": "5",
+      "source_ids": "openalex-humanities",
+      "source_work_ids": "openalex-humanities:https-openalex-org-w2133416234; openalex-humanities:https-openalex-org-w2397911846; openalex-humanities:https-openalex-org-w3021842026; openalex-humanities:https-openalex-org-w3028459339; openalex-humanities:https-openalex-org-w3082188176",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:openalex-w2462161029",
+      "reference_label": "https://openalex.org/W2462161029",
+      "reference_type": "openalex-work",
+      "source_count": "1",
+      "citation_count": "5",
+      "source_ids": "openalex-humanities",
+      "source_work_ids": "openalex-humanities:https-openalex-org-w2899736836; openalex-humanities:https-openalex-org-w3092849554; openalex-humanities:https-openalex-org-w3169262929; openalex-humanities:https-openalex-org-w4200584507; openalex-humanities:https-openalex-org-w4381799391",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:openalex-w2753533763",
+      "reference_label": "https://openalex.org/W2753533763",
+      "reference_type": "openalex-work",
+      "source_count": "1",
+      "citation_count": "5",
+      "source_ids": "openalex-humanities",
+      "source_work_ids": "openalex-humanities:https-openalex-org-w2013045877; openalex-humanities:https-openalex-org-w2104514715; openalex-humanities:https-openalex-org-w2112031167; openalex-humanities:https-openalex-org-w609726200; openalex-humanities:https-openalex-org-w62784252",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:openalex-w3092849554",
+      "reference_label": "https://openalex.org/W3092849554",
+      "reference_type": "openalex-work",
+      "source_count": "1",
+      "citation_count": "5",
+      "source_ids": "openalex-humanities",
+      "source_work_ids": "openalex-humanities:https-openalex-org-w3169262929; openalex-humanities:https-openalex-org-w3197233575; openalex-humanities:https-openalex-org-w4200584507; openalex-humanities:https-openalex-org-w4309503005; openalex-humanities:https-openalex-org-w4381799391",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:openalex-w3092861045",
+      "reference_label": "https://openalex.org/W3092861045",
+      "reference_type": "openalex-work",
+      "source_count": "1",
+      "citation_count": "5",
+      "source_ids": "openalex-humanities",
+      "source_work_ids": "openalex-humanities:https-openalex-org-w3092849554; openalex-humanities:https-openalex-org-w3169262929; openalex-humanities:https-openalex-org-w3197233575; openalex-humanities:https-openalex-org-w4200584507; openalex-humanities:https-openalex-org-w4381799391",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:doi-10-1007-978-1-349-27673-8",
+      "reference_label": "10.1007/978-1-349-27673-8",
+      "reference_type": "doi",
+      "source_count": "1",
+      "citation_count": "4",
+      "source_ids": "crossref-humanities",
+      "source_work_ids": "crossref-humanities:10-1017-chol9780521300070-011; crossref-humanities:10-1017-chol9780521300070-014; crossref-humanities:10-1017-chol9780521300070-015; crossref-humanities:10-1017-chol9780521300070-020",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:doi-10-1007-978-3-476-03848-7",
+      "reference_label": "10.1007/978-3-476-03848-7",
+      "reference_type": "doi",
+      "source_count": "1",
+      "citation_count": "4",
+      "source_ids": "crossref-humanities",
+      "source_work_ids": "crossref-humanities:10-1017-chol9780521300070-011; crossref-humanities:10-1017-chol9780521300070-014; crossref-humanities:10-1017-chol9780521300070-015; crossref-humanities:10-1017-chol9780521300070-020",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:doi-10-1007-978-3-476-03850-0",
+      "reference_label": "10.1007/978-3-476-03850-0",
+      "reference_type": "doi",
+      "source_count": "1",
+      "citation_count": "4",
+      "source_ids": "crossref-humanities",
+      "source_work_ids": "crossref-humanities:10-1017-chol9780521300070-011; crossref-humanities:10-1017-chol9780521300070-014; crossref-humanities:10-1017-chol9780521300070-015; crossref-humanities:10-1017-chol9780521300070-020",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:doi-10-1007-978-3-476-05553-8-21",
+      "reference_label": "10.1007/978-3-476-05553-8_21",
+      "reference_type": "doi",
+      "source_count": "1",
+      "citation_count": "4",
+      "source_ids": "crossref-humanities",
+      "source_work_ids": "crossref-humanities:10-1017-chol9780521300070-011; crossref-humanities:10-1017-chol9780521300070-014; crossref-humanities:10-1017-chol9780521300070-015; crossref-humanities:10-1017-chol9780521300070-020",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    },
+    {
+      "row_type": "work_reference",
+      "canonical_reference_id": "work-reference:doi-10-1007-978-3-476-05567-5-30",
+      "reference_label": "10.1007/978-3-476-05567-5_30",
+      "reference_type": "doi",
+      "source_count": "1",
+      "citation_count": "4",
+      "source_ids": "crossref-humanities",
+      "source_work_ids": "crossref-humanities:10-1017-chol9780521300070-011; crossref-humanities:10-1017-chol9780521300070-014; crossref-humanities:10-1017-chol9780521300070-015; crossref-humanities:10-1017-chol9780521300070-020",
+      "confidence": "high",
+      "notes": "Stable source identifier clustered from citation edges."
+    }
+  ],
+  "error": "",
+  "limitations": [
+    "Person rows are deterministic candidate clusters by normalized name.",
+    "Work-reference rows are strongest when keyed by DOI or OpenAlex ID.",
+    "Use these leads for scoping, joins, and QA before manual authority review."
+  ]
+}

@@ -15,6 +15,35 @@ if (!question) {
   throw new Error('Usage: pnpm kb:question "research question"');
 }
 
+const STOPWORDS = new Set([
+  "how",
+  "has",
+  "have",
+  "the",
+  "and",
+  "for",
+  "with",
+  "from",
+  "into",
+  "over",
+  "time",
+  "changed",
+  "change",
+  "what",
+  "which",
+  "when",
+  "where",
+  "does",
+  "did",
+  "are",
+  "was",
+  "were",
+  "that",
+  "this",
+  "these",
+  "those",
+]);
+
 const registry = await loadRegistry();
 const sourceDocuments = await readJsonl(path.join(processedDir, "source_documents.jsonl"));
 const rights = await readJsonl(path.join(processedDir, "rights.jsonl"));
@@ -62,6 +91,7 @@ const evidenceRows = evidence.results.map((result) => ({
 }));
 const dateCoverage = buildDateCoverage(sourceMap, sourceDocuments, evidenceRows);
 const studyDesign = buildStudyDesign(question, sourceMap, evidenceRows, dateCoverage);
+const identitySummary = buildIdentitySummary(question, terms);
 const publicationConcept = buildPublicationConcept(question, sourceMap, evidenceRows, studyDesign);
 const studyTemplate = buildStudyTemplate(question, sourceMap, evidenceRows, studyDesign, publicationConcept);
 
@@ -76,9 +106,10 @@ await writeJson(path.join(outDir, "evidence.json"), {
 });
 await writeJson(path.join(outDir, "study-design.json"), studyDesign);
 await writeJson(path.join(outDir, "date-coverage.json"), dateCoverage);
+await writeJson(path.join(outDir, "identity-summary.json"), identitySummary);
 await writeJson(path.join(outDir, "publication-concept.json"), publicationConcept);
-await writeText(path.join(outDir, "brief.md"), renderBrief(sourceMap, evidenceRows, studyDesign));
-await writeText(path.join(outDir, "queries.sql"), renderQueries(sourceMap, evidence.fts_query));
+await writeText(path.join(outDir, "brief.md"), renderBrief(sourceMap, evidenceRows, studyDesign, identitySummary));
+await writeText(path.join(outDir, "queries.sql"), renderQueries(sourceMap, evidence.fts_query, identitySummary));
 await writeText(path.join(outDir, "missing-data.md"), renderMissingData(sourceMap, blockedAudit, evidenceRows));
 await writeText(path.join(outDir, "study-template.md"), renderStudyTemplate(studyTemplate));
 
@@ -89,7 +120,7 @@ function tokenize(value) {
     String(value)
       .toLowerCase()
       .split(/[^a-z0-9]+/)
-      .filter((term) => term.length > 2)
+      .filter((term) => term.length > 2 && !STOPWORDS.has(term))
   );
 }
 
@@ -121,7 +152,7 @@ function scoreSource(source, terms, localDocumentCount, hasEvidence, intent) {
   return score;
 }
 
-function renderBrief(sourceMap, evidenceRows, studyDesign) {
+function renderBrief(sourceMap, evidenceRows, studyDesign, identitySummary) {
   const localEvidence = sourceMap.matched_sources.filter((source) => source.local_document_count > 0);
   const plannedLeads = sourceMap.matched_sources.filter((source) => source.local_document_count === 0);
   const evidenceBySource = countBy(evidenceRows, "source_id");
@@ -155,6 +186,17 @@ function renderBrief(sourceMap, evidenceRows, studyDesign) {
     "",
     ...studyDesign.candidate_outputs.map((item) => `- ${item}`),
     "",
+    "## Identity And Reference Leads",
+    "",
+    identitySummary.people.length || identitySummary.work_references.length
+      ? [
+        `- Candidate people matching question terms: ${identitySummary.people.length}`,
+        `- Candidate work references matching question terms: ${identitySummary.work_references.length}`,
+        ...identitySummary.people.slice(0, 5).map((row) => `- Person: ${row.canonical_name} (${row.confidence}; ${row.record_count} records; ${row.source_ids || "no source ids"})`),
+        ...identitySummary.work_references.slice(0, 5).map((row) => `- Reference: ${row.reference_label} (${row.reference_type}; ${row.citation_count} citation edges; ${row.confidence})`),
+      ].join("\n")
+      : "No canonical person or work-reference rows matched the question terms directly.",
+    "",
     "## Publication Concept",
     "",
     `- Working title: ${studyDesign.publication_concept.essay_title_options[0]}`,
@@ -182,9 +224,11 @@ function renderBrief(sourceMap, evidenceRows, studyDesign) {
   ].join("\n");
 }
 
-function renderQueries(sourceMap, ftsQuery) {
+function renderQueries(sourceMap, ftsQuery, identitySummary) {
   const ids = sourceMap.matched_sources.map((source) => `'${source.source_id.replaceAll("'", "''")}'`).join(", ");
   const preferredClasses = sourceMap.inferred_intent.preferred_source_classes.map((sourceClass) => `'${sourceClass.replaceAll("'", "''")}'`).join(", ");
+  const identityWhere = identitySummary.sql_like_clauses.people || "1 = 0";
+  const referenceWhere = identitySummary.sql_like_clauses.work_references || "1 = 0";
   return [
     "-- SQLite queries over the local humanities KB.",
     "",
@@ -220,6 +264,20 @@ function renderQueries(sourceMap, ftsQuery) {
     "FROM source_documents_fts",
     `WHERE source_documents_fts MATCH '${ftsQuery.replaceAll("'", "''")}'`,
     "ORDER BY rank ASC",
+    "LIMIT 25;",
+    "",
+    "-- Candidate person identity clusters for this question.",
+    "SELECT canonical_person_id, canonical_name, source_count, record_count, source_ids, institution_hints, confidence, notes",
+    "FROM canonical_people",
+    `WHERE ${identityWhere}`,
+    "ORDER BY source_count DESC, record_count DESC, canonical_name ASC",
+    "LIMIT 25;",
+    "",
+    "-- Candidate cited/reference work clusters for this question.",
+    "SELECT canonical_reference_id, reference_label, reference_type, source_count, citation_count, source_ids, confidence, notes",
+    "FROM work_references",
+    `WHERE ${referenceWhere}`,
+    "ORDER BY citation_count DESC, source_count DESC, reference_label ASC",
     "LIMIT 25;",
     "",
   ].join("\n");
@@ -313,6 +371,45 @@ function buildDateCoverage(sourceMap, sourceDocuments, evidenceRows) {
       count: evidenceYears.length,
     } : null,
     sources,
+  };
+}
+
+function buildIdentitySummary(question, terms) {
+  const sqlitePath = path.join(processedDir, "knowledge-base.sqlite");
+  const searchTerms = [...terms].filter((term) => term.length > 2).slice(0, 8);
+  const peopleWhere = likeClause(["canonical_name", "source_author_ids", "institution_hints"], searchTerms);
+  const referenceWhere = likeClause(["reference_label", "reference_key", "source_work_ids"], searchTerms);
+  const people = querySqliteJson(sqlitePath, `
+SELECT 'person' AS row_type, canonical_person_id, canonical_name, source_count, record_count, source_ids, source_author_ids, institution_hints, confidence, notes
+FROM canonical_people
+WHERE ${peopleWhere || "1 = 0"}
+ORDER BY source_count DESC, record_count DESC, canonical_name ASC
+LIMIT 12;
+`);
+  const workReferences = querySqliteJson(sqlitePath, `
+SELECT 'work_reference' AS row_type, canonical_reference_id, reference_label, reference_type, source_count, citation_count, source_ids, source_work_ids, confidence, notes
+FROM work_references
+WHERE ${referenceWhere || "1 = 0"}
+ORDER BY citation_count DESC, source_count DESC, reference_label ASC
+LIMIT 12;
+`);
+  return {
+    generated_at: new Date().toISOString(),
+    question,
+    sqlite_path: path.relative(rootDir, sqlitePath),
+    terms: searchTerms,
+    sql_like_clauses: {
+      people: peopleWhere,
+      work_references: referenceWhere,
+    },
+    people: people.rows,
+    work_references: workReferences.rows,
+    error: [people.error, workReferences.error].filter(Boolean).join("\n"),
+    limitations: [
+      "Person rows are deterministic candidate clusters by normalized name.",
+      "Work-reference rows are strongest when keyed by DOI or OpenAlex ID.",
+      "Use these leads for scoping, joins, and QA before manual authority review.",
+    ],
   };
 }
 
@@ -668,7 +765,7 @@ function buildStudyTemplate(question, sourceMap, evidenceRows, studyDesign, publ
   return {
     question,
     source_classes: sourceMap.inferred_intent.preferred_source_classes,
-    local_tables: ["source_documents", "rights", "pages", "works", "objects", "venues", "authors", "citations", "topics"],
+    local_tables: ["source_documents", "rights", "pages", "works", "objects", "venues", "authors", "canonical_people", "citations", "work_references", "topics"],
     unit_of_analysis: studyDesign.unit_of_analysis,
     claim_strength: studyDesign.claim_strength,
     date_coverage_summary: studyDesign.date_coverage_summary,
@@ -743,36 +840,49 @@ function shortTopic(question) {
 }
 
 function toFtsQuery(value) {
-  const stopwords = new Set([
-    "how",
-    "has",
-    "have",
-    "the",
-    "and",
-    "for",
-    "with",
-    "from",
-    "into",
-    "over",
-    "time",
-    "changed",
-    "change",
-    "what",
-    "which",
-    "when",
-    "where",
-  ]);
   const terms = [...new Set(
     String(value)
       .toLowerCase()
       .split(/[^a-z0-9]+/)
-      .filter((term) => term.length > 2 && !stopwords.has(term))
+      .filter((term) => term.length > 2 && !STOPWORDS.has(term))
   )].slice(0, 8);
   return terms.length ? terms.map((term) => `"${term.replaceAll('"', '""')}"`).join(" OR ") : String(value).replaceAll('"', '""');
 }
 
 function sqlString(value) {
   return `'${String(value).replaceAll("'", "''")}'`;
+}
+
+function likeClause(columns, terms) {
+  if (!terms.length) return "";
+  return terms.map((term) => {
+    const pattern = `%${term.replaceAll("%", "\\%").replaceAll("_", "\\_")}%`;
+    return `(${columns.map((column) => `${column} LIKE ${sqlString(pattern)} ESCAPE '\\'`).join(" OR ")})`;
+  }).join(" OR ");
+}
+
+function querySqliteJson(sqlitePath, selectSql) {
+  const result = spawnSync("sqlite3", [sqlitePath], {
+    input: `.mode json\n${selectSql}`,
+    encoding: "utf8",
+  });
+  if (result.status !== 0) {
+    return {
+      rows: [],
+      error: result.stderr || result.stdout,
+    };
+  }
+  try {
+    return {
+      rows: result.stdout.trim() ? JSON.parse(result.stdout) : [],
+      error: "",
+    };
+  } catch {
+    return {
+      rows: [],
+      error: `Could not parse sqlite JSON output: ${result.stdout.slice(0, 200)}`,
+    };
+  }
 }
 
 function countBy(rows, key) {

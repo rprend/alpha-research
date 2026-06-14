@@ -1,0 +1,26 @@
+{
+  "essay_title_options": [
+    "Citations Authorship Digital Humanities Journals Changed Over Time",
+    "What Local Humanities Data Shows About citations authorship digital humanities journals changed over time",
+    "A Field Map Of citations authorship digital humanities journals changed over time"
+  ],
+  "candidate_charts_tables": [
+    "Matched works by publication year",
+    "Top venues and publishers for matched records",
+    "Open-access and rights coverage by source"
+  ],
+  "claim_strength_rating": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
+  "missing_evidence_list": [
+    "journal-digital-humanities-quarterly: 10 local docs, no direct hits",
+    "doaj-humanities: 2948 local docs, no direct hits",
+    "public-books: 10 local docs, no direct hits",
+    "journal-critical-inquiry: 25 local docs, no direct hits",
+    "journal-new-literary-history: 25 local docs, no direct hits",
+    "journal-pmla: 25 local docs, no direct hits"
+  ],
+  "suggested_follow_up_acquisition": [
+    "Expand OpenAlex/Crossref/DOAJ page limits for matched venues and concepts.",
+    "Normalize authors, venues, years, DOI joins, and citation/reference edges before publication claims."
+  ],
+  "why_this_matters": "This question can now start from local scholarly-metadata, journals-and-reviews evidence instead of fresh scraping, with 18 direct hits and top local sources including OpenAlex Humanities Metadata, Crossref Humanities DOI Metadata, Digital Humanities Quarterly."
+}
