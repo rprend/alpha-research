@@ -172,7 +172,7 @@ function sourceClassCompleteness(sources, sourceDocuments, rightsById) {
     "university-department-web": { min_content_date_rate: 0 },
     "conference-programs": { min_content_date_rate: 0.7 },
     "journals-and-reviews": { min_content_date_rate: 0.8 },
-    "humanities-adjacent-policy-history": { min_content_date_rate: 0.3 },
+    "humanities-adjacent-policy-history": { min_content_date_rate: 0.9 },
     "web-archives": { min_content_date_rate: 1 },
     "experiment-derived": { min_content_date_rate: 0.5 },
   };

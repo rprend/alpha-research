@@ -26,6 +26,7 @@ pnpm kb:ingest:wikidata
 pnpm kb:ingest:departments
 node scripts/kb-ingest-department-sitemaps.mjs
 node scripts/kb-ingest-hathitrust.mjs
+node scripts/kb-enrich-nber-dates.mjs
 pnpm kb:import:gutenberg
 pnpm kb:ingest:web
 pnpm kb:tables
@@ -102,6 +103,8 @@ The gap-source ingest now imports AHA annual-meeting metadata from public WordPr
 The department route replacement pass added public Princeton event pages, expanded-university replacement pages for Berkeley History, Berkeley Rhetoric, Penn English, and additional discovered Duke English newsletter pages, public University of Chicago Humanities Division news/events pages to replace absent UChicago sitemap routes, and central Harvard program pages for English, History, Philosophy, and Classics to replace blocked FAS department hosts at the source level. Princeton, Columbia, the expanded university source, UChicago, Harvard, LARB, Smithsonian, and HathiTrust now appear as resolved historical failures in `audits/failed-route-replacements.md`; Smithsonian's later `DEMO_KEY` 429s are treated as cooldown failures because an earlier 200-record cultural-collections ingest succeeded. SSRN now has a metadata-only Crossref posted-content replacement route for SSRN DOI records; direct SSRN API access remains unauthorized and should not be retried anonymously.
 
 The SSRN-adjacent replacement imports Crossref posted-content metadata for humanities/culture/history SSRN DOI records. It stores raw Crossref responses plus normalized work/source-document/rights rows, does not store SSRN full text, and keeps direct SSRN access as a terms/authorization concern rather than a scraping target.
+
+The NBER date enrichment route fetches public NBER working-paper HTML pages for existing `nber-culture-history` metadata rows and extracts `citation_publication_date` metadata into `publication_year` and `publication_date`. It stores raw HTML responses and a run manifest, does not fetch PDFs, and improves humanities-adjacent policy/history records enough for source-class content-date completeness gates to require high coverage.
 
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 

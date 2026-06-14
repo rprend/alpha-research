@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T21:39:21.852Z",
+  "generated_at": "2026-06-14T21:43:20.644Z",
   "source_count": 34,
   "source_classes": {
     "conference-programs": 3,
@@ -455,13 +455,13 @@
       "metadata_allowed_rows": 75,
       "quote_status_rows": 75,
       "fetch_date_rows": 75,
-      "content_date_rows": 26,
+      "content_date_rows": 75,
       "rights_coverage_rate": 1,
       "metadata_allowed_rate": 1,
       "quote_status_rate": 1,
       "fetch_date_rate": 1,
-      "content_date_rate": 0.3467,
-      "required_content_date_rate": 0.3,
+      "content_date_rate": 1,
+      "required_content_date_rate": 0.9,
       "status": "pass",
       "note": "Completeness regression gate for provenance dates and rights fields by source class; content-date thresholds are class-specific."
     },

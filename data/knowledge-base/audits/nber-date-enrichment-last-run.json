@@ -1,0 +1,419 @@
+{
+  "run_id": "nber-date-enrichment-2026-06-14T21-42-40-925Z",
+  "source_id": "nber-culture-history",
+  "source_route": "NBER working paper HTML citation metadata",
+  "generated_at": "2026-06-14T21:42:51.647Z",
+  "candidate_count": 50,
+  "enriched_count": 50,
+  "failed_count": 0,
+  "raw_dir": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z",
+  "outputs": [
+    "data/knowledge-base/processed/source_documents.jsonl",
+    "data/knowledge-base/processed/works.jsonl",
+    "data/knowledge-base/audits/nber-date-enrichment-last-run.json",
+    "data/knowledge-base/audits/nber-date-enrichment-last-run.md"
+  ],
+  "enriched": [
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1306780-en",
+      "source_url": "https://www.nber.org/papers/w35205",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-001.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1316585-en",
+      "source_url": "https://www.nber.org/papers/w35288",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-002.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319786-en",
+      "source_url": "https://www.nber.org/papers/w35299",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-003.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319793-en",
+      "source_url": "https://www.nber.org/papers/w35291",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-004.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319794-en",
+      "source_url": "https://www.nber.org/papers/w35304",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-005.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319795-en",
+      "source_url": "https://www.nber.org/papers/w35305",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-006.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319796-en",
+      "source_url": "https://www.nber.org/papers/w35306",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-007.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319797-en",
+      "source_url": "https://www.nber.org/papers/w35292",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-008.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319799-en",
+      "source_url": "https://www.nber.org/papers/w35293",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-009.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319800-en",
+      "source_url": "https://www.nber.org/papers/w35294",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-010.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319801-en",
+      "source_url": "https://www.nber.org/papers/w35295",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-011.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319802-en",
+      "source_url": "https://www.nber.org/papers/w35296",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-012.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319803-en",
+      "source_url": "https://www.nber.org/papers/w35297",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-013.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319804-en",
+      "source_url": "https://www.nber.org/papers/w35298",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-014.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319805-en",
+      "source_url": "https://www.nber.org/papers/w35301",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-015.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319806-en",
+      "source_url": "https://www.nber.org/papers/w35300",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-016.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319807-en",
+      "source_url": "https://www.nber.org/papers/w35302",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-017.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319808-en",
+      "source_url": "https://www.nber.org/papers/w35303",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-018.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319809-en",
+      "source_url": "https://www.nber.org/papers/w35307",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-019.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319810-en",
+      "source_url": "https://www.nber.org/papers/w35308",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-020.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319811-en",
+      "source_url": "https://www.nber.org/papers/w35313",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-021.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319812-en",
+      "source_url": "https://www.nber.org/papers/w35309",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-022.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319813-en",
+      "source_url": "https://www.nber.org/papers/w35310",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-023.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319817-en",
+      "source_url": "https://www.nber.org/papers/w35311",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-024.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319818-en",
+      "source_url": "https://www.nber.org/papers/w35290",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-025.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319819-en",
+      "source_url": "https://www.nber.org/papers/w35312",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-026.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1319820-en",
+      "source_url": "https://www.nber.org/papers/w35314",
+      "publication_year": "2026",
+      "publication_date": "2026-06-08",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-027.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315308-en",
+      "source_url": "https://www.nber.org/papers/w35274",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-028.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315309-en",
+      "source_url": "https://www.nber.org/papers/w35264",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-029.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315310-en",
+      "source_url": "https://www.nber.org/papers/w35275",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-030.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315312-en",
+      "source_url": "https://www.nber.org/papers/w35254",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-031.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315313-en",
+      "source_url": "https://www.nber.org/papers/w35255",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-032.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315315-en",
+      "source_url": "https://www.nber.org/papers/w35256",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-033.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315316-en",
+      "source_url": "https://www.nber.org/papers/w35257",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-034.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315317-en",
+      "source_url": "https://www.nber.org/papers/w35258",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-035.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315319-en",
+      "source_url": "https://www.nber.org/papers/w35260",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-036.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315321-en",
+      "source_url": "https://www.nber.org/papers/w35276",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-037.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315322-en",
+      "source_url": "https://www.nber.org/papers/w35278",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-038.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315323-en",
+      "source_url": "https://www.nber.org/papers/w35277",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-039.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315324-en",
+      "source_url": "https://www.nber.org/papers/w35279",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-040.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315325-en",
+      "source_url": "https://www.nber.org/papers/w35280",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-041.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315326-en",
+      "source_url": "https://www.nber.org/papers/w35281",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-042.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315327-en",
+      "source_url": "https://www.nber.org/papers/w35283",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-043.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315328-en",
+      "source_url": "https://www.nber.org/papers/w35282",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-044.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315329-en",
+      "source_url": "https://www.nber.org/papers/w35284",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-045.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1316597-en",
+      "source_url": "https://www.nber.org/papers/w35285",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-046.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1316598-en",
+      "source_url": "https://www.nber.org/papers/w35286",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-047.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1316599-en",
+      "source_url": "https://www.nber.org/papers/w35287",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-048.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1316600-en",
+      "source_url": "https://www.nber.org/papers/w35289",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-049.html"
+    },
+    {
+      "local_id": "nber-culture-history:i768l2-sitesearch-entity-node-1315293-en",
+      "source_url": "https://www.nber.org/papers/w35265",
+      "publication_year": "2026",
+      "publication_date": "2026-06-01",
+      "source": "meta:citation_publication_date",
+      "raw_path": "data/knowledge-base/raw/nber-culture-history/2026-06-14/nber-date-enrichment-2026-06-14T21-42-40-925Z/paper-050.html"
+    }
+  ],
+  "failed": []
+}

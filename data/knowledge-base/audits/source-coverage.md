@@ -1,6 +1,6 @@
 # KB Source Coverage
 
-Generated at: 2026-06-14T21:39:21.852Z
+Generated at: 2026-06-14T21:43:20.644Z
 Sources with local documents: 33/34
 Unregistered local source IDs: 0
 
@@ -40,7 +40,7 @@ No unregistered local source IDs.
 - conference-programs: pass (rights 100%, fetched 100%, content-date 84%; threshold 70%)
 - cultural-collections: pass (rights 100%, fetched 100%, content-date 87%; threshold 50%)
 - experiment-derived: pass (rights 100%, fetched 100%, content-date 100%; threshold 50%)
-- humanities-adjacent-policy-history: pass (rights 100%, fetched 100%, content-date 35%; threshold 30%)
+- humanities-adjacent-policy-history: pass (rights 100%, fetched 100%, content-date 100%; threshold 90%)
 - journals-and-reviews: pass (rights 100%, fetched 100%, content-date 98%; threshold 80%)
 - linked-open-data: pass (rights 100%, fetched 100%, content-date 65%; threshold 60%)
 - open-text-metadata: pass (rights 100%, fetched 100%, content-date 95%; threshold 50%)
