@@ -22,6 +22,7 @@ const freshness = sourceFreshness(sources);
 const registrySourceIds = new Set(sources.map((source) => source.source_id));
 const sourceIdsWithLocalDocs = new Set(sourceDocuments.map((row) => row.source_id).filter(Boolean));
 const sourceDocumentsBySource = countBy(sourceDocuments, "source_id");
+const rightsById = new Map(rights.map((row) => [row.local_id, row]));
 const registeredSourceIdsWithLocalDocs = Array.from(sourceIdsWithLocalDocs)
   .filter((sourceId) => registrySourceIds.has(sourceId))
   .sort();
@@ -53,6 +54,7 @@ const coverage = {
     })),
 };
 coverage.source_class_quality = sourceClassQuality(sources, sourceDocumentsBySource);
+coverage.source_class_completeness = sourceClassCompleteness(sources, sourceDocuments, rightsById);
 
 const rightsSummary = {
   generated_at: coverage.generated_at,
@@ -105,6 +107,10 @@ function renderCoverage(coverage) {
     "",
     ...coverage.source_class_quality.map((row) => `- ${row.source_class}: ${row.status} (${row.sources_with_documents}/${row.required_sources_with_documents} sources, ${row.document_count}/${row.required_document_count} docs)`),
     "",
+    "## Source-Class Completeness Gates",
+    "",
+    ...coverage.source_class_completeness.map((row) => `- ${row.source_class}: ${row.status} (rights ${pct(row.rights_coverage_rate)}, fetched ${pct(row.fetch_date_rate)}, content-date ${pct(row.content_date_rate)}; threshold ${pct(row.required_content_date_rate)})`),
+    "",
   ].join("\n");
 }
 
@@ -153,6 +159,87 @@ function sourceClassQuality(sources, sourceDocumentsBySource) {
       note: "Conservative regression gate for broad-enough local coverage by source class; not a claim of complete acquisition.",
     };
   }).sort((a, b) => a.source_class.localeCompare(b.source_class));
+}
+
+function sourceClassCompleteness(sources, sourceDocuments, rightsById) {
+  const sourceClassById = new Map(sources.map((source) => [source.source_id, source.source_class]));
+  const thresholds = {
+    "scholarly-metadata": { min_content_date_rate: 0.9 },
+    "linked-open-data": { min_content_date_rate: 0.6 },
+    "public-domain-texts": { min_content_date_rate: 0 },
+    "open-text-metadata": { min_content_date_rate: 0.5 },
+    "cultural-collections": { min_content_date_rate: 0.5 },
+    "university-department-web": { min_content_date_rate: 0 },
+    "conference-programs": { min_content_date_rate: 0.7 },
+    "journals-and-reviews": { min_content_date_rate: 0.8 },
+    "humanities-adjacent-policy-history": { min_content_date_rate: 0.3 },
+    "web-archives": { min_content_date_rate: 1 },
+    "experiment-derived": { min_content_date_rate: 0.5 },
+  };
+  const byClass = new Map();
+  for (const row of sourceDocuments) {
+    const sourceClass = sourceClassById.get(row.source_id);
+    if (!sourceClass) continue;
+    const current = byClass.get(sourceClass) ?? {
+      source_class: sourceClass,
+      document_count: 0,
+      rights_rows: 0,
+      metadata_allowed_rows: 0,
+      quote_status_rows: 0,
+      fetch_date_rows: 0,
+      content_date_rows: 0,
+    };
+    const rights = rightsById.get(row.local_id);
+    current.document_count += 1;
+    if (rights) current.rights_rows += 1;
+    if (rights?.metadata_allowed === true || rights?.metadata_allowed === "true") current.metadata_allowed_rows += 1;
+    if (rights?.quote_status) current.quote_status_rows += 1;
+    if (row.fetched_at) current.fetch_date_rows += 1;
+    if (hasContentDate(row)) current.content_date_rows += 1;
+    byClass.set(sourceClass, current);
+  }
+  return Array.from(byClass.values()).map((row) => {
+    const threshold = thresholds[row.source_class] ?? { min_content_date_rate: 0 };
+    const rates = {
+      rights_coverage_rate: rate(row.rights_rows, row.document_count),
+      metadata_allowed_rate: rate(row.metadata_allowed_rows, row.document_count),
+      quote_status_rate: rate(row.quote_status_rows, row.document_count),
+      fetch_date_rate: rate(row.fetch_date_rows, row.document_count),
+      content_date_rate: rate(row.content_date_rows, row.document_count),
+      required_content_date_rate: threshold.min_content_date_rate,
+    };
+    const passes = rates.rights_coverage_rate >= 1 &&
+      rates.metadata_allowed_rate >= 0.95 &&
+      rates.quote_status_rate >= 0.95 &&
+      rates.fetch_date_rate >= 1 &&
+      rates.content_date_rate >= threshold.min_content_date_rate;
+    return {
+      ...row,
+      ...rates,
+      status: passes ? "pass" : "fail",
+      note: "Completeness regression gate for provenance dates and rights fields by source class; content-date thresholds are class-specific.",
+    };
+  }).sort((a, b) => a.source_class.localeCompare(b.source_class));
+}
+
+function hasContentDate(row) {
+  return Boolean(
+    row.publication_year ||
+    row.date ||
+    row.accession_year ||
+    row.object_date ||
+    row.snapshot_year ||
+    /\b(?:18|19|20)\d{2}\b/.test(String(row.title ?? ""))
+  );
+}
+
+function rate(numerator, denominator) {
+  if (!denominator) return 1;
+  return Number((numerator / denominator).toFixed(4));
+}
+
+function pct(value) {
+  return `${Math.round(Number(value) * 100)}%`;
 }
 
 function renderRights(summary) {

@@ -1,6 +1,6 @@
 # KB Source Coverage
 
-Generated at: 2026-06-14T21:32:25.653Z
+Generated at: 2026-06-14T21:39:21.852Z
 Sources with local documents: 33/34
 Unregistered local source IDs: 0
 
@@ -34,3 +34,17 @@ No unregistered local source IDs.
 - syllabi-teaching-corpora: pass (0/0 sources, 0/0 docs)
 - university-department-web: pass (8/6 sources, 533/250 docs)
 - web-archives: pass (1/1 sources, 23/10 docs)
+
+## Source-Class Completeness Gates
+
+- conference-programs: pass (rights 100%, fetched 100%, content-date 84%; threshold 70%)
+- cultural-collections: pass (rights 100%, fetched 100%, content-date 87%; threshold 50%)
+- experiment-derived: pass (rights 100%, fetched 100%, content-date 100%; threshold 50%)
+- humanities-adjacent-policy-history: pass (rights 100%, fetched 100%, content-date 35%; threshold 30%)
+- journals-and-reviews: pass (rights 100%, fetched 100%, content-date 98%; threshold 80%)
+- linked-open-data: pass (rights 100%, fetched 100%, content-date 65%; threshold 60%)
+- open-text-metadata: pass (rights 100%, fetched 100%, content-date 95%; threshold 50%)
+- public-domain-texts: pass (rights 100%, fetched 100%, content-date 3%; threshold 0%)
+- scholarly-metadata: pass (rights 100%, fetched 100%, content-date 99%; threshold 90%)
+- university-department-web: pass (rights 100%, fetched 100%, content-date 14%; threshold 0%)
+- web-archives: pass (rights 100%, fetched 100%, content-date 100%; threshold 100%)

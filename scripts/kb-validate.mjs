@@ -95,6 +95,18 @@ async function validateOperationalAudits(registry, errors) {
       errors.push(`source-class quality gate failed for ${row.source_class}: ${row.sources_with_documents}/${row.required_sources_with_documents} sources and ${row.document_count}/${row.required_document_count} documents`);
     }
   }
+  for (const row of coverage.source_class_completeness ?? []) {
+    if (row.status !== "pass") {
+      errors.push([
+        `source-class completeness gate failed for ${row.source_class}:`,
+        `rights ${formatRate(row.rights_coverage_rate)}`,
+        `metadata ${formatRate(row.metadata_allowed_rate)}`,
+        `quotes ${formatRate(row.quote_status_rate)}`,
+        `fetched ${formatRate(row.fetch_date_rate)}`,
+        `content-date ${formatRate(row.content_date_rate)}/${formatRate(row.required_content_date_rate)}`,
+      ].join(" "));
+    }
+  }
 }
 
 function validateLocalArtifacts(errors) {
@@ -110,4 +122,8 @@ function validateLocalArtifacts(errors) {
   for (const artifact of requiredArtifacts) {
     if (!existsSync(artifact)) errors.push(`missing local KB artifact: ${artifact}`);
   }
+}
+
+function formatRate(value) {
+  return `${Math.round(Number(value ?? 0) * 100)}%`;
 }
