@@ -1,6 +1,6 @@
 # KB Blocked Sources
 
-Generated at: 2026-06-14T18:29:34.226Z
+Generated at: 2026-06-14T18:42:57.307Z
 Blocked sources: 5
 
 ## hathitrust-bibliographic-metadata

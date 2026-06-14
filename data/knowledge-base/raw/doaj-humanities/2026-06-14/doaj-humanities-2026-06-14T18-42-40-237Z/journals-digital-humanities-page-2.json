@@ -1,0 +1,10 @@
+{
+  "total": 87,
+  "page": 2,
+  "pageSize": 100,
+  "timestamp": "2026-06-14T18:42:47.727126Z",
+  "query": "digital humanities",
+  "results": [],
+  "prev": "https://doaj.org/api/v4/search/journals/digital%20humanities?page=1&pageSize=100",
+  "last": "https://doaj.org/api/v4/search/journals/digital%20humanities?page=1&pageSize=100"
+}

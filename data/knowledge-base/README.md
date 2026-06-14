@@ -20,6 +20,7 @@ pnpm kb:validate
 pnpm kb:status
 pnpm kb:inventory
 pnpm kb:ingest:core
+pnpm kb:ingest:doaj
 pnpm kb:ingest:departments
 pnpm kb:import:gutenberg
 pnpm kb:ingest:web
@@ -71,6 +72,8 @@ Current normalized staging outputs:
 The KB also imports a bounded local Project Gutenberg text sample from the existing Gutenberg experiment cache and stores extracted public department-page text for local analysis.
 
 The web metadata ingest adds bounded local records for DOAJ, Internet Archive, NBER, Public Books, and Digital Humanities Quarterly when their public routes respond. Failed routes are retained in `audits/failed-routes.jsonl`.
+
+The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 
 The Wayback snapshot ingest adds CDX capture metadata for department-page targets in `config/department-pages.json`. It stores capture metadata and archive URLs only; archived page text is not stored.
 

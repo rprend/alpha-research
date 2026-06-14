@@ -533,6 +533,7 @@ Started on 2026-06-13:
 - Phase 1 is implemented: the source registry has 31 sources, registry/schema validation exists, rights taxonomy exists, ingest manifest schema exists, and `pnpm kb:status` reports local KB state.
 - Phase 2 has a bounded starter ingest: `pnpm kb:ingest:core` fetches OpenAlex, Crossref, Wikidata, Library of Congress, Met, and Cleveland Museum samples into raw run folders and normalized JSONL staging tables.
 - Phase 2 now has a broad append/dedupe metadata ingest: `pnpm kb:ingest:broad` pulls larger source-specific batches for OpenAlex, Crossref, Internet Archive, Library of Congress, Cleveland Museum, Met, and NBER into the local KB without resetting existing staging tables.
+- Phase 2 now has a dedicated DOAJ humanities ingest: `pnpm kb:ingest:doaj` pulls article and journal metadata across humanities queries from DOAJ, stores raw responses, and appends normalized work, venue, source-document, and rights rows.
 - Phase 2/3 now has a gap-source ingest: `pnpm kb:ingest:gaps` targets registered sources without local records, including Smithsonian, Columbia department pages, DH conference pages, journal metadata through Crossref, and blocked-route probes for sources that need replacement routes.
 - Phase 6 now has a blocked-source audit: `pnpm kb:audit:blocked` writes source-specific memos for routes that require permission, replacement, or terms review.
 - Phase 2 also imports a bounded Project Gutenberg public-domain text sample from the existing local Gutenberg experiment cache into `data/knowledge-base/text/public-domain-books/`.
@@ -546,28 +547,29 @@ Started on 2026-06-13:
 - Phase 5 has a bounded starter workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, query sketch, and missing-data memo under `docs/research-briefs/`.
 - Phase 6 has starter maintenance automation: `pnpm kb:refresh` validates, inventories, rebuilds analytical tables, refreshes coverage/rights/stale-source audits, rebuilds the index, and updates KB status.
 
-Current local footprint as of the latest committed status:
+Current local footprint as of the latest local status:
 
 - 33 registered sources.
 - 28 registered sources with local documents.
 - Registry statuses: 23 active, 5 blocked, 4 seeded-from-experiment, 1 planned.
-- 1839 source documents.
-- 1283 works.
+- 4378 source documents.
+- 2733 works.
 - 1779 source-provided authors.
-- 333 venues.
+- 2269 venues.
 - 14 institutions.
 - 25 derived collections.
 - 34859 source-provided citation/reference edges.
 - 541 source-provided topics.
 - 507 cultural objects.
 - 34 department/web pages.
-- 1839 rights rows.
+- 4378 rights rows.
+- 2539 records from the dedicated DOAJ humanities ingest, including 1450 article records and 1089 journal records from 32 raw article/journal API route responses.
 - 4 strict homepage Wayback CDX department-page snapshot metadata records from 2020-2026 across 4 target routes; broader wildcard captures were rejected to avoid query-string noise.
 - 24 local text files.
 - 12/12 staging JSONL tables.
 - 12/12 processed Parquet tables.
 - SQLite FTS indexes 24 source-document rows and 4 page rows with stored local text content, plus metadata for the broader corpus.
-- Semantic hash index covers 1808 rights-filtered documents, including 20 public-domain full-text records and 4 local-analysis page-text records.
+- Semantic hash index covers 4347 rights-filtered documents, including 20 public-domain full-text records and 4 local-analysis page-text records.
 - SQLite analytical database at `data/knowledge-base/processed/knowledge-base.sqlite`.
 - Keyword index at `data/knowledge-base/indexes/source-documents-keyword-index.json`.
 
@@ -576,7 +578,7 @@ This is a foundation and harness, not the complete knowledge base.
 Remaining before the full knowledge-base goal is complete:
 
 - Normalize source-provided author identities and citation/reference edges into cleaner person/work graphs.
-- Add broad, source-specific ingest jobs rather than bounded samples.
+- Add more broad, source-specific ingest jobs rather than bounded samples, especially Wikidata, Project Gutenberg catalog/text expansion, cultural collections, and department-page crawling.
 - Continue replacement or retry plans for failed LARB, Harvard English current-page, Yale English CDX, and remaining 403/timeout routes; do not bypass access controls.
 - Expand university/department web corpus acquisition beyond the first successful routes.
 - Expand full text storage only for public-domain or clearly licensed sources.
@@ -588,5 +590,5 @@ Next build steps:
 1. Import existing experiment outputs as seed records, while marking them as experiment-derived and not confusing them with broad source coverage.
 2. Fix Wayback CDX route shape and add replacement plans for blocked LARB/403 department routes.
 3. Convert the current source registry into broad acquisition batches by source class.
-4. Run broad metadata acquisition for OpenAlex, DOAJ/Crossref, Project Gutenberg, Wikidata, and cultural-collection APIs.
+4. Run broad metadata acquisition for OpenAlex/Crossref, Project Gutenberg, Wikidata, and cultural-collection APIs; DOAJ now has a dedicated route but should be expanded beyond the current page limits when needed.
 5. Build the first no-internet question brief from local data only.

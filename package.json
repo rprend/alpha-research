@@ -30,6 +30,7 @@
     "kb:question": "node scripts/kb-question.mjs",
     "kb:ingest:core": "node scripts/kb-ingest-core-samples.mjs",
     "kb:ingest:broad": "node scripts/kb-ingest-broad-metadata.mjs",
+    "kb:ingest:doaj": "node scripts/kb-ingest-doaj.mjs",
     "kb:ingest:gaps": "node scripts/kb-ingest-gap-sources.mjs",
     "kb:index": "node scripts/kb-build-search-index.mjs",
     "kb:index:semantic": "node scripts/kb-build-semantic-index.mjs",

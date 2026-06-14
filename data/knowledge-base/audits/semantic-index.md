@@ -1,15 +1,15 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T18:35:24.795Z
+Generated at: 2026-06-14T18:42:58.147Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 1808
+Documents: 4347
 
 ## Text Scope
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 1784 |
+| metadata-only | 4323 |
 | stored-full-text | 20 |
 | stored-local-analysis-text | 4 |
 
@@ -21,7 +21,7 @@ Documents: 1808
 | columbia-humanities-departments | 1 |
 | crossref-humanities | 178 |
 | dh-conference-programs | 25 |
-| doaj-humanities | 409 |
+| doaj-humanities | 2948 |
 | harvard-humanities-departments | 5 |
 | humanities-centers-public-pages | 12 |
 | humanities-literature-radar | 53 |
