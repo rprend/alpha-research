@@ -1,6 +1,20 @@
 # Local Humanities Knowledge Base Plan
 
-Status: active plan, saved in repository on 2026-06-13 and reframed on 2026-06-14.
+Status: active plan, saved in repository on 2026-06-13, reframed on 2026-06-14, and confirmed as the canonical local-first knowledge-base plan on 2026-06-14.
+
+## Saved Artifact
+
+This file is the canonical plan for the local humanities knowledge base. It should be updated when the knowledge-base goal changes, when a major source class is added, when the storage contract changes, or when the next build steps materially change.
+
+The plan is intentionally broader than a single essay or experiment. The core deliverable is a durable local research base on this laptop:
+
+- source registry and rights taxonomy
+- raw source snapshots and ingest manifests
+- normalized analytical tables
+- locally stored text where rights allow
+- structured, keyword, and semantic retrieval indexes
+- audit reports for coverage, rights, freshness, blocked sources, and route failures
+- a question workbench that starts from local evidence before fetching anything new
 
 ## Planning Correction
 
