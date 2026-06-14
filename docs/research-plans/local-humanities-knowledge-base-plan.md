@@ -1,6 +1,20 @@
 # Local Humanities Knowledge Base Plan
 
-Status: active plan, saved in repository on 2026-06-13.
+Status: active plan, saved in repository on 2026-06-13 and reframed on 2026-06-14.
+
+## Planning Correction
+
+The first objective is not to answer one or two humanities questions. The first objective is to build a local, reusable humanities knowledge base on this laptop so future questions can start from stored data, indexes, provenance, and rights metadata.
+
+That means the system should prioritize broad source acquisition, durable schemas, local search, refresh routines, and evidence audits before optimizing for any single Substack essay or experiment. Individual studies are downstream consumers and validation tests for the knowledge base.
+
+When a research question arrives, the default workflow should be:
+
+1. Query local KB tables, text, and indexes.
+2. Produce a local-data brief with coverage, evidence, caveats, and missing fields.
+3. Decide whether a publishable claim is supportable.
+4. Fetch only the missing or stale source material needed to improve the study.
+5. Save the resulting study artifacts back into the repository so the KB becomes stronger.
 
 ## Goal
 
