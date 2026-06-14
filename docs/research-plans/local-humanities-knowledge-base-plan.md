@@ -2,6 +2,12 @@
 
 Status: active plan, saved in repository on 2026-06-13, reframed on 2026-06-14, and confirmed as the canonical local-first knowledge-base plan on 2026-06-14.
 
+## 2026-06-14 Confirmation
+
+The immediate goal is to set up the local knowledge base before pursuing more individual research questions. When a question arrives, the system should not begin by scraping the web. It should begin by querying the data, raw source snapshots, text files, indexes, audits, and provenance already stored on this laptop under `data/knowledge-base/`.
+
+The work should therefore prioritize local completeness, source breadth, refreshability, rights metadata, and queryable indexes. Specific research questions remain important, but they should function as downstream tests of the knowledge base: each question should reveal what the local corpus can already support, what evidence is missing, and which targeted acquisition job would make the corpus stronger.
+
 ## Saved Artifact
 
 This file is the canonical plan for the local humanities knowledge base. It should be updated when the knowledge-base goal changes, when a major source class is added, when the storage contract changes, or when the next build steps materially change.
