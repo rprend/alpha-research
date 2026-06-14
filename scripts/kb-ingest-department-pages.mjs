@@ -84,7 +84,7 @@ const report = {
   failures,
 };
 await writeJson(path.join(auditsDir, "department-pages-last-run.json"), report);
-await appendText(path.join(auditsDir, "ingest-runs.jsonl"), `${JSON.stringify({
+const runRecords = [{
   run_id: runId,
   source_id: "university-department-web",
   started_at: pages[0]?.fetched_at ?? new Date().toISOString(),
@@ -101,7 +101,8 @@ await appendText(path.join(auditsDir, "ingest-runs.jsonl"), `${JSON.stringify({
   record_count: pages.length + departments.length,
   rights_review: "Public page text stored for local analysis only.",
   errors: failures.flatMap((failure) => failure.errors),
-})}\n`);
+}, ...sourceRunRecords(report.generated_at, pages, failures)];
+await appendText(path.join(auditsDir, "ingest-runs.jsonl"), `${runRecords.map((record) => JSON.stringify(record)).join("\n")}\n`);
 
 console.log(`Department page ingest ${runId}: ${pages.length}/${Math.min(limit, targetConfig.targets.length)} pages succeeded.`);
 
@@ -337,6 +338,40 @@ function summarizeDepartments(pages) {
     byDepartment.set(key, current);
   }
   return Array.from(byDepartment.values()).sort((a, b) => a.local_id.localeCompare(b.local_id));
+}
+
+function sourceRunRecords(completedAt, newPages, runFailures) {
+  const sourceIds = new Set([
+    ...newPages.map((page) => page.source_id),
+    ...runFailures.map((failure) => failure.source_id),
+  ]);
+  const records = [];
+  for (const sourceId of [...sourceIds].sort()) {
+    const sourcePages = newPages.filter((page) => page.source_id === sourceId);
+    if (!sourcePages.length) continue;
+    const sourceFailures = runFailures.filter((failure) => failure.source_id === sourceId);
+    records.push({
+      run_id: runId,
+      source_id: sourceId,
+      started_at: sourcePages[0]?.fetched_at ?? completedAt,
+      completed_at: completedAt,
+      status: "success",
+      access_route: [...new Set(sourcePages.map((page) => page.source_url))].join(" | "),
+      raw_outputs: sourcePages.map((page) => page.text_path).filter(Boolean),
+      processed_outputs: [
+        "data/knowledge-base/processed/pages.jsonl",
+        "data/knowledge-base/processed/departments.jsonl",
+        "data/knowledge-base/processed/source_documents.jsonl",
+        "data/knowledge-base/processed/rights.jsonl",
+      ],
+      record_count: sourcePages.length,
+      rights_review: sourceFailures.length
+        ? "Source has at least one working public replacement route; failed routes remain in failed-routes.jsonl for target-level review."
+        : "Public page text stored for local analysis only.",
+      errors: sourceFailures.flatMap((failure) => failure.errors),
+    });
+  }
+  return records;
 }
 
 function dedupe(rows, key) {

@@ -444,9 +444,10 @@
       "known_risks": [
         "site redesigns",
         "copyrighted page text",
-        "department list maintenance"
+        "department list maintenance",
+        "department home/about/news/events routes returned 403 on 2026-06-14; use Wayback CDX metadata or authorized exports rather than bypassing access controls"
       ],
-      "last_checked_at": "2026-06-13",
+      "last_checked_at": "2026-06-14",
       "ingest_status": "seeded-from-experiment"
     },
     {
@@ -497,7 +498,8 @@
         "department about pages",
         "news pages",
         "events pages",
-        "faculty pages"
+        "faculty pages",
+        "public event pages that return 200 when home/about/news routes are blocked"
       ],
       "license": "Public web pages; copyright retained by institution",
       "redistribution_status": "local-analysis-only",
@@ -522,10 +524,11 @@
       "known_risks": [
         "robots and terms review required",
         "page text redistribution limits",
-        "department taxonomy drift"
+        "department taxonomy drift",
+        "several home/about/news routes return 403; English, Philosophy, and Art and Archaeology events routes are active public replacements"
       ],
-      "last_checked_at": "2026-06-13",
-      "ingest_status": "planned"
+      "last_checked_at": "2026-06-14",
+      "ingest_status": "active"
     },
     {
       "source_id": "stanford-humanities-departments",
@@ -680,7 +683,8 @@
         "heterogeneous web platforms",
         "copyrighted page text",
         "URL churn",
-        "historical snapshot gaps"
+        "historical snapshot gaps",
+        "Michigan LSA and Penn History routes returned 403 on 2026-06-14; Berkeley History/Rhetoric and Penn English public routes are configured as replacements"
       ],
       "last_checked_at": "2026-06-14",
       "ingest_status": "active"

@@ -1,17 +1,17 @@
 # KB Semantic Hash Index
 
-Generated at: 2026-06-14T20:34:29.840Z
+Generated at: 2026-06-14T20:42:24.381Z
 Kind: local-hashed-tfidf
 Dimensions: 2048
-Documents: 6508
+Documents: 6518
 
 ## Text Scope
 
 | Value | Count |
 | --- | ---: |
-| metadata-only | 6102 |
+| metadata-only | 6092 |
 | stored-full-text | 200 |
-| stored-local-analysis-text | 206 |
+| stored-local-analysis-text | 226 |
 
 ## Sources
 
@@ -23,7 +23,7 @@ Documents: 6508
 | crossref-humanities | 178 |
 | dh-conference-programs | 25 |
 | doaj-humanities | 2957 |
-| expanded-university-humanities-departments | 250 |
+| expanded-university-humanities-departments | 257 |
 | harvard-humanities-departments | 5 |
 | humanities-centers-public-pages | 12 |
 | humanities-literature-radar | 53 |
@@ -39,7 +39,7 @@ Documents: 6508
 | museum-language-drift | 24 |
 | nber-culture-history | 50 |
 | openalex-humanities | 273 |
-| princeton-humanities-departments | 13 |
+| princeton-humanities-departments | 16 |
 | project-gutenberg | 200 |
 | public-books | 10 |
 | smithsonian-open-access | 225 |

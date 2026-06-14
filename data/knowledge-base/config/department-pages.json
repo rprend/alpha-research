@@ -68,6 +68,13 @@
     {
       "source_id": "princeton-humanities-departments",
       "school": "Princeton University",
+      "department": "English",
+      "page_type": "department-events",
+      "url": "https://english.princeton.edu/events"
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "school": "Princeton University",
       "department": "History",
       "page_type": "department-home",
       "url": "https://history.princeton.edu/"
@@ -82,9 +89,23 @@
     {
       "source_id": "princeton-humanities-departments",
       "school": "Princeton University",
+      "department": "Philosophy",
+      "page_type": "department-events",
+      "url": "https://philosophy.princeton.edu/events"
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "school": "Princeton University",
       "department": "Art and Archaeology",
       "page_type": "department-home",
       "url": "https://artandarchaeology.princeton.edu/"
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "school": "Princeton University",
+      "department": "Art and Archaeology",
+      "page_type": "department-events",
+      "url": "https://artandarchaeology.princeton.edu/events"
     },
     {
       "source_id": "stanford-humanities-departments",
@@ -180,9 +201,51 @@
     {
       "source_id": "expanded-university-humanities-departments",
       "school": "University of California, Berkeley",
+      "department": "History",
+      "page_type": "department-about",
+      "url": "https://history.berkeley.edu/about"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
+      "department": "History",
+      "page_type": "department-faculty",
+      "url": "https://history.berkeley.edu/people"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
+      "department": "History",
+      "page_type": "department-news",
+      "url": "https://history.berkeley.edu/news"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
       "department": "Rhetoric",
       "page_type": "department-home",
       "url": "https://rhetoric.berkeley.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
+      "department": "Rhetoric",
+      "page_type": "department-about",
+      "url": "https://rhetoric.berkeley.edu/about"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
+      "department": "Rhetoric",
+      "page_type": "department-faculty",
+      "url": "https://rhetoric.berkeley.edu/people"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of California, Berkeley",
+      "department": "Rhetoric",
+      "page_type": "department-events",
+      "url": "https://rhetoric.berkeley.edu/events"
     },
     {
       "source_id": "expanded-university-humanities-departments",
@@ -218,6 +281,34 @@
       "department": "English",
       "page_type": "department-home",
       "url": "https://www.english.upenn.edu/"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of Pennsylvania",
+      "department": "English",
+      "page_type": "department-about",
+      "url": "https://www.english.upenn.edu/about"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of Pennsylvania",
+      "department": "English",
+      "page_type": "department-faculty",
+      "url": "https://www.english.upenn.edu/people"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of Pennsylvania",
+      "department": "English",
+      "page_type": "department-events",
+      "url": "https://www.english.upenn.edu/events"
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "school": "University of Pennsylvania",
+      "department": "English",
+      "page_type": "department-news",
+      "url": "https://www.english.upenn.edu/news"
     },
     {
       "source_id": "expanded-university-humanities-departments",

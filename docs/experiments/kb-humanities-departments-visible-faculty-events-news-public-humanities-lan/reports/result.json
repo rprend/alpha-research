@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-06-14T20:22:51.113Z",
+  "generated_at": "2026-06-14T20:43:51.209Z",
   "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
   "source_count": 8,
-  "page_rows": 515,
-  "text_rows": 206,
-  "sitemap_only_rows": 279,
+  "page_rows": 525,
+  "text_rows": 226,
+  "sitemap_only_rows": 269,
   "rights_statuses": {
-    "local-analysis-only": 236,
-    "metadata-only": 279
+    "local-analysis-only": 256,
+    "metadata-only": 269
   },
   "findings": {
     "coverage": [
-      "Duke University department-news-sitemap-url: 35 rows (expanded-university-humanities-departments)",
       "Stanford University department-programs-sitemap-url: 32 rows (stanford-humanities-departments)",
       "Stanford University department-about: 27 rows (stanford-humanities-departments)",
       "Yale University department-events-sitemap-url: 27 rows (yale-humanities-departments)",
+      "Duke University department-news-sitemap-url: 26 rows (expanded-university-humanities-departments)",
       "University of California, Los Angeles department-news-sitemap-url: 20 rows (expanded-university-humanities-departments)"
     ],
     "term_families": [
-      "expanded-university-humanities-departments faculty_visibility: 926 mentions across 75/92 text pages",
-      "expanded-university-humanities-departments event_visibility: 330 mentions across 60/92 text pages",
-      "expanded-university-humanities-departments news_visibility: 206 mentions across 52/92 text pages",
+      "expanded-university-humanities-departments faculty_visibility: 1218 mentions across 88/108 text pages",
+      "expanded-university-humanities-departments event_visibility: 397 mentions across 71/108 text pages",
+      "expanded-university-humanities-departments news_visibility: 280 mentions across 63/108 text pages",
+      "expanded-university-humanities-departments inclusion_ethics: 195 mentions across 41/108 text pages",
       "stanford-humanities-departments faculty_visibility: 172 mentions across 35/51 text pages",
-      "expanded-university-humanities-departments inclusion_ethics: 167 mentions across 38/92 text pages",
       "uchicago-humanities-departments faculty_visibility: 164 mentions across 22/27 text pages",
-      "yale-humanities-departments faculty_visibility: 136 mentions across 27/29 text pages",
+      "yale-humanities-departments faculty_visibility: 141 mentions across 28/30 text pages",
       "stanford-humanities-departments event_visibility: 116 mentions across 24/51 text pages"
     ],
     "page_type_signals": [
-      "department-faculty faculty_visibility: 445 mentions",
-      "department-about faculty_visibility: 321 mentions",
+      "department-faculty faculty_visibility: 473 mentions",
+      "department-news faculty_visibility: 407 mentions",
+      "department-about faculty_visibility: 352 mentions",
+      "department-events event_visibility: 229 mentions",
       "department-home faculty_visibility: 215 mentions",
-      "department-events faculty_visibility: 204 mentions",
-      "department-events event_visibility: 198 mentions",
-      "department-news faculty_visibility: 169 mentions",
-      "department-programs event_visibility: 149 mentions",
-      "department-programs inclusion_ethics: 138 mentions"
+      "department-events faculty_visibility: 205 mentions",
+      "department-news news_visibility: 165 mentions",
+      "department-programs event_visibility: 149 mentions"
     ],
-    "text_vs_metadata": "206 rows include local-analysis text; 279 rows are metadata-only sitemap URLs."
+    "text_vs_metadata": "226 rows include local-analysis text; 269 rows are metadata-only sitemap URLs."
   },
   "caveats": [
     "Counts describe the local KB corpus, not the universe of humanities departments.",

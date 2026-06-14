@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T20:34:31.058Z",
-  "resolved_failure_count": 7,
+  "generated_at": "2026-06-14T20:42:25.603Z",
+  "resolved_failure_count": 9,
   "resolved_failures": [
     {
       "source_id": "aha-annual-meeting-programs",
@@ -14,17 +14,6 @@
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
-      "source_id": "columbia-humanities-departments",
-      "name": "Columbia Humanities Department Public Pages",
-      "source_class": "university-department-web",
-      "failure_count": 9,
-      "latest_failure_at": "2026-06-14T20:22:06.009Z",
-      "latest_success_at": "2026-06-14T20:34:06.522Z",
-      "successful_route": "https://history.columbia.edu/",
-      "record_count": 1,
-      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
-    },
-    {
       "source_id": "doaj-humanities",
       "name": "DOAJ Humanities Open Access Metadata",
       "source_class": "scholarly-metadata",
@@ -33,6 +22,17 @@
       "latest_success_at": "2026-06-14T20:28:04.857Z",
       "successful_route": "https://doaj.org/api/search/articles/digital%20humanities?page=1&pageSize=20",
       "record_count": 20,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "name": "Expanded University Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "failure_count": 18,
+      "latest_failure_at": "2026-06-14T20:41:53.382Z",
+      "latest_success_at": "2026-06-14T20:42:04.005Z",
+      "successful_route": "https://history.berkeley.edu/news | https://rhetoric.berkeley.edu/people | https://rhetoric.berkeley.edu/people/faculty/lecturers | https://www.english.upenn.edu/about | https://www.english.upenn.edu/about/academic-freedom-statement | https://www.english.upenn.edu/events/2026/06/19/juneteenth-no-classes | https://www.english.upenn.edu/news/2026/03/05/dr-deborah-burnham-leading-writing-life-program-abramson-cancer-center | http://english.duke.edu/2023-e-newsletter-chair | http://english.duke.edu/2023-e-newsletter-graduate | http://english.duke.edu/2023-e-newsletter-other | http://english.duke.edu/2023-e-newsletter-undergraduate | http://english.duke.edu/2024-e-newsletter-chair | http://english.duke.edu/2024-e-newsletter-faculty | http://english.duke.edu/2024-e-newsletter-graduate | http://english.duke.edu/2024-e-newsletter-other | http://english.duke.edu/2024-e-newsletter-undergraduate",
+      "record_count": 16,
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
@@ -58,6 +58,17 @@
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     },
     {
+      "source_id": "princeton-humanities-departments",
+      "name": "Princeton Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "failure_count": 24,
+      "latest_failure_at": "2026-06-14T20:41:36.817Z",
+      "latest_success_at": "2026-06-14T20:42:04.005Z",
+      "successful_route": "https://english.princeton.edu/events | https://philosophy.princeton.edu/events | https://artandarchaeology.princeton.edu/events",
+      "record_count": 3,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
       "source_id": "wayback-machine-cdx",
       "name": "Internet Archive Wayback CDX",
       "source_class": "web-archives",
@@ -78,9 +89,20 @@
       "successful_route": "https://query.wikidata.org/sparql",
       "record_count": 25,
       "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
+    },
+    {
+      "source_id": "yale-humanities-departments",
+      "name": "Yale Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "failure_count": 2,
+      "latest_failure_at": "2026-06-14T19:49:19.491Z",
+      "latest_success_at": "2026-06-14T20:42:04.005Z",
+      "successful_route": "http://complit.yale.edu/about/department-history",
+      "record_count": 1,
+      "resolution_note": "A later successful ingest exists for this source, so historical failed routes are retained in failed-routes.jsonl but no longer require an active replacement plan."
     }
   ],
-  "replacement_plan_count": 9,
+  "replacement_plan_count": 7,
   "replacement_plans": [
     {
       "source_id": "harvard-humanities-departments",
@@ -88,8 +110,8 @@
       "source_class": "university-department-web",
       "ingest_status": "seeded-from-experiment",
       "redistribution_status": "local-analysis-only",
-      "failure_count": 18,
-      "latest_failure_at": "2026-06-14T20:21:59.769Z",
+      "failure_count": 22,
+      "latest_failure_at": "2026-06-14T20:41:35.267Z",
       "latest_error": "HTTP 403 Forbidden",
       "failed_routes": [
         "https://english.fas.harvard.edu/",
@@ -117,31 +139,25 @@
       "do_not_do": "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls."
     },
     {
-      "source_id": "expanded-university-humanities-departments",
-      "name": "Expanded University Humanities Department Public Pages",
+      "source_id": "columbia-humanities-departments",
+      "name": "Columbia Humanities Department Public Pages",
       "source_class": "university-department-web",
       "ingest_status": "active",
       "redistribution_status": "local-analysis-only",
-      "failure_count": 15,
-      "latest_failure_at": "2026-06-14T20:22:16.649Z",
+      "failure_count": 11,
+      "latest_failure_at": "2026-06-14T20:41:47.780Z",
       "latest_error": "HTTP 403 Forbidden",
       "failed_routes": [
-        "https://lsa.umich.edu/english",
-        "https://lsa.umich.edu/history",
-        "https://www.history.upenn.edu/",
-        "https://history.berkeley.edu/sitemap.xml",
-        "https://rhetoric.berkeley.edu/sitemap.xml",
-        "https://lsa.umich.edu/sitemap.xml",
-        "https://www.english.upenn.edu/sitemap.xml",
-        "https://www.history.upenn.edu/sitemap.xml"
+        "https://english.columbia.edu/",
+        "https://philosophy.columbia.edu/",
+        "https://english.columbia.edu/sitemap.xml",
+        "https://history.columbia.edu/sitemap.xml",
+        "https://philosophy.columbia.edu/sitemap.xml"
       ],
       "affected_targets": [
-        "University of California, Berkeley History department-sitemap",
-        "University of California, Berkeley Rhetoric department-sitemap",
-        "University of Michigan English Language and Literature department-sitemap",
-        "University of Michigan History department-sitemap",
-        "University of Pennsylvania English department-sitemap",
-        "University of Pennsylvania History department-sitemap"
+        "Columbia University English and Comparative Literature department-sitemap",
+        "Columbia University History department-sitemap",
+        "Columbia University Philosophy department-sitemap"
       ],
       "replacement_status": "replacement-needed",
       "replacement_routes": [
@@ -149,32 +165,7 @@
         "Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.",
         "Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed."
       ],
-      "next_action": "Create source-specific alternate target entries for University of California, Berkeley History department-sitemap, University of California, Berkeley Rhetoric department-sitemap, University of Michigan English Language and Literature department-sitemap, University of Michigan History department-sitemap, University of Pennsylvania English department-sitemap, University of Pennsylvania History department-sitemap using public about/news/events/faculty routes that return 200.",
-      "do_not_do": "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls."
-    },
-    {
-      "source_id": "princeton-humanities-departments",
-      "name": "Princeton Humanities Department Public Pages",
-      "source_class": "university-department-web",
-      "ingest_status": "planned",
-      "redistribution_status": "local-analysis-only",
-      "failure_count": 14,
-      "latest_failure_at": "2026-06-14T20:22:00.960Z",
-      "latest_error": "HTTP 403 Forbidden",
-      "failed_routes": [
-        "https://english.princeton.edu/",
-        "https://history.princeton.edu/",
-        "https://philosophy.princeton.edu/",
-        "https://artandarchaeology.princeton.edu/"
-      ],
-      "affected_targets": [],
-      "replacement_status": "replacement-needed",
-      "replacement_routes": [
-        "Use already responding same-domain department pages discovered from successful homepages.",
-        "Try official school search, sitemap.xml, RSS/news feeds, or department directory pages before retrying blocked homepages.",
-        "Use Wayback CDX metadata for historical coverage; do not store archived page text unless rights are reviewed."
-      ],
-      "next_action": "Create source-specific alternate target entries for princeton-humanities-departments using public about/news/events/faculty routes that return 200.",
+      "next_action": "Create source-specific alternate target entries for Columbia University English and Comparative Literature department-sitemap, Columbia University History department-sitemap, Columbia University Philosophy department-sitemap using public about/news/events/faculty routes that return 200.",
       "do_not_do": "Do not bypass 403 responses, spoof browsers, solve challenges, or scrape behind access controls."
     },
     {
@@ -225,32 +216,6 @@
         "Use official school directories, RSS/news feeds, or Wayback CDX metadata when current sitemap routes are absent."
       ],
       "next_action": "Create source-specific alternate sitemap/directory targets for University of Chicago Humanities Division department-sitemap, University of Chicago English department-sitemap, University of Chicago Philosophy department-sitemap; keep missing sitemap routes logged as failed metadata routes.",
-      "do_not_do": "Do not repeatedly retry absent sitemap.xml routes or infer page text from sitemap URL metadata."
-    },
-    {
-      "source_id": "yale-humanities-departments",
-      "name": "Yale Humanities Department Public Pages",
-      "source_class": "university-department-web",
-      "ingest_status": "active",
-      "redistribution_status": "local-analysis-only",
-      "failure_count": 2,
-      "latest_failure_at": "2026-06-14T19:49:19.491Z",
-      "latest_error": "HTTP 404 Not Found",
-      "failed_routes": [
-        "https://english.yale.edu/sitemap.xml",
-        "https://history.yale.edu/sitemap.xml"
-      ],
-      "affected_targets": [
-        "Yale University English department-sitemap",
-        "Yale University History department-sitemap"
-      ],
-      "replacement_status": "replacement-needed",
-      "replacement_routes": [
-        "Try source-specific sitemap locations such as /sitemap_index.xml, /sitemap.xml.gz, or CMS-provided XML indexes where public.",
-        "Use already responding same-domain department pages and their discovered internal links.",
-        "Use official school directories, RSS/news feeds, or Wayback CDX metadata when current sitemap routes are absent."
-      ],
-      "next_action": "Create source-specific alternate sitemap/directory targets for Yale University English department-sitemap, Yale University History department-sitemap; keep missing sitemap routes logged as failed metadata routes.",
       "do_not_do": "Do not repeatedly retry absent sitemap.xml routes or infer page text from sitemap URL metadata."
     },
     {

@@ -1,0 +1,14 @@
+{
+  "run_id": "department-pages-2026-06-14T20-41-34-861Z",
+  "source_id": "princeton-humanities-departments",
+  "url": "https://english.princeton.edu/events",
+  "school": "Princeton University",
+  "department": "English",
+  "page_type": "department-events",
+  "discovery_source_url": "",
+  "fetched_at": "2026-06-14T20:41:35.947Z",
+  "status": "success",
+  "raw_path": "data/knowledge-base/raw/universities/princeton-humanities-departments/2026-06-14/department-pages-2026-06-14T20-41-34-861Z/english-department-events-https-english-princeton-edu-events/response.html",
+  "text_path": "data/knowledge-base/text/department-pages/princeton-humanities-departments/princeton-university-english-department-events-https-english-princeton-edu-events.txt",
+  "text_chars": 705
+}
