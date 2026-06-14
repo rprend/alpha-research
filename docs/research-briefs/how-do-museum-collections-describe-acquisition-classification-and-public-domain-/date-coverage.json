@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-06-14T19:30:52.626Z",
+  "question": "How do museum collections describe acquisition, classification, and public-domain image availability?",
+  "scoped_source_classes": [
+    "cultural-collections"
+  ],
+  "rating": "strong-enough-for-scoping",
+  "summary": "592 matched local records carry content years spanning 1404-2026; 3 matched sources look longitudinal-ready for scoping.",
+  "time_handling": "content-date coverage spans 1404-2026; use date-coverage.json to separate content years from fetch years before longitudinal claims",
+  "evidence_years": null,
+  "sources": [
+    {
+      "source_id": "met-collection-api",
+      "source_class": "cultural-collections",
+      "local_document_count": 255,
+      "rows_checked": 255,
+      "rows_with_content_year": 157,
+      "rows_with_fetch_year": 255,
+      "min_content_year": 1425,
+      "max_content_year": 2024,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "accession_year": 157,
+        "creation_date": 95,
+        "date": 95,
+        "fetched_at": 255
+      },
+      "longitudinal_ready": true,
+      "date_note": "261 rows have content years; do not mix with 255 fetch-year rows."
+    },
+    {
+      "source_id": "cleveland-museum-open-access",
+      "source_class": "cultural-collections",
+      "local_document_count": 200,
+      "rows_checked": 200,
+      "rows_with_content_year": 141,
+      "rows_with_fetch_year": 200,
+      "min_content_year": 1404,
+      "max_content_year": 2020,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "creation_date": 141,
+        "date": 141,
+        "fetched_at": 200
+      },
+      "longitudinal_ready": true,
+      "date_note": "152 rows have content years; do not mix with 200 fetch-year rows."
+    },
+    {
+      "source_id": "smithsonian-open-access",
+      "source_class": "cultural-collections",
+      "local_document_count": 225,
+      "rows_checked": 225,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 225,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 225
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "library-of-congress",
+      "source_class": "cultural-collections",
+      "local_document_count": 308,
+      "rows_checked": 308,
+      "rows_with_content_year": 294,
+      "rows_with_fetch_year": 308,
+      "min_content_year": 1681,
+      "max_content_year": 2026,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "date": 294,
+        "fetched_at": 308
+      },
+      "longitudinal_ready": true,
+      "date_note": "294 rows have content years; do not mix with 308 fetch-year rows."
+    }
+  ]
+}

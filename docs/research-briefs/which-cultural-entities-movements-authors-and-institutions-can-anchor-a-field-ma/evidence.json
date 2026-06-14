@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T19:26:45.210Z",
+  "generated_at": "2026-06-14T19:30:53.113Z",
   "question": "Which cultural entities, movements, authors, and institutions can anchor a field map of modern humanities topics?",
   "sqlite_path": "data/knowledge-base/processed/knowledge-base.sqlite",
   "fts_query": "\"cultural\" OR \"entities\" OR \"movements\" OR \"authors\" OR \"institutions\" OR \"can\" OR \"anchor\" OR \"field\"",

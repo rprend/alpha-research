@@ -20,6 +20,10 @@ work/article metadata record
 
 moderate local evidence for scoping; needs source-specific normalization before publication claims
 
+## Date Coverage
+
+strong-enough-for-scoping: 3479 matched local records carry content years spanning 1899-2026; 6 matched sources look longitudinal-ready for scoping.
+
 ## Minimum Next Steps
 
 - Review evidence.json for quote restrictions and source URLs.

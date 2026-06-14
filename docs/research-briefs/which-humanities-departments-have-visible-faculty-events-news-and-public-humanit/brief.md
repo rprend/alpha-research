@@ -1,6 +1,6 @@
 # Local KB Brief: Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?
 
-Generated at: 2026-06-14T19:26:44.275Z
+Generated at: 2026-06-14T19:30:52.145Z
 Inferred source priority: university-department-web
 
 ## Local Evidence Sources
@@ -35,7 +35,8 @@ Inferred source priority: university-department-web
 
 - Unit of analysis: source page or institutional document
 - Suggested method: compare term frequencies and framing across institution, department, source type, and capture/fetch year
-- Time handling: date coverage is weak in direct hits; first normalize dates from matched source records
+- Time handling: date coverage is weak; first normalize source-specific date fields and avoid longitudinal claims based only on fetch dates
+- Date coverage: Matched local records lack enough content-date fields for longitudinal claims; use fetch dates only for crawl coverage, not historical interpretation.
 - Claim strength: moderate local evidence for scoping; needs source-specific normalization before publication claims
 
 ## Candidate Outputs

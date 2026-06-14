@@ -1,0 +1,149 @@
+{
+  "generated_at": "2026-06-14T19:30:52.145Z",
+  "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
+  "scoped_source_classes": [
+    "university-department-web"
+  ],
+  "rating": "fetch-date-only-or-missing",
+  "summary": "Matched local records lack enough content-date fields for longitudinal claims; use fetch dates only for crawl coverage, not historical interpretation.",
+  "time_handling": "date coverage is weak; first normalize source-specific date fields and avoid longitudinal claims based only on fetch dates",
+  "evidence_years": null,
+  "sources": [
+    {
+      "source_id": "expanded-university-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 38,
+      "rows_checked": 38,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 38,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 38
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "stanford-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 17,
+      "rows_checked": 17,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 17,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 17
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "yale-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 15,
+      "rows_checked": 15,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 15,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 15
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "uchicago-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 12,
+      "rows_checked": 12,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 12,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 12
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "columbia-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 4,
+      "rows_checked": 4,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 4,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 4
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "humanities-centers-public-pages",
+      "source_class": "university-department-web",
+      "local_document_count": 12,
+      "rows_checked": 12,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 12,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 12
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 5,
+      "rows_checked": 5,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 5,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 5
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "source_class": "university-department-web",
+      "local_document_count": 4,
+      "rows_checked": 4,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 4,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 4
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    }
+  ]
+}

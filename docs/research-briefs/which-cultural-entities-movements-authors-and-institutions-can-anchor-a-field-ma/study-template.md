@@ -20,6 +20,10 @@ linked cultural entity, person, work, movement, institution, or concept
 
 moderate local evidence for scoping; needs source-specific normalization before publication claims
 
+## Date Coverage
+
+strong-enough-for-scoping: 3934 matched local records carry content years spanning 1400-2026; 7 matched sources look longitudinal-ready for scoping.
+
 ## Minimum Next Steps
 
 - Review evidence.json for quote restrictions and source URLs.

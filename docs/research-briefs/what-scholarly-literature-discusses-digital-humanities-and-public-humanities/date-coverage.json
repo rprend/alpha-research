@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-06-14T19:30:52.383Z",
+  "question": "What scholarly literature discusses digital humanities and public humanities?",
+  "scoped_source_classes": [
+    "scholarly-metadata",
+    "journals-and-reviews"
+  ],
+  "rating": "strong-enough-for-scoping",
+  "summary": "3479 matched local records carry content years spanning 1899-2026; 6 matched sources look longitudinal-ready for scoping.",
+  "time_handling": "content-date coverage spans 1899-2026; use date-coverage.json to separate content years from fetch years before longitudinal claims",
+  "evidence_years": {
+    "min": 2004,
+    "max": 2022,
+    "count": 13
+  },
+  "sources": [
+    {
+      "source_id": "openalex-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 273,
+      "rows_checked": 273,
+      "rows_with_content_year": 273,
+      "rows_with_fetch_year": 273,
+      "min_content_year": 1951,
+      "max_content_year": 2026,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 273,
+        "publication_year": 273
+      },
+      "longitudinal_ready": true,
+      "date_note": "273 rows have content years; do not mix with 273 fetch-year rows."
+    },
+    {
+      "source_id": "crossref-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 208,
+      "rows_checked": 208,
+      "rows_with_content_year": 179,
+      "rows_with_fetch_year": 208,
+      "min_content_year": 1966,
+      "max_content_year": 2026,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 208,
+        "publication_year": 179
+      },
+      "longitudinal_ready": true,
+      "date_note": "179 rows have content years; do not mix with 208 fetch-year rows."
+    },
+    {
+      "source_id": "doaj-humanities",
+      "source_class": "scholarly-metadata",
+      "local_document_count": 2948,
+      "rows_checked": 2948,
+      "rows_with_content_year": 2942,
+      "rows_with_fetch_year": 2948,
+      "min_content_year": 1934,
+      "max_content_year": 2026,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 2948,
+        "publication_year": 2942
+      },
+      "longitudinal_ready": true,
+      "date_note": "2942 rows have content years; do not mix with 2948 fetch-year rows."
+    },
+    {
+      "source_id": "journal-digital-humanities-quarterly",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 10,
+      "rows_checked": 10,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 10,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 10
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "public-books",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 10,
+      "rows_checked": 10,
+      "rows_with_content_year": 10,
+      "rows_with_fetch_year": 10,
+      "min_content_year": 2026,
+      "max_content_year": 2026,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 10,
+        "publication_year": 10
+      },
+      "longitudinal_ready": false,
+      "date_note": "10 rows have content years; do not mix with 10 fetch-year rows."
+    },
+    {
+      "source_id": "journal-critical-inquiry",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "rows_checked": 25,
+      "rows_with_content_year": 25,
+      "rows_with_fetch_year": 25,
+      "min_content_year": 1975,
+      "max_content_year": 2023,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 25,
+        "publication_year": 25
+      },
+      "longitudinal_ready": true,
+      "date_note": "25 rows have content years; do not mix with 25 fetch-year rows."
+    },
+    {
+      "source_id": "journal-new-literary-history",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "rows_checked": 25,
+      "rows_with_content_year": 25,
+      "rows_with_fetch_year": 25,
+      "min_content_year": 1995,
+      "max_content_year": 2022,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 25,
+        "publication_year": 25
+      },
+      "longitudinal_ready": true,
+      "date_note": "25 rows have content years; do not mix with 25 fetch-year rows."
+    },
+    {
+      "source_id": "journal-pmla",
+      "source_class": "journals-and-reviews",
+      "local_document_count": 25,
+      "rows_checked": 25,
+      "rows_with_content_year": 25,
+      "rows_with_fetch_year": 25,
+      "min_content_year": 1899,
+      "max_content_year": 2022,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 25,
+        "publication_year": 25
+      },
+      "longitudinal_ready": true,
+      "date_note": "25 rows have content years; do not mix with 25 fetch-year rows."
+    }
+  ]
+}

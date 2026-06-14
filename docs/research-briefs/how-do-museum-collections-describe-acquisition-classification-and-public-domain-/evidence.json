@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T19:26:44.737Z",
+  "generated_at": "2026-06-14T19:30:52.626Z",
   "question": "How do museum collections describe acquisition, classification, and public-domain image availability?",
   "sqlite_path": "data/knowledge-base/processed/knowledge-base.sqlite",
   "fts_query": "\"museum\" OR \"collections\" OR \"describe\" OR \"acquisition\" OR \"classification\" OR \"public\" OR \"domain\" OR \"image\"",

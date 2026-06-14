@@ -2,7 +2,9 @@
   "question": "What scholarly literature discusses digital humanities and public humanities?",
   "unit_of_analysis": "work/article metadata record",
   "suggested_method": "start with source-stratified local evidence review, then convert matched records into a longitudinal publication/venue table",
-  "time_handling": "local evidence includes year-like values from 2004 to 2022; verify dates before longitudinal claims",
+  "time_handling": "content-date coverage spans 1899-2026; use date-coverage.json to separate content years from fetch years before longitudinal claims",
+  "date_coverage_summary": "3479 matched local records carry content years spanning 1899-2026; 6 matched sources look longitudinal-ready for scoping.",
+  "date_coverage_rating": "strong-enough-for-scoping",
   "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
   "candidate_outputs": [
     "source coverage table by source_id and rights status",

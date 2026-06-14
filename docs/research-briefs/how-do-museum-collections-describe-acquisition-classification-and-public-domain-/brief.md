@@ -1,6 +1,6 @@
 # Local KB Brief: How do museum collections describe acquisition, classification, and public-domain image availability?
 
-Generated at: 2026-06-14T19:26:44.737Z
+Generated at: 2026-06-14T19:30:52.626Z
 Inferred source priority: cultural-collections
 
 ## Local Evidence Sources
@@ -35,7 +35,8 @@ Inferred source priority: cultural-collections
 
 - Unit of analysis: collection object or public metadata record
 - Suggested method: compare object metadata fields across institution, department, classification, date, rights, and image availability
-- Time handling: date coverage is weak in direct hits; first normalize dates from matched source records
+- Time handling: content-date coverage spans 1404-2026; use date-coverage.json to separate content years from fetch years before longitudinal claims
+- Date coverage: 592 matched local records carry content years spanning 1404-2026; 3 matched sources look longitudinal-ready for scoping.
 - Claim strength: moderate local evidence for scoping; needs source-specific normalization before publication claims
 
 ## Candidate Outputs
@@ -44,9 +45,9 @@ Inferred source priority: cultural-collections
 - top matching records with URLs and quote restrictions
 - time-series table after date normalization
 - missing-data memo for blocked, planned, and low-evidence sources
-- term-frequency table by school, department, page_type, and fetch year
-- institution-by-concept heatmap for department language
-- page-type comparison table for home/about/news/events/faculty pages
+- object count table by institution, department, classification, and date
+- rights/image availability table by collection source
+- acquisition/accession-year trend table where source metadata supports it
 
 ## Publication Concept
 

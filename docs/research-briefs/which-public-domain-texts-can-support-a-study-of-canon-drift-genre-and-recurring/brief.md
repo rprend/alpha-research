@@ -1,6 +1,6 @@
 # Local KB Brief: Which public-domain texts can support a study of canon drift, genre, and recurring language?
 
-Generated at: 2026-06-14T19:26:44.970Z
+Generated at: 2026-06-14T19:30:52.865Z
 Inferred source priority: public-domain-texts, open-text-metadata
 
 ## Local Evidence Sources
@@ -35,7 +35,8 @@ Inferred source priority: public-domain-texts, open-text-metadata
 
 - Unit of analysis: public-domain text or bibliographic metadata record
 - Suggested method: build a rights-filtered text/metadata evidence table, then separate quote-ready full text from discovery-only records
-- Time handling: date coverage is weak in direct hits; first normalize dates from matched source records
+- Time handling: content-date coverage spans 1710-2020; use date-coverage.json to separate content years from fetch years before longitudinal claims
+- Date coverage: 147 matched local records carry content years spanning 1710-2020; 1 matched sources look longitudinal-ready for scoping.
 - Claim strength: moderate local evidence for scoping; needs source-specific normalization before publication claims
 
 ## Candidate Outputs
@@ -44,9 +45,9 @@ Inferred source priority: public-domain-texts, open-text-metadata
 - top matching records with URLs and quote restrictions
 - time-series table after date normalization
 - missing-data memo for blocked, planned, and low-evidence sources
-- term-frequency table by school, department, page_type, and fetch year
-- institution-by-concept heatmap for department language
-- page-type comparison table for home/about/news/events/faculty pages
+- public-domain text hit table with source URLs and quote status
+- genre/bookshelf coverage table
+- term/context concordance table over reusable full text
 
 ## Publication Concept
 

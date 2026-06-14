@@ -2,16 +2,18 @@
   "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
   "unit_of_analysis": "public-domain text or bibliographic metadata record",
   "suggested_method": "build a rights-filtered text/metadata evidence table, then separate quote-ready full text from discovery-only records",
-  "time_handling": "date coverage is weak in direct hits; first normalize dates from matched source records",
+  "time_handling": "content-date coverage spans 1710-2020; use date-coverage.json to separate content years from fetch years before longitudinal claims",
+  "date_coverage_summary": "147 matched local records carry content years spanning 1710-2020; 1 matched sources look longitudinal-ready for scoping.",
+  "date_coverage_rating": "source-specific-only",
   "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
   "candidate_outputs": [
     "source coverage table by source_id and rights status",
     "top matching records with URLs and quote restrictions",
     "time-series table after date normalization",
     "missing-data memo for blocked, planned, and low-evidence sources",
-    "term-frequency table by school, department, page_type, and fetch year",
-    "institution-by-concept heatmap for department language",
-    "page-type comparison table for home/about/news/events/faculty pages"
+    "public-domain text hit table with source URLs and quote status",
+    "genre/bookshelf coverage table",
+    "term/context concordance table over reusable full text"
   ],
   "publication_concept": {
     "essay_title_options": [

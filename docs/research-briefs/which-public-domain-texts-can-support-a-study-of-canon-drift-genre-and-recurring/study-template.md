@@ -20,6 +20,10 @@ public-domain text or bibliographic metadata record
 
 moderate local evidence for scoping; needs source-specific normalization before publication claims
 
+## Date Coverage
+
+source-specific-only: 147 matched local records carry content years spanning 1710-2020; 1 matched sources look longitudinal-ready for scoping.
+
 ## Minimum Next Steps
 
 - Review evidence.json for quote restrictions and source URLs.

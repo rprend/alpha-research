@@ -1,6 +1,6 @@
 # Local KB Brief: Which cultural entities, movements, authors, and institutions can anchor a field map of modern humanities topics?
 
-Generated at: 2026-06-14T19:26:45.210Z
+Generated at: 2026-06-14T19:30:53.113Z
 Inferred source priority: linked-open-data, scholarly-metadata, journals-and-reviews
 
 ## Local Evidence Sources
@@ -35,7 +35,8 @@ Inferred source priority: linked-open-data, scholarly-metadata, journals-and-rev
 
 - Unit of analysis: linked cultural entity, person, work, movement, institution, or concept
 - Suggested method: build an entity table first, then join people, works, movements, institutions, and concepts to scholarly or collection records
-- Time handling: date coverage is weak in direct hits; first normalize dates from matched source records
+- Time handling: content-date coverage spans 1400-2026; use date-coverage.json to separate content years from fetch years before longitudinal claims
+- Date coverage: 3934 matched local records carry content years spanning 1400-2026; 7 matched sources look longitudinal-ready for scoping.
 - Claim strength: moderate local evidence for scoping; needs source-specific normalization before publication claims
 
 ## Candidate Outputs

@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-06-14T19:30:52.865Z",
+  "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
+  "scoped_source_classes": [
+    "public-domain-texts",
+    "open-text-metadata"
+  ],
+  "rating": "source-specific-only",
+  "summary": "147 matched local records carry content years spanning 1710-2020; 1 matched sources look longitudinal-ready for scoping.",
+  "time_handling": "content-date coverage spans 1710-2020; use date-coverage.json to separate content years from fetch years before longitudinal claims",
+  "evidence_years": null,
+  "sources": [
+    {
+      "source_id": "project-gutenberg",
+      "source_class": "public-domain-texts",
+      "local_document_count": 200,
+      "rows_checked": 200,
+      "rows_with_content_year": 0,
+      "rows_with_fetch_year": 200,
+      "min_content_year": null,
+      "max_content_year": null,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 200
+      },
+      "longitudinal_ready": false,
+      "date_note": "Only fetch years were detected; useful for crawl freshness, not historical claims."
+    },
+    {
+      "source_id": "internet-archive-metadata",
+      "source_class": "open-text-metadata",
+      "local_document_count": 150,
+      "rows_checked": 150,
+      "rows_with_content_year": 147,
+      "rows_with_fetch_year": 150,
+      "min_content_year": 1710,
+      "max_content_year": 2020,
+      "min_fetch_year": 2026,
+      "max_fetch_year": 2026,
+      "date_fields": {
+        "fetched_at": 150,
+        "publication_year": 147
+      },
+      "longitudinal_ready": true,
+      "date_note": "147 rows have content years; do not mix with 150 fetch-year rows."
+    }
+  ]
+}

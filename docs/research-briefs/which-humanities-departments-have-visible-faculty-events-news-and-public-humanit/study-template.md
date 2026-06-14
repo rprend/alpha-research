@@ -20,6 +20,10 @@ source page or institutional document
 
 moderate local evidence for scoping; needs source-specific normalization before publication claims
 
+## Date Coverage
+
+fetch-date-only-or-missing: Matched local records lack enough content-date fields for longitudinal claims; use fetch dates only for crawl coverage, not historical interpretation.
+
 ## Minimum Next Steps
 
 - Review evidence.json for quote restrictions and source URLs.

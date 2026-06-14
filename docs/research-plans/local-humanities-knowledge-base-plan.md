@@ -546,7 +546,7 @@ Started on 2026-06-13:
 - Phase 4 now derives author, citation, venue, institution, collection, and topic tables from current normalized local records and raw snapshots; source-provided names and references still need normalization before strong identity or citation-network claims.
 - Phase 4 now has SQLite FTS retrieval over metadata and stored local text content: `pnpm kb:search:sqlite "<terms>"` queries `source_documents_fts` and `pages_fts` in `data/knowledge-base/processed/knowledge-base.sqlite` with ranked snippets.
 - Phase 4 now has deterministic offline vector-style retrieval: `pnpm kb:index:semantic` builds `data/knowledge-base/indexes/semantic-hash-index.json` and `pnpm kb:search:semantic "<terms>"` searches rights-filtered metadata and stored text.
-- Phase 5 has a reusable local-data workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, evidence file, query sketch, missing-data memo, `publication-concept.json`, and `study-template.md` under `docs/research-briefs/`. It infers source-class priorities from the question, records the routing decision in `source-map.json`, and boosts institutional, scholarly, cultural-collection, linked-open-data, or text-corpus evidence accordingly.
+- Phase 5 has a reusable local-data workbench: `pnpm kb:question "<question>"` writes a local-data brief, source map, evidence file, query sketch, missing-data memo, `date-coverage.json`, `publication-concept.json`, and `study-template.md` under `docs/research-briefs/`. It infers source-class priorities from the question, records the routing decision in `source-map.json`, boosts institutional, scholarly, cultural-collection, linked-open-data, or text-corpus evidence, and separates content-year coverage from fetch-year coverage before suggesting longitudinal claims.
 - Phase 6 has starter maintenance automation: `pnpm kb:refresh` validates, inventories, rebuilds analytical tables, refreshes coverage/rights/stale-source audits, rebuilds the index, and updates KB status.
 
 Current local footprint as of the latest local status:
@@ -596,5 +596,5 @@ Next build steps:
 1. Add source-specific department crawlers that discover about/news/events/faculty links from successful domains while retaining rights and route manifests.
 2. Add explicit replacement memos for blocked LARB and 403 department routes, using alternate public routes or Wayback metadata where available.
 3. Expand broad metadata acquisition for OpenAlex/Crossref, Project Gutenberg, and cultural-collection APIs; DOAJ and Wikidata now have dedicated routes but should be expanded beyond the current page limits when needed.
-4. Add stronger date coverage summaries to `kb:question` so institutional, scholarly, collections, linked-open-data, and text-corpus questions can be compared without manual SQL edits.
+4. Add explicit source replacement memos for blocked LARB and 403 department routes, using alternate public routes or Wayback metadata where available.
 5. Convert the five proof templates into first-pass experiments only after confirming source-class coverage, dates, and quote/rights limits.

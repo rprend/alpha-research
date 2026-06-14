@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T19:26:44.970Z",
+  "generated_at": "2026-06-14T19:30:52.865Z",
   "question": "Which public-domain texts can support a study of canon drift, genre, and recurring language?",
   "sqlite_path": "data/knowledge-base/processed/knowledge-base.sqlite",
   "fts_query": "\"public\" OR \"domain\" OR \"texts\" OR \"can\" OR \"support\" OR \"study\" OR \"canon\" OR \"drift\"",

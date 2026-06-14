@@ -60,7 +60,8 @@ const evidenceRows = evidence.results.map((result) => ({
   ...result,
   rights: rightsMap.get(result.local_id) ?? null,
 }));
-const studyDesign = buildStudyDesign(question, sourceMap, evidenceRows);
+const dateCoverage = buildDateCoverage(sourceMap, sourceDocuments, evidenceRows);
+const studyDesign = buildStudyDesign(question, sourceMap, evidenceRows, dateCoverage);
 const publicationConcept = buildPublicationConcept(question, sourceMap, evidenceRows, studyDesign);
 const studyTemplate = buildStudyTemplate(question, sourceMap, evidenceRows, studyDesign, publicationConcept);
 
@@ -74,6 +75,7 @@ await writeJson(path.join(outDir, "evidence.json"), {
   results: evidenceRows,
 });
 await writeJson(path.join(outDir, "study-design.json"), studyDesign);
+await writeJson(path.join(outDir, "date-coverage.json"), dateCoverage);
 await writeJson(path.join(outDir, "publication-concept.json"), publicationConcept);
 await writeText(path.join(outDir, "brief.md"), renderBrief(sourceMap, evidenceRows, studyDesign));
 await writeText(path.join(outDir, "queries.sql"), renderQueries(sourceMap, evidence.fts_query));
@@ -146,6 +148,7 @@ function renderBrief(sourceMap, evidenceRows, studyDesign) {
     `- Unit of analysis: ${studyDesign.unit_of_analysis}`,
     `- Suggested method: ${studyDesign.suggested_method}`,
     `- Time handling: ${studyDesign.time_handling}`,
+    `- Date coverage: ${studyDesign.date_coverage_summary}`,
     `- Claim strength: ${studyDesign.claim_strength}`,
     "",
     "## Candidate Outputs",
@@ -200,6 +203,17 @@ function renderQueries(sourceMap, ftsQuery) {
     "",
     preferredClasses ? `-- Preferred source classes: ${preferredClasses}` : "-- No preferred source class inferred.",
     "",
+    "-- Date coverage by matched source.",
+    "SELECT source_id,",
+    "       COUNT(*) AS docs,",
+    "       MIN(NULLIF(CAST(publication_year AS INTEGER), 0)) AS min_publication_year,",
+    "       MAX(NULLIF(CAST(publication_year AS INTEGER), 0)) AS max_publication_year,",
+    "       SUM(CASE WHEN publication_year IS NOT NULL AND publication_year != '' THEN 1 ELSE 0 END) AS docs_with_publication_year",
+    "FROM source_documents",
+    ids ? `WHERE source_id IN (${ids})` : "WHERE false",
+    "GROUP BY source_id",
+    "ORDER BY docs_with_publication_year DESC, docs DESC;",
+    "",
     "SELECT local_id, source_id, source_url, title, type, venue, department,",
     "       snippet(source_documents_fts, -1, '[', ']', '...', 18) AS snippet,",
     "       bm25(source_documents_fts) AS rank",
@@ -240,6 +254,126 @@ function renderMissingData(sourceMap, blockedAudit, evidenceRows) {
     "Promote the highest-scoring planned source into a source-specific ingest only after checking rights, robots, expected fields, and whether an existing experiment artifact already covers the question.",
     "",
   ].join("\n");
+}
+
+function buildDateCoverage(sourceMap, sourceDocuments, evidenceRows) {
+  const preferred = sourceMap.inferred_intent.preferred_source_classes ?? [];
+  const scopedSources = preferred.length
+    ? sourceMap.matched_sources.filter((source) => preferred.includes(source.source_class))
+    : sourceMap.matched_sources;
+  const matchedIds = new Set(scopedSources.map((source) => source.source_id));
+  const matchedRows = sourceDocuments.filter((row) => matchedIds.has(row.source_id));
+  const rowsBySource = new Map();
+  for (const row of matchedRows) {
+    if (!rowsBySource.has(row.source_id)) rowsBySource.set(row.source_id, []);
+    rowsBySource.get(row.source_id).push(row);
+  }
+  const sources = scopedSources.map((source) => {
+    const rows = rowsBySource.get(source.source_id) ?? [];
+    const extracted = rows.map(extractYears).filter((entry) => entry.years.length || entry.fetch_years.length);
+    const contentYears = extracted.flatMap((entry) => entry.years);
+    const fetchYears = extracted.flatMap((entry) => entry.fetch_years);
+    const fields = countFields(extracted.flatMap((entry) => entry.fields));
+    return {
+      source_id: source.source_id,
+      source_class: source.source_class,
+      local_document_count: source.local_document_count,
+      rows_checked: rows.length,
+      rows_with_content_year: extracted.filter((entry) => entry.years.length).length,
+      rows_with_fetch_year: extracted.filter((entry) => entry.fetch_years.length).length,
+      min_content_year: contentYears.length ? Math.min(...contentYears) : null,
+      max_content_year: contentYears.length ? Math.max(...contentYears) : null,
+      min_fetch_year: fetchYears.length ? Math.min(...fetchYears) : null,
+      max_fetch_year: fetchYears.length ? Math.max(...fetchYears) : null,
+      date_fields: fields,
+      longitudinal_ready: contentYears.length >= 20 && new Set(contentYears).size >= 5,
+      date_note: dateNote(contentYears, fetchYears),
+    };
+  });
+  const allContentYears = sources.flatMap((source) => rangeValues(source.min_content_year, source.max_content_year, source.rows_with_content_year));
+  const evidenceYears = evidenceRows.flatMap((row) => extractYears(row).years);
+  const longitudinalSources = sources.filter((source) => source.longitudinal_ready);
+  const rating = longitudinalSources.length >= 2 ? "strong-enough-for-scoping" : longitudinalSources.length === 1 ? "source-specific-only" : allContentYears.length ? "thin-date-coverage" : "fetch-date-only-or-missing";
+  const min = allContentYears.length ? Math.min(...allContentYears) : null;
+  const max = allContentYears.length ? Math.max(...allContentYears) : null;
+  return {
+    generated_at: sourceMap.generated_at,
+    question: sourceMap.question,
+    scoped_source_classes: preferred,
+    rating,
+    summary: min && max
+      ? `${allContentYears.length} matched local records carry content years spanning ${min}-${max}; ${longitudinalSources.length} matched sources look longitudinal-ready for scoping.`
+      : "Matched local records lack enough content-date fields for longitudinal claims; use fetch dates only for crawl coverage, not historical interpretation.",
+    time_handling: min && max
+      ? `content-date coverage spans ${min}-${max}; use date-coverage.json to separate content years from fetch years before longitudinal claims`
+      : "date coverage is weak; first normalize source-specific date fields and avoid longitudinal claims based only on fetch dates",
+    evidence_years: evidenceYears.length ? {
+      min: Math.min(...evidenceYears),
+      max: Math.max(...evidenceYears),
+      count: evidenceYears.length,
+    } : null,
+    sources,
+  };
+}
+
+function extractYears(row) {
+  const contentFields = ["publication_year", "date", "creation_date", "accession_year"];
+  const fetchFields = ["fetched_at"];
+  const years = [];
+  const fetchYears = [];
+  const fields = [];
+  for (const field of contentFields) {
+    for (const year of yearsFromValue(row[field])) {
+      if (isReasonableYear(year)) {
+        years.push(year);
+        fields.push(field);
+      }
+    }
+  }
+  for (const field of fetchFields) {
+    for (const year of yearsFromValue(row[field])) {
+      if (isReasonableYear(year)) {
+        fetchYears.push(year);
+        fields.push(field);
+      }
+    }
+  }
+  return {
+    years: [...new Set(years)],
+    fetch_years: [...new Set(fetchYears)],
+    fields: [...new Set(fields)],
+  };
+}
+
+function yearsFromValue(value) {
+  if (value == null || value === "") return [];
+  const matches = String(value).match(/\b(1[4-9]\d{2}|20\d{2})\b/g) ?? [];
+  return matches.map(Number);
+}
+
+function isReasonableYear(year) {
+  const currentYear = new Date().getUTCFullYear() + 1;
+  return Number.isInteger(year) && year >= 1400 && year <= currentYear;
+}
+
+function countFields(fields) {
+  const counts = {};
+  for (const field of fields) counts[field] = (counts[field] ?? 0) + 1;
+  return Object.fromEntries(Object.entries(counts).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+function dateNote(contentYears, fetchYears) {
+  if (contentYears.length) {
+    return `${contentYears.length} rows have content years; do not mix with ${fetchYears.length} fetch-year rows.`;
+  }
+  if (fetchYears.length) return "Only fetch years were detected; useful for crawl freshness, not historical claims.";
+  return "No usable years detected in normalized source-document fields.";
+}
+
+function rangeValues(min, max, count) {
+  if (!min || !max || !count) return [];
+  if (count === 1) return [min];
+  return [min, max, ...Array(Math.max(0, count - 2)).fill(min)];
 }
 
 function searchLocalEvidence(query, limit, intent) {
@@ -358,12 +492,10 @@ async function readOptionalJson(file) {
   }
 }
 
-function buildStudyDesign(question, sourceMap, evidenceRows) {
+function buildStudyDesign(question, sourceMap, evidenceRows, dateCoverage) {
   const sourceClasses = new Set(sourceMap.matched_sources.map((source) => source.source_class));
   const preferredClasses = new Set(sourceMap.inferred_intent.preferred_source_classes);
-  const years = evidenceRows
-    .map((row) => String(row.publication_year ?? row.fetched_at ?? "").match(/\d{4}/)?.[0])
-    .filter(Boolean);
+  const outputClasses = preferredClasses.size ? preferredClasses : sourceClasses;
   const hasUniversity = preferredClasses.has("university-department-web") || (!preferredClasses.size && sourceClasses.has("university-department-web"));
   const hasScholarly = preferredClasses.has("scholarly-metadata") || preferredClasses.has("journals-and-reviews") || (!preferredClasses.size && (sourceClasses.has("scholarly-metadata") || sourceClasses.has("journals-and-reviews")));
   const hasCollections = preferredClasses.has("cultural-collections") || (!preferredClasses.size && sourceClasses.has("cultural-collections"));
@@ -377,14 +509,16 @@ function buildStudyDesign(question, sourceMap, evidenceRows) {
     question,
     unit_of_analysis: hasUniversity ? "source page or institutional document" : hasLinkedData ? "linked cultural entity, person, work, movement, institution, or concept" : hasScholarly ? "work/article metadata record" : hasCollections ? "collection object or public metadata record" : hasTexts ? "public-domain text or bibliographic metadata record" : "source document",
     suggested_method: hasUniversity ? "compare term frequencies and framing across institution, department, source type, and capture/fetch year" : hasLinkedData ? "build an entity table first, then join people, works, movements, institutions, and concepts to scholarly or collection records" : hasCollections ? "compare object metadata fields across institution, department, classification, date, rights, and image availability" : hasScholarly ? "start with source-stratified local evidence review, then convert matched records into a longitudinal publication/venue table" : hasTexts ? "build a rights-filtered text/metadata evidence table, then separate quote-ready full text from discovery-only records" : "start with source-stratified local evidence review, then convert matched records into a longitudinal table",
-    time_handling: years.length ? `local evidence includes year-like values from ${Math.min(...years.map(Number))} to ${Math.max(...years.map(Number))}; verify dates before longitudinal claims` : "date coverage is weak in direct hits; first normalize dates from matched source records",
+    time_handling: dateCoverage.time_handling,
+    date_coverage_summary: dateCoverage.summary,
+    date_coverage_rating: dateCoverage.rating,
     claim_strength: evidenceRows.length >= 10 ? "moderate local evidence for scoping; needs source-specific normalization before publication claims" : evidenceRows.length ? "thin local evidence; useful for scoping, not yet for strong claims" : "no direct local evidence hits; use source map as acquisition plan",
     candidate_outputs: [
       "source coverage table by source_id and rights status",
       "top matching records with URLs and quote restrictions",
       "time-series table after date normalization",
       "missing-data memo for blocked, planned, and low-evidence sources",
-      ...candidateOutputsFor(sourceClasses),
+      ...candidateOutputsFor(outputClasses),
     ],
     publication_concept: publicationConcept,
   };
@@ -537,6 +671,8 @@ function buildStudyTemplate(question, sourceMap, evidenceRows, studyDesign, publ
     local_tables: ["source_documents", "rights", "pages", "works", "objects", "venues", "authors", "citations", "topics"],
     unit_of_analysis: studyDesign.unit_of_analysis,
     claim_strength: studyDesign.claim_strength,
+    date_coverage_summary: studyDesign.date_coverage_summary,
+    date_coverage_rating: studyDesign.date_coverage_rating,
     minimum_next_steps: [
       "Review evidence.json for quote restrictions and source URLs.",
       "Run queries.sql against data/knowledge-base/processed/knowledge-base.sqlite.",
@@ -563,6 +699,10 @@ function renderStudyTemplate(template) {
     "## Claim Strength",
     "",
     template.claim_strength,
+    "",
+    "## Date Coverage",
+    "",
+    `${template.date_coverage_rating}: ${template.date_coverage_summary}`,
     "",
     "## Minimum Next Steps",
     "",

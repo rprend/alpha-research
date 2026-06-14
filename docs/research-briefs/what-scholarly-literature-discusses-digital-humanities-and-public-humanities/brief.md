@@ -1,6 +1,6 @@
 # Local KB Brief: What scholarly literature discusses digital humanities and public humanities?
 
-Generated at: 2026-06-14T19:26:44.508Z
+Generated at: 2026-06-14T19:30:52.383Z
 Inferred source priority: scholarly-metadata, journals-and-reviews
 
 ## Local Evidence Sources
@@ -35,7 +35,8 @@ Inferred source priority: scholarly-metadata, journals-and-reviews
 
 - Unit of analysis: work/article metadata record
 - Suggested method: start with source-stratified local evidence review, then convert matched records into a longitudinal publication/venue table
-- Time handling: local evidence includes year-like values from 2004 to 2022; verify dates before longitudinal claims
+- Time handling: content-date coverage spans 1899-2026; use date-coverage.json to separate content years from fetch years before longitudinal claims
+- Date coverage: 3479 matched local records carry content years spanning 1899-2026; 6 matched sources look longitudinal-ready for scoping.
 - Claim strength: moderate local evidence for scoping; needs source-specific normalization before publication claims
 
 ## Candidate Outputs
