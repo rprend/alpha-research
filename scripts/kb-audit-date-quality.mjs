@@ -49,6 +49,7 @@ const auditTargets = [
     min_fetch_rate: 1,
     allow_fetch_date_only: true,
     allow_study_period_risk: true,
+    min_precision_labeled_rate: 1,
     note: "Conference rows mix page/post dates, event-year records, and program metadata. The audit requires broad year coverage and fetch provenance, but does not treat these dates as normalized event dates yet.",
   },
   {
@@ -77,6 +78,7 @@ const auditTargets = [
     min_fetch_rate: 1,
     allow_fetch_date_only: true,
     allow_study_period_risk: true,
+    min_precision_labeled_rate: 1,
     note: "Cultural collection rows use item/object dates and accession years where supplied. These are not publication dates and need source-specific precision parsing before strong object-date trend claims.",
   },
 ];
@@ -103,6 +105,7 @@ function auditTarget(rule) {
     rows_with_iso_date: details.filter((row) => row.has_iso_date).length,
     rows_with_source_label: details.filter((row) => row.has_accepted_source_label).length,
     rows_with_fetch_timestamp: details.filter((row) => row.has_fetch_timestamp).length,
+    rows_with_precision_label: details.filter((row) => row.has_precision_label).length,
     rows_with_fetch_date_only_risk: details.filter((row) => row.fetch_date_only_risk).length,
     rows_with_study_period_risk: details.filter((row) => row.study_period_risk).length,
   };
@@ -111,6 +114,7 @@ function auditTarget(rule) {
     iso_date_rate: rate(counts.rows_with_iso_date, counts.rows),
     source_labeled_rate: rate(counts.rows_with_source_label, counts.rows),
     fetch_rate: rate(counts.rows_with_fetch_timestamp, counts.rows),
+    precision_labeled_rate: rate(counts.rows_with_precision_label, counts.rows),
   };
   const failures = [];
   if (!counts.rows) failures.push("no local rows for audited source");
@@ -118,6 +122,7 @@ function auditTarget(rule) {
   if (rates.iso_date_rate < rule.min_iso_date_rate) failures.push(`ISO date coverage ${pct(rates.iso_date_rate)} below ${pct(rule.min_iso_date_rate)}`);
   if (rates.source_labeled_rate < rule.min_source_labeled_rate) failures.push(`source-label coverage ${pct(rates.source_labeled_rate)} below ${pct(rule.min_source_labeled_rate)}`);
   if (rates.fetch_rate < rule.min_fetch_rate) failures.push(`fetch timestamp coverage ${pct(rates.fetch_rate)} below ${pct(rule.min_fetch_rate)}`);
+  if (rates.precision_labeled_rate < (rule.min_precision_labeled_rate ?? 0)) failures.push(`precision-label coverage ${pct(rates.precision_labeled_rate)} below ${pct(rule.min_precision_labeled_rate)}`);
   if (!rule.allow_fetch_date_only && counts.rows_with_fetch_date_only_risk > 0) failures.push(`${counts.rows_with_fetch_date_only_risk} rows appear to use fetch/crawl date as content date`);
   if (!rule.allow_study_period_risk && counts.rows_with_study_period_risk > 0) failures.push(`${counts.rows_with_study_period_risk} rows may be using title/study-period years as content dates`);
   return {
@@ -139,7 +144,7 @@ function classifyDate(row, rule) {
   const publicationDate = String(row.publication_date ?? "");
   const contentSource = String(row.content_date_source ?? "");
   const fetchedYear = String(row.fetched_at ?? "").slice(0, 4);
-  const titleYears = [...String(row.title ?? "").matchAll(/\b(?:18|19|20)\d{2}\b/g)].map((match) => match[0]);
+  const titleYears = [...String(row.title ?? "").matchAll(/\b(?:1[0-9]|20)\d{2}\b/g)].map((match) => match[0]);
   return {
     local_id: row.local_id,
     title: row.title ?? "",
@@ -148,11 +153,16 @@ function classifyDate(row, rule) {
     date: row.date ?? "",
     accession_year: row.accession_year ?? "",
     publication_date: row.publication_date ?? "",
+    content_date_kind: row.content_date_kind ?? "",
+    content_date_precision: row.content_date_precision ?? "",
+    content_year_start: row.content_year_start ?? "",
+    content_year_end: row.content_year_end ?? "",
     content_date_source: row.content_date_source ?? "",
     has_year: Boolean(year),
     has_iso_date: /^\d{4}-\d{2}-\d{2}$/.test(publicationDate),
     has_accepted_source_label: rule.accepted_sources.includes(contentSource),
     has_fetch_timestamp: Boolean(row.fetched_at),
+    has_precision_label: Boolean(row.content_date_kind && row.content_date_precision),
     fetch_date_only_risk: Boolean(year && fetchedYear && year === fetchedYear && !contentSource && !publicationDate),
     study_period_risk: titleYears.includes(year) && !contentSource && !publicationDate,
   };
@@ -175,6 +185,7 @@ function renderMarkdown(report) {
       `ISO date coverage: ${pct(source.rates.iso_date_rate)}`,
       `Source-label coverage: ${pct(source.rates.source_labeled_rate)}`,
       `Fetch timestamp coverage: ${pct(source.rates.fetch_rate)}`,
+      `Precision-label coverage: ${pct(source.rates.precision_labeled_rate)}`,
       `Fetch-date-only risks: ${source.counts.rows_with_fetch_date_only_risk}`,
       `Study-period risks: ${source.counts.rows_with_study_period_risk}`,
       "",
@@ -196,10 +207,10 @@ function pct(value) {
 }
 
 function contentYear(row) {
-  return String(row.publication_year ?? "").match(/\b(?:18|19|20)\d{2}\b/)?.[0] ??
-    String(row.publication_date ?? "").match(/\b(?:18|19|20)\d{2}\b/)?.[0] ??
-    String(row.date ?? "").match(/\b(?:18|19|20)\d{2}\b/)?.[0] ??
-    String(row.creation_date ?? "").match(/\b(?:18|19|20)\d{2}\b/)?.[0] ??
-    String(row.accession_year ?? "").match(/\b(?:18|19|20)\d{2}\b/)?.[0] ??
+  return String(row.publication_year ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ??
+    String(row.publication_date ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ??
+    String(row.date ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ??
+    String(row.creation_date ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ??
+    String(row.accession_year ?? "").match(/\b(?:1[0-9]|20)\d{2}\b/)?.[0] ??
     "";
 }

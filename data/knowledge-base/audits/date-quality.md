@@ -1,6 +1,6 @@
 # KB Date Quality Audit
 
-Generated at: 2026-06-14T21:52:37.779Z
+Generated at: 2026-06-14T21:57:58.926Z
 Status: pass
 
 ## nber-culture-history
@@ -12,6 +12,7 @@ Year coverage: 100%
 ISO date coverage: 100%
 Source-label coverage: 100%
 Fetch timestamp coverage: 100%
+Precision-label coverage: 0%
 Fetch-date-only risks: 0
 Study-period risks: 0
 
@@ -28,6 +29,7 @@ Year coverage: 100%
 ISO date coverage: 0%
 Source-label coverage: 100%
 Fetch timestamp coverage: 100%
+Precision-label coverage: 0%
 Fetch-date-only risks: 0
 Study-period risks: 0
 
@@ -41,11 +43,12 @@ Status: pass
 Date kind: mixed-page-date-event-year
 Rows: 51
 Year coverage: 61%
-ISO date coverage: 0%
+ISO date coverage: 49%
 Source-label coverage: 0%
 Fetch timestamp coverage: 100%
-Fetch-date-only risks: 9
-Study-period risks: 1
+Precision-label coverage: 100%
+Fetch-date-only risks: 0
+Study-period risks: 0
 
 Failures: none
 
@@ -60,6 +63,7 @@ Year coverage: 0%
 ISO date coverage: 0%
 Source-label coverage: 0%
 Fetch timestamp coverage: 100%
+Precision-label coverage: 0%
 Fetch-date-only risks: 0
 Study-period risks: 0
 
@@ -72,12 +76,13 @@ Department web rows are current-page crawl snapshots unless a source-specific ev
 Status: pass
 Date kind: object-or-item-date
 Rows: 988
-Year coverage: 52%
+Year coverage: 62%
 ISO date coverage: 0%
 Source-label coverage: 0%
 Fetch timestamp coverage: 100%
-Fetch-date-only risks: 6
-Study-period risks: 31
+Precision-label coverage: 100%
+Fetch-date-only risks: 0
+Study-period risks: 0
 
 Failures: none
 

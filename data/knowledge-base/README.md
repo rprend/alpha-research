@@ -108,6 +108,8 @@ The NBER date enrichment route fetches public NBER working-paper HTML pages for 
 
 The date-quality audit at `audits/date-quality.{json,md}` checks source-specific date semantics for NBER, SSRN-adjacent rows, conference programs, department web pages, and cultural collections. It distinguishes NBER page-level publication dates, SSRN-adjacent Crossref issued/posted years, mixed conference page/event-year metadata, department crawl snapshots, and cultural object/item dates, and fails validation if coverage or provenance regress below the source-appropriate gates.
 
+The date precision derivation at `audits/date-precision-derivation.{json,md}` writes queryable fields such as `content_date_kind`, `content_date_precision`, `content_year_start`, and `content_year_end` into source documents and works. It separates conference event years from page/post dates and cultural object/item dates from accession years while preserving raw source date strings.
+
 The dedicated DOAJ ingest adds broader article and journal metadata for humanities queries across the DOAJ articles and journals APIs. It stores raw API responses, normalized source-document/work/venue rows, rights rows, and `audits/doaj-humanities-last-run.json`.
 
 The dedicated Wikidata ingest adds linked-open-data cultural entities across authors, artists, philosophers, works, movements, genres, institutions, journals, and humanities concepts. It stores raw SPARQL JSON responses, normalized source-document rows, rights rows, and `audits/wikidata-cultural-entities-last-run.json`.

@@ -13,6 +13,7 @@ const commands = [
   { name: "refresh Wayback snapshot metadata smoke", cmd: "node", args: ["scripts/kb-ingest-wayback-snapshots.mjs", "--per-target=2", "--limit=8", "--timeout-ms=10000"] },
   { name: "import experiment seeds", cmd: "node", args: ["scripts/kb-import-experiment-seeds.mjs"] },
   { name: "import local Gutenberg texts", cmd: "node", args: ["scripts/kb-import-gutenberg-local.mjs", "--limit=200", "--max-bytes=250000"] },
+  { name: "derive source-specific date precision fields", cmd: "node", args: ["scripts/kb-derive-date-precision.mjs"] },
   { name: "rebuild analytical tables and SQLite", cmd: "node", args: ["scripts/kb-build-analytical-tables.mjs"] },
   { name: "refresh coverage and rights audits", cmd: "node", args: ["scripts/kb-audit-coverage.mjs"] },
   { name: "refresh source-specific date-quality audit", cmd: "node", args: ["scripts/kb-audit-date-quality.mjs"] },

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T21:48:48.488Z",
+  "generated_at": "2026-06-14T21:57:54.623Z",
   "tables": [
     {
       "table": "works",
@@ -17,6 +17,10 @@
         "type",
         "publication_year",
         "publication_date",
+        "content_date_kind",
+        "content_date_precision",
+        "content_year_start",
+        "content_year_end",
         "content_date_source",
         "venue",
         "doi",
@@ -267,6 +271,10 @@
         "type",
         "publication_year",
         "publication_date",
+        "content_date_kind",
+        "content_date_precision",
+        "content_year_start",
+        "content_year_end",
         "content_date_source",
         "venue",
         "doi",
@@ -325,13 +333,13 @@
       "file": "works.csv",
       "path": "data/knowledge-base/processed/works.csv",
       "exists": true,
-      "bytes": 1070013
+      "bytes": 1085000
     },
     {
       "file": "works.parquet",
       "path": "data/knowledge-base/processed/works.parquet",
       "exists": true,
-      "bytes": 501966
+      "bytes": 503603
     },
     {
       "file": "objects.csv",
@@ -469,19 +477,19 @@
       "file": "source_documents.csv",
       "path": "data/knowledge-base/processed/source_documents.csv",
       "exists": true,
-      "bytes": 5130892
+      "bytes": 5204090
     },
     {
       "file": "source_documents.parquet",
       "path": "data/knowledge-base/processed/source_documents.parquet",
       "exists": true,
-      "bytes": 2599154
+      "bytes": 2606252
     },
     {
       "file": "source_documents_fts_input.csv",
       "path": "data/knowledge-base/processed/source_documents_fts_input.csv",
       "exists": true,
-      "bytes": 11203897
+      "bytes": 11277095
     },
     {
       "file": "pages_fts_input.csv",
@@ -505,7 +513,7 @@
       "file": "knowledge-base.sqlite",
       "path": "data/knowledge-base/processed/knowledge-base.sqlite",
       "exists": true,
-      "bytes": 51281920
+      "bytes": 51535872
     }
   ]
 }
