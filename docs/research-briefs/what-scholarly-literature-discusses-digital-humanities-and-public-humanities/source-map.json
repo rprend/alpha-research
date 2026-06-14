@@ -1,0 +1,272 @@
+{
+  "generated_at": "2026-06-14T19:21:06.436Z",
+  "question": "What scholarly literature discusses digital humanities and public humanities?",
+  "inferred_intent": {
+    "preferred_source_classes": [
+      "scholarly-metadata",
+      "journals-and-reviews"
+    ],
+    "secondary_source_classes": [
+      "conference-programs",
+      "linked-open-data"
+    ],
+    "deprioritized_source_classes": [
+      "university-department-web"
+    ]
+  },
+  "local_evidence_count": 18,
+  "matched_sources": [
+    {
+      "source_id": "openalex-humanities",
+      "name": "OpenAlex Humanities Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 25,
+      "local_document_count": 273,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "humanities literature radar",
+        "canon drift scholarly signal",
+        "venue and institution mapping"
+      ],
+      "known_risks": [
+        "concept filters can be noisy",
+        "biomedical false positives require exclusion terms",
+        "abstracts are inverted-index metadata, not always full text"
+      ]
+    },
+    {
+      "source_id": "crossref-humanities",
+      "name": "Crossref Humanities DOI Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 24,
+      "local_document_count": 208,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "journal publication radar",
+        "publisher and venue normalization",
+        "DOI joins"
+      ],
+      "known_risks": [
+        "subject metadata is uneven",
+        "not all humanities venues use DOIs",
+        "license fields vary by publisher"
+      ]
+    },
+    {
+      "source_id": "doaj-humanities",
+      "name": "DOAJ Humanities Open Access Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 20,
+      "local_document_count": 2948,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "open humanities journal radar",
+        "OA venue discovery",
+        "publication trend tracking"
+      ],
+      "known_risks": [
+        "API fields differ across records",
+        "article coverage is not complete for every journal"
+      ]
+    },
+    {
+      "source_id": "journal-digital-humanities-quarterly",
+      "name": "Digital Humanities Quarterly",
+      "source_class": "journals-and-reviews",
+      "score": 19,
+      "local_document_count": 10,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "digital humanities method trends",
+        "AI/computation discourse",
+        "open journal radar"
+      ],
+      "known_risks": [
+        "license review required",
+        "format variation",
+        "author identity normalization"
+      ]
+    },
+    {
+      "source_id": "public-books",
+      "name": "Public Books",
+      "source_class": "journals-and-reviews",
+      "score": 18,
+      "local_document_count": 10,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "public humanities discourse",
+        "review essay radar",
+        "topic emergence"
+      ],
+      "known_risks": [
+        "copyrighted article text",
+        "category drift",
+        "site route changes"
+      ]
+    },
+    {
+      "source_id": "journal-critical-inquiry",
+      "name": "Critical Inquiry Metadata",
+      "source_class": "journals-and-reviews",
+      "score": 16,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "critical theory discourse tracking",
+        "journal radar",
+        "topic drift"
+      ],
+      "known_risks": [
+        "full text restricted",
+        "metadata inconsistency",
+        "abstract rights review"
+      ]
+    },
+    {
+      "source_id": "journal-new-literary-history",
+      "name": "New Literary History Metadata",
+      "source_class": "journals-and-reviews",
+      "score": 16,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "literary theory topic trends",
+        "journal radar",
+        "canon and method discourse"
+      ],
+      "known_risks": [
+        "full text restricted",
+        "abstract availability varies",
+        "metadata source joins needed"
+      ]
+    },
+    {
+      "source_id": "journal-pmla",
+      "name": "PMLA Metadata",
+      "source_class": "journals-and-reviews",
+      "score": 16,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "field-topic radar",
+        "discipline discourse",
+        "literary studies trend tracking"
+      ],
+      "known_risks": [
+        "publisher access limits",
+        "abstract availability varies",
+        "metadata joins required"
+      ]
+    },
+    {
+      "source_id": "wikidata-cultural-entities",
+      "name": "Wikidata Cultural Entities",
+      "source_class": "linked-open-data",
+      "score": 12,
+      "local_document_count": 757,
+      "ingest_status": "active",
+      "redistribution_status": "derived-metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "author and movement registry",
+        "cultural entity graph",
+        "institution/place joins"
+      ],
+      "known_risks": [
+        "coverage bias",
+        "ontology drift",
+        "label gaps",
+        "SPARQL rate limits"
+      ]
+    },
+    {
+      "source_id": "dh-conference-programs",
+      "name": "Digital Humanities Conference Programs",
+      "source_class": "conference-programs",
+      "score": 12,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "digital humanities topic tracking",
+        "method diffusion",
+        "AI/computation language drift"
+      ],
+      "known_risks": [
+        "year-specific formats",
+        "abstract rights",
+        "duplicate author identities"
+      ]
+    },
+    {
+      "source_id": "met-collection-api",
+      "name": "Metropolitan Museum of Art Collection API",
+      "source_class": "cultural-collections",
+      "score": 10,
+      "local_document_count": 255,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "museum collection shape",
+        "department and acquisition trends",
+        "object metadata comparison"
+      ],
+      "known_risks": [
+        "object detail calls required",
+        "rights vary",
+        "date normalization burden"
+      ]
+    },
+    {
+      "source_id": "cleveland-museum-open-access",
+      "name": "Cleveland Museum of Art Open Access API",
+      "source_class": "cultural-collections",
+      "score": 10,
+      "local_document_count": 200,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "first public museum essay",
+        "collection-shape analysis",
+        "license/image coverage"
+      ],
+      "known_risks": [
+        "accession year proxy risk",
+        "date normalization",
+        "provenance sparsity"
+      ]
+    }
+  ]
+}

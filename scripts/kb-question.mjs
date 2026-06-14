@@ -21,13 +21,14 @@ const rights = await readJsonl(path.join(processedDir, "rights.jsonl"));
 const blockedAudit = await readOptionalJson(path.join(rootDir, "data", "knowledge-base", "audits", "blocked-sources.json"));
 const localDocumentCounts = countBy(sourceDocuments, "source_id");
 const terms = tokenize(question);
-const evidence = searchLocalEvidence(question, 12);
+const intent = inferQuestionIntent(question);
+const evidence = searchLocalEvidence(question, 18, intent);
 const evidenceSourceIds = new Set(evidence.results.map((result) => result.source_id));
 const scored = registry.sources
   .map((source) => ({
     source,
     local_document_count: localDocumentCounts[source.source_id] ?? 0,
-    score: scoreSource(source, terms, localDocumentCounts[source.source_id] ?? 0, evidenceSourceIds.has(source.source_id)),
+    score: scoreSource(source, terms, localDocumentCounts[source.source_id] ?? 0, evidenceSourceIds.has(source.source_id), intent),
   }))
   .filter((entry) => entry.score > 0)
   .sort((a, b) => b.score - a.score || b.local_document_count - a.local_document_count || a.source.source_id.localeCompare(b.source.source_id))
@@ -38,6 +39,7 @@ const outDir = path.join(rootDir, "docs", "research-briefs", questionSlug);
 const sourceMap = {
   generated_at: new Date().toISOString(),
   question,
+  inferred_intent: intent,
   local_evidence_count: evidence.results.length,
   matched_sources: scored.map(({ source, score, local_document_count }) => ({
     source_id: source.source_id,
@@ -85,7 +87,7 @@ function tokenize(value) {
   );
 }
 
-function scoreSource(source, terms, localDocumentCount, hasEvidence) {
+function scoreSource(source, terms, localDocumentCount, hasEvidence, intent) {
   const haystack = [
     source.source_id,
     source.name,
@@ -104,6 +106,9 @@ function scoreSource(source, terms, localDocumentCount, hasEvidence) {
   if (localDocumentCount >= 10) score += 1;
   if (localDocumentCount >= 100) score += 1;
   if (hasEvidence) score += 4;
+  if (intent.preferred_source_classes.includes(source.source_class)) score += 8;
+  if (intent.secondary_source_classes.includes(source.source_class)) score += 3;
+  if (intent.deprioritized_source_classes.includes(source.source_class)) score -= 4;
   if (source.ingest_status === "seeded-from-experiment") score += 2;
   if (source.ingest_status === "active") score += 3;
   if (source.ingest_status === "blocked") score -= 2;
@@ -118,6 +123,7 @@ function renderBrief(sourceMap, evidenceRows, studyDesign) {
     `# Local KB Brief: ${sourceMap.question}`,
     "",
     `Generated at: ${sourceMap.generated_at}`,
+    `Inferred source priority: ${sourceMap.inferred_intent.preferred_source_classes.length ? sourceMap.inferred_intent.preferred_source_classes.join(", ") : "general KB search"}`,
     "",
     "## Local Evidence Sources",
     "",
@@ -216,15 +222,16 @@ function renderMissingData(sourceMap, blockedAudit, evidenceRows) {
   ].join("\n");
 }
 
-function searchLocalEvidence(query, limit) {
+function searchLocalEvidence(query, limit, intent) {
   const sqlitePath = path.join(processedDir, "knowledge-base.sqlite");
   const ftsQuery = toFtsQuery(query);
+  const sourceClassCase = buildSourceClassCase(intent);
   const sql = `
 .mode json
 WITH source_hits AS (
   SELECT 'source_document' AS result_type, local_id, source_id, source_url, title, type, venue, department, publication_year,
          snippet(source_documents_fts, -1, '[', ']', '...', 18) AS snippet,
-         bm25(source_documents_fts) AS rank
+         bm25(source_documents_fts) + ${sourceClassCase} AS rank
   FROM source_documents_fts
   WHERE source_documents_fts MATCH ${sqlString(ftsQuery)}
   LIMIT ${limit}
@@ -232,7 +239,7 @@ WITH source_hits AS (
 page_hits AS (
   SELECT 'page' AS result_type, local_id, source_id, source_url, title, page_type AS type, school AS venue, department, '' AS publication_year,
          snippet(pages_fts, -1, '[', ']', '...', 18) AS snippet,
-         bm25(pages_fts) AS rank
+         bm25(pages_fts) - ${intent.preferred_source_classes.includes("university-department-web") ? "8" : "0"} AS rank
   FROM pages_fts
   WHERE pages_fts MATCH ${sqlString(ftsQuery)}
   LIMIT ${limit}
@@ -259,6 +266,64 @@ LIMIT ${limit};
     fts_query: ftsQuery,
     results: result.stdout.trim() ? JSON.parse(result.stdout) : [],
   };
+}
+
+function inferQuestionIntent(question) {
+  const text = String(question).toLowerCase();
+  const preferred = [];
+  const secondary = [];
+  const deprioritized = [];
+  const explicitScholarly = /\b(journal|article|articles|scholarship|scholarly|literature|publication|publications|doi|citation|citations|author|authors|venue|venues)\b/.test(text);
+  const explicitInstitutional = /\b(department|departments|university|universities|college|colleges|faculty|campus|center|centers|humanities division)\b/.test(text);
+  if (explicitInstitutional || (/\bpublic humanities\b/.test(text) && !explicitScholarly)) {
+    preferred.push("university-department-web");
+    secondary.push("web-archives", "conference-programs");
+    deprioritized.push("cultural-collections", "public-domain-texts");
+  }
+  if (explicitScholarly) {
+    preferred.push("scholarly-metadata", "journals-and-reviews");
+    secondary.push("conference-programs", "linked-open-data");
+    if (!explicitInstitutional) deprioritized.push("university-department-web");
+  }
+  if (/\b(museum|collection|collections|object|objects|art|artist|artists|acquisition|accession|exhibition|archive|archives)\b/.test(text)) {
+    preferred.push("cultural-collections");
+    secondary.push("linked-open-data", "open-text-metadata");
+    deprioritized.push("scholarly-metadata");
+  }
+  if (/\b(book|books|novel|novels|poem|poetry|literary text|full text|public domain|gutenberg|canon)\b/.test(text)) {
+    preferred.push("public-domain-texts", "open-text-metadata");
+    secondary.push("linked-open-data", "scholarly-metadata");
+  }
+  return {
+    preferred_source_classes: unique(preferred),
+    secondary_source_classes: unique(secondary),
+    deprioritized_source_classes: unique(deprioritized).filter((sourceClass) => !preferred.includes(sourceClass)),
+  };
+}
+
+function buildSourceClassCase(intent) {
+  const cases = [];
+  for (const sourceClass of intent.preferred_source_classes) {
+    const ids = sourceIdsForClass(sourceClass);
+    if (ids) cases.push(`WHEN source_id IN (${ids}) THEN -8`);
+  }
+  for (const sourceClass of intent.deprioritized_source_classes) {
+    const ids = sourceIdsForClass(sourceClass);
+    if (ids) cases.push(`WHEN source_id IN (${ids}) THEN 4`);
+  }
+  if (!cases.length) return "0";
+  return `(CASE ${cases.join(" ")} ELSE 0 END)`;
+}
+
+function sourceIdsForClass(sourceClass) {
+  const ids = registry.sources
+    .filter((source) => source.source_class === sourceClass)
+    .map((source) => sqlString(source.source_id));
+  return ids.length ? ids.join(", ") : "";
+}
+
+function unique(values) {
+  return [...new Set(values)];
 }
 
 async function readOptionalJson(file) {

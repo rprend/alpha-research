@@ -38,6 +38,8 @@ pnpm kb:question "How has public humanities language changed in top university d
 
 `kb:status` is the first gate for future research questions. It reports source count, rights coverage, table availability, stale registry checks, and missing ingest state.
 
+`kb:question` is the first gate for study design. It infers source-class priorities from the question, ranks local sources with that routing decision, and writes a reproducible brief, evidence file, source map, SQL sketch, study design, and missing-data memo under `docs/research-briefs/`.
+
 ## Current State
 
 The initial implementation defines the local KB structure and source registry, inventories existing experiment artifacts, and runs a bounded core metadata ingest for six public sources:

@@ -1,10 +1,10 @@
 -- SQLite queries over the local humanities KB.
 
--- Relevant source IDs: 'stanford-humanities-departments', 'openalex-humanities', 'crossref-humanities', 'project-gutenberg', 'expanded-university-humanities-departments', 'yale-humanities-departments', 'uchicago-humanities-departments', 'columbia-humanities-departments', 'doaj-humanities', 'journal-digital-humanities-quarterly', 'public-books', 'met-collection-api'
+-- Relevant source IDs: 'expanded-university-humanities-departments', 'stanford-humanities-departments', 'yale-humanities-departments', 'uchicago-humanities-departments', 'columbia-humanities-departments', 'humanities-centers-public-pages', 'harvard-humanities-departments', 'princeton-humanities-departments', 'dh-conference-programs', 'doaj-humanities', 'openalex-humanities', 'crossref-humanities'
 
 SELECT *
 FROM source_documents
-WHERE source_id IN ('stanford-humanities-departments', 'openalex-humanities', 'crossref-humanities', 'project-gutenberg', 'expanded-university-humanities-departments', 'yale-humanities-departments', 'uchicago-humanities-departments', 'columbia-humanities-departments', 'doaj-humanities', 'journal-digital-humanities-quarterly', 'public-books', 'met-collection-api');
+WHERE source_id IN ('expanded-university-humanities-departments', 'stanford-humanities-departments', 'yale-humanities-departments', 'uchicago-humanities-departments', 'columbia-humanities-departments', 'humanities-centers-public-pages', 'harvard-humanities-departments', 'princeton-humanities-departments', 'dh-conference-programs', 'doaj-humanities', 'openalex-humanities', 'crossref-humanities');
 
 SELECT local_id, source_id, source_url, title, type, venue, department,
        snippet(source_documents_fts, -1, '[', ']', '...', 18) AS snippet,

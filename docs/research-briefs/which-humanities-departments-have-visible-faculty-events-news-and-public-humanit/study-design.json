@@ -2,7 +2,7 @@
   "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
   "unit_of_analysis": "source page or institutional document",
   "suggested_method": "compare term frequencies and framing across institution, department, source type, and capture/fetch year",
-  "time_handling": "local evidence includes year-like values from 2004 to 2020; verify dates before longitudinal claims",
+  "time_handling": "date coverage is weak in direct hits; first normalize dates from matched source records",
   "claim_strength": "moderate local evidence for scoping; needs source-specific normalization before publication claims",
   "candidate_outputs": [
     "source coverage table by source_id and rights status",

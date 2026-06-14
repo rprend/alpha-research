@@ -1,97 +1,26 @@
 {
-  "generated_at": "2026-06-14T19:15:24.941Z",
+  "generated_at": "2026-06-14T19:20:50.425Z",
   "question": "Which humanities departments have visible faculty, events, news, and public humanities language in the local corpus?",
-  "local_evidence_count": 12,
+  "inferred_intent": {
+    "preferred_source_classes": [
+      "university-department-web"
+    ],
+    "secondary_source_classes": [
+      "web-archives",
+      "conference-programs"
+    ],
+    "deprioritized_source_classes": [
+      "cultural-collections",
+      "public-domain-texts"
+    ]
+  },
+  "local_evidence_count": 18,
   "matched_sources": [
-    {
-      "source_id": "stanford-humanities-departments",
-      "name": "Stanford Humanities Department Public Pages",
-      "source_class": "university-department-web",
-      "score": 17,
-      "local_document_count": 17,
-      "ingest_status": "active",
-      "redistribution_status": "local-analysis-only",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "institutional language drift",
-        "digital humanities and AI language tracking",
-        "department comparison"
-      ],
-      "known_risks": [
-        "site route diversity",
-        "copyrighted page text",
-        "historical snapshot gaps"
-      ]
-    },
-    {
-      "source_id": "openalex-humanities",
-      "name": "OpenAlex Humanities Metadata",
-      "source_class": "scholarly-metadata",
-      "score": 15,
-      "local_document_count": 273,
-      "ingest_status": "active",
-      "redistribution_status": "metadata-ok",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "humanities literature radar",
-        "canon drift scholarly signal",
-        "venue and institution mapping"
-      ],
-      "known_risks": [
-        "concept filters can be noisy",
-        "biomedical false positives require exclusion terms",
-        "abstracts are inverted-index metadata, not always full text"
-      ]
-    },
-    {
-      "source_id": "crossref-humanities",
-      "name": "Crossref Humanities DOI Metadata",
-      "source_class": "scholarly-metadata",
-      "score": 15,
-      "local_document_count": 208,
-      "ingest_status": "active",
-      "redistribution_status": "metadata-ok",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "journal publication radar",
-        "publisher and venue normalization",
-        "DOI joins"
-      ],
-      "known_risks": [
-        "subject metadata is uneven",
-        "not all humanities venues use DOIs",
-        "license fields vary by publisher"
-      ]
-    },
-    {
-      "source_id": "project-gutenberg",
-      "name": "Project Gutenberg Catalog And Texts",
-      "source_class": "public-domain-texts",
-      "score": 13,
-      "local_document_count": 200,
-      "ingest_status": "active",
-      "redistribution_status": "public-domain-text-ok",
-      "metadata_allowed": true,
-      "full_text_allowed": true,
-      "research_use_cases": [
-        "public-domain literary corpus",
-        "semantic benchmark",
-        "canon and genre studies"
-      ],
-      "known_risks": [
-        "metadata inconsistencies",
-        "edition and translation ambiguity",
-        "boilerplate contamination"
-      ]
-    },
     {
       "source_id": "expanded-university-humanities-departments",
       "name": "Expanded University Humanities Department Public Pages",
       "source_class": "university-department-web",
-      "score": 13,
+      "score": 25,
       "local_document_count": 38,
       "ingest_status": "active",
       "redistribution_status": "local-analysis-only",
@@ -110,10 +39,31 @@
       ]
     },
     {
+      "source_id": "stanford-humanities-departments",
+      "name": "Stanford Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "score": 25,
+      "local_document_count": 17,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "institutional language drift",
+        "digital humanities and AI language tracking",
+        "department comparison"
+      ],
+      "known_risks": [
+        "site route diversity",
+        "copyrighted page text",
+        "historical snapshot gaps"
+      ]
+    },
+    {
       "source_id": "yale-humanities-departments",
       "name": "Yale Humanities Department Public Pages",
       "source_class": "university-department-web",
-      "score": 12,
+      "score": 24,
       "local_document_count": 15,
       "ingest_status": "active",
       "redistribution_status": "local-analysis-only",
@@ -134,7 +84,7 @@
       "source_id": "uchicago-humanities-departments",
       "name": "University of Chicago Humanities Department Public Pages",
       "source_class": "university-department-web",
-      "score": 12,
+      "score": 24,
       "local_document_count": 12,
       "ingest_status": "active",
       "redistribution_status": "local-analysis-only",
@@ -155,7 +105,7 @@
       "source_id": "columbia-humanities-departments",
       "name": "Columbia Humanities Department Public Pages",
       "source_class": "university-department-web",
-      "score": 12,
+      "score": 24,
       "local_document_count": 4,
       "ingest_status": "active",
       "redistribution_status": "local-analysis-only",
@@ -170,6 +120,90 @@
         "distributed department sites",
         "route discovery burden",
         "copyright limits"
+      ]
+    },
+    {
+      "source_id": "humanities-centers-public-pages",
+      "name": "Humanities Center Public Pages",
+      "source_class": "university-department-web",
+      "score": 22,
+      "local_document_count": 12,
+      "ingest_status": "active",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "public humanities discourse",
+        "event topic radar",
+        "institutional priorities"
+      ],
+      "known_risks": [
+        "site heterogeneity",
+        "copyrighted page text",
+        "center list maintenance"
+      ]
+    },
+    {
+      "source_id": "harvard-humanities-departments",
+      "name": "Harvard Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "score": 18,
+      "local_document_count": 5,
+      "ingest_status": "seeded-from-experiment",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "institutional language drift",
+        "public humanities language",
+        "discipline framing"
+      ],
+      "known_risks": [
+        "site redesigns",
+        "copyrighted page text",
+        "department list maintenance"
+      ]
+    },
+    {
+      "source_id": "princeton-humanities-departments",
+      "name": "Princeton Humanities Department Public Pages",
+      "source_class": "university-department-web",
+      "score": 17,
+      "local_document_count": 4,
+      "ingest_status": "planned",
+      "redistribution_status": "local-analysis-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "institutional language drift",
+        "elite humanities comparison",
+        "program framing"
+      ],
+      "known_risks": [
+        "robots and terms review required",
+        "page text redistribution limits",
+        "department taxonomy drift"
+      ]
+    },
+    {
+      "source_id": "dh-conference-programs",
+      "name": "Digital Humanities Conference Programs",
+      "source_class": "conference-programs",
+      "score": 12,
+      "local_document_count": 25,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-only",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "digital humanities topic tracking",
+        "method diffusion",
+        "AI/computation language drift"
+      ],
+      "known_risks": [
+        "year-specific formats",
+        "abstract rights",
+        "duplicate author identities"
       ]
     },
     {
@@ -193,66 +227,45 @@
       ]
     },
     {
-      "source_id": "journal-digital-humanities-quarterly",
-      "name": "Digital Humanities Quarterly",
-      "source_class": "journals-and-reviews",
+      "source_id": "openalex-humanities",
+      "name": "OpenAlex Humanities Metadata",
+      "source_class": "scholarly-metadata",
       "score": 11,
-      "local_document_count": 10,
-      "ingest_status": "active",
-      "redistribution_status": "local-analysis-only",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "digital humanities method trends",
-        "AI/computation discourse",
-        "open journal radar"
-      ],
-      "known_risks": [
-        "license review required",
-        "format variation",
-        "author identity normalization"
-      ]
-    },
-    {
-      "source_id": "public-books",
-      "name": "Public Books",
-      "source_class": "journals-and-reviews",
-      "score": 11,
-      "local_document_count": 10,
-      "ingest_status": "active",
-      "redistribution_status": "local-analysis-only",
-      "metadata_allowed": true,
-      "full_text_allowed": false,
-      "research_use_cases": [
-        "public humanities discourse",
-        "review essay radar",
-        "topic emergence"
-      ],
-      "known_risks": [
-        "copyrighted article text",
-        "category drift",
-        "site route changes"
-      ]
-    },
-    {
-      "source_id": "met-collection-api",
-      "name": "Metropolitan Museum of Art Collection API",
-      "source_class": "cultural-collections",
-      "score": 10,
-      "local_document_count": 255,
+      "local_document_count": 273,
       "ingest_status": "active",
       "redistribution_status": "metadata-ok",
       "metadata_allowed": true,
       "full_text_allowed": false,
       "research_use_cases": [
-        "museum collection shape",
-        "department and acquisition trends",
-        "object metadata comparison"
+        "humanities literature radar",
+        "canon drift scholarly signal",
+        "venue and institution mapping"
       ],
       "known_risks": [
-        "object detail calls required",
-        "rights vary",
-        "date normalization burden"
+        "concept filters can be noisy",
+        "biomedical false positives require exclusion terms",
+        "abstracts are inverted-index metadata, not always full text"
+      ]
+    },
+    {
+      "source_id": "crossref-humanities",
+      "name": "Crossref Humanities DOI Metadata",
+      "source_class": "scholarly-metadata",
+      "score": 11,
+      "local_document_count": 208,
+      "ingest_status": "active",
+      "redistribution_status": "metadata-ok",
+      "metadata_allowed": true,
+      "full_text_allowed": false,
+      "research_use_cases": [
+        "journal publication radar",
+        "publisher and venue normalization",
+        "DOI joins"
+      ],
+      "known_risks": [
+        "subject metadata is uneven",
+        "not all humanities venues use DOIs",
+        "license fields vary by publisher"
       ]
     }
   ]
