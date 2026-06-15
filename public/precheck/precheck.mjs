@@ -12,6 +12,7 @@ const REVIEW_LIMIT = 200
 const PRECHECK_HOME = join(homedir(), '.precheck')
 
 const args = process.argv.slice(2)
+const options = parseArgs(args)
 
 main().catch((error) => {
   console.error(`precheck: ${error.message}`)
@@ -19,14 +20,14 @@ main().catch((error) => {
 })
 
 async function main() {
-  if (args.includes('--help') || args.includes('-h')) {
+  if (options.help) {
     printHelp()
     return
   }
 
   await checkPrerequisites()
   const repo = await detectRepo()
-  const reviewer = await chooseReviewer(repo)
+  const reviewer = options.reviewer || await chooseReviewer(repo)
   const paths = repoPaths(repo, reviewer)
 
   mkdirSync(paths.raw, { recursive: true })
@@ -50,9 +51,35 @@ Build a local reviewer-specific GitHub PR review profile.
 
 Usage:
   precheck
+  precheck --reviewer <github-login>
 
 Run inside a GitHub repository. precheck uses local git, gh, and claude auth.
 It stores reviewer data under ~/.precheck and never asks for GitHub tokens.`)
+}
+
+function parseArgs(rawArgs) {
+  const parsed = { help: false, reviewer: null }
+
+  for (let index = 0; index < rawArgs.length; index += 1) {
+    const arg = rawArgs[index]
+    if (arg === '--help' || arg === '-h') {
+      parsed.help = true
+    } else if (arg === '--reviewer') {
+      parsed.reviewer = rawArgs[index + 1] ?? null
+      index += 1
+    } else if (arg.startsWith('--reviewer=')) {
+      parsed.reviewer = arg.slice('--reviewer='.length)
+    } else {
+      throw new Error(`Unknown option: ${arg}`)
+    }
+  }
+
+  if (parsed.reviewer !== null) {
+    parsed.reviewer = parsed.reviewer.trim().replace(/^@/, '')
+    if (!parsed.reviewer) throw new Error('Expected a GitHub login after --reviewer.')
+  }
+
+  return parsed
 }
 
 async function checkPrerequisites() {
@@ -133,6 +160,9 @@ async function chooseReviewer(repo) {
     .slice(0, 15)
 
   if (reviewers.length === 0) {
+    console.log(`\nNo recent PR review comments were found in ${repo.fullName}.`)
+    console.log('Run precheck in a repo with coworker PR review history, or pass a reviewer explicitly:')
+    console.log('  precheck --reviewer <github-login>')
     return promptReviewer()
   }
 
@@ -231,7 +261,7 @@ async function collectReviewerData(repo, reviewer) {
   }
 
   if (comments.length === 0 && reviews.length === 0) {
-    throw new Error(`No review comments or reviews found for ${reviewer} in the last ${RECENT_PR_LIMIT} PRs.`)
+    throw new Error(`No review comments or reviews found for ${reviewer} in the last ${RECENT_PR_LIMIT} PRs for ${repo.fullName}. Try a reviewer who has commented on recent PRs, or run precheck in a repo with more review history.`)
   }
 
   return { prs: touchedPrs, comments, reviews }
