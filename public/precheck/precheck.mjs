@@ -52,18 +52,21 @@ Build a local reviewer-specific GitHub PR review profile.
 Usage:
   precheck
   precheck --reviewer <github-login>
+  precheck --interactive
 
 Run inside a GitHub repository. precheck uses local git, gh, and claude auth.
 It stores reviewer data under ~/.precheck and never asks for GitHub tokens.`)
 }
 
 function parseArgs(rawArgs) {
-  const parsed = { help: false, reviewer: null }
+  const parsed = { help: false, interactive: false, reviewer: null }
 
   for (let index = 0; index < rawArgs.length; index += 1) {
     const arg = rawArgs[index]
     if (arg === '--help' || arg === '-h') {
       parsed.help = true
+    } else if (arg === '--interactive') {
+      parsed.interactive = true
     } else if (arg === '--reviewer') {
       parsed.reviewer = rawArgs[index + 1] ?? null
       index += 1
@@ -166,6 +169,18 @@ async function chooseReviewer(repo) {
     return promptReviewer()
   }
 
+  if (options.interactive) {
+    return chooseReviewerInteractively(reviewers)
+  }
+
+  const selected = reviewers[0]
+  console.log(`\nSelected reviewer: ${selected.login}`)
+  console.log(`Found ${selected.commentCount} comments across ${selected.prCount} PRs, latest ${selected.latest?.slice(0, 10) ?? 'unknown'}.`)
+  console.log('Pass --interactive to choose a different reviewer.')
+  return selected.login
+}
+
+async function chooseReviewerInteractively(reviewers) {
   console.log('\nChoose a reviewer to model:\n')
   reviewers.forEach((reviewer, index) => {
     const latest = reviewer.latest ? reviewer.latest.slice(0, 10) : 'unknown'
