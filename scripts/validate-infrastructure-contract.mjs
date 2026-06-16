@@ -87,12 +87,12 @@ assert(
 )
 
 assert(
-  workerSource.includes('generic claim-adjudication run') &&
+  workerSource.includes('ResearchVagueClaim workflow run') &&
     workerSource.includes('hypothesisRatings for H1, H2, and H3') &&
-    remoteRunnerSource.includes('CLAIM_ADJUDICATION_FIELDS') &&
-    remoteRunnerSource.includes('CLAIM_ADJUDICATION_RATINGS = {"H1", "H2", "H3"}') &&
-    remoteRunnerSource.includes('result.json claimAdjudication.finalRating must be H1, H2, or H3'),
-  'Claim-adjudication workflow must preserve planner guidance, runner schema, and H1/H2/H3 validation.',
+    remoteRunnerSource.includes('RESEARCH_VAGUE_CLAIM_FIELDS') &&
+    remoteRunnerSource.includes('RESEARCH_VAGUE_CLAIM_RATINGS = {"H1", "H2", "H3"}') &&
+    remoteRunnerSource.includes('result.json ResearchVagueClaim.finalRating must be H1, H2, or H3'),
+  'ResearchVagueClaim workflow must preserve planner guidance, runner schema, and H1/H2/H3 validation.',
 )
 
 for (const token of [

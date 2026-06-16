@@ -234,7 +234,7 @@
     "Gift amount, restriction status, and endowment status are coded from public language and need campaign-report or accounting confirmation for publication-grade estimates.",
     "The historical comparison to Vanderbilt, Carnegie, and Stanford requires a separate cross-era wealth and institution-founding dataset."
   ],
-  "claimAdjudication": {
+  "ResearchVagueClaim": {
     "originalClaim": "Despite being far wealthier in absolute terms than Vanderbilt or Carnegie or Stanford, and being directly positioned in an industry that could benefit from it, no tech elite has ever founded a university, and few have even given endowments.",
     "template": [
       {

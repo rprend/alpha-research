@@ -326,7 +326,7 @@ const result = {
     'Gift amount, restriction status, and endowment status are coded from public language and need campaign-report or accounting confirmation for publication-grade estimates.',
     'The historical comparison to Vanderbilt, Carnegie, and Stanford requires a separate cross-era wealth and institution-founding dataset.',
   ],
-  claimAdjudication: {
+  ResearchVagueClaim: {
     originalClaim: claim,
     template,
     decomposedClaims,
@@ -452,7 +452,7 @@ const foundingCategories = [...gifts.reduce((map, row) => map.set(row.foundingCa
   .map(([label, value]) => ({ label, value }))
   .sort((a, b) => b.value - a.value)
 
-const reportMd = `# University Donation Claim Adjudication
+const reportMd = `# ResearchVagueClaim Workflow: University Donation Claim
 
 ## Executive Summary
 
@@ -523,11 +523,11 @@ ${hypothesisRatings.map((item) => `### ${item.hypothesisId}: ${item.label}\n\n**
 
 ## Alternative Explanations
 
-${result.claimAdjudication.alternativeExplanations.map((item) => `- ${item}`).join('\n')}
+${result.ResearchVagueClaim.alternativeExplanations.map((item) => `- ${item}`).join('\n')}
 
 ## Failure Modes
 
-${result.claimAdjudication.failureModes.map((item) => `- ${item}`).join('\n')}
+${result.ResearchVagueClaim.failureModes.map((item) => `- ${item}`).join('\n')}
 
 ## Interpretation
 
@@ -547,7 +547,7 @@ const reportHtml = `<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>University Donation Claim Adjudication</title>
+  <title>ResearchVagueClaim Workflow: University Donation Claim</title>
   <style>
     body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; color: #111827; background: #fff; }
     main { max-width: 980px; margin: 0 auto; padding: 40px 24px 72px; line-height: 1.55; }
@@ -607,9 +607,9 @@ writeFileSync(join(outDir, 'tech-destination.svg'), barSvg('Tech-Linked Major Gi
 writeFileSync(join(outDir, 'founding-categories.svg'), countSvg('Gift/Founding Categories in Seed Dataset', foundingCategories))
 
 function workflowMarkdown() {
-  return `# Generic Claim Adjudication Workflow
+  return `# ResearchVagueClaim Workflow
 
-This workflow converts an arbitrary connotative claim into testable components, checks data availability before overclaiming, and rates the claim using H1/H2/H3.
+ResearchVagueClaim converts an arbitrary vague, connotative, rhetorical, or internet-native claim into testable components, checks data availability before overclaiming, and rates the claim using H1/H2/H3.
 
 ## Inputs
 
@@ -652,7 +652,7 @@ Each rating must include:
 
 \`\`\`json
 {
-  "claimAdjudication": {
+  "ResearchVagueClaim": {
     "originalClaim": "...",
     "decomposedClaims": [],
     "dataSourcePlan": [],

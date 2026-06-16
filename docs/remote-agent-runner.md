@@ -36,7 +36,7 @@ If Codex exits successfully but the required deliverable files are missing or in
 
 `result.json` must parse as a JSON object with `answer`, `claims`, `evidence`, `confidence`, `limitations`, and `sourceDatasetIds`. `tables` and `charts` are optional arrays for companion metadata. Claims should reference evidence records so agents can inspect why the answer is trustworthy without reading the whole report.
 
-Claim-adjudication runs use the same artifact bundle, with an additional structured contract inside `result.json`. When a user asks Alpha Research to test, rate, decompose, fact-check, or adjudicate a broad claim, the runner prompt requires a `claimAdjudication` object with:
+ResearchVagueClaim workflow runs use the same artifact bundle, with an additional structured contract inside `result.json`. When a user asks Alpha Research to test, rate, decompose, fact-check, or adjudicate a broad claim, the runner prompt requires a `ResearchVagueClaim` object with:
 
 - `originalClaim`: the claim in its native wording.
 - `decomposedClaims`: falsifiable empirical subclaims, plus any definitional, normative, or non-observable residues.

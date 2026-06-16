@@ -1,10 +1,10 @@
-# University Donation Claim Adjudication
+# ResearchVagueClaim Workflow: University Donation Claim
 
-This experiment applies the generic claim-adjudication workflow to the claim that modern tech elites have not founded universities and rarely endow them.
+This experiment applies the **ResearchVagueClaim workflow** to the claim that modern tech elites have not founded universities and rarely endow them.
 
 ## Primary Artifacts
 
-- `workflow.md`: reusable workflow for arbitrary connotative claims.
+- `workflow.md`: reusable ResearchVagueClaim workflow for arbitrary vague, connotative, rhetorical, or internet-native claims.
 - `report.md`: human-readable case-study report.
 - `report.html`: rendered standalone report with charts.
 - `artifacts/result.json`: structured H1/H2/H3 adjudication result.

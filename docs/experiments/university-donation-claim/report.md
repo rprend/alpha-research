@@ -1,4 +1,4 @@
-# University Donation Claim Adjudication
+# ResearchVagueClaim Workflow: University Donation Claim
 
 ## Executive Summary
 

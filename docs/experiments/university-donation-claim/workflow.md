@@ -1,6 +1,6 @@
-# Generic Claim Adjudication Workflow
+# ResearchVagueClaim Workflow
 
-This workflow converts an arbitrary connotative claim into testable components, checks data availability before overclaiming, and rates the claim using H1/H2/H3.
+ResearchVagueClaim converts an arbitrary vague, connotative, rhetorical, or internet-native claim into testable components, checks data availability before overclaiming, and rates the claim using H1/H2/H3.
 
 ## Inputs
 
@@ -58,7 +58,7 @@ Each rating must include:
 
 ```json
 {
-  "claimAdjudication": {
+  "ResearchVagueClaim": {
     "originalClaim": "...",
     "decomposedClaims": [],
     "dataSourcePlan": [],
