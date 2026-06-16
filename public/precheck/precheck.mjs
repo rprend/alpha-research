@@ -283,9 +283,20 @@ async function collectReviewerData(repo, reviewer) {
 }
 
 async function synthesizeReviewer(repo, reviewer, paths, data) {
-  console.log('\nSynthesizing reviewer profile with Claude Code...')
-  const prompt = synthesisPrompt(repo, reviewer, paths)
-  const result = await runClaude(prompt, dirname(paths.raw))
+  console.log('\nSynthesizing reviewer evidence map with Claude Code...')
+  const evidenceMap = await runClaude(evidenceMapPrompt(repo, reviewer), paths.raw)
+  writeFileSync(join(paths.synthesized, 'evidence-map.md'), evidenceMap)
+
+  console.log('Synthesizing reviewer patterns...')
+  const reviewerPatterns = await runClaude(patternSynthesisPrompt(repo, reviewer, paths), paths.root)
+  writeFileSync(join(paths.synthesized, 'reviewer-patterns.md'), reviewerPatterns)
+
+  console.log('Filtering generic patterns...')
+  const filteredPatterns = await runClaude(antiGenericFilterPrompt(repo, reviewer, paths), paths.root)
+  writeFileSync(join(paths.synthesized, 'filtered-patterns.md'), filteredPatterns)
+
+  console.log('Writing final reviewer artifacts...')
+  const result = await runClaude(finalArtifactsPrompt(repo, reviewer, paths), paths.root)
   const sections = parseClaudeSections(result)
 
   writeFileSync(join(paths.synthesized, 'reviewer-profile.md'), sections.profile || fallbackProfile(reviewer, data))
@@ -293,38 +304,209 @@ async function synthesizeReviewer(repo, reviewer, paths, data) {
   writeFileSync(join(paths.synthesized, 'review-prompt.md'), sections.prompt || fallbackPrompt(reviewer))
 }
 
-function synthesisPrompt(repo, reviewer, paths) {
-  return `You are analyzing historical GitHub PR review comments from one reviewer.
+function evidenceMapPrompt(repo, reviewer) {
+  return `You are mining historical GitHub PR review data to infer a reviewer's tacit review model.
 
 Repository: ${repo.fullName}
 Reviewer: ${reviewer}
 
 Input files:
+- comments.json
+- reviews.json
+- prs.json
+
+Do not summarize the reviewer as "cares about tests," "likes readability," or "prefers clean code."
+Those are topics. Mine for review moves: specific triggers, mechanisms, distinctions, failure modes, representative cases, and reusable pre-review actions.
+
+First produce an evidence map. Do not synthesize the final persona yet.
+
+Extract evidence into these buckets:
+
+1. Hidden mechanisms the reviewer seems to notice
+2. False explanations or rejected approaches
+3. Repeated failure modes
+4. Useful distinctions
+5. Local procedures
+6. Before/after deltas
+7. Tacit taste judgments
+8. Review triggers
+9. Evidence of what the reviewer does not care about
+
+For each evidence item, include:
+- Bucket
+- Short name
+- Raw quote
+- PR number
+- File/path if available
+- What the author did, when inferable from the comment or diff hunk
+- What the reviewer noticed
+- Your interpretation
+- Confidence: high / medium / low
+
+Use short quotes. Prefer concrete examples over broad claims.`
+}
+
+function patternSynthesisPrompt(repo, reviewer, paths) {
+  return `Using the evidence map, synthesize the reviewer persona.
+
+Repository: ${repo.fullName}
+Reviewer: ${reviewer}
+
+Input files:
+- ${join(paths.synthesized, 'evidence-map.md')}
 - ${join(paths.raw, 'comments.json')}
 - ${join(paths.raw, 'reviews.json')}
 - ${join(paths.raw, 'prs.json')}
 
-Read those files and produce exactly three delimited markdown sections:
+The goal is not a personality profile. The goal is a predictive model of how this reviewer reviews code.
+
+Produce 12-20 reviewer patterns. Each pattern must include:
+
+## [Pattern name]
+
+Review shape:
+Choose one or two:
+- hidden mechanism
+- false explanation
+- useful distinction
+- repeated failure mode
+- local procedure
+- before/after delta
+- unresolved tension
+- named type
+- transferable frame
+- operationalized taste
+- bottleneck
+- compression
+
+Reviewer move:
+What the reviewer tends to notice or ask for.
+
+Mechanism:
+Why this matters technically, architecturally, or product-wise.
+
+Concrete trigger:
+What kind of diff, code, test, UI, migration, API, or workflow tends to provoke this review.
+
+Likely comment:
+A realistic comment this reviewer might leave, written in their review style but not impersonating exact wording.
+
+How to precheck:
+A concrete action the author should take before requesting review.
+
+Representative examples:
+Include 2-5 concrete historical examples for each high-value reviewer pattern.
+Each example must include:
+- PR number
+- File/path if available
+- What the author did
+- What the reviewer noticed
+- The reviewer's raw quote
+- The general lesson this example teaches
+- How a future author would detect the same issue before review
+
+Evidence strength:
+Explain whether this pattern is based on one strong example, several related examples, or repeated behavior across PRs.
+
+Confidence:
+high / medium / low
+
+Reject generic patterns.
+Bad: "The reviewer cares about tests."
+Good: "The reviewer asks for tests when a helper encodes branching business behavior that future call sites could accidentally bypass."`
+}
+
+function antiGenericFilterPrompt(repo, reviewer, paths) {
+  return `Review the synthesized reviewer patterns and remove or rewrite generic ones.
+
+Repository: ${repo.fullName}
+Reviewer: ${reviewer}
+
+Input files:
+- ${join(paths.synthesized, 'reviewer-patterns.md')}
+- ${join(paths.synthesized, 'evidence-map.md')}
+
+A bad pattern sounds like:
+- "Reviewer cares about readability."
+- "Reviewer wants better tests."
+- "Reviewer prefers simple code."
+- "Reviewer comments on architecture."
+
+A good pattern sounds like:
+- "Reviewer objects when a public API encodes a temporary migration state because it makes cleanup harder to prove."
+- "Reviewer asks for tests around the boundary where mocked harness state diverges from production state."
+- "Reviewer pushes back on abstractions that hide the lifecycle event that actually determines correctness."
+
+For each pattern, ask:
+
+1. Is there a mechanism?
+2. Is there a specific trigger?
+3. Is there a repeated failure mode or distinction?
+4. Is there a reusable pre-review action?
+5. Is it supported by concrete quotes?
+6. Would this help predict a future review comment?
+
+If the answer is no to 1, 2, or 5, discard or rewrite it.
+
+Prefer patterns with 2-5 representative examples. A pattern with only one example can survive only if the mechanism is especially strong and the quote is specific. Discard patterns that cannot provide at least one concrete representative example.
+
+Rank the remaining patterns by:
+- Strength of mechanism
+- Strength of evidence
+- Predictive usefulness
+- Specificity to this reviewer
+
+Output only the strongest patterns. Preserve the representative examples under each pattern.`
+}
+
+function finalArtifactsPrompt(repo, reviewer, paths) {
+  return `Using the filtered reviewer patterns, produce exactly three delimited markdown sections.
+
+Repository: ${repo.fullName}
+Reviewer: ${reviewer}
+
+Input files:
+- ${join(paths.synthesized, 'filtered-patterns.md')}
+- ${join(paths.synthesized, 'evidence-map.md')}
 
 --- reviewer-profile.md ---
 # Reviewer Profile: ${reviewer}
 
 Include:
-- Summary
-- Recurring Themes
-- Common Gotchas
-- Before Requesting Review checklist
-- Evidence with PR numbers and short quotes from prior comments
+- One-paragraph predictive summary
+- Top reviewer patterns ranked by predictive strength
+- Common review triggers
+- Tacit distinctions this reviewer applies
+- Repeated failure modes they catch
+- What they seem not to care about
+- Evidence table with PR numbers and short quotes
+
+For each top pattern, carry forward 2-5 representative examples when available. Each example should include the PR number, file/path if available, what the author did, what the reviewer noticed, a short quote, the general lesson, and how to detect the same issue before review.
 
 --- claude-reviewer.md ---
 # Review Like ${reviewer}
 
 Reusable Claude Code instructions for reviewing future diffs like this reviewer.
 
+Write this as operational instructions:
+- What to inspect first
+- What diff shapes to scrutinize
+- What tests or validation to expect
+- What architectural/product risks to look for
+- What comments to avoid because they are too generic
+- How to distinguish high-confidence likely comments from speculation
+- How to use the representative examples as analogies for current diffs
+
 --- review-prompt.md ---
 Short copy-paste prompt for a future branch review.
 
-Analyze recurring review themes, code patterns, tests, type-safety expectations, naming/style, architecture/design, frontend/product behavior, examples with citations, common gotchas, and what this reviewer probably does not care about.
+The prompt should ask Claude Code to:
+1. Read the current branch diff.
+2. Apply the reviewer patterns from claude-reviewer.md.
+3. Produce likely review comments ranked by confidence.
+4. Cite the matching historical reviewer pattern and representative example.
+5. Suggest the smallest fix or validation step.
+6. Separate likely comments from speculative ones.
 
 Be concrete. Avoid personal attacks. Treat this as a professional review-preparation profile.`
 }
