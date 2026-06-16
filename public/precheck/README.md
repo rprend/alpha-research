@@ -14,7 +14,7 @@ Then run from inside a GitHub repository:
 precheck
 ```
 
-The CLI uses local `git`, `gh`, and `claude` authentication. It does not implement GitHub OAuth and does not ask for or store GitHub tokens.
+The CLI uses local `git`, `gh`, and either Claude Code or Codex CLI authentication. It tries Claude Code first for synthesis, falls back to Codex CLI if Claude is unavailable or fails, and errors only when neither runner works. It does not implement GitHub OAuth and does not ask for or store GitHub tokens.
 
 Generated data is written under:
 
@@ -30,3 +30,10 @@ Raw GitHub data is stored in `raw/`. Claude-generated reviewer artifacts are sto
 - `reviewer-profile.md`: final reviewer profile.
 - `claude-reviewer.md`: reusable Claude Code review instructions.
 - `review-prompt.md`: copy-paste prompt for a future branch review.
+- `reviewer-skill.md`: the generated reviewer skill content.
+
+Precheck also installs the final reviewer output as a Codex skill:
+
+```text
+~/.codex/skills/<reviewer-name>-reviewer/SKILL.md
+```

@@ -10,6 +10,7 @@ const RECENT_PR_LIMIT = 100
 const COMMENT_LIMIT = 500
 const REVIEW_LIMIT = 200
 const PRECHECK_HOME = join(homedir(), '.precheck')
+const CODEX_HOME = process.env.CODEX_HOME || join(homedir(), '.codex')
 
 const args = process.argv.slice(2)
 const options = parseArgs(args)
@@ -26,6 +27,7 @@ async function main() {
   }
 
   await checkPrerequisites()
+  const agentRunners = detectAgentRunners()
   const repo = await detectRepo()
   const reviewer = options.reviewer || await chooseReviewer(repo)
   const paths = repoPaths(repo, reviewer)
@@ -40,7 +42,7 @@ async function main() {
 
   console.log(`\nSaved raw GitHub review data in ${paths.raw}`)
 
-  await synthesizeReviewer(repo, reviewer, paths, data)
+  await synthesizeReviewer(repo, reviewer, paths, data, agentRunners)
   printSummary(reviewer, paths, data)
 }
 
@@ -54,7 +56,7 @@ Usage:
   precheck --reviewer <github-login>
   precheck --interactive
 
-Run inside a GitHub repository. precheck uses local git, gh, and claude auth.
+Run inside a GitHub repository. precheck uses local git, gh, and Claude Code or Codex CLI auth.
 It stores reviewer data under ~/.precheck and never asks for GitHub tokens.`)
 }
 
@@ -88,17 +90,39 @@ function parseArgs(rawArgs) {
 async function checkPrerequisites() {
   requireCommand('git', 'Install Git: https://git-scm.com/downloads')
   requireCommand('gh', 'Install GitHub CLI: https://cli.github.com/')
-  requireCommand('claude', 'Install Claude Code CLI: https://docs.anthropic.com/en/docs/claude-code')
 
   const ghAuth = spawnSync('gh', ['auth', 'status'], { encoding: 'utf8' })
   if (ghAuth.status !== 0) {
     throw new Error('GitHub CLI is not authenticated. Run: gh auth login')
   }
+}
 
+function detectAgentRunners() {
+  const runners = []
   const claudeCheck = spawnSync('claude', ['--version'], { encoding: 'utf8' })
-  if (claudeCheck.status !== 0) {
-    throw new Error('Claude Code CLI is installed but not ready. Authenticate Claude Code locally, then retry.')
+  if (claudeCheck.status === 0) {
+    runners.push({
+      name: 'Claude Code',
+      command: 'claude',
+      args: (prompt) => ['-p', prompt],
+    })
   }
+
+  const codexCheck = spawnSync('codex', ['--version'], { encoding: 'utf8' })
+  if (codexCheck.status === 0) {
+    runners.push({
+      name: 'Codex CLI',
+      command: 'codex',
+      args: (prompt) => ['exec', '--skip-git-repo-check', '--sandbox', 'read-only', prompt],
+    })
+  }
+
+  if (runners.length === 0) {
+    throw new Error('Precheck requires Claude Code CLI or Codex CLI for synthesis. Install and authenticate one of them, then retry.')
+  }
+
+  console.log(`Using synthesis runner fallback order: ${runners.map((runner) => runner.name).join(' -> ')}`)
+  return runners
 }
 
 function requireCommand(command, installHint) {
@@ -282,26 +306,30 @@ async function collectReviewerData(repo, reviewer) {
   return { prs: touchedPrs, comments, reviews }
 }
 
-async function synthesizeReviewer(repo, reviewer, paths, data) {
-  console.log('\nSynthesizing reviewer evidence map with Claude Code...')
-  const evidenceMap = await runClaude(evidenceMapPrompt(repo, reviewer), paths.raw)
+async function synthesizeReviewer(repo, reviewer, paths, data, agentRunners) {
+  console.log('\nSynthesizing reviewer evidence map...')
+  const evidenceMap = await runAgent(agentRunners, evidenceMapPrompt(repo, reviewer), paths.raw)
   writeFileSync(join(paths.synthesized, 'evidence-map.md'), evidenceMap)
 
   console.log('Synthesizing reviewer patterns...')
-  const reviewerPatterns = await runClaude(patternSynthesisPrompt(repo, reviewer, paths), paths.root)
+  const reviewerPatterns = await runAgent(agentRunners, patternSynthesisPrompt(repo, reviewer, paths), paths.root)
   writeFileSync(join(paths.synthesized, 'reviewer-patterns.md'), reviewerPatterns)
 
   console.log('Filtering generic patterns...')
-  const filteredPatterns = await runClaude(antiGenericFilterPrompt(repo, reviewer, paths), paths.root)
+  const filteredPatterns = await runAgent(agentRunners, antiGenericFilterPrompt(repo, reviewer, paths), paths.root)
   writeFileSync(join(paths.synthesized, 'filtered-patterns.md'), filteredPatterns)
 
   console.log('Writing final reviewer artifacts...')
-  const result = await runClaude(finalArtifactsPrompt(repo, reviewer, paths), paths.root)
+  const result = await runAgent(agentRunners, finalArtifactsPrompt(repo, reviewer, paths), paths.root)
   const sections = parseClaudeSections(result)
 
   writeFileSync(join(paths.synthesized, 'reviewer-profile.md'), sections.profile || fallbackProfile(reviewer, data))
   writeFileSync(join(paths.synthesized, 'claude-reviewer.md'), sections.instructions || fallbackInstructions(reviewer))
   writeFileSync(join(paths.synthesized, 'review-prompt.md'), sections.prompt || fallbackPrompt(reviewer))
+
+  const skill = installReviewerSkill(reviewer, paths)
+  console.log(`Installed reviewer skill: ${skill.name}`)
+  console.log(`- Skill: ${skill.path}`)
 }
 
 function evidenceMapPrompt(repo, reviewer) {
@@ -511,9 +539,24 @@ The prompt should ask Claude Code to:
 Be concrete. Avoid personal attacks. Treat this as a professional review-preparation profile.`
 }
 
-function runClaude(prompt, cwd) {
+async function runAgent(agentRunners, prompt, cwd) {
+  const failures = []
+  for (const agentRunner of agentRunners) {
+    try {
+      console.log(`- Trying ${agentRunner.name}...`)
+      return await runAgentOnce(agentRunner, prompt, cwd)
+    } catch (error) {
+      failures.push(`${agentRunner.name}: ${error.message}`)
+      console.log(`- ${agentRunner.name} failed; ${agentRunner === agentRunners.at(-1) ? 'no fallback remains.' : 'trying next runner.'}`)
+    }
+  }
+
+  throw new Error(`All synthesis runners failed.\n${failures.join('\n\n')}`)
+}
+
+function runAgentOnce(agentRunner, prompt, cwd) {
   return new Promise((resolve, reject) => {
-    const child = spawn('claude', ['-p', prompt], { cwd, stdio: ['ignore', 'pipe', 'pipe'] })
+    const child = spawn(agentRunner.command, agentRunner.args(prompt), { cwd, stdio: ['ignore', 'pipe', 'pipe'] })
     let stdout = ''
     let stderr = ''
     child.stdout.on('data', (chunk) => { stdout += chunk })
@@ -521,12 +564,90 @@ function runClaude(prompt, cwd) {
     child.on('error', reject)
     child.on('close', (code) => {
       if (code !== 0) {
-        reject(new Error(`Claude Code synthesis failed. Authenticate Claude Code locally if needed.\n${stderr.trim()}`))
+        reject(new Error(`${agentRunner.name} synthesis failed. Authenticate ${agentRunner.name} locally if needed.\n${stderr.trim()}`))
       } else {
         resolve(stdout)
       }
     })
   })
+}
+
+function installReviewerSkill(reviewer, paths) {
+  const skillName = `${slugifyReviewer(reviewer)}-reviewer`
+  const skillDir = join(CODEX_HOME, 'skills', skillName)
+  const skillPath = join(skillDir, 'SKILL.md')
+  const instructionsPath = join(paths.synthesized, 'claude-reviewer.md')
+  const profilePath = join(paths.synthesized, 'reviewer-profile.md')
+  const promptPath = join(paths.synthesized, 'review-prompt.md')
+
+  const instructions = existsSync(instructionsPath) ? readFileSync(instructionsPath, 'utf8').trim() : fallbackInstructions(reviewer).trim()
+  const profile = existsSync(profilePath) ? readFileSync(profilePath, 'utf8').trim() : ''
+  const reviewPrompt = existsSync(promptPath) ? readFileSync(promptPath, 'utf8').trim() : fallbackPrompt(reviewer).trim()
+  const content = reviewerSkillContent(skillName, reviewer, instructions, profile, reviewPrompt, paths)
+
+  mkdirSync(skillDir, { recursive: true })
+  writeFileSync(skillPath, content)
+  writeFileSync(join(paths.synthesized, 'reviewer-skill.md'), content)
+
+  return { name: skillName, path: skillPath }
+}
+
+function reviewerSkillContent(skillName, reviewer, instructions, profile, reviewPrompt, paths) {
+  return `---
+name: ${skillName}
+description: Review the current branch like ${reviewer}. Use this when asked to precheck a branch, run a reviewer-specific review, or make changes that ${reviewer} would likely request.
+---
+
+# Review Like ${reviewer}
+
+Use this skill when the user asks for a review as ${reviewer}, asks to preempt ${reviewer}'s review, or says something like:
+
+\`\`\`text
+Run a review of my branch as ${reviewer}. Make the changes that they would suggest.
+\`\`\`
+
+## Workflow
+
+1. Inspect the current branch diff against the repository's main branch.
+2. Apply the reviewer patterns below to identify likely comments from ${reviewer}.
+3. Rank likely comments by confidence and cite the matching historical pattern or representative example when available.
+4. Separate likely comments from speculative ones.
+5. Make the smallest reasonable code, test, documentation, or validation changes that would preempt high-confidence comments.
+6. Run the relevant tests or checks for any changes you make.
+7. Report what changed and which reviewer patterns were addressed.
+
+## Reviewer Instructions
+
+${instructions}
+
+## Reviewer Profile
+
+${profile || 'No reviewer profile was generated. Use the reviewer instructions above and the raw Precheck artifacts when available.'}
+
+## Review Prompt
+
+${reviewPrompt}
+
+## Source Artifacts
+
+Precheck generated this skill from:
+
+- \`${join(paths.synthesized, 'evidence-map.md')}\`
+- \`${join(paths.synthesized, 'reviewer-patterns.md')}\`
+- \`${join(paths.synthesized, 'filtered-patterns.md')}\`
+- \`${join(paths.synthesized, 'reviewer-profile.md')}\`
+- \`${join(paths.synthesized, 'claude-reviewer.md')}\`
+- \`${join(paths.synthesized, 'review-prompt.md')}\`
+`
+}
+
+function slugifyReviewer(reviewer) {
+  return String(reviewer)
+    .trim()
+    .replace(/^@/, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'reviewer'
 }
 
 function parseClaudeSections(text) {
@@ -581,12 +702,14 @@ Review my current branch diff as ${reviewer}. Identify likely comments they woul
 }
 
 function printSummary(reviewer, paths, data) {
+  const skillName = `${slugifyReviewer(reviewer)}-reviewer`
   console.log(`\nPrecheck profile ready for ${reviewer}`)
   console.log(`- Comments: ${data.comments.length}`)
   console.log(`- Reviews: ${data.reviews.length}`)
   console.log(`- Profile: ${join(paths.synthesized, 'reviewer-profile.md')}`)
   console.log(`- Claude instructions: ${join(paths.synthesized, 'claude-reviewer.md')}`)
   console.log(`- Prompt: ${join(paths.synthesized, 'review-prompt.md')}`)
+  console.log(`- Skill: ${join(CODEX_HOME, 'skills', skillName, 'SKILL.md')}`)
 
   const profilePath = join(paths.synthesized, 'reviewer-profile.md')
   if (existsSync(profilePath)) {
