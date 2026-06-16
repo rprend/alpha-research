@@ -42,38 +42,88 @@
     <style>
       .precheck-flow {
         display: grid;
-        gap: 12px;
-        margin: 28px 0;
+        gap: 22px;
+        margin: 30px 0 36px;
       }
 
-      .precheck-flow-row {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .precheck-node {
+      .precheck-stage {
         border: 1px solid rgba(24, 24, 27, 0.14);
         border-radius: 8px;
-        padding: 14px;
         background: #fff;
+        overflow: hidden;
       }
 
-      .precheck-node strong {
-        display: block;
-        margin-bottom: 6px;
+      .precheck-stage-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px 18px;
+        border-bottom: 1px solid rgba(24, 24, 27, 0.1);
+        background: #f7f5f1;
       }
 
-      .precheck-node span {
-        color: #57534e;
-        font-size: 0.94rem;
-        line-height: 1.45;
+      .precheck-stage-header strong {
+        color: #292524;
+        font-size: 0.92rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
       }
 
-      .precheck-arrow {
+      .precheck-stage-header span {
         color: #78716c;
-        font-size: 0.9rem;
-        margin: 0 0 0 14px;
+        font-size: 0.92rem;
+      }
+
+      .precheck-steps {
+        display: grid;
+      }
+
+      .precheck-step {
+        display: grid;
+        grid-template-columns: 42px minmax(120px, 0.34fr) minmax(0, 1fr);
+        gap: 18px;
+        align-items: baseline;
+        padding: 16px 18px;
+      }
+
+      .precheck-step + .precheck-step {
+        border-top: 1px solid rgba(24, 24, 27, 0.1);
+      }
+
+      .precheck-step-number {
+        display: inline-flex;
+        width: 30px;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(24, 24, 27, 0.18);
+        border-radius: 999px;
+        color: #57534e;
+        font-size: 0.84rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .precheck-step strong {
+        color: #292524;
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+
+      .precheck-step span:last-child {
+        color: #57534e;
+        font-size: 0.96rem;
+        line-height: 1.55;
+      }
+
+      .precheck-note {
+        border-left: 2px solid #292524;
+        color: #57534e;
+        font-size: 0.96rem;
+        line-height: 1.55;
+        margin: 0;
+        padding-left: 14px;
       }
 
       .precheck-command {
@@ -82,8 +132,22 @@
       }
 
       @media (max-width: 820px) {
-        .precheck-flow-row {
-          grid-template-columns: 1fr;
+        .precheck-stage-header {
+          display: block;
+        }
+
+        .precheck-stage-header span {
+          display: block;
+          margin-top: 4px;
+        }
+
+        .precheck-step {
+          grid-template-columns: 36px 1fr;
+          gap: 10px 14px;
+        }
+
+        .precheck-step span:last-child {
+          grid-column: 2;
         }
       }
     </style>
@@ -165,43 +229,65 @@
 
               <h2>What happens</h2>
               <div class="precheck-flow" aria-label="Precheck flow diagram">
-                <div class="precheck-flow-row">
-                  <div class="precheck-node">
-                    <strong>Install</strong>
-                    <span>Download the Precheck CLI from alpharesearch.nyc into ~/.local/bin/precheck.</span>
+                <section class="precheck-stage" aria-labelledby="precheck-setup-title">
+                  <div class="precheck-stage-header">
+                    <strong id="precheck-setup-title">Setup and collection</strong>
+                    <span>Local CLI, local auth, GitHub review history</span>
                   </div>
-                  <div class="precheck-node">
-                    <strong>Detect repo</strong>
-                    <span>Read git origin, identify the GitHub owner and repository, and verify gh and Claude Code auth.</span>
+                  <div class="precheck-steps">
+                    <div class="precheck-step">
+                      <span class="precheck-step-number">1</span>
+                      <strong>Install</strong>
+                      <span>Download the Precheck CLI from alpharesearch.nyc into <code>~/.local/bin/precheck</code>.</span>
+                    </div>
+                    <div class="precheck-step">
+                      <span class="precheck-step-number">2</span>
+                      <strong>Detect repo</strong>
+                      <span>Read git origin, identify the GitHub owner and repository, and verify <code>gh</code> and Claude Code auth.</span>
+                    </div>
+                    <div class="precheck-step">
+                      <span class="precheck-step-number">3</span>
+                      <strong>Select reviewer</strong>
+                      <span>Use <code>--reviewer</code>, interactive selection, or recent PR activity to choose the reviewer to model.</span>
+                    </div>
+                    <div class="precheck-step">
+                      <span class="precheck-step-number">4</span>
+                      <strong>Collect history</strong>
+                      <span>Fetch recent PR reviews and inline comments through <code>gh api</code>, then save raw JSON locally.</span>
+                    </div>
                   </div>
-                  <div class="precheck-node">
-                    <strong>Select reviewer</strong>
-                    <span>Use --reviewer, interactive selection, or recent PR activity to choose the reviewer to model.</span>
+                </section>
+
+                <p class="precheck-note">Then Claude Code runs four local synthesis passes. Each pass writes an artifact that the next pass reads.</p>
+
+                <section class="precheck-stage" aria-labelledby="precheck-synthesis-title">
+                  <div class="precheck-stage-header">
+                    <strong id="precheck-synthesis-title">Reviewer synthesis</strong>
+                    <span>Evidence first, then patterns, then final instructions</span>
                   </div>
-                  <div class="precheck-node">
-                    <strong>Collect history</strong>
-                    <span>Fetch recent PR reviews and inline comments through gh api and save raw JSON locally.</span>
+                  <div class="precheck-steps">
+                    <div class="precheck-step">
+                      <span class="precheck-step-number">1</span>
+                      <strong>Evidence map</strong>
+                      <span>Extract review moves, mechanisms, distinctions, failure modes, triggers, and representative cases.</span>
+                    </div>
+                    <div class="precheck-step">
+                      <span class="precheck-step-number">2</span>
+                      <strong>Pattern synthesis</strong>
+                      <span>Create reviewer patterns with 2-5 historical examples for each high-value pattern.</span>
+                    </div>
+                    <div class="precheck-step">
+                      <span class="precheck-step-number">3</span>
+                      <strong>Anti-generic filter</strong>
+                      <span>Remove patterns that are merely topics and rank the rest by mechanism, evidence, and predictive value.</span>
+                    </div>
+                    <div class="precheck-step">
+                      <span class="precheck-step-number">4</span>
+                      <strong>Final artifacts</strong>
+                      <span>Write a reviewer profile, reusable Claude instructions, and a copy-paste future review prompt.</span>
+                    </div>
                   </div>
-                </div>
-                <div class="precheck-arrow" aria-hidden="true">Then Claude Code runs four local synthesis passes:</div>
-                <div class="precheck-flow-row">
-                  <div class="precheck-node">
-                    <strong>1. Evidence map</strong>
-                    <span>Extract review moves, mechanisms, distinctions, failure modes, triggers, and representative cases.</span>
-                  </div>
-                  <div class="precheck-node">
-                    <strong>2. Pattern synthesis</strong>
-                    <span>Create reviewer patterns with 2-5 historical examples for each high-value pattern.</span>
-                  </div>
-                  <div class="precheck-node">
-                    <strong>3. Anti-generic filter</strong>
-                    <span>Remove patterns that are merely topics and rank the rest by mechanism, evidence, and predictive value.</span>
-                  </div>
-                  <div class="precheck-node">
-                    <strong>4. Final artifacts</strong>
-                    <span>Write a reviewer profile, reusable Claude instructions, and a copy-paste future review prompt.</span>
-                  </div>
-                </div>
+                </section>
               </div>
 
               <h2>The output</h2>
