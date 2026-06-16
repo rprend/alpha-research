@@ -32,8 +32,9 @@ Raw GitHub data is stored in `raw/`. Claude-generated reviewer artifacts are sto
 - `review-prompt.md`: copy-paste prompt for a future branch review.
 - `reviewer-skill.md`: the generated reviewer skill content.
 
-Precheck also installs the final reviewer output as a Codex skill:
+Precheck also installs the final reviewer output as a skill for the runner that produced the final artifacts:
 
 ```text
-~/.codex/skills/<reviewer-name>-reviewer/SKILL.md
+~/.claude/skills/<reviewer-name>-reviewer/SKILL.md  # when Claude Code succeeds
+~/.codex/skills/<reviewer-name>-reviewer/SKILL.md   # when Codex CLI succeeds
 ```

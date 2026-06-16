@@ -10,6 +10,7 @@ const RECENT_PR_LIMIT = 100
 const COMMENT_LIMIT = 500
 const REVIEW_LIMIT = 200
 const PRECHECK_HOME = join(homedir(), '.precheck')
+const CLAUDE_HOME = process.env.CLAUDE_HOME || join(homedir(), '.claude')
 const CODEX_HOME = process.env.CODEX_HOME || join(homedir(), '.codex')
 
 const args = process.argv.slice(2)
@@ -103,6 +104,7 @@ function detectAgentRunners() {
   if (claudeCheck.status === 0) {
     runners.push({
       name: 'Claude Code',
+      skillPlatform: 'claude',
       command: 'claude',
       args: (prompt) => ['-p', prompt],
     })
@@ -112,6 +114,7 @@ function detectAgentRunners() {
   if (codexCheck.status === 0) {
     runners.push({
       name: 'Codex CLI',
+      skillPlatform: 'codex',
       command: 'codex',
       args: (prompt) => ['exec', '--skip-git-repo-check', '--sandbox', 'read-only', prompt],
     })
@@ -309,26 +312,26 @@ async function collectReviewerData(repo, reviewer) {
 async function synthesizeReviewer(repo, reviewer, paths, data, agentRunners) {
   console.log('\nSynthesizing reviewer evidence map...')
   const evidenceMap = await runAgent(agentRunners, evidenceMapPrompt(repo, reviewer), paths.raw)
-  writeFileSync(join(paths.synthesized, 'evidence-map.md'), evidenceMap)
+  writeFileSync(join(paths.synthesized, 'evidence-map.md'), evidenceMap.output)
 
   console.log('Synthesizing reviewer patterns...')
   const reviewerPatterns = await runAgent(agentRunners, patternSynthesisPrompt(repo, reviewer, paths), paths.root)
-  writeFileSync(join(paths.synthesized, 'reviewer-patterns.md'), reviewerPatterns)
+  writeFileSync(join(paths.synthesized, 'reviewer-patterns.md'), reviewerPatterns.output)
 
   console.log('Filtering generic patterns...')
   const filteredPatterns = await runAgent(agentRunners, antiGenericFilterPrompt(repo, reviewer, paths), paths.root)
-  writeFileSync(join(paths.synthesized, 'filtered-patterns.md'), filteredPatterns)
+  writeFileSync(join(paths.synthesized, 'filtered-patterns.md'), filteredPatterns.output)
 
   console.log('Writing final reviewer artifacts...')
   const result = await runAgent(agentRunners, finalArtifactsPrompt(repo, reviewer, paths), paths.root)
-  const sections = parseClaudeSections(result)
+  const sections = parseClaudeSections(result.output)
 
   writeFileSync(join(paths.synthesized, 'reviewer-profile.md'), sections.profile || fallbackProfile(reviewer, data))
   writeFileSync(join(paths.synthesized, 'claude-reviewer.md'), sections.instructions || fallbackInstructions(reviewer))
   writeFileSync(join(paths.synthesized, 'review-prompt.md'), sections.prompt || fallbackPrompt(reviewer))
 
-  const skill = installReviewerSkill(reviewer, paths)
-  console.log(`Installed reviewer skill: ${skill.name}`)
+  const skill = installReviewerSkill(reviewer, paths, result.runner)
+  console.log(`Installed ${skill.platform} reviewer skill: ${skill.name}`)
   console.log(`- Skill: ${skill.path}`)
 }
 
@@ -544,7 +547,8 @@ async function runAgent(agentRunners, prompt, cwd) {
   for (const agentRunner of agentRunners) {
     try {
       console.log(`- Trying ${agentRunner.name}...`)
-      return await runAgentOnce(agentRunner, prompt, cwd)
+      const output = await runAgentOnce(agentRunner, prompt, cwd)
+      return { output, runner: agentRunner }
     } catch (error) {
       failures.push(`${agentRunner.name}: ${error.message}`)
       console.log(`- ${agentRunner.name} failed; ${agentRunner === agentRunners.at(-1) ? 'no fallback remains.' : 'trying next runner.'}`)
@@ -572,9 +576,11 @@ function runAgentOnce(agentRunner, prompt, cwd) {
   })
 }
 
-function installReviewerSkill(reviewer, paths) {
+function installReviewerSkill(reviewer, paths, agentRunner) {
   const skillName = `${slugifyReviewer(reviewer)}-reviewer`
-  const skillDir = join(CODEX_HOME, 'skills', skillName)
+  const platform = agentRunner?.skillPlatform || 'codex'
+  const skillHome = platform === 'claude' ? CLAUDE_HOME : CODEX_HOME
+  const skillDir = join(skillHome, 'skills', skillName)
   const skillPath = join(skillDir, 'SKILL.md')
   const instructionsPath = join(paths.synthesized, 'claude-reviewer.md')
   const profilePath = join(paths.synthesized, 'reviewer-profile.md')
@@ -589,7 +595,7 @@ function installReviewerSkill(reviewer, paths) {
   writeFileSync(skillPath, content)
   writeFileSync(join(paths.synthesized, 'reviewer-skill.md'), content)
 
-  return { name: skillName, path: skillPath }
+  return { name: skillName, path: skillPath, platform: platform === 'claude' ? 'Claude Code' : 'Codex' }
 }
 
 function reviewerSkillContent(skillName, reviewer, instructions, profile, reviewPrompt, paths) {
@@ -703,13 +709,16 @@ Review my current branch diff as ${reviewer}. Identify likely comments they woul
 
 function printSummary(reviewer, paths, data) {
   const skillName = `${slugifyReviewer(reviewer)}-reviewer`
+  const claudeSkillPath = join(CLAUDE_HOME, 'skills', skillName, 'SKILL.md')
+  const codexSkillPath = join(CODEX_HOME, 'skills', skillName, 'SKILL.md')
   console.log(`\nPrecheck profile ready for ${reviewer}`)
   console.log(`- Comments: ${data.comments.length}`)
   console.log(`- Reviews: ${data.reviews.length}`)
   console.log(`- Profile: ${join(paths.synthesized, 'reviewer-profile.md')}`)
   console.log(`- Claude instructions: ${join(paths.synthesized, 'claude-reviewer.md')}`)
   console.log(`- Prompt: ${join(paths.synthesized, 'review-prompt.md')}`)
-  console.log(`- Skill: ${join(CODEX_HOME, 'skills', skillName, 'SKILL.md')}`)
+  if (existsSync(claudeSkillPath)) console.log(`- Claude skill: ${claudeSkillPath}`)
+  if (existsSync(codexSkillPath)) console.log(`- Codex skill: ${codexSkillPath}`)
 
   const profilePath = join(paths.synthesized, 'reviewer-profile.md')
   if (existsSync(profilePath)) {
