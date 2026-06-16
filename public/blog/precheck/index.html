@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/newalpharesearchlogo/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/newalpharesearchlogo/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/newalpharesearchlogo/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/newalpharesearchlogo/apple-touch-icon.png" />
+    <link rel="manifest" href="/newalpharesearchlogo/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Precheck audits a specific reviewer in a git repo, finds common review patterns, and helps coding agents preempt the same comments before review."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://alpharesearch.nyc/blog/precheck/" />
+    <meta property="og:site_name" content="Alpha Research" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Precheck | Alpha Research" />
+    <meta
+      property="og:description"
+      content="Are you getting the same type of code reviews from the same people? Precheck helps you preempt them."
+    />
+    <meta property="og:url" content="https://alpharesearch.nyc/blog/precheck/" />
+    <meta property="og:image" content="https://alpharesearch.nyc/social/alpha-research-og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Alpha Research social preview image" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:published_time" content="2026-06-16" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Precheck | Alpha Research" />
+    <meta
+      name="twitter:description"
+      content="Precheck audits a specific reviewer in a git repo and helps coding agents preempt repeated review comments."
+    />
+    <meta name="twitter:image" content="https://alpharesearch.nyc/social/alpha-research-og.png" />
+    <meta name="twitter:image:alt" content="Alpha Research social preview image" />
+    <title>Precheck | Alpha Research</title>
+    <link rel="stylesheet" href="/docs-page.css" />
+    <style>
+      .precheck-flow {
+        display: grid;
+        gap: 12px;
+        margin: 28px 0;
+      }
+
+      .precheck-flow-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .precheck-node {
+        border: 1px solid rgba(24, 24, 27, 0.14);
+        border-radius: 8px;
+        padding: 14px;
+        background: #fff;
+      }
+
+      .precheck-node strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .precheck-node span {
+        color: #57534e;
+        font-size: 0.94rem;
+        line-height: 1.45;
+      }
+
+      .precheck-arrow {
+        color: #78716c;
+        font-size: 0.9rem;
+        margin: 0 0 0 14px;
+      }
+
+      .precheck-command {
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      @media (max-width: 820px) {
+        .precheck-flow-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Precheck",
+        "datePublished": "2026-06-16",
+        "dateModified": "2026-06-16",
+        "author": {
+          "@type": "Organization",
+          "name": "Alpha Research"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Alpha Research",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://alpharesearch.nyc/alpha-research-wordmark.png"
+          }
+        },
+        "image": "https://alpharesearch.nyc/social/alpha-research-og.png",
+        "mainEntityOfPage": "https://alpharesearch.nyc/blog/precheck/",
+        "description": "Precheck audits a specific reviewer in a git repo, finds common review patterns, and helps coding agents preempt the same comments before review."
+      }
+    </script>
+  </head>
+  <body>
+    <div class="docs-page">
+      <header class="nav-shell">
+        <div class="page-wrap nav-wrap">
+          <div class="topbar">
+            <a class="logo-link" href="/" aria-label="Alpha Research home">
+              <img class="logo-wordmark" src="/alpha-research-wordmark.png" alt="Alpha Research logo" />
+            </a>
+
+            <nav class="top-links" aria-label="Primary">
+              <a class="underlined-link" href="/cli/">RESEARCH CLI</a>
+              <a class="button-small ghost-button" href="/blog/">blog</a>
+              <a class="button-small ghost-button" href="https://dashboard.alpharesearch.nyc/">dashboard</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-shell">
+        <div class="page-wrap content-wrap">
+          <article class="doc-block post-block">
+            <div class="eyebrow">June 16, 2026</div>
+            <h1>Precheck</h1>
+            <div class="doc-copy">
+              <blockquote>
+                <p>
+                  Are you getting the same type of code reviews from the same people? Precheck helps with that.
+                  Precheck audits a specific reviewer in a git repo, checks for commonalities between the comments
+                  they leave, then creates a system to preempt their reviews before they happen.
+                </p>
+              </blockquote>
+
+              <p>
+                Code review feedback often has a shape. One reviewer catches missing lifecycle tests. Another notices
+                when an abstraction hides the actual boundary where correctness matters. Another asks for narrower
+                migrations, better fixtures, or clearer product states. The useful thing is not just that a reviewer
+                "cares about tests." The useful thing is knowing the specific review moves they make and the concrete
+                examples those moves came from.
+              </p>
+
+              <p>
+                Precheck is a small local tool for turning that history into a reviewer-specific preflight system. Run
+                it inside a GitHub repository, choose a reviewer, and it uses local GitHub CLI and Claude Code
+                authentication to build a profile from that reviewer's prior PR comments.
+              </p>
+
+              <h2>Use it from a coding agent</h2>
+              <p>Give your coding agent this instruction:</p>
+
+              <pre><code class="precheck-command">Install and run Precheck in this repo: https://alpharesearch.nyc/precheck/install.sh. Set up a review for &lt;PERSON'S NAME&gt;</code></pre>
+
+              <h2>What happens</h2>
+              <div class="precheck-flow" aria-label="Precheck flow diagram">
+                <div class="precheck-flow-row">
+                  <div class="precheck-node">
+                    <strong>Install</strong>
+                    <span>Download the Precheck CLI from alpharesearch.nyc into ~/.local/bin/precheck.</span>
+                  </div>
+                  <div class="precheck-node">
+                    <strong>Detect repo</strong>
+                    <span>Read git origin, identify the GitHub owner and repository, and verify gh and Claude Code auth.</span>
+                  </div>
+                  <div class="precheck-node">
+                    <strong>Select reviewer</strong>
+                    <span>Use --reviewer, interactive selection, or recent PR activity to choose the reviewer to model.</span>
+                  </div>
+                  <div class="precheck-node">
+                    <strong>Collect history</strong>
+                    <span>Fetch recent PR reviews and inline comments through gh api and save raw JSON locally.</span>
+                  </div>
+                </div>
+                <div class="precheck-arrow" aria-hidden="true">Then Claude Code runs four local synthesis passes:</div>
+                <div class="precheck-flow-row">
+                  <div class="precheck-node">
+                    <strong>1. Evidence map</strong>
+                    <span>Extract review moves, mechanisms, distinctions, failure modes, triggers, and representative cases.</span>
+                  </div>
+                  <div class="precheck-node">
+                    <strong>2. Pattern synthesis</strong>
+                    <span>Create reviewer patterns with 2-5 historical examples for each high-value pattern.</span>
+                  </div>
+                  <div class="precheck-node">
+                    <strong>3. Anti-generic filter</strong>
+                    <span>Remove patterns that are merely topics and rank the rest by mechanism, evidence, and predictive value.</span>
+                  </div>
+                  <div class="precheck-node">
+                    <strong>4. Final artifacts</strong>
+                    <span>Write a reviewer profile, reusable Claude instructions, and a copy-paste future review prompt.</span>
+                  </div>
+                </div>
+              </div>
+
+              <h2>The output</h2>
+              <p>
+                Precheck writes everything under
+                <code>~/.precheck/repos/&lt;owner&gt;__&lt;repo&gt;/reviewers/&lt;reviewer&gt;/</code>. The raw GitHub data
+                stays in <code>raw/</code>. The synthesized reviewer system goes into <code>synthesized/</code>.
+              </p>
+
+              <ul>
+                <li><code>evidence-map.md</code>: evidence-first map of review moves and concrete examples.</li>
+                <li><code>reviewer-patterns.md</code>: synthesized reviewer patterns with representative examples.</li>
+                <li><code>filtered-patterns.md</code>: anti-generic ranked patterns.</li>
+                <li><code>reviewer-profile.md</code>: final predictive reviewer profile.</li>
+                <li><code>claude-reviewer.md</code>: reusable Claude Code review instructions.</li>
+                <li><code>review-prompt.md</code>: prompt for checking a future branch before review.</li>
+              </ul>
+
+              <h2>Why it works</h2>
+              <p>
+                The tool is intentionally evidence-first. It does not ask an agent to guess a personality profile from
+                a few comments. It first builds an evidence map, then synthesizes review patterns, then rejects generic
+                claims that do not have a mechanism, trigger, quote, or reusable pre-review action.
+              </p>
+
+              <p>
+                The most important artifact is the representative-example set. A useful reviewer model should be able
+                to say, "this new diff resembles those three prior cases," not merely "this reviewer likes clean code."
+                That is what makes the profile operational for a coding agent.
+              </p>
+
+              <h2>Install manually</h2>
+              <pre><code>curl -fsSL https://alpharesearch.nyc/precheck/install.sh | sh
+precheck --reviewer &lt;github-login&gt;</code></pre>
+            </div>
+          </article>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="page-wrap footer-wrap">
+          <a class="logo-link" href="/" aria-label="Alpha Research home">
+            <img class="logo-mark" src="/newalpharesearchlogo/apple-touch-icon.png" alt="Alpha Research logo" />
+          </a>
+
+          <div class="footer-copy">
+            <div class="footer-links">
+              <a href="/cli/">RESEARCH CLI</a>
+              <a href="/blog/">blog</a>
+              <a href="/privacy/">privacy</a>
+              <a href="/terms/">terms</a>
+            </div>
+          </div>
+
+          <div class="footer-meta">
+            <div>© 2026 Alpha Research</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
