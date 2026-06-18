@@ -62,7 +62,7 @@ INLINE_BINARY_EXTENSIONS = {
 }
 MAX_INLINE_BINARY_BYTES = 5 * 1024 * 1024
 MAX_TEXT_ARTIFACT_BYTES = 2 * 1024 * 1024
-RESEARCH_ARTIFACT_BUNDLE = ["report.html", "result.json", "work.md"]
+RESEARCH_ARTIFACT_BUNDLE = ["report.html", "result.json", "work.md", "dataset_coverage.json"]
 REPORT_REQUIRED_SECTIONS = {
     "executive summary": [r"executive\s+summary", r"executive\s+takeaway", r"abstract"],
     "data/methods": [r"data\s*/\s*methods", r"data\s+and\s+methods", r"data", r"methods?", r"methodology"],
@@ -83,6 +83,11 @@ RESULT_REQUIRED_FIELDS = [
     "confidence",
     "limitations",
     "sourceDatasetIds",
+    "datasetCoverage",
+    "missingDatasets",
+    "provisionalWebSources",
+    "claimsAllowedToDriveConclusion",
+    "claimsNotAnswerableFromMountedData",
 ]
 RESEARCH_VAGUE_CLAIM_FIELDS = [
     "originalClaim",
@@ -384,11 +389,16 @@ def build_remote_agent_prompt():
     return "\n".join(
         [
             "You are running one Alpha Research job.",
-            f"Read the shared dataset from {DATASET_MOUNT_PATH}.",
+            f"Read and inventory the mounted dataset at {DATASET_MOUNT_PATH} before answering.",
             f"Use {WORKSPACE_DIR} for scratch work.",
             f"Write every output to {ARTIFACT_DIR}.",
             "Iterate on the research task until the answer is complete.",
-            "A successful research run requires exactly this durable artifact bundle: report.html, result.json, and work.md. No deliverable means no success.",
+            "A successful research run requires exactly this durable artifact bundle: report.html, result.json, work.md, and dataset_coverage.json. No deliverable means no success.",
+            "This is a dataset-grounded research run. Treat mounted/local datasets as the required evidence base for empirical claims.",
+            "For every empirical, comparative, or causal claim, identify the required dataset or table, check whether it exists in the mounted dataset, use local dataset rows/files when available, and cite the exact dataset id, file path, table, columns, filters, and row counts used.",
+            "If a required dataset is missing or insufficient, do not substitute a narrative web summary as if it were data. Log the missing dataset explicitly and mark the affected claim as not allowed to drive the conclusion.",
+            "Public web sources may be used only for discovering candidate datasets, verifying simple event facts, understanding source documentation, or filling a clearly labeled provisional context section.",
+            "Public web sources do not satisfy the dataset-grounding requirement unless the run saves the source data into an artifact, records provenance, and marks it as newly acquired/provisional data.",
             "Keep work.md updated as your running log with sections for Commands Run, Intermediate Reasoning Summary, Blockers, and Reproduction Notes.",
             "Stop only after you have written report.html as a polished, decision-ready research report for a senior stakeholder.",
             "The report must read like a serious applied research paper or expert memo for a senior stakeholder. It should develop the argument in prose, quantify claims, explain identification and measurement choices, interpret evidence, and make limitations explicit.",
@@ -396,10 +406,13 @@ def build_remote_agent_prompt():
             "Make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect.",
             "Use work.md for generated file lists, scripts, assets, implementation steps, and command logs unless those details directly support a research finding in the report.",
             "When the evidence is insufficient for a strong conclusion, state the evidentiary limits plainly and explain what additional data or analysis is needed.",
-            "If the request asks to test, rate, decompose, fact-check, or adjudicate a broad claim, use the ResearchVagueClaim workflow: preserve the original claim, decompose it into falsifiable empirical subclaims, map each subclaim to observable proxies and data sources, explicitly flag non-observable or normative issues, analyze the available evidence, then rate the original claim across H1/H2/H3.",
+            "Before writing the final answer, produce a Dataset Coverage Matrix with one row per constituent claim: claim id, required dataset, mounted dataset/file checked, fields/columns needed, row count or coverage checked, status available/partial/missing/inaccessible/not-data-answerable, and whether the claim is allowed to drive the conclusion.",
+            "Write the Dataset Coverage Matrix to dataset_coverage.json. If a dataset is missing, include candidate source names, URLs when known, access constraints, priority, and the acquisition note needed to improve future runs.",
+            "No confidence rating, H1/H2/H3 rating, or strong conclusion may be driven by a claim whose dataset status is missing, inaccessible, or not-data-answerable.",
+            "If the request asks to test, rate, decompose, fact-check, or adjudicate a broad claim, use the dataset-first ResearchVagueClaim workflow: preserve the original claim, decompose it into constituent empirical, definitional, comparative, causal, normative, and rhetorical subclaims; define the exact dataset needed for each empirical/comparative/causal subclaim before researching; inventory the mounted dataset; analyze local data when present; log missing datasets when absent; use web/public sources only as provisional context or dataset discovery; then rate the original claim across H1/H2/H3 only from dataset-grounded evidence.",
             "For ResearchVagueClaim workflow runs, define H1 as the broad claim is basically supported, H2 as the claim is technically narrow or partly supported but substantively misleading, and H3 as the claim uses the wrong frame or is contradicted/orthogonal to the observed reality.",
             "For ResearchVagueClaim workflow runs, result.json must include a ResearchVagueClaim object with keys: originalClaim, decomposedClaims, dataSourcePlan, observabilityAssessment, hypothesisRatings, and finalRating. decomposedClaims, dataSourcePlan, observabilityAssessment, and hypothesisRatings must be non-empty arrays. Each hypothesisRatings item must include hypothesisId H1, H2, or H3 plus rating, rationale, evidenceRefs, and limitations.",
-            "Write result.json with keys: answer, claims, evidence, confidence, limitations, sourceDatasetIds, and optional tables and charts metadata.",
+            "Write result.json with keys: answer, claims, evidence, confidence, limitations, sourceDatasetIds, datasetCoverage, missingDatasets, provisionalWebSources, claimsAllowedToDriveConclusion, claimsNotAnswerableFromMountedData, and optional tables and charts metadata.",
             "Each claim in result.json should reference evidence entries, and sourceDatasetIds must include the dataset ids used for the answer.",
             "",
             "Research request:",
@@ -557,6 +570,15 @@ def validate_result_json(path: Path) -> list[str]:
         and all(isinstance(item, str) and item.strip() for item in source_dataset_ids)
     ):
         errors.append("result.json sourceDatasetIds must be a non-empty array of strings")
+    for field in [
+        "datasetCoverage",
+        "missingDatasets",
+        "provisionalWebSources",
+        "claimsAllowedToDriveConclusion",
+        "claimsNotAnswerableFromMountedData",
+    ]:
+        if not isinstance(payload.get(field), list):
+            errors.append(f"result.json {field} must be an array")
     if "tables" in payload and not isinstance(payload.get("tables"), list):
         errors.append("result.json tables must be an array when present")
     if "charts" in payload and not isinstance(payload.get("charts"), list):
@@ -600,6 +622,35 @@ def validate_result_json(path: Path) -> list[str]:
     return errors
 
 
+def validate_dataset_coverage_json(path: Path) -> list[str]:
+    errors = []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return [f"dataset_coverage.json is not valid JSON: {exc}"]
+    if not isinstance(payload, dict):
+        return ["dataset_coverage.json must be a JSON object"]
+    required_datasets = payload.get("requiredDatasets")
+    if not isinstance(required_datasets, list):
+        errors.append("dataset_coverage.json requiredDatasets must be an array")
+    if isinstance(required_datasets, list):
+        for index, item in enumerate(required_datasets):
+            if not isinstance(item, dict):
+                errors.append(f"dataset_coverage.json requiredDatasets[{index}] must be an object")
+                continue
+            for field in ["claimId", "datasetNeed", "status", "canDriveConclusion"]:
+                if field not in item:
+                    errors.append(f"dataset_coverage.json requiredDatasets[{index}] is missing {field}")
+            status = item.get("status")
+            if status not in {"available", "partial", "missing", "inaccessible", "not-data-answerable"}:
+                errors.append(
+                    f"dataset_coverage.json requiredDatasets[{index}].status must be available, partial, missing, inaccessible, or not-data-answerable"
+                )
+            if not isinstance(item.get("canDriveConclusion"), bool):
+                errors.append(f"dataset_coverage.json requiredDatasets[{index}].canDriveConclusion must be boolean")
+    return errors
+
+
 def validate_work_md(path: Path) -> list[str]:
     errors = []
     try:
@@ -627,6 +678,8 @@ def validate_research_artifact_bundle(deliverables: list[Path]) -> list[str]:
         errors.extend(validate_result_json(by_name["result.json"]))
     if "work.md" in by_name:
         errors.extend(validate_work_md(by_name["work.md"]))
+    if "dataset_coverage.json" in by_name:
+        errors.extend(validate_dataset_coverage_json(by_name["dataset_coverage.json"]))
     return errors
 
 
@@ -644,7 +697,7 @@ def build_codex_goal():
         )
     return (
         "/goal Complete the research run. Iterate until report.html, result.json, "
-        "and work.md pass the required artifact quality bar."
+        "work.md, and dataset_coverage.json pass the required artifact quality bar."
     )
 
 

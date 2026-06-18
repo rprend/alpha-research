@@ -28,15 +28,20 @@ The required filesystem outputs for user-facing research and describe runs are:
 - `report.html` as the primary human-readable deliverable
 - `result.json` as the machine-readable answer
 - `work.md` as the agent-facing work log
+- `dataset_coverage.json` as the dataset availability and gap log
 - optional supporting files such as `analysis.py`, `figures/*.png`, `tables/*.csv`, and `queries/*.sql`
 
 If Codex exits successfully but the required deliverable files are missing or invalid, the runner must mark the run `failed` rather than `ready`.
 
 `report.html` is the user-facing research deliverable. It must read like a polished applied research report or expert memo for a senior stakeholder. It must include recognizable sections for executive summary, data/methods, evidence, limitations, and next steps. It should make liberal use of tables and figures to summarize data, compare estimates, show uncertainty, display robustness checks, and make the empirical logic easy to inspect. File lists, implementation notes, and command logs belong in `work.md` unless they directly support a research finding.
 
-`result.json` must parse as a JSON object with `answer`, `claims`, `evidence`, `confidence`, `limitations`, and `sourceDatasetIds`. `tables` and `charts` are optional arrays for companion metadata. Claims should reference evidence records so agents can inspect why the answer is trustworthy without reading the whole report.
+`result.json` must parse as a JSON object with `answer`, `claims`, `evidence`, `confidence`, `limitations`, `sourceDatasetIds`, `datasetCoverage`, `missingDatasets`, `provisionalWebSources`, `claimsAllowedToDriveConclusion`, and `claimsNotAnswerableFromMountedData`. `tables` and `charts` are optional arrays for companion metadata. Claims should reference evidence records so agents can inspect why the answer is trustworthy without reading the whole report.
 
-ResearchVagueClaim workflow runs use the same artifact bundle, with an additional structured contract inside `result.json`. When a user asks Alpha Research to test, rate, decompose, fact-check, or adjudicate a broad claim, the runner prompt requires a `ResearchVagueClaim` object with:
+All ordinary research runs are dataset-grounded. The remote agent must inventory the mounted dataset before answering, map each empirical/comparative/causal claim to the required dataset or table, and cite dataset id, path, table, columns, filters, and row counts when local data is used. Public web sources can discover datasets, verify simple event facts, document source meaning, or provide clearly labeled provisional context, but they do not satisfy the grounding requirement unless the run saves source data as an artifact with provenance.
+
+`dataset_coverage.json` must parse as a JSON object with `requiredDatasets`, an array of per-claim dataset coverage records. Each record must include `claimId`, `datasetNeed`, `status`, and `canDriveConclusion`. `status` must be one of `available`, `partial`, `missing`, `inaccessible`, or `not-data-answerable`. Missing or insufficient datasets should include candidate source names, URLs when known, access constraints, priority, and acquisition notes so future canonical dataset jobs can close the gap.
+
+ResearchVagueClaim workflow runs use the same artifact bundle, with an additional structured contract inside `result.json`. When a user asks Alpha Research to test, rate, decompose, fact-check, or adjudicate a broad claim, the runner prompt requires dataset-first decomposition: preserve the native claim, define the exact data needed for each empirical/comparative/causal subclaim, inventory the mounted dataset, analyze local data when present, log missing datasets when absent, and assign H1/H2/H3 only from dataset-grounded evidence. The `ResearchVagueClaim` object must include:
 
 - `originalClaim`: the claim in its native wording.
 - `decomposedClaims`: falsifiable empirical subclaims, plus any definitional, normative, or non-observable residues.

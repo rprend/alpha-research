@@ -89,8 +89,12 @@ assert(
 assert(
   workerSource.includes('ResearchVagueClaim workflow run') &&
     workerSource.includes('hypothesisRatings for H1, H2, and H3') &&
+    workerSource.includes('dataset-first answer') &&
+    workerSource.includes('missingDatasets') &&
     remoteRunnerSource.includes('RESEARCH_VAGUE_CLAIM_FIELDS') &&
     remoteRunnerSource.includes('RESEARCH_VAGUE_CLAIM_RATINGS = {"H1", "H2", "H3"}') &&
+    remoteRunnerSource.includes('dataset_coverage.json') &&
+    remoteRunnerSource.includes('not allowed to drive the conclusion') &&
     remoteRunnerSource.includes('result.json ResearchVagueClaim.finalRating must be H1, H2, or H3'),
   'ResearchVagueClaim workflow must preserve planner guidance, runner schema, and H1/H2/H3 validation.',
 )

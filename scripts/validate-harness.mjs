@@ -283,6 +283,9 @@ for (const token of [
   'RESEARCH_ARTIFACT_BUNDLE',
   'report.html',
   'result.json',
+  'dataset_coverage.json',
+  'datasetCoverage',
+  'missingDatasets',
   'work.md',
   'REPORT_REQUIRED_SECTIONS',
   'RESULT_REQUIRED_FIELDS',
@@ -321,6 +324,8 @@ for (const token of [
   '## Blockers',
   '## Reproduction Notes',
   'sourceDatasetIds',
+  'datasetCoverage',
+  'dataset_coverage.json',
 ]) {
   assert(harnessSource.includes(token), `Harness completed run is missing artifact quality fixture token: ${token}`)
 }
