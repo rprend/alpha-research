@@ -1,0 +1,105 @@
+{
+  "run_id": "support-contrast-gate-direct-repair-0-240-val-240-320-to-321-389-v1",
+  "generated_at": "2026-06-26T15:39:16.954Z",
+  "split": "extended_temporal_future_holdout",
+  "label_prefix": "judge-support-direct-repair-future-holdout-0-320-v1",
+  "support_contrast_run_id": "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1",
+  "label_source_description": "support-contrast prep train split with threshold tuned on prep validation split",
+  "source_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+  "eval_offset": 320,
+  "eval_examples": 69,
+  "source_predictions_seen": 69,
+  "risk_gate": {
+    "type": "zero_call_logistic_support_gate",
+    "target": "answered teacher label accepted by strict GPT-4o judge",
+    "feature_names": [
+      "citation_count",
+      "claim_count",
+      "answer_token_count",
+      "valid_citation_rate",
+      "mean_inverse_citation_rank",
+      "answer_cited_token_coverage",
+      "answer_pack_token_coverage",
+      "claim_min_cited_coverage",
+      "claim_mean_cited_coverage",
+      "numeric_supported_rate",
+      "question_cited_overlap",
+      "question_pack_max_overlap",
+      "citation_marker_density"
+    ],
+    "weights": {
+      "citation_count": 0.15192904850336944,
+      "claim_count": 0.6013286526464011,
+      "answer_token_count": -0.06418723869723507,
+      "valid_citation_rate": 0.04453045804996896,
+      "mean_inverse_citation_rank": -0.2514048856298844,
+      "answer_cited_token_coverage": 0.42075495855053285,
+      "answer_pack_token_coverage": 0.3341184570624223,
+      "claim_min_cited_coverage": 0.5107701676670707,
+      "claim_mean_cited_coverage": 0.5937297290904024,
+      "numeric_supported_rate": -0.13168065828114398,
+      "question_cited_overlap": 0.16626194412258352,
+      "question_pack_max_overlap": -0.0041554558411294636,
+      "citation_marker_density": 0.027637969729584908
+    },
+    "bias": -0.8346267345295517,
+    "train_loss": 0.5727723778933477,
+    "threshold": 0.65,
+    "min_accepted_coverage": 0.7
+  },
+  "cost": {
+    "llm_calls": 0,
+    "run_cost_usd": 0,
+    "note": "Risk gate trains on existing exported labels and makes no model calls at inference."
+  },
+  "train_metrics": {
+    "examples": 185,
+    "accepted_labels": 126,
+    "rejected_labels": 59,
+    "accepted_by_gate": 126,
+    "rejected_by_gate": 59,
+    "precision": 0.8174603174603174,
+    "accepted_recall": 0.8174603174603174,
+    "f1": 0.8174603174603176
+  },
+  "validation_metrics": {
+    "examples": 59,
+    "accepted_labels": 38,
+    "rejected_labels": 21,
+    "accepted_by_gate": 40,
+    "rejected_by_gate": 19,
+    "precision": 0.775,
+    "accepted_recall": 0.8157894736842105,
+    "f1": 0.7948717948717949
+  },
+  "eval_metrics": {
+    "examples": 69,
+    "answered": 42,
+    "abstained": 27,
+    "answer_type_accuracy": 0.7391304347826086,
+    "citation_precision": 0.6944444444444444,
+    "citation_recall": 0.625,
+    "answer_token_f1": 0.26702594807520513,
+    "abstention_accuracy": 0.7391304347826086,
+    "inline_citation_rate": 1
+  },
+  "inherited_judge_metrics": {
+    "judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+    "available": true,
+    "answered_predictions": 42,
+    "answer_support_rate": 0.6904761904761905,
+    "abstained_predictions": 27,
+    "abstention_support_rate": 0.6296296296296297,
+    "inherited_overall_correct_rate": 0.6666666666666666,
+    "source_supported_answers": 34,
+    "source_unsupported_answers": 19,
+    "useful_suppressions": 6,
+    "harmful_suppressions": 5,
+    "note": "Retained answers inherit the source gpt-4o judgment; new abstentions are counted supported only when the reference row is an abstention row."
+  },
+  "gate_summary": {
+    "answered_before": 53,
+    "answered_after": 42,
+    "gate_fired": 11
+  }
+}

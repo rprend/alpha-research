@@ -10,6 +10,7 @@ const args = parseArgs(process.argv.slice(2));
 
 const split = args.split ?? "extended_temporal_future_holdout";
 const labelPrefix = args["label-prefix"] ?? "teacher-repair-claim-pruner-mini-direct-future-holdout-0-160-v1";
+const supportContrastRunId = args["support-contrast-run"];
 const sourceRunId = args["source-run"];
 if (!sourceRunId) throw new Error("Missing --source-run=<run-id>.");
 const evalOffset = numberArg(args["eval-offset"], 160, { allowZero: true });
@@ -21,24 +22,27 @@ const outputDir = path.join(runDir, runId);
 
 await fs.mkdir(outputDir, { recursive: true });
 
-const acceptedRows = (await readJsonl(path.join(exportDir, `${labelPrefix}.sft.jsonl`)))
-  .map((row) => ({ ...row, y: 1, label_status: "accepted" }));
-const rejectedRows = (await readJsonl(path.join(exportDir, `${labelPrefix}.rejected.jsonl`)))
-  .map((row) => ({ ...row, y: 0, label_status: "rejected" }));
-const trainRows = [...acceptedRows, ...rejectedRows]
-  .filter((row) => row.teacher_output?.answer_type === "grounded_answer");
+const { trainRows, validationRows, labelSourceDescription } = supportContrastRunId
+  ? await loadSupportContrastRows(supportContrastRunId)
+  : await loadExportRows(labelPrefix);
 if (trainRows.length < 10) throw new Error("Need at least 10 answered train labels for risk gate.");
 
-const featureNames = featureVector(trainRows[0].teacher_output, trainRows[0].input).names;
+const featureNames = featureVector(trainRows[0].prediction, trainRows[0].input).names;
 const trainExamples = trainRows.map((row) => ({
   example_id: row.example_id,
-  x: featureVector(row.teacher_output, row.input).values,
+  x: featureVector(row.prediction, row.input).values,
   y: row.y,
   label_status: row.label_status,
 }));
 const model = trainLogistic(trainExamples, { iterations: 3000, learningRate: 0.08, l2: 0.03 });
+const validationExamples = validationRows.map((row) => ({
+  example_id: row.example_id,
+  x: featureVector(row.prediction, row.input).values,
+  y: row.y,
+  label_status: row.label_status,
+}));
 const threshold = thresholdArg === "auto"
-  ? tuneThreshold(trainExamples, model, minAcceptedCoverage)
+  ? tuneThreshold(validationExamples.length ? validationExamples : trainExamples, model, minAcceptedCoverage)
   : (Number.isFinite(thresholdArg) ? thresholdArg : 0.5);
 
 const references = await readJsonl(path.join(dataDir, `${split}.jsonl`));
@@ -81,6 +85,8 @@ const result = {
   generated_at: new Date().toISOString(),
   split,
   label_prefix: labelPrefix,
+  support_contrast_run_id: supportContrastRunId ?? null,
+  label_source_description: labelSourceDescription,
   source_run_id: sourceRunId,
   eval_offset: evalOffset,
   eval_examples: evalRows.length,
@@ -101,7 +107,17 @@ const result = {
     note: "Risk gate trains on existing exported labels and makes no model calls at inference.",
   },
   train_metrics: summarizeTrain(selectedTrainRows),
+  validation_metrics: validationExamples.length ? summarizeTrain(validationExamples.map((row) => {
+    const score = predict(model, row.x);
+    return { ...row, support_score: score, accepted_by_gate: score >= threshold };
+  })) : null,
   eval_metrics: summarizePredictions(predictions),
+  inherited_judge_metrics: await summarizeInheritedJudge({
+    runId,
+    sourceRunId,
+    predictionRows: predictions,
+    evalRows,
+  }),
   gate_summary: {
     answered_before: sourceRows.filter((row) => normalizePrediction(row.prediction ?? {}).answer_type === "grounded_answer").length,
     answered_after: predictions.filter((row) => row.prediction.answer_type === "grounded_answer").length,
@@ -111,6 +127,12 @@ const result = {
 
 await writeJsonl(path.join(outputDir, "predictions.jsonl"), predictions);
 await writeJsonl(path.join(outputDir, "train_predictions.jsonl"), selectedTrainRows);
+if (validationExamples.length) {
+  await writeJsonl(path.join(outputDir, "validation_predictions.jsonl"), validationExamples.map((row) => {
+    const score = predict(model, row.x);
+    return { ...row, support_score: score, accepted_by_gate: score >= threshold };
+  }));
+}
 await fs.writeFile(path.join(outputDir, "risk-gate-model.json"), `${JSON.stringify(result.risk_gate, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(result, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "report.md"), renderReport(result));
@@ -120,9 +142,40 @@ console.log(JSON.stringify({
   result: path.relative(rootDir, path.join(outputDir, "result.json")),
   report: path.relative(rootDir, path.join(outputDir, "report.md")),
   train_metrics: result.train_metrics,
+  validation_metrics: result.validation_metrics,
   eval_metrics: result.eval_metrics,
+  inherited_judge_metrics: result.inherited_judge_metrics,
   gate_summary: result.gate_summary,
 }, null, 2));
+
+async function loadExportRows(prefix) {
+  const acceptedRows = (await readJsonl(path.join(exportDir, `${prefix}.sft.jsonl`)))
+    .map((row) => ({ ...row, prediction: row.teacher_output, y: 1, label_status: "accepted" }));
+  const rejectedRows = (await readJsonl(path.join(exportDir, `${prefix}.rejected.jsonl`)))
+    .map((row) => ({ ...row, prediction: row.teacher_output, y: 0, label_status: "rejected" }));
+  return {
+    trainRows: [...acceptedRows, ...rejectedRows].filter((row) => row.prediction?.answer_type === "grounded_answer"),
+    validationRows: [],
+    labelSourceDescription: "raw accepted/rejected export labels",
+  };
+}
+
+async function loadSupportContrastRows(prepRunId) {
+  const prepDir = path.join(runDir, prepRunId);
+  const sftTrain = (await readJsonl(path.join(prepDir, "sft_train.jsonl")))
+    .map((row) => ({ ...row, prediction: row.target, y: 1, label_status: "accepted" }));
+  const sftValidation = (await readJsonl(path.join(prepDir, "sft_validation.jsonl")))
+    .map((row) => ({ ...row, prediction: row.target, y: 1, label_status: "accepted" }));
+  const preferenceTrain = (await readJsonl(path.join(prepDir, "preference_train.jsonl")))
+    .map((row) => ({ ...row, prediction: row.rejected, y: 0, label_status: "rejected" }));
+  const preferenceValidation = (await readJsonl(path.join(prepDir, "preference_validation.jsonl")))
+    .map((row) => ({ ...row, prediction: row.rejected, y: 0, label_status: "rejected" }));
+  return {
+    trainRows: [...sftTrain, ...preferenceTrain].filter((row) => row.prediction?.answer_type === "grounded_answer"),
+    validationRows: [...sftValidation, ...preferenceValidation].filter((row) => row.prediction?.answer_type === "grounded_answer"),
+    labelSourceDescription: "support-contrast prep train split with threshold tuned on prep validation split",
+  };
+}
 
 function abstainPrediction(score, threshold) {
   return {
@@ -132,6 +185,68 @@ function abstainPrediction(score, threshold) {
     claim_table: [{ claim: "Evidence is insufficient to answer.", support: "support_risk_gate", citations: [] }],
     abstention_reason: `Support-risk score ${score.toFixed(3)} is below threshold ${threshold.toFixed(3)}.`,
   };
+}
+
+async function summarizeInheritedJudge({ sourceRunId, predictionRows, evalRows }) {
+  const judgeRunId = `openai-judge-gpt4o-${sourceRunId}`;
+  const judgePath = path.join(runDir, judgeRunId, "judgments.jsonl");
+  let judgments = [];
+  try {
+    judgments = await readJsonl(judgePath);
+  } catch {
+    return {
+      judge_run_id: judgeRunId,
+      available: false,
+      note: "No inherited gpt-4o judgment run was found for the source predictions.",
+    };
+  }
+  const judgmentsById = new Map(judgments.map((row) => [row.example_id, row.judgment]));
+  const referenceById = new Map(evalRows.map((row) => [row.example_id, row]));
+  let retainedAnswered = 0;
+  let retainedSupported = 0;
+  let abstained = 0;
+  let abstentionSupported = 0;
+  let usefulSuppressions = 0;
+  let harmfulSuppressions = 0;
+  let sourceSupportedAnswers = 0;
+  let sourceUnsupportedAnswers = 0;
+  for (const row of predictionRows) {
+    const judgment = judgmentsById.get(row.example_id);
+    const sourceWasAnswered = row.source_prediction?.answer_type === "grounded_answer";
+    const sourceWasSupported = isSupportedAnswer(judgment);
+    const reference = referenceById.get(row.example_id);
+    if (sourceWasAnswered && sourceWasSupported) sourceSupportedAnswers += 1;
+    if (sourceWasAnswered && !sourceWasSupported) sourceUnsupportedAnswers += 1;
+    if (row.prediction.answer_type === "grounded_answer") {
+      retainedAnswered += 1;
+      if (sourceWasSupported) retainedSupported += 1;
+    } else {
+      abstained += 1;
+      const abstentionIsSupported = reference?.output?.answer_type === "abstain";
+      if (abstentionIsSupported) abstentionSupported += 1;
+      if (sourceWasAnswered && !sourceWasSupported) usefulSuppressions += 1;
+      if (sourceWasAnswered && sourceWasSupported) harmfulSuppressions += 1;
+    }
+  }
+  return {
+    judge_run_id: judgeRunId,
+    available: true,
+    answered_predictions: retainedAnswered,
+    answer_support_rate: ratio(retainedSupported, retainedAnswered),
+    abstained_predictions: abstained,
+    abstention_support_rate: ratio(abstentionSupported, abstained),
+    inherited_overall_correct_rate: ratio(retainedSupported + abstentionSupported, predictionRows.length),
+    source_supported_answers: sourceSupportedAnswers,
+    source_unsupported_answers: sourceUnsupportedAnswers,
+    useful_suppressions: usefulSuppressions,
+    harmful_suppressions: harmfulSuppressions,
+    note: "Retained answers inherit the source gpt-4o judgment; new abstentions are counted supported only when the reference row is an abstention row.",
+  };
+}
+
+function isSupportedAnswer(judgment) {
+  return ["supported", "correct"].includes(String(judgment?.verdict ?? "").toLowerCase())
+    || judgment?.all_claims_supported === true;
 }
 
 function tuneThreshold(rows, model, coverageFloor) {
@@ -405,15 +520,23 @@ The risk gate trains on accepted/rejected answered labels from the strict export
 
 ## Train Gate
 
-| Examples | Accepted labels | Rejected labels | Accepted by gate | Precision | Accepted recall | F1 |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| ${result.train_metrics.examples} | ${result.train_metrics.accepted_labels} | ${result.train_metrics.rejected_labels} | ${result.train_metrics.accepted_by_gate} | ${pct(result.train_metrics.precision)} | ${pct(result.train_metrics.accepted_recall)} | ${pct(result.train_metrics.f1)} |
+| Split | Examples | Accepted labels | Rejected labels | Accepted by gate | Precision | Accepted recall | F1 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Train | ${result.train_metrics.examples} | ${result.train_metrics.accepted_labels} | ${result.train_metrics.rejected_labels} | ${result.train_metrics.accepted_by_gate} | ${pct(result.train_metrics.precision)} | ${pct(result.train_metrics.accepted_recall)} | ${pct(result.train_metrics.f1)} |
+${result.validation_metrics ? `| Validation | ${result.validation_metrics.examples} | ${result.validation_metrics.accepted_labels} | ${result.validation_metrics.rejected_labels} | ${result.validation_metrics.accepted_by_gate} | ${pct(result.validation_metrics.precision)} | ${pct(result.validation_metrics.accepted_recall)} | ${pct(result.validation_metrics.f1)} |` : ""}
 
 ## Eval Result
 
 | Examples | Answered before | Answered after | Gate fired | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | ${result.eval_metrics.examples} | ${result.gate_summary.answered_before} | ${result.gate_summary.answered_after} | ${result.gate_summary.gate_fired} | ${pct(result.eval_metrics.answer_type_accuracy)} | ${pct(result.eval_metrics.citation_precision)} | ${pct(result.eval_metrics.citation_recall)} | ${pct(result.eval_metrics.answer_token_f1)} | ${pct(result.eval_metrics.inline_citation_rate)} |
+
+${result.inherited_judge_metrics?.available ? `## Inherited Judge Result
+
+| Answered | Answer support | Abstained | Abstention support | Inherited overall correct | Useful suppressions | Harmful suppressions |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| ${result.inherited_judge_metrics.answered_predictions} | ${pct(result.inherited_judge_metrics.answer_support_rate)} | ${result.inherited_judge_metrics.abstained_predictions} | ${pct(result.inherited_judge_metrics.abstention_support_rate)} | ${pct(result.inherited_judge_metrics.inherited_overall_correct_rate)} | ${result.inherited_judge_metrics.useful_suppressions} | ${result.inherited_judge_metrics.harmful_suppressions} |
+` : ""}
 
 This is a zero-call amortization experiment. It must be judged independently before claiming support preservation.
 `;

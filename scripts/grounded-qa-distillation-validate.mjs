@@ -57,6 +57,7 @@ if (!errors.length) {
   await validateLocalGenerativeSftRunsIfPresent();
   await validateLocalGenerativeContractGateRunsIfPresent();
   await validateSupportContrastPrepRunsIfPresent();
+  await validateSupportContrastGateRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
 }
 
@@ -1019,6 +1020,68 @@ function validateSupportContrastPreferenceRow(row, label) {
   if (row.chosen?.answer_type !== "abstain") errors.push(`${label}: chosen contrast must abstain.`);
   if (row.rejected?.answer_type !== "grounded_answer") errors.push(`${label}: rejected contrast must be grounded_answer.`);
   if (!row.label_source?.rejection_reason) errors.push(`${label}: missing rejection reason.`);
+}
+
+async function validateSupportContrastGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("support-contrast-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const trainPath = path.join(runsDir, entry.name, "train_predictions.jsonl");
+    const validationPath = path.join(runsDir, entry.name, "validation_predictions.jsonl");
+    const modelPath = path.join(runsDir, entry.name, "risk-gate-model.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let predictions;
+    let trainPredictions;
+    let validationPredictions;
+    let model;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      trainPredictions = await readJsonl(trainPath);
+      validationPredictions = await readJsonl(validationPath);
+      model = JSON.parse(await fs.readFile(modelPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed support-contrast gate artifacts.`);
+      continue;
+    }
+
+    if (result.cost?.llm_calls !== 0 || Number(result.cost?.run_cost_usd) !== 0) {
+      errors.push(`${entry.name}: support-contrast gate must be zero-call and zero-cost.`);
+    }
+    if (!result.support_contrast_run_id) errors.push(`${entry.name}: missing support_contrast_run_id.`);
+    if (!result.validation_metrics) errors.push(`${entry.name}: missing validation metrics.`);
+    if (!result.inherited_judge_metrics?.available) errors.push(`${entry.name}: missing inherited judge metrics.`);
+    if (result.eval_examples !== predictions.length) errors.push(`${entry.name}: eval_examples does not match predictions.`);
+    if (result.train_metrics?.examples !== trainPredictions.length) errors.push(`${entry.name}: train metrics do not match train predictions.`);
+    if (result.validation_metrics?.examples !== validationPredictions.length) errors.push(`${entry.name}: validation metrics do not match validation predictions.`);
+    if (!Array.isArray(model.feature_names) || !model.feature_names.length || !model.weights) {
+      errors.push(`${entry.name}: model is missing feature names or weights.`);
+    }
+    if (!Number.isFinite(Number(model.threshold))) errors.push(`${entry.name}: missing model threshold.`);
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.source_prediction?.answer_type || !row.metadata) {
+        errors.push(`${label}: missing prediction/source/metadata.`);
+      }
+      if (Number(row.cost_usd) !== 0) errors.push(`${label}: support-contrast gate prediction must be zero-cost.`);
+      if (row.prediction?.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
+      }
+    }
+  }
 }
 
 async function validateCitationContractRepairRunsIfPresent() {
