@@ -1,0 +1,156 @@
+{
+  "run_id": "reviewer-risk-audit-2026-06-26-v1",
+  "generated_at": "2026-06-26T18:54:21.917Z",
+  "artifact_type": "reviewer_risk_audit",
+  "status": "not_submission_ready",
+  "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
+  "readiness_context": {
+    "gate_run_id": "paper-readiness-gate-2026-06-26-v1",
+    "passed_requirements": 10,
+    "failed_requirements": 2,
+    "status": "not_paper_ready",
+    "blockers": [
+      "qwen3b_joint_action_smoke_result",
+      "grounded_correctness_eval_for_student"
+    ]
+  },
+  "critical_blockers": [
+    "R1_missing_trained_qwen3b_result",
+    "R2_missing_grounded_correctness_judge_for_student"
+  ],
+  "risks": [
+    {
+      "id": "R1_missing_trained_qwen3b_result",
+      "severity": "critical",
+      "status": "blocking",
+      "reviewer_objection": "The paper question asks whether expensive grounded behavior can be distilled into a cheaper trained model or scaffold, but the final Qwen 3B joint-action student has not been trained/evaluated.",
+      "current_evidence": [
+        "paper-readiness-gate-2026-06-26-v1",
+        "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+        "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"
+      ],
+      "mitigation_done": "The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated.",
+      "required_next_evidence": [
+        "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+        "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+        "runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json"
+      ]
+    },
+    {
+      "id": "R2_missing_grounded_correctness_judge_for_student",
+      "severity": "critical",
+      "status": "blocking",
+      "reviewer_objection": "No paper-ready claim can be made about citation-grounded correctness until the trained student's predictions are judged for support and abstention correctness.",
+      "current_evidence": [
+        "paper-readiness-gate-2026-06-26-v1",
+        "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
+        "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1"
+      ],
+      "mitigation_done": "A fail-closed post-smoke pipeline now runs prediction integrity checks and dry judging before any paid OpenAI judge call.",
+      "required_next_evidence": [
+        "Integrity gate status ready_for_paid_judge",
+        "Dry judge covers all 69 final-window examples",
+        "Paid openai-judge run with positive calls_made and examples_judged"
+      ]
+    },
+    {
+      "id": "R3_private_kb_claim_overreach",
+      "severity": "high",
+      "status": "managed_but_not_closed",
+      "reviewer_objection": "The motivating claim says private evolving KBs, while the current evaluation is a public QASPER/arXiv proxy.",
+      "current_evidence": [
+        "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+        "extended_temporal_future_holdout-manifest.json"
+      ],
+      "mitigation_done": "The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
+      "required_next_evidence": [
+        "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
+        "If adding a private KB, create train-time and final-time snapshots with immutable date provenance."
+      ]
+    },
+    {
+      "id": "R4_novelty_pressure_from_rag_distillation_and_citation_sft",
+      "severity": "high",
+      "status": "managed_but_needs_final_refresh",
+      "reviewer_objection": "The contribution may be perceived as generic RAG distillation, generic citation SFT, or KB write-back memory rather than a sharper grounded-correctness amortization result.",
+      "current_evidence": [
+        "novelty-watchlist-2026-06-26-v1",
+        "drag-like-rag-distillation-comparison-2026-06-26-v1",
+        "longcite-style-citation-sft-comparison-2026-06-26-v1",
+        "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1"
+      ],
+      "mitigation_done": "Current artifacts isolate the support/abstention/citation-grounding axis and scope out write-back retrieval until leakage-safe memory snapshots exist.",
+      "required_next_evidence": [
+        "Refresh web/paper search immediately before any submission claim.",
+        "Update related-work notes with any June 2026 or newer direct overlaps."
+      ]
+    },
+    {
+      "id": "R5_model_judge_reliability",
+      "severity": "medium_high",
+      "status": "open",
+      "reviewer_objection": "A model-based grounded-correctness judge can be biased, under-calibrated, or insufficient as the only correctness authority.",
+      "current_evidence": [
+        "openai-judge-support-direct-repair-240-389-v1",
+        "claim-entailment-guard-validation-240-389-v1"
+      ],
+      "mitigation_done": "The judge artifacts store structured support verdicts and the manuscript labels them as model-judged support, not human gold.",
+      "required_next_evidence": [
+        "Add a small independent audit or human spot-check before submission if budget/time permits.",
+        "Report judge prompts, schemas, abstention criteria, and disagreement examples."
+      ]
+    },
+    {
+      "id": "R6_coverage_support_tradeoff",
+      "severity": "medium_high",
+      "status": "open",
+      "reviewer_objection": "The strongest completed scaffold results improve support largely by suppressing risky answers, so correctness gains may hide poor answer coverage.",
+      "current_evidence": [
+        "risk-gate-transfer-synthesis-240-389-v1",
+        "claim-entailment-guard-validation-240-389-v1",
+        "manuscript-draft-2026-06-26-v1"
+      ],
+      "mitigation_done": "Current tables report answered counts and support rates; the draft explicitly frames coverage as a central metric.",
+      "required_next_evidence": [
+        "Report answer rate, abstention correctness, support, and utility together.",
+        "Compare trained Qwen 3B against zero-call gates on both correctness and coverage."
+      ]
+    },
+    {
+      "id": "R7_remote_compute_reproducibility_and_auth",
+      "severity": "medium",
+      "status": "operational_blocker",
+      "reviewer_objection": "The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable.",
+      "current_evidence": [
+        "prime-auth-diagnosis",
+        "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+        "2026-06-26T18:54:10.386Z"
+      ],
+      "mitigation_done": "The remote command is single-step and bounded; all actual spend is tracked under the $100 budget with $0 external compute spend so far.",
+      "required_next_evidence": [
+        "Install a valid Prime key through hidden input or repair HF credits.",
+        "Record provider, GPU type, wall time, cost, and command transcript for the smoke."
+      ]
+    }
+  ],
+  "acceptance_path": [
+    "Repair Prime auth or HF credits without exceeding the $100 total budget.",
+    "Run the one-command bounded Qwen 3B SFT/DPO smoke and produce complete predictions.",
+    "Run the Qwen 3B prediction integrity gate and default post-smoke dry judge.",
+    "Run the paid grounded-correctness judge only after the dry gate passes.",
+    "Refresh the novelty watchlist/web search immediately before making a submission-ready claim.",
+    "Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.878323650000014,
+    "remaining_budget_usd": 94.12167634999999,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This reviewer-risk audit reads local artifacts only."
+  }
+}

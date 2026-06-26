@@ -80,6 +80,7 @@ if (!errors.length) {
   await validatePaperReadinessGateRunsIfPresent();
   await validateManuscriptEvidenceMapRunsIfPresent();
   await validateManuscriptDraftRunsIfPresent();
+  await validateReviewerRiskAuditRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -1765,6 +1766,60 @@ async function validateManuscriptDraftRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: manuscript draft must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateReviewerRiskAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("reviewer-risk-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed reviewer-risk audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "reviewer_risk_audit") {
+      errors.push(`${entry.name}: unexpected reviewer-risk audit type.`);
+    }
+    if (result.status !== "not_submission_ready") {
+      errors.push(`${entry.name}: reviewer-risk audit must not mark the paper submission-ready while readiness blockers remain.`);
+    }
+    if (result.readiness_context?.status !== "not_paper_ready") {
+      errors.push(`${entry.name}: reviewer-risk audit must preserve not-paper-ready status.`);
+    }
+    const blockers = new Set(result.readiness_context?.blockers ?? []);
+    if (!blockers.has("qwen3b_joint_action_smoke_result") || !blockers.has("grounded_correctness_eval_for_student")) {
+      errors.push(`${entry.name}: reviewer-risk audit must preserve Qwen3B smoke and grounded-judge blockers.`);
+    }
+    if (!Array.isArray(result.risks) || result.risks.length < 6) {
+      errors.push(`${entry.name}: reviewer-risk audit must include at least six risks.`);
+    }
+    const critical = new Set(result.critical_blockers ?? []);
+    if (!critical.has("R1_missing_trained_qwen3b_result") || !critical.has("R2_missing_grounded_correctness_judge_for_student")) {
+      errors.push(`${entry.name}: reviewer-risk audit must include the two critical Qwen3B blockers.`);
+    }
+    if (!Array.isArray(result.acceptance_path) || result.acceptance_path.length < 5) {
+      errors.push(`${entry.name}: reviewer-risk audit must include an acceptance path.`);
+    }
+    if (!report.includes("Critical Blockers") || !report.includes("Acceptance Path")) {
+      errors.push(`${entry.name}: reviewer-risk audit report must expose blockers and acceptance path.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: reviewer-risk audit must be zero actual cost.`);
     }
   }
 }

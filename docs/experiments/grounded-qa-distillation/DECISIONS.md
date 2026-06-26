@@ -969,3 +969,13 @@ Reason: The evidence map makes claim boundaries explicit, but the project also n
 Result: The paper is easier to finish once the remote Qwen 3B smoke and judge artifacts exist, while the generated draft itself cannot be mistaken for a completed NeurIPS-ready manuscript.
 
 Tradeoff: This is writing infrastructure, not evidence of trained-student success. It should not be used to claim completion until the readiness gate passes and the final novelty audit is refreshed.
+
+### D118. Add a reviewer-risk audit before spending on final evidence
+
+Decision: Add `grounded-qa-distillation-reviewer-risk-audit.mjs`, materialize `reviewer-risk-audit-2026-06-26-v1`, and validate reviewer-risk audit artifacts.
+
+Reason: The manuscript scaffold and evidence map make the project easier to finish, but they could still hide rejection risks if treated as enough for a conference claim. The reviewer-risk audit names the most likely reviewer objections before the next paid run: the missing trained Qwen 3B result, the missing grounded-correctness judge, private-KB overclaiming from a public dated proxy, novelty pressure from generic RAG distillation and citation SFT, model-judge reliability, coverage/support tradeoffs, and remote compute/auth reproducibility. It records the exact acceptance path from Prime/HF repair through bounded Qwen 3B smoke, integrity/dry judge, paid judge, novelty refresh, and manuscript regeneration. This makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend unchanged.
+
+Result: The paper-readiness surface now has an enforceable risk audit that remains `not_submission_ready` and preserves both critical Qwen 3B blockers.
+
+Tradeoff: This is still paper-risk control, not new empirical evidence. It does not replace the GPU smoke or the paid grounded-correctness judge; it reduces the chance that the project overclaims before those artifacts exist.

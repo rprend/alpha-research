@@ -1,0 +1,228 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+
+const rootDir = process.cwd();
+const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
+const runDir = path.join(experimentDir, "runs");
+const args = parseArgs(process.argv.slice(2));
+const runId = args["run-id"] ?? "reviewer-risk-audit-2026-06-26-v1";
+const outputDir = path.join(runDir, runId);
+
+await fs.mkdir(outputDir, { recursive: true });
+
+const readiness = await readResult("paper-readiness-gate-2026-06-26-v1");
+const evidenceMap = await readResult("manuscript-evidence-map-2026-06-26-v1");
+const draft = await readResult("manuscript-draft-2026-06-26-v1");
+const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
+const remoteSmoke = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
+const postSmoke = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
+const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
+
+const risks = [
+  {
+    id: "R1_missing_trained_qwen3b_result",
+    severity: "critical",
+    status: "blocking",
+    reviewer_objection: "The paper question asks whether expensive grounded behavior can be distilled into a cheaper trained model or scaffold, but the final Qwen 3B joint-action student has not been trained/evaluated.",
+    current_evidence: [
+      readiness.run_id,
+      remoteSmoke.run_id,
+      evidenceMap.qwen3b_required_final_result.remote_smoke_plan_run_id,
+    ],
+    mitigation_done: "The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated.",
+    required_next_evidence: [
+      "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+      "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+      "runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json",
+    ],
+  },
+  {
+    id: "R2_missing_grounded_correctness_judge_for_student",
+    severity: "critical",
+    status: "blocking",
+    reviewer_objection: "No paper-ready claim can be made about citation-grounded correctness until the trained student's predictions are judged for support and abstention correctness.",
+    current_evidence: [
+      readiness.run_id,
+      postSmoke.run_id,
+      "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
+    ],
+    mitigation_done: "A fail-closed post-smoke pipeline now runs prediction integrity checks and dry judging before any paid OpenAI judge call.",
+    required_next_evidence: [
+      "Integrity gate status ready_for_paid_judge",
+      "Dry judge covers all 69 final-window examples",
+      "Paid openai-judge run with positive calls_made and examples_judged",
+    ],
+  },
+  {
+    id: "R3_private_kb_claim_overreach",
+    severity: "high",
+    status: "managed_but_not_closed",
+    reviewer_objection: "The motivating claim says private evolving KBs, while the current evaluation is a public QASPER/arXiv proxy.",
+    current_evidence: [
+      evidenceMap.dataset_and_temporal_claims.trusted_snapshot_run_id,
+      "extended_temporal_future_holdout-manifest.json",
+    ],
+    mitigation_done: "The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
+    required_next_evidence: [
+      "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
+      "If adding a private KB, create train-time and final-time snapshots with immutable date provenance.",
+    ],
+  },
+  {
+    id: "R4_novelty_pressure_from_rag_distillation_and_citation_sft",
+    severity: "high",
+    status: "managed_but_needs_final_refresh",
+    reviewer_objection: "The contribution may be perceived as generic RAG distillation, generic citation SFT, or KB write-back memory rather than a sharper grounded-correctness amortization result.",
+    current_evidence: [
+      novelty.run_id,
+      "drag-like-rag-distillation-comparison-2026-06-26-v1",
+      "longcite-style-citation-sft-comparison-2026-06-26-v1",
+      "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+    ],
+    mitigation_done: "Current artifacts isolate the support/abstention/citation-grounding axis and scope out write-back retrieval until leakage-safe memory snapshots exist.",
+    required_next_evidence: [
+      "Refresh web/paper search immediately before any submission claim.",
+      "Update related-work notes with any June 2026 or newer direct overlaps.",
+    ],
+  },
+  {
+    id: "R5_model_judge_reliability",
+    severity: "medium_high",
+    status: "open",
+    reviewer_objection: "A model-based grounded-correctness judge can be biased, under-calibrated, or insufficient as the only correctness authority.",
+    current_evidence: [
+      "openai-judge-support-direct-repair-240-389-v1",
+      "claim-entailment-guard-validation-240-389-v1",
+    ],
+    mitigation_done: "The judge artifacts store structured support verdicts and the manuscript labels them as model-judged support, not human gold.",
+    required_next_evidence: [
+      "Add a small independent audit or human spot-check before submission if budget/time permits.",
+      "Report judge prompts, schemas, abstention criteria, and disagreement examples.",
+    ],
+  },
+  {
+    id: "R6_coverage_support_tradeoff",
+    severity: "medium_high",
+    status: "open",
+    reviewer_objection: "The strongest completed scaffold results improve support largely by suppressing risky answers, so correctness gains may hide poor answer coverage.",
+    current_evidence: [
+      "risk-gate-transfer-synthesis-240-389-v1",
+      "claim-entailment-guard-validation-240-389-v1",
+      draft.run_id,
+    ],
+    mitigation_done: "Current tables report answered counts and support rates; the draft explicitly frames coverage as a central metric.",
+    required_next_evidence: [
+      "Report answer rate, abstention correctness, support, and utility together.",
+      "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",
+    ],
+  },
+  {
+    id: "R7_remote_compute_reproducibility_and_auth",
+    severity: "medium",
+    status: "operational_blocker",
+    reviewer_objection: "The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable.",
+    current_evidence: [
+      "prime-auth-diagnosis",
+      remoteSmoke.run_id,
+      budget.generated_at,
+    ],
+    mitigation_done: "The remote command is single-step and bounded; all actual spend is tracked under the $100 budget with $0 external compute spend so far.",
+    required_next_evidence: [
+      "Install a valid Prime key through hidden input or repair HF credits.",
+      "Record provider, GPU type, wall time, cost, and command transcript for the smoke.",
+    ],
+  },
+];
+
+const criticalBlockers = risks.filter((risk) => risk.severity === "critical" && risk.status === "blocking").map((risk) => risk.id);
+
+const result = {
+  run_id: runId,
+  generated_at: new Date().toISOString(),
+  artifact_type: "reviewer_risk_audit",
+  status: "not_submission_ready",
+  purpose: "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
+  readiness_context: {
+    gate_run_id: readiness.run_id,
+    passed_requirements: readiness.summary.passed,
+    failed_requirements: readiness.summary.failed,
+    status: readiness.summary.current_status,
+    blockers: readiness.top_blockers.map((row) => row.id),
+  },
+  critical_blockers: criticalBlockers,
+  risks,
+  acceptance_path: [
+    "Repair Prime auth or HF credits without exceeding the $100 total budget.",
+    "Run the one-command bounded Qwen 3B SFT/DPO smoke and produce complete predictions.",
+    "Run the Qwen 3B prediction integrity gate and default post-smoke dry judge.",
+    "Run the paid grounded-correctness judge only after the dry gate passes.",
+    "Refresh the novelty watchlist/web search immediately before making a submission-ready claim.",
+    "Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit.",
+  ],
+  budget: {
+    max_budget_usd: budget.max_budget_usd,
+    actual_total_spend_usd: budget.spend_usd.total_actual,
+    remaining_budget_usd: budget.spend_usd.remaining,
+    external_compute_actual_usd: budget.spend_usd.external_compute,
+  },
+  llm_budget: {
+    openai_llm_calls: 0,
+    openai_cost_usd: 0,
+    external_compute_cost_usd: 0,
+    note: "This reviewer-risk audit reads local artifacts only.",
+  },
+};
+
+await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(result, null, 2)}\n`);
+await fs.writeFile(path.join(outputDir, "report.md"), renderReport(result));
+console.log(JSON.stringify(result, null, 2));
+
+async function readResult(id) {
+  return readJson(path.join(runDir, id, "result.json"));
+}
+
+async function readJson(file) {
+  return JSON.parse(await fs.readFile(file, "utf8"));
+}
+
+function renderReport(result) {
+  return `# Reviewer Risk Audit
+
+Generated: ${result.generated_at}
+
+Status: \`${result.status}\`
+
+Readiness gate: \`${result.readiness_context.gate_run_id}\` (${result.readiness_context.passed_requirements}/${result.readiness_context.passed_requirements + result.readiness_context.failed_requirements} passing)
+
+## Critical Blockers
+
+${result.critical_blockers.map((id) => `- \`${id}\``).join("\n")}
+
+## Risks
+
+| ID | Severity | Status | Reviewer objection | Required next evidence |
+| --- | --- | --- | --- | --- |
+${result.risks.map((risk) => `| ${risk.id} | ${risk.severity} | ${risk.status} | ${risk.reviewer_objection} | ${risk.required_next_evidence.join("<br>")} |`).join("\n")}
+
+## Acceptance Path
+
+${result.acceptance_path.map((step, index) => `${index + 1}. ${step}`).join("\n")}
+
+## Budget
+
+- Actual total spend: $${result.budget.actual_total_spend_usd.toFixed(6)}
+- External compute spend: $${result.budget.external_compute_actual_usd.toFixed(6)}
+- Remaining: $${result.budget.remaining_budget_usd.toFixed(6)}
+
+This audit makes no OpenAI calls, launches no GPU jobs, and records no spend.
+`;
+}
+
+function parseArgs(values) {
+  const parsed = {};
+  for (const value of values) {
+    const match = value.match(/^--([^=]+)=(.*)$/);
+    if (match) parsed[match[1]] = match[2];
+  }
+  return parsed;
+}
