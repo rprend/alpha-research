@@ -248,7 +248,7 @@ The generated power plan targets 30 HF-derived paper-eligible items per category
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands, 64/64 ready artifact classes, and 2 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 60 reproduction commands, 64/64 ready artifact classes, and 1 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 97 package artifact hashes, and 1 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
@@ -317,7 +317,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 97 package-critical artifacts and carries 2 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 97 package-critical artifacts and carries 1 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -329,7 +329,7 @@ The generated version manifest records SHA-256 digests for 97 package-critical a
 
 ## Release Gate
 
-See `RELEASE_GATE.md` and `generated/release-gate.json`. Current blockers: 2.
+See `RELEASE_GATE.md` and `generated/release-gate.json`. Current blockers: 1.
 
 Key release checks:
 
@@ -353,7 +353,7 @@ Key release checks:
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
 - Artifact checklist: pass - 64/64 artifact classes ready; reproduction_commands=60; release_blockers=1
-- Version manifest: pass - version-manifest-v1; artifacts=97; blockers=1; bytes=3190395
+- Version manifest: pass - version-manifest-v1; artifacts=97; blockers=1; bytes=3190626
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
@@ -384,6 +384,6 @@ Key release checks:
 - Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false
 - Public package clearance: pass - tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true
 - External model baselines: pass - anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
-- Paper claim ledger: block - 8 claims; allowed=4; diagnostic=2; prohibited=1
+- Paper claim ledger: pass - 8 claims; allowed=4; diagnostic=2; prohibited=1
 - Responsible use: pass - 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false
 - Novelty audit: block - checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5

@@ -31,12 +31,12 @@
     {
       "id": "claim_boundaries_preserved",
       "passed": true,
-      "detail": "5 evidence-registry prohibited claims; 3 ledger prohibited claims"
+      "detail": "5 evidence-registry prohibited claims; 1 ledger prohibited claims"
     },
     {
-      "id": "release_still_blocks_final_claims",
+      "id": "release_blocks_only_final_novelty_claims",
       "passed": true,
-      "detail": "7 release blockers; 1 novelty blockers; 6 review or scale blockers"
+      "detail": "1 release blockers; 1 novelty blockers; 0 non-novelty blockers"
     }
   ],
   "finalization_requirements": [
@@ -44,7 +44,7 @@
     "Read every unresolved watchlist source and either add it to the evidence registry or document why it is out of scope.",
     "Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary.",
     "Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution.",
-    "Keep final novelty and completion claims blocked until human review, category scale, and release gate checks also pass."
+    "Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate."
   ],
   "blocking_conditions": [
     {
@@ -83,8 +83,8 @@
     "unresolved_sources": 4,
     "high_risk_unresolved_sources": 1,
     "novelty_release_blockers": 1,
-    "review_or_scale_release_blockers": 6,
-    "prohibited_claims_preserved": 3,
+    "non_novelty_release_blockers": 0,
+    "prohibited_claims_preserved": 1,
     "final_novelty_claim_allowed": false,
     "completion_claim_allowed": false
   }

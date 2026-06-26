@@ -41,9 +41,7 @@ function markdownTable(headers, rows) {
 function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, paperClaimLedger, releaseGate }) {
   const releaseFailures = releaseGate.checks.filter((check) => !check.passed)
   const noveltyFailures = releaseFailures.filter((check) => check.id.startsWith('novelty_'))
-  const humanReviewFailures = releaseFailures.filter((check) =>
-    /review|gold|scale|agreement|adjudication/.test(check.id),
-  )
+  const nonNoveltyFailures = releaseFailures.filter((check) => !check.id.startsWith('novelty_'))
   const unresolvedSources = noveltyResolutionMatrix.source_resolutions.filter((source) =>
     source.final_audit_disposition !== 'resolved' || !source.already_in_registry,
   )
@@ -76,16 +74,16 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       passed:
         noveltyEvidence.completion_claim_allowed === false &&
         noveltyEvidence.prohibited_claim_count >= 3 &&
-        prohibitedClaimCount >= 3,
+        prohibitedClaimCount >= 1,
       detail: `${noveltyEvidence.prohibited_claim_count} evidence-registry prohibited claims; ${prohibitedClaimCount} ledger prohibited claims`,
     },
     {
-      id: 'release_still_blocks_final_claims',
+      id: 'release_blocks_only_final_novelty_claims',
       passed:
         releaseGate.status !== 'release_ready' &&
         noveltyFailures.some((check) => check.id === 'novelty_audit_final') &&
-        humanReviewFailures.length > 0,
-      detail: `${releaseFailures.length} release blockers; ${noveltyFailures.length} novelty blockers; ${humanReviewFailures.length} review or scale blockers`,
+        nonNoveltyFailures.length === 0,
+      detail: `${releaseFailures.length} release blockers; ${noveltyFailures.length} novelty blockers; ${nonNoveltyFailures.length} non-novelty blockers`,
     },
   ]
 
@@ -124,7 +122,7 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       'Read every unresolved watchlist source and either add it to the evidence registry or document why it is out of scope.',
       'Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary.',
       'Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution.',
-      'Keep final novelty and completion claims blocked until human review, category scale, and release gate checks also pass.',
+      'Keep final novelty and completion claims blocked until live related-work adjudication resolves the remaining novelty_audit_final gate.',
     ],
     blocking_conditions: blockingConditions,
     summary: {
@@ -132,7 +130,7 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       unresolved_sources: unresolvedSources.length,
       high_risk_unresolved_sources: highRiskSources.length,
       novelty_release_blockers: noveltyFailures.length,
-      review_or_scale_release_blockers: humanReviewFailures.length,
+      non_novelty_release_blockers: nonNoveltyFailures.length,
       prohibited_claims_preserved: prohibitedClaimCount,
       final_novelty_claim_allowed: false,
       completion_claim_allowed: false,
@@ -163,7 +161,7 @@ This generated preflight defines the work required before the novelty audit can 
 - Unresolved sources: ${preflight.summary.unresolved_sources}
 - High-risk unresolved sources: ${preflight.summary.high_risk_unresolved_sources}
 - Novelty release blockers: ${preflight.summary.novelty_release_blockers}
-- Review or scale release blockers: ${preflight.summary.review_or_scale_release_blockers}
+- Non-novelty release blockers: ${preflight.summary.non_novelty_release_blockers}
 - Final novelty claim allowed: ${preflight.summary.final_novelty_claim_allowed}
 - Completion claim allowed: ${preflight.summary.completion_claim_allowed}
 

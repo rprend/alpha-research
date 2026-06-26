@@ -8,7 +8,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
 - Artifacts hashed: 97
-- Total bytes: 3190626
+- Total bytes: 3190654
 - Release checks: 100/101
 - Release blockers: 1
 - Completion claim allowed: false
@@ -61,7 +61,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | CITATION.md | 1741 | 9f46699a3e07d040 |
 | NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
 | NOVELTY_RESOLUTION_MATRIX.md | 2883 | ca283b8ffed7d883 |
-| NOVELTY_FINALIZATION_PREFLIGHT.md | 3404 | 570ccefb05cb68a4 |
+| NOVELTY_FINALIZATION_PREFLIGHT.md | 3418 | 59047041de2608bf |
 | NOVELTY_SOURCE_REVIEW_PACKETS.md | 4220 | caa802667e7bce45 |
 | NOVELTY_CLAIM_REVISION_PLAN.md | 1886 | 53682345ae12c720 |
 | NOVELTY_LINK_AUDIT.md | 1542 | 83b2de30b901bafc |
@@ -113,7 +113,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |
 | generated/novelty-watchlist.json | 4007 | 0dda2e5938e2009d |
 | generated/novelty-resolution-matrix.json | 5493 | b638489c4d3b1aca |
-| generated/novelty-finalization-preflight.json | 4305 | a7366f57c4814cac |
+| generated/novelty-finalization-preflight.json | 4319 | b636e4af3af1d701 |
 | generated/novelty-source-review-packets.json | 9792 | f41dd32190533f85 |
 | generated/novelty-claim-revision-plan.json | 4890 | f681098c3d9d87e0 |
 | generated/novelty-link-audit.json | 4399 | 987e039501286060 |

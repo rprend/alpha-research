@@ -216,8 +216,8 @@
     },
     {
       "path": "NOVELTY_FINALIZATION_PREFLIGHT.md",
-      "bytes": 3404,
-      "sha256": "570ccefb05cb68a417d88b17d89298dcc31c19f5fb7e847254cb9173f0dc1f31"
+      "bytes": 3418,
+      "sha256": "59047041de2608bfaf55150defbb0119f6611f8c56fb3c5e83b8d2b76af343ba"
     },
     {
       "path": "NOVELTY_SOURCE_REVIEW_PACKETS.md",
@@ -476,8 +476,8 @@
     },
     {
       "path": "generated/novelty-finalization-preflight.json",
-      "bytes": 4305,
-      "sha256": "a7366f57c4814caca545bf7d0a2692883133f22ef3853d8a56cffef21c4bac59"
+      "bytes": 4319,
+      "sha256": "b636e4af3af1d701bdd8798f242262df0950182dfc309b7b52f3512d641cde20"
     },
     {
       "path": "generated/novelty-source-review-packets.json",
@@ -517,7 +517,7 @@
   ],
   "summary": {
     "artifact_count": 97,
-    "total_bytes": 3190626,
+    "total_bytes": 3190654,
     "release_blockers": 1,
     "completion_claim_allowed": false
   }

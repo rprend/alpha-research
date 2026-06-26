@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Isolate novelty finalization as the remaining blocker
+
+Decision: Make novelty finalization preflight depend only on unresolved June 2026 related-work adjudication now that HF-derived label and category-scale gates are ready.
+
+Rationale: The benchmark should not reintroduce human review or reviewed-scale blockers after the previous decision made HF-derived labels the primary supervision. The remaining paper-readiness risk is whether live June 2026 papers or datasets subsume the contribution, so the final preflight should focus on unresolved related-work sources and claim boundaries.
+
+Consequence: `scripts/hard-grounded-research-novelty-finalization-preflight.mjs` now expects `novelty_audit_final` to be the sole release blocker, records non-novelty blockers separately, and keeps completion claims blocked until the live related-work adjudication is resolved.
+
 ## 2026-06-26 — Promote HF-derived category scale
 
 Decision: Make category-scale readiness depend on a 300-item HF-derived scale suite built from the 30-item pilot plus 270 expansion candidates, with human review retained only as optional audit.
