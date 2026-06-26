@@ -1,0 +1,34 @@
+{
+  "type": "zero_call_logistic_candidate_verifier",
+  "target": "candidate is judge-correct and answer-type-correct on train examples",
+  "feature_names": [
+    "is_direct",
+    "is_strict_rubric",
+    "is_balanced_rubric",
+    "is_citation_repair",
+    "answered",
+    "inline_complete",
+    "citation_count",
+    "claim_count",
+    "answer_tokens",
+    "answered_policy_count",
+    "same_type_policy_count",
+    "same_citation_policy_count"
+  ],
+  "weights": {
+    "is_direct": 0.010210841394048141,
+    "is_strict_rubric": 0.017252328273828395,
+    "is_balanced_rubric": -0.16198656755020371,
+    "is_citation_repair": 0.0757144542730721,
+    "answered": -0.04648728956335724,
+    "inline_complete": 0.053323440896063015,
+    "citation_count": 0.02021938647585955,
+    "claim_count": -0.09919317297926418,
+    "answer_tokens": 0.2802791706793265,
+    "answered_policy_count": 0.22642854861326628,
+    "same_type_policy_count": 0.2997715285782106,
+    "same_citation_policy_count": 0.3067717440981333
+  },
+  "bias": -0.4132561348372885,
+  "train_loss": 0.5784597003431093
+}

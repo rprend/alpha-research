@@ -166,6 +166,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/policy-selector-temporal-test-132-172-v1/` routes locally among direct mini, strict rubric, balanced rubric, and citation-contract repair. It answers 31 of 40 examples and keeps 100.0% inline citation rate, but inherited judged correctness remains 92.5%, below direct mini. Policy routing is useful analysis, not the final student without a stronger verifier.
 
+`runs/verifier-selector-noleak-temporal-test-80-132-to-132-172-v1/` is the first train/eval verifier selector. It trains on judged candidates from examples 81-132 and evaluates on examples 133-172 using only deployable, non-gold features. It remains negative: 31 of 40 answered, 100.0% inline citation rate, and 92.5% inherited judged correctness. The oracle over the same candidates shows headroom, but simple metadata and agreement features do not learn a reliable support-preserving router.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:

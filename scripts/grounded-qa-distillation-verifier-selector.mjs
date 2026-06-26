@@ -1,0 +1,498 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+
+const rootDir = process.cwd();
+const experimentDir = path.join(rootDir, "docs", "experiments", "grounded-qa-distillation");
+const runDir = path.join(experimentDir, "runs");
+const dataDir = path.join(experimentDir, "data");
+const args = parseArgs(process.argv.slice(2));
+
+const split = args.split ?? "temporal_test";
+const trainOffset = numberArg(args["train-offset"], 80, { allowZero: true });
+const trainLimit = numberArg(args["train-limit"], 52);
+const evalOffset = numberArg(args["eval-offset"], 132, { allowZero: true });
+const evalLimit = numberArg(args["eval-limit"], 40);
+const runId = args["run-id"] ?? `verifier-selector-${split}-${trainOffset}-${evalOffset}-v1`;
+const outputDir = path.join(runDir, runId);
+
+const policies = {
+  direct: {
+    predictionRun: args["direct-run"] ?? "openai-student-temporal-test-full-v1",
+    judgeRun: args["direct-judge-run"] ?? "openai-judge-student-temporal-test-full-v1",
+  },
+  strict_rubric: {
+    predictionRun: args["strict-run"] ?? "openai-student-teacher-rubric-temporal-test-80-132-v1",
+    judgeRun: args["strict-judge-run"] ?? "openai-judge-student-teacher-rubric-temporal-test-80-132-v1",
+    evalPredictionRun: args["strict-eval-run"] ?? "openai-student-teacher-rubric-temporal-test-132-172-v1",
+    evalJudgeRun: args["strict-eval-judge-run"] ?? "openai-judge-student-teacher-rubric-temporal-test-132-172-v1",
+  },
+  balanced_rubric: {
+    predictionRun: args["balanced-run"] ?? "openai-student-teacher-balanced-rubric-temporal-test-80-132-v1",
+    judgeRun: args["balanced-judge-run"] ?? "openai-judge-student-teacher-balanced-rubric-temporal-test-80-132-v1",
+    evalPredictionRun: args["balanced-eval-run"] ?? "openai-student-teacher-balanced-rubric-temporal-test-132-172-v1",
+    evalJudgeRun: args["balanced-eval-judge-run"] ?? "openai-judge-student-teacher-balanced-rubric-temporal-test-132-172-v1",
+  },
+  citation_repair: {
+    predictionRun: args["repair-run"] ?? "citation-contract-repair-direct-mini-temporal-test-80-132-v1",
+    judgeRun: args["repair-judge-run"] ?? "openai-judge-citation-contract-repair-direct-mini-temporal-test-80-132-v1",
+    evalPredictionRun: args["repair-eval-run"] ?? "citation-contract-repair-direct-mini-temporal-test-132-172-v1",
+    evalJudgeRun: args["repair-eval-judge-run"] ?? "openai-judge-citation-contract-repair-direct-mini-temporal-test-132-172-v1",
+  },
+};
+
+await fs.mkdir(outputDir, { recursive: true });
+
+const references = await readJsonl(path.join(dataDir, `${split}.jsonl`));
+const trainReferences = references.slice(trainOffset, trainOffset + trainLimit);
+const evalReferences = references.slice(evalOffset, evalOffset + evalLimit);
+
+const trainRows = await buildRows(trainReferences, "train");
+const evalRows = await buildRows(evalReferences, "eval");
+const featureNames = featureVector(trainRows[0].candidates.direct, trainRows[0].candidates).names;
+const trainExamples = trainRows.flatMap((row) => Object.values(row.candidates).map((candidate) => ({
+  x: featureVector(candidate, row.candidates).values,
+  y: candidate.target_good ? 1 : 0,
+})));
+const model = trainLogistic(trainExamples, { iterations: 2800, learningRate: 0.08, l2: 0.02 });
+
+const selectedTrainRows = selectRows(trainRows, model);
+const selectedEvalRows = selectRows(evalRows, model);
+const result = {
+  run_id: runId,
+  generated_at: new Date().toISOString(),
+  split,
+  train: {
+    offset: trainOffset,
+    examples: trainRows.length,
+    candidate_rows: trainExamples.length,
+    positive_candidate_rate: mean(trainExamples.map((row) => row.y)),
+  },
+  eval: {
+    offset: evalOffset,
+    examples: selectedEvalRows.length,
+  },
+  policy_runs: policies,
+  verifier: {
+    type: "zero_call_logistic_candidate_verifier",
+    target: "candidate is judge-correct and answer-type-correct on train examples",
+    feature_names: featureNames,
+    weights: Object.fromEntries(featureNames.map((name, index) => [name, model.weights[index]])),
+    bias: model.bias,
+    train_loss: model.loss,
+  },
+  cost: {
+    llm_calls: 0,
+    run_cost_usd: 0,
+    note: "Verifier selector trains only on existing prediction and judge artifacts.",
+  },
+  train_metrics: summarizeSelections(selectedTrainRows),
+  eval_metrics: summarizeSelections(selectedEvalRows),
+  eval_policy_mix: groupCount(selectedEvalRows.map((row) => row.selected_policy)),
+  eval_oracle: oracleSummary(evalRows),
+};
+
+await writeJsonl(path.join(outputDir, "predictions.jsonl"), selectedEvalRows);
+await writeJsonl(path.join(outputDir, "train_predictions.jsonl"), selectedTrainRows);
+await fs.writeFile(path.join(outputDir, "verifier-model.json"), `${JSON.stringify(result.verifier, null, 2)}\n`);
+await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(result, null, 2)}\n`);
+await fs.writeFile(path.join(outputDir, "report.md"), renderReport(result));
+
+console.log(JSON.stringify({
+  run_id: runId,
+  result: path.relative(rootDir, path.join(outputDir, "result.json")),
+  report: path.relative(rootDir, path.join(outputDir, "report.md")),
+  train_metrics: result.train_metrics,
+  eval_metrics: result.eval_metrics,
+  eval_policy_mix: result.eval_policy_mix,
+  eval_oracle: result.eval_oracle,
+}, null, 2));
+
+async function buildRows(referenceRows, role) {
+  const referenceIds = new Set(referenceRows.map((row) => row.example_id));
+  const loaded = {};
+  for (const [policy, config] of Object.entries(policies)) {
+    const predictionRun = role === "eval" ? (config.evalPredictionRun ?? config.predictionRun) : config.predictionRun;
+    const judgeRun = role === "eval" ? (config.evalJudgeRun ?? config.judgeRun) : config.judgeRun;
+    loaded[policy] = {
+      predictionRun,
+      judgeRun,
+      predictions: await loadPredictions(predictionRun, referenceIds),
+      judgments: await loadJudgments(judgeRun, referenceIds),
+    };
+  }
+
+  return referenceRows.map((reference) => {
+    const candidates = {};
+    for (const [policy, artifacts] of Object.entries(loaded)) {
+      const predictionRow = artifacts.predictions.get(reference.example_id);
+      const judgmentRow = artifacts.judgments.get(reference.example_id);
+      const prediction = normalizePrediction(predictionRow?.prediction ?? {});
+      const scores = scorePrediction(reference, prediction);
+      const inheritedJudgedCorrect = judgedCorrect(judgmentRow);
+      candidates[policy] = {
+        policy,
+        prediction,
+        prediction_run: artifacts.predictionRun,
+        judge_run: artifacts.judgeRun,
+        judgment: judgmentRow?.judgment ?? null,
+        inherited_judged_correct: inheritedJudgedCorrect,
+        scores,
+        inline_complete: inlineComplete(prediction),
+        answered: prediction.answer_type === "grounded_answer",
+        target_good: inheritedJudgedCorrect && scores.answer_type_correct === true,
+      };
+    }
+    return {
+      example_id: reference.example_id,
+      reference: {
+        answer_type: reference.output.answer_type,
+        answer: reference.output.answer,
+        citations: (reference.output.citations ?? []).map((citation) => citation.evidence_id),
+      },
+      candidates,
+    };
+  });
+}
+
+function selectRows(rows, model) {
+  return rows.map((row) => {
+    const scored = Object.values(row.candidates).map((candidate) => ({
+      ...candidate,
+      verifier_score: predict(model, featureVector(candidate, row.candidates).values),
+    })).sort((a, b) => candidateRank(b) - candidateRank(a));
+    const selected = scored[0];
+    return {
+      example_id: row.example_id,
+      selected_policy: selected.policy,
+      verifier_score: selected.verifier_score,
+      prediction: selected.prediction,
+      reference: row.reference,
+      scores: selected.scores,
+      inherited_judgment: selected.judgment,
+      inherited_judged_correct: selected.inherited_judged_correct,
+      target_good: selected.target_good,
+      candidate_summary: Object.fromEntries(scored.map((candidate) => [candidate.policy, {
+        verifier_score: candidate.verifier_score,
+        answered: candidate.answered,
+        inline_complete: candidate.inline_complete,
+        inherited_judged_correct: candidate.inherited_judged_correct,
+        target_good: candidate.target_good,
+        answer_type_correct: candidate.scores.answer_type_correct,
+        citation_precision: candidate.scores.citation_precision,
+        citation_recall: candidate.scores.citation_recall,
+      }])),
+    };
+  });
+}
+
+function candidateRank(candidate) {
+  const inlinePenalty = candidate.inline_complete ? 0 : -0.35;
+  const answerBonus = candidate.answered ? 0.04 : 0;
+  return candidate.verifier_score + inlinePenalty + answerBonus;
+}
+
+function featureVector(candidate, candidates) {
+  const prediction = candidate.prediction;
+  const citationCount = prediction.citations.length;
+  const answerTokens = contentTokens(prediction.answer).length;
+  const claimCount = prediction.claim_table.length;
+  const answeredPolicies = Object.values(candidates).filter((row) => row.answered).length;
+  const sameTypePolicies = Object.values(candidates).filter((row) => row.prediction.answer_type === prediction.answer_type).length;
+  const sameCitationPolicies = Object.values(candidates).filter((row) => jaccard(row.prediction.citations, prediction.citations) >= 0.5).length;
+  const names = [
+    "is_direct",
+    "is_strict_rubric",
+    "is_balanced_rubric",
+    "is_citation_repair",
+    "answered",
+    "inline_complete",
+    "citation_count",
+    "claim_count",
+    "answer_tokens",
+    "answered_policy_count",
+    "same_type_policy_count",
+    "same_citation_policy_count",
+  ];
+  const values = [
+    candidate.policy === "direct" ? 1 : 0,
+    candidate.policy === "strict_rubric" ? 1 : 0,
+    candidate.policy === "balanced_rubric" ? 1 : 0,
+    candidate.policy === "citation_repair" ? 1 : 0,
+    candidate.answered ? 1 : 0,
+    candidate.inline_complete ? 1 : 0,
+    Math.log1p(citationCount),
+    Math.log1p(claimCount),
+    Math.log1p(answerTokens),
+    answeredPolicies / Object.keys(candidates).length,
+    sameTypePolicies / Object.keys(candidates).length,
+    sameCitationPolicies / Object.keys(candidates).length,
+  ];
+  return { names, values };
+}
+
+function trainLogistic(examples, options) {
+  const weights = Array(examples[0].x.length).fill(0);
+  let bias = 0;
+  for (let iteration = 0; iteration < options.iterations; iteration += 1) {
+    const grad = Array(weights.length).fill(0);
+    let biasGrad = 0;
+    for (const example of examples) {
+      const prediction = sigmoid(dot(weights, example.x) + bias);
+      const error = prediction - example.y;
+      for (let index = 0; index < weights.length; index += 1) grad[index] += error * example.x[index];
+      biasGrad += error;
+    }
+    for (let index = 0; index < weights.length; index += 1) {
+      grad[index] = grad[index] / examples.length + options.l2 * weights[index];
+      weights[index] -= options.learningRate * grad[index];
+    }
+    bias -= options.learningRate * (biasGrad / examples.length);
+  }
+  return {
+    weights,
+    bias,
+    loss: logisticLoss(examples, weights, bias, options.l2),
+  };
+}
+
+function logisticLoss(examples, weights, bias, l2) {
+  const eps = 1e-8;
+  const nll = mean(examples.map((example) => {
+    const prediction = Math.min(1 - eps, Math.max(eps, sigmoid(dot(weights, example.x) + bias)));
+    return -(example.y * Math.log(prediction) + (1 - example.y) * Math.log(1 - prediction));
+  }));
+  return nll + l2 * sum(weights.map((value) => value * value)) / 2;
+}
+
+function predict(model, values) {
+  return sigmoid(dot(model.weights, values) + model.bias);
+}
+
+function sigmoid(value) {
+  return 1 / (1 + Math.exp(-value));
+}
+
+function dot(left, right) {
+  return left.reduce((total, value, index) => total + value * right[index], 0);
+}
+
+function oracleSummary(rows) {
+  const selected = rows.map((row) => {
+    const candidates = Object.values(row.candidates);
+    const targetGood = candidates.find((candidate) => candidate.target_good && candidate.inline_complete);
+    const fallback = candidates.find((candidate) => candidate.target_good) ?? candidates[0];
+    return targetGood ?? fallback;
+  });
+  return {
+    target_good_rate: mean(selected.map((candidate) => candidate.target_good)),
+    answered: selected.filter((candidate) => candidate.prediction.answer_type === "grounded_answer").length,
+    policy_mix: groupCount(selected.map((candidate) => candidate.policy)),
+  };
+}
+
+async function loadPredictions(runId, referenceIds) {
+  const rows = await readJsonl(path.join(runDir, runId, "predictions.jsonl"));
+  return new Map(rows.filter((row) => referenceIds.has(row.example_id)).map((row) => [row.example_id, row]));
+}
+
+async function loadJudgments(runId, referenceIds) {
+  const rows = await readJsonl(path.join(runDir, runId, "judgments.jsonl"));
+  return new Map(rows.filter((row) => referenceIds.has(row.example_id)).map((row) => [row.example_id, row]));
+}
+
+function judgedCorrect(row) {
+  const judgment = row?.judgment ?? {};
+  if (row?.prediction_answer_type === "grounded_answer") {
+    return judgment.verdict === "supported"
+      && judgment.all_claims_supported === true
+      && judgment.citation_ids_valid === true;
+  }
+  if (row?.prediction_answer_type === "abstain") {
+    return judgment.verdict === "correct_abstention"
+      && judgment.abstention_supported === true;
+  }
+  return false;
+}
+
+function inlineComplete(prediction) {
+  if (prediction.answer_type !== "grounded_answer") return true;
+  return prediction.citations.length > 0
+    && prediction.citations.every((id) => prediction.answer.includes(`[${id}]`));
+}
+
+function scorePrediction(reference, prediction) {
+  const referenceCitations = new Set((reference.output.citations ?? []).map((citation) => citation.evidence_id));
+  const citedGold = prediction.citations.filter((id) => reference.teacher_trace.evidence_roles[id] === "gold_evidence").length;
+  const answerable = reference.output.answer_type !== "abstain";
+  const abstained = prediction.answer_type === "abstain";
+  return {
+    answer_type_correct: prediction.answer_type === reference.output.answer_type,
+    citation_precision: prediction.citations.length ? citedGold / prediction.citations.length : null,
+    citation_recall: referenceCitations.size
+      ? prediction.citations.filter((id) => referenceCitations.has(id)).length / referenceCitations.size
+      : null,
+    answer_token_f1: answerable ? (!abstained ? tokenF1(prediction.answer, stripCitations(reference.output.answer)) : 0) : null,
+    abstention_correct: answerable ? !abstained : abstained,
+    inline_citation_rate: prediction.answer_type === "grounded_answer"
+      ? (prediction.citations.length ? prediction.citations.filter((id) => prediction.answer.includes(`[${id}]`)).length / prediction.citations.length : 0)
+      : null,
+  };
+}
+
+function summarizeSelections(rows) {
+  return {
+    examples: rows.length,
+    answered: rows.filter((row) => row.prediction.answer_type === "grounded_answer").length,
+    abstained: rows.filter((row) => row.prediction.answer_type === "abstain").length,
+    answer_type_accuracy: mean(rows.map((row) => row.scores.answer_type_correct)),
+    citation_precision: mean(rows.map((row) => row.scores.citation_precision)),
+    citation_recall: mean(rows.map((row) => row.scores.citation_recall)),
+    answer_token_f1: mean(rows.map((row) => row.scores.answer_token_f1)),
+    abstention_accuracy: mean(rows.map((row) => row.scores.abstention_correct)),
+    inline_citation_rate: mean(rows.map((row) => row.scores.inline_citation_rate)),
+    inherited_judged_correct_rate: mean(rows.map((row) => row.inherited_judged_correct)),
+    target_good_rate: mean(rows.map((row) => row.target_good)),
+  };
+}
+
+function normalizePrediction(value) {
+  const answerType = value.answer_type === "abstain" ? "abstain" : "grounded_answer";
+  const citations = Array.isArray(value.citations)
+    ? value.citations.map((citation) => typeof citation === "string" ? citation : citation?.evidence_id).filter(Boolean)
+    : [];
+  return {
+    answer_type: answerType,
+    answer: String(value.answer ?? ""),
+    citations: answerType === "abstain" ? [] : [...new Set(citations)],
+    claim_table: Array.isArray(value.claim_table) ? value.claim_table : [],
+    abstention_reason: answerType === "abstain" ? String(value.abstention_reason ?? "") : null,
+  };
+}
+
+function renderReport(result) {
+  return `# Verifier Selector
+
+## Setup
+
+- Split: \`${result.split}\`
+- Train window: offset ${result.train.offset}, ${result.train.examples} examples
+- Eval window: offset ${result.eval.offset}, ${result.eval.examples} examples
+- LLM calls: ${result.cost.llm_calls}
+- Run cost: $${result.cost.run_cost_usd.toFixed(7)}
+
+The verifier is trained only from existing candidate predictions and judge labels. The target is candidate-level correctness: judge-correct and answer-type-correct.
+
+## Result
+
+| Split | Examples | Answered | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate | Inherited judged correct | Target-good |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Train | ${result.train_metrics.examples} | ${result.train_metrics.answered} | ${pct(result.train_metrics.answer_type_accuracy)} | ${pct(result.train_metrics.citation_precision)} | ${pct(result.train_metrics.citation_recall)} | ${pct(result.train_metrics.answer_token_f1)} | ${pct(result.train_metrics.inline_citation_rate)} | ${pct(result.train_metrics.inherited_judged_correct_rate)} | ${pct(result.train_metrics.target_good_rate)} |
+| Eval | ${result.eval_metrics.examples} | ${result.eval_metrics.answered} | ${pct(result.eval_metrics.answer_type_accuracy)} | ${pct(result.eval_metrics.citation_precision)} | ${pct(result.eval_metrics.citation_recall)} | ${pct(result.eval_metrics.answer_token_f1)} | ${pct(result.eval_metrics.inline_citation_rate)} | ${pct(result.eval_metrics.inherited_judged_correct_rate)} | ${pct(result.eval_metrics.target_good_rate)} |
+
+## Eval Policy Mix
+
+${Object.entries(result.eval_policy_mix).map(([policy, count]) => `- ${policy}: ${count}`).join("\n")}
+
+## Oracle Headroom
+
+- Target-good rate if an oracle picked any inline-complete good candidate: ${pct(result.eval_oracle.target_good_rate)}
+- Oracle answered examples: ${result.eval_oracle.answered}
+- Oracle policy mix: ${JSON.stringify(result.eval_oracle.policy_mix)}
+
+This is a calibration experiment, not a final student. It tests whether support labels from one temporal window transfer to routing decisions on the next window.
+`;
+}
+
+function tokenF1(prediction, reference) {
+  const predicted = contentTokens(stripCitations(prediction));
+  const gold = contentTokens(reference);
+  if (!predicted.length && !gold.length) return 1;
+  if (!predicted.length || !gold.length) return 0;
+  const goldCounts = counts(gold);
+  let overlap = 0;
+  for (const token of predicted) {
+    const count = goldCounts.get(token) ?? 0;
+    if (count > 0) {
+      overlap += 1;
+      goldCounts.set(token, count - 1);
+    }
+  }
+  if (!overlap) return 0;
+  const precision = overlap / predicted.length;
+  const recall = overlap / gold.length;
+  return (2 * precision * recall) / (precision + recall);
+}
+
+function contentTokens(value) {
+  const stop = new Set(["the", "and", "for", "that", "with", "from", "what", "how", "are", "was", "were", "this", "does", "their", "using", "used", "into", "about", "have", "has", "its", "can", "which", "when", "where", "why"]);
+  return String(value)
+    .toLowerCase()
+    .replace(/\[[^\]]+\]/g, " ")
+    .split(/[^a-z0-9]+/)
+    .filter((token) => token.length > 2 && !stop.has(token));
+}
+
+function stripCitations(value) {
+  return String(value).replace(/\s*\[[^\]]+\]/g, "").trim();
+}
+
+function counts(tokens) {
+  const map = new Map();
+  for (const token of tokens) map.set(token, (map.get(token) ?? 0) + 1);
+  return map;
+}
+
+function jaccard(left, right) {
+  const a = new Set(left);
+  const b = new Set(right);
+  const union = new Set([...a, ...b]);
+  if (!union.size) return 1;
+  const intersection = [...a].filter((item) => b.has(item)).length;
+  return intersection / union.size;
+}
+
+function groupCount(values) {
+  const out = {};
+  for (const value of values) out[value] = (out[value] ?? 0) + 1;
+  return Object.fromEntries(Object.entries(out).sort());
+}
+
+function mean(values) {
+  const numeric = values.filter((value) => value != null && Number.isFinite(Number(value))).map(Number);
+  return numeric.length ? numeric.reduce((total, value) => total + value, 0) / numeric.length : 0;
+}
+
+function sum(values) {
+  return values.reduce((total, value) => total + Number(value || 0), 0);
+}
+
+function pct(value) {
+  return `${(value * 100).toFixed(1)}%`;
+}
+
+async function readJsonl(file) {
+  const text = await fs.readFile(file, "utf8");
+  return text.trim().split("\n").filter(Boolean).map((line) => JSON.parse(line));
+}
+
+async function writeJsonl(file, rows) {
+  await fs.writeFile(file, rows.map((row) => JSON.stringify(row)).join("\n") + (rows.length ? "\n" : ""));
+}
+
+function numberArg(value, fallback, options = {}) {
+  if (value == null) return fallback;
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) return fallback;
+  if (options.allowZero ? parsed < 0 : parsed <= 0) return fallback;
+  return Math.floor(parsed);
+}
+
+function parseArgs(values) {
+  const parsed = {};
+  for (const value of values) {
+    if (!value.startsWith("--")) continue;
+    const [key, raw] = value.slice(2).split("=");
+    parsed[key] = raw ?? "true";
+  }
+  return parsed;
+}

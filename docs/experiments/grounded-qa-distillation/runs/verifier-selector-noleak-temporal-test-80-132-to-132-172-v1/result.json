@@ -1,0 +1,118 @@
+{
+  "run_id": "verifier-selector-noleak-temporal-test-80-132-to-132-172-v1",
+  "generated_at": "2026-06-26T06:12:26.672Z",
+  "split": "temporal_test",
+  "train": {
+    "offset": 80,
+    "examples": 52,
+    "candidate_rows": 208,
+    "positive_candidate_rate": 0.7019230769230769
+  },
+  "eval": {
+    "offset": 132,
+    "examples": 40
+  },
+  "policy_runs": {
+    "direct": {
+      "predictionRun": "openai-student-temporal-test-full-v1",
+      "judgeRun": "openai-judge-student-temporal-test-full-v1"
+    },
+    "strict_rubric": {
+      "predictionRun": "openai-student-teacher-rubric-temporal-test-80-132-v1",
+      "judgeRun": "openai-judge-student-teacher-rubric-temporal-test-80-132-v1",
+      "evalPredictionRun": "openai-student-teacher-rubric-temporal-test-132-172-v1",
+      "evalJudgeRun": "openai-judge-student-teacher-rubric-temporal-test-132-172-v1"
+    },
+    "balanced_rubric": {
+      "predictionRun": "openai-student-teacher-balanced-rubric-temporal-test-80-132-v1",
+      "judgeRun": "openai-judge-student-teacher-balanced-rubric-temporal-test-80-132-v1",
+      "evalPredictionRun": "openai-student-teacher-balanced-rubric-temporal-test-132-172-v1",
+      "evalJudgeRun": "openai-judge-student-teacher-balanced-rubric-temporal-test-132-172-v1"
+    },
+    "citation_repair": {
+      "predictionRun": "citation-contract-repair-direct-mini-temporal-test-80-132-v1",
+      "judgeRun": "openai-judge-citation-contract-repair-direct-mini-temporal-test-80-132-v1",
+      "evalPredictionRun": "citation-contract-repair-direct-mini-temporal-test-132-172-v1",
+      "evalJudgeRun": "openai-judge-citation-contract-repair-direct-mini-temporal-test-132-172-v1"
+    }
+  },
+  "verifier": {
+    "type": "zero_call_logistic_candidate_verifier",
+    "target": "candidate is judge-correct and answer-type-correct on train examples",
+    "feature_names": [
+      "is_direct",
+      "is_strict_rubric",
+      "is_balanced_rubric",
+      "is_citation_repair",
+      "answered",
+      "inline_complete",
+      "citation_count",
+      "claim_count",
+      "answer_tokens",
+      "answered_policy_count",
+      "same_type_policy_count",
+      "same_citation_policy_count"
+    ],
+    "weights": {
+      "is_direct": 0.010210841394048141,
+      "is_strict_rubric": 0.017252328273828395,
+      "is_balanced_rubric": -0.16198656755020371,
+      "is_citation_repair": 0.0757144542730721,
+      "answered": -0.04648728956335724,
+      "inline_complete": 0.053323440896063015,
+      "citation_count": 0.02021938647585955,
+      "claim_count": -0.09919317297926418,
+      "answer_tokens": 0.2802791706793265,
+      "answered_policy_count": 0.22642854861326628,
+      "same_type_policy_count": 0.2997715285782106,
+      "same_citation_policy_count": 0.3067717440981333
+    },
+    "bias": -0.4132561348372885,
+    "train_loss": 0.5784597003431093
+  },
+  "cost": {
+    "llm_calls": 0,
+    "run_cost_usd": 0,
+    "note": "Verifier selector trains only on existing prediction and judge artifacts."
+  },
+  "train_metrics": {
+    "examples": 52,
+    "answered": 42,
+    "abstained": 10,
+    "answer_type_accuracy": 0.7115384615384616,
+    "citation_precision": 0.6666666666666666,
+    "citation_recall": 0.6036036036036035,
+    "answer_token_f1": 0.2057564610521967,
+    "abstention_accuracy": 0.7115384615384616,
+    "inline_citation_rate": 1,
+    "inherited_judged_correct_rate": 0.9615384615384616,
+    "target_good_rate": 0.6923076923076923
+  },
+  "eval_metrics": {
+    "examples": 40,
+    "answered": 31,
+    "abstained": 9,
+    "answer_type_accuracy": 0.825,
+    "citation_precision": 0.7795698924731184,
+    "citation_recall": 0.6845238095238094,
+    "answer_token_f1": 0.2103178634366863,
+    "abstention_accuracy": 0.825,
+    "inline_citation_rate": 1,
+    "inherited_judged_correct_rate": 0.925,
+    "target_good_rate": 0.775
+  },
+  "eval_policy_mix": {
+    "balanced_rubric": 3,
+    "citation_repair": 29,
+    "strict_rubric": 8
+  },
+  "eval_oracle": {
+    "target_good_rate": 0.925,
+    "answered": 27,
+    "policy_mix": {
+      "balanced_rubric": 1,
+      "direct": 32,
+      "strict_rubric": 7
+    }
+  }
+}

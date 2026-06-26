@@ -48,6 +48,7 @@ if (!errors.length) {
   await validateTeacherLabelScaffoldRunsIfPresent();
   await validateCitationContractRepairRunsIfPresent();
   await validatePolicySelectorRunsIfPresent();
+  await validateVerifierSelectorRunsIfPresent();
   await validateHfSftPrepRunsIfPresent();
 }
 
@@ -247,8 +248,11 @@ async function validateOpenAiStudentRunsIfPresent() {
     if (Number(result.ledger_spend_after_usd) + 1e-9 < Number(result.ledger_spend_before_usd)) {
       errors.push(`${entry.name}: ledger spend decreased.`);
     }
-    if (Math.abs((Number(result.ledger_spend_after_usd) - Number(result.ledger_spend_before_usd)) - runCost) > 1e-6 && !result.dry_run) {
-      errors.push(`${entry.name}: ledger delta does not match prediction costs.`);
+    if (!result.dry_run) {
+      const ledgerCost = await ledgerRunCost(result.run_id);
+      if (Math.abs(ledgerCost - runCost) > 1e-6) {
+        errors.push(`${entry.name}: ledger rows for run_id do not match prediction costs.`);
+      }
     }
     const strictPredictionSchema = ["teacher-label-rubric", "teacher-label-balanced-rubric"].includes(result.scaffold);
     if (strictPredictionSchema) {
@@ -270,12 +274,20 @@ async function validateOpenAiStudentRunsIfPresent() {
       if (strictPredictionSchema && !["grounded_answer", "abstain", "parse_error"].includes(answerType)) {
         errors.push(`${label}: invalid prediction answer_type.`);
       }
-      if (strictPredictionSchema && answerType === "grounded_answer") {
-        for (const citation of row.prediction.citations ?? []) {
-          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
-        }
-      }
     }
+  }
+}
+
+async function ledgerRunCost(runId) {
+  const ledgerPath = path.join(experimentDir, "llm-calls", "ledger.jsonl");
+  try {
+    const rows = await readJsonl(ledgerPath);
+    return rows
+      .filter((row) => row.run_id === runId)
+      .reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+  } catch (error) {
+    if (error.code === "ENOENT") return 0;
+    throw error;
   }
 }
 
@@ -666,6 +678,61 @@ async function validatePolicySelectorRunsIfPresent() {
       if (!row.example_id || !row.selected_policy || !row.prediction?.answer_type || !row.scores || !row.candidate_summary) {
         errors.push(`${label}: missing selector fields.`);
       }
+      if (row.prediction?.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
+      }
+    }
+  }
+}
+
+async function validateVerifierSelectorRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("verifier-selector-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const trainPredictionsPath = path.join(runsDir, entry.name, "train_predictions.jsonl");
+    const modelPath = path.join(runsDir, entry.name, "verifier-model.json");
+    let result;
+    let predictions;
+    let trainPredictions;
+    let model;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      trainPredictions = await readJsonl(trainPredictionsPath);
+      model = JSON.parse(await fs.readFile(modelPath, "utf8"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed verifier selector artifacts.`);
+      continue;
+    }
+    if (result.cost?.llm_calls !== 0 || Number(result.cost?.run_cost_usd) !== 0) {
+      errors.push(`${entry.name}: verifier selector must be zero-call and zero-cost.`);
+    }
+    if (result.eval?.examples !== predictions.length) errors.push(`${entry.name}: eval example count does not match predictions.`);
+    if (result.train?.examples !== trainPredictions.length) errors.push(`${entry.name}: train example count does not match train predictions.`);
+    if (!Array.isArray(model.feature_names) || !model.feature_names.length || !model.weights) {
+      errors.push(`${entry.name}: verifier model is missing feature names or weights.`);
+    }
+    const forbiddenLeakageFeatures = ["citation_precision_proxy", "citation_recall_proxy"];
+    for (const feature of forbiddenLeakageFeatures) {
+      if (model.feature_names?.includes(feature)) errors.push(`${entry.name}: verifier model includes leakage feature ${feature}.`);
+    }
+    for (const [index, row] of [...trainPredictions, ...predictions].entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.selected_policy || !row.prediction?.answer_type || !row.scores || !row.candidate_summary) {
+        errors.push(`${label}: missing verifier selector fields.`);
+      }
+      if (!Number.isFinite(Number(row.verifier_score))) errors.push(`${label}: missing numeric verifier score.`);
       if (row.prediction?.answer_type === "grounded_answer") {
         for (const citation of row.prediction.citations ?? []) {
           if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
