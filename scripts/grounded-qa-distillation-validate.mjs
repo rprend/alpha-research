@@ -62,6 +62,7 @@ if (!errors.length) {
   await validateAbstentionSupportErrorAnalysisRunsIfPresent();
   await validateJointActionGpuPrepRunsIfPresent();
   await validateJointActionLaunchPreflightRunsIfPresent();
+  await validateJointActionLaunchPlanRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
@@ -1257,6 +1258,53 @@ async function validateJointActionLaunchPreflightRunsIfPresent() {
     const status = result.conclusion?.status;
     if (!["ready_for_bounded_gpu_smoke", "remote_training_ready_local_runtime_incomplete", "needs_length_mitigation_before_full_run"].includes(status)) {
       errors.push(`${entry.name}: invalid launch preflight conclusion status.`);
+    }
+  }
+}
+
+async function validateJointActionLaunchPlanRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-launch-plan-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action launch plan artifacts.`);
+      continue;
+    }
+    if (!["prime_intellect", "huggingface_jobs"].includes(result.provider)) {
+      errors.push(`${entry.name}: unexpected launch provider.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: launch planning must be zero actual cost.`);
+    }
+    if (result.budget?.launch_within_budget !== true) {
+      errors.push(`${entry.name}: launch plan must pass budget guardrail.`);
+    }
+    if (result.preflight_gate?.passed !== true) {
+      errors.push(`${entry.name}: launch plan must pass preflight guardrail.`);
+    }
+    if (!String(result.commands?.bounded_train ?? "").includes("MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none")) {
+      errors.push(`${entry.name}: launch plan must emit the bounded smoke command.`);
+    }
+    const ledgerAction = result.ledger?.action;
+    if (!["not_recorded", "recorded", "already_recorded"].includes(ledgerAction)) {
+      errors.push(`${entry.name}: invalid planned ledger action.`);
+    }
+    const row = result.ledger?.planned_row;
+    if (row?.status !== "planned" || Number(row?.cost_usd) !== 0 || Number(row?.estimated_cost_usd) <= 0) {
+      errors.push(`${entry.name}: planned ledger row must record estimate with zero actual cost.`);
     }
   }
 }
