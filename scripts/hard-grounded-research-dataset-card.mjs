@@ -14,6 +14,7 @@ const inputPaths = {
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
+  failureAtlas: join(generatedDir, 'failure-atlas.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
@@ -119,6 +120,7 @@ function renderCard({
   reviewMergeReport,
   goldSummary,
   baselineAnalysis,
+  failureAtlas,
   modelRunIndex,
   corpusAudit,
   constructMap,
@@ -157,6 +159,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
 - Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
 - Threats-to-validity ready: ${threatsValidity.threats_validity_ready} (${threatsValidity.summary.threat_count} threats; ${threatsValidity.summary.high_severity_count} high severity)
+- Failure atlas ready: ${failureAtlas.failure_atlas_ready} (${failureAtlas.summary.failure_case_count} cases; ${failureAtlas.summary.failure_mode_count} modes)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Gold ready: ${goldSummary.gold_ready}
@@ -221,6 +224,10 @@ ${markdownTable(['Challenge type', 'Pilot items'], challengeRows(pilotSuite))}
 
 The evaluator reports answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality. Challenge-type diagnostics are present for ${baselineAnalysis.systems.length} scored baseline systems in \`generated/baseline-analysis.json\`.
 
+## Failure Atlas
+
+The generated failure atlas summarizes ${failureAtlas.summary.failure_case_count} pilot failure cases across ${failureAtlas.summary.failure_mode_count} failure modes from ${failureAtlas.summary.scored_systems} scored systems. It is qualitative diagnostic evidence only and remains blocked from completion claims while release status is \`${failureAtlas.summary.release_gate_status}\`. See \`FAILURE_ATLAS.md\`.
+
 ## Statistical Scale Plan
 
 The current pilot supports diagnostic analysis only. The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
@@ -267,6 +274,7 @@ Key release checks:
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
+- Failure atlas: ${checkDetail(releaseGate, 'failure_atlas_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
@@ -294,6 +302,7 @@ writeText(
     reviewMergeReport: readJson(inputPaths.reviewMergeReport),
     goldSummary: readJson(inputPaths.goldSummary),
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
+    failureAtlas: readJson(inputPaths.failureAtlas),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     corpusAudit: readJson(inputPaths.corpusAudit),
     constructMap: readJson(inputPaths.constructMap),

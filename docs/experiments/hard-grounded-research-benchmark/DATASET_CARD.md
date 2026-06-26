@@ -15,6 +15,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Construct map ready: true (10/10 constructs)
 - Artifact checklist ready: true (6/6 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
+- Failure atlas ready: true (116 cases; 8 modes)
 - Paper target reviewed items/category: 30
 - Paper target reviewed items total: 300
 - Gold ready: false
@@ -105,6 +106,10 @@ The generated construct map links each category to rubric dimensions, pilot exam
 
 The evaluator reports answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality. Challenge-type diagnostics are present for 5 scored baseline systems in `generated/baseline-analysis.json`.
 
+## Failure Atlas
+
+The generated failure atlas summarizes 116 pilot failure cases across 8 failure modes from 5 scored systems. It is qualitative diagnostic evidence only and remains blocked from completion claims while release status is `blocked`. See `FAILURE_ATLAS.md`.
+
 ## Statistical Scale Plan
 
 The current pilot supports diagnostic analysis only. The generated power plan targets 30 double-reviewed items per category (300 total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is 0.1789; at the overall target it is 0.0566. See `POWER_PLAN.md`.
@@ -154,6 +159,7 @@ Key release checks:
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Artifact checklist: pass - 6/6 artifact classes ready; reproduction_commands=9; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
+- Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Power plan: pass - 30 reviewed items/category; 300 total target; remaining=300
 - Novelty claim boundaries: pass - 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100

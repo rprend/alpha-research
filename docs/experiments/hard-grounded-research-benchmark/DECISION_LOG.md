@@ -687,3 +687,11 @@ Decision: Generate a threats-to-validity report that links each paper risk to cu
 Rationale: A publishable benchmark paper needs to show that known weaknesses are actively gated rather than merely acknowledged in prose. Validity threats should be inspectable, machine-readable, and tied to the same release checks that block overclaiming.
 
 Consequence: `scripts/hard-grounded-research-threats-validity.mjs` emits `generated/threats-validity.json` and `THREATS_TO_VALIDITY.md`; release, dataset-card, paper, README, and harness artifacts now require the threats report while review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Generate a cross-system failure atlas
+
+Decision: Generate a pilot failure atlas that converts scored run reports into cross-system failure modes, category summaries, and representative diagnostic cases.
+
+Rationale: A benchmark paper needs concrete evidence of what failures the tasks expose, not only macro scores. A generated atlas makes qualitative failure examples reproducible and separates diagnostic pilot evidence from human-reviewed claims.
+
+Consequence: `scripts/hard-grounded-research-failure-atlas.mjs` emits `generated/failure-atlas.json` and `FAILURE_ATLAS.md`; release, dataset-card, paper, README, and harness artifacts require the atlas while human-review, scale, and final novelty blockers remain active.

@@ -136,6 +136,30 @@ Systems submit one answer per task with citation ids and abstention state. The s
 | openai-grounded-baseline-v1 | native_row | 9 | 0.6667 | 0.5630 | 0.8333 | 0.8333 |
 | openai-grounded-baseline-v1 | stale_current_conflict | 3 | 0.0000 | 0.2500 | 0.5000 | 0.5000 |
 
+## Failure Atlas
+
+The generated failure atlas records 116 pilot failure cases across 8 failure modes from 5 scored systems. These examples support qualitative diagnosis of the benchmark surface; they do not support final paper claims until human review, scale, and final novelty checks pass.
+
+| Failure mode | Cases | Systems | Categories | Challenge types |
+| --- | --- | --- | --- | --- |
+| missing_required_evidence | 95 | 4 | 10 | as_of_date_constraint<br>authority_conflict<br>citation_overreach_probe<br>cross_document_contradiction<br>document_lifecycle_appendix<br>insufficiency_probe<br>native_row<br>stale_current_conflict |
+| citation_does_not_support_conclusion | 93 | 5 | 10 | as_of_date_constraint<br>authority_conflict<br>citation_overreach_probe<br>cross_document_contradiction<br>document_lifecycle_appendix<br>insufficiency_probe<br>native_row<br>stale_current_conflict |
+| citation_not_faithful_to_answer | 86 | 4 | 10 | as_of_date_constraint<br>authority_conflict<br>citation_overreach_probe<br>cross_document_contradiction<br>document_lifecycle_appendix<br>insufficiency_probe<br>native_row<br>stale_current_conflict |
+| wrong_answer | 86 | 4 | 10 | as_of_date_constraint<br>authority_conflict<br>citation_overreach_probe<br>cross_document_contradiction<br>document_lifecycle_appendix<br>insufficiency_probe<br>native_row<br>stale_current_conflict |
+| bad_abstention_or_conflict_behavior | 50 | 4 | 7 | as_of_date_constraint<br>authority_conflict<br>citation_overreach_probe<br>cross_document_contradiction<br>insufficiency_probe<br>native_row<br>stale_current_conflict |
+| contradiction_resolution_failure | 12 | 4 | 1 | cross_document_contradiction |
+| authority_resolution_failure | 10 | 4 | 1 | authority_conflict |
+| temporal_scope_failure | 10 | 4 | 1 | as_of_date_constraint |
+
+| System | Category | Challenge | Failure modes | Metrics |
+| --- | --- | --- | --- | --- |
+| anthropic-grounded-baseline-v1 | cross-document contradiction | cross_document_contradiction | wrong_answer<br>missing_required_evidence<br>citation_not_faithful_to_answer<br>citation_does_not_support_conclusion<br>bad_abstention_or_conflict_behavior<br>contradiction_resolution_failure | answer=0.0000; evidence=0.0000; conclusion=0.0000 |
+| anthropic-grounded-baseline-v1 | cross-document contradiction | cross_document_contradiction | wrong_answer<br>missing_required_evidence<br>citation_not_faithful_to_answer<br>citation_does_not_support_conclusion<br>bad_abstention_or_conflict_behavior<br>contradiction_resolution_failure | answer=0.0000; evidence=0.0000; conclusion=0.0000 |
+| anthropic-grounded-baseline-v1 | cross-document contradiction | cross_document_contradiction | wrong_answer<br>missing_required_evidence<br>citation_not_faithful_to_answer<br>citation_does_not_support_conclusion<br>bad_abstention_or_conflict_behavior<br>contradiction_resolution_failure | answer=0.0000; evidence=0.0000; conclusion=0.0000 |
+| anthropic-grounded-baseline-v1 | evidence insufficiency / abstention | insufficiency_probe | wrong_answer<br>missing_required_evidence<br>citation_not_faithful_to_answer<br>citation_does_not_support_conclusion<br>bad_abstention_or_conflict_behavior | answer=0.0000; evidence=0.0000; conclusion=0.0000 |
+| anthropic-grounded-baseline-v1 | evidence insufficiency / abstention | insufficiency_probe | wrong_answer<br>missing_required_evidence<br>citation_not_faithful_to_answer<br>citation_does_not_support_conclusion<br>bad_abstention_or_conflict_behavior | answer=0.0000; evidence=0.0000; conclusion=0.0000 |
+| anthropic-grounded-baseline-v1 | evidence insufficiency / abstention | insufficiency_probe | wrong_answer<br>missing_required_evidence<br>citation_not_faithful_to_answer<br>citation_does_not_support_conclusion<br>bad_abstention_or_conflict_behavior | answer=0.0000; evidence=0.0000; conclusion=0.0000 |
+
 ## Baseline Uncertainty
 
 | System | Metric | Mean | 95% CI |
@@ -279,6 +303,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | repair_queue_clear | yes | 0 repair-before-gold items |
 | frontier_or_open_model_results_present | yes | anthropic-grounded-baseline-v1, openai-grounded-baseline-v1 |
 | baseline_uncertainty_present | yes | 5 systems with descriptive task-level intervals |
+| failure_atlas_ready | yes | 116 failure cases; 8 failure modes; systems=5 |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
 | novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 |
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |

@@ -34,6 +34,7 @@ const inputs = {
   powerPlan: join(generatedDir, 'power-plan.json'),
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
+  failureAtlas: join(generatedDir, 'failure-atlas.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
@@ -112,6 +113,7 @@ function buildGate({
   powerPlan,
   itemQualityAudit,
   baselineAnalysis,
+  failureAtlas,
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
@@ -336,6 +338,15 @@ function buildGate({
       blocker: 'Generate uncertainty estimates for current scored baselines.',
     },
     {
+      id: 'failure_atlas_ready',
+      passed:
+        Boolean(failureAtlas.failure_atlas_ready) &&
+        failureAtlas.summary?.failure_case_count > 0 &&
+        failureAtlas.summary?.completion_claim_allowed === false,
+      detail: `${failureAtlas.summary?.failure_case_count ?? 0} failure cases; ${failureAtlas.summary?.failure_mode_count ?? 0} failure modes; systems=${failureAtlas.summary?.scored_systems ?? 0}`,
+      blocker: 'Generate a qualitative failure atlas from scored pilot reports while keeping paper claims gated.',
+    },
+    {
       id: 'model_baseline_packets_present',
       passed: Boolean(modelBaselinePackets.packets_ready),
       detail: `${modelBaselinePackets.packet_count} prompt packets; scored_reports_ready=${modelBaselinePackets.scored_reports_ready}`,
@@ -427,6 +438,7 @@ function buildGate({
       power_plan: 'generated/power-plan.json',
       item_quality_audit: 'generated/item-quality-audit.json',
       baseline_analysis: 'generated/baseline-analysis.json',
+      failure_atlas: 'generated/failure-atlas.json',
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
@@ -509,6 +521,7 @@ const gate = buildGate({
   powerPlan: readJson(inputs.powerPlan),
   itemQualityAudit: readJson(inputs.itemQualityAudit),
   baselineAnalysis: readJson(inputs.baselineAnalysis),
+  failureAtlas: readJson(inputs.failureAtlas),
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),

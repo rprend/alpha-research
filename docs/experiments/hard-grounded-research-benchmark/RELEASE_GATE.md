@@ -44,6 +44,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | repair_queue_clear | yes | 0 repair-before-gold items |  |
 | frontier_or_open_model_results_present | yes | anthropic-grounded-baseline-v1, openai-grounded-baseline-v1 |  |
 | baseline_uncertainty_present | yes | 5 systems with descriptive task-level intervals |  |
+| failure_atlas_ready | yes | 116 failure cases; 8 failure modes; systems=5 |  |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |  |
 | novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |  |

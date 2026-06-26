@@ -1,0 +1,1258 @@
+{
+  "failure_atlas_ready": true,
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": {
+    "pilot_suite": "generated/pilot-suite.json",
+    "baseline_analysis": "generated/baseline-analysis.json",
+    "model_run_index": "generated/model-run-index.json",
+    "scored_reports": [
+      "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/anthropic-grounded-baseline-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/report.json"
+    ],
+    "release_gate": "generated/release-gate.json"
+  },
+  "summary": {
+    "scored_systems": 5,
+    "failure_case_count": 116,
+    "failure_mode_count": 8,
+    "category_count": 10,
+    "release_gate_status": "blocked",
+    "completion_claim_allowed": false
+  },
+  "failure_mode_summary": [
+    {
+      "failure_mode": "missing_required_evidence",
+      "case_count": 95,
+      "system_count": 4,
+      "category_count": 10,
+      "challenge_types": [
+        "as_of_date_constraint",
+        "authority_conflict",
+        "citation_overreach_probe",
+        "cross_document_contradiction",
+        "document_lifecycle_appendix",
+        "insufficiency_probe",
+        "native_row",
+        "stale_current_conflict"
+      ]
+    },
+    {
+      "failure_mode": "citation_does_not_support_conclusion",
+      "case_count": 93,
+      "system_count": 5,
+      "category_count": 10,
+      "challenge_types": [
+        "as_of_date_constraint",
+        "authority_conflict",
+        "citation_overreach_probe",
+        "cross_document_contradiction",
+        "document_lifecycle_appendix",
+        "insufficiency_probe",
+        "native_row",
+        "stale_current_conflict"
+      ]
+    },
+    {
+      "failure_mode": "citation_not_faithful_to_answer",
+      "case_count": 86,
+      "system_count": 4,
+      "category_count": 10,
+      "challenge_types": [
+        "as_of_date_constraint",
+        "authority_conflict",
+        "citation_overreach_probe",
+        "cross_document_contradiction",
+        "document_lifecycle_appendix",
+        "insufficiency_probe",
+        "native_row",
+        "stale_current_conflict"
+      ]
+    },
+    {
+      "failure_mode": "wrong_answer",
+      "case_count": 86,
+      "system_count": 4,
+      "category_count": 10,
+      "challenge_types": [
+        "as_of_date_constraint",
+        "authority_conflict",
+        "citation_overreach_probe",
+        "cross_document_contradiction",
+        "document_lifecycle_appendix",
+        "insufficiency_probe",
+        "native_row",
+        "stale_current_conflict"
+      ]
+    },
+    {
+      "failure_mode": "bad_abstention_or_conflict_behavior",
+      "case_count": 50,
+      "system_count": 4,
+      "category_count": 7,
+      "challenge_types": [
+        "as_of_date_constraint",
+        "authority_conflict",
+        "citation_overreach_probe",
+        "cross_document_contradiction",
+        "insufficiency_probe",
+        "native_row",
+        "stale_current_conflict"
+      ]
+    },
+    {
+      "failure_mode": "contradiction_resolution_failure",
+      "case_count": 12,
+      "system_count": 4,
+      "category_count": 1,
+      "challenge_types": [
+        "cross_document_contradiction"
+      ]
+    },
+    {
+      "failure_mode": "authority_resolution_failure",
+      "case_count": 10,
+      "system_count": 4,
+      "category_count": 1,
+      "challenge_types": [
+        "authority_conflict"
+      ]
+    },
+    {
+      "failure_mode": "temporal_scope_failure",
+      "case_count": 10,
+      "system_count": 4,
+      "category_count": 1,
+      "challenge_types": [
+        "as_of_date_constraint"
+      ]
+    }
+  ],
+  "by_category": {
+    "multi-hop synthesis": {
+      "case_count": 10,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "task_id": "hgr_multi_hop_001_pilot_002",
+          "category": "multi-hop synthesis",
+          "challenge_type": "native_row",
+          "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+          "question": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop. Native prompt: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "expected_answer": "Chief of Protocol",
+          "submitted_answer": "Kiss and Tell is a 1945 American comedy film starring then 17-year-old Shirley Temple as Corliss Archer.",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion"
+          ],
+          "severity": 0.4667,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0.6667,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          },
+          "missing_required_citations": [
+            "5a8c7595554299585d9e36b6:support:2"
+          ]
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "task_id": "hgr_multi_hop_001_pilot_002",
+          "category": "multi-hop synthesis",
+          "challenge_type": "native_row",
+          "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+          "question": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop. Native prompt: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "expected_answer": "Chief of Protocol",
+          "submitted_answer": "Kiss and Tell is a 1945 American comedy film starring then 17-year-old Shirley Temple as Corliss Archer.",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion"
+          ],
+          "severity": 0.4667,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0.6667,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          },
+          "missing_required_citations": [
+            "5a8c7595554299585d9e36b6:support:2"
+          ]
+        }
+      ]
+    },
+    "stale-vs-current document conflicts": {
+      "case_count": 12,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_stale_current_001_pilot_001",
+          "category": "stale-vs-current document conflicts",
+          "challenge_type": "stale_current_conflict",
+          "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+          "question": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+          "expected_answer": "SUPPORTS",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "Extinction risk from global warming:170",
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1"
+          ]
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_stale_current_001_pilot_002",
+          "category": "stale-vs-current document conflicts",
+          "challenge_type": "stale_current_conflict",
+          "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+          "question": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+          "expected_answer": "SUPPORTS",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "Famine:386",
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ]
+        }
+      ]
+    },
+    "appended document lifecycle changes": {
+      "case_count": 8,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "task_id": "hgr_appendix_lifecycle_001_pilot_001",
+          "category": "appended document lifecycle changes",
+          "challenge_type": "document_lifecycle_appendix",
+          "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+          "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: which multilingual approaches do they compare with?",
+          "expected_answer": "BIBREF19",
+          "submitted_answer": "Appendix Z, dated 2018-06-30, supersedes the original body for this question.",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion"
+          ],
+          "severity": 0.5,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0.5,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          },
+          "missing_required_citations": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+          ]
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "task_id": "hgr_appendix_lifecycle_001_pilot_002",
+          "category": "appended document lifecycle changes",
+          "challenge_type": "document_lifecycle_appendix",
+          "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+          "question": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence. Native prompt: what ner models were evaluated?",
+          "expected_answer": "Stanford NER",
+          "submitted_answer": "Appendix Z, dated 2019-06-30, supersedes the original body for this question.",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion"
+          ],
+          "severity": 0.5,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0.5,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          },
+          "missing_required_citations": [
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+          ]
+        }
+      ]
+    },
+    "table + text reasoning": {
+      "case_count": 12,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_table_text_001_pilot_001",
+          "category": "table + text reasoning",
+          "challenge_type": "native_row",
+          "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+          "question": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column. Native prompt: What is the total average attendance at all USL First Division matches?",
+          "expected_answer": "36755",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "nt-0:table",
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+          ]
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_table_text_001_pilot_003",
+          "category": "table + text reasoning",
+          "challenge_type": "native_row",
+          "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+          "question": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column. Native prompt: What is the total attendance in May 1988?",
+          "expected_answer": "91156",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "nt-4:table",
+            "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+          ]
+        }
+      ]
+    },
+    "source authority conflicts": {
+      "case_count": 11,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_authority_conflict_001_pilot_001",
+          "category": "source authority conflicts",
+          "challenge_type": "authority_conflict",
+          "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+          "question": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+          "expected_answer": "SUPPORTS",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior",
+            "authority_resolution_failure"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "Extinction risk from global warming:170",
+            "2bln8r:answer:cj6iupv"
+          ]
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_authority_conflict_001_pilot_002",
+          "category": "source authority conflicts",
+          "challenge_type": "authority_conflict",
+          "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+          "question": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+          "expected_answer": "SUPPORTS",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior",
+            "authority_resolution_failure"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "Famine:386",
+            "48hjn0:answer:d0jqwvn"
+          ]
+        }
+      ]
+    },
+    "evidence insufficiency / abstention": {
+      "case_count": 12,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_abstain_001_pilot_001",
+          "category": "evidence insufficiency / abstention",
+          "challenge_type": "insufficiency_probe",
+          "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+          "question": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence. Native prompt: which multilingual approaches do they compare with?",
+          "expected_answer": "BIBREF19",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+            "Extinction risk from global warming:170"
+          ]
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_abstain_001_pilot_002",
+          "category": "evidence insufficiency / abstention",
+          "challenge_type": "insufficiency_probe",
+          "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+          "question": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence. Native prompt: what ner models were evaluated?",
+          "expected_answer": "Stanford NER",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+            "Famine:386"
+          ]
+        }
+      ]
+    },
+    "citation supports fact but not conclusion": {
+      "case_count": 15,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "local-rule-agent-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "task_id": "hgr_citation_overreach_001_pilot_003",
+          "category": "citation supports fact but not conclusion",
+          "challenge_type": "citation_overreach_probe",
+          "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+          "question": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact. Native prompt: What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+          "expected_answer": "Animorphs",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "bad_abstention_or_conflict_behavior"
+          ],
+          "severity": 0.6429,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0.2857,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 1,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "5a85ea095542994775f606a8:support:0",
+            "5a85ea095542994775f606a8:support:1",
+            "5a85ea095542994775f606a8:support:2",
+            "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+            "nt-4:table"
+          ]
+        },
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "task_id": "hgr_citation_overreach_001_pilot_002",
+          "category": "citation supports fact but not conclusion",
+          "challenge_type": "citation_overreach_probe",
+          "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+          "question": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact. Native prompt: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "expected_answer": "Chief of Protocol",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "bad_abstention_or_conflict_behavior"
+          ],
+          "severity": 0.62,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0.4,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 1,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "5a8c7595554299585d9e36b6:support:2",
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+            "nt-1:table"
+          ]
+        }
+      ]
+    },
+    "entity disambiguation": {
+      "case_count": 12,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "citation-aware-verifier-v1",
+          "task_id": "hgr_entity_disambiguation_001_pilot_002",
+          "category": "entity disambiguation",
+          "challenge_type": "native_row",
+          "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+          "question": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities. Native prompt: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "expected_answer": "Chief of Protocol",
+          "submitted_answer": "Kiss and Tell is a 1945 American comedy film starring then 17-year-old Shirley Temple as Corliss Archer.",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion"
+          ],
+          "severity": 0.5,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0.5,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          },
+          "missing_required_citations": [
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ]
+        },
+        {
+          "system_id": "lexical-evidence-baseline-v1",
+          "task_id": "hgr_entity_disambiguation_001_pilot_002",
+          "category": "entity disambiguation",
+          "challenge_type": "native_row",
+          "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+          "question": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities. Native prompt: What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+          "expected_answer": "Chief of Protocol",
+          "submitted_answer": "Kiss and Tell is a 1945 American comedy film starring then 17-year-old Shirley Temple as Corliss Archer.",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion"
+          ],
+          "severity": 0.5,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0.5,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          },
+          "missing_required_citations": [
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ]
+        }
+      ]
+    },
+    "temporal questions: as of date X": {
+      "case_count": 12,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_as_of_date_001_pilot_001",
+          "category": "temporal questions: as of date X",
+          "challenge_type": "as_of_date_constraint",
+          "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+          "question": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+          "expected_answer": "SUPPORTS",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior",
+            "temporal_scope_failure"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "Extinction risk from global warming:170",
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1"
+          ]
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_as_of_date_001_pilot_002",
+          "category": "temporal questions: as of date X",
+          "challenge_type": "as_of_date_constraint",
+          "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+          "question": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+          "expected_answer": "SUPPORTS",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior",
+            "temporal_scope_failure"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "Famine:386",
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2"
+          ]
+        }
+      ]
+    },
+    "cross-document contradiction": {
+      "case_count": 12,
+      "systems_with_failures": [
+        "anthropic-grounded-baseline-v1",
+        "citation-aware-verifier-v1",
+        "lexical-evidence-baseline-v1",
+        "openai-grounded-baseline-v1"
+      ],
+      "top_failure_modes": [
+        "missing_required_evidence",
+        "citation_does_not_support_conclusion",
+        "citation_not_faithful_to_answer"
+      ],
+      "representative_cases": [
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_contradiction_001_pilot_001",
+          "category": "cross-document contradiction",
+          "challenge_type": "cross_document_contradiction",
+          "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+          "question": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+          "expected_answer": "SUPPORTS",
+          "submitted_answer": "ABSTAIN",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior",
+            "contradiction_resolution_failure"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "Extinction risk from global warming:170",
+            "5a8b57f25542995d1e6f1371:support:0",
+            "5a8b57f25542995d1e6f1371:support:1",
+            "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+          ]
+        },
+        {
+          "system_id": "anthropic-grounded-baseline-v1",
+          "task_id": "hgr_contradiction_001_pilot_002",
+          "category": "cross-document contradiction",
+          "challenge_type": "cross_document_contradiction",
+          "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+          "question": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+          "expected_answer": "SUPPORTS",
+          "submitted_answer": "INSUFFICIENT",
+          "failure_modes": [
+            "wrong_answer",
+            "missing_required_evidence",
+            "citation_not_faithful_to_answer",
+            "citation_does_not_support_conclusion",
+            "bad_abstention_or_conflict_behavior",
+            "contradiction_resolution_failure"
+          ],
+          "severity": 1,
+          "metrics": {
+            "answer_correct": 0,
+            "evidence_recall": 0,
+            "citation_faithfulness": 0,
+            "conclusion_support": 0,
+            "abstention_quality": 0
+          },
+          "missing_required_citations": [
+            "Famine:386",
+            "5a8c7595554299585d9e36b6:support:0",
+            "5a8c7595554299585d9e36b6:support:1",
+            "5a8c7595554299585d9e36b6:support:2",
+            "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+          ]
+        }
+      ]
+    }
+  },
+  "representative_cases": [
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_contradiction_001_pilot_001",
+      "category": "cross-document contradiction",
+      "challenge_type": "cross_document_contradiction",
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "question": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior",
+        "contradiction_resolution_failure"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_contradiction_001_pilot_002",
+      "category": "cross-document contradiction",
+      "challenge_type": "cross_document_contradiction",
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "question": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "INSUFFICIENT",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior",
+        "contradiction_resolution_failure"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_contradiction_001_pilot_003",
+      "category": "cross-document contradiction",
+      "challenge_type": "cross_document_contradiction",
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "question": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer. Native prompt: Verify this claim: The polar bear population has been growing.",
+      "expected_answer": "REFUTES",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior",
+        "contradiction_resolution_failure"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_abstain_001_pilot_001",
+      "category": "evidence insufficiency / abstention",
+      "challenge_type": "insufficiency_probe",
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "question": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence. Native prompt: which multilingual approaches do they compare with?",
+      "expected_answer": "BIBREF19",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Extinction risk from global warming:170"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_abstain_001_pilot_002",
+      "category": "evidence insufficiency / abstention",
+      "challenge_type": "insufficiency_probe",
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "question": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence. Native prompt: what ner models were evaluated?",
+      "expected_answer": "Stanford NER",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "Famine:386"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_abstain_001_pilot_003",
+      "category": "evidence insufficiency / abstention",
+      "challenge_type": "insufficiency_probe",
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "question": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence. Native prompt: what are the topics pulled from Reddit?",
+      "expected_answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "Polar bear:1332"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_authority_conflict_001_pilot_001",
+      "category": "source authority conflicts",
+      "challenge_type": "authority_conflict",
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "question": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior",
+        "authority_resolution_failure"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Extinction risk from global warming:170",
+        "2bln8r:answer:cj6iupv"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_authority_conflict_001_pilot_002",
+      "category": "source authority conflicts",
+      "challenge_type": "authority_conflict",
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "question": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior",
+        "authority_resolution_failure"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Famine:386",
+        "48hjn0:answer:d0jqwvn"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_authority_conflict_001_pilot_003",
+      "category": "source authority conflicts",
+      "challenge_type": "authority_conflict",
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "question": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why. Native prompt: Verify this claim: The polar bear population has been growing.",
+      "expected_answer": "REFUTES",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior",
+        "authority_resolution_failure"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Polar bear:1332",
+        "20wt9u:answer:cg7h7b3"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_stale_current_001_pilot_001",
+      "category": "stale-vs-current document conflicts",
+      "challenge_type": "stale_current_conflict",
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "question": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements. Native prompt: Verify this claim: Global warming is driving polar bears toward extinction",
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_stale_current_001_pilot_002",
+      "category": "stale-vs-current document conflicts",
+      "challenge_type": "stale_current_conflict",
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "question": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements. Native prompt: Verify this claim: The sun has gone into ‘lockdown’ which could cause freezing weather, earthquakes and famine, say scientists",
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ]
+    },
+    {
+      "system_id": "anthropic-grounded-baseline-v1",
+      "task_id": "hgr_stale_current_001_pilot_003",
+      "category": "stale-vs-current document conflicts",
+      "challenge_type": "stale_current_conflict",
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "question": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements. Native prompt: Verify this claim: The polar bear population has been growing.",
+      "expected_answer": "REFUTES",
+      "submitted_answer": "ABSTAIN",
+      "failure_modes": [
+        "wrong_answer",
+        "missing_required_evidence",
+        "citation_not_faithful_to_answer",
+        "citation_does_not_support_conclusion",
+        "bad_abstention_or_conflict_behavior"
+      ],
+      "severity": 1,
+      "metrics": {
+        "answer_correct": 0,
+        "evidence_recall": 0,
+        "citation_faithfulness": 0,
+        "conclusion_support": 0,
+        "abstention_quality": 0
+      },
+      "missing_required_citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ]
+    }
+  ]
+}

@@ -28,6 +28,7 @@
     "power_plan": "generated/power-plan.json",
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
+    "failure_atlas": "generated/failure-atlas.json",
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
@@ -232,6 +233,12 @@
       "passed": true,
       "detail": "5 systems with descriptive task-level intervals",
       "blocker": "Generate uncertainty estimates for current scored baselines."
+    },
+    {
+      "id": "failure_atlas_ready",
+      "passed": true,
+      "detail": "116 failure cases; 8 failure modes; systems=5",
+      "blocker": "Generate a qualitative failure atlas from scored pilot reports while keeping paper claims gated."
     },
     {
       "id": "model_baseline_packets_present",

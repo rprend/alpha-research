@@ -27,6 +27,7 @@ const requiredInputs = {
   coverageMatrix: join(generatedDir, 'coverage-matrix.json'),
   approachScores: join(generatedDir, 'approach-scores.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
+  failureAtlas: join(generatedDir, 'failure-atlas.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
@@ -76,6 +77,26 @@ function challengeDiagnosticRows(baselineAnalysis) {
       metric(summary.macro.conclusion_support),
     ]),
   )
+}
+
+function failureModeRows(failureAtlas) {
+  return failureAtlas.failure_mode_summary.map((entry) => [
+    entry.failure_mode,
+    String(entry.case_count),
+    String(entry.system_count),
+    String(entry.category_count),
+    entry.challenge_types.join('<br>'),
+  ])
+}
+
+function representativeFailureRows(failureAtlas) {
+  return failureAtlas.representative_cases.slice(0, 6).map((entry) => [
+    entry.system_id,
+    entry.category,
+    entry.challenge_type,
+    entry.failure_modes.join('<br>'),
+    `answer=${metric(entry.metrics.answer_correct)}; evidence=${metric(entry.metrics.evidence_recall)}; conclusion=${metric(entry.metrics.conclusion_support)}`,
+  ])
 }
 
 function datasetRows(spec) {
@@ -205,7 +226,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -284,6 +305,14 @@ ${markdownTable(
   ['System', 'Challenge', 'Tasks', 'Answer', 'Evidence Recall', 'Citation Faithfulness', 'Conclusion Support'],
   challengeDiagnosticRows(baselineAnalysis),
 )}
+
+## Failure Atlas
+
+The generated failure atlas records ${failureAtlas.summary.failure_case_count} pilot failure cases across ${failureAtlas.summary.failure_mode_count} failure modes from ${failureAtlas.summary.scored_systems} scored systems. These examples support qualitative diagnosis of the benchmark surface; they do not support final paper claims until human review, scale, and final novelty checks pass.
+
+${markdownTable(['Failure mode', 'Cases', 'Systems', 'Categories', 'Challenge types'], failureModeRows(failureAtlas))}
+
+${markdownTable(['System', 'Category', 'Challenge', 'Failure modes', 'Metrics'], representativeFailureRows(failureAtlas))}
 
 ## Baseline Uncertainty
 
@@ -386,6 +415,7 @@ const draft = renderDraft({
   coverageMatrix: readJson(requiredInputs.coverageMatrix),
   approachScores: readJson(requiredInputs.approachScores),
   baselineAnalysis: readJson(requiredInputs.baselineAnalysis),
+  failureAtlas: readJson(requiredInputs.failureAtlas),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),
   constructMap: readJson(requiredInputs.constructMap),
