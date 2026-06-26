@@ -1,80 +1,1410 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
-  "suite_id": "agentic-large-corpus-research-v2",
+  "suite_id": "agentic-large-corpus-research-v3",
   "workspace_root": "generated/agentic-workspaces",
-  "task_count": 10,
+  "task_count": 200,
   "hidden_gold_path": "generated/agentic-hidden-gold.json",
   "hidden_gold_must_be_withheld_from_agents": true,
   "tasks": [
     {
-      "task_id": "hgr_agentic_01_multi-hop-synthesis",
+      "task_id": "hgr_agentic_001_multi-hop-synthesis_338bb9",
       "category": "multi-hop synthesis",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_01_multi-hop-synthesis",
-      "corpus_documents": 301,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_001_multi-hop-synthesis_338bb9",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_02_stale-vs-current-document-conflicts",
+      "task_id": "hgr_agentic_002_stale-vs-current-document-conflicts_ef94b3",
       "category": "stale-vs-current document conflicts",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_02_stale-vs-current-document-conflicts",
-      "corpus_documents": 271,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_002_stale-vs-current-document-conflicts_ef94b3",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_03_appended-document-lifecycle-changes",
+      "task_id": "hgr_agentic_003_appended-document-lifecycle-changes_915c34",
       "category": "appended document lifecycle changes",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_03_appended-document-lifecycle-changes",
-      "corpus_documents": 340,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_003_appended-document-lifecycle-changes_915c34",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_04_table-text-reasoning",
+      "task_id": "hgr_agentic_004_table-text-reasoning_91498f",
       "category": "table + text reasoning",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_04_table-text-reasoning",
-      "corpus_documents": 340,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_004_table-text-reasoning_91498f",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_05_source-authority-conflicts",
+      "task_id": "hgr_agentic_005_source-authority-conflicts_460f6b",
       "category": "source authority conflicts",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_05_source-authority-conflicts",
-      "corpus_documents": 340,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_005_source-authority-conflicts_460f6b",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_06_evidence-insufficiency-abstention",
+      "task_id": "hgr_agentic_006_evidence-insufficiency-abstention_0c5ede",
       "category": "evidence insufficiency / abstention",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_06_evidence-insufficiency-abstention",
-      "corpus_documents": 340,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_006_evidence-insufficiency-abstention_0c5ede",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_07_citation-supports-fact-but-not-conclusion",
+      "task_id": "hgr_agentic_007_citation-supports-fact-but-not-conclusion_bdcc4e",
       "category": "citation supports fact but not conclusion",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_07_citation-supports-fact-but-not-conclusion",
-      "corpus_documents": 332,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_007_citation-supports-fact-but-not-conclusion_bdcc4e",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_08_entity-disambiguation",
+      "task_id": "hgr_agentic_008_entity-disambiguation_a4a101",
       "category": "entity disambiguation",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_08_entity-disambiguation",
-      "corpus_documents": 335,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_008_entity-disambiguation_a4a101",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_09_temporal-questions-as-of-date-x",
+      "task_id": "hgr_agentic_009_temporal-questions-as-of-date-x_4d20d7",
       "category": "temporal questions: as of date X",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_09_temporal-questions-as-of-date-x",
-      "corpus_documents": 334,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_009_temporal-questions-as-of-date-x_4d20d7",
+      "corpus_documents": 1000,
+      "source_items": 1
     },
     {
-      "task_id": "hgr_agentic_10_cross-document-contradiction",
+      "task_id": "hgr_agentic_010_cross-document-contradiction_345aec",
       "category": "cross-document contradiction",
-      "workspace": "generated/agentic-workspaces/hgr_agentic_10_cross-document-contradiction",
-      "corpus_documents": 332,
-      "source_items": 98
+      "workspace": "generated/agentic-workspaces/hgr_agentic_010_cross-document-contradiction_345aec",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_011_multi-hop-synthesis_348bbb",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_011_multi-hop-synthesis_348bbb",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_012_stale-vs-current-document-conflicts_f094b5",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_012_stale-vs-current-document-conflicts_f094b5",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_013_appended-document-lifecycle-changes_945c38",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_013_appended-document-lifecycle-changes_945c38",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_014_table-text-reasoning_444046",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_014_table-text-reasoning_444046",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_015_source-authority-conflicts_450f6a",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_015_source-authority-conflicts_450f6a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_016_evidence-insufficiency-abstention_0f5ee3",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_016_evidence-insufficiency-abstention_0f5ee3",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_017_citation-supports-fact-but-not-conclusion_bacc4a",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_017_citation-supports-fact-but-not-conclusion_bacc4a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_018_entity-disambiguation_a3a100",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_018_entity-disambiguation_a3a100",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_019_temporal-questions-as-of-date-x_4e20d9",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_019_temporal-questions-as-of-date-x_4e20d9",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_020_cross-document-contradiction_315ae7",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_020_cross-document-contradiction_315ae7",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_021_multi-hop-synthesis_75f99a",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_021_multi-hop-synthesis_75f99a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_022_stale-vs-current-document-conflicts_f194b6",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_022_stale-vs-current-document-conflicts_f194b6",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_023_appended-document-lifecycle-changes_935c37",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_023_appended-document-lifecycle-changes_935c37",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_024_table-text-reasoning_414041",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_024_table-text-reasoning_414041",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_025_source-authority-conflicts_440f68",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_025_source-authority-conflicts_440f68",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_026_evidence-insufficiency-abstention_0e5ee2",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_026_evidence-insufficiency-abstention_0e5ee2",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_027_citation-supports-fact-but-not-conclusion_bbcc4b",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_027_citation-supports-fact-but-not-conclusion_bbcc4b",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_028_entity-disambiguation_100c96",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_028_entity-disambiguation_100c96",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_029_temporal-questions-as-of-date-x_4f20db",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_029_temporal-questions-as-of-date-x_4f20db",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_030_cross-document-contradiction_325ae9",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_030_cross-document-contradiction_325ae9",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_031_multi-hop-synthesis_74f999",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_031_multi-hop-synthesis_74f999",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_032_stale-vs-current-document-conflicts_8c28ee",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_032_stale-vs-current-document-conflicts_8c28ee",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_033_appended-document-lifecycle-changes_99ac09",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_033_appended-document-lifecycle-changes_99ac09",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_034_table-text-reasoning_4e4055",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_034_table-text-reasoning_4e4055",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_035_source-authority-conflicts_30a8e6",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_035_source-authority-conflicts_30a8e6",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_036_evidence-insufficiency-abstention_a2ca1a",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_036_evidence-insufficiency-abstention_a2ca1a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_037_citation-supports-fact-but-not-conclusion_227543",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_037_citation-supports-fact-but-not-conclusion_227543",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_038_entity-disambiguation_110c97",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_038_entity-disambiguation_110c97",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_039_temporal-questions-as-of-date-x_fc8189",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_039_temporal-questions-as-of-date-x_fc8189",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_040_cross-document-contradiction_b1a754",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_040_cross-document-contradiction_b1a754",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_041_multi-hop-synthesis_76f99c",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_041_multi-hop-synthesis_76f99c",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_042_stale-vs-current-document-conflicts_8d28ef",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_042_stale-vs-current-document-conflicts_8d28ef",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_043_appended-document-lifecycle-changes_98ac08",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_043_appended-document-lifecycle-changes_98ac08",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_044_table-text-reasoning_aac67b",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_044_table-text-reasoning_aac67b",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_045_source-authority-conflicts_31a8e7",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_045_source-authority-conflicts_31a8e7",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_046_evidence-insufficiency-abstention_a5ca1e",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_046_evidence-insufficiency-abstention_a5ca1e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_047_citation-supports-fact-but-not-conclusion_1f753e",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_047_citation-supports-fact-but-not-conclusion_1f753e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_048_entity-disambiguation_0b0c8e",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_048_entity-disambiguation_0b0c8e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_049_temporal-questions-as-of-date-x_fb8188",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_049_temporal-questions-as-of-date-x_fb8188",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_050_cross-document-contradiction_aea74f",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_050_cross-document-contradiction_aea74f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_051_multi-hop-synthesis_79f9a0",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_051_multi-hop-synthesis_79f9a0",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_052_stale-vs-current-document-conflicts_8e28f1",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_052_stale-vs-current-document-conflicts_8e28f1",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_053_appended-document-lifecycle-changes_97ac06",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_053_appended-document-lifecycle-changes_97ac06",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_054_table-text-reasoning_b1c686",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_054_table-text-reasoning_b1c686",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_055_source-authority-conflicts_32a8e9",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_055_source-authority-conflicts_32a8e9",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_056_evidence-insufficiency-abstention_a4ca1d",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_056_evidence-insufficiency-abstention_a4ca1d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_057_citation-supports-fact-but-not-conclusion_20753f",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_057_citation-supports-fact-but-not-conclusion_20753f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_058_entity-disambiguation_0c0c8f",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_058_entity-disambiguation_0c0c8f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_059_temporal-questions-as-of-date-x_fa8186",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_059_temporal-questions-as-of-date-x_fa8186",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_060_cross-document-contradiction_afa751",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_060_cross-document-contradiction_afa751",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_061_multi-hop-synthesis_6bf98a",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_061_multi-hop-synthesis_6bf98a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_062_stale-vs-current-document-conflicts_8f28f2",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_062_stale-vs-current-document-conflicts_8f28f2",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_063_appended-document-lifecycle-changes_9eac11",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_063_appended-document-lifecycle-changes_9eac11",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_064_table-text-reasoning_b4c68b",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_064_table-text-reasoning_b4c68b",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_065_source-authority-conflicts_2ba8de",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_065_source-authority-conflicts_2ba8de",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_066_evidence-insufficiency-abstention_9fca15",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_066_evidence-insufficiency-abstention_9fca15",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_067_citation-supports-fact-but-not-conclusion_257547",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_067_citation-supports-fact-but-not-conclusion_257547",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_068_entity-disambiguation_160c9f",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_068_entity-disambiguation_160c9f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_069_temporal-questions-as-of-date-x_018191",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_069_temporal-questions-as-of-date-x_018191",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_070_cross-document-contradiction_b4a759",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_070_cross-document-contradiction_b4a759",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_071_multi-hop-synthesis_6af989",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_071_multi-hop-synthesis_6af989",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_072_stale-vs-current-document-conflicts_9028f4",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_072_stale-vs-current-document-conflicts_9028f4",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_073_appended-document-lifecycle-changes_9dac10",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_073_appended-document-lifecycle-changes_9dac10",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_074_table-text-reasoning_673fed",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_074_table-text-reasoning_673fed",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_075_source-authority-conflicts_2ca8df",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_075_source-authority-conflicts_2ca8df",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_076_evidence-insufficiency-abstention_9eca13",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_076_evidence-insufficiency-abstention_9eca13",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_077_citation-supports-fact-but-not-conclusion_267549",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_077_citation-supports-fact-but-not-conclusion_267549",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_078_entity-disambiguation_170ca1",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_078_entity-disambiguation_170ca1",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_079_temporal-questions-as-of-date-x_008190",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_079_temporal-questions-as-of-date-x_008190",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_080_cross-document-contradiction_b5a75a",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_080_cross-document-contradiction_b5a75a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_081_multi-hop-synthesis_1facef",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_081_multi-hop-synthesis_1facef",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_082_stale-vs-current-document-conflicts_9128f5",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_082_stale-vs-current-document-conflicts_9128f5",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_083_appended-document-lifecycle-changes_9cac0e",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_083_appended-document-lifecycle-changes_9cac0e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_084_table-text-reasoning_683fef",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_084_table-text-reasoning_683fef",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_085_source-authority-conflicts_2da8e1",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_085_source-authority-conflicts_2da8e1",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_086_evidence-insufficiency-abstention_a1ca18",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_086_evidence-insufficiency-abstention_a1ca18",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_087_citation-supports-fact-but-not-conclusion_237544",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_087_citation-supports-fact-but-not-conclusion_237544",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_088_entity-disambiguation_69f33e",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_088_entity-disambiguation_69f33e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_089_temporal-questions-as-of-date-x_ff818e",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_089_temporal-questions-as-of-date-x_ff818e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_090_cross-document-contradiction_b2a755",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_090_cross-document-contradiction_b2a755",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_091_multi-hop-synthesis_20acf1",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_091_multi-hop-synthesis_20acf1",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_092_stale-vs-current-document-conflicts_9228f7",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_092_stale-vs-current-document-conflicts_9228f7",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_093_appended-document-lifecycle-changes_9bac0c",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_093_appended-document-lifecycle-changes_9bac0c",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_094_table-text-reasoning_5d3fde",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_094_table-text-reasoning_5d3fde",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_095_source-authority-conflicts_2ea8e2",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_095_source-authority-conflicts_2ea8e2",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_096_evidence-insufficiency-abstention_a0ca17",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_096_evidence-insufficiency-abstention_a0ca17",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_097_citation-supports-fact-but-not-conclusion_247546",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_097_citation-supports-fact-but-not-conclusion_247546",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_098_entity-disambiguation_68f33c",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_098_entity-disambiguation_68f33c",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_099_temporal-questions-as-of-date-x_fe818d",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_099_temporal-questions-as-of-date-x_fe818d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_100_cross-document-contradiction_b3a757",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_100_cross-document-contradiction_b3a757",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_101_multi-hop-synthesis_26acfa",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_101_multi-hop-synthesis_26acfa",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_102_stale-vs-current-document-conflicts_8328df",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_102_stale-vs-current-document-conflicts_8328df",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_103_appended-document-lifecycle-changes_a2ac17",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_103_appended-document-lifecycle-changes_a2ac17",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_104_table-text-reasoning_8e498a",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_104_table-text-reasoning_8e498a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_105_source-authority-conflicts_27a8d7",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_105_source-authority-conflicts_27a8d7",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_106_evidence-insufficiency-abstention_abca28",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_106_evidence-insufficiency-abstention_abca28",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_107_citation-supports-fact-but-not-conclusion_197534",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_107_citation-supports-fact-but-not-conclusion_197534",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_108_entity-disambiguation_6af33f",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_108_entity-disambiguation_6af33f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_109_temporal-questions-as-of-date-x_f5817e",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_109_temporal-questions-as-of-date-x_f5817e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_110_cross-document-contradiction_b8a75f",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_110_cross-document-contradiction_b8a75f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_111_multi-hop-synthesis_23acf5",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_111_multi-hop-synthesis_23acf5",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_112_stale-vs-current-document-conflicts_8428e1",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_112_stale-vs-current-document-conflicts_8428e1",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_113_appended-document-lifecycle-changes_a1ac16",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_113_appended-document-lifecycle-changes_a1ac16",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_114_table-text-reasoning_90498d",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_114_table-text-reasoning_90498d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_115_source-authority-conflicts_28a8d9",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_115_source-authority-conflicts_28a8d9",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_116_evidence-insufficiency-abstention_aaca26",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_116_evidence-insufficiency-abstention_aaca26",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_117_citation-supports-fact-but-not-conclusion_1a7536",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_117_citation-supports-fact-but-not-conclusion_1a7536",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_118_entity-disambiguation_6df344",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_118_entity-disambiguation_6df344",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_119_temporal-questions-as-of-date-x_f4817d",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_119_temporal-questions-as-of-date-x_f4817d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_120_cross-document-contradiction_b9a760",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_120_cross-document-contradiction_b9a760",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_121_multi-hop-synthesis_29acff",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_121_multi-hop-synthesis_29acff",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_122_stale-vs-current-document-conflicts_2ac262",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_122_stale-vs-current-document-conflicts_2ac262",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_123_appended-document-lifecycle-changes_314b67",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_123_appended-document-lifecycle-changes_314b67",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_124_table-text-reasoning_454047",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_124_table-text-reasoning_454047",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_125_source-authority-conflicts_fa8890",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_125_source-authority-conflicts_fa8890",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_126_evidence-insufficiency-abstention_c26b04",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_126_evidence-insufficiency-abstention_c26b04",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_127_citation-supports-fact-but-not-conclusion_448951",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_127_citation-supports-fact-but-not-conclusion_448951",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_128_entity-disambiguation_6ff347",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_128_entity-disambiguation_6ff347",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_129_temporal-questions-as-of-date-x_29ea6f",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_129_temporal-questions-as-of-date-x_29ea6f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_130_cross-document-contradiction_8414ed",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_130_cross-document-contradiction_8414ed",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_131_multi-hop-synthesis_2aad01",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_131_multi-hop-synthesis_2aad01",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_132_stale-vs-current-document-conflicts_2dc267",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_132_stale-vs-current-document-conflicts_2dc267",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_133_appended-document-lifecycle-changes_324b69",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_133_appended-document-lifecycle-changes_324b69",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_134_table-text-reasoning_434044",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_134_table-text-reasoning_434044",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_135_source-authority-conflicts_f9888f",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_135_source-authority-conflicts_f9888f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_136_evidence-insufficiency-abstention_c36b05",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_136_evidence-insufficiency-abstention_c36b05",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_137_citation-supports-fact-but-not-conclusion_41894d",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_137_citation-supports-fact-but-not-conclusion_41894d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_138_entity-disambiguation_6ef346",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_138_entity-disambiguation_6ef346",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_139_temporal-questions-as-of-date-x_2aea70",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_139_temporal-questions-as-of-date-x_2aea70",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_140_cross-document-contradiction_8314eb",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_140_cross-document-contradiction_8314eb",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_141_multi-hop-synthesis_caf95f",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_141_multi-hop-synthesis_caf95f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_142_stale-vs-current-document-conflicts_2cc265",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_142_stale-vs-current-document-conflicts_2cc265",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_143_appended-document-lifecycle-changes_334b6a",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_143_appended-document-lifecycle-changes_334b6a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_144_table-text-reasoning_424042",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_144_table-text-reasoning_424042",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_145_source-authority-conflicts_f8888d",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_145_source-authority-conflicts_f8888d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_146_evidence-insufficiency-abstention_c46b07",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_146_evidence-insufficiency-abstention_c46b07",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_147_citation-supports-fact-but-not-conclusion_42894e",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_147_citation-supports-fact-but-not-conclusion_42894e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_148_entity-disambiguation_05c7cc",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_148_entity-disambiguation_05c7cc",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_149_temporal-questions-as-of-date-x_2bea72",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_149_temporal-questions-as-of-date-x_2bea72",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_150_cross-document-contradiction_8214ea",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_150_cross-document-contradiction_8214ea",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_151_multi-hop-synthesis_c9f95e",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_151_multi-hop-synthesis_c9f95e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_152_stale-vs-current-document-conflicts_27c25d",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_152_stale-vs-current-document-conflicts_27c25d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_153_appended-document-lifecycle-changes_2c4b5f",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_153_appended-document-lifecycle-changes_2c4b5f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_154_table-text-reasoning_40403f",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_154_table-text-reasoning_40403f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_155_source-authority-conflicts_ff8898",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_155_source-authority-conflicts_ff8898",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_156_evidence-insufficiency-abstention_c56b08",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_156_evidence-insufficiency-abstention_c56b08",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_157_citation-supports-fact-but-not-conclusion_478956",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_157_citation-supports-fact-but-not-conclusion_478956",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_158_entity-disambiguation_06c7ce",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_158_entity-disambiguation_06c7ce",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_159_temporal-questions-as-of-date-x_2cea73",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_159_temporal-questions-as-of-date-x_2cea73",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_160_cross-document-contradiction_8114e8",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_160_cross-document-contradiction_8114e8",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_161_multi-hop-synthesis_c7f95b",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_161_multi-hop-synthesis_c7f95b",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_162_stale-vs-current-document-conflicts_26c25c",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_162_stale-vs-current-document-conflicts_26c25c",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_163_appended-document-lifecycle-changes_2d4b61",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_163_appended-document-lifecycle-changes_2d4b61",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_164_table-text-reasoning_3f403e",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_164_table-text-reasoning_3f403e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_165_source-authority-conflicts_fe8897",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_165_source-authority-conflicts_fe8897",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_166_evidence-insufficiency-abstention_c66b0a",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_166_evidence-insufficiency-abstention_c66b0a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_167_citation-supports-fact-but-not-conclusion_488958",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_167_citation-supports-fact-but-not-conclusion_488958",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_168_entity-disambiguation_04c7cb",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_168_entity-disambiguation_04c7cb",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_169_temporal-questions-as-of-date-x_2dea75",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_169_temporal-questions-as-of-date-x_2dea75",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_170_cross-document-contradiction_8014e7",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_170_cross-document-contradiction_8014e7",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_171_multi-hop-synthesis_c6f959",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_171_multi-hop-synthesis_c6f959",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_172_stale-vs-current-document-conflicts_29c260",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_172_stale-vs-current-document-conflicts_29c260",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_173_appended-document-lifecycle-changes_2e4b62",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_173_appended-document-lifecycle-changes_2e4b62",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_174_table-text-reasoning_4d4054",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_174_table-text-reasoning_4d4054",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_175_source-authority-conflicts_fd8895",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_175_source-authority-conflicts_fd8895",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_176_evidence-insufficiency-abstention_c76b0b",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_176_evidence-insufficiency-abstention_c76b0b",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_177_citation-supports-fact-but-not-conclusion_458953",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_177_citation-supports-fact-but-not-conclusion_458953",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_178_entity-disambiguation_01c7c6",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_178_entity-disambiguation_01c7c6",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_179_temporal-questions-as-of-date-x_2eea77",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_179_temporal-questions-as-of-date-x_2eea77",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_180_cross-document-contradiction_7f14e5",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_180_cross-document-contradiction_7f14e5",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_181_multi-hop-synthesis_d4f96f",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_181_multi-hop-synthesis_d4f96f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_182_stale-vs-current-document-conflicts_28c25f",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_182_stale-vs-current-document-conflicts_28c25f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_183_appended-document-lifecycle-changes_2f4b64",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_183_appended-document-lifecycle-changes_2f4b64",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_184_table-text-reasoning_adc680",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_184_table-text-reasoning_adc680",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_185_source-authority-conflicts_fc8894",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_185_source-authority-conflicts_fc8894",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_186_evidence-insufficiency-abstention_c86b0d",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_186_evidence-insufficiency-abstention_c86b0d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_187_citation-supports-fact-but-not-conclusion_468955",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_187_citation-supports-fact-but-not-conclusion_468955",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_188_entity-disambiguation_0fc7dc",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_188_entity-disambiguation_0fc7dc",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_189_temporal-questions-as-of-date-x_2fea78",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_189_temporal-questions-as-of-date-x_2fea78",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_190_cross-document-contradiction_7e14e3",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_190_cross-document-contradiction_7e14e3",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_191_multi-hop-synthesis_d3f96e",
+      "category": "multi-hop synthesis",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_191_multi-hop-synthesis_d3f96e",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_192_stale-vs-current-document-conflicts_33c270",
+      "category": "stale-vs-current document conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_192_stale-vs-current-document-conflicts_33c270",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_193_appended-document-lifecycle-changes_384b72",
+      "category": "appended document lifecycle changes",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_193_appended-document-lifecycle-changes_384b72",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_194_table-text-reasoning_abc67d",
+      "category": "table + text reasoning",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_194_table-text-reasoning_abc67d",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_195_source-authority-conflicts_03889f",
+      "category": "source authority conflicts",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_195_source-authority-conflicts_03889f",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_196_evidence-insufficiency-abstention_b96af5",
+      "category": "evidence insufficiency / abstention",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_196_evidence-insufficiency-abstention_b96af5",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_197_citation-supports-fact-but-not-conclusion_3b8943",
+      "category": "citation supports fact but not conclusion",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_197_citation-supports-fact-but-not-conclusion_3b8943",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_198_entity-disambiguation_10c7de",
+      "category": "entity disambiguation",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_198_entity-disambiguation_10c7de",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_199_temporal-questions-as-of-date-x_30ea7a",
+      "category": "temporal questions: as of date X",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_199_temporal-questions-as-of-date-x_30ea7a",
+      "corpus_documents": 1000,
+      "source_items": 1
+    },
+    {
+      "task_id": "hgr_agentic_200_cross-document-contradiction_8d14fb",
+      "category": "cross-document contradiction",
+      "workspace": "generated/agentic-workspaces/hgr_agentic_200_cross-document-contradiction_8d14fb",
+      "corpus_documents": 1000,
+      "source_items": 1
     }
   ]
 }

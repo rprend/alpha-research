@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Expand the agentic benchmark target to buyer-grade v3
+
+Decision: Expand the agentic suite from 10 demo tasks to 200 category-balanced no-gold tasks with 1,000 documents per task, compact suite metadata, per-workspace corpus files, hidden gold, provenance hashes, and an explicit buyer-grade audit.
+
+Rationale: A benchmark that could be sold to a frontier model company cannot rest on 10 tasks or historical small-suite runs. It needs enough tasks to support per-category failure analysis, enough corpus mass to exercise real tool use, and an audit that refuses completion until current Codex CLI and Claude Code runs are collected on the expanded suite.
+
+Consequence: `agentic-large-corpus-research-v3` materializes 200 tasks and invalidates the old 10-task Codex/Claude readiness evidence via `wrong_evaluation_source` and `task_count_mismatch`. `BUYER_EVALUATION_PACKET.md` now states the honest status: the expanded artifact exists, but buyer-ready claims remain blocked on fresh 200-task frontier-agent runs, failure analysis, and final contamination/novelty review.
+
 ## 2026-06-26 — Move the agentic benchmark to concrete no-shortcut v2
 
 Decision: Replace generic category prompts with one concrete target task per category, strip benchmark-internal shortcut fields from public workspaces, and score frontier agent runs against hidden gold only.

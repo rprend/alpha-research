@@ -48,7 +48,7 @@ function buildOracleSubmission(suite) {
       task_id: task.task_id,
       answer: task.gold.expected_answers[0] || 'ABSTAIN',
       cited_evidence_ids: task.gold.required_evidence_ids,
-      rejected_evidence_ids: task.corpus.documents
+      rejected_evidence_ids: loadCorpusDocuments(task)
         .map((document) => document.document_id)
         .filter((id) => !(task.gold.required_evidence_ids || []).includes(id))
         .slice(0, 25),
@@ -61,6 +61,17 @@ function buildOracleSubmission(suite) {
       evidence_assessment: 'Oracle fixture for deterministic scorer validation.',
     })),
   }
+}
+
+function loadCorpusDocuments(task) {
+  if (Array.isArray(task.corpus?.documents)) return task.corpus.documents
+  if (task.corpus?.corpus_path) {
+    const corpusPath = task.corpus.corpus_path.startsWith('generated/')
+      ? join(experimentDir, task.corpus.corpus_path)
+      : join(root, task.corpus.corpus_path)
+    return readJson(corpusPath).documents || []
+  }
+  return []
 }
 
 function scoreTask(task, answer) {
@@ -92,7 +103,7 @@ function scoreTask(task, answer) {
       : submittedIds.filter((id) => requiredSet.has(id)).length / submittedIds.length
   const searchTraceCompleteness = Array.isArray(answer?.search_trace) && answer.search_trace.length > 0 ? 1 : 0
   const rejectedIds = unique(answer?.rejected_evidence_ids || [])
-  const corpusIds = new Set(task.corpus.documents.map((document) => document.document_id))
+  const corpusIds = new Set(loadCorpusDocuments(task).map((document) => document.document_id))
   const requiredOrSubmitted = new Set([...requiredIds, ...submittedIds])
   const validRejected = rejectedIds.filter((id) => corpusIds.has(id) && !requiredOrSubmitted.has(id)).length
   const rejectedDistractorPrecision = rejectedIds.length === 0 ? 0 : validRejected / rejectedIds.length

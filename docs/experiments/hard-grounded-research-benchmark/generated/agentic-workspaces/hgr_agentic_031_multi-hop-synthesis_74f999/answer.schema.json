@@ -1,0 +1,8 @@
+{
+  "task_id": "string; must equal this task id",
+  "answer": "string; use ABSTAIN or CONFLICT when required",
+  "cited_evidence_ids": "array of exact document_id strings used directly by the answer",
+  "rejected_evidence_ids": "array of exact document_id strings inspected and rejected as misleading or irrelevant",
+  "search_trace": "array of objects recording searches, files inspected, terms used, and why candidates were kept or rejected",
+  "evidence_assessment": "short explanation tying the answer to citations and rejected evidence"
+}

@@ -1,11 +1,11 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
-  "suite_id": "agentic-large-corpus-research-v2",
-  "task_count": 10,
+  "suite_id": "agentic-large-corpus-research-v3",
+  "task_count": 200,
   "required_eligible_frontier_agent_runs": 2,
-  "eligible_frontier_agent_runs": 2,
-  "ready": true,
-  "completion_claim_allowed": true,
+  "eligible_frontier_agent_runs": 0,
+  "ready": false,
+  "completion_claim_allowed": false,
   "run_manifest_count": 2,
   "runs": [
     {
@@ -16,8 +16,11 @@
       "model_version": "claude-opus-4-7 via Claude Code 2.1.118",
       "evaluation_source": "agentic-large-corpus-research-v2",
       "task_count": 10,
-      "eligible": true,
-      "rejection_reasons": []
+      "eligible": false,
+      "rejection_reasons": [
+        "wrong_evaluation_source",
+        "task_count_mismatch"
+      ]
     },
     {
       "run_id": "codex-cli-gpt-5-5-v2-final",
@@ -27,9 +30,16 @@
       "model_version": "gpt-5.5 via codex exec v0.142.2",
       "evaluation_source": "agentic-large-corpus-research-v2",
       "task_count": 10,
-      "eligible": true,
-      "rejection_reasons": []
+      "eligible": false,
+      "rejection_reasons": [
+        "wrong_evaluation_source",
+        "task_count_mismatch"
+      ]
     }
   ],
-  "blockers": []
+  "blockers": [
+    "Run at least two eligible frontier tool-using agents over generated/agentic-research-suite.json.",
+    "Each eligible run must use the agentic corpus-search suite, not a single-call preselected evidence packet.",
+    "Each run manifest must prove hidden gold was unavailable and include a command transcript plus scored report."
+  ]
 }

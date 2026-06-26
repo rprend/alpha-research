@@ -3,8 +3,8 @@
   "version": "objective-completion-audit-v1",
   "checked_date": "2026-06-26",
   "benchmark_package_ready": true,
-  "full_thread_goal_complete": true,
-  "completion_claim_allowed": true,
+  "full_thread_goal_complete": false,
+  "completion_claim_allowed": false,
   "generated_from": {
     "release_gate": "generated/release-gate.json",
     "artifact_checklist": "generated/artifact-checklist.json",
@@ -15,7 +15,8 @@
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "agentic_suite": "generated/agentic-research-suite.json",
     "agentic_readiness": "generated/agentic-readiness.json",
-    "agentic_workspaces": "generated/agentic-workspaces-manifest.json"
+    "agentic_workspaces": "generated/agentic-workspaces-manifest.json",
+    "agentic_buyer_grade_audit": "generated/agentic-buyer-grade-audit.json"
   },
   "requirements": [
     {
@@ -69,17 +70,24 @@
     },
     {
       "id": "agentic_suite_materialized",
-      "requirement": "Create an agentic hard-grounded research suite over HF-derived corpora with deterministic scoring.",
+      "requirement": "Create at least 200 no-gold agentic hard-grounded research tasks with 1k-10k corpus documents, hidden gold, provenance, and deterministic scoring.",
       "status": "passes",
-      "evidence": "10 agentic corpus-search tasks generated from 300 HF-derived scale items; no-gold workspaces=10; primary scoring is constant-time after submission and does not require an LLM judge.",
-      "caveat": "This proves the agentic task layer exists, not that frontier agents have been run."
+      "evidence": "200 agentic corpus-search tasks generated from 300 HF-derived scale items; no-gold workspaces=200; corpus docs=1000-1000; primary scoring is constant-time after submission and does not require an LLM judge.",
+      "caveat": "This proves the expanded agentic task layer exists, not that fresh frontier agents have been run."
     },
     {
       "id": "frontier_agent_runs_ready",
-      "requirement": "Run current frontier tool-using agents over the agentic suite and score them.",
-      "status": "passes",
-      "evidence": "2/2 eligible frontier agent runs present.",
-      "caveat": ""
+      "requirement": "Run current frontier tool-using agents over all 200 expanded agentic tasks and score them.",
+      "status": "partial",
+      "evidence": "0/2 eligible frontier agent runs present.",
+      "caveat": "Run Codex CLI, Claude Code, or equivalent current-best tool-using agents over generated/agentic-workspaces with hidden gold unavailable."
+    },
+    {
+      "id": "buyer_ready_packet_ready",
+      "requirement": "Generate a buyer-ready evaluation packet explaining novelty, difficulty, scoring, limitations, and why frontier agents fail.",
+      "status": "partial",
+      "evidence": "Buyer-grade audit ready_for_buyer_claim=false; blockers=Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.; Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.; Produce per-category failure analysis from fresh expanded-suite runs.; Perform live novelty and contamination review before claiming the benchmark does not already exist.",
+      "caveat": "Build the buyer packet after fresh frontier-agent runs and failure analysis exist."
     },
     {
       "id": "claim_boundaries_ready",
@@ -131,9 +139,9 @@
     }
   ],
   "summary": {
-    "requirements": 12,
-    "passed": 12,
-    "partial": 0,
+    "requirements": 13,
+    "passed": 11,
+    "partial": 2,
     "failed": 0,
     "release_gate_status": "release_ready",
     "artifact_classes_ready": 67,
@@ -142,10 +150,14 @@
     "categories": 10,
     "final_bounded_novelty": true,
     "benchmark_package_ready": true,
-    "full_thread_goal_complete": true,
-    "completion_claim_allowed": true,
+    "full_thread_goal_complete": false,
+    "completion_claim_allowed": false,
     "agentic_suite_ready": true,
-    "eligible_frontier_agent_runs": 2,
+    "agentic_task_count": 200,
+    "agentic_min_corpus_documents": 1000,
+    "agentic_max_corpus_documents": 1000,
+    "buyer_ready_packet_ready": false,
+    "eligible_frontier_agent_runs": 0,
     "required_frontier_agent_runs": 2
   }
 }

@@ -25,7 +25,9 @@ function writeText(path, value) {
 }
 
 function publicTask(task) {
-  const publicDocuments = task.corpus.documents.map((document) => ({
+  const generationShardPath = join(generatedDir, 'agentic-corpus-shards', `${task.task_id}.json`)
+  const corpus = readJson(generationShardPath)
+  const publicDocuments = corpus.documents.map((document) => ({
     document_id: document.document_id,
     title: document.title,
     source_dataset: document.source_dataset,
@@ -47,6 +49,7 @@ function publicTask(task) {
       document_count: task.corpus.document_count,
       source_item_count: task.corpus.source_item_count,
       distractor_policy: task.corpus.distractor_policy,
+      corpus_path: task.corpus.corpus_path,
       documents: publicDocuments,
     },
     required_agent_capabilities: task.required_agent_capabilities,
@@ -140,6 +143,9 @@ for (const task of suite.tasks) {
     required_evidence_ids: task.gold.required_evidence_ids,
     source_row_ids: task.gold.source_row_ids,
     source_datasets: task.gold.source_datasets,
+    source_item_id: task.gold.source_item_id,
+    label_tier: task.gold.label_tier,
+    derivation_rule: task.gold.derivation_rule,
   })
 }
 

@@ -1,0 +1,60 @@
+{
+  "audit_id": "agentic-buyer-grade-audit-v1",
+  "checked_date": "2026-06-26",
+  "ready_for_buyer_claim": false,
+  "reason_ready_for_buyer_claim_false": "The expanded task suite is materialized, but fresh current-best Codex CLI and Claude Code baselines over all 200 tasks are still required before buyer-grade empirical claims.",
+  "checks": {
+    "task_count_at_least_200": true,
+    "corpus_docs_between_1000_and_10000": true,
+    "categories_covered": 10,
+    "balanced_category_minimum": 20,
+    "hidden_gold_present": true,
+    "constant_time_scoring": true,
+    "required_evidence_in_corpus": true,
+    "public_shortcut_fields_absent": true,
+    "contamination_resistant_provenance_present": true
+  },
+  "summary": {
+    "task_count": 200,
+    "categories": [
+      "multi-hop synthesis",
+      "stale-vs-current document conflicts",
+      "appended document lifecycle changes",
+      "table + text reasoning",
+      "source authority conflicts",
+      "evidence insufficiency / abstention",
+      "citation supports fact but not conclusion",
+      "entity disambiguation",
+      "temporal questions: as of date X",
+      "cross-document contradiction"
+    ],
+    "per_category": {
+      "multi-hop synthesis": 20,
+      "stale-vs-current document conflicts": 20,
+      "appended document lifecycle changes": 20,
+      "table + text reasoning": 20,
+      "source authority conflicts": 20,
+      "evidence insufficiency / abstention": 20,
+      "citation supports fact but not conclusion": 20,
+      "entity disambiguation": 20,
+      "temporal questions: as of date X": 20,
+      "cross-document contradiction": 20
+    },
+    "min_corpus_documents": 1000,
+    "max_corpus_documents": 1000,
+    "mean_corpus_documents": 1000,
+    "missing_required_evidence_tasks": 0,
+    "public_shortcut_findings": 0
+  },
+  "blockers": [
+    "Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.",
+    "Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.",
+    "Produce per-category failure analysis from fresh expanded-suite runs.",
+    "Perform live novelty and contamination review before claiming the benchmark does not already exist."
+  ],
+  "findings": {
+    "docs_out_of_range": [],
+    "missing_required_evidence": [],
+    "public_shortcut_findings": []
+  }
+}

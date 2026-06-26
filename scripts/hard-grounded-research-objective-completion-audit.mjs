@@ -102,6 +102,7 @@ function buildAudit() {
   const agenticSuite = readJson('generated/agentic-research-suite.json')
   const agenticReadiness = readJson('generated/agentic-readiness.json')
   const agenticWorkspaces = readJson('generated/agentic-workspaces-manifest.json')
+  const agenticBuyerAudit = readJson('generated/agentic-buyer-grade-audit.json')
   const datasetCard = readText('DATASET_CARD.md')
   const releaseGateMarkdown = readText('RELEASE_GATE.md')
 
@@ -203,40 +204,57 @@ function buildAudit() {
           `${modelRunIndex.eligible_model_baseline_count} eligible external baselines.`,
           'Run additional current models before submission-quality empirical claims.',
         ),
-    agenticSuite.task_count === 10 &&
+    agenticSuite.task_count >= 200 &&
     agenticSuite.source_item_count === 300 &&
+    agenticBuyerAudit.checks?.corpus_docs_between_1000_and_10000 === true &&
+    agenticBuyerAudit.checks?.required_evidence_in_corpus === true &&
+    agenticBuyerAudit.checks?.public_shortcut_fields_absent === true &&
+    agenticBuyerAudit.checks?.contamination_resistant_provenance_present === true &&
     agenticSuite.primary_scoring?.constant_time_after_submission === true &&
     agenticSuite.primary_scoring?.llm_judge_required === false &&
     agenticWorkspaces.task_count === agenticSuite.task_count &&
     agenticWorkspaces.hidden_gold_must_be_withheld_from_agents === true
       ? pass(
           'agentic_suite_materialized',
-          'Create an agentic hard-grounded research suite over HF-derived corpora with deterministic scoring.',
-          `${agenticSuite.task_count} agentic corpus-search tasks generated from ${agenticSuite.source_item_count} HF-derived scale items; no-gold workspaces=${agenticWorkspaces.task_count}; primary scoring is constant-time after submission and does not require an LLM judge.`,
-          'This proves the agentic task layer exists, not that frontier agents have been run.',
+          'Create at least 200 no-gold agentic hard-grounded research tasks with 1k-10k corpus documents, hidden gold, provenance, and deterministic scoring.',
+          `${agenticSuite.task_count} agentic corpus-search tasks generated from ${agenticSuite.source_item_count} HF-derived scale items; no-gold workspaces=${agenticWorkspaces.task_count}; corpus docs=${agenticBuyerAudit.summary.min_corpus_documents}-${agenticBuyerAudit.summary.max_corpus_documents}; primary scoring is constant-time after submission and does not require an LLM judge.`,
+          'This proves the expanded agentic task layer exists, not that fresh frontier agents have been run.',
         )
       : fail(
           'agentic_suite_materialized',
-          'Create an agentic hard-grounded research suite over HF-derived corpora with deterministic scoring.',
+          'Create at least 200 no-gold agentic hard-grounded research tasks with 1k-10k corpus documents, hidden gold, provenance, and deterministic scoring.',
           JSON.stringify({
             task_count: agenticSuite.task_count,
             source_item_count: agenticSuite.source_item_count,
             primary_scoring: agenticSuite.primary_scoring,
             workspaces: agenticWorkspaces.task_count,
+            buyer_audit: agenticBuyerAudit.checks,
           }),
-          'Regenerate the agentic suite and deterministic scorer contract.',
+          'Regenerate the expanded agentic suite and deterministic scorer contract.',
         ),
     agenticReadiness.ready === true && agenticReadiness.eligible_frontier_agent_runs >= agenticReadiness.required_eligible_frontier_agent_runs
       ? pass(
           'frontier_agent_runs_ready',
-          'Run current frontier tool-using agents over the agentic suite and score them.',
+          'Run current frontier tool-using agents over all 200 expanded agentic tasks and score them.',
           `${agenticReadiness.eligible_frontier_agent_runs}/${agenticReadiness.required_eligible_frontier_agent_runs} eligible frontier agent runs present.`,
         )
       : partial(
           'frontier_agent_runs_ready',
-          'Run current frontier tool-using agents over the agentic suite and score them.',
+          'Run current frontier tool-using agents over all 200 expanded agentic tasks and score them.',
           `${agenticReadiness.eligible_frontier_agent_runs}/${agenticReadiness.required_eligible_frontier_agent_runs} eligible frontier agent runs present.`,
-          'Run Codex CLI, Claude Code, or equivalent current-best tool-using agents over generated/agentic-research-suite.json with hidden gold unavailable.',
+          'Run Codex CLI, Claude Code, or equivalent current-best tool-using agents over generated/agentic-workspaces with hidden gold unavailable.',
+        ),
+    agenticBuyerAudit.ready_for_buyer_claim === true
+      ? pass(
+          'buyer_ready_packet_ready',
+          'Generate a buyer-ready evaluation packet explaining novelty, difficulty, scoring, limitations, and why frontier agents fail.',
+          'Buyer-grade audit reports ready_for_buyer_claim=true.',
+        )
+      : partial(
+          'buyer_ready_packet_ready',
+          'Generate a buyer-ready evaluation packet explaining novelty, difficulty, scoring, limitations, and why frontier agents fail.',
+          `Buyer-grade audit ready_for_buyer_claim=${agenticBuyerAudit.ready_for_buyer_claim}; blockers=${agenticBuyerAudit.blockers.join('; ')}`,
+          'Build the buyer packet after fresh frontier-agent runs and failure analysis exist.',
         ),
     paperClaimLedger.summary?.prohibited_claims >= 1 && paperClaimLedger.summary?.allowed_claims >= 1
       ? pass(
@@ -299,6 +317,7 @@ function buildAudit() {
       agentic_suite: 'generated/agentic-research-suite.json',
       agentic_readiness: 'generated/agentic-readiness.json',
       agentic_workspaces: 'generated/agentic-workspaces-manifest.json',
+      agentic_buyer_grade_audit: 'generated/agentic-buyer-grade-audit.json',
     },
     requirements,
     validation_evidence: validationEvidence,
@@ -317,6 +336,10 @@ function buildAudit() {
       full_thread_goal_complete: fullThreadGoalComplete,
       completion_claim_allowed: fullThreadGoalComplete,
       agentic_suite_ready: agenticSuite.readiness?.suite_materialized === true,
+      agentic_task_count: agenticSuite.task_count,
+      agentic_min_corpus_documents: agenticBuyerAudit.summary.min_corpus_documents,
+      agentic_max_corpus_documents: agenticBuyerAudit.summary.max_corpus_documents,
+      buyer_ready_packet_ready: agenticBuyerAudit.ready_for_buyer_claim === true,
       eligible_frontier_agent_runs: agenticReadiness.eligible_frontier_agent_runs,
       required_frontier_agent_runs: agenticReadiness.required_eligible_frontier_agent_runs,
     },

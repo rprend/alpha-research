@@ -1,0 +1,72 @@
+{
+  "packet_id": "hard-grounded-agentic-buyer-evaluation-packet-v1",
+  "checked_date": "2026-06-26",
+  "buyer_ready": false,
+  "suite": {
+    "suite_id": "agentic-large-corpus-research-v3",
+    "task_count": 200,
+    "categories": 10,
+    "corpus_documents_per_task": 1000,
+    "scoring": {
+      "constant_time_after_submission": true,
+      "llm_judge_required": false,
+      "metrics": [
+        "answer_membership",
+        "required_evidence_recall",
+        "citation_precision",
+        "rejected_distractor_precision",
+        "abstention_or_conflict_correctness",
+        "search_trace_completeness"
+      ]
+    }
+  },
+  "novelty_position": {
+    "status": "final_bounded",
+    "final_novelty_claim_allowed": true,
+    "claim_boundary": "Defensible only as a unified HF-derived hard-grounded research-QA failure suite, not as first work on each individual subproblem."
+  },
+  "empirical_status": {
+    "eligible_frontier_agent_runs": 0,
+    "required_eligible_frontier_agent_runs": 2,
+    "fresh_expanded_suite_runs_present": false,
+    "oracle_smoke_task_count": 200,
+    "oracle_smoke_macro": {
+      "answer_membership": 1,
+      "required_evidence_recall": 1,
+      "citation_precision": 1,
+      "rejected_distractor_precision": 1,
+      "abstention_or_conflict_correctness": 1,
+      "search_trace_completeness": 1
+    }
+  },
+  "limitations": [
+    "Fresh Codex CLI and Claude Code runs over all 200 v3 workspaces have not been collected yet.",
+    "Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.",
+    "The current corpus uses compact document previews plus provenance hashes, not full upstream document redistribution.",
+    "Novelty is bounded and must be sold as a combined hard-grounded research benchmark, not as a unique solution to each subproblem."
+  ],
+  "next_required_work": [
+    "Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.",
+    "Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.",
+    "Produce per-category failure analysis from fresh expanded-suite runs.",
+    "Perform live novelty and contamination review before claiming the benchmark does not already exist."
+  ],
+  "objective_completion": {
+    "complete": false,
+    "completion_claim_allowed": false,
+    "partial_requirements": [
+      {
+        "id": "frontier_agent_runs_ready",
+        "status": "partial",
+        "evidence": "0/2 eligible frontier agent runs present.",
+        "required_action": "Run Codex CLI, Claude Code, or equivalent current-best tool-using agents over generated/agentic-workspaces with hidden gold unavailable."
+      },
+      {
+        "id": "buyer_ready_packet_ready",
+        "status": "partial",
+        "evidence": "Buyer-grade audit ready_for_buyer_claim=false; blockers=Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.; Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.; Produce per-category failure analysis from fresh expanded-suite runs.; Perform live novelty and contamination review before claiming the benchmark does not already exist.",
+        "required_action": "Build the buyer packet after fresh frontier-agent runs and failure analysis exist."
+      }
+    ]
+  }
+}
