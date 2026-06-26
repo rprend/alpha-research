@@ -463,3 +463,11 @@ Decision: Generate a source-backed novelty evidence registry while keeping compl
 Rationale: The benchmark needs an auditable trail of related work before any Stanford-PhD-level novelty claim. A separate evidence registry lets the paper draft cite adjacent work and reject overbroad claims without converting the preliminary novelty audit into a final approval.
 
 Consequence: `scripts/hard-grounded-research-novelty-evidence.mjs` now emits `generated/novelty-evidence.json` and `NOVELTY_EVIDENCE.md`; the release gate records that related-work evidence exists while `novelty_audit_final` remains blocked.
+
+## 2026-06-26 — Define a generated annotation protocol
+
+Decision: Generate a formal annotation protocol for pilot and expansion reviewer workbooks.
+
+Rationale: Paper-worthy gold data requires reviewers to apply consistent labels, citation rules, category-fit judgments, and generation-defect codes. A generated protocol keeps the annotation instructions tied to the current rubric and workbook schema without pretending any review rows are complete.
+
+Consequence: `scripts/hard-grounded-research-annotation-protocol.mjs` now emits `generated/annotation-protocol.json` and `ANNOTATION_PROTOCOL.md`; the release gate records that the protocol exists before final review labels are collected.

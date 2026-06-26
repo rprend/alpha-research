@@ -17,6 +17,7 @@ const inputPaths = {
   licenseReview: join(generatedDir, 'license-review.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
+  annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
 }
 
 function assert(condition, message) {
@@ -69,7 +70,7 @@ function challengeRows(pilotSuite) {
     .map(([challengeType, count]) => [challengeType, String(count)])
 }
 
-function renderCard({ spec, pilotSuite, coverageMatrix, itemQualityAudit, reviewMergeReport, goldSummary, baselineAnalysis, licenseReview, packageManifest, releaseGate }) {
+function renderCard({ spec, pilotSuite, coverageMatrix, itemQualityAudit, reviewMergeReport, goldSummary, baselineAnalysis, licenseReview, packageManifest, releaseGate, annotationProtocol }) {
   return `# Hard Grounded Research Dataset Card
 
 Status: pilot benchmark card generated from repository artifacts. This is not a final public release card until gold review is complete.
@@ -114,8 +115,10 @@ ${markdownTable(['Challenge type', 'Pilot items'], challengeRows(pilotSuite))}
 
 ## Annotation And Review
 
+- Annotation protocol: \`ANNOTATION_PROTOCOL.md\`
 - Review workbooks: \`generated/review-workbooks/*.jsonl\`
 - Independent reviews required per item: 2
+- Required reviewer fields: ${annotationProtocol.required_reviewer_fields.map((field) => `\`${field}\``).join(', ')}
 - Missing-review items: ${reviewMergeReport.missing_review_items}
 - Disagreement items: ${reviewMergeReport.disagreement_items}
 - Repair-before-gold items: ${itemQualityAudit.repair_before_gold}
@@ -162,6 +165,7 @@ writeText(
     licenseReview: readJson(inputPaths.licenseReview),
     packageManifest: readJson(inputPaths.packageManifest),
     releaseGate: readJson(inputPaths.releaseGate),
+    annotationProtocol: readJson(inputPaths.annotationProtocol),
   }),
 )
 

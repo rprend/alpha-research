@@ -1,0 +1,210 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "protocol_version": "0.1.0",
+  "source_rubrics": "rubrics.json",
+  "source_review_workbooks": "generated/review-workbooks/index.json",
+  "source_expansion_review_workbooks": "generated/expansion-review-workbooks/index.json",
+  "annotation_protocol_ready": true,
+  "review_scope": {
+    "pilot_workbooks": 20,
+    "pilot_review_rows": 60,
+    "expansion_workbooks": 60,
+    "expansion_review_rows": 540,
+    "independent_reviews_per_item": 2,
+    "reviewer_fields_only": true
+  },
+  "required_reviewer_fields": [
+    "final_label",
+    "final_answer",
+    "required_citation_ids",
+    "insufficient_or_conflicting_evidence",
+    "notes",
+    "reviewer_confidence"
+  ],
+  "expansion_only_fields": [
+    "category_fit",
+    "generation_defect"
+  ],
+  "final_labels": [
+    {
+      "label": "SUPPORTED",
+      "use_when": "The supplied evidence directly supports the final answer and required conclusion.",
+      "citation_rule": "At least one required citation id is required; cite every evidence unit needed for the conclusion."
+    },
+    {
+      "label": "REFUTED",
+      "use_when": "The supplied evidence directly contradicts the candidate answer or claim.",
+      "citation_rule": "At least one required citation id is required; cite the refuting evidence."
+    },
+    {
+      "label": "INSUFFICIENT",
+      "use_when": "The supplied evidence may be relevant but does not establish the requested answer or conclusion.",
+      "citation_rule": "Do not provide required citation ids; set insufficient_or_conflicting_evidence=true."
+    },
+    {
+      "label": "CONFLICT",
+      "use_when": "Supplied documents conflict and the task does not provide a controlling source, date, or authority.",
+      "citation_rule": "Cite the conflicting evidence ids and set insufficient_or_conflicting_evidence=true."
+    },
+    {
+      "label": "INVALID_ITEM",
+      "use_when": "The benchmark item is malformed, impossible to review, off-category, or has unusable evidence.",
+      "citation_rule": "Do not provide required citation ids unless the defect itself depends on specific evidence."
+    }
+  ],
+  "expansion_fields": {
+    "category_fit": [
+      {
+        "value": "IN_CATEGORY",
+        "meaning": "The item tests the intended hard-grounded category."
+      },
+      {
+        "value": "WRONG_CATEGORY",
+        "meaning": "The item primarily tests a different category."
+      },
+      {
+        "value": "AMBIGUOUS_CATEGORY",
+        "meaning": "The item plausibly spans categories and needs adjudicator review."
+      }
+    ],
+    "generation_defect": [
+      {
+        "value": "NONE",
+        "meaning": "No machine-generation defect is visible."
+      },
+      {
+        "value": "BAD_SOURCE_ROW",
+        "meaning": "The source row is mismatched, unusable, or not the claimed provenance."
+      },
+      {
+        "value": "BAD_EVIDENCE",
+        "meaning": "Evidence units are missing, irrelevant, malformed, or insufficient for the item."
+      },
+      {
+        "value": "BAD_QUESTION",
+        "meaning": "The question is unclear, unanswerable for the wrong reason, or not grounded."
+      },
+      {
+        "value": "BAD_EXPECTED_ANSWER",
+        "meaning": "The expected answer is wrong or not supported by the evidence."
+      },
+      {
+        "value": "DUPLICATE",
+        "meaning": "The candidate duplicates another item too closely."
+      },
+      {
+        "value": "OTHER",
+        "meaning": "A defect exists but is not covered by the other codes; explain in notes."
+      }
+    ]
+  },
+  "category_rubrics": {
+    "multi-hop synthesis": {
+      "required_dimensions": [
+        "hop_coverage",
+        "bridge_entity_resolution",
+        "minimal_citation_set"
+      ],
+      "strong_answer": "The answer states the conclusion, cites every required hop, and explains how the hops connect.",
+      "near_miss": "The answer is factually correct but cites only one hop or uses a distractor page as if it were required.",
+      "hard_negative": "A topically related source supports one premise but not the bridge inference."
+    },
+    "stale-vs-current document conflicts": {
+      "required_dimensions": [
+        "document_date_identification",
+        "stale_evidence_rejection",
+        "current_state_grounding"
+      ],
+      "strong_answer": "The answer marks stale claims, uses current evidence for the final conclusion, and cites dates or version markers.",
+      "near_miss": "The answer mentions both sources but blends stale and current facts into one statement.",
+      "hard_negative": "Older evidence is true for its time but false or superseded for the requested state."
+    },
+    "appended document lifecycle changes": {
+      "required_dimensions": [
+        "section_provenance",
+        "supersession_detection",
+        "original_vs_appended_scope"
+      ],
+      "strong_answer": "The answer identifies which section controls the conclusion and whether earlier text is superseded or merely supplemented.",
+      "near_miss": "The answer cites appended text but does not explain how it changes the original body.",
+      "hard_negative": "Original-body evidence supports a conclusion that the appended material qualifies or reverses."
+    },
+    "table + text reasoning": {
+      "required_dimensions": [
+        "table_denotation",
+        "calculation_trace",
+        "textual_interpretation_support"
+      ],
+      "strong_answer": "The answer computes or selects the correct table value and separately cites text that supports the interpretation of the column or row.",
+      "near_miss": "The answer extracts the right cell but makes an unsupported trend, causal, or comparative claim.",
+      "hard_negative": "A table cell is numerically correct but cannot support the narrative conclusion."
+    },
+    "source authority conflicts": {
+      "required_dimensions": [
+        "source_type_identification",
+        "authority_ranking",
+        "conflict_resolution"
+      ],
+      "strong_answer": "The answer names the conflict, ranks source authority, and bases the final conclusion on the highest-authority applicable source.",
+      "near_miss": "The answer picks the clearest or most recent prose without explaining authority.",
+      "hard_negative": "A lower-authority source states a plausible answer that conflicts with a primary or expert source."
+    },
+    "evidence insufficiency / abstention": {
+      "required_dimensions": [
+        "missing_evidence_identification",
+        "abstention_precision",
+        "non_hallucination"
+      ],
+      "strong_answer": "The answer abstains, cites the insufficiency, and names the specific missing evidence needed to answer.",
+      "near_miss": "The answer gives a hedged guess instead of an explicit abstention.",
+      "hard_negative": "Available evidence supports related facts but not the requested conclusion."
+    },
+    "citation supports fact but not conclusion": {
+      "required_dimensions": [
+        "sentence_level_support",
+        "premise_conclusion_separation",
+        "unsupported_inference_detection"
+      ],
+      "strong_answer": "Every conclusion sentence has direct support, and unsupported causal/comparative claims are removed or marked unproven.",
+      "near_miss": "The answer cites a true premise and then adds a conclusion not entailed by that premise.",
+      "hard_negative": "A citation verifies a named entity, number, or event but not the interpretive conclusion drawn from it."
+    },
+    "entity disambiguation": {
+      "required_dimensions": [
+        "entity_identity_match",
+        "alias_resolution",
+        "distractor_rejection"
+      ],
+      "strong_answer": "The answer identifies the intended entity and rejects confusing same-name or near-name evidence.",
+      "near_miss": "The answer uses facts from two entities with similar names.",
+      "hard_negative": "A distractor entity shares a name, title, place, abbreviation, or table row context."
+    },
+    "temporal questions: as of date X": {
+      "required_dimensions": [
+        "as_of_filtering",
+        "future_evidence_exclusion",
+        "date_qualified_answer"
+      ],
+      "strong_answer": "The answer states the as-of date, excludes later evidence, and qualifies the conclusion by temporal scope.",
+      "near_miss": "The answer is currently true but was not knowable or valid as of the requested date.",
+      "hard_negative": "Later evidence makes the answer easier but is invalid for the question date."
+    },
+    "cross-document contradiction": {
+      "required_dimensions": [
+        "contradiction_detection",
+        "evidence_partitioning",
+        "uncertainty_calibration"
+      ],
+      "strong_answer": "The answer partitions supporting and refuting evidence and either resolves the contradiction with authority/recency rules or reports CONFLICT.",
+      "near_miss": "The answer averages or synthesizes incompatible claims into an unsupported compromise.",
+      "hard_negative": "Each document is internally plausible but cross-document comparison reveals incompatibility."
+    }
+  },
+  "adjudication_rules": [
+    "Two independent complete reviews are required before merge.",
+    "Exact agreement promotes an item to merge-ready if validation checks pass.",
+    "Any disagreement in final_label, final_answer, required_citation_ids, or insufficiency/conflict flag requires adjudication.",
+    "Expansion candidates cannot be promoted to paper-scale gold until expansion review preflight and merge both pass.",
+    "INVALID_ITEM rows must be repaired, replaced, or explicitly excluded before final gold release."
+  ]
+}

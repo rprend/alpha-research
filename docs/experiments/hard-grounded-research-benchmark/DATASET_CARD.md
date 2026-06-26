@@ -68,8 +68,10 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 
 ## Annotation And Review
 
+- Annotation protocol: `ANNOTATION_PROTOCOL.md`
 - Review workbooks: `generated/review-workbooks/*.jsonl`
 - Independent reviews required per item: 2
+- Required reviewer fields: `final_label`, `final_answer`, `required_citation_ids`, `insufficient_or_conflicting_evidence`, `notes`, `reviewer_confidence`
 - Missing-review items: 30
 - Disagreement items: 0
 - Repair-before-gold items: 0
