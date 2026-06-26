@@ -12,6 +12,7 @@ await fs.mkdir(outputDir, { recursive: true });
 
 const readiness = await readResult("paper-readiness-gate-2026-06-26-v1");
 const evidenceMap = await readResult("manuscript-evidence-map-2026-06-26-v1");
+const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026-06-26-v1");
 const draft = await readResult("manuscript-draft-2026-06-26-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
 const remoteSmoke = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
@@ -84,12 +85,14 @@ const risks = [
     reviewer_objection: "The motivating claim says private evolving KBs, while the current evaluation is a public QASPER/arXiv proxy.",
     current_evidence: [
       evidenceMap.dataset_and_temporal_claims.trusted_snapshot_run_id,
+      corpusRealism.run_id,
       "extended_temporal_future_holdout-manifest.json",
     ],
-    mitigation_done: "The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.",
+    mitigation_done: `${corpusRealism.run_id} makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.`,
     required_next_evidence: [
       "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
       "If adding a private KB, create train-time and final-time snapshots with immutable date provenance.",
+      "If comparing write-back memory, allow writes only from prior snapshots and preserve derived-record provenance.",
     ],
   },
   {

@@ -12,6 +12,7 @@ await fs.mkdir(outputDir, { recursive: true });
 
 const readiness = await readResult("paper-readiness-gate-2026-06-26-v1");
 const trustedDates = await readResult("trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1");
+const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026-06-26-v1");
 const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
@@ -59,6 +60,8 @@ const result = {
     trusted_papers_checked: trustedDates.papers_checked,
     trusted_papers_with_dates: trustedDates.papers_with_trusted_dates,
     trusted_months: trustedDates.trusted_months,
+    corpus_realism_audit_run_id: corpusRealism.run_id,
+    supports_private_enterprise_kb_claim: corpusRealism.scorecard.supports_private_enterprise_kb_claim,
     allowed_claim: "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB.",
   },
   current_main_results: {
@@ -118,6 +121,14 @@ const result = {
       rent_gpu_for_bounded_qwen3b_smoke: modelScaleAudit.decision.rent_gpu_for_bounded_qwen3b_smoke,
       rent_cutting_edge_large_gpu_model_now: modelScaleAudit.decision.rent_cutting_edge_large_gpu_model_now,
       interpretation: "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. The next credible trained-student evidence is the bounded Qwen 3B joint-action smoke, not an open-ended larger GPU experiment.",
+    },
+    corpus_realism_private_kb_gap: {
+      run_id: corpusRealism.run_id,
+      status: corpusRealism.status,
+      supports_evolving_public_domain_kb_claim: corpusRealism.scorecard.supports_evolving_public_domain_kb_claim,
+      supports_private_enterprise_kb_claim: corpusRealism.scorecard.supports_private_enterprise_kb_claim,
+      supports_writeback_memory_baseline_claim: corpusRealism.scorecard.supports_writeback_memory_baseline_claim,
+      interpretation: "The current corpus is an evolving public domain-KB proxy with trusted document dates, not a private enterprise KB. Private-KB generality remains a limitation until a versioned private or enterprise-like corpus is added.",
     },
     joint_action_packet_quality: {
       run_id: packetQualityAudit.run_id,
@@ -227,6 +238,7 @@ const result = {
     {
       section: "Dataset and Evolving-KB Protocol",
       evidence: [trustedDates.run_id, "extended_temporal_future_holdout-manifest.json"],
+      audit: corpusRealism.run_id,
       current_status: "draftable_with_public_proxy_caveat",
     },
     {

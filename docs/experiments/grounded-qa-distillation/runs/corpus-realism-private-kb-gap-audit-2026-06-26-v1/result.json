@@ -1,0 +1,114 @@
+{
+  "run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+  "generated_at": "2026-06-26T21:20:49.990Z",
+  "artifact_type": "corpus_realism_private_kb_gap_audit",
+  "status": "public_dated_proxy_not_private_kb",
+  "purpose": "Separate what the current QASPER/arXiv corpus proves from what would be required to claim behavior over evolving private knowledge bases.",
+  "current_corpus": {
+    "source_dataset": "allenai/qasper",
+    "source_location": "Hugging Face dataset allenai/qasper",
+    "domain": "NLP research papers",
+    "derived_seed_examples": 584,
+    "seed_answerable_examples": 399,
+    "seed_abstention_examples": 185,
+    "final_holdout_examples": 389,
+    "final_holdout_papers": 77,
+    "trusted_date_snapshot_run_id": "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
+    "trusted_date_source": "arxiv_api_published_date",
+    "trusted_months": {
+      "first": "2020-02",
+      "last": "2020-04",
+      "distinct": [
+        "2020-02",
+        "2020-03",
+        "2020-04"
+      ]
+    }
+  },
+  "checks": [
+    {
+      "id": "hf_dataset_available",
+      "status": "pass",
+      "evidence": "Source dataset is allenai/qasper from Hugging Face."
+    },
+    {
+      "id": "domain_specific_research_kb",
+      "status": "pass",
+      "evidence": "QASPER papers form a domain-specific NLP research-paper KB proxy."
+    },
+    {
+      "id": "trusted_document_dates",
+      "status": "pass",
+      "evidence": "77/77 papers have trusted arXiv API publication dates."
+    },
+    {
+      "id": "non_inferred_final_snapshot",
+      "status": "pass",
+      "evidence": "Trusted arXiv dates supersede arXiv-id-prefix month inference for the final holdout audit."
+    },
+    {
+      "id": "answerable_and_abstention_supervision",
+      "status": "pass",
+      "evidence": "Seed splits include grounded-answer and abstention examples."
+    },
+    {
+      "id": "counterfactual_insufficiency_cases",
+      "status": "pass",
+      "evidence": "Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision."
+    },
+    {
+      "id": "versioned_private_corpus",
+      "status": "fail",
+      "evidence": "No private or enterprise corpus snapshot is present."
+    },
+    {
+      "id": "mutable_access_controlled_kb",
+      "status": "fail",
+      "evidence": "No access-controlled KB, user/team permissions, or confidential document lifecycle is modeled."
+    },
+    {
+      "id": "writeback_baseline_executable",
+      "status": "fail",
+      "evidence": "WriteBack-style mutable-memory baseline is scoped out until leak-safe dated/private snapshots exist."
+    }
+  ],
+  "scorecard": {
+    "checks_total": 9,
+    "passed": 6,
+    "failed": 3,
+    "supports_evolving_public_domain_kb_claim": true,
+    "supports_private_enterprise_kb_claim": false,
+    "supports_writeback_memory_baseline_claim": false
+  },
+  "allowed_claims": [
+    "The current experiment uses a public, dated, domain-specific QASPER/arXiv proxy for evolving KB behavior.",
+    "The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.",
+    "The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added."
+  ],
+  "prohibited_claims": [
+    "The current evidence proves behavior on private enterprise KBs.",
+    "The current corpus models access-control, confidentiality, or user/team permission boundaries.",
+    "The current experiment includes a fair WriteBack-style mutable-memory baseline."
+  ],
+  "private_kb_upgrade_requirements": [
+    "Add at least two immutable KB snapshots with document ids, update timestamps, and source provenance.",
+    "Ensure final-window questions are answerable only from documents available at the evaluated snapshot time.",
+    "Include natural insufficiency cases caused by missing or stale private-KB evidence, not only synthetic withheld-gold counterfactuals.",
+    "Record retrieval indexes or compact evidence packs per snapshot so answer support can be audited without final-window leakage.",
+    "If write-back memory is compared, permit writes only from prior snapshots and preserve provenance for each derived memory record.",
+    "Keep all private data out of committed artifacts or use a licensed public enterprise-like proxy with redistribution rights."
+  ],
+  "paper_implication": "This audit strengthens claim discipline: the current paper can argue for amortized grounded QA over an evolving public domain-KB proxy, while private-KB generality remains a limitation or future dataset extension.",
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads local manifests and existing artifacts only."
+  }
+}

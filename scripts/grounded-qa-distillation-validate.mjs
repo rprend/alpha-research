@@ -83,6 +83,7 @@ if (!errors.length) {
   await validateCitationSftComparisonRunsIfPresent();
   await validateWriteBackScopeRunsIfPresent();
   await validateTrustedDatedSnapshotRunsIfPresent();
+  await validateCorpusRealismAuditRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
   await validateManuscriptEvidenceMapRunsIfPresent();
   await validateManuscriptDraftRunsIfPresent();
@@ -3019,6 +3020,63 @@ async function validateTrustedDatedSnapshotRunsIfPresent() {
     const claimScope = String(result.evaluation_relevance?.claim_scope ?? "").toLowerCase();
     if (!claimScope.includes("trusted dated") || !claimScope.includes("not a private kb")) {
       errors.push(`${entry.name}: snapshot must state trusted-dated/public-not-private claim scope.`);
+    }
+  }
+}
+
+async function validateCorpusRealismAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("corpus-realism-private-kb-gap-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed corpus realism audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "corpus_realism_private_kb_gap_audit") {
+      errors.push(`${entry.name}: unexpected corpus realism artifact type.`);
+    }
+    if (result.status !== "public_dated_proxy_not_private_kb") {
+      errors.push(`${entry.name}: corpus realism audit must preserve the public-proxy/private-KB boundary.`);
+    }
+    if (result.scorecard?.supports_evolving_public_domain_kb_claim !== true || result.scorecard?.supports_private_enterprise_kb_claim !== false) {
+      errors.push(`${entry.name}: corpus realism scorecard must separate public-domain and private-enterprise claims.`);
+    }
+    if (result.scorecard?.supports_writeback_memory_baseline_claim !== false) {
+      errors.push(`${entry.name}: corpus realism audit must not claim WriteBack baseline coverage.`);
+    }
+    const checkIds = new Set((result.checks ?? []).map((row) => row.id));
+    for (const id of ["hf_dataset_available", "trusted_document_dates", "versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
+      if (!checkIds.has(id)) errors.push(`${entry.name}: missing corpus realism check ${id}.`);
+    }
+    for (const id of ["versioned_private_corpus", "mutable_access_controlled_kb", "writeback_baseline_executable"]) {
+      const row = result.checks?.find((check) => check.id === id);
+      if (row?.status !== "fail") errors.push(`${entry.name}: ${id} must fail until a private/writeback corpus extension exists.`);
+    }
+    if (!Array.isArray(result.private_kb_upgrade_requirements) || result.private_kb_upgrade_requirements.length < 5) {
+      errors.push(`${entry.name}: corpus realism audit must list private-KB upgrade requirements.`);
+    }
+    if (!Array.isArray(result.prohibited_claims) || !result.prohibited_claims.some((claim) => String(claim).includes("private enterprise KBs"))) {
+      errors.push(`${entry.name}: corpus realism audit must prohibit private-enterprise proof claims.`);
+    }
+    if (!report.includes("Private-KB Upgrade Requirements") || !report.includes("Supports private enterprise-KB claim: no")) {
+      errors.push(`${entry.name}: corpus realism report must expose claim boundary and upgrade requirements.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: corpus realism audit must be zero-cost.`);
     }
   }
 }

@@ -1169,3 +1169,13 @@ Reason: The project needed a concrete answer to whether the current tiny/local m
 Result: The audit rejects tiny models as final students or ground-truth labelers. Qwen 0.5B SFT reaches 97.5% inline citation compliance but only 5.0% judged answer support and 42.0% overall judged correctness; another compact Qwen 0.5B path collapses to all abstentions. The next minimum credible trained-student experiment remains the bounded Qwen 3B joint-action smoke under the `$100` total cap, gated by Prime auth/live pricing. The audit does not recommend an open-ended cutting-edge GPU run before the Qwen 3B result is known.
 
 Tradeoff: This does not replace the missing Qwen 3B predictions or paid grounded-correctness judge. It prevents wasting budget on too-small labelers or premature large-model escalation while keeping the final trained-student claim blocked until real Qwen 3B evidence exists.
+
+### D138. Make the public-proxy versus private-KB boundary executable
+
+Decision: Add `grounded-qa-distillation-corpus-realism-audit.mjs`, materialize `corpus-realism-private-kb-gap-audit-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: The motivating frame is evolving private knowledge bases, but the current corpus is QASPER/arXiv. The project needed a fail-closed artifact that says exactly what the current data proves and what it does not, instead of relying on prose caveats.
+
+Result: The audit passes the current setup as a public, dated, domain-specific QASPER/arXiv proxy with trusted arXiv API dates for all 77 final-holdout papers, answerable/abstention supervision, and counterfactual insufficiency cases. It explicitly fails private-enterprise KB proof, mutable access-controlled KB modeling, and WriteBack-memory baseline coverage. It lists the requirements for a future private-KB upgrade: immutable snapshots, timestamped provenance, natural stale/missing-evidence cases, snapshot-specific retrieval packs, leak-safe write-back provenance, and no committed private data. This makes zero OpenAI calls, launches no GPU jobs, and records no spend.
+
+Tradeoff: This improves reviewer honesty but narrows the current claim. Until a versioned private or enterprise-like corpus exists, the manuscript must claim an evolving public domain-KB proxy, not proof over private enterprise KBs.

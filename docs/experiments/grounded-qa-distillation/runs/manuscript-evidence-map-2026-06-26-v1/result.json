@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:15:46.845Z",
+  "generated_at": "2026-06-26T21:20:50.022Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -30,6 +30,8 @@
         "2020-04"
       ]
     },
+    "corpus_realism_audit_run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+    "supports_private_enterprise_kb_claim": false,
     "allowed_claim": "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB."
   },
   "current_main_results": {
@@ -119,6 +121,14 @@
       "rent_gpu_for_bounded_qwen3b_smoke": true,
       "rent_cutting_edge_large_gpu_model_now": false,
       "interpretation": "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. The next credible trained-student evidence is the bounded Qwen 3B joint-action smoke, not an open-ended larger GPU experiment."
+    },
+    "corpus_realism_private_kb_gap": {
+      "run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
+      "status": "public_dated_proxy_not_private_kb",
+      "supports_evolving_public_domain_kb_claim": true,
+      "supports_private_enterprise_kb_claim": false,
+      "supports_writeback_memory_baseline_claim": false,
+      "interpretation": "The current corpus is an evolving public domain-KB proxy with trusted document dates, not a private enterprise KB. Private-KB generality remains a limitation until a versioned private or enterprise-like corpus is added."
     },
     "joint_action_packet_quality": {
       "run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
@@ -291,6 +301,7 @@
         "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
         "extended_temporal_future_holdout-manifest.json"
       ],
+      "audit": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
       "current_status": "draftable_with_public_proxy_caveat"
     },
     {
