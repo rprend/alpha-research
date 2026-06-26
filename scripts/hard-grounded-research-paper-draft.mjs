@@ -17,6 +17,7 @@ const requiredInputs = {
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   responsibleUse: join(generatedDir, 'responsible-use.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
+  versionManifest: join(generatedDir, 'version-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   submissionContract: join(generatedDir, 'submission-contract.json'),
@@ -245,7 +246,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, releaseGate, modelRunIndex, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, releaseGate, modelRunIndex, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -389,6 +390,8 @@ ${markdownTable(['Scope', 'Planning n', 'Worst-case 95% half-width', 'Detectable
 
 The generated artifact checklist records ${artifactChecklist.summary.reproduction_commands} reproduction commands and ${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains \`${artifactChecklist.paper_readiness.release_gate_status}\`.
 
+The generated version manifest records SHA-256 digests for ${versionManifest.summary.artifact_count} package-critical artifacts totaling ${versionManifest.summary.total_bytes} bytes. A submitted manuscript should cite \`VERSION_MANIFEST.md\` and \`generated/version-manifest.json\` so reviewers can identify the exact benchmark state behind the tables and claims.
+
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
 
 ## Threats To Validity
@@ -509,6 +512,7 @@ const draft = renderDraft({
   packageManifest: readJson(requiredInputs.packageManifest),
   responsibleUse: readJson(requiredInputs.responsibleUse),
   dataStatement: readJson(requiredInputs.dataStatement),
+  versionManifest: readJson(requiredInputs.versionManifest),
   releaseGate: readJson(requiredInputs.releaseGate),
   modelRunIndex: readJson(requiredInputs.modelRunIndex),
   submissionContract: readJson(requiredInputs.submissionContract),

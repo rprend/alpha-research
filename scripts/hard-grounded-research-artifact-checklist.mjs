@@ -40,6 +40,7 @@ const inputs = {
   reviewCalibration: join(generatedDir, 'review-calibration.json'),
   annotationQualityControl: join(generatedDir, 'annotation-quality-control.json'),
   reviewProgress: join(generatedDir, 'review-progress.json'),
+  versionManifest: join(generatedDir, 'version-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
 }
 
@@ -112,6 +113,7 @@ function buildChecklist({
   reviewCalibration,
   annotationQualityControl,
   reviewProgress,
+  versionManifest,
   releaseGate,
 }) {
   const failedReleaseChecks = releaseGate.checks.filter((check) => !check.passed)
@@ -139,6 +141,7 @@ function buildChecklist({
     artifactClass('paper_claim_ledger', paperClaimLedger.paper_claim_ledger_ready && paperClaimLedger.completion_claim_allowed === false, `${paperClaimLedger.summary.claims} claims mapped to evidence; prohibited=${paperClaimLedger.summary.prohibited_claims}; diagnostic=${paperClaimLedger.summary.diagnostic_only_claims}.`),
     artifactClass('responsible_use', responsibleUse.responsible_use_ready && responsibleUse.public_leaderboard_allowed === false, `${responsibleUse.summary.policy_rules} policy rules; active restrictions=${responsibleUse.summary.active_restrictions}; public leaderboard allowed=${responsibleUse.public_leaderboard_allowed}.`),
     artifactClass('data_statement', dataStatement.data_statement_ready && dataStatement.summary.completion_claim_allowed === false, `${dataStatement.version}; source datasets=${dataStatement.summary.source_dataset_count}; scaled items=${dataStatement.composition.scaled_public_items}; pointer-only items=${dataStatement.package_policy.pointer_only_items}.`),
+    artifactClass('version_manifest', versionManifest.version_manifest_ready && versionManifest.summary.completion_claim_allowed === false, `${versionManifest.version}; artifacts=${versionManifest.summary.artifact_count}; bytes=${versionManifest.summary.total_bytes}.`),
     artifactClass('novelty_and_claim_boundaries', noveltyEvidence.completion_claim_allowed === false && noveltyEvidence.claim_boundaries.length >= 4 && noveltyAudit.refresh_summary?.query_count >= 4, `${noveltyEvidence.source_count} related-work sources; ${noveltyEvidence.allowed_claim_count} allowed claims; ${noveltyEvidence.prohibited_claim_count} prohibited claims; refresh queries=${noveltyAudit.refresh_summary?.query_count ?? 0}.`),
   ]
 
@@ -166,6 +169,7 @@ function buildChecklist({
     { step: 'Refresh paper claim ledger', command: 'node scripts/hard-grounded-research-paper-claim-ledger.mjs' },
     { step: 'Refresh responsible-use policy', command: 'node scripts/hard-grounded-research-responsible-use.mjs' },
     { step: 'Refresh data statement', command: 'node scripts/hard-grounded-research-data-statement.mjs' },
+    { step: 'Refresh version manifest', command: 'node scripts/hard-grounded-research-version-manifest.mjs' },
     { step: 'Refresh release and publication surfaces', command: 'node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs' },
     { step: 'Validate harness integration', command: 'node scripts/validate-harness.mjs' },
     { step: 'Run app build and dashboard QA', command: 'node_modules/.bin/vite build && node scripts/qa-dashboard.mjs' },
@@ -217,6 +221,7 @@ function buildChecklist({
       review_calibration: 'generated/review-calibration.json',
       annotation_quality_control: 'generated/annotation-quality-control.json',
       review_progress: 'generated/review-progress.json',
+      version_manifest: 'generated/version-manifest.json',
     },
     summary: {
       categories: spec.categories.length,
@@ -319,6 +324,7 @@ const checklist = buildChecklist({
   reviewCalibration: readJson(inputs.reviewCalibration),
   annotationQualityControl: readJson(inputs.annotationQualityControl),
   reviewProgress: readJson(inputs.reviewProgress),
+  versionManifest: readJson(inputs.versionManifest),
   releaseGate: readJson(inputs.releaseGate),
 })
 

@@ -51,6 +51,7 @@
     "source_acquisition_review_preflight": "generated/source-acquisition-review-preflight.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
+    "version_manifest": "generated/version-manifest.json",
     "threats_validity": "generated/threats-validity.json",
     "license_review": "generated/license-review.json",
     "license_impact": "generated/license-impact.json",
@@ -417,8 +418,14 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "24/24 artifact classes ready; reproduction_commands=27; release_blockers=7",
+      "detail": "25/25 artifact classes ready; reproduction_commands=28; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
+    },
+    {
+      "id": "version_manifest_ready",
+      "passed": true,
+      "detail": "version-manifest-v1; artifacts=20; blockers=7; bytes=375745",
+      "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {
       "id": "threats_validity_ready",

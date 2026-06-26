@@ -31,15 +31,16 @@
     "annotation_export": "generated/annotation-export/manifest.json",
     "review_calibration": "generated/review-calibration.json",
     "annotation_quality_control": "generated/annotation-quality-control.json",
-    "review_progress": "generated/review-progress.json"
+    "review_progress": "generated/review-progress.json",
+    "version_manifest": "generated/version-manifest.json"
   },
   "summary": {
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 24,
-    "artifact_classes_total": 24,
-    "reproduction_commands": 27,
+    "artifact_classes_ready": 25,
+    "artifact_classes_total": 25,
+    "reproduction_commands": 28,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -205,6 +206,13 @@
       "blockers": []
     },
     {
+      "id": "version_manifest",
+      "status": "ready",
+      "ready": true,
+      "evidence": "version-manifest-v1; artifacts=20; bytes=375745.",
+      "blockers": []
+    },
+    {
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
@@ -304,6 +312,10 @@
     {
       "step": "Refresh data statement",
       "command": "node scripts/hard-grounded-research-data-statement.mjs"
+    },
+    {
+      "step": "Refresh version manifest",
+      "command": "node scripts/hard-grounded-research-version-manifest.mjs"
     },
     {
       "step": "Refresh release and publication surfaces",

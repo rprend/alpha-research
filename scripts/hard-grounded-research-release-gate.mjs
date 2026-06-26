@@ -57,6 +57,7 @@ const inputs = {
   sourceAcquisitionReviewPreflight: join(generatedDir, 'source-acquisition-review-preflight.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
+  versionManifest: join(generatedDir, 'version-manifest.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseImpact: join(generatedDir, 'license-impact.json'),
@@ -152,6 +153,7 @@ function buildGate({
   sourceAcquisitionReviewPreflight,
   constructMap,
   artifactChecklist,
+  versionManifest,
   threatsValidity,
   annotationExport,
   annotationImportSmoke,
@@ -627,6 +629,15 @@ function buildGate({
       blocker: 'Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers.',
     },
     {
+      id: 'version_manifest_ready',
+      passed:
+        Boolean(versionManifest.version_manifest_ready) &&
+        versionManifest.summary?.artifact_count >= 20 &&
+        versionManifest.summary?.completion_claim_allowed === false,
+      detail: `${versionManifest.version}; artifacts=${versionManifest.summary?.artifact_count ?? 0}; blockers=${versionManifest.summary?.release_blockers ?? 'unknown'}; bytes=${versionManifest.summary?.total_bytes ?? 0}`,
+      blocker: 'Generate a checksum-backed version manifest before publishing a reproducible benchmark package.',
+    },
+    {
       id: 'threats_validity_ready',
       passed:
         Boolean(threatsValidity.threats_validity_ready) &&
@@ -690,6 +701,7 @@ function buildGate({
       source_acquisition_review_preflight: 'generated/source-acquisition-review-preflight.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
+      version_manifest: 'generated/version-manifest.json',
       threats_validity: 'generated/threats-validity.json',
       license_review: 'generated/license-review.json',
       license_impact: 'generated/license-impact.json',
@@ -789,6 +801,7 @@ const gate = buildGate({
   sourceAcquisitionReviewPreflight: readJson(inputs.sourceAcquisitionReviewPreflight),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
+  versionManifest: readJson(inputs.versionManifest),
   threatsValidity: readJson(inputs.threatsValidity),
   annotationExport: readJson(inputs.annotationExport),
   annotationImportSmoke: readJson(inputs.annotationImportSmoke),

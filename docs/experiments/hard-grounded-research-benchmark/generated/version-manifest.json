@@ -1,0 +1,169 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "version_manifest_ready": true,
+  "version": "version-manifest-v1",
+  "generated_from": {
+    "release_gate": "generated/release-gate.json",
+    "artifact_checklist": "generated/artifact-checklist.json",
+    "data_statement": "generated/data-statement.json",
+    "public_package_summary": "generated/public-package/summary.json",
+    "scaled_public_package_summary": "generated/public-package/scaled-summary.json"
+  },
+  "release_state": {
+    "status": "blocked",
+    "passing_checks": 54,
+    "total_checks": 61,
+    "blockers": [
+      {
+        "id": "gold_review_complete",
+        "detail": "0/30 valid reviewed items",
+        "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+      },
+      {
+        "id": "review_preflight_ready",
+        "detail": "0/60 complete review rows",
+        "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
+      },
+      {
+        "id": "expansion_review_preflight_ready",
+        "detail": "0/540 complete expansion review rows",
+        "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+      },
+      {
+        "id": "expansion_review_merge_ready",
+        "detail": "0/270 expansion merge-ready items",
+        "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
+      },
+      {
+        "id": "review_merge_ready",
+        "detail": "0/30 merge-ready items",
+        "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+      },
+      {
+        "id": "category_scale_ready",
+        "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+        "blocker": "Scale each category to the target reviewed item count before paper release."
+      },
+      {
+        "id": "novelty_audit_final",
+        "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+        "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+      }
+    ],
+    "completion_claim_allowed": false
+  },
+  "package_state": {
+    "public_package_items": 30,
+    "public_pointer_only_evidence_units": 18,
+    "scaled_public_items": 270,
+    "scaled_pointer_only_evidence_units": 108
+  },
+  "artifacts": [
+    {
+      "path": "benchmark-spec.json",
+      "bytes": 13787,
+      "sha256": "ce28290a0e7e1329b03d5bd7f8c8fa3f1fbb0363b033dec976ac2a88d6eae8c0"
+    },
+    {
+      "path": "rubrics.json",
+      "bytes": 7454,
+      "sha256": "b56e897003bbe7c47c23f4a1307cc52f3b3092607cdb7112c213b2beda2bcfd7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11729,
+      "sha256": "b8470d1fd66ae70b5827a6ae2e49cf34901e762e3bdbab7426d7c0d42cde1f17"
+    },
+    {
+      "path": "DATASET_CARD.md",
+      "bytes": 17712,
+      "sha256": "d8c5f556b3c94ef239975af214a7e3d1f0a3858f14af1c676a8b537057c78c9b"
+    },
+    {
+      "path": "DATA_STATEMENT.md",
+      "bytes": 3406,
+      "sha256": "53c0fdb92d59d44e235c1b9080ad8a921d13342964873e79e45a7ad0995f36c7"
+    },
+    {
+      "path": "SUBMISSION_CONTRACT.md",
+      "bytes": 1909,
+      "sha256": "e42938a388ca958c91c2e283f71d09b92869db33ba04ef6b39194e2e638eacf2"
+    },
+    {
+      "path": "SCORING_CONTRACT.md",
+      "bytes": 4651,
+      "sha256": "7efab9f885c491295ee252908c60ab1767746cdfb01e08052bbf16236c25e6fe"
+    },
+    {
+      "path": "ERROR_CODEBOOK.md",
+      "bytes": 5880,
+      "sha256": "2f803c3a1909f118e80d3a7dad503a9d9af60dcfe651f0fc362053b851922bae"
+    },
+    {
+      "path": "PAPER_DRAFT.md",
+      "bytes": 42231,
+      "sha256": "1387526000d922f76471d8364a8cd2fb033e3a5bbfb207de15cb6264b75ddd8a"
+    },
+    {
+      "path": "generated/pilot-suite.json",
+      "bytes": 129445,
+      "sha256": "b656e9340b010da6439fb8878caf50b22a8cb17ff24ccd1ab54357e17c362ec5"
+    },
+    {
+      "path": "generated/public-package/summary.json",
+      "bytes": 346,
+      "sha256": "9590d9997c4ac185b757094e361b2826e62791f298bc9fa245cf7c9bf947acd0"
+    },
+    {
+      "path": "generated/public-package/scaled-summary.json",
+      "bytes": 575,
+      "sha256": "498a5ecf2436c0c84f9e34dbc7c1279a9c41214d9bd118a7b27e01474190268c"
+    },
+    {
+      "path": "generated/public-package-manifest.json",
+      "bytes": 63726,
+      "sha256": "ba80f4c3b8cf925a13aee39df959689da9cde7e9e4f74bd9ef2830407d3d46a4"
+    },
+    {
+      "path": "generated/data-statement.json",
+      "bytes": 4767,
+      "sha256": "b67402e161c81fc682f34d10e34255a5fb99449c68e10a5d3a7abf0730e53fb6"
+    },
+    {
+      "path": "generated/submission-contract.json",
+      "bytes": 3356,
+      "sha256": "51c3db4c3684a228fd6cf5469ba1091744cadd3c291a4ff8a711f7129f1fa5a4"
+    },
+    {
+      "path": "generated/scoring-contract.json",
+      "bytes": 9236,
+      "sha256": "aab7009484e22a7f0b508582a939d6e70c465ae50b2c86aba429c719156895c9"
+    },
+    {
+      "path": "generated/error-codebook.json",
+      "bytes": 9822,
+      "sha256": "33155f5500c0aa0b2c752ea684c0ebacf4e5c56a3380a7300492aa358818e780"
+    },
+    {
+      "path": "generated/novelty-audit.json",
+      "bytes": 17230,
+      "sha256": "2ac5ea3b44cc798c1ebb9ca2d95bae5b9849c548d187ea7a9efce895826c33b6"
+    },
+    {
+      "path": "generated/novelty-evidence.json",
+      "bytes": 22604,
+      "sha256": "3775abdf9a18f3533ac6ebd6bdf4d25c5ecc727c24002cf4f88d2023ea7d9139"
+    },
+    {
+      "path": "generated/paper-claim-ledger.json",
+      "bytes": 5879,
+      "sha256": "b13efb36673002bdbc773cfbed8b49c60ba749c001f52da0567b5973ec973d57"
+    }
+  ],
+  "summary": {
+    "artifact_count": 20,
+    "total_bytes": 375745,
+    "release_blockers": 7,
+    "completion_claim_allowed": false
+  }
+}

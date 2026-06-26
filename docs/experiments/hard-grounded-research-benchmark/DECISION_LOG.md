@@ -855,3 +855,11 @@ Decision: Generate a datasheet-style data statement for the benchmark package.
 Rationale: A publishable benchmark needs a stable package-facing statement of data composition, source provenance, licensing policy, intended use, out-of-scope use, and review status, separate from the narrative dataset card.
 
 Consequence: `scripts/hard-grounded-research-data-statement.mjs` emits `generated/data-statement.json` and `DATA_STATEMENT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the statement while completion and leaderboard claims remain blocked.
+
+## 2026-06-26 — Add version manifest
+
+Decision: Generate a checksum-backed version manifest for package-critical benchmark artifacts.
+
+Rationale: A paper-grade benchmark package needs an immutable way to identify the exact generated artifacts behind a manuscript, dataset card, release gate, and public package. Hashing the key files makes drift auditable while the review and novelty gates remain incomplete.
+
+Consequence: `scripts/hard-grounded-research-version-manifest.mjs` emits `generated/version-manifest.json` and `VERSION_MANIFEST.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the manifest while completion claims remain blocked.

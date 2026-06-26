@@ -41,6 +41,7 @@ const inputPaths = {
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   responsibleUse: join(generatedDir, 'responsible-use.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
+  versionManifest: join(generatedDir, 'version-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
@@ -166,6 +167,7 @@ function renderCard({
   packageManifest,
   responsibleUse,
   dataStatement,
+  versionManifest,
   releaseGate,
   annotationProtocol,
   adjudicationReadiness,
@@ -346,6 +348,10 @@ The generated responsible-use policy records ${responsibleUse.summary.policy_rul
 
 The generated data statement records ${dataStatement.summary.source_dataset_count} source datasets, ${dataStatement.composition.scaled_public_items} scaled public items, and ${dataStatement.package_policy.pointer_only_items} pointer-only package items. It keeps package-facing composition, licensing, intended-use, out-of-scope-use, and review-state claims synchronized with generated artifacts. See \`DATA_STATEMENT.md\`.
 
+## Version Manifest
+
+The generated version manifest records SHA-256 digests for ${versionManifest.summary.artifact_count} package-critical artifacts and carries ${versionManifest.summary.release_blockers} active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See \`VERSION_MANIFEST.md\`.
+
 ## Known Limitations
 
 1. Current scale is ${pilotSuite.items.length} pilot items, not the target 30-50 reviewed items per category.
@@ -378,6 +384,7 @@ Key release checks:
 - Source acquisition review preflight: ${checkDetail(releaseGate, 'source_acquisition_review_preflight_report_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
+- Version manifest: ${checkDetail(releaseGate, 'version_manifest_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
 - Failure atlas: ${checkDetail(releaseGate, 'failure_atlas_ready')}
 - Error codebook: ${checkDetail(releaseGate, 'error_codebook_ready')}
@@ -445,6 +452,7 @@ writeText(
     packageManifest: readJson(inputPaths.packageManifest),
     responsibleUse: readJson(inputPaths.responsibleUse),
     dataStatement: readJson(inputPaths.dataStatement),
+    versionManifest: readJson(inputPaths.versionManifest),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),
     adjudicationReadiness: readJson(inputPaths.adjudicationReadiness),
