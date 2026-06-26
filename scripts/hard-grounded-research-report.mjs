@@ -14,6 +14,7 @@ const scoredRunPaths = [
 ]
 const openAiManifestPath = join(runsDir, 'openai-grounded-baseline-v1/run-manifest.json')
 const goldSummaryPath = join(generatedDir, 'gold-suite-summary.json')
+const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'))
@@ -55,6 +56,72 @@ function sortedWeakestCategories(report) {
     )
 }
 
+function citationGap(score) {
+  const submitted = new Set(score.submitted_citations || [])
+  return (score.required_citations || []).filter((id) => !submitted.has(id))
+}
+
+function failureReasons(score) {
+  const reasons = []
+  if (score.answer_correct < 1) reasons.push('wrong_answer')
+  if (score.evidence_recall < 1) reasons.push('missing_required_evidence')
+  if (score.citation_faithfulness < 1) reasons.push('unfaithful_or_overbroad_citation')
+  if (score.abstention_quality < 1) reasons.push('bad_abstention_behavior')
+  return reasons
+}
+
+function buildFailureAnalysis(report, pilotSuite) {
+  const pilotById = new Map(pilotSuite.items.map((item) => [item.id, item]))
+  const failures = report.task_scores
+    .map((score) => {
+      const item = pilotById.get(score.task_id)
+      return {
+        task_id: score.task_id,
+        category: score.category,
+        challenge_type: item?.challenge?.type || 'native_row',
+        question: item?.question || '',
+        expected_answer: score.expected_answer,
+        submitted_answer: score.submitted_answer,
+        reasons: failureReasons(score),
+        missing_required_citations: citationGap(score),
+        submitted_citations: score.submitted_citations || [],
+        metrics: {
+          answer_correct: score.answer_correct,
+          evidence_recall: score.evidence_recall,
+          citation_faithfulness: score.citation_faithfulness,
+          abstention_quality: score.abstention_quality,
+        },
+      }
+    })
+    .filter((failure) => failure.reasons.length > 0)
+
+  const byCategory = Object.fromEntries(
+    [...new Set(report.task_scores.map((score) => score.category))].map((category) => {
+      const categoryScores = report.task_scores.filter((score) => score.category === category)
+      const categoryFailures = failures.filter((failure) => failure.category === category)
+      return [
+        category,
+        {
+          task_count: categoryScores.length,
+          failure_count: categoryFailures.length,
+          failure_rate: Number((categoryFailures.length / categoryScores.length).toFixed(4)),
+          reason_counts: categoryFailures.reduce((counts, failure) => {
+            for (const reason of failure.reasons) counts[reason] = (counts[reason] || 0) + 1
+            return counts
+          }, {}),
+          representative_failures: categoryFailures.slice(0, 2),
+        },
+      ]
+    }),
+  )
+
+  return {
+    system_id: report.system_id,
+    failure_count: failures.length,
+    by_category: byCategory,
+  }
+}
+
 function markdownTable(headers, rows) {
   return [
     `| ${headers.join(' | ')} |`,
@@ -63,7 +130,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildReport(scoredReports, goldSummary, openAiManifest) {
+function buildReport(scoredReports, goldSummary, openAiManifest, pilotSuite) {
   const oracle = scoredReports.find((report) => report.system_id === 'local-rule-agent-v1')
   const lexical = scoredReports.find((report) => report.system_id === 'lexical-evidence-baseline-v1')
   const systems = scoredReports.map((report) => ({
@@ -92,6 +159,7 @@ function buildReport(scoredReports, goldSummary, openAiManifest) {
       openai_run_requested: openAiManifest.run_requested,
       openai_scored_report_present: existsSync(join(runsDir, 'openai-grounded-baseline-v1/report.json')),
     },
+    failure_analysis: lexical ? buildFailureAnalysis(lexical, pilotSuite) : null,
     systems,
     headline_contrasts:
       oracle && lexical
@@ -130,6 +198,34 @@ function renderMarkdown(report) {
     metric(category.citation_faithfulness),
     metric(category.abstention_quality),
   ])
+  const failureRows = Object.entries(report.failure_analysis?.by_category || {})
+    .sort(([, a], [, b]) => b.failure_rate - a.failure_rate)
+    .map(([category, analysis]) => [
+      category,
+      `${analysis.failure_count}/${analysis.task_count}`,
+      metric(analysis.failure_rate),
+      Object.entries(analysis.reason_counts)
+        .map(([reason, count]) => `${reason}:${count}`)
+        .join('<br>'),
+    ])
+  const representativeFailures = Object.entries(report.failure_analysis?.by_category || {})
+    .flatMap(([category, analysis]) =>
+      analysis.representative_failures.slice(0, 1).map((failure) => ({ ...failure, category })),
+    )
+    .slice(0, 5)
+    .map(
+      (failure) =>
+        `### ${failure.task_id}
+
+- Category: ${failure.category}
+- Challenge: ${failure.challenge_type}
+- Reasons: ${failure.reasons.join(', ')}
+- Expected: ${failure.expected_answer}
+- Submitted: ${failure.submitted_answer}
+- Missing required citations: ${failure.missing_required_citations.length ? failure.missing_required_citations.join(', ') : 'none'}
+`,
+    )
+    .join('\n')
 
   return `# Hard Grounded Research Baseline Analysis
 
@@ -157,6 +253,14 @@ ${markdownTable(
   weakestRows,
 )}
 
+## Lexical Failure Taxonomy
+
+${markdownTable(['Category', 'Failures', 'Failure rate', 'Reason counts'], failureRows)}
+
+## Representative Lexical Failures
+
+${representativeFailures}
+
 ## Headline Contrast
 
 - Lexical answer-correct gap vs oracle sanity runner: ${metric(report.headline_contrasts.lexical_answer_correct_gap_vs_oracle ?? 0)}
@@ -171,14 +275,15 @@ This report remains preliminary until the adjudication queue is reviewed and at 
 `
 }
 
-for (const path of [...scoredRunPaths, goldSummaryPath, openAiManifestPath]) {
+for (const path of [...scoredRunPaths, goldSummaryPath, openAiManifestPath, pilotSuitePath]) {
   if (!existsSync(path)) throw new Error(`Missing report input: ${path}`)
 }
 
 const scoredReports = scoredRunPaths.map(readJson)
 const goldSummary = readJson(goldSummaryPath)
 const openAiManifest = readJson(openAiManifestPath)
-const report = buildReport(scoredReports, goldSummary, openAiManifest)
+const pilotSuite = readJson(pilotSuitePath)
+const report = buildReport(scoredReports, goldSummary, openAiManifest, pilotSuite)
 writeJson(reportJsonPath, report)
 writeText(reportMarkdownPath, renderMarkdown(report))
 

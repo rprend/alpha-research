@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Promote aggregate scores into failure analysis
+
+Decision: Extend the baseline report from macro metrics into per-category failure counts and representative failed examples for the lexical baseline.
+
+Rationale: A benchmark paper needs to explain what failures the tasks expose, not only show that a baseline score is low. Representative failures connect the taxonomy to concrete evidence-use errors.
+
+Consequence: `benchmark:hard-grounded:report` now includes lexical failure taxonomy and example failures in both `BASELINE_ANALYSIS.md` and `generated/baseline-analysis.json`.
+
 ## 2026-06-26 — Summarize baselines as reproducible paper tables
 
 Decision: Add a report builder that turns checked-in run reports, gold readiness, and model-baseline readiness into a Markdown analysis and machine-readable JSON.
