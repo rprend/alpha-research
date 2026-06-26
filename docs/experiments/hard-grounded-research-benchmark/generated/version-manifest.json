@@ -41,7 +41,7 @@
     {
       "path": "DATASET_CARD.md",
       "bytes": 31591,
-      "sha256": "67976b9e89deb91305dcc7eb64f7ef917b18de4492eb0e40a33275cebdc8caa2"
+      "sha256": "bd4d170dd81d60163da130841243e220a69708796ec947a22c12f38161a3d64f"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -255,8 +255,8 @@
     },
     {
       "path": "OBJECTIVE_COMPLETION_AUDIT.md",
-      "bytes": 2973,
-      "sha256": "74ff3728af84763f4a7bbe8956d584d304c6e2c3548da0dcf3bc32abae679032"
+      "bytes": 2706,
+      "sha256": "1059f920f591ada7aaf7df9650917aae828110119b9cb1148fb4f81ae7759d10"
     },
     {
       "path": "PUBLIC_PACKAGE_SCHEMA.md",
@@ -271,7 +271,7 @@
     {
       "path": "PAPER_DRAFT.md",
       "bytes": 96520,
-      "sha256": "aa4cab709df64f093ac72c69e89f2604cb0eb502c59b9bec67c5e25e31b7b08f"
+      "sha256": "6f3b237c96813a1191bb78c8c5d7c2066c8aa504101b16f6dff6430e7cea411d"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -530,8 +530,8 @@
     },
     {
       "path": "generated/objective-completion-audit.json",
-      "bytes": 5344,
-      "sha256": "c61eafe98614a5d7ea3ffa1c2ece85413c8e80205951bd351deaa21e2783b97b"
+      "bytes": 5075,
+      "sha256": "95304f5d9a2aa1cfcd1c61dc494ddd3de0599400627d84ba836fc09ccdc7cc88"
     },
     {
       "path": "generated/paper-claim-ledger.json",
@@ -541,7 +541,7 @@
   ],
   "summary": {
     "artifact_count": 103,
-    "total_bytes": 3235705,
+    "total_bytes": 3235169,
     "release_blockers": 0,
     "completion_claim_allowed": false
   }

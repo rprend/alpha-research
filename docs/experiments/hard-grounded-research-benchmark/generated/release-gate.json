@@ -715,7 +715,7 @@
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=103; blockers=0; bytes=3235705",
+      "detail": "version-manifest-v1; artifacts=103; blockers=0; bytes=3235169",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

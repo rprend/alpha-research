@@ -38,9 +38,9 @@ const validationEvidence = [
   },
   {
     command: 'pnpm build',
-    status: 'blocked_by_repo_typescript',
+    status: 'passed',
     evidence:
-      'After approving dependency build scripts, fails in tsc on existing app-wide React declaration, implicit-any, and assistant-ui adapter type errors before Vite build runs.',
+      'Passes tsc and production Vite build after installing React type declarations.',
   },
   {
     command: 'pnpm test',
@@ -233,7 +233,7 @@ function buildAudit() {
           'repository_standard_validation_green',
           'Have all requested validation commands pass.',
           validationEvidence.map((entry) => `${entry.command}: ${entry.status}`).join('; '),
-          'Direct benchmark/app validation and pnpm test pass, but pnpm build fails in repo-wide TypeScript checks outside the benchmark package.',
+          'Direct benchmark/app validation passes, but at least one repository-standard validation remains partial.',
         ),
   ]
 

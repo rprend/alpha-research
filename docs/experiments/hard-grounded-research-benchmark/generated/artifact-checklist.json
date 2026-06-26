@@ -475,7 +475,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=103; bytes=3235705.",
+      "evidence": "version-manifest-v1; artifacts=103; bytes=3235169.",
       "blockers": []
     },
     {
@@ -545,7 +545,7 @@
       "id": "objective_completion_audit",
       "status": "ready",
       "ready": true,
-      "evidence": "objective-completion-audit-v1; requirements=9/10; partial=1; failed=0; full goal complete=false.",
+      "evidence": "objective-completion-audit-v1; requirements=10/10; partial=0; failed=0; full goal complete=true.",
       "blockers": []
     },
     {

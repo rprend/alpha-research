@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Resolve the repository build gate with React types
+
+Decision: Add the missing React type declaration package and keep strict TypeScript enabled, rather than weakening `tsconfig` or bypassing `tsc` in the build script.
+
+Rationale: The only remaining objective-audit partial was `pnpm build`; after approving dependency build scripts, the failure was a TypeScript cascade from missing React declarations plus downstream inferred `any` errors. Installing `@types/react` lets the existing strict build check the app as intended.
+
+Consequence: The repository-standard `pnpm build` can be validated directly, and the objective completion audit can move from partial validation to full validation if the remaining gates pass.
+
 ## 2026-06-26 — Add an objective-level completion audit
 
 Decision: Add a generated objective-completion audit that maps the original benchmark request to concrete repository evidence and separates release readiness from remaining paper-worthiness gaps.

@@ -353,7 +353,7 @@ Key release checks:
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
 - Artifact checklist: pass - 67/67 artifact classes ready; reproduction_commands=62; release_blockers=0
-- Version manifest: pass - version-manifest-v1; artifacts=103; blockers=0; bytes=3235725
+- Version manifest: pass - version-manifest-v1; artifacts=103; blockers=0; bytes=3235169
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
