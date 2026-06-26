@@ -36,7 +36,7 @@ def main():
             policy_row(row, "balanced_support_risk_gate", None, None, False) for row in rows
         ]),
         "combined_teacher": summarize_policy([
-            policy_row(row, "combined_mini_negative_det_guard_teacher", None, None, row["answer_type"] == "grounded_answer" and not row["combined_keep"])
+            policy_row(row, "exported_verifier_teacher", None, None, row["answer_type"] == "grounded_answer" and not row["combined_keep"])
             for row in rows
         ]),
     }
@@ -50,8 +50,8 @@ def main():
         },
         {
             "id": "combined_policy_action",
-            "label": "Combined policy action",
-            "description": "Train a text verifier to imitate mini-negative plus deterministic-guard teacher actions.",
+            "label": "Exported policy action",
+            "description": "Train a text verifier to imitate the exported verifier teacher actions.",
             "target": lambda row: 1 if row["combined_keep"] else 0,
         },
     ]
@@ -61,7 +61,7 @@ def main():
         "run_id": args.run_id,
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "label_prefix": args.label_prefix,
-        "scope": "cross-window high-dimensional local text verifier trained from combined verifier labels on extended_temporal_future_holdout examples 241-389",
+        "scope": "cross-window high-dimensional local text verifier trained from exported verifier labels on extended_temporal_future_holdout",
         "llm_calls": 0,
         "run_cost_usd": 0,
         "method": {
@@ -289,7 +289,7 @@ def build_row(row):
         "pack_text": " ".join(evidence.get("text", "") for evidence in row["input"].get("compact_retrieved_evidence_pack") or []),
         "support_score": float(row["metadata"].get("support_score") or 0),
         "strong_keep": row["output"]["label"] == "keep",
-        "combined_keep": row["output"]["combined_policy_action"] == "keep",
+        "combined_keep": row["output"].get("policy_action", row["output"].get("combined_policy_action")) == "keep",
         "strong_verdict": row["metadata"].get("strong_verdict"),
         "mini_verdict": row["metadata"].get("mini_verdict"),
         "mini_negative": row["output"].get("mini_negative") is True,
@@ -412,7 +412,7 @@ def delta(left, right):
 def render_report(result):
     baseline_rows = "\n".join([
         policy_report_row("Balanced support-risk gate", result["baselines"]["balanced_gate"]),
-        policy_report_row("Combined teacher action", result["baselines"]["combined_teacher"]),
+        policy_report_row("Exported teacher action", result["baselines"]["combined_teacher"]),
     ])
     objective_rows = "\n".join([
         policy_report_row(objective["label"], objective["aggregate"]["policy_metrics"])
@@ -446,7 +446,7 @@ def render_report(result):
 
 Scope: {result["scope"]}
 
-This run makes no LLM calls. It trains a local TF-IDF logistic verifier on one future window and evaluates on the other, using the exported combined verifier labels from `{result["label_prefix"]}`.
+This run makes no LLM calls. It trains a local TF-IDF logistic verifier on one future window and evaluates on the other, using the exported verifier labels from `{result["label_prefix"]}`.
 
 ## Data
 
@@ -473,7 +473,7 @@ This run makes no LLM calls. It trains a local TF-IDF logistic verifier on one f
 
 ## Interpretation
 
-The high-dimensional text verifier is a stronger local model than the handcrafted logistic gate, but it still does not distill the combined teacher's high-precision suppressions. This narrows the next step to a pretrained entailment/cross-encoder model or actual generative SFT, rather than more local bag-of-words verifier variants.
+The high-dimensional text verifier is a stronger local model than the handcrafted logistic gate, but it still must be judged against the exported teacher's high-precision suppressions. A failed transfer narrows the next step to a pretrained entailment/cross-encoder model or actual generative SFT, rather than more local bag-of-words verifier variants.
 """
 
 

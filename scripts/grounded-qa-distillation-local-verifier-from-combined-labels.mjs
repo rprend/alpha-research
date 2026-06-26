@@ -28,8 +28,8 @@ const objectives = [
   },
   {
     id: "combined_policy_action",
-    label: "Combined policy action",
-    description: "Train to imitate the exported mini-negative plus deterministic-guard teacher action.",
+    label: "Exported policy action",
+    description: "Train to imitate the exported verifier teacher action.",
     target: (row) => row.combined_keep ? 1 : 0,
   },
 ];
@@ -42,7 +42,7 @@ const baselines = {
     suppress: false,
   }))),
   combined_teacher: summarizePolicy(rows.map((row) => policyRow(row, {
-    policy: "combined_mini_negative_det_guard_teacher",
+    policy: "exported_verifier_teacher",
     score: null,
     threshold: null,
     suppress: row.answer_type === "grounded_answer" && !row.combined_keep,
@@ -54,7 +54,7 @@ const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
   label_prefix: labelPrefix,
-  scope: "cross-window local verifier trained from combined verifier labels on extended_temporal_future_holdout examples 241-389",
+  scope: "cross-window local verifier trained from exported verifier labels on extended_temporal_future_holdout",
   llm_calls: 0,
   run_cost_usd: 0,
   method: {
@@ -164,7 +164,7 @@ function buildRow(row) {
     pack_text: (row.input.compact_retrieved_evidence_pack ?? []).map((evidence) => evidence.text).join(" "),
     support_score: Number(row.metadata.support_score ?? 0),
     strong_keep: row.output.label === "keep",
-    combined_keep: row.output.combined_policy_action === "keep",
+    combined_keep: (row.output.policy_action ?? row.output.combined_policy_action) === "keep",
     strong_verdict: row.metadata.strong_verdict,
     mini_verdict: row.metadata.mini_verdict,
     mini_negative: row.output.mini_negative === true,
@@ -396,7 +396,7 @@ function delta(left, right) {
 function renderReport(result) {
   const baselineRows = [
     policyReportRow("Balanced support-risk gate", result.baselines.balanced_gate),
-    policyReportRow("Combined teacher action", result.baselines.combined_teacher),
+    policyReportRow("Exported teacher action", result.baselines.combined_teacher),
   ].join("\n");
   const objectiveRows = result.objectives.map((objective) => (
     policyReportRow(objective.label, objective.aggregate.policy_metrics)
@@ -411,18 +411,18 @@ function renderReport(result) {
 ${objective.description}
 
 - Delta vs balanced gate: ${signed(metrics.delta_vs_balanced_gate.support_oracle_correct_delta)} support-oracle rows (${signedPct(metrics.delta_vs_balanced_gate.support_oracle_correct_rate_delta)}), ${signed(metrics.delta_vs_balanced_gate.answered_delta)} answered rows.
-- Delta vs combined teacher: ${signed(metrics.delta_vs_combined_teacher.support_oracle_correct_delta)} support-oracle rows (${signedPct(metrics.delta_vs_combined_teacher.support_oracle_correct_rate_delta)}), ${signed(metrics.delta_vs_combined_teacher.answered_delta)} answered rows.
+- Delta vs exported teacher: ${signed(metrics.delta_vs_combined_teacher.support_oracle_correct_delta)} support-oracle rows (${signedPct(metrics.delta_vs_combined_teacher.support_oracle_correct_rate_delta)}), ${signed(metrics.delta_vs_combined_teacher.answered_delta)} answered rows.
 - Answered-row suppress classification: ${pct(metrics.classification.accuracy)} accuracy, ${pct(metrics.classification.suppress_recall)} suppress recall, ${pct(metrics.classification.suppress_precision)} suppress precision.`;
   }).join("\n\n");
-  return `# Local Verifier From Combined Teacher Labels
+  return `# Local Verifier From Exported Teacher Labels
 
 Scope: ${result.scope}
 
-This run makes no LLM calls. It trains a local logistic verifier on one future window and evaluates on the other, using the exported combined verifier labels from \`${result.label_prefix}\`.
+This run makes no LLM calls. It trains a local logistic verifier on one future window and evaluates on the other, using the exported verifier labels from \`${result.label_prefix}\`.
 
 ## Data
 
-| Examples | Answered | Abstained | Strong keep | Strong suppress | Answered keep | Answered suppress | Combined suppress actions |
+| Examples | Answered | Abstained | Strong keep | Strong suppress | Answered keep | Answered suppress | Teacher suppress actions |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | ${result.data_summary.examples} | ${result.data_summary.answered} | ${result.data_summary.abstained} | ${result.data_summary.strong_keep} | ${result.data_summary.strong_suppress} | ${result.data_summary.answered_strong_keep} | ${result.data_summary.answered_strong_suppress} | ${result.data_summary.combined_suppress_actions} |
 
@@ -445,7 +445,7 @@ ${objectiveDetails}
 
 ## Interpretation
 
-The exported labels are useful as a training object, but this local logistic verifier does not recover the combined teacher's high-precision suppressions cross-window. A paper-grade amortized verifier likely needs a stronger model class over claim/evidence pairs, not another shallow lexical logistic gate.
+The exported labels are useful as a training object, but this local logistic verifier does not recover the teacher's high-precision suppressions cross-window. A paper-grade amortized verifier likely needs a stronger model class over claim/evidence pairs, not another shallow lexical logistic gate.
 `;
 }
 

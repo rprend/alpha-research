@@ -395,6 +395,8 @@ The headroom is asymmetric. Recovering the two harmful false suppressions would 
 
 `teacher-mini-negative-future-holdout-160-389-v1` exports that broader teacher policy into distillation artifacts: 192 accepted SFT labels, 37 rejected audit rows, and 229 verifier labels with 185 keep targets and 44 suppress targets. This is the strongest current dataset-distillation object, but it is still a teacher-label construction result rather than an amortized deployed verifier because the source policy depends on per-query mini verifier calls.
 
+`local-verifier-from-mini-negative-labels-160-389-v1` and `text-verifier-from-mini-negative-labels-160-389-v1` test the obvious amortization path from that packet into local classifiers. Both fail under leave-window-out evaluation. The hand-feature verifier's best objective ties the balanced gate at 185/229 support-oracle correct, with 5 useful and 5 harmful suppressions, while remaining 7 rows behind the mini-negative teacher. The TF-IDF verifier either over-suppresses under the strong-support target, falling to 166/229, or learns the majority keep action under teacher imitation and fires zero times. This rejects shallow local distillation of the mini-negative teacher and pushes the next step toward a sequence classifier, generative SFT/LoRA, or a larger label corpus.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
