@@ -16,6 +16,7 @@ const draft = await readResult("manuscript-draft-2026-06-26-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
 const remoteSmoke = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const postSmoke = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
+const judgeCalibration = await readResult("judge-calibration-audit-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const risks = [
@@ -91,12 +92,12 @@ const risks = [
     status: "open",
     reviewer_objection: "A model-based grounded-correctness judge can be biased, under-calibrated, or insufficient as the only correctness authority.",
     current_evidence: [
-      "openai-judge-support-direct-repair-240-389-v1",
+      judgeCalibration.run_id,
       "claim-entailment-guard-validation-240-389-v1",
     ],
-    mitigation_done: "The judge artifacts store structured support verdicts and the manuscript labels them as model-judged support, not human gold.",
+    mitigation_done: `The judge artifacts store structured support verdicts, and ${judgeCalibration.run_id} samples ${judgeCalibration.summary.audit_queue_rows} hard rows from ${judgeCalibration.summary.judgments_loaded} existing judgments for manual or independent spot-checking.`,
     required_next_evidence: [
-      "Add a small independent audit or human spot-check before submission if budget/time permits.",
+      "Manually adjudicate the judge calibration audit queue or run an independent second-judge pass before submission if budget/time permits.",
       "Report judge prompts, schemas, abstention criteria, and disagreement examples.",
     ],
   },

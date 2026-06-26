@@ -989,3 +989,13 @@ Reason: The goal requires current paper/internet checks before any NeurIPS-ready
 Result: The novelty watchlist now records refreshed queries and web sources, includes ten close neighbors, and keeps the paper-readiness gate blocked only on the trained Qwen 3B result and grounded-correctness judge.
 
 Tradeoff: This is still a novelty-pressure artifact, not a full related-work section or empirical result. A final search must be rerun immediately before any submission-ready claim.
+
+### D120. Add a zero-cost judge calibration audit queue
+
+Decision: Add `grounded-qa-distillation-judge-calibration-audit.mjs`, materialize `judge-calibration-audit-2026-06-26-v1`, and validate judge-calibration audit artifacts.
+
+Reason: The reviewer-risk audit correctly flagged model-judge reliability as open. The current evidence relies on `gpt-4o` support judgments, so the paper needs an auditable path to inspect hard cases before treating those numbers as conference-grade evidence. The calibration audit reads existing local judge outputs only: direct mini repair, balanced risk gate, and claim-entailment guard over the 240-389 transfer/final windows. It loads 447 judgments across 149 unique examples, records source-run metrics, and writes a 26-row `audit_queue.jsonl` with unsupported answers, questionable abstentions, correct-abstention sanity checks, and cross-policy disagreements. This makes zero new OpenAI calls, launches no GPU jobs, and leaves actual spend unchanged.
+
+Result: The project now has a concrete spot-check queue for judge calibration. The manuscript should still call the current metrics model-judged until that queue is manually adjudicated or independently judged.
+
+Tradeoff: This mitigates judge-reliability risk but does not close it. It is not a human audit, and it does not replace the missing Qwen 3B trained-student judge pass.

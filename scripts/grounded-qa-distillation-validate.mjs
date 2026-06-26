@@ -81,6 +81,7 @@ if (!errors.length) {
   await validateManuscriptEvidenceMapRunsIfPresent();
   await validateManuscriptDraftRunsIfPresent();
   await validateReviewerRiskAuditRunsIfPresent();
+  await validateJudgeCalibrationAuditRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -1820,6 +1821,65 @@ async function validateReviewerRiskAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: reviewer-risk audit must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateJudgeCalibrationAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("judge-calibration-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const queuePath = path.join(runsDir, entry.name, "audit_queue.jsonl");
+    let result;
+    let queue;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      queue = await readJsonl(queuePath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed judge calibration audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "judge_calibration_audit") {
+      errors.push(`${entry.name}: unexpected judge calibration audit type.`);
+    }
+    if (result.status !== "audit_packet_ready") {
+      errors.push(`${entry.name}: judge calibration audit must be ready for audit.`);
+    }
+    if (!Array.isArray(result.source_runs) || result.source_runs.length < 5) {
+      errors.push(`${entry.name}: judge calibration audit must include source judge runs.`);
+    }
+    if (Number(result.summary?.judgments_loaded) < 300 || Number(result.summary?.unique_examples) < 100) {
+      errors.push(`${entry.name}: judge calibration audit must cover the transfer-window judge corpus.`);
+    }
+    if (Number(result.summary?.unsupported_answer_rows) <= 0 || Number(result.summary?.cross_policy_disagreement_examples) <= 0) {
+      errors.push(`${entry.name}: judge calibration audit must include hard cases and disagreements.`);
+    }
+    if (!Array.isArray(result.audit_queue) || result.audit_queue.length < 12 || queue.length !== result.audit_queue.length) {
+      errors.push(`${entry.name}: judge calibration audit queue must be materialized and non-trivial.`);
+    }
+    const auditTypes = new Set(queue.map((row) => row.audit_type));
+    for (const type of ["unsupported_answer", "correct_abstention_sanity_check", "cross_policy_disagreement"]) {
+      if (!auditTypes.has(type)) errors.push(`${entry.name}: audit queue missing ${type}.`);
+    }
+    if (!Array.isArray(result.calibration_limits) || result.calibration_limits.length < 3) {
+      errors.push(`${entry.name}: judge calibration audit must record calibration limits.`);
+    }
+    if (!report.includes("Recommended Paper Treatment") || !report.includes("Calibration Limits")) {
+      errors.push(`${entry.name}: judge calibration audit report must expose limits and paper treatment.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: judge calibration audit must be zero actual cost.`);
     }
   }
 }
