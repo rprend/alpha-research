@@ -1,0 +1,33 @@
+{
+  "run_id": "citation-contract-repair-answer-recovery-temporal-test-80-132-v1",
+  "generated_at": "2026-06-26T06:31:28.868Z",
+  "split": "temporal_test",
+  "source_run_id": "openai-student-answer-recovery-temporal-test-80-132-v1",
+  "eval_offset": 80,
+  "eval_examples": 52,
+  "predictions_seen": 52,
+  "scaffold": "citation_contract_repair",
+  "calls_made": 0,
+  "run_cost_usd": 0,
+  "metrics": {
+    "examples": 52,
+    "answered": 37,
+    "abstained": 15,
+    "answer_type_accuracy": 0.7692307692307693,
+    "citation_precision": 0.7702702702702703,
+    "citation_recall": 0.5135135135135135,
+    "answer_token_f1": 0.24134316590349073,
+    "abstention_accuracy": 0.7692307692307693,
+    "inline_citation_rate": 1
+  },
+  "repair_summary": {
+    "answered": 37,
+    "rows_changed": 13,
+    "missing_inline_citations_before": 16,
+    "repaired_inline_citations": 16
+  },
+  "interpretation": {
+    "cost_change": "No additional LLM calls. This is a local output-contract repair over an existing direct student run.",
+    "limitation": "The repair only enforces that cited ids appear inline in the answer. It does not change which evidence ids are cited or whether claims are actually supported."
+  }
+}

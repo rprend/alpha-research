@@ -240,6 +240,7 @@ Same-slice comparison on temporal-test examples 133-172:
 | No-leak verifier selector | 31 | 82.5% | 78.0% | 68.5% | 21.0% | 100.0% | n/a | 92.5% inherited | $0 incremental after train labels |
 | Evidence-aware verifier selector | 30 | 85.0% | 80.6% | 68.5% | 22.3% | 100.0% | n/a | 92.5% inherited | $0 incremental after train labels |
 | Evidence-aware + calibrated abstention | 29 | 87.5% | 83.3% | 68.5% | 22.3% | 100.0% | n/a | 95.0% inherited | $0 incremental after train labels |
+| Recovery candidate pool selector | 29 | 87.5% | 85.1% | 68.5% | 24.0% | 100.0% | n/a | 87.5% inherited | $0 incremental after recovery labels |
 
 The strict rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer. The balanced rubric recovers coverage and keeps perfect inline citation formatting, but loses citation precision, recall, and answer F1 versus direct mini prompting. Static teacher-label rubrics are therefore useful controls, not the final amortized student.
 
@@ -252,6 +253,8 @@ The strict rubric scaffold is a safety-formatting improvement, not an amortized 
 `verifier-selector-evidence-aware-temporal-test-80-132-to-132-172-v1` adds lexical evidence-alignment features over the candidate answer, claim table, cited evidence, and full evidence pack. It improves several held-out selection metrics versus the metadata verifier: answer-type accuracy reaches 85.0%, citation precision reaches 80.6%, answer F1 reaches 22.3%, and target-good rate reaches 80.0%. It still does not improve inherited judged correctness, which remains 92.5%, so lexical overlap is a useful cheap signal but not a complete support verifier.
 
 `verifier-selector-evidence-aware-abstention-calibrated-temporal-test-80-132-to-132-172-v1` tunes one abstention margin on examples 81-132 and freezes it for examples 133-172. This is the best cheap hybrid so far: it matches direct mini's 95.0% inherited judged correctness and enforces 100.0% inline citation compliance. It is still not a final amortized student because it answers fewer examples than direct mini, has lower answer F1 and citation recall, and leaves target-good at 82.5% versus 92.5% oracle headroom.
+
+`verifier-selector-recovery-pool-temporal-test-80-132-to-132-172-v1` adds an extractive answer-recovery candidate to the selector pool. The recovery experiment costs 184 additional ledgered OpenAI calls and $0.03069765 including student and judge passes. It improves answer F1, but it is not safe: held-out inherited judged correctness drops to 87.5% because the selector over-selects recovery after it looks perfect on the train window. Recovery prompting should stay diagnostic until paired with a stronger entailment verifier.
 
 ## Interpretation
 

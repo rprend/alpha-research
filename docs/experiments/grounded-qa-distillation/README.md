@@ -172,6 +172,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/verifier-selector-evidence-aware-abstention-calibrated-temporal-test-80-132-to-132-172-v1/` adds a train-calibrated abstention override to the evidence-aware selector. It is the current best cheap scaffold: 29 of 40 answered, 87.5% answer-type accuracy, 83.3% citation precision, 100.0% inline citation rate, and 95.0% inherited judged correctness with zero additional LLM calls. It matches direct mini's judged correctness while fixing inline citation compliance, but still trails direct mini on answer F1 and recall.
 
+`runs/verifier-selector-recovery-pool-temporal-test-80-132-to-132-172-v1/` tests an answer-recovery candidate meant to address answerable examples where all previous policies abstain. The recovery candidate improves answer F1 but is unsafe: the recovery-pool selector over-selects it and drops held-out inherited judged correctness to 87.5%. Recovery is now an opt-in diagnostic candidate, not part of the default best scaffold.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:

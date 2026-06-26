@@ -17,6 +17,7 @@ const rankInlinePenalty = numericArg(args["rank-inline-penalty"], -0.35);
 const abstentionMarginArg = args["abstention-margin"] === "auto"
   ? "auto"
   : numericArg(args["abstention-margin"], Number.NaN);
+const includeRecovery = args["include-recovery"] === "true" || args["recovery-run"] || args["recovery-eval-run"];
 const runId = args["run-id"] ?? `verifier-selector-${split}-${trainOffset}-${evalOffset}-v1`;
 const outputDir = path.join(runDir, runId);
 
@@ -44,6 +45,15 @@ const policies = {
     evalJudgeRun: args["repair-eval-judge-run"] ?? "openai-judge-citation-contract-repair-direct-mini-temporal-test-132-172-v1",
   },
 };
+
+if (includeRecovery) {
+  policies.answer_recovery = {
+    predictionRun: args["recovery-run"] ?? "citation-contract-repair-answer-recovery-temporal-test-80-132-v1",
+    judgeRun: args["recovery-judge-run"] ?? "openai-judge-citation-contract-repair-answer-recovery-temporal-test-80-132-v1",
+    evalPredictionRun: args["recovery-eval-run"] ?? "citation-contract-repair-answer-recovery-temporal-test-132-172-v1",
+    evalJudgeRun: args["recovery-eval-judge-run"] ?? "openai-judge-citation-contract-repair-answer-recovery-temporal-test-132-172-v1",
+  };
+}
 
 await fs.mkdir(outputDir, { recursive: true });
 
@@ -255,6 +265,7 @@ function featureVector(candidate, candidates, input) {
     "is_strict_rubric",
     "is_balanced_rubric",
     "is_citation_repair",
+    "is_answer_recovery",
     "answered",
     "inline_complete",
     "citation_count",
@@ -281,6 +292,7 @@ function featureVector(candidate, candidates, input) {
     candidate.policy === "strict_rubric" ? 1 : 0,
     candidate.policy === "balanced_rubric" ? 1 : 0,
     candidate.policy === "citation_repair" ? 1 : 0,
+    candidate.policy === "answer_recovery" ? 1 : 0,
     candidate.answered ? 1 : 0,
     candidate.inline_complete ? 1 : 0,
     Math.log1p(citationCount),

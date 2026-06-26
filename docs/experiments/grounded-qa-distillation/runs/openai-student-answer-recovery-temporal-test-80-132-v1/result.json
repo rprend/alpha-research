@@ -1,0 +1,37 @@
+{
+  "run_id": "openai-student-answer-recovery-temporal-test-80-132-v1",
+  "generated_at": "2026-06-26T06:29:52.048Z",
+  "split": "temporal_test",
+  "model": "gpt-4o-mini",
+  "persona": "student",
+  "examples_offset": 80,
+  "examples_requested": 52,
+  "demo_run_ids": [],
+  "demo_judge_run_ids": [],
+  "demo_limit": 0,
+  "demos_used": 0,
+  "scaffold": "answer-recovery",
+  "teacher_label_prefix": null,
+  "scaffold_summary": null,
+  "dry_run": false,
+  "calls_made": 52,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.023011200000000002,
+  "ledger_spend_before_usd": 2.1682587999999994,
+  "ledger_spend_after_usd": 2.180517399999997,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_scored": 52,
+    "answer_type_accuracy": 0.7692307692307693,
+    "citation_precision": 0.7702702702702703,
+    "citation_recall": 0.5135135135135135,
+    "answer_token_f1": 0.24134316590349073,
+    "abstention_accuracy": 0.7692307692307693,
+    "inline_citation_rate": 0.6486486486486487
+  }
+}

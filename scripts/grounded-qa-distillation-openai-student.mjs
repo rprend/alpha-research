@@ -179,7 +179,7 @@ function buildRequest(example, selectedModel, outputTokens) {
           "If answering, cite every factual sentence inline using bracketed evidence ids such as [E2].",
           "The citations field must be an array of cited evidence id strings, not objects.",
           "The claim_table field must be an array of objects with claim, support, and citations.",
-          scaffoldInstructions(scaffoldSummary),
+          scaffoldInstructions(scaffold, scaffoldSummary),
         ].join(" "),
       },
       {
@@ -244,7 +244,8 @@ function balancedRubricPolicy() {
   ];
 }
 
-function scaffoldInstructions(summary) {
+function scaffoldInstructions(mode, summary) {
+  if (mode === "answer-recovery") return answerRecoveryPolicy();
   if (!summary) return "";
   return [
     "You are using a distilled rubric learned from strict repaired-teacher labels.",
@@ -254,6 +255,19 @@ function scaffoldInstructions(summary) {
       ? "This balanced variant is tuned to recover answer coverage while preserving citation discipline; do not over-abstain when direct evidence exists."
       : `The source teacher labels answered ${(summary.answer_rate * 100).toFixed(1)}% of examples; use this only as calibration, not as a target quota.`,
     `Typical grounded answers use about ${summary.median_citations_per_answer} citation ids and ${summary.median_claims_per_answer} claim-table rows.`,
+  ].join(" ");
+}
+
+function answerRecoveryPolicy() {
+  return [
+    "Use an extractive recovery policy for answerable examples that conservative students may over-abstain on.",
+    "Prefer a short narrow answer copied or paraphrased from the single best evidence item.",
+    "Pay special attention to tables, floats, captions, metric lists, dataset availability statements, and result summaries.",
+    "Answer only when an evidence item directly entails the requested value, yes/no fact, metric list, method, comparison, or result.",
+    "Do not answer from topical related evidence, background motivation, examples, or evidence that merely contains words from the question.",
+    "If the best evidence does not directly answer the question, abstain.",
+    "When answering, keep the answer concise and cite the supporting evidence id inline in every sentence.",
+    "Use the fewest citation ids needed, usually one.",
   ].join(" ");
 }
 
