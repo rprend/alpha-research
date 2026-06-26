@@ -1,0 +1,300 @@
+{
+  "run_id": "nli-det-guard-synthesis-240-389-v1",
+  "generated_at": "2026-06-26T11:14:21.701Z",
+  "scope": "zero-call synthesis of pretrained NLI verifier and deterministic claim-entailment guard on balanced-gate transfer examples 241-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "source_runs": {
+    "nli_run": "pretrained-nli-verifier-combined-labels-240-389-v1",
+    "guard_run": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+    "mini_teacher_run": "mini-verifier-gate-balanced-risk-gate-240-389-v1"
+  },
+  "policies": [
+    {
+      "id": "balanced_gate",
+      "label": "Balanced support-risk gate",
+      "metrics": {
+        "examples": 149,
+        "answered": 90,
+        "abstained": 59,
+        "answer_rate": 0.6040268456375839,
+        "support_oracle_correct": 119,
+        "support_oracle_correct_rate": 0.7986577181208053,
+        "answer_support_rate": 0.7,
+        "gate_fired": 0,
+        "suppressed_unsupported": 0,
+        "harmful_suppressed_supported": 0
+      },
+      "delta_vs_balanced": {
+        "answered_delta": 0,
+        "support_oracle_correct_delta": 0,
+        "support_oracle_correct_rate_delta": 0,
+        "answer_support_rate_delta": 0,
+        "gate_fired_delta": 0
+      }
+    },
+    {
+      "id": "deterministic_guard",
+      "label": "Deterministic claim-entailment guard",
+      "metrics": {
+        "examples": 149,
+        "answered": 85,
+        "abstained": 64,
+        "answer_rate": 0.5704697986577181,
+        "support_oracle_correct": 122,
+        "support_oracle_correct_rate": 0.8187919463087249,
+        "answer_support_rate": 0.7294117647058823,
+        "gate_fired": 5,
+        "suppressed_unsupported": 4,
+        "harmful_suppressed_supported": 1
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -5,
+        "support_oracle_correct_delta": 3,
+        "support_oracle_correct_rate_delta": 0.020134228187919545,
+        "answer_support_rate_delta": 0.02941176470588236,
+        "gate_fired_delta": 5
+      }
+    },
+    {
+      "id": "pretrained_nli",
+      "label": "Pretrained NLI verifier",
+      "metrics": {
+        "examples": 149,
+        "answered": 87,
+        "abstained": 62,
+        "answer_rate": 0.5838926174496645,
+        "support_oracle_correct": 120,
+        "support_oracle_correct_rate": 0.8053691275167785,
+        "answer_support_rate": 0.7126436781609196,
+        "gate_fired": 3,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 1
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -3,
+        "support_oracle_correct_delta": 1,
+        "support_oracle_correct_rate_delta": 0.006711409395973145,
+        "answer_support_rate_delta": 0.012643678160919603,
+        "gate_fired_delta": 3
+      }
+    },
+    {
+      "id": "nli_or_det_guard",
+      "label": "NLI OR deterministic guard",
+      "metrics": {
+        "examples": 149,
+        "answered": 82,
+        "abstained": 67,
+        "answer_rate": 0.5503355704697986,
+        "support_oracle_correct": 123,
+        "support_oracle_correct_rate": 0.825503355704698,
+        "answer_support_rate": 0.7439024390243902,
+        "gate_fired": 8,
+        "suppressed_unsupported": 6,
+        "harmful_suppressed_supported": 2
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -8,
+        "support_oracle_correct_delta": 4,
+        "support_oracle_correct_rate_delta": 0.02684563758389269,
+        "answer_support_rate_delta": 0.04390243902439028,
+        "gate_fired_delta": 8
+      }
+    },
+    {
+      "id": "nli_and_det_guard",
+      "label": "NLI AND deterministic guard",
+      "metrics": {
+        "examples": 149,
+        "answered": 90,
+        "abstained": 59,
+        "answer_rate": 0.6040268456375839,
+        "support_oracle_correct": 119,
+        "support_oracle_correct_rate": 0.7986577181208053,
+        "answer_support_rate": 0.7,
+        "gate_fired": 0,
+        "suppressed_unsupported": 0,
+        "harmful_suppressed_supported": 0
+      },
+      "delta_vs_balanced": {
+        "answered_delta": 0,
+        "support_oracle_correct_delta": 0,
+        "support_oracle_correct_rate_delta": 0,
+        "answer_support_rate_delta": 0,
+        "gate_fired_delta": 0
+      }
+    },
+    {
+      "id": "mini_det_teacher",
+      "label": "Mini-negative OR deterministic teacher",
+      "metrics": {
+        "examples": 149,
+        "answered": 82,
+        "abstained": 67,
+        "answer_rate": 0.5503355704697986,
+        "support_oracle_correct": 125,
+        "support_oracle_correct_rate": 0.8389261744966443,
+        "answer_support_rate": 0.7560975609756098,
+        "gate_fired": 8,
+        "suppressed_unsupported": 7,
+        "harmful_suppressed_supported": 1
+      },
+      "delta_vs_balanced": {
+        "answered_delta": -8,
+        "support_oracle_correct_delta": 6,
+        "support_oracle_correct_rate_delta": 0.04026845637583898,
+        "answer_support_rate_delta": 0.056097560975609806,
+        "gate_fired_delta": 8
+      }
+    }
+  ],
+  "pairwise": {
+    "nli_vs_det_guard": {
+      "left": 3,
+      "right": 5,
+      "both": 0,
+      "either": 8,
+      "either_suppressed_unsupported": 6,
+      "either_harmful_supported": 2
+    },
+    "nli_vs_combined_teacher": {
+      "left": 3,
+      "right": 8,
+      "both": 1,
+      "either": 10,
+      "either_suppressed_unsupported": 8,
+      "either_harmful_supported": 2
+    },
+    "det_guard_vs_combined_teacher": {
+      "left": 5,
+      "right": 8,
+      "both": 5,
+      "either": 8,
+      "either_suppressed_unsupported": 7,
+      "either_harmful_supported": 1
+    }
+  },
+  "fired_examples": [
+    {
+      "example_id": "2004.02105:e25b73f700e8c958b64951f14a71bc60d225125c",
+      "window": "241-320",
+      "strong_keep": false,
+      "strong_verdict": "unsupported",
+      "nli_fires": false,
+      "det_fires": true,
+      "mini_fires": false,
+      "combined_teacher_fires": true,
+      "nli_score": 0.20351065695285797,
+      "answer_preview": "The results indicate that all selection methods performed better in terms of BLEU than random selection, and they also outperformed using all available data or oracle-selected data when averaged across all domains, su..."
+    },
+    {
+      "example_id": "2004.02192:b3de9357c569fb1454be8f2ac5fcecaea295b967",
+      "window": "241-320",
+      "strong_keep": false,
+      "strong_verdict": "unsupported",
+      "nli_fires": false,
+      "det_fires": true,
+      "mini_fires": false,
+      "combined_teacher_fires": true,
+      "nli_score": 0.07155224680900574,
+      "answer_preview": "The dataset contains a total of 10,000 tweets, which includes 1,915 offensive tweets and 8,085 clean tweets [E3]."
+    },
+    {
+      "example_id": "2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:counterfactual-insufficient",
+      "window": "241-320",
+      "strong_keep": false,
+      "strong_verdict": "unsupported",
+      "nli_fires": false,
+      "det_fires": true,
+      "mini_fires": true,
+      "combined_teacher_fires": true,
+      "nli_score": 0.07913003861904144,
+      "answer_preview": "The better performer in terms of vocabulary size is the one that results in shorter sequences, as shorter sequences are desired for the autoregressor setting. [E2] [E3]"
+    },
+    {
+      "example_id": "2004.02363:37ac705166fa87dc74fe86575bf04bea56cc4930:counterfactual-insufficient",
+      "window": "241-320",
+      "strong_keep": false,
+      "strong_verdict": "partial",
+      "nli_fires": false,
+      "det_fires": false,
+      "mini_fires": true,
+      "combined_teacher_fires": true,
+      "nli_score": 0.026246482506394386,
+      "answer_preview": "The evaluation metrics used in the study are not explicitly detailed in the provided evidence, but the authors mention comparing their model empirically with a number of baseline methods to answer their research quest..."
+    },
+    {
+      "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "window": "321-389",
+      "strong_keep": false,
+      "strong_verdict": "partial",
+      "nli_fires": false,
+      "det_fires": true,
+      "mini_fires": false,
+      "combined_teacher_fires": true,
+      "nli_score": 0.31239643692970276,
+      "answer_preview": "The results of the BERT model with larger context representations significantly outperform the baseline models, particularly for claims with context lengths of 3 and 4, achieving better F1 scores than the BERT model w..."
+    },
+    {
+      "example_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a",
+      "window": "321-389",
+      "strong_keep": true,
+      "strong_verdict": "supported",
+      "nli_fires": false,
+      "det_fires": true,
+      "mini_fires": false,
+      "combined_teacher_fires": true,
+      "nli_score": 0.2006807029247284,
+      "answer_preview": "The performance of large state-of-the-art models on the CoNLL-03 and OntoNotes 5 datasets shows that neural models with language models achieved state-of-the-art results. Specifically, the F1 score for CoNLL-03 improv..."
+    },
+    {
+      "example_id": "2004.04435:d353a6bbdc66be9298494d0c853e0d8d752dec4b",
+      "window": "321-389",
+      "strong_keep": false,
+      "strong_verdict": "unsupported",
+      "nli_fires": true,
+      "det_fires": false,
+      "mini_fires": false,
+      "combined_teacher_fires": false,
+      "nli_score": 0.0029498266521841288,
+      "answer_preview": "The correctness of automatic derivation is proved through empirical comparisons and the implementation of reverse mode differentiation, which computes the derivative of a function's output with respect to every interm..."
+    },
+    {
+      "example_id": "2004.04478:7dca806426058d59f4a9a4873e9219d65aea0987",
+      "window": "321-389",
+      "strong_keep": false,
+      "strong_verdict": "partial",
+      "nli_fires": false,
+      "det_fires": false,
+      "mini_fires": true,
+      "combined_teacher_fires": true,
+      "nli_score": 0.02259071171283722,
+      "answer_preview": "The 20 domains available for selection as source domains are: Amazon Instant Video, Automotive, Baby, Beauty, Books, Clothing Accessories, Electronics, Health, Home, Kitchen, Movies TV, Music, Office Products, Patio, ..."
+    },
+    {
+      "example_id": "2004.04721:0737954caf66f2b4c898b356d2a3c43748b9706b",
+      "window": "321-389",
+      "strong_keep": false,
+      "strong_verdict": "partial",
+      "nli_fires": true,
+      "det_fires": false,
+      "mini_fires": true,
+      "combined_teacher_fires": true,
+      "nli_score": 0.007647838443517685,
+      "answer_preview": "They do not recommend translating the premise and hypothesis together, as translating them independently is likely to reduce lexical overlap between them, which can affect model performance negatively [E2]."
+    },
+    {
+      "example_id": "2004.04721:b3307d5b68c57a074c483636affee41054be06d1",
+      "window": "321-389",
+      "strong_keep": true,
+      "strong_verdict": "supported",
+      "nli_fires": true,
+      "det_fires": false,
+      "mini_fires": false,
+      "combined_teacher_fires": false,
+      "nli_score": 0.005249153356999159,
+      "answer_preview": "Examples of artifacts in cross-lingual transfer learning include datasets like XNLI for natural language inference (NLI), PAWS-X for adversarial paraphrase identification, and XQuAD and MLQA for question answering (QA..."
+    }
+  ]
+}

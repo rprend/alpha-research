@@ -385,6 +385,8 @@ The headroom is asymmetric. Recovering the two harmful false suppressions would 
 
 `pretrained-nli-verifier-combined-labels-240-389-v1` uses `cross-encoder/nli-distilroberta-base` locally over cited evidence and answer/claim hypotheses. It makes no OpenAI calls. Unlike the bag-of-words verifier, it gives a small positive transfer result: 120/149 support-oracle correct (80.5%) versus 119/149 (79.9%) for the balanced gate. It fires 3 times, suppressing 2 unsupported answers and 1 supported answer, and raises answer support from 70.0% to 71.3%. This is still well short of the combined teacher's 125/149 (83.9%), but it is the first local pretrained verifier signal worth carrying forward.
 
+`nli-det-guard-synthesis-240-389-v1` combines the pretrained NLI verifier with the deterministic claim-entailment guard using existing artifacts only. The two signals have zero overlap on fired answers, so their union is complementary: 123/149 support-oracle correct (82.6%), 8 suppressions, 6 useful and 2 harmful, and answer support rises to 74.4%. The intersection fires zero times. This is now the best zero-LLM local verifier-only scaffold, but it still trails the mini-negative plus deterministic teacher's 125/149 (83.9%) and has one extra harmful suppression.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
