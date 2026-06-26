@@ -391,3 +391,11 @@ Decision: Add a separate preflight gate for expansion review workbooks and wire 
 Rationale: The benchmark now has scaled candidate items, but those candidates should not support paper claims until their reviewer rows are complete. A dedicated expansion preflight keeps pilot review status separate from scaled-candidate review status and requires expansion-specific fields for category fit and generation defects.
 
 Consequence: `scripts/hard-grounded-research-expansion-review-preflight.mjs` now emits `generated/expansion-review-preflight.json` and `EXPANSION_REVIEW_PREFLIGHT.md`; `scripts/hard-grounded-research-release-gate.mjs` now blocks release on `expansion_review_preflight_ready`.
+
+## 2026-06-26 — Gate scaled candidates on reviewer agreement
+
+Decision: Add a separate merge-readiness report for expansion candidate reviews.
+
+Rationale: Completed expansion review rows are not enough for paper use if independent reviewers disagree. The scaled candidate path needs the same kind of agreement accounting as the pilot queue, plus category-fit and generation-defect agreement, while still forbidding automatic gold promotion.
+
+Consequence: `scripts/hard-grounded-research-expansion-review-merge.mjs` now emits `generated/expansion-review-merge-report.json`, `EXPANSION_REVIEW_MERGE_REPORT.md`, and an expansion resolution queue; the release gate now blocks on `expansion_review_merge_ready`.

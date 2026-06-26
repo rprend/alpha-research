@@ -8,6 +8,7 @@
     "gold_summary": "generated/gold-suite-summary.json",
     "review_preflight": "generated/review-preflight.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
+    "expansion_review_merge_report": "generated/expansion-review-merge-report.json",
     "review_merge_report": "generated/review-merge-report.json",
     "scale_plan": "generated/scale-plan.json",
     "item_quality_audit": "generated/item-quality-audit.json",
@@ -37,6 +38,12 @@
       "passed": false,
       "detail": "0/540 complete expansion review rows",
       "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+    },
+    {
+      "id": "expansion_review_merge_ready",
+      "passed": false,
+      "detail": "0/270 expansion merge-ready items",
+      "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
     },
     {
       "id": "review_merge_ready",
@@ -102,6 +109,11 @@
       "id": "expansion_review_preflight_ready",
       "detail": "0/540 complete expansion review rows",
       "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+    },
+    {
+      "id": "expansion_review_merge_ready",
+      "detail": "0/270 expansion merge-ready items",
+      "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
     },
     {
       "id": "review_merge_ready",

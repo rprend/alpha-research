@@ -112,7 +112,7 @@ Systems submit one answer per task with citation ids and abstention state. The s
 - License blockers: 2
 - Pointer-only package items: 15
 - Release gate status: blocked
-- Release blockers: 8
+- Release blockers: 9
 
 ## Novelty Position
 

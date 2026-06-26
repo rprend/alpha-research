@@ -95,4 +95,4 @@ This benchmark stores normalized evidence snippets and metadata from upstream Hu
 
 ## Release Gate
 
-See `RELEASE_GATE.md` and `generated/release-gate.json`. Current blockers: 8.
+See `RELEASE_GATE.md` and `generated/release-gate.json`. Current blockers: 9.

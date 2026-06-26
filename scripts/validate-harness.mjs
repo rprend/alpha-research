@@ -208,7 +208,7 @@ for (const token of ['license-review.json', 'pointer_only_or_replace_before_publ
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'license-review.json', 'public-package-manifest.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'license-review.json', 'public-package-manifest.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')
@@ -265,6 +265,11 @@ assert(existsSync(join(root, 'scripts/hard-grounded-research-expansion-review-pr
 const hardGroundedExpansionReviewPreflightSource = readFileSync(join(root, 'scripts/hard-grounded-research-expansion-review-preflight.mjs'), 'utf8')
 for (const token of ['expansion-review-preflight.json', 'preflight_ready', 'category_fit', 'generation_defect', 'gold_promotion_allowed']) {
   assert(hardGroundedExpansionReviewPreflightSource.includes(token), `Hard grounded expansion review preflight is missing token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-expansion-review-merge.mjs')), 'Missing hard grounded research expansion review merge.')
+const hardGroundedExpansionReviewMergeSource = readFileSync(join(root, 'scripts/hard-grounded-research-expansion-review-merge.mjs'), 'utf8')
+for (const token of ['expansion-review-merge-report.json', 'category_fit_agreement_rate', 'generation_defect_agreement_rate', 'gold_promotion_allowed: false']) {
+  assert(hardGroundedExpansionReviewMergeSource.includes(token), `Hard grounded expansion review merge is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs')), 'Missing hard grounded research novelty audit generator.')
 const hardGroundedNoveltyAuditSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs'), 'utf8')
