@@ -66,6 +66,7 @@ if (!errors.length) {
   await validateJointActionLocalProbeRunsIfPresent();
   await validateJointActionEvalPrepRunsIfPresent();
   await validateJointActionJudgePlanRunsIfPresent();
+  await validateQwen3bPredictionIntegrityGateRunsIfPresent();
   await validateJointActionRemoteSmokePlanRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
@@ -1492,6 +1493,12 @@ async function validateJointActionJudgePlanRunsIfPresent() {
     if (!result.prediction_artifact?.expected_path || typeof result.prediction_artifact.exists !== "boolean") {
       errors.push(`${entry.name}: judge plan must record prediction artifact prerequisite.`);
     }
+    if (!result.integrity_gate?.expected_path || typeof result.integrity_gate.exists !== "boolean") {
+      errors.push(`${entry.name}: judge plan must record prediction integrity gate prerequisite.`);
+    }
+    if (!String(result.commands?.integrity_gate_after_predictions ?? "").includes("grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs")) {
+      errors.push(`${entry.name}: judge plan must include the Qwen3B prediction integrity gate command.`);
+    }
     if (!["waiting_for_qwen3b_predictions", "ready_to_dry_run_or_judge"].includes(result.conclusion?.status)) {
       errors.push(`${entry.name}: unexpected judge plan status.`);
     }
@@ -1549,6 +1556,55 @@ async function validateJointActionRemoteSmokePlanRunsIfPresent() {
     }
     if (result.conclusion?.status !== "ready_for_backend_auth_then_single_command_smoke") {
       errors.push(`${entry.name}: unexpected remote smoke plan status.`);
+    }
+  }
+}
+
+async function validateQwen3bPredictionIntegrityGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-prediction-integrity-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B prediction integrity gate artifacts.`);
+      continue;
+    }
+    if (result.gate_type !== "qwen3b_prediction_integrity_prejudge_gate") {
+      errors.push(`${entry.name}: unexpected Qwen3B prediction integrity gate type.`);
+    }
+    if (result.prediction_run_id !== "joint-action-qwen3b-smoke-eval-v1") {
+      errors.push(`${entry.name}: integrity gate must target the Qwen3B smoke eval run.`);
+    }
+    if (Number(result.checks?.expected_eval_examples) !== 69) {
+      errors.push(`${entry.name}: integrity gate should expect the 69-example final window.`);
+    }
+    if (!result.artifacts?.predictions_jsonl || !result.artifacts?.smoke_manifest_json) {
+      errors.push(`${entry.name}: integrity gate must record prediction and smoke manifest artifact paths.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: integrity gate must be zero actual cost.`);
+    }
+    const status = result.conclusion?.status;
+    if (!["waiting_for_qwen3b_predictions", "refuse_paid_judge_prediction_integrity_failed", "ready_for_paid_judge"].includes(status)) {
+      errors.push(`${entry.name}: unexpected integrity gate status.`);
+    }
+    if (status === "ready_for_paid_judge" && Number(result.checks?.failures?.length ?? 0) !== 0) {
+      errors.push(`${entry.name}: ready integrity gate cannot have failures.`);
+    }
+    if (status === "waiting_for_qwen3b_predictions" && result.checks?.prediction_artifact_exists !== false) {
+      errors.push(`${entry.name}: waiting integrity gate must record missing prediction artifact.`);
     }
   }
 }

@@ -27,6 +27,9 @@ await fs.mkdir(outputDir, { recursive: true });
 const predictionDir = path.join(runsDir, predictionRunId);
 const predictionsPath = path.join(predictionDir, "predictions.jsonl");
 const predictionsExist = await exists(predictionsPath);
+const integrityGateRunId = `qwen3b-prediction-integrity-gate-${predictionRunId}`;
+const integrityGatePath = path.join(runsDir, integrityGateRunId, "result.json");
+const integrityGateExists = await exists(integrityGatePath);
 const estimateRows = evalPrompts.map((row) => estimateJudgeCall(row, model, price, outputTokens));
 const estimatedCostUsd = sum(estimateRows.map((row) => row.estimated_cost_usd));
 const currentSpend = Number(budget.spend_usd?.total_actual ?? 0);
@@ -46,6 +49,12 @@ const result = {
     exists: predictionsExist,
     prerequisite: "Run the Qwen 3B adapter evaluator after GPU training.",
   },
+  integrity_gate: {
+    run_id: integrityGateRunId,
+    expected_path: path.relative(rootDir, integrityGatePath),
+    exists: integrityGateExists,
+    prerequisite: "Run the Qwen 3B prediction integrity gate before spending judge budget.",
+  },
   budget_gate: {
     max_budget_usd: Number(budget.max_budget_usd),
     current_actual_spend_usd: currentSpend,
@@ -61,6 +70,12 @@ const result = {
       "ADAPTER_DIR=joint-action-dpo-adapter",
       `OUTPUT_DIR=${path.join("docs", "experiments", "grounded-qa-distillation", "runs", predictionRunId)}`,
       `uv run ${path.join("docs", "experiments", "grounded-qa-distillation", "runs", packetRunId, "eval_joint_action_adapter_uv.py")}`,
+    ].join(" "),
+    integrity_gate_after_predictions: [
+      "node scripts/grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs",
+      `--prediction-run-id=${predictionRunId}`,
+      `--packet-run-id=${packetRunId}`,
+      `--run-id=${integrityGateRunId}`,
     ].join(" "),
     judge_after_predictions: [
       "set -a; source ~/.codex/secrets.env; set +a;",
@@ -149,6 +164,7 @@ Prediction artifact exists: ${result.prediction_artifact.exists ? "yes" : "no"}
 
 \`\`\`bash
 ${result.commands.eval_prerequisite}
+${result.commands.integrity_gate_after_predictions}
 ${result.commands.dry_run_after_predictions}
 ${result.commands.judge_after_predictions}
 \`\`\`

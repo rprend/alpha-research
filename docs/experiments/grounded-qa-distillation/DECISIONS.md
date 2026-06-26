@@ -929,3 +929,13 @@ Reason: The newer remote smoke plan correctly reduced the paid path to one comma
 Result: After Prime auth is repaired, the budgeted Prime command and the remote smoke packet now both run `RUN_ID=joint-action-qwen3b-smoke-eval-v1 MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none .../run_joint_action_smoke.sh`. This should produce the prediction artifact needed by the remaining grounded-correctness judge gate if the GPU run succeeds.
 
 Tradeoff: This still does not unblock Prime credentials or produce the Qwen 3B result. It removes an avoidable operational mismatch before any paid GPU minutes are used.
+
+### D114. Add a pre-judge integrity gate for Qwen 3B predictions
+
+Decision: Add `grounded-qa-distillation-qwen3b-prediction-integrity-gate.mjs`, materialize `qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1`, and patch the Qwen 3B judge plan to require this gate before any paid OpenAI judging.
+
+Reason: The remaining paid OpenAI step should only run after the remote GPU smoke produces complete, schema-valid, citation-valid predictions. The new gate reads the expected 69 eval prompts and the future Qwen 3B prediction artifacts, then checks row count, unique ids, reference consistency, local score/result consistency, JSON parse errors, citation ids against each compact evidence pack, inline citation coverage warnings, and smoke manifest bounds. Because the prediction artifacts are still absent, the current gate status is `waiting_for_qwen3b_predictions`. This makes zero OpenAI calls, launches no GPU jobs, and leaves total actual spend at $5.87832365 with $0 external compute.
+
+Result: The post-GPU sequence is now explicit and fail-closed: run the one-command smoke, run the integrity gate, run the dry judge, then run the paid grounded-correctness judge only if integrity and budget gates pass.
+
+Tradeoff: This does not produce model results while Prime/HF execution is blocked. It protects the remaining budget from being spent on malformed or incomplete prediction artifacts once GPU execution is available.
