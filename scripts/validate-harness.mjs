@@ -186,6 +186,11 @@ const openAiBaselineSource = readFileSync(join(root, 'scripts/hard-grounded-rese
 for (const token of ['--calibration', '--gold', 'calibration-suite.json', 'gold-suite.json']) {
   assert(openAiBaselineSource.includes(token), `Hard grounded OpenAI baseline is missing source-aware token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-anthropic-baseline.mjs')), 'Missing hard grounded research Anthropic baseline.')
+const anthropicBaselineSource = readFileSync(join(root, 'scripts/hard-grounded-research-anthropic-baseline.mjs'), 'utf8')
+for (const token of ['--calibration', '--gold', 'ANTHROPIC_API_KEY', 'messages']) {
+  assert(anthropicBaselineSource.includes(token), `Hard grounded Anthropic baseline is missing source-aware token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-report.mjs')), 'Missing hard grounded research baseline report builder.')
 const hardGroundedReportSource = readFileSync(join(root, 'scripts/hard-grounded-research-report.mjs'), 'utf8')
 for (const token of ['challengeTypeSummary', 'by_challenge_type', 'Challenge-Type Diagnostics']) {

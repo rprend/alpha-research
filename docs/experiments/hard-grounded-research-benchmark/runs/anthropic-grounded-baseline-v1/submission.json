@@ -1,0 +1,288 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "anthropic-grounded-baseline-v1",
+  "description": "Anthropic Messages API grounded QA baseline using claude-haiku-4-5.",
+  "answers": [
+    {
+      "task_id": "hgr_multi_hop_001_pilot_001",
+      "answer": "Yes, Scott Derrickson and Ed Wood were of the same nationality.",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false,
+      "confidence": 1,
+      "evidence_assessment": "The first citation establishes that Scott Derrickson is American. The second citation establishes that Ed Wood was American. Both documents directly state the nationality of each person, allowing for a definitive comparison that they shared the same nationality."
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_002",
+      "answer": "Chief of Protocol of the United States",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "Support 0 establishes that Shirley Temple portrayed Corliss Archer in Kiss and Tell (1945). Support 1 provides information about Shirley Temple Black's government positions, including that she served as Chief of Protocol of the United States, United States ambassador to Ghana, and United States ambassador to Czechoslovakia. These two supporting documents together provide the two required hops: identification of the actress and identification of her government position."
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_003",
+      "answer": "Animorphs",
+      "citations": [
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:0"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence directly supports all required elements: (1) 'Animorphs' is identified as a science fantasy series of young adult books (support:3); (2) it is told in first person (support:3); (3) it has companion books narrating stories of enslaved worlds and alien species, as evidenced by 'The Hork-Bajir Chronicles' being described as 'the second companion book to the Animorphs series' that tells 'the story of how the Yeerks enslaved the Hork-Bajir' (support:0). The Hork-Bajir are an alien species, and the companion book narrates their enslavement. Both supporting pages are cited as they each provide one required hop."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.1,
+      "evidence_assessment": "The supplied evidence is insufficient to verify the claim about polar bears and global warming. The evidence document titled 'Extinction risk from global warming' provides only a headline stating 'Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event' with a locator of 'NOT_ENOUGH_INFO', indicating inadequate information. The other evidence items discuss Scott Derrickson (film director) and Ed Wood (filmmaker), which are entirely unrelated to polar bears or climate science. No evidence directly addresses whether global warming is driving polar bears toward extinction specifically. The older 2014 claim cannot be evaluated against the newer 2018 evidence due to lack of substantive content in the current controlling evidence."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.15,
+      "evidence_assessment": "The supplied evidence is insufficient to verify the claim. The older claim (dated 2015-01-01) states that the sun has gone into 'lockdown' which could cause freezing weather, earthquakes and famine. The current evidence document (dated 2019-01-01, ID: Famine:386) only discusses the general scientific consensus that aerosols and dust in the upper atmosphere can cause cooler temperatures by blocking solar energy. This evidence addresses atmospheric cooling mechanisms but does NOT directly verify or refute: (1) whether the sun has specifically entered a 'lockdown' state, (2) whether scientists have made this specific claim, (3) whether earthquakes would result, or (4) the causal connection between solar lockdown and these specific phenomena. The remaining evidence citations (about the 1945 film 'Kiss and Tell' and Shirley Temple) are wholly irrelevant to the claim. The challenge indicates the older claim is stale, but the current controlling evidence does not directly address the specific claims made."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0,
+      "evidence_assessment": "The supplied evidence is insufficient to verify the claim about polar bear population growth. The only potentially relevant evidence (Polar bear:1332) contains only a question title ('Ask the experts: Are polar bear populations increasing?') with no actual data, findings, or conclusions about whether populations are growing. The remaining evidence documents discuss the Animorphs book series, which is completely unrelated to polar bear populations. The current controlling evidence document (dated 2020-01-01) does not provide substantive information to answer the claim, making it impossible to determine if the older claim (2016-01-01) is stale or accurate."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "answer": "multilingual NMT (MNMT), pivoting, and cross-lingual transfer without pretraining",
+      "citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "1912.01214:appendix-update:0"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "The original body (evidence 0) explicitly lists three multilingual/cross-lingual approaches compared: pivoting, multilingual NMT (MNMT), and cross-lingual transfer without pretraining. The appended section (Appendix Z, dated 2018-06-30) confirms that 'The final answer remains BIBREF19' (which corresponds to MNMT in the original text) and explicitly states it supersedes the original body while maintaining the same core conclusion. The appendix confirms the original comparison set remains valid. Both the original evidence and the appended update support the same answer, with the appendix providing explicit control and validation of the original claim."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "answer": "Stanford NER, spaCy 2.0, and a bidirectional LSTM-CRF model",
+      "citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "1810.08699:appendix-update:1"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The original body (evidence 0) explicitly states three NER models were evaluated: Stanford NER, spaCy 2.0, and a recurrent bidirectional LSTM-CRF model. The appended evidence (Appendix Z, dated 2019-06-30) confirms the final answer remains 'Stanford NER' but indicates the appendix supersedes the original body. However, the appendix does not contradict or change the list of evaluated models—it only confirms Stanford NER as part of the answer set. Since the appendix does not narrow or revise the model list itself, both the original body and appendix consistently support the three-model answer. Per the challenge requirements, both evidence sources are cited because the appended section is the controlling document state, though it does not materially alter the answer to this specific question."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage",
+      "citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "1609.00425:appendix-update:2"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The original body (evidence:0) identifies the Reddit topics as: politics, business, science, AskReddit, plus frontpage posts. The appended Appendix Z (dated 2020-06-30) explicitly states it 'supersedes the original body for this question' but confirms the same final answer. Both sources are cited because the challenge requires distinguishing original-body from appended evidence, and the appendix explicitly instructs that reviewers 'must cite this appendix update together with the original evidence because the original body alone is not the controlling document state.' The answer is identical in both, eliminating any substantive conflict, but the appendix update is the controlling document per its own statement."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0,
+      "evidence_assessment": "The table provided shows attendance data only for USL A-League matches (2001-2003), not USL First Division matches. The question specifically asks for attendance at USL First Division matches. While the table contains average attendance figures (7,169; 6,260; 5,871), these are for a different division (USL A-League, labeled as Division 2). The second evidence document is about machine translation and is completely irrelevant. Without evidence that directly addresses USL First Division attendance, the question cannot be answered from the supplied evidence."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_002",
+      "answer": "According to the World Youth Championships table, the events that have been documented are: 400 m and Medley relay (both from 2001 in Debrecen, Hungary).",
+      "citations": [
+        "nt-1:table"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "The table directly lists events from the World Youth Championships in the 'Event' column (column 4). Two events are shown: '400 m' and 'Medley relay', both from the 2001 World Youth Championships. However, the table only shows a single year (2001) and may not be comprehensive of all events across all years of the World Youth Championships. The second evidence document about Armenian NER is completely unrelated to the question and cannot support this answer. The table evidence is sufficient to answer what events are recorded in this dataset, though not necessarily all events that have ever occurred in the championships."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0,
+      "evidence_assessment": "The supplied evidence contains a table showing attendance data from August 1987 (15th, 18th, and 22nd August), but the question asks for total attendance in May 1988. The table excerpt provided does not include any May 1988 data. The second piece of evidence is about dogmatism detection in social media and is completely unrelated to attendance records. There is insufficient evidence to answer the question about May 1988 attendance."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0,
+      "evidence_assessment": "The supplied evidence is insufficient to verify the claim that 'Global warming is driving polar bears toward extinction.' The first evidence source (Extinction risk from global warming:170) has a locator marked 'NOT_ENOUGH_INFO' and its text discusses general global extinction events rather than polar bears specifically. The second evidence source (2bln8r:answer:cj6iupv) is completely unrelated—it addresses human muscle development from a Reddit explainlikeimfive forum and has no bearing on polar bear extinction or climate change. Neither source provides expert-reviewed evidence about polar bear population trends, climate impacts on polar bears, or extinction risk assessments for this species. The authority order indicates preference for 'expert-reviewed evidence,' but the highest-authority source provided lacks sufficient information, and the other source is off-topic and low-authority (community forum). No valid citations can support verification of the polar bear extinction claim."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.1,
+      "evidence_assessment": "The supplied evidence is insufficient to verify the claim that the sun has gone into 'lockdown' causing freezing weather, earthquakes, and famine. The high-authority evidence (Famine:386) addresses only atmospheric aerosols and dust effects on temperature, not a solar 'lockdown' phenomenon. The second evidence (48hjn0:answer:d0jqwvn) is from a Reddit community discussion about question types and is completely irrelevant to the claim. Neither piece of evidence directly addresses whether scientists have made claims about a solar lockdown event or its purported consequences. The evidence discusses temperature reduction mechanisms but not the specific claim about solar activity entering a 'lockdown' state."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.1,
+      "evidence_assessment": "The high-authority evidence (Polar bear:1332, expert-reviewed) is a title/question fragment 'Ask the experts: Are polar bear populations increasing?' with locator status 'NOT_ENOUGH_INFO', indicating insufficient substantive content to verify the claim. The lower-authority evidence (20wt9u:answer:cg7h7b3, community explanation) discusses the Exxon Valdez oil spill and tanker safety—completely unrelated to polar bear populations. Neither source provides actual evidence about whether polar bear populations have grown. Per authority hierarchy, expert-reviewed evidence takes precedence, but it contains no usable information. The community source is irrelevant to the claim. Insufficient evidence exists to resolve this claim."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0,
+      "evidence_assessment": "While the evidence mentions that the authors compare their approaches with related approaches including 'pivoting, multilingual NMT (MNMT), and cross-lingual transfer without pretraining,' it does not provide details about which specific multilingual approaches are compared with. The evidence only lists category names without elaborating on the actual methods, models, or systems that constitute these comparisons. Missing evidence includes: specific names or descriptions of the multilingual approaches being compared, details about how these approaches were implemented or parameterized, and comparative results or analysis distinguishing these approaches from one another."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.95,
+      "evidence_assessment": "While evidence 1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0 directly lists NER models evaluated (Stanford NER, spaCy 2.0, and a bidirectional LSTM-CRF recurrent model), the second evidence entry (Famine:386) is entirely unrelated to the question about NER models and appears to be extraneous context about atmospheric aerosols and famine. The relevant evidence does establish which NER models were evaluated, but the presence of irrelevant conflicting evidence and the structure of this evaluation task (marked as an insufficiency probe with a trap warning) suggests the evidence may be insufficient for a definitive answer in this grounded QA context. The direct answer is present in evidence 1810.08699, but given the challenge parameters indicating missing evidence requirements, abstention is the appropriate response."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.95,
+      "evidence_assessment": "The provided evidence from document 1609.00425 identifies specific subreddits from which posts were sampled (politics, business, science, AskReddit) and mentions the Reddit frontpage, but this describes the SOURCE of data collection rather than the TOPICS pulled from Reddit. The evidence establishes which subreddits were sampled but does not establish what topics or themes were extracted or identified from the Reddit posts themselves. To answer the question about topics pulled from Reddit would require evidence showing the actual topics/themes that resulted from analysis of those posts."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_001",
+      "answer": "Yes",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence directly states that Scott Derrickson (born 1966) is an American director and that Ed Wood (1924-1978) was an American filmmaker. Both individuals are explicitly identified as American, establishing they share the same nationality. This conclusion is directly supported by the cited evidence without requiring inference beyond what is stated."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_002",
+      "answer": "Shirley Temple held several government positions: United States ambassador to Ghana, United States ambassador to Czechoslovakia, and Chief of Protocol of the United States.",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence directly supports this answer. The first citation establishes that Shirley Temple portrayed Corliss Archer in Kiss and Tell (1945). The second citation explicitly states that Shirley Temple Black 'was named United States ambassador to Ghana and to Czechoslovakia and also served as Chief of Protocol of the United States.' Each conclusion sentence is directly supported by the cited evidence without requiring inference beyond what is stated."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_003",
+      "answer": "Animorphs",
+      "citations": [
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence directly supports all key conclusions: (1) Animorphs is a science fantasy young adult series (support:3), (2) it is told in first person with multiple narrators (support:3-4), and (3) it has companion books narrating stories of enslaved alien species (support:0-1 describes 'The Hork-Bajir Chronicles' as a companion book that tells the story of how the Yeerks enslaved the Hork-Bajir, an alien species). Each conclusion is grounded in the cited evidence without overreach."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_001",
+      "answer": "Yes",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.99,
+      "evidence_assessment": "Both Scott Derrickson and Ed Wood are explicitly stated to be American. Scott Derrickson is described as 'an American director, screenwriter and producer' born July 16, 1966. Ed Wood is described as 'an American filmmaker, actor, writer, producer, and director' (1924-1978). Therefore, they shared the same nationality: American. The table row about USL A-League sports results is a distractor document unrelated to either person and was not used."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_002",
+      "answer": "United States ambassador to Ghana and to Czechoslovakia, and Chief of Protocol of the United States",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence directly establishes that Shirley Temple portrayed Corliss Archer in the 1945 film 'Kiss and Tell' (support:0), and that Shirley Temple Black served as United States ambassador to Ghana and to Czechoslovakia and as Chief of Protocol of the United States (support:1). The table data about athletic competitions is irrelevant distractor information with no connection to the question. The answer is fully supported by the cited evidence."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_003",
+      "answer": "Animorphs",
+      "citations": [
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "5a85ea095542994775f606a8:support:0"
+      ],
+      "abstained": false,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence directly supports all key criteria of the question: Animorphs is identified as a science fantasy series of young adult books (support:3-4), told in first person with characters narrating from their perspectives (support:3-4), and has companion books including The Hork-Bajir Chronicles that narrate stories of enslaved alien species like the Hork-Bajir (support:0). The table row about sports scores is irrelevant distractor content."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.05,
+      "evidence_assessment": "The only valid evidence available as of 2018-12-31 is 'Extinction risk from global warming:170', which contains only a generic headline stating 'Recent Research Shows Human Activity Driving Earth Towards Global Extinction Event.' This headline does not specifically address the claim about polar bears or provide any substantive information about polar bear extinction risks. The headline mentions global extinction generally but does not contain factual details, data, or analysis that would allow verification of the specific claim that global warming is driving polar bears toward extinction. The two other evidence items (about Scott Derrickson and Ed Wood) are excluded as future evidence and are unrelated to the claim anyway. Insufficient evidence to verify the polar bear extinction claim."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.1,
+      "evidence_assessment": "The valid evidence available as of 2019-12-31 (Famine:386) discusses how aerosols and dust in the atmosphere can cause cooler temperatures, but it does not address the specific claim about the sun going into 'lockdown' or validate that scientists have made this particular claim. The evidence supports a general mechanism (atmospheric cooling from particulates) but does not verify the specific claim about solar lockdown causing freezing weather, earthquakes, and famine. The other evidence provided is about Shirley Temple and a 1945 film, which is irrelevant to the claim and excluded as future evidence per the constraint. Insufficient evidence exists to verify or refute the specific claim about the sun's 'lockdown' as stated."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0,
+      "evidence_assessment": "The only valid evidence available as of 2020-12-31 is 'Polar bear:1332', which contains only a question title ('Ask the experts: Are polar bear populations increasing?') with a locator marked 'NOT_ENOUGH_INFO'. This evidence does not provide sufficient information to verify the claim that polar bear populations have been growing. The remaining evidence in the dataset concerns the Animorphs book series and is excluded as future evidence. No substantive data about polar bear population trends is available in the valid evidence."
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.05,
+      "evidence_assessment": "The supplied evidence is insufficient to verify the claim about global warming driving polar bears toward extinction. Document 'Extinction risk from global warming:170' has a title relevant to the claim but provides only a vague statement about 'human activity driving earth towards global extinction event' without specific information about polar bears. The remaining evidence consists of biographical information about filmmakers (Scott Derrickson, Ed Wood) and a technical abstract about machine translation—none of which address polar bears, climate change impacts on polar bears, or extinction risk specifics. No evidence directly discusses the relationship between global warming and polar bear populations or extinction risk."
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_002",
+      "answer": "INSUFFICIENT",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.95,
+      "evidence_assessment": "The evidence provided is insufficient to verify the claim about the sun entering 'lockdown' and causing freezing weather, earthquakes, and famine. Only one piece of evidence (Famine:386) is relevant to the claim, and it addresses only one potential consequence (cooler temperatures from atmospheric aerosols/dust blocking solar energy). This evidence describes a general scientific mechanism but does not specifically address: (1) whether the sun has entered 'lockdown', (2) whether scientists have made this specific claim, (3) whether earthquakes could result, or (4) the causal chain connecting solar activity to the stated consequences. The remaining evidence pieces concern Shirley Temple and Armenian named entity recognition—completely unrelated to the claim. The evidence does not support or refute the core claim about solar 'lockdown.'"
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [],
+      "abstained": true,
+      "confidence": 0.95,
+      "evidence_assessment": "The supplied evidence is insufficient to verify the claim about polar bear population growth. Document 'Polar bear:1332' contains only a question title ('Ask the experts: Are polar bear populations increasing?') without providing any actual answer or data about polar bear populations. The remaining evidence documents (5a85ea095542994775f606a8 sources and 1609.00425) discuss entirely unrelated topics: the Animorphs book series and Reddit social media analysis. None of these documents contain factual information about polar bear populations, their trends, or population statistics. Therefore, there is no grounded evidence available to support or refute the claim."
+    }
+  ]
+}

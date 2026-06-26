@@ -15,16 +15,31 @@
       "open-weight-grounded-baseline-v1"
     ]
   },
-  "run_count": 6,
-  "eligible_model_baseline_count": 1,
+  "run_count": 7,
+  "eligible_model_baseline_count": 2,
   "eligible_model_baselines": [
+    "anthropic-grounded-baseline-v1",
     "openai-grounded-baseline-v1"
   ],
   "readiness": {
     "required_model_baselines": 2,
-    "ready": false
+    "ready": true
   },
   "runs": [
+    {
+      "run_id": "anthropic-grounded-baseline-v1",
+      "system_id": "anthropic-grounded-baseline-v1",
+      "report_present": true,
+      "submission_present": true,
+      "manifest_type": "run_manifest",
+      "manifest_path": "docs/experiments/hard-grounded-research-benchmark/runs/anthropic-grounded-baseline-v1/run-manifest.json",
+      "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/anthropic-grounded-baseline-v1/report.json",
+      "evaluation_source": "pilot-suite",
+      "fixture": false,
+      "task_count": 30,
+      "macro_answer_correct": 0.3667,
+      "eligible_model_baseline": true
+    },
     {
       "run_id": "citation-aware-verifier-v1",
       "system_id": "citation-aware-verifier-v1",

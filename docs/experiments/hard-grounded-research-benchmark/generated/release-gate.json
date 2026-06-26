@@ -129,8 +129,8 @@
     },
     {
       "id": "frontier_or_open_model_results_present",
-      "passed": false,
-      "detail": "openai-grounded-baseline-v1",
+      "passed": true,
+      "detail": "anthropic-grounded-baseline-v1, openai-grounded-baseline-v1",
       "blocker": "Run and score at least two frontier or open model baselines over the release scoring source."
     },
     {
@@ -188,11 +188,6 @@
       "id": "category_scale_ready",
       "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
       "blocker": "Scale each category to the target reviewed item count before paper release."
-    },
-    {
-      "id": "frontier_or_open_model_results_present",
-      "detail": "openai-grounded-baseline-v1",
-      "blocker": "Run and score at least two frontier or open model baselines over the release scoring source."
     },
     {
       "id": "novelty_audit_final",

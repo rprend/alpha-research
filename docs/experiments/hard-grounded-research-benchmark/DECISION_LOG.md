@@ -487,3 +487,11 @@ Decision: Run and record one non-fixture OpenAI Responses API pilot baseline ins
 Rationale: A publishable benchmark needs externally scored model evidence, not just runnable prompt packets. One real 30-item pilot run starts the release-baseline evidence trail while preserving the release gate requirement for at least two eligible non-fixture model baselines before paper claims.
 
 Consequence: `runs/openai-grounded-baseline-v1/` now contains the prompt packet, run manifest, model submission, and scored report; `generated/model-run-index.json` records one eligible model baseline and the release gate still blocks completion until a second real baseline is scored.
+
+## 2026-06-26 — Score a second external provider baseline
+
+Decision: Add and run an Anthropic Messages API pilot baseline as the second non-fixture external model baseline.
+
+Rationale: The release gate requires at least two scored non-fixture model baselines before paper claims. Using a second provider family makes the evidence stronger than running another OpenAI model variant and gives the benchmark an immediate cross-provider failure profile.
+
+Consequence: `scripts/hard-grounded-research-anthropic-baseline.mjs` now emits an auditable prompt packet, run manifest, model submission, and scored report under `runs/anthropic-grounded-baseline-v1/`; the model run index and release gate can now verify two eligible external baselines.

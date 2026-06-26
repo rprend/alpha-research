@@ -4,15 +4,16 @@ This generated index separates heuristic diagnostic systems from externally impo
 
 ## Summary
 
-- Runs: 6
-- Eligible model baselines: 1
-- Ready: false
+- Runs: 7
+- Eligible model baselines: 2
+- Ready: true
 - Model baseline packets ready: true
 
 ## Runs
 
 | Run | System | Report | Manifest | Evaluation source | Fixture | Eligible model baseline |
 | --- | --- | --- | --- | --- | --- | --- |
+| anthropic-grounded-baseline-v1 | anthropic-grounded-baseline-v1 | yes | run_manifest | pilot-suite | no | yes |
 | citation-aware-verifier-v1 | citation-aware-verifier-v1 | yes | none | pilot-suite | no | no |
 | fixture-model-import-smoke | fixture-model-import-smoke | yes | import_manifest | pilot-suite | yes | no |
 | lexical-evidence-baseline-v1 | lexical-evidence-baseline-v1 | yes | none | pilot-suite | no | no |

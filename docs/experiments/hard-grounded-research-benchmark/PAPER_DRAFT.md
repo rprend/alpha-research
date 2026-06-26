@@ -131,7 +131,7 @@ These intervals are descriptive task-level estimates over the current 30-item pi
 - License blockers: 2
 - Pointer-only package items: 15
 - Release gate status: blocked
-- Release blockers: 8
+- Release blockers: 7
 
 ## Novelty Position
 
