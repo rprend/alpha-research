@@ -9,6 +9,7 @@ const draftPath = join(experimentDir, 'PAPER_DRAFT.md')
 const requiredInputs = {
   readme: join(experimentDir, 'README.md'),
   noveltyAudit: join(experimentDir, 'NOVELTY_AUDIT.md'),
+  noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   datasetCard: join(experimentDir, 'DATASET_CARD.md'),
   licenseReview: join(generatedDir, 'license-review.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -102,6 +103,10 @@ function uncertaintyRows(baselineUncertainty) {
   )
 }
 
+function noveltyEvidenceRows(noveltyEvidence) {
+  return noveltyEvidence.claim_guidance.map((claim) => [claim.claim, claim.status, claim.reason])
+}
+
 function topApproachRows(approachScores) {
   return approachScores.map((approach) => [
     approach.name,
@@ -110,7 +115,7 @@ function topApproachRows(approachScores) {
   ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, packageManifest, releaseGate }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, packageManifest, releaseGate }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -201,6 +206,8 @@ These intervals are descriptive task-level estimates over the current 30-item pi
 
 The novelty audit currently rejects broad claims such as "a RAG benchmark with citations" or "a contradiction benchmark." The defensible novelty position is the combined failure-mode bundle: document lifecycle, source authority, temporal validity, table/text interpretation, citation-overreach, insufficiency, disambiguation, and contradiction inside one executable grounded research QA harness.
 
+${markdownTable(['Claim', 'Status', 'Reason'], noveltyEvidenceRows(noveltyEvidence))}
+
 ## Required Before Submission
 
 1. Scale from ${pilotItemCount} pilot items to at least 30-50 double-reviewed items per category.
@@ -222,6 +229,7 @@ const draft = renderDraft({
   approachScores: readJson(requiredInputs.approachScores),
   baselineAnalysis: readJson(requiredInputs.baselineAnalysis),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
+  noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   goldSummary: readJson(requiredInputs.goldSummary),
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),
   itemQualityAudit: readJson(requiredInputs.itemQualityAudit),

@@ -1,0 +1,185 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "checked_date": "2026-06-26",
+  "evidence_status": "preliminary_registry_not_final_completion_audit",
+  "source_count": 6,
+  "completion_claim_allowed": false,
+  "sources": [
+    {
+      "id": "occ-rag-2026",
+      "title": "OCC-RAG: Optimal Cognitive Core for Faithful Question Answering",
+      "year": 2026,
+      "url": "https://arxiv.org/html/2606.00683v1",
+      "source_type": "paper",
+      "evidence_status": "web_checked_2026_06_26",
+      "benchmark_overlap": [
+        "multi-hop synthesis",
+        "evidence insufficiency / abstention",
+        "citation faithfulness"
+      ],
+      "paper_use": "Cite as close work on faithful QA and multi-hop grounded answer generation; do not claim multi-hop or abstention alone as novel."
+    },
+    {
+      "id": "chronoqa-2025",
+      "title": "ChronoQA: A Question Answering Dataset for Temporal-Sensitive Retrieval-Augmented Generation",
+      "year": 2025,
+      "url": "https://www.nature.com/articles/s41597-025-06098-y",
+      "source_type": "paper_and_dataset",
+      "evidence_status": "web_checked_2026_06_26",
+      "benchmark_overlap": [
+        "temporal questions: as of date X",
+        "stale-vs-current document conflicts"
+      ],
+      "paper_use": "Cite as close temporal RAG work; position hard-grounded temporal tasks around document snapshot validity and source-state conflict, not generic temporal QA."
+    },
+    {
+      "id": "bridge-2026",
+      "title": "BRIDGE: Benchmark for multi-hop Reasoning In long multimodal Documents with Grounded Evidence",
+      "year": 2026,
+      "url": "https://arxiv.org/html/2603.07931v1",
+      "source_type": "paper",
+      "evidence_status": "web_checked_2026_06_26",
+      "benchmark_overlap": [
+        "multi-hop synthesis",
+        "table + text reasoning",
+        "grounded scientific evidence"
+      ],
+      "paper_use": "Cite as close work on long-document grounded evidence; separate our claim by source authority, lifecycle, stale/current, and conclusion-overreach categories."
+    },
+    {
+      "id": "lit-ragbench-2026",
+      "title": "LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation",
+      "year": 2026,
+      "url": "https://arxiv.org/html/2603.06198v1",
+      "source_type": "paper",
+      "evidence_status": "web_checked_2026_06_26",
+      "benchmark_overlap": [
+        "evidence insufficiency / abstention",
+        "cross-document contradiction"
+      ],
+      "paper_use": "Cite as close RAG generator benchmark; avoid claiming contradiction or insufficiency alone as novel."
+    },
+    {
+      "id": "longcite-2024",
+      "title": "LongCite and LongBench-Cite",
+      "year": 2024,
+      "url": "https://github.com/THUDM/LongCite",
+      "source_type": "paper_dataset_code",
+      "evidence_status": "web_checked_2026_06_26",
+      "benchmark_overlap": [
+        "citation supports fact but not conclusion",
+        "citation faithfulness",
+        "long-context QA"
+      ],
+      "paper_use": "Cite as close citation benchmark; define our differentiator as conclusion support rather than citation presence or localized attribution alone."
+    },
+    {
+      "id": "100-longbench-2025",
+      "title": "100-LongBench: Are de facto Long-Context Benchmarks Literally Evaluating Long-Context Ability?",
+      "year": 2025,
+      "url": "https://aclanthology.org/2025.findings-acl.903/",
+      "source_type": "paper",
+      "evidence_status": "web_checked_2026_06_26",
+      "benchmark_overlap": [
+        "long-context evaluation validity"
+      ],
+      "paper_use": "Cite for benchmark-design caution; use to justify controlled hard-grounded failure modes rather than context length as the central axis."
+    }
+  ],
+  "claim_guidance": [
+    {
+      "claim": "Generic RAG benchmark",
+      "status": "not_novel",
+      "reason": "Adjacent RAG and long-context benchmarks are abundant."
+    },
+    {
+      "claim": "Temporal QA benchmark",
+      "status": "not_novel_alone",
+      "reason": "ChronoQA already targets temporal-sensitive RAG."
+    },
+    {
+      "claim": "Citation faithfulness benchmark",
+      "status": "not_novel_alone",
+      "reason": "LongCite and related citation benchmarks cover attribution quality."
+    },
+    {
+      "claim": "Unified hard-grounded research failure taxonomy",
+      "status": "plausibly_differentiated_pending_final_audit",
+      "reason": "The combined bundle of lifecycle changes, authority hierarchy, stale/current snapshots, conclusion-overreach, insufficiency, disambiguation, and contradiction remains the defensible contribution if supported by reviewed data."
+    }
+  ],
+  "category_evidence": [
+    {
+      "category": "multi-hop synthesis",
+      "source_ids": [
+        "occ-rag-2026",
+        "bridge-2026"
+      ],
+      "novelty_risk": "high"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "source_ids": [
+        "chronoqa-2025"
+      ],
+      "novelty_risk": "medium"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "source_ids": [
+        "bridge-2026"
+      ],
+      "novelty_risk": "low"
+    },
+    {
+      "category": "table + text reasoning",
+      "source_ids": [
+        "bridge-2026"
+      ],
+      "novelty_risk": "high"
+    },
+    {
+      "category": "source authority conflicts",
+      "source_ids": [
+        "lit-ragbench-2026"
+      ],
+      "novelty_risk": "medium"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "source_ids": [
+        "occ-rag-2026",
+        "lit-ragbench-2026"
+      ],
+      "novelty_risk": "high"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "source_ids": [
+        "longcite-2024"
+      ],
+      "novelty_risk": "medium"
+    },
+    {
+      "category": "entity disambiguation",
+      "source_ids": [
+        "occ-rag-2026"
+      ],
+      "novelty_risk": "medium"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "source_ids": [
+        "chronoqa-2025"
+      ],
+      "novelty_risk": "high"
+    },
+    {
+      "category": "cross-document contradiction",
+      "source_ids": [
+        "lit-ragbench-2026"
+      ],
+      "novelty_risk": "high"
+    }
+  ]
+}

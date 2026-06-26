@@ -137,6 +137,13 @@ These intervals are descriptive task-level estimates over the current 30-item pi
 
 The novelty audit currently rejects broad claims such as "a RAG benchmark with citations" or "a contradiction benchmark." The defensible novelty position is the combined failure-mode bundle: document lifecycle, source authority, temporal validity, table/text interpretation, citation-overreach, insufficiency, disambiguation, and contradiction inside one executable grounded research QA harness.
 
+| Claim | Status | Reason |
+| --- | --- | --- |
+| Generic RAG benchmark | not_novel | Adjacent RAG and long-context benchmarks are abundant. |
+| Temporal QA benchmark | not_novel_alone | ChronoQA already targets temporal-sensitive RAG. |
+| Citation faithfulness benchmark | not_novel_alone | LongCite and related citation benchmarks cover attribution quality. |
+| Unified hard-grounded research failure taxonomy | plausibly_differentiated_pending_final_audit | The combined bundle of lifecycle changes, authority hierarchy, stale/current snapshots, conclusion-overreach, insufficiency, disambiguation, and contradiction remains the defensible contribution if supported by reviewed data. |
+
 ## Required Before Submission
 
 1. Scale from 30 pilot items to at least 30-50 double-reviewed items per category.

@@ -32,6 +32,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | baseline_uncertainty_present | yes | 3 systems with descriptive task-level intervals |  |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |  |
 | novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
+| novelty_evidence_registry_present | yes | 6 related-work sources registered; completion_claim_allowed=false |  |
 
 ## Current Blockers
 

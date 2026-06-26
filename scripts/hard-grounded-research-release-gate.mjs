@@ -11,6 +11,7 @@ const inputs = {
   spec: join(experimentDir, 'benchmark-spec.json'),
   noveltyAudit: join(experimentDir, 'NOVELTY_AUDIT.md'),
   noveltyAuditJson: join(generatedDir, 'novelty-audit.json'),
+  noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
   reviewOperations: join(generatedDir, 'review-operations.json'),
@@ -75,6 +76,7 @@ function buildGate({
   spec,
   noveltyAudit,
   noveltyAuditJson,
+  noveltyEvidence,
   goldSummary,
   reviewPreflight,
   reviewOperations,
@@ -219,6 +221,12 @@ function buildGate({
       detail: `checked=${novelty.checked_date || 'unknown'} status=${noveltyAuditJson.status || 'unknown'} completion_claim_allowed=${novelty.completion_claim_allowed} high_risk_categories=${novelty.high_novelty_risk_categories ?? 'unknown'}`,
       blocker: 'Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion.',
     },
+    {
+      id: 'novelty_evidence_registry_present',
+      passed: noveltyEvidence.source_count >= 5 && noveltyEvidence.completion_claim_allowed === false,
+      detail: `${noveltyEvidence.source_count} related-work sources registered; completion_claim_allowed=${noveltyEvidence.completion_claim_allowed}`,
+      blocker: 'Generate a source-backed related-work registry while keeping final novelty claims gated.',
+    },
   ]
 
   return {
@@ -228,6 +236,7 @@ function buildGate({
       spec: 'benchmark-spec.json',
       novelty_audit: 'NOVELTY_AUDIT.md',
       novelty_audit_json: 'generated/novelty-audit.json',
+      novelty_evidence: 'generated/novelty-evidence.json',
       gold_summary: 'generated/gold-suite-summary.json',
       review_preflight: 'generated/review-preflight.json',
       review_operations: 'generated/review-operations.json',
@@ -296,6 +305,7 @@ const gate = buildGate({
   spec: readJson(inputs.spec),
   noveltyAudit: readText(inputs.noveltyAudit),
   noveltyAuditJson: readJson(inputs.noveltyAuditJson),
+  noveltyEvidence: readJson(inputs.noveltyEvidence),
   goldSummary: readJson(inputs.goldSummary),
   reviewPreflight: readJson(inputs.reviewPreflight),
   reviewOperations: readJson(inputs.reviewOperations),

@@ -455,3 +455,11 @@ Decision: Generate descriptive uncertainty intervals for current task-level base
 Rationale: A paper-worthy benchmark needs to avoid overclaiming from a 30-item pilot. Reporting task-level confidence intervals and paired deltas makes the current evidence easier to interpret while preserving the release requirement for larger double-reviewed data and real model baselines.
 
 Consequence: `scripts/hard-grounded-research-baseline-uncertainty.mjs` now emits `generated/baseline-uncertainty.json` and `BASELINE_UNCERTAINTY.md`; the paper draft includes a baseline uncertainty section and the release gate records that uncertainty estimates exist.
+
+## 2026-06-26 — Register novelty evidence separately from final novelty claims
+
+Decision: Generate a source-backed novelty evidence registry while keeping completion claims disabled.
+
+Rationale: The benchmark needs an auditable trail of related work before any Stanford-PhD-level novelty claim. A separate evidence registry lets the paper draft cite adjacent work and reject overbroad claims without converting the preliminary novelty audit into a final approval.
+
+Consequence: `scripts/hard-grounded-research-novelty-evidence.mjs` now emits `generated/novelty-evidence.json` and `NOVELTY_EVIDENCE.md`; the release gate records that related-work evidence exists while `novelty_audit_final` remains blocked.
