@@ -287,3 +287,11 @@ Decision: Treat prompt packets and external model outputs as first-class artifac
 Rationale: The benchmark needs real frontier or open-model baselines, but those runs should not depend on hand-edited submissions or secrets in chat. A deterministic importer lets batch outputs become scored reports with provenance, while keeping dry-run prompt packets useful before credentials are available.
 
 Consequence: OpenAI prompt packets now carry stable custom ids, and `scripts/hard-grounded-research-import-model-results.mjs` converts model output JSONL into benchmark submissions and reports.
+
+## 2026-06-26 — Add review preflight before gold merge
+
+Decision: Generate a preflight work queue for reviewer workbooks before attempting review merge.
+
+Rationale: The gold-data blocker is not actionable if reviewers only learn about missing or invalid fields at merge time. A preflight report makes each incomplete row, missing field, and high-attention item visible before adjudication.
+
+Consequence: `scripts/hard-grounded-research-review-preflight.mjs` now emits `generated/review-preflight.json` and `REVIEW_PREFLIGHT.md`, with strict mode failing until all assigned review rows are complete.
