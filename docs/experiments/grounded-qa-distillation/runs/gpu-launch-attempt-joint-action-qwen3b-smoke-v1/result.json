@@ -1,0 +1,29 @@
+{
+  "run_id": "gpu-launch-attempt-joint-action-qwen3b-smoke-v1",
+  "generated_at": "2026-06-26T16:00:01.340Z",
+  "target_packet": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "attempted_backends": [
+    {
+      "provider": "huggingface_jobs",
+      "flavor": "l4x1",
+      "timeout": "45m",
+      "intended_run": "bounded 20-step SFT + 10-step DPO smoke",
+      "status": "not_created",
+      "error": "402 Payment Required: prepaid credit balance is insufficient",
+      "actual_cost_usd": 0
+    },
+    {
+      "provider": "prime_intellect",
+      "command": "prime login --headless",
+      "status": "auth_refresh_required",
+      "error": "Headless login requires browser-side challenge completion; saved local API key is unauthorized",
+      "actual_cost_usd": 0
+    }
+  ],
+  "budget": {
+    "max_total_budget_usd": 100,
+    "actual_external_compute_cost_usd": 0,
+    "openai_cost_delta_usd": 0
+  },
+  "next_step": "Refresh Prime Intellect auth or add HF prepaid credits, then launch the already-validated joint-action GPU packet under the total-budget ledger."
+}

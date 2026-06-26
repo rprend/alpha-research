@@ -61,6 +61,7 @@ if (!errors.length) {
   await validateSupportContrastGateRunsIfPresent();
   await validateAbstentionSupportErrorAnalysisRunsIfPresent();
   await validateJointActionGpuPrepRunsIfPresent();
+  await validateGpuLaunchAttemptRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
 }
 
@@ -1225,6 +1226,41 @@ async function validateTotalSpendBudgetIfPresent() {
   }
   if (Number(budget.spend_usd?.total_actual) > Number(budget.max_budget_usd)) {
     errors.push("Total spend exceeds the $100 experiment budget.");
+  }
+}
+
+async function validateGpuLaunchAttemptRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("gpu-launch-attempt-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed GPU launch attempt artifacts.`);
+      continue;
+    }
+    if (!Array.isArray(result.attempted_backends) || !result.attempted_backends.length) {
+      errors.push(`${entry.name}: missing attempted backend records.`);
+    }
+    for (const attempt of result.attempted_backends ?? []) {
+      if (!attempt.provider || !attempt.status) errors.push(`${entry.name}: malformed backend attempt.`);
+      if (Number(attempt.actual_cost_usd) !== 0) {
+        errors.push(`${entry.name}: launch attempt artifact should only record zero-cost failed/not-created attempts.`);
+      }
+    }
+    if (Number(result.budget?.actual_external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: failed launch attempt must not record actual external compute spend.`);
+    }
   }
 }
 
