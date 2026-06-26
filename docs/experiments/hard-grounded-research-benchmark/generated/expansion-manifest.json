@@ -1,0 +1,1631 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "manifest_id": "hard-grounded-expansion-manifest-v1",
+  "source_scale_plan": "generated/scale-plan.json",
+  "batch_count": 30,
+  "target_new_items": 270,
+  "required_review_rows": 540,
+  "status": "ready_for_generation",
+  "batches": [
+    {
+      "batch_id": "hgr_scale_batch_01",
+      "category": "multi-hop synthesis",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_multi_hop_001",
+      "question_template": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop.",
+      "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate questions where at least two cited documents are jointly necessary; include one plausible but nonessential distractor citation.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "multi-hop synthesis",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_02",
+      "category": "multi-hop synthesis",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_multi_hop_001",
+      "question_template": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop.",
+      "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate questions where at least two cited documents are jointly necessary; include one plausible but nonessential distractor citation.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "multi-hop synthesis",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_03",
+      "category": "multi-hop synthesis",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_multi_hop_001",
+      "question_template": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop.",
+      "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate questions where at least two cited documents are jointly necessary; include one plausible but nonessential distractor citation.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "multi-hop synthesis",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_stale_current_001",
+      "question_template": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements.",
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate paired older/newer evidence snapshots and require the answer to reject stale claims under the newer date.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "stale-vs-current document conflicts",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_stale_current_001",
+      "question_template": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements.",
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate paired older/newer evidence snapshots and require the answer to reject stale claims under the newer date.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "stale-vs-current document conflicts",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_stale_current_001",
+      "question_template": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements.",
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate paired older/newer evidence snapshots and require the answer to reject stale claims under the newer date.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "stale-vs-current document conflicts",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_07",
+      "category": "appended document lifecycle changes",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_appendix_lifecycle_001",
+      "question_template": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence.",
+      "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate long-document examples where an appendix, erratum, or lifecycle note changes the controlling answer.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "appended document lifecycle changes",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_08",
+      "category": "appended document lifecycle changes",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_appendix_lifecycle_001",
+      "question_template": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence.",
+      "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate long-document examples where an appendix, erratum, or lifecycle note changes the controlling answer.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "appended document lifecycle changes",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_09",
+      "category": "appended document lifecycle changes",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_appendix_lifecycle_001",
+      "question_template": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence.",
+      "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate long-document examples where an appendix, erratum, or lifecycle note changes the controlling answer.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "appended document lifecycle changes",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_10",
+      "category": "table + text reasoning",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_table_text_001",
+      "question_template": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column.",
+      "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate questions that cannot be answered from the table alone or text alone; both must be cited in the rationale.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "table + text reasoning",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_11",
+      "category": "table + text reasoning",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_table_text_001",
+      "question_template": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column.",
+      "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate questions that cannot be answered from the table alone or text alone; both must be cited in the rationale.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "table + text reasoning",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_12",
+      "category": "table + text reasoning",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_table_text_001",
+      "question_template": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column.",
+      "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate questions that cannot be answered from the table alone or text alone; both must be cited in the rationale.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "table + text reasoning",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_authority_conflict_001",
+      "question_template": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why.",
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "url": "https://hf.co/datasets/Pavithree/eli5",
+          "viewer": {
+            "config": "default",
+            "split": "validation"
+          },
+          "license": "unknown",
+          "construction_role": "Optional stress source for synthesis over noisy, unevenly authoritative explanations."
+        }
+      ],
+      "generator_instruction": "Generate examples with a lower-authority source and a higher-authority source that disagree; mark the controlling authority.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "source authority conflicts",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_authority_conflict_001",
+      "question_template": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why.",
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "url": "https://hf.co/datasets/Pavithree/eli5",
+          "viewer": {
+            "config": "default",
+            "split": "validation"
+          },
+          "license": "unknown",
+          "construction_role": "Optional stress source for synthesis over noisy, unevenly authoritative explanations."
+        }
+      ],
+      "generator_instruction": "Generate examples with a lower-authority source and a higher-authority source that disagree; mark the controlling authority.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "source authority conflicts",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_authority_conflict_001",
+      "question_template": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why.",
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "url": "https://hf.co/datasets/Pavithree/eli5",
+          "viewer": {
+            "config": "default",
+            "split": "validation"
+          },
+          "license": "unknown",
+          "construction_role": "Optional stress source for synthesis over noisy, unevenly authoritative explanations."
+        }
+      ],
+      "generator_instruction": "Generate examples with a lower-authority source and a higher-authority source that disagree; mark the controlling authority.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "source authority conflicts",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_abstain_001",
+      "question_template": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence.",
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        },
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        }
+      ],
+      "generator_instruction": "Generate answerable-looking contexts where one required fact is absent; the correct answer must abstain.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "evidence insufficiency / abstention",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_abstain_001",
+      "question_template": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence.",
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        },
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        }
+      ],
+      "generator_instruction": "Generate answerable-looking contexts where one required fact is absent; the correct answer must abstain.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "evidence insufficiency / abstention",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_abstain_001",
+      "question_template": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence.",
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        },
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        }
+      ],
+      "generator_instruction": "Generate answerable-looking contexts where one required fact is absent; the correct answer must abstain.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "evidence insufficiency / abstention",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_19",
+      "category": "citation supports fact but not conclusion",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_citation_overreach_001",
+      "question_template": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact.",
+      "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        },
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        }
+      ],
+      "generator_instruction": "Generate examples where cited evidence supports true subfacts but not the requested conclusion.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "citation supports fact but not conclusion",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_20",
+      "category": "citation supports fact but not conclusion",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_citation_overreach_001",
+      "question_template": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact.",
+      "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        },
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        }
+      ],
+      "generator_instruction": "Generate examples where cited evidence supports true subfacts but not the requested conclusion.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "citation supports fact but not conclusion",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_21",
+      "category": "citation supports fact but not conclusion",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_citation_overreach_001",
+      "question_template": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact.",
+      "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        },
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        }
+      ],
+      "generator_instruction": "Generate examples where cited evidence supports true subfacts but not the requested conclusion.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "citation supports fact but not conclusion",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_22",
+      "category": "entity disambiguation",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_entity_disambiguation_001",
+      "question_template": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities.",
+      "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        }
+      ],
+      "generator_instruction": "Generate same-name or near-name entity traps and require the answer to identify the intended referent from evidence.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "entity disambiguation",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_23",
+      "category": "entity disambiguation",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_entity_disambiguation_001",
+      "question_template": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities.",
+      "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        }
+      ],
+      "generator_instruction": "Generate same-name or near-name entity traps and require the answer to identify the intended referent from evidence.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "entity disambiguation",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_24",
+      "category": "entity disambiguation",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_entity_disambiguation_001",
+      "question_template": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities.",
+      "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "danwakeem/wikitablequestions-wtq",
+          "url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+          "viewer": {
+            "config": "default",
+            "split": "train"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+        }
+      ],
+      "generator_instruction": "Generate same-name or near-name entity traps and require the answer to identify the intended referent from evidence.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "entity disambiguation",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_as_of_date_001",
+      "question_template": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale.",
+      "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate as-of-date questions with earlier and later snapshots; the answer must be scoped to the requested date.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "temporal questions: as of date X",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_as_of_date_001",
+      "question_template": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale.",
+      "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate as-of-date questions with earlier and later snapshots; the answer must be scoped to the requested date.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "temporal questions: as of date X",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_as_of_date_001",
+      "question_template": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale.",
+      "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        }
+      ],
+      "generator_instruction": "Generate as-of-date questions with earlier and later snapshots; the answer must be scoped to the requested date.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "temporal questions: as of date X",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_contradiction_001",
+      "question_template": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer.",
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate evidence sets that explicitly contradict each other and require either conflict reporting or a documented controlling rule.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "cross-document contradiction",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_contradiction_001",
+      "question_template": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer.",
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate evidence sets that explicitly contradict each other and require either conflict reporting or a documented controlling rule.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "cross-document contradiction",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    },
+    {
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "status": "ready_for_generation",
+      "target_new_items": 9,
+      "required_review_rows": 18,
+      "seed_task_id": "hgr_contradiction_001",
+      "question_template": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer.",
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ],
+      "source_datasets": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+          "viewer": {
+            "config": "default",
+            "split": "test"
+          },
+          "license": "unknown",
+          "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        },
+        {
+          "dataset_id": "hotpotqa/hotpot_qa",
+          "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+          "viewer": {
+            "config": "distractor",
+            "split": "validation"
+          },
+          "license": "cc-by-sa-4.0",
+          "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        },
+        {
+          "dataset_id": "allenai/qasper",
+          "url": "https://hf.co/datasets/allenai/qasper",
+          "viewer": {
+            "config": "qasper",
+            "split": "validation"
+          },
+          "license": "cc-by-4.0",
+          "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        }
+      ],
+      "generator_instruction": "Generate evidence sets that explicitly contradict each other and require either conflict reporting or a documented controlling rule.",
+      "required_output_schema": {
+        "item_id": "stable id prefixed by batch_id",
+        "category": "cross-document contradiction",
+        "question": "research QA prompt with explicit grounding constraints",
+        "expected_answer": "answer string or ABSTAIN/CONFLICT as appropriate",
+        "source_examples": "one or more source dataset rows with source_row_id and evidence_units",
+        "evidence_units": "minimal cited passages/tables needed for the gold answer",
+        "hard_grounding_signals": "category-specific tags explaining why this is not simple lookup",
+        "provenance": "dataset id, split/config, row offset or stable source id, and transformation notes"
+      },
+      "acceptance_checks": [
+        "Every generated item has at least one source dataset row with a stable source_row_id.",
+        "Every answer is supported by cited evidence or explicitly marked ABSTAIN/CONFLICT.",
+        "The stated hard-grounding signal matches the category definition.",
+        "No item is promoted without two independent reviews or adjudication."
+      ]
+    }
+  ]
+}

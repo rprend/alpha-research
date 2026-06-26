@@ -359,3 +359,11 @@ Decision: Convert each category scale gap into explicit, review-sized expansion 
 Rationale: The benchmark needs operational units that generation and review work can execute independently. Category totals are useful for release gating, but batches make expected new items, required review rows, source datasets, and not-yet-generated status auditable before data growth starts.
 
 Consequence: `scripts/hard-grounded-research-scale-plan.mjs` now emits `expansion_batches`, `planned_new_items`, and `planned_review_rows` in `generated/scale-plan.json`, and `SCALE_PLAN.md` includes a batch table for reviewer operations.
+
+## 2026-06-26 — Pin expansion batches to generation contracts
+
+Decision: Add a generated expansion manifest that turns each planned scale batch into a ready-for-generation contract.
+
+Rationale: Review-sized batches still leave too much ambiguity for dataset growth. A generator needs category-specific instructions, source dataset pointers, required output schema, and acceptance checks so generated items can be audited before entering reviewer workbooks.
+
+Consequence: `scripts/hard-grounded-research-expansion-manifest.mjs` now emits `generated/expansion-manifest.json` and `EXPANSION_MANIFEST.md`, with one contract per scale batch and explicit `source_row_id`, provenance, evidence, and acceptance-check requirements.

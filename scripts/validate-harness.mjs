@@ -246,6 +246,11 @@ const hardGroundedScalePlanSource = readFileSync(join(root, 'scripts/hard-ground
 for (const token of ['scale-plan.json', 'target_reviewed_items_per_category', 'additional_reviewed_items_needed', 'generation_strategy', 'source_datasets', 'expansion_batches', 'planned_review_rows', 'planned_not_generated', 'scale_ready']) {
   assert(hardGroundedScalePlanSource.includes(token), `Hard grounded scale plan is missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-expansion-manifest.mjs')), 'Missing hard grounded research expansion manifest.')
+const hardGroundedExpansionManifestSource = readFileSync(join(root, 'scripts/hard-grounded-research-expansion-manifest.mjs'), 'utf8')
+for (const token of ['expansion-manifest.json', 'ready_for_generation', 'required_output_schema', 'acceptance_checks', 'source_row_id']) {
+  assert(hardGroundedExpansionManifestSource.includes(token), `Hard grounded expansion manifest is missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs')), 'Missing hard grounded research novelty audit generator.')
 const hardGroundedNoveltyAuditSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs'), 'utf8')
 for (const token of ['novelty-audit.json', 'completion_claim_allowed', 'high_novelty_risk_categories', 'OCC-RAG']) {
