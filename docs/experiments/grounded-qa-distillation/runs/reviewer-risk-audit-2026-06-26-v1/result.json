@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T18:54:21.917Z",
+  "generated_at": "2026-06-26T18:59:43.067Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -124,7 +124,7 @@
       "current_evidence": [
         "prime-auth-diagnosis",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "2026-06-26T18:54:10.386Z"
+        "2026-06-26T18:59:35.127Z"
       ],
       "mitigation_done": "The remote command is single-step and bounded; all actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [

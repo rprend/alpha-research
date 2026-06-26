@@ -1852,6 +1852,12 @@ async function validateNoveltyWatchlistRunsIfPresent() {
       errors.push(`${entry.name}: novelty watchlist must include at least six close neighbors.`);
       continue;
     }
+    if (!Array.isArray(result.search_scope?.queries) || result.search_scope.queries.length < 4) {
+      errors.push(`${entry.name}: novelty watchlist must record search queries.`);
+    }
+    if (!Array.isArray(result.search_scope?.refreshed_web_sources) || result.search_scope.refreshed_web_sources.length < 5) {
+      errors.push(`${entry.name}: novelty watchlist must record refreshed web sources.`);
+    }
     const highPressure = result.entries.filter((row) => ["high", "very_high"].includes(row.pressure)).length;
     if (highPressure < 5) errors.push(`${entry.name}: novelty watchlist must include high-pressure related work.`);
     for (const row of result.entries) {

@@ -84,6 +84,22 @@ Relevance: Offline evidence distillation and write-back is another way to amorti
 
 Novelty pressure: High. The paper should compare against a KB write-back baseline or explicitly scope model/scaffold distillation as the amortization target.
 
+### KohakuRAG: Hierarchical Document Indexing for Citation-Ready RAG
+
+Source: [arXiv 2026](https://arxiv.org/abs/2603.07612)
+
+Relevance: Citation-ready RAG with hierarchical document indexing, evidence selection, and abstention-aware voting is close to the system surface of our task.
+
+Novelty pressure: High. The paper should not claim citation-grounded RAG itself. The distinction must be amortized post-training or scaffold construction from expensive grounded behavior over update-heldout KB states.
+
+### GROUNDEDKG-RAG: Grounded Knowledge Graph Index for Long-document QA
+
+Source: [arXiv 2026](https://arxiv.org/abs/2604.04359)
+
+Relevance: Grounded graph indexes provide another route to lower-cost source-grounded long-document QA without training a small answerer.
+
+Novelty pressure: Medium-high. The paper should treat grounded retrieval/index construction as a competing amortization path and focus the main claim on preserving citation-grounded answer and abstention behavior in the cheaper model/scaffold.
+
 ## Current Novelty Hypothesis
 
 The potentially defensible contribution is:

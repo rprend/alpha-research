@@ -15,6 +15,8 @@ This is a live novelty-pressure artifact, not a complete related-work section.
 | DynaQuest: A Dynamic Question Answering Dataset Reflecting Real-World Knowledge Updates | ACL Findings 2025 | high | dynamic_qa, knowledge_updates, time_sensitive_questions | [source](https://aclanthology.org/2025.findings-acl.1380/) |
 | GRACE: Reinforcement Learning for Grounded Response and Abstention under Contextual Evidence | arXiv 2026 | very_high | grounded_response, abstention, evidence_sufficiency, rl_training | [source](https://arxiv.org/html/2601.04525v1) |
 | Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment | arXiv 2026 | high | evidence_distillation, offline_preprocessing, knowledge_base_training, rag_transfer | [source](https://arxiv.org/abs/2603.25737) |
+| KohakuRAG: A simple RAG framework with hierarchical document indexing | arXiv 2026 | high | citation_ready_rag, hierarchical_document_indexing, abstention_aware_voting, document_grounded_qa | [source](https://arxiv.org/abs/2603.07612) |
+| GROUNDEDKG-RAG: Grounded Knowledge Graph Index for Long-document Question Answering | arXiv 2026 | medium_high | grounded_kg_index, long_document_qa, source_sentence_grounding, cost_latency_reduction | [source](https://arxiv.org/abs/2604.04359) |
 | LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation | arXiv 2026 | medium | rag_benchmarking, evidence_integration, abstention, long_context | [source](https://arxiv.org/html/2603.06198v1) |
 
 ## Implications
@@ -26,6 +28,8 @@ This is a live novelty-pressure artifact, not a complete related-work section.
 - dynaquest_dynamic_qa: Dynamic QA datasets already cover real-world knowledge updates. The grounded-QA project should not claim dynamic QA itself; it should claim amortized grounded-research training/evaluation over evolving private/domain KBs.
 - grace_grounded_response_abstention: Joint answer/abstain training under contextual evidence is now a direct neighbor. The project should position joint-action SFT/DPO as a data-construction and amortization study, not as the first joint grounding-abstention objective.
 - writeback_rag_evidence_distillation: Offline evidence distillation into the corpus is a close amortization alternative. The project should compare model/scaffold distillation against KB write-back or explicitly scope it as a different amortization target.
+- kohakurag_hierarchical_citation_rag: Citation-ready document RAG with hierarchy and abstention-aware voting is a close system-level baseline. The project should avoid claiming citation-grounded RAG itself and instead emphasize amortized post-training data and update-heldout grounded correctness.
+- groundedkg_rag_grounded_graph_index: Grounded indexes can reduce context cost without training a student. The paper should treat grounded retrieval/index construction as a competing amortization path or make clear that the target here is model/scaffold behavior distilled from expensive agents.
 - lit_ragbench_generator_capabilities: Generator benchmarking for RAG includes abstention and evidence integration. The project needs a stronger evaluation claim around update robustness, cost per grounded answer, and citation-support correctness.
 
 ## Current Novelty Hypothesis

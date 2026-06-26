@@ -979,3 +979,13 @@ Reason: The manuscript scaffold and evidence map make the project easier to fini
 Result: The paper-readiness surface now has an enforceable risk audit that remains `not_submission_ready` and preserves both critical Qwen 3B blockers.
 
 Tradeoff: This is still paper-risk control, not new empirical evidence. It does not replace the GPU smoke or the paid grounded-correctness judge; it reduces the chance that the project overclaims before those artifacts exist.
+
+### D119. Refresh novelty pressure with current citation-RAG and grounded-index neighbors
+
+Decision: Update `grounded-qa-distillation-novelty-watchlist.mjs`, regenerate `novelty-watchlist-2026-06-26-v1`, update `RELATED_WORK_NOTES.md`, and require refreshed web-source provenance in validation.
+
+Reason: The goal requires current paper/internet checks before any NeurIPS-ready claim. A fresh June 26, 2026 source pass adds two relevant neighbors that sharpen the claim boundary: KohakuRAG pressures citation-ready hierarchical RAG with abstention-aware voting, and GROUNDEDKG-RAG pressures grounded graph/index construction as a lower-cost alternative to model/scaffold distillation. Together with DRAG, LongCite, GRACE, WriteBack-RAG, DynaQuest, and RAG generator benchmarks, these works confirm that the defensible contribution is not citation RAG, dynamic QA, abstention training, grounded retrieval, or generic RAG distillation. It must be the data-construction and evaluation recipe for amortizing expensive grounded research behavior into cheaper models/scaffolds under update-heldout KB states. This makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend unchanged.
+
+Result: The novelty watchlist now records refreshed queries and web sources, includes ten close neighbors, and keeps the paper-readiness gate blocked only on the trained Qwen 3B result and grounded-correctness judge.
+
+Tradeoff: This is still a novelty-pressure artifact, not a full related-work section or empirical result. A final search must be rerun immediately before any submission-ready claim.
