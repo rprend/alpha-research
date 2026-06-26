@@ -1,0 +1,2246 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "source_license_review": "generated/license-review.json",
+  "source_expansion_candidates": "generated/expansion-candidates.json",
+  "blocker_dataset_count": 2,
+  "expansion_candidate_count": 270,
+  "impacted_candidate_count": 135,
+  "unaffected_candidate_count": 135,
+  "public_release_ready": false,
+  "replacement_or_pointer_only_required": true,
+  "by_dataset": {
+    "tdiggelm/climate_fever": {
+      "candidate_count": 135,
+      "categories": [
+        "stale-vs-current document conflicts",
+        "source authority conflicts",
+        "evidence insufficiency / abstention",
+        "temporal questions: as of date X",
+        "cross-document contradiction"
+      ],
+      "batches": [
+        "hgr_scale_batch_04",
+        "hgr_scale_batch_05",
+        "hgr_scale_batch_06",
+        "hgr_scale_batch_13",
+        "hgr_scale_batch_14",
+        "hgr_scale_batch_15",
+        "hgr_scale_batch_16",
+        "hgr_scale_batch_17",
+        "hgr_scale_batch_18",
+        "hgr_scale_batch_25",
+        "hgr_scale_batch_26",
+        "hgr_scale_batch_27",
+        "hgr_scale_batch_28",
+        "hgr_scale_batch_29",
+        "hgr_scale_batch_30"
+      ]
+    },
+    "Pavithree/eli5": {
+      "candidate_count": 27,
+      "categories": [
+        "source authority conflicts"
+      ],
+      "batches": [
+        "hgr_scale_batch_13",
+        "hgr_scale_batch_14",
+        "hgr_scale_batch_15"
+      ]
+    }
+  },
+  "by_category": {
+    "stale-vs-current document conflicts": {
+      "candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ]
+    },
+    "source authority conflicts": {
+      "candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ]
+    },
+    "evidence insufficiency / abstention": {
+      "candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ]
+    },
+    "temporal questions: as of date X": {
+      "candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ]
+    },
+    "cross-document contradiction": {
+      "candidate_count": 27,
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ]
+    }
+  },
+  "impacted_candidates": [
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_001",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_002",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_003",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_004",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_005",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_006",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_007",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_008",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_04_candidate_009",
+      "batch_id": "hgr_scale_batch_04",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_001",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_002",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_003",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_004",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_005",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_006",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_007",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_008",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_05_candidate_009",
+      "batch_id": "hgr_scale_batch_05",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_001",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_002",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_003",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_004",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_005",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_006",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_007",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_008",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_06_candidate_009",
+      "batch_id": "hgr_scale_batch_06",
+      "category": "stale-vs-current document conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_001",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_002",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_003",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_004",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_005",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_006",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_007",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_008",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_13_candidate_009",
+      "batch_id": "hgr_scale_batch_13",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_001",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_002",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_003",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_004",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_005",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_006",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_007",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_008",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_14_candidate_009",
+      "batch_id": "hgr_scale_batch_14",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_001",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_002",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_003",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_004",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_005",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_006",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_007",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "2bln8r"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_008",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "48hjn0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_15_candidate_009",
+      "batch_id": "hgr_scale_batch_15",
+      "category": "source authority conflicts",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        },
+        {
+          "dataset_id": "Pavithree/eli5",
+          "source_row_id": "20wt9u"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_001",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_002",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_003",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_004",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_005",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_006",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_007",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_008",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_16_candidate_009",
+      "batch_id": "hgr_scale_batch_16",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_001",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_002",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_003",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_004",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_005",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_006",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_007",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_008",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_17_candidate_009",
+      "batch_id": "hgr_scale_batch_17",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_001",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_002",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_003",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_004",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_005",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_006",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_007",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_008",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_18_candidate_009",
+      "batch_id": "hgr_scale_batch_18",
+      "category": "evidence insufficiency / abstention",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_001",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_002",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_003",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_004",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_005",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_006",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_007",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_008",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_25_candidate_009",
+      "batch_id": "hgr_scale_batch_25",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_001",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_002",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_003",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_004",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_005",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_006",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_007",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_008",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_26_candidate_009",
+      "batch_id": "hgr_scale_batch_26",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_001",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_002",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_003",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_004",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_005",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_006",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_007",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_008",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_27_candidate_009",
+      "batch_id": "hgr_scale_batch_27",
+      "category": "temporal questions: as of date X",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_001",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_002",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_003",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_004",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_005",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_006",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_007",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_008",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_28_candidate_009",
+      "batch_id": "hgr_scale_batch_28",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_001",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_002",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_003",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_004",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_005",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_006",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_007",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_008",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_29_candidate_009",
+      "batch_id": "hgr_scale_batch_29",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_001",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_002",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_003",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_004",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_005",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_006",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_007",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "0"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_008",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "5"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    },
+    {
+      "candidate_id": "hgr_scale_batch_30_candidate_009",
+      "batch_id": "hgr_scale_batch_30",
+      "category": "cross-document contradiction",
+      "blocked_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "source_row_ids": [
+        {
+          "dataset_id": "tdiggelm/climate_fever",
+          "source_row_id": "6"
+        }
+      ],
+      "recommended_action": "replace_source_or_pointer_only_before_public_release"
+    }
+  ]
+}

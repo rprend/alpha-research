@@ -21,6 +21,7 @@ const inputs = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
+  licenseImpact: join(generatedDir, 'license-impact.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
 }
@@ -78,6 +79,7 @@ function buildGate({
   baselineAnalysis,
   modelRunIndex,
   licenseReview,
+  licenseImpact,
   packageManifest,
   publicPackageSummary,
 }) {
@@ -130,6 +132,12 @@ function buildGate({
       blocker: 'Resolve, replace, or pointer-only package unknown-license sources before public redistribution.',
     },
     {
+      id: 'license_impact_clear',
+      passed: Boolean(licenseImpact.public_release_ready),
+      detail: `${licenseImpact.impacted_candidate_count}/${licenseImpact.expansion_candidate_count} expansion candidates depend on unknown-license sources`,
+      blocker: 'Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release.',
+    },
+    {
       id: 'public_package_manifest_present',
       passed: Boolean(packageManifest.public_package_policy),
       detail: `${packageManifest.pointer_only_items} pointer-only items; ${packageManifest.pointer_only_evidence_units} pointer-only evidence units`,
@@ -180,6 +188,7 @@ function buildGate({
       baseline_analysis: 'generated/baseline-analysis.json',
       model_run_index: 'generated/model-run-index.json',
       license_review: 'generated/license-review.json',
+      license_impact: 'generated/license-impact.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
     },
@@ -241,6 +250,7 @@ const gate = buildGate({
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   modelRunIndex: readJson(inputs.modelRunIndex),
   licenseReview: readJson(inputs.licenseReview),
+  licenseImpact: readJson(inputs.licenseImpact),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageSummary: readJson(inputs.publicPackageSummary),
 })

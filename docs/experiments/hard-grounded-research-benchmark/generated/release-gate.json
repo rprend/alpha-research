@@ -15,6 +15,7 @@
     "baseline_analysis": "generated/baseline-analysis.json",
     "model_run_index": "generated/model-run-index.json",
     "license_review": "generated/license-review.json",
+    "license_impact": "generated/license-impact.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json"
   },
@@ -62,6 +63,12 @@
       "passed": false,
       "detail": "tdiggelm/climate_fever, Pavithree/eli5",
       "blocker": "Resolve, replace, or pointer-only package unknown-license sources before public redistribution."
+    },
+    {
+      "id": "license_impact_clear",
+      "passed": false,
+      "detail": "135/270 expansion candidates depend on unknown-license sources",
+      "blocker": "Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release."
     },
     {
       "id": "public_package_manifest_present",
@@ -129,6 +136,11 @@
       "id": "unknown_license_resolved",
       "detail": "tdiggelm/climate_fever, Pavithree/eli5",
       "blocker": "Resolve, replace, or pointer-only package unknown-license sources before public redistribution."
+    },
+    {
+      "id": "license_impact_clear",
+      "detail": "135/270 expansion candidates depend on unknown-license sources",
+      "blocker": "Replace unknown-license expansion sources or keep impacted candidates pointer-only before public release."
     },
     {
       "id": "frontier_or_open_model_results_present",

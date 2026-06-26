@@ -399,3 +399,11 @@ Decision: Add a separate merge-readiness report for expansion candidate reviews.
 Rationale: Completed expansion review rows are not enough for paper use if independent reviewers disagree. The scaled candidate path needs the same kind of agreement accounting as the pilot queue, plus category-fit and generation-defect agreement, while still forbidding automatic gold promotion.
 
 Consequence: `scripts/hard-grounded-research-expansion-review-merge.mjs` now emits `generated/expansion-review-merge-report.json`, `EXPANSION_REVIEW_MERGE_REPORT.md`, and an expansion resolution queue; the release gate now blocks on `expansion_review_merge_ready`.
+
+## 2026-06-26 — Quantify unknown-license impact on scaled candidates
+
+Decision: Add a generated license-impact queue for expansion candidates that use unknown-license upstream datasets.
+
+Rationale: The release gate already blocks on unknown-license sources, but paper-scale remediation needs item-level scope. Mapping blocker datasets to impacted expansion candidates makes it clear which categories and batches require replacement sources or pointer-only packaging before public release.
+
+Consequence: `scripts/hard-grounded-research-license-impact.mjs` now emits `generated/license-impact.json` and `LICENSE_IMPACT.md`; the release gate now blocks on `license_impact_clear`.

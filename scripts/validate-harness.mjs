@@ -206,9 +206,14 @@ const hardGroundedLicenseReviewSource = readFileSync(join(root, 'scripts/hard-gr
 for (const token of ['license-review.json', 'pointer_only_or_replace_before_public_release', 'Pavithree/eli5']) {
   assert(hardGroundedLicenseReviewSource.includes(token), `Hard grounded license review is missing license token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-license-impact.mjs')), 'Missing hard grounded research license impact builder.')
+const hardGroundedLicenseImpactSource = readFileSync(join(root, 'scripts/hard-grounded-research-license-impact.mjs'), 'utf8')
+for (const token of ['license-impact.json', 'impacted_candidate_count', 'replacement_or_pointer_only_required', 'replace_source_or_pointer_only_before_public_release']) {
+  assert(hardGroundedLicenseImpactSource.includes(token), `Hard grounded license impact is missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'license-review.json', 'public-package-manifest.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'license-review.json', 'license-impact.json', 'public-package-manifest.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')
