@@ -1139,3 +1139,13 @@ Reason: Prime auth is still blocked, but the next successful auth window should 
 Result: The runbook passes with status `ready_after_prime_auth_and_live_price`; the final-evidence checklist now marks `prime_runbook_ready` as passing. The auth/pricing gate still fails because the saved Prime key remains unauthorized and HF credits are insufficient.
 
 Tradeoff: This removes operational ambiguity from the paid run, but it is not authorization and not a model result. The Qwen 3B smoke still cannot run until a valid backend credential or credits are available and live pricing keeps total spend under `$100`.
+
+### D135. Add a fail-closed Qwen 3B result integration gate
+
+Decision: Add `grounded-qa-distillation-qwen3b-result-integration.mjs`, materialize `qwen3b-result-integration-joint-action-smoke-2026-06-26-v1`, validate it, and wire it into the final-evidence checklist, manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: After the Qwen 3B smoke and paid judge exist, the project needs an executable decision point rather than a manual interpretation step. The integration gate reads the future prediction result and `gpt-4o` judge result, computes answer rate, answer support, abstention support, overall judged correctness, citation recall, and answer F1, compares those metrics against the direct baseline and the 70% coverage-constrained frontier, and emits the exact Qwen row that should be added to the cost/coverage/support Pareto table. It defines the minimum acceptance target as answer rate at least 70%, answer support above the direct baseline, and overall judged correctness above the direct baseline, while separately reporting whether Qwen also beats the 70% frontier.
+
+Result: The current artifact correctly reports `waiting_for_qwen3b_predictions`, makes zero OpenAI calls, launches no GPU jobs, and records no spend. The final-evidence checklist now fails explicitly on `qwen3b_result_integrated` until real Qwen predictions and a paid judge are available.
+
+Tradeoff: This does not remove the backend-auth blocker and does not add model evidence. It prevents future overclaiming by forcing the Qwen result to be classified as strong positive, minimum positive, or negative before updating the Pareto table or manuscript.

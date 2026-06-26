@@ -1,0 +1,101 @@
+{
+  "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+  "generated_at": "2026-06-26T20:55:27.453Z",
+  "artifact_type": "qwen3b_result_integration",
+  "status": "waiting_for_qwen3b_predictions",
+  "purpose": "Fail-closed integration gate for the final Qwen 3B joint-action result: ingest prediction and paid judge artifacts, compare against direct and 70% coverage-constrained baselines, and produce the row that should be added to the Pareto table.",
+  "prediction_run_id": "joint-action-qwen3b-smoke-eval-v1",
+  "judge_run_id": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1",
+  "source_artifacts": {
+    "frontier_run_id": "coverage-constrained-support-frontier-2026-06-26-v1",
+    "pareto_run_id": "cost-coverage-support-pareto-2026-06-26-v1"
+  },
+  "artifact_status": {
+    "prediction": {
+      "run_id": "joint-action-qwen3b-smoke-eval-v1",
+      "complete": false,
+      "files": {
+        "predictions.jsonl": {
+          "exists": false,
+          "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
+          "bytes": 0
+        },
+        "result.json": {
+          "exists": false,
+          "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/result.json",
+          "bytes": 0
+        },
+        "report.md": {
+          "exists": false,
+          "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/report.md",
+          "bytes": 0
+        },
+        "smoke_manifest.json": {
+          "exists": false,
+          "path": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/smoke_manifest.json",
+          "bytes": 0
+        }
+      }
+    },
+    "judge": {
+      "run_id": "openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1",
+      "complete": false,
+      "files": {
+        "judgments.jsonl": {
+          "exists": false,
+          "path": "docs/experiments/grounded-qa-distillation/runs/openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1/judgments.jsonl",
+          "bytes": 0
+        },
+        "result.json": {
+          "exists": false,
+          "path": "docs/experiments/grounded-qa-distillation/runs/openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1/result.json",
+          "bytes": 0
+        }
+      }
+    }
+  },
+  "baseline_targets": {
+    "direct_baseline": {
+      "threshold": 0,
+      "answer_rate": 0.7903930131004366,
+      "answer_support_rate": 0.6519337016574586,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7248908296943232,
+      "answered": 181,
+      "abstained": 48,
+      "unsupported_answers": 63,
+      "unsupported_abstentions": 0
+    },
+    "seventy_percent_frontier": {
+      "threshold": 0.55,
+      "answer_rate": 0.7205240174672489,
+      "answer_support_rate": 0.6848484848484848,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7729257641921398,
+      "answered": 165,
+      "abstained": 64,
+      "unsupported_answers": 52,
+      "unsupported_abstentions": 0
+    },
+    "minimum_acceptance": "answer_rate >= 0.70, answer_support_rate > direct baseline, and overall_judged_correct_rate > direct baseline. Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed."
+  },
+  "qwen_metrics": null,
+  "target_comparison": null,
+  "pareto_row_to_add": null,
+  "pareto_update_instruction": "Waiting for Qwen predictions and paid judge before adding a Pareto row.",
+  "required_next_steps": [
+    "Run the bounded Qwen 3B smoke and fetch predictions/result/report/smoke manifest."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This integration script reads existing prediction/judge artifacts only."
+  }
+}

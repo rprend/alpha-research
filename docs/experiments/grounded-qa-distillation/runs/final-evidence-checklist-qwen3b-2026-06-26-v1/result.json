@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:50:04.424Z",
+  "generated_at": "2026-06-26T20:56:38.245Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -33,7 +33,8 @@
     "packet_quality_audit_run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
     "script_contract_audit_run_id": "joint-action-script-contract-audit-2026-06-26-v1",
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
-    "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1"
+    "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
+    "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1"
   },
   "expected_artifacts": {
     "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
@@ -100,6 +101,12 @@
       "evidence": "Paid judge cannot run until integrity and dry judge pass."
     },
     {
+      "id": "qwen3b_result_integrated",
+      "requirement": "Qwen 3B judged result is compared against direct and 70% coverage-constrained acceptance targets.",
+      "status": "fail",
+      "evidence": "Current status: waiting_for_qwen3b_predictions."
+    },
+    {
       "id": "qwen3b_on_pareto_table",
       "requirement": "Qwen 3B result is added to the cost/coverage/support table and compared with zero-call gates.",
       "status": "fail",
@@ -148,6 +155,11 @@
       "id": "run_post_smoke_pipeline_paid",
       "command": "node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true",
       "guard": "Only after integrity and dry judge pass, OPENAI_API_KEY is loaded, and total budget remains under $100."
+    },
+    {
+      "id": "integrate_qwen3b_result",
+      "command": "node scripts/grounded-qa-distillation-qwen3b-result-integration.mjs",
+      "guard": "Must run after Qwen predictions and paid judge exist; status determines whether the result is positive or negative."
     },
     {
       "id": "regenerate_paper_artifacts",

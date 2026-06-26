@@ -22,6 +22,7 @@ const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
+const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 
 const currentSpend = Number(budget.spend_usd.total_actual);
 const plannedGpuEstimate = Number(launchPlan.estimated_cost_usd ?? remotePlan.budget_context?.planned_gpu_estimate_usd ?? 4);
@@ -54,6 +55,7 @@ const acceptanceCriteria = [
   criterion("integrity_gate_ready", "Prediction integrity gate reaches ready_for_paid_judge.", integrityGate.conclusion?.status === "ready_for_paid_judge", `Current status: ${integrityGate.conclusion?.status}.`),
   criterion("dry_judge_full_coverage", "Dry judge accounts for all 69 final-window examples before any paid judge.", await dryJudgeCoversAll(judgePlan.judge_run_id + "-dry-run"), "Dry judge cannot run until predictions exist."),
   criterion("paid_judge_complete", "Paid grounded-correctness judge completes with positive calls and examples_judged.", await paidJudgeComplete(judgePlan.judge_run_id), "Paid judge cannot run until integrity and dry judge pass."),
+  criterion("qwen3b_result_integrated", "Qwen 3B judged result is compared against direct and 70% coverage-constrained acceptance targets.", String(qwenResultIntegration.status).includes("ready_for_pareto_update"), `Current status: ${qwenResultIntegration.status}.`),
   criterion("qwen3b_on_pareto_table", "Qwen 3B result is added to the cost/coverage/support table and compared with zero-call gates.", false, "The table currently has no trained Qwen 3B row."),
   criterion("manuscript_regenerated", "Evidence map, manuscript draft, readiness gate, and reviewer-risk audit are regenerated after the Qwen 3B judge.", false, "Current manuscript explicitly says Qwen 3B is missing."),
   criterion("novelty_refreshed_at_submission", "Novelty/paper search is refreshed immediately before any NeurIPS-ready claim.", false, "Current watchlist is useful but must be refreshed at final claim time."),
@@ -92,6 +94,7 @@ const result = {
     script_contract_audit_run_id: scriptContractAudit.run_id,
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     prime_runbook_run_id: primeRunbook.run_id,
+    qwen_result_integration_run_id: qwenResultIntegration.run_id,
   },
   expected_artifacts: expectedArtifacts,
   acceptance_criteria: acceptanceCriteria,
@@ -125,6 +128,11 @@ const result = {
       id: "run_post_smoke_pipeline_paid",
       command: `${judgePlan.commands.guarded_post_smoke_pipeline} --run-paid=true`,
       guard: "Only after integrity and dry judge pass, OPENAI_API_KEY is loaded, and total budget remains under $100.",
+    },
+    {
+      id: "integrate_qwen3b_result",
+      command: "node scripts/grounded-qa-distillation-qwen3b-result-integration.mjs",
+      guard: "Must run after Qwen predictions and paid judge exist; status determines whether the result is positive or negative.",
     },
     {
       id: "regenerate_paper_artifacts",

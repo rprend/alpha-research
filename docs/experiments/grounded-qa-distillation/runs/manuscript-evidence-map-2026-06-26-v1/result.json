@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:50:04.437Z",
+  "generated_at": "2026-06-26T20:56:38.546Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -157,6 +157,13 @@
         "terminate_pod"
       ],
       "interpretation": "The Prime handoff now has explicit auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps, but it still cannot run until Prime auth succeeds."
+    },
+    "qwen3b_result_integration_gate": {
+      "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+      "status": "waiting_for_qwen3b_predictions",
+      "target": "answer_rate >= 0.70, answer_support_rate > direct baseline, and overall_judged_correct_rate > direct baseline. Also report deltas to the 70% frontier; beating it is a stronger result, not silently assumed.",
+      "qwen_metrics_available": false,
+      "interpretation": "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim."
     }
   },
   "related_work_positioning": {
@@ -200,6 +207,7 @@
     "estimated_total_after_smoke_and_judge_usd": 10.345488650000012,
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
+    "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

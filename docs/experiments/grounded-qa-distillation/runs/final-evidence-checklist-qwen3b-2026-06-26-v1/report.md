@@ -1,6 +1,6 @@
 # Final Evidence Checklist
 
-Generated: 2026-06-26T20:50:04.424Z
+Generated: 2026-06-26T20:56:38.245Z
 
 Status: `final_evidence_missing`
 
@@ -25,6 +25,7 @@ Readiness gate: `not_paper_ready` (10/12 passing)
 | integrity_gate_ready | fail | Prediction integrity gate reaches ready_for_paid_judge. | Current status: waiting_for_qwen3b_predictions. |
 | dry_judge_full_coverage | fail | Dry judge accounts for all 69 final-window examples before any paid judge. | Dry judge cannot run until predictions exist. |
 | paid_judge_complete | fail | Paid grounded-correctness judge completes with positive calls and examples_judged. | Paid judge cannot run until integrity and dry judge pass. |
+| qwen3b_result_integrated | fail | Qwen 3B judged result is compared against direct and 70% coverage-constrained acceptance targets. | Current status: waiting_for_qwen3b_predictions. |
 | qwen3b_on_pareto_table | fail | Qwen 3B result is added to the cost/coverage/support table and compared with zero-call gates. | The table currently has no trained Qwen 3B row. |
 | manuscript_regenerated | fail | Evidence map, manuscript draft, readiness gate, and reviewer-risk audit are regenerated after the Qwen 3B judge. | Current manuscript explicitly says Qwen 3B is missing. |
 | novelty_refreshed_at_submission | fail | Novelty/paper search is refreshed immediately before any NeurIPS-ready claim. | Current watchlist is useful but must be refreshed at final claim time. |
@@ -43,7 +44,9 @@ Readiness gate: `not_paper_ready` (10/12 passing)
    Guard: Must reach ready_for_explicit_paid_judge before paid judge.
 6. `run_post_smoke_pipeline_paid`: `node scripts/grounded-qa-distillation-qwen3b-post-smoke-pipeline.mjs --prediction-run-id=joint-action-qwen3b-smoke-eval-v1 --packet-run-id=joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1 --run-id=qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1 --model=gpt-4o --split=extended_temporal_future_holdout --max-budget-usd=100 --run-paid=true`
    Guard: Only after integrity and dry judge pass, OPENAI_API_KEY is loaded, and total budget remains under $100.
-7. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
+7. `integrate_qwen3b_result`: `node scripts/grounded-qa-distillation-qwen3b-result-integration.mjs`
+   Guard: Must run after Qwen predictions and paid judge exist; status determines whether the result is positive or negative.
+8. `regenerate_paper_artifacts`: `node scripts/grounded-qa-distillation-total-budget.mjs && node scripts/grounded-qa-distillation-paper-readiness-gate.mjs && node scripts/grounded-qa-distillation-manuscript-evidence-map.mjs && node scripts/grounded-qa-distillation-manuscript-draft.mjs && node scripts/grounded-qa-distillation-reviewer-risk-audit.mjs`
    Guard: Readiness may only turn green if all final evidence artifacts exist and validate.
 
 ## Paper Claim Constraints

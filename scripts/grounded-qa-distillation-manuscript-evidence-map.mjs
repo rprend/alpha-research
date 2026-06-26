@@ -24,6 +24,7 @@ const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
+const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -139,6 +140,13 @@ const result = {
       runbook_steps: primeRunbook.runbook_steps.map((row) => row.id),
       interpretation: "The Prime handoff now has explicit auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps, but it still cannot run until Prime auth succeeds.",
     },
+    qwen3b_result_integration_gate: {
+      run_id: qwenResultIntegration.run_id,
+      status: qwenResultIntegration.status,
+      target: qwenResultIntegration.baseline_targets.minimum_acceptance,
+      qwen_metrics_available: Boolean(qwenResultIntegration.qwen_metrics),
+      interpretation: "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim.",
+    },
   },
   related_work_positioning: {
     drag_like: {
@@ -168,6 +176,7 @@ const result = {
     estimated_total_after_smoke_and_judge_usd: qwenRemote.budget_context.estimated_total_after_smoke_and_judge_usd,
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     prime_runbook_run_id: primeRunbook.run_id,
+    qwen_result_integration_run_id: qwenResultIntegration.run_id,
     current_pipeline_status: qwenPipeline.conclusion.status,
     blocked_claims: [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

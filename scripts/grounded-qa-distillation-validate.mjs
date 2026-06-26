@@ -72,6 +72,7 @@ if (!errors.length) {
   await validateJointActionScriptContractAuditRunsIfPresent();
   await validateJointActionSmokeLedgerFinalizerRunsIfPresent();
   await validatePrimeQwen3bSmokeRunbookRunsIfPresent();
+  await validateQwen3bResultIntegrationRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validatePrimeCliAuthRecheckRunsIfPresent();
@@ -1741,6 +1742,70 @@ async function validatePrimeQwen3bSmokeRunbookRunsIfPresent() {
     }
     if (!report.includes("prime --plain whoami") || !report.includes("terminate_pod")) {
       errors.push(`${entry.name}: report must expose auth and termination steps.`);
+    }
+  }
+}
+
+async function validateQwen3bResultIntegrationRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-result-integration-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B result integration artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_result_integration") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    const allowedStatuses = new Set([
+      "waiting_for_qwen3b_predictions",
+      "waiting_for_qwen3b_paid_judge",
+      "qwen3b_strong_positive_ready_for_pareto_update",
+      "qwen3b_minimum_positive_ready_for_pareto_update",
+      "qwen3b_negative_ready_for_pareto_update",
+    ]);
+    if (!allowedStatuses.has(result.status)) {
+      errors.push(`${entry.name}: unexpected integration status.`);
+    }
+    if (!result.baseline_targets?.direct_baseline || !result.baseline_targets?.seventy_percent_frontier) {
+      errors.push(`${entry.name}: missing direct or 70% frontier targets.`);
+    }
+    if (!result.artifact_status?.prediction || !result.artifact_status?.judge) {
+      errors.push(`${entry.name}: missing prediction/judge artifact status.`);
+    }
+    if (result.qwen_metrics) {
+      for (const key of ["answer_rate", "answer_support_rate", "overall_judged_correct_rate"]) {
+        const value = Number(result.qwen_metrics[key]);
+        if (!Number.isFinite(value) || value < 0 || value > 1) errors.push(`${entry.name}: invalid qwen metric ${key}.`);
+      }
+      if (!result.target_comparison || !result.pareto_row_to_add) {
+        errors.push(`${entry.name}: Qwen metrics require comparison and Pareto row.`);
+      }
+    } else if (result.status !== "waiting_for_qwen3b_predictions" && result.status !== "waiting_for_qwen3b_paid_judge") {
+      errors.push(`${entry.name}: missing Qwen metrics for terminal integration status.`);
+    }
+    if (!Array.isArray(result.required_next_steps) || !result.required_next_steps.length) {
+      errors.push(`${entry.name}: integration must include required next steps.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: integration must be zero actual cost.`);
+    }
+    if (!report.includes("Qwen 3B Result Integration") || !report.includes("Required Next Steps")) {
+      errors.push(`${entry.name}: integration report must expose result and next steps.`);
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:50:10.742Z",
+  "generated_at": "2026-06-26T20:56:45.412Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -29,10 +29,11 @@
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
         "joint-action-packet-quality-audit-2026-06-26-v1",
         "joint-action-script-contract-audit-2026-06-26-v1",
+        "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
         "final-evidence-checklist-qwen3b-2026-06-26-v1",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"
       ],
-      "mitigation_done": "The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. joint-action-packet-quality-audit-2026-06-26-v1 verifies 244 SFT rows and 80 DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. joint-action-script-contract-audit-2026-06-26-v1 runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. final-evidence-checklist-qwen3b-2026-06-26-v1 enumerates the exact final artifacts that must exist before this blocker can close.",
+      "mitigation_done": "The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. joint-action-packet-quality-audit-2026-06-26-v1 verifies 244 SFT rows and 80 DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. joint-action-script-contract-audit-2026-06-26-v1 runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. qwen3b-result-integration-joint-action-smoke-2026-06-26-v1 will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim. final-evidence-checklist-qwen3b-2026-06-26-v1 enumerates the exact final artifacts that must exist before this blocker can close.",
       "required_next_evidence": [
         "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
         "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
@@ -54,7 +55,8 @@
       "required_next_evidence": [
         "Integrity gate status ready_for_paid_judge",
         "Dry judge covers all 69 final-window examples",
-        "Paid openai-judge run with positive calls_made and examples_judged"
+        "Paid openai-judge run with positive calls_made and examples_judged",
+        "Qwen result integration status ready_for_pareto_update"
       ]
     },
     {
@@ -119,12 +121,14 @@
         "cost-coverage-support-pareto-2026-06-26-v1",
         "post-training-policy-ablation-2026-06-26-v1",
         "coverage-constrained-support-frontier-2026-06-26-v1",
+        "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
         "manuscript-draft-2026-06-26-v1"
       ],
       "mitigation_done": "cost-coverage-support-pareto-2026-06-26-v1 maps 6 current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; post-training-policy-ablation-2026-06-26-v1 aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only 57.6% of rows; coverage-constrained-support-frontier-2026-06-26-v1 replays thresholds and shows the 70% answer-rate operating point reaches 68.5% answer support and 77.3% judged correctness; the draft frames coverage as a central metric.",
       "required_next_evidence": [
         "Report answer rate, abstention correctness, support, and utility together.",
-        "Compare trained Qwen 3B against zero-call gates on both correctness and coverage."
+        "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",
+        "Use qwen3b-result-integration to decide whether the result meets the minimum target or is a negative result."
       ]
     },
     {
@@ -157,6 +161,7 @@
     "Record actual GPU cost with the smoke ledger finalizer and regenerate total budget.",
     "Run the Qwen 3B prediction integrity gate and default post-smoke dry judge.",
     "Run the paid grounded-correctness judge only after the dry gate passes.",
+    "Run Qwen result integration and update the Pareto/frontier table with the actual judged row.",
     "Refresh the novelty watchlist/web search immediately before making a submission-ready claim.",
     "Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit."
   ],

@@ -28,6 +28,7 @@ const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2
 const scriptContractAudit = await readResult("joint-action-script-contract-audit-2026-06-26-v1");
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
+const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
@@ -43,10 +44,11 @@ const risks = [
       remoteSmoke.run_id,
       packetQualityAudit.run_id,
       scriptContractAudit.run_id,
+      qwenResultIntegration.run_id,
       finalEvidenceChecklist.run_id,
       evidenceMap.qwen3b_required_final_result.remote_smoke_plan_run_id,
     ],
-    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${scriptContractAudit.run_id} runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
+    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${scriptContractAudit.run_id} runs zero-cost local compile, packet-validator, Bash syntax, bounded-command, and judge-ready artifact checks. ${qwenResultIntegration.run_id} will compare the judged Qwen result against direct and 70% coverage-constrained targets before any Pareto claim. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
     required_next_evidence: [
       "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
       "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
@@ -69,6 +71,7 @@ const risks = [
       "Integrity gate status ready_for_paid_judge",
       "Dry judge covers all 69 final-window examples",
       "Paid openai-judge run with positive calls_made and examples_judged",
+      "Qwen result integration status ready_for_pareto_update",
     ],
   },
   {
@@ -133,12 +136,14 @@ const risks = [
       costCoveragePareto.run_id,
       policyAblation.run_id,
       coverageFrontier.run_id,
+      qwenResultIntegration.run_id,
       draft.run_id,
     ],
     mitigation_done: `${costCoveragePareto.run_id} maps ${costCoveragePareto.systems.length} current systems across answer rate, answer support, judged correctness, citation recall, and online calls/query; ${policyAblation.run_id} aggregates existing judged post-training/data policies and shows support-risk gated labels are strongest by judged correctness/support but answer only ${(100 * policyAblation.families.find((row) => row.id === "support_risk_gated_labels").aggregate.answer_rate).toFixed(1)}% of rows; ${coverageFrontier.run_id} replays thresholds and shows the 70% answer-rate operating point reaches ${(100 * coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7).selected.answer_support_rate).toFixed(1)}% answer support and ${(100 * coverageFrontier.coverage_constrained_operating_points.find((row) => row.min_answer_rate === 0.7).selected.overall_judged_correct_rate).toFixed(1)}% judged correctness; the draft frames coverage as a central metric.`,
     required_next_evidence: [
       "Report answer rate, abstention correctness, support, and utility together.",
       "Compare trained Qwen 3B against zero-call gates on both correctness and coverage.",
+      "Use qwen3b-result-integration to decide whether the result meets the minimum target or is a negative result.",
     ],
   },
   {
@@ -189,6 +194,7 @@ const result = {
     "Record actual GPU cost with the smoke ledger finalizer and regenerate total budget.",
     "Run the Qwen 3B prediction integrity gate and default post-smoke dry judge.",
     "Run the paid grounded-correctness judge only after the dry gate passes.",
+    "Run Qwen result integration and update the Pareto/frontier table with the actual judged row.",
     "Refresh the novelty watchlist/web search immediately before making a submission-ready claim.",
     "Regenerate the evidence map, manuscript draft, readiness gate, and this risk audit.",
   ],
