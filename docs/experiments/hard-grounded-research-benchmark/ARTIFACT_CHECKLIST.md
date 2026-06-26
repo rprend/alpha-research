@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 44/44
-- Reproduction commands: 49
+- Artifact classes ready: 45/45
+- Reproduction commands: 50
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -52,17 +52,18 @@ This generated checklist makes the benchmark package auditable as a research art
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=49; validations=3; hashes=57. |
-| citation_metadata | ready | citation-metadata-v1; caveats=5; artifact hashes=57; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=50; validations=3; hashes=59. |
+| citation_metadata | ready | citation-metadata-v1; caveats=5; artifact hashes=59; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=57; bytes=717692. |
+| version_manifest | ready | version-manifest-v1; artifacts=59; bytes=727265. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
 | novelty_link_audit | ready | novelty-link-audit-v1; checked=4; quarantined=4; title mismatches=1. |
-| novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 4 quarantined source links; 5 prohibited claims; refresh queries=4. |
+| novelty_replacement_candidates | ready | novelty-replacement-candidates-v1; candidates=6; verified=5; covered quarantined=4. |
+| novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 5 prohibited claims; refresh queries=4. |
 
 ## Reproduction Commands
 
@@ -82,6 +83,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh novelty source review packets | `node scripts/hard-grounded-research-novelty-source-review-packets.mjs` |
 | Refresh novelty claim revision plan | `node scripts/hard-grounded-research-novelty-claim-revision-plan.mjs` |
 | Refresh novelty link audit | `node scripts/hard-grounded-research-novelty-link-audit.mjs` |
+| Refresh novelty replacement candidates | `node scripts/hard-grounded-research-novelty-replacement-candidates.mjs` |
 | Refresh public package integrity | `node scripts/hard-grounded-research-public-package-integrity.mjs` |
 | Refresh public package schema | `node scripts/hard-grounded-research-public-package-schema.mjs` |
 | Refresh source diversity plan | `node scripts/hard-grounded-research-source-diversity-plan.mjs` |

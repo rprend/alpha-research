@@ -18,6 +18,7 @@ const inputs = {
   noveltySourceReviewPackets: join(generatedDir, 'novelty-source-review-packets.json'),
   noveltyClaimRevisionPlan: join(generatedDir, 'novelty-claim-revision-plan.json'),
   noveltyLinkAudit: join(generatedDir, 'novelty-link-audit.json'),
+  noveltyReplacementCandidates: join(generatedDir, 'novelty-replacement-candidates.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
@@ -142,6 +143,7 @@ function buildGate({
   noveltySourceReviewPackets,
   noveltyClaimRevisionPlan,
   noveltyLinkAudit,
+  noveltyReplacementCandidates,
   goldSummary,
   annotationProtocol,
   reviewPreflight,
@@ -756,6 +758,15 @@ function buildGate({
       blocker: 'Generate a link audit that quarantines invalid or unverified novelty watchlist URLs before final novelty adjudication.',
     },
     {
+      id: 'novelty_replacement_candidates_ready',
+      passed:
+        Boolean(noveltyReplacementCandidates.novelty_replacement_candidates_ready) &&
+        noveltyReplacementCandidates.summary?.covered_quarantined_sources === noveltyLinkAudit.summary?.quarantined_sources &&
+        noveltyReplacementCandidates.summary?.completion_claim_allowed === false,
+      detail: `${noveltyReplacementCandidates.version}; candidates=${noveltyReplacementCandidates.summary?.candidates ?? 0}; verified=${noveltyReplacementCandidates.summary?.verified_title_match_candidates ?? 'unknown'}; covered_quarantined=${noveltyReplacementCandidates.summary?.covered_quarantined_sources ?? 'unknown'}`,
+      blocker: 'Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication.',
+    },
+    {
       id: 'corpus_audit_ready',
       passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
@@ -898,6 +909,7 @@ function buildGate({
       novelty_source_review_packets: 'generated/novelty-source-review-packets.json',
       novelty_claim_revision_plan: 'generated/novelty-claim-revision-plan.json',
       novelty_link_audit: 'generated/novelty-link-audit.json',
+      novelty_replacement_candidates: 'generated/novelty-replacement-candidates.json',
       gold_summary: 'generated/gold-suite-summary.json',
       annotation_protocol: 'generated/annotation-protocol.json',
       review_preflight: 'generated/review-preflight.json',
@@ -1025,6 +1037,7 @@ const gate = buildGate({
   noveltySourceReviewPackets: readJson(inputs.noveltySourceReviewPackets),
   noveltyClaimRevisionPlan: readJson(inputs.noveltyClaimRevisionPlan),
   noveltyLinkAudit: readJson(inputs.noveltyLinkAudit),
+  noveltyReplacementCandidates: readJson(inputs.noveltyReplacementCandidates),
   goldSummary: readJson(inputs.goldSummary),
   annotationProtocol: readJson(inputs.annotationProtocol),
   reviewPreflight: readJson(inputs.reviewPreflight),

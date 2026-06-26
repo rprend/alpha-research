@@ -17,6 +17,7 @@ const requiredInputs = {
   noveltySourceReviewPackets: join(generatedDir, 'novelty-source-review-packets.json'),
   noveltyClaimRevisionPlan: join(generatedDir, 'novelty-claim-revision-plan.json'),
   noveltyLinkAudit: join(generatedDir, 'novelty-link-audit.json'),
+  noveltyReplacementCandidates: join(generatedDir, 'novelty-replacement-candidates.json'),
   datasetCard: join(experimentDir, 'DATASET_CARD.md'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -267,7 +268,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, goldAdjudicationPlan, scaleAdjudicationPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, goldAdjudicationPlan, scaleAdjudicationPlan, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -520,6 +521,8 @@ The generated novelty claim revision plan maps the unresolved packets to ${novel
 
 The generated novelty link audit currently quarantines ${noveltyLinkAudit.summary.quarantined_sources}/${noveltyLinkAudit.summary.checked_sources} unresolved related-work links because the recorded URL is missing, mismatched, or not verified as a primary source. These quarantines must be cleared before the related-work review can support a final novelty claim.
 
+The generated novelty replacement-candidate report supplies ${noveltyReplacementCandidates.summary.candidates} primary-source candidates for those quarantined links, including ${noveltyReplacementCandidates.summary.verified_title_match_candidates} verified title matches and ${noveltyReplacementCandidates.summary.candidate_title_conflicts} source that remains explicitly caveated before citation.
+
 ${markdownTable(['Paper claim', 'Status', 'Reason'], noveltyClaimBoundaryRows(noveltyEvidence))}
 
 ## Adversarial Related-Work Comparison
@@ -576,6 +579,7 @@ const draft = renderDraft({
   noveltySourceReviewPackets: readJson(requiredInputs.noveltySourceReviewPackets),
   noveltyClaimRevisionPlan: readJson(requiredInputs.noveltyClaimRevisionPlan),
   noveltyLinkAudit: readJson(requiredInputs.noveltyLinkAudit),
+  noveltyReplacementCandidates: readJson(requiredInputs.noveltyReplacementCandidates),
   goldSummary: readJson(requiredInputs.goldSummary),
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),
   itemQualityAudit: readJson(requiredInputs.itemQualityAudit),

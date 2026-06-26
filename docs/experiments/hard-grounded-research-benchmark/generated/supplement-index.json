@@ -12,6 +12,7 @@
     "novelty_source_review_packets": "generated/novelty-source-review-packets.json",
     "novelty_claim_revision_plan": "generated/novelty-claim-revision-plan.json",
     "novelty_link_audit": "generated/novelty-link-audit.json",
+    "novelty_replacement_candidates": "generated/novelty-replacement-candidates.json",
     "data_statement": "generated/data-statement.json",
     "public_package_integrity": "generated/public-package-integrity.json",
     "public_package_schema": "generated/public-package-schema.json",
@@ -73,6 +74,7 @@
         "NOVELTY_SOURCE_REVIEW_PACKETS.md",
         "NOVELTY_CLAIM_REVISION_PLAN.md",
         "NOVELTY_LINK_AUDIT.md",
+        "NOVELTY_REPLACEMENT_CANDIDATES.md",
         "ANALYSIS_PLAN.md",
         "POWER_PLAN.md"
       ],
@@ -225,8 +227,8 @@
   ],
   "release_state": {
     "status": "blocked",
-    "passing_checks": 75,
-    "total_checks": 82,
+    "passing_checks": 76,
+    "total_checks": 83,
     "blockers": [
       "gold_review_complete",
       "review_preflight_ready",
@@ -249,10 +251,11 @@
     "novelty_source_review_packets": 4,
     "novelty_claim_revisions": 4,
     "novelty_link_quarantined_sources": 4,
-    "artifact_hashes": 57,
+    "novelty_replacement_candidates": 6,
+    "artifact_hashes": 59,
     "public_package_findings": 0,
     "public_package_schema_violations": 0,
-    "artifact_classes": 44,
+    "artifact_classes": 45,
     "model_reporting_fields": 11,
     "citation_caveats": 5,
     "review_rows_remaining": 600,
@@ -263,7 +266,7 @@
     "review_collection_missing_packets": 30,
     "gold_adjudication_missing_reviews": 60,
     "scale_adjudication_missing_review_rows": 540,
-    "reproduction_commands": 49,
+    "reproduction_commands": 50,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

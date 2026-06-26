@@ -1,0 +1,137 @@
+{
+  "novelty_replacement_candidates_ready": true,
+  "version": "novelty-replacement-candidates-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "final_novelty_claim_allowed": false,
+  "generated_from": {
+    "novelty_link_audit": "generated/novelty-link-audit.json",
+    "novelty_claim_revision_plan": "generated/novelty-claim-revision-plan.json",
+    "web_search": "2026-06-26 verified primary-source candidate search for quarantined novelty links"
+  },
+  "checks": [
+    {
+      "id": "quarantined_sources_loaded",
+      "passed": true,
+      "detail": "4/4 quarantined source ids loaded"
+    },
+    {
+      "id": "replacement_candidates_present",
+      "passed": true,
+      "detail": "6 replacement/supplement candidates for 4 quarantined sources"
+    },
+    {
+      "id": "quarantined_sources_covered",
+      "passed": true,
+      "detail": "faithjudge-2026=2; faithfulness-qa-2026=1; dora-2026=1; hierarag-2026=2"
+    },
+    {
+      "id": "final_claims_still_blocked",
+      "passed": true,
+      "detail": "completion_claim_allowed=false; final_novelty_claim_allowed=false"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "faithfulness-qa-2026-verified",
+      "title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "url": "https://arxiv.org/abs/2604.25313",
+      "primary_source_status": "verified_title_match",
+      "replaces_or_supplements": [
+        "faithfulness-qa-2026"
+      ],
+      "pressure_points": [
+        "entity disambiguation",
+        "stale-vs-current document conflicts",
+        "citation supports fact but not conclusion"
+      ],
+      "audit_role": "Replace the mismatched Faithfulness-QA URL before claim revision or citation.",
+      "required_review": "Compare counterfactual-context faithfulness against this benchmark category taxonomy and conclusion-support scoring."
+    },
+    {
+      "id": "faitheval-2024",
+      "title": "FaithEval: Can Your Language Model Stay Faithful to Context, Even If Context Is Noisy?",
+      "url": "https://arxiv.org/abs/2410.03727",
+      "primary_source_status": "verified_title_match",
+      "replaces_or_supplements": [
+        "faithjudge-2026"
+      ],
+      "pressure_points": [
+        "citation supports fact but not conclusion",
+        "evidence insufficiency / abstention"
+      ],
+      "audit_role": "Use as a verified faithfulness/noisy-context adjacent benchmark if FaithJudge remains unverified.",
+      "required_review": "Determine whether noisy-context faithfulness overlaps conclusion-level support failures or remains an adjacent context-faithfulness benchmark."
+    },
+    {
+      "id": "confiqua-context-dpo-2024",
+      "title": "ConFiQA and Context-DPO: Controlling Hallucination in Question Answering",
+      "url": "https://arxiv.org/abs/2408.10343",
+      "primary_source_status": "verified_title_match",
+      "replaces_or_supplements": [
+        "faithjudge-2026"
+      ],
+      "pressure_points": [
+        "evidence insufficiency / abstention",
+        "citation supports fact but not conclusion"
+      ],
+      "audit_role": "Use as a verified QA hallucination-control comparator for abstention and unsupported-answer claims.",
+      "required_review": "Check whether its unsupported-answer control covers the same abstention/evidence-insufficiency construct."
+    },
+    {
+      "id": "legalbench-rag-2024",
+      "title": "LegalBench-RAG: A Benchmark for Retrieval-Augmented Generation in the Legal Domain",
+      "url": "https://arxiv.org/abs/2408.10343",
+      "primary_source_status": "candidate_title_conflict",
+      "replaces_or_supplements": [
+        "dora-2026"
+      ],
+      "pressure_points": [
+        "source authority conflicts",
+        "large-corpus research QA"
+      ],
+      "audit_role": "Use only after primary-source URL correction; current URL collides with ConFiQA search result and must not be cited as verified.",
+      "required_review": "Find and verify the primary source before using this as a domain-RAG comparator."
+    },
+    {
+      "id": "finegrained-rag-2026",
+      "title": "Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2605.07471",
+      "primary_source_status": "verified_title_match",
+      "replaces_or_supplements": [
+        "hierarag-2026"
+      ],
+      "pressure_points": [
+        "generic RAG benchmark claim",
+        "benchmark taxonomy framing"
+      ],
+      "audit_role": "Use as a verified generic/fine-grained RAG benchmark comparator before making taxonomy novelty claims.",
+      "required_review": "Compare its retrieval/generation error taxonomy against hard-grounded categories and remove generic RAG-benchmark novelty language."
+    },
+    {
+      "id": "grace-2026",
+      "title": "GRACE: A Diagnostic Benchmark for Contextual Reasoning in Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2606.11418",
+      "primary_source_status": "verified_title_match",
+      "replaces_or_supplements": [
+        "hierarag-2026"
+      ],
+      "pressure_points": [
+        "multi-hop synthesis",
+        "cross-document contradiction",
+        "temporal questions: as of date X"
+      ],
+      "audit_role": "Use as a verified contextual-reasoning RAG comparator before finalizing hard-grounded reasoning novelty claims.",
+      "required_review": "Determine whether its contextual reasoning tasks subsume any hard-grounded categories or only overlap at the broad RAG-diagnostic level."
+    }
+  ],
+  "summary": {
+    "quarantined_sources": 4,
+    "candidates": 6,
+    "verified_title_match_candidates": 5,
+    "candidate_title_conflicts": 1,
+    "covered_quarantined_sources": 4,
+    "final_novelty_claim_allowed": false,
+    "completion_claim_allowed": false
+  }
+}

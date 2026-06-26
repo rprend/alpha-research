@@ -12,6 +12,7 @@
     "novelty_source_review_packets": "generated/novelty-source-review-packets.json",
     "novelty_claim_revision_plan": "generated/novelty-claim-revision-plan.json",
     "novelty_link_audit": "generated/novelty-link-audit.json",
+    "novelty_replacement_candidates": "generated/novelty-replacement-candidates.json",
     "gold_summary": "generated/gold-suite-summary.json",
     "annotation_protocol": "generated/annotation-protocol.json",
     "review_preflight": "generated/review-preflight.json",
@@ -384,13 +385,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=49; hashes=57; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=50; hashes=59; blockers=7",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=57; caveats=5; release_blockers=7",
+      "detail": "citation-metadata-v1; artifact_hashes=59; caveats=5; release_blockers=7",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -496,6 +497,12 @@
       "blocker": "Generate a link audit that quarantines invalid or unverified novelty watchlist URLs before final novelty adjudication."
     },
     {
+      "id": "novelty_replacement_candidates_ready",
+      "passed": true,
+      "detail": "novelty-replacement-candidates-v1; candidates=6; verified=5; covered_quarantined=4",
+      "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
+    },
+    {
       "id": "corpus_audit_ready",
       "passed": true,
       "detail": "6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108",
@@ -564,13 +571,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "44/44 artifact classes ready; reproduction_commands=49; release_blockers=7",
+      "detail": "45/45 artifact classes ready; reproduction_commands=50; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=57; blockers=7; bytes=717692",
+      "detail": "version-manifest-v1; artifacts=59; blockers=7; bytes=727265",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

@@ -1039,3 +1039,11 @@ Decision: Quarantine unresolved novelty sources whose recorded URLs do not verif
 Rationale: A final novelty claim cannot rely on watchlist sources if the URL is missing, points to a different paper, or cannot be verified as a primary source. The related-work pipeline needs an explicit link audit before source dispositions, citation updates, and final novelty adjudication.
 
 Consequence: `scripts/hard-grounded-research-novelty-link-audit.mjs` emits `generated/novelty-link-audit.json` and `NOVELTY_LINK_AUDIT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the audit while final novelty and completion claims remain blocked until quarantined sources are replaced or verified.
+
+## 2026-06-26 — Add novelty replacement candidates
+
+Decision: Generate verified related-work replacement candidates for quarantined novelty sources.
+
+Rationale: The link audit correctly blocks final novelty on invalid or unverified URLs, but reviewers need a concrete path from quarantine to adjudication. A replacement-candidate report should map each quarantined source to verified or explicitly caveated primary-source candidates before claim-boundary revisions can be finalized.
+
+Consequence: `scripts/hard-grounded-research-novelty-replacement-candidates.mjs` emits `generated/novelty-replacement-candidates.json` and `NOVELTY_REPLACEMENT_CANDIDATES.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the candidates while final novelty and completion claims remain blocked until reviewers adjudicate overlap.
