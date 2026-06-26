@@ -639,3 +639,11 @@ Decision: Generate a corpus audit that quantifies pilot and scaled public suite 
 Rationale: The benchmark claims to expose large-corpus grounded research failures, but paper readers need an auditable corpus-level summary rather than scattered suite and package files. The audit should make source breadth and public packaging constraints inspectable without implying that machine-seeded or expansion items are gold.
 
 Consequence: `scripts/hard-grounded-research-corpus-audit.mjs` now emits `generated/corpus-audit.json` and `CORPUS_AUDIT.md`; the release gate, dataset card, paper draft, README, and harness contract record corpus-audit readiness while human-review and novelty blockers remain active.
+
+## 2026-06-26 — Bound novelty claims with adversarial June 2026 scan evidence
+
+Decision: Extend the novelty evidence and audit artifacts with explicit search-query provenance, additional close benchmarks, and allowed-versus-prohibited paper claims.
+
+Rationale: The literature scan shows that many individual axes are already crowded, including multi-hop RAG, temporal RAG, text/table RAG, contradiction, and citation faithfulness. A paper-worthy benchmark should make the defensible claim boundary inspectable instead of relying on a broad novelty statement.
+
+Consequence: The novelty scripts now record closer June 2026 adjacent work, generate claim-boundary tables, and expose a release-gate check for claim-boundary readiness while keeping the final novelty and human-review blockers active.

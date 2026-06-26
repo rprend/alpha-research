@@ -3,6 +3,48 @@
   "status": "preliminary",
   "checked_date": "2026-06-26",
   "completion_claim_allowed": false,
+  "search_queries": [
+    "2025 2026 benchmark grounded research QA large corpus multi-hop citation faithfulness temporal conflicts RAG benchmark",
+    "2025 2026 citation supports fact but not conclusion benchmark grounded QA RAG faithfulness",
+    "2026 temporal question answering stale current document conflict benchmark RAG",
+    "TEMPRAGEVAL temporal RAG benchmark 2025 arxiv",
+    "MultiHop-RAG benchmark 2024 multi-hop retrieval augmented generation",
+    "MAGIC benchmark multi-hop question answering RAG 2025"
+  ],
+  "allowed_claim_count": 1,
+  "prohibited_claim_count": 5,
+  "claim_boundaries": [
+    {
+      "claim": "Generic RAG benchmark",
+      "allowed": false,
+      "basis": "RAG benchmarks, long-context benchmarks, and domain RAG benchmarks are already abundant."
+    },
+    {
+      "claim": "Multi-hop RAG benchmark",
+      "allowed": false,
+      "basis": "MultiHop-RAG, BRIDGE, MAGIC, and OCC-RAG make this crowded as a standalone claim."
+    },
+    {
+      "claim": "Temporal RAG benchmark",
+      "allowed": false,
+      "basis": "ChronoQA, TEMPRAGEVAL, TDBench, and knowledge-drift work already cover temporal QA/RAG."
+    },
+    {
+      "claim": "Citation faithfulness benchmark",
+      "allowed": false,
+      "basis": "LongCite, step-context faithfulness, RAG faithfulness metrics, and FaithEval cover nearby citation/context faithfulness space."
+    },
+    {
+      "claim": "Unified hard-grounded research QA failure taxonomy beyond fact lookup",
+      "allowed": true,
+      "basis": "Allowed only if the paper presents reviewed items spanning lifecycle, authority, stale/current snapshots, conclusion overreach, insufficiency, entity ambiguity, table/text, multi-hop, temporal, and contradiction categories."
+    },
+    {
+      "claim": "Paper-ready and genuinely novel as of June 2026",
+      "allowed": false,
+      "basis": "Not allowed until human review, category scale, and final refreshed novelty audit are complete."
+    }
+  ],
   "novelty_position": "Plausibly differentiated only as a unified hard-grounded research QA failure taxonomy; not novel as generic RAG, citation, temporal, contradiction, or multi-hop QA.",
   "high_novelty_risk_categories": 5,
   "sources": [
@@ -145,14 +187,62 @@
         "length-controllable tasks"
       ],
       "gap": "Targets long-context measurement validity, not grounded research QA failure categories or evidence-use semantics."
+    },
+    {
+      "id": "temprageval-2025",
+      "title": "TEMPRAGEVAL: Temporal RAG Evaluation",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2507.02457",
+      "covers": [
+        "temporal RAG",
+        "time-sensitive retrieval",
+        "temporal questions: as of date X"
+      ],
+      "gap": "Directly pressures temporal RAG, so the proposed benchmark must avoid claiming temporal QA novelty and instead focus on explicit stale/current document conflict plus citation snapshot validity."
+    },
+    {
+      "id": "multihop-rag-2024",
+      "title": "MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2401.15391",
+      "covers": [
+        "multi-hop synthesis",
+        "multi-document retrieval-augmented generation"
+      ],
+      "gap": "Directly covers multi-hop RAG, so multi-hop synthesis is only defensible as one failure mode inside the broader hard-grounded research taxonomy."
+    },
+    {
+      "id": "magic-2025",
+      "title": "MAGIC: A Multi-Hop and Generation-Intensive Chinese Benchmark for LLM Evaluation",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2506.05732",
+      "covers": [
+        "multi-hop synthesis",
+        "generation-intensive question answering"
+      ],
+      "gap": "Adds another close multi-hop/generation benchmark; the differentiator must be evidence semantics rather than generation difficulty."
+    },
+    {
+      "id": "faitheval-2024",
+      "title": "FaithEval: Can Your Language Model Stay Faithful to Context, Even If \"The Moon is Made of Marshmallows\"?",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2410.03727",
+      "covers": [
+        "context faithfulness",
+        "evidence insufficiency / abstention",
+        "counterfactual context following"
+      ],
+      "gap": "Close for context-faithfulness failures, but does not make conclusion-support overreach, source authority, and document lifecycle first-class research QA categories."
     }
   ],
   "category_coverage": [
     {
       "category": "multi-hop synthesis",
       "closest_sources": [
+        "multihop-rag-2024",
         "occ-rag-2026",
-        "bridge-2026"
+        "bridge-2026",
+        "magic-2025"
       ],
       "novelty_risk": "high",
       "differentiator": "Must be framed as one slice inside a broader hard-grounded research taxonomy, not as a standalone multi-hop benchmark."
@@ -161,7 +251,9 @@
       "category": "stale-vs-current document conflicts",
       "closest_sources": [
         "chronoqa-2025",
-        "occ-rag-2026"
+        "temprageval-2025",
+        "knowledge-drift-2025",
+        "faitheval-2024"
       ],
       "novelty_risk": "medium",
       "differentiator": "Focus on conflicting document snapshots and explicit stale-evidence rejection rather than generic temporal reasoning or counterfactual context faithfulness."
@@ -198,7 +290,8 @@
       "category": "evidence insufficiency / abstention",
       "closest_sources": [
         "occ-rag-2026",
-        "lit-ragbench-2026"
+        "lit-ragbench-2026",
+        "faitheval-2024"
       ],
       "novelty_risk": "high",
       "differentiator": "Abstention is not novel alone; contribution depends on pairing it with citation-overreach, authority, lifecycle, and temporal constraints."
@@ -207,7 +300,8 @@
       "category": "citation supports fact but not conclusion",
       "closest_sources": [
         "longcite-2024",
-        "lit-ragbench-2026"
+        "lit-ragbench-2026",
+        "faitheval-2024"
       ],
       "novelty_risk": "medium",
       "differentiator": "The key distinction is conclusion support, not whether the cited text is real or relevant to a subfact."
@@ -223,7 +317,9 @@
     {
       "category": "temporal questions: as of date X",
       "closest_sources": [
-        "chronoqa-2025"
+        "chronoqa-2025",
+        "temprageval-2025",
+        "tdbench-2025"
       ],
       "novelty_risk": "high",
       "differentiator": "Should be scoped to document snapshot validity and citation dates, not broad temporal QA."

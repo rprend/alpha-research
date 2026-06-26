@@ -328,6 +328,18 @@ function buildGate({
       blocker: 'Generate a source-backed related-work registry while keeping final novelty claims gated.',
     },
     {
+      id: 'novelty_claim_boundaries_ready',
+      passed:
+        Array.isArray(noveltyEvidence.search_queries) &&
+        noveltyEvidence.search_queries.length >= 5 &&
+        Array.isArray(noveltyEvidence.claim_boundaries) &&
+        noveltyEvidence.allowed_claim_count >= 1 &&
+        noveltyEvidence.prohibited_claim_count >= 3 &&
+        noveltyEvidence.completion_claim_allowed === false,
+      detail: `${noveltyEvidence.search_queries?.length ?? 0} search queries; ${noveltyEvidence.allowed_claim_count ?? 0} allowed claims; ${noveltyEvidence.prohibited_claim_count ?? 0} prohibited/unsupported claims`,
+      blocker: 'Record explicit novelty search provenance and paper claim boundaries before submission.',
+    },
+    {
       id: 'corpus_audit_ready',
       passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,

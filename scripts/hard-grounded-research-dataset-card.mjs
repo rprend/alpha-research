@@ -237,6 +237,7 @@ Key release checks:
 - Adjudication readiness: ${checkDetail(releaseGate, 'adjudication_readiness_ready')}
 - Annotator agreement: ${checkDetail(releaseGate, 'annotator_agreement_ready')}
 - Corpus audit: ${checkDetail(releaseGate, 'corpus_audit_ready')}
+- Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
 - Annotation import path: ${checkDetail(releaseGate, 'annotation_import_path_ready')}
 - Pilot promotion smoke: ${checkDetail(releaseGate, 'gold_promotion_smoke_ready')}

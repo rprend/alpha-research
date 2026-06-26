@@ -124,6 +124,14 @@ function noveltyComparisonRows(noveltyEvidence) {
   ])
 }
 
+function noveltyClaimBoundaryRows(noveltyEvidence) {
+  return noveltyEvidence.claim_boundaries.map((claim) => [
+    claim.paper_claim,
+    claim.allowed ? 'allowed with evidence' : 'prohibited / not yet supported',
+    claim.reason,
+  ])
+}
+
 function topApproachRows(approachScores) {
   return approachScores.map((approach) => [
     approach.name,
@@ -284,6 +292,10 @@ ${markdownTable(['Check', 'Passed', 'Detail'], releaseCheckRows(releaseGate))}
 The novelty audit currently rejects broad claims such as "a RAG benchmark with citations" or "a contradiction benchmark." The defensible novelty position is the combined failure-mode bundle: document lifecycle, source authority, temporal validity, table/text interpretation, citation-overreach, insufficiency, disambiguation, and contradiction inside one executable grounded research QA harness. The current novelty evidence registry contains ${noveltyEvidence.source_count} sources and still disallows completion claims.
 
 ${markdownTable(['Claim', 'Status', 'Reason'], noveltyEvidenceRows(noveltyEvidence))}
+
+The June 2026 scan records ${noveltyEvidence.search_queries.length} search-query probes and ${noveltyEvidence.prohibited_claim_count} prohibited or unsupported claim framings. The working paper must use the allowed claim boundary below, not the broader rejected framings.
+
+${markdownTable(['Paper claim', 'Status', 'Reason'], noveltyClaimBoundaryRows(noveltyEvidence))}
 
 ## Adversarial Related-Work Comparison
 

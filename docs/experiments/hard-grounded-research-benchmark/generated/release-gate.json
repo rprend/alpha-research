@@ -232,8 +232,14 @@
     {
       "id": "novelty_evidence_registry_present",
       "passed": true,
-      "detail": "18 related-work sources registered; completion_claim_allowed=false",
+      "detail": "22 related-work sources registered; completion_claim_allowed=false",
       "blocker": "Generate a source-backed related-work registry while keeping final novelty claims gated."
+    },
+    {
+      "id": "novelty_claim_boundaries_ready",
+      "passed": true,
+      "detail": "6 search queries; 1 allowed claims; 5 prohibited/unsupported claims",
+      "blocker": "Record explicit novelty search provenance and paper claim boundaries before submission."
     },
     {
       "id": "corpus_audit_ready",
