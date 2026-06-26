@@ -1,0 +1,125 @@
+{
+  "run_id": "claim-entailment-guard-balanced-risk-gate-240-389-v1",
+  "generated_at": "2026-06-26T10:10:21.554Z",
+  "split": "extended_temporal_future_holdout",
+  "scope": "balanced support-risk gate outputs on extended_temporal_future_holdout examples 241-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "cost_note": "This guard is deterministic and reuses existing GPT-4o judgments for support-oracle accounting.",
+  "metrics": {
+    "examples": 149,
+    "answered": 85,
+    "abstained": 64,
+    "answer_type_accuracy": 0.7046979865771812,
+    "citation_precision": 0.6696078431372549,
+    "citation_recall": 0.5506872852233676,
+    "answer_token_f1": 0.24072336031625483,
+    "abstention_accuracy": 0.7046979865771812,
+    "inline_citation_rate": 1
+  },
+  "inherited_support_oracle_metrics": {
+    "examples": 149,
+    "baseline_correct": 119,
+    "baseline_correct_rate": 0.7986577181208053,
+    "guard_correct_oracle": 122,
+    "guard_correct_oracle_rate": 0.8187919463087249,
+    "delta_correct": 3,
+    "delta_correct_rate": 0.020134228187919462,
+    "answer_support_rate_after_guard": 0.7294117647058823
+  },
+  "guard_summary": {
+    "examples": 149,
+    "answered_before": 90,
+    "answered_after": 85,
+    "guard_fired": 5,
+    "suppressed_unsupported_answers": 4,
+    "harmful_suppressed_supported_answers": 1,
+    "fire_rate_over_answered": 0.05555555555555555
+  },
+  "reason_counts": {
+    "unsupported_comparative_or_superlative": 4,
+    "unsupported_number": 1,
+    "unsupported_quantifier": 1
+  },
+  "examples": [
+    {
+      "example_id": "2004.02105:e25b73f700e8c958b64951f14a71bc60d225125c",
+      "window": "241-320",
+      "interpretation": "suppressed_unsupported_answer",
+      "reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "unsupported_numbers": [],
+      "unsupported_terms": [
+        "outperformed"
+      ],
+      "upstream_support_score": 0.846302791513566,
+      "gate_verdict": "unsupported",
+      "answer_preview": "The results indicate that all selection methods performed better in terms of BLEU than random selection, and they also outperformed using all available data or oracle-selected data when averaged across all domains, suggesting that data selection is benefici..."
+    },
+    {
+      "example_id": "2004.02192:b3de9357c569fb1454be8f2ac5fcecaea295b967",
+      "window": "241-320",
+      "interpretation": "suppressed_unsupported_answer",
+      "reasons": [
+        "unsupported_number",
+        "unsupported_quantifier"
+      ],
+      "unsupported_numbers": [
+        "10000"
+      ],
+      "unsupported_terms": [
+        "total"
+      ],
+      "upstream_support_score": 0.6782572642505124,
+      "gate_verdict": "unsupported",
+      "answer_preview": "The dataset contains a total of 10,000 tweets, which includes 1,915 offensive tweets and 8,085 clean tweets [E3]."
+    },
+    {
+      "example_id": "2004.02334:1f2952cd1dc0c891232fa678b6c219f6b4d31958:counterfactual-insufficient",
+      "window": "241-320",
+      "interpretation": "suppressed_unsupported_answer",
+      "reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "unsupported_numbers": [],
+      "unsupported_terms": [
+        "shorter"
+      ],
+      "upstream_support_score": 0.6912267201485958,
+      "gate_verdict": "unsupported",
+      "answer_preview": "The better performer in terms of vocabulary size is the one that results in shorter sequences, as shorter sequences are desired for the autoregressor setting. [E2] [E3]"
+    },
+    {
+      "example_id": "2004.03034:ca26cfcc755f9d0641db0e4d88b4109b903dbb26:counterfactual-insufficient",
+      "window": "321-389",
+      "interpretation": "suppressed_unsupported_answer",
+      "reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "unsupported_numbers": [],
+      "unsupported_terms": [
+        "outperform",
+        "outperforms"
+      ],
+      "upstream_support_score": 0.7316277592453989,
+      "gate_verdict": "partial",
+      "answer_preview": "The results of the BERT model with larger context representations significantly outperform the baseline models, particularly for claims with context lengths of 3 and 4, achieving better F1 scores than the BERT model without context. Specifically, the additi..."
+    },
+    {
+      "example_id": "2004.04060:2fec84a62b4028bbe6500754d9c058eefbc24d9a",
+      "window": "321-389",
+      "interpretation": "harmful_suppression_supported_answer",
+      "reasons": [
+        "unsupported_comparative_or_superlative"
+      ],
+      "unsupported_numbers": [],
+      "unsupported_terms": [
+        "improved"
+      ],
+      "upstream_support_score": 0.8565832997798437,
+      "gate_verdict": "supported",
+      "answer_preview": "The performance of large state-of-the-art models on the CoNLL-03 and OntoNotes 5 datasets shows that neural models with language models achieved state-of-the-art results. Specifically, the F1 score for CoNLL-03 improved from 92.34 to 92.86 with ELMo embeddi..."
+    }
+  ]
+}
