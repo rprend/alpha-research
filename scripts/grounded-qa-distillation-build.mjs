@@ -17,6 +17,7 @@ const evidenceLimit = numberArg(args["evidence-limit"], 4);
 const distractorLimit = numberArg(args["distractor-limit"], 3);
 const maxEvidenceChars = numberArg(args["max-evidence-chars"], 900);
 const evidenceOrder = args["evidence-order"] ?? "stable-mixed";
+const counterfactualEvery = numberArg(args["counterfactual-every"], 3);
 
 await fs.mkdir(dataDir, { recursive: true });
 await fs.mkdir(reportsDir, { recursive: true });
@@ -36,6 +37,7 @@ const manifest = {
     distractor_limit: distractorLimit,
     max_evidence_chars: maxEvidenceChars,
     evidence_order: evidenceOrder,
+    counterfactual_every: counterfactualEvery,
     evidence_policy: "Gold QASPER answer evidence and deterministic non-gold paper paragraphs are packed without exposing oracle roles or guaranteed gold-first ordering to the student input.",
     citation_policy: "Each output sentence cites evidence ids from input.evidence_pack. Abstentions cite no evidence and explain insufficiency.",
   },
@@ -146,9 +148,92 @@ function buildExamples(row, split) {
         evidence_roles: Object.fromEntries(evidencePack.map((item) => [item.evidence_id, item._teacher_role])),
       },
     });
+
+    if (!isAbstention && counterfactualEvery > 0 && index % counterfactualEvery === 0) {
+      const insufficientPack = buildInsufficientEvidencePack({ paper, question, questionIndex: index, evidencePack });
+      if (insufficientPack.length) {
+        examples.push({
+          example_id: `${paper.paper_id}:${questionIds[index] ?? index}:counterfactual-insufficient`,
+          source_split: split,
+          task: "grounded_domain_qa_distillation",
+          input: {
+            question,
+            compact_retrieved_evidence_pack: insufficientPack.map(({ _teacher_role, ...item }) => item),
+            document_metadata: {
+              paper_id: paper.paper_id,
+              title: paper.title,
+              abstract: paper.abstract,
+              domain: "NLP research papers",
+              knowledge_base_version: split,
+              source_dataset: dataset,
+              source_config: config,
+              source_record_url: `https://huggingface.co/datasets/${dataset}/viewer/${config}/${split}`,
+              counterfactual: true,
+            },
+            instruction: "Answer only from the evidence pack. Cite every factual claim with bracketed evidence ids such as [E1]. Abstain when support is insufficient.",
+          },
+          output: {
+            answer_type: "abstain",
+            answer: "The evidence pack does not contain enough support to answer this question.",
+            citations: [],
+            claim_table: [{
+              claim: "Evidence is insufficient to answer.",
+              support: "abstention",
+              citations: [],
+            }],
+            abstention_reason: "Counterfactual insufficient-evidence pack constructed by withholding QASPER gold evidence.",
+          },
+          teacher_trace: {
+            scaffold: "counterfactual insufficient-evidence pack",
+            source_answer_annotation_id: selectedAnswer.annotation_id,
+            source_worker_id: selectedAnswer.worker_id,
+            expensive_behavior_to_distill: [
+              "decide whether retrieved evidence is sufficient",
+              "abstain when retrieved evidence omits support",
+            ],
+            evidence_roles: Object.fromEntries(insufficientPack.map((item) => [item.evidence_id, item._teacher_role])),
+            withheld_gold_evidence_count: evidencePack.filter((item) => item._teacher_role === "gold_evidence").length,
+          },
+        });
+      }
+    }
   }
 
   return examples;
+}
+
+function buildInsufficientEvidencePack({ paper, question, questionIndex, evidencePack }) {
+  const withheld = new Set(evidencePack.filter((item) => item._teacher_role === "gold_evidence").map((item) => item.text));
+  const candidates = [
+    ...evidencePack.filter((item) => item._teacher_role !== "gold_evidence"),
+    ...paper.paragraphs
+      .filter((paragraph) => !withheld.has(paragraph.text))
+      .map((paragraph) => ({
+        retrieval_rank: 999,
+        _teacher_role: "counterfactual_negative",
+        paper_id: paper.paper_id,
+        section: paragraph.section,
+        text: paragraph.text.slice(0, maxEvidenceChars),
+      })),
+  ];
+
+  const seen = new Set();
+  const unique = candidates.filter((item) => {
+    const key = cleanText(item.text);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  return unique
+    .sort((a, b) => stableHash(`${question}:${questionIndex}:${a.text}`) - stableHash(`${question}:${questionIndex}:${b.text}`))
+    .slice(0, Math.max(2, distractorLimit))
+    .map((item, index) => ({
+      ...item,
+      evidence_id: `E${index + 1}`,
+      retrieval_rank: index + 1,
+      _teacher_role: "counterfactual_negative",
+    }));
 }
 
 function normalizePaper(row) {

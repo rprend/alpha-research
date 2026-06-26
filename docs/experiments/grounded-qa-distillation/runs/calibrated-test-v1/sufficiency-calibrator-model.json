@@ -1,0 +1,23 @@
+{
+  "model_type": "weighted-logistic-sufficiency-calibrator",
+  "epochs": 80,
+  "learningRate": 0.16,
+  "l2": 0.0005,
+  "trainingAccuracy": 0.9296482412060302,
+  "positiveExamples": 134,
+  "negativeExamples": 65,
+  "weights": {
+    "bias": -2.551340758660095,
+    "selected_count": -2.551340758660095,
+    "max_selector_probability": 4.68760235741933,
+    "mean_selector_probability": 4.170861004845554,
+    "min_selector_probability": 3.654119652271796,
+    "probability_gap": 1.0334827051475326,
+    "selected_question_jaccard": -0.05734133349794105,
+    "selected_question_coverage": 0.11997380146306169,
+    "selected_token_length": 0.9870547087067715,
+    "selected_has_table_like": 0.09161494310345471,
+    "selected_number_match": 0.4459065136629219,
+    "question_number_without_evidence_number": 0.11449353329658446
+  }
+}

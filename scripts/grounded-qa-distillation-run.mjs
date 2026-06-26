@@ -15,6 +15,10 @@ const learnedThresholdGrid = (args["learned-thresholds"] ?? "0.35,0.5,0.65")
   .split(",")
   .map((value) => Number(value.trim()))
   .filter((value) => Number.isFinite(value) && value >= 0 && value <= 1);
+const sufficiencyThresholdGrid = (args["sufficiency-thresholds"] ?? "0.35,0.5,0.65")
+  .split(",")
+  .map((value) => Number(value.trim()))
+  .filter((value) => Number.isFinite(value) && value >= 0 && value <= 1);
 const runId = args["run-id"] ?? `${new Date().toISOString().replaceAll(":", "-").replace(/\.\d+Z$/, "Z")}-${split}`;
 const outputDir = path.join(runDir, runId);
 
@@ -23,11 +27,13 @@ await fs.mkdir(outputDir, { recursive: true });
 const examples = await readJsonl(path.join(dataDir, `${split}.jsonl`));
 const trainExamples = await readJsonl(path.join(dataDir, "train.jsonl"));
 const learnedSelector = trainEvidenceSelector(trainExamples);
+const sufficiencyCalibrator = trainSufficiencyCalibrator(trainExamples, learnedSelector);
 const systems = [
   evaluateSystem("retrieval_rank_1", examples, predictRankOne),
   ...thresholdGrid.map((threshold) => evaluateSystem(`lexical_overlap_t${formatThreshold(threshold)}`, examples, (example) => predictLexical(example, threshold))),
   evaluateSystem("learned_selector_top1", examples, (example) => predictLearned(example, learnedSelector, { topK: 1, threshold: 0 })),
   ...learnedThresholdGrid.map((threshold) => evaluateSystem(`learned_selector_top2_t${formatThreshold(threshold)}`, examples, (example) => predictLearned(example, learnedSelector, { topK: 2, threshold }))),
+  ...sufficiencyThresholdGrid.map((threshold) => evaluateSystem(`suff_calibrated_top2_t${formatThreshold(threshold)}`, examples, (example) => predictSufficiencyCalibrated(example, learnedSelector, sufficiencyCalibrator, { topK: 2, threshold }))),
 ];
 const run = {
   run_id: runId,
@@ -35,6 +41,7 @@ const run = {
   split,
   threshold_grid: thresholdGrid,
   learned_threshold_grid: learnedThresholdGrid,
+  sufficiency_threshold_grid: sufficiencyThresholdGrid,
   learned_selector: {
     training_examples: trainExamples.length,
     feature_count: Object.keys(learnedSelector.weights).length,
@@ -43,6 +50,15 @@ const run = {
     training_accuracy: learnedSelector.trainingAccuracy,
     positive_candidates: learnedSelector.positiveCandidates,
     negative_candidates: learnedSelector.negativeCandidates,
+  },
+  sufficiency_calibrator: {
+    training_examples: trainExamples.length,
+    feature_count: Object.keys(sufficiencyCalibrator.weights).length,
+    epochs: sufficiencyCalibrator.epochs,
+    learning_rate: sufficiencyCalibrator.learningRate,
+    training_accuracy: sufficiencyCalibrator.trainingAccuracy,
+    positive_examples: sufficiencyCalibrator.positiveExamples,
+    negative_examples: sufficiencyCalibrator.negativeExamples,
   },
   examples: examples.length,
   systems: systems.map(({ predictions, ...summary }) => summary),
@@ -53,6 +69,7 @@ for (const system of systems) {
 }
 await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(run, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "learned-selector-model.json"), `${JSON.stringify(learnedSelector, null, 2)}\n`);
+await fs.writeFile(path.join(outputDir, "sufficiency-calibrator-model.json"), `${JSON.stringify(sufficiencyCalibrator, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "report.md"), renderReport(run));
 
 console.log(JSON.stringify({
@@ -78,11 +95,11 @@ function evaluateSystem(system, examples, predict) {
       reference,
       scores: {
         answer_type_correct: prediction.answer_type === reference.answer_type,
-        citation_precision: prediction.citations.length ? citedGold / prediction.citations.length : (abstained ? 1 : 0),
+        citation_precision: prediction.citations.length ? citedGold / prediction.citations.length : null,
         citation_recall: reference.citations.length
           ? prediction.citations.filter((id) => referenceCitations.has(id)).length / reference.citations.length
-          : (abstained ? 1 : 0),
-        answer_token_f1: answerable && !abstained ? tokenF1(prediction.answer, reference.answer) : (answerable === !abstained ? 1 : 0),
+          : null,
+        answer_token_f1: answerable ? (!abstained ? tokenF1(prediction.answer, reference.answer) : 0) : null,
         abstention_correct: answerable ? !abstained : abstained,
       },
     };
@@ -121,12 +138,7 @@ function predictLexical(example, minOverlap) {
 }
 
 function predictLearned(example, model, { topK, threshold }) {
-  const ranked = example.input.compact_retrieved_evidence_pack
-    .map((evidence) => ({
-      evidence,
-      probability: sigmoid(scoreFeatures(model.weights, evidenceFeatures(example, evidence))),
-    }))
-    .sort((a, b) => b.probability - a.probability || a.evidence.retrieval_rank - b.evidence.retrieval_rank);
+  const ranked = rankEvidence(example, model);
 
   const selected = ranked
     .filter((item, index) => index === 0 || item.probability >= threshold)
@@ -142,6 +154,28 @@ function predictLearned(example, model, { topK, threshold }) {
     selected.map((item) => item.evidence),
     `learned evidence selector chose ${selected.length} item(s), top probability ${selected[0].probability.toFixed(3)}`,
   );
+}
+
+function predictSufficiencyCalibrated(example, selectorModel, sufficiencyModel, { topK, threshold }) {
+  const ranked = rankEvidence(example, selectorModel);
+  const selected = ranked.slice(0, topK);
+  const probability = sigmoid(scoreFeatures(sufficiencyModel.weights, sufficiencyFeatures(example, selected)));
+  if (probability < threshold) {
+    return abstain(`sufficiency probability ${probability.toFixed(3)} below threshold ${threshold}`);
+  }
+  return answerFromEvidenceSet(
+    selected.map((item) => item.evidence),
+    `sufficiency-calibrated selector chose ${selected.length} item(s), sufficiency probability ${probability.toFixed(3)}`,
+  );
+}
+
+function rankEvidence(example, model) {
+  return example.input.compact_retrieved_evidence_pack
+    .map((evidence) => ({
+      evidence,
+      probability: sigmoid(scoreFeatures(model.weights, evidenceFeatures(example, evidence))),
+    }))
+    .sort((a, b) => b.probability - a.probability || a.evidence.retrieval_rank - b.evidence.retrieval_rank);
 }
 
 function answerFromEvidence(evidence, rationale) {
@@ -268,6 +302,52 @@ function trainEvidenceSelector(examples) {
   };
 }
 
+function trainSufficiencyCalibrator(examples, selectorModel) {
+  const candidates = examples.map((example) => {
+    const ranked = rankEvidence(example, selectorModel).slice(0, 2);
+    return {
+      features: sufficiencyFeatures(example, ranked),
+      label: example.output.answer_type === "grounded_answer" ? 1 : 0,
+    };
+  });
+
+  const weights = {};
+  const epochs = numberArg(args["sufficiency-epochs"], 80);
+  const learningRate = Number(args["sufficiency-learning-rate"] ?? 0.16);
+  const l2 = Number(args["sufficiency-l2"] ?? 0.0005);
+  const positiveCount = candidates.filter((candidate) => candidate.label === 1).length;
+  const negativeCount = candidates.length - positiveCount;
+  const positiveWeight = positiveCount ? candidates.length / (2 * positiveCount) : 1;
+  const negativeWeight = negativeCount ? candidates.length / (2 * negativeCount) : 1;
+
+  for (let epoch = 0; epoch < epochs; epoch += 1) {
+    for (const candidate of candidates) {
+      const prediction = sigmoid(scoreFeatures(weights, candidate.features));
+      const classWeight = candidate.label === 1 ? positiveWeight : negativeWeight;
+      const error = (candidate.label - prediction) * classWeight;
+      for (const [name, value] of Object.entries(candidate.features)) {
+        weights[name] = (weights[name] ?? 0) * (1 - learningRate * l2) + learningRate * error * value;
+      }
+    }
+  }
+
+  const correct = candidates.filter((candidate) => {
+    const prediction = sigmoid(scoreFeatures(weights, candidate.features)) >= 0.5 ? 1 : 0;
+    return prediction === candidate.label;
+  }).length;
+
+  return {
+    model_type: "weighted-logistic-sufficiency-calibrator",
+    epochs,
+    learningRate,
+    l2,
+    trainingAccuracy: candidates.length ? correct / candidates.length : 0,
+    positiveExamples: positiveCount,
+    negativeExamples: negativeCount,
+    weights,
+  };
+}
+
 function evidenceFeatures(example, evidence) {
   const questionTokens = contentTokens(example.input.question);
   const evidenceTokens = contentTokens(evidence.text);
@@ -306,6 +386,39 @@ function evidenceFeatures(example, evidence) {
   return features;
 }
 
+function sufficiencyFeatures(example, selected) {
+  const probabilities = selected.map((item) => item.probability);
+  const evidenceItems = selected.map((item) => item.evidence);
+  const questionTokens = contentTokens(example.input.question);
+  const evidenceText = evidenceItems.map((evidence) => evidence.text).join(" ");
+  const evidenceTokens = contentTokens(evidenceText);
+  const citationCount = evidenceItems.length;
+  const maxProbability = probabilities.length ? Math.max(...probabilities) : 0;
+  const meanProbability = mean(probabilities);
+  const minProbability = probabilities.length ? Math.min(...probabilities) : 0;
+  const questionTokenSet = new Set(questionTokens);
+  const evidenceTokenSet = new Set(evidenceTokens);
+  const overlapCount = [...questionTokenSet].filter((token) => evidenceTokenSet.has(token)).length;
+  const anyTableLike = evidenceItems.some((evidence) => /FLOAT SELECTED|Table|Figure|accuracy|score|result/i.test(evidence.text));
+  const questionHasNumberIntent = /\b(how many|how much|how big|number|size|large|results?|score|accuracy|percentage)\b/i.test(example.input.question);
+  const evidenceHasNumber = /\d/.test(evidenceText);
+
+  return {
+    bias: 1,
+    selected_count: citationCount / 2,
+    max_selector_probability: maxProbability,
+    mean_selector_probability: meanProbability,
+    min_selector_probability: minProbability,
+    probability_gap: probabilities.length > 1 ? probabilities[0] - probabilities[1] : probabilities[0] ?? 0,
+    selected_question_jaccard: jaccard(questionTokens, evidenceTokens),
+    selected_question_coverage: questionTokens.length ? overlapCount / questionTokenSet.size : 0,
+    selected_token_length: Math.min(1, Math.log1p(evidenceTokens.length) / 8),
+    selected_has_table_like: anyTableLike ? 1 : 0,
+    selected_number_match: questionHasNumberIntent && evidenceHasNumber ? 1 : 0,
+    question_number_without_evidence_number: questionHasNumberIntent && !evidenceHasNumber ? 1 : 0,
+  };
+}
+
 function scoreFeatures(weights, features) {
   let score = 0;
   for (const [name, value] of Object.entries(features)) {
@@ -331,7 +444,8 @@ function counts(tokens) {
 }
 
 function mean(values) {
-  return values.length ? values.reduce((sum, value) => sum + Number(value), 0) / values.length : 0;
+  const numeric = values.filter((value) => value != null && Number.isFinite(Number(value))).map(Number);
+  return numeric.length ? numeric.reduce((sum, value) => sum + value, 0) / numeric.length : 0;
 }
 
 async function readJsonl(file) {
@@ -363,6 +477,7 @@ Examples: ${run.examples}
 - \`retrieval_rank_1\`: cheapest scaffold; cites the first retrieved evidence item.
 - \`lexical_overlap_t*\`: selects evidence by question/evidence token overlap and abstains below the encoded threshold. Threshold grid: ${run.threshold_grid.join(", ")}.
 - \`learned_selector_*\`: logistic evidence selector trained on \`train.jsonl\` teacher roles. Training accuracy: ${pct(run.learned_selector.training_accuracy)} over ${run.learned_selector.positive_candidates} positive and ${run.learned_selector.negative_candidates} negative candidates.
+- \`suff_calibrated_*\`: learned selector plus separate sufficiency calibrator. Training accuracy: ${pct(run.sufficiency_calibrator.training_accuracy)} over ${run.sufficiency_calibrator.positive_examples} answerable and ${run.sufficiency_calibrator.negative_examples} insufficient examples.
 
 ## Metrics
 
@@ -380,13 +495,20 @@ function decide(run) {
   const rankOne = run.systems.find((system) => system.system === "retrieval_rank_1")?.metrics;
   const lexicalSystems = run.systems.filter((system) => system.system.startsWith("lexical_overlap_"));
   const learnedSystems = run.systems.filter((system) => system.system.startsWith("learned_selector_"));
+  const sufficiencySystems = run.systems.filter((system) => system.system.startsWith("suff_calibrated_"));
   const bestLexical = lexicalSystems
     .map((system) => ({ ...system, score: system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
     .sort((a, b) => b.score - a.score)[0];
   const bestLearned = learnedSystems
     .map((system) => ({ ...system, score: system.metrics.citation_precision + system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
     .sort((a, b) => b.score - a.score)[0];
-  if (!rankOne || !bestLexical || !bestLearned) return "No decision: missing system metrics.";
+  const bestSufficiency = sufficiencySystems
+    .map((system) => ({ ...system, score: system.metrics.citation_precision + system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
+    .sort((a, b) => b.score - a.score)[0];
+  if (!rankOne || !bestLexical || !bestLearned || !bestSufficiency) return "No decision: missing system metrics.";
+  if (bestSufficiency.metrics.abstention_accuracy >= bestLearned.metrics.abstention_accuracy && bestSufficiency.metrics.citation_precision >= bestLearned.metrics.citation_precision) {
+    return `Promote \`${bestSufficiency.system}\` as the current calibrated student if it preserves recall on test; it separates evidence selection from sufficiency instead of using selector score as a proxy.`;
+  }
   if (bestLearned.metrics.citation_precision >= bestLexical.metrics.citation_precision && bestLearned.metrics.answer_token_f1 >= bestLexical.metrics.answer_token_f1) {
     return `Promote \`${bestLearned.system}\` as the current cheap student baseline. It matches or beats the lexical family on citation precision and answer compression, but still needs a generative student and entailment judge before paper claims.`;
   }

@@ -1,5 +1,7 @@
 # Student Results v1
 
+Superseded for current comparisons by `reports/calibrated-results-v1.md`, which adds counterfactual insufficient-evidence examples and corrected answer/citation metrics.
+
 Generated from:
 
 - `runs/student-validation-v1/result.json`
