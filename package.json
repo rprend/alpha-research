@@ -21,6 +21,7 @@
     "benchmark:gutenberg:high-recall:mock-openai": "node scripts/gutenberg-openai-mock-smoke.mjs",
     "benchmark:hard-grounded": "node scripts/hard-grounded-research-benchmark.mjs",
     "benchmark:hard-grounded:evaluate": "node scripts/hard-grounded-research-evaluate.mjs",
+    "benchmark:hard-grounded:run": "node scripts/hard-grounded-research-runner.mjs",
     "grounded-qa:distill": "node scripts/grounded-qa-distillation-build.mjs",
     "grounded-qa:run": "node scripts/grounded-qa-distillation-run.mjs",
     "grounded-qa:validate": "node scripts/grounded-qa-distillation-validate.mjs",

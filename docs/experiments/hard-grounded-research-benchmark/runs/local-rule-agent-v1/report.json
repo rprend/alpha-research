@@ -1,0 +1,906 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "local-rule-agent-v1",
+  "rubric_version": "0.1.0",
+  "global_answer_contract": {
+    "required_response_fields": [
+      "answer",
+      "citations",
+      "evidence_assessment",
+      "confidence"
+    ],
+    "citation_rule": "Every non-abstention answer sentence must cite evidence that directly supports that sentence.",
+    "abstention_rule": "If required evidence is missing or contradictory beyond resolution, answer must be ABSTAIN or CONFLICT and name the missing or conflicting evidence.",
+    "temporal_rule": "As-of questions may only use documents valid at or before the requested date unless later evidence is explicitly used as excluded contrast.",
+    "authority_rule": "When sources conflict, the answer must state the source ranking rule it applied."
+  },
+  "summary": {
+    "task_count": 30,
+    "rubric_dimension_count": 30,
+    "macro": {
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "stale-vs-current document conflicts": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "appended document lifecycle changes": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "table + text reasoning": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "source authority conflicts": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "evidence insufficiency / abstention": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "citation supports fact but not conclusion": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "entity disambiguation": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "temporal questions: as of date X": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "cross-document contradiction": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      }
+    }
+  },
+  "task_scores": [
+    {
+      "task_id": "hgr_multi_hop_001_pilot_001",
+      "category": "multi-hop synthesis",
+      "rubric_dimensions": [
+        "hop_coverage",
+        "bridge_entity_resolution",
+        "minimal_citation_set"
+      ],
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "submitted_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ]
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_002",
+      "category": "multi-hop synthesis",
+      "rubric_dimensions": [
+        "hop_coverage",
+        "bridge_entity_resolution",
+        "minimal_citation_set"
+      ],
+      "expected_answer": "Chief of Protocol",
+      "submitted_answer": "Chief of Protocol",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ],
+      "submitted_citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ]
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_003",
+      "category": "multi-hop synthesis",
+      "rubric_dimensions": [
+        "hop_coverage",
+        "bridge_entity_resolution",
+        "minimal_citation_set"
+      ],
+      "expected_answer": "Animorphs",
+      "submitted_answer": "Animorphs",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "submitted_citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ]
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_001",
+      "category": "stale-vs-current document conflicts",
+      "rubric_dimensions": [
+        "document_date_identification",
+        "stale_evidence_rejection",
+        "current_state_grounding"
+      ],
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "SUPPORTS",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "submitted_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ]
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_002",
+      "category": "stale-vs-current document conflicts",
+      "rubric_dimensions": [
+        "document_date_identification",
+        "stale_evidence_rejection",
+        "current_state_grounding"
+      ],
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "SUPPORTS",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ],
+      "submitted_citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ]
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_003",
+      "category": "stale-vs-current document conflicts",
+      "rubric_dimensions": [
+        "document_date_identification",
+        "stale_evidence_rejection",
+        "current_state_grounding"
+      ],
+      "expected_answer": "REFUTES",
+      "submitted_answer": "REFUTES",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "submitted_citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ]
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "category": "appended document lifecycle changes",
+      "rubric_dimensions": [
+        "section_provenance",
+        "supersession_detection",
+        "original_vs_appended_scope"
+      ],
+      "expected_answer": "BIBREF19",
+      "submitted_answer": "BIBREF19",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "submitted_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "category": "appended document lifecycle changes",
+      "rubric_dimensions": [
+        "section_provenance",
+        "supersession_detection",
+        "original_vs_appended_scope"
+      ],
+      "expected_answer": "Stanford NER",
+      "submitted_answer": "Stanford NER",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "submitted_citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "category": "appended document lifecycle changes",
+      "rubric_dimensions": [
+        "section_provenance",
+        "supersession_detection",
+        "original_vs_appended_scope"
+      ],
+      "expected_answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
+      "submitted_answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ],
+      "submitted_citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_001",
+      "category": "table + text reasoning",
+      "rubric_dimensions": [
+        "table_denotation",
+        "calculation_trace",
+        "textual_interpretation_support"
+      ],
+      "expected_answer": "36755",
+      "submitted_answer": "36755",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "nt-0:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "submitted_citations": [
+        "nt-0:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_002",
+      "category": "table + text reasoning",
+      "rubric_dimensions": [
+        "table_denotation",
+        "calculation_trace",
+        "textual_interpretation_support"
+      ],
+      "expected_answer": "400 m; Medley relay",
+      "submitted_answer": "400 m; Medley relay",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "nt-1:table",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "submitted_citations": [
+        "nt-1:table",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_003",
+      "category": "table + text reasoning",
+      "rubric_dimensions": [
+        "table_denotation",
+        "calculation_trace",
+        "textual_interpretation_support"
+      ],
+      "expected_answer": "91156",
+      "submitted_answer": "91156",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "nt-4:table",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ],
+      "submitted_citations": [
+        "nt-4:table",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_001",
+      "category": "source authority conflicts",
+      "rubric_dimensions": [
+        "source_type_identification",
+        "authority_ranking",
+        "conflict_resolution"
+      ],
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "SUPPORTS",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Extinction risk from global warming:170",
+        "2bln8r:answer:cj6iupv"
+      ],
+      "submitted_citations": [
+        "Extinction risk from global warming:170",
+        "2bln8r:answer:cj6iupv"
+      ]
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_002",
+      "category": "source authority conflicts",
+      "rubric_dimensions": [
+        "source_type_identification",
+        "authority_ranking",
+        "conflict_resolution"
+      ],
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "SUPPORTS",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Famine:386",
+        "48hjn0:answer:d0jqwvn"
+      ],
+      "submitted_citations": [
+        "Famine:386",
+        "48hjn0:answer:d0jqwvn"
+      ]
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_003",
+      "category": "source authority conflicts",
+      "rubric_dimensions": [
+        "source_type_identification",
+        "authority_ranking",
+        "conflict_resolution"
+      ],
+      "expected_answer": "REFUTES",
+      "submitted_answer": "REFUTES",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Polar bear:1332",
+        "20wt9u:answer:cg7h7b3"
+      ],
+      "submitted_citations": [
+        "Polar bear:1332",
+        "20wt9u:answer:cg7h7b3"
+      ]
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_001",
+      "category": "evidence insufficiency / abstention",
+      "rubric_dimensions": [
+        "missing_evidence_identification",
+        "abstention_precision",
+        "non_hallucination"
+      ],
+      "expected_answer": "BIBREF19",
+      "submitted_answer": "BIBREF19",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Extinction risk from global warming:170"
+      ],
+      "submitted_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Extinction risk from global warming:170"
+      ]
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_002",
+      "category": "evidence insufficiency / abstention",
+      "rubric_dimensions": [
+        "missing_evidence_identification",
+        "abstention_precision",
+        "non_hallucination"
+      ],
+      "expected_answer": "Stanford NER",
+      "submitted_answer": "Stanford NER",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "Famine:386"
+      ],
+      "submitted_citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "Famine:386"
+      ]
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_003",
+      "category": "evidence insufficiency / abstention",
+      "rubric_dimensions": [
+        "missing_evidence_identification",
+        "abstention_precision",
+        "non_hallucination"
+      ],
+      "expected_answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
+      "submitted_answer": "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "Polar bear:1332"
+      ],
+      "submitted_citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "Polar bear:1332"
+      ]
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_001",
+      "category": "citation supports fact but not conclusion",
+      "rubric_dimensions": [
+        "sentence_level_support",
+        "premise_conclusion_separation",
+        "unsupported_inference_detection"
+      ],
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "nt-0:table"
+      ],
+      "submitted_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "nt-0:table"
+      ]
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_002",
+      "category": "citation supports fact but not conclusion",
+      "rubric_dimensions": [
+        "sentence_level_support",
+        "premise_conclusion_separation",
+        "unsupported_inference_detection"
+      ],
+      "expected_answer": "Chief of Protocol",
+      "submitted_answer": "Chief of Protocol",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "nt-1:table"
+      ],
+      "submitted_citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
+        "nt-1:table"
+      ]
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_003",
+      "category": "citation supports fact but not conclusion",
+      "rubric_dimensions": [
+        "sentence_level_support",
+        "premise_conclusion_separation",
+        "unsupported_inference_detection"
+      ],
+      "expected_answer": "Animorphs",
+      "submitted_answer": "Animorphs",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "nt-4:table"
+      ],
+      "submitted_citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
+        "nt-4:table"
+      ]
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_001",
+      "category": "entity disambiguation",
+      "rubric_dimensions": [
+        "entity_identity_match",
+        "alias_resolution",
+        "distractor_rejection"
+      ],
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-0:table"
+      ],
+      "submitted_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-0:table"
+      ]
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_002",
+      "category": "entity disambiguation",
+      "rubric_dimensions": [
+        "entity_identity_match",
+        "alias_resolution",
+        "distractor_rejection"
+      ],
+      "expected_answer": "Chief of Protocol",
+      "submitted_answer": "Chief of Protocol",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "nt-1:table"
+      ],
+      "submitted_citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "nt-1:table"
+      ]
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_003",
+      "category": "entity disambiguation",
+      "rubric_dimensions": [
+        "entity_identity_match",
+        "alias_resolution",
+        "distractor_rejection"
+      ],
+      "expected_answer": "Animorphs",
+      "submitted_answer": "Animorphs",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "nt-4:table"
+      ],
+      "submitted_citations": [
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "nt-4:table"
+      ]
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_001",
+      "category": "temporal questions: as of date X",
+      "rubric_dimensions": [
+        "as_of_filtering",
+        "future_evidence_exclusion",
+        "date_qualified_answer"
+      ],
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "SUPPORTS",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "submitted_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ]
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_002",
+      "category": "temporal questions: as of date X",
+      "rubric_dimensions": [
+        "as_of_filtering",
+        "future_evidence_exclusion",
+        "date_qualified_answer"
+      ],
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "SUPPORTS",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ],
+      "submitted_citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2"
+      ]
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_003",
+      "category": "temporal questions: as of date X",
+      "rubric_dimensions": [
+        "as_of_filtering",
+        "future_evidence_exclusion",
+        "date_qualified_answer"
+      ],
+      "expected_answer": "REFUTES",
+      "submitted_answer": "REFUTES",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "submitted_citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ]
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_001",
+      "category": "cross-document contradiction",
+      "rubric_dimensions": [
+        "contradiction_detection",
+        "evidence_partitioning",
+        "uncertainty_calibration"
+      ],
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "SUPPORTS",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "submitted_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_002",
+      "category": "cross-document contradiction",
+      "rubric_dimensions": [
+        "contradiction_detection",
+        "evidence_partitioning",
+        "uncertainty_calibration"
+      ],
+      "expected_answer": "SUPPORTS",
+      "submitted_answer": "SUPPORTS",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "submitted_citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1",
+        "5a8c7595554299585d9e36b6:support:2",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_003",
+      "category": "cross-document contradiction",
+      "rubric_dimensions": [
+        "contradiction_detection",
+        "evidence_partitioning",
+        "uncertainty_calibration"
+      ],
+      "expected_answer": "REFUTES",
+      "submitted_answer": "REFUTES",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ],
+      "submitted_citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:0",
+        "5a85ea095542994775f606a8:support:1",
+        "5a85ea095542994775f606a8:support:2",
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ]
+    }
+  ]
+}

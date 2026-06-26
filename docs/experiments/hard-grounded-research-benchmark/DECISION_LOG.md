@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Add a deterministic local runner before API model runs
+
+Decision: Add a local rule runner that writes full submission objects and scores them through the same evaluator path intended for model systems.
+
+Rationale: The benchmark needs a reproducible end-to-end runner contract before spending API calls on frontier or open model baselines.
+
+Consequence: `benchmark:hard-grounded:run` now emits `runs/local-rule-agent-v1/submission.json` and `runs/local-rule-agent-v1/report.json`.
+
 ## 2026-06-26 — Prefer materializable Hugging Face sources
 
 Decision: Use Hugging Face datasets that can be sampled through the Dataset Viewer API for the working benchmark seed, replacing non-materializable choices when a viewer-accessible equivalent exists.

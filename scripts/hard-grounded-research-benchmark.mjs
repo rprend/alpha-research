@@ -701,12 +701,14 @@ ${matrixLines}
 - \`generated/adjudication-queue.jsonl\`, \`generated/adjudication-summary.json\`, and \`ADJUDICATION_PACKET.md\`: human review path from machine-seeded pilot to gold data.
 - \`generated/baseline-submission.json\` and \`generated/baseline-report.json\`: deterministic scorer smoke artifacts from \`benchmark:hard-grounded:evaluate\`.
 - \`generated/baseline-comparisons.json\`: non-oracle diagnostic baseline comparison for answer-only and first-evidence systems.
+- \`runs/local-rule-agent-v1/submission.json\` and \`runs/local-rule-agent-v1/report.json\`: reproducible local runner output using the same external submission contract expected from model systems.
 
 Run:
 
 \`\`\`bash
 pnpm run benchmark:hard-grounded
 pnpm run benchmark:hard-grounded:evaluate
+pnpm run benchmark:hard-grounded:run
 \`\`\`
 `
 }

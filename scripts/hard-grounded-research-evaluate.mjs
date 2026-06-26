@@ -196,7 +196,9 @@ assert(existsSync(rubricsPath), `Missing rubrics: ${rubricsPath}`)
 const materialized = readJson(pilotSuitePath)
 const rubrics = readJson(rubricsPath)
 const submissionArg = process.argv.find((arg) => arg.startsWith('--submission='))
+const reportArg = process.argv.find((arg) => arg.startsWith('--report='))
 const submissionPath = submissionArg?.split('=')[1]
+const reportOutputPath = reportArg?.split('=')[1]
 const submission = submissionPath ? readJson(join(root, submissionPath)) : buildBaselineSubmission(materialized)
 const report = scoreSubmission(materialized, rubrics, submission)
 
@@ -219,6 +221,11 @@ if (!submissionPath) {
   console.log(`Wrote baseline submission to ${baselineSubmissionPath}`)
   console.log(`Wrote baseline report to ${baselineReportPath}`)
   console.log(`Wrote baseline comparisons to ${baselineComparisonsPath}`)
+}
+
+if (reportOutputPath) {
+  writeJson(join(root, reportOutputPath), report)
+  console.log(`Wrote score report to ${join(root, reportOutputPath)}`)
 }
 
 console.log(`Scored ${report.summary.task_count} tasks for ${report.system_id}.`)
