@@ -28,6 +28,7 @@ const requiredInputs = {
   approachScores: join(generatedDir, 'approach-scores.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
+  corpusAudit: join(generatedDir, 'corpus-audit.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
@@ -155,7 +156,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -191,6 +192,8 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 5. A baseline analysis that reports macro, category, and challenge-type failures for oracle sanity, lexical, citation-aware verifier, and external model systems.
 
 ## Dataset Grounding
+
+The scaled public package currently contains ${corpusAudit.summary.scaled_public_items} review-pending items, ${corpusAudit.summary.scaled_public_source_rows} distinct source rows, and ${corpusAudit.summary.scaled_public_evidence_units} evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for human-reviewed gold labels.
 
 ${markdownTable(['Dataset', 'License', 'Benchmark roles'], datasetRows(spec))}
 
@@ -307,6 +310,7 @@ const draft = renderDraft({
   approachScores: readJson(requiredInputs.approachScores),
   baselineAnalysis: readJson(requiredInputs.baselineAnalysis),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
+  corpusAudit: readJson(requiredInputs.corpusAudit),
   noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   goldSummary: readJson(requiredInputs.goldSummary),
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),

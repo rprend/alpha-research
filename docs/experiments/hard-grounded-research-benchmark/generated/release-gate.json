@@ -30,6 +30,7 @@
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
+    "corpus_audit": "generated/corpus-audit.json",
     "license_review": "generated/license-review.json",
     "license_impact": "generated/license-impact.json",
     "license_clearance": "generated/license-clearance.json",
@@ -233,6 +234,12 @@
       "passed": true,
       "detail": "18 related-work sources registered; completion_claim_allowed=false",
       "blocker": "Generate a source-backed related-work registry while keeping final novelty claims gated."
+    },
+    {
+      "id": "corpus_audit_ready",
+      "passed": true,
+      "detail": "5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108",
+      "blocker": "Generate a corpus audit that makes large-corpus grounding, coverage, and packaging scope inspectable."
     }
   ],
   "blockers": [

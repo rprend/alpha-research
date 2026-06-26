@@ -20,6 +20,8 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 
 ## Dataset Grounding
 
+The scaled public package currently contains 270 review-pending items, 15 distinct source rows, and 891 evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for human-reviewed gold labels.
+
 | Dataset | License | Benchmark roles |
 | --- | --- | --- |
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | multi-hop synthesis<br>citation supports fact but not conclusion<br>entity disambiguation<br>cross-document contradiction |
@@ -222,6 +224,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
 | novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 |
 | novelty_evidence_registry_present | yes | 18 related-work sources registered; completion_claim_allowed=false |
+| corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
 
 ## Novelty Position
 

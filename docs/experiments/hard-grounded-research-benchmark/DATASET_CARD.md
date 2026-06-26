@@ -10,6 +10,8 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Pilot items: 30
 - Categories: 10
 - Source Hugging Face datasets: 5
+- Scaled public source rows: 15
+- Scaled public evidence units: 891
 - Gold ready: false
 - Valid reviewed items: 0/30
 - Release gate status: blocked
@@ -129,6 +131,7 @@ Key release checks:
 - Review progress: pass - 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300
 - Adjudication readiness: pass - pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false
 - Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
+- Corpus audit: pass - 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
 - Annotation import path: pass - 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false
 - Pilot promotion smoke: pass - 30/30 fixture gold items; release_eligible=false

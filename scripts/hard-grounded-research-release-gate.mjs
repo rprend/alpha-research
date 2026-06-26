@@ -36,6 +36,7 @@ const inputs = {
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
+  corpusAudit: join(generatedDir, 'corpus-audit.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseImpact: join(generatedDir, 'license-impact.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -109,6 +110,7 @@ function buildGate({
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
+  corpusAudit,
   annotationExport,
   annotationImportSmoke,
   annotationImport,
@@ -325,6 +327,12 @@ function buildGate({
       detail: `${noveltyEvidence.source_count} related-work sources registered; completion_claim_allowed=${noveltyEvidence.completion_claim_allowed}`,
       blocker: 'Generate a source-backed related-work registry while keeping final novelty claims gated.',
     },
+    {
+      id: 'corpus_audit_ready',
+      passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
+      detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
+      blocker: 'Generate a corpus audit that makes large-corpus grounding, coverage, and packaging scope inspectable.',
+    },
   ]
 
   return {
@@ -359,6 +367,7 @@ function buildGate({
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
+      corpus_audit: 'generated/corpus-audit.json',
       license_review: 'generated/license-review.json',
       license_impact: 'generated/license-impact.json',
       license_clearance: 'generated/license-clearance.json',
@@ -436,6 +445,7 @@ const gate = buildGate({
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
+  corpusAudit: readJson(inputs.corpusAudit),
   annotationExport: readJson(inputs.annotationExport),
   annotationImportSmoke: readJson(inputs.annotationImportSmoke),
   annotationImport: readJson(inputs.annotationImport),

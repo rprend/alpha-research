@@ -631,3 +631,11 @@ Decision: Make baseline analysis and uncertainty consume the model-run index so 
 Rationale: The release gate already recognized scored OpenAI and Anthropic runs, but the baseline analysis still reported zero eligible model baselines and uncertainty only covered three local systems. A paper artifact cannot carry contradictory readiness evidence, so model-run-index output must be the authority for scored external runs.
 
 Consequence: `scripts/hard-grounded-research-report.mjs` now appends eligible external reports from `generated/model-run-index.json`; `scripts/hard-grounded-research-baseline-uncertainty.mjs` derives its scored report list from `generated/baseline-analysis.json`; regenerated baseline, uncertainty, release, dataset-card, and paper artifacts now report five scored systems.
+
+## 2026-06-26 — Audit corpus scale and packaging scope
+
+Decision: Generate a corpus audit that quantifies pilot and scaled public suite composition, source-row diversity, evidence-unit counts, category coverage, challenge types, and pointer-only packaging scope.
+
+Rationale: The benchmark claims to expose large-corpus grounded research failures, but paper readers need an auditable corpus-level summary rather than scattered suite and package files. The audit should make source breadth and public packaging constraints inspectable without implying that machine-seeded or expansion items are gold.
+
+Consequence: `scripts/hard-grounded-research-corpus-audit.mjs` now emits `generated/corpus-audit.json` and `CORPUS_AUDIT.md`; the release gate, dataset card, paper draft, README, and harness contract record corpus-audit readiness while human-review and novelty blockers remain active.

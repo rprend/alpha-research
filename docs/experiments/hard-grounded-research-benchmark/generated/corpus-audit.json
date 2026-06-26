@@ -1,0 +1,263 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "corpus_audit_ready": true,
+  "generated_from": {
+    "spec": "benchmark-spec.json",
+    "coverage_matrix": "generated/coverage-matrix.json",
+    "pilot_suite": "generated/pilot-suite.json",
+    "scaled_public_suite": "generated/public-package/hard-grounded-research-scaled-public-suite.json",
+    "public_package_summary": "generated/public-package/summary.json",
+    "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
+    "public_package_manifest": "generated/public-package-manifest.json"
+  },
+  "summary": {
+    "category_count": 10,
+    "source_dataset_count": 5,
+    "coverage_min_datasets_per_category": 1,
+    "coverage_max_datasets_per_category": 4,
+    "pilot_items": 30,
+    "scaled_public_items": 270,
+    "scaled_public_source_rows": 15,
+    "scaled_public_evidence_units": 891,
+    "scaled_public_pointer_only_items": 81,
+    "scaled_public_pointer_only_evidence_units": 108,
+    "scaled_public_replacement_originals_skipped": 54,
+    "package_policy_matches_summaries": true
+  },
+  "pilot_suite": {
+    "suite": "pilot_suite",
+    "item_count": 30,
+    "category_count": 10,
+    "challenge_type_count": 8,
+    "source_dataset_count": 5,
+    "source_row_count": 15,
+    "evidence_unit_count": 105,
+    "unique_evidence_unit_count": 25,
+    "pointer_only_evidence_units": 0,
+    "redistributable_evidence_units": 0,
+    "text_included_evidence_units": 105,
+    "by_category": {
+      "appended document lifecycle changes": 3,
+      "citation supports fact but not conclusion": 3,
+      "cross-document contradiction": 3,
+      "entity disambiguation": 3,
+      "evidence insufficiency / abstention": 3,
+      "multi-hop synthesis": 3,
+      "source authority conflicts": 3,
+      "stale-vs-current document conflicts": 3,
+      "table + text reasoning": 3,
+      "temporal questions: as of date X": 3
+    },
+    "by_challenge_type": {
+      "as_of_date_constraint": 3,
+      "authority_conflict": 3,
+      "citation_overreach_probe": 3,
+      "cross_document_contradiction": 3,
+      "document_lifecycle_appendix": 3,
+      "insufficiency_probe": 3,
+      "native_row": 9,
+      "stale_current_conflict": 3
+    },
+    "by_source_dataset": {
+      "allenai/qasper": 15,
+      "danwakeem/wikitablequestions-wtq": 9,
+      "hotpotqa/hotpot_qa": 18,
+      "Pavithree/eli5": 3,
+      "tdiggelm/climate_fever": 15
+    },
+    "package_mode_counts": {}
+  },
+  "scaled_public_suite": {
+    "suite": "scaled_public_suite",
+    "item_count": 270,
+    "category_count": 10,
+    "challenge_type_count": 2,
+    "source_dataset_count": 5,
+    "source_row_count": 15,
+    "evidence_unit_count": 891,
+    "unique_evidence_unit_count": 25,
+    "pointer_only_evidence_units": 108,
+    "redistributable_evidence_units": 783,
+    "text_included_evidence_units": 783,
+    "by_category": {
+      "appended document lifecycle changes": 27,
+      "citation supports fact but not conclusion": 27,
+      "cross-document contradiction": 27,
+      "entity disambiguation": 27,
+      "evidence insufficiency / abstention": 27,
+      "multi-hop synthesis": 27,
+      "source authority conflicts": 27,
+      "stale-vs-current document conflicts": 27,
+      "table + text reasoning": 27,
+      "temporal questions: as of date X": 27
+    },
+    "by_challenge_type": {
+      "adversarial_wrapper": 189,
+      "native_row": 81
+    },
+    "by_source_dataset": {
+      "allenai/qasper": 135,
+      "danwakeem/wikitablequestions-wtq": 81,
+      "hotpotqa/hotpot_qa": 162,
+      "Pavithree/eli5": 27,
+      "tdiggelm/climate_fever": 81
+    },
+    "package_mode_counts": {
+      "license_remediated_replacement": 54,
+      "pointer_only_unknown_license_evidence": 81,
+      "redistributable_known_license_evidence": 135
+    }
+  },
+  "coverage": [
+    {
+      "category": "multi-hop synthesis",
+      "dataset_count": 3,
+      "task_count": 1,
+      "datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "Pavithree/eli5"
+      ]
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "dataset_count": 1,
+      "task_count": 1,
+      "datasets": [
+        "tdiggelm/climate_fever"
+      ]
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "dataset_count": 1,
+      "task_count": 1,
+      "datasets": [
+        "allenai/qasper"
+      ]
+    },
+    {
+      "category": "table + text reasoning",
+      "dataset_count": 1,
+      "task_count": 1,
+      "datasets": [
+        "danwakeem/wikitablequestions-wtq"
+      ]
+    },
+    {
+      "category": "source authority conflicts",
+      "dataset_count": 2,
+      "task_count": 1,
+      "datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ]
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "dataset_count": 2,
+      "task_count": 1,
+      "datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ]
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "dataset_count": 4,
+      "task_count": 1,
+      "datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq",
+        "Pavithree/eli5"
+      ]
+    },
+    {
+      "category": "entity disambiguation",
+      "dataset_count": 2,
+      "task_count": 1,
+      "datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ]
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "dataset_count": 1,
+      "task_count": 1,
+      "datasets": [
+        "tdiggelm/climate_fever"
+      ]
+    },
+    {
+      "category": "cross-document contradiction",
+      "dataset_count": 2,
+      "task_count": 1,
+      "datasets": [
+        "hotpotqa/hotpot_qa",
+        "tdiggelm/climate_fever"
+      ]
+    }
+  ],
+  "source_datasets": [
+    {
+      "id": "hotpotqa/hotpot_qa",
+      "license": "cc-by-sa-4.0",
+      "covers": [
+        "multi-hop synthesis",
+        "citation supports fact but not conclusion",
+        "entity disambiguation",
+        "cross-document contradiction"
+      ]
+    },
+    {
+      "id": "allenai/qasper",
+      "license": "cc-by-4.0",
+      "covers": [
+        "multi-hop synthesis",
+        "evidence insufficiency / abstention",
+        "citation supports fact but not conclusion",
+        "appended document lifecycle changes"
+      ]
+    },
+    {
+      "id": "danwakeem/wikitablequestions-wtq",
+      "license": "cc-by-4.0",
+      "covers": [
+        "table + text reasoning",
+        "entity disambiguation",
+        "citation supports fact but not conclusion"
+      ]
+    },
+    {
+      "id": "tdiggelm/climate_fever",
+      "license": "unknown",
+      "covers": [
+        "source authority conflicts",
+        "evidence insufficiency / abstention",
+        "cross-document contradiction",
+        "stale-vs-current document conflicts",
+        "temporal questions: as of date X"
+      ]
+    },
+    {
+      "id": "Pavithree/eli5",
+      "license": "unknown",
+      "covers": [
+        "multi-hop synthesis",
+        "source authority conflicts",
+        "citation supports fact but not conclusion"
+      ]
+    }
+  ],
+  "package_policy": {
+    "public_package_policy": "Include text only for evidence units whose upstream dataset license is known; include dataset id, title, locator, and text hash for unknown-license evidence.",
+    "pilot_pointer_only_items": 15,
+    "pilot_pointer_only_evidence_units": 18,
+    "scaled_package_mode_counts": {
+      "license_remediated_replacement": 54,
+      "pointer_only_unknown_license_evidence": 81,
+      "redistributable_known_license_evidence": 135
+    }
+  }
+}

@@ -15,6 +15,7 @@ const inputPaths = {
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
+  corpusAudit: join(generatedDir, 'corpus-audit.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -115,6 +116,7 @@ function renderCard({
   goldSummary,
   baselineAnalysis,
   modelRunIndex,
+  corpusAudit,
   licenseReview,
   licenseClearance,
   packageManifest,
@@ -142,6 +144,8 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Pilot items: ${pilotSuite.items.length}
 - Categories: ${spec.categories.length}
 - Source Hugging Face datasets: ${spec.datasets.length}
+- Scaled public source rows: ${corpusAudit.summary.scaled_public_source_rows}
+- Scaled public evidence units: ${corpusAudit.summary.scaled_public_evidence_units}
 - Gold ready: ${goldSummary.gold_ready}
 - Valid reviewed items: ${goldSummary.valid_reviewed_items}/${goldSummary.total_items}
 - Release gate status: ${releaseGate.status}
@@ -232,6 +236,7 @@ Key release checks:
 - Review progress: ${checkDetail(releaseGate, 'review_progress_ready')}
 - Adjudication readiness: ${checkDetail(releaseGate, 'adjudication_readiness_ready')}
 - Annotator agreement: ${checkDetail(releaseGate, 'annotator_agreement_ready')}
+- Corpus audit: ${checkDetail(releaseGate, 'corpus_audit_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
 - Annotation import path: ${checkDetail(releaseGate, 'annotation_import_path_ready')}
 - Pilot promotion smoke: ${checkDetail(releaseGate, 'gold_promotion_smoke_ready')}
@@ -257,6 +262,7 @@ writeText(
     goldSummary: readJson(inputPaths.goldSummary),
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
+    corpusAudit: readJson(inputPaths.corpusAudit),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),

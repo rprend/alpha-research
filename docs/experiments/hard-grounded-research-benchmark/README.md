@@ -68,6 +68,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `EXPANSION_REVIEW_PREFLIGHT.md` and `generated/expansion-review-preflight.json`: generated completion gate for expansion candidate review workbooks.
 - `EXPANSION_REVIEW_MERGE_REPORT.md` and `generated/expansion-review-merge-report.json`: generated agreement and merge-readiness report for expansion candidate reviews.
 - `ANNOTATOR_AGREEMENT.md` and `generated/annotator-agreement.json`: generated inter-annotator agreement report with exact agreement and Cohen's kappa hooks for completed reviewer pairs.
+- `CORPUS_AUDIT.md` and `generated/corpus-audit.json`: generated corpus composition, source-row diversity, coverage, and public-package scope audit.
 - `DATASET_CARD.md`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.
 - `RELEASE_GATE.md` and `generated/release-gate.json`: generated release-readiness gate for gold, license, model-baseline, repair, and novelty blockers.
 - `PAPER_DRAFT.md`: generated working paper scaffold tying taxonomy, datasets, baselines, review gates, and novelty position together.
