@@ -1,0 +1,337 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "smoke_id": "annotation-import-smoke-2026-06-26",
+  "source_manifest": "generated/annotation-export/manifest.json",
+  "annotation_import_smoke_ready": true,
+  "fixture_not_human_review": true,
+  "reviewer_fields_only_enforced": true,
+  "rows_checked": 124,
+  "files_checked": 30,
+  "finding_count": 0,
+  "immutable_fields_checked": [
+    "export_scope",
+    "source_workbook_id",
+    "batch_id",
+    "reviewer_slot",
+    "item_id",
+    "category",
+    "challenge_type",
+    "review_priority",
+    "quality_findings",
+    "question",
+    "candidate_answer",
+    "required_dimensions",
+    "rubric",
+    "evidence_units"
+  ],
+  "required_reviewer_fields": [
+    "final_label",
+    "final_answer",
+    "required_citation_ids",
+    "insufficient_or_conflicting_evidence",
+    "notes",
+    "reviewer_confidence"
+  ],
+  "files": [
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_10.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_10.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "scope": "pilot_review",
+      "row_count": 3,
+      "source_sha256": "9ca68c932c0f1cdd6350fd3bd8afef5522f7be0b9e1a7bab98a85e4c12c5b7de",
+      "returned_sha256": "9f00496385e50d5e7c0a352136de7fa157fa5aadd9e36c1f82e6671a239ff518",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_10.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_10.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "scope": "pilot_review",
+      "row_count": 3,
+      "source_sha256": "1b0d805d2876695c0512b5239b7c84955dd4b5bc6e5ed5938c92c7e0b8445c17",
+      "returned_sha256": "4d881131e0591c03d3c080245bff3baccba86203f351eeed35a7fbc705613038",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_06.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_06.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_06.reviewer_a",
+      "scope": "pilot_review",
+      "row_count": 2,
+      "source_sha256": "f49d88d562ff021e5e8ab9cdb490430b29a1ba5ad7d50fbcc9872256a53e65ed",
+      "returned_sha256": "aadcf14f22df650217b0e19d5e5398bc8cb9071b8eb57449cb928fe544890b36",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_06.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_06.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_06.reviewer_b",
+      "scope": "pilot_review",
+      "row_count": 2,
+      "source_sha256": "dccb48ca6d498adfc29d10559461ffcabfc7c60dade58020363ca600f3221a7b",
+      "returned_sha256": "6ac9557d0cd4b92827ecdb11934a690ec4e68647005cf67a1fb3c843c408ae5e",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_09.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_09.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_09.reviewer_a",
+      "scope": "pilot_review",
+      "row_count": 3,
+      "source_sha256": "a3f4a88de959776bb1ecd5d15a2c7260fccd5f93d9fa36e10e6145e675b10400",
+      "returned_sha256": "5e2b969cc358d0c05a3d686d44982e3ca9d2ff257a91b119713b93540a70374e",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_09.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_09.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_09.reviewer_b",
+      "scope": "pilot_review",
+      "row_count": 3,
+      "source_sha256": "604f923fd042461f482961060660e37533d2fcdf945002f1d1ac3cf584d49a06",
+      "returned_sha256": "bf61145d0e650bd96c4b10c54b4f462e035f639448352d16a2cf11e7dab6bb9d",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_02.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_02.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "scope": "pilot_review",
+      "row_count": 2,
+      "source_sha256": "b01aa22592bea0f9a6b7ec72cc704a38ec27a668f7af871c952895f491148b85",
+      "returned_sha256": "6e2d1caf11ee686acb7a304401d03c87bd29e81e03014fce5acf5a31348d429b",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_02.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_02.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "scope": "pilot_review",
+      "row_count": 2,
+      "source_sha256": "e0a535be0943a491d077f2d5e26b44d483c2145717be9150a2edbfcb3c1984e7",
+      "returned_sha256": "ea362482f8cf532a6c311e0552a886837fe3f8306615384eb3c34201df18655b",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_05.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_05.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "scope": "pilot_review",
+      "row_count": 2,
+      "source_sha256": "0c99b3a78a477fd5487e39ef58b7c4b9d2cb83e55d410a3ba68cc26951d758d2",
+      "returned_sha256": "9305318fb24122c9f1f7f8133f68da418658953293c0928c695a8f4392eff98d",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_review_batch_05.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_review_batch_05.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "scope": "pilot_review",
+      "row_count": 2,
+      "source_sha256": "7c896303b7610d50e2831126beebe4f1486d0ec78a37beb3f07cdfae6a757d8c",
+      "returned_sha256": "8fe356c4ca7af4d418deb647c326e6cc68b242e4af7c130be49fa868a0eeff47",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_07.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_07.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_07.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "ffcc319492340730a495b0cfba7bddef11a20f3cb900c617c397d7d93de14c5c",
+      "returned_sha256": "e84c8e4f59b7181708bf64e8df20628163cb0b4e411ef1ea23532e063467b0d9",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_07.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_07.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_07.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "136a885e81dca3f9094321654d8bc18878cb4b70cea493217acf038120b16f6d",
+      "returned_sha256": "ee7508acea1d65e1a2a70620e1df3c451c8b0550dea0fd86d9b8980562f42099",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_19.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_19.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_19.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "2a050625001b6ec70ff9c387a097f8864550761148618cd5dab187983e3f18b3",
+      "returned_sha256": "e6b7265084e862f706dd51ea5e963f1b6f8a64b1f41e0d5f8c06aa44ffa95f8b",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_19.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_19.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_19.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "0a9d4aeb76472c3cd35c560e9863ebd155e6576693bc4191ac133e2307258c72",
+      "returned_sha256": "49e20f8e9d63850ee309050b0f877e6798c09f5216c14d68eb188198daa39b97",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_28.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_28.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_28.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "ffb87dc00692652b4875b0ae519923f2e418fe72398e01b25398e6dc30c30174",
+      "returned_sha256": "6987c3a4ef153bb77aa0eb7a3d5d61d45ae31a0210715960cc9873463045096d",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_28.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_28.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_28.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "feaa35bc61794984c0edf4d4b9a42f0be6fa0cb8da257c31f1a3a12213cbbf10",
+      "returned_sha256": "d91be376614ba83446756169c7f527779d6b67d6302f503b202b1e7156fe9cfa",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_22.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_22.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_22.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "b55f2c7938e28ac5da4c29272b8c9d78e78a3b31a6bf8e9baaab885b829e68e9",
+      "returned_sha256": "0fb3b9243f098e10a64101da353781008406feff0247002a4f32592939252fc5",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_22.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_22.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_22.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "054d2ca9731061559d4cb59f7c92480a9520dd0827ff27804fe1c1151d7ce0ef",
+      "returned_sha256": "c0d081c0dd8b2d73db6303f654cb0c2fd18b04a88096a0a09f11d229f6bc42f4",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_16.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_16.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_16.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "b94d613d8e7cc13bbba336c16230de9895c8b7d4350d8252155dae735d0dc164",
+      "returned_sha256": "09565f2612408e7f26b8ff7c62c11b91ea315d70481fdc8a73e6f03c8d4cdecb",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_16.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_16.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_16.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "2d827fe30f5cb40f2095627ccdd840dcaa72e24d3d138da504fdb5b22f79b0e6",
+      "returned_sha256": "d5fd314cdf170d846fd22747aea78307aff983ce9022727089c6e50b429fa48f",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_01.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_01.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_01.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "9036cf0b806689e2f1ccaba02aaca2db693f02d0dd39e5fff93b9f5bb32efe50",
+      "returned_sha256": "336573943e0accd142a7b816a15750b5194bca09d2e2a31495470cecde1f1f37",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_01.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_01.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_01.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "7116e99a99e88e027be574e19a35cacc0aa65e33803f6696ac883d31dd3ba827",
+      "returned_sha256": "4aced230b70576cecd518f1ceeb5c6e8a26be76a47c653febe2ea8cf55bf8cc1",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_13.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_13.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_13.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "49e9ba9c2c9439254ab8e1f265141e13e06bdf67884a6bdb3619afffe275d5f3",
+      "returned_sha256": "0e28375c8c4e4a0f2a191ae980f8da59838289841ccc6ade019fe433de9a2493",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_13.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_13.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_13.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "a2e0a99721f46849635bc8dd350d7476226cdd855fbc881940bd97a3f9fc7278",
+      "returned_sha256": "72579b4dff7cb4cf4074954c44f6068054e31082d7ef67bfdd3b369bed2493d9",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_04.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_04.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_04.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "ea4a84a761d88b58bfe4b1ce52f23876b873969168832a9e3489bca042890f27",
+      "returned_sha256": "6fda1b75c32cd1639e15e729f096a29dbb2c0fb43d65738c762d3ad0ba48d5bb",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_04.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_04.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_04.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "de2e601c92d95bdfe74562cedd914dfb61f5ca9fa6ba3cfa116ddd33291bf5a7",
+      "returned_sha256": "d9b44570a8777b40dc1ab23986ad6427a408937f8492f3830a31327f9361304e",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_10.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_10.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_10.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "2719d4081cff184e0a0d7fba0563ed7f72dbb099b145f16aa7c6ee55355fc212",
+      "returned_sha256": "ab2598e0ce3ed7aaca53fb754b63067d022e31f25fe10a3e07d7838b46bb2712",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_10.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_10.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_10.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "6e8e1a7f45fdb8633b927cdf8093ebbaa3b7ba371846fad21d702dd451cdf837",
+      "returned_sha256": "6264487cbbbf82a4b04c57598e05d07b2bc4222fa7ef4beeb1fa4714131a27f0",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_25.reviewer_a.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_25.reviewer_a.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_25.reviewer_a",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "47d8c71c3e07f658a7c2e3aa53a0878cb794a7a867b955827f46a78529b503ef",
+      "returned_sha256": "9474c55657998db0c8765d4bef953704480929371b8fedcad475fdc910564618",
+      "findings": []
+    },
+    {
+      "source_file": "generated/annotation-export/hgr_scale_batch_25.reviewer_b.export.jsonl",
+      "returned_fixture_file": "generated/annotation-import-smoke/hgr_scale_batch_25.reviewer_b.export.returned-fixture.jsonl",
+      "workbook_id": "hgr_scale_batch_25.reviewer_b",
+      "scope": "expansion_review",
+      "row_count": 5,
+      "source_sha256": "99388512bd81ecd85e8feaa45471afdd3a1e0de38092c8523482198df0e5affc",
+      "returned_sha256": "a095b69a92d13dea97e26ac43f97a0e86b8711dd70b2b452100fd4876b57c380",
+      "findings": []
+    }
+  ]
+}

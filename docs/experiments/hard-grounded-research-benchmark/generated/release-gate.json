@@ -13,6 +13,7 @@
     "review_triage": "generated/review-triage.json",
     "annotation_assignments": "generated/annotation-assignments.json",
     "annotation_export": "generated/annotation-export/manifest.json",
+    "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
     "expansion_review_merge_report": "generated/expansion-review-merge-report.json",
     "review_merge_report": "generated/review-merge-report.json",
@@ -75,6 +76,12 @@
       "passed": true,
       "detail": "124 exported rows across 30 files; pilot=24; expansion=100",
       "blocker": "Generate checksum-backed reviewer export files from the annotation assignment plan."
+    },
+    {
+      "id": "annotation_import_smoke_ready",
+      "passed": true,
+      "detail": "124 returned fixture rows checked across 30 files; findings=0",
+      "blocker": "Run the annotation import smoke to verify returned review packets preserve immutable fields."
     },
     {
       "id": "expansion_review_preflight_ready",

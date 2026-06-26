@@ -527,3 +527,11 @@ Decision: Generate a first-wave annotation export from the assignment plan inste
 Rationale: Human double review is the main remaining paper-readiness blocker. A stable export manifest with per-file checksums, reviewer-field-only rules, and row counts makes review handoff and later import auditable without pretending any labels are complete.
 
 Consequence: `scripts/hard-grounded-research-annotation-export.mjs` now emits `generated/annotation-export/manifest.json`, per-workbook export JSONL files, and `ANNOTATION_EXPORT.md`; validation and the release gate record export readiness while keeping all review-completion blockers active.
+
+## 2026-06-26 — Smoke-test returned annotation packets
+
+Decision: Add a fixture import smoke for annotation exports that verifies returned reviewer packets only modify `reviewer_fields`.
+
+Rationale: Exporting review rows is not enough for a paper-grade annotation workflow; the repo also needs evidence that returned packets can be parsed without corrupting immutable benchmark content. A fixture smoke makes the import contract executable while keeping synthetic rows out of gold promotion.
+
+Consequence: `scripts/hard-grounded-research-annotation-import-smoke.mjs` now emits `generated/annotation-import-smoke/report.json`, returned fixture JSONL files, and `ANNOTATION_IMPORT_SMOKE.md`; the release gate records import-smoke readiness while human review blockers remain active.
