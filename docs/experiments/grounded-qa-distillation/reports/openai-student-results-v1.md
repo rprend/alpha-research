@@ -189,6 +189,18 @@ At 3 epochs, the estimated `gpt-4.1-mini-2025-04-14` training cost is $0.85656 u
 
 `openai-finetune-teacher-repair-0-80-v1` adds that upload/create controller and attempts a launch. File uploads succeeded, but job creation failed with OpenAI `training_not_available`, indicating this organization can no longer create self-serve fine-tuning jobs. No job id was created, no training spend was reserved, and the uploaded files were deleted. The OpenAI-hosted SFT path is therefore unavailable on this account; the strict teacher-label packet should be used with a local/Hugging Face SFT backend next.
 
+## Teacher-Label Local Scaffold
+
+`teacher-label-scaffold-temporal-test-80-172-v1` trains a zero-LLM local extractor from the 65 strict teacher labels. It learns evidence selection, sufficiency, and span extraction from teacher outputs, then evaluates on temporal-test examples 81-172.
+
+| Policy | Answered | Abstained | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini student | 65 | 27 | 80.4% | 76.9% | 63.5% | 22.6% | 82.1% |
+| Teacher-label filter | 58 | 34 | 77.2% | 78.4% | 56.5% | 19.8% | 92.0% |
+| Teacher-label local scaffold | 22 | 70 | 48.9% | 56.8% | 10.9% | 3.3% | 100.0% |
+
+This is a negative result. The local scaffold preserves citation formatting but is far too conservative and loses answer synthesis. The strict teacher-label packet needs either more scale or a generative training backend.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

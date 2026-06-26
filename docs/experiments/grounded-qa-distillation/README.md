@@ -143,6 +143,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/openai-finetune-teacher-repair-0-80-v1/` is the first launch attempt. OpenAI accepted file uploads but rejected job creation with `training_not_available` for this organization. No job was created, no training spend was ledgered, and the uploaded files were deleted after failure. The next training path should use a local or Hugging Face supervised fine-tuning backend.
 
+`runs/teacher-label-scaffold-temporal-test-80-172-v1/` is the first local teacher-label-only scaffold. It makes no LLM calls, but held-out performance collapses because 65 strict labels are not enough for a non-generative extractor. This result points toward either more repaired-teacher labels or a real generative SFT/LoRA backend.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:

@@ -44,6 +44,7 @@ if (!errors.length) {
   await validateTeacherLabelExportsIfPresent();
   await validateTeacherLabelFilterRunsIfPresent();
   await validateFineTunePrepRunsIfPresent();
+  await validateTeacherLabelScaffoldRunsIfPresent();
 }
 
 if (errors.length) {
@@ -391,6 +392,50 @@ async function validateFineTunePrepRunsIfPresent() {
         errors.push(`${label}: expected system/user/assistant roles.`);
       }
       if (!row.metadata?.example_id) errors.push(`${label}: missing metadata.example_id.`);
+    }
+  }
+}
+
+async function validateTeacherLabelScaffoldRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("teacher-label-scaffold-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    let result;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed teacher-label scaffold artifacts.`);
+      continue;
+    }
+    if (result.heldout?.examples !== predictions.length) errors.push(`${entry.name}: heldout examples do not match predictions.`);
+    if (result.cost?.llm_calls !== 0) errors.push(`${entry.name}: teacher-label scaffold should not make LLM calls.`);
+    if (!result.evidence_selector || !result.sufficiency_model || !result.span_model) {
+      errors.push(`${entry.name}: missing scaffold model summaries.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores) {
+        errors.push(`${label}: missing prediction/reference/scores.`);
+      }
+      if (!["grounded_answer", "abstain"].includes(row.prediction?.answer_type)) {
+        errors.push(`${label}: invalid prediction answer_type.`);
+      }
+      if (row.prediction?.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
+      }
     }
   }
 }
