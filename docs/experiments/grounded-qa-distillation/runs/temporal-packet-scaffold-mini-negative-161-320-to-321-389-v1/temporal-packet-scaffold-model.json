@@ -1,0 +1,42 @@
+{
+  "evidence_selector": {
+    "model_type": "weighted_logistic",
+    "epochs": 80,
+    "learningRate": 0.14,
+    "l2": 0.0008,
+    "trainingAccuracy": 0.7911392405063291,
+    "positiveCandidates": 96,
+    "negativeCandidates": 378,
+    "weights": {
+      "bias": -0.5435535668221531,
+      "reciprocal_rank": -0.786739475839147,
+      "question_jaccard": -0.336363569713338,
+      "question_coverage": 2.6515558765303857,
+      "title_overlap": 1.9347652217059683,
+      "section_overlap": 3.200906839746474,
+      "log_evidence_length": -0.18627418931047587,
+      "number_match": -1.6075500197316814,
+      "table_like": -0.21472710309283932
+    }
+  },
+  "sufficiency": {
+    "model_type": "weighted_logistic",
+    "epochs": 100,
+    "learningRate": 0.13,
+    "l2": 0.0008,
+    "trainingAccuracy": 0.7168141592920354,
+    "positiveCandidates": 57,
+    "negativeCandidates": 56,
+    "weights": {
+      "bias": -2.0131210820721233,
+      "top_probability": 1.9219710381402604,
+      "second_probability": 1.9722764118225171,
+      "probability_gap": -0.05030537368225358,
+      "mean_probability": 1.9471237249813775,
+      "top_question_jaccard": -1.528478847964681,
+      "merged_question_jaccard": -1.4734276888760673,
+      "counterfactual_flag": -1.0236289512358794,
+      "has_number": -0.28832029678104565
+    }
+  }
+}

@@ -407,6 +407,8 @@ The headroom is asymmetric. Recovering the two harmful false suppressions would 
 
 `hf-sft-launch-preflight-mini-negative-temporal-qwen05b-v1` records the launch state for that packet. The packet itself is ready: local validation passes and the generated training script compiles. The launch is operationally blocked because Hugging Face Jobs returns `402 Payment Required` for insufficient prepaid credits, and local training dependencies are absent (`datasets`, `accelerate`, `peft`, `trl`, `trackio`). The next SFT result requires credits or another TRL/PEFT-capable backend; the OpenAI key budget remains untouched.
 
+`temporal-packet-scaffold-mini-negative-161-320-to-321-389-v1` is the zero-LLM local control while the LoRA launch is blocked. It trains only extractive evidence/sufficiency models from the temporal packet's train rows, tunes threshold on validation rows, and evaluates on later 321-389 prompts. It answers 22/69 examples with 68.1% answer-type accuracy, 63.6% citation precision, 21.6% citation recall, 6.1% answer token F1, and 100.0% inline citation rate. This is a cheap floor, not a replacement for generative SFT.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.

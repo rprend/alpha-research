@@ -1,0 +1,206 @@
+{
+  "run_id": "temporal-packet-scaffold-mini-negative-161-320-to-321-389-v1",
+  "generated_at": "2026-06-26T13:10:46.242Z",
+  "sft_prep_run_id": "hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1",
+  "packet_summary": {
+    "teacher_label_prefix": "teacher-mini-negative-future-holdout-160-389-v1",
+    "train_windows": [
+      "161-240",
+      "241-320"
+    ],
+    "eval_window": "321-389",
+    "train_rows": 113,
+    "validation_rows": 19,
+    "eval_prompts": 69,
+    "train_eval_paper_overlap": 0,
+    "validation_eval_paper_overlap": 0
+  },
+  "method": {
+    "type": "zero_llm_temporal_packet_extractive_scaffold",
+    "training": "Evidence and sufficiency logistic models trained on SFT packet train rows; threshold selected on validation rows.",
+    "prediction": "Abstain below selected sufficiency threshold; otherwise quote the top evidence sentence with inline citation.",
+    "selected_threshold": 0.65
+  },
+  "models": {
+    "evidence_selector": {
+      "model_type": "weighted_logistic",
+      "training_accuracy": 0.7911392405063291,
+      "positive_candidates": 96,
+      "negative_candidates": 378,
+      "feature_count": 9
+    },
+    "sufficiency": {
+      "model_type": "weighted_logistic",
+      "training_accuracy": 0.7168141592920354,
+      "positive_candidates": 57,
+      "negative_candidates": 56,
+      "feature_count": 9
+    }
+  },
+  "validation_threshold_sweep": [
+    {
+      "threshold": 0.15,
+      "metrics": {
+        "examples": 19,
+        "answered": 16,
+        "abstained": 3,
+        "answer_rate": 0.8421052631578947,
+        "answer_type_accuracy": 0.631578947368421,
+        "citation_precision": 0.3125,
+        "citation_recall": 0.5,
+        "answer_token_f1": 0.287854396800042,
+        "abstention_accuracy": 0.15789473684210525,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.25,
+      "metrics": {
+        "examples": 19,
+        "answered": 11,
+        "abstained": 8,
+        "answer_rate": 0.5789473684210527,
+        "answer_type_accuracy": 0.6842105263157895,
+        "citation_precision": 0.36363636363636365,
+        "citation_recall": 0.3888888888888889,
+        "answer_token_f1": 0.22505246443289226,
+        "abstention_accuracy": 0.42105263157894735,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.35,
+      "metrics": {
+        "examples": 19,
+        "answered": 10,
+        "abstained": 9,
+        "answer_rate": 0.5263157894736842,
+        "answer_type_accuracy": 0.631578947368421,
+        "citation_precision": 0.4,
+        "citation_recall": 0.3888888888888889,
+        "answer_token_f1": 0.2172551934777265,
+        "abstention_accuracy": 0.47368421052631576,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.45,
+      "metrics": {
+        "examples": 19,
+        "answered": 6,
+        "abstained": 13,
+        "answer_rate": 0.3157894736842105,
+        "answer_type_accuracy": 0.7368421052631579,
+        "citation_precision": 0.5,
+        "citation_recall": 0.3333333333333333,
+        "answer_token_f1": 0.16736857216253379,
+        "abstention_accuracy": 0.6842105263157895,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.5,
+      "metrics": {
+        "examples": 19,
+        "answered": 5,
+        "abstained": 14,
+        "answer_rate": 0.2631578947368421,
+        "answer_type_accuracy": 0.6842105263157895,
+        "citation_precision": 0.4,
+        "citation_recall": 0.2222222222222222,
+        "answer_token_f1": 0.1179858561131511,
+        "abstention_accuracy": 0.7368421052631579,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.55,
+      "metrics": {
+        "examples": 19,
+        "answered": 4,
+        "abstained": 15,
+        "answer_rate": 0.21052631578947367,
+        "answer_type_accuracy": 0.631578947368421,
+        "citation_precision": 0.25,
+        "citation_recall": 0.1111111111111111,
+        "answer_token_f1": 0.03611451108391133,
+        "abstention_accuracy": 0.7894736842105263,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.65,
+      "metrics": {
+        "examples": 19,
+        "answered": 1,
+        "abstained": 18,
+        "answer_rate": 0.05263157894736842,
+        "answer_type_accuracy": 0.5789473684210527,
+        "citation_precision": 1,
+        "citation_recall": 0.1111111111111111,
+        "answer_token_f1": 0.016666666666666666,
+        "abstention_accuracy": 0.9473684210526315,
+        "inline_citation_rate": 1
+      }
+    },
+    {
+      "threshold": 0.75,
+      "metrics": {
+        "examples": 19,
+        "answered": 0,
+        "abstained": 19,
+        "answer_rate": 0,
+        "answer_type_accuracy": 0.5263157894736842,
+        "citation_precision": 0,
+        "citation_recall": 0,
+        "answer_token_f1": 0,
+        "abstention_accuracy": 1,
+        "inline_citation_rate": 0
+      }
+    },
+    {
+      "threshold": 0.85,
+      "metrics": {
+        "examples": 19,
+        "answered": 0,
+        "abstained": 19,
+        "answer_rate": 0,
+        "answer_type_accuracy": 0.5263157894736842,
+        "citation_precision": 0,
+        "citation_recall": 0,
+        "answer_token_f1": 0,
+        "abstention_accuracy": 1,
+        "inline_citation_rate": 0
+      }
+    }
+  ],
+  "validation": {
+    "examples": 19,
+    "answered": 1,
+    "abstained": 18,
+    "answer_rate": 0.05263157894736842,
+    "answer_type_accuracy": 0.5789473684210527,
+    "citation_precision": 1,
+    "citation_recall": 0.1111111111111111,
+    "answer_token_f1": 0.016666666666666666,
+    "abstention_accuracy": 0.9473684210526315,
+    "inline_citation_rate": 1
+  },
+  "eval": {
+    "examples": 69,
+    "answered": 22,
+    "abstained": 47,
+    "answer_rate": 0.3188405797101449,
+    "answer_type_accuracy": 0.6811594202898551,
+    "citation_precision": 0.6363636363636364,
+    "citation_recall": 0.2159090909090909,
+    "answer_token_f1": 0.061217275715911394,
+    "abstention_accuracy": 0.6811594202898551,
+    "inline_citation_rate": 1
+  },
+  "cost": {
+    "llm_calls": 0,
+    "estimated_inference_cost_usd": 0,
+    "note": "Local packet scaffold. No hosted model calls."
+  }
+}

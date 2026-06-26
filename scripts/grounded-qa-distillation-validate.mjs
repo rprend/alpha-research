@@ -52,6 +52,7 @@ if (!errors.length) {
   await validateVerifierSelectorRunsIfPresent();
   await validateHfSftPrepRunsIfPresent();
   await validateHfSftLaunchPreflightRunsIfPresent();
+  await validateTemporalPacketScaffoldRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -675,6 +676,55 @@ async function validateHfSftLaunchPreflightRunsIfPresent() {
     const hfStatus = result.checks?.hf_jobs_preflight?.status;
     if (!["ready", "blocked", "not_attempted"].includes(hfStatus)) errors.push(`${entry.name}: invalid HF jobs preflight status.`);
     if (!result.conclusion?.status || !result.conclusion?.next_step) errors.push(`${entry.name}: missing launch preflight conclusion.`);
+  }
+}
+
+async function validateTemporalPacketScaffoldRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("temporal-packet-scaffold-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const modelPath = path.join(runsDir, entry.name, "temporal-packet-scaffold-model.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let predictions;
+    let model;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      model = JSON.parse(await fs.readFile(modelPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed temporal packet scaffold artifacts.`);
+      continue;
+    }
+
+    if (!result.sft_prep_run_id) errors.push(`${entry.name}: missing sft_prep_run_id.`);
+    if (result.cost?.llm_calls !== 0) errors.push(`${entry.name}: temporal packet scaffold must not make LLM calls.`);
+    if (predictions.length !== result.eval?.examples) errors.push(`${entry.name}: eval examples do not match predictions.`);
+    if (!model.evidence_selector || !model.sufficiency) errors.push(`${entry.name}: missing scaffold model summaries.`);
+    if (!Number.isFinite(Number(result.method?.selected_threshold))) errors.push(`${entry.name}: missing selected threshold.`);
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores) {
+        errors.push(`${label}: malformed prediction row.`);
+        continue;
+      }
+      if (!["grounded_answer", "abstain"].includes(row.prediction.answer_type)) errors.push(`${label}: invalid prediction answer_type.`);
+      if (row.prediction.answer_type === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
+      }
+    }
   }
 }
 
