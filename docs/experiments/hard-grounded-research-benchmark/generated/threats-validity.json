@@ -1,0 +1,251 @@
+{
+  "threats_validity_ready": true,
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": {
+    "release_gate": "generated/release-gate.json",
+    "corpus_audit": "generated/corpus-audit.json",
+    "construct_map": "generated/construct-map.json",
+    "power_plan": "generated/power-plan.json",
+    "review_progress": "generated/review-progress.json",
+    "item_quality_audit": "generated/item-quality-audit.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "license_clearance": "generated/license-clearance.json",
+    "model_run_index": "generated/model-run-index.json"
+  },
+  "summary": {
+    "threat_count": 8,
+    "high_severity_count": 3,
+    "blocked_release_check_count": 7,
+    "completion_claim_allowed": false
+  },
+  "threats": [
+    {
+      "id": "construct_undercoverage",
+      "type": "construct_validity",
+      "severity": "medium",
+      "risk": "The taxonomy could name plausible hard-grounded tasks without proving that each category is operationally distinct.",
+      "evidence": "10/10 constructs mapped; 0 constructs have reviewed gold.",
+      "mitigation": "Keep construct map, category-specific rubric dimensions, and per-category review targets in the release gate.",
+      "release_check_ids": [
+        "construct_map_ready",
+        "gold_review_complete",
+        "category_scale_ready"
+      ],
+      "release_checks": [
+        {
+          "id": "construct_map_ready",
+          "passed": true,
+          "detail": "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5"
+        },
+        {
+          "id": "gold_review_complete",
+          "passed": false,
+          "detail": "0/30 valid reviewed items"
+        },
+        {
+          "id": "category_scale_ready",
+          "passed": false,
+          "detail": "0/300 valid reviewed target items; 300 reviewed items still needed"
+        }
+      ]
+    },
+    {
+      "id": "machine_seeded_label_bias",
+      "type": "internal_validity",
+      "severity": "high",
+      "risk": "Current labels and transformed tasks may encode generator assumptions rather than human-reviewed grounded truth.",
+      "evidence": "0/60 pilot review rows complete; 0/540 expansion review rows complete.",
+      "mitigation": "Block gold release until double review, preflight, merge, and adjudication complete.",
+      "release_check_ids": [
+        "review_preflight_ready",
+        "review_merge_ready",
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready"
+      ],
+      "release_checks": [
+        {
+          "id": "review_preflight_ready",
+          "passed": false,
+          "detail": "0/60 complete review rows"
+        },
+        {
+          "id": "review_merge_ready",
+          "passed": false,
+          "detail": "0/30 merge-ready items"
+        },
+        {
+          "id": "expansion_review_preflight_ready",
+          "passed": false,
+          "detail": "0/540 complete expansion review rows"
+        },
+        {
+          "id": "expansion_review_merge_ready",
+          "passed": false,
+          "detail": "0/270 expansion merge-ready items"
+        }
+      ]
+    },
+    {
+      "id": "small_pilot_uncertainty",
+      "type": "statistical_conclusion_validity",
+      "severity": "high",
+      "risk": "Pilot metrics may be unstable and should not be read as final category-level benchmark results.",
+      "evidence": "30 pilot items; 0 valid reviewed items; target 300 reviewed items.",
+      "mitigation": "Report uncertainty and keep category-scale claims blocked until the planned reviewed sample is complete.",
+      "release_check_ids": [
+        "power_plan_ready",
+        "category_scale_ready",
+        "baseline_uncertainty_present"
+      ],
+      "release_checks": [
+        {
+          "id": "power_plan_ready",
+          "passed": true,
+          "detail": "30 reviewed items/category; 300 total target; remaining=300"
+        },
+        {
+          "id": "category_scale_ready",
+          "passed": false,
+          "detail": "0/300 valid reviewed target items; 300 reviewed items still needed"
+        },
+        {
+          "id": "baseline_uncertainty_present",
+          "passed": true,
+          "detail": "5 systems with descriptive task-level intervals"
+        }
+      ]
+    },
+    {
+      "id": "source_corpus_bias",
+      "type": "external_validity",
+      "severity": "medium",
+      "risk": "Five Hugging Face source datasets may not represent all large-corpus research workflows or domains.",
+      "evidence": "5 source datasets; 15 scaled public source rows; 270 scaled public items.",
+      "mitigation": "Describe the benchmark as a controlled failure-mode suite rather than a universal research QA sample.",
+      "release_check_ids": [
+        "corpus_audit_ready",
+        "scaled_public_package_present"
+      ],
+      "release_checks": [
+        {
+          "id": "corpus_audit_ready",
+          "passed": true,
+          "detail": "5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108"
+        },
+        {
+          "id": "scaled_public_package_present",
+          "passed": true,
+          "detail": "270 scaled public items; 54 remediated replacements; 81 pointer-only items"
+        }
+      ]
+    },
+    {
+      "id": "license_and_text_packaging",
+      "type": "artifact_validity",
+      "severity": "medium",
+      "risk": "Mixed upstream licenses can make public package contents diverge from private development evidence text.",
+      "evidence": "packaged clearance=true; replaced=54; pointer_only=81.",
+      "mitigation": "Use pointer-only packaging, hashes, replacement candidates, and explicit source-license reporting.",
+      "release_check_ids": [
+        "unknown_license_resolved",
+        "license_impact_clear",
+        "public_package_manifest_present"
+      ],
+      "release_checks": [
+        {
+          "id": "unknown_license_resolved",
+          "passed": true,
+          "detail": "tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true"
+        },
+        {
+          "id": "license_impact_clear",
+          "passed": true,
+          "detail": "135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true"
+        },
+        {
+          "id": "public_package_manifest_present",
+          "passed": true,
+          "detail": "15 pointer-only items; 18 pointer-only evidence units"
+        }
+      ]
+    },
+    {
+      "id": "baseline_overfitting_and_prompt_variance",
+      "type": "evaluation_validity",
+      "severity": "medium",
+      "risk": "A small number of model baselines can overstate or understate benchmark difficulty because of prompt and provider variance.",
+      "evidence": "2 eligible external baselines; 7 indexed runs.",
+      "mitigation": "Keep prompt packets, scored reports, and non-oracle local baselines reproducible; require at least two external baselines before paper claims.",
+      "release_check_ids": [
+        "frontier_or_open_model_results_present",
+        "model_baseline_packets_present"
+      ],
+      "release_checks": [
+        {
+          "id": "frontier_or_open_model_results_present",
+          "passed": true,
+          "detail": "anthropic-grounded-baseline-v1, openai-grounded-baseline-v1"
+        },
+        {
+          "id": "model_baseline_packets_present",
+          "passed": true,
+          "detail": "2 prompt packets; scored_reports_ready=false"
+        }
+      ]
+    },
+    {
+      "id": "novelty_overclaiming",
+      "type": "novelty_validity",
+      "severity": "high",
+      "risk": "Adjacent RAG, grounding, temporal QA, contradiction, and citation-faithfulness work may already cover individual slices.",
+      "evidence": "22 related-work sources; 1 allowed claims; 5 prohibited claims; completion_claim_allowed=false.",
+      "mitigation": "Claim novelty only for the unified hard-grounded failure taxonomy after a final literature refresh.",
+      "release_check_ids": [
+        "novelty_evidence_registry_present",
+        "novelty_claim_boundaries_ready",
+        "novelty_audit_final"
+      ],
+      "release_checks": [
+        {
+          "id": "novelty_evidence_registry_present",
+          "passed": true,
+          "detail": "22 related-work sources registered; completion_claim_allowed=false"
+        },
+        {
+          "id": "novelty_claim_boundaries_ready",
+          "passed": true,
+          "detail": "6 search queries; 1 allowed claims; 5 prohibited/unsupported claims"
+        },
+        {
+          "id": "novelty_audit_final",
+          "passed": false,
+          "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5"
+        }
+      ]
+    },
+    {
+      "id": "item_quality_and_review_burden",
+      "type": "measurement_validity",
+      "severity": "medium",
+      "risk": "Reviewers may accept fluent but ill-formed transformed items unless quality findings are surfaced in the workflow.",
+      "evidence": "0 repair-before-gold items; 20 review-carefully items.",
+      "mitigation": "Carry quality findings into workbooks and keep repair queues visible before gold promotion.",
+      "release_check_ids": [
+        "repair_queue_clear",
+        "reviewer_handoff_ready"
+      ],
+      "release_checks": [
+        {
+          "id": "repair_queue_clear",
+          "passed": true,
+          "detail": "0 repair-before-gold items"
+        },
+        {
+          "id": "reviewer_handoff_ready",
+          "passed": true,
+          "detail": "124 handoff rows across 30 files; gates=6/6"
+        }
+      ]
+    }
+  ]
+}

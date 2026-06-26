@@ -34,6 +34,7 @@
     "corpus_audit": "generated/corpus-audit.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
+    "threats_validity": "generated/threats-validity.json",
     "license_review": "generated/license-review.json",
     "license_impact": "generated/license-impact.json",
     "license_clearance": "generated/license-clearance.json",
@@ -273,6 +274,12 @@
       "passed": true,
       "detail": "6/6 artifact classes ready; reproduction_commands=9; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
+    },
+    {
+      "id": "threats_validity_ready",
+      "passed": true,
+      "detail": "8 threats tracked; high_severity=3; completion_claim_allowed=false",
+      "blocker": "Generate a threats-to-validity report that ties paper risks to release checks and keeps completion claims blocked."
     }
   ],
   "blockers": [

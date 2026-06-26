@@ -14,6 +14,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Scaled public evidence units: 891
 - Construct map ready: true (10/10 constructs)
 - Artifact checklist ready: true (6/6 artifact classes)
+- Threats-to-validity ready: true (8 threats; 3 high severity)
 - Paper target reviewed items/category: 30
 - Paper target reviewed items total: 300
 - Gold ready: false
@@ -112,6 +113,10 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 The generated artifact checklist records 9 reproduction commands, 6/6 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
+## Threats To Validity
+
+The generated threats-to-validity report tracks 8 risks across construct, internal, statistical, external, artifact, evaluation, novelty, and measurement validity. High-severity threats: 3. See `THREATS_TO_VALIDITY.md`.
+
 ## External Model Baselines
 
 | System | Evaluation source | Tasks | Macro answer correct | Report present |
@@ -148,6 +153,7 @@ Key release checks:
 - Corpus audit: pass - 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Artifact checklist: pass - 6/6 artifact classes ready; reproduction_commands=9; release_blockers=7
+- Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Power plan: pass - 30 reviewed items/category; 300 total target; remaining=300
 - Novelty claim boundaries: pass - 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100

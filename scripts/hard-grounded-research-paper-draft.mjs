@@ -31,6 +31,7 @@ const requiredInputs = {
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
+  threatsValidity: join(generatedDir, 'threats-validity.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
@@ -143,6 +144,15 @@ function artifactRows(artifactChecklist) {
   ])
 }
 
+function threatRows(threatsValidity) {
+  return threatsValidity.threats.map((threat) => [
+    threat.id,
+    threat.type,
+    threat.severity,
+    threat.mitigation,
+  ])
+}
+
 function noveltyEvidenceRows(noveltyEvidence) {
   return noveltyEvidence.claim_guidance.map((claim) => [claim.claim, claim.status, claim.reason])
 }
@@ -195,7 +205,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -293,6 +303,12 @@ The generated artifact checklist records ${artifactChecklist.summary.reproductio
 
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
 
+## Threats To Validity
+
+The generated threats-to-validity report tracks ${threatsValidity.summary.threat_count} paper risks and links each risk to release checks. High-severity threats remain ${threatsValidity.summary.high_severity_count}; this is why the current manuscript must be framed as a working scaffold rather than a final benchmark paper.
+
+${markdownTable(['Threat', 'Type', 'Severity', 'Mitigation'], threatRows(threatsValidity))}
+
 ## External Model Baselines
 
 Eligible external model baselines currently recorded by the model-run index: ${eligibleModelBaselines.length ? eligibleModelBaselines.join(', ') : 'none'}.
@@ -374,6 +390,7 @@ const draft = renderDraft({
   corpusAudit: readJson(requiredInputs.corpusAudit),
   constructMap: readJson(requiredInputs.constructMap),
   artifactChecklist: readJson(requiredInputs.artifactChecklist),
+  threatsValidity: readJson(requiredInputs.threatsValidity),
   powerPlan: readJson(requiredInputs.powerPlan),
   noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   goldSummary: readJson(requiredInputs.goldSummary),

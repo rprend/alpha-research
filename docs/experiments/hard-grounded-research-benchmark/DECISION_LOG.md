@@ -679,3 +679,11 @@ Decision: Add a generated artifact checklist that records benchmark artifact cla
 Rationale: A benchmark/position paper needs an auditable artifact surface, not just scattered generated files. Reviewers should be able to see which package components can be regenerated, which claims remain blocked, and which command sequence exercises the benchmark harness.
 
 Consequence: `scripts/hard-grounded-research-artifact-checklist.mjs` emits `generated/artifact-checklist.json` and `ARTIFACT_CHECKLIST.md`; release, dataset-card, paper, README, and harness artifacts now require the checklist while human-review, category-scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Make validity threats release-check backed
+
+Decision: Generate a threats-to-validity report that links each paper risk to current evidence, mitigations, and release checks.
+
+Rationale: A publishable benchmark paper needs to show that known weaknesses are actively gated rather than merely acknowledged in prose. Validity threats should be inspectable, machine-readable, and tied to the same release checks that block overclaiming.
+
+Consequence: `scripts/hard-grounded-research-threats-validity.mjs` emits `generated/threats-validity.json` and `THREATS_TO_VALIDITY.md`; release, dataset-card, paper, README, and harness artifacts now require the threats report while review, scale, and final novelty blockers remain active.

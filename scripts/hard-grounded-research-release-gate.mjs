@@ -40,6 +40,7 @@ const inputs = {
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
+  threatsValidity: join(generatedDir, 'threats-validity.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseImpact: join(generatedDir, 'license-impact.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -117,6 +118,7 @@ function buildGate({
   corpusAudit,
   constructMap,
   artifactChecklist,
+  threatsValidity,
   annotationExport,
   annotationImportSmoke,
   annotationImport,
@@ -384,6 +386,15 @@ function buildGate({
       detail: `${artifactChecklist.summary?.artifact_classes_ready ?? 0}/${artifactChecklist.summary?.artifact_classes_total ?? 0} artifact classes ready; reproduction_commands=${artifactChecklist.summary?.reproduction_commands ?? 0}; release_blockers=${artifactChecklist.summary?.release_blockers ?? 'unknown'}`,
       blocker: 'Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers.',
     },
+    {
+      id: 'threats_validity_ready',
+      passed:
+        Boolean(threatsValidity.threats_validity_ready) &&
+        threatsValidity.summary?.threat_count >= 8 &&
+        threatsValidity.summary?.completion_claim_allowed === false,
+      detail: `${threatsValidity.summary?.threat_count ?? 0} threats tracked; high_severity=${threatsValidity.summary?.high_severity_count ?? 'unknown'}; completion_claim_allowed=${threatsValidity.summary?.completion_claim_allowed ?? 'unknown'}`,
+      blocker: 'Generate a threats-to-validity report that ties paper risks to release checks and keeps completion claims blocked.',
+    },
   ]
 
   return {
@@ -422,6 +433,7 @@ function buildGate({
       corpus_audit: 'generated/corpus-audit.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
+      threats_validity: 'generated/threats-validity.json',
       license_review: 'generated/license-review.json',
       license_impact: 'generated/license-impact.json',
       license_clearance: 'generated/license-clearance.json',
@@ -503,6 +515,7 @@ const gate = buildGate({
   corpusAudit: readJson(inputs.corpusAudit),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
+  threatsValidity: readJson(inputs.threatsValidity),
   annotationExport: readJson(inputs.annotationExport),
   annotationImportSmoke: readJson(inputs.annotationImportSmoke),
   annotationImport: readJson(inputs.annotationImport),

@@ -18,6 +18,7 @@ const inputPaths = {
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
+  threatsValidity: join(generatedDir, 'threats-validity.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -122,6 +123,7 @@ function renderCard({
   corpusAudit,
   constructMap,
   artifactChecklist,
+  threatsValidity,
   powerPlan,
   licenseReview,
   licenseClearance,
@@ -154,6 +156,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Scaled public evidence units: ${corpusAudit.summary.scaled_public_evidence_units}
 - Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
 - Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
+- Threats-to-validity ready: ${threatsValidity.threats_validity_ready} (${threatsValidity.summary.threat_count} threats; ${threatsValidity.summary.high_severity_count} high severity)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Gold ready: ${goldSummary.gold_ready}
@@ -226,6 +229,10 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 The generated artifact checklist records ${artifactChecklist.summary.reproduction_commands} reproduction commands, ${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} ready artifact classes, and ${artifactChecklist.summary.release_blockers} release blockers. It keeps completion claims blocked while release status is \`${artifactChecklist.paper_readiness.release_gate_status}\`. See \`ARTIFACT_CHECKLIST.md\`.
 
+## Threats To Validity
+
+The generated threats-to-validity report tracks ${threatsValidity.summary.threat_count} risks across construct, internal, statistical, external, artifact, evaluation, novelty, and measurement validity. High-severity threats: ${threatsValidity.summary.high_severity_count}. See \`THREATS_TO_VALIDITY.md\`.
+
 ## External Model Baselines
 
 ${markdownTable(['System', 'Evaluation source', 'Tasks', 'Macro answer correct', 'Report present'], modelRows(modelRunIndex))}
@@ -259,6 +266,7 @@ Key release checks:
 - Corpus audit: ${checkDetail(releaseGate, 'corpus_audit_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
+- Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
@@ -290,6 +298,7 @@ writeText(
     corpusAudit: readJson(inputPaths.corpusAudit),
     constructMap: readJson(inputPaths.constructMap),
     artifactChecklist: readJson(inputPaths.artifactChecklist),
+    threatsValidity: readJson(inputPaths.threatsValidity),
     powerPlan: readJson(inputPaths.powerPlan),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),

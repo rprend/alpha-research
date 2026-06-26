@@ -187,6 +187,21 @@ The generated artifact checklist records 9 reproduction commands and 6/6 ready a
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims. |
 
+## Threats To Validity
+
+The generated threats-to-validity report tracks 8 paper risks and links each risk to release checks. High-severity threats remain 3; this is why the current manuscript must be framed as a working scaffold rather than a final benchmark paper.
+
+| Threat | Type | Severity | Mitigation |
+| --- | --- | --- | --- |
+| construct_undercoverage | construct_validity | medium | Keep construct map, category-specific rubric dimensions, and per-category review targets in the release gate. |
+| machine_seeded_label_bias | internal_validity | high | Block gold release until double review, preflight, merge, and adjudication complete. |
+| small_pilot_uncertainty | statistical_conclusion_validity | high | Report uncertainty and keep category-scale claims blocked until the planned reviewed sample is complete. |
+| source_corpus_bias | external_validity | medium | Describe the benchmark as a controlled failure-mode suite rather than a universal research QA sample. |
+| license_and_text_packaging | artifact_validity | medium | Use pointer-only packaging, hashes, replacement candidates, and explicit source-license reporting. |
+| baseline_overfitting_and_prompt_variance | evaluation_validity | medium | Keep prompt packets, scored reports, and non-oracle local baselines reproducible; require at least two external baselines before paper claims. |
+| novelty_overclaiming | novelty_validity | high | Claim novelty only for the unified hard-grounded failure taxonomy after a final literature refresh. |
+| item_quality_and_review_burden | measurement_validity | medium | Carry quality findings into workbooks and keep repair queues visible before gold promotion. |
+
 ## External Model Baselines
 
 Eligible external model baselines currently recorded by the model-run index: anthropic-grounded-baseline-v1, openai-grounded-baseline-v1.
@@ -271,6 +286,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | artifact_checklist_ready | yes | 6/6 artifact classes ready; reproduction_commands=9; release_blockers=7 |
+| threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position
 
