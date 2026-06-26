@@ -341,6 +341,15 @@ Final untouched tail comparison on examples 321-389:
 
 The on-policy judged-support gate is a negative result for this feature family. It ties the older claim-pruner-label gate on overall judged correctness while answering fewer examples and lowering answer support. More direct-judge labels are not enough; the next step needs a stronger verifier model, better candidates, or actual generative fine-tuning.
 
+`risk-gate-transfer-synthesis-240-389-v1` aggregates the two true transfer windows after threshold selection:
+
+| Policy | Examples | Answered | Answer rate | Citation precision | Citation recall | Answer F1 | Inline citation rate | GPT-4o answer support | GPT-4o overall correct |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini + citation repair | 149 | 117 | 78.5% | 64.1% | 70.4% | 30.2% | 98.3% | 64.1% | 71.8% |
+| Balanced claim-pruner-label risk gate | 149 | 90 | 60.4% | 65.4% | 56.2% | 24.7% | 100.0% | 70.0% | 79.9% |
+
+The aggregate is the cleanest current amortization result: the local risk gate improves stronger-judged correctness by 8.1 percentage points and answer support by 5.9 percentage points with zero per-query verifier calls. It is still a support/coverage tradeoff, not a final student: 27 fewer answers, 14.2 percentage points lower citation recall, and 5.5 percentage points lower answer F1.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
