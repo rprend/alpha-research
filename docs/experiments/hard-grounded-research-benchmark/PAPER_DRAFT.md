@@ -224,6 +224,8 @@ The generated paper claim ledger maps 8 manuscript claims to current evidence: 3
 
 The generated supplement index maps 5 supplement sections, 6 paper tables, and 8 claims to source artifacts. It should be used as the reviewer-facing navigation layer for supplementary materials.
 
+The generated reviewer FAQ answers 6 likely reviewer objections using current release blockers, novelty boundaries, source-package policy, and validity risks. It should be kept with the supplement for submission and rebuttal preparation.
+
 ## Responsible Use And Leaderboard Policy
 
 The generated responsible-use policy contains 6 rules and 2 active restrictions. It disallows public leaderboards and completion claims while review, scale, and novelty gates remain incomplete, and requires pointer-only handling for license-sensitive evidence.
@@ -243,7 +245,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 29 reproduction commands and 26/26 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 30 reproduction commands and 27/27 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
 The generated version manifest records SHA-256 digests for 20 package-critical artifacts totaling 375745 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
@@ -271,6 +273,7 @@ The generated version manifest records SHA-256 digests for 20 package-critical a
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v1; sections=5; tables=6; claims=8. |
+| reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
 | version_manifest | ready | version-manifest-v1; artifacts=20; bytes=375745. |
@@ -382,6 +385,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v1; sections=5; tables=6; claims=8 |
+| reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
@@ -402,7 +406,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 26/26 artifact classes ready; reproduction_commands=29; release_blockers=7 |
+| artifact_checklist_ready | yes | 27/27 artifact classes ready; reproduction_commands=30; release_blockers=7 |
 | version_manifest_ready | yes | version-manifest-v1; artifacts=20; blockers=7; bytes=375745 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 

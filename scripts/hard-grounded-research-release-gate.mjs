@@ -42,6 +42,7 @@ const inputs = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
+  reviewerFaq: join(generatedDir, 'reviewer-faq.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
@@ -139,6 +140,7 @@ function buildGate({
   analysisPlan,
   paperClaimLedger,
   supplementIndex,
+  reviewerFaq,
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
@@ -453,6 +455,15 @@ function buildGate({
       blocker: 'Generate a reviewer-facing supplement index before submitting the benchmark paper package.',
     },
     {
+      id: 'reviewer_faq_ready',
+      passed:
+        Boolean(reviewerFaq.reviewer_faq_ready) &&
+        reviewerFaq.summary?.questions >= 6 &&
+        reviewerFaq.summary?.completion_claim_allowed === false,
+      detail: `${reviewerFaq.version}; questions=${reviewerFaq.summary?.questions ?? 0}; blockers=${reviewerFaq.summary?.release_blockers ?? 'unknown'}; prohibited_claims=${reviewerFaq.summary?.prohibited_claims ?? 'unknown'}`,
+      blocker: 'Generate a reviewer-facing FAQ that answers likely paper objections from current artifacts.',
+    },
+    {
       id: 'responsible_use_ready',
       passed:
         Boolean(responsibleUse.responsible_use_ready) &&
@@ -698,6 +709,7 @@ function buildGate({
       analysis_plan: 'generated/analysis-plan.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
       supplement_index: 'generated/supplement-index.json',
+      reviewer_faq: 'generated/reviewer-faq.json',
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
@@ -799,6 +811,7 @@ const gate = buildGate({
   analysisPlan: readJson(inputs.analysisPlan),
   paperClaimLedger: readJson(inputs.paperClaimLedger),
   supplementIndex: readJson(inputs.supplementIndex),
+  reviewerFaq: readJson(inputs.reviewerFaq),
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),

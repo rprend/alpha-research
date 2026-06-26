@@ -41,6 +41,7 @@ const requiredInputs = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
+  reviewerFaq: join(generatedDir, 'reviewer-faq.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
@@ -247,7 +248,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, releaseGate, modelRunIndex, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, dataStatement, versionManifest, releaseGate, modelRunIndex, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -377,6 +378,8 @@ The generated paper claim ledger maps ${paperClaimLedger.summary.claims} manuscr
 
 The generated supplement index maps ${supplementIndex.summary.sections} supplement sections, ${supplementIndex.summary.paper_tables} paper tables, and ${supplementIndex.summary.claims} claims to source artifacts. It should be used as the reviewer-facing navigation layer for supplementary materials.
 
+The generated reviewer FAQ answers ${reviewerFaq.summary.questions} likely reviewer objections using current release blockers, novelty boundaries, source-package policy, and validity risks. It should be kept with the supplement for submission and rebuttal preparation.
+
 ## Responsible Use And Leaderboard Policy
 
 The generated responsible-use policy contains ${responsibleUse.summary.policy_rules} rules and ${responsibleUse.summary.active_restrictions} active restrictions. It disallows public leaderboards and completion claims while review, scale, and novelty gates remain incomplete, and requires pointer-only handling for license-sensitive evidence.
@@ -492,6 +495,7 @@ const draft = renderDraft({
   analysisPlan: readJson(requiredInputs.analysisPlan),
   paperClaimLedger: readJson(requiredInputs.paperClaimLedger),
   supplementIndex: readJson(requiredInputs.supplementIndex),
+  reviewerFaq: readJson(requiredInputs.reviewerFaq),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),
   sourceDiversityPlan: readJson(requiredInputs.sourceDiversityPlan),

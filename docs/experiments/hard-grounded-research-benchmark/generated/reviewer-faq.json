@@ -1,0 +1,78 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "reviewer_faq_ready": true,
+  "version": "reviewer-faq-v1",
+  "generated_from": {
+    "release_gate": "generated/release-gate.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "data_statement": "generated/data-statement.json",
+    "supplement_index": "generated/supplement-index.json",
+    "threats_validity": "generated/threats-validity.json"
+  },
+  "questions": [
+    {
+      "id": "is_this_gold_ready",
+      "question": "Is the benchmark ready for final leaderboard or category-level claims?",
+      "answer": "No. The package is intentionally gated: pilot and fixture results are diagnostic until human gold review, merge, category scale, and final novelty checks pass.",
+      "evidence": [
+        "0/30 valid reviewed items",
+        "0/300 valid reviewed target items; 300 reviewed items still needed",
+        "3 paper claims prohibited until gates pass"
+      ]
+    },
+    {
+      "id": "what_is_novel",
+      "question": "What is the novelty claim relative to existing RAG and long-context benchmarks?",
+      "answer": "The allowed claim is a taxonomy and package for hard grounded research failures beyond lookup, not that every component task type is new. Multi-hop and faithfulness are included only as parts of a broader document-lifecycle, authority, temporal, insufficiency, entity, contradiction, and conclusion-support surface.",
+      "evidence": [
+        "1 allowed novelty claims",
+        "5 prohibited or unsupported novelty framings"
+      ]
+    },
+    {
+      "id": "why_large_corpus",
+      "question": "Why is this framed as large-corpus research QA?",
+      "answer": "The benchmark tracks source diversity, source acquisition, scaled public candidates, and pointer-only packaging separately from the 30-item pilot. The pilot proves harness mechanics; the scaled artifacts define the paper target and review queue.",
+      "evidence": [
+        "270 scaled public items",
+        "246 source acquisition candidates"
+      ]
+    },
+    {
+      "id": "how_are_licenses_handled",
+      "question": "How are upstream Hugging Face licenses handled?",
+      "answer": "Known-license evidence can be redistributed under the package policy; unknown or mixed-license source text is pointer-only with hashes and locators. The data statement and public package manifest define this boundary.",
+      "evidence": [
+        "15 pointer-only items",
+        "18 pointer-only evidence units"
+      ]
+    },
+    {
+      "id": "what_should_reviewers_inspect",
+      "question": "Which artifacts should reviewers inspect first?",
+      "answer": "Start with the supplement index, paper claim ledger, paper tables, data statement, version manifest, and release gate. These map claims to evidence and make blocked claims explicit.",
+      "evidence": [
+        "5 supplement sections",
+        "6 paper tables",
+        "7 active release blockers"
+      ]
+    },
+    {
+      "id": "main_risks",
+      "question": "What are the main residual risks?",
+      "answer": "The main risks are construct validity before human review, statistical power before category scale, external validity across source domains, novelty drift, and measurement validity for citation and conclusion support.",
+      "evidence": [
+        "8 tracked validity threats",
+        "3 high-severity threats"
+      ]
+    }
+  ],
+  "summary": {
+    "questions": 6,
+    "release_blockers": 7,
+    "prohibited_claims": 3,
+    "high_severity_threats": 3,
+    "completion_claim_allowed": false
+  }
+}

@@ -56,6 +56,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `SCORING_CONTRACT.md` and `generated/scoring-contract.json`: metric formulas, aggregation rules, and claim limits for scored submissions.
 - `ERROR_CODEBOOK.md` and `generated/error-codebook.json`: qualitative failure-code definitions and reviewer coding rules for error analysis.
 - `SUPPLEMENT_INDEX.md` and `generated/supplement-index.json`: reviewer-facing map from supplement sections, tables, and claims to source artifacts.
+- `REVIEWER_FAQ.md` and `generated/reviewer-faq.json`: reviewer-facing FAQ that answers likely objections from current artifacts and blockers.
 - `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.
 - `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.
 - `DATASET_CARD.md`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.

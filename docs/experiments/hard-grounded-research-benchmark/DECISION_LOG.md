@@ -871,3 +871,11 @@ Decision: Generate a reviewer-facing supplement index for the benchmark paper pa
 Rationale: The package now has paper tables, claim boundaries, data statements, contracts, and version hashes, but reviewers still need one navigation layer that maps supplement sections, claims, and tables back to the authoritative artifacts.
 
 Consequence: `scripts/hard-grounded-research-supplement-index.mjs` emits `generated/supplement-index.json` and `SUPPLEMENT_INDEX.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the index while completion claims remain blocked.
+
+## 2026-06-26 — Add reviewer FAQ
+
+Decision: Generate a reviewer-facing FAQ for the benchmark paper package.
+
+Rationale: A serious benchmark submission needs concise answers to predictable reviewer objections about gold readiness, novelty, large-corpus framing, licensing, supplement navigation, and residual validity risks.
+
+Consequence: `scripts/hard-grounded-research-reviewer-faq.mjs` emits `generated/reviewer-faq.json` and `REVIEWER_FAQ.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the FAQ while completion claims remain blocked.

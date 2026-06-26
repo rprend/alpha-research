@@ -20,6 +20,7 @@ const inputPaths = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
+  reviewerFaq: join(generatedDir, 'reviewer-faq.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   submissionContract: join(generatedDir, 'submission-contract.json'),
   scoringContract: join(generatedDir, 'scoring-contract.json'),
@@ -147,6 +148,7 @@ function renderCard({
   analysisPlan,
   paperClaimLedger,
   supplementIndex,
+  reviewerFaq,
   modelRunIndex,
   submissionContract,
   scoringContract,
@@ -320,6 +322,10 @@ The generated claim ledger maps ${paperClaimLedger.summary.claims} manuscript cl
 
 The generated supplement index maps ${supplementIndex.summary.sections} supplement sections, ${supplementIndex.summary.paper_tables} paper tables, and ${supplementIndex.summary.claims} claims to source artifacts for reviewer navigation. See \`SUPPLEMENT_INDEX.md\`.
 
+## Reviewer FAQ
+
+The generated reviewer FAQ answers ${reviewerFaq.summary.questions} likely reviewer objections using current release blockers, novelty boundaries, data-package facts, and validity risks. See \`REVIEWER_FAQ.md\`.
+
 ## Statistical Scale Plan
 
 The current pilot supports diagnostic analysis only. The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
@@ -397,6 +403,7 @@ Key release checks:
 - Paper tables: ${checkDetail(releaseGate, 'paper_tables_ready')}
 - Analysis plan: ${checkDetail(releaseGate, 'analysis_plan_ready')}
 - Supplement index: ${checkDetail(releaseGate, 'supplement_index_ready')}
+- Reviewer FAQ: ${checkDetail(releaseGate, 'reviewer_faq_ready')}
 - Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
 - Scoring contract: ${checkDetail(releaseGate, 'scoring_contract_ready')}
 - Data statement: ${checkDetail(releaseGate, 'data_statement_ready')}
@@ -438,6 +445,7 @@ writeText(
     analysisPlan: readJson(inputPaths.analysisPlan),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     supplementIndex: readJson(inputPaths.supplementIndex),
+    reviewerFaq: readJson(inputPaths.reviewerFaq),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     submissionContract: readJson(inputPaths.submissionContract),
     scoringContract: readJson(inputPaths.scoringContract),

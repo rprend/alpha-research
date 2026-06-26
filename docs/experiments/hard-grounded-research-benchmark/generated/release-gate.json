@@ -36,6 +36,7 @@
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "supplement_index": "generated/supplement-index.json",
+    "reviewer_faq": "generated/reviewer-faq.json",
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
@@ -303,6 +304,12 @@
       "blocker": "Generate a reviewer-facing supplement index before submitting the benchmark paper package."
     },
     {
+      "id": "reviewer_faq_ready",
+      "passed": true,
+      "detail": "reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3",
+      "blocker": "Generate a reviewer-facing FAQ that answers likely paper objections from current artifacts."
+    },
+    {
       "id": "responsible_use_ready",
       "passed": true,
       "detail": "6 policy rules; active_restrictions=2; public_leaderboard_allowed=false",
@@ -425,7 +432,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "26/26 artifact classes ready; reproduction_commands=29; release_blockers=7",
+      "detail": "27/27 artifact classes ready; reproduction_commands=30; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
