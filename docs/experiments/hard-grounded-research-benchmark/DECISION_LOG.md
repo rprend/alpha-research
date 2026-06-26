@@ -295,3 +295,11 @@ Decision: Generate a preflight work queue for reviewer workbooks before attempti
 Rationale: The gold-data blocker is not actionable if reviewers only learn about missing or invalid fields at merge time. A preflight report makes each incomplete row, missing field, and high-attention item visible before adjudication.
 
 Consequence: `scripts/hard-grounded-research-review-preflight.mjs` now emits `generated/review-preflight.json` and `REVIEW_PREFLIGHT.md`, with strict mode failing until all assigned review rows are complete.
+
+## 2026-06-26 — Gate release on review preflight
+
+Decision: Make the release gate consume review preflight readiness directly.
+
+Rationale: Review merge readiness is too late in the workflow to express the current blocker precisely. The paper gate should show whether reviewer workbooks are complete before asking whether independent reviews agree and can merge.
+
+Consequence: `scripts/hard-grounded-research-release-gate.mjs` now adds `review_preflight_ready`, sourced from `generated/review-preflight.json`, so incomplete reviewer rows appear as an explicit release blocker.

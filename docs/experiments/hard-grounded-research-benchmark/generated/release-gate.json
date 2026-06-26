@@ -5,6 +5,7 @@
     "spec": "benchmark-spec.json",
     "novelty_audit": "NOVELTY_AUDIT.md",
     "gold_summary": "generated/gold-suite-summary.json",
+    "review_preflight": "generated/review-preflight.json",
     "review_merge_report": "generated/review-merge-report.json",
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
@@ -20,6 +21,12 @@
       "passed": false,
       "detail": "0/30 valid reviewed items",
       "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_preflight_ready",
+      "passed": false,
+      "detail": "0/60 complete review rows",
+      "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
     },
     {
       "id": "review_merge_ready",
@@ -69,6 +76,11 @@
       "id": "gold_review_complete",
       "detail": "0/30 valid reviewed items",
       "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_preflight_ready",
+      "detail": "0/60 complete review rows",
+      "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
     },
     {
       "id": "review_merge_ready",
