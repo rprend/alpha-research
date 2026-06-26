@@ -223,3 +223,11 @@ Decision: Add inter-reviewer agreement metrics to the review-merge report.
 Rationale: A publishable benchmark needs to report label reliability, not just whether the gold gate passed. Exact agreement and label-only agreement separate citation/answer disagreements from category-label disagreements, which is useful for diagnosing hard grounded research tasks.
 
 Consequence: `generated/review-merge-report.json` and `REVIEW_MERGE_REPORT.md` now include double-reviewed item counts plus exact and label agreement rates overall and by category.
+
+## 2026-06-26 — Summarize baselines by challenge type
+
+Decision: Add challenge-type diagnostic summaries to the baseline analysis report.
+
+Rationale: The paper question asks what makes grounded research hard beyond lookup. Category-level failures are useful, but challenge-type slices expose whether systems fail on stale/current conflicts, appendix lifecycle changes, authority conflicts, citation overreach, as-of-date constraints, or native multi-hop retrieval.
+
+Consequence: `generated/baseline-analysis.json` and `BASELINE_ANALYSIS.md` now report macro metrics by challenge type for every scored baseline.

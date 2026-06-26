@@ -756,7 +756,97 @@
           "evidence_recall": 1,
           "abstention_quality": 1
         }
-      ]
+      ],
+      "by_challenge_type": {
+        "as_of_date_constraint": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 1,
+            "abstention_quality": 1
+          }
+        },
+        "authority_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 1,
+            "abstention_quality": 1
+          }
+        },
+        "citation_overreach_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 0,
+            "abstention_quality": 1
+          }
+        },
+        "cross_document_contradiction": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 1,
+            "abstention_quality": 1
+          }
+        },
+        "document_lifecycle_appendix": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 1,
+            "abstention_quality": 1
+          }
+        },
+        "insufficiency_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 1,
+            "abstention_quality": 1
+          }
+        },
+        "native_row": {
+          "task_count": 9,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 1,
+            "abstention_quality": 1
+          }
+        },
+        "stale_current_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "conclusion_support": 1,
+            "abstention_quality": 1
+          }
+        }
+      }
     },
     {
       "system_id": "lexical-evidence-baseline-v1",
@@ -810,7 +900,97 @@
           "evidence_recall": 0.3952,
           "abstention_quality": 1
         }
-      ]
+      ],
+      "by_challenge_type": {
+        "as_of_date_constraint": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.3333,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6667,
+            "conclusion_support": 0.6667,
+            "abstention_quality": 0.3333
+          }
+        },
+        "authority_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.3333,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6667,
+            "conclusion_support": 0.6667,
+            "abstention_quality": 0.3333
+          }
+        },
+        "citation_overreach_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.3333,
+            "evidence_recall": 0.3952,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6667,
+            "conclusion_support": 0,
+            "abstention_quality": 1
+          }
+        },
+        "cross_document_contradiction": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.3952,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          }
+        },
+        "document_lifecycle_appendix": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          }
+        },
+        "insufficiency_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 0
+          }
+        },
+        "native_row": {
+          "task_count": 9,
+          "macro": {
+            "answer_correct": 0.2222,
+            "evidence_recall": 0.7296,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6111,
+            "conclusion_support": 0.6111,
+            "abstention_quality": 1
+          }
+        },
+        "stale_current_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.3333,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6667,
+            "conclusion_support": 0.6667,
+            "abstention_quality": 0.3333
+          }
+        }
+      }
     },
     {
       "system_id": "citation-aware-verifier-v1",
@@ -864,7 +1044,97 @@
           "evidence_recall": 1,
           "abstention_quality": 1
         }
-      ]
+      ],
+      "by_challenge_type": {
+        "as_of_date_constraint": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.3333,
+            "evidence_recall": 0.25,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6667,
+            "conclusion_support": 0.6667,
+            "abstention_quality": 0.3333
+          }
+        },
+        "authority_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.3333,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6667,
+            "conclusion_support": 0.6667,
+            "abstention_quality": 0.3333
+          }
+        },
+        "citation_overreach_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.3952,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 1,
+            "abstention_quality": 0
+          }
+        },
+        "cross_document_contradiction": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.3952,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          }
+        },
+        "document_lifecycle_appendix": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 1
+          }
+        },
+        "insufficiency_probe": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.5,
+            "conclusion_support": 0.5,
+            "abstention_quality": 0
+          }
+        },
+        "native_row": {
+          "task_count": 9,
+          "macro": {
+            "answer_correct": 0.2222,
+            "evidence_recall": 0.7296,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6111,
+            "conclusion_support": 0.6111,
+            "abstention_quality": 1
+          }
+        },
+        "stale_current_conflict": {
+          "task_count": 3,
+          "macro": {
+            "answer_correct": 0.3333,
+            "evidence_recall": 0.25,
+            "citation_precision": 1,
+            "citation_faithfulness": 0.6667,
+            "conclusion_support": 0.6667,
+            "abstention_quality": 0.3333
+          }
+        }
+      }
     }
   ],
   "headline_contrasts": {

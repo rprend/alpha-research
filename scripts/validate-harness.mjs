@@ -187,6 +187,10 @@ for (const token of ['--calibration', '--gold', 'calibration-suite.json', 'gold-
   assert(openAiBaselineSource.includes(token), `Hard grounded OpenAI baseline is missing source-aware token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-report.mjs')), 'Missing hard grounded research baseline report builder.')
+const hardGroundedReportSource = readFileSync(join(root, 'scripts/hard-grounded-research-report.mjs'), 'utf8')
+for (const token of ['challengeTypeSummary', 'by_challenge_type', 'Challenge-Type Diagnostics']) {
+  assert(hardGroundedReportSource.includes(token), `Hard grounded report is missing challenge diagnostic token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),

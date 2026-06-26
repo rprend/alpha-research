@@ -127,6 +127,41 @@ function buildFailureAnalysis(report, pilotSuite) {
   }
 }
 
+function challengeTypeSummary(report, pilotSuite) {
+  const pilotById = new Map(pilotSuite.items.map((item) => [item.id, item]))
+  const metricNames = [
+    'answer_correct',
+    'evidence_recall',
+    'citation_precision',
+    'citation_faithfulness',
+    'conclusion_support',
+    'abstention_quality',
+  ]
+  const byChallenge = new Map()
+  for (const score of report.task_scores || []) {
+    const challengeType = pilotById.get(score.task_id)?.challenge?.type || 'native_row'
+    if (!byChallenge.has(challengeType)) byChallenge.set(challengeType, [])
+    byChallenge.get(challengeType).push(score)
+  }
+
+  return Object.fromEntries(
+    [...byChallenge.entries()]
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([challengeType, scores]) => [
+        challengeType,
+        {
+          task_count: scores.length,
+          macro: Object.fromEntries(
+            metricNames.map((metricName) => [
+              metricName,
+              Number((scores.reduce((sum, score) => sum + score[metricName], 0) / scores.length).toFixed(4)),
+            ]),
+          ),
+        },
+      ]),
+  )
+}
+
 function markdownTable(headers, rows) {
   return [
     `| ${headers.join(' | ')} |`,
@@ -144,6 +179,7 @@ function buildReport(scoredReports, goldSummary, openAiManifest, openAiCalibrati
     task_count: report.summary.task_count,
     macro: report.summary.macro,
     weakest_categories: sortedWeakestCategories(report).slice(0, 5),
+    by_challenge_type: challengeTypeSummary(report, pilotSuite),
   }))
 
   return {
@@ -236,6 +272,18 @@ function renderMarkdown(report) {
         .map(([reason, count]) => `${reason}:${count}`)
         .join('<br>'),
     ])
+  const challengeRows = report.systems.flatMap((system) =>
+    Object.entries(system.by_challenge_type || {}).map(([challengeType, summary]) => [
+      system.system_id,
+      challengeType,
+      String(summary.task_count),
+      metric(summary.macro.answer_correct),
+      metric(summary.macro.evidence_recall),
+      metric(summary.macro.citation_faithfulness),
+      metric(summary.macro.conclusion_support),
+      metric(summary.macro.abstention_quality),
+    ]),
+  )
   const representativeFailures = Object.entries(report.failure_analysis?.by_category || {})
     .flatMap(([category, analysis]) =>
       analysis.representative_failures.slice(0, 1).map((failure) => ({ ...failure, category })),
@@ -290,6 +338,22 @@ ${markdownTable(
 ${markdownTable(
   ['Category', 'Answer correct', 'Evidence recall', 'Citation faithfulness', 'Conclusion support', 'Abstention quality'],
   weakestRows,
+)}
+
+## Challenge-Type Diagnostics
+
+${markdownTable(
+  [
+    'System',
+    'Challenge',
+    'Tasks',
+    'Answer correct',
+    'Evidence recall',
+    'Citation faithfulness',
+    'Conclusion support',
+    'Abstention quality',
+  ],
+  challengeRows,
 )}
 
 ## Lexical Failure Taxonomy
