@@ -84,6 +84,7 @@ if (!errors.length) {
   await validateReviewerRiskAuditRunsIfPresent();
   await validateJudgeCalibrationAuditRunsIfPresent();
   await validateJudgeAdjudicationPacketRunsIfPresent();
+  await validateJudgeReliabilitySecondPassPlanRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
 }
 
@@ -1952,6 +1953,80 @@ async function validateJudgeAdjudicationPacketRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: judge adjudication packet must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateJudgeReliabilitySecondPassPlanRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("judge-reliability-second-pass-plan-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const requestsPath = path.join(runsDir, entry.name, "second_pass_requests.jsonl");
+    const estimatesPath = path.join(runsDir, entry.name, "cost_estimate.jsonl");
+    let result;
+    let report;
+    let requests;
+    let estimates;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      requests = await readJsonl(requestsPath);
+      estimates = await readJsonl(estimatesPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed judge reliability second-pass artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "judge_reliability_second_pass_plan") {
+      errors.push(`${entry.name}: unexpected judge reliability second-pass artifact type.`);
+    }
+    if (result.status !== "second_pass_requests_ready_not_run") {
+      errors.push(`${entry.name}: second-pass plan must not claim completed judging.`);
+    }
+    if (result.blind_protocol?.hides_original_judge_verdict !== true) {
+      errors.push(`${entry.name}: second-pass plan must hide original judge verdicts.`);
+    }
+    if (Number(result.request_rows) < 20 || requests.length !== Number(result.request_rows) || estimates.length !== requests.length) {
+      errors.push(`${entry.name}: second-pass plan must materialize request and estimate rows.`);
+    }
+    if (Number(result.planned_second_pass_judge?.estimated_calls) < Number(result.request_rows)) {
+      errors.push(`${entry.name}: second-pass plan must estimate at least one call per request row.`);
+    }
+    if (Number(result.budget_gate?.estimated_second_pass_cost_usd) <= 0 || result.budget_gate?.within_budget !== true) {
+      errors.push(`${entry.name}: second-pass plan must include a positive under-budget cost estimate.`);
+    }
+    const auditTypes = new Set(requests.map((row) => row.audit_type));
+    for (const type of ["unsupported_answer", "questionable_abstention", "correct_abstention_sanity_check", "cross_policy_disagreement"]) {
+      if (!auditTypes.has(type)) errors.push(`${entry.name}: second-pass requests missing ${type}.`);
+    }
+    for (const row of requests) {
+      if (!row.packet_id || !row.example_id || !row.question) errors.push(`${entry.name}: malformed second-pass row identity.`);
+      if (!Array.isArray(row.compact_retrieved_evidence_pack) || !row.compact_retrieved_evidence_pack.length) {
+        errors.push(`${entry.name}: ${row.packet_id} missing evidence pack.`);
+      }
+      if (!Array.isArray(row.cases) || !row.cases.length) errors.push(`${entry.name}: ${row.packet_id} missing cases.`);
+      for (const item of row.cases ?? []) {
+        if (item.original_judge_verdict_hidden !== true || Object.hasOwn(item, "judge_verdict")) {
+          errors.push(`${entry.name}: ${row.packet_id} leaked original judge verdict.`);
+        }
+        if (!item.case_id || !item.policy || !item.prediction?.answer_type) {
+          errors.push(`${entry.name}: ${row.packet_id} malformed second-pass case.`);
+        }
+      }
+    }
+    if (!report.includes("Blind Protocol") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: second-pass report must expose blind protocol and zero-cost status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: second-pass plan must be zero actual cost.`);
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T19:26:44.362Z",
+  "generated_at": "2026-06-26T19:32:01.536Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -93,11 +93,12 @@
       "current_evidence": [
         "judge-calibration-audit-2026-06-26-v1",
         "judge-adjudication-packet-2026-06-26-v1",
+        "judge-reliability-second-pass-plan-2026-06-26-v1",
         "claim-entailment-guard-validation-240-389-v1"
       ],
-      "mitigation_done": "The judge artifacts store structured support verdicts, judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments, and judge-adjudication-packet-2026-06-26-v1 joins those rows to questions, evidence packs, references, and predictions with 0 join warnings.",
+      "mitigation_done": "The judge artifacts store structured support verdicts, judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments, judge-adjudication-packet-2026-06-26-v1 joins those rows to questions/evidence/predictions with 0 join warnings, and judge-reliability-second-pass-plan-2026-06-26-v1 prepares 26 blind second-pass request rows (42 case judgments) without leaking original verdicts.",
       "required_next_evidence": [
-        "Manually adjudicate the joined judge adjudication packet or run an independent second-judge pass before submission if budget/time permits.",
+        "Manually adjudicate the joined judge adjudication packet or run the planned blind second-judge pass before submission if budget/time permits.",
         "Report judge prompts, schemas, abstention criteria, and disagreement examples."
       ]
     },

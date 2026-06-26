@@ -1,0 +1,57 @@
+{
+  "run_id": "judge-reliability-second-pass-plan-2026-06-26-v1",
+  "generated_at": "2026-06-26T19:31:12.956Z",
+  "artifact_type": "judge_reliability_second_pass_plan",
+  "status": "second_pass_requests_ready_not_run",
+  "purpose": "Create a blind second-pass adjudication request set from hard judge-calibration rows so model-judge reliability can be measured before treating support metrics as paper-grade.",
+  "source_packet_run_id": "judge-adjudication-packet-2026-06-26-v1",
+  "source_packet_rows": 26,
+  "request_rows": 26,
+  "blind_protocol": {
+    "hides_original_judge_verdict": true,
+    "includes_reference_output": true,
+    "instruction": "Judge only from the compact evidence pack. Do not use outside paper knowledge. Return supported/partial/unsupported/correct_abstention/incorrect_abstention/invalid plus citation validity and a concise rationale.",
+    "comparison_after_completion": "Join second-pass verdicts back to the original adjudication packet by packet_id and policy, then report agreement by audit_type and disagreement examples."
+  },
+  "audit_types": {
+    "unsupported_answer": 8,
+    "questionable_abstention": 6,
+    "correct_abstention_sanity_check": 4,
+    "cross_policy_disagreement": 8
+  },
+  "prediction_answer_types": {
+    "grounded_answer": 19,
+    "abstain": 23
+  },
+  "planned_second_pass_judge": {
+    "model": "gpt-4o-mini",
+    "max_output_tokens": 420,
+    "estimated_calls": 42,
+    "estimated_cost_usd": 0.014757149999999998,
+    "price": {
+      "inputPerMillion": 0.15,
+      "outputPerMillion": 0.6,
+      "source": "local-project-pricing-table"
+    },
+    "dry_run_request_path": "docs/experiments/grounded-qa-distillation/runs/judge-reliability-second-pass-plan-2026-06-26-v1/second_pass_requests.jsonl"
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "current_actual_spend_usd": 5.878323650000014,
+    "remaining_budget_usd": 94.12167634999999,
+    "estimated_second_pass_cost_usd": 0.014757149999999998,
+    "estimated_total_after_second_pass_usd": 5.893080800000014,
+    "within_budget": true
+  },
+  "required_completion_artifacts": [
+    "second_pass_results.jsonl with one result per packet_id/case_id",
+    "agreement_report.md with original-vs-second-pass agreement by audit_type",
+    "updated manuscript/risk-audit treatment of model-judged metrics"
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This artifact only prepares blind requests and a budget estimate; it does not run the second-pass judge."
+  }
+}

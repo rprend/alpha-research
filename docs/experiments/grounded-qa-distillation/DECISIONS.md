@@ -1029,3 +1029,13 @@ Reason: Prime was blocking the paper-critical Qwen 3B smoke with `API key unauth
 Result: The current Prime blocker is still token validity or permissions. The next GPU step remains: install a valid Prime key through the hidden-input helper or complete browser login, rerun the auth recheck, verify live pricing/balance, then launch the bounded Qwen 3B smoke only if the total budget remains under `$100`.
 
 Tradeoff: This is operational evidence, not a model result. It prevents wasting time on an old-CLI hypothesis, but it does not remove the need for a valid Prime token or HF credits.
+
+### D124. Prepare a blind second-pass judge reliability plan
+
+Decision: Add `grounded-qa-distillation-judge-reliability-second-pass-plan.mjs`, materialize `judge-reliability-second-pass-plan-2026-06-26-v1`, validate it, and wire it into the reviewer-risk audit.
+
+Reason: The judge calibration audit and adjudication packet made model-judge reliability inspectable, but they still required a manual reader to decide the next action. The new plan converts the 26-row adjudication packet into blind second-pass request rows that hide the original `gpt-4o` verdicts while preserving the question, compact evidence pack, reference answerability, and policy predictions. It covers 42 policy cases across unsupported answers, questionable abstentions, correct-abstention sanity checks, and cross-policy disagreements, and estimates a later `gpt-4o-mini` second pass at about `$0.0148`. The plan makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend unchanged.
+
+Result: Judge reliability now has an executable low-cost next step: run the blind second-pass requests, join by `packet_id` and `case_id`, and report agreement/disagreement by audit type before using model-judged support numbers as paper-grade evidence.
+
+Tradeoff: This still does not produce independent labels. It prepares the request set and budget gate; a human adjudicator or explicit paid second-pass judge run is still required to close the reliability risk.
