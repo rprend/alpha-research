@@ -108,6 +108,8 @@ Systems submit one answer per task with citation ids and abstention state. The s
 - Exact agreement rate: n/a
 - Label agreement rate: n/a
 - Repair-before-gold items: 0
+- License review status: blocked
+- License blockers: 2
 - Release gate status: blocked
 - Release blockers: 5
 

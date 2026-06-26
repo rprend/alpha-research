@@ -7,7 +7,8 @@
     "gold_summary": "generated/gold-suite-summary.json",
     "review_merge_report": "generated/review-merge-report.json",
     "item_quality_audit": "generated/item-quality-audit.json",
-    "baseline_analysis": "generated/baseline-analysis.json"
+    "baseline_analysis": "generated/baseline-analysis.json",
+    "license_review": "generated/license-review.json"
   },
   "pilot_item_count": 30,
   "scored_system_count": 3,

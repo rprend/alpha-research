@@ -1,0 +1,74 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "checked_date": "2026-06-26",
+  "status": "blocked",
+  "datasets": [
+    {
+      "dataset_id": "hotpotqa/hotpot_qa",
+      "hf_url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+      "spec_license": "cc-by-sa-4.0",
+      "observed_license": "cc-by-sa-4.0",
+      "checked_date": "2026-06-26",
+      "evidence_source": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+      "evidence_note": "License comes from local benchmark spec metadata.",
+      "package_policy": "redistribute_with_attribution",
+      "blocks_public_release": false
+    },
+    {
+      "dataset_id": "allenai/qasper",
+      "hf_url": "https://hf.co/datasets/allenai/qasper",
+      "spec_license": "cc-by-4.0",
+      "observed_license": "cc-by-4.0",
+      "checked_date": "2026-06-26",
+      "evidence_source": "https://hf.co/datasets/allenai/qasper",
+      "evidence_note": "License comes from local benchmark spec metadata.",
+      "package_policy": "redistribute_with_attribution",
+      "blocks_public_release": false
+    },
+    {
+      "dataset_id": "danwakeem/wikitablequestions-wtq",
+      "hf_url": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+      "spec_license": "cc-by-4.0",
+      "observed_license": "cc-by-4.0",
+      "checked_date": "2026-06-26",
+      "evidence_source": "https://hf.co/datasets/danwakeem/wikitablequestions-wtq",
+      "evidence_note": "License comes from local benchmark spec metadata.",
+      "package_policy": "redistribute_with_attribution",
+      "blocks_public_release": false
+    },
+    {
+      "dataset_id": "tdiggelm/climate_fever",
+      "hf_url": "https://hf.co/datasets/tdiggelm/climate_fever",
+      "spec_license": "unknown",
+      "observed_license": "unknown",
+      "checked_date": "2026-06-26",
+      "evidence_source": "https://huggingface.co/datasets/tdiggelm/climate_fever",
+      "evidence_note": "Hugging Face dataset page and Hub API report license: unknown.",
+      "package_policy": "pointer_only_or_replace_before_public_release",
+      "blocks_public_release": true
+    },
+    {
+      "dataset_id": "Pavithree/eli5",
+      "hf_url": "https://hf.co/datasets/Pavithree/eli5",
+      "spec_license": "unknown",
+      "observed_license": "missing",
+      "checked_date": "2026-06-26",
+      "evidence_source": "https://huggingface.co/datasets/Pavithree/eli5",
+      "evidence_note": "Hugging Face Hub API returned no license tag or cardData license field.",
+      "package_policy": "pointer_only_or_replace_before_public_release",
+      "blocks_public_release": true
+    }
+  ],
+  "blockers": [
+    {
+      "dataset_id": "tdiggelm/climate_fever",
+      "observed_license": "unknown",
+      "required_action": "Resolve upstream license, remove stored snippets, switch to pointer-only packaging, or replace this source before public redistribution."
+    },
+    {
+      "dataset_id": "Pavithree/eli5",
+      "observed_license": "missing",
+      "required_action": "Resolve upstream license, remove stored snippets, switch to pointer-only packaging, or replace this source before public redistribution."
+    }
+  ]
+}

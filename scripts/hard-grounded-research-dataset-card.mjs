@@ -14,6 +14,7 @@ const inputPaths = {
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
+  licenseReview: join(generatedDir, 'license-review.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
 }
 
@@ -67,7 +68,7 @@ function challengeRows(pilotSuite) {
     .map(([challengeType, count]) => [challengeType, String(count)])
 }
 
-function renderCard({ spec, pilotSuite, coverageMatrix, itemQualityAudit, reviewMergeReport, goldSummary, baselineAnalysis, releaseGate }) {
+function renderCard({ spec, pilotSuite, coverageMatrix, itemQualityAudit, reviewMergeReport, goldSummary, baselineAnalysis, licenseReview, releaseGate }) {
   return `# Hard Grounded Research Dataset Card
 
 Status: pilot benchmark card generated from repository artifacts. This is not a final public release card until gold review is complete.
@@ -83,6 +84,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Gold ready: ${goldSummary.gold_ready}
 - Valid reviewed items: ${goldSummary.valid_reviewed_items}/${goldSummary.total_items}
 - Release gate status: ${releaseGate.status}
+- License review status: ${licenseReview.status}
 
 ## Intended Uses
 
@@ -125,7 +127,7 @@ The evaluator reports answer correctness, evidence recall, citation precision, c
 
 ## Data Provenance And Licensing Notes
 
-This benchmark stores normalized evidence snippets and metadata from upstream Hugging Face datasets. Upstream dataset licenses are mixed and include unknown-license sources, so a public release must either preserve attribution and license notices, replace unknown-license sources, or release only pointers/transforms where required. The current pilot should be treated as research-internal until this license review is complete.
+This benchmark stores normalized evidence snippets and metadata from upstream Hugging Face datasets. Upstream dataset licenses are mixed and include unknown-license sources, so a public release must either preserve attribution and license notices, replace unknown-license sources, or release only pointers/transforms where required. See \`LICENSE_REVIEW.md\` and \`generated/license-review.json\` for the generated blocker list.
 
 ## Known Limitations
 
@@ -155,6 +157,7 @@ writeText(
     reviewMergeReport: readJson(inputPaths.reviewMergeReport),
     goldSummary: readJson(inputPaths.goldSummary),
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
+    licenseReview: readJson(inputPaths.licenseReview),
     releaseGate: readJson(inputPaths.releaseGate),
   }),
 )

@@ -255,3 +255,11 @@ Decision: Generate a release-readiness gate that blocks paper/public release unt
 Rationale: The dataset card names release risks, but paper readiness needs an executable gate. A machine-readable blocker list prevents preliminary pilot artifacts from being mistaken for a finished benchmark.
 
 Consequence: `scripts/hard-grounded-research-release-gate.mjs` emits `generated/release-gate.json` and `RELEASE_GATE.md`; dataset card and paper draft now surface the current release status and blocker count.
+
+## 2026-06-26 — Generate a license review
+
+Decision: Add a generated upstream dataset license review and make the release gate consume it.
+
+Rationale: Unknown-license sources should not be a vague warning buried in the dataset card. The benchmark needs an auditable list of which datasets block redistribution, what current Hugging Face metadata says, and what action is required before public release.
+
+Consequence: `scripts/hard-grounded-research-license-review.mjs` now emits `generated/license-review.json` and `LICENSE_REVIEW.md`; the release gate, dataset card, and paper draft all surface license-review status and blockers.

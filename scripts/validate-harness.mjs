@@ -201,9 +201,14 @@ const hardGroundedDatasetCardSource = readFileSync(join(root, 'scripts/hard-grou
 for (const token of ['DATASET_CARD.md', 'Intended Uses', 'Data Provenance And Licensing Notes']) {
   assert(hardGroundedDatasetCardSource.includes(token), `Hard grounded dataset card is missing release token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-license-review.mjs')), 'Missing hard grounded research license review builder.')
+const hardGroundedLicenseReviewSource = readFileSync(join(root, 'scripts/hard-grounded-research-license-review.mjs'), 'utf8')
+for (const token of ['license-review.json', 'pointer_only_or_replace_before_public_release', 'Pavithree/eli5']) {
+  assert(hardGroundedLicenseReviewSource.includes(token), `Hard grounded license review is missing license token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'unknown_license_resolved', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'license-review.json', 'unknown_license_resolved', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')
@@ -318,6 +323,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/ITEM_QUALITY_AUDIT.md')),
   'Missing hard grounded research item quality audit report.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/license-review.json')),
+  'Missing hard grounded research license review JSON.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/LICENSE_REVIEW.md')),
+  'Missing hard grounded research license review report.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/release-gate.json')),

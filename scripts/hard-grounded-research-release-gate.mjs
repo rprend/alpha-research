@@ -15,6 +15,7 @@ const inputs = {
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
+  licenseReview: join(generatedDir, 'license-review.json'),
 }
 
 function assert(condition, message) {
@@ -62,8 +63,8 @@ function noveltyAuditStatus(noveltyAudit) {
   }
 }
 
-function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQualityAudit, baselineAnalysis }) {
-  const unknownLicenseDatasets = spec.datasets.filter((dataset) => !dataset.license || dataset.license === 'unknown')
+function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQualityAudit, baselineAnalysis, licenseReview }) {
+  const licenseBlockers = licenseReview.blockers || []
   const scoredModelRuns = existingScoredModelRuns()
   const novelty = noveltyAuditStatus(noveltyAudit)
   const checks = [
@@ -81,10 +82,10 @@ function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQua
     },
     {
       id: 'unknown_license_resolved',
-      passed: unknownLicenseDatasets.length === 0,
-      detail: unknownLicenseDatasets.length
-        ? unknownLicenseDatasets.map((dataset) => dataset.id).join(', ')
-        : 'all source dataset licenses known',
+      passed: licenseBlockers.length === 0,
+      detail: licenseBlockers.length
+        ? licenseBlockers.map((dataset) => dataset.dataset_id).join(', ')
+        : 'license review clear',
       blocker: 'Resolve, replace, or pointer-only package unknown-license sources before public redistribution.',
     },
     {
@@ -117,6 +118,7 @@ function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQua
       review_merge_report: 'generated/review-merge-report.json',
       item_quality_audit: 'generated/item-quality-audit.json',
       baseline_analysis: 'generated/baseline-analysis.json',
+      license_review: 'generated/license-review.json',
     },
     pilot_item_count: goldSummary.total_items,
     scored_system_count: baselineAnalysis.systems.length,
@@ -169,6 +171,7 @@ const gate = buildGate({
   reviewMergeReport: readJson(inputs.reviewMergeReport),
   itemQualityAudit: readJson(inputs.itemQualityAudit),
   baselineAnalysis: readJson(inputs.baselineAnalysis),
+  licenseReview: readJson(inputs.licenseReview),
 })
 
 writeJson(releaseGateJsonPath, gate)
