@@ -1039,3 +1039,13 @@ Reason: The judge calibration audit and adjudication packet made model-judge rel
 Result: Judge reliability now has an executable low-cost next step: run the blind second-pass requests, join by `packet_id` and `case_id`, and report agreement/disagreement by audit type before using model-judged support numbers as paper-grade evidence.
 
 Tradeoff: This still does not produce independent labels. It prepares the request set and budget gate; a human adjudicator or explicit paid second-pass judge run is still required to close the reliability risk.
+
+### D125. Run the blind second-pass judge and keep the diagnostic rerun
+
+Decision: Add `grounded-qa-distillation-judge-reliability-second-pass-runner.mjs`, execute the blind second-pass judge with `gpt-4o-mini`, materialize `judge-reliability-second-pass-run-2026-06-26-v1` and `judge-reliability-second-pass-run-2026-06-26-v2`, and validate completed second-pass run artifacts.
+
+Reason: The second-pass plan was cheap enough to run under the `$100` cap, and model-judge reliability is a real reviewer risk. The first paid run made 42 calls and cost `$0.0075324`, but it exposed a prompt/schema ambiguity: the second-pass judge sometimes returned abstention verdicts for answered predictions. I kept that run as a diagnostic spend artifact, tightened the prompt to remove reference-answer leakage and forbid answer-type-incompatible verdicts, then reran v2. The v2 run made 42 calls, cost `$0.00724395`, had zero schema violations, and reached 32/42 exact agreement (76.2%) with the original `gpt-4o` judge on deliberately hard calibration rows. All 84 calls are recorded in `llm-calls/ledger.jsonl`; total actual spend is now `$5.8931`, still under budget.
+
+Result: The paper can now report a concrete judge-reliability spot check rather than only a plan. The result supports the unsupported-answer and correct-abstention sanity-check portions of the current judge, but it also flags abstention-boundary cases as unstable: the questionable-abstention bucket has 0/6 exact agreement. The manuscript should present model-judged support metrics with this caveat and disagreement examples.
+
+Tradeoff: This still does not create human labels, and `gpt-4o-mini` is not a gold adjudicator. It is a low-cost independent model check that improves transparency but does not fully close the reliability risk.

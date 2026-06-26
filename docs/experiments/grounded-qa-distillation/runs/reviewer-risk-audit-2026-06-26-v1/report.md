@@ -1,6 +1,6 @@
 # Reviewer Risk Audit
 
-Generated: 2026-06-26T19:32:01.536Z
+Generated: 2026-06-26T19:43:49.270Z
 
 Status: `not_submission_ready`
 
@@ -34,8 +34,8 @@ Readiness gate: `paper-readiness-gate-2026-06-26-v1` (10/12 passing)
 
 ## Budget
 
-- Actual total spend: $5.878324
+- Actual total spend: $5.893100
 - External compute spend: $0.000000
-- Remaining: $94.121676
+- Remaining: $94.106900
 
 This audit makes no OpenAI calls, launches no GPU jobs, and records no spend.

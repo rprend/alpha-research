@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-26T19:21:06.284Z",
+  "generated_at": "2026-06-26T19:43:49.140Z",
   "max_budget_usd": 100,
   "spend_usd": {
-    "openai": 5.878323650000014,
+    "openai": 5.8931000000000155,
     "external_compute": 0,
-    "total_actual": 5.878323650000014,
-    "remaining": 94.12167634999999
+    "total_actual": 5.8931000000000155,
+    "remaining": 94.10689999999998
   },
   "ledgers": {
     "openai_ledger": "docs/experiments/grounded-qa-distillation/llm-calls/ledger.jsonl",

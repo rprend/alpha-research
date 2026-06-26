@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-26-v1",
-  "generated_at": "2026-06-26T19:21:06.382Z",
+  "generated_at": "2026-06-26T19:43:49.236Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -154,8 +154,8 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.878323650000014,
-    "remaining_budget_usd": 94.12167634999999,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
     "external_compute_actual_usd": 0
   },
   "llm_budget": {

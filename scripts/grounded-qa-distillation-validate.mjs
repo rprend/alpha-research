@@ -85,6 +85,7 @@ if (!errors.length) {
   await validateJudgeCalibrationAuditRunsIfPresent();
   await validateJudgeAdjudicationPacketRunsIfPresent();
   await validateJudgeReliabilitySecondPassPlanRunsIfPresent();
+  await validateJudgeReliabilitySecondPassRunRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
 }
 
@@ -2027,6 +2028,77 @@ async function validateJudgeReliabilitySecondPassPlanRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: second-pass plan must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateJudgeReliabilitySecondPassRunRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("judge-reliability-second-pass-run-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "agreement_report.md");
+    const rowsPath = path.join(runsDir, entry.name, "second_pass_results.jsonl");
+    let result;
+    let report;
+    let rows;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      rows = await readJsonl(rowsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed judge reliability second-pass run artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "judge_reliability_second_pass_run") {
+      errors.push(`${entry.name}: unexpected judge reliability second-pass run artifact type.`);
+    }
+    if (!["second_pass_complete", "dry_run_or_key_missing"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected judge reliability second-pass run status.`);
+    }
+    if (rows.length !== Number(result.calls_made) + Number(result.calls_skipped)) {
+      errors.push(`${entry.name}: second-pass result row count does not match calls.`);
+    }
+    if (result.status === "second_pass_complete") {
+      if (Number(result.calls_made) <= 0 || Number(result.run_cost_usd) <= 0) {
+        errors.push(`${entry.name}: completed second-pass run must have positive calls and cost.`);
+      }
+      if (Number(result.ledger_spend_after_usd) <= Number(result.ledger_spend_before_usd)) {
+        errors.push(`${entry.name}: completed second-pass run must increase OpenAI ledger spend.`);
+      }
+      if (Number(result.agreement?.compared_cases) !== Number(result.calls_made)) {
+        errors.push(`${entry.name}: completed second-pass run must compare every judged case.`);
+      }
+      if (!Number.isFinite(Number(result.agreement?.exact_agreement_rate))) {
+        errors.push(`${entry.name}: completed second-pass run must report exact agreement.`);
+      }
+    }
+    if (Object.hasOwn(result, "schema_violations") && !Number.isFinite(Number(result.schema_violations))) {
+      errors.push(`${entry.name}: schema violation count must be numeric when present.`);
+    }
+    for (const row of rows) {
+      if (!row.packet_id || !row.case_id || !row.audit_type || !row.policy) {
+        errors.push(`${entry.name}: malformed second-pass result row.`);
+      }
+      if (!row.skipped && (!row.judgment?.verdict || !row.usage || Number(row.cost_usd) <= 0)) {
+        errors.push(`${entry.name}: completed second-pass row missing judgment, usage, or cost.`);
+      }
+    }
+    if (!report.includes("Agreement") || !report.includes("Calls made")) {
+      errors.push(`${entry.name}: second-pass agreement report must expose calls and agreement.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== Number(result.calls_made)) {
+      errors.push(`${entry.name}: second-pass llm budget must record actual calls.`);
+    }
+    if (Number(result.llm_budget?.openai_cost_usd) !== Number(result.run_cost_usd)) {
+      errors.push(`${entry.name}: second-pass llm budget must match run cost.`);
     }
   }
 }

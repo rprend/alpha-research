@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T19:32:01.536Z",
+  "generated_at": "2026-06-26T19:43:49.270Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -94,9 +94,10 @@
         "judge-calibration-audit-2026-06-26-v1",
         "judge-adjudication-packet-2026-06-26-v1",
         "judge-reliability-second-pass-plan-2026-06-26-v1",
+        "judge-reliability-second-pass-run-2026-06-26-v2",
         "claim-entailment-guard-validation-240-389-v1"
       ],
-      "mitigation_done": "The judge artifacts store structured support verdicts, judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments, judge-adjudication-packet-2026-06-26-v1 joins those rows to questions/evidence/predictions with 0 join warnings, and judge-reliability-second-pass-plan-2026-06-26-v1 prepares 26 blind second-pass request rows (42 case judgments) without leaking original verdicts.",
+      "mitigation_done": "The judge artifacts store structured support verdicts, judge-calibration-audit-2026-06-26-v1 samples 26 hard rows from 447 existing judgments, judge-adjudication-packet-2026-06-26-v1 joins those rows to questions/evidence/predictions with 0 join warnings, judge-reliability-second-pass-plan-2026-06-26-v1 prepares 26 blind second-pass request rows, and judge-reliability-second-pass-run-2026-06-26-v2 completes 42 blind second-pass case judgments with 0 schema violations and 76.2% exact agreement.",
       "required_next_evidence": [
         "Manually adjudicate the joined judge adjudication packet or run the planned blind second-judge pass before submission if budget/time permits.",
         "Report judge prompts, schemas, abstention criteria, and disagreement examples."
@@ -128,7 +129,7 @@
         "prime-auth-diagnosis",
         "prime-cli-upgrade-auth-recheck-2026-06-26-v1",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "2026-06-26T19:21:06.284Z"
+        "2026-06-26T19:43:49.140Z"
       ],
       "mitigation_done": "The remote command is single-step and bounded; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [
@@ -147,8 +148,8 @@
   ],
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.878323650000014,
-    "remaining_budget_usd": 94.12167634999999,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
     "external_compute_actual_usd": 0
   },
   "llm_budget": {
