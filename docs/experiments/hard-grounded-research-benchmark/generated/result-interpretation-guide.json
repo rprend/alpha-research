@@ -1,0 +1,270 @@
+{
+  "result_interpretation_guide_ready": true,
+  "version": "result-interpretation-guide-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
+    "power_plan": "generated/power-plan.json",
+    "baseline_uncertainty": "generated/baseline-uncertainty.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "checks": [
+    {
+      "id": "all_hypotheses_have_interpretation_rules",
+      "passed": true,
+      "detail": "10/10 hypotheses mapped to confirm/partial/falsify rules"
+    },
+    {
+      "id": "minimum_evidence_matches_power_plan",
+      "passed": true,
+      "detail": "30 reviewed items/category; 300 total target"
+    },
+    {
+      "id": "uncertainty_reporting_required",
+      "passed": true,
+      "detail": "5 pilot systems with uncertainty summaries"
+    },
+    {
+      "id": "claims_remain_gated",
+      "passed": true,
+      "detail": "4/4 claim gates blocked; completion_claim_allowed=false"
+    }
+  ],
+  "claim_gates": [
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "novelty_audit_final",
+      "passed": false,
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "rows": [
+    {
+      "category": "multi-hop synthesis",
+      "hypothesis": "Models will retrieve individually relevant hops but lose answer correctness or conclusion support when the final answer requires evidence composition.",
+      "contrast": "multi-hop synthesis vs native single-row or first-evidence baselines",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for multi-hop synthesis vs native single-row or first-evidence baselines and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "hypothesis": "Models will overuse plausible stale evidence unless the scoring source forces recency-conditioned citation and answer selection.",
+      "contrast": "stale evidence distractors vs current controlling evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for stale evidence distractors vs current controlling evidence and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "hypothesis": "Models will treat appended or corrective text as additive context instead of a document-state transition that can supersede earlier content.",
+      "contrast": "body-only evidence vs appended lifecycle evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "conclusion_support"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for body-only evidence vs appended lifecycle evidence and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "table + text reasoning",
+      "hypothesis": "Models will cite the correct table cell while failing the prose qualifier or interpretation required to make the answer grounded.",
+      "contrast": "table-only extraction vs table-plus-text interpretation",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_precision",
+        "conclusion_support"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for table-only extraction vs table-plus-text interpretation and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "source authority conflicts",
+      "hypothesis": "Models will synthesize lower- and higher-authority sources unless the task requires an explicit authority hierarchy.",
+      "contrast": "authority-ranked evidence vs locally plausible lower-authority evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for authority-ranked evidence vs locally plausible lower-authority evidence and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "hypothesis": "Models will answer from near-miss evidence instead of abstaining when relevance is present but sufficiency is absent.",
+      "contrast": "near-miss evidence vs sufficient evidence",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for near-miss evidence vs sufficient evidence and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "hypothesis": "Models will cite true premises and still make unsupported comparative, causal, or interpretive conclusions.",
+      "contrast": "premise-supported citation vs conclusion-supported citation",
+      "primary_metrics": [
+        "conclusion_support",
+        "citation_faithfulness",
+        "answer_correct"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for premise-supported citation vs conclusion-supported citation and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "entity disambiguation",
+      "hypothesis": "Models will retrieve or cite same-name evidence while answering about the wrong referent.",
+      "contrast": "intended entity evidence vs same-name distractor evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_precision"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for intended entity evidence vs same-name distractor evidence and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "hypothesis": "Models will answer using globally current or generally true evidence rather than the requested as-of date.",
+      "contrast": "as-of-date snapshot vs outside-window evidence",
+      "primary_metrics": [
+        "answer_correct",
+        "citation_faithfulness",
+        "abstention_quality"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for as-of-date snapshot vs outside-window evidence and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    },
+    {
+      "category": "cross-document contradiction",
+      "hypothesis": "Models will merge incompatible documents into a single unsupported answer instead of reporting conflict or applying a control rule.",
+      "contrast": "conflicting evidence bundle vs non-conflicting bundle",
+      "primary_metrics": [
+        "abstention_quality",
+        "conclusion_support",
+        "citation_faithfulness"
+      ],
+      "confirm_rule": "After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for conflicting evidence bundle vs non-conflicting bundle and the expected failure signature appears in reviewed errors.",
+      "partial_rule": "Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.",
+      "falsify_rule": "Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.",
+      "minimum_evidence": [
+        "30 double-reviewed items in the category",
+        "two or more eligible model baselines scored on the same reviewed source",
+        "reviewed error codes aligned to expected failure signatures",
+        "final novelty audit allowing the claim boundary"
+      ],
+      "current_status": "diagnostic_only_until_review_scale_and_novelty_clear"
+    }
+  ],
+  "summary": {
+    "categories": 10,
+    "interpretation_rules": 30,
+    "reviewed_items_per_category_target": 30,
+    "reviewed_items_total_target": 300,
+    "blocked_claim_gates": 4,
+    "completion_claim_allowed": false
+  }
+}

@@ -24,12 +24,13 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
 - Difficulty mechanism ledger ready: true (20 mechanisms; 116 observed failure cases)
-- Artifact checklist ready: true (54/54 artifact classes)
+- Artifact checklist ready: true (55/55 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
 - Analysis plan ready: true (4 hypotheses; 4 model families)
 - Hypothesis test matrix ready: true (10 hypotheses; 10 categories with observed expected signatures)
+- Result interpretation guide ready: true (30 interpretation rules; 4 blocked claim gates)
 - Paper target reviewed items/category: 30
 - Paper target reviewed items total: 300
 - Novelty watchlist ready: true (4 sources)
@@ -184,6 +185,8 @@ The generated analysis plan pre-specifies 4 hypotheses, 4 model families, and 7 
 
 The generated hypothesis test matrix maps every difficulty mechanism to a falsifiable model-failure prediction, primary metrics, expected failure signatures, pilot metric ranges, and claim gates. It currently records 10 diagnostic-only hypotheses and 10 categories whose expected failure signatures already appear in pilot failures. See `HYPOTHESIS_TEST_MATRIX.md`.
 
+The generated result interpretation guide pre-registers 30 confirm/partial/falsify rules for those hypotheses and keeps mechanism-level conclusions gated until reviewed scale, uncertainty reporting, and final novelty checks pass. See `RESULT_INTERPRETATION_GUIDE.md`.
+
 The generated novelty watchlist records 4 live-search related-work sources, including 1 high-risk sources, that must be resolved before final novelty claims. It keeps completion claims blocked. See `NOVELTY_WATCHLIST.md`.
 
 The generated novelty resolution matrix maps those watchlist sources to source-level claim impacts: 4 sources, 4 unresolved, and 1 high-risk. See `NOVELTY_RESOLUTION_MATRIX.md`.
@@ -212,7 +215,7 @@ The generated supplement index maps 6 supplement sections, 6 paper tables, and 8
 
 ## Citation Metadata
 
-The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 77 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
+The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 79 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
 
 ## Reviewer FAQ
 
@@ -224,9 +227,9 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 59 reproduction commands, 54/54 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 60 reproduction commands, 55/55 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
-The generated reproduction capsule records 59 ordered reproduction commands, 3 validation commands, 77 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
+The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 79 package artifact hashes, and 7 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
 ## Human Review Execution
 
@@ -293,7 +296,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 77 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 79 package-critical artifacts and carries 7 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -327,14 +330,15 @@ Key release checks:
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
-- Artifact checklist: pass - 54/54 artifact classes ready; reproduction_commands=59; release_blockers=9
-- Version manifest: pass - version-manifest-v1; artifacts=77; blockers=9; bytes=983667
+- Artifact checklist: pass - 55/55 artifact classes ready; reproduction_commands=60; release_blockers=7
+- Version manifest: pass - version-manifest-v1; artifacts=79; blockers=7; bytes=1016379
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7
 - Analysis plan: pass - 4 hypotheses; 4 model families; reviewed=0/300
 - Hypothesis test matrix: pass - hypothesis-test-matrix-v1; hypotheses=10; observed_signature_categories=10; reviewed_deficit=300
+- Result interpretation guide: pass - result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=4
 - Supplement index: pass - supplement-index-v2; sections=6; tables=6; claims=8
 - Reviewer FAQ: pass - reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3
 - Submission contract: pass - submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false

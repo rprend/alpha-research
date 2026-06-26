@@ -1127,3 +1127,11 @@ Decision: Generate a category-level hypothesis test matrix from the difficulty m
 Rationale: The paper needs to show not only that categories are named, but that each difficulty mechanism makes a falsifiable prediction about model failures, primary metrics, pilot evidence, and the gates required before statistical claims are allowed.
 
 Consequence: `scripts/hard-grounded-research-hypothesis-test-matrix.mjs` emits `generated/hypothesis-test-matrix.json` and `HYPOTHESIS_TEST_MATRIX.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the matrix while all category-level hypothesis claims remain diagnostic-only until review scale and final novelty gates pass.
+
+## 2026-06-26 — Add result interpretation guide
+
+Decision: Generate a result interpretation guide for hypothesis outcomes.
+
+Rationale: A paper-grade benchmark needs pre-registered rules for what future reviewed results would confirm, partially support, or falsify each difficulty mechanism, otherwise pilot failures can be overread as completed mechanism evidence.
+
+Consequence: `scripts/hard-grounded-research-result-interpretation-guide.mjs` emits `generated/result-interpretation-guide.json` and `RESULT_INTERPRETATION_GUIDE.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the guide while mechanism-level claims remain gated by reviewed scale, uncertainty reporting, and final novelty adjudication.

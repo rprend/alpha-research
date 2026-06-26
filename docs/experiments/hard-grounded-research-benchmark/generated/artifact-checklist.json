@@ -39,6 +39,7 @@
     "error_codebook": "generated/error-codebook.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "hypothesis_test_matrix": "generated/hypothesis-test-matrix.json",
+    "result_interpretation_guide": "generated/result-interpretation-guide.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
@@ -69,9 +70,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 54,
-    "artifact_classes_total": 54,
-    "reproduction_commands": 59,
+    "artifact_classes_ready": 55,
+    "artifact_classes_total": 55,
+    "reproduction_commands": 60,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -314,6 +315,13 @@
       "blockers": []
     },
     {
+      "id": "result_interpretation_guide",
+      "status": "ready",
+      "ready": true,
+      "evidence": "result-interpretation-guide-v1; rules=30; target reviewed items=300; blocked gates=4.",
+      "blockers": []
+    },
+    {
       "id": "model_reporting_card",
       "status": "ready",
       "ready": true,
@@ -359,14 +367,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=59; validations=3; hashes=77.",
+      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=79.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=77; blockers=9.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=79; blockers=7.",
       "blockers": []
     },
     {
@@ -394,7 +402,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=77; bytes=983667.",
+      "evidence": "version-manifest-v1; artifacts=79; bytes=1016379.",
       "blockers": []
     },
     {
@@ -494,6 +502,10 @@
     {
       "step": "Refresh hypothesis test matrix",
       "command": "node scripts/hard-grounded-research-hypothesis-test-matrix.mjs"
+    },
+    {
+      "step": "Refresh result interpretation guide",
+      "command": "node scripts/hard-grounded-research-result-interpretation-guide.mjs"
     },
     {
       "step": "Refresh novelty watchlist",

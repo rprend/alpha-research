@@ -254,6 +254,21 @@ The generated hypothesis test matrix makes those hypotheses category-specific: 1
 | temporal questions: as of date X | Models will answer using globally current or generally true evidence rather than the requested as-of date. | answer_correct<br>citation_faithfulness<br>abstention_quality | temporal_scope_error<br>stale_evidence_used | diagnostic_only_until_review_scale_and_novelty_clear |
 | cross-document contradiction | Models will merge incompatible documents into a single unsupported answer instead of reporting conflict or applying a control rule. | abstention_quality<br>conclusion_support<br>citation_faithfulness | contradiction_missed<br>unsupported_conclusion | diagnostic_only_until_review_scale_and_novelty_clear |
 
+The generated result interpretation guide pre-registers how reviewed results should be read: 30 rules define confirm, partial-support, and falsification/revision conditions across 10 category hypotheses. This prevents the paper from turning pilot failures into mechanism conclusions without reviewed scale and uncertainty evidence.
+
+| Category | Confirm | Partial support | Falsify or revise |
+| --- | --- | --- | --- |
+| multi-hop synthesis | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for multi-hop synthesis vs native single-row or first-evidence baselines and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| stale-vs-current document conflicts | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for stale evidence distractors vs current controlling evidence and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| appended document lifecycle changes | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for body-only evidence vs appended lifecycle evidence and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| table + text reasoning | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for table-only extraction vs table-plus-text interpretation and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| source authority conflicts | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for authority-ranked evidence vs locally plausible lower-authority evidence and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| evidence insufficiency / abstention | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for near-miss evidence vs sufficient evidence and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| citation supports fact but not conclusion | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for premise-supported citation vs conclusion-supported citation and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| entity disambiguation | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for intended entity evidence vs same-name distractor evidence and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| temporal questions: as of date X | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for as-of-date snapshot vs outside-window evidence and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+| cross-document contradiction | After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for conflicting evidence bundle vs non-conflicting bundle and the expected failure signature appears in reviewed errors. | Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit. | Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls. |
+
 ## Paper Claim Ledger
 
 The generated paper claim ledger maps 8 manuscript claims to current evidence: 3 allowed, 2 diagnostic-only, and 3 prohibited until review, scale, and novelty gates pass. This ledger is the manuscript claim boundary until final human-review and June 2026 novelty gates are complete.
@@ -281,13 +296,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 59 reproduction commands and 54/54 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 60 reproduction commands and 55/55 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 77 package-critical artifacts totaling 983056 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 79 package-critical artifacts totaling 1016379 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 59 reproduction commands, 3 validation commands, 77 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 79 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 77 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 6 citation caveats. It ties citation text to 79 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -318,6 +333,8 @@ The generated scale gap ledger makes the paper-scale deficit category-level: 300
 The generated difficulty mechanism ledger keeps the central position-paper claim auditable: 20 category mechanisms are tied to current failure evidence, target metrics, and blocked category claims rather than left as prose-only taxonomy. See `DIFFICULTY_MECHANISM_LEDGER.md`.
 
 The generated hypothesis test matrix `hypothesis-test-matrix-v1` turns those mechanisms into testable empirical predictions and metric contrasts. It is the manuscript bridge from taxonomy to falsifiable evaluation plan. See `HYPOTHESIS_TEST_MATRIX.md`.
+
+The generated result interpretation guide `result-interpretation-guide-v1` defines what future reviewed results would need to show before a mechanism claim can be upgraded from diagnostic to supported. See `RESULT_INTERPRETATION_GUIDE.md`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -355,18 +372,19 @@ The generated hypothesis test matrix `hypothesis-test-matrix-v1` turns those mec
 | error_codebook | ready | error-codebook-v1; codes=8; observed pilot failures=116. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | hypothesis_test_matrix | ready | hypothesis-test-matrix-v1; hypotheses=10; observed signature categories=10; diagnostic-only=10. |
+| result_interpretation_guide | ready | result-interpretation-guide-v1; rules=30; target reviewed items=300; blocked gates=4. |
 | model_reporting_card | ready | model-reporting-card-v1; systems=7; eligible=2; required fields=11. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=59; validations=3; hashes=77. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=77; blockers=9. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=79. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=79; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=77; bytes=983667. |
+| version_manifest | ready | version-manifest-v1; artifacts=79; bytes=1016379. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -495,13 +513,14 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | baseline_uncertainty_present | yes | 5 systems with descriptive task-level intervals |
 | failure_atlas_ready | yes | 116 failure cases; 8 failure modes; systems=5 |
 | hypothesis_test_matrix_ready | yes | hypothesis-test-matrix-v1; hypotheses=10; observed_signature_categories=10; reviewed_deficit=300 |
+| result_interpretation_guide_ready | yes | result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=4 |
 | error_codebook_ready | yes | error-codebook-v1; codes=8; categories=10; observed_cases=116 |
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=59; hashes=77; blockers=9 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=77; caveats=6; release_blockers=9 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=79; blockers=7 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=79; caveats=6; release_blockers=7 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -534,8 +553,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |
-| artifact_checklist_ready | yes | 54/54 artifact classes ready; reproduction_commands=59; release_blockers=9 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=77; blockers=9; bytes=983667 |
+| artifact_checklist_ready | yes | 55/55 artifact classes ready; reproduction_commands=60; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=79; blockers=7; bytes=1016379 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

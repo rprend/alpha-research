@@ -66,6 +66,7 @@ const requiredInputs = {
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
+  resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   supplementIndex: join(generatedDir, 'supplement-index.json'),
   citationMetadata: join(generatedDir, 'citation-metadata.json'),
@@ -228,6 +229,15 @@ function hypothesisRows(hypothesisTestMatrix) {
   ])
 }
 
+function interpretationRows(resultInterpretationGuide) {
+  return resultInterpretationGuide.rows.map((row) => [
+    row.category,
+    row.confirm_rule,
+    row.partial_rule,
+    row.falsify_rule,
+  ])
+}
+
 function artifactRows(artifactChecklist) {
   return artifactChecklist.artifact_classes.map((entry) => [
     entry.id,
@@ -297,7 +307,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, hypothesisTestMatrix, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, hypothesisTestMatrix, resultInterpretationGuide, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, difficultyMechanismLedger, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, noveltySourceReviewPackets, noveltyClaimRevisionPlan, noveltyLinkAudit, noveltyReplacementCandidates, noveltyOverlapAdjudication, noveltyRefreshLedger, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reviewCollectionTracker, reviewWaveSchedule, reviewDropoffManifest, reviewIntakeValidator, reviewAssignmentAudit, goldAdjudicationPlan, scaleAdjudicationPlan, scaleGapLedger, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -435,6 +445,10 @@ The generated hypothesis test matrix makes those hypotheses category-specific: $
 
 ${markdownTable(['Category', 'Hypothesis', 'Primary metrics', 'Observed expected modes', 'Claim status'], hypothesisRows(hypothesisTestMatrix))}
 
+The generated result interpretation guide pre-registers how reviewed results should be read: ${resultInterpretationGuide.summary.interpretation_rules} rules define confirm, partial-support, and falsification/revision conditions across ${resultInterpretationGuide.summary.categories} category hypotheses. This prevents the paper from turning pilot failures into mechanism conclusions without reviewed scale and uncertainty evidence.
+
+${markdownTable(['Category', 'Confirm', 'Partial support', 'Falsify or revise'], interpretationRows(resultInterpretationGuide))}
+
 ## Paper Claim Ledger
 
 The generated paper claim ledger maps ${paperClaimLedger.summary.claims} manuscript claims to current evidence: ${paperClaimLedger.summary.allowed_claims} allowed, ${paperClaimLedger.summary.diagnostic_only_claims} diagnostic-only, and ${paperClaimLedger.summary.prohibited_claims} prohibited until review, scale, and novelty gates pass. This ledger is the manuscript claim boundary until final human-review and June 2026 novelty gates are complete.
@@ -494,6 +508,8 @@ The generated scale gap ledger makes the paper-scale deficit category-level: ${s
 The generated difficulty mechanism ledger keeps the central position-paper claim auditable: ${difficultyMechanismLedger.summary.mechanisms} category mechanisms are tied to current failure evidence, target metrics, and blocked category claims rather than left as prose-only taxonomy. See \`DIFFICULTY_MECHANISM_LEDGER.md\`.
 
 The generated hypothesis test matrix \`${hypothesisTestMatrix.version}\` turns those mechanisms into testable empirical predictions and metric contrasts. It is the manuscript bridge from taxonomy to falsifiable evaluation plan. See \`HYPOTHESIS_TEST_MATRIX.md\`.
+
+The generated result interpretation guide \`${resultInterpretationGuide.version}\` defines what future reviewed results would need to show before a mechanism claim can be upgraded from diagnostic to supported. See \`RESULT_INTERPRETATION_GUIDE.md\`.
 
 ${markdownTable(['Artifact class', 'Status', 'Evidence'], artifactRows(artifactChecklist))}
 
@@ -611,6 +627,7 @@ const draft = renderDraft({
   paperTables: readJson(requiredInputs.paperTables),
   analysisPlan: readJson(requiredInputs.analysisPlan),
   hypothesisTestMatrix: readJson(requiredInputs.hypothesisTestMatrix),
+  resultInterpretationGuide: readJson(requiredInputs.resultInterpretationGuide),
   paperClaimLedger: readJson(requiredInputs.paperClaimLedger),
   supplementIndex: readJson(requiredInputs.supplementIndex),
   citationMetadata: readJson(requiredInputs.citationMetadata),

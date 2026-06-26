@@ -60,6 +60,7 @@ const inputs = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
   hypothesisTestMatrix: join(generatedDir, 'hypothesis-test-matrix.json'),
+  resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
@@ -187,6 +188,7 @@ function buildGate({
   baselineAnalysis,
   failureAtlas,
   hypothesisTestMatrix,
+  resultInterpretationGuide,
   errorCodebook,
   paperTables,
   analysisPlan,
@@ -611,6 +613,15 @@ function buildGate({
         hypothesisTestMatrix.summary?.completion_claim_allowed === false,
       detail: `${hypothesisTestMatrix.version}; hypotheses=${hypothesisTestMatrix.summary?.hypotheses ?? 0}; observed_signature_categories=${hypothesisTestMatrix.summary?.categories_with_observed_expected_failure_modes ?? 0}; reviewed_deficit=${hypothesisTestMatrix.summary?.reviewed_item_deficit ?? 'unknown'}`,
       blocker: 'Generate a hypothesis-test matrix that links difficulty mechanisms to measurable model-failure predictions and claim gates.',
+    },
+    {
+      id: 'result_interpretation_guide_ready',
+      passed:
+        Boolean(resultInterpretationGuide.result_interpretation_guide_ready) &&
+        resultInterpretationGuide.summary?.categories === hypothesisTestMatrix.summary?.categories &&
+        resultInterpretationGuide.summary?.completion_claim_allowed === false,
+      detail: `${resultInterpretationGuide.version}; rules=${resultInterpretationGuide.summary?.interpretation_rules ?? 0}; target_n=${resultInterpretationGuide.summary?.reviewed_items_total_target ?? 'unknown'}; blocked_gates=${resultInterpretationGuide.summary?.blocked_claim_gates ?? 'unknown'}`,
+      blocker: 'Generate result interpretation rules before using reviewed results as mechanism evidence.',
     },
     {
       id: 'error_codebook_ready',
@@ -1054,6 +1065,7 @@ function buildGate({
       baseline_analysis: 'generated/baseline-analysis.json',
       failure_atlas: 'generated/failure-atlas.json',
       hypothesis_test_matrix: 'generated/hypothesis-test-matrix.json',
+      result_interpretation_guide: 'generated/result-interpretation-guide.json',
       error_codebook: 'generated/error-codebook.json',
       paper_tables: 'generated/paper-tables.json',
       analysis_plan: 'generated/analysis-plan.json',
@@ -1184,6 +1196,7 @@ const gate = buildGate({
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   failureAtlas: readJson(inputs.failureAtlas),
   hypothesisTestMatrix: readJson(inputs.hypothesisTestMatrix),
+  resultInterpretationGuide: readJson(inputs.resultInterpretationGuide),
   errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),
