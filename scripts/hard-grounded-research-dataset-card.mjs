@@ -66,6 +66,7 @@ const inputPaths = {
   reviewWaveSchedule: join(generatedDir, 'review-wave-schedule.json'),
   reviewDropoffManifest: join(generatedDir, 'review-dropoff-manifest.json'),
   reviewIntakeValidator: join(generatedDir, 'review-intake-validator.json'),
+  reviewAssignmentAudit: join(generatedDir, 'review-assignment-audit.json'),
   goldAdjudicationPlan: join(generatedDir, 'gold-adjudication-plan.json'),
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   scaleGapLedger: join(generatedDir, 'scale-gap-ledger.json'),
@@ -220,6 +221,7 @@ function renderCard({
   reviewWaveSchedule,
   reviewDropoffManifest,
   reviewIntakeValidator,
+  reviewAssignmentAudit,
   goldAdjudicationPlan,
   scaleAdjudicationPlan,
   scaleGapLedger,
@@ -298,6 +300,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Review wave schedule ready: ${reviewWaveSchedule.review_wave_schedule_ready} (${reviewWaveSchedule.summary.waves} waves; ${reviewWaveSchedule.summary.scheduled_missing_packets} packets scheduled)
 - Review dropoff manifest ready: ${reviewDropoffManifest.review_dropoff_manifest_ready} (${reviewDropoffManifest.summary.packets} packets; ${reviewDropoffManifest.summary.export_hashes} hashes)
 - Review intake validator ready: ${reviewIntakeValidator.review_intake_validator_ready} (${reviewIntakeValidator.summary.accepted_packets} accepted; ${reviewIntakeValidator.summary.blocked_packets} blocked)
+- Review assignment audit ready: ${reviewAssignmentAudit.review_assignment_audit_ready} (${reviewAssignmentAudit.summary.double_review_assignments} double-review assignments; ${reviewAssignmentAudit.summary.blocked_assignments} blocked)
 - Gold adjudication plan ready: ${goldAdjudicationPlan.gold_adjudication_plan_ready} (${goldAdjudicationPlan.summary.missing_reviews} missing reviews)
 - Scale adjudication plan ready: ${scaleAdjudicationPlan.scale_adjudication_plan_ready} (${scaleAdjudicationPlan.summary.missing_review_rows} missing review rows)
 - Scale gap ledger ready: ${scaleGapLedger.scale_gap_ledger_ready} (${scaleGapLedger.summary.reviewed_item_deficit} reviewed items still needed)
@@ -453,6 +456,8 @@ The generated review wave schedule orders collection into ${reviewWaveSchedule.s
 The generated review drop-off manifest binds those packets to ${reviewDropoffManifest.summary.export_hashes} source export hashes and exact drop-off paths before import. See \`REVIEW_DROPOFF_MANIFEST.md\`.
 
 The generated review intake validator joins drop-off hashes, return-file preflight, and the latest import dry-run into packet-level apply decisions: ${reviewIntakeValidator.summary.accepted_packets} accepted packets and ${reviewIntakeValidator.summary.blocked_packets} blocked packets. See \`REVIEW_INTAKE_VALIDATOR.md\`.
+
+The generated review assignment audit checks blind double-review setup across ${reviewAssignmentAudit.summary.total_assignments} assignments, with ${reviewAssignmentAudit.summary.double_review_assignments} assignments carrying distinct reviewer slots and ${reviewAssignmentAudit.summary.blocked_assignments} assignment blockers. See \`REVIEW_ASSIGNMENT_AUDIT.md\`.
 
 The generated gold adjudication plan maps all ${goldAdjudicationPlan.summary.pilot_items} pilot items to category coverage, missing reviews, required adjudicator fields, and promotion gates. It currently records ${goldAdjudicationPlan.summary.missing_reviews} missing reviews and ${goldAdjudicationPlan.summary.promotion_ready_items} promotion-ready items. See \`GOLD_ADJUDICATION_PLAN.md\`.
 
@@ -623,6 +628,7 @@ writeText(
     reviewWaveSchedule: readJson(inputPaths.reviewWaveSchedule),
     reviewDropoffManifest: readJson(inputPaths.reviewDropoffManifest),
     reviewIntakeValidator: readJson(inputPaths.reviewIntakeValidator),
+    reviewAssignmentAudit: readJson(inputPaths.reviewAssignmentAudit),
     goldAdjudicationPlan: readJson(inputPaths.goldAdjudicationPlan),
     scaleAdjudicationPlan: readJson(inputPaths.scaleAdjudicationPlan),
     scaleGapLedger: readJson(inputPaths.scaleGapLedger),

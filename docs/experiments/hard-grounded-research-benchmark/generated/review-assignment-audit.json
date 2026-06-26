@@ -1,0 +1,469 @@
+{
+  "review_assignment_audit_ready": true,
+  "version": "review-assignment-audit-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "annotation_assignments": "generated/annotation-assignments.json",
+    "review_packet_audit": "generated/review-packet-audit.json",
+    "review_return_contract": "generated/review-return-contract.json"
+  },
+  "checks": [
+    {
+      "id": "assignment_plan_loaded",
+      "passed": true,
+      "detail": "12 pilot assignments; 10 expansion assignments"
+    },
+    {
+      "id": "review_packet_audit_clean",
+      "passed": true,
+      "detail": "30 packet files; findings=0"
+    },
+    {
+      "id": "return_contract_enforces_reviewer_fields_only",
+      "passed": true,
+      "detail": "9 immutable fields"
+    },
+    {
+      "id": "all_assignments_have_distinct_reviewer_slots",
+      "passed": true,
+      "detail": "22/22 assignments have reviewer_a and reviewer_b"
+    },
+    {
+      "id": "completion_still_blocked",
+      "passed": true,
+      "detail": "assignment audit does not fill reviewer fields or promote gold"
+    }
+  ],
+  "pilot_assignments": [
+    {
+      "assignment_id": "pilot_triage_01",
+      "wave_id": "pilot_triage_wave_1",
+      "scope": "pilot_review",
+      "category": "cross-document contradiction",
+      "item_id": "hgr_contradiction_001_pilot_003",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_10.reviewer_a",
+        "hgr_review_batch_10.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_02",
+      "wave_id": "pilot_triage_wave_1",
+      "scope": "pilot_review",
+      "category": "cross-document contradiction",
+      "item_id": "hgr_contradiction_001_pilot_001",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_10.reviewer_a",
+        "hgr_review_batch_10.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_03",
+      "wave_id": "pilot_triage_wave_1",
+      "scope": "pilot_review",
+      "category": "cross-document contradiction",
+      "item_id": "hgr_contradiction_001_pilot_002",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_10.reviewer_a",
+        "hgr_review_batch_10.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_04",
+      "wave_id": "pilot_triage_wave_1",
+      "scope": "pilot_review",
+      "category": "evidence insufficiency / abstention",
+      "item_id": "hgr_abstain_001_pilot_003",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_06.reviewer_a",
+        "hgr_review_batch_06.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_05",
+      "wave_id": "pilot_triage_wave_1",
+      "scope": "pilot_review",
+      "category": "temporal questions: as of date X",
+      "item_id": "hgr_as_of_date_001_pilot_003",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_09.reviewer_a",
+        "hgr_review_batch_09.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_06",
+      "wave_id": "pilot_triage_wave_1",
+      "scope": "pilot_review",
+      "category": "stale-vs-current document conflicts",
+      "item_id": "hgr_stale_current_001_pilot_003",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_02.reviewer_a",
+        "hgr_review_batch_02.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_07",
+      "wave_id": "pilot_triage_wave_2",
+      "scope": "pilot_review",
+      "category": "temporal questions: as of date X",
+      "item_id": "hgr_as_of_date_001_pilot_002",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_09.reviewer_a",
+        "hgr_review_batch_09.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_08",
+      "wave_id": "pilot_triage_wave_2",
+      "scope": "pilot_review",
+      "category": "temporal questions: as of date X",
+      "item_id": "hgr_as_of_date_001_pilot_001",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_09.reviewer_a",
+        "hgr_review_batch_09.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_09",
+      "wave_id": "pilot_triage_wave_2",
+      "scope": "pilot_review",
+      "category": "stale-vs-current document conflicts",
+      "item_id": "hgr_stale_current_001_pilot_001",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_02.reviewer_a",
+        "hgr_review_batch_02.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_10",
+      "wave_id": "pilot_triage_wave_2",
+      "scope": "pilot_review",
+      "category": "evidence insufficiency / abstention",
+      "item_id": "hgr_abstain_001_pilot_001",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_06.reviewer_a",
+        "hgr_review_batch_06.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_11",
+      "wave_id": "pilot_triage_wave_2",
+      "scope": "pilot_review",
+      "category": "source authority conflicts",
+      "item_id": "hgr_authority_conflict_001_pilot_001",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_05.reviewer_a",
+        "hgr_review_batch_05.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "pilot_triage_12",
+      "wave_id": "pilot_triage_wave_2",
+      "scope": "pilot_review",
+      "category": "source authority conflicts",
+      "item_id": "hgr_authority_conflict_001_pilot_003",
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_review_batch_05.reviewer_a",
+        "hgr_review_batch_05.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    }
+  ],
+  "expansion_assignments": [
+    {
+      "assignment_id": "expansion_balance_01",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "appended document lifecycle changes",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_07.reviewer_a",
+        "hgr_scale_batch_07.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_02",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "citation supports fact but not conclusion",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_19.reviewer_a",
+        "hgr_scale_batch_19.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_03",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "cross-document contradiction",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_28.reviewer_a",
+        "hgr_scale_batch_28.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_04",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "entity disambiguation",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_22.reviewer_a",
+        "hgr_scale_batch_22.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_05",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "evidence insufficiency / abstention",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_16.reviewer_a",
+        "hgr_scale_batch_16.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_06",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "multi-hop synthesis",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_01.reviewer_a",
+        "hgr_scale_batch_01.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_07",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "source authority conflicts",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_13.reviewer_a",
+        "hgr_scale_batch_13.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_08",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "stale-vs-current document conflicts",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_04.reviewer_a",
+        "hgr_scale_batch_04.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_09",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "table + text reasoning",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_10.reviewer_a",
+        "hgr_scale_batch_10.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    },
+    {
+      "assignment_id": "expansion_balance_10",
+      "wave_id": "expansion_balance_wave_1",
+      "scope": "expansion_review",
+      "category": "temporal questions: as of date X",
+      "item_id": null,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "workbook_ids": [
+        "hgr_scale_batch_25.reviewer_a",
+        "hgr_scale_batch_25.reviewer_b"
+      ],
+      "double_review_assigned": true,
+      "distinct_reviewer_slots": 2,
+      "reviewer_field_only_policy": true,
+      "status": "assignment_ready_for_blind_double_review"
+    }
+  ],
+  "blocked_assignments": [],
+  "summary": {
+    "total_assignments": 22,
+    "pilot_assignments": 12,
+    "expansion_assignments": 10,
+    "double_review_assignments": 22,
+    "blocked_assignments": 0,
+    "immutable_fields": 9,
+    "completion_claim_allowed": false
+  }
+}

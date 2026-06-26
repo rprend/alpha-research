@@ -70,6 +70,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `REVIEW_WAVE_SCHEDULE.md` and `generated/review-wave-schedule.json`: generated ordered schedule for collecting missing returned-review packets by priority, category, reviewer slot, rows, acceptance criteria, and release-gate impact.
 - `REVIEW_DROPOFF_MANIFEST.md` and `generated/review-dropoff-manifest.json`: generated drop-off contract for exact returned packet paths, source export hashes, editable fields, acceptance criteria, and import commands.
 - `REVIEW_INTAKE_VALIDATOR.md` and `generated/review-intake-validator.json`: generated per-packet intake validator that joins drop-off hashes, return preflight, import dry-run findings, and apply-blocking status.
+- `REVIEW_ASSIGNMENT_AUDIT.md` and `generated/review-assignment-audit.json`: generated blind double-review assignment audit for distinct reviewer slots and reviewer-field-only constraints.
 - `GOLD_ADJUDICATION_PLAN.md` and `generated/gold-adjudication-plan.json`: generated item-level plan for pilot gold review, adjudication fields, and promotion gates.
 - `SCALE_ADJUDICATION_PLAN.md` and `generated/scale-adjudication-plan.json`: generated batch-level plan for expansion review, category-scale targets, and adjudication gates.
 - `SCALE_GAP_LEDGER.md` and `generated/scale-gap-ledger.json`: generated category-level deficit ledger for reviewed-item targets, planned candidates, review rows, and scale blockers.

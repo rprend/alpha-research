@@ -19,6 +19,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | review_operations_ready | yes | 60 pilot incomplete rows; 540 expansion incomplete rows |  |
 | review_triage_present | yes | 23 urgent/high pilot items ranked from 2 model baselines |  |
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |  |
+| review_assignment_audit_ready | yes | review-assignment-audit-v1; assignments=22; double_review=22; blocked=0 |  |
 | reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=6/6 |  |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |  |
 | review_execution_plan_ready | yes | review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=6 |  |
@@ -66,8 +67,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=56; hashes=71; blockers=7 |  |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=71; caveats=6; release_blockers=7 |  |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=57; hashes=73; blockers=7 |  |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=73; caveats=6; release_blockers=7 |  |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |  |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |  |
@@ -99,8 +100,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |  |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 51/51 artifact classes ready; reproduction_commands=56; release_blockers=7 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=71; blockers=7; bytes=912724 |  |
+| artifact_checklist_ready | yes | 52/52 artifact classes ready; reproduction_commands=57; release_blockers=7 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=73; blockers=7; bytes=933267 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

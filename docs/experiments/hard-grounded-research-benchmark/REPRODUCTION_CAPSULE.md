@@ -8,9 +8,9 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 - Version: reproduction-capsule-v1
 - Benchmark id: `hard-grounded-research-benchmark`
 - Release status: blocked
-- Release checks: 82/89
-- Artifact hashes: 71
-- Reproduction commands: 56
+- Release checks: 83/90
+- Artifact hashes: 73
+- Reproduction commands: 57
 - Validation commands: 3
 - Completion claim allowed: false
 
@@ -61,27 +61,28 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 | 33 | Refresh review return preflight | node scripts/hard-grounded-research-review-return-preflight.mjs |
 | 34 | Refresh review return checklist | node scripts/hard-grounded-research-review-return-checklist.mjs |
 | 35 | Refresh review intake validator | node scripts/hard-grounded-research-review-intake-validator.mjs |
-| 36 | Refresh scale gap ledger | node scripts/hard-grounded-research-scale-gap-ledger.mjs |
-| 37 | Refresh review collection tracker | node scripts/hard-grounded-research-review-collection-tracker.mjs |
-| 38 | Refresh review wave schedule | node scripts/hard-grounded-research-review-wave-schedule.mjs |
-| 39 | Refresh review dropoff manifest | node scripts/hard-grounded-research-review-dropoff-manifest.mjs |
-| 40 | Refresh gold adjudication plan | node scripts/hard-grounded-research-gold-adjudication-plan.mjs |
-| 41 | Refresh scale adjudication plan | node scripts/hard-grounded-research-scale-adjudication-plan.mjs |
-| 42 | Refresh paper tables and figure data | node scripts/hard-grounded-research-paper-tables.mjs |
-| 43 | Refresh statistical analysis plan | node scripts/hard-grounded-research-analysis-plan.mjs |
-| 44 | Refresh model reporting card | node scripts/hard-grounded-research-model-reporting-card.mjs |
-| 45 | Refresh paper claim ledger | node scripts/hard-grounded-research-paper-claim-ledger.mjs |
-| 46 | Refresh supplement index | node scripts/hard-grounded-research-supplement-index.mjs |
-| 47 | Refresh reproduction capsule | node scripts/hard-grounded-research-reproduction-capsule.mjs |
-| 48 | Refresh citation metadata | node scripts/hard-grounded-research-citation-metadata.mjs |
-| 49 | Refresh reviewer FAQ | node scripts/hard-grounded-research-reviewer-faq.mjs |
-| 50 | Refresh responsible-use policy | node scripts/hard-grounded-research-responsible-use.mjs |
-| 51 | Refresh data statement | node scripts/hard-grounded-research-data-statement.mjs |
-| 52 | Refresh version manifest | node scripts/hard-grounded-research-version-manifest.mjs |
-| 53 | Refresh release and publication surfaces | node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs |
-| 54 | Validate harness integration | node scripts/validate-harness.mjs |
-| 55 | Run app build and dashboard QA | node_modules/.bin/vite build && node scripts/qa-dashboard.mjs |
-| 56 | Run full repository gates | pnpm build && pnpm test<br>Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd. |
+| 36 | Refresh review assignment audit | node scripts/hard-grounded-research-review-assignment-audit.mjs |
+| 37 | Refresh scale gap ledger | node scripts/hard-grounded-research-scale-gap-ledger.mjs |
+| 38 | Refresh review collection tracker | node scripts/hard-grounded-research-review-collection-tracker.mjs |
+| 39 | Refresh review wave schedule | node scripts/hard-grounded-research-review-wave-schedule.mjs |
+| 40 | Refresh review dropoff manifest | node scripts/hard-grounded-research-review-dropoff-manifest.mjs |
+| 41 | Refresh gold adjudication plan | node scripts/hard-grounded-research-gold-adjudication-plan.mjs |
+| 42 | Refresh scale adjudication plan | node scripts/hard-grounded-research-scale-adjudication-plan.mjs |
+| 43 | Refresh paper tables and figure data | node scripts/hard-grounded-research-paper-tables.mjs |
+| 44 | Refresh statistical analysis plan | node scripts/hard-grounded-research-analysis-plan.mjs |
+| 45 | Refresh model reporting card | node scripts/hard-grounded-research-model-reporting-card.mjs |
+| 46 | Refresh paper claim ledger | node scripts/hard-grounded-research-paper-claim-ledger.mjs |
+| 47 | Refresh supplement index | node scripts/hard-grounded-research-supplement-index.mjs |
+| 48 | Refresh reproduction capsule | node scripts/hard-grounded-research-reproduction-capsule.mjs |
+| 49 | Refresh citation metadata | node scripts/hard-grounded-research-citation-metadata.mjs |
+| 50 | Refresh reviewer FAQ | node scripts/hard-grounded-research-reviewer-faq.mjs |
+| 51 | Refresh responsible-use policy | node scripts/hard-grounded-research-responsible-use.mjs |
+| 52 | Refresh data statement | node scripts/hard-grounded-research-data-statement.mjs |
+| 53 | Refresh version manifest | node scripts/hard-grounded-research-version-manifest.mjs |
+| 54 | Refresh release and publication surfaces | node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs |
+| 55 | Validate harness integration | node scripts/validate-harness.mjs |
+| 56 | Run app build and dashboard QA | node_modules/.bin/vite build && node scripts/qa-dashboard.mjs |
+| 57 | Run full repository gates | pnpm build && pnpm test<br>Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd. |
 
 ## Expected Blockers
 

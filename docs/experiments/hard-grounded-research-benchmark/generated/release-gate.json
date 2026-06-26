@@ -21,6 +21,7 @@
     "review_operations": "generated/review-operations.json",
     "review_triage": "generated/review-triage.json",
     "annotation_assignments": "generated/annotation-assignments.json",
+    "review_assignment_audit": "generated/review-assignment-audit.json",
     "reviewer_handoff": "generated/reviewer-handoff.json",
     "review_progress": "generated/review-progress.json",
     "review_execution_plan": "generated/review-execution-plan.json",
@@ -129,6 +130,12 @@
       "passed": true,
       "detail": "12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100",
       "blocker": "Generate concrete annotation assignments for pilot triage and paper-scale expansion review."
+    },
+    {
+      "id": "review_assignment_audit_ready",
+      "passed": true,
+      "detail": "review-assignment-audit-v1; assignments=22; double_review=22; blocked=0",
+      "blocker": "Generate a blind double-review assignment audit before accepting returned labels."
     },
     {
       "id": "reviewer_handoff_ready",
@@ -415,13 +422,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=56; hashes=71; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=57; hashes=73; blockers=7",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=71; caveats=6; release_blockers=7",
+      "detail": "citation-metadata-v1; artifact_hashes=73; caveats=6; release_blockers=7",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -613,13 +620,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "51/51 artifact classes ready; reproduction_commands=56; release_blockers=7",
+      "detail": "52/52 artifact classes ready; reproduction_commands=57; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=71; blockers=7; bytes=912724",
+      "detail": "version-manifest-v1; artifacts=73; blockers=7; bytes=933267",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

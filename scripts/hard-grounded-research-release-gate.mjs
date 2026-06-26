@@ -27,6 +27,7 @@ const inputs = {
   reviewOperations: join(generatedDir, 'review-operations.json'),
   reviewTriage: join(generatedDir, 'review-triage.json'),
   annotationAssignments: join(generatedDir, 'annotation-assignments.json'),
+  reviewAssignmentAudit: join(generatedDir, 'review-assignment-audit.json'),
   reviewerHandoff: join(generatedDir, 'reviewer-handoff.json'),
   reviewProgress: join(generatedDir, 'review-progress.json'),
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
@@ -158,6 +159,7 @@ function buildGate({
   reviewOperations,
   reviewTriage,
   annotationAssignments,
+  reviewAssignmentAudit,
   reviewerHandoff,
   reviewProgress,
   reviewExecutionPlan,
@@ -268,6 +270,15 @@ function buildGate({
       passed: Boolean(annotationAssignments.assignment_plan_ready),
       detail: `${annotationAssignments.totals.pilot_assignment_count} pilot assignments; ${annotationAssignments.totals.expansion_assignment_count} expansion assignments; first-wave expansion rows=${annotationAssignments.totals.expansion_target_rows}`,
       blocker: 'Generate concrete annotation assignments for pilot triage and paper-scale expansion review.',
+    },
+    {
+      id: 'review_assignment_audit_ready',
+      passed:
+        Boolean(reviewAssignmentAudit.review_assignment_audit_ready) &&
+        reviewAssignmentAudit.summary?.blocked_assignments === 0 &&
+        reviewAssignmentAudit.summary?.completion_claim_allowed === false,
+      detail: `${reviewAssignmentAudit.version}; assignments=${reviewAssignmentAudit.summary?.total_assignments ?? 0}; double_review=${reviewAssignmentAudit.summary?.double_review_assignments ?? 'unknown'}; blocked=${reviewAssignmentAudit.summary?.blocked_assignments ?? 'unknown'}`,
+      blocker: 'Generate a blind double-review assignment audit before accepting returned labels.',
     },
     {
       id: 'reviewer_handoff_ready',
@@ -985,6 +996,7 @@ function buildGate({
       review_operations: 'generated/review-operations.json',
       review_triage: 'generated/review-triage.json',
       annotation_assignments: 'generated/annotation-assignments.json',
+      review_assignment_audit: 'generated/review-assignment-audit.json',
       reviewer_handoff: 'generated/reviewer-handoff.json',
       review_progress: 'generated/review-progress.json',
       review_execution_plan: 'generated/review-execution-plan.json',
@@ -1119,6 +1131,7 @@ const gate = buildGate({
   reviewOperations: readJson(inputs.reviewOperations),
   reviewTriage: readJson(inputs.reviewTriage),
   annotationAssignments: readJson(inputs.annotationAssignments),
+  reviewAssignmentAudit: readJson(inputs.reviewAssignmentAudit),
   reviewerHandoff: readJson(inputs.reviewerHandoff),
   reviewProgress: readJson(inputs.reviewProgress),
   reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),

@@ -56,6 +56,7 @@
     "review_wave_schedule": "generated/review-wave-schedule.json",
     "review_dropoff_manifest": "generated/review-dropoff-manifest.json",
     "review_intake_validator": "generated/review-intake-validator.json",
+    "review_assignment_audit": "generated/review-assignment-audit.json",
     "gold_adjudication_plan": "generated/gold-adjudication-plan.json",
     "scale_adjudication_plan": "generated/scale-adjudication-plan.json",
     "scale_gap_ledger": "generated/scale-gap-ledger.json",
@@ -66,9 +67,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 51,
-    "artifact_classes_total": 51,
-    "reproduction_commands": 56,
+    "artifact_classes_ready": 52,
+    "artifact_classes_total": 52,
+    "reproduction_commands": 57,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -241,6 +242,13 @@
       "blockers": []
     },
     {
+      "id": "review_assignment_audit",
+      "status": "ready",
+      "ready": true,
+      "evidence": "review-assignment-audit-v1; assignments=22; double-review=22; blocked=0.",
+      "blockers": []
+    },
+    {
       "id": "gold_adjudication_plan",
       "status": "ready",
       "ready": true,
@@ -335,14 +343,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=56; validations=3; hashes=71.",
+      "evidence": "reproduction-capsule-v1; commands=57; validations=3; hashes=73.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=71; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=73; blockers=7.",
       "blockers": []
     },
     {
@@ -370,7 +378,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=71; bytes=912724.",
+      "evidence": "version-manifest-v1; artifacts=73; bytes=933267.",
       "blockers": []
     },
     {
@@ -570,6 +578,10 @@
     {
       "step": "Refresh review intake validator",
       "command": "node scripts/hard-grounded-research-review-intake-validator.mjs"
+    },
+    {
+      "step": "Refresh review assignment audit",
+      "command": "node scripts/hard-grounded-research-review-assignment-audit.mjs"
     },
     {
       "step": "Refresh scale gap ledger",

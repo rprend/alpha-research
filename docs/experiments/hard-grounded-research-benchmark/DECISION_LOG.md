@@ -1103,3 +1103,11 @@ Decision: Generate a category-level scale gap ledger.
 Rationale: The scale plan and adjudication plan describe expansion batches, but the paper needs a compact category-by-category ledger that shows the 30-reviewed-items target, current reviewed count, reviewed-item deficit, planned candidates, planned review rows, and release-gate blockers before any category-level result can be claimed.
 
 Consequence: `scripts/hard-grounded-research-scale-gap-ledger.mjs` emits `generated/scale-gap-ledger.json` and `SCALE_GAP_LEDGER.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the ledger while category-scale and completion claims remain blocked until real reviewed items meet every category target.
+
+## 2026-06-26 — Add review assignment audit
+
+Decision: Generate a blind double-review assignment audit.
+
+Rationale: The assignment plan lists review waves, but paper-grade annotation needs an explicit audit that every assigned item has distinct reviewer slots, reviewer-field-only constraints, and clean packet/return contracts before returned labels are trusted.
+
+Consequence: `scripts/hard-grounded-research-review-assignment-audit.mjs` emits `generated/review-assignment-audit.json` and `REVIEW_ASSIGNMENT_AUDIT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the audit while review, merge, gold, scale, and completion claims remain blocked until real double reviews are returned and adjudicated.
