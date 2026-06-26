@@ -1,0 +1,187 @@
+{
+  "run_id": "paper-readiness-gate-2026-06-26-v1",
+  "generated_at": "2026-06-26T16:30:15.951Z",
+  "objective": "NeurIPS-level readiness gate for amortized grounded research over evolving private/domain KBs.",
+  "novelty_watchlist_run_id": "novelty-watchlist-2026-06-26-v1",
+  "requirements": [
+    {
+      "id": "novelty_watchlist_current",
+      "requirement": "June 2026 novelty watchlist exists with high-pressure neighbors.",
+      "status": "pass",
+      "evidence": {
+        "run_id": "novelty-watchlist-2026-06-26-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/novelty-watchlist-2026-06-26-v1/result.json"
+      }
+    },
+    {
+      "id": "budget_under_cap",
+      "requirement": "Total actual OpenAI plus external compute spend remains under the $100 cap.",
+      "status": "pass",
+      "evidence": {
+        "total_actual_usd": 5.878323650000014,
+        "remaining_usd": 94.12167634999999,
+        "llm_budget_spend_usd": 5.878323650000014
+      }
+    },
+    {
+      "id": "joint_action_packet_ready",
+      "requirement": "Joint-action SFT/DPO packet exists for Qwen 3B training.",
+      "status": "pass",
+      "evidence": {
+        "run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/result.json"
+      }
+    },
+    {
+      "id": "joint_action_preflight_passed",
+      "requirement": "Bounded joint-action launch preflight exists and passed packet/script/safety checks.",
+      "status": "pass",
+      "evidence": {
+        "run_id": "joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/result.json"
+      }
+    },
+    {
+      "id": "budgeted_prime_launch_plan",
+      "requirement": "Budget-gated Prime smoke launch plan exists with planned zero-actual-cost spend row.",
+      "status": "pass",
+      "evidence": {
+        "run_id": "joint-action-launch-plan-prime-qwen3b-smoke-v1",
+        "result": "docs/experiments/grounded-qa-distillation/runs/joint-action-launch-plan-prime-qwen3b-smoke-v1/result.json"
+      }
+    },
+    {
+      "id": "qwen3b_joint_action_smoke_result",
+      "requirement": "A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions.",
+      "status": "fail",
+      "evidence": {
+        "missing": true,
+        "reason": "No trained Qwen 3B joint-action result/eval artifact is present."
+      }
+    },
+    {
+      "id": "grounded_correctness_eval_for_student",
+      "requirement": "The trained joint-action student has grounded-correctness judging on the final future window.",
+      "status": "fail",
+      "evidence": {
+        "missing": true,
+        "reason": "No judge run exists for a Qwen 3B joint-action student."
+      }
+    },
+    {
+      "id": "drag_like_rag_distillation_comparison",
+      "requirement": "A generic RAG-to-SLM distillation comparison or documented non-comparability result exists.",
+      "status": "fail",
+      "evidence": {
+        "missing": true,
+        "reason": "No DRAG-like/generic RAG distillation comparison artifact is present."
+      }
+    },
+    {
+      "id": "longcite_style_citation_sft_comparison",
+      "requirement": "A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.",
+      "status": "fail",
+      "evidence": {
+        "missing": true,
+        "reason": "No LongCite-style citation-SFT comparison artifact is present."
+      }
+    },
+    {
+      "id": "writeback_kb_amortization_baseline",
+      "requirement": "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.",
+      "status": "fail",
+      "evidence": {
+        "missing": true,
+        "reason": "No WriteBack-RAG-style KB amortization baseline or scoped exclusion artifact is present."
+      }
+    },
+    {
+      "id": "trusted_dated_or_private_kb_snapshot",
+      "requirement": "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.",
+      "status": "fail",
+      "evidence": {
+        "extended_temporal_source": null,
+        "future_holdout_temporal_source": null,
+        "assessment": "Current manifests appear to rely on inferred arXiv-id/paper-id temporalization rather than trusted dated/private KB snapshots."
+      }
+    },
+    {
+      "id": "paper_claims_narrowed",
+      "requirement": "Decision log records narrowed novelty claims and claims-to-avoid.",
+      "status": "pass",
+      "evidence": {
+        "decision_log": "docs/experiments/grounded-qa-distillation/DECISIONS.md"
+      }
+    }
+  ],
+  "summary": {
+    "requirements_total": 12,
+    "passed": 6,
+    "failed": 6,
+    "paper_ready": false,
+    "current_status": "not_paper_ready"
+  },
+  "top_blockers": [
+    {
+      "id": "qwen3b_joint_action_smoke_result",
+      "requirement": "A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions.",
+      "evidence": {
+        "missing": true,
+        "reason": "No trained Qwen 3B joint-action result/eval artifact is present."
+      }
+    },
+    {
+      "id": "grounded_correctness_eval_for_student",
+      "requirement": "The trained joint-action student has grounded-correctness judging on the final future window.",
+      "evidence": {
+        "missing": true,
+        "reason": "No judge run exists for a Qwen 3B joint-action student."
+      }
+    },
+    {
+      "id": "drag_like_rag_distillation_comparison",
+      "requirement": "A generic RAG-to-SLM distillation comparison or documented non-comparability result exists.",
+      "evidence": {
+        "missing": true,
+        "reason": "No DRAG-like/generic RAG distillation comparison artifact is present."
+      }
+    },
+    {
+      "id": "longcite_style_citation_sft_comparison",
+      "requirement": "A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.",
+      "evidence": {
+        "missing": true,
+        "reason": "No LongCite-style citation-SFT comparison artifact is present."
+      }
+    },
+    {
+      "id": "writeback_kb_amortization_baseline",
+      "requirement": "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.",
+      "evidence": {
+        "missing": true,
+        "reason": "No WriteBack-RAG-style KB amortization baseline or scoped exclusion artifact is present."
+      }
+    },
+    {
+      "id": "trusted_dated_or_private_kb_snapshot",
+      "requirement": "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.",
+      "evidence": {
+        "extended_temporal_source": null,
+        "future_holdout_temporal_source": null,
+        "assessment": "Current manifests appear to rely on inferred arXiv-id/paper-id temporalization rather than trusted dated/private KB snapshots."
+      }
+    }
+  ],
+  "next_actions": [
+    "Refresh Prime auth or add HF credits, then run the bounded Qwen 3B joint-action smoke.",
+    "Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window.",
+    "Add DRAG-like, LongCite-style, and WriteBack-RAG-style comparisons or documented scoped exclusions.",
+    "Replace arXiv-id-inferred temporal splits with trusted dated/private KB snapshots before strong evolving-KB claims."
+  ],
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "Readiness gate uses existing local artifacts only."
+  }
+}

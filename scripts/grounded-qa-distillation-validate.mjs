@@ -67,6 +67,7 @@ if (!errors.length) {
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
+  await validatePaperReadinessGateRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -1372,6 +1373,49 @@ async function validateNoveltyWatchlistRunsIfPresent() {
     }
     if (!Array.isArray(result.synthesis?.required_before_paper_claim) || result.synthesis.required_before_paper_claim.length < 3) {
       errors.push(`${entry.name}: novelty watchlist must record required work before paper claims.`);
+    }
+  }
+}
+
+async function validatePaperReadinessGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("paper-readiness-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed paper readiness gate artifacts.`);
+      continue;
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: paper readiness gate must be zero-cost.`);
+    }
+    if (!Array.isArray(result.requirements) || result.requirements.length < 10) {
+      errors.push(`${entry.name}: paper readiness gate must check core requirements.`);
+      continue;
+    }
+    if (result.summary?.paper_ready !== false || result.summary?.current_status !== "not_paper_ready") {
+      errors.push(`${entry.name}: current gate should not mark the project paper-ready before GPU result and novelty baselines exist.`);
+    }
+    const requiredIds = new Set(result.requirements.map((row) => row.id));
+    for (const id of ["qwen3b_joint_action_smoke_result", "grounded_correctness_eval_for_student", "drag_like_rag_distillation_comparison", "longcite_style_citation_sft_comparison", "writeback_kb_amortization_baseline", "trusted_dated_or_private_kb_snapshot"]) {
+      if (!requiredIds.has(id)) errors.push(`${entry.name}: missing readiness requirement ${id}.`);
+    }
+    const failed = result.requirements.filter((row) => row.status === "fail").length;
+    if (failed !== Number(result.summary?.failed)) errors.push(`${entry.name}: failed summary count mismatch.`);
+    if (!Array.isArray(result.top_blockers) || result.top_blockers.length < 3) {
+      errors.push(`${entry.name}: paper readiness gate must surface blockers.`);
     }
   }
 }
