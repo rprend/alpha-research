@@ -881,3 +881,21 @@ Reason: The bounded paid smoke will run with `PUSH_TO_HUB=false` to avoid avoida
 Result: Once Prime auth or HF credits are repaired, the next remote command can train the bounded adapter and immediately run the adapter evaluator. The remaining paid OpenAI step is the grounded-correctness judge over those predictions.
 
 Tradeoff: This is still not a trained-model result. It reduces execution risk and spend risk by ensuring the next GPU run produces the exact artifact needed for the readiness gate rather than an unevaluated checkpoint.
+
+### D109. Preflight the final Qwen 3B grounded-correctness judge
+
+Decision: Add `grounded-qa-distillation-joint-action-judge-plan.mjs`, materialize `joint-action-judge-plan-joint-action-qwen3b-smoke-eval-v1`, and validate judge-plan artifacts.
+
+Reason: The readiness gate will still fail after GPU training unless the trained student predictions are judged for answer support, citation support, and abstention support. The existing OpenAI judge runner can perform that evaluation, but the Qwen 3B path needed a budget-gated launch plan that points at the future `joint-action-qwen3b-smoke-eval-v1` prediction run and the `extended_temporal_future_holdout` split. The plan estimates the full 69-example `gpt-4o` judge at $0.467165 using full evidence packs and reference answers as stand-ins before model predictions exist. This would keep total actual spend at about $6.3455 before GPU compute, well under the $100 cap. The plan makes zero OpenAI calls, appends no ledger rows, and records that predictions do not exist yet.
+
+Result: The post-GPU sequence is now explicit: run adapter eval to create `predictions.jsonl`, run the dry judge command, then run the paid `gpt-4o` judge only if the budget gate still passes. The paper-readiness blockers remain unchanged until those artifacts exist.
+
+Tradeoff: The estimate is a pre-prediction upper-bound style plan, not actual judge spend. Actual cost must still be ledgered by `grounded-qa-distillation-openai-judge.mjs` after Qwen 3B predictions exist.
+
+### D110. Keep readiness gates from counting plans as results
+
+Decision: Patch `grounded-qa-distillation-paper-readiness-gate.mjs` so `grounded_correctness_eval_for_student` requires an actual `openai-judge-*` run whose result has positive `calls_made`, positive `metrics.examples_judged`, and a Qwen 3B joint-action prediction run.
+
+Reason: The new judge-plan artifact intentionally contains the words `judge`, `joint-action`, and `qwen3b`, which exposed a readiness-gate bug: the old regex treated plan artifacts as if grounded-correctness judging had already happened. That would have hidden one of the two true paper blockers. The gate now distinguishes launch plans from completed paid judgment artifacts. The corrected readiness run is back to 10/12, with both the trained Qwen 3B result and grounded-correctness judge pass still failing. This makes zero OpenAI calls and creates no GPU job.
+
+Tradeoff: The gate is stricter and may ignore malformed or partially completed judge attempts. That is intentional for paper-readiness: only completed judged examples should satisfy the requirement.

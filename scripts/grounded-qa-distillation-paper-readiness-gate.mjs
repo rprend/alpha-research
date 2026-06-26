@@ -23,6 +23,7 @@ const dragStyleComparisonRunId = findRun(runIds, [/drag/i, /generic-rag-distill/
 const citationSftComparisonRunId = findRun(runIds, [/longcite/i, /citation-sft-comparison/i]);
 const writeBackScopeRunId = findRun(runIds, [/writeback/i, /kb-write/i, /evidence-distillation-baseline/i]);
 const trustedDatedSnapshotRunId = findRun(runIds, [/trusted-dated-kb-snapshot/i, /trusted-temporal-snapshot/i]);
+const qwen3bJudgeRunId = await findQwen3bJudgeRun(runIds);
 
 const requirements = [
   req("novelty_watchlist_current", "June 2026 novelty watchlist exists with high-pressure neighbors.", hasRun(runIds, "novelty-watchlist-2026-06-26-v1"), evidenceRun("novelty-watchlist-2026-06-26-v1")),
@@ -35,7 +36,7 @@ const requirements = [
   req("joint_action_preflight_passed", "Bounded joint-action launch preflight exists and passed packet/script/safety checks.", hasRun(runIds, "joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1"), evidenceRun("joint-action-launch-preflight-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1")),
   req("budgeted_prime_launch_plan", "Budget-gated Prime smoke launch plan exists with planned zero-actual-cost spend row.", hasRun(runIds, "joint-action-launch-plan-prime-qwen3b-smoke-v1"), evidenceRun("joint-action-launch-plan-prime-qwen3b-smoke-v1")),
   req("qwen3b_joint_action_smoke_result", "A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions.", hasAny(runIds, [/joint-action.*qwen3b.*(trained|student-eval|model-eval|predictions)/, /qwen3b.*joint-action.*(trained|student-eval|model-eval|predictions)/], ["joint-action-launch-plan", "joint-action-launch-preflight", "joint-action-gpu-prep", "gpu-launch-attempt"]), missing("No trained Qwen 3B joint-action result/eval artifact is present.")),
-  req("grounded_correctness_eval_for_student", "The trained joint-action student has grounded-correctness judging on the final future window.", hasAny(runIds, [/openai-judge.*qwen3b.*joint-action/, /judge.*joint-action.*qwen3b/]), missing("No judge run exists for a Qwen 3B joint-action student.")),
+  req("grounded_correctness_eval_for_student", "The trained joint-action student has grounded-correctness judging on the final future window.", Boolean(qwen3bJudgeRunId), qwen3bJudgeRunId ? evidenceRun(qwen3bJudgeRunId) : missing("No judge run exists for a Qwen 3B joint-action student.")),
   req("drag_like_rag_distillation_comparison", "A generic RAG-to-SLM distillation comparison or documented non-comparability result exists.", Boolean(dragStyleComparisonRunId), dragStyleComparisonRunId ? evidenceRun(dragStyleComparisonRunId) : missing("No DRAG-like/generic RAG distillation comparison artifact is present.")),
   req("longcite_style_citation_sft_comparison", "A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.", Boolean(citationSftComparisonRunId), citationSftComparisonRunId ? evidenceRun(citationSftComparisonRunId) : missing("No LongCite-style citation-SFT comparison artifact is present.")),
   req("writeback_kb_amortization_baseline", "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.", Boolean(writeBackScopeRunId), writeBackScopeRunId ? evidenceRun(writeBackScopeRunId) : missing("No WriteBack-RAG-style KB amortization baseline or scoped exclusion artifact is present.")),
@@ -137,6 +138,20 @@ async function listRunIds() {
 
 async function readResult(runId) {
   return readJsonIfPresent(path.join(runDir, runId, "result.json"));
+}
+
+async function findQwen3bJudgeRun(runIds) {
+  for (const runId of runIds) {
+    if (!runId.startsWith("openai-judge-")) continue;
+    if (!/qwen3b/i.test(runId) || !/joint-action/i.test(runId)) continue;
+    const result = await readResult(runId);
+    if (!result) continue;
+    if (!/joint-action.*qwen3b|qwen3b.*joint-action/i.test(String(result.prediction_run ?? ""))) continue;
+    if (Number(result.calls_made) <= 0) continue;
+    if (Number(result.metrics?.examples_judged) <= 0) continue;
+    return runId;
+  }
+  return null;
 }
 
 async function readJsonIfPresent(file) {

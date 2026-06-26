@@ -65,6 +65,7 @@ if (!errors.length) {
   await validateJointActionLaunchPlanRunsIfPresent();
   await validateJointActionLocalProbeRunsIfPresent();
   await validateJointActionEvalPrepRunsIfPresent();
+  await validateJointActionJudgePlanRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
@@ -1440,6 +1441,55 @@ async function validateJointActionEvalPrepRunsIfPresent() {
     }
     if (result.conclusion?.status !== "eval_ready_after_gpu_training") {
       errors.push(`${entry.name}: eval prep should be ready after GPU training.`);
+    }
+  }
+}
+
+async function validateJointActionJudgePlanRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-judge-plan-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action judge plan artifacts.`);
+      continue;
+    }
+    if (result.plan_type !== "joint_action_qwen3b_grounded_correctness_judge_plan") {
+      errors.push(`${entry.name}: unexpected judge plan type.`);
+    }
+    if (Number(result.eval_examples) !== 69) errors.push(`${entry.name}: judge plan should target the 69-example final window.`);
+    if (result.budget_gate?.within_budget !== true) errors.push(`${entry.name}: judge plan must pass budget gate.`);
+    if (!Number.isFinite(Number(result.budget_gate?.estimated_judge_cost_usd)) || Number(result.budget_gate.estimated_judge_cost_usd) <= 0) {
+      errors.push(`${entry.name}: judge plan must include a positive cost estimate.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: judge plan must be zero actual cost.`);
+    }
+    const command = String(result.commands?.judge_after_predictions ?? "");
+    if (!command.includes("--split=extended_temporal_future_holdout")) {
+      errors.push(`${entry.name}: judge command must use extended temporal future holdout split.`);
+    }
+    if (!command.includes("--max-budget-usd=100")) errors.push(`${entry.name}: judge command must keep the $100 budget cap.`);
+    if (!String(result.commands?.dry_run_after_predictions ?? "").includes("--dry-run=true")) {
+      errors.push(`${entry.name}: judge plan must include a dry-run command.`);
+    }
+    if (!result.prediction_artifact?.expected_path || typeof result.prediction_artifact.exists !== "boolean") {
+      errors.push(`${entry.name}: judge plan must record prediction artifact prerequisite.`);
+    }
+    if (!["waiting_for_qwen3b_predictions", "ready_to_dry_run_or_judge"].includes(result.conclusion?.status)) {
+      errors.push(`${entry.name}: unexpected judge plan status.`);
     }
   }
 }
