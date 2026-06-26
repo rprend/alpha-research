@@ -343,3 +343,11 @@ Decision: Add a generated scale plan with a target of 30 reviewed items per cate
 Rationale: The current 30-item pilot is useful for harness development but too small for the paper claim. The release gate needs a machine-readable scale target so the benchmark cannot be mistaken for paper-ready before each failure mode has enough reviewed examples.
 
 Consequence: `scripts/hard-grounded-research-scale-plan.mjs` now emits `generated/scale-plan.json` and `SCALE_PLAN.md`; the release gate can block paper readiness on category-level reviewed-item scale.
+
+## 2026-06-26 — Add category expansion blueprint
+
+Decision: Extend the scale plan with per-category source datasets and generation strategies.
+
+Rationale: A scale target says how many items are missing, but not how to produce them. The benchmark needs an expansion blueprint tied to existing Hugging Face sources and seed-task transformations so the path from pilot to paper-scale data is executable.
+
+Consequence: `scripts/hard-grounded-research-scale-plan.mjs` now derives per-category expansion strategies from `benchmark-spec.json`, including source datasets, dataset roles, generation strategy, and review requirement.

@@ -16,7 +16,18 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_multi_hop_001",
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "dataset_roles": [
+          "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        ],
+        "generation_strategy": "Sample additional bridge/comparison rows; preserve all required supporting facts; add distractor passages that support only one hop.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "stale-vs-current document conflicts",
@@ -25,7 +36,20 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_stale_current_001",
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "hotpotqa/hotpot_qa"
+        ],
+        "dataset_roles": [
+          "Claim verification source for contradiction, insufficiency, and authority conflict tasks.",
+          "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        ],
+        "generation_strategy": "Pair older claim/evidence rows with newer controlling evidence; assign synthetic document dates and require stale-evidence rejection.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "appended document lifecycle changes",
@@ -34,7 +58,18 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_appendix_lifecycle_001",
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "dataset_roles": [
+          "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        ],
+        "generation_strategy": "Select long-document QA rows and generate appendix/erratum wrappers that supersede one body claim while retaining original evidence.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "table + text reasoning",
@@ -43,7 +78,20 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_table_text_001",
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "allenai/qasper"
+        ],
+        "dataset_roles": [
+          "Primary source for table lookups that must be paired with surrounding text or metadata.",
+          "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        ],
+        "generation_strategy": "Pair table denotation questions with supporting or disambiguating text snippets; require both table cell grounding and textual context.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "source authority conflicts",
@@ -52,7 +100,20 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_authority_conflict_001",
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "Pavithree/eli5"
+        ],
+        "dataset_roles": [
+          "Claim verification source for contradiction, insufficiency, and authority conflict tasks.",
+          "Optional stress source for synthesis over noisy, unevenly authoritative explanations."
+        ],
+        "generation_strategy": "Compose lower-authority explanatory/claim evidence with higher-authority source evidence; encode which source controls the answer.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "evidence insufficiency / abstention",
@@ -61,7 +122,20 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_abstain_001",
+        "source_datasets": [
+          "allenai/qasper",
+          "tdiggelm/climate_fever"
+        ],
+        "dataset_roles": [
+          "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations.",
+          "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+        ],
+        "generation_strategy": "Remove required evidence from otherwise relevant contexts and retain near-miss passages that should not justify an answer.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "citation supports fact but not conclusion",
@@ -70,7 +144,22 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_citation_overreach_001",
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "dataset_roles": [
+          "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
+          "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations.",
+          "Primary source for table lookups that must be paired with surrounding text or metadata."
+        ],
+        "generation_strategy": "Keep citations that support true subfacts while withholding the link needed for the requested conclusion.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "entity disambiguation",
@@ -79,7 +168,20 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_entity_disambiguation_001",
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "dataset_roles": [
+          "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
+          "Primary source for table lookups that must be paired with surrounding text or metadata."
+        ],
+        "generation_strategy": "Sample same-name or near-name entities across evidence sets; require citations that identify the intended referent.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "temporal questions: as of date X",
@@ -88,7 +190,20 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_as_of_date_001",
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "hotpotqa/hotpot_qa"
+        ],
+        "dataset_roles": [
+          "Claim verification source for contradiction, insufficiency, and authority conflict tasks.",
+          "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+        ],
+        "generation_strategy": "Wrap evidence with as-of dates and conflicting later/earlier snapshots; require answers scoped to the requested date.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     },
     {
       "category": "cross-document contradiction",
@@ -97,7 +212,22 @@
       "current_valid_reviewed_items": 0,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false
+      "scale_ready": false,
+      "expansion": {
+        "seed_task_id": "hgr_contradiction_001",
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "dataset_roles": [
+          "Claim verification source for contradiction, insufficiency, and authority conflict tasks.",
+          "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
+          "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+        ],
+        "generation_strategy": "Compose mutually inconsistent evidence sets and require explicit conflict reporting unless an authority/date rule controls.",
+        "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
+      }
     }
   ]
 }
