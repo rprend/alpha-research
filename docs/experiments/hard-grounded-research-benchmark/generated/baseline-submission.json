@@ -1,0 +1,103 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "native-label-plus-all-evidence-baseline",
+  "description": "Upper-bound sanity baseline that answers with the first native label and cites all materialized required evidence.",
+  "answers": [
+    {
+      "task_id": "hgr_multi_hop_001",
+      "answer": "yes",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_stale_current_001",
+      "answer": "yes",
+      "citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001",
+      "answer": "BIBREF19",
+      "citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_table_text_001",
+      "answer": "36755",
+      "citations": [
+        "nt-0:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_authority_conflict_001",
+      "answer": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing retu…",
+      "citations": [
+        "Extinction risk from global warming:170",
+        "2bln8r:answer:cj6iupv"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_abstain_001",
+      "answer": "BIBREF19",
+      "citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_citation_overreach_001",
+      "answer": "yes",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "nt-0:table"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001",
+      "answer": "yes",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-0:table"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_as_of_date_001",
+      "answer": "yes",
+      "citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false
+    },
+    {
+      "task_id": "hgr_contradiction_001",
+      "answer": "yes",
+      "citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "abstained": false
+    }
+  ]
+}

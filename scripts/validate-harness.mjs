@@ -31,6 +31,7 @@ const requiredPackageScripts = [
   'benchmark:gutenberg:high-recall:smoke',
   'benchmark:gutenberg:high-recall:mock-openai',
   'benchmark:hard-grounded',
+  'benchmark:hard-grounded:evaluate',
   'smoke:infra:live',
   'kb:validate',
   'kb:status',
@@ -144,6 +145,7 @@ assert(existsSync(join(root, 'scripts/kb-refresh.mjs')), 'Missing local humaniti
 assert(existsSync(join(root, 'data/knowledge-base/config/department-pages.json')), 'Missing local humanities KB department page targets.')
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-benchmark.mjs')), 'Missing hard grounded research benchmark runner.')
+assert(existsSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs')), 'Missing hard grounded research benchmark evaluator.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),
   'Missing hard grounded research benchmark spec.',
@@ -151,6 +153,10 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/materialized-examples.json')),
   'Missing hard grounded research materialized examples.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/baseline-report.json')),
+  'Missing hard grounded research baseline report.',
 )
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')

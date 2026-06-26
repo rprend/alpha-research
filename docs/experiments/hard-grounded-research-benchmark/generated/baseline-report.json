@@ -1,0 +1,290 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "native-label-plus-all-evidence-baseline",
+  "summary": {
+    "task_count": 10,
+    "macro": {
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1
+    },
+    "by_category": {
+      "multi-hop synthesis": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "stale-vs-current document conflicts": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "appended document lifecycle changes": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "table + text reasoning": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "source authority conflicts": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "evidence insufficiency / abstention": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "citation supports fact but not conclusion": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "entity disambiguation": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "temporal questions: as of date X": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      },
+      "cross-document contradiction": {
+        "answer_correct": 1,
+        "evidence_recall": 1,
+        "citation_precision": 1,
+        "citation_faithfulness": 1,
+        "abstention_quality": 1
+      }
+    }
+  },
+  "task_scores": [
+    {
+      "task_id": "hgr_multi_hop_001",
+      "category": "multi-hop synthesis",
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "submitted_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ]
+    },
+    {
+      "task_id": "hgr_stale_current_001",
+      "category": "stale-vs-current document conflicts",
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "submitted_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ]
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001",
+      "category": "appended document lifecycle changes",
+      "expected_answer": "BIBREF19",
+      "submitted_answer": "BIBREF19",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "submitted_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_table_text_001",
+      "category": "table + text reasoning",
+      "expected_answer": "36755",
+      "submitted_answer": "36755",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "nt-0:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "submitted_citations": [
+        "nt-0:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    },
+    {
+      "task_id": "hgr_authority_conflict_001",
+      "category": "source authority conflicts",
+      "expected_answer": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing retu…",
+      "submitted_answer": "While it varies from person to person, there's a general sort of \"ideal\" body form that humans have evolved to favor. Back in our hunter-gatherer days, a decent amount of muscle was likely very useful for survival, and a decent amount of fat was likely handy to have just in case of tough times. But eventually you get to a point of diminishing retu…",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Extinction risk from global warming:170",
+        "2bln8r:answer:cj6iupv"
+      ],
+      "submitted_citations": [
+        "Extinction risk from global warming:170",
+        "2bln8r:answer:cj6iupv"
+      ]
+    },
+    {
+      "task_id": "hgr_abstain_001",
+      "category": "evidence insufficiency / abstention",
+      "expected_answer": "BIBREF19",
+      "submitted_answer": "BIBREF19",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Extinction risk from global warming:170"
+      ],
+      "submitted_citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "Extinction risk from global warming:170"
+      ]
+    },
+    {
+      "task_id": "hgr_citation_overreach_001",
+      "category": "citation supports fact but not conclusion",
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "nt-0:table"
+      ],
+      "submitted_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
+        "nt-0:table"
+      ]
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001",
+      "category": "entity disambiguation",
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-0:table"
+      ],
+      "submitted_citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "nt-0:table"
+      ]
+    },
+    {
+      "task_id": "hgr_as_of_date_001",
+      "category": "temporal questions: as of date X",
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "submitted_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ]
+    },
+    {
+      "task_id": "hgr_contradiction_001",
+      "category": "cross-document contradiction",
+      "expected_answer": "yes",
+      "submitted_answer": "yes",
+      "answer_correct": 1,
+      "evidence_recall": 1,
+      "citation_precision": 1,
+      "citation_faithfulness": 1,
+      "abstention_quality": 1,
+      "required_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "submitted_citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ]
+    }
+  ]
+}
