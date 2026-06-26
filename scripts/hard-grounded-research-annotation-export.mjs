@@ -138,7 +138,16 @@ function buildExport() {
       category: exportSpec.category,
       assignment_ids: exportSpec.assignment_ids,
       row_count: rows.length,
+      expected_return_row_count: rows.length,
       item_ids: rows.map((row) => row.item_id),
+      required_return_fields: protocol.required_reviewer_fields,
+      return_packet_checks: [
+        'Every exported row is returned exactly once.',
+        'Only reviewer_fields are modified.',
+        'required_citation_ids refer only to citation ids present in evidence_units.',
+        'reviewer_confidence is a supported enum value.',
+        'notes explains insufficiency, conflict, or conclusion-overreach judgments.',
+      ],
       sha256: fileDigest(path),
     })
   }
@@ -174,6 +183,22 @@ function buildExport() {
         'disagreement rows must be resolved before gold promotion',
       ],
     },
+    return_readiness: {
+      ready: true,
+      expected_files: files.length,
+      expected_rows: files.reduce((sum, file) => sum + file.row_count, 0),
+      packet_checklist: [
+        'Return one JSONL file for each exported JSONL file.',
+        'Preserve item_id, source_workbook_id, export_scope, evidence_units, rubric, and quality_findings exactly.',
+        'Fill every required reviewer field on every row.',
+        'Use category_fit and generation_defect only for expansion_review packets.',
+        'Run the annotation import dry-run before applying returned packets.',
+      ],
+      dry_run_command:
+        'node scripts/hard-grounded-research-import-annotations.mjs --input-dir=<returned-reviewer-packet-dir>',
+      apply_command:
+        'node scripts/hard-grounded-research-import-annotations.mjs --input-dir=<returned-reviewer-packet-dir> --apply',
+    },
     totals: {
       file_count: files.length,
       row_count: files.reduce((sum, file) => sum + file.row_count, 0),
@@ -197,13 +222,20 @@ function renderMarkdown(manifest) {
     ['Pilot rows', String(manifest.totals.pilot_rows)],
     ['Expansion rows', String(manifest.totals.expansion_rows)],
     ['Reviewer fields only', String(manifest.reviewer_fields_only)],
+    ['Return readiness', String(manifest.return_readiness.ready)],
+    ['Expected returned files', String(manifest.return_readiness.expected_files)],
+    ['Expected returned rows', String(manifest.return_readiness.expected_rows)],
   ]
+  const checklistRows = manifest.return_readiness.packet_checklist.map((item, index) => [
+    String(index + 1),
+    item,
+  ])
   const fileRows = manifest.files.map((file) => [
     file.file,
     file.scope,
     file.category,
     file.reviewer_slot,
-    String(file.row_count),
+    `${file.row_count}/${file.expected_return_row_count}`,
     file.sha256.slice(0, 16),
   ])
 
@@ -222,9 +254,17 @@ ${markdownTable(['Field', 'Value'], summaryRows)}
 - Do not edit item metadata, evidence units, rubrics, quality findings, or challenge payloads.
 - Gold promotion remains blocked until double-review preflight and merge gates pass.
 
+## Return Readiness Checklist
+
+${markdownTable(['Step', 'Requirement'], checklistRows)}
+
+Dry-run command: \`${manifest.return_readiness.dry_run_command}\`
+
+Apply command: \`${manifest.return_readiness.apply_command}\`
+
 ## Export Files
 
-${markdownTable(['File', 'Scope', 'Category', 'Reviewer', 'Rows', 'SHA-256 prefix'], fileRows)}
+${markdownTable(['File', 'Scope', 'Category', 'Reviewer', 'Rows exported/expected return', 'SHA-256 prefix'], fileRows)}
 `
 }
 

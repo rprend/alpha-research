@@ -196,6 +196,15 @@ function buildGate({
       blocker: 'Generate checksum-backed reviewer export files from the annotation assignment plan.',
     },
     {
+      id: 'annotation_return_readiness_ready',
+      passed:
+        Boolean(annotationExport.return_readiness?.ready) &&
+        annotationExport.return_readiness.expected_files === annotationExport.totals.file_count &&
+        annotationExport.return_readiness.expected_rows === annotationExport.totals.row_count,
+      detail: `${annotationExport.return_readiness?.expected_files ?? 0} expected returned files; ${annotationExport.return_readiness?.expected_rows ?? 0} expected returned rows`,
+      blocker: 'Generate reviewer return-readiness checklist and expected packet counts before collecting labels.',
+    },
+    {
       id: 'annotation_import_smoke_ready',
       passed: Boolean(annotationImportSmoke.annotation_import_smoke_ready),
       detail: `${annotationImportSmoke.rows_checked} returned fixture rows checked across ${annotationImportSmoke.files_checked} files; findings=${annotationImportSmoke.finding_count}`,

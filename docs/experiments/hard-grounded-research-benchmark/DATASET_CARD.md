@@ -127,13 +127,14 @@ Key release checks:
 
 - Gold review: block - 0/30 valid reviewed items
 - Review preflight: block - 0/60 complete review rows
-- Reviewer handoff: pass - 124 handoff rows across 30 files; gates=5/5
+- Reviewer handoff: pass - 124 handoff rows across 30 files; gates=6/6
 - Review progress: pass - 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300
 - Adjudication readiness: pass - pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false
 - Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
 - Corpus audit: pass - 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
 - Novelty claim boundaries: pass - 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
+- Annotation return readiness: pass - 30 expected returned files; 124 expected returned rows
 - Annotation import path: pass - 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false
 - Pilot promotion smoke: pass - 30/30 fixture gold items; release_eligible=false
 - Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false

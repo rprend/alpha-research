@@ -103,6 +103,9 @@ function buildHandoff({
     reviewer_slot: file.reviewer_slot,
     category: file.category,
     row_count: file.row_count,
+    expected_return_row_count: file.expected_return_row_count,
+    required_return_fields: file.required_return_fields,
+    return_packet_checks: file.return_packet_checks,
     sha256: file.sha256,
   }))
 
@@ -110,12 +113,12 @@ function buildHandoff({
     {
       purpose: 'Dry-run returned reviewer packets without modifying workbooks',
       command:
-        'node scripts/hard-grounded-research-import-annotations.mjs --input-dir docs/experiments/hard-grounded-research-benchmark/generated/annotation-import-smoke --allow-fixture',
+        'node scripts/hard-grounded-research-import-annotations.mjs --input-dir=docs/experiments/hard-grounded-research-benchmark/generated/annotation-import-smoke --allow-fixture',
     },
     {
       purpose: 'Apply real returned reviewer packets after dry-run passes',
       command:
-        'node scripts/hard-grounded-research-import-annotations.mjs --input-dir <returned-reviewer-packet-dir> --apply',
+        'node scripts/hard-grounded-research-import-annotations.mjs --input-dir=<returned-reviewer-packet-dir> --apply',
     },
     {
       purpose: 'Check pilot review completeness after imports',
@@ -157,6 +160,14 @@ function buildHandoff({
       detail: `${annotationImport.rows_importable}/${annotationImport.rows_checked} rows importable; applied=${annotationImport.applied_to_workbooks}.`,
     },
     {
+      id: 'return_readiness_present',
+      passed:
+        Boolean(annotationExport.return_readiness?.ready) &&
+        annotationExport.return_readiness.expected_files === annotationExport.totals.file_count &&
+        annotationExport.return_readiness.expected_rows === annotationExport.totals.row_count,
+      detail: `${annotationExport.return_readiness?.expected_files ?? 0} expected returned files; ${annotationExport.return_readiness?.expected_rows ?? 0} expected rows.`,
+    },
+    {
       id: 'human_labels_not_started',
       passed: !reviewPreflight.preflight_ready && !expansionReviewPreflight.preflight_ready,
       detail: `${reviewPreflight.complete_review_rows}/${reviewPreflight.total_review_rows} pilot rows complete; ${expansionReviewPreflight.complete_review_rows}/${expansionReviewPreflight.total_review_rows} expansion rows complete.`,
@@ -181,6 +192,7 @@ function buildHandoff({
     required_reviewer_fields: annotationProtocol.required_reviewer_fields,
     expansion_only_fields: annotationProtocol.expansion_only_fields,
     reviewer_must_not_edit: annotationExport.import_contract.reviewer_must_not_edit,
+    return_readiness: annotationExport.return_readiness,
     totals: {
       export_files: annotationExport.totals.file_count,
       export_rows: annotationExport.totals.row_count,
@@ -210,8 +222,12 @@ function renderMarkdown(handoff) {
     file.scope,
     file.workbook_id,
     file.category,
-    String(file.row_count),
+    `${file.row_count}/${file.expected_return_row_count}`,
     file.sha256,
+  ])
+  const returnChecklistRows = handoff.return_readiness.packet_checklist.map((item, index) => [
+    String(index + 1),
+    item,
   ])
   const commandRows = handoff.commands.map((command) => [command.purpose, `\`${command.command}\``])
   const gateRows = handoff.acceptance_gates.map((gate) => [
@@ -235,6 +251,9 @@ This generated packet is the reviewer-facing handoff contract for the current fi
 - Urgent/high pilot items represented in triage: ${handoff.totals.urgent_or_high_pilot_items}
 - Remaining pilot review rows: ${handoff.totals.pilot_incomplete_rows}
 - Remaining expansion review rows: ${handoff.totals.expansion_incomplete_rows}
+- Return readiness: ${handoff.return_readiness.ready}
+- Expected returned files: ${handoff.return_readiness.expected_files}
+- Expected returned rows: ${handoff.return_readiness.expected_rows}
 
 ## Reviewer Field Contract
 
@@ -254,13 +273,21 @@ ${markdownTable(['Wave', 'Scope', 'Assignments', 'Rows or items', 'Categories'],
 
 ${markdownTable(['Gate', 'Passed', 'Detail'], gateRows)}
 
+## Return Readiness Checklist
+
+${markdownTable(['Step', 'Requirement'], returnChecklistRows)}
+
+Dry-run command: \`${handoff.return_readiness.dry_run_command}\`
+
+Apply command: \`${handoff.return_readiness.apply_command}\`
+
 ## Import And Merge Commands
 
 ${markdownTable(['Purpose', 'Command'], commandRows)}
 
 ## Export Files
 
-${markdownTable(['File', 'Scope', 'Workbook', 'Category', 'Rows', 'SHA-256'], fileRows)}
+${markdownTable(['File', 'Scope', 'Workbook', 'Category', 'Rows exported/expected return', 'SHA-256'], fileRows)}
 `
 }
 

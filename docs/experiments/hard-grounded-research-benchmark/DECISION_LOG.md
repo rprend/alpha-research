@@ -647,3 +647,11 @@ Decision: Extend the novelty evidence and audit artifacts with explicit search-q
 Rationale: The literature scan shows that many individual axes are already crowded, including multi-hop RAG, temporal RAG, text/table RAG, contradiction, and citation faithfulness. A paper-worthy benchmark should make the defensible claim boundary inspectable instead of relying on a broad novelty statement.
 
 Consequence: The novelty scripts now record closer June 2026 adjacent work, generate claim-boundary tables, and expose a release-gate check for claim-boundary readiness while keeping the final novelty and human-review blockers active.
+
+## 2026-06-26 — Add reviewer return-readiness checklist to annotation exports
+
+Decision: Put packet-level return requirements, expected row counts, required reviewer fields, checksum instructions, and import commands directly into the annotation export manifest and reviewer handoff.
+
+Rationale: Human review is the main paper-readiness blocker, and file-level exports alone do not tell reviewers or operators how to know a returned packet is complete before import. A return-readiness checklist makes the review loop auditable without pretending that labels have already been collected.
+
+Consequence: `scripts/hard-grounded-research-annotation-export.mjs` now emits return-checklist metadata; `scripts/hard-grounded-research-reviewer-handoff.mjs` surfaces it in the reviewer packet; the release gate and harness validate that return readiness is available while gold and review-completion blockers remain active.

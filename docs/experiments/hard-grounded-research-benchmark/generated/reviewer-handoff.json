@@ -36,6 +36,20 @@
     "rubric",
     "quality_findings"
   ],
+  "return_readiness": {
+    "ready": true,
+    "expected_files": 30,
+    "expected_rows": 124,
+    "packet_checklist": [
+      "Return one JSONL file for each exported JSONL file.",
+      "Preserve item_id, source_workbook_id, export_scope, evidence_units, rubric, and quality_findings exactly.",
+      "Fill every required reviewer field on every row.",
+      "Use category_fit and generation_defect only for expansion_review packets.",
+      "Run the annotation import dry-run before applying returned packets."
+    ],
+    "dry_run_command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=<returned-reviewer-packet-dir>",
+    "apply_command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=<returned-reviewer-packet-dir> --apply"
+  },
   "totals": {
     "export_files": 30,
     "export_rows": 124,
@@ -114,6 +128,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "cross-document contradiction",
       "row_count": 3,
+      "expected_return_row_count": 3,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "9ca68c932c0f1cdd6350fd3bd8afef5522f7be0b9e1a7bab98a85e4c12c5b7de"
     },
     {
@@ -123,6 +153,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "cross-document contradiction",
       "row_count": 3,
+      "expected_return_row_count": 3,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "1b0d805d2876695c0512b5239b7c84955dd4b5bc6e5ed5938c92c7e0b8445c17"
     },
     {
@@ -132,6 +178,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "evidence insufficiency / abstention",
       "row_count": 2,
+      "expected_return_row_count": 2,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "f49d88d562ff021e5e8ab9cdb490430b29a1ba5ad7d50fbcc9872256a53e65ed"
     },
     {
@@ -141,6 +203,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "evidence insufficiency / abstention",
       "row_count": 2,
+      "expected_return_row_count": 2,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "dccb48ca6d498adfc29d10559461ffcabfc7c60dade58020363ca600f3221a7b"
     },
     {
@@ -150,6 +228,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "temporal questions: as of date X",
       "row_count": 3,
+      "expected_return_row_count": 3,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "a3f4a88de959776bb1ecd5d15a2c7260fccd5f93d9fa36e10e6145e675b10400"
     },
     {
@@ -159,6 +253,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "temporal questions: as of date X",
       "row_count": 3,
+      "expected_return_row_count": 3,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "604f923fd042461f482961060660e37533d2fcdf945002f1d1ac3cf584d49a06"
     },
     {
@@ -168,6 +278,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "stale-vs-current document conflicts",
       "row_count": 2,
+      "expected_return_row_count": 2,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "b01aa22592bea0f9a6b7ec72cc704a38ec27a668f7af871c952895f491148b85"
     },
     {
@@ -177,6 +303,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "stale-vs-current document conflicts",
       "row_count": 2,
+      "expected_return_row_count": 2,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "e0a535be0943a491d077f2d5e26b44d483c2145717be9150a2edbfcb3c1984e7"
     },
     {
@@ -186,6 +328,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "source authority conflicts",
       "row_count": 2,
+      "expected_return_row_count": 2,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "0c99b3a78a477fd5487e39ef58b7c4b9d2cb83e55d410a3ba68cc26951d758d2"
     },
     {
@@ -195,6 +353,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "source authority conflicts",
       "row_count": 2,
+      "expected_return_row_count": 2,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "7c896303b7610d50e2831126beebe4f1486d0ec78a37beb3f07cdfae6a757d8c"
     },
     {
@@ -204,6 +378,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "appended document lifecycle changes",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "ffcc319492340730a495b0cfba7bddef11a20f3cb900c617c397d7d93de14c5c"
     },
     {
@@ -213,6 +403,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "appended document lifecycle changes",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "136a885e81dca3f9094321654d8bc18878cb4b70cea493217acf038120b16f6d"
     },
     {
@@ -222,6 +428,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "citation supports fact but not conclusion",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "2a050625001b6ec70ff9c387a097f8864550761148618cd5dab187983e3f18b3"
     },
     {
@@ -231,6 +453,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "citation supports fact but not conclusion",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "0a9d4aeb76472c3cd35c560e9863ebd155e6576693bc4191ac133e2307258c72"
     },
     {
@@ -240,6 +478,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "cross-document contradiction",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "ffb87dc00692652b4875b0ae519923f2e418fe72398e01b25398e6dc30c30174"
     },
     {
@@ -249,6 +503,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "cross-document contradiction",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "feaa35bc61794984c0edf4d4b9a42f0be6fa0cb8da257c31f1a3a12213cbbf10"
     },
     {
@@ -258,6 +528,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "entity disambiguation",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "b55f2c7938e28ac5da4c29272b8c9d78e78a3b31a6bf8e9baaab885b829e68e9"
     },
     {
@@ -267,6 +553,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "entity disambiguation",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "054d2ca9731061559d4cb59f7c92480a9520dd0827ff27804fe1c1151d7ce0ef"
     },
     {
@@ -276,6 +578,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "evidence insufficiency / abstention",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "b94d613d8e7cc13bbba336c16230de9895c8b7d4350d8252155dae735d0dc164"
     },
     {
@@ -285,6 +603,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "evidence insufficiency / abstention",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "2d827fe30f5cb40f2095627ccdd840dcaa72e24d3d138da504fdb5b22f79b0e6"
     },
     {
@@ -294,6 +628,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "multi-hop synthesis",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "9036cf0b806689e2f1ccaba02aaca2db693f02d0dd39e5fff93b9f5bb32efe50"
     },
     {
@@ -303,6 +653,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "multi-hop synthesis",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "7116e99a99e88e027be574e19a35cacc0aa65e33803f6696ac883d31dd3ba827"
     },
     {
@@ -312,6 +678,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "source authority conflicts",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "49e9ba9c2c9439254ab8e1f265141e13e06bdf67884a6bdb3619afffe275d5f3"
     },
     {
@@ -321,6 +703,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "source authority conflicts",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "a2e0a99721f46849635bc8dd350d7476226cdd855fbc881940bd97a3f9fc7278"
     },
     {
@@ -330,6 +728,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "stale-vs-current document conflicts",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "ea4a84a761d88b58bfe4b1ce52f23876b873969168832a9e3489bca042890f27"
     },
     {
@@ -339,6 +753,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "stale-vs-current document conflicts",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "de2e601c92d95bdfe74562cedd914dfb61f5ca9fa6ba3cfa116ddd33291bf5a7"
     },
     {
@@ -348,6 +778,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "table + text reasoning",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "2719d4081cff184e0a0d7fba0563ed7f72dbb099b145f16aa7c6ee55355fc212"
     },
     {
@@ -357,6 +803,22 @@
       "reviewer_slot": "reviewer_b",
       "category": "table + text reasoning",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "6e8e1a7f45fdb8633b927cdf8093ebbaa3b7ba371846fad21d702dd451cdf837"
     },
     {
@@ -366,6 +828,22 @@
       "reviewer_slot": "reviewer_a",
       "category": "temporal questions: as of date X",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "47d8c71c3e07f658a7c2e3aa53a0878cb794a7a867b955827f46a78529b503ef"
     },
     {
@@ -375,17 +853,33 @@
       "reviewer_slot": "reviewer_b",
       "category": "temporal questions: as of date X",
       "row_count": 5,
+      "expected_return_row_count": 5,
+      "required_return_fields": [
+        "final_label",
+        "final_answer",
+        "required_citation_ids",
+        "insufficient_or_conflicting_evidence",
+        "notes",
+        "reviewer_confidence"
+      ],
+      "return_packet_checks": [
+        "Every exported row is returned exactly once.",
+        "Only reviewer_fields are modified.",
+        "required_citation_ids refer only to citation ids present in evidence_units.",
+        "reviewer_confidence is a supported enum value.",
+        "notes explains insufficiency, conflict, or conclusion-overreach judgments."
+      ],
       "sha256": "99388512bd81ecd85e8feaa45471afdd3a1e0de38092c8523482198df0e5affc"
     }
   ],
   "commands": [
     {
       "purpose": "Dry-run returned reviewer packets without modifying workbooks",
-      "command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir docs/experiments/hard-grounded-research-benchmark/generated/annotation-import-smoke --allow-fixture"
+      "command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=docs/experiments/hard-grounded-research-benchmark/generated/annotation-import-smoke --allow-fixture"
     },
     {
       "purpose": "Apply real returned reviewer packets after dry-run passes",
-      "command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir <returned-reviewer-packet-dir> --apply"
+      "command": "node scripts/hard-grounded-research-import-annotations.mjs --input-dir=<returned-reviewer-packet-dir> --apply"
     },
     {
       "purpose": "Check pilot review completeness after imports",
@@ -424,6 +918,11 @@
       "id": "import_path_ready",
       "passed": true,
       "detail": "124/124 rows importable; applied=false."
+    },
+    {
+      "id": "return_readiness_present",
+      "passed": true,
+      "detail": "30 expected returned files; 124 expected rows."
     },
     {
       "id": "human_labels_not_started",

@@ -19,11 +19,12 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | review_operations_ready | yes | 60 pilot incomplete rows; 540 expansion incomplete rows |  |
 | review_triage_present | yes | 23 urgent/high pilot items ranked from 2 model baselines |  |
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |  |
-| reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=5/5 |  |
+| reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=6/6 |  |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |  |
 | adjudication_readiness_ready | yes | pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false |  |
 | annotator_agreement_ready | yes | completed_metric_pairs=0; agreement_claim_allowed=false |  |
 | annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |  |
+| annotation_return_readiness_ready | yes | 30 expected returned files; 124 expected returned rows |  |
 | annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |  |
 | annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |  |
 | gold_promotion_smoke_ready | yes | 30/30 fixture gold items; release_eligible=false |  |

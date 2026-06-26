@@ -82,7 +82,7 @@
     {
       "id": "reviewer_handoff_ready",
       "passed": true,
-      "detail": "124 handoff rows across 30 files; gates=5/5",
+      "detail": "124 handoff rows across 30 files; gates=6/6",
       "blocker": "Generate a reviewer-facing handoff packet that ties assignments, exports, import checks, and acceptance gates together."
     },
     {
@@ -108,6 +108,12 @@
       "passed": true,
       "detail": "124 exported rows across 30 files; pilot=24; expansion=100",
       "blocker": "Generate checksum-backed reviewer export files from the annotation assignment plan."
+    },
+    {
+      "id": "annotation_return_readiness_ready",
+      "passed": true,
+      "detail": "30 expected returned files; 124 expected returned rows",
+      "blocker": "Generate reviewer return-readiness checklist and expected packet counts before collecting labels."
     },
     {
       "id": "annotation_import_smoke_ready",
