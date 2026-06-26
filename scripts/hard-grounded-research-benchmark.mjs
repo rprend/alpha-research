@@ -398,6 +398,7 @@ ${matrixLines}
 ## Generated Files
 
 - \`DECISION_LOG.md\`: one-decision-per-iteration project decision log.
+- \`NOVELTY_AUDIT.md\`: current literature comparison and novelty release gate.
 - \`generated/seed-suite.json\`: runnable seed task contract.
 - \`generated/coverage-matrix.json\`: category to dataset/task coverage.
 - \`generated/approach-scores.json\`: comparison of construction approaches.

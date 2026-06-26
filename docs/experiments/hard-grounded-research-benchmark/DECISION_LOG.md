@@ -15,3 +15,11 @@ Decision: Add a schema-first local evaluator and a native-label baseline before 
 Rationale: The benchmark cannot be paper-worthy if results depend on ad hoc manual judging or a single agent implementation. A deterministic scorer establishes the result contract first: answer correctness, evidence recall, citation precision, citation faithfulness, and abstention quality.
 
 Consequence: `scripts/hard-grounded-research-evaluate.mjs` now scores JSON submissions against the materialized examples and emits reproducible baseline artifacts under `generated/`.
+
+## 2026-06-26 — Treat novelty as a release gate
+
+Decision: Do not claim the benchmark is paper-worthy or novel until a current literature scan supports a narrower contribution claim.
+
+Rationale: The June 2026 scan found adjacent benchmarks for RAG faithfulness, passage grounding, temporal conflicts, conflicting evidence, and long-context/RAG evaluation. The benchmark's plausible contribution is the combined hard-research failure taxonomy, not any single category.
+
+Consequence: `NOVELTY_AUDIT.md` is now part of the project record and lists required work before a completion claim.

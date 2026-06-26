@@ -151,6 +151,10 @@ assert(
   'Missing hard grounded research benchmark spec.',
 )
 assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/NOVELTY_AUDIT.md')),
+  'Missing hard grounded research novelty audit.',
+)
+assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/materialized-examples.json')),
   'Missing hard grounded research materialized examples.',
 )
