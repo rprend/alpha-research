@@ -28,6 +28,7 @@ const judgeAdjudication = await readResult("judge-adjudication-packet-2026-06-26
 const judgeSecondPass = await readResult("judge-reliability-second-pass-plan-2026-06-26-v1");
 const judgeSecondPassRun = await readResult("judge-reliability-second-pass-run-2026-06-26-v2");
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
+const judgeDisagreementTaxonomy = await readResult("judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2");
 const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
@@ -148,9 +149,10 @@ const risks = [
       judgeSecondPass.run_id,
       judgeSecondPassRun.run_id,
       abstentionReliability.run_id,
+      judgeDisagreementTaxonomy.run_id,
       "claim-entailment-guard-validation-240-389-v1",
     ],
-    mitigation_done: `The judge artifacts store structured support verdicts, ${judgeCalibration.run_id} samples ${judgeCalibration.summary.audit_queue_rows} hard rows from ${judgeCalibration.summary.judgments_loaded} existing judgments, ${judgeAdjudication.run_id} joins those rows to questions/evidence/predictions with ${judgeAdjudication.join_warnings.length} join warnings, ${judgeSecondPass.run_id} prepares ${judgeSecondPass.request_rows} blind second-pass request rows, ${judgeSecondPassRun.run_id} completes ${judgeSecondPassRun.calls_made} blind second-pass case judgments with ${judgeSecondPassRun.schema_violations} schema violations and ${(100 * judgeSecondPassRun.agreement.exact_agreement_rate).toFixed(1)}% exact agreement, and ${abstentionReliability.run_id} flags questionable abstentions as unstable.`,
+    mitigation_done: `The judge artifacts store structured support verdicts, ${judgeCalibration.run_id} samples ${judgeCalibration.summary.audit_queue_rows} hard rows from ${judgeCalibration.summary.judgments_loaded} existing judgments, ${judgeAdjudication.run_id} joins those rows to questions/evidence/predictions with ${judgeAdjudication.join_warnings.length} join warnings, ${judgeSecondPass.run_id} prepares ${judgeSecondPass.request_rows} blind second-pass request rows, ${judgeSecondPassRun.run_id} completes ${judgeSecondPassRun.calls_made} blind second-pass case judgments with ${judgeSecondPassRun.schema_violations} schema violations and ${(100 * judgeSecondPassRun.agreement.exact_agreement_rate).toFixed(1)}% exact agreement, and ${abstentionReliability.run_id} flags questionable abstentions as unstable. ${judgeDisagreementTaxonomy.run_id} classifies the ${(100 * judgeDisagreementTaxonomy.source_summary.disagreement_rate).toFixed(1)}% disagreement slice: ${judgeDisagreementTaxonomy.taxonomy.abstention_boundary_reversal.disagreements} abstention-boundary reversals, ${judgeDisagreementTaxonomy.taxonomy.partial_vs_supported_granularity.disagreements} partial/support granularity reversals, and ${judgeDisagreementTaxonomy.taxonomy.unsupported_to_supported_reversal.disagreements} unsupported-to-supported reversals.`,
     required_next_evidence: [
       "Manually adjudicate the joined judge adjudication packet or run the planned blind second-judge pass before submission if budget/time permits.",
       "Report judge prompts, schemas, abstention criteria, and disagreement examples.",

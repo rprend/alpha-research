@@ -1,6 +1,6 @@
 # Grounded QA Paper Readiness Gate
 
-Generated: 2026-06-26T23:50:06.799Z
+Generated: 2026-06-26T23:57:17.727Z
 
 Status: `not_paper_ready`
 

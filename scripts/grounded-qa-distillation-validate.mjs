@@ -106,6 +106,7 @@ if (!errors.length) {
   await validateJudgeAdjudicationPacketRunsIfPresent();
   await validateJudgeReliabilitySecondPassPlanRunsIfPresent();
   await validateJudgeReliabilitySecondPassRunRunsIfPresent();
+  await validateJudgeDisagreementTaxonomyRunsIfPresent();
   await validateAbstentionBoundaryReliabilityAuditRunsIfPresent();
   await validateFinalEvidenceChecklistRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
@@ -2454,6 +2455,67 @@ async function validateJudgeReliabilitySecondPassRunRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_cost_usd) !== Number(result.run_cost_usd)) {
       errors.push(`${entry.name}: second-pass llm budget must match run cost.`);
+    }
+  }
+}
+
+async function validateJudgeDisagreementTaxonomyRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("judge-disagreement-taxonomy-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const disagreementsPath = path.join(runsDir, entry.name, "disagreements.jsonl");
+    let result;
+    let report;
+    let disagreements;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      disagreements = await readJsonl(disagreementsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed judge disagreement taxonomy artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "judge_disagreement_taxonomy") {
+      errors.push(`${entry.name}: unexpected judge disagreement taxonomy artifact type.`);
+    }
+    if (result.status !== "judge_disagreement_taxonomy_complete") {
+      errors.push(`${entry.name}: taxonomy should complete.`);
+    }
+    if (Number(result.source_summary?.compared_cases) < 20 || Number(result.source_summary?.disagreements) < 1) {
+      errors.push(`${entry.name}: taxonomy must summarize a non-trivial second-pass comparison.`);
+    }
+    if (disagreements.length !== Number(result.source_summary?.disagreements)) {
+      errors.push(`${entry.name}: disagreement rows must match source summary.`);
+    }
+    for (const category of ["abstention_boundary_reversal", "unsupported_to_supported_reversal", "partial_vs_supported_granularity"]) {
+      if (!result.taxonomy?.[category]) errors.push(`${entry.name}: taxonomy missing ${category}.`);
+    }
+    if (result.claim_boundary?.supports_human_validated_correctness_claim !== false || result.claim_boundary?.supports_abstention_boundary_solved_claim !== false) {
+      errors.push(`${entry.name}: taxonomy must not claim human validation or solved abstention boundaries.`);
+    }
+    if (!Array.isArray(result.manuscript_constraints) || !result.manuscript_constraints.some((item) => String(item).includes("model-judged"))) {
+      errors.push(`${entry.name}: taxonomy must constrain model-judged manuscript language.`);
+    }
+    for (const row of disagreements) {
+      if (!row.case_id || !row.category || !row.original_verdict || !row.second_pass_verdict) {
+        errors.push(`${entry.name}: malformed disagreement row.`);
+        break;
+      }
+    }
+    if (!report.includes("Judge Disagreement Taxonomy") || !report.includes("Manuscript treatment")) {
+      errors.push(`${entry.name}: taxonomy report must expose title and manuscript treatment.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: taxonomy must be zero new cost.`);
     }
   }
 }

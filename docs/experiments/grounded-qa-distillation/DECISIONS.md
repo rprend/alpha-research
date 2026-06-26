@@ -1319,3 +1319,13 @@ Reason: D145 made the git-doc versioned-KB questions more natural, but the exist
 Result: The zero-call eval shows naive copy-first-evidence still has perfect inline citation syntax but only 50.0% overall correctness and 0.0% correctness on stale train-snapshot abstentions. A snapshot-aware copy baseline reaches 90.0% overall correctness, and a lexical snapshot-aware retriever reaches 96.7% overall correctness with 100.0% stale-snapshot abstention correctness and one stable-question retrieval miss. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This strengthens the evolving-KB diagnostic after natural-question rewriting, but it is still a 30-example repository-doc snapshot diagnostic. It does not prove private-enterprise KB behavior, replace a natural independently sourced benchmark, or unblock the trained Qwen 3B smoke and paid grounded-correctness judge.
+
+### D153. Taxonomize model-judge disagreements for manuscript constraints
+
+Decision: Add `grounded-qa-distillation-judge-disagreement-taxonomy.mjs`, materialize `judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2`, validate it, and wire it into the manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: The blind second-pass judge result gave an overall agreement rate, but the manuscript needs to explain what the disagreements are before using model-judged support/correctness as evidence. A single agreement number hides whether disagreements are mostly answer-support failures, abstention-boundary cases, or partial-support granularity.
+
+Result: The zero-call taxonomy joins the already-paid second-pass results to the adjudication packet and classifies 10 disagreements among 42 compared hard cases: 6 abstention-boundary reversals, 2 partial-vs-supported granularity reversals, and 2 unsupported-to-supported reversals. It adds manuscript constraints requiring model-judged wording, disagreement reporting, and no claim that abstention-boundary calibration is solved. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This improves transparency around judge reliability but does not replace human adjudication. It supports using the current judge as a screening signal, not as human-validated correctness, and the trained Qwen 3B smoke plus paid final judge remain required.

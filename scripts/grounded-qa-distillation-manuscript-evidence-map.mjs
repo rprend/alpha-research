@@ -41,6 +41,7 @@ const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
+const judgeDisagreementTaxonomy = await readResult("judge-disagreement-taxonomy-judge-reliability-second-pass-run-2026-06-26-v2");
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 const futureHoldout = await readJson(path.join(experimentDir, "data", "extended_temporal_future_holdout-manifest.json"));
@@ -327,8 +328,11 @@ const result = {
     overall_exact_agreement_rate: abstentionReliability.overall_exact_agreement_rate,
     unstable_buckets: abstentionReliability.unstable_buckets,
     questionable_abstention_exact_agreement_rate: abstentionReliability.by_audit_type.questionable_abstention.exact_agreement_rate,
+    disagreement_taxonomy_run_id: judgeDisagreementTaxonomy.run_id,
+    disagreement_rate: judgeDisagreementTaxonomy.source_summary.disagreement_rate,
+    disagreement_taxonomy: judgeDisagreementTaxonomy.taxonomy,
     constraints: abstentionReliability.manuscript_constraints,
-    interpretation: "The second-pass judge supports reporting unsupported-answer checks, but abstention-boundary claims remain unstable and must be caveated.",
+    interpretation: "The second-pass judge supports reporting unsupported-answer checks, but the disagreement taxonomy shows abstention-boundary reversals dominate the remaining disagreements, so abstention-boundary claims remain unstable and must be caveated.",
   },
   manuscript_outline: [
     {
@@ -359,14 +363,14 @@ const result = {
     },
     {
       section: "Limitations and Threat Model",
-      evidence: ["public arXiv proxy, not private KB", abstentionReliability.run_id, "coverage/support tradeoff", "remote GPU auth blocker"],
+      evidence: ["public arXiv proxy, not private KB", abstentionReliability.run_id, judgeDisagreementTaxonomy.run_id, "coverage/support tradeoff", "remote GPU auth blocker"],
       current_status: "draftable",
     },
   ],
   allowed_claims_now: [
     "Support-aware local scaffolds can improve judged correctness over direct mini repair on dated QASPER/arXiv future windows, at a clear coverage cost.",
     "Citation formatting alone is insufficient: high inline citation compliance can coexist with very low judged answer support.",
-    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases, but abstention-boundary cases remain unstable.",
+    "A blind second-pass judge agrees with the original support judge on many hard unsupported-answer and sanity-check cases; a disagreement taxonomy shows remaining disagreements are mostly abstention-boundary reversals.",
     "The current protocol has a trusted dated public-KB proxy and explicit budget accounting, but not yet the final trained Qwen 3B student result.",
   ],
   claims_to_avoid_until_qwen3b: [
