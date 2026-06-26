@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Bound novelty to the unified HF-derived failure suite
+
+Decision: Treat the paper's defensible novelty claim as the unified HF-derived hard-grounded research-QA failure suite, not novelty for any individual RAG subproblem such as table-text RAG, citation force, abstention, conflict detection, or generic RAG evaluation.
+
+Rationale: The June 2026 source refresh now contains direct adjacent benchmarks for several individual categories. A paper-worthy claim must therefore cite or contrast those works and reserve novelty for the combined category design, deterministic HF-derived item construction, evidence-contract scoring, and large-corpus research-QA framing.
+
+Consequence: Add a generated final novelty adjudication artifact that maps adjacent sources to cite/narrow/rule-out actions and keeps final completion blocked until this boundary is reflected in the novelty audit.
+
 ## 2026-06-26 — Add high-pressure June 2026 novelty comparators
 
 Decision: Add LIT-RAGBench, ForceBench, and T2-RAGBench to the June 2026 novelty refresh ledger as explicit adjacent benchmarks that must be cited or ruled out before any final novelty claim.

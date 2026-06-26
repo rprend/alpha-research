@@ -113,7 +113,7 @@ const sources = [
     id: 'lit-ragbench-2026',
     title: 'LIT-RAGBench: A Benchmark for Evaluating Language Models as Integrated Tabular and Textual Retrieval-Augmented Generation Systems',
     year: 2026,
-    url: 'https://arxiv.org/abs/2606.14079',
+    url: 'https://arxiv.org/abs/2603.06198',
     overlap: ['table + text reasoning', 'evidence insufficiency / abstention', 'large-corpus research QA'],
     novelty_action:
       'Cite as a high-pressure integration and abstention comparator; preserve novelty only for the full hard-grounded research taxonomy and HF-derived lifecycle/authority/citation-overreach construction.',
@@ -122,7 +122,7 @@ const sources = [
     id: 'forcebench-2026',
     title: 'Is This Snippet Worth Citing? Towards Evidence Force in Cited-RAG',
     year: 2026,
-    url: 'https://arxiv.org/abs/2605.16117',
+    url: 'https://arxiv.org/abs/2605.28044',
     overlap: ['citation supports fact but not conclusion', 'evidence insufficiency / abstention', 'source authority conflicts'],
     novelty_action:
       'Treat evidence-force and citation-worthiness as crowded; narrow citation-overreach claims to conclusion-level support in multi-document research QA.',

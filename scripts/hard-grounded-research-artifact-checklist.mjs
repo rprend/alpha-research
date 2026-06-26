@@ -37,6 +37,7 @@ const inputs = {
   noveltyReplacementCandidates: join(generatedDir, 'novelty-replacement-candidates.json'),
   noveltyOverlapAdjudication: join(generatedDir, 'novelty-overlap-adjudication.json'),
   noveltyRefreshLedger: join(generatedDir, 'novelty-refresh-ledger.json'),
+  finalNoveltyAdjudication: join(generatedDir, 'final-novelty-adjudication.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
@@ -152,6 +153,7 @@ function buildChecklist({
   noveltyReplacementCandidates,
   noveltyOverlapAdjudication,
   noveltyRefreshLedger,
+  finalNoveltyAdjudication,
   licenseClearance,
   packageManifest,
   publicPackageIntegrity,
@@ -266,7 +268,8 @@ function buildChecklist({
     artifactClass('novelty_replacement_candidates', noveltyReplacementCandidates.novelty_replacement_candidates_ready && noveltyReplacementCandidates.summary.completion_claim_allowed === false, `${noveltyReplacementCandidates.version}; candidates=${noveltyReplacementCandidates.summary.candidates}; verified=${noveltyReplacementCandidates.summary.verified_title_match_candidates}; covered quarantined=${noveltyReplacementCandidates.summary.covered_quarantined_sources}.`),
     artifactClass('novelty_overlap_adjudication', noveltyOverlapAdjudication.novelty_overlap_adjudication_ready && noveltyOverlapAdjudication.summary.completion_claim_allowed === false, `${noveltyOverlapAdjudication.version}; candidates=${noveltyOverlapAdjudication.summary.candidates}; high-overlap=${noveltyOverlapAdjudication.summary.high_overlap_candidates}; pending dispositions=${noveltyOverlapAdjudication.summary.pending_dispositions}.`),
     artifactClass('novelty_refresh_ledger', noveltyRefreshLedger.novelty_refresh_ledger_ready && noveltyRefreshLedger.summary.completion_claim_allowed === false, `${noveltyRefreshLedger.version}; sources=${noveltyRefreshLedger.summary.source_count}; high-overlap categories=${noveltyRefreshLedger.summary.high_overlap_categories}; final allowed=${noveltyRefreshLedger.summary.final_novelty_claim_allowed}.`),
-    artifactClass('novelty_and_claim_boundaries', noveltyEvidence.completion_claim_allowed === false && noveltyEvidence.claim_boundaries.length >= 4 && noveltyAudit.refresh_summary?.query_count >= 4 && noveltyWatchlist.novelty_watchlist_ready && noveltyResolutionMatrix.novelty_resolution_matrix_ready && noveltyFinalizationPreflight.novelty_finalization_preflight_ready && noveltySourceIdentityAudit.novelty_source_identity_audit_ready && noveltySourceReviewPackets.novelty_source_review_packets_ready && noveltyClaimRevisionPlan.novelty_claim_revision_plan_ready && noveltyLinkAudit.novelty_link_audit_ready && noveltyReplacementCandidates.novelty_replacement_candidates_ready && noveltyOverlapAdjudication.novelty_overlap_adjudication_ready && noveltyRefreshLedger.novelty_refresh_ledger_ready, `${noveltyEvidence.source_count} related-work sources; ${noveltyWatchlist.summary.watchlist_source_count} watchlist sources; ${noveltyResolutionMatrix.summary.unresolved_sources} unresolved watchlist sources; ${noveltySourceIdentityAudit.summary.invalid_or_unverified_sources} unverified watchlist identities; ${noveltyClaimRevisionPlan.summary.revisions} claim revisions; ${noveltyLinkAudit.summary.quarantined_sources} quarantined source links; ${noveltyReplacementCandidates.summary.candidates} replacement candidates; ${noveltyOverlapAdjudication.summary.pending_dispositions} pending overlap dispositions; ${noveltyRefreshLedger.summary.source_count} refreshed adjacent sources; ${noveltyEvidence.prohibited_claim_count} prohibited claims; refresh queries=${noveltyAudit.refresh_summary?.query_count ?? 0}.`),
+    artifactClass('final_novelty_adjudication', finalNoveltyAdjudication.final_novelty_adjudication_ready && finalNoveltyAdjudication.summary.completion_claim_allowed === false, `${finalNoveltyAdjudication.version}; rows=${finalNoveltyAdjudication.summary.adjudication_rows}; high-overlap=${finalNoveltyAdjudication.summary.high_overlap_rows}; final allowed=${finalNoveltyAdjudication.summary.final_novelty_claim_allowed}.`),
+    artifactClass('novelty_and_claim_boundaries', noveltyEvidence.completion_claim_allowed === false && noveltyEvidence.claim_boundaries.length >= 4 && noveltyAudit.refresh_summary?.query_count >= 4 && noveltyWatchlist.novelty_watchlist_ready && noveltyResolutionMatrix.novelty_resolution_matrix_ready && noveltyFinalizationPreflight.novelty_finalization_preflight_ready && noveltySourceIdentityAudit.novelty_source_identity_audit_ready && noveltySourceReviewPackets.novelty_source_review_packets_ready && noveltyClaimRevisionPlan.novelty_claim_revision_plan_ready && noveltyLinkAudit.novelty_link_audit_ready && noveltyReplacementCandidates.novelty_replacement_candidates_ready && noveltyOverlapAdjudication.novelty_overlap_adjudication_ready && noveltyRefreshLedger.novelty_refresh_ledger_ready && finalNoveltyAdjudication.final_novelty_adjudication_ready, `${noveltyEvidence.source_count} related-work sources; ${noveltyWatchlist.summary.watchlist_source_count} watchlist sources; ${noveltyResolutionMatrix.summary.unresolved_sources} unresolved watchlist sources; ${noveltySourceIdentityAudit.summary.invalid_or_unverified_sources} unverified watchlist identities; ${noveltyClaimRevisionPlan.summary.revisions} claim revisions; ${noveltyLinkAudit.summary.quarantined_sources} quarantined source links; ${noveltyReplacementCandidates.summary.candidates} replacement candidates; ${noveltyOverlapAdjudication.summary.pending_dispositions} pending overlap dispositions; ${noveltyRefreshLedger.summary.source_count} refreshed adjacent sources; ${finalNoveltyAdjudication.summary.adjudication_rows} final adjudication rows; ${noveltyEvidence.prohibited_claim_count} prohibited claims; refresh queries=${noveltyAudit.refresh_summary?.query_count ?? 0}.`),
   ]
 
   const reproductionCommands = [
@@ -290,6 +293,7 @@ function buildChecklist({
     { step: 'Refresh novelty replacement candidates', command: 'node scripts/hard-grounded-research-novelty-replacement-candidates.mjs' },
     { step: 'Refresh novelty overlap adjudication', command: 'node scripts/hard-grounded-research-novelty-overlap-adjudication.mjs' },
     { step: 'Refresh novelty refresh ledger', command: 'node scripts/hard-grounded-research-novelty-refresh-ledger.mjs' },
+    { step: 'Refresh final novelty adjudication', command: 'node scripts/hard-grounded-research-final-novelty-adjudication.mjs' },
     { step: 'Refresh public package integrity', command: 'node scripts/hard-grounded-research-public-package-integrity.mjs' },
     { step: 'Refresh public package schema', command: 'node scripts/hard-grounded-research-public-package-schema.mjs' },
     { step: 'Refresh source diversity plan', command: 'node scripts/hard-grounded-research-source-diversity-plan.mjs' },
@@ -519,6 +523,7 @@ const checklist = buildChecklist({
   noveltyReplacementCandidates: readJson(inputs.noveltyReplacementCandidates),
   noveltyOverlapAdjudication: readJson(inputs.noveltyOverlapAdjudication),
   noveltyRefreshLedger: readJson(inputs.noveltyRefreshLedger),
+  finalNoveltyAdjudication: readJson(inputs.finalNoveltyAdjudication),
   licenseClearance: readJson(inputs.licenseClearance),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),

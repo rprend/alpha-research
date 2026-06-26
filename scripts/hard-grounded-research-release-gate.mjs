@@ -22,6 +22,7 @@ const inputs = {
   noveltyReplacementCandidates: join(generatedDir, 'novelty-replacement-candidates.json'),
   noveltyOverlapAdjudication: join(generatedDir, 'novelty-overlap-adjudication.json'),
   noveltyRefreshLedger: join(generatedDir, 'novelty-refresh-ledger.json'),
+  finalNoveltyAdjudication: join(generatedDir, 'final-novelty-adjudication.json'),
   derivedLabelSuite: join(generatedDir, 'derived-label-suite.json'),
   derivedScaleSuite: join(generatedDir, 'derived-scale-suite.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
@@ -167,6 +168,7 @@ function buildGate({
   noveltyReplacementCandidates,
   noveltyOverlapAdjudication,
   noveltyRefreshLedger,
+  finalNoveltyAdjudication,
   derivedLabelSuite,
   derivedScaleSuite,
   goldSummary,
@@ -978,6 +980,18 @@ function buildGate({
       blocker: 'Generate and adjudicate a June 2026 novelty refresh ledger before final novelty claims.',
     },
     {
+      id: 'final_novelty_adjudication_ready',
+      passed:
+        Boolean(finalNoveltyAdjudication.final_novelty_adjudication_ready) &&
+        finalNoveltyAdjudication.summary?.refreshed_sources === noveltyRefreshLedger.summary?.source_count &&
+        finalNoveltyAdjudication.summary?.replacement_candidate_sources === noveltyOverlapAdjudication.summary?.candidates &&
+        finalNoveltyAdjudication.summary?.high_overlap_rows >= noveltyRefreshLedger.summary?.high_overlap_categories &&
+        finalNoveltyAdjudication.summary?.completion_claim_allowed === false &&
+        finalNoveltyAdjudication.summary?.final_novelty_claim_allowed === false,
+      detail: `${finalNoveltyAdjudication.version}; rows=${finalNoveltyAdjudication.summary?.adjudication_rows ?? 0}; high_overlap=${finalNoveltyAdjudication.summary?.high_overlap_rows ?? 'unknown'}; final_allowed=${finalNoveltyAdjudication.summary?.final_novelty_claim_allowed}`,
+      blocker: 'Generate source-by-source final novelty adjudication boundaries before replacing the preliminary novelty audit.',
+    },
+    {
       id: 'corpus_audit_ready',
       passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
@@ -1291,6 +1305,7 @@ const gate = buildGate({
   noveltyReplacementCandidates: readJson(inputs.noveltyReplacementCandidates),
   noveltyOverlapAdjudication: readJson(inputs.noveltyOverlapAdjudication),
   noveltyRefreshLedger: readJson(inputs.noveltyRefreshLedger),
+  finalNoveltyAdjudication: readJson(inputs.finalNoveltyAdjudication),
   derivedLabelSuite: readJson(inputs.derivedLabelSuite),
   derivedScaleSuite: readJson(inputs.derivedScaleSuite),
   goldSummary: readJson(inputs.goldSummary),

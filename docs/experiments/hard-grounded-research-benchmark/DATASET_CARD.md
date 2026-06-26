@@ -25,7 +25,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source lineage ledger ready: true (276 rows; 261 distinct source rows)
 - Construct map ready: true (10/10 constructs)
 - Difficulty mechanism ledger ready: true (20 mechanisms; 116 observed failure cases)
-- Artifact checklist ready: true (65/65 artifact classes)
+- Artifact checklist ready: true (66/66 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -248,7 +248,7 @@ The generated power plan targets 30 HF-derived paper-eligible items per category
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands, 65/65 ready artifact classes, and 1 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 61 reproduction commands, 66/66 ready artifact classes, and 1 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 97 package artifact hashes, and 1 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
@@ -317,7 +317,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 99 package-critical artifacts and carries 1 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 101 package-critical artifacts and carries 1 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -353,7 +353,7 @@ Key release checks:
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
 - Artifact checklist: pass - 65/65 artifact classes ready; reproduction_commands=60; release_blockers=1
-- Version manifest: pass - version-manifest-v1; artifacts=99; blockers=1; bytes=3207199
+- Version manifest: pass - version-manifest-v1; artifacts=99; blockers=1; bytes=3207205
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116

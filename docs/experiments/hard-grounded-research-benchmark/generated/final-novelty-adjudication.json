@@ -1,0 +1,302 @@
+{
+  "final_novelty_adjudication_ready": true,
+  "version": "final-novelty-adjudication-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "final_novelty_claim_allowed": false,
+  "generated_from": {
+    "novelty_refresh_ledger": "generated/novelty-refresh-ledger.json",
+    "novelty_overlap_adjudication": "generated/novelty-overlap-adjudication.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "contribution_boundary": {
+    "allowed_claim": "Hard Grounded Research contributes an HF-derived, script-reproducible benchmark suite for large-corpus research QA that combines multi-hop synthesis, stale/current conflicts, lifecycle changes, table-text reasoning, authority conflicts, insufficiency/abstention, citation-overreach, entity disambiguation, as-of-date temporal reasoning, and cross-document contradiction under common evidence contracts.",
+    "prohibited_claims": [
+      "First RAG benchmark.",
+      "First table-text RAG benchmark.",
+      "First evidence insufficiency or abstention benchmark.",
+      "First citation-faithfulness or evidence-force benchmark.",
+      "First contradiction/conflict RAG benchmark.",
+      "Novelty for any single category independent of the unified hard-grounded research-QA suite."
+    ],
+    "required_manuscript_moves": [
+      "Cite or contrast every high-overlap source in the final related-work section.",
+      "State that individual subproblems are crowded and the contribution is the combined HF-derived research-QA stress suite.",
+      "Keep human review framed as optional audit rather than primary data generation.",
+      "Keep final novelty and completion claims blocked until the final novelty audit incorporates this adjudication."
+    ]
+  },
+  "checks": [
+    {
+      "id": "all_refreshed_sources_adjudicated",
+      "passed": true,
+      "detail": "11/11 refreshed sources adjudicated"
+    },
+    {
+      "id": "all_replacement_sources_carried_forward",
+      "passed": true,
+      "detail": "7/7 replacement-candidate rows carried forward"
+    },
+    {
+      "id": "high_overlap_sources_force_claim_narrowing",
+      "passed": true,
+      "detail": "9 high-overlap rows require cite/narrow/compare action"
+    },
+    {
+      "id": "completion_claim_still_blocked",
+      "passed": true,
+      "detail": "final_allowed=false; prohibited_claims=1"
+    }
+  ],
+  "adjudication_rows": [
+    {
+      "source_id": "conflictrag-2025",
+      "title": "ConflictRAG: Detecting and Resolving Knowledge Conflicts in Retrieval Augmented Generation",
+      "url": "https://arxiv.org/abs/2605.17301",
+      "year": 2026,
+      "overlap": [
+        "cross-document contradiction",
+        "stale-vs-current document conflicts",
+        "source authority conflicts"
+      ],
+      "disposition": "cite_and_narrow",
+      "overlap_scope": "high",
+      "claim_action": "Do not claim novelty for conflict detection or conflict resolution; cite as adjacent contradiction/conflict RAG work."
+    },
+    {
+      "source_id": "inter-context-conflicts-2025",
+      "title": "Retrieval-Augmented Generation with Conflicting Evidence",
+      "url": "https://arxiv.org/abs/2504.13079",
+      "year": 2025,
+      "overlap": [
+        "cross-document contradiction",
+        "source authority conflicts",
+        "evidence insufficiency / abstention"
+      ],
+      "disposition": "cite_and_narrow",
+      "overlap_scope": "high",
+      "claim_action": "Treat conflicting-evidence RAG as prior work and reserve novelty for explicit research-QA evidence contracts across multiple failure categories."
+    },
+    {
+      "source_id": "citerag-2026",
+      "title": "What Should I Cite? A RAG Benchmark for Academic Citation Prediction",
+      "url": "https://arxiv.org/abs/2601.14949",
+      "year": 2026,
+      "overlap": [
+        "citation supports fact but not conclusion",
+        "citation faithfulness",
+        "grounded evidence"
+      ],
+      "disposition": "cite_and_narrow",
+      "overlap_scope": "medium",
+      "claim_action": "Separate academic citation prediction from conclusion-support-overreach scoring; cite for citation-related overlap."
+    },
+    {
+      "source_id": "sufficient-context-2025",
+      "title": "Sufficient Context: A New Lens on Retrieval Augmented Generation Systems",
+      "url": "https://arxiv.org/abs/2411.06037",
+      "year": 2025,
+      "overlap": [
+        "evidence insufficiency / abstention",
+        "answerability",
+        "retrieval sufficiency"
+      ],
+      "disposition": "cite_and_narrow",
+      "overlap_scope": "medium",
+      "claim_action": "Do not claim abstention or context sufficiency as novel; claim only the combined insufficiency/citation-overreach/research-QA packaging."
+    },
+    {
+      "source_id": "mudabench-2026",
+      "title": "MuDABench: A Benchmark for Multi-Document Analytical QA",
+      "url": "https://arxiv.org/abs/2604.22239",
+      "year": 2026,
+      "overlap": [
+        "multi-hop synthesis",
+        "table + text reasoning",
+        "large-corpus research QA"
+      ],
+      "disposition": "cite_and_narrow",
+      "overlap_scope": "high",
+      "claim_action": "Cite multi-document analytical QA as close prior work; narrow novelty to hard-grounded failure taxonomy and HF-derived provenance."
+    },
+    {
+      "source_id": "globalqa-2025",
+      "title": "Towards Global Retrieval Augmented Generation: A Benchmark for Global QA",
+      "url": "https://arxiv.org/abs/2510.26205",
+      "year": 2025,
+      "overlap": [
+        "multi-hop synthesis",
+        "large-corpus QA",
+        "global information synthesis"
+      ],
+      "disposition": "cite_background",
+      "overlap_scope": "medium",
+      "claim_action": "Use as large-scale/global QA background and avoid broad large-corpus QA novelty claims."
+    },
+    {
+      "source_id": "ragchecker-2024",
+      "title": "RAGChecker: A Fine-grained Framework for Diagnosing Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2408.08067",
+      "year": 2024,
+      "overlap": [
+        "citation faithfulness",
+        "retrieval diagnostics",
+        "answer support"
+      ],
+      "disposition": "cite_background",
+      "overlap_scope": "medium",
+      "claim_action": "Cite diagnostic RAG evaluation; keep this benchmark claim focused on dataset/task construction rather than metric novelty."
+    },
+    {
+      "source_id": "ragbench-2024",
+      "title": "RAGBench: Explainable Benchmark for Retrieval-Augmented Generation Systems",
+      "url": "https://arxiv.org/abs/2407.11005",
+      "year": 2024,
+      "overlap": [
+        "large-corpus retrieval",
+        "domain-grounded documents",
+        "answer support"
+      ],
+      "disposition": "cite_background",
+      "overlap_scope": "medium",
+      "claim_action": "Cite explainable RAG benchmarking as background and avoid generic RAG benchmark novelty claims."
+    },
+    {
+      "source_id": "lit-ragbench-2026",
+      "title": "LIT-RAGBench: A Benchmark for Evaluating Language Models as Integrated Tabular and Textual Retrieval-Augmented Generation Systems",
+      "url": "https://arxiv.org/abs/2603.06198",
+      "year": 2026,
+      "overlap": [
+        "table + text reasoning",
+        "evidence insufficiency / abstention",
+        "large-corpus research QA"
+      ],
+      "disposition": "must_cite_and_narrow",
+      "overlap_scope": "high",
+      "claim_action": "Do not claim table-text RAG or abstention benchmark novelty; position table-text as one category within the unified hard-grounded suite."
+    },
+    {
+      "source_id": "forcebench-2026",
+      "title": "Is This Snippet Worth Citing? Towards Evidence Force in Cited-RAG",
+      "url": "https://arxiv.org/abs/2605.28044",
+      "year": 2026,
+      "overlap": [
+        "citation supports fact but not conclusion",
+        "evidence insufficiency / abstention",
+        "source authority conflicts"
+      ],
+      "disposition": "must_cite_and_narrow",
+      "overlap_scope": "high",
+      "claim_action": "Do not claim evidence-force or citation-worthiness novelty; claim conclusion-support-overreach only as part of the cross-category research-QA benchmark."
+    },
+    {
+      "source_id": "t2-ragbench-2026",
+      "title": "T2-RAGBench: Benchmarking Retrieval-Augmented Generation over Text-and-Table Data",
+      "url": "https://aclanthology.org/2026.eacl-main.121/",
+      "year": 2026,
+      "overlap": [
+        "table + text reasoning",
+        "multi-hop synthesis",
+        "large-corpus research QA"
+      ],
+      "disposition": "must_cite_and_narrow",
+      "overlap_scope": "high",
+      "claim_action": "Do not claim text-table RAG novelty; cite as direct table-text prior work and keep novelty at the combined suite level."
+    },
+    {
+      "source_id": "faithfulness-qa-2026-verified",
+      "title": "Faithfulness-QA: A Counterfactual Entity Substitution Dataset for Training Context-Faithful RAG Models",
+      "url": "https://arxiv.org/abs/2604.25313",
+      "overlap": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "disposition": "cite_and_narrow",
+      "overlap_scope": "medium",
+      "claim_action": "Position counterfactual-context faithfulness as adjacent to entity/state confusion, while keeping hard-grounded novelty limited to multi-source research evidence and conclusion-support failures."
+    },
+    {
+      "source_id": "faitheval-2024",
+      "title": "FaithEval: Can Your Language Model Stay Faithful to Context, Even If Context Is Noisy?",
+      "url": "https://arxiv.org/abs/2410.03727",
+      "overlap": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "disposition": "cite_and_narrow",
+      "overlap_scope": "medium",
+      "claim_action": "Cite noisy-context faithfulness work and reserve novelty for the combined evidence sufficiency, source authority, and citation-overreach taxonomy."
+    },
+    {
+      "source_id": "confiqua-context-dpo-2024",
+      "title": "Context-DPO: Aligning Language Models for Context-Faithfulness",
+      "url": "https://arxiv.org/abs/2412.15280",
+      "overlap": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "disposition": "cite_and_narrow",
+      "overlap_scope": "medium",
+      "claim_action": "Cite context-faithfulness alignment work and avoid claiming novelty for generic hallucination control in QA."
+    },
+    {
+      "source_id": "legalbench-rag-2024",
+      "title": "LegalBench-RAG: A Benchmark for Retrieval-Augmented Generation in the Legal Domain",
+      "url": "https://arxiv.org/abs/2408.10343",
+      "overlap": [
+        "taxonomy_scope_claim",
+        "hf_grounding_claim",
+        "novelty_completion_claim"
+      ],
+      "disposition": "cite_no_overlap_or_narrow",
+      "overlap_scope": "medium",
+      "claim_action": "Cite LegalBench-RAG as domain-specific legal RAG unless its source structure directly tests authority hierarchy or cross-document contradiction."
+    },
+    {
+      "source_id": "rag-evaluation-survey-2025",
+      "title": "Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey",
+      "url": "https://arxiv.org/abs/2504.14891",
+      "overlap": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "disposition": "must_cite_and_remove_generic_rag_novelty",
+      "overlap_scope": "high",
+      "claim_action": "Cite the RAG evaluation survey as broad evaluation/taxonomy prior work and keep novelty limited to hard-grounded research-QA failure categories and HF-derived item construction."
+    },
+    {
+      "source_id": "finegrained-rag-2026",
+      "title": "Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2605.07471",
+      "overlap": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "disposition": "must_cite_and_remove_generic_rag_novelty",
+      "overlap_scope": "high",
+      "claim_action": "Remove any generic fine-grained RAG benchmarking novelty claim; limit novelty to the hard-grounded research-QA construct and review/gold workflow."
+    },
+    {
+      "source_id": "grace-2026",
+      "title": "GRACE: A Diagnostic Benchmark for Contextual Reasoning in Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2606.11418",
+      "overlap": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "disposition": "must_compare_before_final",
+      "overlap_scope": "high",
+      "claim_action": "Compare GRACE against the multi-hop, contradiction, and temporal categories before claiming hard-grounded reasoning coverage."
+    }
+  ],
+  "summary": {
+    "refreshed_sources": 11,
+    "replacement_candidate_sources": 7,
+    "adjudication_rows": 18,
+    "high_overlap_rows": 9,
+    "prohibited_claims": 6,
+    "required_manuscript_moves": 4,
+    "final_novelty_claim_allowed": false,
+    "completion_claim_allowed": false
+  }
+}

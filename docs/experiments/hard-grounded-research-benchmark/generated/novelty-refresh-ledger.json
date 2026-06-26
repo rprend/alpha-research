@@ -136,7 +136,7 @@
       "id": "lit-ragbench-2026",
       "title": "LIT-RAGBench: A Benchmark for Evaluating Language Models as Integrated Tabular and Textual Retrieval-Augmented Generation Systems",
       "year": 2026,
-      "url": "https://arxiv.org/abs/2606.14079",
+      "url": "https://arxiv.org/abs/2603.06198",
       "overlap": [
         "table + text reasoning",
         "evidence insufficiency / abstention",
@@ -148,7 +148,7 @@
       "id": "forcebench-2026",
       "title": "Is This Snippet Worth Citing? Towards Evidence Force in Cited-RAG",
       "year": 2026,
-      "url": "https://arxiv.org/abs/2605.16117",
+      "url": "https://arxiv.org/abs/2605.28044",
       "overlap": [
         "citation supports fact but not conclusion",
         "evidence insufficiency / abstention",

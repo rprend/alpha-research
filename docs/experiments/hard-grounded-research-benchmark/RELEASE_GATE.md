@@ -99,6 +99,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | novelty_replacement_candidates_ready | yes | novelty-replacement-candidates-v1; candidates=7; verified=5; covered_quarantined=4 |  |
 | novelty_overlap_adjudication_ready | yes | novelty-overlap-adjudication-v1; candidates=7; high_overlap=3; pending=7 |  |
 | novelty_refresh_ledger_ready | yes | novelty-refresh-ledger-v1; sources=11; high_overlap_categories=9; final_allowed=false |  |
+| final_novelty_adjudication_ready | yes | final-novelty-adjudication-v1; rows=18; high_overlap=9; final_allowed=false |  |
 | corpus_audit_ready | yes | 6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |  |
 | source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |  |
 | source_acquisition_manifest_ready | yes | 17 batches; target_rows=246; known_license_rows=174 |  |
@@ -112,8 +113,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |  |
-| artifact_checklist_ready | yes | 65/65 artifact classes ready; reproduction_commands=60; release_blockers=1 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=99; blockers=1; bytes=3207205 |  |
+| artifact_checklist_ready | yes | 66/66 artifact classes ready; reproduction_commands=61; release_blockers=1 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=101; blockers=1; bytes=3226666 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

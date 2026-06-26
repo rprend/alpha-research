@@ -623,6 +623,12 @@
       "blocker": "Generate and adjudicate a June 2026 novelty refresh ledger before final novelty claims."
     },
     {
+      "id": "final_novelty_adjudication_ready",
+      "passed": true,
+      "detail": "final-novelty-adjudication-v1; rows=18; high_overlap=9; final_allowed=false",
+      "blocker": "Generate source-by-source final novelty adjudication boundaries before replacing the preliminary novelty audit."
+    },
+    {
       "id": "corpus_audit_ready",
       "passed": true,
       "detail": "6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108",
@@ -703,13 +709,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "65/65 artifact classes ready; reproduction_commands=60; release_blockers=1",
+      "detail": "66/66 artifact classes ready; reproduction_commands=61; release_blockers=1",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=99; blockers=1; bytes=3207205",
+      "detail": "version-manifest-v1; artifacts=101; blockers=1; bytes=3226666",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

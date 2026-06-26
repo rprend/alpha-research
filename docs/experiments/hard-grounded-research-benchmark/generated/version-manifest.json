@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 101,
-    "total_checks": 102,
+    "passing_checks": 102,
+    "total_checks": 103,
     "blockers": [
       {
         "id": "novelty_audit_final",
@@ -46,8 +46,8 @@
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 31561,
-      "sha256": "167a1c15731e2f911c9a1cd857cba6af13f24ae2e4df0f1e4a210b40b08d3d4f"
+      "bytes": 31562,
+      "sha256": "9f7409e45aace2996a782afb20a6c624073a17fc30ff9497886468266edd7489"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -255,6 +255,11 @@
       "sha256": "4ed316058f65ef2967871460519467b69a1e84cbb592f753fc5c2caf314b09f7"
     },
     {
+      "path": "FINAL_NOVELTY_ADJUDICATION.md",
+      "bytes": 6440,
+      "sha256": "ad5c6039921aa6fbff24f7e5293ca3d837583f6f29d6e2e27eaf84a5a00fa612"
+    },
+    {
       "path": "PUBLIC_PACKAGE_SCHEMA.md",
       "bytes": 1335,
       "sha256": "481ac48a47e7bdd8559125c59126b97979f961961e1d9491a8cb67628e31deab"
@@ -266,8 +271,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 96076,
-      "sha256": "9d13f9425b2f5ac16038eda213a32f03a2bc8bdfb5b5659244683371c7923248"
+      "bytes": 96344,
+      "sha256": "12e5f7cf99d0b38b7c9dd6f81b7d2b4b71e6d0b0d5468f22d5c7b838e00b7e62"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -517,7 +522,12 @@
     {
       "path": "generated/novelty-refresh-ledger.json",
       "bytes": 11598,
-      "sha256": "3b73a92d4e46ba8ae73bce37208fd8d674e90b7e9b3b42303d3e805ad70d2dbe"
+      "sha256": "8d8a690a9d6085766886f4617fb7dd6c975ed288ffde5a2f8838b92392cab979"
+    },
+    {
+      "path": "generated/final-novelty-adjudication.json",
+      "bytes": 13021,
+      "sha256": "df09cb23b2231c1ca80b6adaec5721980074fd219caa9a776e650c9781d66943"
     },
     {
       "path": "generated/paper-claim-ledger.json",
@@ -526,8 +536,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 99,
-    "total_bytes": 3207205,
+    "artifact_count": 101,
+    "total_bytes": 3226935,
     "release_blockers": 1,
     "completion_claim_allowed": false
   }
