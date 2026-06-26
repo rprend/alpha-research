@@ -976,6 +976,7 @@ ${matrixLines}
 - \`PUBLIC_PACKAGE_MANIFEST.md\` and \`generated/public-package-manifest.json\`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
 - \`generated/public-package/\`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - \`MODEL_BASELINES.md\`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
+- \`MODEL_RUN_INDEX.md\` and \`generated/model-run-index.json\`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.
 - \`REVIEW_PREFLIGHT.md\` and \`generated/review-preflight.json\`: generated reviewer completion work queue before gold merge.
 - \`DATASET_CARD.md\`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.
 - \`RELEASE_GATE.md\` and \`generated/release-gate.json\`: generated release-readiness gate for gold, license, model-baseline, repair, and novelty blockers.

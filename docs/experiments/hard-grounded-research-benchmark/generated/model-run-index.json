@@ -1,0 +1,83 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": "docs/experiments/hard-grounded-research-benchmark/runs",
+  "heuristic_systems": [
+    "local-rule-agent-v1",
+    "lexical-evidence-baseline-v1",
+    "citation-aware-verifier-v1"
+  ],
+  "run_count": 5,
+  "eligible_model_baseline_count": 0,
+  "eligible_model_baselines": [],
+  "readiness": {
+    "required_model_baselines": 2,
+    "ready": false
+  },
+  "runs": [
+    {
+      "run_id": "citation-aware-verifier-v1",
+      "system_id": "citation-aware-verifier-v1",
+      "report_present": true,
+      "submission_present": true,
+      "manifest_type": "none",
+      "manifest_path": null,
+      "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 0.1667,
+      "eligible_model_baseline": false
+    },
+    {
+      "run_id": "lexical-evidence-baseline-v1",
+      "system_id": "lexical-evidence-baseline-v1",
+      "report_present": true,
+      "submission_present": true,
+      "manifest_type": "none",
+      "manifest_path": null,
+      "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 0.2,
+      "eligible_model_baseline": false
+    },
+    {
+      "run_id": "local-rule-agent-v1",
+      "system_id": "local-rule-agent-v1",
+      "report_present": true,
+      "submission_present": true,
+      "manifest_type": "none",
+      "manifest_path": null,
+      "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
+      "evaluation_source": "pilot-suite",
+      "task_count": 30,
+      "macro_answer_correct": 1,
+      "eligible_model_baseline": false
+    },
+    {
+      "run_id": "openai-grounded-baseline-v1",
+      "system_id": "openai-grounded-baseline-v1",
+      "report_present": false,
+      "submission_present": false,
+      "manifest_type": "run_manifest",
+      "manifest_path": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/run-manifest.json",
+      "report_path": null,
+      "evaluation_source": "pilot-suite",
+      "task_count": 0,
+      "macro_answer_correct": null,
+      "eligible_model_baseline": false
+    },
+    {
+      "run_id": "openai-grounded-baseline-v1-calibration",
+      "system_id": "openai-grounded-baseline-v1",
+      "report_present": false,
+      "submission_present": false,
+      "manifest_type": "run_manifest",
+      "manifest_path": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1-calibration/run-manifest.json",
+      "report_path": null,
+      "evaluation_source": "calibration-suite",
+      "task_count": 0,
+      "macro_answer_correct": null,
+      "eligible_model_baseline": false
+    }
+  ]
+}

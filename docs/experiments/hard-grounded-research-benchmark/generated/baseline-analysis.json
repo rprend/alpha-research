@@ -23,7 +23,10 @@
     "openai_scored_report_present": false,
     "openai_calibration_prompt_count": 30,
     "openai_calibration_run_requested": false,
-    "openai_calibration_scored_report_present": false
+    "openai_calibration_scored_report_present": false,
+    "eligible_model_baseline_count": 0,
+    "eligible_model_baselines": [],
+    "model_run_index_ready": false
   },
   "failure_analysis": {
     "system_id": "lexical-evidence-baseline-v1",

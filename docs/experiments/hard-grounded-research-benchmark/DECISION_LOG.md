@@ -319,3 +319,11 @@ Decision: Make `generated/novelty-audit.json` the authoritative input for the re
 Rationale: Markdown text is useful for readers but brittle as a release condition. The release gate should consume structured fields such as `status`, `completion_claim_allowed`, and `high_novelty_risk_categories` so the novelty blocker is enforceable.
 
 Consequence: `scripts/hard-grounded-research-release-gate.mjs` now reads `generated/novelty-audit.json` and blocks release until the audit is final and explicitly allows a completion claim.
+
+## 2026-06-26 — Index eligible model baselines by provenance
+
+Decision: Count frontier/open model baselines from scored run reports with provenance manifests instead of hard-coded run directory names.
+
+Rationale: The benchmark should accept OpenAI, open-weight, or externally imported batch results as long as they are scored and reproducible. A fixed OpenAI-only release check would make the paper pipeline brittle and would not support the requested open-model comparison path.
+
+Consequence: `scripts/hard-grounded-research-model-run-index.mjs` now emits `generated/model-run-index.json` and `MODEL_RUN_INDEX.md`; release readiness can distinguish heuristic diagnostics from eligible model baselines.

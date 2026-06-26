@@ -10,6 +10,7 @@
     "review_merge_report": "generated/review-merge-report.json",
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
+    "model_run_index": "generated/model-run-index.json",
     "license_review": "generated/license-review.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json"

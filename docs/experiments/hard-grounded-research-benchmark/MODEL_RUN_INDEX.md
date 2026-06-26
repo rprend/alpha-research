@@ -1,0 +1,19 @@
+# Hard Grounded Research Model Run Index
+
+This generated index separates heuristic diagnostic systems from externally imported or directly executed model baselines. Release readiness requires at least 2 eligible model baselines with scored reports and provenance manifests.
+
+## Summary
+
+- Runs: 5
+- Eligible model baselines: 0
+- Ready: false
+
+## Runs
+
+| Run | System | Report | Manifest | Evaluation source | Eligible model baseline |
+| --- | --- | --- | --- | --- | --- |
+| citation-aware-verifier-v1 | citation-aware-verifier-v1 | yes | none | pilot-suite | no |
+| lexical-evidence-baseline-v1 | lexical-evidence-baseline-v1 | yes | none | pilot-suite | no |
+| local-rule-agent-v1 | local-rule-agent-v1 | yes | none | pilot-suite | no |
+| openai-grounded-baseline-v1 | openai-grounded-baseline-v1 | no | run_manifest | pilot-suite | no |
+| openai-grounded-baseline-v1-calibration | openai-grounded-baseline-v1 | no | run_manifest | calibration-suite | no |

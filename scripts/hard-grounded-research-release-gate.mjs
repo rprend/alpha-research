@@ -4,7 +4,6 @@ import { dirname, join } from 'node:path'
 const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchmark')
 const generatedDir = join(experimentDir, 'generated')
-const runsDir = join(experimentDir, 'runs')
 const releaseGateJsonPath = join(generatedDir, 'release-gate.json')
 const releaseGateMarkdownPath = join(experimentDir, 'RELEASE_GATE.md')
 
@@ -17,6 +16,7 @@ const inputs = {
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
+  modelRunIndex: join(generatedDir, 'model-run-index.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
@@ -52,13 +52,6 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function existingScoredModelRuns() {
-  return [
-    'openai-grounded-baseline-v1',
-    'openai-grounded-baseline-v1-calibration',
-  ].filter((runId) => existsSync(join(runsDir, runId, 'report.json')))
-}
-
 function noveltyAuditStatus(noveltyAudit, noveltyAuditJson) {
   return {
     checked_date: noveltyAuditJson.checked_date || noveltyAudit.match(/^Date checked:\s*(.+)$/m)?.[1] || '',
@@ -77,12 +70,13 @@ function buildGate({
   reviewMergeReport,
   itemQualityAudit,
   baselineAnalysis,
+  modelRunIndex,
   licenseReview,
   packageManifest,
   publicPackageSummary,
 }) {
   const licenseBlockers = licenseReview.blockers || []
-  const scoredModelRuns = existingScoredModelRuns()
+  const scoredModelRuns = modelRunIndex.eligible_model_baselines || []
   const novelty = noveltyAuditStatus(noveltyAudit, noveltyAuditJson)
   const checks = [
     {
@@ -157,6 +151,7 @@ function buildGate({
       review_merge_report: 'generated/review-merge-report.json',
       item_quality_audit: 'generated/item-quality-audit.json',
       baseline_analysis: 'generated/baseline-analysis.json',
+      model_run_index: 'generated/model-run-index.json',
       license_review: 'generated/license-review.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
@@ -214,6 +209,7 @@ const gate = buildGate({
   reviewMergeReport: readJson(inputs.reviewMergeReport),
   itemQualityAudit: readJson(inputs.itemQualityAudit),
   baselineAnalysis: readJson(inputs.baselineAnalysis),
+  modelRunIndex: readJson(inputs.modelRunIndex),
   licenseReview: readJson(inputs.licenseReview),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageSummary: readJson(inputs.publicPackageSummary),
