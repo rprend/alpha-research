@@ -13,6 +13,7 @@ const inputs = {
   dataStatement: join(generatedDir, 'data-statement.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   noveltyAudit: join(generatedDir, 'novelty-audit.json'),
+  noveltyFinalizationPreflight: join(generatedDir, 'novelty-finalization-preflight.json'),
 }
 
 function readJson(path) {
@@ -37,7 +38,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, noveltyAudit }) {
+function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, noveltyAudit, noveltyFinalizationPreflight }) {
   const releaseBlockers = releaseGate.checks
     .filter((check) => !check.passed)
     .map((check) => check.id)
@@ -91,10 +92,12 @@ function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, nove
       'Do not cite pilot scores as a public leaderboard.',
       'Use VERSION_MANIFEST.md and generated/version-manifest.json to identify the exact package state.',
       'Respect pointer-only package rules for unknown-license upstream evidence.',
+      'Treat NOVELTY_FINALIZATION_PREFLIGHT.md as unresolved related-work work, not as a final novelty adjudication.',
     ],
     bibtex,
     summary: {
-      citation_caveats: 4,
+      citation_caveats: 5,
+      novelty_finalization_unresolved_sources: noveltyFinalizationPreflight.summary.unresolved_sources,
       artifact_hashes: versionManifest.summary.artifact_count,
       source_datasets: dataStatement.summary.source_dataset_count,
       release_blockers: releaseBlockers.length,
@@ -146,6 +149,7 @@ const metadata = buildMetadata({
   dataStatement: readJson(inputs.dataStatement),
   releaseGate: readJson(inputs.releaseGate),
   noveltyAudit: readJson(inputs.noveltyAudit),
+  noveltyFinalizationPreflight: readJson(inputs.noveltyFinalizationPreflight),
 })
 
 writeJson(metadataJsonPath, metadata)

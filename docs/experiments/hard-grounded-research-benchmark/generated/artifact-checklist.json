@@ -18,6 +18,7 @@
     "novelty_evidence": "generated/novelty-evidence.json",
     "novelty_watchlist": "generated/novelty-watchlist.json",
     "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
+    "novelty_finalization_preflight": "generated/novelty-finalization-preflight.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "public_package_integrity": "generated/public-package-integrity.json",
     "public_package_schema": "generated/public-package-schema.json",
@@ -52,9 +53,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 37,
-    "artifact_classes_total": 37,
-    "reproduction_commands": 42,
+    "artifact_classes_ready": 38,
+    "artifact_classes_total": 38,
+    "reproduction_commands": 43,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -272,14 +273,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=42; validations=3; hashes=43.",
+      "evidence": "reproduction-capsule-v1; commands=43; validations=3; hashes=45.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=43; blockers=12.",
+      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=45; blockers=7.",
       "blockers": []
     },
     {
@@ -307,7 +308,14 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=43; bytes=568071.",
+      "evidence": "version-manifest-v1; artifacts=45; bytes=573535.",
+      "blockers": []
+    },
+    {
+      "id": "novelty_finalization_preflight",
+      "status": "ready",
+      "ready": true,
+      "evidence": "novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false.",
       "blockers": []
     },
     {
@@ -358,6 +366,10 @@
     {
       "step": "Refresh novelty resolution matrix",
       "command": "node scripts/hard-grounded-research-novelty-resolution-matrix.mjs"
+    },
+    {
+      "step": "Refresh novelty finalization preflight",
+      "command": "node scripts/hard-grounded-research-novelty-finalization-preflight.mjs"
     },
     {
       "step": "Refresh public package integrity",

@@ -1,0 +1,91 @@
+{
+  "novelty_finalization_preflight_ready": true,
+  "version": "novelty-finalization-preflight-v1",
+  "checked_date": "2026-06-26",
+  "final_novelty_claim_allowed": false,
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "novelty_audit": "generated/novelty-audit.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "novelty_watchlist": "generated/novelty-watchlist.json",
+    "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "checks": [
+    {
+      "id": "preliminary_audit_preserved",
+      "passed": true,
+      "detail": "status=refreshed_preliminary; completion_claim_allowed=false"
+    },
+    {
+      "id": "watchlist_resolution_inputs_loaded",
+      "passed": true,
+      "detail": "4/4 watchlist sources mapped"
+    },
+    {
+      "id": "unresolved_sources_identified",
+      "passed": true,
+      "detail": "4 unresolved sources; 1 high-risk unresolved sources"
+    },
+    {
+      "id": "claim_boundaries_preserved",
+      "passed": true,
+      "detail": "5 evidence-registry prohibited claims; 3 ledger prohibited claims"
+    },
+    {
+      "id": "release_still_blocks_final_claims",
+      "passed": true,
+      "detail": "7 release blockers; 1 novelty blockers; 6 review or scale blockers"
+    }
+  ],
+  "finalization_requirements": [
+    "Re-run the live related-work search immediately before submission and record the dated query provenance.",
+    "Read every unresolved watchlist source and either add it to the evidence registry or document why it is out of scope.",
+    "Rewrite manuscript novelty language for any source that covers an asserted category, metric, or claim boundary.",
+    "Regenerate the novelty audit, novelty evidence registry, paper claim ledger, paper draft, release gate, and version manifest after source resolution.",
+    "Keep final novelty and completion claims blocked until human review, category scale, and release gate checks also pass."
+  ],
+  "blocking_conditions": [
+    {
+      "id": "source:faithjudge-2026",
+      "severity": "medium",
+      "condition": "Confirm whether FaithJudge evaluates conclusion-level support or only retrieved-context faithfulness and hallucination detection.",
+      "required_action": "Keep citation novelty limited to conclusion-support overreach rather than span attribution or hallucination detection."
+    },
+    {
+      "id": "source:faithfulness-qa-2026",
+      "severity": "medium",
+      "condition": "Check whether counterfactual entity substitution overlaps the proposed same-name entity and stale/current evidence categories.",
+      "required_action": "Keep citation novelty limited to conclusion-support overreach rather than span attribution or hallucination detection."
+    },
+    {
+      "id": "source:dora-2026",
+      "severity": "medium",
+      "condition": "Verify whether domain-specific legal/privacy RAG covers authority hierarchy or only domain-grounded retrieval and answer correctness.",
+      "required_action": "Confirm whether authority hierarchy is actually benchmarked; otherwise cite as domain RAG rather than authority-conflict coverage."
+    },
+    {
+      "id": "source:hierarag-2026",
+      "severity": "high",
+      "condition": "Use the review taxonomy to ensure the paper does not claim generic RAG benchmark novelty and instead names the hard-grounded failure taxonomy contribution.",
+      "required_action": "Do not claim generic RAG benchmark novelty; frame the contribution as a hard-grounded failure taxonomy and executable review harness."
+    },
+    {
+      "id": "release:novelty_audit_final",
+      "severity": "high",
+      "condition": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "required_action": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "summary": {
+    "watchlist_sources": 4,
+    "unresolved_sources": 4,
+    "high_risk_unresolved_sources": 1,
+    "novelty_release_blockers": 1,
+    "review_or_scale_release_blockers": 6,
+    "prohibited_claims_preserved": 3,
+    "final_novelty_claim_allowed": false,
+    "completion_claim_allowed": false
+  }
+}

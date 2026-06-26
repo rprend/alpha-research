@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 68,
-    "total_checks": 75,
+    "passing_checks": 69,
+    "total_checks": 76,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 14111,
-      "sha256": "217f34667b8b5fe6e1e68428430c6be3a73b78bdbe6a1a47ac96f1f19eb7fc71"
+      "bytes": 14317,
+      "sha256": "7b6fb1fa060b78f1631aeeecda35317a9f7be0fbda09aeed0b544b866d3e03de"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 21915,
-      "sha256": "8338f9720015387b1a004809ca6f4059330cfd2206c15036cfb434ee28a82e88"
+      "bytes": 21907,
+      "sha256": "f3c155e12597daceba25fc567abaefd0d51403170c4f794667a0570df82f0121"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -126,13 +126,13 @@
     },
     {
       "path": "REPRODUCTION_CAPSULE.md",
-      "bytes": 7710,
-      "sha256": "4c8e9a5319f17581e5319eb81e7633413c666d0dd19832c8983eb96c1df5b5f0"
+      "bytes": 6844,
+      "sha256": "041afd36fbd2a22801e1e067f52f2408bd690eb5c2ad91f49841b46ac6fc82ef"
     },
     {
       "path": "CITATION.md",
-      "bytes": 1455,
-      "sha256": "c53fa6ffc381546d794cf081755519df8d9fb61cee6791e0a100d553849422c3"
+      "bytes": 1572,
+      "sha256": "f9a51d05df0c1854d7c24f3de859eba9beebd197d5a42c9c2a1e814a108107c8"
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
@@ -143,6 +143,11 @@
       "path": "NOVELTY_RESOLUTION_MATRIX.md",
       "bytes": 2883,
       "sha256": "ca283b8ffed7d883635b0e0565a0ea33537387949c881c81082889d8c47318ea"
+    },
+    {
+      "path": "NOVELTY_FINALIZATION_PREFLIGHT.md",
+      "bytes": 3404,
+      "sha256": "570ccefb05cb68a417d88b17d89298dcc31c19f5fb7e847254cb9173f0dc1f31"
     },
     {
       "path": "PUBLIC_PACKAGE_SCHEMA.md",
@@ -156,8 +161,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 48885,
-      "sha256": "7e0bc00ff70d2f49f67abcb6a9cac035f143f2269f034ee553a7793201f63bbf"
+      "bytes": 48880,
+      "sha256": "96f7ab196e519e1db151ca666d7c2ddc7a4b8d214299a13094a386fe13346e2a"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -236,13 +241,13 @@
     },
     {
       "path": "generated/reproduction-capsule.json",
-      "bytes": 12758,
-      "sha256": "814785b06c8c41e4f0b2ccad4ba6d50f631b874ceecdf0e982585214fcb07f9c"
+      "bytes": 11680,
+      "sha256": "1ae6d68342251d1bcc4577a777a3dcec602030322b1e7df6e4bae44220dbc737"
     },
     {
       "path": "generated/citation-metadata.json",
-      "bytes": 2283,
-      "sha256": "6011c3caed97435a0bf1d298a7d3558fc324d994332a9facc0ddfeaf7ff635c7"
+      "bytes": 2282,
+      "sha256": "a688b5fcc60277ba28a2e4384088119760d3a273590f2020c307e15fd14b48e0"
     },
     {
       "path": "generated/error-codebook.json",
@@ -270,14 +275,19 @@
       "sha256": "b638489c4d3b1aca772acd3def669203715c401f9ee1ee0afc8d08086bfe4c99"
     },
     {
+      "path": "generated/novelty-finalization-preflight.json",
+      "bytes": 4305,
+      "sha256": "a7366f57c4814caca545bf7d0a2692883133f22ef3853d8a56cffef21c4bac59"
+    },
+    {
       "path": "generated/paper-claim-ledger.json",
       "bytes": 5879,
       "sha256": "b13efb36673002bdbc773cfbed8b49c60ba749c001f52da0567b5973ec973d57"
     }
   ],
   "summary": {
-    "artifact_count": 43,
-    "total_bytes": 568067,
+    "artifact_count": 45,
+    "total_bytes": 574141,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

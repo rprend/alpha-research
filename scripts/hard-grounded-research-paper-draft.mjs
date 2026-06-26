@@ -13,6 +13,7 @@ const requiredInputs = {
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
+  noveltyFinalizationPreflight: join(generatedDir, 'novelty-finalization-preflight.json'),
   datasetCard: join(experimentDir, 'DATASET_CARD.md'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -260,7 +261,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltyFinalizationPreflight, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -499,6 +500,8 @@ The live-search novelty watchlist adds ${noveltyWatchlist.summary.watchlist_sour
 
 The generated novelty resolution matrix maps ${noveltyResolutionMatrix.summary.watchlist_sources} watchlist sources to claim impacts, with ${noveltyResolutionMatrix.summary.unresolved_sources} unresolved sources and ${noveltyResolutionMatrix.summary.high_risk_sources} high-risk sources still requiring final adjudication. This matrix is the working related-work checklist for the final June 2026 audit.
 
+The generated novelty finalization preflight keeps the final audit operational rather than rhetorical: it records ${noveltyFinalizationPreflight.summary.unresolved_sources} unresolved watchlist sources, ${noveltyFinalizationPreflight.summary.high_risk_unresolved_sources} high-risk unresolved sources, and ${noveltyFinalizationPreflight.summary.review_or_scale_release_blockers} review or scale blockers that must clear before any final novelty or completion claim.
+
 ${markdownTable(['Paper claim', 'Status', 'Reason'], noveltyClaimBoundaryRows(noveltyEvidence))}
 
 ## Adversarial Related-Work Comparison
@@ -551,6 +554,7 @@ const draft = renderDraft({
   noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   noveltyWatchlist: readJson(requiredInputs.noveltyWatchlist),
   noveltyResolutionMatrix: readJson(requiredInputs.noveltyResolutionMatrix),
+  noveltyFinalizationPreflight: readJson(requiredInputs.noveltyFinalizationPreflight),
   goldSummary: readJson(requiredInputs.goldSummary),
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),
   itemQualityAudit: readJson(requiredInputs.itemQualityAudit),

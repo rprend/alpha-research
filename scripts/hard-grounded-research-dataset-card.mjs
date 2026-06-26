@@ -42,6 +42,7 @@ const inputPaths = {
   noveltyAudit: join(generatedDir, 'novelty-audit.json'),
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
+  noveltyFinalizationPreflight: join(generatedDir, 'novelty-finalization-preflight.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -182,6 +183,7 @@ function renderCard({
   noveltyAudit,
   noveltyWatchlist,
   noveltyResolutionMatrix,
+  noveltyFinalizationPreflight,
   licenseReview,
   licenseClearance,
   packageManifest,
@@ -244,6 +246,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Novelty watchlist ready: ${noveltyWatchlist.novelty_watchlist_ready} (${noveltyWatchlist.summary.watchlist_source_count} sources)
 - Novelty resolution matrix ready: ${noveltyResolutionMatrix.novelty_resolution_matrix_ready} (${noveltyResolutionMatrix.summary.unresolved_sources} unresolved sources)
+- Novelty finalization preflight ready: ${noveltyFinalizationPreflight.novelty_finalization_preflight_ready} (${noveltyFinalizationPreflight.summary.unresolved_sources} unresolved sources)
 - Gold ready: ${goldSummary.gold_ready}
 - Valid reviewed items: ${goldSummary.valid_reviewed_items}/${goldSummary.total_items}
 - Release gate status: ${releaseGate.status}
@@ -351,6 +354,8 @@ The generated analysis plan pre-specifies ${analysisPlan.summary.hypotheses} hyp
 The generated novelty watchlist records ${noveltyWatchlist.summary.watchlist_source_count} live-search related-work sources, including ${noveltyWatchlist.summary.high_risk_source_count} high-risk sources, that must be resolved before final novelty claims. It keeps completion claims blocked. See \`NOVELTY_WATCHLIST.md\`.
 
 The generated novelty resolution matrix maps those watchlist sources to source-level claim impacts: ${noveltyResolutionMatrix.summary.watchlist_sources} sources, ${noveltyResolutionMatrix.summary.unresolved_sources} unresolved, and ${noveltyResolutionMatrix.summary.high_risk_sources} high-risk. See \`NOVELTY_RESOLUTION_MATRIX.md\`.
+
+The generated novelty finalization preflight records the exact remaining work before any final novelty claim: ${noveltyFinalizationPreflight.summary.unresolved_sources} unresolved watchlist sources, ${noveltyFinalizationPreflight.summary.high_risk_unresolved_sources} high-risk unresolved sources, and ${noveltyFinalizationPreflight.summary.novelty_release_blockers} novelty release blockers. See \`NOVELTY_FINALIZATION_PREFLIGHT.md\`.
 
 ## Paper Claim Ledger
 
@@ -529,6 +534,7 @@ writeText(
     noveltyAudit: readJson(inputPaths.noveltyAudit),
     noveltyWatchlist: readJson(inputPaths.noveltyWatchlist),
     noveltyResolutionMatrix: readJson(inputPaths.noveltyResolutionMatrix),
+    noveltyFinalizationPreflight: readJson(inputPaths.noveltyFinalizationPreflight),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),

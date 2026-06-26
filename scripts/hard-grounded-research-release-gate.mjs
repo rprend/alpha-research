@@ -14,6 +14,7 @@ const inputs = {
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
   noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
+  noveltyFinalizationPreflight: join(generatedDir, 'novelty-finalization-preflight.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
@@ -131,6 +132,7 @@ function buildGate({
   noveltyEvidence,
   noveltyWatchlist,
   noveltyResolutionMatrix,
+  noveltyFinalizationPreflight,
   goldSummary,
   annotationProtocol,
   reviewPreflight,
@@ -677,6 +679,16 @@ function buildGate({
       blocker: 'Generate a source-level novelty resolution matrix before the final literature audit.',
     },
     {
+      id: 'novelty_finalization_preflight_ready',
+      passed:
+        Boolean(noveltyFinalizationPreflight.novelty_finalization_preflight_ready) &&
+        noveltyFinalizationPreflight.summary?.watchlist_sources === noveltyWatchlist.summary?.watchlist_source_count &&
+        noveltyFinalizationPreflight.summary?.unresolved_sources === noveltyResolutionMatrix.summary?.unresolved_sources &&
+        noveltyFinalizationPreflight.summary?.completion_claim_allowed === false,
+      detail: `${noveltyFinalizationPreflight.version}; unresolved=${noveltyFinalizationPreflight.summary?.unresolved_sources ?? 'unknown'}; high_risk_unresolved=${noveltyFinalizationPreflight.summary?.high_risk_unresolved_sources ?? 'unknown'}; final_allowed=${noveltyFinalizationPreflight.summary?.final_novelty_claim_allowed}`,
+      blocker: 'Generate a final-novelty preflight that enumerates unresolved related-work conditions before the final audit.',
+    },
+    {
       id: 'corpus_audit_ready',
       passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
@@ -815,6 +827,7 @@ function buildGate({
       novelty_evidence: 'generated/novelty-evidence.json',
       novelty_watchlist: 'generated/novelty-watchlist.json',
       novelty_resolution_matrix: 'generated/novelty-resolution-matrix.json',
+      novelty_finalization_preflight: 'generated/novelty-finalization-preflight.json',
       gold_summary: 'generated/gold-suite-summary.json',
       annotation_protocol: 'generated/annotation-protocol.json',
       review_preflight: 'generated/review-preflight.json',
@@ -935,6 +948,7 @@ const gate = buildGate({
   noveltyEvidence: readJson(inputs.noveltyEvidence),
   noveltyWatchlist: readJson(inputs.noveltyWatchlist),
   noveltyResolutionMatrix: readJson(inputs.noveltyResolutionMatrix),
+  noveltyFinalizationPreflight: readJson(inputs.noveltyFinalizationPreflight),
   goldSummary: readJson(inputs.goldSummary),
   annotationProtocol: readJson(inputs.annotationProtocol),
   reviewPreflight: readJson(inputs.reviewPreflight),

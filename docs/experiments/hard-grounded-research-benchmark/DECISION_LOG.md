@@ -983,3 +983,11 @@ Decision: Generate a source-level resolution matrix for novelty watchlist items.
 Rationale: The watchlist records unresolved adjacent work, but final paper novelty needs each source mapped to pressure points, impacted manuscript claims, boundary changes, and final-audit disposition so the benchmark cannot overclaim generic RAG, citation, temporal, or domain QA novelty.
 
 Consequence: `scripts/hard-grounded-research-novelty-resolution-matrix.mjs` emits `generated/novelty-resolution-matrix.json` and `NOVELTY_RESOLUTION_MATRIX.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the matrix while final novelty and completion claims remain blocked.
+
+## 2026-06-26 — Add novelty finalization preflight
+
+Decision: Generate a final-audit preflight for unresolved novelty watchlist and claim-boundary work.
+
+Rationale: The resolution matrix identifies source-level overlap risks, but the benchmark still needs an operational checklist that says exactly why the novelty audit cannot become final, which sources and release blockers remain, and what must be regenerated after source adjudication.
+
+Consequence: `scripts/hard-grounded-research-novelty-finalization-preflight.mjs` emits `generated/novelty-finalization-preflight.json` and `NOVELTY_FINALIZATION_PREFLIGHT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, citation, and reproduction artifacts require the preflight while final novelty and completion claims remain blocked.

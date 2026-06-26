@@ -59,8 +59,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=42; hashes=43; blockers=12 |  |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=43; caveats=4; release_blockers=12 |  |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=43; hashes=45; blockers=7 |  |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=45; caveats=5; release_blockers=7 |  |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |  |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |  |
@@ -74,6 +74,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |  |
 | novelty_watchlist_ready | yes | novelty-watchlist-v1; sources=4; high_risk=1; completion_claim_allowed=false |  |
 | novelty_resolution_matrix_ready | yes | novelty-resolution-matrix-v1; sources=4; unresolved=4; high_risk=1 |  |
+| novelty_finalization_preflight_ready | yes | novelty-finalization-preflight-v1; unresolved=4; high_risk_unresolved=1; final_allowed=false |  |
 | corpus_audit_ready | yes | 6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |  |
 | source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |  |
 | source_acquisition_manifest_ready | yes | 17 batches; target_rows=246; known_license_rows=174 |  |
@@ -85,8 +86,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |  |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
-| artifact_checklist_ready | yes | 37/37 artifact classes ready; reproduction_commands=42; release_blockers=12 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=43; blockers=12; bytes=568071 |  |
+| artifact_checklist_ready | yes | 38/38 artifact classes ready; reproduction_commands=43; release_blockers=7 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=45; blockers=7; bytes=573535 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers
