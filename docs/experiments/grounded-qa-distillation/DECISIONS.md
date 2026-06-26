@@ -146,7 +146,7 @@ Tradeoff: The result argues against more deterministic span scoring. The next an
 
 Decision: Add an API-call ledger and budget summary for grounded-QA LLM calls, with a hard maximum budget of $100.
 
-Reason: The project now requires tracking all LLM API calls made with the user's key. The OpenAI student runner records model, run id, split, example id, token usage, cost, and price source for every successful call. It refuses runs whose estimated cost plus ledgered spend would exceed the budget. Current ledgered spend is $0.0822663 across 380 `gpt-4o-mini` calls.
+Reason: The project now requires tracking all LLM API calls made with the user's key. The OpenAI student runner records model, run id, split, example id, token usage, cost, and price source for every successful call. It refuses runs whose estimated cost plus ledgered spend would exceed the budget. Current ledgered spend is $0.6615213 across 552 OpenAI calls.
 
 Tradeoff: Cost accounting depends on the runner's price table matching current provider prices. The table must be revisited when changing models or before paper-scale runs.
 
@@ -173,3 +173,11 @@ Decision: Keep the budget-tracked `gpt-4o-mini` student as the current generativ
 Reason: On the full 168-example `temporal_validation` split, the student improves over `suff_calibrated_top2_t0p35` on citation precision (70.2% vs. 48.3%), citation recall (67.7% vs. 40.0%), answer token F1 (26.2% vs. 8.0%), and abstention accuracy (79.8% vs. 67.3%). On `temporal_test`, the improvements also hold. The validation run cost $0.0369429, and total tracked LLM spend is $0.0822663.
 
 Tradeoff: This confirms the small hosted model baseline is worth comparing to a larger teacher, but it still does not prove amortized distillation from an expensive teacher. The next paper-critical experiment is a ledgered larger-teacher comparison and an entailment-style citation judge.
+
+### D22. Treat the first larger-teacher comparison as a prompt-matched control, not the final teacher
+
+Decision: Keep `openai-teacher-temporal-test-full-v1` as a larger hosted model control, but do not treat it as the final expensive teacher.
+
+Reason: On the full 172-example `temporal_test` split, `gpt-4o` improves citation precision over `gpt-4o-mini` (82.8% vs. 77.3%) and inline citation rate (96.6% vs. 83.2%), but it underperforms on citation recall (57.2% vs. 64.6%), answer token F1 (17.4% vs. 21.1%), and abstention accuracy (79.7% vs. 83.1%). The teacher run cost $0.579255, about 16.4x the mini student's test-run cost per answer-type-correct example.
+
+Tradeoff: This is a useful control showing that “larger model” is not automatically a better teacher under the same compact-evidence prompt. The paper still needs an expensive multi-step teacher or agentic RAG teacher, plus an entailment-style citation judge, before claiming successful distillation from expensive behavior.

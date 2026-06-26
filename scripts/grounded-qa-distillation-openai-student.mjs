@@ -10,6 +10,7 @@ const args = parseArgs(process.argv.slice(2));
 
 const split = args.split ?? "temporal_validation";
 const model = args.model ?? "gpt-4o-mini";
+const persona = args.persona ?? (model === "gpt-4o-mini" ? "student" : "teacher");
 const limit = numberArg(args.limit, 20);
 const dryRun = args["dry-run"] === "true" || args.dryRun === "true";
 const maxBudgetUsd = Number(args["max-budget-usd"] ?? 100);
@@ -20,6 +21,7 @@ const ledgerPath = path.join(ledgerDir, "ledger.jsonl");
 const budgetPath = path.join(ledgerDir, "budget.json");
 const prices = {
   "gpt-4o-mini": { inputPerMillion: 0.15, outputPerMillion: 0.60, source: "https://developers.openai.com/api/docs/models/gpt-4o-mini" },
+  "gpt-4o": { inputPerMillion: 2.50, outputPerMillion: 10.00, source: "https://developers.openai.com/api/docs/models/gpt-4o" },
   "gpt-4.1-mini": { inputPerMillion: 0.40, outputPerMillion: 1.60, source: "https://developers.openai.com/api/docs/models/gpt-4.1-mini" },
 };
 const price = prices[model];
@@ -102,6 +104,7 @@ const summary = {
   generated_at: new Date().toISOString(),
   split,
   model,
+  persona,
   examples_requested: examples.length,
   dry_run: dryRun,
   calls_made: predictions.filter((row) => !row.skipped).length,
@@ -132,6 +135,9 @@ console.log(JSON.stringify({
 }, null, 2));
 
 function buildRequest(example, selectedModel, outputTokens) {
+  const roleLabel = persona === "teacher"
+    ? "an expensive teacher model for citation-grounded QA"
+    : "a cheap student model for citation-grounded QA";
   return {
     model: selectedModel,
     temperature: 0,
@@ -141,7 +147,7 @@ function buildRequest(example, selectedModel, outputTokens) {
       {
         role: "system",
         content: [
-          "You are a cheap student model for citation-grounded QA.",
+          `You are ${roleLabel}.`,
           "Answer only from the compact evidence pack.",
           "Return only valid JSON with exactly these keys: answer_type, answer, citations, claim_table, abstention_reason.",
           "answer_type must be exactly \"grounded_answer\" or \"abstain\".",

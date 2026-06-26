@@ -1,0 +1,29 @@
+{
+  "run_id": "openai-teacher-temporal-test-full-v1-estimate",
+  "generated_at": "2026-06-26T02:05:37.700Z",
+  "split": "temporal_test",
+  "model": "gpt-4o",
+  "persona": "teacher",
+  "examples_requested": 172,
+  "dry_run": true,
+  "calls_made": 0,
+  "calls_skipped": 172,
+  "estimated_cost_usd": 1.1518350000000002,
+  "ledger_spend_before_usd": 0.08226630000000004,
+  "ledger_spend_after_usd": 0.08226630000000004,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_scored": 0,
+    "answer_type_accuracy": 0,
+    "citation_precision": 0,
+    "citation_recall": 0,
+    "answer_token_f1": 0,
+    "abstention_accuracy": 0,
+    "inline_citation_rate": 0
+  }
+}
