@@ -15,6 +15,7 @@ const inputPaths = {
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
+  packageManifest: join(generatedDir, 'public-package-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
 }
 
@@ -68,7 +69,7 @@ function challengeRows(pilotSuite) {
     .map(([challengeType, count]) => [challengeType, String(count)])
 }
 
-function renderCard({ spec, pilotSuite, coverageMatrix, itemQualityAudit, reviewMergeReport, goldSummary, baselineAnalysis, licenseReview, releaseGate }) {
+function renderCard({ spec, pilotSuite, coverageMatrix, itemQualityAudit, reviewMergeReport, goldSummary, baselineAnalysis, licenseReview, packageManifest, releaseGate }) {
   return `# Hard Grounded Research Dataset Card
 
 Status: pilot benchmark card generated from repository artifacts. This is not a final public release card until gold review is complete.
@@ -85,6 +86,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Valid reviewed items: ${goldSummary.valid_reviewed_items}/${goldSummary.total_items}
 - Release gate status: ${releaseGate.status}
 - License review status: ${licenseReview.status}
+- Pointer-only package items: ${packageManifest.pointer_only_items}
 
 ## Intended Uses
 
@@ -127,7 +129,7 @@ The evaluator reports answer correctness, evidence recall, citation precision, c
 
 ## Data Provenance And Licensing Notes
 
-This benchmark stores normalized evidence snippets and metadata from upstream Hugging Face datasets. Upstream dataset licenses are mixed and include unknown-license sources, so a public release must either preserve attribution and license notices, replace unknown-license sources, or release only pointers/transforms where required. See \`LICENSE_REVIEW.md\` and \`generated/license-review.json\` for the generated blocker list.
+This benchmark stores normalized evidence snippets and metadata from upstream Hugging Face datasets. Upstream dataset licenses are mixed and include unknown-license sources, so a public release must either preserve attribution and license notices, replace unknown-license sources, or release only pointers/transforms where required. See \`LICENSE_REVIEW.md\`, \`generated/license-review.json\`, \`PUBLIC_PACKAGE_MANIFEST.md\`, and \`generated/public-package-manifest.json\` for the generated blocker and pointer-only packaging lists.
 
 ## Known Limitations
 
@@ -158,6 +160,7 @@ writeText(
     goldSummary: readJson(inputPaths.goldSummary),
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
     licenseReview: readJson(inputPaths.licenseReview),
+    packageManifest: readJson(inputPaths.packageManifest),
     releaseGate: readJson(inputPaths.releaseGate),
   }),
 )

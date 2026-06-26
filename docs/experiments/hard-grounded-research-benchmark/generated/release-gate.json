@@ -8,7 +8,8 @@
     "review_merge_report": "generated/review-merge-report.json",
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
-    "license_review": "generated/license-review.json"
+    "license_review": "generated/license-review.json",
+    "public_package_manifest": "generated/public-package-manifest.json"
   },
   "pilot_item_count": 30,
   "scored_system_count": 3,
@@ -30,6 +31,12 @@
       "passed": false,
       "detail": "tdiggelm/climate_fever, Pavithree/eli5",
       "blocker": "Resolve, replace, or pointer-only package unknown-license sources before public redistribution."
+    },
+    {
+      "id": "public_package_manifest_present",
+      "passed": true,
+      "detail": "15 pointer-only items; 18 pointer-only evidence units",
+      "blocker": "Generate public package manifest before releasing artifacts."
     },
     {
       "id": "repair_queue_clear",

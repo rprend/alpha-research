@@ -14,6 +14,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Valid reviewed items: 0/30
 - Release gate status: blocked
 - License review status: blocked
+- Pointer-only package items: 15
 
 ## Intended Uses
 
@@ -82,7 +83,7 @@ The evaluator reports answer correctness, evidence recall, citation precision, c
 
 ## Data Provenance And Licensing Notes
 
-This benchmark stores normalized evidence snippets and metadata from upstream Hugging Face datasets. Upstream dataset licenses are mixed and include unknown-license sources, so a public release must either preserve attribution and license notices, replace unknown-license sources, or release only pointers/transforms where required. See `LICENSE_REVIEW.md` and `generated/license-review.json` for the generated blocker list.
+This benchmark stores normalized evidence snippets and metadata from upstream Hugging Face datasets. Upstream dataset licenses are mixed and include unknown-license sources, so a public release must either preserve attribution and license notices, replace unknown-license sources, or release only pointers/transforms where required. See `LICENSE_REVIEW.md`, `generated/license-review.json`, `PUBLIC_PACKAGE_MANIFEST.md`, and `generated/public-package-manifest.json` for the generated blocker and pointer-only packaging lists.
 
 ## Known Limitations
 

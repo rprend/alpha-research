@@ -11,6 +11,7 @@ const requiredInputs = {
   noveltyAudit: join(experimentDir, 'NOVELTY_AUDIT.md'),
   datasetCard: join(experimentDir, 'DATASET_CARD.md'),
   licenseReview: join(generatedDir, 'license-review.json'),
+  packageManifest: join(generatedDir, 'public-package-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   spec: join(experimentDir, 'benchmark-spec.json'),
   pilotSuite: join(generatedDir, 'pilot-suite.json'),
@@ -94,7 +95,7 @@ function topApproachRows(approachScores) {
   ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, releaseGate }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, packageManifest, releaseGate }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -171,6 +172,7 @@ ${markdownTable(
 - Repair-before-gold items: ${repairBeforeGold}
 - License review status: ${licenseReview.status}
 - License blockers: ${licenseReview.blockers.length}
+- Pointer-only package items: ${packageManifest.pointer_only_items}
 - Release gate status: ${releaseGate.status}
 - Release blockers: ${releaseGate.blockers.length}
 
@@ -202,6 +204,7 @@ const draft = renderDraft({
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),
   itemQualityAudit: readJson(requiredInputs.itemQualityAudit),
   licenseReview: readJson(requiredInputs.licenseReview),
+  packageManifest: readJson(requiredInputs.packageManifest),
   releaseGate: readJson(requiredInputs.releaseGate),
 })
 

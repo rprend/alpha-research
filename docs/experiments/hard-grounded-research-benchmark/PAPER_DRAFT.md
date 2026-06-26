@@ -110,6 +110,7 @@ Systems submit one answer per task with citation ids and abstention state. The s
 - Repair-before-gold items: 0
 - License review status: blocked
 - License blockers: 2
+- Pointer-only package items: 15
 - Release gate status: blocked
 - Release blockers: 5
 

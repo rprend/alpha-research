@@ -16,6 +16,7 @@ const inputs = {
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
+  packageManifest: join(generatedDir, 'public-package-manifest.json'),
 }
 
 function assert(condition, message) {
@@ -63,7 +64,7 @@ function noveltyAuditStatus(noveltyAudit) {
   }
 }
 
-function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQualityAudit, baselineAnalysis, licenseReview }) {
+function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQualityAudit, baselineAnalysis, licenseReview, packageManifest }) {
   const licenseBlockers = licenseReview.blockers || []
   const scoredModelRuns = existingScoredModelRuns()
   const novelty = noveltyAuditStatus(noveltyAudit)
@@ -87,6 +88,12 @@ function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQua
         ? licenseBlockers.map((dataset) => dataset.dataset_id).join(', ')
         : 'license review clear',
       blocker: 'Resolve, replace, or pointer-only package unknown-license sources before public redistribution.',
+    },
+    {
+      id: 'public_package_manifest_present',
+      passed: Boolean(packageManifest.public_package_policy),
+      detail: `${packageManifest.pointer_only_items} pointer-only items; ${packageManifest.pointer_only_evidence_units} pointer-only evidence units`,
+      blocker: 'Generate public package manifest before releasing artifacts.',
     },
     {
       id: 'repair_queue_clear',
@@ -119,6 +126,7 @@ function buildGate({ spec, noveltyAudit, goldSummary, reviewMergeReport, itemQua
       item_quality_audit: 'generated/item-quality-audit.json',
       baseline_analysis: 'generated/baseline-analysis.json',
       license_review: 'generated/license-review.json',
+      public_package_manifest: 'generated/public-package-manifest.json',
     },
     pilot_item_count: goldSummary.total_items,
     scored_system_count: baselineAnalysis.systems.length,
@@ -172,6 +180,7 @@ const gate = buildGate({
   itemQualityAudit: readJson(inputs.itemQualityAudit),
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   licenseReview: readJson(inputs.licenseReview),
+  packageManifest: readJson(inputs.packageManifest),
 })
 
 writeJson(releaseGateJsonPath, gate)

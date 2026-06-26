@@ -208,8 +208,13 @@ for (const token of ['license-review.json', 'pointer_only_or_replace_before_publ
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'license-review.json', 'unknown_license_resolved', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'license-review.json', 'public-package-manifest.json', 'unknown_license_resolved', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')
+const hardGroundedPackageManifestSource = readFileSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs'), 'utf8')
+for (const token of ['public-package-manifest.json', 'pointer_only_no_text', 'text_sha256']) {
+  assert(hardGroundedPackageManifestSource.includes(token), `Hard grounded package manifest is missing packaging token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')
 assert(
@@ -331,6 +336,14 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/LICENSE_REVIEW.md')),
   'Missing hard grounded research license review report.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/public-package-manifest.json')),
+  'Missing hard grounded research public package manifest JSON.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/PUBLIC_PACKAGE_MANIFEST.md')),
+  'Missing hard grounded research public package manifest report.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/release-gate.json')),

@@ -263,3 +263,11 @@ Decision: Add a generated upstream dataset license review and make the release g
 Rationale: Unknown-license sources should not be a vague warning buried in the dataset card. The benchmark needs an auditable list of which datasets block redistribution, what current Hugging Face metadata says, and what action is required before public release.
 
 Consequence: `scripts/hard-grounded-research-license-review.mjs` now emits `generated/license-review.json` and `LICENSE_REVIEW.md`; the release gate, dataset card, and paper draft all surface license-review status and blockers.
+
+## 2026-06-26 — Define pointer-only public packaging
+
+Decision: Generate an item-level public package manifest that strips evidence text for unknown-license datasets while retaining source pointers and text hashes.
+
+Rationale: The license review identifies blockers, but public packaging needs a concrete safe artifact shape. Pointer-only packaging lets the benchmark preserve reproducibility metadata without redistributing text from unresolved upstream licenses.
+
+Consequence: `scripts/hard-grounded-research-package-manifest.mjs` now emits `generated/public-package-manifest.json` and `PUBLIC_PACKAGE_MANIFEST.md`; release gate, dataset card, and paper draft report pointer-only item counts.
