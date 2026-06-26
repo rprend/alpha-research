@@ -14,6 +14,7 @@ const readiness = await readResult("paper-readiness-gate-2026-06-26-v1");
 const trustedDates = await readResult("trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1");
 const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026-06-26-v1");
 const versionedKbPrototype = await readResult("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
+const versionedKbEval = await readResult("versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
@@ -65,6 +66,7 @@ const result = {
     trusted_months: trustedDates.trusted_months,
     corpus_realism_audit_run_id: corpusRealism.run_id,
     versioned_domain_kb_extension_candidate_run_id: versionedKbPrototype.run_id,
+    versioned_domain_kb_eval_run_id: versionedKbEval.run_id,
     versioned_domain_kb_candidate_examples: versionedKbPrototype.examples.total,
     supports_private_enterprise_kb_claim: corpusRealism.scorecard.supports_private_enterprise_kb_claim,
     allowed_claim: "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB.",
@@ -144,6 +146,13 @@ const result = {
       examples: versionedKbPrototype.examples,
       claim_boundary: versionedKbPrototype.claim_boundary,
       interpretation: "The git-doc prototype shows how to instantiate immutable train/eval KB snapshots with line-citation examples and stale-snapshot abstentions, but it remains deterministic and not private-enterprise proof.",
+    },
+    versioned_domain_kb_eval: {
+      run_id: versionedKbEval.run_id,
+      status: versionedKbEval.status,
+      naive_copy_first: versionedKbEval.systems.find((row) => row.id === "copy_first_evidence"),
+      prefix_retriever_snapshot_guard: versionedKbEval.systems.find((row) => row.id === "prefix_retriever_snapshot_guard"),
+      interpretation: "On the deterministic git-doc prototype, naive citation-copy over-answers stale snapshot queries, while a snapshot-aware prefix retriever handles both update answers and stale abstentions.",
     },
     joint_action_packet_quality: {
       run_id: packetQualityAudit.run_id,
@@ -264,7 +273,7 @@ const result = {
     },
     {
       section: "Dataset and Evolving-KB Protocol",
-      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, "extended_temporal_future_holdout-manifest.json"],
+      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, versionedKbEval.run_id, "extended_temporal_future_holdout-manifest.json"],
       audit: corpusRealism.run_id,
       current_status: "draftable_with_public_proxy_caveat",
     },

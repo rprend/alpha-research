@@ -14,6 +14,7 @@ const readiness = await readResult("paper-readiness-gate-2026-06-26-v1");
 const evidenceMap = await readResult("manuscript-evidence-map-2026-06-26-v1");
 const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026-06-26-v1");
 const versionedKbPrototype = await readResult("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
+const versionedKbEval = await readResult("versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const draft = await readResult("manuscript-draft-2026-06-26-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
 const remoteSmoke = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
@@ -95,9 +96,10 @@ const risks = [
       evidenceMap.dataset_and_temporal_claims.trusted_snapshot_run_id,
       corpusRealism.run_id,
       versionedKbPrototype.run_id,
+      versionedKbEval.run_id,
       "extended_temporal_future_holdout-manifest.json",
     ],
-    mitigation_done: `${corpusRealism.run_id} makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. ${versionedKbPrototype.run_id} makes that upgrade path concrete by producing ${versionedKbPrototype.examples.total} deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.`,
+    mitigation_done: `${corpusRealism.run_id} makes the boundary executable: it allows an evolving public domain-KB proxy claim, rejects private-enterprise proof and WriteBack-memory-baseline claims, and lists the required versioned private-KB upgrade evidence. ${versionedKbPrototype.run_id} makes that upgrade path concrete by producing ${versionedKbPrototype.examples.total} deterministic examples from immutable repo git snapshots, including stale-snapshot abstentions, while still marking private-enterprise proof as unsupported. ${versionedKbEval.run_id} evaluates that slice and shows naive citation-copy fails stale-snapshot abstentions while a snapshot-aware prefix retriever solves the deterministic prototype. The manuscript evidence map and draft restrict the claim to a trusted dated public proxy and explicitly prohibit private-KB proof language.`,
     required_next_evidence: [
       "Keep the manuscript caveat unless a versioned private/domain corpus is added.",
       "If adding a private KB, create train-time and final-time snapshots with immutable date provenance.",

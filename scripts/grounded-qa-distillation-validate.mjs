@@ -86,6 +86,7 @@ if (!errors.length) {
   await validateWriteBackScopeRunsIfPresent();
   await validateTrustedDatedSnapshotRunsIfPresent();
   await validateVersionedPrivateKbPrototypeRunsIfPresent();
+  await validateVersionedPrivateKbEvalRunsIfPresent();
   await validateCorpusRealismAuditRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
   await validateManuscriptEvidenceMapRunsIfPresent();
@@ -3253,6 +3254,61 @@ async function validateVersionedPrivateKbPrototypeRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: versioned private-KB prototype must be zero-cost.`);
+    }
+  }
+}
+
+async function validateVersionedPrivateKbEvalRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("versioned-private-kb-eval-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    let result;
+    let report;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      predictions = await readJsonl(predictionsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed versioned private-KB eval artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "versioned_private_kb_eval") {
+      errors.push(`${entry.name}: unexpected versioned private-KB eval type.`);
+    }
+    if (result.status !== "versioned_domain_kb_eval_complete") {
+      errors.push(`${entry.name}: versioned private-KB eval should complete.`);
+    }
+    const systemIds = new Set((result.systems ?? []).map((row) => row.id));
+    for (const id of ["copy_first_evidence", "snapshot_aware_stale_guard", "prefix_retriever_snapshot_guard"]) {
+      if (!systemIds.has(id)) errors.push(`${entry.name}: missing eval system ${id}.`);
+    }
+    const naive = result.systems?.find((row) => row.id === "copy_first_evidence");
+    const guarded = result.systems?.find((row) => row.id === "prefix_retriever_snapshot_guard");
+    if (!(Number(naive?.by_type?.stale_snapshot_abstention?.overall_correct_rate) < 1)) {
+      errors.push(`${entry.name}: naive baseline should expose stale-snapshot failures.`);
+    }
+    if (Number(guarded?.overall_correct_rate) !== 1 || Number(guarded?.by_type?.stale_snapshot_abstention?.overall_correct_rate) !== 1) {
+      errors.push(`${entry.name}: prefix retriever snapshot guard should solve deterministic prototype cases.`);
+    }
+    if (predictions.length !== Number(result.examples_total) * Number(result.systems?.length ?? 0)) {
+      errors.push(`${entry.name}: prediction rows must equal examples times systems.`);
+    }
+    if (!report.includes("Versioned Private/Domain KB Eval") || !report.includes("Stale Snapshot Slice")) {
+      errors.push(`${entry.name}: eval report must expose stale snapshot results.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: versioned private-KB eval must be zero-cost.`);
     }
   }
 }

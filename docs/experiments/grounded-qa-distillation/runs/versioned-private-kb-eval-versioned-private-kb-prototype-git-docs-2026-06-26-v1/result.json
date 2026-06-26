@@ -1,0 +1,210 @@
+{
+  "run_id": "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+  "generated_at": "2026-06-26T21:58:13.288Z",
+  "artifact_type": "versioned_private_kb_eval",
+  "status": "versioned_domain_kb_eval_complete",
+  "purpose": "Evaluate deterministic baselines on the versioned git-doc KB prototype to expose stale-snapshot over-answering.",
+  "source_run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+  "source_snapshot_pair": {
+    "train": {
+      "commit": "818a916fdf2cd878c85a7d92d7752d3e361f9004",
+      "committed_at": "2026-04-27T15:47:18-07:00"
+    },
+    "eval": {
+      "commit": "4326a12aff2094c3682c111873be790a87aa3824",
+      "committed_at": "2026-06-26T17:45:12-04:00"
+    }
+  },
+  "examples_total": 30,
+  "systems": [
+    {
+      "id": "copy_first_evidence",
+      "description": "Always answer by copying the first retrieved evidence line with its citation, regardless of snapshot staleness.",
+      "examples": 30,
+      "answered": 30,
+      "abstained": 0,
+      "answer_rate": 1,
+      "overall_correct": 15,
+      "overall_correct_rate": 0.5,
+      "answer_support_rate": 0.5,
+      "abstention_correct_rate": 0,
+      "citation_precision": 0.5,
+      "citation_recall": 0.5,
+      "inline_citation_rate": 1,
+      "by_type": {
+        "eval_update_grounded_answer": {
+          "examples": 12,
+          "answered": 12,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct": 9,
+          "overall_correct_rate": 0.75,
+          "answer_support_rate": 0.75,
+          "abstention_correct_rate": null,
+          "citation_precision": 0.75,
+          "citation_recall": 0.75,
+          "inline_citation_rate": 1
+        },
+        "stable_grounded_answer": {
+          "examples": 6,
+          "answered": 6,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct": 6,
+          "overall_correct_rate": 1,
+          "answer_support_rate": 1,
+          "abstention_correct_rate": null,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "inline_citation_rate": 1
+        },
+        "stale_snapshot_abstention": {
+          "examples": 12,
+          "answered": 12,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct": 0,
+          "overall_correct_rate": 0,
+          "answer_support_rate": 0,
+          "abstention_correct_rate": 0,
+          "citation_precision": 0,
+          "citation_recall": 0,
+          "inline_citation_rate": 1
+        }
+      }
+    },
+    {
+      "id": "snapshot_aware_stale_guard",
+      "description": "Abstain when the requested fact is marked as eval-only but the evidence pack is from the train snapshot; otherwise copy cited evidence.",
+      "examples": 30,
+      "answered": 18,
+      "abstained": 12,
+      "answer_rate": 0.6,
+      "overall_correct": 27,
+      "overall_correct_rate": 0.9,
+      "answer_support_rate": 0.8333333333333334,
+      "abstention_correct_rate": 1,
+      "citation_precision": 0.8333333333333334,
+      "citation_recall": 0.5,
+      "inline_citation_rate": 1,
+      "by_type": {
+        "eval_update_grounded_answer": {
+          "examples": 12,
+          "answered": 12,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct": 9,
+          "overall_correct_rate": 0.75,
+          "answer_support_rate": 0.75,
+          "abstention_correct_rate": null,
+          "citation_precision": 0.75,
+          "citation_recall": 0.75,
+          "inline_citation_rate": 1
+        },
+        "stable_grounded_answer": {
+          "examples": 6,
+          "answered": 6,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct": 6,
+          "overall_correct_rate": 1,
+          "answer_support_rate": 1,
+          "abstention_correct_rate": null,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "inline_citation_rate": 1
+        },
+        "stale_snapshot_abstention": {
+          "examples": 12,
+          "answered": 0,
+          "abstained": 12,
+          "answer_rate": 0,
+          "overall_correct": 12,
+          "overall_correct_rate": 1,
+          "answer_support_rate": null,
+          "abstention_correct_rate": 1,
+          "citation_precision": null,
+          "citation_recall": 0,
+          "inline_citation_rate": null
+        }
+      }
+    },
+    {
+      "id": "prefix_retriever_snapshot_guard",
+      "description": "Use the quoted question prefix to select the matching evidence line, and abstain on stale train-snapshot requests.",
+      "examples": 30,
+      "answered": 18,
+      "abstained": 12,
+      "answer_rate": 0.6,
+      "overall_correct": 30,
+      "overall_correct_rate": 1,
+      "answer_support_rate": 1,
+      "abstention_correct_rate": 1,
+      "citation_precision": 1,
+      "citation_recall": 0.6,
+      "inline_citation_rate": 1,
+      "by_type": {
+        "eval_update_grounded_answer": {
+          "examples": 12,
+          "answered": 12,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct": 12,
+          "overall_correct_rate": 1,
+          "answer_support_rate": 1,
+          "abstention_correct_rate": null,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "inline_citation_rate": 1
+        },
+        "stable_grounded_answer": {
+          "examples": 6,
+          "answered": 6,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct": 6,
+          "overall_correct_rate": 1,
+          "answer_support_rate": 1,
+          "abstention_correct_rate": null,
+          "citation_precision": 1,
+          "citation_recall": 1,
+          "inline_citation_rate": 1
+        },
+        "stale_snapshot_abstention": {
+          "examples": 12,
+          "answered": 0,
+          "abstained": 12,
+          "answer_rate": 0,
+          "overall_correct": 12,
+          "overall_correct_rate": 1,
+          "answer_support_rate": null,
+          "abstention_correct_rate": 1,
+          "citation_precision": null,
+          "citation_recall": 0,
+          "inline_citation_rate": null
+        }
+      }
+    }
+  ],
+  "key_result": {
+    "naive_overanswers_stale_snapshots": true,
+    "snapshot_guard_handles_stale_snapshots": true,
+    "interpretation": "The versioned prototype surfaces a real stale-KB failure mode: citation syntax is easy, but snapshot-aware abstention is necessary when the requested update is absent from the retrieved snapshot."
+  },
+  "artifacts": {
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1/predictions.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1/report.md"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This evaluator uses deterministic local baselines over existing JSONL examples."
+  }
+}

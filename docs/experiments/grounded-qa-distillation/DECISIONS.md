@@ -1209,3 +1209,13 @@ Reason: The motivating claim is evolving private knowledge bases, while the curr
 Result: The prototype emits 30 deterministic examples from two immutable git snapshots: 6 stable grounded-answer examples, 12 eval-update grounded-answer examples, and 12 stale train-snapshot abstention examples with line-level citation ids. The corpus-realism audit now records this as a versioned domain-KB extension candidate, while preserving `supports_private_enterprise_kb_claim=false`. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
 
 Tradeoff: The examples are deterministic line-level probes over repo docs, not natural user questions and not private-enterprise proof. This improves the upgrade path and reviewer defensibility but does not replace the QASPER/arXiv result, the missing Qwen 3B smoke, or a licensed/private corpus with access-control semantics.
+
+### D142. Evaluate stale-snapshot behavior on the versioned git-doc KB prototype
+
+Decision: Add `grounded-qa-distillation-versioned-private-kb-eval.mjs`, materialize `versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: The versioned git-doc prototype should not just be a dataset artifact; it should demonstrate the evolving-KB failure mode the paper cares about. A naive citation-copy system can produce well-formed citations while answering stale train-snapshot questions from old or neighboring evidence. The evaluator makes that failure measurable without LLM calls or GPU spend.
+
+Result: The naive copy-first-evidence baseline reaches 100.0% inline citation rate but only 50.0% overall correctness and 0.0% correctness on stale-snapshot abstention cases. A snapshot-aware prefix retriever reaches 100.0% correctness on the deterministic 30-example slice by answering stable/update lines and abstaining on stale train-snapshot queries. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+Tradeoff: This is a deterministic diagnostic over generated line-level questions, not a natural private-KB benchmark or trained-student result. It strengthens the evolving-snapshot argument and claim-boundary discipline, but the Qwen 3B smoke plus paid grounded judge remain the paper-critical blockers.

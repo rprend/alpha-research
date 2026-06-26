@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:50:19.118Z",
+  "generated_at": "2026-06-26T21:59:45.926Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -32,6 +32,7 @@
     },
     "corpus_realism_audit_run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
     "versioned_domain_kb_extension_candidate_run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+    "versioned_domain_kb_eval_run_id": "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
     "versioned_domain_kb_candidate_examples": 30,
     "supports_private_enterprise_kb_claim": false,
     "allowed_claim": "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB."
@@ -159,6 +160,123 @@
         "reason": "The source is repository-local product/architecture documentation with immutable git commits, not a confidential enterprise corpus with access-control semantics."
       },
       "interpretation": "The git-doc prototype shows how to instantiate immutable train/eval KB snapshots with line-citation examples and stale-snapshot abstentions, but it remains deterministic and not private-enterprise proof."
+    },
+    "versioned_domain_kb_eval": {
+      "run_id": "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "status": "versioned_domain_kb_eval_complete",
+      "naive_copy_first": {
+        "id": "copy_first_evidence",
+        "description": "Always answer by copying the first retrieved evidence line with its citation, regardless of snapshot staleness.",
+        "examples": 30,
+        "answered": 30,
+        "abstained": 0,
+        "answer_rate": 1,
+        "overall_correct": 15,
+        "overall_correct_rate": 0.5,
+        "answer_support_rate": 0.5,
+        "abstention_correct_rate": 0,
+        "citation_precision": 0.5,
+        "citation_recall": 0.5,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 9,
+            "overall_correct_rate": 0.75,
+            "answer_support_rate": 0.75,
+            "abstention_correct_rate": null,
+            "citation_precision": 0.75,
+            "citation_recall": 0.75,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 6,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "citation_precision": 1,
+            "citation_recall": 1,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 0,
+            "overall_correct_rate": 0,
+            "answer_support_rate": 0,
+            "abstention_correct_rate": 0,
+            "citation_precision": 0,
+            "citation_recall": 0,
+            "inline_citation_rate": 1
+          }
+        }
+      },
+      "prefix_retriever_snapshot_guard": {
+        "id": "prefix_retriever_snapshot_guard",
+        "description": "Use the quoted question prefix to select the matching evidence line, and abstain on stale train-snapshot requests.",
+        "examples": 30,
+        "answered": 18,
+        "abstained": 12,
+        "answer_rate": 0.6,
+        "overall_correct": 30,
+        "overall_correct_rate": 1,
+        "answer_support_rate": 1,
+        "abstention_correct_rate": 1,
+        "citation_precision": 1,
+        "citation_recall": 0.6,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 12,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "citation_precision": 1,
+            "citation_recall": 1,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct": 6,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "citation_precision": 1,
+            "citation_recall": 1,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 0,
+            "abstained": 12,
+            "answer_rate": 0,
+            "overall_correct": 12,
+            "overall_correct_rate": 1,
+            "answer_support_rate": null,
+            "abstention_correct_rate": 1,
+            "citation_precision": null,
+            "citation_recall": 0,
+            "inline_citation_rate": null
+          }
+        }
+      },
+      "interpretation": "On the deterministic git-doc prototype, naive citation-copy over-answers stale snapshot queries, while a snapshot-aware prefix retriever handles both update answers and stale abstentions."
     },
     "joint_action_packet_quality": {
       "run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
@@ -347,6 +465,7 @@
       "evidence": [
         "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
         "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "extended_temporal_future_holdout-manifest.json"
       ],
       "audit": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
