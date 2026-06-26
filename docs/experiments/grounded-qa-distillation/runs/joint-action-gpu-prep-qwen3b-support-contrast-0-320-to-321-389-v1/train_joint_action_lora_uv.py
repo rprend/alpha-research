@@ -18,6 +18,12 @@ MAX_SFT_STEPS = int(os.environ.get("MAX_SFT_STEPS", "0"))
 MAX_DPO_STEPS = int(os.environ.get("MAX_DPO_STEPS", "0"))
 PUSH_TO_HUB = os.environ.get("PUSH_TO_HUB", "false").lower() == "true"
 REPORT_TO = os.environ.get("REPORT_TO", "none")
+MODEL_DEVICE_MAP = os.environ.get("MODEL_DEVICE_MAP", "auto").lower()
+
+def model_init_kwargs():
+    if MODEL_DEVICE_MAP in {"none", "false", "off"}:
+        return {"device_map": None}
+    return {"device_map": MODEL_DEVICE_MAP}
 
 def read_jsonl(name):
     with (DATASET_DIR / name).open() as f:
@@ -53,6 +59,7 @@ sft = SFTTrainer(
         eval_strategy="epoch",
         save_strategy="epoch",
         report_to=REPORT_TO,
+        model_init_kwargs=model_init_kwargs(),
         project="grounded-qa-distillation",
         run_name="joint-action-sft-qwen3b",
     ),
@@ -81,6 +88,7 @@ dpo = DPOTrainer(
         push_to_hub=PUSH_TO_HUB,
         hub_model_id=HUB_MODEL_ID,
         report_to=REPORT_TO,
+        model_init_kwargs=model_init_kwargs(),
         project="grounded-qa-distillation",
         run_name="joint-action-dpo-qwen3b",
     ),

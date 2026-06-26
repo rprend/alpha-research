@@ -63,6 +63,7 @@ if (!errors.length) {
   await validateJointActionGpuPrepRunsIfPresent();
   await validateJointActionLaunchPreflightRunsIfPresent();
   await validateJointActionLaunchPlanRunsIfPresent();
+  await validateJointActionLocalProbeRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
@@ -1334,6 +1335,55 @@ async function validateTotalSpendBudgetIfPresent() {
   }
   if (Number(budget.spend_usd?.total_actual) > Number(budget.max_budget_usd)) {
     errors.push("Total spend exceeds the $100 experiment budget.");
+  }
+}
+
+async function validateJointActionLocalProbeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-local-qwen3b-feasibility-probe-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action local probe artifacts.`);
+      continue;
+    }
+    if (result.probe_type !== "local_qwen3b_joint_action_training_feasibility") {
+      errors.push(`${entry.name}: unexpected local probe type.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: local probe must be zero-cost.`);
+    }
+    if (result.script_patch?.model_device_map_env_supported !== true) {
+      errors.push(`${entry.name}: training script must support MODEL_DEVICE_MAP override.`);
+    }
+    const attempts = result.attempted_commands ?? [];
+    if (attempts.length < 2) errors.push(`${entry.name}: local probe must record both auto-device-map and no-offload attempts.`);
+    const autoAttempt = attempts.find((attempt) => attempt.id === "auto_device_map_1step");
+    const noOffloadAttempt = attempts.find((attempt) => attempt.id === "no_offload_mps_1step");
+    if (autoAttempt?.outcome !== "failed" || autoAttempt?.failure_class !== "local_offload_training_incompatible") {
+      errors.push(`${entry.name}: auto-device-map attempt must record the MPS/meta backward failure.`);
+    }
+    if (noOffloadAttempt?.outcome !== "stopped_after_timeout" || noOffloadAttempt?.failure_class !== "local_training_too_slow_for_bounded_smoke") {
+      errors.push(`${entry.name}: no-offload attempt must record bounded-smoke impracticality.`);
+    }
+    if (result.conclusions?.local_training_status !== "not_practical_for_qwen3b_joint_action_smoke") {
+      errors.push(`${entry.name}: local probe must conclude local Qwen3B smoke is not practical.`);
+    }
+    if (result.conclusions?.remote_training_status !== "still_required") {
+      errors.push(`${entry.name}: local probe must preserve remote GPU as required.`);
+    }
   }
 }
 

@@ -861,3 +861,13 @@ Reason: The paper-readiness gate correctly rejected the previous temporal eviden
 Result: The paper-readiness gate now reports 10 of 12 requirements passing and 2 blockers remaining: no trained Qwen 3B joint-action eval result and no grounded-correctness judge pass for that student.
 
 Tradeoff: This is a trusted dated public arXiv snapshot, not a private KB. It supports stronger evolving-KB claims than id-prefix inference, but a private enterprise KB claim would still need a private/versioned corpus.
+
+### D107. Probe whether local Qwen 3B training can replace blocked GPU rental
+
+Decision: Patch the joint-action Qwen 3B training script to support `MODEL_DEVICE_MAP`, add `grounded-qa-distillation-joint-action-local-probe.mjs`, and materialize `joint-action-local-qwen3b-feasibility-probe-2026-06-26-v1`.
+
+Reason: Prime remains blocked by an unauthorized API key and HF Jobs remains blocked by prepaid credits, so I tested whether the bounded Qwen 2.5 3B joint-action smoke could run locally without spending from the $100 budget. The local `uv` path can resolve the TRL/PEFT/Transformers stack and the Mac can load the model. The default `device_map=auto` path reaches tokenization but fails on the first SFT backward pass with a meta/MPS gradient mismatch caused by disk/meta offload. The `MODEL_DEVICE_MAP=none` path avoids offload and starts the first SFT backward pass on MPS, but it does not complete one bounded step after about five minutes. This makes zero OpenAI calls, creates no GPU job, and leaves actual spend at $5.87832365 with $0 external compute.
+
+Result: Local Mac training is not a practical substitute for the remote GPU smoke. The paper-readiness gate stays at 10/12; the remaining blockers are still the trained Qwen 3B joint-action result and a grounded-correctness judge pass for that student.
+
+Tradeoff: This does not produce model-quality results, but it removes an ambiguity in the execution plan. The training script remains remote-friendly because `MODEL_DEVICE_MAP` defaults to `auto`, while future local probes can opt into `none` explicitly.
