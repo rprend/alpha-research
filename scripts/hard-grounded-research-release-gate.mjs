@@ -46,6 +46,7 @@ const inputs = {
   sourceAcquisitionPackets: join(generatedDir, 'source-acquisition-packets.json'),
   sourceAcquisitionAudit: join(generatedDir, 'source-acquisition-audit.json'),
   sourceAcquisitionFetchedRows: join(generatedDir, 'source-acquisition-fetched-rows.json'),
+  sourceAcquisitionCandidates: join(generatedDir, 'source-acquisition-candidates.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -132,6 +133,7 @@ function buildGate({
   sourceAcquisitionPackets,
   sourceAcquisitionAudit,
   sourceAcquisitionFetchedRows,
+  sourceAcquisitionCandidates,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -483,6 +485,16 @@ function buildGate({
       blocker: 'Rebalance acquisition batches until all target Hugging Face source rows fetch with no underfilled batches.',
     },
     {
+      id: 'source_acquisition_candidates_ready',
+      passed:
+        Boolean(sourceAcquisitionCandidates.source_acquisition_candidates_ready) &&
+        sourceAcquisitionCandidates.summary?.candidates === sourceAcquisitionFetchedRows.summary?.fetched_rows &&
+        sourceAcquisitionCandidates.summary?.categories === spec.categories.length &&
+        sourceAcquisitionCandidates.summary?.completion_claim_allowed === false,
+      detail: `${sourceAcquisitionCandidates.summary?.candidates ?? 0} candidates; categories=${sourceAcquisitionCandidates.summary?.categories ?? 0}; required_review_rows=${sourceAcquisitionCandidates.summary?.required_review_rows ?? 0}`,
+      blocker: 'Materialize fetched source rows into review-pending task candidates before exporting source-acquisition review workbooks.',
+    },
+    {
       id: 'construct_map_ready',
       passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
@@ -550,6 +562,7 @@ function buildGate({
       source_acquisition_packets: 'generated/source-acquisition-packets.json',
       source_acquisition_audit: 'generated/source-acquisition-audit.json',
       source_acquisition_fetched_rows: 'generated/source-acquisition-fetched-rows.json',
+      source_acquisition_candidates: 'generated/source-acquisition-candidates.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
       threats_validity: 'generated/threats-validity.json',
@@ -640,6 +653,7 @@ const gate = buildGate({
   sourceAcquisitionPackets: readJson(inputs.sourceAcquisitionPackets),
   sourceAcquisitionAudit: readJson(inputs.sourceAcquisitionAudit),
   sourceAcquisitionFetchedRows: readJson(inputs.sourceAcquisitionFetchedRows),
+  sourceAcquisitionCandidates: readJson(inputs.sourceAcquisitionCandidates),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
   threatsValidity: readJson(inputs.threatsValidity),

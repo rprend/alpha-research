@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 13/13
-- Reproduction commands: 16
+- Artifact classes ready: 14/14
+- Reproduction commands: 17
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -26,6 +26,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | source_acquisition_packets | ready | 17 packet files; 246 acquisition row slots. |
 | source_acquisition_audit | ready | 246/246 packet rows audited; findings=0. |
 | source_acquisition_fetch_report | ready | 246/246 source rows fetched from Hugging Face; findings=0. |
+| source_acquisition_candidates | ready | 246 fetched-row candidates; 492 required review rows. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
@@ -47,6 +48,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh source acquisition packets | `node scripts/hard-grounded-research-source-acquisition-packets.mjs` |
 | Refresh source acquisition audit | `node scripts/hard-grounded-research-source-acquisition-audit.mjs` |
 | Fetch source acquisition row metadata | `node scripts/hard-grounded-research-source-acquisition-fetch.mjs` |
+| Materialize source acquisition candidates | `node scripts/hard-grounded-research-source-acquisition-candidates.mjs` |
 | Refresh paper tables and figure data | `node scripts/hard-grounded-research-paper-tables.mjs` |
 | Refresh statistical analysis plan | `node scripts/hard-grounded-research-analysis-plan.mjs` |
 | Refresh release and publication surfaces | `node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs` |

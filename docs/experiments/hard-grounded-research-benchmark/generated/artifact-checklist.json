@@ -9,6 +9,7 @@
     "source_acquisition_packets": "generated/source-acquisition-packets.json",
     "source_acquisition_audit": "generated/source-acquisition-audit.json",
     "source_acquisition_fetched_rows": "generated/source-acquisition-fetched-rows.json",
+    "source_acquisition_candidates": "generated/source-acquisition-candidates.json",
     "construct_map": "generated/construct-map.json",
     "power_plan": "generated/power-plan.json",
     "novelty_audit": "generated/novelty-audit.json",
@@ -26,9 +27,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 13,
-    "artifact_classes_total": 13,
-    "reproduction_commands": 16,
+    "artifact_classes_ready": 14,
+    "artifact_classes_total": 14,
+    "reproduction_commands": 17,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -79,6 +80,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "246/246 source rows fetched from Hugging Face; findings=0.",
+      "blockers": []
+    },
+    {
+      "id": "source_acquisition_candidates",
+      "status": "ready",
+      "ready": true,
+      "evidence": "246 fetched-row candidates; 492 required review rows.",
       "blockers": []
     },
     {
@@ -164,6 +172,10 @@
     {
       "step": "Fetch source acquisition row metadata",
       "command": "node scripts/hard-grounded-research-source-acquisition-fetch.mjs"
+    },
+    {
+      "step": "Materialize source acquisition candidates",
+      "command": "node scripts/hard-grounded-research-source-acquisition-candidates.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

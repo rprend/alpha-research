@@ -40,6 +40,7 @@
     "source_acquisition_packets": "generated/source-acquisition-packets.json",
     "source_acquisition_audit": "generated/source-acquisition-audit.json",
     "source_acquisition_fetched_rows": "generated/source-acquisition-fetched-rows.json",
+    "source_acquisition_candidates": "generated/source-acquisition-candidates.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
     "threats_validity": "generated/threats-validity.json",
@@ -330,6 +331,12 @@
       "passed": true,
       "detail": "246/246 distinct fetched source rows; known_license=174; pointer_only=72",
       "blocker": "Rebalance acquisition batches until all target Hugging Face source rows fetch with no underfilled batches."
+    },
+    {
+      "id": "source_acquisition_candidates_ready",
+      "passed": true,
+      "detail": "246 candidates; categories=10; required_review_rows=492",
+      "blocker": "Materialize fetched source rows into review-pending task candidates before exporting source-acquisition review workbooks."
     },
     {
       "id": "construct_map_ready",

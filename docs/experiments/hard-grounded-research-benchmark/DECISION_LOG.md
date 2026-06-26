@@ -767,3 +767,11 @@ Decision: Add FeTaQA as a known-license table/text source and make source acquis
 Rationale: The fetched-row report showed that the WTQ mirror cannot fill all table, citation-overreach, and entity-disambiguation acquisition slots. Rebalancing toward an accessible MIT-licensed table-to-text dataset turns the acquisition plan from a nominal queue into a feasible source-row substrate.
 
 Consequence: `benchmark-spec.json` now includes `DongfuJiang/FeTaQA` and a WTQ acquisition cap; `scripts/hard-grounded-research-source-acquisition-manifest.mjs` performs capacity-aware allocation; regenerated acquisition packets fetch 246/246 distinct Hugging Face source rows with zero findings while human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Materialize acquired rows into task drafts
+
+Decision: Generate review-pending task drafts from every fetched source-acquisition row.
+
+Rationale: Fetched source rows do not yet move the benchmark toward paper-scale reviewed data unless they become concrete candidate tasks. A generated candidate suite preserves source provenance, pointer-only packaging rules, category-specific drafting instructions, and required review counts before reviewer workbook export.
+
+Consequence: `scripts/hard-grounded-research-source-acquisition-candidates.mjs` emits `generated/source-acquisition-candidates.json`, `generated/source-acquisition-candidates.jsonl`, and `SOURCE_ACQUISITION_CANDIDATES.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require 246 review-pending candidates while human-review, scale, and final novelty blockers remain active.
