@@ -1,0 +1,31 @@
+{
+  "run_id": "openai-judge-gpt4o-student-teacher-balanced-rubric-temporal-test-80-132-v1",
+  "generated_at": "2026-06-26T07:11:35.803Z",
+  "split": "temporal_test",
+  "prediction_run": "openai-student-teacher-balanced-rubric-temporal-test-80-132-v1",
+  "model": "gpt-4o",
+  "examples_offset": 0,
+  "examples_requested": 52,
+  "dry_run": false,
+  "calls_made": 52,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.09758249999999997,
+  "estimated_cost_usd": 0.3519524999999999,
+  "ledger_spend_before_usd": 2.562896450000005,
+  "ledger_spend_after_usd": 2.6604789500000057,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 2.5,
+    "outputPerMillion": 10,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+  },
+  "metrics": {
+    "examples_judged": 52,
+    "answered_predictions": 42,
+    "abstained_predictions": 10,
+    "answer_support_rate": 0.6904761904761905,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.75,
+    "invalid_judgment_rate": 0
+  }
+}

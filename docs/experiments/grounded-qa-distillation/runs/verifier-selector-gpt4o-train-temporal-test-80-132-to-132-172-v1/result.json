@@ -1,0 +1,195 @@
+{
+  "run_id": "verifier-selector-gpt4o-train-temporal-test-80-132-to-132-172-v1",
+  "generated_at": "2026-06-26T07:13:16.322Z",
+  "split": "temporal_test",
+  "train": {
+    "offset": 80,
+    "examples": 52,
+    "candidate_rows": 208,
+    "positive_candidate_rate": 0.625
+  },
+  "eval": {
+    "offset": 132,
+    "examples": 40
+  },
+  "policy_runs": {
+    "direct": {
+      "predictionRun": "openai-student-temporal-test-full-v1",
+      "judgeRun": "openai-judge-gpt4o-direct-mini-temporal-test-80-132-v1",
+      "evalPredictionRun": "openai-student-temporal-test-full-v1",
+      "evalJudgeRun": "openai-judge-student-temporal-test-full-v1"
+    },
+    "strict_rubric": {
+      "predictionRun": "openai-student-teacher-rubric-temporal-test-80-132-v1",
+      "judgeRun": "openai-judge-gpt4o-student-teacher-rubric-temporal-test-80-132-v1",
+      "evalPredictionRun": "openai-student-teacher-rubric-temporal-test-132-172-v1",
+      "evalJudgeRun": "openai-judge-student-teacher-rubric-temporal-test-132-172-v1"
+    },
+    "balanced_rubric": {
+      "predictionRun": "openai-student-teacher-balanced-rubric-temporal-test-80-132-v1",
+      "judgeRun": "openai-judge-gpt4o-student-teacher-balanced-rubric-temporal-test-80-132-v1",
+      "evalPredictionRun": "openai-student-teacher-balanced-rubric-temporal-test-132-172-v1",
+      "evalJudgeRun": "openai-judge-student-teacher-balanced-rubric-temporal-test-132-172-v1"
+    },
+    "citation_repair": {
+      "predictionRun": "citation-contract-repair-direct-mini-temporal-test-80-132-v1",
+      "judgeRun": "openai-judge-gpt4o-citation-contract-repair-direct-mini-temporal-test-80-132-v1",
+      "evalPredictionRun": "citation-contract-repair-direct-mini-temporal-test-132-172-v1",
+      "evalJudgeRun": "openai-judge-citation-contract-repair-direct-mini-temporal-test-132-172-v1"
+    }
+  },
+  "verifier": {
+    "type": "zero_call_logistic_candidate_verifier",
+    "target": "candidate is judge-correct and answer-type-correct on train examples",
+    "feature_names": [
+      "is_direct",
+      "is_strict_rubric",
+      "is_balanced_rubric",
+      "is_citation_repair",
+      "is_answer_recovery",
+      "answered",
+      "inline_complete",
+      "citation_count",
+      "claim_count",
+      "answer_tokens",
+      "answered_policy_count",
+      "same_type_policy_count",
+      "same_citation_policy_count",
+      "valid_citation_rate",
+      "mean_citation_rank",
+      "answer_cited_unigram_coverage",
+      "answer_cited_bigram_coverage",
+      "answer_full_pack_unigram_coverage",
+      "claim_cited_min_coverage",
+      "claim_cited_mean_coverage",
+      "numeric_values_supported_rate",
+      "local_citation_window_coverage",
+      "claim_nearest_citation_min_coverage",
+      "claim_nearest_citation_mean_coverage",
+      "citation_marker_density",
+      "citation_order_monotonicity",
+      "question_cited_overlap",
+      "question_pack_max_overlap",
+      "question_pack_mean_overlap",
+      "abstain_with_high_question_overlap"
+    ],
+    "weights": {
+      "is_direct": 0.15725536225327433,
+      "is_strict_rubric": -0.14679435506505503,
+      "is_balanced_rubric": -0.16262336034264926,
+      "is_citation_repair": 0.06577188829346307,
+      "is_answer_recovery": 0,
+      "answered": -0.24920717274877424,
+      "inline_complete": 0.16521641265296122,
+      "citation_count": -0.22253063125765937,
+      "claim_count": -0.306448412717285,
+      "answer_tokens": 0.19582021129331328,
+      "answered_policy_count": 0.20772926627493138,
+      "same_type_policy_count": 0.3147999219374513,
+      "same_citation_policy_count": 0.3633824326709633,
+      "valid_citation_rate": -0.24920717274877424,
+      "mean_citation_rank": -0.34170951253229886,
+      "answer_cited_unigram_coverage": 0.24485824681696355,
+      "answer_cited_bigram_coverage": 0.3400810945052216,
+      "answer_full_pack_unigram_coverage": 0.32555276516642767,
+      "claim_cited_min_coverage": 0.21586712637639413,
+      "claim_cited_mean_coverage": 0.1087158936142191,
+      "numeric_values_supported_rate": -0.07748982371380994,
+      "local_citation_window_coverage": 0.22878232944198798,
+      "claim_nearest_citation_min_coverage": -0.0774425440691624,
+      "claim_nearest_citation_mean_coverage": 0.003451161586589807,
+      "citation_marker_density": -0.048489020690723646,
+      "citation_order_monotonicity": 0.07971920333253238,
+      "question_cited_overlap": -0.17786997455531564,
+      "question_pack_max_overlap": -0.09690108163441542,
+      "question_pack_mean_overlap": 0.08758439458610022,
+      "abstain_with_high_question_overlap": -0.2771873286191336
+    },
+    "bias": -0.5422904793558013,
+    "train_loss": 0.6299268273559431,
+    "rank_answer_bonus": 0.04,
+    "rank_inline_penalty": -0.35,
+    "rank_direct_inline_bonus": 0,
+    "abstention_margin": 0.05
+  },
+  "answerability_guard": {
+    "enabled": false,
+    "target": "row is answerable on train examples",
+    "feature_names": [
+      "top_answered",
+      "top_verifier_score",
+      "top_to_abstain_rank_gap",
+      "answered_candidate_rate",
+      "abstain_candidate_rate",
+      "max_question_evidence_overlap",
+      "mean_question_evidence_overlap",
+      "top_answer_cited_unigram_coverage",
+      "top_question_cited_overlap",
+      "top_same_type_policy_count",
+      "top_same_citation_policy_count"
+    ],
+    "weights": {
+      "top_answered": 0.223547129739037,
+      "top_verifier_score": 0.2395997399989163,
+      "top_to_abstain_rank_gap": 0.36024356614393066,
+      "answered_candidate_rate": 0.26643887135121136,
+      "abstain_candidate_rate": -0.3295150656218791,
+      "max_question_evidence_overlap": 0.44056495937377155,
+      "mean_question_evidence_overlap": 0.1737717490142246,
+      "top_answer_cited_unigram_coverage": 0.38488491831417815,
+      "top_question_cited_overlap": 0.20863250383293783,
+      "top_same_type_policy_count": 0.2626209776138713,
+      "top_same_citation_policy_count": 0.18530337479007097
+    },
+    "bias": -0.5403702838407312,
+    "train_loss": 0.52009291863036,
+    "threshold": null,
+    "coverage_floor": null
+  },
+  "cost": {
+    "llm_calls": 0,
+    "run_cost_usd": 0,
+    "note": "Verifier selector trains only on existing prediction and judge artifacts."
+  },
+  "train_metrics": {
+    "examples": 52,
+    "answered": 37,
+    "abstained": 15,
+    "answer_type_accuracy": 0.7692307692307693,
+    "citation_precision": 0.7297297297297297,
+    "citation_recall": 0.5472972972972973,
+    "answer_token_f1": 0.2153403222241718,
+    "abstention_accuracy": 0.7692307692307693,
+    "inline_citation_rate": 1,
+    "inherited_judged_correct_rate": 0.8076923076923077,
+    "target_good_rate": 0.6538461538461539
+  },
+  "eval_metrics": {
+    "examples": 40,
+    "answered": 28,
+    "abstained": 12,
+    "answer_type_accuracy": 0.85,
+    "citation_precision": 0.8273809523809523,
+    "citation_recall": 0.6666666666666666,
+    "answer_token_f1": 0.22889551118863966,
+    "abstention_accuracy": 0.85,
+    "inline_citation_rate": 1,
+    "inherited_judged_correct_rate": 0.95,
+    "target_good_rate": 0.8
+  },
+  "eval_policy_mix": {
+    "balanced_rubric": 3,
+    "citation_repair": 1,
+    "direct": 33,
+    "strict_rubric": 3
+  },
+  "eval_oracle": {
+    "target_good_rate": 0.925,
+    "answered": 27,
+    "policy_mix": {
+      "balanced_rubric": 1,
+      "direct": 32,
+      "strict_rubric": 7
+    }
+  }
+}

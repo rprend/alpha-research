@@ -184,6 +184,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/openai-judge-gpt4o-verifier-selector-calibrated-temporal-test-132-172-v1/` and `runs/openai-judge-gpt4o-verifier-selector-answerability-guard-temporal-test-132-172-v1/` re-judge the default calibrated and high-safety selector outputs with `gpt-4o`. The stronger judge is harsher than the mini judge: the default calibrated selector scores 82.5% overall judged correctness, while the high-safety guard scores 87.5%. Treat mini-judge-only support claims as optimistic until independently calibrated.
 
+`runs/verifier-selector-gpt4o-train-temporal-test-80-132-to-132-172-v1/` trains the selector target from `gpt-4o` train-window candidate judgments. The held-out selected outputs score only 77.5% under `gpt-4o`, worse than the default calibrated selector and high-safety guard. A single stronger-judged temporal window is not enough to learn a transferable support router.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -198,7 +200,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $2.34610395 across 2301 OpenAI calls, leaving $97.65389605 under the $100 cap.
+Current ledgered spend is $2.84158145 across 2549 OpenAI calls, leaving $97.15841855 under the $100 cap.
 
 ## Evaluation Plan
 

@@ -30,6 +30,8 @@ const policies = {
   direct: {
     predictionRun: args["direct-run"] ?? "openai-student-temporal-test-full-v1",
     judgeRun: args["direct-judge-run"] ?? "openai-judge-student-temporal-test-full-v1",
+    evalPredictionRun: args["direct-eval-run"] ?? "openai-student-temporal-test-full-v1",
+    evalJudgeRun: args["direct-eval-judge-run"] ?? "openai-judge-student-temporal-test-full-v1",
   },
   strict_rubric: {
     predictionRun: args["strict-run"] ?? "openai-student-teacher-rubric-temporal-test-80-132-v1",
