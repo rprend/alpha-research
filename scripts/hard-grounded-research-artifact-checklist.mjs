@@ -17,6 +17,7 @@ const inputs = {
   sourceAcquisitionAudit: join(generatedDir, 'source-acquisition-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
+  noveltyAudit: join(generatedDir, 'novelty-audit.json'),
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -76,6 +77,7 @@ function buildChecklist({
   sourceAcquisitionAudit,
   constructMap,
   powerPlan,
+  noveltyAudit,
   noveltyEvidence,
   licenseClearance,
   packageManifest,
@@ -101,7 +103,7 @@ function buildChecklist({
     artifactClass('statistics_and_scale', powerPlan.power_plan_ready, `${powerPlan.assumptions.target_reviewed_items_per_category} target reviewed items/category; ${powerPlan.current_state.reviewed_items_remaining} reviewed items remaining.`),
     artifactClass('paper_tables_and_figures', paperTables.paper_tables_ready, `${paperTables.summary.table_count} paper tables; ${paperTables.summary.challenge_rows} challenge rows; ${paperTables.summary.failure_modes} failure modes.`),
     artifactClass('analysis_plan', analysisPlan.analysis_plan_ready, `${analysisPlan.summary.hypotheses} hypotheses; ${analysisPlan.summary.model_families} model families; ${analysisPlan.summary.covariates} covariates.`),
-    artifactClass('novelty_and_claim_boundaries', noveltyEvidence.completion_claim_allowed === false && noveltyEvidence.claim_boundaries.length >= 4, `${noveltyEvidence.source_count} related-work sources; ${noveltyEvidence.allowed_claim_count} allowed claims; ${noveltyEvidence.prohibited_claim_count} prohibited claims.`),
+    artifactClass('novelty_and_claim_boundaries', noveltyEvidence.completion_claim_allowed === false && noveltyEvidence.claim_boundaries.length >= 4 && noveltyAudit.refresh_summary?.query_count >= 4, `${noveltyEvidence.source_count} related-work sources; ${noveltyEvidence.allowed_claim_count} allowed claims; ${noveltyEvidence.prohibited_claim_count} prohibited claims; refresh queries=${noveltyAudit.refresh_summary?.query_count ?? 0}.`),
   ]
 
   const reproductionCommands = [
@@ -145,6 +147,7 @@ function buildChecklist({
       source_acquisition_audit: 'generated/source-acquisition-audit.json',
       construct_map: 'generated/construct-map.json',
       power_plan: 'generated/power-plan.json',
+      novelty_audit: 'generated/novelty-audit.json',
       novelty_evidence: 'generated/novelty-evidence.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       scaled_public_package_summary: 'generated/public-package/scaled-summary.json',
@@ -233,6 +236,7 @@ const checklist = buildChecklist({
   sourceAcquisitionAudit: readJson(inputs.sourceAcquisitionAudit),
   constructMap: readJson(inputs.constructMap),
   powerPlan: readJson(inputs.powerPlan),
+  noveltyAudit: readJson(inputs.noveltyAudit),
   noveltyEvidence: readJson(inputs.noveltyEvidence),
   licenseClearance: readJson(inputs.licenseClearance),
   packageManifest: readJson(inputs.packageManifest),

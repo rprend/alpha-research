@@ -743,3 +743,11 @@ Decision: Generate a packet-level audit that validates source acquisition JSONL 
 Rationale: Source acquisition packets are only useful if their row counts, batch ids, row slots, source-row exclusions, required next steps, and review statuses remain consistent. A generated audit catches packet drift before acquisition starts.
 
 Consequence: `scripts/hard-grounded-research-source-acquisition-audit.mjs` emits `generated/source-acquisition-audit.json` and `SOURCE_ACQUISITION_AUDIT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the audit while acquisition, human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Record the June novelty refresh ledger
+
+Decision: Extend the novelty audit with a machine-readable refresh ledger for current June 2026 related-work probes.
+
+Rationale: The benchmark paper can only defend a narrow novelty position if recent adjacent work is auditable by query, source id, and implication. The refresh ledger makes the current scan reproducible without weakening the final novelty blocker.
+
+Consequence: `scripts/hard-grounded-research-novelty-audit.mjs` now emits `refresh_provenance` and `refresh_summary` in `generated/novelty-audit.json`; release, dataset-card, paper, artifact-checklist, README, and harness checks require the refresh ledger while human-review, scale, and final novelty blockers remain active.

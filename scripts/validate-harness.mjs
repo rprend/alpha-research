@@ -448,7 +448,7 @@ for (const token of ['expansion-review-merge-report.json', 'category_fit_agreeme
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs')), 'Missing hard grounded research novelty audit generator.')
 const hardGroundedNoveltyAuditSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-audit.mjs'), 'utf8')
-for (const token of ['novelty-audit.json', 'completion_claim_allowed', 'high_novelty_risk_categories', 'claim_boundaries', 'search_queries', 'TEMPRAGEVAL', 'MultiHop-RAG', 'MAGIC', 'FaithEval', 'OCC-RAG']) {
+for (const token of ['novelty-audit.json', 'completion_claim_allowed', 'high_novelty_risk_categories', 'claim_boundaries', 'search_queries', 'refresh_provenance', 'refresh_summary', 'TEMPRAGEVAL', 'MultiHop-RAG', 'MAGIC', 'FaithEval', 'OCC-RAG']) {
   assert(hardGroundedNoveltyAuditSource.includes(token), `Hard grounded novelty audit is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')

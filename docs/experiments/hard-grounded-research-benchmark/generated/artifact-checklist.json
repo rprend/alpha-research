@@ -10,6 +10,7 @@
     "source_acquisition_audit": "generated/source-acquisition-audit.json",
     "construct_map": "generated/construct-map.json",
     "power_plan": "generated/power-plan.json",
+    "novelty_audit": "generated/novelty-audit.json",
     "novelty_evidence": "generated/novelty-evidence.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
@@ -111,7 +112,7 @@
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
-      "evidence": "22 related-work sources; 1 allowed claims; 5 prohibited claims.",
+      "evidence": "22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4.",
       "blockers": []
     }
   ],
@@ -215,7 +216,7 @@
       },
       {
         "id": "novelty_audit_final",
-        "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5",
+        "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
         "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
       }
     ]

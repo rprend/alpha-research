@@ -9,6 +9,7 @@ const draftPath = join(experimentDir, 'PAPER_DRAFT.md')
 const requiredInputs = {
   readme: join(experimentDir, 'README.md'),
   noveltyAudit: join(experimentDir, 'NOVELTY_AUDIT.md'),
+  noveltyAuditJson: join(generatedDir, 'novelty-audit.json'),
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   datasetCard: join(experimentDir, 'DATASET_CARD.md'),
   licenseReview: join(generatedDir, 'license-review.json'),
@@ -232,7 +233,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -409,7 +410,7 @@ The novelty audit currently rejects broad claims such as "a RAG benchmark with c
 
 ${markdownTable(['Claim', 'Status', 'Reason'], noveltyEvidenceRows(noveltyEvidence))}
 
-The June 2026 scan records ${noveltyEvidence.search_queries.length} search-query probes and ${noveltyEvidence.prohibited_claim_count} prohibited or unsupported claim framings. The working paper must use the allowed claim boundary below, not the broader rejected framings.
+The June 2026 scan records ${noveltyEvidence.search_queries.length} search-query probes and ${noveltyEvidence.prohibited_claim_count} prohibited or unsupported claim framings. The refreshed novelty audit adds ${noveltyAuditJson.refresh_summary?.query_count ?? 0} current refresh probes over ${noveltyAuditJson.refresh_summary?.related_source_count ?? 0} adjacent sources while keeping completion claims blocked. The working paper must use the allowed claim boundary below, not the broader rejected framings.
 
 ${markdownTable(['Paper claim', 'Status', 'Reason'], noveltyClaimBoundaryRows(noveltyEvidence))}
 
@@ -450,6 +451,7 @@ const draft = renderDraft({
   artifactChecklist: readJson(requiredInputs.artifactChecklist),
   threatsValidity: readJson(requiredInputs.threatsValidity),
   powerPlan: readJson(requiredInputs.powerPlan),
+  noveltyAuditJson: readJson(requiredInputs.noveltyAuditJson),
   noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   goldSummary: readJson(requiredInputs.goldSummary),
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),

@@ -1,6 +1,6 @@
 # Novelty Audit
 
-Status: preliminary literature and internet scan, not a completion claim.
+Status: refreshed_preliminary literature and internet scan, not a completion claim.
 
 Date checked: 2026-06-26
 
@@ -28,6 +28,15 @@ Prohibited or unsupported claims: 5
 | TEMPRAGEVAL temporal RAG benchmark 2025 arxiv |
 | MultiHop-RAG benchmark 2024 multi-hop retrieval augmented generation |
 | MAGIC benchmark multi-hop question answering RAG 2025 |
+
+## June 2026 Refresh Ledger
+
+| Query | Checked | Relevant sources | Implication |
+| --- | --- | --- | --- |
+| 2026 source authority conflicts RAG benchmark citation authority | 2026-06-26 | citation-closure-2026<br>legal-claim-rag-2026 | Authority-aware attribution is close enough that source authority must be framed as one category inside the unified benchmark, not as a standalone novelty claim. |
+| 2026 temporal RAG stale current document conflict benchmark as of date QA | 2026-06-26 | chronoqa-2025<br>temprageval-2025 | Temporal QA and RAG are crowded; the benchmark claim must focus on stale/current evidence conflicts and citation snapshot validity. |
+| 2026 citation supports fact not conclusion benchmark RAG faithfulness grounded QA | 2026-06-26 | longcite-2024<br>faitheval-2024<br>lit-ragbench-2026 | Citation faithfulness is adjacent; the differentiator is whether cited facts license the final research conclusion. |
+| 2026 long context grounded QA benchmark citation large corpus | 2026-06-26 | corpusqa-2026<br>longbench-pro-2026<br>enterprise-rag-bench-2026 | Large-corpus and long-context evaluation are not novel by themselves; the artifact must emphasize hard-grounded failure controls. |
 
 ## Claim Boundaries
 

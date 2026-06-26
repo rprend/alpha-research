@@ -166,7 +166,7 @@ Packaged redistribution clearance is currently ready for the generated public pa
 1. Current scale is 30 pilot items, not the target 30-50 reviewed items per category.
 2. Gold labels are blocked until independent review and disagreement resolution are complete.
 3. Some challenge items are synthetic transformations of existing rows and require human review before publication.
-4. The novelty audit is preliminary and must be refreshed before any completion claim.
+4. The novelty audit is refreshed_preliminary and records 4 June 2026 refresh queries; it still must become final before any completion claim.
 5. Unknown-license upstream datasets must remain pointer-only or be replaced before any package that redistributes source text.
 
 ## Release Gate
@@ -193,6 +193,7 @@ Key release checks:
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7
 - Analysis plan: pass - 4 hypotheses; 4 model families; reviewed=0/300
 - Power plan: pass - 30 reviewed items/category; 300 total target; remaining=300
+- Novelty refresh ledger: pass - 4 refresh queries; 10 related sources; completion_claim_allowed=false
 - Novelty claim boundaries: pass - 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims
 - Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
 - Annotation return readiness: pass - 30 expected returned files; 124 expected returned rows
@@ -201,4 +202,4 @@ Key release checks:
 - Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false
 - Public package clearance: pass - tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true
 - External model baselines: pass - anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
-- Novelty audit: block - checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5
+- Novelty audit: block - checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5

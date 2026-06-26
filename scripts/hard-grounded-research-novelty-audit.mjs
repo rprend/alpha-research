@@ -18,6 +18,33 @@ const searchQueries = [
   'MAGIC benchmark multi-hop question answering RAG 2025',
 ]
 
+const refreshProvenance = [
+  {
+    query: '2026 source authority conflicts RAG benchmark citation authority',
+    checked_date: checkedDate,
+    relevant_source_ids: ['citation-closure-2026', 'legal-claim-rag-2026'],
+    implication: 'Authority-aware attribution is close enough that source authority must be framed as one category inside the unified benchmark, not as a standalone novelty claim.',
+  },
+  {
+    query: '2026 temporal RAG stale current document conflict benchmark as of date QA',
+    checked_date: checkedDate,
+    relevant_source_ids: ['chronoqa-2025', 'temprageval-2025'],
+    implication: 'Temporal QA and RAG are crowded; the benchmark claim must focus on stale/current evidence conflicts and citation snapshot validity.',
+  },
+  {
+    query: '2026 citation supports fact not conclusion benchmark RAG faithfulness grounded QA',
+    checked_date: checkedDate,
+    relevant_source_ids: ['longcite-2024', 'faitheval-2024', 'lit-ragbench-2026'],
+    implication: 'Citation faithfulness is adjacent; the differentiator is whether cited facts license the final research conclusion.',
+  },
+  {
+    query: '2026 long context grounded QA benchmark citation large corpus',
+    checked_date: checkedDate,
+    relevant_source_ids: ['corpusqa-2026', 'longbench-pro-2026', 'enterprise-rag-bench-2026'],
+    implication: 'Large-corpus and long-context evaluation are not novel by themselves; the artifact must emphasize hard-grounded failure controls.',
+  },
+]
+
 const sources = [
   {
     id: 'occ-rag-2026',
@@ -266,10 +293,19 @@ function markdownTable(headers, rows) {
 
 function buildAudit() {
   const highRisk = categoryCoverage.filter((entry) => entry.novelty_risk === 'high').length
+  const refreshSourceIds = new Set(refreshProvenance.flatMap((entry) => entry.relevant_source_ids))
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
-    status: 'preliminary',
+    status: 'refreshed_preliminary',
     checked_date: checkedDate,
+    refresh_provenance: refreshProvenance,
+    refresh_summary: {
+      checked_date: checkedDate,
+      query_count: refreshProvenance.length,
+      related_source_count: refreshSourceIds.size,
+      source_ids: [...refreshSourceIds].sort(),
+      completion_claim_allowed: false,
+    },
     completion_claim_allowed: false,
     search_queries: searchQueries,
     allowed_claim_count: claimBoundaries.filter((claim) => claim.allowed).length,
@@ -299,6 +335,12 @@ function renderMarkdown(audit) {
     entry.differentiator,
   ])
   const queryRows = audit.search_queries.map((query) => [query])
+  const refreshRows = audit.refresh_provenance.map((entry) => [
+    entry.query,
+    entry.checked_date,
+    entry.relevant_source_ids.join('<br>'),
+    entry.implication,
+  ])
   const boundaryRows = audit.claim_boundaries.map((claim) => [
     claim.claim,
     claim.allowed ? 'allowed with evidence' : 'prohibited / not yet supported',
@@ -328,6 +370,10 @@ Prohibited or unsupported claims: ${audit.prohibited_claim_count}
 ## June 2026 Search Provenance
 
 ${markdownTable(['Query'], queryRows)}
+
+## June 2026 Refresh Ledger
+
+${markdownTable(['Query', 'Checked', 'Relevant sources', 'Implication'], refreshRows)}
 
 ## Claim Boundaries
 

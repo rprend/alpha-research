@@ -231,7 +231,7 @@ The generated artifact checklist records 15 reproduction commands and 12/12 read
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
-| novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims. |
+| novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
 
@@ -329,7 +329,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
-| novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 |
+| novelty_audit_final | no | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 |
+| novelty_refresh_ledger_ready | yes | 4 refresh queries; 10 related sources; completion_claim_allowed=false |
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |
 | corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
@@ -353,7 +354,7 @@ The novelty audit currently rejects broad claims such as "a RAG benchmark with c
 | Unified hard-grounded research failure taxonomy | plausibly_differentiated_pending_final_audit | The combined bundle of lifecycle changes, authority hierarchy, stale/current snapshots, conclusion-overreach, insufficiency, disambiguation, and contradiction remains the defensible contribution if supported by reviewed data. |
 | A paper-ready benchmark with reliable labels | not_yet_supported | Human review, adjudication, category scale, and final novelty checks are still release blockers. |
 
-The June 2026 scan records 6 search-query probes and 5 prohibited or unsupported claim framings. The working paper must use the allowed claim boundary below, not the broader rejected framings.
+The June 2026 scan records 6 search-query probes and 5 prohibited or unsupported claim framings. The refreshed novelty audit adds 4 current refresh probes over 10 adjacent sources while keeping completion claims blocked. The working paper must use the allowed claim boundary below, not the broader rejected framings.
 
 | Paper claim | Status | Reason |
 | --- | --- | --- |

@@ -27,6 +27,7 @@ const inputPaths = {
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
+  noveltyAudit: join(generatedDir, 'novelty-audit.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -139,6 +140,7 @@ function renderCard({
   artifactChecklist,
   threatsValidity,
   powerPlan,
+  noveltyAudit,
   licenseReview,
   licenseClearance,
   packageManifest,
@@ -293,7 +295,7 @@ Packaged redistribution clearance is currently ${licenseClearance.public_redistr
 1. Current scale is ${pilotSuite.items.length} pilot items, not the target 30-50 reviewed items per category.
 2. Gold labels are blocked until independent review and disagreement resolution are complete.
 3. Some challenge items are synthetic transformations of existing rows and require human review before publication.
-4. The novelty audit is preliminary and must be refreshed before any completion claim.
+4. The novelty audit is ${noveltyAudit.status} and records ${noveltyAudit.refresh_summary?.query_count ?? 0} June 2026 refresh queries; it still must become final before any completion claim.
 5. Unknown-license upstream datasets must remain pointer-only or be replaced before any package that redistributes source text.
 
 ## Release Gate
@@ -320,6 +322,7 @@ Key release checks:
 - Paper tables: ${checkDetail(releaseGate, 'paper_tables_ready')}
 - Analysis plan: ${checkDetail(releaseGate, 'analysis_plan_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
+- Novelty refresh ledger: ${checkDetail(releaseGate, 'novelty_refresh_ledger_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
 - Annotation return readiness: ${checkDetail(releaseGate, 'annotation_return_readiness_ready')}
@@ -359,6 +362,7 @@ writeText(
     artifactChecklist: readJson(inputPaths.artifactChecklist),
     threatsValidity: readJson(inputPaths.threatsValidity),
     powerPlan: readJson(inputPaths.powerPlan),
+    noveltyAudit: readJson(inputPaths.noveltyAudit),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),

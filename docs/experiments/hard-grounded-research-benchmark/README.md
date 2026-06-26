@@ -42,7 +42,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 ## Generated Files
 
 - `DECISION_LOG.md`: one-decision-per-iteration project decision log.
-- `NOVELTY_AUDIT.md`: current literature comparison and novelty release gate.
+- `NOVELTY_AUDIT.md`: current literature comparison, June 2026 refresh ledger, and novelty release gate.
 - `NOVELTY_EVIDENCE.md` and `generated/novelty-evidence.json`: generated related-work evidence registry for source-backed novelty positioning.
 - `LICENSE_REVIEW.md` and `generated/license-review.json`: generated upstream dataset license/provenance review and redistribution blocker list.
 - `LICENSE_IMPACT.md` and `generated/license-impact.json`: generated impact queue for expansion candidates that depend on unknown-license upstream sources.

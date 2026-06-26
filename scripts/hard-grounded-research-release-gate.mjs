@@ -389,6 +389,16 @@ function buildGate({
       blocker: 'Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion.',
     },
     {
+      id: 'novelty_refresh_ledger_ready',
+      passed:
+        noveltyAuditJson.refresh_summary?.checked_date === novelty.checked_date &&
+        noveltyAuditJson.refresh_summary?.query_count >= 4 &&
+        noveltyAuditJson.refresh_summary?.related_source_count >= 8 &&
+        noveltyAuditJson.refresh_summary?.completion_claim_allowed === false,
+      detail: `${noveltyAuditJson.refresh_summary?.query_count ?? 0} refresh queries; ${noveltyAuditJson.refresh_summary?.related_source_count ?? 0} related sources; completion_claim_allowed=${noveltyAuditJson.refresh_summary?.completion_claim_allowed}`,
+      blocker: 'Record a current June 2026 novelty refresh ledger before using the benchmark paper draft.',
+    },
+    {
       id: 'novelty_evidence_registry_present',
       passed: noveltyEvidence.source_count >= 5 && noveltyEvidence.completion_claim_allowed === false,
       detail: `${noveltyEvidence.source_count} related-work sources registered; completion_claim_allowed=${noveltyEvidence.completion_claim_allowed}`,

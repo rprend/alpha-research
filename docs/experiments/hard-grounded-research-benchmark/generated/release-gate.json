@@ -267,8 +267,14 @@
     {
       "id": "novelty_audit_final",
       "passed": false,
-      "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5",
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
       "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    },
+    {
+      "id": "novelty_refresh_ledger_ready",
+      "passed": true,
+      "detail": "4 refresh queries; 10 related sources; completion_claim_allowed=false",
+      "blocker": "Record a current June 2026 novelty refresh ledger before using the benchmark paper draft."
     },
     {
       "id": "novelty_evidence_registry_present",
@@ -364,7 +370,7 @@
     },
     {
       "id": "novelty_audit_final",
-      "detail": "checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5",
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
       "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
     }
   ]
