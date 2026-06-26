@@ -48,7 +48,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `generated/coverage-matrix.json`: category to dataset/task coverage.
 - `generated/approach-scores.json`: comparison of construction approaches.
 - `generated/materialized-examples.json`: concrete HF Dataset Viewer rows normalized into benchmark evidence examples.
-- `generated/pilot-suite.json`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items.
+- `generated/pilot-suite.json`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items, including explicit challenge payloads for hard categories.
 - `generated/adjudication-queue.jsonl`, `generated/adjudication-summary.json`, and `ADJUDICATION_PACKET.md`: human review path from machine-seeded pilot to gold data.
 - `generated/baseline-submission.json` and `generated/baseline-report.json`: deterministic scorer smoke artifacts from `benchmark:hard-grounded:evaluate`.
 - `generated/baseline-comparisons.json`: non-oracle diagnostic baseline comparison for answer-only and first-evidence systems.

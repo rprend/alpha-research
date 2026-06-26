@@ -55,3 +55,11 @@ Decision: Treat the machine-seeded pilot suite as a review queue, not as publish
 Rationale: Paper-worthy benchmark claims require adjudicated labels, minimal citation sets, and explicit insufficiency/conflict judgments. The pilot suite is useful for exercising the machinery, but it should not be confused with reviewed ground truth.
 
 Consequence: The generator now emits `generated/adjudication-queue.jsonl`, `generated/adjudication-summary.json`, and `ADJUDICATION_PACKET.md`; the summary marks `gold_ready: false` until human review is complete.
+
+## 2026-06-26 — Make adversarial traps explicit
+
+Decision: Encode category-specific challenge payloads inside pilot items instead of relying on the generic `adversarial_wrapper` flag.
+
+Rationale: Reviewers and model runners need to know the exact trap an item is testing: stale/current conflict, lifecycle supersession, authority ranking, insufficiency, citation overreach, as-of-date leakage, or contradiction handling. A flag alone is not enough to make the benchmark inspectable or reproducible.
+
+Consequence: Pilot items and adjudication queue rows now include structured `challenge` objects with required behavior, invalid evidence policy, and the intended failure mode.

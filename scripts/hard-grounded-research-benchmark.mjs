@@ -187,6 +187,112 @@ function climateFeverLabel(value) {
   return value
 }
 
+function buildChallenge(category, sourceExamples, index) {
+  const primary = sourceExamples[0]
+  const secondary = sourceExamples[1] || sourceExamples[0]
+  const primaryEvidence = primary.evidence_units?.[0]
+  const secondaryEvidence = secondary.evidence_units?.[0]
+  const asOfYear = 2018 + index
+
+  if (category === 'stale-vs-current document conflicts') {
+    return {
+      type: 'stale_current_conflict',
+      older_document: {
+        synthetic_date: `${asOfYear - 4}-01-01`,
+        claim: primary.native_question,
+        status: 'stale_candidate',
+      },
+      current_document: {
+        synthetic_date: `${asOfYear}-01-01`,
+        evidence_id: primaryEvidence?.id,
+        status: 'current_controlling_evidence',
+      },
+      required_behavior: 'Use the current document for the answer and explicitly mark the older document as stale if it conflicts.',
+      trap: 'Treating the older claim text as equally current evidence.',
+    }
+  }
+
+  if (category === 'appended document lifecycle changes') {
+    return {
+      type: 'document_lifecycle_appendix',
+      original_body: {
+        evidence_id: primaryEvidence?.id,
+        interpretation: 'candidate_original_claim',
+      },
+      appended_update: {
+        synthetic_section: 'Appendix Z / erratum',
+        synthetic_date: `${asOfYear}-06-30`,
+        instruction: 'This appended section controls the final answer when it narrows or supersedes the original body.',
+      },
+      required_behavior: 'Distinguish original-body evidence from appended evidence before answering.',
+      trap: 'Citing original-body text for a conclusion that the appended section qualifies.',
+    }
+  }
+
+  if (category === 'source authority conflicts') {
+    return {
+      type: 'authority_conflict',
+      authority_order: [
+        'expert-reviewed evidence',
+        'dataset claim label',
+        'community explanation',
+      ],
+      high_authority_evidence_id: primaryEvidence?.id,
+      lower_authority_evidence_id: secondaryEvidence?.id,
+      required_behavior: 'Resolve conflicts by applying the authority order and naming the lower-authority source if rejected.',
+      trap: 'Choosing the clearest prose rather than the highest-authority evidence.',
+    }
+  }
+
+  if (category === 'evidence insufficiency / abstention') {
+    return {
+      type: 'insufficiency_probe',
+      missing_evidence: [
+        'independent confirmation of the requested conclusion',
+        'direct evidence tying the cited fact to the final claim',
+      ],
+      candidate_evidence_id: primaryEvidence?.id,
+      required_behavior: 'Answer only if the evidence establishes the requested conclusion; otherwise abstain and name the missing evidence.',
+      trap: 'Answering from a plausible but under-supported related fact.',
+    }
+  }
+
+  if (category === 'citation supports fact but not conclusion') {
+    return {
+      type: 'citation_overreach_probe',
+      supported_fact_evidence_id: primaryEvidence?.id,
+      unsupported_conclusion_template: 'Because the cited fact is true, the broader comparative or causal conclusion is also true.',
+      required_behavior: 'Separate supported premises from conclusions and refuse unsupported inferences.',
+      trap: 'Using a true citation as post-hoc support for a conclusion it does not entail.',
+    }
+  }
+
+  if (category === 'temporal questions: as of date X') {
+    return {
+      type: 'as_of_date_constraint',
+      as_of_date: `${asOfYear}-12-31`,
+      future_evidence_policy: 'Future evidence is unavailable and must not be used in the answer.',
+      valid_evidence_ids: [primaryEvidence?.id].filter(Boolean),
+      excluded_future_evidence_ids: sourceExamples.slice(1).flatMap((source) => (source.evidence_units || []).map((evidence) => evidence.id)),
+      required_behavior: 'Answer as of the requested date and disclose excluded future evidence if mentioned.',
+      trap: 'Leaking later evidence into an as-of answer.',
+    }
+  }
+
+  if (category === 'cross-document contradiction') {
+    return {
+      type: 'cross_document_contradiction',
+      document_a_evidence_id: primaryEvidence?.id,
+      document_b_evidence_id: secondaryEvidence?.id,
+      contradiction_policy: 'If documents cannot be reconciled by authority or date, report CONFLICT rather than synthesizing consensus.',
+      required_behavior: 'Partition evidence into supporting/refuting/insufficient groups before final answer.',
+      trap: 'Flattening incompatible evidence into a single smooth answer.',
+    }
+  }
+
+  return null
+}
+
 function normalizeQasperAnswer(qas, index) {
   const answers = qas.answers?.[index]
   const answerGroup = firstArrayValue(answers?.answer)
@@ -397,6 +503,7 @@ function buildPilotSuite(spec, materializedExamples) {
       const sourceExamples = taskExampleSets.map((examples) => examples[index % examples.length])
       const construction = task.dataset_ids.length > 1 ? 'composed_corpus_suite' : 'reuse_native_labels'
       const transform = adversarialCategories.has(task.category) ? 'adversarial_wrapper' : 'native_row'
+      const challenge = buildChallenge(task.category, sourceExamples, index)
       const suffix = String(index + 1).padStart(3, '0')
       pilotItems.push({
         id: `${task.id}_pilot_${suffix}`,
@@ -404,6 +511,7 @@ function buildPilotSuite(spec, materializedExamples) {
         category: task.category,
         construction,
         transform,
+        challenge,
         question: `${task.question_template} Native prompt: ${sourceExamples[0].native_question}`,
         source_examples: sourceExamples,
         expected_answer: sourceExamples.some((source) => String(source.native_answer).toUpperCase() === 'ABSTAIN')
@@ -453,6 +561,7 @@ function buildAdjudicationQueue(pilotSuite, rubrics) {
       review_status: 'needs_review',
       construction: item.construction,
       transform: item.transform,
+      challenge: item.challenge,
       question: item.question,
       expected_answer_candidate: item.expected_answer,
       required_dimensions: rubric.required_dimensions,
@@ -588,7 +697,7 @@ ${matrixLines}
 - \`generated/coverage-matrix.json\`: category to dataset/task coverage.
 - \`generated/approach-scores.json\`: comparison of construction approaches.
 - \`generated/materialized-examples.json\`: concrete HF Dataset Viewer rows normalized into benchmark evidence examples.
-- \`generated/pilot-suite.json\`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items.
+- \`generated/pilot-suite.json\`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items, including explicit challenge payloads for hard categories.
 - \`generated/adjudication-queue.jsonl\`, \`generated/adjudication-summary.json\`, and \`ADJUDICATION_PACKET.md\`: human review path from machine-seeded pilot to gold data.
 - \`generated/baseline-submission.json\` and \`generated/baseline-report.json\`: deterministic scorer smoke artifacts from \`benchmark:hard-grounded:evaluate\`.
 - \`generated/baseline-comparisons.json\`: non-oracle diagnostic baseline comparison for answer-only and first-evidence systems.
