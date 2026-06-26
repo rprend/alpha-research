@@ -1219,3 +1219,13 @@ Reason: The versioned git-doc prototype should not just be a dataset artifact; i
 Result: The naive copy-first-evidence baseline reaches 100.0% inline citation rate but only 50.0% overall correctness and 0.0% correctness on stale-snapshot abstention cases. A snapshot-aware prefix retriever reaches 100.0% correctness on the deterministic 30-example slice by answering stable/update lines and abstaining on stale train-snapshot queries. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
 
 Tradeoff: This is a deterministic diagnostic over generated line-level questions, not a natural private-KB benchmark or trained-student result. It strengthens the evolving-snapshot argument and claim-boundary discipline, but the Qwen 3B smoke plus paid grounded judge remain the paper-critical blockers.
+
+### D143. Add a leak-safe WriteBack diagnostic on the versioned KB prototype
+
+Decision: Add `grounded-qa-distillation-versioned-kb-writeback-diagnostic.mjs`, materialize `versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1`, validate it, and wire it into the WriteBack scope artifact, manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: WriteBack-RAG-style memory is a close amortization neighbor. The prior scoping artifact correctly rejected a full QASPER WriteBack baseline because final-window memory would leak evaluation facts, but the new versioned git-doc snapshots make a small leak-safe diagnostic feasible: records can be written only from the train snapshot, then compared against live-snapshot retrieval and an intentionally leaky eval-written upper bound.
+
+Result: Leak-safe train-only write-back reaches 60.0% overall correctness by answering stable facts and abstaining on stale train-snapshot requests, but it has 0.0% correctness on eval-update questions. Train write-back plus live snapshot evidence reaches 100.0% correctness on the deterministic 30-example slice. The leaky eval-written upper bound answers 100.0% of stale-snapshot queries with 0.0% correctness, showing why write-back records need snapshot provenance. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+Tradeoff: This is a deterministic toy diagnostic over repository docs, not a full natural QASPER/private-KB WriteBack baseline and not a trained-student result. It strengthens the related-work boundary and leakage argument while keeping the Qwen 3B smoke plus paid grounded judge as the paper-critical blockers.

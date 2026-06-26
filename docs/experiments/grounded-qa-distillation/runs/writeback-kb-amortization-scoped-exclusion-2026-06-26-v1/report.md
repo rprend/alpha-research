@@ -6,7 +6,7 @@ Status: scoped_exclusion_with_future_baseline_requirements
 
 - Close neighbor: WriteBack-RAG-style amortization writes derived evidence, summaries, or answers back into an external memory/KB so later queries retrieve the augmented corpus.
 - Current scope: This project distills expensive grounded behavior into model/scaffold training data and preference data while keeping the evaluation evidence pack fixed and citation-auditable.
-- Exclusion reason: A mutable write-back memory would change the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv-id temporal split is not a trusted dated/private KB snapshot, so a full write-back baseline would overclaim evolving-KB validity.
+- Exclusion reason: A mutable write-back memory changes the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv result still has no full write-back baseline; the git-doc snapshot diagnostic is a toy versioned-domain check, not a replacement for the paper-critical Qwen 3B trained-student evaluation.
 
 ## Current Artifacts
 
@@ -21,9 +21,18 @@ Status: scoped_exclusion_with_future_baseline_requirements
 - Support contrast prep: 126 SFT train rows, 59 preference train rows, 69 eval prompts.
 - Joint-action GPU prep: 185 SFT train rows, 59 DPO train rows, 69 eval prompts.
 
+## Versioned WriteBack Diagnostic
+
+- Run: versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1
+- Status: writeback_diagnostic_complete
+- Train-only writeback correctness: 60.0%
+- Train writeback plus live snapshot correctness: 100.0%
+- Leaky eval-memory stale answer rate: 100.0%
+- Interpretation: Write-back memory is a valid competing amortization family only when records are created from prior snapshots. Train-only memory helps stable facts but cannot replace live retrieval for new updates; eval-written memory leaks future facts and over-answers stale train-snapshot queries.
+
 ## Decision
 
-Exclude WriteBack-RAG as a required baseline for the current artifact set, while recording exact requirements for a future fair baseline.
+Keep WriteBack-RAG scoped out as a required QASPER baseline for the current artifact set, while retaining the versioned git-doc diagnostic as evidence about leakage-safe write-back behavior.
 
 - No artifact creates a persistent derived-memory index that is retrieved at inference time.
 - Existing exports are answer/verifier/preference labels whose provenance remains in training files, not new KB records.
@@ -40,7 +49,7 @@ Exclude WriteBack-RAG as a required baseline for the current artifact set, while
 
 ## Paper Implication
 
-The paper can discuss WriteBack-RAG as a competing amortization family, but current claims should be scoped to post-training data/scaffold distillation. A future version with trusted dated/private KB snapshots should add the write-back baseline.
+The paper can discuss WriteBack-RAG as a competing amortization family and include the git-doc diagnostic as a small leakage-safe snapshot check, but current claims should remain scoped to post-training data/scaffold distillation until a full write-back baseline is run on a natural dated/private KB benchmark.
 
 ## Budget
 

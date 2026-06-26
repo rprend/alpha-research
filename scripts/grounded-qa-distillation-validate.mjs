@@ -84,6 +84,7 @@ if (!errors.length) {
   await validateDragStyleComparisonRunsIfPresent();
   await validateCitationSftComparisonRunsIfPresent();
   await validateWriteBackScopeRunsIfPresent();
+  await validateVersionedKbWritebackDiagnosticRunsIfPresent();
   await validateTrustedDatedSnapshotRunsIfPresent();
   await validateVersionedPrivateKbPrototypeRunsIfPresent();
   await validateVersionedPrivateKbEvalRunsIfPresent();
@@ -3080,6 +3081,71 @@ async function validateWriteBackScopeRunsIfPresent() {
     const reason = String(result.related_work_framing?.exclusion_reason ?? "").toLowerCase();
     if (!reason.includes("leak") || !reason.includes("dated")) {
       errors.push(`${entry.name}: WriteBack scoped exclusion must explain leakage and dated-snapshot requirements.`);
+    }
+  }
+}
+
+async function validateVersionedKbWritebackDiagnosticRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("versioned-kb-writeback-diagnostic-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const recordsPath = path.join(runsDir, entry.name, "writeback_records.jsonl");
+    let result;
+    let report;
+    let predictions;
+    let records;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      predictions = await readJsonl(predictionsPath);
+      records = await readJsonl(recordsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed versioned KB WriteBack diagnostic artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "versioned_kb_writeback_diagnostic") {
+      errors.push(`${entry.name}: unexpected WriteBack diagnostic artifact type.`);
+    }
+    if (result.status !== "writeback_diagnostic_complete") {
+      errors.push(`${entry.name}: WriteBack diagnostic should complete.`);
+    }
+    const systemIds = new Set((result.systems ?? []).map((row) => row.id));
+    for (const id of ["leak_safe_train_writeback_only", "leak_safe_train_writeback_plus_live_snapshot", "leaky_eval_writeback_upper_bound"]) {
+      if (!systemIds.has(id)) errors.push(`${entry.name}: missing WriteBack diagnostic system ${id}.`);
+    }
+    const trainOnly = result.systems?.find((row) => row.id === "leak_safe_train_writeback_only");
+    const safeLive = result.systems?.find((row) => row.id === "leak_safe_train_writeback_plus_live_snapshot");
+    const leaky = result.systems?.find((row) => row.id === "leaky_eval_writeback_upper_bound");
+    if (Number(trainOnly?.by_type?.eval_update_grounded_answer?.overall_correct_rate) !== 0) {
+      errors.push(`${entry.name}: train-only writeback should not solve eval-only updates.`);
+    }
+    if (Number(safeLive?.overall_correct_rate) !== 1 || Number(safeLive?.by_type?.stale_snapshot_abstention?.overall_correct_rate) !== 1) {
+      errors.push(`${entry.name}: leak-safe live snapshot writeback should solve the deterministic slice.`);
+    }
+    if (leaky?.leaky !== true || Number(leaky?.by_type?.stale_snapshot_abstention?.answer_rate) !== 1 || Number(leaky?.by_type?.stale_snapshot_abstention?.overall_correct_rate) !== 0) {
+      errors.push(`${entry.name}: leaky eval writeback must be marked invalid by stale over-answering.`);
+    }
+    if (records.length !== Number(result.records?.train_writeback_records) + Number(result.records?.eval_records_for_leaky_upper_bound)) {
+      errors.push(`${entry.name}: writeback record count mismatch.`);
+    }
+    if (predictions.length !== Number(result.systems?.length ?? 0) * 30) {
+      errors.push(`${entry.name}: prediction row count should equal systems times 30 examples.`);
+    }
+    if (!report.includes("Versioned KB WriteBack Diagnostic") || !report.includes("Eval-Update Slice")) {
+      errors.push(`${entry.name}: WriteBack diagnostic report must expose eval-update slice.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: WriteBack diagnostic must be zero-cost.`);
     }
   }
 }

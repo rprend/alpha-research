@@ -15,6 +15,7 @@ const trustedDates = await readResult("trusted-dated-kb-snapshot-arxiv-api-2026-
 const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026-06-26-v1");
 const versionedKbPrototype = await readResult("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedKbEval = await readResult("versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
+const versionedWritebackDiagnostic = await readResult("versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const transfer = await readResult("risk-gate-transfer-synthesis-240-389-v1");
 const guard = await readResult("claim-entailment-guard-validation-240-389-v1");
 const miniVerifier = await readResult("mini-verifier-gate-balanced-risk-gate-240-389-v1");
@@ -67,6 +68,7 @@ const result = {
     corpus_realism_audit_run_id: corpusRealism.run_id,
     versioned_domain_kb_extension_candidate_run_id: versionedKbPrototype.run_id,
     versioned_domain_kb_eval_run_id: versionedKbEval.run_id,
+    versioned_writeback_diagnostic_run_id: versionedWritebackDiagnostic.run_id,
     versioned_domain_kb_candidate_examples: versionedKbPrototype.examples.total,
     supports_private_enterprise_kb_claim: corpusRealism.scorecard.supports_private_enterprise_kb_claim,
     allowed_claim: "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB.",
@@ -154,6 +156,14 @@ const result = {
       prefix_retriever_snapshot_guard: versionedKbEval.systems.find((row) => row.id === "prefix_retriever_snapshot_guard"),
       interpretation: "On the deterministic git-doc prototype, naive citation-copy over-answers stale snapshot queries, while a snapshot-aware prefix retriever handles both update answers and stale abstentions.",
     },
+    versioned_writeback_diagnostic: {
+      run_id: versionedWritebackDiagnostic.run_id,
+      status: versionedWritebackDiagnostic.status,
+      train_only_writeback: versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_only"),
+      train_writeback_plus_live_snapshot: versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_plus_live_snapshot"),
+      leaky_eval_writeback_upper_bound: versionedWritebackDiagnostic.systems.find((row) => row.id === "leaky_eval_writeback_upper_bound"),
+      interpretation: versionedWritebackDiagnostic.key_result.interpretation,
+    },
     joint_action_packet_quality: {
       run_id: packetQualityAudit.run_id,
       status: packetQualityAudit.status,
@@ -226,6 +236,10 @@ const result = {
       run_id: writeback.run_id,
       status: writeback.status,
       scoped_reason: writeback.related_work_framing.exclusion_reason,
+      diagnostic_run_id: versionedWritebackDiagnostic.run_id,
+      train_only_overall_correct_rate: versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_only")?.overall_correct_rate,
+      train_plus_live_overall_correct_rate: versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_plus_live_snapshot")?.overall_correct_rate,
+      leaky_stale_answer_rate: versionedWritebackDiagnostic.systems.find((row) => row.id === "leaky_eval_writeback_upper_bound")?.by_type?.stale_snapshot_abstention?.answer_rate,
     },
   },
   qwen3b_required_final_result: {
@@ -273,7 +287,7 @@ const result = {
     },
     {
       section: "Dataset and Evolving-KB Protocol",
-      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, versionedKbEval.run_id, "extended_temporal_future_holdout-manifest.json"],
+      evidence: [trustedDates.run_id, versionedKbPrototype.run_id, versionedKbEval.run_id, versionedWritebackDiagnostic.run_id, "extended_temporal_future_holdout-manifest.json"],
       audit: corpusRealism.run_id,
       current_status: "draftable_with_public_proxy_caveat",
     },
@@ -284,7 +298,7 @@ const result = {
     },
     {
       section: "Baselines and Ablations",
-      evidence: [drag.run_id, longcite.run_id, writeback.run_id, transfer.run_id, guard.run_id],
+      evidence: [drag.run_id, longcite.run_id, writeback.run_id, versionedWritebackDiagnostic.run_id, transfer.run_id, guard.run_id],
       current_status: "draftable",
     },
     {

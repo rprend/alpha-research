@@ -43,6 +43,7 @@ const currentArtifacts = [
 
 const supportContrast = await readResult("support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1");
 const jointAction = await readResult("joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
+const versionedWritebackDiagnostic = await readResultIfPresent("versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 
 const result = {
   run_id: runId,
@@ -52,7 +53,7 @@ const result = {
   related_work_framing: {
     close_neighbor: "WriteBack-RAG-style amortization writes derived evidence, summaries, or answers back into an external memory/KB so later queries retrieve the augmented corpus.",
     current_project_scope: "This project distills expensive grounded behavior into model/scaffold training data and preference data while keeping the evaluation evidence pack fixed and citation-auditable.",
-    exclusion_reason: "A mutable write-back memory would change the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv-id temporal split is not a trusted dated/private KB snapshot, so a full write-back baseline would overclaim evolving-KB validity.",
+    exclusion_reason: "A mutable write-back memory changes the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv result still has no full write-back baseline; the git-doc snapshot diagnostic is a toy versioned-domain check, not a replacement for the paper-critical Qwen 3B trained-student evaluation.",
   },
   current_artifacts: currentArtifacts,
   response_distillation_packets: {
@@ -68,8 +69,16 @@ const result = {
       role: "Creates SFT/DPO rows for a joint keep/repair/abstain policy; it still trains a student rather than writing an evidence memory.",
     },
   },
+  versioned_writeback_diagnostic: versionedWritebackDiagnostic ? {
+    run_id: versionedWritebackDiagnostic.run_id,
+    status: versionedWritebackDiagnostic.status,
+    train_only_overall_correct_rate: versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_only")?.overall_correct_rate,
+    train_plus_live_overall_correct_rate: versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_plus_live_snapshot")?.overall_correct_rate,
+    leaky_stale_answer_rate: versionedWritebackDiagnostic.systems.find((row) => row.id === "leaky_eval_writeback_upper_bound")?.by_type?.stale_snapshot_abstention?.answer_rate,
+    interpretation: versionedWritebackDiagnostic.key_result.interpretation,
+  } : null,
   scoped_exclusion: {
-    decision: "Exclude WriteBack-RAG as a required baseline for the current artifact set, while recording exact requirements for a future fair baseline.",
+    decision: "Keep WriteBack-RAG scoped out as a required QASPER baseline for the current artifact set, while retaining the versioned git-doc diagnostic as evidence about leakage-safe write-back behavior.",
     why_not_counted_as_implemented_baseline: [
       "No artifact creates a persistent derived-memory index that is retrieved at inference time.",
       "Existing exports are answer/verifier/preference labels whose provenance remains in training files, not new KB records.",
@@ -84,7 +93,7 @@ const result = {
       "Judge answer support, abstention support, citation support, and total inference cost against the same final-window protocol.",
     ],
   },
-  paper_implication: "The paper can discuss WriteBack-RAG as a competing amortization family, but current claims should be scoped to post-training data/scaffold distillation. A future version with trusted dated/private KB snapshots should add the write-back baseline.",
+  paper_implication: "The paper can discuss WriteBack-RAG as a competing amortization family and include the git-doc diagnostic as a small leakage-safe snapshot check, but current claims should remain scoped to post-training data/scaffold distillation until a full write-back baseline is run on a natural dated/private KB benchmark.",
   llm_budget: {
     openai_llm_calls: 0,
     openai_cost_usd: 0,
@@ -129,6 +138,15 @@ async function readResult(runId) {
   return JSON.parse(await fs.readFile(path.join(runDir, runId, "result.json"), "utf8"));
 }
 
+async function readResultIfPresent(runId) {
+  try {
+    return await readResult(runId);
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
+}
+
 function renderReport(result) {
   const artifactRows = result.current_artifacts.map((artifact) => `| ${artifact.id} | ${artifact.kind} | ${artifact.row_counts.sft} | ${artifact.row_counts.rejected} | ${artifact.row_counts.verifier ?? "n/a"} | ${artifact.writes_back_to_kb ? "yes" : "no"} |`).join("\n");
   return `# WriteBack-RAG KB Amortization Scoped Exclusion
@@ -151,6 +169,15 @@ ${artifactRows}
 
 - Support contrast prep: ${result.response_distillation_packets.support_contrast_prep.examples.sft_train} SFT train rows, ${result.response_distillation_packets.support_contrast_prep.examples.preference_train} preference train rows, ${result.response_distillation_packets.support_contrast_prep.examples.eval_prompts} eval prompts.
 - Joint-action GPU prep: ${result.response_distillation_packets.joint_action_gpu_prep.examples.sft_train} SFT train rows, ${result.response_distillation_packets.joint_action_gpu_prep.examples.dpo_train} DPO train rows, ${result.response_distillation_packets.joint_action_gpu_prep.examples.eval_prompts} eval prompts.
+
+## Versioned WriteBack Diagnostic
+
+${result.versioned_writeback_diagnostic ? `- Run: ${result.versioned_writeback_diagnostic.run_id}
+- Status: ${result.versioned_writeback_diagnostic.status}
+- Train-only writeback correctness: ${pct(result.versioned_writeback_diagnostic.train_only_overall_correct_rate)}
+- Train writeback plus live snapshot correctness: ${pct(result.versioned_writeback_diagnostic.train_plus_live_overall_correct_rate)}
+- Leaky eval-memory stale answer rate: ${pct(result.versioned_writeback_diagnostic.leaky_stale_answer_rate)}
+- Interpretation: ${result.versioned_writeback_diagnostic.interpretation}` : "No versioned writeback diagnostic is present."}
 
 ## Decision
 
@@ -179,4 +206,8 @@ function parseArgs(values) {
     if (match) parsed[match[1]] = match[2];
   }
   return parsed;
+}
+
+function pct(value) {
+  return value == null ? "n/a" : `${(100 * Number(value)).toFixed(1)}%`;
 }

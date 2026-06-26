@@ -1,0 +1,182 @@
+{
+  "run_id": "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+  "generated_at": "2026-06-26T22:16:01.457Z",
+  "artifact_type": "versioned_kb_writeback_diagnostic",
+  "status": "writeback_diagnostic_complete",
+  "purpose": "Diagnose WriteBack-style KB amortization on the versioned git-doc prototype without leaking eval facts into train memory.",
+  "source_run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+  "source_snapshot_pair": {
+    "train": {
+      "commit": "818a916fdf2cd878c85a7d92d7752d3e361f9004",
+      "committed_at": "2026-04-27T15:47:18-07:00"
+    },
+    "eval": {
+      "commit": "4326a12aff2094c3682c111873be790a87aa3824",
+      "committed_at": "2026-06-26T17:45:12-04:00"
+    }
+  },
+  "records": {
+    "train_writeback_records": 36,
+    "eval_records_for_leaky_upper_bound": 171
+  },
+  "systems": [
+    {
+      "id": "leak_safe_train_writeback_only",
+      "description": "Retrieve only records written from the train snapshot. This can answer stable facts but cannot know eval-only updates.",
+      "leaky": false,
+      "examples": 30,
+      "answered": 10,
+      "abstained": 20,
+      "answer_rate": 0.3333333333333333,
+      "overall_correct_rate": 0.6,
+      "answer_support_rate": 0.6,
+      "abstention_correct_rate": 1,
+      "inline_citation_rate": 1,
+      "by_type": {
+        "eval_update_grounded_answer": {
+          "examples": 12,
+          "answered": 4,
+          "abstained": 8,
+          "answer_rate": 0.3333333333333333,
+          "overall_correct_rate": 0,
+          "answer_support_rate": 0,
+          "abstention_correct_rate": null,
+          "inline_citation_rate": 1
+        },
+        "stable_grounded_answer": {
+          "examples": 6,
+          "answered": 6,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct_rate": 1,
+          "answer_support_rate": 1,
+          "abstention_correct_rate": null,
+          "inline_citation_rate": 1
+        },
+        "stale_snapshot_abstention": {
+          "examples": 12,
+          "answered": 0,
+          "abstained": 12,
+          "answer_rate": 0,
+          "overall_correct_rate": 1,
+          "answer_support_rate": null,
+          "abstention_correct_rate": 1,
+          "inline_citation_rate": null
+        }
+      }
+    },
+    {
+      "id": "leak_safe_train_writeback_plus_live_snapshot",
+      "description": "Use live snapshot evidence for eval-time questions, train write-back records for stable facts, and abstain on stale train-snapshot requests.",
+      "leaky": false,
+      "examples": 30,
+      "answered": 18,
+      "abstained": 12,
+      "answer_rate": 0.6,
+      "overall_correct_rate": 1,
+      "answer_support_rate": 1,
+      "abstention_correct_rate": 1,
+      "inline_citation_rate": 1,
+      "by_type": {
+        "eval_update_grounded_answer": {
+          "examples": 12,
+          "answered": 12,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct_rate": 1,
+          "answer_support_rate": 1,
+          "abstention_correct_rate": null,
+          "inline_citation_rate": 1
+        },
+        "stable_grounded_answer": {
+          "examples": 6,
+          "answered": 6,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct_rate": 1,
+          "answer_support_rate": 1,
+          "abstention_correct_rate": null,
+          "inline_citation_rate": 1
+        },
+        "stale_snapshot_abstention": {
+          "examples": 12,
+          "answered": 0,
+          "abstained": 12,
+          "answer_rate": 0,
+          "overall_correct_rate": 1,
+          "answer_support_rate": null,
+          "abstention_correct_rate": 1,
+          "inline_citation_rate": null
+        }
+      }
+    },
+    {
+      "id": "leaky_eval_writeback_upper_bound",
+      "description": "Invalid upper bound that writes eval-snapshot facts into memory before evaluation.",
+      "leaky": true,
+      "examples": 30,
+      "answered": 30,
+      "abstained": 0,
+      "answer_rate": 1,
+      "overall_correct_rate": 0.4666666666666667,
+      "answer_support_rate": 0.4666666666666667,
+      "abstention_correct_rate": 0,
+      "inline_citation_rate": 1,
+      "by_type": {
+        "eval_update_grounded_answer": {
+          "examples": 12,
+          "answered": 12,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct_rate": 0.6666666666666666,
+          "answer_support_rate": 0.6666666666666666,
+          "abstention_correct_rate": null,
+          "inline_citation_rate": 1
+        },
+        "stable_grounded_answer": {
+          "examples": 6,
+          "answered": 6,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct_rate": 1,
+          "answer_support_rate": 1,
+          "abstention_correct_rate": null,
+          "inline_citation_rate": 1
+        },
+        "stale_snapshot_abstention": {
+          "examples": 12,
+          "answered": 12,
+          "abstained": 0,
+          "answer_rate": 1,
+          "overall_correct_rate": 0,
+          "answer_support_rate": 0,
+          "abstention_correct_rate": 0,
+          "inline_citation_rate": 1
+        }
+      }
+    }
+  ],
+  "key_result": {
+    "leak_safe_memory_cannot_answer_eval_updates_alone": true,
+    "leak_safe_memory_plus_live_snapshot_solves_deterministic_slice": true,
+    "leaky_eval_memory_overanswers_stale_queries": true,
+    "interpretation": "Write-back memory is a valid competing amortization family only when records are created from prior snapshots. Train-only memory helps stable facts but cannot replace live retrieval for new updates; eval-written memory leaks future facts and over-answers stale train-snapshot queries."
+  },
+  "artifacts": {
+    "writeback_records_jsonl": "docs/experiments/grounded-qa-distillation/runs/versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1/writeback_records.jsonl",
+    "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1/predictions.jsonl",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1/report.md"
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This diagnostic uses local git snapshots and deterministic matching only."
+  }
+}

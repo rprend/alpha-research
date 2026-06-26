@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:59:45.926Z",
+  "generated_at": "2026-06-26T22:16:01.589Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -33,6 +33,7 @@
     "corpus_realism_audit_run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
     "versioned_domain_kb_extension_candidate_run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
     "versioned_domain_kb_eval_run_id": "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+    "versioned_writeback_diagnostic_run_id": "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
     "versioned_domain_kb_candidate_examples": 30,
     "supports_private_enterprise_kb_claim": false,
     "allowed_claim": "The final evaluation window is a public, dated arXiv/QASPER proxy for an evolving domain KB, not a private enterprise KB."
@@ -278,6 +279,146 @@
       },
       "interpretation": "On the deterministic git-doc prototype, naive citation-copy over-answers stale snapshot queries, while a snapshot-aware prefix retriever handles both update answers and stale abstentions."
     },
+    "versioned_writeback_diagnostic": {
+      "run_id": "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "status": "writeback_diagnostic_complete",
+      "train_only_writeback": {
+        "id": "leak_safe_train_writeback_only",
+        "description": "Retrieve only records written from the train snapshot. This can answer stable facts but cannot know eval-only updates.",
+        "leaky": false,
+        "examples": 30,
+        "answered": 10,
+        "abstained": 20,
+        "answer_rate": 0.3333333333333333,
+        "overall_correct_rate": 0.6,
+        "answer_support_rate": 0.6,
+        "abstention_correct_rate": 1,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 4,
+            "abstained": 8,
+            "answer_rate": 0.3333333333333333,
+            "overall_correct_rate": 0,
+            "answer_support_rate": 0,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 0,
+            "abstained": 12,
+            "answer_rate": 0,
+            "overall_correct_rate": 1,
+            "answer_support_rate": null,
+            "abstention_correct_rate": 1,
+            "inline_citation_rate": null
+          }
+        }
+      },
+      "train_writeback_plus_live_snapshot": {
+        "id": "leak_safe_train_writeback_plus_live_snapshot",
+        "description": "Use live snapshot evidence for eval-time questions, train write-back records for stable facts, and abstain on stale train-snapshot requests.",
+        "leaky": false,
+        "examples": 30,
+        "answered": 18,
+        "abstained": 12,
+        "answer_rate": 0.6,
+        "overall_correct_rate": 1,
+        "answer_support_rate": 1,
+        "abstention_correct_rate": 1,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 0,
+            "abstained": 12,
+            "answer_rate": 0,
+            "overall_correct_rate": 1,
+            "answer_support_rate": null,
+            "abstention_correct_rate": 1,
+            "inline_citation_rate": null
+          }
+        }
+      },
+      "leaky_eval_writeback_upper_bound": {
+        "id": "leaky_eval_writeback_upper_bound",
+        "description": "Invalid upper bound that writes eval-snapshot facts into memory before evaluation.",
+        "leaky": true,
+        "examples": 30,
+        "answered": 30,
+        "abstained": 0,
+        "answer_rate": 1,
+        "overall_correct_rate": 0.4666666666666667,
+        "answer_support_rate": 0.4666666666666667,
+        "abstention_correct_rate": 0,
+        "inline_citation_rate": 1,
+        "by_type": {
+          "eval_update_grounded_answer": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 0.6666666666666666,
+            "answer_support_rate": 0.6666666666666666,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stable_grounded_answer": {
+            "examples": 6,
+            "answered": 6,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 1,
+            "answer_support_rate": 1,
+            "abstention_correct_rate": null,
+            "inline_citation_rate": 1
+          },
+          "stale_snapshot_abstention": {
+            "examples": 12,
+            "answered": 12,
+            "abstained": 0,
+            "answer_rate": 1,
+            "overall_correct_rate": 0,
+            "answer_support_rate": 0,
+            "abstention_correct_rate": 0,
+            "inline_citation_rate": 1
+          }
+        }
+      },
+      "interpretation": "Write-back memory is a valid competing amortization family only when records are created from prior snapshots. Train-only memory helps stable facts but cannot replace live retrieval for new updates; eval-written memory leaks future facts and over-answers stale train-snapshot queries."
+    },
     "joint_action_packet_quality": {
       "run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
       "status": "ready_for_bounded_qwen3b_smoke",
@@ -403,7 +544,11 @@
     "writeback_scope": {
       "run_id": "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
       "status": "scoped_exclusion_with_future_baseline_requirements",
-      "scoped_reason": "A mutable write-back memory would change the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv-id temporal split is not a trusted dated/private KB snapshot, so a full write-back baseline would overclaim evolving-KB validity."
+      "scoped_reason": "A mutable write-back memory changes the retrieval corpus and can leak final-window facts unless it is built strictly from prior dated/private snapshots. The current QASPER/arXiv result still has no full write-back baseline; the git-doc snapshot diagnostic is a toy versioned-domain check, not a replacement for the paper-critical Qwen 3B trained-student evaluation.",
+      "diagnostic_run_id": "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+      "train_only_overall_correct_rate": 0.6,
+      "train_plus_live_overall_correct_rate": 1,
+      "leaky_stale_answer_rate": 1
     }
   },
   "qwen3b_required_final_result": {
@@ -466,6 +611,7 @@
         "trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1",
         "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
+        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "extended_temporal_future_holdout-manifest.json"
       ],
       "audit": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
@@ -489,6 +635,7 @@
         "drag-like-rag-distillation-comparison-2026-06-26-v1",
         "longcite-style-citation-sft-comparison-2026-06-26-v1",
         "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+        "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "risk-gate-transfer-synthesis-240-389-v1",
         "claim-entailment-guard-validation-240-389-v1"
       ],

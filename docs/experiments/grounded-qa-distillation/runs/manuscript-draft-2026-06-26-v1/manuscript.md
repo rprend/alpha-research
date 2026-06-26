@@ -34,9 +34,9 @@ The temporal protocol uses a trusted arXiv API snapshot for the final public pro
 
 This is an evolving-domain benchmark proxy. The claim is not that the benchmark itself is private, but that the protocol isolates temporally later evidence packs and records date provenance.
 
-As a concrete private/domain-KB upgrade path, versioned-private-kb-prototype-git-docs-2026-06-26-v1 builds 30 deterministic examples from repository-local git document snapshots, including stale-snapshot abstentions. versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1 shows the stale-snapshot failure mode directly: naive citation-copy over-answers stale train-snapshot questions, while a snapshot-aware prefix retriever handles the deterministic slice. This is an extension candidate, not private-enterprise proof.
+As a concrete private/domain-KB upgrade path, versioned-private-kb-prototype-git-docs-2026-06-26-v1 builds 30 deterministic examples from repository-local git document snapshots, including stale-snapshot abstentions. versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1 shows the stale-snapshot failure mode directly: naive citation-copy over-answers stale train-snapshot questions, while a snapshot-aware prefix retriever handles the deterministic slice. versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1 adds a small write-back memory diagnostic over the same snapshots. These are extension candidates, not private-enterprise proof.
 
-Evidence: `trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1`, `versioned-private-kb-prototype-git-docs-2026-06-26-v1`
+Evidence: `trusted-dated-kb-snapshot-arxiv-api-2026-06-26-v1`, `versioned-private-kb-prototype-git-docs-2026-06-26-v1`, `versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1`
 
 ## Post-Training Data Construction
 
@@ -66,9 +66,9 @@ DRAG-like RAG distillation is the closest generic RAG-to-small-model family, but
 
 LongCite-style citation SFT motivates citation-format baselines, but the current artifacts show that citation syntax is not support: one local student reaches 97.5% inline citation compliance with only 5.0% answer support.
 
-Write-back memory baselines are scoped out until a fair dated/private snapshot can prevent final-window leakage into retrieval.
+Write-back memory is a close competing amortization family. On the versioned git-doc diagnostic, train-only write-back reaches 60.0% overall correctness but cannot answer eval updates, train write-back plus live snapshot reaches 100.0%, and a leaky eval-written memory answers 100.0% of stale-snapshot queries incorrectly. A full natural-benchmark WriteBack baseline remains scoped out until dated/private snapshots prevent final-window leakage into retrieval.
 
-Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `longcite-style-citation-sft-comparison-2026-06-26-v1`, `writeback-kb-amortization-scoped-exclusion-2026-06-26-v1`
+Evidence: `drag-like-rag-distillation-comparison-2026-06-26-v1`, `longcite-style-citation-sft-comparison-2026-06-26-v1`, `writeback-kb-amortization-scoped-exclusion-2026-06-26-v1`, `versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1`
 
 ## Limitations
 

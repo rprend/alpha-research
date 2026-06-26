@@ -15,6 +15,7 @@ const evidenceMap = await readResult("manuscript-evidence-map-2026-06-26-v1");
 const corpusRealism = await readResult("corpus-realism-private-kb-gap-audit-2026-06-26-v1");
 const versionedKbPrototype = await readResult("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedKbEval = await readResult("versioned-private-kb-eval-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
+const versionedWritebackDiagnostic = await readResult("versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const draft = await readResult("manuscript-draft-2026-06-26-v1");
 const novelty = await readResult("novelty-watchlist-2026-06-26-v1");
 const remoteSmoke = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
@@ -116,8 +117,9 @@ const risks = [
       "drag-like-rag-distillation-comparison-2026-06-26-v1",
       "longcite-style-citation-sft-comparison-2026-06-26-v1",
       "writeback-kb-amortization-scoped-exclusion-2026-06-26-v1",
+      versionedWritebackDiagnostic.run_id,
     ],
-    mitigation_done: "Current artifacts isolate the support/abstention/citation-grounding axis and scope out write-back retrieval until leakage-safe memory snapshots exist.",
+    mitigation_done: `Current artifacts isolate the support/abstention/citation-grounding axis and scope out full WriteBack retrieval on QASPER until leakage-safe memory snapshots exist. ${versionedWritebackDiagnostic.run_id} adds a small versioned-domain diagnostic: leak-safe train-only write-back reaches ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_only").overall_correct_rate).toFixed(1)}% overall correctness but 0.0% correctness on eval-update questions, train write-back plus live snapshot reaches ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leak_safe_train_writeback_plus_live_snapshot").overall_correct_rate).toFixed(1)}% on the deterministic slice, and the leaky eval-written upper bound answers ${(100 * versionedWritebackDiagnostic.systems.find((row) => row.id === "leaky_eval_writeback_upper_bound").by_type.stale_snapshot_abstention.answer_rate).toFixed(1)}% of stale-snapshot queries with 0.0% correctness. That supports the claim boundary: WriteBack is a close amortization neighbor, but fair comparison requires snapshot-safe provenance and should not be counted as a completed natural benchmark baseline yet.`,
     required_next_evidence: [
       "Refresh web/paper search immediately before any submission claim.",
       "Update related-work notes with any June 2026 or newer direct overlaps.",
