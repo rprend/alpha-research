@@ -51,6 +51,7 @@ if (!errors.length) {
   await validatePolicySelectorRunsIfPresent();
   await validateVerifierSelectorRunsIfPresent();
   await validateHfSftPrepRunsIfPresent();
+  await validateHfSftLaunchPreflightRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -638,6 +639,42 @@ async function validateHfSftPrepRunsIfPresent() {
         errors.push(`${label}: malformed eval prompt row.`);
       }
     }
+  }
+}
+
+async function validateHfSftLaunchPreflightRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("hf-sft-launch-preflight-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed HF SFT launch preflight artifacts.`);
+      continue;
+    }
+
+    if (!result.sft_prep_run_id) errors.push(`${entry.name}: missing sft_prep_run_id.`);
+    if (result.llm_budget?.openai_llm_calls !== 0 || result.llm_budget?.openai_cost_usd !== 0) {
+      errors.push(`${entry.name}: HF SFT launch preflight must not spend OpenAI calls.`);
+    }
+    if (!result.checks?.dataset_validation?.passed) errors.push(`${entry.name}: dataset validation must pass.`);
+    if (!result.checks?.train_script_compile?.passed) errors.push(`${entry.name}: train script compile must pass.`);
+    const modules = result.checks?.local_dependencies?.modules ?? {};
+    if (!modules.torch || !modules.transformers) errors.push(`${entry.name}: local runtime must at least include torch and transformers.`);
+    const hfStatus = result.checks?.hf_jobs_preflight?.status;
+    if (!["ready", "blocked", "not_attempted"].includes(hfStatus)) errors.push(`${entry.name}: invalid HF jobs preflight status.`);
+    if (!result.conclusion?.status || !result.conclusion?.next_step) errors.push(`${entry.name}: missing launch preflight conclusion.`);
   }
 }
 

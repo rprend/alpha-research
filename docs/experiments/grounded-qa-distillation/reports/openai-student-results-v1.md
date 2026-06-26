@@ -405,6 +405,8 @@ The headroom is asymmetric. Recovering the two harmful false suppressions would 
 
 `hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1` moves the next credible route back to generative SFT/LoRA with a leakage-safe temporal split. It uses accepted mini-negative labels from windows 161-240 and 241-320 for train/validation, excludes any labels from papers that appear in the later eval window, and reserves window 321-389 as prompt-only eval. The packet has 113 train rows, 19 validation rows, and 69 eval prompts, with zero train/validation overlap against eval examples or papers. This is not yet a trained student, but it is the clean Qwen 0.5B LoRA launch packet the earlier HF prep lacked.
 
+`hf-sft-launch-preflight-mini-negative-temporal-qwen05b-v1` records the launch state for that packet. The packet itself is ready: local validation passes and the generated training script compiles. The launch is operationally blocked because Hugging Face Jobs returns `402 Payment Required` for insufficient prepaid credits, and local training dependencies are absent (`datasets`, `accelerate`, `peft`, `trl`, `trackio`). The next SFT result requires credits or another TRL/PEFT-capable backend; the OpenAI key budget remains untouched.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
