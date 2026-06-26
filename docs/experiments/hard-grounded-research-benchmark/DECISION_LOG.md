@@ -567,3 +567,11 @@ Decision: Make the generated paper draft consume current release-gate, license-c
 Rationale: A paper scaffold is actively harmful if it lags behind the benchmark evidence or repeats stale blocker status. The manuscript draft should summarize the exact current state of review mechanics, external baselines, packaged license clearance, and remaining release blockers from generated artifacts.
 
 Consequence: `scripts/hard-grounded-research-paper-draft.mjs` now emits a paper draft with external model baseline rows, review execution readiness, fixture promotion smoke summaries, packaged license clearance, and a release-gate snapshot sourced from current JSON artifacts.
+
+## 2026-06-26 — Synchronize dataset card with release evidence
+
+Decision: Make the generated dataset card consume current release-gate, license-clearance, model-baseline, annotation-import, and promotion-smoke artifacts.
+
+Rationale: The dataset card is the public-facing artifact a benchmark user will read first, so it must not lag behind the evidence used by the paper draft or release gate. It should clearly separate raw source-license blockers, packaged redistribution clearance, fixture-only workflow rehearsals, and true human-review blockers.
+
+Consequence: `scripts/hard-grounded-research-dataset-card.mjs` now emits review handoff readiness, import-path readiness, fixture promotion rehearsals, external model baseline rows, packaged license clearance, and key release-gate checks in `DATASET_CARD.md`.

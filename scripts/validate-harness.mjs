@@ -208,7 +208,7 @@ for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'External Model
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-dataset-card.mjs')), 'Missing hard grounded research dataset card builder.')
 const hardGroundedDatasetCardSource = readFileSync(join(root, 'scripts/hard-grounded-research-dataset-card.mjs'), 'utf8')
-for (const token of ['DATASET_CARD.md', 'Intended Uses', 'Data Provenance And Licensing Notes']) {
+for (const token of ['DATASET_CARD.md', 'Intended Uses', 'Data Provenance And Licensing Notes', 'Promotion Rehearsals', 'External Model Baselines', 'annotation-export/manifest.json', 'license-clearance.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json']) {
   assert(hardGroundedDatasetCardSource.includes(token), `Hard grounded dataset card is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-license-review.mjs')), 'Missing hard grounded research license review builder.')

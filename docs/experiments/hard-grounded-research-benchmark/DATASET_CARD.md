@@ -14,7 +14,9 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Valid reviewed items: 0/30
 - Release gate status: blocked
 - License review status: blocked
+- Public redistribution clearance ready: true
 - Pointer-only package items: 15
+- Eligible external model baselines: 2
 
 ## Intended Uses
 
@@ -70,6 +72,9 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 
 - Annotation protocol: `ANNOTATION_PROTOCOL.md`
 - Review workbooks: `generated/review-workbooks/*.jsonl`
+- Annotation export: ready (124 rows across 30 files)
+- Annotation import path: ready (124/124 fixture rows importable; applied=false)
+- Annotation import smoke: ready (124 returned fixture rows checked; findings=0)
 - Independent reviews required per item: 2
 - Required reviewer fields: `final_label`, `final_answer`, `required_citation_ids`, `insufficient_or_conflicting_evidence`, `notes`, `reviewer_confidence`
 - Missing-review items: 30
@@ -79,13 +84,28 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Exact agreement rate: n/a
 - Label agreement rate: n/a
 
+## Promotion Rehearsals
+
+- Pilot gold promotion smoke: ready (30/30 fixture gold items; release_eligible=false)
+- Scaled expansion promotion smoke: ready (270/270 fixture expansion items merge-ready; release_eligible=false)
+- These rehearsals use fixture reviewer fields only. They prove the mechanics of merge and promotion; they do not clear human-review blockers.
+
 ## Scoring
 
 The evaluator reports answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality. Challenge-type diagnostics are present for 3 scored baseline systems in `generated/baseline-analysis.json`.
 
+## External Model Baselines
+
+| System | Evaluation source | Tasks | Macro answer correct | Report present |
+| --- | --- | --- | --- | --- |
+| anthropic-grounded-baseline-v1 | pilot-suite | 30 | 0.3667 | yes |
+| openai-grounded-baseline-v1 | pilot-suite | 30 | 0.4 | yes |
+
 ## Data Provenance And Licensing Notes
 
 This benchmark stores normalized evidence snippets and metadata from upstream Hugging Face datasets. Upstream dataset licenses are mixed and include unknown-license sources, so a public release must either preserve attribution and license notices, replace unknown-license sources, or release only pointers/transforms where required. See `LICENSE_REVIEW.md`, `generated/license-review.json`, `PUBLIC_PACKAGE_MANIFEST.md`, and `generated/public-package-manifest.json` for the generated blocker and pointer-only packaging lists.
+
+Packaged redistribution clearance is currently ready for the generated public package: 54 impacted scaled candidates are replaced with known-license alternatives, 81 are pointer-only, and 135 use redistributable known-license evidence. Raw upstream source-license status is still tracked separately from package clearance.
 
 ## Known Limitations
 
@@ -93,8 +113,20 @@ This benchmark stores normalized evidence snippets and metadata from upstream Hu
 2. Gold labels are blocked until independent review and disagreement resolution are complete.
 3. Some challenge items are synthetic transformations of existing rows and require human review before publication.
 4. The novelty audit is preliminary and must be refreshed before any completion claim.
-5. Unknown-license upstream datasets must be resolved before public redistribution.
+5. Unknown-license upstream datasets must remain pointer-only or be replaced before any package that redistributes source text.
 
 ## Release Gate
 
 See `RELEASE_GATE.md` and `generated/release-gate.json`. Current blockers: 7.
+
+Key release checks:
+
+- Gold review: block - 0/30 valid reviewed items
+- Review preflight: block - 0/60 complete review rows
+- Annotation export: pass - 124 exported rows across 30 files; pilot=24; expansion=100
+- Annotation import path: pass - 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false
+- Pilot promotion smoke: pass - 30/30 fixture gold items; release_eligible=false
+- Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false
+- Public package clearance: pass - tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true
+- External model baselines: pass - anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
+- Novelty audit: block - checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5
