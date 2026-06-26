@@ -7,7 +7,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 - Status: blocked
 - Pilot items: 30
 - Scored systems in baseline analysis: 5
-- Blockers: 2
+- Blockers: 1
 
 ## Checks
 
@@ -23,7 +23,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | review_assignment_audit_ready | yes | review-assignment-audit-v1; assignments=22; double_review=22; blocked=0 |  |
 | reviewer_handoff_ready | yes | 160 handoff rows across 40 files; gates=6/6 |  |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |  |
-| review_execution_plan_ready | yes | review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=6 |  |
+| review_execution_plan_ready | yes | review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=0 |  |
 | review_packet_audit_ready | yes | review-packet-audit-v1; files=40; rows=160; findings=0 |  |
 | review_return_contract_ready | yes | review-return-contract-v1; files=40; rows=160; findings=0 |  |
 | review_return_preflight_ready | yes | review-return-preflight-v1; present=0/40; missing=40; latest_import_ready=true |  |
@@ -48,7 +48,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | expansion_review_preflight_ready | yes | HF-derived labels bypass mandatory expansion human-review preflight; optional audit rows=0/540 |  |
 | expansion_review_merge_ready | yes | HF-derived labels bypass mandatory expansion review merge; optional audit merge-ready=0/270 |  |
 | review_merge_ready | yes | HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=0/30 |  |
-| category_scale_ready | no | 0/300 current target items; 300 HF-derived or audited items still needed | Scale each category to the target HF-derived label count before paper release. |
+| category_scale_ready | yes | 300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready |  |
 | power_plan_ready | yes | 30 reviewed items/category; 300 total target; remaining=300 |  |
 | unknown_license_resolved | yes | tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true |  |
 | license_impact_clear | yes | 135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true |  |
@@ -64,21 +64,21 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | baseline_uncertainty_present | yes | 5 systems with descriptive task-level intervals |  |
 | failure_atlas_ready | yes | 116 failure cases; 8 failure modes; systems=5 |  |
 | hypothesis_test_matrix_ready | yes | hypothesis-test-matrix-v1; hypotheses=10; observed_signature_categories=10; reviewed_deficit=300 |  |
-| result_interpretation_guide_ready | yes | result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=4 |  |
+| result_interpretation_guide_ready | yes | result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=1 |  |
 | evidence_sufficiency_audit_ready | yes | evidence-sufficiency-audit-v1; items=30; evidence_contracts=30; insufficiency=3; overreach=3 |  |
-| estimand_registry_ready | yes | estimand-registry-v1; estimands=10; target_n=300; blocked_gates=4 |  |
-| sensitivity_analysis_plan_ready | yes | sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=4 |  |
+| estimand_registry_ready | yes | estimand-registry-v1; estimands=10; target_n=300; blocked_gates=1 |  |
+| sensitivity_analysis_plan_ready | yes | sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=1 |  |
 | lookup_contrast_registry_ready | yes | lookup-contrast-registry-v1; categories=10; lookup_controls=10; estimand_links=10 |  |
-| statistical_reporting_template_ready | yes | statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=4 |  |
+| statistical_reporting_template_ready | yes | statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=1 |  |
 | control_ablation_plan_ready | yes | control-ablation-plan-v1; categories=10; negative_controls=10; ablations=30 |  |
 | error_codebook_ready | yes | error-codebook-v1; codes=8; categories=10; observed_cases=116 |  |
-| paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |  |
-| analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |  |
-| paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |  |
+| paper_tables_ready | yes | 6 paper tables; systems=5; blockers=1 |  |
+| analysis_plan_ready | yes | 4 hypotheses; 4 model families; HF-derived=300/300 |  |
+| paper_claim_ledger_ready | yes | 8 claims; allowed=4; diagnostic=2; prohibited=1 |  |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |  |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=95; blockers=2 |  |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=95; caveats=6; release_blockers=2 |  |
-| reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |  |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=60; hashes=97; blockers=1 |  |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=97; caveats=6; release_blockers=1 |  |
+| reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=1; prohibited_claims=3 |  |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |  |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |  |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |  |
@@ -111,11 +111,10 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |  |
-| artifact_checklist_ready | yes | 63/63 artifact classes ready; reproduction_commands=60; release_blockers=2 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=95; blockers=2; bytes=1769593 |  |
+| artifact_checklist_ready | yes | 64/64 artifact classes ready; reproduction_commands=60; release_blockers=2 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=97; blockers=2; bytes=3190626 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers
 
-- category_scale_ready: Scale each category to the target HF-derived label count before paper release. (0/300 current target items; 300 HF-derived or audited items still needed)
 - novelty_audit_final: Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. (checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5)

@@ -21,7 +21,7 @@ This generated matrix turns the benchmark's difficulty mechanisms into testable 
 | all_categories_have_testable_hypotheses | true | 10/10 categories mapped to hypotheses and metrics |
 | baseline_results_linked | true | 5 baseline systems; minimum category systems=2 |
 | failure_signatures_partly_observed | true | 10/10 categories show at least one expected failure signature in pilot failure atlas |
-| statistical_claims_blocked | true | 4/4 claim gates still blocked |
+| statistical_claims_blocked | true | 1/4 claim gates still blocked |
 
 ## Hypothesis Rows
 
@@ -42,7 +42,7 @@ This generated matrix turns the benchmark's difficulty mechanisms into testable 
 
 | Gate | Passed | Detail | Blocker |
 | --- | --- | --- | --- |
-| gold_review_complete | false | 0/30 valid reviewed items | Complete double review, resolve disagreements, and promote reviewed gold. |
-| category_scale_ready | false | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
-| review_merge_ready | false | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
+| gold_review_complete | true | 30/30 HF-derived gold labels ready; human reviewed=0/30 | Generate HF-derived labels or complete double review before promoting gold labels. |
+| category_scale_ready | true | 300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready | Scale each category to the target HF-derived label count before paper release. |
+| review_merge_ready | true | HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=0/30 | Generate HF-derived labels or fill reviewer workbooks until strict review merge succeeds. |
 | novelty_audit_final | false | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

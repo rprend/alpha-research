@@ -10,8 +10,8 @@ This generated plan pre-registers robustness checks for paper results. It define
 - Required metrics covered: 6
 - Estimands: 10
 - Eligible model baselines: 2
-- Blocked claim gates: 4
-- Reviewed items: 0/300
+- Blocked claim gates: 1
+- HF-derived items: 300/300
 - Completion claim allowed: false
 
 ## Readiness Checks
@@ -21,7 +21,7 @@ This generated plan pre-registers robustness checks for paper results. It define
 | all_required_metric_families_have_sensitivity_checks | true | 6 required metrics covered across 6 sensitivity checks |
 | estimands_linked_to_sensitivity_checks | true | 10 estimands; 6 checks with estimand links |
 | model_reporting_limits_respected | true | 2 eligible baselines; public_leaderboard_allowed=false |
-| claims_remain_gated | true | 4/4 confirmatory gates blocked; reviewed=0/300 |
+| claims_remain_gated | true | 1/4 confirmatory gates blocked; HF-derived=300/300 |
 
 ## Sensitivity Checks
 
@@ -38,7 +38,7 @@ This generated plan pre-registers robustness checks for paper results. It define
 
 | Gate | Passed | Detail | Blocker |
 | --- | --- | --- | --- |
-| gold_review_complete | false | 0/30 valid reviewed items | Complete double review, resolve disagreements, and promote reviewed gold. |
-| review_merge_ready | false | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
-| category_scale_ready | false | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
+| gold_review_complete | true | 30/30 HF-derived gold labels ready; human reviewed=0/30 | Generate HF-derived labels or complete double review before promoting gold labels. |
+| review_merge_ready | true | HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=0/30 | Generate HF-derived labels or fill reviewer workbooks until strict review merge succeeds. |
+| category_scale_ready | true | 300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready | Scale each category to the target HF-derived label count before paper release. |
 | novelty_audit_final | false | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

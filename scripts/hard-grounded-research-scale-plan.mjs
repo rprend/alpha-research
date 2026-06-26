@@ -7,6 +7,7 @@ const generatedDir = join(experimentDir, 'generated')
 const specPath = join(experimentDir, 'benchmark-spec.json')
 const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
 const goldSummaryPath = join(generatedDir, 'gold-suite-summary.json')
+const derivedScaleSuitePath = join(generatedDir, 'derived-scale-suite.json')
 const scalePlanJsonPath = join(generatedDir, 'scale-plan.json')
 const scalePlanMarkdownPath = join(experimentDir, 'SCALE_PLAN.md')
 
@@ -107,18 +108,24 @@ function buildPlan(spec, pilotSuite, goldSummary) {
   const datasetsById = datasetMap(spec)
   const tasksByCategory = seedTaskMap(spec)
   const counts = categoryCounts(pilotSuite)
+  const derivedScaleSuite = readJson(derivedScaleSuitePath)
   const categories = spec.categories.map((category) => {
     const currentPilotItems = counts.get(category)
     const currentReviewedItems = 0
+    const derivedCategory = derivedScaleSuite.by_category?.[category] || {}
+    const currentDerivedItems = derivedCategory.paper_eligible_items || 0
     const task = tasksByCategory.get(category)
     return {
       category,
       target_reviewed_items: targetReviewedItemsPerCategory,
+      target_hf_derived_items: targetReviewedItemsPerCategory,
       current_pilot_items: currentPilotItems || 0,
       current_valid_reviewed_items: currentReviewedItems,
+      current_hf_derived_items: currentDerivedItems,
       additional_pilot_items_needed: Math.max(0, targetReviewedItemsPerCategory - (currentPilotItems || 0)),
       additional_reviewed_items_needed: Math.max(0, targetReviewedItemsPerCategory - currentReviewedItems),
-      scale_ready: currentReviewedItems >= targetReviewedItemsPerCategory,
+      additional_hf_derived_items_needed: Math.max(0, targetReviewedItemsPerCategory - currentDerivedItems),
+      scale_ready: currentDerivedItems >= targetReviewedItemsPerCategory,
       expansion: expansionStrategy(category, task, datasetsById),
     }
   })
@@ -126,23 +133,30 @@ function buildPlan(spec, pilotSuite, goldSummary) {
   const totalTargetReviewedItems = categories.length * targetReviewedItemsPerCategory
   const currentPilotItems = categories.reduce((sum, category) => sum + category.current_pilot_items, 0)
   const currentValidReviewedItems = goldSummary.valid_reviewed_items || 0
+  const currentHfDerivedItems = categories.reduce((sum, category) => sum + category.current_hf_derived_items, 0)
   const expansionBatches = buildExpansionBatches(categories)
 
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     target_reviewed_items_per_category: targetReviewedItemsPerCategory,
+    target_hf_derived_items_per_category: targetReviewedItemsPerCategory,
     category_count: categories.length,
     total_target_reviewed_items: totalTargetReviewedItems,
+    total_target_hf_derived_items: totalTargetReviewedItems,
     current_pilot_items: currentPilotItems,
     current_valid_reviewed_items: currentValidReviewedItems,
+    current_hf_derived_items: currentHfDerivedItems,
     additional_pilot_items_needed: Math.max(0, totalTargetReviewedItems - currentPilotItems),
     additional_reviewed_items_needed: Math.max(0, totalTargetReviewedItems - currentValidReviewedItems),
+    additional_hf_derived_items_needed: Math.max(0, totalTargetReviewedItems - currentHfDerivedItems),
     expansion_batch_size: targetNewItemsPerBatch,
     expansion_batch_count: expansionBatches.length,
     planned_new_items: expansionBatches.reduce((sum, batch) => sum + batch.target_new_items, 0),
     planned_review_rows: expansionBatches.reduce((sum, batch) => sum + batch.review_rows_required, 0),
     expansion_batches: expansionBatches,
     scale_ready: categories.every((category) => category.scale_ready),
+    primary_label_source: 'HF-derived label suite; human review is optional audit only',
+    derived_scale_suite: 'generated/derived-scale-suite.json',
     categories,
   }
 }
@@ -150,11 +164,11 @@ function buildPlan(spec, pilotSuite, goldSummary) {
 function renderMarkdown(plan) {
   const rows = plan.categories.map((category) => [
     category.category,
-    String(category.target_reviewed_items),
+    String(category.target_hf_derived_items),
     String(category.current_pilot_items),
-    String(category.current_valid_reviewed_items),
+    String(category.current_hf_derived_items),
     String(category.additional_pilot_items_needed),
-    String(category.additional_reviewed_items_needed),
+    String(category.additional_hf_derived_items_needed),
     category.scale_ready ? 'yes' : 'no',
   ])
   const expansionRows = plan.categories.map((category) => [
@@ -179,20 +193,24 @@ This generated plan tracks the gap between the current pilot suite and a paper-g
 - Target reviewed items per category: ${plan.target_reviewed_items_per_category}
 - Categories: ${plan.category_count}
 - Total target reviewed items: ${plan.total_target_reviewed_items}
+- Total target HF-derived items: ${plan.total_target_hf_derived_items}
 - Current pilot items: ${plan.current_pilot_items}
 - Current valid reviewed items: ${plan.current_valid_reviewed_items}
+- Current HF-derived paper-eligible items: ${plan.current_hf_derived_items}
 - Additional pilot items needed: ${plan.additional_pilot_items_needed}
 - Additional reviewed items needed: ${plan.additional_reviewed_items_needed}
+- Additional HF-derived items needed: ${plan.additional_hf_derived_items_needed}
 - Expansion batch size: ${plan.expansion_batch_size}
 - Expansion batches: ${plan.expansion_batch_count}
 - Planned new items: ${plan.planned_new_items}
 - Planned review rows: ${plan.planned_review_rows}
 - Scale ready: ${plan.scale_ready}
+- Primary label source: ${plan.primary_label_source}
 
 ## Category Targets
 
 ${markdownTable(
-  ['Category', 'Target reviewed', 'Pilot items', 'Valid reviewed', 'Pilot gap', 'Reviewed gap', 'Ready'],
+  ['Category', 'Target derived', 'Pilot items', 'HF-derived', 'Pilot gap', 'Derived gap', 'Ready'],
   rows,
 )}
 

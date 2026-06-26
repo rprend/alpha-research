@@ -564,13 +564,13 @@ The generated reviewer FAQ answers ${reviewerFaq.summary.questions} likely revie
 
 ## Responsible Use And Leaderboard Policy
 
-The generated responsible-use policy contains ${responsibleUse.summary.policy_rules} rules and ${responsibleUse.summary.active_restrictions} active restrictions. It disallows public leaderboards and completion claims while review, scale, and novelty gates remain incomplete, and requires pointer-only handling for license-sensitive evidence.
+The generated responsible-use policy contains ${responsibleUse.summary.policy_rules} rules and ${responsibleUse.summary.active_restrictions} active restrictions. It disallows public leaderboards and completion claims while model-baseline and novelty gates remain incomplete, and requires pointer-only handling for license-sensitive evidence.
 
 The generated data statement records ${dataStatement.summary.source_dataset_count} source datasets, ${dataStatement.composition.scaled_public_items} scaled public items, ${dataStatement.package_policy.pointer_only_items} pointer-only package items, intended uses, out-of-scope uses, and review-state limits. It is the package-facing datasheet companion to the dataset card.
 
 ## Scale And Power Plan
 
-The paper target is ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total). The current pilot remains diagnostic because it has ${powerPlan.current_state.current_pilot_items} pilot items and ${powerPlan.current_state.current_valid_reviewed_items} valid reviewed items. The generated plan uses conservative normal-approximation intervals for bounded task metrics and keeps category-scale claims blocked until review completes.
+The paper target is ${powerPlan.assumptions.target_reviewed_items_per_category} HF-derived paper-eligible items per category (${powerPlan.assumptions.target_reviewed_items_total} total). The current derived scale suite has ${powerPlan.current_state.current_hf_derived_items} target items, with human review retained as optional audit. The generated plan uses conservative normal-approximation intervals for bounded task metrics and keeps completion claims blocked until novelty finalization.
 
 ${markdownTable(['Scope', 'Planning n', 'Worst-case 95% half-width', 'Detectable delta', 'Interpretation'], powerScenarioRows(powerPlan))}
 
@@ -723,11 +723,11 @@ ${markdownTable(['Dimension', 'Closest source ids', 'Position to defend'], novel
 
 ## Required Before Submission
 
-1. Scale from ${pilotItemCount} pilot items to at least 30-50 double-reviewed items per category.
-2. Complete independent double review and adjudicate disagreements until gold promotion succeeds.
+1. Keep the 300-item HF-derived scale suite reproducible from Hugging Face-native supervision and deterministic transforms.
+2. Run optional audit review only as an error-analysis and quality-control layer.
 3. Run at least two frontier or open model baselines over the same scoring source.
 4. Refresh the June 2026 novelty audit with paper citations immediately before any completion claim.
-5. Convert this scaffold into a full manuscript with related work, annotation protocol, limitations, and statistical uncertainty.
+5. Convert this scaffold into a full manuscript with related work, derivation protocol, limitations, and statistical uncertainty.
 `
 }
 

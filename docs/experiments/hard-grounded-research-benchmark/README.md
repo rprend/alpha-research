@@ -90,6 +90,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `SUBMISSION_CONTRACT.md` and `generated/submission-contract.json`: versioned external model prediction schema and validation policy.
 - `SCORING_CONTRACT.md` and `generated/scoring-contract.json`: metric formulas, aggregation rules, and claim limits for scored submissions.
 - `DERIVED_LABEL_SUITE.md` and `generated/derived-label-suite.json`: primary HF-derived label suite using dataset-native answers, native evidence ids, and deterministic challenge metadata instead of mandatory human annotation.
+- `DERIVED_SCALE_SUITE.md` and `generated/derived-scale-suite.json`: 300-item HF-derived category-scale suite combining pilot and expansion candidates, with human review retained as optional audit.
 - `ERROR_CODEBOOK.md` and `generated/error-codebook.json`: qualitative failure-code definitions and reviewer coding rules for error analysis.
 - `SUPPLEMENT_INDEX.md` and `generated/supplement-index.json`: reviewer-facing map from supplement sections, tables, and claims to source artifacts.
 - `REVIEWER_FAQ.md` and `generated/reviewer-faq.json`: reviewer-facing FAQ that answers likely objections from current artifacts and blockers.

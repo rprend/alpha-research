@@ -127,8 +127,8 @@ function buildPlan({ scoringContract, modelReportingCard, estimandRegistry, anal
       passed:
         claimGates.some((gate) => !gate.passed) &&
         paperClaimLedger.completion_claim_allowed === false &&
-        powerPlan.current_state.current_valid_reviewed_items < powerPlan.assumptions.target_reviewed_items_total,
-      detail: `${claimGates.filter((gate) => !gate.passed).length}/${claimGates.length} confirmatory gates blocked; reviewed=${powerPlan.current_state.current_valid_reviewed_items}/${powerPlan.assumptions.target_reviewed_items_total}`,
+        powerPlan.current_state.current_hf_derived_items >= powerPlan.assumptions.target_reviewed_items_total,
+      detail: `${claimGates.filter((gate) => !gate.passed).length}/${claimGates.length} confirmatory gates blocked; HF-derived=${powerPlan.current_state.current_hf_derived_items}/${powerPlan.assumptions.target_reviewed_items_total}`,
     },
   ]
 
@@ -161,6 +161,8 @@ function buildPlan({ scoringContract, modelReportingCard, estimandRegistry, anal
       blocked_claim_gates: claimGates.filter((gate) => !gate.passed).length,
       reviewed_items_current: powerPlan.current_state.current_valid_reviewed_items,
       reviewed_items_target: powerPlan.assumptions.target_reviewed_items_total,
+      hf_derived_items_current: powerPlan.current_state.current_hf_derived_items,
+      hf_derived_items_target: powerPlan.assumptions.target_reviewed_items_total,
       completion_claim_allowed: false,
     },
   }
@@ -190,7 +192,7 @@ This generated plan pre-registers robustness checks for paper results. It define
 - Estimands: ${plan.summary.estimands}
 - Eligible model baselines: ${plan.summary.eligible_model_baselines}
 - Blocked claim gates: ${plan.summary.blocked_claim_gates}
-- Reviewed items: ${plan.summary.reviewed_items_current}/${plan.summary.reviewed_items_target}
+- HF-derived items: ${plan.summary.hf_derived_items_current}/${plan.summary.hf_derived_items_target}
 - Completion claim allowed: ${plan.summary.completion_claim_allowed}
 
 ## Readiness Checks

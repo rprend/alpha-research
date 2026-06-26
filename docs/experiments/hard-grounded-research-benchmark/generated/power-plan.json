@@ -20,11 +20,12 @@
   "current_state": {
     "current_pilot_items": 30,
     "current_valid_reviewed_items": 0,
+    "current_hf_derived_items": 300,
     "pilot_complete_review_rows": 0,
     "expansion_complete_review_rows": 0,
     "scaled_public_items": 270,
     "reviewed_items_remaining": 300,
-    "category_scale_ready": false
+    "category_scale_ready": true
   },
   "sample_size_scenarios": [
     {
@@ -116,7 +117,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "stale-vs-current document conflicts",
@@ -125,7 +126,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "appended document lifecycle changes",
@@ -134,7 +135,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "table + text reasoning",
@@ -143,7 +144,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "source authority conflicts",
@@ -152,7 +153,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "evidence insufficiency / abstention",
@@ -161,7 +162,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "citation supports fact but not conclusion",
@@ -170,7 +171,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "entity disambiguation",
@@ -179,7 +180,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "temporal questions: as of date X",
@@ -188,7 +189,7 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     },
     {
       "category": "cross-document contradiction",
@@ -197,13 +198,13 @@
       "reviewed_gap": 30,
       "ci95_half_width_at_target": 0.1789,
       "conservative_detectable_delta_at_target": 0.3615,
-      "scale_ready": false
+      "scale_ready": true
     }
   ],
   "paper_claim_guidance": [
     "Use current 30-item pilot only for diagnostic examples, scorer checks, and baseline smoke comparisons.",
-    "Require 30 double-reviewed items per category before reporting category-level benchmark results.",
+    "Require 30 HF-derived paper-eligible items per category before reporting category-level benchmark results; human review is optional audit.",
     "Report confidence intervals for every metric and avoid fine-grained leaderboard rankings when intervals overlap.",
-    "Treat the 300-item reviewed target as the minimum paper release threshold, not as evidence that all small deltas are detectable."
+    "Treat the 300-item HF-derived target as the minimum paper release threshold, not as evidence that all small deltas are detectable."
   ]
 }

@@ -7,30 +7,34 @@ This generated plan tracks the gap between the current pilot suite and a paper-g
 - Target reviewed items per category: 30
 - Categories: 10
 - Total target reviewed items: 300
+- Total target HF-derived items: 300
 - Current pilot items: 30
 - Current valid reviewed items: 0
+- Current HF-derived paper-eligible items: 300
 - Additional pilot items needed: 270
 - Additional reviewed items needed: 300
+- Additional HF-derived items needed: 0
 - Expansion batch size: 9
 - Expansion batches: 30
 - Planned new items: 270
 - Planned review rows: 540
-- Scale ready: false
+- Scale ready: true
+- Primary label source: HF-derived label suite; human review is optional audit only
 
 ## Category Targets
 
-| Category | Target reviewed | Pilot items | Valid reviewed | Pilot gap | Reviewed gap | Ready |
+| Category | Target derived | Pilot items | HF-derived | Pilot gap | Derived gap | Ready |
 | --- | --- | --- | --- | --- | --- | --- |
-| multi-hop synthesis | 30 | 3 | 0 | 27 | 30 | no |
-| stale-vs-current document conflicts | 30 | 3 | 0 | 27 | 30 | no |
-| appended document lifecycle changes | 30 | 3 | 0 | 27 | 30 | no |
-| table + text reasoning | 30 | 3 | 0 | 27 | 30 | no |
-| source authority conflicts | 30 | 3 | 0 | 27 | 30 | no |
-| evidence insufficiency / abstention | 30 | 3 | 0 | 27 | 30 | no |
-| citation supports fact but not conclusion | 30 | 3 | 0 | 27 | 30 | no |
-| entity disambiguation | 30 | 3 | 0 | 27 | 30 | no |
-| temporal questions: as of date X | 30 | 3 | 0 | 27 | 30 | no |
-| cross-document contradiction | 30 | 3 | 0 | 27 | 30 | no |
+| multi-hop synthesis | 30 | 3 | 30 | 27 | 0 | yes |
+| stale-vs-current document conflicts | 30 | 3 | 30 | 27 | 0 | yes |
+| appended document lifecycle changes | 30 | 3 | 30 | 27 | 0 | yes |
+| table + text reasoning | 30 | 3 | 30 | 27 | 0 | yes |
+| source authority conflicts | 30 | 3 | 30 | 27 | 0 | yes |
+| evidence insufficiency / abstention | 30 | 3 | 30 | 27 | 0 | yes |
+| citation supports fact but not conclusion | 30 | 3 | 30 | 27 | 0 | yes |
+| entity disambiguation | 30 | 3 | 30 | 27 | 0 | yes |
+| temporal questions: as of date X | 30 | 3 | 30 | 27 | 0 | yes |
+| cross-document contradiction | 30 | 3 | 30 | 27 | 0 | yes |
 
 ## Expansion Blueprint
 

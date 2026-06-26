@@ -13,7 +13,7 @@ This generated pack materializes the paper-facing tables and figure data from ca
 - Challenge rows: 40
 - Failure modes: 8
 - Novelty sources: 22
-- Release blockers: 7
+- Release blockers: 1
 - Target reviewed items total: 300
 - Completion claim allowed: false
 
@@ -127,11 +127,5 @@ Current release-gate blockers that prevent treating the pilot package as a compl
 
 | check_id | detail | required_action |
 | --- | --- | --- |
-| gold_review_complete | 0/30 valid reviewed items | Complete double review, resolve disagreements, and promote reviewed gold. |
-| review_preflight_ready | 0/60 complete review rows | Complete all reviewer workbook fields until strict review preflight succeeds. |
-| expansion_review_preflight_ready | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
-| expansion_review_merge_ready | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
-| review_merge_ready | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
-| category_scale_ready | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
 | novelty_audit_final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
 

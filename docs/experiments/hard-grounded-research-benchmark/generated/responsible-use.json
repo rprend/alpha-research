@@ -20,11 +20,11 @@
   "policy_rules": [
     {
       "id": "no_public_leaderboard_before_gold",
-      "rule": "Do not publish a model leaderboard until gold review, merge, category scale, and final novelty gates pass.",
+      "rule": "Do not publish a model leaderboard until HF-derived scale, eligible model-baseline, and final novelty gates pass; human review is optional audit.",
       "status": "active_restriction",
       "evidence": [
-        "0/30 valid reviewed items",
-        "0/300 valid reviewed target items; 300 reviewed items still needed"
+        "hf-derived-label-suite-v1; 30/30 paper-eligible derived labels; datasets=5; findings=0",
+        "300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready"
       ]
     },
     {

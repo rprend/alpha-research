@@ -125,12 +125,6 @@
     "completion_claim_allowed": false,
     "category_level_model_claims_allowed": false,
     "blocked_until": [
-      "gold_review_complete",
-      "review_preflight_ready",
-      "expansion_review_preflight_ready",
-      "expansion_review_merge_ready",
-      "review_merge_ready",
-      "category_scale_ready",
       "novelty_audit_final"
     ]
   },
@@ -139,7 +133,7 @@
     "eligible_model_baselines": 2,
     "required_reporting_fields": 11,
     "reporting_rules": 5,
-    "active_release_blockers": 7,
+    "active_release_blockers": 1,
     "public_leaderboard_allowed": false,
     "completion_claim_allowed": false
   }

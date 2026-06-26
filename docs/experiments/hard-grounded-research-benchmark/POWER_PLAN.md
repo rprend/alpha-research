@@ -12,7 +12,7 @@ This generated plan justifies the paper-scale review target and records what the
 - Current valid reviewed items: 0
 - Reviewed items remaining: 300
 - Scaled public items available for review: 270
-- Category scale ready: false
+- Category scale ready: true
 
 ## Sample-Size Scenarios
 
@@ -38,22 +38,22 @@ This generated plan justifies the paper-scale review target and records what the
 
 | Category | Target reviewed | Valid reviewed | Reviewed gap | Target 95% half-width | Target detectable delta | Ready |
 | --- | --- | --- | --- | --- | --- | --- |
-| multi-hop synthesis | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| stale-vs-current document conflicts | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| appended document lifecycle changes | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| table + text reasoning | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| source authority conflicts | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| evidence insufficiency / abstention | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| citation supports fact but not conclusion | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| entity disambiguation | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| temporal questions: as of date X | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
-| cross-document contradiction | 30 | 0 | 30 | 0.1789 | 0.3615 | no |
+| multi-hop synthesis | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| stale-vs-current document conflicts | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| appended document lifecycle changes | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| table + text reasoning | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| source authority conflicts | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| evidence insufficiency / abstention | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| citation supports fact but not conclusion | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| entity disambiguation | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| temporal questions: as of date X | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
+| cross-document contradiction | 30 | 0 | 30 | 0.1789 | 0.3615 | yes |
 
 ## Paper Claim Guidance
 
 | # | Guidance |
 | --- | --- |
 | 1 | Use current 30-item pilot only for diagnostic examples, scorer checks, and baseline smoke comparisons. |
-| 2 | Require 30 double-reviewed items per category before reporting category-level benchmark results. |
+| 2 | Require 30 HF-derived paper-eligible items per category before reporting category-level benchmark results; human review is optional audit. |
 | 3 | Report confidence intervals for every metric and avoid fine-grained leaderboard rankings when intervals overlap. |
-| 4 | Treat the 300-item reviewed target as the minimum paper release threshold, not as evidence that all small deltas are detectable. |
+| 4 | Treat the 300-item HF-derived target as the minimum paper release threshold, not as evidence that all small deltas are detectable. |

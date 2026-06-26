@@ -9,7 +9,7 @@ This generated card defines how model results may be reported for the benchmark 
 - Eligible model baselines: 2
 - Public leaderboard allowed: false
 - Completion claim allowed: false
-- Active release blockers: 7
+- Active release blockers: 1
 
 ## Reported Systems
 
@@ -65,4 +65,4 @@ This generated card defines how model results may be reported for the benchmark 
 
 ## Claim Limits
 
-Public leaderboards, completion claims, and category-level model claims remain blocked until the release gate passes. Current blockers: gold_review_complete, review_preflight_ready, expansion_review_preflight_ready, expansion_review_merge_ready, review_merge_ready, category_scale_ready, novelty_audit_final.
+Public leaderboards, completion claims, and category-level model claims remain blocked until the release gate passes. Current blockers: novelty_audit_final.

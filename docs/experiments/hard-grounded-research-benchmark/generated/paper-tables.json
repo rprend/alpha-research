@@ -22,7 +22,7 @@
     "challenge_rows": 40,
     "failure_modes": 8,
     "novelty_sources": 22,
-    "release_blockers": 7,
+    "release_blockers": 1,
     "target_reviewed_items_total": 300,
     "completion_claim_allowed": false
   },
@@ -875,36 +875,6 @@
         "required_action"
       ],
       "rows": [
-        {
-          "check_id": "gold_review_complete",
-          "detail": "0/30 valid reviewed items",
-          "required_action": "Complete double review, resolve disagreements, and promote reviewed gold."
-        },
-        {
-          "check_id": "review_preflight_ready",
-          "detail": "0/60 complete review rows",
-          "required_action": "Complete all reviewer workbook fields until strict review preflight succeeds."
-        },
-        {
-          "check_id": "expansion_review_preflight_ready",
-          "detail": "0/540 complete expansion review rows",
-          "required_action": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
-        },
-        {
-          "check_id": "expansion_review_merge_ready",
-          "detail": "0/270 expansion merge-ready items",
-          "required_action": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
-        },
-        {
-          "check_id": "review_merge_ready",
-          "detail": "0/30 merge-ready items",
-          "required_action": "Fill reviewer workbooks until strict review merge succeeds."
-        },
-        {
-          "check_id": "category_scale_ready",
-          "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
-          "required_action": "Scale each category to the target reviewed item count before paper release."
-        },
         {
           "check_id": "novelty_audit_final",
           "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",

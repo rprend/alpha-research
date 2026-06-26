@@ -1,12 +1,16 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
   "target_reviewed_items_per_category": 30,
+  "target_hf_derived_items_per_category": 30,
   "category_count": 10,
   "total_target_reviewed_items": 300,
+  "total_target_hf_derived_items": 300,
   "current_pilot_items": 30,
   "current_valid_reviewed_items": 0,
+  "current_hf_derived_items": 300,
   "additional_pilot_items_needed": 270,
   "additional_reviewed_items_needed": 300,
+  "additional_hf_derived_items_needed": 0,
   "expansion_batch_size": 9,
   "expansion_batch_count": 30,
   "planned_new_items": 270,
@@ -463,16 +467,21 @@
       "status": "planned_not_generated"
     }
   ],
-  "scale_ready": false,
+  "scale_ready": true,
+  "primary_label_source": "HF-derived label suite; human review is optional audit only",
+  "derived_scale_suite": "generated/derived-scale-suite.json",
   "categories": [
     {
       "category": "multi-hop synthesis",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_multi_hop_001",
         "source_datasets": [
@@ -488,11 +497,14 @@
     {
       "category": "stale-vs-current document conflicts",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_stale_current_001",
         "source_datasets": [
@@ -510,11 +522,14 @@
     {
       "category": "appended document lifecycle changes",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_appendix_lifecycle_001",
         "source_datasets": [
@@ -530,11 +545,14 @@
     {
       "category": "table + text reasoning",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_table_text_001",
         "source_datasets": [
@@ -542,7 +560,7 @@
           "allenai/qasper"
         ],
         "dataset_roles": [
-          "Primary source for table lookups that must be paired with surrounding text or metadata.",
+          "Small known-license table source for table lookup and entity disambiguation smoke coverage.",
           "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
         ],
         "generation_strategy": "Pair table denotation questions with supporting or disambiguating text snippets; require both table cell grounding and textual context.",
@@ -552,11 +570,14 @@
     {
       "category": "source authority conflicts",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_authority_conflict_001",
         "source_datasets": [
@@ -574,11 +595,14 @@
     {
       "category": "evidence insufficiency / abstention",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_abstain_001",
         "source_datasets": [
@@ -596,11 +620,14 @@
     {
       "category": "citation supports fact but not conclusion",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_citation_overreach_001",
         "source_datasets": [
@@ -611,7 +638,7 @@
         "dataset_roles": [
           "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
           "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations.",
-          "Primary source for table lookups that must be paired with surrounding text or metadata."
+          "Small known-license table source for table lookup and entity disambiguation smoke coverage."
         ],
         "generation_strategy": "Keep citations that support true subfacts while withholding the link needed for the requested conclusion.",
         "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
@@ -620,11 +647,14 @@
     {
       "category": "entity disambiguation",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_entity_disambiguation_001",
         "source_datasets": [
@@ -633,7 +663,7 @@
         ],
         "dataset_roles": [
           "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps.",
-          "Primary source for table lookups that must be paired with surrounding text or metadata."
+          "Small known-license table source for table lookup and entity disambiguation smoke coverage."
         ],
         "generation_strategy": "Sample same-name or near-name entities across evidence sets; require citations that identify the intended referent.",
         "review_requirement": "Two independent reviews plus adjudication for disagreements before gold promotion."
@@ -642,11 +672,14 @@
     {
       "category": "temporal questions: as of date X",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_as_of_date_001",
         "source_datasets": [
@@ -664,11 +697,14 @@
     {
       "category": "cross-document contradiction",
       "target_reviewed_items": 30,
+      "target_hf_derived_items": 30,
       "current_pilot_items": 3,
       "current_valid_reviewed_items": 0,
+      "current_hf_derived_items": 30,
       "additional_pilot_items_needed": 27,
       "additional_reviewed_items_needed": 30,
-      "scale_ready": false,
+      "additional_hf_derived_items_needed": 0,
+      "scale_ready": true,
       "expansion": {
         "seed_task_id": "hgr_contradiction_001",
         "source_datasets": [

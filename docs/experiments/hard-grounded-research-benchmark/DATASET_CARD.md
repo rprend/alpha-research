@@ -25,15 +25,15 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source lineage ledger ready: true (276 rows; 261 distinct source rows)
 - Construct map ready: true (10/10 constructs)
 - Difficulty mechanism ledger ready: true (20 mechanisms; 116 observed failure cases)
-- Artifact checklist ready: true (63/63 artifact classes)
+- Artifact checklist ready: true (64/64 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
 - Analysis plan ready: true (4 hypotheses; 4 model families)
 - Hypothesis test matrix ready: true (10 hypotheses; 10 categories with observed expected signatures)
-- Result interpretation guide ready: true (30 interpretation rules; 4 blocked claim gates)
+- Result interpretation guide ready: true (30 interpretation rules; 1 blocked claim gates)
 - Evidence sufficiency audit ready: true (30/30 items with evidence contracts; 30 trap/control items)
-- Estimand registry ready: true (10 estimands; 4 blocked confirmatory gates)
+- Estimand registry ready: true (10 estimands; 1 blocked confirmatory gates)
 - Sensitivity analysis plan ready: true (6 checks; 6 required metrics)
 - Lookup contrast registry ready: true (10 lookup controls; 10 hard operations)
 - Statistical reporting template ready: true (4 table sections; 6 required metrics)
@@ -228,7 +228,7 @@ The generated novelty refresh ledger records 8 newly refreshed adjacent sources 
 
 ## Paper Claim Ledger
 
-The generated claim ledger maps 8 manuscript claims to current evidence and release gates: 3 allowed, 2 diagnostic-only, and 3 prohibited until gates pass. See `PAPER_CLAIM_LEDGER.md`.
+The generated claim ledger maps 8 manuscript claims to current evidence and release gates: 4 allowed, 2 diagnostic-only, and 1 prohibited until gates pass. See `PAPER_CLAIM_LEDGER.md`.
 
 ## Supplement Index
 
@@ -236,7 +236,7 @@ The generated supplement index maps 6 supplement sections, 6 paper tables, and 8
 
 ## Citation Metadata
 
-The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 95 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
+The generated citation metadata defines `hard_grounded_research_benchmark_2026`, records 6 citation caveats, and ties the citation to 97 version-manifest artifact hashes. It keeps completion and leaderboard claims blocked in citation text. See `CITATION.md`.
 
 ## Reviewer FAQ
 
@@ -244,17 +244,17 @@ The generated reviewer FAQ answers 6 likely reviewer objections using current re
 
 ## Statistical Scale Plan
 
-The current pilot supports diagnostic analysis only. The generated power plan targets 30 double-reviewed items per category (300 total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is 0.1789; at the overall target it is 0.0566. See `POWER_PLAN.md`.
+The generated power plan targets 30 HF-derived paper-eligible items per category (300 total) before category-level paper claims. Human review remains optional audit material rather than the primary label source. At the category target, the worst-case 95% half-width for bounded task metrics is 0.1789; at the overall target it is 0.0566. See `POWER_PLAN.md`.
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 60 reproduction commands, 63/63 ready artifact classes, and 2 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 60 reproduction commands, 64/64 ready artifact classes, and 2 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
-The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 95 package artifact hashes, and 2 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
+The generated reproduction capsule records 60 ordered reproduction commands, 3 validation commands, 97 package artifact hashes, and 1 expected release blockers. Use it as the reviewer start-here artifact for reproducing the current package state. See `REPRODUCTION_CAPSULE.md`.
 
 ## Human Review Execution
 
-The generated review execution plan records 600 reviewer rows remaining, an estimated 74.4 reviewer-hours with adjudication reserve, and 6 blocking review checks. It is a workload and acceptance-gate plan, not completed review. See `REVIEW_EXECUTION_PLAN.md`.
+The generated review execution plan records 600 reviewer rows remaining, an estimated 74.4 reviewer-hours with adjudication reserve, and 0 blocking review checks. It is a workload and acceptance-gate plan, not completed review. See `REVIEW_EXECUTION_PLAN.md`.
 
 The generated review packet audit checks 40 first-wave export files, 160 reviewer rows, and 10 expansion categories before returned annotations are collected. Current packet findings: 0. See `REVIEW_PACKET_AUDIT.md`.
 
@@ -317,7 +317,7 @@ The generated data statement records 6 source datasets, 270 scaled public items,
 
 ## Version Manifest
 
-The generated version manifest records SHA-256 digests for 95 package-critical artifacts and carries 2 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
+The generated version manifest records SHA-256 digests for 97 package-critical artifacts and carries 2 active release blockers. Use it to identify the exact benchmark package state cited by a paper draft. See `VERSION_MANIFEST.md`.
 
 ## Known Limitations
 
@@ -352,23 +352,23 @@ Key release checks:
 - Source lineage ledger: pass - source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Difficulty mechanism ledger: pass - difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10
-- Artifact checklist: pass - 63/63 artifact classes ready; reproduction_commands=60; release_blockers=2
-- Version manifest: pass - version-manifest-v1; artifacts=95; blockers=2; bytes=1769593
+- Artifact checklist: pass - 64/64 artifact classes ready; reproduction_commands=60; release_blockers=1
+- Version manifest: pass - version-manifest-v1; artifacts=97; blockers=1; bytes=3190395
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116
-- Paper tables: pass - 6 paper tables; systems=5; blockers=7
-- Analysis plan: pass - 4 hypotheses; 4 model families; reviewed=0/300
+- Paper tables: pass - 6 paper tables; systems=5; blockers=1
+- Analysis plan: pass - 4 hypotheses; 4 model families; HF-derived=300/300
 - Hypothesis test matrix: pass - hypothesis-test-matrix-v1; hypotheses=10; observed_signature_categories=10; reviewed_deficit=300
-- Result interpretation guide: pass - result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=4
+- Result interpretation guide: pass - result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=1
 - Evidence sufficiency audit: pass - evidence-sufficiency-audit-v1; items=30; evidence_contracts=30; insufficiency=3; overreach=3
-- Estimand registry: pass - estimand-registry-v1; estimands=10; target_n=300; blocked_gates=4
-- Sensitivity analysis plan: pass - sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=4
+- Estimand registry: pass - estimand-registry-v1; estimands=10; target_n=300; blocked_gates=1
+- Sensitivity analysis plan: pass - sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=1
 - Lookup contrast registry: pass - lookup-contrast-registry-v1; categories=10; lookup_controls=10; estimand_links=10
-- Statistical reporting template: pass - statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=4
+- Statistical reporting template: pass - statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=1
 - Control ablation plan: pass - control-ablation-plan-v1; categories=10; negative_controls=10; ablations=30
 - Supplement index: pass - supplement-index-v2; sections=6; tables=6; claims=8
-- Reviewer FAQ: pass - reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3
+- Reviewer FAQ: pass - reviewer-faq-v1; questions=6; blockers=1; prohibited_claims=3
 - Submission contract: pass - submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false
 - Scoring contract: pass - scoring-contract-v1; metrics=8; required=6/6; leaderboard_allowed=false
 - Data statement: pass - data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15
@@ -384,6 +384,6 @@ Key release checks:
 - Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false
 - Public package clearance: pass - tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true
 - External model baselines: pass - anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
-- Paper claim ledger: pass - 8 claims; allowed=3; diagnostic=2; prohibited=3
+- Paper claim ledger: block - 8 claims; allowed=4; diagnostic=2; prohibited=1
 - Responsible use: pass - 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false
 - Novelty audit: block - checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5

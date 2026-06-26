@@ -479,7 +479,7 @@ The generated reviewer FAQ answers ${reviewerFaq.summary.questions} likely revie
 
 ## Statistical Scale Plan
 
-The current pilot supports diagnostic analysis only. The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
+The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} HF-derived paper-eligible items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. Human review remains optional audit material rather than the primary label source. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
 
 ## Reproducibility Artifact Checklist
 

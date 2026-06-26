@@ -170,6 +170,11 @@ const hardGroundedDerivedLabelSuiteSource = readFileSync(join(root, 'scripts/har
 for (const token of ['derived-label-suite.json', 'DERIVED_LABEL_SUITE.md', 'derived_label_suite_ready', 'hf_native_gold', 'deterministic_transform_gold', 'Human annotation is not the primary label source']) {
   assert(hardGroundedDerivedLabelSuiteSource.includes(token), `Hard grounded derived label suite builder missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-derived-scale-suite.mjs')), 'Missing hard grounded derived scale suite builder.')
+const hardGroundedDerivedScaleSuiteSource = readFileSync(join(root, 'scripts/hard-grounded-research-derived-scale-suite.mjs'), 'utf8')
+for (const token of ['derived-scale-suite.json', 'DERIVED_SCALE_SUITE.md', 'derived_scale_suite_ready', 'targetItemsPerCategory', 'human review is optional audit only']) {
+  assert(hardGroundedDerivedScaleSuiteSource.includes(token), `Hard grounded derived scale suite builder missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-runner.mjs')), 'Missing hard grounded research benchmark local runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs')), 'Missing hard grounded research adjudication builder.')
 const hardGroundedAdjudicateSource = readFileSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs'), 'utf8')
@@ -434,7 +439,7 @@ for (const token of ['scale-adjudication-plan.json', 'SCALE_ADJUDICATION_PLAN.md
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-scale-gap-ledger.mjs')), 'Missing hard grounded scale gap ledger builder.')
 const hardGroundedScaleGapLedgerSource = readFileSync(join(root, 'scripts/hard-grounded-research-scale-gap-ledger.mjs'), 'utf8')
-for (const token of ['scale-gap-ledger.json', 'SCALE_GAP_LEDGER.md', 'scale_gap_ledger_ready', 'reviewed_item_deficit', 'blocked_until_reviewed_items_meet_target']) {
+for (const token of ['scale-gap-ledger.json', 'SCALE_GAP_LEDGER.md', 'scale_gap_ledger_ready', 'reviewed_item_deficit', 'hf_derived_item_deficit', 'blocked_until_hf_derived_items_meet_target']) {
   assert(hardGroundedScaleGapLedgerSource.includes(token), `Hard grounded scale gap ledger builder is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-reproduction-capsule.mjs')), 'Missing hard grounded reproduction capsule builder.')
@@ -684,7 +689,7 @@ for (const token of ['expansion-promotion-smoke', 'expansion_promotion_smoke_rea
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-scale-plan.mjs')), 'Missing hard grounded research scale plan.')
 const hardGroundedScalePlanSource = readFileSync(join(root, 'scripts/hard-grounded-research-scale-plan.mjs'), 'utf8')
-for (const token of ['scale-plan.json', 'target_reviewed_items_per_category', 'additional_reviewed_items_needed', 'generation_strategy', 'source_datasets', 'expansion_batches', 'planned_review_rows', 'planned_not_generated', 'scale_ready']) {
+for (const token of ['scale-plan.json', 'derived-scale-suite.json', 'target_reviewed_items_per_category', 'target_hf_derived_items_per_category', 'additional_reviewed_items_needed', 'additional_hf_derived_items_needed', 'generation_strategy', 'source_datasets', 'expansion_batches', 'planned_review_rows', 'planned_not_generated', 'scale_ready']) {
   assert(hardGroundedScalePlanSource.includes(token), `Hard grounded scale plan is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-expansion-manifest.mjs')), 'Missing hard grounded research expansion manifest.')
@@ -815,8 +820,16 @@ assert(
   'Missing hard grounded research derived label suite.',
 )
 assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/derived-scale-suite.json')),
+  'Missing hard grounded research derived scale suite.',
+)
+assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/DERIVED_LABEL_SUITE.md')),
   'Missing hard grounded research derived label suite report.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/DERIVED_SCALE_SUITE.md')),
+  'Missing hard grounded research derived scale suite report.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/adjudication-queue.jsonl')),

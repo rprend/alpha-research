@@ -9,9 +9,9 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 63/63
+- Artifact classes ready: 64/64
 - Reproduction commands: 60
-- Release blockers: 2
+- Release blockers: 1
 - Paper readiness status: blocked
 - Completion claim allowed: false
 
@@ -21,6 +21,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | --- | --- | --- |
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
 | hf_derived_labels | ready | hf-derived-label-suite-v1; paper-eligible=30/30; datasets=5; deterministic=21. |
+| hf_derived_scale | ready | hf-derived-scale-suite-v1; paper-eligible=300/300; ready categories=10/10; human review optional audit only. |
 | corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
 | public_package_integrity | ready | public-package-integrity-v1; suites=2; items=300; findings=0. |
 | public_package_schema | ready | public-package-schema-v1; suites=2; items=300; schema violations=0. |
@@ -37,7 +38,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | review_calibration | ready | 10 reviewer-screening sentinels across 10 categories; minimum_accuracy=0.9. |
 | annotation_quality_control | ready | 1092 review rows governed by 5 QA rules; sentinel rows in gold=false. |
 | annotation_and_review_workflow | ready | 160 exported review rows; 300 reviewed target items remaining. |
-| review_execution_plan | ready | review-execution-plan-v1; rows remaining=600; reviewer hours=74.4; blocking checks=6. |
+| review_execution_plan | ready | review-execution-plan-v1; rows remaining=600; reviewer hours=74.4; blocking checks=0. |
 | review_packet_audit | ready | review-packet-audit-v1; files=40; rows=160; findings=0. |
 | review_return_contract | ready | review-return-contract-v1; files=40; rows=160; findings=0. |
 | review_return_preflight | ready | review-return-preflight-v1; present=0/40; missing=40; latest import ready=true. |
@@ -55,25 +56,25 @@ This generated checklist makes the benchmark package auditable as a research art
 | error_codebook | ready | error-codebook-v1; codes=8; observed pilot failures=116. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | hypothesis_test_matrix | ready | hypothesis-test-matrix-v1; hypotheses=10; observed signature categories=10; diagnostic-only=10. |
-| result_interpretation_guide | ready | result-interpretation-guide-v1; rules=30; target reviewed items=300; blocked gates=4. |
+| result_interpretation_guide | ready | result-interpretation-guide-v1; rules=30; target reviewed items=300; blocked gates=1. |
 | evidence_sufficiency_audit | ready | evidence-sufficiency-audit-v1; items=30; evidence contracts=30; insufficiency=3; overreach=3. |
-| estimand_registry | ready | estimand-registry-v1; estimands=10; target reviewed items=300; blocked gates=4. |
-| sensitivity_analysis_plan | ready | sensitivity-analysis-plan-v1; checks=6; required metrics=6; blocked gates=4. |
+| estimand_registry | ready | estimand-registry-v1; estimands=10; target reviewed items=300; blocked gates=1. |
+| sensitivity_analysis_plan | ready | sensitivity-analysis-plan-v1; checks=6; required metrics=6; blocked gates=1. |
 | lookup_contrast_registry | ready | lookup-contrast-registry-v1; categories=10; lookup controls=10; estimand links=10. |
-| statistical_reporting_template | ready | statistical-reporting-template-v1; categories=10; table sections=4; blocked gates=4. |
+| statistical_reporting_template | ready | statistical-reporting-template-v1; categories=10; table sections=4; blocked gates=1. |
 | control_ablation_plan | ready | control-ablation-plan-v1; categories=10; negative controls=10; ablations=30. |
 | model_reporting_card | ready | model-reporting-card-v1; systems=7; eligible=2; required fields=11. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
-| paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
+| paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=1; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=95. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=95; blockers=2. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=97. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=97; blockers=1. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=95; bytes=1769593. |
+| version_manifest | ready | version-manifest-v1; artifacts=97; bytes=3190626. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
@@ -152,5 +153,4 @@ This generated checklist makes the benchmark package auditable as a research art
 
 | Check | Detail | Required action |
 | --- | --- | --- |
-| category_scale_ready | 0/300 current target items; 300 HF-derived or audited items still needed | Scale each category to the target HF-derived label count before paper release. |
 | novelty_audit_final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

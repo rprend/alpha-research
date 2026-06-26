@@ -48,9 +48,9 @@ function buildFaq({ spec, releaseGate, paperClaimLedger, noveltyEvidence, dataSt
     {
       id: 'is_this_gold_ready',
       question: 'Is the benchmark ready for final leaderboard or category-level claims?',
-      answer: 'No. The package is intentionally gated: pilot and fixture results are diagnostic until human gold review, merge, category scale, and final novelty checks pass.',
+      answer: 'Not fully. Category scale is now backed by HF-derived labels, while final leaderboard and completion claims remain gated on eligible model baselines and final novelty checks. Human review is optional audit, not the primary label source.',
       evidence: [
-        releaseCheck(releaseGate, 'gold_review_complete').detail,
+        releaseCheck(releaseGate, 'hf_derived_label_suite_ready').detail,
         releaseCheck(releaseGate, 'category_scale_ready').detail,
         `${paperClaimLedger.summary.prohibited_claims} paper claims prohibited until gates pass`,
       ],

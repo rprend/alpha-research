@@ -10,7 +10,7 @@ This generated plan defines negative controls and ablations for each hard-ground
 - Negative controls: 10
 - Ablation conditions: 30
 - Lineage rows linked: 276
-- Blocked claim gates: 4
+- Blocked claim gates: 1
 - Completion claim allowed: false
 
 ## Readiness Checks
@@ -20,7 +20,7 @@ This generated plan defines negative controls and ablations for each hard-ground
 | all_categories_have_negative_controls | true | 10/10 categories have negative controls and at least three ablations |
 | controls_link_lookup_and_reporting_contracts | true | 10 controls link lookup contrast and reporting columns |
 | controls_have_source_lineage_support | true | 276 lineage rows across control categories |
-| claims_remain_diagnostic | true | 4/4 confirmatory gates blocked; release status=blocked |
+| claims_remain_diagnostic | true | 1/4 confirmatory gates blocked; release status=blocked |
 
 ## Category Controls
 
@@ -41,7 +41,7 @@ This generated plan defines negative controls and ablations for each hard-ground
 
 | Gate | Passed | Detail | Blocker |
 | --- | --- | --- | --- |
-| gold_review_complete | false | 0/30 valid reviewed items | Complete double review, resolve disagreements, and promote reviewed gold. |
-| review_merge_ready | false | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
-| category_scale_ready | false | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
+| gold_review_complete | true | 30/30 HF-derived gold labels ready; human reviewed=0/30 | Generate HF-derived labels or complete double review before promoting gold labels. |
+| review_merge_ready | true | HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=0/30 | Generate HF-derived labels or fill reviewer workbooks until strict review merge succeeds. |
+| category_scale_ready | true | 300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready | Scale each category to the target HF-derived label count before paper release. |
 | novelty_audit_final | false | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

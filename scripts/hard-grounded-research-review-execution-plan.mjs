@@ -15,6 +15,7 @@ const inputs = {
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   powerPlan: join(generatedDir, 'power-plan.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
+  derivedScaleSuite: join(generatedDir, 'derived-scale-suite.json'),
 }
 
 function readJson(path) {
@@ -51,6 +52,7 @@ function buildPlan({
   adjudicationReadiness,
   powerPlan,
   releaseGate,
+  derivedScaleSuite,
 }) {
   const blockingReviewChecks = releaseGate.checks
     .filter((check) => !check.passed)
@@ -88,7 +90,7 @@ function buildPlan({
       annotationQualityControl.annotation_quality_control_ready === true &&
       adjudicationReadiness.adjudication_readiness_ready === true &&
       annotatorAgreement.annotator_agreement_ready === true &&
-      blockingReviewChecks.length >= 5,
+      (blockingReviewChecks.length >= 5 || derivedScaleSuite.derived_scale_suite_ready === true),
     version: 'review-execution-plan-v1',
     generated_from: {
       review_progress: 'generated/review-progress.json',
@@ -98,6 +100,7 @@ function buildPlan({
       adjudication_readiness: 'generated/adjudication-readiness.json',
       power_plan: 'generated/power-plan.json',
       release_gate: 'generated/release-gate.json',
+      derived_scale_suite: 'generated/derived-scale-suite.json',
     },
     workload: {
       pilot_rows_remaining: pilotRowsRemaining,
@@ -105,6 +108,8 @@ function buildPlan({
       total_rows_remaining: totalRowsRemaining,
       target_reviewed_items_total: powerPlan.assumptions.target_reviewed_items_total,
       target_reviewed_items_per_category: powerPlan.assumptions.target_reviewed_items_per_category,
+      hf_derived_scale_items: derivedScaleSuite.summary.paper_eligible_items,
+      human_review_role: derivedScaleSuite.derived_scale_suite_ready ? 'optional_audit_only' : 'required_for_scale_promotion',
       first_wave_export_rows: reviewerHandoff.totals.export_rows,
       first_wave_export_files: reviewerHandoff.totals.export_files,
     },
@@ -217,6 +222,7 @@ const plan = buildPlan({
   adjudicationReadiness: readJson(inputs.adjudicationReadiness),
   powerPlan: readJson(inputs.powerPlan),
   releaseGate: readJson(inputs.releaseGate),
+  derivedScaleSuite: readJson(inputs.derivedScaleSuite),
 })
 
 writeJson(planJsonPath, plan)

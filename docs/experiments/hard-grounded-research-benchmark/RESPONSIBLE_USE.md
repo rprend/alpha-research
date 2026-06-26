@@ -14,7 +14,7 @@ This generated policy records how the benchmark may be described, packaged, and 
 
 | Rule id | Status | Rule | Evidence |
 | --- | --- | --- | --- |
-| no_public_leaderboard_before_gold | active_restriction | Do not publish a model leaderboard until gold review, merge, category scale, and final novelty gates pass. | 0/30 valid reviewed items<br>0/300 valid reviewed target items; 300 reviewed items still needed |
+| no_public_leaderboard_before_gold | active_restriction | Do not publish a model leaderboard until HF-derived scale, eligible model-baseline, and final novelty gates pass; human review is optional audit. | hf-derived-label-suite-v1; 30/30 paper-eligible derived labels; datasets=5; findings=0<br>300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready |
 | diagnostic_pilot_labeling | active_restriction | Pilot and fixture results may be reported only as diagnostics, not as final benchmark rankings. | 2 diagnostic-only paper claims |
 | license_sensitive_distribution | packaged_clearance_ready | Unknown-license evidence must remain pointer-only or be replaced before public redistribution. | 15 pointer-only items<br>18 pointer-only evidence units |
 | citation_and_source_attribution | required | Every public artifact must preserve upstream dataset IDs, source-row pointers, and license notes. | hotpotqa/hotpot_qa:cc-by-sa-4.0<br>allenai/qasper:cc-by-4.0<br>danwakeem/wikitablequestions-wtq:cc-by-4.0<br>DongfuJiang/FeTaQA:mit<br>tdiggelm/climate_fever:unknown<br>Pavithree/eli5:unknown |

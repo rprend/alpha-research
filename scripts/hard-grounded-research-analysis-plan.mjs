@@ -44,6 +44,10 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
+function releaseCheck(releaseGate, id) {
+  return releaseGate.checks.find((check) => check.id === id) || { id, passed: false, detail: 'missing release check' }
+}
+
 function buildAnalysisPlan({
   spec,
   constructMap,
@@ -74,14 +78,14 @@ function buildAnalysisPlan({
       claim: 'Hard-grounded challenge types reduce answer correctness and citation faithfulness relative to native-row lookup-style tasks.',
       primary_metrics: ['answer_correct', 'citation_faithfulness'],
       primary_contrasts: ['native_row_vs_challenge_type', 'native_row_vs_category'],
-      minimum_evidence: 'At least 30 double-reviewed items per category and two eligible model baselines over the same reviewed source.',
+      minimum_evidence: 'At least 30 HF-derived paper-eligible items per category and two eligible model baselines over the same derived source.',
     },
     {
       id: 'h2_support_is_not_equivalent_to_citation_overlap',
       claim: 'Citation overlap is insufficient: systems can cite relevant facts while failing conclusion support.',
       primary_metrics: ['conclusion_support', 'citation_precision', 'citation_faithfulness'],
       primary_contrasts: ['citation_overreach_probe_vs_native_row', 'conclusion_support_delta_by_system'],
-      minimum_evidence: 'Reviewed citation-overreach items with human-confirmed premise/conclusion separation.',
+      minimum_evidence: 'HF-derived citation-overreach items with deterministic premise/conclusion separation and optional audit review.',
     },
     {
       id: 'h3_temporal_authority_and_contradiction_failures_are_distinct',
@@ -149,9 +153,9 @@ function buildAnalysisPlan({
     },
     {
       claim_scope: 'category-level benchmark conclusions',
-      allowed_now: false,
-      requirements: ['30 double-reviewed items per category', 'review merge ready', 'category scale ready'],
-      current_evidence: `${powerPlan.current_state.current_valid_reviewed_items}/${powerPlan.assumptions.target_reviewed_items_total} reviewed target items`,
+      allowed_now: releaseCheck(releaseGate, 'category_scale_ready').passed,
+      requirements: ['30 HF-derived paper-eligible items per category', 'category scale ready', 'novelty audit final before completion claims'],
+      current_evidence: `${powerPlan.current_state.current_hf_derived_items}/${powerPlan.assumptions.target_reviewed_items_total} HF-derived target items`,
     },
     {
       claim_scope: 'final novelty claim',
@@ -166,7 +170,8 @@ function buildAnalysisPlan({
       hypotheses.length >= 4 &&
       modelFamilies.length >= 4 &&
       covariates.every((entry) => entry.id && entry.source) &&
-      claimGates.some((gate) => gate.claim_scope === 'category-level benchmark conclusions' && !gate.allowed_now),
+      claimGates.some((gate) => gate.claim_scope === 'category-level benchmark conclusions' && gate.allowed_now) &&
+      claimGates.some((gate) => gate.claim_scope === 'final novelty claim' && !gate.allowed_now),
     benchmark_id: spec.id,
     generated_from: {
       benchmark_spec: 'benchmark-spec.json',
@@ -190,6 +195,8 @@ function buildAnalysisPlan({
       claim_gates: claimGates.length,
       reviewed_items_current: powerPlan.current_state.current_valid_reviewed_items,
       reviewed_items_target: powerPlan.assumptions.target_reviewed_items_total,
+      hf_derived_items_current: powerPlan.current_state.current_hf_derived_items,
+      hf_derived_items_target: powerPlan.assumptions.target_reviewed_items_total,
       completion_claim_allowed: false,
     },
     response_metrics: targetMetrics,

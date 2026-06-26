@@ -19,9 +19,9 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Novelty replacement candidates: 6
 - Novelty overlap pending dispositions: 6
 - Novelty refresh sources: 8
-- Version-manifest artifact hashes: 95
+- Version-manifest artifact hashes: 97
 - Public package findings: 0
-- Artifact classes: 63
+- Artifact classes: 64
 - Model reporting fields: 11
 - Citation caveats: 6
 - Review rows remaining: 600
@@ -38,7 +38,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Scale adjudication missing review rows: 540
 - Scale gap reviewed item deficit: 300
 - Reproduction commands: 60
-- Release checks: 99/101
+- Release checks: 100/101
 - Completion claim allowed: false
 
 ## Supplement Sections
@@ -71,7 +71,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 | hf_grounding_claim | allowed | The benchmark is grounded in Hugging Face datasets and fetched source rows rather than only hand-written toy examples. |
 | large_corpus_design_claim | diagnostic_only | The current artifacts define a large-corpus source-diversity target and executable acquisition substrate. |
 | baseline_diagnostic_claim | diagnostic_only | Pilot baselines expose qualitative failure modes that motivate the hard-grounded taxonomy. |
-| category_effect_claim | prohibited_until_gates_pass | Category-level differences identify which grounded-research tasks are hardest. |
-| publishable_gold_claim | prohibited_until_gates_pass | The benchmark has publishable gold labels for paper-scale evaluation. |
+| category_effect_claim | diagnostic_only_until_novelty_final | Category-level differences identify which grounded-research tasks are hardest. |
+| publishable_gold_claim | allowed | The benchmark has HF-derived labels for paper-scale evaluation. |
 | annotation_quality_claim | allowed | The annotation workflow has pre-registered quality-control rules for reviewer eligibility and label admissibility. |
 | novelty_completion_claim | prohibited_until_gates_pass | The benchmark is genuinely novel as of June 2026 and ready for completion/submission. |

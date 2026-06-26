@@ -12,10 +12,10 @@
   "package_identity": {
     "benchmark_id": "hard-grounded-research-benchmark",
     "release_status": "blocked",
-    "release_checks": "99/101",
+    "release_checks": "100/101",
     "version_manifest": "version-manifest-v1",
-    "artifact_hashes": 95,
-    "total_bytes": 1770714
+    "artifact_hashes": 97,
+    "total_bytes": 3187636
   },
   "package_contents": {
     "public_package_items": 30,
@@ -408,11 +408,6 @@
   ],
   "expected_blockers": [
     {
-      "id": "category_scale_ready",
-      "detail": "0/300 current target items; 300 HF-derived or audited items still needed",
-      "blocker": "Scale each category to the target HF-derived label count before paper release."
-    },
-    {
       "id": "novelty_audit_final",
       "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
       "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
@@ -426,8 +421,8 @@
   "summary": {
     "reproduction_commands": 60,
     "validation_commands": 3,
-    "artifact_hashes": 95,
-    "release_blockers": 2,
+    "artifact_hashes": 97,
+    "release_blockers": 1,
     "completion_claim_allowed": false
   }
 }

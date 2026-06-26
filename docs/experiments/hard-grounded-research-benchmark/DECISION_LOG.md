@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Promote HF-derived category scale
+
+Decision: Make category-scale readiness depend on a 300-item HF-derived scale suite built from the 30-item pilot plus 270 expansion candidates, with human review retained only as optional audit.
+
+Rationale: The benchmark should be reproducible from Hugging Face dataset-native supervision and deterministic task transforms. Treating human annotation as the required source of labels would undercut the benchmark premise and keep paper-scale claims blocked by an avoidable operations dependency.
+
+Consequence: `scripts/hard-grounded-research-derived-scale-suite.mjs` emits `generated/derived-scale-suite.json` and `DERIVED_SCALE_SUITE.md`; `scripts/hard-grounded-research-scale-plan.mjs` now counts HF-derived paper-eligible items for `category_scale_ready`; the release gate reports 300/300 derived scale items and leaves final completion blocked only on the June 2026 novelty audit.
+
 ## 2026-06-26 — Promote Hugging Face-derived labels first
 
 Decision: Add a primary HF-derived label suite that uses dataset-native answers, native evidence ids, and deterministic challenge metadata instead of treating human annotation as the benchmark's source of truth.

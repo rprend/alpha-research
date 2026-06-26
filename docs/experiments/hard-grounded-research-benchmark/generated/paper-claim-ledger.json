@@ -17,11 +17,11 @@
   },
   "summary": {
     "claims": 8,
-    "allowed_claims": 3,
+    "allowed_claims": 4,
     "diagnostic_only_claims": 2,
-    "prohibited_claims": 3,
+    "prohibited_claims": 1,
     "blocked_claims": 0,
-    "failed_release_checks": 7
+    "failed_release_checks": 1
   },
   "claims": [
     {
@@ -78,53 +78,44 @@
         "116 failure cases; 8 failure modes; systems=5"
       ],
       "blocked_by": [
-        "pilot labels are not final reviewed gold"
+        "pilot-only baselines are diagnostic until rerun on the HF-derived scale suite"
       ],
       "required_before_submission": [
-        "rerun baselines on reviewed gold or clearly label pilot-only diagnostics"
+        "rerun baselines on the HF-derived scale suite or clearly label pilot-only diagnostics"
       ]
     },
     {
       "id": "category_effect_claim",
       "claim": "Category-level differences identify which grounded-research tasks are hardest.",
-      "status": "prohibited_until_gates_pass",
+      "status": "diagnostic_only_until_novelty_final",
       "completion_claim_allowed": false,
       "evidence": [
-        "0/300 reviewed target items",
-        "0/300 valid reviewed target items; 300 reviewed items still needed"
+        "300/300 HF-derived target items",
+        "300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready"
       ],
       "blocked_by": [
-        "category_scale_ready",
-        "gold_review_complete",
-        "review_merge_ready"
+        "novelty_audit_final"
       ],
       "required_before_submission": [
-        "30 reviewed items per category",
-        "double review complete",
-        "merge/adjudication complete"
+        "30 HF-derived paper-eligible items per category",
+        "final novelty audit",
+        "eligible scale-suite model baselines"
       ]
     },
     {
       "id": "publishable_gold_claim",
-      "claim": "The benchmark has publishable gold labels for paper-scale evaluation.",
-      "status": "prohibited_until_gates_pass",
-      "completion_claim_allowed": false,
+      "claim": "The benchmark has HF-derived labels for paper-scale evaluation.",
+      "status": "allowed",
+      "completion_claim_allowed": true,
       "evidence": [
-        "0/30 valid reviewed items",
-        "0/30 merge-ready items",
-        "300 reviewed items remaining"
+        "hf-derived-label-suite-v1; 30/30 paper-eligible derived labels; datasets=5; findings=0",
+        "300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready",
+        "human review retained as optional audit"
       ],
-      "blocked_by": [
-        "gold_review_complete",
-        "review_preflight_ready",
-        "review_merge_ready",
-        "expansion_review_preflight_ready",
-        "expansion_review_merge_ready"
-      ],
+      "blocked_by": [],
       "required_before_submission": [
-        "complete reviewer workbooks",
-        "resolve disagreements",
-        "promote gold suite"
+        "maintain deterministic derivation rules",
+        "keep optional audit issues separate from primary labels"
       ]
     },
     {

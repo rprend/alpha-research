@@ -59,20 +59,20 @@ function estimandForHypothesis(row, { spec, powerPlan, evidenceSufficiencyAudit 
       'Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.',
     analysis_unit: 'item_system_response',
     eligible_items:
-      `Reviewed gold items in category "${row.category}" with valid evidence contracts and no unresolved generation defects.`,
+      `HF-derived paper-eligible items in category "${row.category}" with valid evidence contracts and no unresolved derivation findings.`,
     eligible_systems:
-      'Systems with complete predictions under the submission contract on the same reviewed item set.',
+      'Systems with complete predictions under the submission contract on the same HF-derived item set.',
     primary_contrast: row.contrast,
     primary_metrics: row.primary_metrics,
     estimator:
       'Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.',
     uncertainty_method:
-      'Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.',
+      'Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.',
     minimum_sample:
-      `${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items in this category and at least two eligible model baselines.`,
+      `${powerPlan.assumptions.target_reviewed_items_per_category} HF-derived paper-eligible items in this category and at least two eligible model baselines.`,
     adjustment_variables: ['system_id', 'source_dataset', 'evidence_unit_count', 'challenge_type', 'review_status'],
     missing_data_policy:
-      'Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.',
+      'Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.',
     multiplicity_policy:
       'Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.',
     evidence_contract:

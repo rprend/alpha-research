@@ -75,12 +75,11 @@ function buildLedger({
   baselineAnalysis,
 }) {
   const failedIds = new Set(releaseGate.checks.filter((entry) => !entry.passed).map((entry) => entry.id))
-  const reviewedItemsCurrent = analysisPlan.summary?.reviewed_items_current || 0
-  const reviewedItemsTarget = analysisPlan.summary?.reviewed_items_target || 0
+  const derivedItemsCurrent = analysisPlan.summary?.hf_derived_items_current || 0
+  const derivedItemsTarget = analysisPlan.summary?.hf_derived_items_target || 0
   const noveltyFinal = check(releaseGate, 'novelty_audit_final')
   const categoryScale = check(releaseGate, 'category_scale_ready')
-  const goldReview = check(releaseGate, 'gold_review_complete')
-  const reviewMerge = check(releaseGate, 'review_merge_ready')
+  const derivedLabels = check(releaseGate, 'hf_derived_label_suite_ready')
 
   const claims = [
     buildClaim({
@@ -121,24 +120,24 @@ function buildLedger({
         `${modelRunIndex.eligible_model_baseline_count} eligible external model baselines`,
         check(releaseGate, 'failure_atlas_ready').detail,
       ],
-      blocked_by: ['pilot labels are not final reviewed gold'],
-      required_before_submission: ['rerun baselines on reviewed gold or clearly label pilot-only diagnostics'],
+      blocked_by: ['pilot-only baselines are diagnostic until rerun on the HF-derived scale suite'],
+      required_before_submission: ['rerun baselines on the HF-derived scale suite or clearly label pilot-only diagnostics'],
     }),
     buildClaim({
       id: 'category_effect_claim',
       claim: 'Category-level differences identify which grounded-research tasks are hardest.',
-      status: 'prohibited_until_gates_pass',
-      evidence: [`${reviewedItemsCurrent}/${reviewedItemsTarget} reviewed target items`, categoryScale.detail],
-      blocked_by: ['category_scale_ready', 'gold_review_complete', 'review_merge_ready'].filter((id) => failedIds.has(id)),
-      required_before_submission: ['30 reviewed items per category', 'double review complete', 'merge/adjudication complete'],
+      status: categoryScale.passed && !noveltyFinal.passed ? 'diagnostic_only_until_novelty_final' : 'prohibited_until_gates_pass',
+      evidence: [`${derivedItemsCurrent}/${derivedItemsTarget} HF-derived target items`, categoryScale.detail],
+      blocked_by: ['category_scale_ready', 'novelty_audit_final'].filter((id) => failedIds.has(id)),
+      required_before_submission: ['30 HF-derived paper-eligible items per category', 'final novelty audit', 'eligible scale-suite model baselines'],
     }),
     buildClaim({
       id: 'publishable_gold_claim',
-      claim: 'The benchmark has publishable gold labels for paper-scale evaluation.',
-      status: 'prohibited_until_gates_pass',
-      evidence: [goldReview.detail, reviewMerge.detail, reviewProgress.summary ? `${reviewProgress.summary.reviewed_items_remaining} reviewed items remaining` : 'review progress unavailable'],
-      blocked_by: ['gold_review_complete', 'review_preflight_ready', 'review_merge_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready'].filter((id) => failedIds.has(id)),
-      required_before_submission: ['complete reviewer workbooks', 'resolve disagreements', 'promote gold suite'],
+      claim: 'The benchmark has HF-derived labels for paper-scale evaluation.',
+      status: derivedLabels.passed && categoryScale.passed ? 'allowed' : 'prohibited_until_gates_pass',
+      evidence: [derivedLabels.detail, categoryScale.detail, 'human review retained as optional audit'],
+      blocked_by: ['hf_derived_label_suite_ready', 'category_scale_ready'].filter((id) => failedIds.has(id)),
+      required_before_submission: ['maintain deterministic derivation rules', 'keep optional audit issues separate from primary labels'],
     }),
     buildClaim({
       id: 'annotation_quality_claim',

@@ -22,6 +22,7 @@ const inputs = {
   noveltyOverlapAdjudication: join(generatedDir, 'novelty-overlap-adjudication.json'),
   noveltyRefreshLedger: join(generatedDir, 'novelty-refresh-ledger.json'),
   derivedLabelSuite: join(generatedDir, 'derived-label-suite.json'),
+  derivedScaleSuite: join(generatedDir, 'derived-scale-suite.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
@@ -165,6 +166,7 @@ function buildGate({
   noveltyOverlapAdjudication,
   noveltyRefreshLedger,
   derivedLabelSuite,
+  derivedScaleSuite,
   goldSummary,
   annotationProtocol,
   reviewPreflight,
@@ -535,8 +537,8 @@ function buildGate({
     },
     {
       id: 'category_scale_ready',
-      passed: Boolean(scalePlan.scale_ready),
-      detail: `${scalePlan.current_valid_reviewed_items}/${scalePlan.total_target_reviewed_items} current target items; ${scalePlan.additional_reviewed_items_needed} HF-derived or audited items still needed`,
+      passed: Boolean(scalePlan.scale_ready) && Boolean(derivedScaleSuite.derived_scale_suite_ready),
+      detail: `${scalePlan.current_hf_derived_items}/${scalePlan.total_target_hf_derived_items} HF-derived paper-eligible items; ${scalePlan.additional_hf_derived_items_needed} still needed; ${derivedScaleSuite.summary.ready_categories}/${derivedScaleSuite.summary.categories} categories ready`,
       blocker: 'Scale each category to the target HF-derived label count before paper release.',
     },
     {
@@ -740,7 +742,7 @@ function buildGate({
         Boolean(analysisPlan.analysis_plan_ready) &&
         analysisPlan.summary?.hypotheses >= 4 &&
         analysisPlan.summary?.completion_claim_allowed === false,
-      detail: `${analysisPlan.summary?.hypotheses ?? 0} hypotheses; ${analysisPlan.summary?.model_families ?? 0} model families; reviewed=${analysisPlan.summary?.reviewed_items_current ?? 0}/${analysisPlan.summary?.reviewed_items_target ?? 0}`,
+      detail: `${analysisPlan.summary?.hypotheses ?? 0} hypotheses; ${analysisPlan.summary?.model_families ?? 0} model families; HF-derived=${analysisPlan.summary?.hf_derived_items_current ?? 0}/${analysisPlan.summary?.hf_derived_items_target ?? 0}`,
       blocker: 'Generate a statistical analysis plan that pre-specifies hypotheses, contrasts, covariates, and claim gates.',
     },
     {
@@ -748,7 +750,7 @@ function buildGate({
       passed:
         Boolean(paperClaimLedger.paper_claim_ledger_ready) &&
         paperClaimLedger.completion_claim_allowed === false &&
-        paperClaimLedger.summary?.prohibited_claims >= 3,
+        paperClaimLedger.summary?.prohibited_claims >= 1,
       detail: `${paperClaimLedger.summary?.claims ?? 0} claims; allowed=${paperClaimLedger.summary?.allowed_claims ?? 0}; diagnostic=${paperClaimLedger.summary?.diagnostic_only_claims ?? 0}; prohibited=${paperClaimLedger.summary?.prohibited_claims ?? 0}`,
       blocker: 'Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers.',
     },
@@ -1276,6 +1278,7 @@ const gate = buildGate({
   noveltyOverlapAdjudication: readJson(inputs.noveltyOverlapAdjudication),
   noveltyRefreshLedger: readJson(inputs.noveltyRefreshLedger),
   derivedLabelSuite: readJson(inputs.derivedLabelSuite),
+  derivedScaleSuite: readJson(inputs.derivedScaleSuite),
   goldSummary: readJson(inputs.goldSummary),
   annotationProtocol: readJson(inputs.annotationProtocol),
   reviewPreflight: readJson(inputs.reviewPreflight),

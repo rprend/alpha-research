@@ -56,15 +56,15 @@ function buildGuide({ hypothesisTestMatrix, powerPlan, baselineUncertainty, pape
     contrast: row.contrast,
     primary_metrics: row.primary_metrics,
     confirm_rule:
-      `After reviewed scale clears, confirm only if the category shows a deficit on at least two primary metrics for ${row.contrast} and the expected failure signature appears in reviewed errors.`,
+      `After HF-derived scale clears, confirm only if the category shows a deficit on at least two primary metrics for ${row.contrast} and the expected failure signature appears in scored errors.`,
     partial_rule:
       'Treat as partial support if metric deficits appear but failure signatures are mixed, or if failure signatures appear without a stable metric deficit.',
     falsify_rule:
-      'Treat as falsified or requiring revision if reviewed systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.',
+      'Treat as falsified or requiring revision if scored systems do not show the expected failure signature and primary metrics are indistinguishable from easier lookup-style controls.',
     minimum_evidence: [
-      `${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items in the category`,
-      'two or more eligible model baselines scored on the same reviewed source',
-      'reviewed error codes aligned to expected failure signatures',
+      `${powerPlan.assumptions.target_reviewed_items_per_category} HF-derived paper-eligible items in the category`,
+      'two or more eligible model baselines scored on the same derived source',
+      'error codes aligned to expected failure signatures',
       'final novelty audit allowing the claim boundary',
     ],
     current_status: row.claim_status,

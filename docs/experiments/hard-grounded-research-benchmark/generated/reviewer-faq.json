@@ -14,10 +14,10 @@
     {
       "id": "is_this_gold_ready",
       "question": "Is the benchmark ready for final leaderboard or category-level claims?",
-      "answer": "No. The package is intentionally gated: pilot and fixture results are diagnostic until human gold review, merge, category scale, and final novelty checks pass.",
+      "answer": "Not fully. Category scale is now backed by HF-derived labels, while final leaderboard and completion claims remain gated on eligible model baselines and final novelty checks. Human review is optional audit, not the primary label source.",
       "evidence": [
-        "0/30 valid reviewed items",
-        "0/300 valid reviewed target items; 300 reviewed items still needed",
+        "hf-derived-label-suite-v1; 30/30 paper-eligible derived labels; datasets=5; findings=0",
+        "300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready",
         "3 paper claims prohibited until gates pass"
       ]
     },
@@ -53,9 +53,9 @@
       "question": "Which artifacts should reviewers inspect first?",
       "answer": "Start with the supplement index, paper claim ledger, paper tables, data statement, version manifest, and release gate. These map claims to evidence and make blocked claims explicit.",
       "evidence": [
-        "5 supplement sections",
+        "6 supplement sections",
         "6 paper tables",
-        "7 active release blockers"
+        "1 active release blockers"
       ]
     },
     {
@@ -70,7 +70,7 @@
   ],
   "summary": {
     "questions": 6,
-    "release_blockers": 7,
+    "release_blockers": 1,
     "prohibited_claims": 3,
     "high_severity_threats": 3,
     "completion_claim_allowed": false

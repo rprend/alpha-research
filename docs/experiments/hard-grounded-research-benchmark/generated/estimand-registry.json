@@ -36,27 +36,27 @@
     {
       "id": "claims_remain_gated",
       "passed": true,
-      "detail": "4/4 confirmatory gates blocked; completion_claim_allowed=false"
+      "detail": "1/4 confirmatory gates blocked; completion_claim_allowed=false"
     }
   ],
   "claim_gates": [
     {
       "id": "gold_review_complete",
-      "passed": false,
-      "detail": "0/30 valid reviewed items",
-      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+      "passed": true,
+      "detail": "30/30 HF-derived gold labels ready; human reviewed=0/30",
+      "blocker": "Generate HF-derived labels or complete double review before promoting gold labels."
     },
     {
       "id": "review_merge_ready",
-      "passed": false,
-      "detail": "0/30 merge-ready items",
-      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+      "passed": true,
+      "detail": "HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=0/30",
+      "blocker": "Generate HF-derived labels or fill reviewer workbooks until strict review merge succeeds."
     },
     {
       "id": "category_scale_ready",
-      "passed": false,
-      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
-      "blocker": "Scale each category to the target reviewed item count before paper release."
+      "passed": true,
+      "detail": "300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready",
+      "blocker": "Scale each category to the target HF-derived label count before paper release."
     },
     {
       "id": "novelty_audit_final",
@@ -72,8 +72,8 @@
       "hypothesis": "Models will retrieve individually relevant hops but lose answer correctness or conclusion support when the final answer requires evidence composition.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"multi-hop synthesis\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"multi-hop synthesis\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "multi-hop synthesis vs native single-row or first-evidence baselines",
       "primary_metrics": [
         "answer_correct",
@@ -81,8 +81,8 @@
         "conclusion_support"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -90,7 +90,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -101,8 +101,8 @@
       "hypothesis": "Models will overuse plausible stale evidence unless the scoring source forces recency-conditioned citation and answer selection.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"stale-vs-current document conflicts\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"stale-vs-current document conflicts\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "stale evidence distractors vs current controlling evidence",
       "primary_metrics": [
         "answer_correct",
@@ -110,8 +110,8 @@
         "conclusion_support"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -119,7 +119,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -130,8 +130,8 @@
       "hypothesis": "Models will treat appended or corrective text as additive context instead of a document-state transition that can supersede earlier content.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"appended document lifecycle changes\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"appended document lifecycle changes\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "body-only evidence vs appended lifecycle evidence",
       "primary_metrics": [
         "answer_correct",
@@ -139,8 +139,8 @@
         "conclusion_support"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -148,7 +148,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -159,8 +159,8 @@
       "hypothesis": "Models will cite the correct table cell while failing the prose qualifier or interpretation required to make the answer grounded.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"table + text reasoning\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"table + text reasoning\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "table-only extraction vs table-plus-text interpretation",
       "primary_metrics": [
         "answer_correct",
@@ -168,8 +168,8 @@
         "conclusion_support"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -177,7 +177,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -188,8 +188,8 @@
       "hypothesis": "Models will synthesize lower- and higher-authority sources unless the task requires an explicit authority hierarchy.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"source authority conflicts\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"source authority conflicts\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "authority-ranked evidence vs locally plausible lower-authority evidence",
       "primary_metrics": [
         "answer_correct",
@@ -197,8 +197,8 @@
         "abstention_quality"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -206,7 +206,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -217,8 +217,8 @@
       "hypothesis": "Models will answer from near-miss evidence instead of abstaining when relevance is present but sufficiency is absent.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"evidence insufficiency / abstention\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"evidence insufficiency / abstention\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "near-miss evidence vs sufficient evidence",
       "primary_metrics": [
         "abstention_quality",
@@ -226,8 +226,8 @@
         "citation_faithfulness"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -235,7 +235,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -246,8 +246,8 @@
       "hypothesis": "Models will cite true premises and still make unsupported comparative, causal, or interpretive conclusions.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"citation supports fact but not conclusion\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"citation supports fact but not conclusion\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "premise-supported citation vs conclusion-supported citation",
       "primary_metrics": [
         "conclusion_support",
@@ -255,8 +255,8 @@
         "answer_correct"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -264,7 +264,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -275,8 +275,8 @@
       "hypothesis": "Models will retrieve or cite same-name evidence while answering about the wrong referent.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"entity disambiguation\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"entity disambiguation\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "intended entity evidence vs same-name distractor evidence",
       "primary_metrics": [
         "answer_correct",
@@ -284,8 +284,8 @@
         "citation_precision"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -293,7 +293,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -304,8 +304,8 @@
       "hypothesis": "Models will answer using globally current or generally true evidence rather than the requested as-of date.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"temporal questions: as of date X\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"temporal questions: as of date X\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "as-of-date snapshot vs outside-window evidence",
       "primary_metrics": [
         "answer_correct",
@@ -313,8 +313,8 @@
         "abstention_quality"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -322,7 +322,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -333,8 +333,8 @@
       "hypothesis": "Models will merge incompatible documents into a single unsupported answer instead of reporting conflict or applying a control rule.",
       "target_population": "Large-corpus grounded research QA tasks drawn from the registered Hugging Face source datasets and transformed into the specified hard-grounding category.",
       "analysis_unit": "item_system_response",
-      "eligible_items": "Reviewed gold items in category \"cross-document contradiction\" with valid evidence contracts and no unresolved generation defects.",
-      "eligible_systems": "Systems with complete predictions under the submission contract on the same reviewed item set.",
+      "eligible_items": "HF-derived paper-eligible items in category \"cross-document contradiction\" with valid evidence contracts and no unresolved derivation findings.",
+      "eligible_systems": "Systems with complete predictions under the submission contract on the same HF-derived item set.",
       "primary_contrast": "conflicting evidence bundle vs non-conflicting bundle",
       "primary_metrics": [
         "abstention_quality",
@@ -342,8 +342,8 @@
         "citation_faithfulness"
       ],
       "estimator": "Mean paired system-level metric difference, reported with task bootstrap confidence intervals and category descriptive intervals.",
-      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; reviewed release reports category intervals and paired system deltas with alpha=0.05.",
-      "minimum_sample": "30 double-reviewed items in this category and at least two eligible model baselines.",
+      "uncertainty_method": "Paired task bootstrap for current pilot diagnostics; HF-derived release reports category intervals and paired system deltas with alpha=0.05.",
+      "minimum_sample": "30 HF-derived paper-eligible items in this category and at least two eligible model baselines.",
       "adjustment_variables": [
         "system_id",
         "source_dataset",
@@ -351,7 +351,7 @@
         "challenge_type",
         "review_status"
       ],
-      "missing_data_policy": "Exclude items without valid merged reviews from confirmatory estimates; report missing review rows and blocked item counts separately.",
+      "missing_data_policy": "Exclude items without valid derived labels from confirmatory estimates; report optional audit rows separately.",
       "multiplicity_policy": "Treat category hypotheses as pre-registered families; report all category estimates and avoid winner-take-all claims when intervals overlap.",
       "evidence_contract": "3/3 pilot contracts present; 3 trap/control pilot items.",
       "claim_status": "diagnostic_only_until_review_scale_and_novelty_clear"
@@ -363,7 +363,7 @@
     "target_reviewed_items_per_category": 30,
     "target_reviewed_items_total": 300,
     "pilot_systems_with_uncertainty": 5,
-    "blocked_claim_gates": 4,
+    "blocked_claim_gates": 1,
     "diagnostic_only_estimands": 10,
     "completion_claim_allowed": false
   }

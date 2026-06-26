@@ -46,10 +46,10 @@ function buildReport({ spec, releaseGate, paperClaimLedger, licenseClearance, pa
   const policyRules = [
     {
       id: 'no_public_leaderboard_before_gold',
-      rule: 'Do not publish a model leaderboard until gold review, merge, category scale, and final novelty gates pass.',
+      rule: 'Do not publish a model leaderboard until HF-derived scale, eligible model-baseline, and final novelty gates pass; human review is optional audit.',
       status: 'active_restriction',
       evidence: [
-        releaseCheck(releaseGate, 'gold_review_complete').detail,
+        releaseCheck(releaseGate, 'hf_derived_label_suite_ready').detail,
         releaseCheck(releaseGate, 'category_scale_ready').detail,
       ],
     },

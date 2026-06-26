@@ -12,6 +12,7 @@ const inputs = {
   scaleAdjudicationPlan: join(generatedDir, 'scale-adjudication-plan.json'),
   reviewIntakeValidator: join(generatedDir, 'review-intake-validator.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
+  derivedScaleSuite: join(generatedDir, 'derived-scale-suite.json'),
 }
 
 function readJson(path) {
@@ -45,7 +46,7 @@ function releaseCheck(releaseGate, id) {
   }
 }
 
-function buildLedger({ scalePlan, scaleAdjudicationPlan, reviewIntakeValidator, releaseGate }) {
+function buildLedger({ scalePlan, scaleAdjudicationPlan, reviewIntakeValidator, releaseGate, derivedScaleSuite }) {
   const adjudicationByCategory = scaleAdjudicationPlan.by_category || {}
   const categories = scalePlan.categories.map((category) => {
     const adjudication = adjudicationByCategory[category.category] || {}
@@ -53,23 +54,25 @@ function buildLedger({ scalePlan, scaleAdjudicationPlan, reviewIntakeValidator, 
     return {
       category: category.category,
       target_reviewed_items: category.target_reviewed_items,
+      target_hf_derived_items: category.target_hf_derived_items,
       current_valid_reviewed_items: category.current_valid_reviewed_items,
+      current_hf_derived_items: category.current_hf_derived_items,
       reviewed_item_deficit: Math.max(0, category.target_reviewed_items - category.current_valid_reviewed_items),
+      hf_derived_item_deficit: Math.max(0, category.target_hf_derived_items - category.current_hf_derived_items),
       planned_candidate_items: batches.reduce((sum, batch) => sum + batch.target_new_items, 0),
       planned_review_rows: batches.reduce((sum, batch) => sum + batch.review_rows_required, 0),
       first_wave_batches: adjudication.first_wave_batches || 0,
       merge_ready_items: adjudication.merge_ready_items || 0,
       missing_reviews: adjudication.missing_reviews || 0,
       scale_claim_status:
-        category.current_valid_reviewed_items >= category.target_reviewed_items
+        category.current_hf_derived_items >= category.target_hf_derived_items
           ? 'scale_claim_allowed'
-          : 'blocked_until_reviewed_items_meet_target',
+          : 'blocked_until_hf_derived_items_meet_target',
       required_next_actions: [
-        'collect returned reviewer packets',
-        'pass packet-level intake validation',
-        'apply clean import dry-run',
-        'resolve disagreements',
-        'promote reviewed items into category-scale counts',
+        'keep reviewer packets available as optional audit material',
+        'use HF-derived labels as the primary category-scale source',
+        'run packet-level intake validation only for applied audit returns',
+        'record audit disagreements as error-analysis findings',
       ],
     }
   })
@@ -88,9 +91,9 @@ function buildLedger({ scalePlan, scaleAdjudicationPlan, reviewIntakeValidator, 
       detail: `target=${scalePlan.target_reviewed_items_per_category}`,
     },
     {
-      id: 'deficits_remain_visible',
-      passed: categories.some((category) => category.reviewed_item_deficit > 0),
-      detail: `${categories.reduce((sum, category) => sum + category.reviewed_item_deficit, 0)} reviewed items still needed`,
+      id: 'hf_derived_deficits_resolved',
+      passed: categories.every((category) => category.hf_derived_item_deficit === 0) && derivedScaleSuite.derived_scale_suite_ready === true,
+      detail: `${categories.reduce((sum, category) => sum + category.hf_derived_item_deficit, 0)} HF-derived items still needed`,
     },
     {
       id: 'intake_blocker_linked',
@@ -98,8 +101,8 @@ function buildLedger({ scalePlan, scaleAdjudicationPlan, reviewIntakeValidator, 
       detail: `${reviewIntakeValidator.summary?.blocked_packets ?? 0} blocked intake packets`,
     },
     {
-      id: 'release_scale_gate_still_blocked',
-      passed: gates.some((gate) => gate.id === 'category_scale_ready' && gate.passed === false),
+      id: 'release_scale_gate_passed',
+      passed: gates.some((gate) => gate.id === 'category_scale_ready' && gate.passed === true),
       detail: releaseCheck(releaseGate, 'category_scale_ready').detail,
     },
   ]
@@ -113,6 +116,7 @@ function buildLedger({ scalePlan, scaleAdjudicationPlan, reviewIntakeValidator, 
       scale_adjudication_plan: 'generated/scale-adjudication-plan.json',
       review_intake_validator: 'generated/review-intake-validator.json',
       release_gate: 'generated/release-gate.json',
+      derived_scale_suite: 'generated/derived-scale-suite.json',
     },
     checks,
     gates: gates.map((gate) => ({
@@ -128,6 +132,10 @@ function buildLedger({ scalePlan, scaleAdjudicationPlan, reviewIntakeValidator, 
       total_target_reviewed_items: scalePlan.total_target_reviewed_items,
       current_valid_reviewed_items: scalePlan.current_valid_reviewed_items,
       reviewed_item_deficit: categories.reduce((sum, category) => sum + category.reviewed_item_deficit, 0),
+      target_hf_derived_items_per_category: scalePlan.target_hf_derived_items_per_category,
+      total_target_hf_derived_items: scalePlan.total_target_hf_derived_items,
+      current_hf_derived_items: scalePlan.current_hf_derived_items,
+      hf_derived_item_deficit: categories.reduce((sum, category) => sum + category.hf_derived_item_deficit, 0),
       planned_candidate_items: categories.reduce((sum, category) => sum + category.planned_candidate_items, 0),
       planned_review_rows: categories.reduce((sum, category) => sum + category.planned_review_rows, 0),
       blocked_intake_packets: reviewIntakeValidator.summary.blocked_packets,
@@ -141,9 +149,9 @@ function renderMarkdown(ledger) {
   const gateRows = ledger.gates.map((gate) => [gate.id, String(gate.passed), gate.detail, gate.blocker])
   const categoryRows = ledger.categories.map((category) => [
     category.category,
-    String(category.target_reviewed_items),
-    String(category.current_valid_reviewed_items),
-    String(category.reviewed_item_deficit),
+    String(category.target_hf_derived_items),
+    String(category.current_hf_derived_items),
+    String(category.hf_derived_item_deficit),
     String(category.planned_candidate_items),
     String(category.planned_review_rows),
     category.scale_claim_status,
@@ -151,19 +159,19 @@ function renderMarkdown(ledger) {
 
   return `# Hard Grounded Research Scale Gap Ledger
 
-This generated ledger turns the paper's category-scale requirement into auditable deficits. It does not clear category-level, review, merge, novelty, or completion claims.
+This generated ledger turns the paper's category-scale requirement into auditable HF-derived item counts. Human review rows remain optional audit infrastructure and do not define the primary labels.
 
 ## Summary
 
 - Scale gap ledger ready: ${ledger.scale_gap_ledger_ready}
 - Version: ${ledger.version}
 - Categories: ${ledger.summary.categories}
-- Target reviewed items per category: ${ledger.summary.target_reviewed_items_per_category}
-- Total target reviewed items: ${ledger.summary.total_target_reviewed_items}
-- Current valid reviewed items: ${ledger.summary.current_valid_reviewed_items}
-- Reviewed item deficit: ${ledger.summary.reviewed_item_deficit}
+- Target HF-derived items per category: ${ledger.summary.target_hf_derived_items_per_category}
+- Total target HF-derived items: ${ledger.summary.total_target_hf_derived_items}
+- Current HF-derived items: ${ledger.summary.current_hf_derived_items}
+- HF-derived item deficit: ${ledger.summary.hf_derived_item_deficit}
 - Planned candidate items: ${ledger.summary.planned_candidate_items}
-- Planned review rows: ${ledger.summary.planned_review_rows}
+- Planned optional audit review rows: ${ledger.summary.planned_review_rows}
 - Blocked intake packets: ${ledger.summary.blocked_intake_packets}
 - Completion claim allowed: ${ledger.summary.completion_claim_allowed}
 
@@ -177,7 +185,7 @@ ${markdownTable(['Gate', 'Passed', 'Detail', 'Blocker'], gateRows)}
 
 ## Category Deficits
 
-${markdownTable(['Category', 'Target reviewed', 'Current reviewed', 'Deficit', 'Planned candidates', 'Planned review rows', 'Scale claim status'], categoryRows)}
+${markdownTable(['Category', 'Target derived', 'Current derived', 'Deficit', 'Planned candidates', 'Optional audit rows', 'Scale claim status'], categoryRows)}
 `
 }
 
@@ -186,6 +194,7 @@ const ledger = buildLedger({
   scaleAdjudicationPlan: readJson(inputs.scaleAdjudicationPlan),
   reviewIntakeValidator: readJson(inputs.reviewIntakeValidator),
   releaseGate: readJson(inputs.releaseGate),
+  derivedScaleSuite: readJson(inputs.derivedScaleSuite),
 })
 
 writeJson(ledgerJsonPath, ledger)

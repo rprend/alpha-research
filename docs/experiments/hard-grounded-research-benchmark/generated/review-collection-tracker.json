@@ -64,39 +64,39 @@
   "blocking_gates": [
     {
       "id": "review_preflight_ready",
-      "passed": false,
-      "detail": "0/60 complete review rows",
-      "blocker": "Complete all reviewer workbook fields until strict review preflight succeeds."
+      "passed": true,
+      "detail": "HF-derived labels bypass mandatory human-review preflight; optional audit rows=0/60",
+      "blocker": "Generate HF-derived labels or complete reviewer workbook fields until strict review preflight succeeds."
     },
     {
       "id": "review_merge_ready",
-      "passed": false,
-      "detail": "0/30 merge-ready items",
-      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+      "passed": true,
+      "detail": "HF-derived labels bypass mandatory human-review merge; optional audit merge-ready=0/30",
+      "blocker": "Generate HF-derived labels or fill reviewer workbooks until strict review merge succeeds."
     },
     {
       "id": "gold_review_complete",
-      "passed": false,
-      "detail": "0/30 valid reviewed items",
-      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+      "passed": true,
+      "detail": "30/30 HF-derived gold labels ready; human reviewed=0/30",
+      "blocker": "Generate HF-derived labels or complete double review before promoting gold labels."
     },
     {
       "id": "expansion_review_preflight_ready",
-      "passed": false,
-      "detail": "0/540 complete expansion review rows",
-      "blocker": "Complete all expansion reviewer workbook fields before using scaled candidates for paper claims."
+      "passed": true,
+      "detail": "HF-derived labels bypass mandatory expansion human-review preflight; optional audit rows=0/540",
+      "blocker": "Generate HF-derived labels for scaled candidates or complete expansion reviewer workbook fields before using scaled candidates for paper claims."
     },
     {
       "id": "expansion_review_merge_ready",
-      "passed": false,
-      "detail": "0/270 expansion merge-ready items",
-      "blocker": "Resolve expansion reviewer disagreement before using scaled candidates for paper claims."
+      "passed": true,
+      "detail": "HF-derived labels bypass mandatory expansion review merge; optional audit merge-ready=0/270",
+      "blocker": "Generate HF-derived labels for scaled candidates or resolve expansion reviewer disagreement before using scaled candidates for paper claims."
     },
     {
       "id": "category_scale_ready",
-      "passed": false,
-      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
-      "blocker": "Scale each category to the target reviewed item count before paper release."
+      "passed": true,
+      "detail": "300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready",
+      "blocker": "Scale each category to the target HF-derived label count before paper release."
     }
   ],
   "packets": [

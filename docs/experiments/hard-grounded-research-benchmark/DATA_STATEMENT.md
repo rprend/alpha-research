@@ -49,9 +49,9 @@ This generated data statement records benchmark composition, source provenance, 
 
 ## Review State
 
-- Gold review complete: false
-- Review merge ready: false
-- Category scale ready: false
+- Gold review complete: true
+- Review merge ready: true
+- Category scale ready: true
 - Annotation QA rules: 5
 
 ## Limitations

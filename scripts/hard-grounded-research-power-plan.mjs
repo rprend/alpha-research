@@ -155,6 +155,7 @@ function buildPlan({ scalePlan, baselineUncertainty, reviewProgress, corpusAudit
     current_state: {
       current_pilot_items: currentPilotItems,
       current_valid_reviewed_items: currentReviewedItems,
+      current_hf_derived_items: scalePlan.current_hf_derived_items,
       pilot_complete_review_rows: reviewProgress.summary.pilot_complete_review_rows,
       expansion_complete_review_rows: reviewProgress.summary.expansion_complete_review_rows,
       scaled_public_items: corpusAudit.summary.scaled_public_items,
@@ -166,9 +167,9 @@ function buildPlan({ scalePlan, baselineUncertainty, reviewProgress, corpusAudit
     category_targets: categoryRows,
     paper_claim_guidance: [
       'Use current 30-item pilot only for diagnostic examples, scorer checks, and baseline smoke comparisons.',
-      'Require 30 double-reviewed items per category before reporting category-level benchmark results.',
+      'Require 30 HF-derived paper-eligible items per category before reporting category-level benchmark results; human review is optional audit.',
       'Report confidence intervals for every metric and avoid fine-grained leaderboard rankings when intervals overlap.',
-      'Treat the 300-item reviewed target as the minimum paper release threshold, not as evidence that all small deltas are detectable.',
+      'Treat the 300-item HF-derived target as the minimum paper release threshold, not as evidence that all small deltas are detectable.',
     ],
   }
 }

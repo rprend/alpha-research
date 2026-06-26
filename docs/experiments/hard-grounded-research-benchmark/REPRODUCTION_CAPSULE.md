@@ -8,8 +8,8 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 - Version: reproduction-capsule-v1
 - Benchmark id: `hard-grounded-research-benchmark`
 - Release status: blocked
-- Release checks: 99/101
-- Artifact hashes: 95
+- Release checks: 100/101
+- Artifact hashes: 97
 - Reproduction commands: 60
 - Validation commands: 3
 - Completion claim allowed: false
@@ -91,5 +91,4 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 
 | Check | Detail | Required action |
 | --- | --- | --- |
-| category_scale_ready | 0/300 current target items; 300 HF-derived or audited items still needed | Scale each category to the target HF-derived label count before paper release. |
 | novelty_audit_final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

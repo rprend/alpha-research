@@ -26,15 +26,15 @@ This generated plan turns the category-scale blocker into batch-level adjudicati
 | review_workload_matches_scale_plan | true | 270/270 candidates; 540/540 review rows |
 | first_wave_collection_linked | true | 20 first-wave expansion packets; 20 missing |
 | source_acquisition_gap_visible | true | 246 source-acquisition candidates tracked separately |
-| scale_promotion_still_blocked | true | 0/300 reviewed target items |
+| derived_scale_promotion_ready | true | 300/300 HF-derived target items; review rows remain optional audit |
 
 ## Blocking Gates
 
 | Gate | Passed | Detail | Required action |
 | --- | --- | --- | --- |
-| expansion_review_preflight_ready | no | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
-| expansion_review_merge_ready | no | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
-| category_scale_ready | no | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
+| expansion_review_preflight_ready | yes | HF-derived labels bypass mandatory expansion human-review preflight; optional audit rows=0/540 | Generate HF-derived labels for scaled candidates or complete expansion reviewer workbook fields before using scaled candidates for paper claims. |
+| expansion_review_merge_ready | yes | HF-derived labels bypass mandatory expansion review merge; optional audit merge-ready=0/270 | Generate HF-derived labels for scaled candidates or resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
+| category_scale_ready | yes | 300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready | Scale each category to the target HF-derived label count before paper release. |
 
 ## Category Scale Plan
 
@@ -55,11 +55,11 @@ This generated plan turns the category-scale blocker into batch-level adjudicati
 
 | # | Step |
 | --- | --- |
-| 1 | Collect first-wave expansion return packets and import only after dry-run validation is clean. |
-| 2 | Export or collect later-wave expansion batches until every category has 30 reviewed target items. |
-| 3 | Run expansion preflight and merge after each wave; adjudicate disagreements with category_fit and generation_defect fields. |
-| 4 | Regenerate scale plan, power plan, review progress, paper tables, and release gate after each applied review wave. |
-| 5 | Keep category-level paper claims blocked until category_scale_ready and novelty_audit_final both pass. |
+| 1 | Keep reviewer packets available as optional audit material for the HF-derived scale suite. |
+| 2 | Use the derived-scale suite as the primary category-scale promotion path. |
+| 3 | If audit review is run, import only after dry-run validation is clean and keep disagreements in error-analysis artifacts. |
+| 4 | Regenerate scale plan, power plan, paper tables, and release gate after any applied audit changes. |
+| 5 | Keep final completion claims blocked until novelty_audit_final passes. |
 
 ## Batch Plan
 

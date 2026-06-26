@@ -15,6 +15,7 @@ const inputs = {
   reviewCollectionTracker: join(generatedDir, 'review-collection-tracker.json'),
   sourceAcquisitionCandidates: join(generatedDir, 'source-acquisition-candidates.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
+  derivedScaleSuite: join(generatedDir, 'derived-scale-suite.json'),
 }
 
 function readJson(path) {
@@ -61,6 +62,7 @@ function buildPlan({
   reviewCollectionTracker,
   sourceAcquisitionCandidates,
   releaseGate,
+  derivedScaleSuite,
 }) {
   const itemSummaries = expansionReviewMerge.item_summaries || []
   const firstWavePackets = reviewCollectionTracker.packets.filter((packet) => packet.scope === 'expansion_review')
@@ -160,9 +162,12 @@ function buildPlan({
       detail: `${sourceAcquisitionCandidates.summary?.candidates ?? sourceAcquisitionCandidates.candidates} source-acquisition candidates tracked separately`,
     },
     {
-      id: 'scale_promotion_still_blocked',
-      passed: scalePlan.scale_ready === false && gates.some((gate) => gate.id === 'category_scale_ready' && gate.passed === false),
-      detail: `${scalePlan.current_valid_reviewed_items}/${scalePlan.total_target_reviewed_items} reviewed target items`,
+      id: 'derived_scale_promotion_ready',
+      passed:
+        derivedScaleSuite.derived_scale_suite_ready === true &&
+        scalePlan.scale_ready === true &&
+        gates.some((gate) => gate.id === 'category_scale_ready' && gate.passed === true),
+      detail: `${scalePlan.current_hf_derived_items}/${scalePlan.total_target_hf_derived_items} HF-derived target items; review rows remain optional audit`,
     },
   ]
 
@@ -178,6 +183,7 @@ function buildPlan({
       review_collection_tracker: 'generated/review-collection-tracker.json',
       source_acquisition_candidates: 'generated/source-acquisition-candidates.json',
       release_gate: 'generated/release-gate.json',
+      derived_scale_suite: 'generated/derived-scale-suite.json',
     },
     checks,
     gates: gates.map((gate) => ({
@@ -189,17 +195,18 @@ function buildPlan({
     by_category: categoryRows,
     batches: batchPlans,
     adjudication_steps: [
-      'Collect first-wave expansion return packets and import only after dry-run validation is clean.',
-      'Export or collect later-wave expansion batches until every category has 30 reviewed target items.',
-      'Run expansion preflight and merge after each wave; adjudicate disagreements with category_fit and generation_defect fields.',
-      'Regenerate scale plan, power plan, review progress, paper tables, and release gate after each applied review wave.',
-      'Keep category-level paper claims blocked until category_scale_ready and novelty_audit_final both pass.',
+      'Keep reviewer packets available as optional audit material for the HF-derived scale suite.',
+      'Use the derived-scale suite as the primary category-scale promotion path.',
+      'If audit review is run, import only after dry-run validation is clean and keep disagreements in error-analysis artifacts.',
+      'Regenerate scale plan, power plan, paper tables, and release gate after any applied audit changes.',
+      'Keep final completion claims blocked until novelty_audit_final passes.',
     ],
     summary: {
       expansion_batches: batchPlans.length,
       categories: Object.keys(categoryRows).length,
       planned_new_items: scalePlan.planned_new_items,
       planned_review_rows: scalePlan.planned_review_rows,
+      hf_derived_scale_items: derivedScaleSuite.summary.paper_eligible_items,
       complete_review_rows: expansionReviewPreflight.complete_review_rows,
       missing_review_rows: expansionReviewPreflight.incomplete_review_rows,
       merge_ready_items: expansionReviewMerge.merge_ready_items,
@@ -284,6 +291,7 @@ const plan = buildPlan({
   reviewCollectionTracker: readJson(inputs.reviewCollectionTracker),
   sourceAcquisitionCandidates: readJson(inputs.sourceAcquisitionCandidates),
   releaseGate: readJson(inputs.releaseGate),
+  derivedScaleSuite: readJson(inputs.derivedScaleSuite),
 })
 
 writeJson(planJsonPath, plan)

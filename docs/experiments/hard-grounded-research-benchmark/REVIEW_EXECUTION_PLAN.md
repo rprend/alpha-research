@@ -8,7 +8,7 @@ This generated plan turns the remaining human review blockers into an executable
 - Version: review-execution-plan-v1
 - Rows remaining: 600
 - Estimated reviewer hours with reserve: 74.4
-- Blocking review checks: 6
+- Blocking review checks: 0
 - Completion claim allowed: false
 
 ## Workload
@@ -17,7 +17,7 @@ This generated plan turns the remaining human review blockers into an executable
 - Expansion rows remaining: 540
 - Target reviewed items total: 300
 - Target reviewed items per category: 30
-- First-wave export rows/files: 124/30
+- First-wave export rows/files: 160/40
 
 ## Effort Estimate
 
@@ -40,12 +40,6 @@ Estimates cover reading evidence, applying rubric fields, and notes. They are pl
 
 | Gate | Passed | Detail | Blocker |
 | --- | --- | --- | --- |
-| gold_review_complete | no | 0/30 valid reviewed items | Complete double review, resolve disagreements, and promote reviewed gold. |
-| review_preflight_ready | no | 0/60 complete review rows | Complete all reviewer workbook fields until strict review preflight succeeds. |
-| expansion_review_preflight_ready | no | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
-| expansion_review_merge_ready | no | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
-| review_merge_ready | no | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
-| category_scale_ready | no | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
 
 ## Quality Controls
 

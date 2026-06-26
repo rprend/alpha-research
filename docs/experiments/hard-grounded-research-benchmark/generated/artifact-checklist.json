@@ -4,6 +4,7 @@
   "generated_from": {
     "release_gate": "generated/release-gate.json",
     "derived_label_suite": "generated/derived-label-suite.json",
+    "derived_scale_suite": "generated/derived-scale-suite.json",
     "corpus_audit": "generated/corpus-audit.json",
     "source_diversity_plan": "generated/source-diversity-plan.json",
     "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
@@ -78,10 +79,10 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 63,
-    "artifact_classes_total": 63,
+    "artifact_classes_ready": 64,
+    "artifact_classes_total": 64,
     "reproduction_commands": 60,
-    "release_blockers": 2
+    "release_blockers": 1
   },
   "artifact_classes": [
     {
@@ -96,6 +97,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "hf-derived-label-suite-v1; paper-eligible=30/30; datasets=5; deterministic=21.",
+      "blockers": []
+    },
+    {
+      "id": "hf_derived_scale",
+      "status": "ready",
+      "ready": true,
+      "evidence": "hf-derived-scale-suite-v1; paper-eligible=300/300; ready categories=10/10; human review optional audit only.",
       "blockers": []
     },
     {
@@ -214,7 +222,7 @@
       "id": "review_execution_plan",
       "status": "ready",
       "ready": true,
-      "evidence": "review-execution-plan-v1; rows remaining=600; reviewer hours=74.4; blocking checks=6.",
+      "evidence": "review-execution-plan-v1; rows remaining=600; reviewer hours=74.4; blocking checks=0.",
       "blockers": []
     },
     {
@@ -340,7 +348,7 @@
       "id": "result_interpretation_guide",
       "status": "ready",
       "ready": true,
-      "evidence": "result-interpretation-guide-v1; rules=30; target reviewed items=300; blocked gates=4.",
+      "evidence": "result-interpretation-guide-v1; rules=30; target reviewed items=300; blocked gates=1.",
       "blockers": []
     },
     {
@@ -354,14 +362,14 @@
       "id": "estimand_registry",
       "status": "ready",
       "ready": true,
-      "evidence": "estimand-registry-v1; estimands=10; target reviewed items=300; blocked gates=4.",
+      "evidence": "estimand-registry-v1; estimands=10; target reviewed items=300; blocked gates=1.",
       "blockers": []
     },
     {
       "id": "sensitivity_analysis_plan",
       "status": "ready",
       "ready": true,
-      "evidence": "sensitivity-analysis-plan-v1; checks=6; required metrics=6; blocked gates=4.",
+      "evidence": "sensitivity-analysis-plan-v1; checks=6; required metrics=6; blocked gates=1.",
       "blockers": []
     },
     {
@@ -375,7 +383,7 @@
       "id": "statistical_reporting_template",
       "status": "ready",
       "ready": true,
-      "evidence": "statistical-reporting-template-v1; categories=10; table sections=4; blocked gates=4.",
+      "evidence": "statistical-reporting-template-v1; categories=10; table sections=4; blocked gates=1.",
       "blockers": []
     },
     {
@@ -417,7 +425,7 @@
       "id": "paper_claim_ledger",
       "status": "ready",
       "ready": true,
-      "evidence": "8 claims mapped to evidence; prohibited=3; diagnostic=2.",
+      "evidence": "8 claims mapped to evidence; prohibited=1; diagnostic=2.",
       "blockers": []
     },
     {
@@ -431,14 +439,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=95.",
+      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=97.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=95; blockers=2.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=97; blockers=1.",
       "blockers": []
     },
     {
@@ -466,7 +474,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=95; bytes=1769593.",
+      "evidence": "version-manifest-v1; artifacts=97; bytes=3190626.",
       "blockers": []
     },
     {
@@ -774,11 +782,6 @@
     "release_gate_status": "blocked",
     "completion_claim_allowed": false,
     "blockers": [
-      {
-        "id": "category_scale_ready",
-        "detail": "0/300 current target items; 300 HF-derived or audited items still needed",
-        "blocker": "Scale each category to the target HF-derived label count before paper release."
-      },
       {
         "id": "novelty_audit_final",
         "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",

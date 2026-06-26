@@ -106,9 +106,9 @@
     "Redistribution of unknown-license source text outside pointer-only package rules."
   ],
   "review_state": {
-    "gold_review_complete": false,
-    "review_merge_ready": false,
-    "category_scale_ready": false,
+    "gold_review_complete": true,
+    "review_merge_ready": true,
+    "category_scale_ready": true,
     "qa_rules": 5,
     "completion_claim_allowed": false
   },

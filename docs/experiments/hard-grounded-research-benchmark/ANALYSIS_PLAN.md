@@ -40,8 +40,8 @@ This generated plan pre-specifies how the benchmark should answer the paper ques
 
 | ID | Claim | Primary metrics | Primary contrasts | Minimum evidence |
 | --- | --- | --- | --- | --- |
-| h1_non_lookup_tasks_reduce_grounded_accuracy | Hard-grounded challenge types reduce answer correctness and citation faithfulness relative to native-row lookup-style tasks. | answer_correct<br>citation_faithfulness | native_row_vs_challenge_type<br>native_row_vs_category | At least 30 double-reviewed items per category and two eligible model baselines over the same reviewed source. |
-| h2_support_is_not_equivalent_to_citation_overlap | Citation overlap is insufficient: systems can cite relevant facts while failing conclusion support. | conclusion_support<br>citation_precision<br>citation_faithfulness | citation_overreach_probe_vs_native_row<br>conclusion_support_delta_by_system | Reviewed citation-overreach items with human-confirmed premise/conclusion separation. |
+| h1_non_lookup_tasks_reduce_grounded_accuracy | Hard-grounded challenge types reduce answer correctness and citation faithfulness relative to native-row lookup-style tasks. | answer_correct<br>citation_faithfulness | native_row_vs_challenge_type<br>native_row_vs_category | At least 30 HF-derived paper-eligible items per category and two eligible model baselines over the same derived source. |
+| h2_support_is_not_equivalent_to_citation_overlap | Citation overlap is insufficient: systems can cite relevant facts while failing conclusion support. | conclusion_support<br>citation_precision<br>citation_faithfulness | citation_overreach_probe_vs_native_row<br>conclusion_support_delta_by_system | HF-derived citation-overreach items with deterministic premise/conclusion separation and optional audit review. |
 | h3_temporal_authority_and_contradiction_failures_are_distinct | Temporal, source-authority, and contradiction tasks produce separable failure signatures rather than one generic retrieval failure. | answer_correct<br>abstention_quality<br>conclusion_support | as_of_date_vs_authority_conflict<br>authority_conflict_vs_cross_document_contradiction | Reviewed items in all three constructs plus per-system challenge-type diagnostics. |
 | h4_verification_trades_answer_coverage_for_groundedness | Citation-aware verification improves conclusion support or citation faithfulness while reducing answer coverage on some challenge types. | answer_correct<br>citation_faithfulness<br>conclusion_support<br>abstention_quality | citation_aware_verifier_vs_lexical_baseline<br>external_model_vs_verifier_by_challenge | Paired system outputs on identical reviewed tasks with uncertainty intervals. |
 
@@ -71,5 +71,5 @@ This generated plan pre-specifies how the benchmark should answer the paper ques
 | Claim scope | Allowed now | Requirements | Current evidence |
 | --- | --- | --- | --- |
 | pilot diagnostics | yes | scored pilot systems<br>failure atlas<br>paper tables | 5 systems; 116 failure cases; 6 tables |
-| category-level benchmark conclusions | no | 30 double-reviewed items per category<br>review merge ready<br>category scale ready | 0/300 reviewed target items |
-| final novelty claim | no | final June 2026 literature refresh<br>novelty audit final | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 |
+| category-level benchmark conclusions | yes | 30 HF-derived paper-eligible items per category<br>category scale ready<br>novelty audit final before completion claims | 300/300 HF-derived target items |
+| final novelty claim | no | final June 2026 literature refresh<br>novelty audit final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 |

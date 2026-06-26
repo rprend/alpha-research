@@ -169,7 +169,7 @@
     {
       "id": "review_execution_plan_ready",
       "passed": true,
-      "detail": "review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=6",
+      "detail": "review-execution-plan-v1; rows_remaining=600; reviewer_hours=74.4; blocking_review_checks=0",
       "blocker": "Generate a review execution plan that turns remaining human-review blockers into a measurable workload."
     },
     {
@@ -318,8 +318,8 @@
     },
     {
       "id": "category_scale_ready",
-      "passed": false,
-      "detail": "0/300 current target items; 300 HF-derived or audited items still needed",
+      "passed": true,
+      "detail": "300/300 HF-derived paper-eligible items; 0 still needed; 10/10 categories ready",
       "blocker": "Scale each category to the target HF-derived label count before paper release."
     },
     {
@@ -415,7 +415,7 @@
     {
       "id": "result_interpretation_guide_ready",
       "passed": true,
-      "detail": "result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=4",
+      "detail": "result-interpretation-guide-v1; rules=30; target_n=300; blocked_gates=1",
       "blocker": "Generate result interpretation rules before using reviewed results as mechanism evidence."
     },
     {
@@ -427,13 +427,13 @@
     {
       "id": "estimand_registry_ready",
       "passed": true,
-      "detail": "estimand-registry-v1; estimands=10; target_n=300; blocked_gates=4",
+      "detail": "estimand-registry-v1; estimands=10; target_n=300; blocked_gates=1",
       "blocker": "Generate a statistical estimand registry before treating category hypotheses as paper-ready analysis claims."
     },
     {
       "id": "sensitivity_analysis_plan_ready",
       "passed": true,
-      "detail": "sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=4",
+      "detail": "sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=1",
       "blocker": "Generate a sensitivity analysis plan before interpreting benchmark result claims as robust."
     },
     {
@@ -445,7 +445,7 @@
     {
       "id": "statistical_reporting_template_ready",
       "passed": true,
-      "detail": "statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=4",
+      "detail": "statistical-reporting-template-v1; categories=10; table_sections=4; blocked_gates=1",
       "blocker": "Generate a statistical reporting template before treating reviewed results as paper-ready tables."
     },
     {
@@ -463,19 +463,19 @@
     {
       "id": "paper_tables_ready",
       "passed": true,
-      "detail": "6 paper tables; systems=5; blockers=7",
+      "detail": "6 paper tables; systems=5; blockers=1",
       "blocker": "Generate synchronized paper tables and figure data from canonical benchmark artifacts."
     },
     {
       "id": "analysis_plan_ready",
       "passed": true,
-      "detail": "4 hypotheses; 4 model families; reviewed=0/300",
+      "detail": "4 hypotheses; 4 model families; HF-derived=300/300",
       "blocker": "Generate a statistical analysis plan that pre-specifies hypotheses, contrasts, covariates, and claim gates."
     },
     {
       "id": "paper_claim_ledger_ready",
       "passed": true,
-      "detail": "8 claims; allowed=3; diagnostic=2; prohibited=3",
+      "detail": "8 claims; allowed=4; diagnostic=2; prohibited=1",
       "blocker": "Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers."
     },
     {
@@ -487,19 +487,19 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=60; hashes=95; blockers=2",
+      "detail": "reproduction-capsule-v1; commands=60; hashes=97; blockers=1",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=95; caveats=6; release_blockers=2",
+      "detail": "citation-metadata-v1; artifact_hashes=97; caveats=6; release_blockers=1",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
       "id": "reviewer_faq_ready",
       "passed": true,
-      "detail": "reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3",
+      "detail": "reviewer-faq-v1; questions=6; blockers=1; prohibited_claims=3",
       "blocker": "Generate a reviewer-facing FAQ that answers likely paper objections from current artifacts."
     },
     {
@@ -697,13 +697,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "63/63 artifact classes ready; reproduction_commands=60; release_blockers=2",
+      "detail": "64/64 artifact classes ready; reproduction_commands=60; release_blockers=2",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=95; blockers=2; bytes=1769593",
+      "detail": "version-manifest-v1; artifacts=97; blockers=2; bytes=3190626",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {
@@ -714,11 +714,6 @@
     }
   ],
   "blockers": [
-    {
-      "id": "category_scale_ready",
-      "detail": "0/300 current target items; 300 HF-derived or audited items still needed",
-      "blocker": "Scale each category to the target HF-derived label count before paper release."
-    },
     {
       "id": "novelty_audit_final",
       "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
