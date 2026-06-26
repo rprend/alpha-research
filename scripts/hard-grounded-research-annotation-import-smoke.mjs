@@ -71,7 +71,7 @@ function stableJson(value) {
 
 function smokeReviewerFields(row) {
   const citationIds = row.evidence_units?.slice(0, 1).map((unit) => unit.id) || []
-  return {
+  const fields = {
     final_label: citationIds.length ? 'SUPPORTED' : 'INSUFFICIENT',
     final_answer: row.candidate_answer || 'ABSTAIN',
     required_citation_ids: citationIds,
@@ -79,6 +79,11 @@ function smokeReviewerFields(row) {
     notes: 'Fixture import-smoke row; not a human annotation and not eligible for gold promotion.',
     reviewer_confidence: 'low',
   }
+  if (row.export_scope === 'expansion_review') {
+    fields.category_fit = 'fits_category'
+    fields.generation_defect = 'none_detected'
+  }
+  return fields
 }
 
 function validateReturnedRows(originalRows, returnedRows, requiredFields) {

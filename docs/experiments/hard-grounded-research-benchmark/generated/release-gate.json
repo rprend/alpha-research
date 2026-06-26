@@ -14,6 +14,7 @@
     "annotation_assignments": "generated/annotation-assignments.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
+    "annotation_import": "generated/annotation-import/report.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
     "expansion_review_merge_report": "generated/expansion-review-merge-report.json",
     "review_merge_report": "generated/review-merge-report.json",
@@ -82,6 +83,12 @@
       "passed": true,
       "detail": "124 returned fixture rows checked across 30 files; findings=0",
       "blocker": "Run the annotation import smoke to verify returned review packets preserve immutable fields."
+    },
+    {
+      "id": "annotation_import_path_ready",
+      "passed": true,
+      "detail": "124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false",
+      "blocker": "Run the reusable annotation importer against returned reviewer packets before attempting review preflight or merge."
     },
     {
       "id": "expansion_review_preflight_ready",

@@ -21,6 +21,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |  |
 | annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |  |
 | annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |  |
+| annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |  |
 | expansion_review_preflight_ready | no | 0/540 complete expansion review rows | Complete all expansion reviewer workbook fields before using scaled candidates for paper claims. |
 | expansion_review_merge_ready | no | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
 | review_merge_ready | no | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |

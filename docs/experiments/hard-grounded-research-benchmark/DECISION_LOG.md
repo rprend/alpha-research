@@ -535,3 +535,11 @@ Decision: Add a fixture import smoke for annotation exports that verifies return
 Rationale: Exporting review rows is not enough for a paper-grade annotation workflow; the repo also needs evidence that returned packets can be parsed without corrupting immutable benchmark content. A fixture smoke makes the import contract executable while keeping synthetic rows out of gold promotion.
 
 Consequence: `scripts/hard-grounded-research-annotation-import-smoke.mjs` now emits `generated/annotation-import-smoke/report.json`, returned fixture JSONL files, and `ANNOTATION_IMPORT_SMOKE.md`; the release gate records import-smoke readiness while human review blockers remain active.
+
+## 2026-06-26 — Add a dry-run-first annotation importer
+
+Decision: Add a reusable annotation-return importer with dry-run validation by default and an explicit `--apply` mode for updating reviewer workbooks.
+
+Rationale: A paper-grade review workflow needs more than export and smoke artifacts; it needs a deterministic path from returned reviewer JSONL files back into the workbooks used by preflight, merge, and gold promotion. The importer must protect immutable benchmark fields and reject fixture annotations unless the run is explicitly marked as smoke validation.
+
+Consequence: `scripts/hard-grounded-research-import-annotations.mjs` now validates returned annotation packets, writes `generated/annotation-import/report.json` and `ANNOTATION_IMPORT.md`, rejects fixture rows by default, and updates workbooks only when `--apply` is requested on clean non-fixture input.
