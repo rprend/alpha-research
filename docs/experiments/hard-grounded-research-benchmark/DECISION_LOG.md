@@ -199,3 +199,11 @@ Decision: Extend review-merge validation to emit a dedicated adjudicator resolut
 Rationale: Double review only helps if disagreements become explicit adjudication tasks instead of being hidden in aggregate counts. A paper-worthy gold process needs a traceable handoff from reviewer disagreement to final adjudicated label.
 
 Consequence: `benchmark:hard-grounded:review-merge` now emits `generated/review-resolution-queue.jsonl` and `REVIEW_RESOLUTION_QUEUE.md`; the queue is empty until completed reviewer workbooks disagree.
+
+## 2026-06-26 — Promote gold only from agreeing double reviews
+
+Decision: Make `benchmark:hard-grounded:adjudicate` build gold only from completed reviewer workbooks after the review-merge report proves every item has two valid agreeing reviews.
+
+Rationale: A single mutable adjudication queue is too weak for paper-grade gold labels. The publishable benchmark needs a deterministic promotion path whose readiness depends on independent review completion, validation, and disagreement resolution.
+
+Consequence: `generated/gold-suite-summary.json` now reports merge-readiness fields from `generated/review-merge-report.json`, and `generated/gold-suite.json` is withheld until the double-review gate is fully satisfied.

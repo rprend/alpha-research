@@ -6,6 +6,8 @@ const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchm
 const generatedDir = join(experimentDir, 'generated')
 const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
 const adjudicationQueuePath = join(generatedDir, 'adjudication-queue.jsonl')
+const workbookIndexPath = join(generatedDir, 'review-workbooks/index.json')
+const reviewMergeReportPath = join(generatedDir, 'review-merge-report.json')
 const goldSuitePath = join(generatedDir, 'gold-suite.json')
 const goldSummaryPath = join(generatedDir, 'gold-suite-summary.json')
 const strict = process.argv.includes('--strict')
@@ -52,6 +54,16 @@ function isReviewed(row) {
   return validLabels.has(finalFields(row).final_label)
 }
 
+function canonicalReview(row) {
+  const fields = finalFields(row)
+  return JSON.stringify({
+    final_label: fields.final_label || '',
+    final_answer: fields.final_answer || '',
+    required_citation_ids: fields.required_citation_ids || [],
+    insufficient_or_conflicting_evidence: Boolean(fields.insufficient_or_conflicting_evidence),
+  })
+}
+
 function validateReviewedRow(row, pilotItem) {
   const fields = finalFields(row)
   const errors = []
@@ -94,19 +106,22 @@ function validateReviewedRow(row, pilotItem) {
   return errors
 }
 
-function summarize(rows, validationErrors) {
-  const reviewedRows = rows.filter(isReviewed)
-  const validReviewedRows = reviewedRows.filter((row) => !validationErrors.some((error) => error.item_id === row.item_id))
+function summarize(rows, validationErrors, mergeReport) {
+  const validReviewedItems = mergeReport.merge_ready_items
+  const invalidReviewedItems = mergeReport.validation_error_count
+  const reviewedItems = Math.min(rows.length, validReviewedItems + invalidReviewedItems + mergeReport.disagreement_items)
   const byCategory = Object.fromEntries(
-    unique(rows.map((row) => row.category)).map((category) => {
-      const categoryRows = rows.filter((row) => row.category === category)
-      const reviewed = categoryRows.filter(isReviewed)
+    unique(mergeReport.item_summaries.map((item) => item.category)).map((category) => {
+      const categoryItems = mergeReport.item_summaries.filter((item) => item.category === category)
+      const readyItems = categoryItems.filter((item) => item.completed_reviews >= 2 && !item.has_disagreement)
       return [
         category,
         {
-          total: categoryRows.length,
-          reviewed: reviewed.length,
-          valid_reviewed: reviewed.filter((row) => !validationErrors.some((error) => error.item_id === row.item_id)).length,
+          total: categoryItems.length,
+          completed_review_items: categoryItems.filter((item) => item.completed_reviews >= 2).length,
+          merge_ready: readyItems.length,
+          missing_review_items: categoryItems.filter((item) => item.missing_reviews > 0).length,
+          disagreement_items: categoryItems.filter((item) => item.has_disagreement).length,
         },
       ]
     }),
@@ -114,51 +129,73 @@ function summarize(rows, validationErrors) {
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     source_queue: 'generated/adjudication-queue.jsonl',
+    source_workbooks: 'generated/review-workbooks/index.json',
+    source_review_merge_report: 'generated/review-merge-report.json',
     total_items: rows.length,
-    reviewed_items: reviewedRows.length,
-    valid_reviewed_items: validReviewedRows.length,
-    invalid_reviewed_items: reviewedRows.length - validReviewedRows.length,
-    unreviewed_items: rows.length - reviewedRows.length,
-    gold_ready: rows.length > 0 && validReviewedRows.length === rows.length,
+    reviewed_items: reviewedItems,
+    valid_reviewed_items: validReviewedItems,
+    invalid_reviewed_items: invalidReviewedItems,
+    unreviewed_items: mergeReport.missing_review_items,
+    completed_reviews: mergeReport.completed_reviews,
+    missing_review_items: mergeReport.missing_review_items,
+    disagreement_items: mergeReport.disagreement_items,
+    validation_error_count: mergeReport.validation_error_count,
+    merge_ready_items: mergeReport.merge_ready_items,
+    gold_ready: Boolean(mergeReport.merge_ready),
     by_category: byCategory,
     validation_errors: validationErrors,
   }
 }
 
-function buildGoldSuite(rows, pilotById) {
-  return {
-    benchmark_id: 'hard-grounded-research-benchmark',
-    version: 'pilot-gold-v0',
-    source_queue: 'generated/adjudication-queue.jsonl',
-    items: rows.map((row) => {
+function buildGoldRows(workbookRows, pilotById) {
+  const byItem = new Map()
+  for (const row of workbookRows) {
+    if (!byItem.has(row.item_id)) byItem.set(row.item_id, [])
+    byItem.get(row.item_id).push(row)
+  }
+
+  return [...byItem.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([itemId, rows]) => {
+      const reviewedRows = rows.filter(isReviewed)
+      const signatures = new Set(reviewedRows.map(canonicalReview))
+      assert(reviewedRows.length >= 2, `Cannot promote ${itemId}: fewer than two completed reviews.`)
+      assert(signatures.size === 1, `Cannot promote ${itemId}: reviewer disagreement remains.`)
+      const row = reviewedRows[0]
       const fields = finalFields(row)
-      const pilotItem = pilotById.get(row.item_id)
+      const pilotItem = pilotById.get(itemId)
+      assert(pilotItem, `Cannot promote ${itemId}: item_id is not present in pilot-suite.json.`)
       return {
-        id: row.item_id,
+        id: itemId,
         category: row.category,
-        construction: row.construction,
-        transform: row.transform,
-        challenge: row.challenge || null,
+        construction: pilotItem.construction,
+        transform: pilotItem.transform,
+        challenge: row.challenge || pilotItem.challenge || null,
         question: row.question,
         final_label: fields.final_label,
         final_answer: fields.final_answer,
         required_citation_ids: fields.required_citation_ids || [],
         insufficient_or_conflicting_evidence: Boolean(fields.insufficient_or_conflicting_evidence),
         notes: fields.notes,
+        reviewer_slots: reviewedRows.map((review) => review.reviewer_slot),
         evidence_units: row.evidence_units,
         scoring_focus: pilotItem.scoring_focus,
         expected_failure: pilotItem.expected_failure,
       }
-    }),
-  }
+    })
 }
 
 assert(existsSync(pilotSuitePath), `Missing pilot suite: ${pilotSuitePath}`)
 assert(existsSync(adjudicationQueuePath), `Missing adjudication queue: ${adjudicationQueuePath}`)
+assert(existsSync(workbookIndexPath), `Missing review workbook index: ${workbookIndexPath}`)
+assert(existsSync(reviewMergeReportPath), `Missing review merge report: ${reviewMergeReportPath}`)
 
 const pilotSuite = readJson(pilotSuitePath)
 const rows = readJsonl(adjudicationQueuePath)
 const pilotById = new Map(pilotSuite.items.map((item) => [item.id, item]))
+const workbookIndex = readJson(workbookIndexPath)
+const mergeReport = readJson(reviewMergeReportPath)
+const workbookRows = workbookIndex.workbooks.flatMap((workbook) => readJsonl(join(experimentDir, workbook.path)))
 const validationErrors = []
 
 for (const row of rows) {
@@ -173,11 +210,18 @@ for (const row of rows) {
   }
 }
 
-const summary = summarize(rows, validationErrors)
+const summary = summarize(rows, validationErrors, mergeReport)
 writeJson(goldSummaryPath, summary)
 
 if (summary.gold_ready) {
-  writeJson(goldSuitePath, buildGoldSuite(rows, pilotById))
+  const goldRows = buildGoldRows(workbookRows, pilotById)
+  writeJson(goldSuitePath, {
+    benchmark_id: 'hard-grounded-research-benchmark',
+    version: 'reviewed-gold-v0',
+    source_workbooks: 'generated/review-workbooks/index.json',
+    source_review_merge_report: 'generated/review-merge-report.json',
+    items: goldRows,
+  })
   console.log(`Wrote adjudicated gold suite to ${goldSuitePath}`)
 } else {
   console.log(`Gold suite not ready: ${summary.valid_reviewed_items}/${summary.total_items} valid reviewed items.`)

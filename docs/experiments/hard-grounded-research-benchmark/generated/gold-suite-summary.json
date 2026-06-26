@@ -1,62 +1,89 @@
 {
   "benchmark_id": "hard-grounded-research-benchmark",
   "source_queue": "generated/adjudication-queue.jsonl",
+  "source_workbooks": "generated/review-workbooks/index.json",
+  "source_review_merge_report": "generated/review-merge-report.json",
   "total_items": 30,
   "reviewed_items": 0,
   "valid_reviewed_items": 0,
   "invalid_reviewed_items": 0,
   "unreviewed_items": 30,
+  "completed_reviews": 0,
+  "missing_review_items": 30,
+  "disagreement_items": 0,
+  "validation_error_count": 0,
+  "merge_ready_items": 0,
   "gold_ready": false,
   "by_category": {
     "multi-hop synthesis": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "stale-vs-current document conflicts": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "appended document lifecycle changes": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "table + text reasoning": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "source authority conflicts": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "evidence insufficiency / abstention": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "citation supports fact but not conclusion": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "entity disambiguation": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "temporal questions: as of date X": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     },
     "cross-document contradiction": {
       "total": 3,
-      "reviewed": 0,
-      "valid_reviewed": 0
+      "completed_review_items": 0,
+      "merge_ready": 0,
+      "missing_review_items": 3,
+      "disagreement_items": 0
     }
   },
   "validation_errors": []

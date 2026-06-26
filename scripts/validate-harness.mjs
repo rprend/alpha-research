@@ -162,6 +162,10 @@ for (const token of ['conclusion_support', 'citation_overreach_probe']) {
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-runner.mjs')), 'Missing hard grounded research benchmark local runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs')), 'Missing hard grounded research adjudication builder.')
+const hardGroundedAdjudicateSource = readFileSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs'), 'utf8')
+for (const token of ['review-merge-report.json', 'review-workbooks/index.json', 'reviewed-gold-v0']) {
+  assert(hardGroundedAdjudicateSource.includes(token), `Hard grounded adjudicator is missing gold promotion token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-calibration-suite.mjs')), 'Missing hard grounded research calibration suite builder.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-review-merge.mjs')), 'Missing hard grounded research review merge validator.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-lexical-baseline.mjs')), 'Missing hard grounded research lexical baseline.')
