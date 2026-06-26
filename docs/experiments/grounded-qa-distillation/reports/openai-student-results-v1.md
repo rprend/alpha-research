@@ -17,6 +17,8 @@ Runs:
 - `openai-judge-multistep-teacher-recall-temporal-test-40-v1`: first 40 recall-oriented multi-step teacher predictions judged for support with `gpt-4o-mini`
 - `openai-multistep-teacher-recall-repair-temporal-test-40-v1`: first 40 `temporal_test` examples with recall-oriented planner, answer stage, and verify-and-repair stage
 - `openai-judge-multistep-teacher-recall-repair-temporal-test-40-v1`: first 40 repair-stage multi-step teacher predictions judged for support with `gpt-4o-mini`
+- `openai-multistep-teacher-recall-repair-temporal-test-40-80-v1`: next 40 `temporal_test` examples, using `--offset=40`, with the same repair-stage teacher recipe
+- `openai-judge-multistep-teacher-recall-repair-temporal-test-40-80-v1`: next 40 repair-stage multi-step teacher predictions judged for support with `gpt-4o-mini`
 
 Model:
 
@@ -28,9 +30,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 1207
-- Total spend so far: $1.37595460
-- Remaining budget: $98.62404540
+- Calls made so far: 1339
+- Total spend so far: $1.66897385
+- Remaining budget: $98.33102615
 
 ## Prompt Contract Result
 
@@ -89,7 +91,7 @@ The first multi-step teacher explicitly separates:
 1. planner/sufficiency stage: select directly supporting evidence ids and decide whether the evidence pack is sufficient,
 2. answer stage: write the cited answer only from planner-selected evidence.
 
-On the first 40 `temporal_test` examples, the strict planner marked 40.0% of examples sufficient and therefore made answer-stage calls for only 16 of 40 examples. The run made 56 calls and cost $0.1834200. A second recall-oriented planner profile marked 47.5% sufficient, made 59 calls, and cost $0.2039550. A third run added verify-and-repair after answer generation, made 76 calls, and cost $0.2689900.
+On the first 40 `temporal_test` examples, the strict planner marked 40.0% of examples sufficient and therefore made answer-stage calls for only 16 of 40 examples. The run made 56 calls and cost $0.1834200. A second recall-oriented planner profile marked 47.5% sufficient, made 59 calls, and cost $0.2039550. A third run added verify-and-repair after answer generation, made 76 calls, and cost $0.2689900. The same repair-stage recipe was then run on the next 40 examples using `--offset=40`, making 92 calls and costing $0.2882725.
 
 Same-slice comparison:
 
@@ -100,8 +102,19 @@ Same-slice comparison:
 | `openai-multistep-teacher-temporal-test-40-v1` | 75.0% | 38.1% | 10.1% | 70.0% | 75.0% | 60.0% | $0.1834200 |
 | `openai-multistep-teacher-recall-temporal-test-40-v1` | 73.1% | 49.7% | 12.2% | 72.5% | 68.4% | 52.5% | $0.2039550 |
 | `openai-multistep-teacher-recall-repair-temporal-test-40-v1` | 74.8% | 53.5% | 13.0% | 75.0% | 72.2% | 55.0% | $0.2689900 |
+| `openai-multistep-teacher-recall-repair-temporal-test-40-80-v1` | 88.5% | 75.3% | 21.5% | 87.5% | 65.4% | 35.0% | $0.2882725 |
 
-The strict explicit planner improves citation precision slightly over the prompt-matched teacher on this slice, but it over-abstains and loses citation recall, answer F1, abstention accuracy, and inline citation compliance. The recall-oriented profile recovers some recall and answer F1 and improves over the strict planner on abstention accuracy, but trails the prompt-matched teacher. Adding verify-and-repair improves the multi-step teacher again on citation precision, recall, answer F1, abstention accuracy, and inline citation rate versus recall-only. It still does not beat the prompt-matched teacher on abstention accuracy or inline citation compliance, so the repair loop is a useful teacher component, not a complete teacher.
+The strict explicit planner improves citation precision slightly over the prompt-matched teacher on this slice, but it over-abstains and loses citation recall, answer F1, abstention accuracy, and inline citation compliance. The recall-oriented profile recovers some recall and answer F1 and improves over the strict planner on abstention accuracy, but trails the prompt-matched teacher. Adding verify-and-repair improves the multi-step teacher again on citation precision, recall, answer F1, abstention accuracy, and inline citation rate versus recall-only. The offset-40 slice is stronger than the first slice, suggesting the recipe is not uniformly weak. However, the combined 80-example view is still mixed.
+
+Combined first-80 comparison:
+
+| System | Citation precision | Citation recall | Answer token F1 | Abstention accuracy | Inline citation rate | Abstention rate | Run cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `openai-student-temporal-test-full-v1` first 80 | 77.7% | 66.0% | 19.2% | 86.3% | 84.6% | 35.0% | $0.0166761 |
+| `openai-teacher-temporal-test-full-v1` first 80 | 80.8% | 64.3% | 16.8% | 86.3% | 97.2% | 40.0% | $0.2696150 |
+| repair-stage multi-step teacher first 80 | 82.9% | 64.6% | 17.4% | 81.3% | 68.2% | 45.0% | $0.5572625 |
+
+The scaled repair-stage teacher has the best citation precision and roughly matches the prompt-matched teacher's citation recall, but it costs more and still has weaker abstention accuracy and inline citation compliance. It is better viewed as a source of high-precision candidate teacher labels than as a final teacher policy.
 
 ## Entailment Judge
 
@@ -116,6 +129,9 @@ Full temporal-test judge results:
 | `openai-multistep-teacher-temporal-test-40-v1` | `gpt-4o-mini` | 16 | 24 | 75.0% | 100.0% | 90.0% | 2.5% | $0.0053748 |
 | `openai-multistep-teacher-recall-temporal-test-40-v1` | `gpt-4o-mini` | 19 | 21 | 89.5% | 100.0% | 95.0% | 0.0% | $0.0053402 |
 | `openai-multistep-teacher-recall-repair-temporal-test-40-v1` | `gpt-4o-mini` | 18 | 22 | 94.4% | 100.0% | 97.5% | 0.0% | $0.0055755 |
+| `openai-multistep-teacher-recall-repair-temporal-test-40-80-v1` | `gpt-4o-mini` | 26 | 14 | 100.0% | 100.0% | 100.0% | 0.0% | $0.0047468 |
+
+Combined over the first 80 examples, the repair-stage teacher has 44 answered predictions, 36 abstentions, 97.7% answer support, 100.0% abstention support, and 98.8% overall judged correctness. The teacher run cost is $0.5572625 and the judge cost is $0.0103223.
 
 The judge adds a more direct answer-support signal than lexical answer token F1. It also exposes that both hosted systems are usually grounded when they choose to answer, while the teacher abstains more often. This does not prove final grounded correctness: the judge is still an LLM, uses the same mini model family as the student baseline, and needs calibration against stronger independent or human judgments.
 

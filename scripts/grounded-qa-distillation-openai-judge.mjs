@@ -14,6 +14,7 @@ if (!predictionRun) {
 }
 
 const model = args.model ?? "gpt-4o-mini";
+const offset = nonNegativeNumberArg(args.offset, 0);
 const limit = numberArg(args.limit, Number.POSITIVE_INFINITY);
 const dryRun = args["dry-run"] === "true" || args.dryRun === "true";
 const maxBudgetUsd = Number(args["max-budget-usd"] ?? 100);
@@ -39,7 +40,7 @@ const referencesById = new Map(references.map((row) => [row.example_id, row]));
 const predictions = (await readJsonl(path.join(runDir, predictionRun, "predictions.jsonl")))
   .filter((row) => !row.skipped)
   .filter((row) => referencesById.has(row.example_id))
-  .slice(0, limit);
+  .slice(offset, offset + limit);
 
 const priorSpend = await ledgerSpend(ledgerPath);
 const estimated = predictions.map((prediction) => estimateCall(prediction, referencesById.get(prediction.example_id), model, price, maxOutputTokens));
@@ -117,6 +118,7 @@ const summary = {
   split,
   prediction_run: predictionRun,
   model,
+  examples_offset: offset,
   examples_requested: predictions.length,
   dry_run: dryRun,
   calls_made: judgments.filter((row) => !row.skipped).length,
@@ -318,6 +320,13 @@ function numberArg(value, fallback) {
   if (value == null) return fallback;
   const parsed = Number(value);
   if (!Number.isFinite(parsed) || parsed <= 0) return fallback;
+  return Math.floor(parsed);
+}
+
+function nonNegativeNumberArg(value, fallback) {
+  if (value == null) return fallback;
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed < 0) return fallback;
   return Math.floor(parsed);
 }
 

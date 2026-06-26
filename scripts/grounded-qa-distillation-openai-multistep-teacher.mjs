@@ -14,6 +14,7 @@ const answerModel = args["answer-model"] ?? plannerModel;
 const repairModel = args["repair-model"] ?? answerModel;
 const plannerProfile = args["planner-profile"] ?? "strict";
 const repairEnabled = args.repair === "true" || args["repair-enabled"] === "true";
+const offset = nonNegativeNumberArg(args.offset, 0);
 const limit = numberArg(args.limit, 40);
 const dryRun = args["dry-run"] === "true" || args.dryRun === "true";
 const maxBudgetUsd = Number(args["max-budget-usd"] ?? 100);
@@ -36,8 +37,8 @@ const repairPrice = priceFor(repairModel);
 await fs.mkdir(outputDir, { recursive: true });
 await fs.mkdir(ledgerDir, { recursive: true });
 
-const examples = (await readJsonl(path.join(exportDir, `${split}.sft.jsonl`))).slice(0, limit);
-const referenceRows = (await readJsonl(path.join(experimentDir, "data", `${split}.jsonl`))).slice(0, limit);
+const examples = (await readJsonl(path.join(exportDir, `${split}.sft.jsonl`))).slice(offset, offset + limit);
+const referenceRows = (await readJsonl(path.join(experimentDir, "data", `${split}.jsonl`))).slice(offset, offset + limit);
 const referencesById = new Map(referenceRows.map((row) => [row.example_id, row]));
 const priorSpend = await ledgerSpend(ledgerPath);
 const estimated = examples.flatMap((example) => estimateCalls(example));
@@ -176,6 +177,7 @@ const summary = {
   repair_model: repairModel,
   planner_profile: plannerProfile,
   repair_enabled: repairEnabled,
+  examples_offset: offset,
   examples_requested: examples.length,
   dry_run: dryRun,
   calls_made: traces.reduce((total, row) => total + (row.planner_usage ? 1 : 0) + (row.answer_usage ? 1 : 0) + (row.repair_usage ? 1 : 0), 0),
@@ -589,6 +591,13 @@ function numberArg(value, fallback) {
   if (value == null) return fallback;
   const parsed = Number(value);
   if (!Number.isFinite(parsed) || parsed <= 0) return fallback;
+  return Math.floor(parsed);
+}
+
+function nonNegativeNumberArg(value, fallback) {
+  if (value == null) return fallback;
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed < 0) return fallback;
   return Math.floor(parsed);
 }
 

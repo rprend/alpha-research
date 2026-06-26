@@ -142,7 +142,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $1.37595460 across 1207 OpenAI calls.
+Current ledgered spend is $1.66897385 across 1339 OpenAI calls.
 
 ## Evaluation Plan
 
