@@ -43,6 +43,54 @@ const sources = [
     gap: 'Directly adjacent for insufficiency and contradiction, but smaller and aspect-based; it does not test document lifecycle, source authority hierarchy, as-of snapshot semantics, entity disambiguation, and citation support versus conclusion support in one large-corpus research QA suite.',
   },
   {
+    id: 't2-ragbench-2026',
+    title: 'T2-RAGBench: Text-and-Table Benchmark for Evaluating Retrieval-Augmented Generation',
+    year: 2026,
+    url: 'https://huggingface.co/datasets/G4KMU/t2-ragbench',
+    covers: ['table + text reasoning', 'retrieval over financial documents', 'numerical reasoning'],
+    gap: 'Directly pressures text-and-table RAG over finance documents, but does not cover source authority conflicts, stale/current document snapshots, appended lifecycle changes, evidence insufficiency, conclusion-overreach, or cross-document contradiction as a unified research QA taxonomy.',
+  },
+  {
+    id: 'citation-closure-2026',
+    title: 'Citation-Closure Retrieval and Per-Rule Attribution for Real-World Compliance RAG',
+    year: 2026,
+    url: 'https://arxiv.org/html/2605.29742v1',
+    covers: ['source authority conflicts', 'citation closure', 'regulatory traceability'],
+    gap: 'Very close to authority-aware attribution, but targeted at regulatory rule closure rather than a benchmark taxonomy spanning lifecycle, temporal, insufficiency, entity ambiguity, and conclusion-support failure modes.',
+  },
+  {
+    id: 'legal-claim-rag-2026',
+    title: 'Fine-grained Claim-level RAG Benchmark for Law',
+    year: 2026,
+    url: 'https://arxiv.org/html/2605.21071v1',
+    covers: ['claim-level RAG', 'contradicted claims', 'domain-specific legal evidence'],
+    gap: 'Covers claim-level legal RAG and contradiction detection, but domain scope and claim granularity differ from broad research-document QA with explicit source lifecycle and citation-overreach categories.',
+  },
+  {
+    id: 'enterprise-rag-bench-2026',
+    title: 'EnterpriseRAG-Bench',
+    year: 2026,
+    url: 'https://huggingface.co/datasets/onyx-dot-app/EnterpriseRAG-Bench',
+    covers: ['large-corpus enterprise RAG', 'realistic document retrieval', 'end-to-end QA'],
+    gap: 'Covers realistic large enterprise corpora, but is not organized around controlled hard-grounded failure classes such as stale/current conflicts, authority hierarchy, appended lifecycle changes, and citation-support versus conclusion-support.',
+  },
+  {
+    id: 'corpusqa-2026',
+    title: 'CorpusQA: A 10 Million Token Benchmark for Corpus-Level Question Answering',
+    year: 2026,
+    url: 'https://arxiv.org/html/2601.14952v1',
+    covers: ['corpus-level QA', 'global information synthesis', 'long-context and RAG failure'],
+    gap: 'Tests corpus-scale synthesis difficulty, but does not isolate grounded research QA failure modes with per-item citation-support, authority, temporal, lifecycle, and contradiction rubrics.',
+  },
+  {
+    id: 'longbench-pro-2026',
+    title: 'LongBench Pro: A More Realistic and Comprehensive Bilingual Long-Context Evaluation Benchmark',
+    year: 2026,
+    url: 'https://huggingface.co/datasets/caskcsg/LongBench-Pro',
+    covers: ['realistic long-context evaluation', 'deep reasoning across long inputs'],
+    gap: 'Strengthens the crowded long-context benchmark landscape, but does not directly target large-corpus grounded research QA with explicit evidence sufficiency and conclusion-support labels.',
+  },
+  {
     id: 'longcite-2024',
     title: 'LongCite / LongBench-Cite',
     year: 2024,
@@ -81,13 +129,13 @@ const categoryCoverage = [
   },
   {
     category: 'table + text reasoning',
-    closest_sources: ['bridge-2026', 'occ-rag-2026'],
+    closest_sources: ['bridge-2026', 't2-ragbench-2026', 'occ-rag-2026'],
     novelty_risk: 'high',
     differentiator: 'Needs to stress cross-format evidence use inside research QA rather than claim novelty over text/table reasoning itself.',
   },
   {
     category: 'source authority conflicts',
-    closest_sources: ['lit-ragbench-2026'],
+    closest_sources: ['citation-closure-2026', 'legal-claim-rag-2026', 'lit-ragbench-2026'],
     novelty_risk: 'medium',
     differentiator: 'Authority hierarchy is distinct from arbitrary contradiction when the benchmark encodes which source controls the conclusion.',
   },
@@ -117,7 +165,7 @@ const categoryCoverage = [
   },
   {
     category: 'cross-document contradiction',
-    closest_sources: ['lit-ragbench-2026'],
+    closest_sources: ['lit-ragbench-2026', 'legal-claim-rag-2026'],
     novelty_risk: 'high',
     differentiator: 'Contradiction is crowded; benchmark value comes from combining contradiction with source authority and research conclusions.',
   },
@@ -154,7 +202,7 @@ function buildAudit() {
     sources,
     category_coverage: categoryCoverage,
     release_gate_instruction:
-      'Do not claim novelty until this audit is refreshed with a final June 2026 literature scan and at least two real model baselines are scored.',
+      'Do not claim novelty until this audit is refreshed after human review completion with final June 2026 source checks and the category-level comparison table is paper-ready.',
   }
 }
 

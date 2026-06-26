@@ -168,7 +168,7 @@
     {
       "id": "novelty_evidence_registry_present",
       "passed": true,
-      "detail": "6 related-work sources registered; completion_claim_allowed=false",
+      "detail": "12 related-work sources registered; completion_claim_allowed=false",
       "blocker": "Generate a source-backed related-work registry while keeping final novelty claims gated."
     }
   ],

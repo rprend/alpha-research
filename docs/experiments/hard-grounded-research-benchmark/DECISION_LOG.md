@@ -511,3 +511,11 @@ Decision: Generate a first-wave annotation assignment plan from review operation
 Rationale: Review queues and workbooks are necessary but not sufficient for paper-scale execution. A reviewer needs an explicit sequence: the highest-risk pilot items first, then a balanced expansion wave across all ten categories. This advances review readiness without fabricating any human labels.
 
 Consequence: `scripts/hard-grounded-research-annotation-assignments.mjs` now emits `generated/annotation-assignments.json` and `ANNOTATION_ASSIGNMENTS.md`; review operations and the release gate record that concrete annotation assignments exist while all true review completion blockers remain.
+
+## 2026-06-26 — Expand novelty audit with fresh June 2026 adjacent benchmarks
+
+Decision: Add a broader source-backed novelty refresh covering text-table, legal/compliance, enterprise, corpus-level, and long-context RAG benchmarks while keeping completion claims disabled.
+
+Rationale: The benchmark's novelty case should be stress-tested against current adjacent benchmark work before any final claim; adding these sources makes overclaiming harder and sharpens the differentiator.
+
+Consequence: `scripts/hard-grounded-research-novelty-audit.mjs` and `scripts/hard-grounded-research-novelty-evidence.mjs` now include additional web-checked sources; regenerated `NOVELTY_AUDIT.md`, `NOVELTY_EVIDENCE.md`, and release artifacts keep `novelty_audit_final` blocked until human review and final audit.
