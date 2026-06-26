@@ -12,6 +12,8 @@ const trainOffset = numberArg(args["train-offset"], 80, { allowZero: true });
 const trainLimit = numberArg(args["train-limit"], 52);
 const evalOffset = numberArg(args["eval-offset"], 132, { allowZero: true });
 const evalLimit = numberArg(args["eval-limit"], 40);
+const rankAnswerBonus = numericArg(args["rank-answer-bonus"], 0.04);
+const rankInlinePenalty = numericArg(args["rank-inline-penalty"], -0.35);
 const runId = args["run-id"] ?? `verifier-selector-${split}-${trainOffset}-${evalOffset}-v1`;
 const outputDir = path.join(runDir, runId);
 
@@ -48,9 +50,9 @@ const evalReferences = references.slice(evalOffset, evalOffset + evalLimit);
 
 const trainRows = await buildRows(trainReferences, "train");
 const evalRows = await buildRows(evalReferences, "eval");
-const featureNames = featureVector(trainRows[0].candidates.direct, trainRows[0].candidates).names;
+const featureNames = featureVector(trainRows[0].candidates.direct, trainRows[0].candidates, trainRows[0].input).names;
 const trainExamples = trainRows.flatMap((row) => Object.values(row.candidates).map((candidate) => ({
-  x: featureVector(candidate, row.candidates).values,
+  x: featureVector(candidate, row.candidates, row.input).values,
   y: candidate.target_good ? 1 : 0,
 })));
 const model = trainLogistic(trainExamples, { iterations: 2800, learningRate: 0.08, l2: 0.02 });
@@ -79,6 +81,8 @@ const result = {
     weights: Object.fromEntries(featureNames.map((name, index) => [name, model.weights[index]])),
     bias: model.bias,
     train_loss: model.loss,
+    rank_answer_bonus: rankAnswerBonus,
+    rank_inline_penalty: rankInlinePenalty,
   },
   cost: {
     llm_calls: 0,
@@ -150,6 +154,10 @@ async function buildRows(referenceRows, role) {
         citations: (reference.output.citations ?? []).map((citation) => citation.evidence_id),
       },
       candidates,
+      input: {
+        question: reference.input.question,
+        evidence_pack: reference.input.compact_retrieved_evidence_pack,
+      },
     };
   });
 }
@@ -158,7 +166,7 @@ function selectRows(rows, model) {
   return rows.map((row) => {
     const scored = Object.values(row.candidates).map((candidate) => ({
       ...candidate,
-      verifier_score: predict(model, featureVector(candidate, row.candidates).values),
+      verifier_score: predict(model, featureVector(candidate, row.candidates, row.input).values),
     })).sort((a, b) => candidateRank(b) - candidateRank(a));
     const selected = scored[0];
     return {
@@ -186,12 +194,12 @@ function selectRows(rows, model) {
 }
 
 function candidateRank(candidate) {
-  const inlinePenalty = candidate.inline_complete ? 0 : -0.35;
-  const answerBonus = candidate.answered ? 0.04 : 0;
+  const inlinePenalty = candidate.inline_complete ? 0 : rankInlinePenalty;
+  const answerBonus = candidate.answered ? rankAnswerBonus : 0;
   return candidate.verifier_score + inlinePenalty + answerBonus;
 }
 
-function featureVector(candidate, candidates) {
+function featureVector(candidate, candidates, input) {
   const prediction = candidate.prediction;
   const citationCount = prediction.citations.length;
   const answerTokens = contentTokens(prediction.answer).length;
@@ -199,6 +207,7 @@ function featureVector(candidate, candidates) {
   const answeredPolicies = Object.values(candidates).filter((row) => row.answered).length;
   const sameTypePolicies = Object.values(candidates).filter((row) => row.prediction.answer_type === prediction.answer_type).length;
   const sameCitationPolicies = Object.values(candidates).filter((row) => jaccard(row.prediction.citations, prediction.citations) >= 0.5).length;
+  const evidenceFeatures = evidenceAlignmentFeatures(prediction, input);
   const names = [
     "is_direct",
     "is_strict_rubric",
@@ -212,6 +221,18 @@ function featureVector(candidate, candidates) {
     "answered_policy_count",
     "same_type_policy_count",
     "same_citation_policy_count",
+    "valid_citation_rate",
+    "mean_citation_rank",
+    "answer_cited_unigram_coverage",
+    "answer_cited_bigram_coverage",
+    "answer_full_pack_unigram_coverage",
+    "claim_cited_min_coverage",
+    "claim_cited_mean_coverage",
+    "numeric_values_supported_rate",
+    "question_cited_overlap",
+    "question_pack_max_overlap",
+    "question_pack_mean_overlap",
+    "abstain_with_high_question_overlap",
   ];
   const values = [
     candidate.policy === "direct" ? 1 : 0,
@@ -226,8 +247,56 @@ function featureVector(candidate, candidates) {
     answeredPolicies / Object.keys(candidates).length,
     sameTypePolicies / Object.keys(candidates).length,
     sameCitationPolicies / Object.keys(candidates).length,
+    evidenceFeatures.valid_citation_rate,
+    evidenceFeatures.mean_citation_rank,
+    evidenceFeatures.answer_cited_unigram_coverage,
+    evidenceFeatures.answer_cited_bigram_coverage,
+    evidenceFeatures.answer_full_pack_unigram_coverage,
+    evidenceFeatures.claim_cited_min_coverage,
+    evidenceFeatures.claim_cited_mean_coverage,
+    evidenceFeatures.numeric_values_supported_rate,
+    evidenceFeatures.question_cited_overlap,
+    evidenceFeatures.question_pack_max_overlap,
+    evidenceFeatures.question_pack_mean_overlap,
+    prediction.answer_type === "abstain" ? evidenceFeatures.question_pack_max_overlap : 0,
   ];
   return { names, values };
+}
+
+function evidenceAlignmentFeatures(prediction, input) {
+  const evidencePack = input?.evidence_pack ?? [];
+  const evidenceById = new Map(evidencePack.map((evidence) => [evidence.evidence_id, evidence]));
+  const citedEvidence = prediction.citations.map((id) => evidenceById.get(id)).filter(Boolean);
+  const citedText = citedEvidence.map((evidence) => evidence.text).join(" ");
+  const packText = evidencePack.map((evidence) => evidence.text).join(" ");
+  const questionTokens = contentTokens(input?.question ?? "");
+  const answerTokens = contentTokens(prediction.answer);
+  const citedTokens = contentTokens(citedText);
+  const packTokens = contentTokens(packText);
+  const citedBigrams = bigrams(citedTokens);
+  const answerBigrams = bigrams(answerTokens);
+  const claimCoverages = prediction.claim_table.length
+    ? prediction.claim_table.map((claim) => tokenCoverage(contentTokens(claim.claim ?? ""), citedTokens))
+    : [];
+  const ranks = citedEvidence.map((evidence) => Number(evidence.retrieval_rank)).filter(Number.isFinite);
+  const normalizedMeanRank = ranks.length ? mean(ranks.map((rank) => 1 / Math.max(1, rank))) : 0;
+  const numbers = numberTokens(prediction.answer);
+  const citedNumberSet = new Set(numberTokens(citedText));
+  const questionOverlaps = evidencePack.map((evidence) => tokenCoverage(questionTokens, contentTokens(evidence.text)));
+
+  return {
+    valid_citation_rate: prediction.citations.length ? citedEvidence.length / prediction.citations.length : 0,
+    mean_citation_rank: normalizedMeanRank,
+    answer_cited_unigram_coverage: tokenCoverage(answerTokens, citedTokens),
+    answer_cited_bigram_coverage: tokenCoverage(answerBigrams, citedBigrams),
+    answer_full_pack_unigram_coverage: tokenCoverage(answerTokens, packTokens),
+    claim_cited_min_coverage: claimCoverages.length ? Math.min(...claimCoverages) : 0,
+    claim_cited_mean_coverage: mean(claimCoverages),
+    numeric_values_supported_rate: numbers.length ? numbers.filter((number) => citedNumberSet.has(number)).length / numbers.length : 1,
+    question_cited_overlap: tokenCoverage(questionTokens, citedTokens),
+    question_pack_max_overlap: questionOverlaps.length ? Math.max(...questionOverlaps) : 0,
+    question_pack_mean_overlap: mean(questionOverlaps),
+  };
 }
 
 function trainLogistic(examples, options) {
@@ -432,6 +501,22 @@ function contentTokens(value) {
     .filter((token) => token.length > 2 && !stop.has(token));
 }
 
+function bigrams(tokens) {
+  const out = [];
+  for (let index = 0; index < tokens.length - 1; index += 1) out.push(`${tokens[index]} ${tokens[index + 1]}`);
+  return out;
+}
+
+function numberTokens(value) {
+  return String(value).match(/\b\d+(?:[.,]\d+)*(?:%|k|m|b)?\b/gi) ?? [];
+}
+
+function tokenCoverage(targetTokens, sourceTokens) {
+  if (!targetTokens.length) return 0;
+  const source = new Set(sourceTokens);
+  return targetTokens.filter((token) => source.has(token)).length / targetTokens.length;
+}
+
 function stripCitations(value) {
   return String(value).replace(/\s*\[[^\]]+\]/g, "").trim();
 }
@@ -485,6 +570,12 @@ function numberArg(value, fallback, options = {}) {
   if (!Number.isFinite(parsed)) return fallback;
   if (options.allowZero ? parsed < 0 : parsed <= 0) return fallback;
   return Math.floor(parsed);
+}
+
+function numericArg(value, fallback) {
+  if (value == null) return fallback;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
 }
 
 function parseArgs(values) {
