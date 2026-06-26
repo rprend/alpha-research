@@ -1,6 +1,6 @@
 # Grounded QA Distillation Data Card
 
-Generated: 2026-06-26T01:05:07.671Z
+Generated: 2026-06-26T01:09:31.899Z
 
 ## Source
 
@@ -33,9 +33,9 @@ Each JSONL row contains:
 
 | Split | Source rows read | Examples | Answerable | Abstentions |
 | --- | ---: | ---: | ---: | ---: |
-| train | 8 | 45 | 40 | 5 |
-| validation | 8 | 22 | 22 | 0 |
-| test | 8 | 26 | 25 | 1 |
+| train | 40 | 153 | 134 | 19 |
+| validation | 40 | 127 | 122 | 5 |
+| test | 40 | 149 | 143 | 6 |
 
 ## Evaluation Plan
 

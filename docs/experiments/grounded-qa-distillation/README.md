@@ -85,8 +85,14 @@ Current cheap systems:
 
 - `retrieval_rank_1`: cite the first retrieved evidence item.
 - `lexical_overlap_scaffold`: select evidence by question/evidence token overlap and abstain below a threshold.
+- `learned_selector_*`: trained logistic evidence selector distilled from teacher evidence roles.
 
 These are controls, not final students. A learned distilled model must beat them on citation precision, answer support, abstention calibration, and cost per accepted grounded answer.
+
+Current run summaries:
+
+- `reports/baseline-results-v1.md`: first small-sample baseline run.
+- `reports/student-results-v1.md`: larger pilot with the first learned evidence-selector student.
 
 ## Evaluation Plan
 
@@ -110,7 +116,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 
 - construct real temporal KB updates rather than split-as-time proxies,
 - add a model-facing fine-tuning export,
-- train or call a genuinely cheaper student,
+- train or call a genuinely cheaper generative student,
 - add an entailment-style citation judge beyond lexical answer overlap,
 - evaluate cost/quality tradeoffs against a larger teacher,
 - write the paper and threat model.

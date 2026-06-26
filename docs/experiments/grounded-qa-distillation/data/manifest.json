@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-06-26T01:05:07.671Z",
+  "generated_at": "2026-06-26T01:09:31.899Z",
   "source_dataset": "allenai/qasper",
   "source_config": "qasper",
   "source_url": "https://huggingface.co/datasets/allenai/qasper",
   "dataset_viewer_api": "https://datasets-server.huggingface.co",
   "purpose": "Post-training data for cheaper citation-grounded QA over an evolving domain knowledge base.",
   "construction": {
-    "rows_per_split": 8,
-    "max_examples_per_split": 48,
+    "rows_per_split": 40,
+    "max_examples_per_split": 240,
     "evidence_limit": 4,
     "distractor_limit": 3,
     "max_evidence_chars": 900,
@@ -17,25 +17,25 @@
   },
   "splits": {
     "train": {
-      "rows_read": 8,
-      "examples_written": 45,
+      "rows_read": 40,
+      "examples_written": 153,
       "output_path": "docs/experiments/grounded-qa-distillation/data/train.jsonl",
-      "answerable_examples": 40,
-      "abstention_examples": 5
+      "answerable_examples": 134,
+      "abstention_examples": 19
     },
     "validation": {
-      "rows_read": 8,
-      "examples_written": 22,
+      "rows_read": 40,
+      "examples_written": 127,
       "output_path": "docs/experiments/grounded-qa-distillation/data/validation.jsonl",
-      "answerable_examples": 22,
-      "abstention_examples": 0
+      "answerable_examples": 122,
+      "abstention_examples": 5
     },
     "test": {
-      "rows_read": 8,
-      "examples_written": 26,
+      "rows_read": 40,
+      "examples_written": 149,
       "output_path": "docs/experiments/grounded-qa-distillation/data/test.jsonl",
-      "answerable_examples": 25,
-      "abstention_examples": 1
+      "answerable_examples": 143,
+      "abstention_examples": 6
     }
   }
 }

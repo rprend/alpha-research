@@ -1,0 +1,136 @@
+{
+  "run_id": "student-test-v1",
+  "generated_at": "2026-06-26T01:09:35.758Z",
+  "split": "test",
+  "threshold_grid": [
+    0,
+    0.04,
+    0.08,
+    0.12
+  ],
+  "learned_threshold_grid": [
+    0.35,
+    0.5,
+    0.65
+  ],
+  "learned_selector": {
+    "training_examples": 153,
+    "feature_count": 499,
+    "epochs": 60,
+    "learning_rate": 0.18,
+    "training_accuracy": 0.9334298118668596,
+    "positive_candidates": 232,
+    "negative_candidates": 459
+  },
+  "examples": 149,
+  "systems": [
+    {
+      "system": "retrieval_rank_1",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.959731543624161,
+        "citation_precision": 0.3691275167785235,
+        "citation_recall": 0.19854586129753915,
+        "answer_token_f1": 0.07522503612897768,
+        "abstention_accuracy": 0.959731543624161,
+        "abstention_rate": 0
+      }
+    },
+    {
+      "system": "lexical_overlap_t0",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.959731543624161,
+        "citation_precision": 0.6241610738255033,
+        "citation_recall": 0.36744966442953014,
+        "answer_token_f1": 0.09437472514840595,
+        "abstention_accuracy": 0.959731543624161,
+        "abstention_rate": 0
+      }
+    },
+    {
+      "system": "lexical_overlap_t0p04",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.46308724832214765,
+        "citation_precision": 0.8859060402684564,
+        "citation_recall": 0.18736017897091722,
+        "answer_token_f1": 0.07007992526794712,
+        "abstention_accuracy": 0.46308724832214765,
+        "abstention_rate": 0.5637583892617449
+      }
+    },
+    {
+      "system": "lexical_overlap_t0p08",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.22818791946308725,
+        "citation_precision": 0.9731543624161074,
+        "citation_recall": 0.09451901565995526,
+        "answer_token_f1": 0.05721973586540253,
+        "abstention_accuracy": 0.22818791946308725,
+        "abstention_rate": 0.8120805369127517
+      }
+    },
+    {
+      "system": "lexical_overlap_t0p12",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.15436241610738255,
+        "citation_precision": 0.9932885906040269,
+        "citation_recall": 0.0727069351230425,
+        "answer_token_f1": 0.051352872245094904,
+        "abstention_accuracy": 0.15436241610738255,
+        "abstention_rate": 0.8859060402684564
+      }
+    },
+    {
+      "system": "learned_selector_top1",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.959731543624161,
+        "citation_precision": 0.610738255033557,
+        "citation_recall": 0.3786353467561522,
+        "answer_token_f1": 0.09767267340644036,
+        "abstention_accuracy": 0.959731543624161,
+        "abstention_rate": 0
+      }
+    },
+    {
+      "system": "learned_selector_top2_t0p35",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.7919463087248322,
+        "citation_precision": 0.6677852348993288,
+        "citation_recall": 0.4222595078299777,
+        "answer_token_f1": 0.09943570919240398,
+        "abstention_accuracy": 0.7919463087248322,
+        "abstention_rate": 0.2080536912751678
+      }
+    },
+    {
+      "system": "learned_selector_top2_t0p5",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.7583892617449665,
+        "citation_precision": 0.6845637583892618,
+        "citation_recall": 0.383668903803132,
+        "answer_token_f1": 0.09950997735295998,
+        "abstention_accuracy": 0.7583892617449665,
+        "abstention_rate": 0.2550335570469799
+      }
+    },
+    {
+      "system": "learned_selector_top2_t0p65",
+      "metrics": {
+        "examples": 149,
+        "answer_type_accuracy": 0.6778523489932886,
+        "citation_precision": 0.7248322147651006,
+        "citation_recall": 0.33221476510067116,
+        "answer_token_f1": 0.09176917296544758,
+        "abstention_accuracy": 0.6778523489932886,
+        "abstention_rate": 0.33557046979865773
+      }
+    }
+  ]
+}
