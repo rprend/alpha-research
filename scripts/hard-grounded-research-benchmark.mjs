@@ -40,6 +40,14 @@ function unique(values) {
   return [...new Set(values.filter(Boolean))]
 }
 
+function markdownTable(headers, rows) {
+  return [
+    `| ${headers.join(' | ')} |`,
+    `| ${headers.map(() => '---').join(' | ')} |`,
+    ...rows.map((row) => `| ${row.join(' | ')} |`),
+  ].join('\n')
+}
+
 function validateSpec(spec) {
   assert(spec.id === 'hard-grounded-research-benchmark', 'Unexpected benchmark id.')
   assert(Array.isArray(spec.categories) && spec.categories.length === 10, 'Expected exactly 10 hard categories.')
@@ -650,6 +658,77 @@ function buildAdjudicationSummary(pilotSuite, adjudicationQueue) {
   }
 }
 
+function buildAdjudicationBatches(adjudicationQueue) {
+  const reviewerSlots = ['reviewer_a', 'reviewer_b']
+  const categories = [...new Set(adjudicationQueue.map((item) => item.category))]
+  const batches = categories.map((category, categoryIndex) => {
+    const items = adjudicationQueue.filter((item) => item.category === category)
+    return {
+      batch_id: `hgr_review_batch_${String(categoryIndex + 1).padStart(2, '0')}`,
+      category,
+      item_count: items.length,
+      reviewer_slots: reviewerSlots,
+      double_review_required: true,
+      adjudication_required_on_disagreement: true,
+      items: items.map((item, itemIndex) => ({
+        item_id: item.item_id,
+        primary_reviewer_slot: reviewerSlots[itemIndex % reviewerSlots.length],
+        secondary_reviewer_slot: reviewerSlots[(itemIndex + 1) % reviewerSlots.length],
+        review_status: item.review_status,
+        challenge_type: item.challenge?.type || 'native_row',
+      })),
+    }
+  })
+
+  return {
+    version: '0.1.0',
+    source_queue: 'generated/adjudication-queue.jsonl',
+    policy: {
+      target_items_per_category_for_paper: '30-50 reviewed items',
+      current_items_per_category: 3,
+      independent_reviews_per_item: 2,
+      disagreement_resolution: 'required before gold promotion',
+      publishable_gold_requires: [
+        'all items validly reviewed',
+        'minimal required citation ids confirmed',
+        'insufficiency/conflict labels confirmed',
+        'reviewer disagreement adjudicated',
+      ],
+    },
+    total_batches: batches.length,
+    total_items: adjudicationQueue.length,
+    total_review_assignments: adjudicationQueue.length * reviewerSlots.length,
+    batches,
+  }
+}
+
+function renderAdjudicationBatches(batches) {
+  const rows = batches.batches.map((batch) => [
+    batch.batch_id,
+    batch.category,
+    String(batch.item_count),
+    batch.reviewer_slots.join(', '),
+    batch.double_review_required ? 'yes' : 'no',
+  ])
+
+  return `# Hard Grounded Research Review Batches
+
+This file is generated from \`generated/adjudication-queue.jsonl\`. It is an operations manifest for human review, not gold data.
+
+## Policy
+
+- Target paper scale: ${batches.policy.target_items_per_category_for_paper}
+- Current pilot scale: ${batches.policy.current_items_per_category} items per category
+- Independent reviews per item: ${batches.policy.independent_reviews_per_item}
+- Disagreement resolution: ${batches.policy.disagreement_resolution}
+- Total review assignments in this pilot: ${batches.total_review_assignments}
+
+## Batches
+
+${markdownTable(['Batch', 'Category', 'Items', 'Reviewer slots', 'Double review'], rows)}
+`
+}
+
 function renderAdjudicationPacket(adjudicationQueue, summary) {
   const sampleLines = adjudicationQueue.slice(0, 10).map((item) => {
     const evidence = item.evidence_units.slice(0, 2).map((unit) => `    - ${unit.id}: ${compactText(unit.text, 180)}`).join('\n')
@@ -741,6 +820,7 @@ ${matrixLines}
 - \`generated/materialized-examples.json\`: concrete HF Dataset Viewer rows normalized into benchmark evidence examples.
 - \`generated/pilot-suite.json\`: expanded 30-item pilot suite with native, composed, and adversarial-wrapper items, including explicit challenge payloads for hard categories.
 - \`generated/adjudication-queue.jsonl\`, \`generated/adjudication-summary.json\`, and \`ADJUDICATION_PACKET.md\`: human review path from machine-seeded pilot to gold data.
+- \`generated/adjudication-batches.json\` and \`ADJUDICATION_BATCHES.md\`: double-review batch manifest for scaling pilot rows into reviewed gold data.
 - \`generated/gold-suite-summary.json\`: adjudication readiness report; \`generated/gold-suite.json\` is emitted only after every row has valid reviewer labels.
 - \`generated/calibration-suite.json\` and \`generated/calibration-suite-summary.json\`: mechanically labeled, explicitly non-gold scorer calibration suite.
 - \`generated/baseline-submission.json\` and \`generated/baseline-report.json\`: deterministic scorer smoke artifacts from \`benchmark:hard-grounded:evaluate\`.
@@ -796,9 +876,12 @@ const pilotSuite = buildPilotSuite(spec, materializedExamples)
 writeJson(join(outDir, 'pilot-suite.json'), pilotSuite)
 const adjudicationQueue = buildAdjudicationQueue(pilotSuite, rubrics)
 const adjudicationSummary = buildAdjudicationSummary(pilotSuite, adjudicationQueue)
+const adjudicationBatches = buildAdjudicationBatches(adjudicationQueue)
 writeJsonl(join(outDir, 'adjudication-queue.jsonl'), adjudicationQueue)
 writeJson(join(outDir, 'adjudication-summary.json'), adjudicationSummary)
+writeJson(join(outDir, 'adjudication-batches.json'), adjudicationBatches)
 writeText(join(experimentDir, 'ADJUDICATION_PACKET.md'), renderAdjudicationPacket(adjudicationQueue, adjudicationSummary))
+writeText(join(experimentDir, 'ADJUDICATION_BATCHES.md'), renderAdjudicationBatches(adjudicationBatches))
 writeText(join(experimentDir, 'README.md'), renderReadme(spec, matrix, approaches))
 
 console.log(`Validated ${spec.categories.length} categories across ${spec.datasets.length} Hugging Face datasets.`)

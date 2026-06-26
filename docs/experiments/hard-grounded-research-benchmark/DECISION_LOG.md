@@ -167,3 +167,11 @@ Decision: Add `conclusion_support` as an explicit evaluator metric that penalize
 Rationale: Citation precision only checks whether cited ids are in the expected set; it cannot distinguish evidence that supports a true premise from evidence that supports the submitted conclusion. The benchmark's overreach category needs a visible diagnostic for that failure mode.
 
 Consequence: All score reports now include `conclusion_support`, baseline analysis tables expose it, and validation checks keep the overreach diagnostic in the evaluator contract.
+
+## 2026-06-26 — Batch adjudication for double review
+
+Decision: Generate a deterministic adjudication batch manifest with category-level batches and two reviewer slots per item.
+
+Rationale: The benchmark cannot reach paper-worthy gold data with an undifferentiated queue alone. Review work needs explicit batch units, double-review requirements, and disagreement-resolution policy before it can scale beyond a pilot.
+
+Consequence: `benchmark:hard-grounded` now emits `generated/adjudication-batches.json` and `ADJUDICATION_BATCHES.md`, and validation requires both artifacts alongside the adjudication queue.

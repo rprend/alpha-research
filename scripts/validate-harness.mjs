@@ -203,8 +203,16 @@ assert(
   'Missing hard grounded research adjudication summary.',
 )
 assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/adjudication-batches.json')),
+  'Missing hard grounded research adjudication batch manifest.',
+)
+assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/ADJUDICATION_PACKET.md')),
   'Missing hard grounded research adjudication packet.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/ADJUDICATION_BATCHES.md')),
+  'Missing hard grounded research adjudication batch report.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/baseline-report.json')),

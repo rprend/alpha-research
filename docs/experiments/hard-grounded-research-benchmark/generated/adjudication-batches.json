@@ -1,0 +1,361 @@
+{
+  "version": "0.1.0",
+  "source_queue": "generated/adjudication-queue.jsonl",
+  "policy": {
+    "target_items_per_category_for_paper": "30-50 reviewed items",
+    "current_items_per_category": 3,
+    "independent_reviews_per_item": 2,
+    "disagreement_resolution": "required before gold promotion",
+    "publishable_gold_requires": [
+      "all items validly reviewed",
+      "minimal required citation ids confirmed",
+      "insufficiency/conflict labels confirmed",
+      "reviewer disagreement adjudicated"
+    ]
+  },
+  "total_batches": 10,
+  "total_items": 30,
+  "total_review_assignments": 60,
+  "batches": [
+    {
+      "batch_id": "hgr_review_batch_01",
+      "category": "multi-hop synthesis",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_multi_hop_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        },
+        {
+          "item_id": "hgr_multi_hop_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        },
+        {
+          "item_id": "hgr_multi_hop_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_02",
+      "category": "stale-vs-current document conflicts",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_stale_current_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "stale_current_conflict"
+        },
+        {
+          "item_id": "hgr_stale_current_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "stale_current_conflict"
+        },
+        {
+          "item_id": "hgr_stale_current_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "stale_current_conflict"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_03",
+      "category": "appended document lifecycle changes",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_appendix_lifecycle_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "document_lifecycle_appendix"
+        },
+        {
+          "item_id": "hgr_appendix_lifecycle_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "document_lifecycle_appendix"
+        },
+        {
+          "item_id": "hgr_appendix_lifecycle_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "document_lifecycle_appendix"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_04",
+      "category": "table + text reasoning",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_table_text_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        },
+        {
+          "item_id": "hgr_table_text_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        },
+        {
+          "item_id": "hgr_table_text_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_05",
+      "category": "source authority conflicts",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_authority_conflict_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "authority_conflict"
+        },
+        {
+          "item_id": "hgr_authority_conflict_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "authority_conflict"
+        },
+        {
+          "item_id": "hgr_authority_conflict_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "authority_conflict"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_06",
+      "category": "evidence insufficiency / abstention",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_abstain_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "insufficiency_probe"
+        },
+        {
+          "item_id": "hgr_abstain_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "insufficiency_probe"
+        },
+        {
+          "item_id": "hgr_abstain_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "insufficiency_probe"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_07",
+      "category": "citation supports fact but not conclusion",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_citation_overreach_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "citation_overreach_probe"
+        },
+        {
+          "item_id": "hgr_citation_overreach_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "citation_overreach_probe"
+        },
+        {
+          "item_id": "hgr_citation_overreach_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "citation_overreach_probe"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_08",
+      "category": "entity disambiguation",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_entity_disambiguation_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        },
+        {
+          "item_id": "hgr_entity_disambiguation_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        },
+        {
+          "item_id": "hgr_entity_disambiguation_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "native_row"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_09",
+      "category": "temporal questions: as of date X",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_as_of_date_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "as_of_date_constraint"
+        },
+        {
+          "item_id": "hgr_as_of_date_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "as_of_date_constraint"
+        },
+        {
+          "item_id": "hgr_as_of_date_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "as_of_date_constraint"
+        }
+      ]
+    },
+    {
+      "batch_id": "hgr_review_batch_10",
+      "category": "cross-document contradiction",
+      "item_count": 3,
+      "reviewer_slots": [
+        "reviewer_a",
+        "reviewer_b"
+      ],
+      "double_review_required": true,
+      "adjudication_required_on_disagreement": true,
+      "items": [
+        {
+          "item_id": "hgr_contradiction_001_pilot_001",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "cross_document_contradiction"
+        },
+        {
+          "item_id": "hgr_contradiction_001_pilot_002",
+          "primary_reviewer_slot": "reviewer_b",
+          "secondary_reviewer_slot": "reviewer_a",
+          "review_status": "needs_review",
+          "challenge_type": "cross_document_contradiction"
+        },
+        {
+          "item_id": "hgr_contradiction_001_pilot_003",
+          "primary_reviewer_slot": "reviewer_a",
+          "secondary_reviewer_slot": "reviewer_b",
+          "review_status": "needs_review",
+          "challenge_type": "cross_document_contradiction"
+        }
+      ]
+    }
+  ]
+}
