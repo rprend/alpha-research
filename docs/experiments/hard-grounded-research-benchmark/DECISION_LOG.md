@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Add the first non-oracle retrieval baseline
+
+Decision: Add a lexical evidence baseline that ranks provided evidence by question-token overlap, answers with simple abstain/conflict/label/text heuristics, and scores through the same external submission path as model systems.
+
+Rationale: Previous weak baselines still read native answers, so they were scorer diagnostics rather than credible research-QA systems. A publishable benchmark needs baselines that fail for realistic reasons without privileged labels.
+
+Consequence: `benchmark:hard-grounded:lexical` now emits `runs/lexical-evidence-baseline-v1/submission.json` and `runs/lexical-evidence-baseline-v1/report.json`.
+
 ## 2026-06-26 — Gate gold release on validated adjudication
 
 Decision: Add an adjudication builder that validates reviewer labels, final answers, citation ids, insufficiency/conflict flags, notes, and challenge preservation before emitting a gold suite.

@@ -34,6 +34,7 @@ const requiredPackageScripts = [
   'benchmark:hard-grounded:evaluate',
   'benchmark:hard-grounded:run',
   'benchmark:hard-grounded:adjudicate',
+  'benchmark:hard-grounded:lexical',
   'smoke:infra:live',
   'kb:validate',
   'kb:status',
@@ -150,6 +151,7 @@ assert(existsSync(join(root, 'scripts/hard-grounded-research-benchmark.mjs')), '
 assert(existsSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs')), 'Missing hard grounded research benchmark evaluator.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-runner.mjs')), 'Missing hard grounded research benchmark local runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs')), 'Missing hard grounded research adjudication builder.')
+assert(existsSync(join(root, 'scripts/hard-grounded-research-lexical-baseline.mjs')), 'Missing hard grounded research lexical baseline.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),
   'Missing hard grounded research benchmark spec.',
@@ -197,6 +199,10 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/gold-suite-summary.json')),
   'Missing hard grounded research gold readiness summary.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json')),
+  'Missing hard grounded research lexical baseline report.',
 )
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')

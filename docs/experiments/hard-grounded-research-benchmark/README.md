@@ -54,6 +54,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `generated/baseline-submission.json` and `generated/baseline-report.json`: deterministic scorer smoke artifacts from `benchmark:hard-grounded:evaluate`.
 - `generated/baseline-comparisons.json`: non-oracle diagnostic baseline comparison for answer-only and first-evidence systems.
 - `runs/local-rule-agent-v1/submission.json` and `runs/local-rule-agent-v1/report.json`: reproducible local runner output using the same external submission contract expected from model systems.
+- `runs/lexical-evidence-baseline-v1/submission.json` and `runs/lexical-evidence-baseline-v1/report.json`: non-oracle lexical evidence baseline that does not read gold answers.
 
 Run:
 
@@ -62,4 +63,5 @@ pnpm run benchmark:hard-grounded
 pnpm run benchmark:hard-grounded:adjudicate
 pnpm run benchmark:hard-grounded:evaluate
 pnpm run benchmark:hard-grounded:run
+pnpm run benchmark:hard-grounded:lexical
 ```
