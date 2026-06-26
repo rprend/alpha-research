@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Does the corpus provide independent confirmation that "Handling Divergent Reference Texts when Evaluating Table-to-Text Generation" has final answer "Handling Divergent Reference Texts when Evaluating Table-to-Text Generation"? Answer only if there are two independent confirming sources.
+Using marker HGR-d1441d70, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Two same-authority documents disagree about "Which year and which conference was the 14th season for this conference as part of the NCAA Division that the Colorado Buffaloes played in...". If they cannot be reconciled by date or authority, what should the answer be?
+Using marker HGR-fb483c97, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

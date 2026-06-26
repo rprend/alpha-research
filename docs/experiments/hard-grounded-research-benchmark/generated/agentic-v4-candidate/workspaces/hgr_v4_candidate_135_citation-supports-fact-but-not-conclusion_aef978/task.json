@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "citation supports fact but not conclusion",
-  "user_question": "The corpus has a source for \"How many names are from Kenya?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
+  "user_question": "Using marker HGR-07632aad, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
   "target": {
-    "native_question": "The corpus has a source for \"How many names are from Kenya?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
-    "source_row_keys": [
-      "danwakeem/wikitablequestions-wtq:nt-23",
-      "allenai/qasper:1909.07575"
-    ],
+    "native_question": "Using marker HGR-07632aad, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
     "challenge": {
       "type": "citation_overreach_probe",
       "supported_fact": "How many names are from Kenya?",

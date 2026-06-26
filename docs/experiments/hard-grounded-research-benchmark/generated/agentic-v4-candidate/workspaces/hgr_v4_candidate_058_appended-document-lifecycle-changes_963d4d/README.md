@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-For "Learning Autocomplete Systems as a Communication Game", inspect the original body and appended update; return the final controlling answer.
+Using marker HGR-588c6324, inspect the original body and appended update; return the final controlling response.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

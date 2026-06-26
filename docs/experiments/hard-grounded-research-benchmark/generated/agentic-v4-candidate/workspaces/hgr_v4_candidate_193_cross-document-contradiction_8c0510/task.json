@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_193_cross-document-contradiction_8c0510",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "cross-document contradiction",
-  "user_question": "Two same-authority documents disagree about \"Are Freakonomics and In the Realm of the Hackers both American documentaries?\". If they cannot be reconciled by date or authority, what should the answer be?",
+  "user_question": "Using marker HGR-9ef62a94, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
   "target": {
-    "native_question": "Two same-authority documents disagree about \"Are Freakonomics and In the Realm of the Hackers both American documentaries?\". If they cannot be reconciled by date or authority, what should the answer be?",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5abc0a5d5542993f40c73c64",
-      "hotpotqa/hotpot_qa:5a760ab65542994ccc918697"
-    ],
+    "native_question": "Using marker HGR-9ef62a94, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
     "challenge": {
       "type": "cross_document_contradiction",
-      "document_a_id": "v4:document_a:c8d4397e",
-      "document_b_id": "v4:document_b:c7d437eb"
+      "rule": "same-authority disagreement requires CONFLICT"
     },
     "hidden_gold_withheld": true
   },

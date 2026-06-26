@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-The corpus has a source for "Sparse and Constrained Attention for Neural Machine Translation". Does that citation alone prove the broader comparative conclusion that it has the same answer as "Who were the sponsors for the away shirts of Colchester United FC?"?
+Using marker HGR-68f592c4, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

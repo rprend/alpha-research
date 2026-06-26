@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_043_appended-document-lifecycle-changes_23a85d",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-42ea1186, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:2002.08795",
-      "allenai/qasper:1809.00540"
-    ],
+    "native_question": "Using marker HGR-42ea1186, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:114427c5",
-      "appendix_document_id": "v4:appendix_update:1b85ef43"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

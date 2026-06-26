@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Two same-authority documents disagree about "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?". If they cannot be reconciled by date or authority, what should the answer be?
+Using marker HGR-ee9057e2, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

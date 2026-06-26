@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_041_appended-document-lifecycle-changes_51f715",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"Stochastic Answer Networks for SQuAD 2.0\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-3ea781de, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"Stochastic Answer Networks for SQuAD 2.0\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1809.09194",
-      "allenai/qasper:2002.11910"
-    ],
+    "native_question": "Using marker HGR-3ea781de, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:81d7872f",
-      "appendix_document_id": "v4:appendix_update:33b32e41"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

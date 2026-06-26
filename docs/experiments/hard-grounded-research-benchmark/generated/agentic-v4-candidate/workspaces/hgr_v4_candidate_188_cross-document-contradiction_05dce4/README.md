@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Two same-authority documents disagree about "What race track in the midwest hosts a 500 mile race eavery May?". If they cannot be reconciled by date or authority, what should the answer be?
+Using marker HGR-fc33244b, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

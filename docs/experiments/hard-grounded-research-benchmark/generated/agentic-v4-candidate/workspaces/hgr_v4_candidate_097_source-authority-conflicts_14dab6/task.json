@@ -2,20 +2,15 @@
   "task_id": "hgr_v4_candidate_097_source-authority-conflicts_14dab6",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "source authority conflicts",
-  "user_question": "For \"4jhnli\", resolve the authority conflict and return the expert-reviewed answer.",
+  "user_question": "Using marker HGR-dffd8fb4, resolve the authority conflict and return the response from the highest-authority source.",
   "target": {
-    "native_question": "For \"4jhnli\", resolve the authority conflict and return the expert-reviewed answer.",
-    "source_row_keys": [
-      "Pavithree/eli5:4jhnli",
-      "Pavithree/eli5:16w1fk"
-    ],
+    "native_question": "Using marker HGR-dffd8fb4, resolve the authority conflict and return the response from the highest-authority source.",
     "challenge": {
       "type": "authority_conflict",
       "authority_order": [
-        "expert-reviewed source",
+        "expert reviewed source",
         "community summary"
-      ],
-      "high_authority_document_id": "v4:high_authority:fd031fcc"
+      ]
     },
     "hidden_gold_withheld": true
   },

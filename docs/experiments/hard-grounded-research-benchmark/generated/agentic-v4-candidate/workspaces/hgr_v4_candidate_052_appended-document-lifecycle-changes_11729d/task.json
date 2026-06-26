@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_052_appended-document-lifecycle-changes_11729d",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-eac7046a, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:2004.01853",
-      "allenai/qasper:1809.00530"
-    ],
+    "native_question": "Using marker HGR-eac7046a, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:8ca03748",
-      "appendix_document_id": "v4:appendix_update:74491312"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

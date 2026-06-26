@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_023_stale-vs-current-document-conflicts_4951ae",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "stale-vs-current document conflicts",
-  "user_question": "For \"61\", resolve the stale/current conflict and return the current controlling answer.",
+  "user_question": "Using marker HGR-42b039e9, resolve the stale/current conflict and return the latest controlling response.",
   "target": {
-    "native_question": "For \"61\", resolve the stale/current conflict and return the current controlling answer.",
-    "source_row_keys": [
-      "tdiggelm/climate_fever:61",
-      "tdiggelm/climate_fever:60"
-    ],
+    "native_question": "Using marker HGR-42b039e9, resolve the stale/current conflict and return the latest controlling response.",
     "challenge": {
       "type": "stale_current_conflict",
-      "stale_document_id": "v4:stale:5795adae",
-      "current_document_id": "v4:current:0411484a"
+      "rule": "newer dated record controls over superseded older record"
     },
     "hidden_gold_withheld": true
   },

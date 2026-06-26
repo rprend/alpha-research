@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_012_multi-hop-synthesis_17e090",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "multi-hop synthesis",
-  "user_question": "Using the corpus, identify the row answer field for the source titled \"Knowledge Based Machine Reading Comprehension\" and the row answer field for the source titled \"Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis\", then return them as \"first => second\".",
+  "user_question": "Using marker HGR-2ccd9850, find the first and second relevant archive records. Return their native responses as \"first => second\".",
   "target": {
-    "native_question": "Using the corpus, identify the row answer field for the source titled \"Knowledge Based Machine Reading Comprehension\" and the row answer field for the source titled \"Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis\", then return them as \"first => second\".",
-    "source_row_keys": [
-      "allenai/qasper:1809.04267",
-      "allenai/qasper:2002.03407"
-    ],
+    "native_question": "Using marker HGR-2ccd9850, find the first and second relevant archive records. Return their native responses as \"first => second\".",
     "challenge": {
       "type": "two_source_join",
       "required_order": [

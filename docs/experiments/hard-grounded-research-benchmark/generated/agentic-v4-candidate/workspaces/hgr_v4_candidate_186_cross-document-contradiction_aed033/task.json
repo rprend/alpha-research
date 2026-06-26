@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_186_cross-document-contradiction_aed033",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "cross-document contradiction",
-  "user_question": "Two same-authority documents disagree about \"Which year and which conference was the 14th season for this conference as part of the NCAA Division that the Colorado Buffaloes played in...\". If they cannot be reconciled by date or authority, what should the answer be?",
+  "user_question": "Using marker HGR-fb483c97, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
   "target": {
-    "native_question": "Two same-authority documents disagree about \"Which year and which conference was the 14th season for this conference as part of the NCAA Division that the Colorado Buffaloes played in...\". If they cannot be reconciled by date or authority, what should the answer be?",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5a8e1027554299653c1aa15f",
-      "hotpotqa/hotpot_qa:5ab2d3df554299194fa9352c"
-    ],
+    "native_question": "Using marker HGR-fb483c97, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
     "challenge": {
       "type": "cross_document_contradiction",
-      "document_a_id": "v4:document_a:c1f5eea3",
-      "document_b_id": "v4:document_b:c2f5f036"
+      "rule": "same-authority disagreement requires CONFLICT"
     },
     "hidden_gold_withheld": true
   },

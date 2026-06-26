@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "citation supports fact but not conclusion",
-  "user_question": "The corpus has a source for \"Name a closed Parish\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Who were the sponsors for the away shirts of Colchester United FC?\"?",
+  "user_question": "Using marker HGR-a83d27e2, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
   "target": {
-    "native_question": "The corpus has a source for \"Name a closed Parish\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Who were the sponsors for the away shirts of Colchester United FC?\"?",
-    "source_row_keys": [
-      "danwakeem/wikitablequestions-wtq:nt-25",
-      "DongfuJiang/FeTaQA:17394"
-    ],
+    "native_question": "Using marker HGR-a83d27e2, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
     "challenge": {
       "type": "citation_overreach_probe",
       "supported_fact": "Name a closed Parish",

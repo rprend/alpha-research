@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_198_cross-document-contradiction_0ab6d4",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "cross-document contradiction",
-  "user_question": "Two same-authority documents disagree about \"Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?\". If they cannot be reconciled by date or authority, what should the answer be?",
+  "user_question": "Using marker HGR-c63de270, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
   "target": {
-    "native_question": "Two same-authority documents disagree about \"Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?\". If they cannot be reconciled by date or authority, what should the answer be?",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5ab51dae5542991779162d82",
-      "hotpotqa/hotpot_qa:5a8a43eb5542996c9b8d5e82"
-    ],
+    "native_question": "Using marker HGR-c63de270, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
     "challenge": {
       "type": "cross_document_contradiction",
-      "document_a_id": "v4:document_a:fe1d6e37",
-      "document_b_id": "v4:document_b:ff1d6fca"
+      "rule": "same-authority disagreement requires CONFLICT"
     },
     "hidden_gold_withheld": true
   },

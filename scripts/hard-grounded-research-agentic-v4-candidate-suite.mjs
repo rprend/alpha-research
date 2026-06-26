@@ -90,21 +90,19 @@ function rowEvidenceText(row) {
   const answer = rowAnswer(row)
   const preview = row.row_preview || `Pointer-only Hugging Face row ${row.global_source_key}; no redistributable preview text is stored.`
   return [
-    `Dataset: ${row.source_dataset}`,
-    `Source row: ${row.source_row_id}`,
-    `Viewer: ${row.viewer?.config || 'default'} / ${row.viewer?.split || 'unknown'}`,
-    `Package policy: ${row.package_policy}`,
-    `License: ${row.license || 'unknown'}`,
-    `Row label: ${label}`,
-    `Row answer field: ${answer}`,
-    `Preview: ${preview}`,
+    `Archive record ${stableHash(row.global_source_key).slice(0, 10)}`,
+    `Collection: ${row.source_dataset}`,
+    `License class: ${row.package_policy}`,
+    `Locator hint: ${label}`,
+    `Native response: ${answer}`,
+    `Evidence preview: ${preview}`,
   ].join('\n')
 }
 
 function sourceDocument(row, role, taskIndex, suffix = '') {
   return {
-    document_id: `v4:${role}:${stableHash(`${row.global_source_key}:${taskIndex}:${suffix}`).slice(0, 12)}`,
-    title: `${role} source: ${rowLabel(row)}`,
+    document_id: `v4:doc:${stableHash(`${row.global_source_key}:${taskIndex}:${suffix}`).slice(0, 12)}`,
+    title: `Archive record ${stableHash(`${row.global_source_key}:${taskIndex}`).slice(0, 10)}`,
     source_dataset: row.source_dataset,
     source_row_id: row.source_row_id,
     role,
@@ -123,8 +121,8 @@ function sourceDocument(row, role, taskIndex, suffix = '') {
 
 function syntheticDocument(seed, role, text) {
   return {
-    document_id: `v4:${role}:${stableHash(seed).slice(0, 12)}`,
-    title: `${role} document ${stableHash(seed).slice(0, 8)}`,
+    document_id: `v4:doc:${stableHash(seed).slice(0, 12)}`,
+    title: `Archive record ${stableHash(seed).slice(0, 10)}`,
     source_dataset: 'derived-public-corpus/v4-synthetic-control',
     source_row_id: seed,
     role,
@@ -152,6 +150,10 @@ function buildCategoryTask(category, index, rows, allRows) {
   const sourceA = sourceDocument(primary, 'primary', index, 'a')
   const sourceB = sourceDocument(secondary, 'secondary', index, 'b')
   const sourceC = sourceDocument(tertiary, 'near_distractor', index, 'c')
+  const taskMarker = `HGR-${stableHash(`${category}:${index}:${primary.global_source_key}`).slice(0, 10)}`
+  sourceA.text = `${sourceA.text}\nTask marker: ${taskMarker}\nMarker role: first relevant archive record.`
+  sourceB.text = `${sourceB.text}\nTask marker: ${taskMarker}\nMarker role: second relevant archive record.`
+  sourceC.text = `${sourceC.text}\nTask marker: ${taskMarker}\nMarker role: distractor archive record.`
 
   let question = ''
   let expected = ''
@@ -161,76 +163,77 @@ function buildCategoryTask(category, index, rows, allRows) {
   let extraDocs = []
 
   if (category === 'multi-hop synthesis') {
-    question = `Using the corpus, identify the row answer field for the source titled "${primaryLabel}" and the row answer field for the source titled "${secondaryLabel}", then return them as "first => second".`
+    question = `Using marker ${taskMarker}, find the first and second relevant archive records. Return their native responses as "first => second".`
     expected = `${primaryAnswer} => ${secondaryAnswer}`
     required = [sourceA.document_id, sourceB.document_id]
     challenge = { type: 'two_source_join', required_order: ['primary', 'secondary'] }
   } else if (category === 'stale-vs-current document conflicts') {
-    const stale = syntheticDocument(`${taskId}:stale`, 'stale', `Older note for ${primaryLabel}: controlling answer was "${secondaryAnswer}". This note is stale.`)
-    const current = syntheticDocument(`${taskId}:current`, 'current', `Current note for ${primaryLabel}: controlling answer is "${primaryAnswer}". This note supersedes older notes.`)
-    question = `For "${primaryLabel}", resolve the stale/current conflict and return the current controlling answer.`
+    const stale = syntheticDocument(`${taskId}:stale`, 'stale', `Task marker: ${taskMarker}\nChronology: 2018 record.\nAssertion: controlling response ${secondaryAnswer}.\nLifecycle note: superseded by a later record.`)
+    const current = syntheticDocument(`${taskId}:current`, 'current', `Task marker: ${taskMarker}\nChronology: 2024 record.\nAssertion: controlling response ${primaryAnswer}.\nLifecycle note: latest record controls.`)
+    question = `Using marker ${taskMarker}, resolve the stale/current conflict and return the latest controlling response.`
     expected = primaryAnswer
     required = [current.document_id]
     rejected = [stale.document_id, sourceC.document_id]
     extraDocs = [stale, current]
-    challenge = { type: 'stale_current_conflict', stale_document_id: stale.document_id, current_document_id: current.document_id }
+    challenge = { type: 'stale_current_conflict', rule: 'newer dated record controls over superseded older record' }
   } else if (category === 'appended document lifecycle changes') {
-    const original = syntheticDocument(`${taskId}:original`, 'original_body', `Original body for ${primaryLabel}: answer "${secondaryAnswer}".`)
-    const appendix = syntheticDocument(`${taskId}:appendix`, 'appendix_update', `Appendix update for ${primaryLabel}: final controlling answer "${primaryAnswer}". This appended update supersedes the original body.`)
-    question = `For "${primaryLabel}", inspect the original body and appended update; return the final controlling answer.`
+    const original = syntheticDocument(`${taskId}:original`, 'original_body', `Task marker: ${taskMarker}\nDocument section: original body.\nResponse stated: ${secondaryAnswer}.`)
+    const appendix = syntheticDocument(`${taskId}:appendix`, 'appendix_update', `Task marker: ${taskMarker}\nDocument section: appendix update.\nResponse stated: ${primaryAnswer}.\nInstruction: appended update controls final answer.`)
+    question = `Using marker ${taskMarker}, inspect the original body and appended update; return the final controlling response.`
     expected = primaryAnswer
     required = [original.document_id, appendix.document_id]
     rejected = [sourceC.document_id]
     extraDocs = [original, appendix]
-    challenge = { type: 'document_lifecycle_appendix', original_document_id: original.document_id, appendix_document_id: appendix.document_id }
+    challenge = { type: 'document_lifecycle_appendix', rule: 'appendix update controls over original body' }
   } else if (category === 'table + text reasoning') {
-    question = `Find the table or QA source labeled "${primaryLabel}" and return its answer field together with its dataset as "answer @ dataset".`
-    expected = `${primaryAnswer} @ ${primary.source_dataset}`
+    sourceA.text = `${sourceA.text}\nDataset alias for task: collection-${stableHash(primary.source_dataset).slice(0, 6)}.`
+    question = `Using marker ${taskMarker}, find the relevant table or QA archive record and return "native response @ collection alias".`
+    expected = `${primaryAnswer} @ collection-${stableHash(primary.source_dataset).slice(0, 6)}`
     challenge = { type: 'table_text_join', required_fields: ['answer', 'source_dataset'] }
   } else if (category === 'source authority conflicts') {
-    const low = syntheticDocument(`${taskId}:community`, 'low_authority', `Community summary for ${primaryLabel}: answer "${secondaryAnswer}".`)
-    const high = syntheticDocument(`${taskId}:reviewed`, 'high_authority', `Expert-reviewed source for ${primaryLabel}: answer "${primaryAnswer}".`)
-    question = `For "${primaryLabel}", resolve the authority conflict and return the expert-reviewed answer.`
+    const low = syntheticDocument(`${taskId}:community`, 'low_authority', `Task marker: ${taskMarker}\nAuthority tier: community summary.\nResponse stated: ${secondaryAnswer}.`)
+    const high = syntheticDocument(`${taskId}:reviewed`, 'high_authority', `Task marker: ${taskMarker}\nAuthority tier: expert reviewed source.\nResponse stated: ${primaryAnswer}.`)
+    question = `Using marker ${taskMarker}, resolve the authority conflict and return the response from the highest-authority source.`
     expected = primaryAnswer
     required = [high.document_id]
     rejected = [low.document_id, sourceC.document_id]
     extraDocs = [low, high]
-    challenge = { type: 'authority_conflict', authority_order: ['expert-reviewed source', 'community summary'], high_authority_document_id: high.document_id }
+    challenge = { type: 'authority_conflict', authority_order: ['expert reviewed source', 'community summary'] }
   } else if (category === 'evidence insufficiency / abstention') {
-    question = `Does the corpus provide independent confirmation that "${primaryLabel}" has final answer "${primaryAnswer}"? Answer only if there are two independent confirming sources.`
+    question = `Using marker ${taskMarker}, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.`
     expected = 'ABSTAIN'
-    required = []
+    required = [sourceA.document_id]
     rejected = [sourceA.document_id, sourceC.document_id]
     challenge = { type: 'insufficiency_probe', missing_evidence: ['second independent confirming source'] }
   } else if (category === 'citation supports fact but not conclusion') {
-    question = `The corpus has a source for "${primaryLabel}". Does that citation alone prove the broader comparative conclusion that it has the same answer as "${secondaryLabel}"?`
+    question = `Using marker ${taskMarker}, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.`
     expected = 'ABSTAIN'
-    required = []
+    required = [sourceA.document_id, sourceB.document_id]
     rejected = [sourceA.document_id, sourceB.document_id, sourceC.document_id]
     challenge = { type: 'citation_overreach_probe', supported_fact: primaryAnswer, unsupported_conclusion: secondaryAnswer }
   } else if (category === 'entity disambiguation') {
-    question = `There are near-name sources in the corpus. Return the answer field for the exact source row "${primary.global_source_key}" whose label is "${primaryLabel}".`
+    question = `Using marker ${taskMarker}, choose the first relevant archive record rather than near-marker distractors. Return its native response.`
     expected = primaryAnswer
-    challenge = { type: 'entity_disambiguation', exact_source_key: primary.global_source_key }
+    challenge = { type: 'entity_disambiguation', rule: 'choose first relevant marker record, reject distractors' }
   } else if (category === 'temporal questions: as of date X') {
     const asOf = `202${index % 5}-12-31`
-    const future = syntheticDocument(`${taskId}:future`, 'future_update', `Future update after ${asOf} for ${primaryLabel}: answer "${secondaryAnswer}". Do not use for as-of questions.`)
-    const valid = syntheticDocument(`${taskId}:asof`, 'as_of_valid', `As of ${asOf}, the controlling answer for ${primaryLabel} is "${primaryAnswer}".`)
-    question = `As of ${asOf}, what is the controlling answer for "${primaryLabel}"?`
+    const future = syntheticDocument(`${taskId}:future`, 'future_update', `Task marker: ${taskMarker}\nRecord date: 2029-01-01.\nResponse stated: ${secondaryAnswer}.\nTemporal rule: exclude after ${asOf}.`)
+    const valid = syntheticDocument(`${taskId}:asof`, 'as_of_valid', `Task marker: ${taskMarker}\nRecord date: ${asOf}.\nResponse stated: ${primaryAnswer}.\nTemporal rule: valid as of requested date.`)
+    question = `Using marker ${taskMarker}, answer as of ${asOf}; exclude later records.`
     expected = primaryAnswer
     required = [valid.document_id]
     rejected = [future.document_id, sourceC.document_id]
     extraDocs = [valid, future]
-    challenge = { type: 'as_of_date_constraint', as_of_date: asOf, valid_document_id: valid.document_id, excluded_future_document_id: future.document_id }
+    challenge = { type: 'as_of_date_constraint', as_of_date: asOf, rule: 'exclude records after the as-of date' }
   } else if (category === 'cross-document contradiction') {
-    const a = syntheticDocument(`${taskId}:doc-a`, 'document_a', `Document A for ${primaryLabel}: answer "${primaryAnswer}".`)
-    const b = syntheticDocument(`${taskId}:doc-b`, 'document_b', `Document B for ${primaryLabel}: answer "${secondaryAnswer}".`)
-    question = `Two same-authority documents disagree about "${primaryLabel}". If they cannot be reconciled by date or authority, what should the answer be?`
+    const a = syntheticDocument(`${taskId}:doc-a`, 'document_a', `Task marker: ${taskMarker}\nSame-authority document A.\nResponse stated: ${primaryAnswer}.`)
+    const b = syntheticDocument(`${taskId}:doc-b`, 'document_b', `Task marker: ${taskMarker}\nSame-authority document B.\nResponse stated: ${secondaryAnswer}.`)
+    question = `Using marker ${taskMarker}, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.`
     expected = 'CONFLICT'
     required = [a.document_id, b.document_id]
     rejected = [sourceC.document_id]
     extraDocs = [a, b]
-    challenge = { type: 'cross_document_contradiction', document_a_id: a.document_id, document_b_id: b.document_id }
+    challenge = { type: 'cross_document_contradiction', rule: 'same-authority disagreement requires CONFLICT' }
   }
 
   const goldDocs = [sourceA, sourceB, ...extraDocs]
@@ -254,7 +257,6 @@ function buildCategoryTask(category, index, rows, allRows) {
     user_question: question,
     target: {
       native_question: question,
-      source_row_keys: [primary.global_source_key, secondary.global_source_key],
       challenge,
       hidden_gold_withheld: true,
     },
@@ -297,9 +299,6 @@ function publicCorpus(task) {
     documents: task.documents.map((document) => ({
       document_id: document.document_id,
       title: document.title,
-      source_dataset: document.source_dataset,
-      source_row_id: document.source_row_id,
-      role: document.role,
       provenance: document.provenance,
       text: document.text,
     })),

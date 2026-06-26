@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_019_multi-hop-synthesis_c6806e",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "multi-hop synthesis",
-  "user_question": "Using the corpus, identify the row answer field for the source titled \"The arena where the Lewiston Maineiacs played their home games can seat how many people?\" and the row answer field for the source titled \"A Corpus for Automatic Readability Assessment and Text Simplification of German\", then return them as \"first => second\".",
+  "user_question": "Using marker HGR-29c193a4, find the first and second relevant archive records. Return their native responses as \"first => second\".",
   "target": {
-    "native_question": "Using the corpus, identify the row answer field for the source titled \"The arena where the Lewiston Maineiacs played their home games can seat how many people?\" and the row answer field for the source titled \"A Corpus for Automatic Readability Assessment and Text Simplification of German\", then return them as \"first => second\".",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5a87ab905542996e4f3088c1",
-      "allenai/qasper:1909.09067"
-    ],
+    "native_question": "Using marker HGR-29c193a4, find the first and second relevant archive records. Return their native responses as \"first => second\".",
     "challenge": {
       "type": "two_source_join",
       "required_order": [

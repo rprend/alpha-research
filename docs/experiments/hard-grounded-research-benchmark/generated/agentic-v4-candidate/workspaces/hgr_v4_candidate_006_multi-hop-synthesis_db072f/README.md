@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Using the corpus, identify the row answer field for the source titled "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT" and the row answer field for the source titled "Who is older, Annie Morton or Terry Richardson?", then return them as "first => second".
+Using marker HGR-7668e8db, find the first and second relevant archive records. Return their native responses as "first => second".
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

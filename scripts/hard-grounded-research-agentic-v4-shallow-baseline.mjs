@@ -37,6 +37,7 @@ function quotedStrings(text) {
 }
 
 function rowAnswerFromDoc(doc) {
+  if (!doc) return ''
   const match = String(doc.text || '').match(/Row answer field:\s*(.+?)(?:\n|$)/)
   return match ? match[1].trim() : ''
 }
@@ -187,7 +188,7 @@ audit.reason = report.buyer_gate_passed
   ? audit.reason
   : 'This v4 candidate repairs source-question diversity but is not buyer-ready because a shallow metadata/role baseline solves many tasks.'
 audit.blockers = [
-  `Rewrite or remove ${report.solved_count} tasks solved by the shallow metadata baseline.`,
+  ...(report.solved_count > 0 ? [`Rewrite or remove ${report.solved_count} tasks solved by the shallow metadata baseline.`] : []),
   ...audit.blockers.filter((blocker) => !blocker.startsWith('Run a shallow lexical/metadata baseline')),
 ]
 writeJson(auditPath, audit)

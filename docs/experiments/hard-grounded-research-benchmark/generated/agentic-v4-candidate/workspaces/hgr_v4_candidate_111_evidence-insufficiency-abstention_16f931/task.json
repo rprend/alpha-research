@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_111_evidence-insufficiency-abstention_16f931",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "evidence insufficiency / abstention",
-  "user_question": "Does the corpus provide independent confirmation that \"An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction\" has final answer \"An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction\"? Answer only if there are two independent confirming sources.",
+  "user_question": "Using marker HGR-bc1f3b94, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
   "target": {
-    "native_question": "Does the corpus provide independent confirmation that \"An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction\" has final answer \"An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction\"? Answer only if there are two independent confirming sources.",
-    "source_row_keys": [
-      "allenai/qasper:1909.02027",
-      "allenai/qasper:1911.03343"
-    ],
+    "native_question": "Using marker HGR-bc1f3b94, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
     "challenge": {
       "type": "insufficiency_probe",
       "missing_evidence": [

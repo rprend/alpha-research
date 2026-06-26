@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_018_multi-hop-synthesis_eb7995",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "multi-hop synthesis",
-  "user_question": "Using the corpus, identify the row answer field for the source titled \"Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?\" and the row answer field for the source titled \"What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?\", then return them as \"first => second\".",
+  "user_question": "Using marker HGR-abf0c7cc, find the first and second relevant archive records. Return their native responses as \"first => second\".",
   "target": {
-    "native_question": "Using the corpus, identify the row answer field for the source titled \"Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?\" and the row answer field for the source titled \"What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?\", then return them as \"first => second\".",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5a85b2d95542997b5ce40028",
-      "hotpotqa/hotpot_qa:5a877e5d5542993e715abf7d"
-    ],
+    "native_question": "Using marker HGR-abf0c7cc, find the first and second relevant archive records. Return their native responses as \"first => second\".",
     "challenge": {
       "type": "two_source_join",
       "required_order": [

@@ -2,18 +2,13 @@
   "task_id": "hgr_v4_candidate_165_temporal-questions-as-of-date-x_cd8cc2",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "temporal questions: as of date X",
-  "user_question": "As of 2024-12-31, what is the controlling answer for \"126\"?",
+  "user_question": "Using marker HGR-f3ee66ed, answer as of 2024-12-31; exclude later records.",
   "target": {
-    "native_question": "As of 2024-12-31, what is the controlling answer for \"126\"?",
-    "source_row_keys": [
-      "tdiggelm/climate_fever:126",
-      "tdiggelm/climate_fever:99"
-    ],
+    "native_question": "Using marker HGR-f3ee66ed, answer as of 2024-12-31; exclude later records.",
     "challenge": {
       "type": "as_of_date_constraint",
       "as_of_date": "2024-12-31",
-      "valid_document_id": "v4:as_of_valid:b2070ab5",
-      "excluded_future_document_id": "v4:future_update:0684a1ab"
+      "rule": "exclude records after the as-of date"
     },
     "hidden_gold_withheld": true
   },

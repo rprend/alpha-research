@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_004_multi-hop-synthesis_2c46cc",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "multi-hop synthesis",
-  "user_question": "Using the corpus, identify the row answer field for the source titled \"Improved Neural Relation Detection for Knowledge Base Question Answering\" and the row answer field for the source titled \"Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT\", then return them as \"first => second\".",
+  "user_question": "Using marker HGR-0f548524, find the first and second relevant archive records. Return their native responses as \"first => second\".",
   "target": {
-    "native_question": "Using the corpus, identify the row answer field for the source titled \"Improved Neural Relation Detection for Knowledge Base Question Answering\" and the row answer field for the source titled \"Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT\", then return them as \"first => second\".",
-    "source_row_keys": [
-      "allenai/qasper:1704.06194",
-      "allenai/qasper:2003.03106"
-    ],
+    "native_question": "Using marker HGR-0f548524, find the first and second relevant archive records. Return their native responses as \"first => second\".",
     "challenge": {
       "type": "two_source_join",
       "required_order": [

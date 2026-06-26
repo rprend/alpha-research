@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_140_citation-supports-fact-but-not-conclusion_469629",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "citation supports fact but not conclusion",
-  "user_question": "The corpus has a source for \"What roles did Blake Hood portray in the shows \"90210\" and \"The Young and the Restless\"?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what...\"?",
+  "user_question": "Using marker HGR-b01c21ad, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
   "target": {
-    "native_question": "The corpus has a source for \"What roles did Blake Hood portray in the shows \"90210\" and \"The Young and the Restless\"?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what...\"?",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:11305",
-      "hotpotqa/hotpot_qa:5ae0d4c9554299603e418468"
-    ],
+    "native_question": "Using marker HGR-b01c21ad, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
     "challenge": {
       "type": "citation_overreach_probe",
       "supported_fact": "Blake Hood played as Mark Driscoll on The 90210 and as Kyle Jenkins Abbott on The Young and the Restless.",

@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-As of 2020-12-31, what is the controlling answer for "127"?
+Using marker HGR-9e607a23, answer as of 2020-12-31; exclude later records.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

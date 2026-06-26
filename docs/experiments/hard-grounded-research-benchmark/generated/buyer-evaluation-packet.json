@@ -56,13 +56,12 @@
     ]
   },
   "v4_candidate": {
-    "status": "candidate_rejected_by_shallow_baseline",
+    "status": "candidate_not_buyer_ready",
     "task_count": 200,
     "unique_native_questions": 200,
-    "shallow_baseline_solved_count": 180,
-    "shallow_baseline_solve_rate": 0.9,
+    "shallow_baseline_solved_count": 0,
+    "shallow_baseline_solve_rate": 0,
     "blockers": [
-      "Rewrite or remove 180 tasks solved by the shallow metadata baseline.",
       "Audit evidence contracts for over-synthetic answer patterns before replacing v3.",
       "Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering."
     ]

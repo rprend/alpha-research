@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "citation supports fact but not conclusion",
-  "user_question": "The corpus has a source for \"Which roles did Bebe Neuwirth play in the 1986 Sweet Charity and which other role in the 1996 Chicago?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Who were the sponsors for the away shirts of Colchester United FC?\"?",
+  "user_question": "Using marker HGR-a4522346, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
   "target": {
-    "native_question": "The corpus has a source for \"Which roles did Bebe Neuwirth play in the 1986 Sweet Charity and which other role in the 1996 Chicago?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Who were the sponsors for the away shirts of Colchester United FC?\"?",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:19005",
-      "DongfuJiang/FeTaQA:17394"
-    ],
+    "native_question": "Using marker HGR-a4522346, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
     "challenge": {
       "type": "citation_overreach_probe",
       "supported_fact": "On stage, Bebe Neuwirth played the role of Nickie in Sweet Charity (1986) and Velma Kelly in Chicago (1996).",

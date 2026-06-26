@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_056_appended-document-lifecycle-changes_35081a",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"Hierarchical Transformers for Long Document Classification\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-af4a7247, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"Hierarchical Transformers for Long Document Classification\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1910.10781",
-      "allenai/qasper:1710.07960"
-    ],
+    "native_question": "Using marker HGR-af4a7247, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:d8be5418",
-      "appendix_document_id": "v4:appendix_update:b156b222"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_183_cross-document-contradiction_66fa80",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "cross-document contradiction",
-  "user_question": "Two same-authority documents disagree about \"What type of forum did a former Soviet statesman initiate?\". If they cannot be reconciled by date or authority, what should the answer be?",
+  "user_question": "Using marker HGR-ddcf98ef, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
   "target": {
-    "native_question": "Two same-authority documents disagree about \"What type of forum did a former Soviet statesman initiate?\". If they cannot be reconciled by date or authority, what should the answer be?",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5add61d65542995b365fab21",
-      "hotpotqa/hotpot_qa:5ab859a955429934fafe6d7b"
-    ],
+    "native_question": "Using marker HGR-ddcf98ef, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
     "challenge": {
       "type": "cross_document_contradiction",
-      "document_a_id": "v4:document_a:96edcce1",
-      "document_b_id": "v4:document_b:93edc828"
+      "rule": "same-authority disagreement requires CONFLICT"
     },
     "hidden_gold_withheld": true
   },

@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_079_table-text-reasoning_b4436f",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "table + text reasoning",
-  "user_question": "Find the table or QA source labeled \"What are all the classes in 1994-95?\" and return its answer field together with its dataset as \"answer @ dataset\".",
+  "user_question": "Using marker HGR-64c4accb, find the relevant table or QA archive record and return \"native response @ collection alias\".",
   "target": {
-    "native_question": "Find the table or QA source labeled \"What are all the classes in 1994-95?\" and return its answer field together with its dataset as \"answer @ dataset\".",
-    "source_row_keys": [
-      "danwakeem/wikitablequestions-wtq:nt-13",
-      "danwakeem/wikitablequestions-wtq:nt-12"
-    ],
+    "native_question": "Using marker HGR-64c4accb, find the relevant table or QA archive record and return \"native response @ collection alias\".",
     "challenge": {
       "type": "table_text_join",
       "required_fields": [

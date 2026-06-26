@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_157_entity-disambiguation_cb942d",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae6050f55429929b0807a5e\" whose label is \"This singer of A Rather Blustery Day also voiced what hedgehog?\".",
+  "user_question": "Using marker HGR-f11db855, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae6050f55429929b0807a5e\" whose label is \"This singer of A Rather Blustery Day also voiced what hedgehog?\".",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5ae6050f55429929b0807a5e",
-      "hotpotqa/hotpot_qa:5ae0361155429925eb1afc2c"
-    ],
+    "native_question": "Using marker HGR-f11db855, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "hotpotqa/hotpot_qa:5ae6050f55429929b0807a5e"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

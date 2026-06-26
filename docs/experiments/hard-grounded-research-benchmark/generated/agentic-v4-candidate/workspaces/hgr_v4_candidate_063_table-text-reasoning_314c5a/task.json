@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_063_table-text-reasoning_314c5a",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "table + text reasoning",
-  "user_question": "Find the table or QA source labeled \"How many copies did \"Pleasure\" sell in 1998 alone, and how long was it the best selling album in Japan?\" and return its answer field together with its dataset as \"answer @ dataset\".",
+  "user_question": "Using marker HGR-f252ce88, find the relevant table or QA archive record and return \"native response @ collection alias\".",
   "target": {
-    "native_question": "Find the table or QA source labeled \"How many copies did \"Pleasure\" sell in 1998 alone, and how long was it the best selling album in Japan?\" and return its answer field together with its dataset as \"answer @ dataset\".",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:11734",
-      "DongfuJiang/FeTaQA:11292"
-    ],
+    "native_question": "Using marker HGR-f252ce88, find the relevant table or QA archive record and return \"native response @ collection alias\".",
     "challenge": {
       "type": "table_text_join",
       "required_fields": [

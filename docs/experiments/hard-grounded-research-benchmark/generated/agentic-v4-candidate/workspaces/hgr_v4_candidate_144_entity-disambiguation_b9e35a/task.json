@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_144_entity-disambiguation_b9e35a",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae0361155429925eb1afc2c\" whose label is \"Which French ace pilot and adventurer fly L'Oiseau Blanc\".",
+  "user_question": "Using marker HGR-dc138a76, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae0361155429925eb1afc2c\" whose label is \"Which French ace pilot and adventurer fly L'Oiseau Blanc\".",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5ae0361155429925eb1afc2c",
-      "DongfuJiang/FeTaQA:8076"
-    ],
+    "native_question": "Using marker HGR-dc138a76, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "hotpotqa/hotpot_qa:5ae0361155429925eb1afc2c"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

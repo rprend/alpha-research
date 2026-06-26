@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-For "Medication Regimen Extraction From Clinical Conversations", inspect the original body and appended update; return the final controlling answer.
+Using marker HGR-a3155c85, inspect the original body and appended update; return the final controlling response.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

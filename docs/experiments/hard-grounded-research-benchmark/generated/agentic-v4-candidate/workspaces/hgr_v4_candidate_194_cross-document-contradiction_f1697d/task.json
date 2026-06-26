@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_194_cross-document-contradiction_f1697d",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "cross-document contradiction",
-  "user_question": "Two same-authority documents disagree about \"Which band, Letters to Cleo or Screaming Trees, had more members?\". If they cannot be reconciled by date or authority, what should the answer be?",
+  "user_question": "Using marker HGR-ae6ba7b4, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
   "target": {
-    "native_question": "Two same-authority documents disagree about \"Which band, Letters to Cleo or Screaming Trees, had more members?\". If they cannot be reconciled by date or authority, what should the answer be?",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5a7cc50e554299452d57ba3e",
-      "hotpotqa/hotpot_qa:5ab84bf555429916710eb01f"
-    ],
+    "native_question": "Using marker HGR-ae6ba7b4, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
     "challenge": {
       "type": "cross_document_contradiction",
-      "document_a_id": "v4:document_a:cf908357",
-      "document_b_id": "v4:document_b:d09084ea"
+      "rule": "same-authority disagreement requires CONFLICT"
     },
     "hidden_gold_withheld": true
   },

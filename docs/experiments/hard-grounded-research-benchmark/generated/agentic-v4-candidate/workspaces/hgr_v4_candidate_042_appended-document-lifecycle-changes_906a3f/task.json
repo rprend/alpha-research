@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_042_appended-document-lifecycle-changes_906a3f",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-056d3f2a, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1604.05372",
-      "allenai/qasper:1910.10781"
-    ],
+    "native_question": "Using marker HGR-056d3f2a, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:f9962d2c",
-      "appendix_document_id": "v4:appendix_update:d30ba3be"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

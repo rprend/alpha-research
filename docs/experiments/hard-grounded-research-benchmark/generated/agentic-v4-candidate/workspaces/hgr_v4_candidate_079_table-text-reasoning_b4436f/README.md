@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Find the table or QA source labeled "What are all the classes in 1994-95?" and return its answer field together with its dataset as "answer @ dataset".
+Using marker HGR-64c4accb, find the relevant table or QA archive record and return "native response @ collection alias".
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

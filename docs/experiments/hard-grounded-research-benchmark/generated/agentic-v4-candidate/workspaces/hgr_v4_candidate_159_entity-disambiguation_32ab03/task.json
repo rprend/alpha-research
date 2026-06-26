@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_159_entity-disambiguation_32ab03",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae2070a5542994d89d5b313\" whose label is \"Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice?\".",
+  "user_question": "Using marker HGR-51476c4a, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae2070a5542994d89d5b313\" whose label is \"Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice?\".",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5ae2070a5542994d89d5b313",
-      "hotpotqa/hotpot_qa:5adddccd5542997dc7907069"
-    ],
+    "native_question": "Using marker HGR-51476c4a, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "hotpotqa/hotpot_qa:5ae2070a5542994d89d5b313"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

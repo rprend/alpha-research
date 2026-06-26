@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_060_appended-document-lifecycle-changes_84f804",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"Identification of Indian Languages using Ghost-VLAD pooling\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-65cf8c3c, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"Identification of Indian Languages using Ghost-VLAD pooling\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:2002.01664",
-      "allenai/qasper:1912.03804"
-    ],
+    "native_question": "Using marker HGR-65cf8c3c, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:78db8e95",
-      "appendix_document_id": "v4:appendix_update:e7b87a13"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

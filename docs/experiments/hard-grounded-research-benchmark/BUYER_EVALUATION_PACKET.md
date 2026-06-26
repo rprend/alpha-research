@@ -39,7 +39,7 @@ Runs analyzed: 2. Aggregate answer membership: 40.5%. Aggregate evidence recall:
 
 ## V4 Candidate Status
 
-A v4 candidate exists with 200 tasks and 200 unique native questions, but it is rejected: candidate_rejected_by_shallow_baseline. The shallow metadata baseline solves 180/200 tasks, so it cannot replace v3 until those tasks are rewritten or removed.
+A v4 candidate exists with 200 tasks and 200 unique native questions, but it is rejected: candidate_not_buyer_ready. The shallow metadata baseline solves 0/200 tasks, so it cannot replace v3 until those tasks are rewritten or removed.
 
 ## Limitations
 

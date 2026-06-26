@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_138_citation-supports-fact-but-not-conclusion_050747",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "citation supports fact but not conclusion",
-  "user_question": "The corpus has a source for \"Who were the sponsors for the away shirts of Colchester United FC?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
+  "user_question": "Using marker HGR-94760a47, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
   "target": {
-    "native_question": "The corpus has a source for \"Who were the sponsors for the away shirts of Colchester United FC?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:17394",
-      "allenai/qasper:1909.07575"
-    ],
+    "native_question": "Using marker HGR-94760a47, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
     "challenge": {
       "type": "citation_overreach_probe",
       "supported_fact": "Away shirt sponsorship has been provided by Ashby's (1999–2000), Ridley's (2000–2002), 188Trades.com (2005–2006), Smart Energy (2006–2009) and JobServe (2009–2010, 2012–).",

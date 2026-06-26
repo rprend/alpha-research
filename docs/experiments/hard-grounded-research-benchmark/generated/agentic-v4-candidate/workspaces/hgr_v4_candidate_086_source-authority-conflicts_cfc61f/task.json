@@ -2,20 +2,15 @@
   "task_id": "hgr_v4_candidate_086_source-authority-conflicts_cfc61f",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "source authority conflicts",
-  "user_question": "For \"69\", resolve the authority conflict and return the expert-reviewed answer.",
+  "user_question": "Using marker HGR-42b6d184, resolve the authority conflict and return the response from the highest-authority source.",
   "target": {
-    "native_question": "For \"69\", resolve the authority conflict and return the expert-reviewed answer.",
-    "source_row_keys": [
-      "tdiggelm/climate_fever:69",
-      "Pavithree/eli5:6kl6q0"
-    ],
+    "native_question": "Using marker HGR-42b6d184, resolve the authority conflict and return the response from the highest-authority source.",
     "challenge": {
       "type": "authority_conflict",
       "authority_order": [
-        "expert-reviewed source",
+        "expert reviewed source",
         "community summary"
-      ],
-      "high_authority_document_id": "v4:high_authority:e47cf9f9"
+      ]
     },
     "hidden_gold_withheld": true
   },

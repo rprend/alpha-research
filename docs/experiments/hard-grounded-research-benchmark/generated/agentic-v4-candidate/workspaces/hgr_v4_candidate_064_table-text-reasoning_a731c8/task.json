@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_064_table-text-reasoning_a731c8",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "table + text reasoning",
-  "user_question": "Find the table or QA source labeled \"How many passengers can that plane hold?\" and return its answer field together with its dataset as \"answer @ dataset\".",
+  "user_question": "Using marker HGR-e0ab95b9, find the relevant table or QA archive record and return \"native response @ collection alias\".",
   "target": {
-    "native_question": "Find the table or QA source labeled \"How many passengers can that plane hold?\" and return its answer field together with its dataset as \"answer @ dataset\".",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:12843",
-      "DongfuJiang/FeTaQA:21016"
-    ],
+    "native_question": "Using marker HGR-e0ab95b9, find the relevant table or QA archive record and return \"native response @ collection alias\".",
     "challenge": {
       "type": "table_text_join",
       "required_fields": [

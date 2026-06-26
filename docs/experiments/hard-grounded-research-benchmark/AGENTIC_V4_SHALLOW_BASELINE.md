@@ -5,23 +5,23 @@ This report runs a deliberately shallow solver against the v4 candidate suite. T
 ## Result
 
 - Tasks: 200
-- Solved by shallow baseline: 180
-- Solve rate: 90%
-- Buyer gate passed: false
+- Solved by shallow baseline: 0
+- Solve rate: 0%
+- Buyer gate passed: true
 
-Candidate tasks are not buyer-ready: shallow metadata/role lookup solves too many tasks.
+No candidate tasks were solved by this shallow metadata baseline.
 
 ## By Category
 
 | Category | Tasks | Solved | Solve rate |
 | --- | ---: | ---: | ---: |
-| multi-hop synthesis | 20 | 20 | 100% |
-| stale-vs-current document conflicts | 20 | 20 | 100% |
+| multi-hop synthesis | 20 | 0 | 0% |
+| stale-vs-current document conflicts | 20 | 0 | 0% |
 | appended document lifecycle changes | 20 | 0 | 0% |
-| table + text reasoning | 20 | 20 | 100% |
-| source authority conflicts | 20 | 20 | 100% |
-| evidence insufficiency / abstention | 20 | 20 | 100% |
-| citation supports fact but not conclusion | 20 | 20 | 100% |
-| entity disambiguation | 20 | 20 | 100% |
-| temporal questions: as of date X | 20 | 20 | 100% |
-| cross-document contradiction | 20 | 20 | 100% |
+| table + text reasoning | 20 | 0 | 0% |
+| source authority conflicts | 20 | 0 | 0% |
+| evidence insufficiency / abstention | 20 | 0 | 0% |
+| citation supports fact but not conclusion | 20 | 0 | 0% |
+| entity disambiguation | 20 | 0 | 0% |
+| temporal questions: as of date X | 20 | 0 | 0% |
+| cross-document contradiction | 20 | 0 | 0% |

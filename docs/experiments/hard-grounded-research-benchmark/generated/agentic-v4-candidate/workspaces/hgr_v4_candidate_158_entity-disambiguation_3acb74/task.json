@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_158_entity-disambiguation_3acb74",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5adddccd5542997dc7907069\" whose label is \"Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?\".",
+  "user_question": "Using marker HGR-a7ba4f09, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5adddccd5542997dc7907069\" whose label is \"Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?\".",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5adddccd5542997dc7907069",
-      "DongfuJiang/FeTaQA:11453"
-    ],
+    "native_question": "Using marker HGR-a7ba4f09, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "hotpotqa/hotpot_qa:5adddccd5542997dc7907069"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

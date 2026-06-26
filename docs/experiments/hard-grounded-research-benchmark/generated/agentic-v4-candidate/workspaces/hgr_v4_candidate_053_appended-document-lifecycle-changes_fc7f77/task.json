@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_053_appended-document-lifecycle-changes_fc7f77",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"What does Attention in Neural Machine Translation Pay Attention to?\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-1bd2bb9f, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"What does Attention in Neural Machine Translation Pay Attention to?\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1710.03348",
-      "allenai/qasper:2004.01853"
-    ],
+    "native_question": "Using marker HGR-1bd2bb9f, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:dce41d45",
-      "appendix_document_id": "v4:appendix_update:e725e4c3"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

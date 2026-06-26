@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_146_entity-disambiguation_9a628a",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:15775\" whose label is \"What were Usian Bolts record finishes in the 200 meter, 400 meter and 4 × 100 m race?\".",
+  "user_question": "Using marker HGR-35538074, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:15775\" whose label is \"What were Usian Bolts record finishes in the 200 meter, 400 meter and 4 × 100 m race?\".",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:15775",
-      "hotpotqa/hotpot_qa:5abd259d55429924427fcf1a"
-    ],
+    "native_question": "Using marker HGR-35538074, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "DongfuJiang/FeTaQA:15775"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

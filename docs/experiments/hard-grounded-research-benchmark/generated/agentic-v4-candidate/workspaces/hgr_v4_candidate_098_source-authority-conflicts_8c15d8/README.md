@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-For "12xt91", resolve the authority conflict and return the expert-reviewed answer.
+Using marker HGR-f9857d55, resolve the authority conflict and return the response from the highest-authority source.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

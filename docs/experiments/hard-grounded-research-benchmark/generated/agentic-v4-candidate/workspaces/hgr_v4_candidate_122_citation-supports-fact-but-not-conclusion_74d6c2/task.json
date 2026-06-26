@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "citation supports fact but not conclusion",
-  "user_question": "The corpus has a source for \"The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what...\"?",
+  "user_question": "Using marker HGR-961631b6, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
   "target": {
-    "native_question": "The corpus has a source for \"The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what...\"?",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5ab3e45655429976abd1bcd4",
-      "hotpotqa/hotpot_qa:5ae0d4c9554299603e418468"
-    ],
+    "native_question": "Using marker HGR-961631b6, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
     "challenge": {
       "type": "citation_overreach_probe",
       "supported_fact": "the North Atlantic Conference",

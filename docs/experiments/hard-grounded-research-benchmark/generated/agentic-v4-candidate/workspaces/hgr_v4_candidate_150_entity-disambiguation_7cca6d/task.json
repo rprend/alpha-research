@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_150_entity-disambiguation_7cca6d",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:16435\" whose label is \"What was the approval percentage and turnout for the 1991 Macedonian independence referendum vote?\".",
+  "user_question": "Using marker HGR-c7c1c382, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:16435\" whose label is \"What was the approval percentage and turnout for the 1991 Macedonian independence referendum vote?\".",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:16435",
-      "hotpotqa/hotpot_qa:5ae4a3265542995ad6573de5"
-    ],
+    "native_question": "Using marker HGR-c7c1c382, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "DongfuJiang/FeTaQA:16435"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

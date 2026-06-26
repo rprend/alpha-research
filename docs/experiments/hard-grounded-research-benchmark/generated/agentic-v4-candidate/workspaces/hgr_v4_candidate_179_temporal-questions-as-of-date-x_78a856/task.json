@@ -2,18 +2,13 @@
   "task_id": "hgr_v4_candidate_179_temporal-questions-as-of-date-x_78a856",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "temporal questions: as of date X",
-  "user_question": "As of 2023-12-31, what is the controlling answer for \"102\"?",
+  "user_question": "Using marker HGR-13d76ff8, answer as of 2023-12-31; exclude later records.",
   "target": {
-    "native_question": "As of 2023-12-31, what is the controlling answer for \"102\"?",
-    "source_row_keys": [
-      "tdiggelm/climate_fever:102",
-      "tdiggelm/climate_fever:101"
-    ],
+    "native_question": "Using marker HGR-13d76ff8, answer as of 2023-12-31; exclude later records.",
     "challenge": {
       "type": "as_of_date_constraint",
       "as_of_date": "2023-12-31",
-      "valid_document_id": "v4:as_of_valid:264cea6a",
-      "excluded_future_document_id": "v4:future_update:39492a7c"
+      "rule": "exclude records after the as-of date"
     },
     "hidden_gold_withheld": true
   },

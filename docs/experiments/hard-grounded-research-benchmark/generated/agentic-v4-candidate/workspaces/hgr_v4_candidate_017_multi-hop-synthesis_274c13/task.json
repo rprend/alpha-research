@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_017_multi-hop-synthesis_274c13",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "multi-hop synthesis",
-  "user_question": "Using the corpus, identify the row answer field for the source titled \"2014 S/S is the debut album of a South Korean boy group that was formed by who?\" and the row answer field for the source titled \"The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?\", then return them as \"first => second\".",
+  "user_question": "Using marker HGR-2f4e06f4, find the first and second relevant archive records. Return their native responses as \"first => second\".",
   "target": {
-    "native_question": "Using the corpus, identify the row answer field for the source titled \"2014 S/S is the debut album of a South Korean boy group that was formed by who?\" and the row answer field for the source titled \"The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?\", then return them as \"first => second\".",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5abd94525542992ac4f382d2",
-      "hotpotqa/hotpot_qa:5a8e3ea95542995a26add48d"
-    ],
+    "native_question": "Using marker HGR-2f4e06f4, find the first and second relevant archive records. Return their native responses as \"first => second\".",
     "challenge": {
       "type": "two_source_join",
       "required_order": [

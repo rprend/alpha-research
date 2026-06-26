@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_105_evidence-insufficiency-abstention_9c9141",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "evidence insufficiency / abstention",
-  "user_question": "Does the corpus provide independent confirmation that \"Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes\" has final answer \"Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes\"? Answer only if there are two independent confirming sources.",
+  "user_question": "Using marker HGR-7c995e74, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
   "target": {
-    "native_question": "Does the corpus provide independent confirmation that \"Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes\" has final answer \"Disunited Nations? A Multiplex Network Approach to Detecting Preference Affinity Blocs using Texts and Votes\"? Answer only if there are two independent confirming sources.",
-    "source_row_keys": [
-      "allenai/qasper:1802.00396",
-      "allenai/qasper:1909.08089"
-    ],
+    "native_question": "Using marker HGR-7c995e74, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
     "challenge": {
       "type": "insufficiency_probe",
       "missing_evidence": [

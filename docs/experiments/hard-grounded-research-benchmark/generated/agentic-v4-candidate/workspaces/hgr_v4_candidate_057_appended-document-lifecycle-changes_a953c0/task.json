@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_057_appended-document-lifecycle-changes_a953c0",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"Data Collection for Interactive Learning through the Dialog\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-6a1e60e5, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"Data Collection for Interactive Learning through the Dialog\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1603.09631",
-      "allenai/qasper:1710.03348"
-    ],
+    "native_question": "Using marker HGR-6a1e60e5, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:25554e12",
-      "appendix_document_id": "v4:appendix_update:051d74c0"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

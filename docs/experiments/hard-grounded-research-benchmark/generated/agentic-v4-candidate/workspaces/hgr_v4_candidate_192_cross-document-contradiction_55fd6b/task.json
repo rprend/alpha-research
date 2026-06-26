@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_192_cross-document-contradiction_55fd6b",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "cross-document contradiction",
-  "user_question": "Two same-authority documents disagree about \"D1NZ is a series based on what oversteering technique?\". If they cannot be reconciled by date or authority, what should the answer be?",
+  "user_question": "Using marker HGR-bc20383d, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
   "target": {
-    "native_question": "Two same-authority documents disagree about \"D1NZ is a series based on what oversteering technique?\". If they cannot be reconciled by date or authority, what should the answer be?",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5ae73acb5542991e8301cc07",
-      "hotpotqa/hotpot_qa:5a80721b554299485f5985ef"
-    ],
+    "native_question": "Using marker HGR-bc20383d, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.",
     "challenge": {
       "type": "cross_document_contradiction",
-      "document_a_id": "v4:document_a:c893bace",
-      "document_b_id": "v4:document_b:c793b93b"
+      "rule": "same-authority disagreement requires CONFLICT"
     },
     "hidden_gold_withheld": true
   },

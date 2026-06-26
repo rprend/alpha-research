@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Does the corpus provide independent confirmation that "Findings of the NLP4IF-2019 Shared Task on Fine-Grained Propaganda Detection" has final answer "Findings of the NLP4IF-2019 Shared Task on Fine-Grained Propaganda Detection"? Answer only if there are two independent confirming sources.
+Using marker HGR-b4e93878, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

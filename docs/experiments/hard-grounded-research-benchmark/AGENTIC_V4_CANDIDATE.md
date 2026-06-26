@@ -4,7 +4,7 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 
 ## Status
 
-- Status: candidate_rejected_by_shallow_baseline
+- Status: candidate_not_buyer_ready
 - Buyer ready: false
 - Tasks: 200
 - Categories: 10
@@ -13,7 +13,7 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 - Source rows available: 246
 - Redistributable preview rows: 174
 - Pointer-only rows: 72
-- Shallow baseline solved: 180/200
+- Shallow baseline solved: 0/200
 
 ## Checks
 
@@ -26,10 +26,9 @@ This candidate suite is a replacement path for the v3 suite's diversity failure.
 | task_json_embeds_documents | false |
 | hidden_gold_withheld_from_workspaces | true |
 | deterministic_constant_time_gold | true |
-| shallow_metadata_baseline_rejected | false |
+| shallow_metadata_baseline_rejected | true |
 
 ## Blockers
 
-- Rewrite or remove 180 tasks solved by the shallow metadata baseline.
 - Audit evidence contracts for over-synthetic answer patterns before replacing v3.
 - Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering.

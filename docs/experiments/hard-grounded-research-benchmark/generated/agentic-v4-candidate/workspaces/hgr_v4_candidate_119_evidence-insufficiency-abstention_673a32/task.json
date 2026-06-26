@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_119_evidence-insufficiency-abstention_673a32",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "evidence insufficiency / abstention",
-  "user_question": "Does the corpus provide independent confirmation that \"Extractive Summarization of Long Documents by Combining Global and Local Context\" has final answer \"Extractive Summarization of Long Documents by Combining Global and Local Context\"? Answer only if there are two independent confirming sources.",
+  "user_question": "Using marker HGR-803c3e1e, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
   "target": {
-    "native_question": "Does the corpus provide independent confirmation that \"Extractive Summarization of Long Documents by Combining Global and Local Context\" has final answer \"Extractive Summarization of Long Documents by Combining Global and Local Context\"? Answer only if there are two independent confirming sources.",
-    "source_row_keys": [
-      "allenai/qasper:1909.08089",
-      "allenai/qasper:1809.02286"
-    ],
+    "native_question": "Using marker HGR-803c3e1e, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
     "challenge": {
       "type": "insufficiency_probe",
       "missing_evidence": [

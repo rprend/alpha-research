@@ -3,8 +3,8 @@
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "checked_date": "2026-06-26",
   "buyer_ready": false,
-  "status": "candidate_rejected_by_shallow_baseline",
-  "reason": "This v4 candidate repairs source-question diversity but is not buyer-ready because a shallow metadata/role baseline solves many tasks.",
+  "status": "candidate_not_buyer_ready",
+  "reason": "This v4 candidate repairs task diversity and workspace shortcutting, but still needs shallow-retrieval rejection and stronger evidence-contract review before buyer-grade claims.",
   "checks": {
     "task_count_at_least_200": true,
     "categories_balanced_20_each": true,
@@ -13,7 +13,7 @@
     "task_json_embeds_documents": false,
     "hidden_gold_withheld_from_workspaces": true,
     "deterministic_constant_time_gold": true,
-    "shallow_metadata_baseline_rejected": false
+    "shallow_metadata_baseline_rejected": true
   },
   "summary": {
     "task_count": 200,
@@ -26,14 +26,13 @@
     "pointer_only_rows_available": 72
   },
   "blockers": [
-    "Rewrite or remove 180 tasks solved by the shallow metadata baseline.",
     "Audit evidence contracts for over-synthetic answer patterns before replacing v3.",
     "Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering."
   ],
   "shallow_baseline": {
     "report_path": "generated/agentic-v4-candidate/shallow-baseline-report.json",
-    "solved_count": 180,
-    "solve_rate": 0.9,
-    "buyer_gate_passed": false
+    "solved_count": 0,
+    "solve_rate": 0,
+    "buyer_gate_passed": true
   }
 }

@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Two same-authority documents disagree about "Ralph Hefferline was a psychology professor at a university that is located in what city?". If they cannot be reconciled by date or authority, what should the answer be?
+Using marker HGR-ec80bae8, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

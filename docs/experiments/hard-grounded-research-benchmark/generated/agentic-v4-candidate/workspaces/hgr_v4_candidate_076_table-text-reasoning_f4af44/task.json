@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_076_table-text-reasoning_f4af44",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "table + text reasoning",
-  "user_question": "Find the table or QA source labeled \"Who had the most fastest lap?\" and return its answer field together with its dataset as \"answer @ dataset\".",
+  "user_question": "Using marker HGR-e8ef35ff, find the relevant table or QA archive record and return \"native response @ collection alias\".",
   "target": {
-    "native_question": "Find the table or QA source labeled \"Who had the most fastest lap?\" and return its answer field together with its dataset as \"answer @ dataset\".",
-    "source_row_keys": [
-      "danwakeem/wikitablequestions-wtq:nt-10",
-      "danwakeem/wikitablequestions-wtq:nt-17"
-    ],
+    "native_question": "Using marker HGR-e8ef35ff, find the relevant table or QA archive record and return \"native response @ collection alias\".",
     "challenge": {
       "type": "table_text_join",
       "required_fields": [

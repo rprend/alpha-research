@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "citation supports fact but not conclusion",
-  "user_question": "The corpus has a source for \"A Framework for Evaluation of Machine Reading Comprehension Gold Standards\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
+  "user_question": "Using marker HGR-80d9a21e, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
   "target": {
-    "native_question": "The corpus has a source for \"A Framework for Evaluation of Machine Reading Comprehension Gold Standards\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
-    "source_row_keys": [
-      "allenai/qasper:2003.04642",
-      "allenai/qasper:1909.07575"
-    ],
+    "native_question": "Using marker HGR-80d9a21e, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
     "challenge": {
       "type": "citation_overreach_probe",
       "supported_fact": "A Framework for Evaluation of Machine Reading Comprehension Gold Standards",

@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_015_multi-hop-synthesis_540996",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "multi-hop synthesis",
-  "user_question": "Using the corpus, identify the row answer field for the source titled \"Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?\" and the row answer field for the source titled \"Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages\", then return them as \"first => second\".",
+  "user_question": "Using marker HGR-07ddb424, find the first and second relevant archive records. Return their native responses as \"first => second\".",
   "target": {
-    "native_question": "Using the corpus, identify the row answer field for the source titled \"Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?\" and the row answer field for the source titled \"Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages\", then return them as \"first => second\".",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5adbf0a255429947ff17385a",
-      "allenai/qasper:1811.00383"
-    ],
+    "native_question": "Using marker HGR-07ddb424, find the first and second relevant archive records. Return their native responses as \"first => second\".",
     "challenge": {
       "type": "two_source_join",
       "required_order": [

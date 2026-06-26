@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_010_multi-hop-synthesis_32db1e",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "multi-hop synthesis",
-  "user_question": "Using the corpus, identify the row answer field for the source titled \"Stereotyping and Bias in the Flickr30K Dataset\" and the row answer field for the source titled \"Are Local H and For Against both from the United States?\", then return them as \"first => second\".",
+  "user_question": "Using marker HGR-d1bc0ef5, find the first and second relevant archive records. Return their native responses as \"first => second\".",
   "target": {
-    "native_question": "Using the corpus, identify the row answer field for the source titled \"Stereotyping and Bias in the Flickr30K Dataset\" and the row answer field for the source titled \"Are Local H and For Against both from the United States?\", then return them as \"first => second\".",
-    "source_row_keys": [
-      "allenai/qasper:1605.06083",
-      "hotpotqa/hotpot_qa:5a8db19d5542994ba4e3dd00"
-    ],
+    "native_question": "Using marker HGR-d1bc0ef5, find the first and second relevant archive records. Return their native responses as \"first => second\".",
     "challenge": {
       "type": "two_source_join",
       "required_order": [

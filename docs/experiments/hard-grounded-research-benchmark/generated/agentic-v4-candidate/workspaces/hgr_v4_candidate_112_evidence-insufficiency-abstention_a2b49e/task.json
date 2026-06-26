@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_112_evidence-insufficiency-abstention_a2b49e",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "evidence insufficiency / abstention",
-  "user_question": "Does the corpus provide independent confirmation that \"Dice Loss for Data-imbalanced NLP Tasks\" has final answer \"Dice Loss for Data-imbalanced NLP Tasks\"? Answer only if there are two independent confirming sources.",
+  "user_question": "Using marker HGR-a5dc0b57, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
   "target": {
-    "native_question": "Does the corpus provide independent confirmation that \"Dice Loss for Data-imbalanced NLP Tasks\" has final answer \"Dice Loss for Data-imbalanced NLP Tasks\"? Answer only if there are two independent confirming sources.",
-    "source_row_keys": [
-      "allenai/qasper:1911.02855",
-      "allenai/qasper:1812.10479"
-    ],
+    "native_question": "Using marker HGR-a5dc0b57, determine whether two independent archive records confirm the same native response. Return ABSTAIN if only one relevant record exists, and cite the inspected relevant record.",
     "challenge": {
       "type": "insufficiency_probe",
       "missing_evidence": [

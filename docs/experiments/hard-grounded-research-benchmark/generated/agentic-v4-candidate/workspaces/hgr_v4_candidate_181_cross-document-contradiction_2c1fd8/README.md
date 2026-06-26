@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Two same-authority documents disagree about "A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?". If they cannot be reconciled by date or authority, what should the answer be?
+Using marker HGR-35f2e586, inspect the same-authority records. If their responses disagree and no date or authority rule resolves them, return CONFLICT and cite both records.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

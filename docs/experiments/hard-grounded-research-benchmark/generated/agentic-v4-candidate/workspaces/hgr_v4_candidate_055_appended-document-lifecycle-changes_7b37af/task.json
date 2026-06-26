@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_055_appended-document-lifecycle-changes_7b37af",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"Medication Regimen Extraction From Clinical Conversations\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-a3155c85, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"Medication Regimen Extraction From Clinical Conversations\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1912.04961",
-      "allenai/qasper:1912.13337"
-    ],
+    "native_question": "Using marker HGR-a3155c85, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:ecb283c3",
-      "appendix_document_id": "v4:appendix_update:7fcc4e7d"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

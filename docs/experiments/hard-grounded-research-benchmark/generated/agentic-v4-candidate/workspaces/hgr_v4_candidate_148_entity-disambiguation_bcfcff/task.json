@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_148_entity-disambiguation_bcfcff",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:19148\" whose label is \"What year did Philip I the Amorous become King of the Franks, what year did that run end, and what number king was he?\".",
+  "user_question": "Using marker HGR-df3729a4, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:19148\" whose label is \"What year did Philip I the Amorous become King of the Franks, what year did that run end, and what number king was he?\".",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:19148",
-      "DongfuJiang/FeTaQA:11968"
-    ],
+    "native_question": "Using marker HGR-df3729a4, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "DongfuJiang/FeTaQA:19148"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

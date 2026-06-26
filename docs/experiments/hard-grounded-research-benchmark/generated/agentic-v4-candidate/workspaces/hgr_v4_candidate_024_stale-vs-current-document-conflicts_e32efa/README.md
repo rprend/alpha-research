@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-For "65", resolve the stale/current conflict and return the current controlling answer.
+Using marker HGR-04cef28a, resolve the stale/current conflict and return the latest controlling response.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

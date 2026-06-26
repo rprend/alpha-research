@@ -2,13 +2,9 @@
   "task_id": "hgr_v4_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "citation supports fact but not conclusion",
-  "user_question": "The corpus has a source for \"Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
+  "user_question": "Using marker HGR-ef9d0036, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
   "target": {
-    "native_question": "The corpus has a source for \"Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
-    "source_row_keys": [
-      "hotpotqa/hotpot_qa:5ab29c24554299449642c932",
-      "allenai/qasper:1909.07575"
-    ],
+    "native_question": "Using marker HGR-ef9d0036, decide whether the first relevant archive record alone proves a broader comparison with the second record. Return ABSTAIN if the citation supports only a local fact, and cite the inspected records.",
     "challenge": {
       "type": "citation_overreach_probe",
       "supported_fact": "yes",

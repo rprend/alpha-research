@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_051_appended-document-lifecycle-changes_957d15",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"Multimodal Named Entity Recognition for Short Social Media Posts\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-aba9dec6, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"Multimodal Named Entity Recognition for Short Social Media Posts\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1802.07862",
-      "allenai/qasper:1611.04798"
-    ],
+    "native_question": "Using marker HGR-aba9dec6, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:b88e26e2",
-      "appendix_document_id": "v4:appendix_update:b3254dd0"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

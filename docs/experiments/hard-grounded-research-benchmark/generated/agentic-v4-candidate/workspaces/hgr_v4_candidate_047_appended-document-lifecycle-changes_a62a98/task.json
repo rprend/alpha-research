@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_047_appended-document-lifecycle-changes_a62a98",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-7991b71b, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1912.03804",
-      "allenai/qasper:2004.03354"
-    ],
+    "native_question": "Using marker HGR-7991b71b, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:decac235",
-      "appendix_document_id": "v4:appendix_update:776de8b3"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

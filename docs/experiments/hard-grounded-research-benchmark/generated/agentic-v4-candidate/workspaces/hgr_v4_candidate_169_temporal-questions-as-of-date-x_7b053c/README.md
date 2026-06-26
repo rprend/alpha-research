@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-As of 2023-12-31, what is the controlling answer for "87"?
+Using marker HGR-4669962f, answer as of 2023-12-31; exclude later records.
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

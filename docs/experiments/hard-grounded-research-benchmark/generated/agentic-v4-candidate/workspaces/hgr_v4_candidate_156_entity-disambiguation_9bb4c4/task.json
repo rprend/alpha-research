@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_156_entity-disambiguation_9bb4c4",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:18430\" whose label is \"What was the result of the 1918 election and which politicians died in 1918?\".",
+  "user_question": "Using marker HGR-840af790, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:18430\" whose label is \"What was the result of the 1918 election and which politicians died in 1918?\".",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:18430",
-      "hotpotqa/hotpot_qa:5a722b8655429971e9dc9329"
-    ],
+    "native_question": "Using marker HGR-840af790, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "DongfuJiang/FeTaQA:18430"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_152_entity-disambiguation_35bd37",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:16489\" whose label is \"How many appearances did Dwight Yorke make for Manchester United?\".",
+  "user_question": "Using marker HGR-a317b6d6, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:16489\" whose label is \"How many appearances did Dwight Yorke make for Manchester United?\".",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:16489",
-      "hotpotqa/hotpot_qa:5ae6050f55429929b0807a5e"
-    ],
+    "native_question": "Using marker HGR-a317b6d6, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "DongfuJiang/FeTaQA:16489"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },

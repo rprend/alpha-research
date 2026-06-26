@@ -2,20 +2,20 @@
   "report_id": "agentic-v4-candidate-shallow-baseline",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "task_count": 200,
-  "solved_count": 180,
-  "solve_rate": 0.9,
-  "buyer_gate_passed": false,
-  "interpretation": "Candidate tasks are not buyer-ready: shallow metadata/role lookup solves too many tasks.",
+  "solved_count": 0,
+  "solve_rate": 0,
+  "buyer_gate_passed": true,
+  "interpretation": "No candidate tasks were solved by this shallow metadata baseline.",
   "by_category": {
     "multi-hop synthesis": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     },
     "stale-vs-current document conflicts": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     },
     "appended document lifecycle changes": {
       "task_count": 20,
@@ -24,1222 +24,1041 @@
     },
     "table + text reasoning": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     },
     "source authority conflicts": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     },
     "evidence insufficiency / abstention": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     },
     "citation supports fact but not conclusion": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     },
     "entity disambiguation": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     },
     "temporal questions: as of date X": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     },
     "cross-document contradiction": {
       "task_count": 20,
-      "solved_count": 20,
-      "solve_rate": 1
+      "solved_count": 0,
+      "solve_rate": 0
     }
   },
-  "solved_task_ids": [
-    "hgr_v4_candidate_001_multi-hop-synthesis_6f2035",
-    "hgr_v4_candidate_002_multi-hop-synthesis_12b4f8",
-    "hgr_v4_candidate_003_multi-hop-synthesis_dac8e2",
-    "hgr_v4_candidate_004_multi-hop-synthesis_2c46cc",
-    "hgr_v4_candidate_005_multi-hop-synthesis_ac0e0a",
-    "hgr_v4_candidate_006_multi-hop-synthesis_db072f",
-    "hgr_v4_candidate_007_multi-hop-synthesis_9d015f",
-    "hgr_v4_candidate_008_multi-hop-synthesis_d32cd2",
-    "hgr_v4_candidate_009_multi-hop-synthesis_a088e9",
-    "hgr_v4_candidate_010_multi-hop-synthesis_32db1e",
-    "hgr_v4_candidate_011_multi-hop-synthesis_215dbd",
-    "hgr_v4_candidate_012_multi-hop-synthesis_17e090",
-    "hgr_v4_candidate_013_multi-hop-synthesis_7b622f",
-    "hgr_v4_candidate_014_multi-hop-synthesis_c27a2e",
-    "hgr_v4_candidate_015_multi-hop-synthesis_540996",
-    "hgr_v4_candidate_016_multi-hop-synthesis_cfcf69",
-    "hgr_v4_candidate_017_multi-hop-synthesis_274c13",
-    "hgr_v4_candidate_018_multi-hop-synthesis_eb7995",
-    "hgr_v4_candidate_019_multi-hop-synthesis_c6806e",
-    "hgr_v4_candidate_020_multi-hop-synthesis_d7c7e3",
-    "hgr_v4_candidate_021_stale-vs-current-document-conflicts_04f894",
-    "hgr_v4_candidate_022_stale-vs-current-document-conflicts_1a569b",
-    "hgr_v4_candidate_023_stale-vs-current-document-conflicts_4951ae",
-    "hgr_v4_candidate_024_stale-vs-current-document-conflicts_e32efa",
-    "hgr_v4_candidate_025_stale-vs-current-document-conflicts_ab0cb4",
-    "hgr_v4_candidate_026_stale-vs-current-document-conflicts_78eed3",
-    "hgr_v4_candidate_027_stale-vs-current-document-conflicts_f67a80",
-    "hgr_v4_candidate_028_stale-vs-current-document-conflicts_a0763f",
-    "hgr_v4_candidate_029_stale-vs-current-document-conflicts_6fe4e2",
-    "hgr_v4_candidate_030_stale-vs-current-document-conflicts_fddd37",
-    "hgr_v4_candidate_031_stale-vs-current-document-conflicts_b46bc4",
-    "hgr_v4_candidate_032_stale-vs-current-document-conflicts_3175e8",
-    "hgr_v4_candidate_033_stale-vs-current-document-conflicts_3f6f92",
-    "hgr_v4_candidate_034_stale-vs-current-document-conflicts_16815f",
-    "hgr_v4_candidate_035_stale-vs-current-document-conflicts_23ae6d",
-    "hgr_v4_candidate_036_stale-vs-current-document-conflicts_1c0462",
-    "hgr_v4_candidate_037_stale-vs-current-document-conflicts_1594e9",
-    "hgr_v4_candidate_038_stale-vs-current-document-conflicts_ca9616",
-    "hgr_v4_candidate_039_stale-vs-current-document-conflicts_c24d84",
-    "hgr_v4_candidate_040_stale-vs-current-document-conflicts_cd33c8",
-    "hgr_v4_candidate_061_table-text-reasoning_190ceb",
-    "hgr_v4_candidate_062_table-text-reasoning_3a1468",
-    "hgr_v4_candidate_063_table-text-reasoning_314c5a",
-    "hgr_v4_candidate_064_table-text-reasoning_a731c8",
-    "hgr_v4_candidate_065_table-text-reasoning_de801e",
-    "hgr_v4_candidate_066_table-text-reasoning_4f1a3f",
-    "hgr_v4_candidate_067_table-text-reasoning_68a9d7",
-    "hgr_v4_candidate_068_table-text-reasoning_ca06f2",
-    "hgr_v4_candidate_069_table-text-reasoning_4f0322",
-    "hgr_v4_candidate_070_table-text-reasoning_256941",
-    "hgr_v4_candidate_071_table-text-reasoning_a7a3e2",
-    "hgr_v4_candidate_072_table-text-reasoning_5defcc",
-    "hgr_v4_candidate_073_table-text-reasoning_a41429",
-    "hgr_v4_candidate_074_table-text-reasoning_1df802",
-    "hgr_v4_candidate_075_table-text-reasoning_29483d",
-    "hgr_v4_candidate_076_table-text-reasoning_f4af44",
-    "hgr_v4_candidate_077_table-text-reasoning_b912bc",
-    "hgr_v4_candidate_078_table-text-reasoning_b079e0",
-    "hgr_v4_candidate_079_table-text-reasoning_b4436f",
-    "hgr_v4_candidate_080_table-text-reasoning_abc701",
-    "hgr_v4_candidate_081_source-authority-conflicts_ee8490",
-    "hgr_v4_candidate_082_source-authority-conflicts_0364da",
-    "hgr_v4_candidate_083_source-authority-conflicts_76c46c",
-    "hgr_v4_candidate_084_source-authority-conflicts_ff4694",
-    "hgr_v4_candidate_085_source-authority-conflicts_eb4c44",
-    "hgr_v4_candidate_086_source-authority-conflicts_cfc61f",
-    "hgr_v4_candidate_087_source-authority-conflicts_6bd1ce",
-    "hgr_v4_candidate_088_source-authority-conflicts_bd865d",
-    "hgr_v4_candidate_089_source-authority-conflicts_eabe23",
-    "hgr_v4_candidate_090_source-authority-conflicts_00282a",
-    "hgr_v4_candidate_091_source-authority-conflicts_175d31",
-    "hgr_v4_candidate_092_source-authority-conflicts_d6df14",
-    "hgr_v4_candidate_093_source-authority-conflicts_7c9b48",
-    "hgr_v4_candidate_094_source-authority-conflicts_e43d9a",
-    "hgr_v4_candidate_095_source-authority-conflicts_3b578c",
-    "hgr_v4_candidate_096_source-authority-conflicts_b9a0d3",
-    "hgr_v4_candidate_097_source-authority-conflicts_14dab6",
-    "hgr_v4_candidate_098_source-authority-conflicts_8c15d8",
-    "hgr_v4_candidate_099_source-authority-conflicts_dcc07a",
-    "hgr_v4_candidate_100_source-authority-conflicts_adcdc7",
-    "hgr_v4_candidate_101_evidence-insufficiency-abstention_78dd63",
-    "hgr_v4_candidate_102_evidence-insufficiency-abstention_c016f4",
-    "hgr_v4_candidate_103_evidence-insufficiency-abstention_dd96c3",
-    "hgr_v4_candidate_104_evidence-insufficiency-abstention_491141",
-    "hgr_v4_candidate_105_evidence-insufficiency-abstention_9c9141",
-    "hgr_v4_candidate_106_evidence-insufficiency-abstention_fcad67",
-    "hgr_v4_candidate_107_evidence-insufficiency-abstention_9e6af4",
-    "hgr_v4_candidate_108_evidence-insufficiency-abstention_0daaef",
-    "hgr_v4_candidate_109_evidence-insufficiency-abstention_9f1023",
-    "hgr_v4_candidate_110_evidence-insufficiency-abstention_df7534",
-    "hgr_v4_candidate_111_evidence-insufficiency-abstention_16f931",
-    "hgr_v4_candidate_112_evidence-insufficiency-abstention_a2b49e",
-    "hgr_v4_candidate_113_evidence-insufficiency-abstention_c1d893",
-    "hgr_v4_candidate_114_evidence-insufficiency-abstention_f28bdd",
-    "hgr_v4_candidate_115_evidence-insufficiency-abstention_ceada8",
-    "hgr_v4_candidate_116_evidence-insufficiency-abstention_f43842",
-    "hgr_v4_candidate_117_evidence-insufficiency-abstention_2346f3",
-    "hgr_v4_candidate_118_evidence-insufficiency-abstention_30ba8c",
-    "hgr_v4_candidate_119_evidence-insufficiency-abstention_673a32",
-    "hgr_v4_candidate_120_evidence-insufficiency-abstention_6f1948",
-    "hgr_v4_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2",
-    "hgr_v4_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2",
-    "hgr_v4_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d",
-    "hgr_v4_candidate_124_citation-supports-fact-but-not-conclusion_45f4e7",
-    "hgr_v4_candidate_125_citation-supports-fact-but-not-conclusion_79b0c4",
-    "hgr_v4_candidate_126_citation-supports-fact-but-not-conclusion_2f6e1c",
-    "hgr_v4_candidate_127_citation-supports-fact-but-not-conclusion_b231b5",
-    "hgr_v4_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab",
-    "hgr_v4_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
-    "hgr_v4_candidate_130_citation-supports-fact-but-not-conclusion_e827a2",
-    "hgr_v4_candidate_131_citation-supports-fact-but-not-conclusion_1686ae",
-    "hgr_v4_candidate_132_citation-supports-fact-but-not-conclusion_36c5c2",
-    "hgr_v4_candidate_133_citation-supports-fact-but-not-conclusion_fca018",
-    "hgr_v4_candidate_134_citation-supports-fact-but-not-conclusion_a5f9b3",
-    "hgr_v4_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
-    "hgr_v4_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95",
-    "hgr_v4_candidate_137_citation-supports-fact-but-not-conclusion_6941bb",
-    "hgr_v4_candidate_138_citation-supports-fact-but-not-conclusion_050747",
-    "hgr_v4_candidate_139_citation-supports-fact-but-not-conclusion_a3ed29",
-    "hgr_v4_candidate_140_citation-supports-fact-but-not-conclusion_469629",
-    "hgr_v4_candidate_141_entity-disambiguation_07d16b",
-    "hgr_v4_candidate_142_entity-disambiguation_6a06da",
-    "hgr_v4_candidate_143_entity-disambiguation_ce8c95",
-    "hgr_v4_candidate_144_entity-disambiguation_b9e35a",
-    "hgr_v4_candidate_145_entity-disambiguation_66d89e",
-    "hgr_v4_candidate_146_entity-disambiguation_9a628a",
-    "hgr_v4_candidate_147_entity-disambiguation_6d136c",
-    "hgr_v4_candidate_148_entity-disambiguation_bcfcff",
-    "hgr_v4_candidate_149_entity-disambiguation_a346a1",
-    "hgr_v4_candidate_150_entity-disambiguation_7cca6d",
-    "hgr_v4_candidate_151_entity-disambiguation_4dc112",
-    "hgr_v4_candidate_152_entity-disambiguation_35bd37",
-    "hgr_v4_candidate_153_entity-disambiguation_11f0e5",
-    "hgr_v4_candidate_154_entity-disambiguation_349b94",
-    "hgr_v4_candidate_155_entity-disambiguation_983381",
-    "hgr_v4_candidate_156_entity-disambiguation_9bb4c4",
-    "hgr_v4_candidate_157_entity-disambiguation_cb942d",
-    "hgr_v4_candidate_158_entity-disambiguation_3acb74",
-    "hgr_v4_candidate_159_entity-disambiguation_32ab03",
-    "hgr_v4_candidate_160_entity-disambiguation_1dde3f",
-    "hgr_v4_candidate_161_temporal-questions-as-of-date-x_6a6cc4",
-    "hgr_v4_candidate_162_temporal-questions-as-of-date-x_b7022f",
-    "hgr_v4_candidate_163_temporal-questions-as-of-date-x_a8cb40",
-    "hgr_v4_candidate_164_temporal-questions-as-of-date-x_9b3af0",
-    "hgr_v4_candidate_165_temporal-questions-as-of-date-x_cd8cc2",
-    "hgr_v4_candidate_166_temporal-questions-as-of-date-x_c5d99b",
-    "hgr_v4_candidate_167_temporal-questions-as-of-date-x_c5c6d1",
-    "hgr_v4_candidate_168_temporal-questions-as-of-date-x_e59411",
-    "hgr_v4_candidate_169_temporal-questions-as-of-date-x_7b053c",
-    "hgr_v4_candidate_170_temporal-questions-as-of-date-x_837ac2",
-    "hgr_v4_candidate_171_temporal-questions-as-of-date-x_4c83d7",
-    "hgr_v4_candidate_172_temporal-questions-as-of-date-x_91dcc6",
-    "hgr_v4_candidate_173_temporal-questions-as-of-date-x_bf3aac",
-    "hgr_v4_candidate_174_temporal-questions-as-of-date-x_aa5306",
-    "hgr_v4_candidate_175_temporal-questions-as-of-date-x_af1a9f",
-    "hgr_v4_candidate_176_temporal-questions-as-of-date-x_0b4e27",
-    "hgr_v4_candidate_177_temporal-questions-as-of-date-x_5f7ecd",
-    "hgr_v4_candidate_178_temporal-questions-as-of-date-x_9a0b21",
-    "hgr_v4_candidate_179_temporal-questions-as-of-date-x_78a856",
-    "hgr_v4_candidate_180_temporal-questions-as-of-date-x_d15410",
-    "hgr_v4_candidate_181_cross-document-contradiction_2c1fd8",
-    "hgr_v4_candidate_182_cross-document-contradiction_72077f",
-    "hgr_v4_candidate_183_cross-document-contradiction_66fa80",
-    "hgr_v4_candidate_184_cross-document-contradiction_1fb206",
-    "hgr_v4_candidate_185_cross-document-contradiction_6d8e00",
-    "hgr_v4_candidate_186_cross-document-contradiction_aed033",
-    "hgr_v4_candidate_187_cross-document-contradiction_179d3c",
-    "hgr_v4_candidate_188_cross-document-contradiction_05dce4",
-    "hgr_v4_candidate_189_cross-document-contradiction_00f929",
-    "hgr_v4_candidate_190_cross-document-contradiction_923d26",
-    "hgr_v4_candidate_191_cross-document-contradiction_7ecaa3",
-    "hgr_v4_candidate_192_cross-document-contradiction_55fd6b",
-    "hgr_v4_candidate_193_cross-document-contradiction_8c0510",
-    "hgr_v4_candidate_194_cross-document-contradiction_f1697d",
-    "hgr_v4_candidate_195_cross-document-contradiction_5fc6a1",
-    "hgr_v4_candidate_196_cross-document-contradiction_292714",
-    "hgr_v4_candidate_197_cross-document-contradiction_bb5197",
-    "hgr_v4_candidate_198_cross-document-contradiction_0ab6d4",
-    "hgr_v4_candidate_199_cross-document-contradiction_cba340",
-    "hgr_v4_candidate_200_cross-document-contradiction_c7f908"
-  ],
+  "solved_task_ids": [],
   "task_scores": [
     {
       "task_id": "hgr_v4_candidate_001_multi-hop-synthesis_6f2035",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Adversarial Learning for Chinese NER from Crowd Annotations => Knowledge Based Machine Reading Comprehension",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Adversarial Learning for Chinese NER from Crowd Annotations => Knowledge Based Machine Reading Comprehension",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_002_multi-hop-synthesis_12b4f8",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages => 3,677 seated",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages => 3,677 seated",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_003_multi-hop-synthesis_dac8e2",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "A Corpus for Automatic Readability Assessment and Text Simplification of German => from 1986 to 2013",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "A Corpus for Automatic Readability Assessment and Text Simplification of German => from 1986 to 2013",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_004_multi-hop-synthesis_2c46cc",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Improved Neural Relation Detection for Knowledge Base Question Answering => Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Improved Neural Relation Detection for Knowledge Base Question Answering => Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_005_multi-hop-synthesis_ac0e0a",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings => Assessing BERT's Syntactic Abilities",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings => Assessing BERT's Syntactic Abilities",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_006_multi-hop-synthesis_db072f",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT => Terry Richardson",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT => Terry Richardson",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_007_multi-hop-synthesis_9d015f",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Massively Multilingual Neural Grapheme-to-Phoneme Conversion => 9,984",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Massively Multilingual Neural Grapheme-to-Phoneme Conversion => 9,984",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_008_multi-hop-synthesis_d32cd2",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis => Massively Multilingual Neural Grapheme-to-Phoneme Conversion",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis => Massively Multilingual Neural Grapheme-to-Phoneme Conversion",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_009_multi-hop-synthesis_a088e9",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Extreme Language Model Compression with Optimal Subwords and Shared Projections => Stateology: State-Level Interactive Charting of Language, Feelings, and Values",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Extreme Language Model Compression with Optimal Subwords and Shared Projections => Stateology: State-Level Interactive Charting of Language, Feelings, and Values",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_010_multi-hop-synthesis_32db1e",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Stereotyping and Bias in the Flickr30K Dataset => yes",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Stereotyping and Bias in the Flickr30K Dataset => yes",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_011_multi-hop-synthesis_215dbd",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph => Adversarial Learning for Chinese NER from Crowd Annotations",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph => Adversarial Learning for Chinese NER from Crowd Annotations",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_012_multi-hop-synthesis_17e090",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Knowledge Based Machine Reading Comprehension => Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Knowledge Based Machine Reading Comprehension => Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_013_multi-hop-synthesis_7b622f",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Assessing BERT's Syntactic Abilities => no",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Assessing BERT's Syntactic Abilities => no",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_014_multi-hop-synthesis_c27a2e",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Stateology: State-Level Interactive Charting of Language, Feelings, and Values => Kansas Song",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Stateology: State-Level Interactive Charting of Language, Feelings, and Values => Kansas Song",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_015_multi-hop-synthesis_540996",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "no => Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "no => Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_016_multi-hop-synthesis_cfcf69",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Greenwich Village, New York City => Extreme Language Model Compression with Optimal Subwords and Shared Projections",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Greenwich Village, New York City => Extreme Language Model Compression with Optimal Subwords and Shared Projections",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_017_multi-hop-synthesis_274c13",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "YG Entertainment => Greenwich Village, New York City",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "YG Entertainment => Greenwich Village, New York City",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_018_multi-hop-synthesis_eb7995",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Eenasul Fateh => David Weissman",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Eenasul Fateh => David Weissman",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_019_multi-hop-synthesis_c6806e",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "3,677 seated => A Corpus for Automatic Readability Assessment and Text Simplification of German",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "3,677 seated => A Corpus for Automatic Readability Assessment and Text Simplification of German",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_020_multi-hop-synthesis_d7c7e3",
       "category": "multi-hop synthesis",
-      "strategy": "quoted_title_lookup_two_docs",
-      "predicted_answer": "Terry Richardson => Stereotyping and Bias in the Flickr30K Dataset",
+      "strategy": "no_solution",
+      "predicted_answer": "",
       "expected_answer": "Terry Richardson => Stereotyping and Bias in the Flickr30K Dataset",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_021_stale-vs-current-document-conflicts_04f894",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "57",
+      "predicted_answer": "",
       "expected_answer": "57",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_022_stale-vs-current-document-conflicts_1a569b",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "60",
+      "predicted_answer": "",
       "expected_answer": "60",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_023_stale-vs-current-document-conflicts_4951ae",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "61",
+      "predicted_answer": "",
       "expected_answer": "61",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_024_stale-vs-current-document-conflicts_e32efa",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "65",
+      "predicted_answer": "",
       "expected_answer": "65",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_025_stale-vs-current-document-conflicts_ab0cb4",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "9",
+      "predicted_answer": "",
       "expected_answer": "9",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_026_stale-vs-current-document-conflicts_78eed3",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "10",
+      "predicted_answer": "",
       "expected_answer": "10",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_027_stale-vs-current-document-conflicts_f67a80",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "11",
+      "predicted_answer": "",
       "expected_answer": "11",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_028_stale-vs-current-document-conflicts_a0763f",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "14",
+      "predicted_answer": "",
       "expected_answer": "14",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_029_stale-vs-current-document-conflicts_6fe4e2",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "18",
+      "predicted_answer": "",
       "expected_answer": "18",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_030_stale-vs-current-document-conflicts_fddd37",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "19",
+      "predicted_answer": "",
       "expected_answer": "19",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_031_stale-vs-current-document-conflicts_b46bc4",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "21",
+      "predicted_answer": "",
       "expected_answer": "21",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_032_stale-vs-current-document-conflicts_3175e8",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "27",
+      "predicted_answer": "",
       "expected_answer": "27",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_033_stale-vs-current-document-conflicts_3f6f92",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "28",
+      "predicted_answer": "",
       "expected_answer": "28",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_034_stale-vs-current-document-conflicts_16815f",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "30",
+      "predicted_answer": "",
       "expected_answer": "30",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_035_stale-vs-current-document-conflicts_23ae6d",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "31",
+      "predicted_answer": "",
       "expected_answer": "31",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_036_stale-vs-current-document-conflicts_1c0462",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "33",
+      "predicted_answer": "",
       "expected_answer": "33",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_037_stale-vs-current-document-conflicts_1594e9",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "35",
+      "predicted_answer": "",
       "expected_answer": "35",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_038_stale-vs-current-document-conflicts_ca9616",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "36",
+      "predicted_answer": "",
       "expected_answer": "36",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_039_stale-vs-current-document-conflicts_c24d84",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "38",
+      "predicted_answer": "",
       "expected_answer": "38",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_040_stale-vs-current-document-conflicts_cd33c8",
       "category": "stale-vs-current document conflicts",
       "strategy": "role_lookup_current",
-      "predicted_answer": "41",
+      "predicted_answer": "",
       "expected_answer": "41",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_041_appended-document-lifecycle-changes_51f715",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Stochastic Answer Networks for SQuAD 2",
+      "predicted_answer": "",
       "expected_answer": "Stochastic Answer Networks for SQuAD 2.0",
       "answer_correct": false,
-      "evidence_recall": 0.5,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_042_appended-document-lifecycle-changes_906a3f",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints",
+      "predicted_answer": "",
       "expected_answer": "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_043_appended-document-lifecycle-changes_23a85d",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents",
+      "predicted_answer": "",
       "expected_answer": "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_044_appended-document-lifecycle-changes_749fa2",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Towards a Continuous Knowledge Learning Engine for Chatbots",
+      "predicted_answer": "",
       "expected_answer": "Towards a Continuous Knowledge Learning Engine for Chatbots",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_045_appended-document-lifecycle-changes_2226a7",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification",
+      "predicted_answer": "",
       "expected_answer": "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_046_appended-document-lifecycle-changes_46faab",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "How big is big enough? Unsupervised word sense disambiguation using a very large corpus",
+      "predicted_answer": "",
       "expected_answer": "How big is big enough? Unsupervised word sense disambiguation using a very large corpus",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_047_appended-document-lifecycle-changes_a62a98",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group",
+      "predicted_answer": "",
       "expected_answer": "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_048_appended-document-lifecycle-changes_1cae19",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity",
+      "predicted_answer": "",
       "expected_answer": "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_049_appended-document-lifecycle-changes_02adba",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text",
+      "predicted_answer": "",
       "expected_answer": "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_050_appended-document-lifecycle-changes_2a6169",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model",
+      "predicted_answer": "",
       "expected_answer": "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_051_appended-document-lifecycle-changes_957d15",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Multimodal Named Entity Recognition for Short Social Media Posts",
+      "predicted_answer": "",
       "expected_answer": "Multimodal Named Entity Recognition for Short Social Media Posts",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_052_appended-document-lifecycle-changes_11729d",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization",
+      "predicted_answer": "",
       "expected_answer": "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_053_appended-document-lifecycle-changes_fc7f77",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "What does Attention in Neural Machine Translation Pay Attention to?",
+      "predicted_answer": "",
       "expected_answer": "What does Attention in Neural Machine Translation Pay Attention to?",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_054_appended-document-lifecycle-changes_df08b3",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Active Learning for Speech Recognition: the Power of Gradients",
+      "predicted_answer": "",
       "expected_answer": "Active Learning for Speech Recognition: the Power of Gradients",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_055_appended-document-lifecycle-changes_7b37af",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Medication Regimen Extraction From Clinical Conversations",
+      "predicted_answer": "",
       "expected_answer": "Medication Regimen Extraction From Clinical Conversations",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_056_appended-document-lifecycle-changes_35081a",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Hierarchical Transformers for Long Document Classification",
+      "predicted_answer": "",
       "expected_answer": "Hierarchical Transformers for Long Document Classification",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_057_appended-document-lifecycle-changes_a953c0",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Data Collection for Interactive Learning through the Dialog",
+      "predicted_answer": "",
       "expected_answer": "Data Collection for Interactive Learning through the Dialog",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_058_appended-document-lifecycle-changes_963d4d",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Learning Autocomplete Systems as a Communication Game",
+      "predicted_answer": "",
       "expected_answer": "Learning Autocomplete Systems as a Communication Game",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_059_appended-document-lifecycle-changes_85f8d6",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Multipurpose Intelligent Process Automation via Conversational Assistant",
+      "predicted_answer": "",
       "expected_answer": "Multipurpose Intelligent Process Automation via Conversational Assistant",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_060_appended-document-lifecycle-changes_84f804",
       "category": "appended document lifecycle changes",
       "strategy": "role_lookup_appendix_update",
-      "predicted_answer": "Identification of Indian Languages using Ghost-VLAD pooling",
+      "predicted_answer": "",
       "expected_answer": "Identification of Indian Languages using Ghost-VLAD pooling",
-      "answer_correct": true,
-      "evidence_recall": 0.5,
+      "answer_correct": false,
+      "evidence_recall": 0,
       "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_061_table-text-reasoning_190ceb",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ DongfuJiang/FeTaQA",
-      "expected_answer": "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_062_table-text-reasoning_3a1468",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ DongfuJiang/FeTaQA",
-      "expected_answer": "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_063_table-text-reasoning_314c5a",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ DongfuJiang/FeTaQA",
-      "expected_answer": "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_064_table-text-reasoning_a731c8",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ DongfuJiang/FeTaQA",
-      "expected_answer": "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_065_table-text-reasoning_de801e",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ DongfuJiang/FeTaQA",
-      "expected_answer": "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_066_table-text-reasoning_4f1a3f",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ DongfuJiang/FeTaQA",
-      "expected_answer": "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_067_table-text-reasoning_68a9d7",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ DongfuJiang/FeTaQA",
-      "expected_answer": "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_068_table-text-reasoning_ca06f2",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ DongfuJiang/FeTaQA",
-      "expected_answer": "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_069_table-text-reasoning_4f0322",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ DongfuJiang/FeTaQA",
-      "expected_answer": "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_070_table-text-reasoning_256941",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ DongfuJiang/FeTaQA",
-      "expected_answer": "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_071_table-text-reasoning_a7a3e2",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ DongfuJiang/FeTaQA",
-      "expected_answer": "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_072_table-text-reasoning_5defcc",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ DongfuJiang/FeTaQA",
-      "expected_answer": "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ DongfuJiang/FeTaQA",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ collection-69bf12",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_073_table-text-reasoning_a41429",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "Which name has been in the most parties? @ danwakeem/wikitablequestions-wtq",
-      "expected_answer": "Which name has been in the most parties? @ danwakeem/wikitablequestions-wtq",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "Which name has been in the most parties? @ collection-df44e1",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_074_table-text-reasoning_1df802",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "What was the score of the 84 tie no expressed as a ratio? @ danwakeem/wikitablequestions-wtq",
-      "expected_answer": "What was the score of the 84 tie no expressed as a ratio? @ danwakeem/wikitablequestions-wtq",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "What was the score of the 84 tie no expressed as a ratio? @ collection-df44e1",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_075_table-text-reasoning_29483d",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "What is the average depth? @ danwakeem/wikitablequestions-wtq",
-      "expected_answer": "What is the average depth? @ danwakeem/wikitablequestions-wtq",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "What is the average depth? @ collection-df44e1",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_076_table-text-reasoning_f4af44",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "Who had the most fastest lap? @ danwakeem/wikitablequestions-wtq",
-      "expected_answer": "Who had the most fastest lap? @ danwakeem/wikitablequestions-wtq",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "Who had the most fastest lap? @ collection-df44e1",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_077_table-text-reasoning_b912bc",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "How many total competions were there? @ danwakeem/wikitablequestions-wtq",
-      "expected_answer": "How many total competions were there? @ danwakeem/wikitablequestions-wtq",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "How many total competions were there? @ collection-df44e1",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_078_table-text-reasoning_b079e0",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "What is the first Prefecture? @ danwakeem/wikitablequestions-wtq",
-      "expected_answer": "What is the first Prefecture? @ danwakeem/wikitablequestions-wtq",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "What is the first Prefecture? @ collection-df44e1",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_079_table-text-reasoning_b4436f",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "What are all the classes in 1994-95? @ danwakeem/wikitablequestions-wtq",
-      "expected_answer": "What are all the classes in 1994-95? @ danwakeem/wikitablequestions-wtq",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "What are all the classes in 1994-95? @ collection-df44e1",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_080_table-text-reasoning_abc701",
       "category": "table + text reasoning",
       "strategy": "quoted_title_lookup_answer_and_dataset",
-      "predicted_answer": "What is the average winning score? @ danwakeem/wikitablequestions-wtq",
-      "expected_answer": "What is the average winning score? @ danwakeem/wikitablequestions-wtq",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "predicted_answer": " @ ",
+      "expected_answer": "What is the average winning score? @ collection-df44e1",
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_081_source-authority-conflicts_ee8490",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "yzrnp",
+      "predicted_answer": "",
       "expected_answer": "yzrnp",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_082_source-authority-conflicts_0364da",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "6vyxzk",
+      "predicted_answer": "",
       "expected_answer": "6vyxzk",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_083_source-authority-conflicts_76c46c",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "3i5it4",
+      "predicted_answer": "",
       "expected_answer": "3i5it4",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_084_source-authority-conflicts_ff4694",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "16w1fk",
+      "predicted_answer": "",
       "expected_answer": "16w1fk",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_085_source-authority-conflicts_eb4c44",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "67",
+      "predicted_answer": "",
       "expected_answer": "67",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_086_source-authority-conflicts_cfc61f",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "69",
+      "predicted_answer": "",
       "expected_answer": "69",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_087_source-authority-conflicts_6bd1ce",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "71",
+      "predicted_answer": "",
       "expected_answer": "71",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_088_source-authority-conflicts_bd865d",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "72",
+      "predicted_answer": "",
       "expected_answer": "72",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_089_source-authority-conflicts_eabe23",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "74",
+      "predicted_answer": "",
       "expected_answer": "74",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_090_source-authority-conflicts_00282a",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "75",
+      "predicted_answer": "",
       "expected_answer": "75",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_091_source-authority-conflicts_175d31",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "76",
+      "predicted_answer": "",
       "expected_answer": "76",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_092_source-authority-conflicts_d6df14",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "77",
+      "predicted_answer": "",
       "expected_answer": "77",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_093_source-authority-conflicts_7c9b48",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "79",
+      "predicted_answer": "",
       "expected_answer": "79",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_094_source-authority-conflicts_e43d9a",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "82",
+      "predicted_answer": "",
       "expected_answer": "82",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_095_source-authority-conflicts_3b578c",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "85",
+      "predicted_answer": "",
       "expected_answer": "85",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_096_source-authority-conflicts_b9a0d3",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "86",
+      "predicted_answer": "",
       "expected_answer": "86",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_097_source-authority-conflicts_14dab6",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "4jhnli",
+      "predicted_answer": "",
       "expected_answer": "4jhnli",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_098_source-authority-conflicts_8c15d8",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "12xt91",
+      "predicted_answer": "",
       "expected_answer": "12xt91",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_099_source-authority-conflicts_dcc07a",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "il49l",
+      "predicted_answer": "",
       "expected_answer": "il49l",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_100_source-authority-conflicts_adcdc7",
       "category": "source authority conflicts",
       "strategy": "role_lookup_high_authority",
-      "predicted_answer": "cb13hn",
+      "predicted_answer": "",
       "expected_answer": "cb13hn",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_101_evidence-insufficiency-abstention_78dd63",
@@ -1248,8 +1067,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_102_evidence-insufficiency-abstention_c016f4",
@@ -1258,8 +1077,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_103_evidence-insufficiency-abstention_dd96c3",
@@ -1268,8 +1087,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_104_evidence-insufficiency-abstention_491141",
@@ -1278,8 +1097,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_105_evidence-insufficiency-abstention_9c9141",
@@ -1288,8 +1107,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_106_evidence-insufficiency-abstention_fcad67",
@@ -1298,8 +1117,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_107_evidence-insufficiency-abstention_9e6af4",
@@ -1308,8 +1127,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_108_evidence-insufficiency-abstention_0daaef",
@@ -1318,8 +1137,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_109_evidence-insufficiency-abstention_9f1023",
@@ -1328,8 +1147,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_110_evidence-insufficiency-abstention_df7534",
@@ -1338,8 +1157,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_111_evidence-insufficiency-abstention_16f931",
@@ -1348,8 +1167,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_112_evidence-insufficiency-abstention_a2b49e",
@@ -1358,8 +1177,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_113_evidence-insufficiency-abstention_c1d893",
@@ -1368,8 +1187,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_114_evidence-insufficiency-abstention_f28bdd",
@@ -1378,8 +1197,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_115_evidence-insufficiency-abstention_ceada8",
@@ -1388,8 +1207,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_116_evidence-insufficiency-abstention_f43842",
@@ -1398,8 +1217,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_117_evidence-insufficiency-abstention_2346f3",
@@ -1408,8 +1227,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_118_evidence-insufficiency-abstention_30ba8c",
@@ -1418,8 +1237,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_119_evidence-insufficiency-abstention_673a32",
@@ -1428,8 +1247,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_120_evidence-insufficiency-abstention_6f1948",
@@ -1438,8 +1257,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2",
@@ -1448,8 +1267,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2",
@@ -1458,8 +1277,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d",
@@ -1468,8 +1287,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_124_citation-supports-fact-but-not-conclusion_45f4e7",
@@ -1478,8 +1297,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_125_citation-supports-fact-but-not-conclusion_79b0c4",
@@ -1488,8 +1307,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_126_citation-supports-fact-but-not-conclusion_2f6e1c",
@@ -1498,8 +1317,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_127_citation-supports-fact-but-not-conclusion_b231b5",
@@ -1508,8 +1327,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab",
@@ -1518,8 +1337,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
@@ -1528,8 +1347,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_130_citation-supports-fact-but-not-conclusion_e827a2",
@@ -1538,8 +1357,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_131_citation-supports-fact-but-not-conclusion_1686ae",
@@ -1548,8 +1367,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_132_citation-supports-fact-but-not-conclusion_36c5c2",
@@ -1558,8 +1377,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_133_citation-supports-fact-but-not-conclusion_fca018",
@@ -1568,8 +1387,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_134_citation-supports-fact-but-not-conclusion_a5f9b3",
@@ -1578,8 +1397,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
@@ -1588,8 +1407,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95",
@@ -1598,8 +1417,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_137_citation-supports-fact-but-not-conclusion_6941bb",
@@ -1608,8 +1427,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_138_citation-supports-fact-but-not-conclusion_050747",
@@ -1618,8 +1437,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_139_citation-supports-fact-but-not-conclusion_a3ed29",
@@ -1628,8 +1447,8 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_140_citation-supports-fact-but-not-conclusion_469629",
@@ -1638,408 +1457,408 @@
       "predicted_answer": "ABSTAIN",
       "expected_answer": "ABSTAIN",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_141_entity-disambiguation_07d16b",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Arena of Khazan",
+      "predicted_answer": "",
       "expected_answer": "Arena of Khazan",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_142_entity-disambiguation_6a06da",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "2000",
+      "predicted_answer": "",
       "expected_answer": "2000",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_143_entity-disambiguation_ce8c95",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Fujioka, Gunma",
+      "predicted_answer": "",
       "expected_answer": "Fujioka, Gunma",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_144_entity-disambiguation_b9e35a",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Charles Eugène",
+      "predicted_answer": "",
       "expected_answer": "Charles Eugène",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_145_entity-disambiguation_66d89e",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007).",
+      "predicted_answer": "",
       "expected_answer": "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007).",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_146_entity-disambiguation_9a628a",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39...",
+      "predicted_answer": "",
       "expected_answer": "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39...",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_147_entity-disambiguation_6d136c",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi.",
+      "predicted_answer": "",
       "expected_answer": "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_148_entity-disambiguation_bcfcff",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet.",
+      "predicted_answer": "",
       "expected_answer": "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_149_entity-disambiguation_a346a1",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government.",
+      "predicted_answer": "",
       "expected_answer": "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_150_entity-disambiguation_7cca6d",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%.",
+      "predicted_answer": "",
       "expected_answer": "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_151_entity-disambiguation_4dc112",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled.",
+      "predicted_answer": "",
       "expected_answer": "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_152_entity-disambiguation_35bd37",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Dwight Yorke made 147 appearances for Manchester United.",
+      "predicted_answer": "",
       "expected_answer": "Dwight Yorke made 147 appearances for Manchester United.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_153_entity-disambiguation_11f0e5",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99.",
+      "predicted_answer": "",
       "expected_answer": "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_154_entity-disambiguation_349b94",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%.",
+      "predicted_answer": "",
       "expected_answer": "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_155_entity-disambiguation_983381",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979.",
+      "predicted_answer": "",
       "expected_answer": "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979.",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_156_entity-disambiguation_9bb4c4",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington...",
+      "predicted_answer": "",
       "expected_answer": "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington...",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_157_entity-disambiguation_cb942d",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Sonic",
+      "predicted_answer": "",
       "expected_answer": "Sonic",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_158_entity-disambiguation_3acb74",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "keyboard function keys",
+      "predicted_answer": "",
       "expected_answer": "keyboard function keys",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_159_entity-disambiguation_32ab03",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "Badly Drawn Boy",
+      "predicted_answer": "",
       "expected_answer": "Badly Drawn Boy",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_160_entity-disambiguation_1dde3f",
       "category": "entity disambiguation",
       "strategy": "source_key_lookup_from_task_json",
-      "predicted_answer": "World's Best Goalkeeper",
+      "predicted_answer": "",
       "expected_answer": "World's Best Goalkeeper",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_161_temporal-questions-as-of-date-x_6a6cc4",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "113",
+      "predicted_answer": "",
       "expected_answer": "113",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_162_temporal-questions-as-of-date-x_b7022f",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "118",
+      "predicted_answer": "",
       "expected_answer": "118",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_163_temporal-questions-as-of-date-x_a8cb40",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "120",
+      "predicted_answer": "",
       "expected_answer": "120",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_164_temporal-questions-as-of-date-x_9b3af0",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "123",
+      "predicted_answer": "",
       "expected_answer": "123",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_165_temporal-questions-as-of-date-x_cd8cc2",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "126",
+      "predicted_answer": "",
       "expected_answer": "126",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_166_temporal-questions-as-of-date-x_c5d99b",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "127",
+      "predicted_answer": "",
       "expected_answer": "127",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_167_temporal-questions-as-of-date-x_c5c6d1",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "128",
+      "predicted_answer": "",
       "expected_answer": "128",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_168_temporal-questions-as-of-date-x_e59411",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "129",
+      "predicted_answer": "",
       "expected_answer": "129",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_169_temporal-questions-as-of-date-x_7b053c",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "87",
+      "predicted_answer": "",
       "expected_answer": "87",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_170_temporal-questions-as-of-date-x_837ac2",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "91",
+      "predicted_answer": "",
       "expected_answer": "91",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_171_temporal-questions-as-of-date-x_4c83d7",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "93",
+      "predicted_answer": "",
       "expected_answer": "93",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_172_temporal-questions-as-of-date-x_91dcc6",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "95",
+      "predicted_answer": "",
       "expected_answer": "95",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_173_temporal-questions-as-of-date-x_bf3aac",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "96",
+      "predicted_answer": "",
       "expected_answer": "96",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_174_temporal-questions-as-of-date-x_aa5306",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "97",
+      "predicted_answer": "",
       "expected_answer": "97",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_175_temporal-questions-as-of-date-x_af1a9f",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "98",
+      "predicted_answer": "",
       "expected_answer": "98",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_176_temporal-questions-as-of-date-x_0b4e27",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "99",
+      "predicted_answer": "",
       "expected_answer": "99",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_177_temporal-questions-as-of-date-x_5f7ecd",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "100",
+      "predicted_answer": "",
       "expected_answer": "100",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_178_temporal-questions-as-of-date-x_9a0b21",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "101",
+      "predicted_answer": "",
       "expected_answer": "101",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_179_temporal-questions-as-of-date-x_78a856",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "102",
+      "predicted_answer": "",
       "expected_answer": "102",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_180_temporal-questions-as-of-date-x_d15410",
       "category": "temporal questions: as of date X",
       "strategy": "role_lookup_as_of_valid",
-      "predicted_answer": "103",
+      "predicted_answer": "",
       "expected_answer": "103",
-      "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "answer_correct": false,
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_181_cross-document-contradiction_2c1fd8",
@@ -2048,8 +1867,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_182_cross-document-contradiction_72077f",
@@ -2058,8 +1877,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_183_cross-document-contradiction_66fa80",
@@ -2068,8 +1887,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_184_cross-document-contradiction_1fb206",
@@ -2078,8 +1897,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_185_cross-document-contradiction_6d8e00",
@@ -2088,8 +1907,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_186_cross-document-contradiction_aed033",
@@ -2098,8 +1917,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_187_cross-document-contradiction_179d3c",
@@ -2108,8 +1927,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_188_cross-document-contradiction_05dce4",
@@ -2118,8 +1937,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_189_cross-document-contradiction_00f929",
@@ -2128,8 +1947,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_190_cross-document-contradiction_923d26",
@@ -2138,8 +1957,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_191_cross-document-contradiction_7ecaa3",
@@ -2148,8 +1967,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_192_cross-document-contradiction_55fd6b",
@@ -2158,8 +1977,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_193_cross-document-contradiction_8c0510",
@@ -2168,8 +1987,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_194_cross-document-contradiction_f1697d",
@@ -2178,8 +1997,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_195_cross-document-contradiction_5fc6a1",
@@ -2188,8 +2007,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_196_cross-document-contradiction_292714",
@@ -2198,8 +2017,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_197_cross-document-contradiction_bb5197",
@@ -2208,8 +2027,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_198_cross-document-contradiction_0ab6d4",
@@ -2218,8 +2037,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_199_cross-document-contradiction_cba340",
@@ -2228,8 +2047,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     },
     {
       "task_id": "hgr_v4_candidate_200_cross-document-contradiction_c7f908",
@@ -2238,8 +2057,8 @@
       "predicted_answer": "CONFLICT",
       "expected_answer": "CONFLICT",
       "answer_correct": true,
-      "evidence_recall": 1,
-      "solved": true
+      "evidence_recall": 0,
+      "solved": false
     }
   ]
 }

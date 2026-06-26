@@ -10,11 +10,11 @@
           "Adversarial Learning for Chinese NER from Crowd Annotations => Knowledge Based Machine Reading Comprehension"
         ],
         "required_evidence_ids": [
-          "v4:primary:3fddea0a",
-          "v4:secondary:7eb10d9d"
+          "v4:doc:3fddea0a",
+          "v4:doc:7eb10d9d"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:2c17cfa8"
+          "v4:doc:2c17cfa8"
         ],
         "source_row_ids": [
           "1801.05147",
@@ -34,11 +34,11 @@
           "Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages => 3,677 seated"
         ],
         "required_evidence_ids": [
-          "v4:primary:f17f07a3",
-          "v4:secondary:be4d7995"
+          "v4:doc:f17f07a3",
+          "v4:doc:be4d7995"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:64bcb9e8"
+          "v4:doc:64bcb9e8"
         ],
         "source_row_ids": [
           "1811.00383",
@@ -59,11 +59,11 @@
           "A Corpus for Automatic Readability Assessment and Text Simplification of German => from 1986 to 2013"
         ],
         "required_evidence_ids": [
-          "v4:primary:dc026e52",
-          "v4:secondary:50613733"
+          "v4:doc:dc026e52",
+          "v4:doc:50613733"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:92efcc56"
+          "v4:doc:92efcc56"
         ],
         "source_row_ids": [
           "1909.09067",
@@ -84,11 +84,11 @@
           "Improved Neural Relation Detection for Knowledge Base Question Answering => Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT"
         ],
         "required_evidence_ids": [
-          "v4:primary:dd0a6afa",
-          "v4:secondary:163e9d16"
+          "v4:doc:dd0a6afa",
+          "v4:doc:163e9d16"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:513ec7cd"
+          "v4:doc:513ec7cd"
         ],
         "source_row_ids": [
           "1704.06194",
@@ -108,11 +108,11 @@
           "How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings => Assessing BERT's Syntactic Abilities"
         ],
         "required_evidence_ids": [
-          "v4:primary:d21cbc12",
-          "v4:secondary:6addd8e5"
+          "v4:doc:d21cbc12",
+          "v4:doc:6addd8e5"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:e2b4f88e"
+          "v4:doc:e2b4f88e"
         ],
         "source_row_ids": [
           "1909.00512",
@@ -132,11 +132,11 @@
           "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT => Terry Richardson"
         ],
         "required_evidence_ids": [
-          "v4:primary:73910445",
-          "v4:secondary:11543d5b"
+          "v4:doc:73910445",
+          "v4:doc:11543d5b"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:f5f7f96e"
+          "v4:doc:f5f7f96e"
         ],
         "source_row_ids": [
           "2003.03106",
@@ -157,11 +157,11 @@
           "Massively Multilingual Neural Grapheme-to-Phoneme Conversion => 9,984"
         ],
         "required_evidence_ids": [
-          "v4:primary:d8d2f28e",
-          "v4:secondary:8ad002a2"
+          "v4:doc:d8d2f28e",
+          "v4:doc:8ad002a2"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:745924f8"
+          "v4:doc:745924f8"
         ],
         "source_row_ids": [
           "1708.01464",
@@ -182,11 +182,11 @@
           "Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis => Massively Multilingual Neural Grapheme-to-Phoneme Conversion"
         ],
         "required_evidence_ids": [
-          "v4:primary:f3ff1f74",
-          "v4:secondary:7144aaf4"
+          "v4:doc:f3ff1f74",
+          "v4:doc:7144aaf4"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:19b6ff71"
+          "v4:doc:19b6ff71"
         ],
         "source_row_ids": [
           "2002.03407",
@@ -206,11 +206,11 @@
           "Extreme Language Model Compression with Optimal Subwords and Shared Projections => Stateology: State-Level Interactive Charting of Language, Feelings, and Values"
         ],
         "required_evidence_ids": [
-          "v4:primary:3f223177",
-          "v4:secondary:5cabb089"
+          "v4:doc:3f223177",
+          "v4:doc:5cabb089"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:8428390c"
+          "v4:doc:8428390c"
         ],
         "source_row_ids": [
           "1909.11687",
@@ -230,11 +230,11 @@
           "Stereotyping and Bias in the Flickr30K Dataset => yes"
         ],
         "required_evidence_ids": [
-          "v4:primary:312b82c3",
-          "v4:secondary:06415fd5"
+          "v4:doc:312b82c3",
+          "v4:doc:06415fd5"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:2fef4ac3"
+          "v4:doc:2fef4ac3"
         ],
         "source_row_ids": [
           "1605.06083",
@@ -255,11 +255,11 @@
           "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph => Adversarial Learning for Chinese NER from Crowd Annotations"
         ],
         "required_evidence_ids": [
-          "v4:primary:48e59310",
-          "v4:secondary:c38ca608"
+          "v4:doc:48e59310",
+          "v4:doc:c38ca608"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:88511de0"
+          "v4:doc:88511de0"
         ],
         "source_row_ids": [
           "1804.05918",
@@ -279,11 +279,11 @@
           "Knowledge Based Machine Reading Comprehension => Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis"
         ],
         "required_evidence_ids": [
-          "v4:primary:004ff688",
-          "v4:secondary:dc17af72"
+          "v4:doc:004ff688",
+          "v4:doc:dc17af72"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:3f319249"
+          "v4:doc:3f319249"
         ],
         "source_row_ids": [
           "1809.04267",
@@ -303,11 +303,11 @@
           "Assessing BERT's Syntactic Abilities => no"
         ],
         "required_evidence_ids": [
-          "v4:primary:3680b861",
-          "v4:secondary:79216311"
+          "v4:doc:3680b861",
+          "v4:doc:79216311"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:fb76203f"
+          "v4:doc:fb76203f"
         ],
         "source_row_ids": [
           "1901.05287",
@@ -328,11 +328,11 @@
           "Stateology: State-Level Interactive Charting of Language, Feelings, and Values => Kansas Song"
         ],
         "required_evidence_ids": [
-          "v4:primary:721f82aa",
-          "v4:secondary:c90f2ef5"
+          "v4:doc:721f82aa",
+          "v4:doc:c90f2ef5"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:100e8bb5"
+          "v4:doc:100e8bb5"
         ],
         "source_row_ids": [
           "1612.06685",
@@ -353,11 +353,11 @@
           "no => Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages"
         ],
         "required_evidence_ids": [
-          "v4:primary:5c82ac0a",
-          "v4:secondary:def2ba66"
+          "v4:doc:5c82ac0a",
+          "v4:doc:def2ba66"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:201fc7db"
+          "v4:doc:201fc7db"
         ],
         "source_row_ids": [
           "5adbf0a255429947ff17385a",
@@ -378,11 +378,11 @@
           "Greenwich Village, New York City => Extreme Language Model Compression with Optimal Subwords and Shared Projections"
         ],
         "required_evidence_ids": [
-          "v4:primary:f67423fe",
-          "v4:secondary:efd0fc68"
+          "v4:doc:f67423fe",
+          "v4:doc:efd0fc68"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:a88ca1c9"
+          "v4:doc:a88ca1c9"
         ],
         "source_row_ids": [
           "5a8e3ea95542995a26add48d",
@@ -403,11 +403,11 @@
           "YG Entertainment => Greenwich Village, New York City"
         ],
         "required_evidence_ids": [
-          "v4:primary:bd40918e",
-          "v4:secondary:7948c362"
+          "v4:doc:bd40918e",
+          "v4:doc:7948c362"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:91d433ad"
+          "v4:doc:91d433ad"
         ],
         "source_row_ids": [
           "5abd94525542992ac4f382d2",
@@ -427,11 +427,11 @@
           "Eenasul Fateh => David Weissman"
         ],
         "required_evidence_ids": [
-          "v4:primary:8a553684",
-          "v4:secondary:93d4f7b4"
+          "v4:doc:8a553684",
+          "v4:doc:93d4f7b4"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:9c2634f5"
+          "v4:doc:9c2634f5"
         ],
         "source_row_ids": [
           "5a85b2d95542997b5ce40028",
@@ -451,11 +451,11 @@
           "3,677 seated => A Corpus for Automatic Readability Assessment and Text Simplification of German"
         ],
         "required_evidence_ids": [
-          "v4:primary:a2337e2a",
-          "v4:secondary:b96381e2"
+          "v4:doc:a2337e2a",
+          "v4:doc:b96381e2"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:ce6b980b"
+          "v4:doc:ce6b980b"
         ],
         "source_row_ids": [
           "5a87ab905542996e4f3088c1",
@@ -476,11 +476,11 @@
           "Terry Richardson => Stereotyping and Bias in the Flickr30K Dataset"
         ],
         "required_evidence_ids": [
-          "v4:primary:e641f36b",
-          "v4:secondary:09a07409"
+          "v4:doc:e641f36b",
+          "v4:doc:09a07409"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:3ba53823"
+          "v4:doc:3ba53823"
         ],
         "source_row_ids": [
           "5a7bbb64554299042af8f7cc",
@@ -501,11 +501,11 @@
           "57"
         ],
         "required_evidence_ids": [
-          "v4:current:6909ecf4"
+          "v4:doc:6909ecf4"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:cdb97114",
-          "v4:near_distractor:6579fd45"
+          "v4:doc:cdb97114",
+          "v4:doc:6579fd45"
         ],
         "source_row_ids": [
           "57",
@@ -525,11 +525,11 @@
           "60"
         ],
         "required_evidence_ids": [
-          "v4:current:0c53a40e"
+          "v4:doc:0c53a40e"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:800a953a",
-          "v4:near_distractor:409b13e1"
+          "v4:doc:800a953a",
+          "v4:doc:409b13e1"
         ],
         "source_row_ids": [
           "60",
@@ -549,11 +549,11 @@
           "61"
         ],
         "required_evidence_ids": [
-          "v4:current:0411484a"
+          "v4:doc:0411484a"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:5795adae",
-          "v4:near_distractor:ecb188ca"
+          "v4:doc:5795adae",
+          "v4:doc:ecb188ca"
         ],
         "source_row_ids": [
           "61",
@@ -573,11 +573,11 @@
           "65"
         ],
         "required_evidence_ids": [
-          "v4:current:a84dc826"
+          "v4:doc:a84dc826"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:d9e57dd2",
-          "v4:near_distractor:c7e6a410"
+          "v4:doc:d9e57dd2",
+          "v4:doc:c7e6a410"
         ],
         "source_row_ids": [
           "65",
@@ -597,11 +597,11 @@
           "9"
         ],
         "required_evidence_ids": [
-          "v4:current:72f13e67"
+          "v4:doc:72f13e67"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:011de67b",
-          "v4:near_distractor:a6e5668c"
+          "v4:doc:011de67b",
+          "v4:doc:a6e5668c"
         ],
         "source_row_ids": [
           "9",
@@ -621,11 +621,11 @@
           "10"
         ],
         "required_evidence_ids": [
-          "v4:current:8ec76c08"
+          "v4:doc:8ec76c08"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:22e0b680",
-          "v4:near_distractor:4915fdfa"
+          "v4:doc:22e0b680",
+          "v4:doc:4915fdfa"
         ],
         "source_row_ids": [
           "10",
@@ -645,11 +645,11 @@
           "11"
         ],
         "required_evidence_ids": [
-          "v4:current:93beee55"
+          "v4:doc:93beee55"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:ad21005d",
-          "v4:near_distractor:cb3236b7"
+          "v4:doc:ad21005d",
+          "v4:doc:cb3236b7"
         ],
         "source_row_ids": [
           "11",
@@ -669,11 +669,11 @@
           "14"
         ],
         "required_evidence_ids": [
-          "v4:current:e0539693"
+          "v4:doc:e0539693"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:52f8f1ff",
-          "v4:near_distractor:591c739b"
+          "v4:doc:52f8f1ff",
+          "v4:doc:591c739b"
         ],
         "source_row_ids": [
           "14",
@@ -693,11 +693,11 @@
           "18"
         ],
         "required_evidence_ids": [
-          "v4:current:fb24d505"
+          "v4:doc:fb24d505"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:a355484d",
-          "v4:near_distractor:12184d8f"
+          "v4:doc:a355484d",
+          "v4:doc:12184d8f"
         ],
         "source_row_ids": [
           "18",
@@ -717,11 +717,11 @@
           "19"
         ],
         "required_evidence_ids": [
-          "v4:current:34e94a19"
+          "v4:doc:34e94a19"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:a4fe0d89",
-          "v4:near_distractor:8aa83eff"
+          "v4:doc:a4fe0d89",
+          "v4:doc:8aa83eff"
         ],
         "source_row_ids": [
           "19",
@@ -741,11 +741,11 @@
           "21"
         ],
         "required_evidence_ids": [
-          "v4:current:b8106785"
+          "v4:doc:b8106785"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:2e98f6cd",
-          "v4:near_distractor:4a9e23c9"
+          "v4:doc:2e98f6cd",
+          "v4:doc:4a9e23c9"
         ],
         "source_row_ids": [
           "21",
@@ -765,11 +765,11 @@
           "27"
         ],
         "required_evidence_ids": [
-          "v4:current:330654ca"
+          "v4:doc:330654ca"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:8423c62e",
-          "v4:near_distractor:9dd0d98b"
+          "v4:doc:8423c62e",
+          "v4:doc:9dd0d98b"
         ],
         "source_row_ids": [
           "27",
@@ -789,11 +789,11 @@
           "28"
         ],
         "required_evidence_ids": [
-          "v4:current:45350670"
+          "v4:doc:45350670"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:3f634c88",
-          "v4:near_distractor:a6cdafa5"
+          "v4:doc:3f634c88",
+          "v4:doc:a6cdafa5"
         ],
         "source_row_ids": [
           "28",
@@ -813,11 +813,11 @@
           "30"
         ],
         "required_evidence_ids": [
-          "v4:current:07306456"
+          "v4:doc:07306456"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:e5a45f42",
-          "v4:near_distractor:41369e46"
+          "v4:doc:e5a45f42",
+          "v4:doc:41369e46"
         ],
         "source_row_ids": [
           "30",
@@ -837,11 +837,11 @@
           "31"
         ],
         "required_evidence_ids": [
-          "v4:current:9347e1b7"
+          "v4:doc:9347e1b7"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:8bc81e8b",
-          "v4:near_distractor:bfde1399"
+          "v4:doc:8bc81e8b",
+          "v4:doc:bfde1399"
         ],
         "source_row_ids": [
           "31",
@@ -861,11 +861,11 @@
           "33"
         ],
         "required_evidence_ids": [
-          "v4:current:e6c1e677"
+          "v4:doc:e6c1e677"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:c6c18b4b",
-          "v4:near_distractor:b8938d15"
+          "v4:doc:c6c18b4b",
+          "v4:doc:b8938d15"
         ],
         "source_row_ids": [
           "33",
@@ -885,11 +885,11 @@
           "35"
         ],
         "required_evidence_ids": [
-          "v4:current:694ee287"
+          "v4:doc:694ee287"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:ad9e749b",
-          "v4:near_distractor:d979f3ae"
+          "v4:doc:ad9e749b",
+          "v4:doc:d979f3ae"
         ],
         "source_row_ids": [
           "35",
@@ -909,11 +909,11 @@
           "36"
         ],
         "required_evidence_ids": [
-          "v4:current:e4076461"
+          "v4:doc:e4076461"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:14846fd1",
-          "v4:near_distractor:18d64bb6"
+          "v4:doc:14846fd1",
+          "v4:doc:18d64bb6"
         ],
         "source_row_ids": [
           "36",
@@ -933,11 +933,11 @@
           "38"
         ],
         "required_evidence_ids": [
-          "v4:current:d3e61be1"
+          "v4:doc:d3e61be1"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:6b0b7b51",
-          "v4:near_distractor:d87b2fbc"
+          "v4:doc:6b0b7b51",
+          "v4:doc:d87b2fbc"
         ],
         "source_row_ids": [
           "38",
@@ -957,11 +957,11 @@
           "41"
         ],
         "required_evidence_ids": [
-          "v4:current:d2c9d65e"
+          "v4:doc:d2c9d65e"
         ],
         "rejected_evidence_ids": [
-          "v4:stale:56f5d30a",
-          "v4:near_distractor:45e22dda"
+          "v4:doc:56f5d30a",
+          "v4:doc:45e22dda"
         ],
         "source_row_ids": [
           "41",
@@ -981,11 +981,11 @@
           "Stochastic Answer Networks for SQuAD 2.0"
         ],
         "required_evidence_ids": [
-          "v4:original_body:81d7872f",
-          "v4:appendix_update:33b32e41"
+          "v4:doc:81d7872f",
+          "v4:doc:33b32e41"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:dfba68be"
+          "v4:doc:dfba68be"
         ],
         "source_row_ids": [
           "1809.09194",
@@ -1005,11 +1005,11 @@
           "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
         ],
         "required_evidence_ids": [
-          "v4:original_body:f9962d2c",
-          "v4:appendix_update:d30ba3be"
+          "v4:doc:f9962d2c",
+          "v4:doc:d30ba3be"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:2fdd8193"
+          "v4:doc:2fdd8193"
         ],
         "source_row_ids": [
           "1604.05372",
@@ -1029,11 +1029,11 @@
           "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
         ],
         "required_evidence_ids": [
-          "v4:original_body:114427c5",
-          "v4:appendix_update:1b85ef43"
+          "v4:doc:114427c5",
+          "v4:doc:1b85ef43"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:c0a6cf2b"
+          "v4:doc:c0a6cf2b"
         ],
         "source_row_ids": [
           "2002.08795",
@@ -1053,11 +1053,11 @@
           "Towards a Continuous Knowledge Learning Engine for Chatbots"
         ],
         "required_evidence_ids": [
-          "v4:original_body:69995378",
-          "v4:appendix_update:297ffa82"
+          "v4:doc:69995378",
+          "v4:doc:297ffa82"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:cec47a36"
+          "v4:doc:cec47a36"
         ],
         "source_row_ids": [
           "1802.06024",
@@ -1077,11 +1077,11 @@
           "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
         ],
         "required_evidence_ids": [
-          "v4:original_body:9c132936",
-          "v4:appendix_update:eaba3a5c"
+          "v4:doc:9c132936",
+          "v4:doc:eaba3a5c"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:009ba078"
+          "v4:doc:009ba078"
         ],
         "source_row_ids": [
           "1809.00530",
@@ -1101,11 +1101,11 @@
           "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
         ],
         "required_evidence_ids": [
-          "v4:original_body:74623573",
-          "v4:appendix_update:8e56e82d"
+          "v4:doc:74623573",
+          "v4:doc:8e56e82d"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:9fd80fa4"
+          "v4:doc:9fd80fa4"
         ],
         "source_row_ids": [
           "1710.07960",
@@ -1125,11 +1125,11 @@
           "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group"
         ],
         "required_evidence_ids": [
-          "v4:original_body:decac235",
-          "v4:appendix_update:776de8b3"
+          "v4:doc:decac235",
+          "v4:doc:776de8b3"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:d574d3ac"
+          "v4:doc:d574d3ac"
         ],
         "source_row_ids": [
           "1912.03804",
@@ -1149,11 +1149,11 @@
           "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity"
         ],
         "required_evidence_ids": [
-          "v4:original_body:63d27741",
-          "v4:appendix_update:e300d837"
+          "v4:doc:63d27741",
+          "v4:doc:e300d837"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:42bace52"
+          "v4:doc:42bace52"
         ],
         "source_row_ids": [
           "1912.08960",
@@ -1173,11 +1173,11 @@
           "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text"
         ],
         "required_evidence_ids": [
-          "v4:original_body:37dcc778",
-          "v4:appendix_update:f7c36e82"
+          "v4:doc:37dcc778",
+          "v4:doc:f7c36e82"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:57cc3cd2"
+          "v4:doc:57cc3cd2"
         ],
         "source_row_ids": [
           "2002.11910",
@@ -1197,11 +1197,11 @@
           "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model"
         ],
         "required_evidence_ids": [
-          "v4:original_body:09ddeadf",
-          "v4:appendix_update:ae7996f1"
+          "v4:doc:09ddeadf",
+          "v4:doc:ae7996f1"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:46b9c49f"
+          "v4:doc:46b9c49f"
         ],
         "source_row_ids": [
           "1909.09587",
@@ -1221,11 +1221,11 @@
           "Multimodal Named Entity Recognition for Short Social Media Posts"
         ],
         "required_evidence_ids": [
-          "v4:original_body:b88e26e2",
-          "v4:appendix_update:b3254dd0"
+          "v4:doc:b88e26e2",
+          "v4:doc:b3254dd0"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:a98a2cf1"
+          "v4:doc:a98a2cf1"
         ],
         "source_row_ids": [
           "1802.07862",
@@ -1245,11 +1245,11 @@
           "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization"
         ],
         "required_evidence_ids": [
-          "v4:original_body:8ca03748",
-          "v4:appendix_update:74491312"
+          "v4:doc:8ca03748",
+          "v4:doc:74491312"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:7b891c3c"
+          "v4:doc:7b891c3c"
         ],
         "source_row_ids": [
           "2004.01853",
@@ -1269,11 +1269,11 @@
           "What does Attention in Neural Machine Translation Pay Attention to?"
         ],
         "required_evidence_ids": [
-          "v4:original_body:dce41d45",
-          "v4:appendix_update:e725e4c3"
+          "v4:doc:dce41d45",
+          "v4:doc:e725e4c3"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:d6b18a4d"
+          "v4:doc:d6b18a4d"
         ],
         "source_row_ids": [
           "1710.03348",
@@ -1293,11 +1293,11 @@
           "Active Learning for Speech Recognition: the Power of Gradients"
         ],
         "required_evidence_ids": [
-          "v4:original_body:86fc227f",
-          "v4:appendix_update:9adae991"
+          "v4:doc:86fc227f",
+          "v4:doc:9adae991"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:01b94107"
+          "v4:doc:01b94107"
         ],
         "source_row_ids": [
           "1612.03226",
@@ -1317,11 +1317,11 @@
           "Medication Regimen Extraction From Clinical Conversations"
         ],
         "required_evidence_ids": [
-          "v4:original_body:ecb283c3",
-          "v4:appendix_update:7fcc4e7d"
+          "v4:doc:ecb283c3",
+          "v4:doc:7fcc4e7d"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:302e131a"
+          "v4:doc:302e131a"
         ],
         "source_row_ids": [
           "1912.04961",
@@ -1341,11 +1341,11 @@
           "Hierarchical Transformers for Long Document Classification"
         ],
         "required_evidence_ids": [
-          "v4:original_body:d8be5418",
-          "v4:appendix_update:b156b222"
+          "v4:doc:d8be5418",
+          "v4:doc:b156b222"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:e3f99dee"
+          "v4:doc:e3f99dee"
         ],
         "source_row_ids": [
           "1910.10781",
@@ -1365,11 +1365,11 @@
           "Data Collection for Interactive Learning through the Dialog"
         ],
         "required_evidence_ids": [
-          "v4:original_body:25554e12",
-          "v4:appendix_update:051d74c0"
+          "v4:doc:25554e12",
+          "v4:doc:051d74c0"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:bd1fe190"
+          "v4:doc:bd1fe190"
         ],
         "source_row_ids": [
           "1603.09631",
@@ -1389,11 +1389,11 @@
           "Learning Autocomplete Systems as a Communication Game"
         ],
         "required_evidence_ids": [
-          "v4:original_body:5a1cde74",
-          "v4:appendix_update:6fad12a6"
+          "v4:doc:5a1cde74",
+          "v4:doc:6fad12a6"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:1f91ccd9"
+          "v4:doc:1f91ccd9"
         ],
         "source_row_ids": [
           "1911.06964",
@@ -1413,11 +1413,11 @@
           "Multipurpose Intelligent Process Automation via Conversational Assistant"
         ],
         "required_evidence_ids": [
-          "v4:original_body:42f67f9a",
-          "v4:appendix_update:a81230e8"
+          "v4:doc:42f67f9a",
+          "v4:doc:a81230e8"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:195cecf2"
+          "v4:doc:195cecf2"
         ],
         "source_row_ids": [
           "2001.02284",
@@ -1437,11 +1437,11 @@
           "Identification of Indian Languages using Ghost-VLAD pooling"
         ],
         "required_evidence_ids": [
-          "v4:original_body:78db8e95",
-          "v4:appendix_update:e7b87a13"
+          "v4:doc:78db8e95",
+          "v4:doc:e7b87a13"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:30cb6924"
+          "v4:doc:30cb6924"
         ],
         "source_row_ids": [
           "2002.01664",
@@ -1458,13 +1458,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ DongfuJiang/FeTaQA"
+          "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:51b09c05"
+          "v4:doc:51b09c05"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:da217ef0"
+          "v4:doc:da217ef0"
         ],
         "source_row_ids": [
           "18162",
@@ -1481,13 +1481,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ DongfuJiang/FeTaQA"
+          "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:de70b5ef"
+          "v4:doc:de70b5ef"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:ef2dbc50"
+          "v4:doc:ef2dbc50"
         ],
         "source_row_ids": [
           "11292",
@@ -1505,13 +1505,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ DongfuJiang/FeTaQA"
+          "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:d5ee5263"
+          "v4:doc:d5ee5263"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:6d63ba76"
+          "v4:doc:6d63ba76"
         ],
         "source_row_ids": [
           "11734",
@@ -1528,13 +1528,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ DongfuJiang/FeTaQA"
+          "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:ebd648d4"
+          "v4:doc:ebd648d4"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:ddcff60a"
+          "v4:doc:ddcff60a"
         ],
         "source_row_ids": [
           "12843",
@@ -1551,13 +1551,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ DongfuJiang/FeTaQA"
+          "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:7fd4ea8f"
+          "v4:doc:7fd4ea8f"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:b05fe0c6"
+          "v4:doc:b05fe0c6"
         ],
         "source_row_ids": [
           "14717",
@@ -1575,13 +1575,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ DongfuJiang/FeTaQA"
+          "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:7b2dc45b"
+          "v4:doc:7b2dc45b"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:63412cdc"
+          "v4:doc:63412cdc"
         ],
         "source_row_ids": [
           "16626",
@@ -1599,13 +1599,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ DongfuJiang/FeTaQA"
+          "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:be47c33d"
+          "v4:doc:be47c33d"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:d609acd4"
+          "v4:doc:d609acd4"
         ],
         "source_row_ids": [
           "13077",
@@ -1622,13 +1622,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ DongfuJiang/FeTaQA"
+          "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:35a60a55"
+          "v4:doc:35a60a55"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:de1afaf3"
+          "v4:doc:de1afaf3"
         ],
         "source_row_ids": [
           "18369",
@@ -1646,13 +1646,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ DongfuJiang/FeTaQA"
+          "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:17b3a5c1"
+          "v4:doc:17b3a5c1"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:e59fee1d"
+          "v4:doc:e59fee1d"
         ],
         "source_row_ids": [
           "21016",
@@ -1670,13 +1670,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ DongfuJiang/FeTaQA"
+          "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:0c223b45"
+          "v4:doc:0c223b45"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:b46953ec"
+          "v4:doc:b46953ec"
         ],
         "source_row_ids": [
           "17649",
@@ -1693,13 +1693,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ DongfuJiang/FeTaQA"
+          "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:a5c48015"
+          "v4:doc:a5c48015"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:a9b0bc7f"
+          "v4:doc:a9b0bc7f"
         ],
         "source_row_ids": [
           "20797",
@@ -1716,13 +1716,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ DongfuJiang/FeTaQA"
+          "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ collection-69bf12"
         ],
         "required_evidence_ids": [
-          "v4:primary:9c056e42"
+          "v4:doc:9c056e42"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:2ad629f9"
+          "v4:doc:2ad629f9"
         ],
         "source_row_ids": [
           "19186",
@@ -1740,13 +1740,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "Which name has been in the most parties? @ danwakeem/wikitablequestions-wtq"
+          "Which name has been in the most parties? @ collection-df44e1"
         ],
         "required_evidence_ids": [
-          "v4:primary:603e13a1"
+          "v4:doc:603e13a1"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:cfdbf499"
+          "v4:doc:cfdbf499"
         ],
         "source_row_ids": [
           "nt-5",
@@ -1763,13 +1763,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "What was the score of the 84 tie no expressed as a ratio? @ danwakeem/wikitablequestions-wtq"
+          "What was the score of the 84 tie no expressed as a ratio? @ collection-df44e1"
         ],
         "required_evidence_ids": [
-          "v4:primary:17d9e8e1"
+          "v4:doc:17d9e8e1"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:96fca44a"
+          "v4:doc:96fca44a"
         ],
         "source_row_ids": [
           "nt-6",
@@ -1787,13 +1787,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "What is the average depth? @ danwakeem/wikitablequestions-wtq"
+          "What is the average depth? @ collection-df44e1"
         ],
         "required_evidence_ids": [
-          "v4:primary:305348f1"
+          "v4:doc:305348f1"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:9f54e052"
+          "v4:doc:9f54e052"
         ],
         "source_row_ids": [
           "nt-7",
@@ -1810,13 +1810,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "Who had the most fastest lap? @ danwakeem/wikitablequestions-wtq"
+          "Who had the most fastest lap? @ collection-df44e1"
         ],
         "required_evidence_ids": [
-          "v4:primary:a1715836"
+          "v4:doc:a1715836"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:ab279dbd"
+          "v4:doc:ab279dbd"
         ],
         "source_row_ids": [
           "nt-10",
@@ -1833,13 +1833,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "How many total competions were there? @ danwakeem/wikitablequestions-wtq"
+          "How many total competions were there? @ collection-df44e1"
         ],
         "required_evidence_ids": [
-          "v4:primary:9143ddda"
+          "v4:doc:9143ddda"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:55c51ba7"
+          "v4:doc:55c51ba7"
         ],
         "source_row_ids": [
           "nt-11",
@@ -1857,13 +1857,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "What is the first Prefecture? @ danwakeem/wikitablequestions-wtq"
+          "What is the first Prefecture? @ collection-df44e1"
         ],
         "required_evidence_ids": [
-          "v4:primary:7afa674a"
+          "v4:doc:7afa674a"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:b8aff03b"
+          "v4:doc:b8aff03b"
         ],
         "source_row_ids": [
           "nt-12",
@@ -1881,13 +1881,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "What are all the classes in 1994-95? @ danwakeem/wikitablequestions-wtq"
+          "What are all the classes in 1994-95? @ collection-df44e1"
         ],
         "required_evidence_ids": [
-          "v4:primary:0086a726"
+          "v4:doc:0086a726"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:4a359bb3"
+          "v4:doc:4a359bb3"
         ],
         "source_row_ids": [
           "nt-13",
@@ -1904,13 +1904,13 @@
       "category": "table + text reasoning",
       "gold": {
         "expected_answers": [
-          "What is the average winning score? @ danwakeem/wikitablequestions-wtq"
+          "What is the average winning score? @ collection-df44e1"
         ],
         "required_evidence_ids": [
-          "v4:primary:508340fc"
+          "v4:doc:508340fc"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:0817f9ea"
+          "v4:doc:0817f9ea"
         ],
         "source_row_ids": [
           "nt-16",
@@ -1931,11 +1931,11 @@
           "yzrnp"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:8a8d8b5e"
+          "v4:doc:8a8d8b5e"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:9f7041e0",
-          "v4:near_distractor:e8c8f133"
+          "v4:doc:9f7041e0",
+          "v4:doc:e8c8f133"
         ],
         "source_row_ids": [
           "yzrnp",
@@ -1956,11 +1956,11 @@
           "6vyxzk"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:42d463c8"
+          "v4:doc:42d463c8"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:c1070f1e",
-          "v4:near_distractor:27a79570"
+          "v4:doc:c1070f1e",
+          "v4:doc:27a79570"
         ],
         "source_row_ids": [
           "6vyxzk",
@@ -1980,11 +1980,11 @@
           "3i5it4"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:34ee30c6"
+          "v4:doc:34ee30c6"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:9f5ed308",
-          "v4:near_distractor:f9b85f5c"
+          "v4:doc:9f5ed308",
+          "v4:doc:f9b85f5c"
         ],
         "source_row_ids": [
           "3i5it4",
@@ -2004,11 +2004,11 @@
           "16w1fk"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:c12c4453"
+          "v4:doc:c12c4453"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:ae742fef",
-          "v4:near_distractor:d9527b31"
+          "v4:doc:ae742fef",
+          "v4:doc:d9527b31"
         ],
         "source_row_ids": [
           "16w1fk",
@@ -2029,11 +2029,11 @@
           "67"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:04bbac21"
+          "v4:doc:04bbac21"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:d9820839",
-          "v4:near_distractor:21e0363a"
+          "v4:doc:d9820839",
+          "v4:doc:21e0363a"
         ],
         "source_row_ids": [
           "67",
@@ -2053,11 +2053,11 @@
           "69"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:e47cf9f9"
+          "v4:doc:e47cf9f9"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:c169cc11",
-          "v4:near_distractor:68385985"
+          "v4:doc:c169cc11",
+          "v4:doc:68385985"
         ],
         "source_row_ids": [
           "69",
@@ -2078,11 +2078,11 @@
           "71"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:f1416ab0"
+          "v4:doc:f1416ab0"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:4182f466",
-          "v4:near_distractor:0cc17942"
+          "v4:doc:4182f466",
+          "v4:doc:0cc17942"
         ],
         "source_row_ids": [
           "71",
@@ -2102,11 +2102,11 @@
           "72"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:4c64b2d9"
+          "v4:doc:4c64b2d9"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:e5940771",
-          "v4:near_distractor:69cb7b1c"
+          "v4:doc:e5940771",
+          "v4:doc:69cb7b1c"
         ],
         "source_row_ids": [
           "72",
@@ -2126,11 +2126,11 @@
           "74"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:ba1fc93f"
+          "v4:doc:ba1fc93f"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:7c802f93",
-          "v4:near_distractor:7d9d5126"
+          "v4:doc:7c802f93",
+          "v4:doc:7d9d5126"
         ],
         "source_row_ids": [
           "74",
@@ -2151,11 +2151,11 @@
           "75"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:9a2f1e88"
+          "v4:doc:9a2f1e88"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:d85964de",
-          "v4:near_distractor:94ff9c90"
+          "v4:doc:d85964de",
+          "v4:doc:94ff9c90"
         ],
         "source_row_ids": [
           "75",
@@ -2176,11 +2176,11 @@
           "76"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:235fc67f"
+          "v4:doc:235fc67f"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:0b6b41d3",
-          "v4:near_distractor:fda23575"
+          "v4:doc:0b6b41d3",
+          "v4:doc:fda23575"
         ],
         "source_row_ids": [
           "76",
@@ -2200,11 +2200,11 @@
           "77"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:11fc00d4"
+          "v4:doc:11fc00d4"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:b957ca52",
-          "v4:near_distractor:9c0a1cdb"
+          "v4:doc:b957ca52",
+          "v4:doc:9c0a1cdb"
         ],
         "source_row_ids": [
           "77",
@@ -2225,11 +2225,11 @@
           "79"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:9198bf5d"
+          "v4:doc:9198bf5d"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:afa5247d",
-          "v4:near_distractor:a77ab9f4"
+          "v4:doc:afa5247d",
+          "v4:doc:a77ab9f4"
         ],
         "source_row_ids": [
           "79",
@@ -2250,11 +2250,11 @@
           "82"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:84b0c4d9"
+          "v4:doc:84b0c4d9"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:85545d71",
-          "v4:near_distractor:881f2312"
+          "v4:doc:85545d71",
+          "v4:doc:881f2312"
         ],
         "source_row_ids": [
           "82",
@@ -2274,11 +2274,11 @@
           "85"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:f8f103f0"
+          "v4:doc:f8f103f0"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:68417fa6",
-          "v4:near_distractor:fc782a99"
+          "v4:doc:68417fa6",
+          "v4:doc:fc782a99"
         ],
         "source_row_ids": [
           "85",
@@ -2298,11 +2298,11 @@
           "86"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:eed32724"
+          "v4:doc:eed32724"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:b6cc5502",
-          "v4:near_distractor:63118f4d"
+          "v4:doc:b6cc5502",
+          "v4:doc:63118f4d"
         ],
         "source_row_ids": [
           "86",
@@ -2323,11 +2323,11 @@
           "4jhnli"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:fd031fcc"
+          "v4:doc:fd031fcc"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:af8a70ca",
-          "v4:near_distractor:84755215"
+          "v4:doc:af8a70ca",
+          "v4:doc:84755215"
         ],
         "source_row_ids": [
           "4jhnli",
@@ -2347,11 +2347,11 @@
           "12xt91"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:fa74dc2c"
+          "v4:doc:fa74dc2c"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:e8373faa",
-          "v4:near_distractor:e400ecc2"
+          "v4:doc:e8373faa",
+          "v4:doc:e400ecc2"
         ],
         "source_row_ids": [
           "12xt91",
@@ -2372,11 +2372,11 @@
           "il49l"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:d8ff24a6"
+          "v4:doc:d8ff24a6"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:87ab2d68",
-          "v4:near_distractor:4ce1077b"
+          "v4:doc:87ab2d68",
+          "v4:doc:4ce1077b"
         ],
         "source_row_ids": [
           "il49l",
@@ -2396,11 +2396,11 @@
           "cb13hn"
         ],
         "required_evidence_ids": [
-          "v4:high_authority:9ccadb47"
+          "v4:doc:9ccadb47"
         ],
         "rejected_evidence_ids": [
-          "v4:low_authority:479fd3fb",
-          "v4:near_distractor:f1162627"
+          "v4:doc:479fd3fb",
+          "v4:doc:f1162627"
         ],
         "source_row_ids": [
           "cb13hn",
@@ -2419,10 +2419,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:e6458f94"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:e6458f94",
-          "v4:near_distractor:d4b5fdad"
+          "v4:doc:e6458f94",
+          "v4:doc:d4b5fdad"
         ],
         "source_row_ids": [
           "1908.06941",
@@ -2441,10 +2443,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:08f547e5"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:08f547e5",
-          "v4:near_distractor:b387f5b2"
+          "v4:doc:08f547e5",
+          "v4:doc:b387f5b2"
         ],
         "source_row_ids": [
           "1702.03856",
@@ -2463,10 +2467,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:a44d6d96"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:a44d6d96",
-          "v4:near_distractor:7875df8d"
+          "v4:doc:a44d6d96",
+          "v4:doc:7875df8d"
         ],
         "source_row_ids": [
           "1904.01548",
@@ -2485,10 +2491,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:1682e550"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:1682e550",
-          "v4:near_distractor:057051df"
+          "v4:doc:1682e550",
+          "v4:doc:057051df"
         ],
         "source_row_ids": [
           "1606.03676",
@@ -2507,10 +2515,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:6159cc61"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:6159cc61",
-          "v4:near_distractor:c4cbbb8f"
+          "v4:doc:6159cc61",
+          "v4:doc:c4cbbb8f"
         ],
         "source_row_ids": [
           "1802.00396",
@@ -2529,10 +2539,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:f20f84b8"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:f20f84b8",
-          "v4:near_distractor:9797dfd7"
+          "v4:doc:f20f84b8",
+          "v4:doc:9797dfd7"
         ],
         "source_row_ids": [
           "1909.04002",
@@ -2551,10 +2563,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:9aceb0c1"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:9aceb0c1",
-          "v4:near_distractor:f49e2134"
+          "v4:doc:9aceb0c1",
+          "v4:doc:f49e2134"
         ],
         "source_row_ids": [
           "1911.03343",
@@ -2573,10 +2587,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:7ebd8f2f"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:7ebd8f2f",
-          "v4:near_distractor:50d3ef2a"
+          "v4:doc:7ebd8f2f",
+          "v4:doc:50d3ef2a"
         ],
         "source_row_ids": [
           "1712.00991",
@@ -2595,10 +2611,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:0b8e99e8"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:0b8e99e8",
-          "v4:near_distractor:4dc6fd8a"
+          "v4:doc:0b8e99e8",
+          "v4:doc:4dc6fd8a"
         ],
         "source_row_ids": [
           "1809.02286",
@@ -2617,10 +2635,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:ba1a2960"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:ba1a2960",
-          "v4:near_distractor:6f98f69b"
+          "v4:doc:ba1a2960",
+          "v4:doc:6f98f69b"
         ],
         "source_row_ids": [
           "1809.01202",
@@ -2639,10 +2659,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:7d416525"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:7d416525",
-          "v4:near_distractor:d0a4c9ae"
+          "v4:doc:7d416525",
+          "v4:doc:d0a4c9ae"
         ],
         "source_row_ids": [
           "1909.02027",
@@ -2661,10 +2683,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:c964a926"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:c964a926",
-          "v4:near_distractor:3a9a9fca"
+          "v4:doc:c964a926",
+          "v4:doc:3a9a9fca"
         ],
         "source_row_ids": [
           "1911.02855",
@@ -2683,10 +2707,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:201bdfc5"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:201bdfc5",
-          "v4:near_distractor:6bbd06c8"
+          "v4:doc:201bdfc5",
+          "v4:doc:6bbd06c8"
         ],
         "source_row_ids": [
           "1906.01081",
@@ -2705,10 +2731,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:a9d15c29"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:a9d15c29",
-          "v4:near_distractor:0e86409c"
+          "v4:doc:a9d15c29",
+          "v4:doc:0e86409c"
         ],
         "source_row_ids": [
           "1812.10479",
@@ -2727,10 +2755,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:fbb9f22b"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:fbb9f22b",
-          "v4:near_distractor:b8a0557c"
+          "v4:doc:fbb9f22b",
+          "v4:doc:b8a0557c"
         ],
         "source_row_ids": [
           "1611.01576",
@@ -2749,10 +2779,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:3b876712"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:3b876712",
-          "v4:near_distractor:2b57c3bc"
+          "v4:doc:3b876712",
+          "v4:doc:2b57c3bc"
         ],
         "source_row_ids": [
           "1904.09535",
@@ -2771,10 +2803,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:bf4c9846"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:bf4c9846",
-          "v4:near_distractor:6f6fb4d3"
+          "v4:doc:bf4c9846",
+          "v4:doc:6f6fb4d3"
         ],
         "source_row_ids": [
           "1911.03059",
@@ -2793,10 +2827,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:306e09cc"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:306e09cc",
-          "v4:near_distractor:9bdae504"
+          "v4:doc:306e09cc",
+          "v4:doc:9bdae504"
         ],
         "source_row_ids": [
           "1706.08198",
@@ -2815,10 +2851,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:82402957"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:82402957",
-          "v4:near_distractor:0ba7e9b0"
+          "v4:doc:82402957",
+          "v4:doc:0ba7e9b0"
         ],
         "source_row_ids": [
           "1909.08089",
@@ -2837,10 +2875,12 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:8ef25f1d"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:8ef25f1d",
-          "v4:near_distractor:c9f182ac"
+          "v4:doc:8ef25f1d",
+          "v4:doc:c9f182ac"
         ],
         "source_row_ids": [
           "1910.09982",
@@ -2859,11 +2899,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:791b80eb",
+          "v4:doc:05ccdd37"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:791b80eb",
-          "v4:secondary:05ccdd37",
-          "v4:near_distractor:d8cdea0b"
+          "v4:doc:791b80eb",
+          "v4:doc:05ccdd37",
+          "v4:doc:d8cdea0b"
         ],
         "source_row_ids": [
           "19005",
@@ -2882,11 +2925,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:c581f801",
+          "v4:doc:6c277cc5"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:c581f801",
-          "v4:secondary:6c277cc5",
-          "v4:near_distractor:958ebb4f"
+          "v4:doc:c581f801",
+          "v4:doc:6c277cc5",
+          "v4:doc:958ebb4f"
         ],
         "source_row_ids": [
           "5ab3e45655429976abd1bcd4",
@@ -2905,11 +2951,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:e9c8c909",
+          "v4:doc:6ae43500"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:e9c8c909",
-          "v4:secondary:6ae43500",
-          "v4:near_distractor:d06b35a9"
+          "v4:doc:e9c8c909",
+          "v4:doc:6ae43500",
+          "v4:doc:d06b35a9"
         ],
         "source_row_ids": [
           "5ab29c24554299449642c932",
@@ -2929,11 +2978,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:b2d86aa2",
+          "v4:doc:683d07de"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:b2d86aa2",
-          "v4:secondary:683d07de",
-          "v4:near_distractor:58fd93d1"
+          "v4:doc:b2d86aa2",
+          "v4:doc:683d07de",
+          "v4:doc:58fd93d1"
         ],
         "source_row_ids": [
           "5ae0d4c9554299603e418468",
@@ -2953,11 +3005,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:b176fe70",
+          "v4:doc:58fddd2a"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:b176fe70",
-          "v4:secondary:58fddd2a",
-          "v4:near_distractor:5161dc23"
+          "v4:doc:b176fe70",
+          "v4:doc:58fddd2a",
+          "v4:doc:5161dc23"
         ],
         "source_row_ids": [
           "5a8133725542995ce29dcbdb",
@@ -2976,11 +3031,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:d7669002",
+          "v4:doc:304d39e1"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:d7669002",
-          "v4:secondary:304d39e1",
-          "v4:near_distractor:20f79177"
+          "v4:doc:d7669002",
+          "v4:doc:304d39e1",
+          "v4:doc:20f79177"
         ],
         "source_row_ids": [
           "5ae7a8175542993210983ed8",
@@ -3000,11 +3058,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:199beb2b",
+          "v4:doc:236a02d1"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:199beb2b",
-          "v4:secondary:236a02d1",
-          "v4:near_distractor:e13abdaf"
+          "v4:doc:199beb2b",
+          "v4:doc:236a02d1",
+          "v4:doc:e13abdaf"
         ],
         "source_row_ids": [
           "1805.08241",
@@ -3024,11 +3085,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:53052a52",
+          "v4:doc:d66670b3"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:53052a52",
-          "v4:secondary:d66670b3",
-          "v4:near_distractor:21ad364a"
+          "v4:doc:53052a52",
+          "v4:doc:d66670b3",
+          "v4:doc:21ad364a"
         ],
         "source_row_ids": [
           "1907.04433",
@@ -3048,11 +3112,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:fee5acf5",
+          "v4:doc:cbde1c16"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:fee5acf5",
-          "v4:secondary:cbde1c16",
-          "v4:near_distractor:b17bce69"
+          "v4:doc:fee5acf5",
+          "v4:doc:cbde1c16",
+          "v4:doc:b17bce69"
         ],
         "source_row_ids": [
           "2003.04642",
@@ -3071,11 +3138,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:0e809291",
+          "v4:doc:f5fe0758"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:0e809291",
-          "v4:secondary:f5fe0758",
-          "v4:near_distractor:f996fb0d"
+          "v4:doc:0e809291",
+          "v4:doc:f5fe0758",
+          "v4:doc:f996fb0d"
         ],
         "source_row_ids": [
           "2001.09215",
@@ -3095,11 +3165,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:854cd656",
+          "v4:doc:fa982e2b"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:854cd656",
-          "v4:secondary:fa982e2b",
-          "v4:near_distractor:5f894912"
+          "v4:doc:854cd656",
+          "v4:doc:fa982e2b",
+          "v4:doc:5f894912"
         ],
         "source_row_ids": [
           "1909.07575",
@@ -3119,11 +3192,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:9ba1154c",
+          "v4:doc:1dc021bc"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:9ba1154c",
-          "v4:secondary:1dc021bc",
-          "v4:near_distractor:2fdee004"
+          "v4:doc:9ba1154c",
+          "v4:doc:1dc021bc",
+          "v4:doc:2fdee004"
         ],
         "source_row_ids": [
           "1701.04056",
@@ -3142,11 +3218,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:bae1cfea",
+          "v4:doc:0c3bcd64"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:bae1cfea",
-          "v4:secondary:0c3bcd64",
-          "v4:near_distractor:e11ab618"
+          "v4:doc:bae1cfea",
+          "v4:doc:0c3bcd64",
+          "v4:doc:e11ab618"
         ],
         "source_row_ids": [
           "nt-21",
@@ -3166,11 +3245,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:a4a55ab4",
+          "v4:doc:7e6ccf22"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:a4a55ab4",
-          "v4:secondary:7e6ccf22",
-          "v4:near_distractor:bcad4a9f"
+          "v4:doc:a4a55ab4",
+          "v4:doc:7e6ccf22",
+          "v4:doc:bcad4a9f"
         ],
         "source_row_ids": [
           "nt-22",
@@ -3190,11 +3272,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:d9a9c67a",
+          "v4:doc:1fbffb5f"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:d9a9c67a",
-          "v4:secondary:1fbffb5f",
-          "v4:near_distractor:7efec9e2"
+          "v4:doc:d9a9c67a",
+          "v4:doc:1fbffb5f",
+          "v4:doc:7efec9e2"
         ],
         "source_row_ids": [
           "nt-23",
@@ -3214,11 +3299,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:eeba8663",
+          "v4:doc:088b1f7d"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:eeba8663",
-          "v4:secondary:088b1f7d",
-          "v4:near_distractor:68a71074"
+          "v4:doc:eeba8663",
+          "v4:doc:088b1f7d",
+          "v4:doc:68a71074"
         ],
         "source_row_ids": [
           "nt-25",
@@ -3238,11 +3326,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:f93649ab",
+          "v4:doc:905acd3d"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:f93649ab",
-          "v4:secondary:905acd3d",
-          "v4:near_distractor:a3722bf0"
+          "v4:doc:f93649ab",
+          "v4:doc:905acd3d",
+          "v4:doc:a3722bf0"
         ],
         "source_row_ids": [
           "13701",
@@ -3262,11 +3353,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:4f3da05a",
+          "v4:doc:82302606"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:4f3da05a",
-          "v4:secondary:82302606",
-          "v4:near_distractor:04c45dd7"
+          "v4:doc:4f3da05a",
+          "v4:doc:82302606",
+          "v4:doc:04c45dd7"
         ],
         "source_row_ids": [
           "17394",
@@ -3286,11 +3380,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:655b6773",
+          "v4:doc:4d5c918a"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:655b6773",
-          "v4:secondary:4d5c918a",
-          "v4:near_distractor:f977a1d5"
+          "v4:doc:655b6773",
+          "v4:doc:4d5c918a",
+          "v4:doc:f977a1d5"
         ],
         "source_row_ids": [
           "7975",
@@ -3309,11 +3406,14 @@
         "expected_answers": [
           "ABSTAIN"
         ],
-        "required_evidence_ids": [],
+        "required_evidence_ids": [
+          "v4:doc:de40b820",
+          "v4:doc:eac9584c"
+        ],
         "rejected_evidence_ids": [
-          "v4:primary:de40b820",
-          "v4:secondary:eac9584c",
-          "v4:near_distractor:3588537c"
+          "v4:doc:de40b820",
+          "v4:doc:eac9584c",
+          "v4:doc:3588537c"
         ],
         "source_row_ids": [
           "11305",
@@ -3334,10 +3434,10 @@
           "Arena of Khazan"
         ],
         "required_evidence_ids": [
-          "v4:primary:bf1f0e22"
+          "v4:doc:bf1f0e22"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:9e193648"
+          "v4:doc:9e193648"
         ],
         "source_row_ids": [
           "5a8a3e745542996c9b8d5e70",
@@ -3358,10 +3458,10 @@
           "2000"
         ],
         "required_evidence_ids": [
-          "v4:primary:fa8b4c1d"
+          "v4:doc:fa8b4c1d"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:13021b41"
+          "v4:doc:13021b41"
         ],
         "source_row_ids": [
           "5ac23ff0554299636651994d",
@@ -3381,10 +3481,10 @@
           "Fujioka, Gunma"
         ],
         "required_evidence_ids": [
-          "v4:primary:711a1659"
+          "v4:doc:711a1659"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:ce0eb382"
+          "v4:doc:ce0eb382"
         ],
         "source_row_ids": [
           "5ae4a3265542995ad6573de5",
@@ -3404,10 +3504,10 @@
           "Charles Eugène"
         ],
         "required_evidence_ids": [
-          "v4:primary:fdbfcd6c"
+          "v4:doc:fdbfcd6c"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:6e421576"
+          "v4:doc:6e421576"
         ],
         "source_row_ids": [
           "5ae0361155429925eb1afc2c",
@@ -3428,10 +3528,10 @@
           "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007)."
         ],
         "required_evidence_ids": [
-          "v4:primary:5e8acab2"
+          "v4:doc:5e8acab2"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:360f7371"
+          "v4:doc:360f7371"
         ],
         "source_row_ids": [
           "13738",
@@ -3451,10 +3551,10 @@
           "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39..."
         ],
         "required_evidence_ids": [
-          "v4:primary:9827a864"
+          "v4:doc:9827a864"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:04e0732b"
+          "v4:doc:04e0732b"
         ],
         "source_row_ids": [
           "15775",
@@ -3475,10 +3575,10 @@
           "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi."
         ],
         "required_evidence_ids": [
-          "v4:primary:2a840666"
+          "v4:doc:2a840666"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:ab557464"
+          "v4:doc:ab557464"
         ],
         "source_row_ids": [
           "19172",
@@ -3498,10 +3598,10 @@
           "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet."
         ],
         "required_evidence_ids": [
-          "v4:primary:f7cd65e8"
+          "v4:doc:f7cd65e8"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:1d9e9655"
+          "v4:doc:1d9e9655"
         ],
         "source_row_ids": [
           "19148",
@@ -3521,10 +3621,10 @@
           "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government."
         ],
         "required_evidence_ids": [
-          "v4:primary:c1d79539"
+          "v4:doc:c1d79539"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:965224a7"
+          "v4:doc:965224a7"
         ],
         "source_row_ids": [
           "8076",
@@ -3545,10 +3645,10 @@
           "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%."
         ],
         "required_evidence_ids": [
-          "v4:primary:e261c2a2"
+          "v4:doc:e261c2a2"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:79826dc8"
+          "v4:doc:79826dc8"
         ],
         "source_row_ids": [
           "16435",
@@ -3569,10 +3669,10 @@
           "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled."
         ],
         "required_evidence_ids": [
-          "v4:primary:becd669b"
+          "v4:doc:becd669b"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:e8b5b186"
+          "v4:doc:e8b5b186"
         ],
         "source_row_ids": [
           "11453",
@@ -3592,10 +3692,10 @@
           "Dwight Yorke made 147 appearances for Manchester United."
         ],
         "required_evidence_ids": [
-          "v4:primary:0dc6799c"
+          "v4:doc:0dc6799c"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:a8e56bd7"
+          "v4:doc:a8e56bd7"
         ],
         "source_row_ids": [
           "16489",
@@ -3616,10 +3716,10 @@
           "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99."
         ],
         "required_evidence_ids": [
-          "v4:primary:922788c0"
+          "v4:doc:922788c0"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:ef85378e"
+          "v4:doc:ef85378e"
         ],
         "source_row_ids": [
           "11968",
@@ -3640,10 +3740,10 @@
           "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%."
         ],
         "required_evidence_ids": [
-          "v4:primary:ae4f3ece"
+          "v4:doc:ae4f3ece"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:aaad0747"
+          "v4:doc:aaad0747"
         ],
         "source_row_ids": [
           "14630",
@@ -3663,10 +3763,10 @@
           "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979."
         ],
         "required_evidence_ids": [
-          "v4:primary:6f640b8d"
+          "v4:doc:6f640b8d"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:0bf74f88"
+          "v4:doc:0bf74f88"
         ],
         "source_row_ids": [
           "13721",
@@ -3686,10 +3786,10 @@
           "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington..."
         ],
         "required_evidence_ids": [
-          "v4:primary:9f28412e"
+          "v4:doc:9f28412e"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:f3e059a1"
+          "v4:doc:f3e059a1"
         ],
         "source_row_ids": [
           "18430",
@@ -3710,10 +3810,10 @@
           "Sonic"
         ],
         "required_evidence_ids": [
-          "v4:primary:ff023c67"
+          "v4:doc:ff023c67"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:d6e8383c"
+          "v4:doc:d6e8383c"
         ],
         "source_row_ids": [
           "5ae6050f55429929b0807a5e",
@@ -3733,10 +3833,10 @@
           "keyboard function keys"
         ],
         "required_evidence_ids": [
-          "v4:primary:b2554193"
+          "v4:doc:b2554193"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:e576dab2"
+          "v4:doc:e576dab2"
         ],
         "source_row_ids": [
           "5adddccd5542997dc7907069",
@@ -3757,10 +3857,10 @@
           "Badly Drawn Boy"
         ],
         "required_evidence_ids": [
-          "v4:primary:50a42d84"
+          "v4:doc:50a42d84"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:973e8fd3"
+          "v4:doc:973e8fd3"
         ],
         "source_row_ids": [
           "5ae2070a5542994d89d5b313",
@@ -3780,10 +3880,10 @@
           "World's Best Goalkeeper"
         ],
         "required_evidence_ids": [
-          "v4:primary:40d901c9"
+          "v4:doc:40d901c9"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:9499aed7"
+          "v4:doc:9499aed7"
         ],
         "source_row_ids": [
           "5ae22b8d554299234fd0440f",
@@ -3803,11 +3903,11 @@
           "113"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:aa6cc467"
+          "v4:doc:aa6cc467"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:fd673d79",
-          "v4:near_distractor:998c6a5c"
+          "v4:doc:fd673d79",
+          "v4:doc:998c6a5c"
         ],
         "source_row_ids": [
           "113",
@@ -3827,11 +3927,11 @@
           "118"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:dc1d2706"
+          "v4:doc:dc1d2706"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:db86d000",
-          "v4:near_distractor:7d01cedc"
+          "v4:doc:db86d000",
+          "v4:doc:7d01cedc"
         ],
         "source_row_ids": [
           "118",
@@ -3851,11 +3951,11 @@
           "120"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:1304f972"
+          "v4:doc:1304f972"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:d00c2a14",
-          "v4:near_distractor:2f370c59"
+          "v4:doc:d00c2a14",
+          "v4:doc:2f370c59"
         ],
         "source_row_ids": [
           "120",
@@ -3875,11 +3975,11 @@
           "123"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:fc31d800"
+          "v4:doc:fc31d800"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:21f09fb6",
-          "v4:near_distractor:592172d8"
+          "v4:doc:21f09fb6",
+          "v4:doc:592172d8"
         ],
         "source_row_ids": [
           "123",
@@ -3899,11 +3999,11 @@
           "126"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:b2070ab5"
+          "v4:doc:b2070ab5"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:0684a1ab",
-          "v4:near_distractor:1836d992"
+          "v4:doc:0684a1ab",
+          "v4:doc:1836d992"
         ],
         "source_row_ids": [
           "126",
@@ -3923,11 +4023,11 @@
           "127"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:4adc0fcd"
+          "v4:doc:4adc0fcd"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:827ba933",
-          "v4:near_distractor:62e09975"
+          "v4:doc:827ba933",
+          "v4:doc:62e09975"
         ],
         "source_row_ids": [
           "127",
@@ -3947,11 +4047,11 @@
           "128"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:1727a6a8"
+          "v4:doc:1727a6a8"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:eda9c7ee",
-          "v4:near_distractor:b4e9c68f"
+          "v4:doc:eda9c7ee",
+          "v4:doc:b4e9c68f"
         ],
         "source_row_ids": [
           "128",
@@ -3971,11 +4071,11 @@
           "129"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:7e4d7cc4"
+          "v4:doc:7e4d7cc4"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:da8ac382",
-          "v4:near_distractor:17748d41"
+          "v4:doc:da8ac382",
+          "v4:doc:17748d41"
         ],
         "source_row_ids": [
           "129",
@@ -3995,11 +4095,11 @@
           "87"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:3e43ef0c"
+          "v4:doc:3e43ef0c"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:95803b3a",
-          "v4:near_distractor:f7e1e956"
+          "v4:doc:95803b3a",
+          "v4:doc:f7e1e956"
         ],
         "source_row_ids": [
           "87",
@@ -4019,11 +4119,11 @@
           "91"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:1c712522"
+          "v4:doc:1c712522"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:e3dbfba4",
-          "v4:near_distractor:fd2d5d0a"
+          "v4:doc:e3dbfba4",
+          "v4:doc:fd2d5d0a"
         ],
         "source_row_ids": [
           "91",
@@ -4043,11 +4143,11 @@
           "93"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:4259b8b6"
+          "v4:doc:4259b8b6"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:282a0b50",
-          "v4:near_distractor:c7ca2ebe"
+          "v4:doc:282a0b50",
+          "v4:doc:c7ca2ebe"
         ],
         "source_row_ids": [
           "93",
@@ -4067,11 +4167,11 @@
           "95"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:b9c46442"
+          "v4:doc:b9c46442"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:ae03d5c4",
-          "v4:near_distractor:da5b5c40"
+          "v4:doc:ae03d5c4",
+          "v4:doc:da5b5c40"
         ],
         "source_row_ids": [
           "95",
@@ -4091,11 +4191,11 @@
           "96"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:e96d3517"
+          "v4:doc:e96d3517"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:41501149",
-          "v4:near_distractor:c7add4d0"
+          "v4:doc:41501149",
+          "v4:doc:c7add4d0"
         ],
         "source_row_ids": [
           "96",
@@ -4115,11 +4215,11 @@
           "97"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:e9806fb6"
+          "v4:doc:e9806fb6"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:98411a50",
-          "v4:near_distractor:efb157e2"
+          "v4:doc:98411a50",
+          "v4:doc:efb157e2"
         ],
         "source_row_ids": [
           "97",
@@ -4139,11 +4239,11 @@
           "98"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:96273a6f"
+          "v4:doc:96273a6f"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:42caba91",
-          "v4:near_distractor:84401257"
+          "v4:doc:42caba91",
+          "v4:doc:84401257"
         ],
         "source_row_ids": [
           "98",
@@ -4163,11 +4263,11 @@
           "99"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:d31e4702"
+          "v4:doc:d31e4702"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:dd288084",
-          "v4:near_distractor:a11eb84b"
+          "v4:doc:dd288084",
+          "v4:doc:a11eb84b"
         ],
         "source_row_ids": [
           "99",
@@ -4187,11 +4287,11 @@
           "100"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:f76047b7"
+          "v4:doc:f76047b7"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:f7fe5ee9",
-          "v4:near_distractor:12d9b420"
+          "v4:doc:f7fe5ee9",
+          "v4:doc:12d9b420"
         ],
         "source_row_ids": [
           "100",
@@ -4211,11 +4311,11 @@
           "101"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:464bb5a5"
+          "v4:doc:464bb5a5"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:10cad6fb",
-          "v4:near_distractor:64d9ff35"
+          "v4:doc:10cad6fb",
+          "v4:doc:64d9ff35"
         ],
         "source_row_ids": [
           "101",
@@ -4235,11 +4335,11 @@
           "102"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:264cea6a"
+          "v4:doc:264cea6a"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:39492a7c",
-          "v4:near_distractor:a14e0e5f"
+          "v4:doc:39492a7c",
+          "v4:doc:a14e0e5f"
         ],
         "source_row_ids": [
           "102",
@@ -4259,11 +4359,11 @@
           "103"
         ],
         "required_evidence_ids": [
-          "v4:as_of_valid:941bf47c"
+          "v4:doc:941bf47c"
         ],
         "rejected_evidence_ids": [
-          "v4:future_update:6f791a4a",
-          "v4:near_distractor:2cc61988"
+          "v4:doc:6f791a4a",
+          "v4:doc:2cc61988"
         ],
         "source_row_ids": [
           "103",
@@ -4283,11 +4383,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:735204fe",
-          "v4:document_b:7252036b"
+          "v4:doc:735204fe",
+          "v4:doc:7252036b"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:286c2b7e"
+          "v4:doc:286c2b7e"
         ],
         "source_row_ids": [
           "5a7d54165542995f4f402256",
@@ -4307,11 +4407,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:018ea8c2",
-          "v4:document_b:008ea72f"
+          "v4:doc:018ea8c2",
+          "v4:doc:008ea72f"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:bf202c01"
+          "v4:doc:bf202c01"
         ],
         "source_row_ids": [
           "5ab859a955429934fafe6d7b",
@@ -4331,11 +4431,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:96edcce1",
-          "v4:document_b:93edc828"
+          "v4:doc:96edcce1",
+          "v4:doc:93edc828"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:088790fc"
+          "v4:doc:088790fc"
         ],
         "source_row_ids": [
           "5add61d65542995b365fab21",
@@ -4355,11 +4455,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:b0e8beac",
-          "v4:document_b:b3e8c365"
+          "v4:doc:b0e8beac",
+          "v4:doc:b3e8c365"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:afb328e0"
+          "v4:doc:afb328e0"
         ],
         "source_row_ids": [
           "5a8e068b5542995085b37384",
@@ -4379,11 +4479,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:9d01de67",
-          "v4:document_b:9e01dffa"
+          "v4:doc:9d01de67",
+          "v4:doc:9e01dffa"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:7df31428"
+          "v4:doc:7df31428"
         ],
         "source_row_ids": [
           "5abbf698554299114383a0b5",
@@ -4403,11 +4503,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:c1f5eea3",
-          "v4:document_b:c2f5f036"
+          "v4:doc:c1f5eea3",
+          "v4:doc:c2f5f036"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:3cf667c9"
+          "v4:doc:3cf667c9"
         ],
         "source_row_ids": [
           "5a8e1027554299653c1aa15f",
@@ -4427,11 +4527,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:08a3c14b",
-          "v4:document_b:09a3c2de"
+          "v4:doc:08a3c14b",
+          "v4:doc:09a3c2de"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:23499b53"
+          "v4:doc:23499b53"
         ],
         "source_row_ids": [
           "5ab84bf555429916710eb01f",
@@ -4451,11 +4551,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:2deacb36",
-          "v4:document_b:2ceac9a3"
+          "v4:doc:2deacb36",
+          "v4:doc:2ceac9a3"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:125d7537"
+          "v4:doc:125d7537"
         ],
         "source_row_ids": [
           "5a77724455429972597f153e",
@@ -4475,11 +4575,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:dce1d7d6",
-          "v4:document_b:dbe1d643"
+          "v4:doc:dce1d7d6",
+          "v4:doc:dbe1d643"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:c99dfe49"
+          "v4:doc:c99dfe49"
         ],
         "source_row_ids": [
           "5a87c13f5542996e4f30890c",
@@ -4499,11 +4599,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:990794bc",
-          "v4:document_b:9c079975"
+          "v4:doc:990794bc",
+          "v4:doc:9c079975"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:dcec84f5"
+          "v4:doc:dcec84f5"
         ],
         "source_row_ids": [
           "5ab96ab755429970cfb8eacd",
@@ -4523,11 +4623,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:790b5bcb",
-          "v4:document_b:7a0b5d5e"
+          "v4:doc:790b5bcb",
+          "v4:doc:7a0b5d5e"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:b5fc3a01"
+          "v4:doc:b5fc3a01"
         ],
         "source_row_ids": [
           "5a8a43eb5542996c9b8d5e82",
@@ -4547,11 +4647,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:c893bace",
-          "v4:document_b:c793b93b"
+          "v4:doc:c893bace",
+          "v4:doc:c793b93b"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:882ca0de"
+          "v4:doc:882ca0de"
         ],
         "source_row_ids": [
           "5ae73acb5542991e8301cc07",
@@ -4571,11 +4671,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:c8d4397e",
-          "v4:document_b:c7d437eb"
+          "v4:doc:c8d4397e",
+          "v4:doc:c7d437eb"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:5b1e76b4"
+          "v4:doc:5b1e76b4"
         ],
         "source_row_ids": [
           "5abc0a5d5542993f40c73c64",
@@ -4595,11 +4695,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:cf908357",
-          "v4:document_b:d09084ea"
+          "v4:doc:cf908357",
+          "v4:doc:d09084ea"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:ace3410d"
+          "v4:doc:ace3410d"
         ],
         "source_row_ids": [
           "5a7cc50e554299452d57ba3e",
@@ -4619,11 +4719,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:aaea7293",
-          "v4:document_b:abea7426"
+          "v4:doc:aaea7293",
+          "v4:doc:abea7426"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:6f9eff23"
+          "v4:doc:6f9eff23"
         ],
         "source_row_ids": [
           "5abf63f15542997ec76fd3ea",
@@ -4643,11 +4743,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:2f483f31",
-          "v4:document_b:2c483a78"
+          "v4:doc:2f483f31",
+          "v4:doc:2c483a78"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:a944bc94"
+          "v4:doc:a944bc94"
         ],
         "source_row_ids": [
           "5a8ef2a75542995a26add583",
@@ -4667,11 +4767,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:ad42d6ef",
-          "v4:document_b:ae42d882"
+          "v4:doc:ad42d6ef",
+          "v4:doc:ae42d882"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:b886b027"
+          "v4:doc:b886b027"
         ],
         "source_row_ids": [
           "5a80721b554299485f5985ef",
@@ -4691,11 +4791,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:fe1d6e37",
-          "v4:document_b:ff1d6fca"
+          "v4:doc:fe1d6e37",
+          "v4:doc:ff1d6fca"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:b3a2e5f2"
+          "v4:doc:b3a2e5f2"
         ],
         "source_row_ids": [
           "5ab51dae5542991779162d82",
@@ -4715,11 +4815,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:5a26f10e",
-          "v4:document_b:5926ef7b"
+          "v4:doc:5a26f10e",
+          "v4:doc:5926ef7b"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:08602d3a"
+          "v4:doc:08602d3a"
         ],
         "source_row_ids": [
           "5a7571135542992d0ec05f98",
@@ -4739,11 +4839,11 @@
           "CONFLICT"
         ],
         "required_evidence_ids": [
-          "v4:document_a:d9629f0f",
-          "v4:document_b:da62a0a2"
+          "v4:doc:d9629f0f",
+          "v4:doc:da62a0a2"
         ],
         "rejected_evidence_ids": [
-          "v4:near_distractor:55ac673d"
+          "v4:doc:55ac673d"
         ],
         "source_row_ids": [
           "5a7a0e1e5542990783324e1a",

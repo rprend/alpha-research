@@ -2,17 +2,12 @@
   "task_id": "hgr_v4_candidate_046_appended-document-lifecycle-changes_46faab",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "appended document lifecycle changes",
-  "user_question": "For \"How big is big enough? Unsupervised word sense disambiguation using a very large corpus\", inspect the original body and appended update; return the final controlling answer.",
+  "user_question": "Using marker HGR-1dc900c3, inspect the original body and appended update; return the final controlling response.",
   "target": {
-    "native_question": "For \"How big is big enough? Unsupervised word sense disambiguation using a very large corpus\", inspect the original body and appended update; return the final controlling answer.",
-    "source_row_keys": [
-      "allenai/qasper:1710.07960",
-      "allenai/qasper:1603.09631"
-    ],
+    "native_question": "Using marker HGR-1dc900c3, inspect the original body and appended update; return the final controlling response.",
     "challenge": {
       "type": "document_lifecycle_appendix",
-      "original_document_id": "v4:original_body:74623573",
-      "appendix_document_id": "v4:appendix_update:8e56e82d"
+      "rule": "appendix update controls over original body"
     },
     "hidden_gold_withheld": true
   },

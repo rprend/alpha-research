@@ -1,5 +1,5 @@
 # Agentic V4 Candidate Task
 
-Find the table or QA source labeled "How many copies did "Pleasure" sell in 1998 alone, and how long was it the best selling album in Japan?" and return its answer field together with its dataset as "answer @ dataset".
+Using marker HGR-f252ce88, find the relevant table or QA archive record and return "native response @ collection alias".
 
 Use only this workspace. Search corpus.json, cite exact document_id values, and write answer.json.

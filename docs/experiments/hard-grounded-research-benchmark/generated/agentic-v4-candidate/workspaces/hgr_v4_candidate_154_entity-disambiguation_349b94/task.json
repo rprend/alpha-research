@@ -2,16 +2,12 @@
   "task_id": "hgr_v4_candidate_154_entity-disambiguation_349b94",
   "suite_id": "agentic-large-corpus-research-v4-candidate",
   "category": "entity disambiguation",
-  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:14630\" whose label is \"How many votes was the Democratic party and the Five star Movement endorsed with in the Aosta Valley?\".",
+  "user_question": "Using marker HGR-51d8fc04, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
   "target": {
-    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:14630\" whose label is \"How many votes was the Democratic party and the Five star Movement endorsed with in the Aosta Valley?\".",
-    "source_row_keys": [
-      "DongfuJiang/FeTaQA:14630",
-      "DongfuJiang/FeTaQA:19172"
-    ],
+    "native_question": "Using marker HGR-51d8fc04, choose the first relevant archive record rather than near-marker distractors. Return its native response.",
     "challenge": {
       "type": "entity_disambiguation",
-      "exact_source_key": "DongfuJiang/FeTaQA:14630"
+      "rule": "choose first relevant marker record, reject distractors"
     },
     "hidden_gold_withheld": true
   },
