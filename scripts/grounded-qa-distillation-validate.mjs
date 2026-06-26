@@ -71,6 +71,7 @@ if (!errors.length) {
   await validateJointActionRemoteSmokePlanRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
+  await validatePrimeCliAuthRecheckRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
   await validateDragStyleComparisonRunsIfPresent();
@@ -2363,6 +2364,56 @@ async function validatePrimeAuthDiagnosisRunsIfPresent() {
     }
     if (Number(result.budget?.actual_external_compute_cost_usd) !== 0 || Number(result.budget?.openai_cost_delta_usd) !== 0) {
       errors.push(`${entry.name}: Prime auth diagnosis must be zero-cost.`);
+    }
+  }
+}
+
+async function validatePrimeCliAuthRecheckRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("prime-cli-upgrade-auth-recheck-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Prime CLI auth recheck artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "prime_cli_auth_recheck") {
+      errors.push(`${entry.name}: unexpected Prime CLI auth recheck artifact type.`);
+    }
+    if (!["auth_blocked_after_cli_upgrade", "auth_check_passed"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected Prime CLI auth recheck status.`);
+    }
+    if (!result.cli_version) {
+      errors.push(`${entry.name}: Prime CLI auth recheck must record the CLI version.`);
+    }
+    for (const command of ["version", "whoami", "teams", "availability"]) {
+      if (!result.checks?.[command]?.command) errors.push(`${entry.name}: missing Prime ${command} check.`);
+    }
+    if (result.status === "auth_blocked_after_cli_upgrade") {
+      const blocked = [result.checks?.whoami, result.checks?.teams, result.checks?.availability]
+        .some((check) => check?.error_class === "api_key_unauthorized");
+      if (!blocked) errors.push(`${entry.name}: auth-blocked status must include an unauthorized Prime command.`);
+      if (!Array.isArray(result.conclusion?.not_proven) || !result.conclusion.not_proven.includes("Prime account balance")) {
+        errors.push(`${entry.name}: auth-blocked recheck must not claim balance status.`);
+      }
+    }
+    if (!report.includes("Prime CLI version") || !report.includes("no OpenAI calls")) {
+      errors.push(`${entry.name}: Prime CLI auth recheck report must expose version and zero-cost status.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: Prime CLI auth recheck must be zero-cost.`);
     }
   }
 }

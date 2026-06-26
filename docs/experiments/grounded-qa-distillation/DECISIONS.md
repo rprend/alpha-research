@@ -1019,3 +1019,13 @@ Reason: The strongest completed support gains are vulnerable to a reviewer objec
 Result: The project now has an auditable paper table showing that claim-entailment is the best zero-extra-call support-first point so far, while the mini-verifier has stronger correctness but violates the desired amortized low-cost shape by adding a per-query LLM verifier. The Qwen 3B joint-action smoke and grounded-correctness judge remain required final evidence.
 
 Tradeoff: This is not new empirical evidence and mixes aggregate 149-example judged policies with final-window local anchors. It is a risk-control and reporting artifact, not a substitute for the missing trained-student result.
+
+### D123. Recheck Prime auth after upgrading the CLI
+
+Decision: Upgrade the local Prime CLI from `0.5.44` to `0.6.15`, add `grounded-qa-distillation-prime-cli-auth-recheck.mjs`, materialize `prime-cli-upgrade-auth-recheck-2026-06-26-v1`, and validate the recheck artifact.
+
+Reason: Prime was blocking the paper-critical Qwen 3B smoke with `API key unauthorized`, but the installed CLI was behind the latest advertised version. Before requiring another secret or spending on another backend, I tested the no-spend repair path: upgrade the CLI and rerun authenticated `whoami`, `teams list`, and `availability list` checks. The upgraded CLI still rejects the saved key on all authenticated checks, so stale CLI version is unlikely to be the root cause. Because Prime rejects the token before account/team/availability access, this still cannot prove whether the account has sufficient funds. This makes zero OpenAI calls, launches no GPU jobs, and leaves actual spend unchanged.
+
+Result: The current Prime blocker is still token validity or permissions. The next GPU step remains: install a valid Prime key through the hidden-input helper or complete browser login, rerun the auth recheck, verify live pricing/balance, then launch the bounded Qwen 3B smoke only if the total budget remains under `$100`.
+
+Tradeoff: This is operational evidence, not a model result. It prevents wasting time on an old-CLI hypothesis, but it does not remove the need for a valid Prime token or HF credits.

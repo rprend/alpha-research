@@ -19,6 +19,7 @@ const postSmoke = await readResult("qwen3b-post-smoke-judge-pipeline-joint-actio
 const judgeCalibration = await readResult("judge-calibration-audit-2026-06-26-v1");
 const judgeAdjudication = await readResult("judge-adjudication-packet-2026-06-26-v1");
 const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
+const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const risks = [
@@ -128,10 +129,11 @@ const risks = [
     reviewer_objection: "The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable.",
     current_evidence: [
       "prime-auth-diagnosis",
+      primeCliAuthRecheck.run_id,
       remoteSmoke.run_id,
       budget.generated_at,
     ],
-    mitigation_done: "The remote command is single-step and bounded; all actual spend is tracked under the $100 budget with $0 external compute spend so far.",
+    mitigation_done: `The remote command is single-step and bounded; ${primeCliAuthRecheck.run_id} upgraded/rechecked Prime CLI ${primeCliAuthRecheck.cli_version} and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.`,
     required_next_evidence: [
       "Install a valid Prime key through hidden input or repair HF credits.",
       "Record provider, GPU type, wall time, cost, and command transcript for the smoke.",

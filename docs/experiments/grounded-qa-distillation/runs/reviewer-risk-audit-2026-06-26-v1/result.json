@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T19:21:06.246Z",
+  "generated_at": "2026-06-26T19:26:44.362Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -125,10 +125,11 @@
       "reviewer_objection": "The paper-critical run depends on external GPU execution, while Prime auth and HF credits are currently unavailable.",
       "current_evidence": [
         "prime-auth-diagnosis",
+        "prime-cli-upgrade-auth-recheck-2026-06-26-v1",
         "joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
-        "2026-06-26T19:10:01.984Z"
+        "2026-06-26T19:21:06.284Z"
       ],
-      "mitigation_done": "The remote command is single-step and bounded; all actual spend is tracked under the $100 budget with $0 external compute spend so far.",
+      "mitigation_done": "The remote command is single-step and bounded; prime-cli-upgrade-auth-recheck-2026-06-26-v1 upgraded/rechecked Prime CLI 0.6.15 and still found API-key authorization failures before pricing or balance checks. All actual spend is tracked under the $100 budget with $0 external compute spend so far.",
       "required_next_evidence": [
         "Install a valid Prime key through hidden input or repair HF credits.",
         "Record provider, GPU type, wall time, cost, and command transcript for the smoke."
