@@ -19,6 +19,8 @@ const maxOutputTokens = numberArg(args["max-output-tokens"], 420);
 const demoRunIds = listArg(args["demo-runs"]);
 const demoJudgeRunIds = listArg(args["demo-judge-runs"]);
 const demoLimit = numberArg(args["demo-limit"], 0, { allowZero: true });
+const scaffold = args.scaffold ?? "none";
+const teacherLabelPrefix = args["teacher-label-prefix"] ?? "teacher-repair-temporal-test-0-132-v1";
 const runId = args["run-id"] ?? `${new Date().toISOString().replaceAll(":", "-").replace(/\.\d+Z$/, "Z")}-openai-student-${split}`;
 const outputDir = path.join(runDir, runId);
 const ledgerPath = path.join(ledgerDir, "ledger.jsonl");
@@ -45,6 +47,9 @@ const targetExampleIds = new Set(examples.map((example) => example.example_id));
 const demos = demoLimit > 0
   ? await loadTeacherDemos({ split, demoRunIds, demoJudgeRunIds, demoLimit, targetExampleIds, allExamples })
   : [];
+const scaffoldSummary = scaffold === "teacher-label-rubric"
+  ? await buildTeacherLabelRubric(teacherLabelPrefix)
+  : null;
 const priorSpend = await ledgerSpend(ledgerPath);
 const estimated = examples.map((example) => estimateCall(example, model, price, maxOutputTokens));
 const estimatedCost = sum(estimated.map((row) => row.estimated_cost_usd));
@@ -122,6 +127,9 @@ const summary = {
   demo_judge_run_ids: demoJudgeRunIds,
   demo_limit: demoLimit,
   demos_used: demos.length,
+  scaffold,
+  teacher_label_prefix: scaffoldSummary ? teacherLabelPrefix : null,
+  scaffold_summary: scaffoldSummary,
   dry_run: dryRun,
   calls_made: predictions.filter((row) => !row.skipped).length,
   calls_skipped: predictions.filter((row) => row.skipped).length,
@@ -162,7 +170,7 @@ function buildRequest(example, selectedModel, outputTokens) {
     messages: [
       {
         role: "system",
-        content: [
+    content: [
           `You are ${roleLabel}.`,
           "Answer only from the compact evidence pack.",
           "Return only valid JSON with exactly these keys: answer_type, answer, citations, claim_table, abstention_reason.",
@@ -171,12 +179,14 @@ function buildRequest(example, selectedModel, outputTokens) {
           "If answering, cite every factual sentence inline using bracketed evidence ids such as [E2].",
           "The citations field must be an array of cited evidence id strings, not objects.",
           "The claim_table field must be an array of objects with claim, support, and citations.",
+          scaffoldInstructions(scaffoldSummary),
         ].join(" "),
       },
       {
         role: "user",
         content: [
           demoPrompt(demos),
+          scaffoldUserPrompt(scaffoldSummary),
           "Target example:",
           example.messages[1].content,
           "Return only valid JSON. Use evidence ids exactly as provided. Do not invent evidence ids.",
@@ -184,6 +194,85 @@ function buildRequest(example, selectedModel, outputTokens) {
       },
     ],
   };
+}
+
+async function buildTeacherLabelRubric(prefix) {
+  const rows = await readJsonl(path.join(exportDir, `${prefix}.sft.jsonl`));
+  const answered = rows.filter((row) => row.teacher_output?.answer_type === "grounded_answer");
+  const abstained = rows.filter((row) => row.teacher_output?.answer_type === "abstain");
+  const citationCounts = answered.map((row) => row.teacher_output.citations?.length ?? 0);
+  const claimCounts = answered.map((row) => row.teacher_output.claim_table?.length ?? 0);
+  const answerLengths = answered.map((row) => contentTokens(row.teacher_output.answer ?? "").length);
+  const evidencePackSizes = rows.map((row) => row.input?.compact_retrieved_evidence_pack?.length ?? 0);
+  const abstentionReasons = summarizeAbstentionReasons(abstained);
+  return {
+    mode: "teacher-label-rubric",
+    source_label_prefix: prefix,
+    accepted_labels: rows.length,
+    answered_labels: answered.length,
+    abstention_labels: abstained.length,
+    answer_rate: ratio(answered.length, rows.length),
+    median_citations_per_answer: median(citationCounts),
+    median_claims_per_answer: median(claimCounts),
+    median_answer_content_tokens: median(answerLengths),
+    median_evidence_pack_size: median(evidencePackSizes),
+    abstention_reason_patterns: abstentionReasons,
+    policy: [
+      "Prefer abstention unless at least one evidence item directly answers the question.",
+      "Use one or two cited evidence ids for most answers; do not cite distractor or background-only evidence.",
+      "Every factual sentence must include its supporting evidence id inline.",
+      "The citations array must exactly list ids that appear inline in the answer.",
+      "Keep claim_table short: one row per factual sentence or atomic claim.",
+      "If the evidence only defines context, motivation, related work, or partial setup, abstain.",
+    ],
+  };
+}
+
+function scaffoldInstructions(summary) {
+  if (!summary) return "";
+  return [
+    "You are using a distilled rubric learned from strict repaired-teacher labels.",
+    "Follow these learned constraints:",
+    ...summary.policy,
+    `The source teacher labels answered ${(summary.answer_rate * 100).toFixed(1)}% of examples; use this only as calibration, not as a target quota.`,
+    `Typical grounded answers use about ${summary.median_citations_per_answer} citation ids and ${summary.median_claims_per_answer} claim-table rows.`,
+  ].join(" ");
+}
+
+function scaffoldUserPrompt(summary) {
+  if (!summary) return "";
+  return [
+    "Distilled teacher-label scaffold:",
+    JSON.stringify({
+      source_label_prefix: summary.source_label_prefix,
+      accepted_labels: summary.accepted_labels,
+      answer_rate: summary.answer_rate,
+      abstention_reason_patterns: summary.abstention_reason_patterns,
+      policy: summary.policy,
+    }),
+  ].join("\n");
+}
+
+function summarizeAbstentionReasons(rows) {
+  const buckets = new Map([
+    ["missing_answer", 0],
+    ["partial_or_indirect", 0],
+    ["no_direct_metric_or_result", 0],
+    ["other", 0],
+  ]);
+  for (const row of rows) {
+    const reason = String(row.teacher_output?.abstention_reason ?? row.teacher_output?.answer ?? "").toLowerCase();
+    if (/not provide|does not provide|insufficient|not enough|cannot determine/.test(reason)) {
+      buckets.set("missing_answer", buckets.get("missing_answer") + 1);
+    } else if (/partial|indirect|background|related|context/.test(reason)) {
+      buckets.set("partial_or_indirect", buckets.get("partial_or_indirect") + 1);
+    } else if (/metric|result|score|number|comparison/.test(reason)) {
+      buckets.set("no_direct_metric_or_result", buckets.get("no_direct_metric_or_result") + 1);
+    } else {
+      buckets.set("other", buckets.get("other") + 1);
+    }
+  }
+  return Object.fromEntries(buckets);
 }
 
 async function loadTeacherDemos({ split: selectedSplit, demoRunIds: runIds, demoJudgeRunIds: judgeRunIds, demoLimit: maxDemos, targetExampleIds: excludedIds, allExamples: sourceExamples }) {
@@ -384,6 +473,17 @@ function counts(tokens) {
 function mean(values) {
   const numeric = values.filter((value) => value != null && Number.isFinite(Number(value))).map(Number);
   return numeric.length ? numeric.reduce((total, value) => total + value, 0) / numeric.length : 0;
+}
+
+function median(values) {
+  const numeric = values.filter((value) => Number.isFinite(Number(value))).map(Number).sort((a, b) => a - b);
+  if (!numeric.length) return 0;
+  const middle = Math.floor(numeric.length / 2);
+  return numeric.length % 2 ? numeric[middle] : (numeric[middle - 1] + numeric[middle]) / 2;
+}
+
+function ratio(numerator, denominator) {
+  return denominator ? numerator / denominator : 0;
 }
 
 async function ledgerSpend(file) {

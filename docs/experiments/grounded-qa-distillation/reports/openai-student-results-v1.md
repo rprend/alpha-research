@@ -224,6 +224,19 @@ This is a negative result. The local scaffold preserves citation formatting but 
 
 The generated job script uses TRL SFTTrainer, PEFT LoRA, and Trackio. It reads JSONL from a public gist because the local HF CLI token cannot create a Hugging Face dataset repo and the private GitHub raw files are not anonymously fetchable. The generated CPU validator passes against the public gist data base. Remote HF Jobs execution is blocked for now: the CLI token lacks `job.write`, and the MCP-authenticated account reports insufficient prepaid Jobs credits. This is not a quality result yet; it is the first launch-ready generative SFT path with the operational blockers isolated from the OpenAI budget.
 
+## Teacher-Label Rubric Scaffold
+
+`openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
+
+Same-slice comparison on temporal-test examples 133-172:
+
+| Policy | Answered | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate | Answer support | Overall judged correct | Student cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini student | 28 | 85.0% | 82.0% | 71.1% | 24.3% | 85.7% | 92.9% | 95.0% | $0.0082530 |
+| Teacher-label rubric scaffold | 17 | 67.5% | 86.3% | 39.0% | 13.7% | 100.0% | 100.0% | 100.0% | $0.0087960 |
+
+The rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

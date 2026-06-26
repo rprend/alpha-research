@@ -158,6 +158,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/hf-sft-prep-teacher-repair-0-132-qwen05b-v1/` is the first generative student training packet. It prepares 92 train rows and 17 validation rows from `teacher-repair-temporal-test-0-132-v1`, preserves 40 future temporal-test prompts for evaluation, and emits a TRL/PEFT/Trackio Hugging Face Jobs script for `Qwen/Qwen2.5-0.5B-Instruct` LoRA SFT. The generated job uses a public gist data base because the local HF CLI token cannot create datasets and the private GitHub raw files are not anonymously fetchable. The generated CPU validator passes against `https://gist.github.com/rprend/6b46b4b77d7f328cd4e6964884013abe`. Remote HF Jobs execution is blocked until the account has `job.write` plus prepaid Jobs credits. The estimated `t4-small` job bound is $0.5625 for a 45-minute timeout and makes no OpenAI calls.
 
+`runs/openai-student-teacher-rubric-temporal-test-132-172-v1/` is a runnable fallback while HF training is blocked. It distills the 109 strict teacher labels into a compact static rubric for the cheap `gpt-4o-mini` student. The rubric improves citation precision, inline citation rate, and judged support on examples 133-172, but it over-abstains and loses answer coverage versus direct mini prompting. It is a negative result for amortized quality, but a useful signal that teacher labels transfer citation discipline more easily than answer synthesis.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -172,7 +174,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $2.08910260 across 1577 OpenAI calls, leaving $97.91089740 under the $100 cap.
+Current ledgered spend is $2.10282280 across 1657 OpenAI calls, leaving $97.89717720 under the $100 cap.
 
 ## Evaluation Plan
 

@@ -39,6 +39,7 @@ if (!errors.length) {
   await validateTemporalSplitsIfPresent();
   await validateExportsIfPresent();
   await validateLlmBudgetIfPresent();
+  await validateOpenAiStudentRunsIfPresent();
   await validateJudgeRunsIfPresent();
   await validateMultistepTeacherRunsIfPresent();
   await validateTeacherLabelExportsIfPresent();
@@ -207,6 +208,70 @@ async function validateJudgeRunsIfPresent() {
       }
       if (!Number.isFinite(Number(row.cost_usd)) || Number(row.cost_usd) < 0) {
         errors.push(`${label}: invalid cost_usd.`);
+      }
+    }
+  }
+}
+
+async function validateOpenAiStudentRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("openai-student-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    let result;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed OpenAI student artifacts.`);
+      continue;
+    }
+
+    const callsMade = predictions.filter((row) => !row.skipped).length;
+    const callsSkipped = predictions.filter((row) => row.skipped).length;
+    const runCost = predictions.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+    if (result.examples_requested !== predictions.length) errors.push(`${entry.name}: examples_requested does not match predictions.`);
+    if (result.calls_made !== callsMade) errors.push(`${entry.name}: calls_made does not match predictions.`);
+    if (result.calls_skipped !== callsSkipped) errors.push(`${entry.name}: calls_skipped does not match predictions.`);
+    if (Number(result.ledger_spend_after_usd) + 1e-9 < Number(result.ledger_spend_before_usd)) {
+      errors.push(`${entry.name}: ledger spend decreased.`);
+    }
+    if (Math.abs((Number(result.ledger_spend_after_usd) - Number(result.ledger_spend_before_usd)) - runCost) > 1e-6 && !result.dry_run) {
+      errors.push(`${entry.name}: ledger delta does not match prediction costs.`);
+    }
+    const strictPredictionSchema = result.scaffold === "teacher-label-rubric";
+    if (strictPredictionSchema) {
+      if (!result.teacher_label_prefix || result.scaffold_summary?.mode !== "teacher-label-rubric") {
+        errors.push(`${entry.name}: teacher-label rubric scaffold missing summary.`);
+      }
+      if (!Number.isFinite(Number(result.scaffold_summary?.answer_rate))) {
+        errors.push(`${entry.name}: teacher-label rubric scaffold missing answer_rate.`);
+      }
+    }
+
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || row.model !== result.model) errors.push(`${label}: missing or inconsistent example/model.`);
+      if (row.skipped) continue;
+      if (!Number.isFinite(Number(row.cost_usd)) || Number(row.cost_usd) < 0) errors.push(`${label}: invalid cost_usd.`);
+      const answerType = row.prediction?.answer_type;
+      if (!answerType) errors.push(`${label}: missing prediction answer_type.`);
+      if (strictPredictionSchema && !["grounded_answer", "abstain", "parse_error"].includes(answerType)) {
+        errors.push(`${label}: invalid prediction answer_type.`);
+      }
+      if (strictPredictionSchema && answerType === "grounded_answer") {
+        for (const citation of row.prediction.citations ?? []) {
+          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
       }
     }
   }

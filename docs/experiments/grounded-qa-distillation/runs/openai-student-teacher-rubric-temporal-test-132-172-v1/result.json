@@ -1,0 +1,62 @@
+{
+  "run_id": "openai-student-teacher-rubric-temporal-test-132-172-v1",
+  "generated_at": "2026-06-26T05:30:49.968Z",
+  "split": "temporal_test",
+  "model": "gpt-4o-mini",
+  "persona": "student",
+  "examples_offset": 132,
+  "examples_requested": 40,
+  "demo_run_ids": [],
+  "demo_judge_run_ids": [],
+  "demo_limit": 0,
+  "demos_used": 0,
+  "scaffold": "teacher-label-rubric",
+  "teacher_label_prefix": "teacher-repair-temporal-test-0-132-v1",
+  "scaffold_summary": {
+    "mode": "teacher-label-rubric",
+    "source_label_prefix": "teacher-repair-temporal-test-0-132-v1",
+    "accepted_labels": 109,
+    "answered_labels": 48,
+    "abstention_labels": 61,
+    "answer_rate": 0.44036697247706424,
+    "median_citations_per_answer": 2,
+    "median_claims_per_answer": 2,
+    "median_answer_content_tokens": 37.5,
+    "median_evidence_pack_size": 4,
+    "abstention_reason_patterns": {
+      "missing_answer": 17,
+      "partial_or_indirect": 3,
+      "no_direct_metric_or_result": 12,
+      "other": 29
+    },
+    "policy": [
+      "Prefer abstention unless at least one evidence item directly answers the question.",
+      "Use one or two cited evidence ids for most answers; do not cite distractor or background-only evidence.",
+      "Every factual sentence must include its supporting evidence id inline.",
+      "The citations array must exactly list ids that appear inline in the answer.",
+      "Keep claim_table short: one row per factual sentence or atomic claim.",
+      "If the evidence only defines context, motivation, related work, or partial setup, abstain."
+    ]
+  },
+  "dry_run": false,
+  "calls_made": 40,
+  "calls_skipped": 0,
+  "estimated_cost_usd": 0.01818165,
+  "ledger_spend_before_usd": 2.0891025999999995,
+  "ledger_spend_after_usd": 2.0978985999999997,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_scored": 40,
+    "answer_type_accuracy": 0.675,
+    "citation_precision": 0.8627450980392157,
+    "citation_recall": 0.3898809523809524,
+    "answer_token_f1": 0.1371750798063556,
+    "abstention_accuracy": 0.675,
+    "inline_citation_rate": 1
+  }
+}
