@@ -216,9 +216,14 @@ const hardGroundedLicenseRemediationSource = readFileSync(join(root, 'scripts/ha
 for (const token of ['license-remediation-plan.json', 'replace_blocked_sources_with_known_license_sources', 'pointer_only_public_package_until_source_replacement']) {
   assert(hardGroundedLicenseRemediationSource.includes(token), `Hard grounded license remediation plan is missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-remediated-expansion-candidates.mjs')), 'Missing hard grounded research remediated expansion candidates builder.')
+const hardGroundedRemediatedExpansionSource = readFileSync(join(root, 'scripts/hard-grounded-research-remediated-expansion-candidates.mjs'), 'utf8')
+for (const token of ['license-remediated-expansion-candidates.json', 'license_remediated_candidate', 'known_license_sources_only']) {
+  assert(hardGroundedRemediatedExpansionSource.includes(token), `Hard grounded remediated expansion candidates builder is missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'license-review.json', 'license-impact.json', 'license-remediation-plan.json', 'public-package-manifest.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'license-review.json', 'license-impact.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')

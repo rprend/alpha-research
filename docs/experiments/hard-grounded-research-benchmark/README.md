@@ -46,6 +46,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `LICENSE_REVIEW.md` and `generated/license-review.json`: generated upstream dataset license/provenance review and redistribution blocker list.
 - `LICENSE_IMPACT.md` and `generated/license-impact.json`: generated impact queue for expansion candidates that depend on unknown-license upstream sources.
 - `LICENSE_REMEDIATION_PLAN.md` and `generated/license-remediation-plan.json`: generated replacement-vs-pointer-only plan for unknown-license expansion candidates.
+- `LICENSE_REMEDIATED_EXPANSION_CANDIDATES.md` and `generated/license-remediated-expansion-candidates.json`: generated known-license replacement candidate suite for remediation-plan categories with a replacement path.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.

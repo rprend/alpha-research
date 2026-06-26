@@ -17,6 +17,7 @@
     "license_review": "generated/license-review.json",
     "license_impact": "generated/license-impact.json",
     "license_remediation_plan": "generated/license-remediation-plan.json",
+    "license_remediated_expansion_candidates": "generated/license-remediated-expansion-candidates.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json"
   },
@@ -76,6 +77,12 @@
       "passed": true,
       "detail": "54 replacement-path candidates; 81 pointer-only candidates",
       "blocker": "Generate a category-level remediation plan for unknown-license scaled candidates."
+    },
+    {
+      "id": "license_remediated_expansion_candidates_present",
+      "passed": true,
+      "detail": "54/54 replacement-path candidates materialized",
+      "blocker": "Generate known-license replacement candidates for every remediation-plan category with a replacement path."
     },
     {
       "id": "public_package_manifest_present",

@@ -23,6 +23,7 @@ const inputs = {
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseImpact: join(generatedDir, 'license-impact.json'),
   licenseRemediationPlan: join(generatedDir, 'license-remediation-plan.json'),
+  licenseRemediatedExpansionCandidates: join(generatedDir, 'license-remediated-expansion-candidates.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
 }
@@ -82,6 +83,7 @@ function buildGate({
   licenseReview,
   licenseImpact,
   licenseRemediationPlan,
+  licenseRemediatedExpansionCandidates,
   packageManifest,
   publicPackageSummary,
 }) {
@@ -146,6 +148,12 @@ function buildGate({
       blocker: 'Generate a category-level remediation plan for unknown-license scaled candidates.',
     },
     {
+      id: 'license_remediated_expansion_candidates_present',
+      passed: licenseRemediatedExpansionCandidates.remediated_candidate_count === licenseRemediationPlan.replace_candidate_count,
+      detail: `${licenseRemediatedExpansionCandidates.remediated_candidate_count}/${licenseRemediationPlan.replace_candidate_count} replacement-path candidates materialized`,
+      blocker: 'Generate known-license replacement candidates for every remediation-plan category with a replacement path.',
+    },
+    {
       id: 'public_package_manifest_present',
       passed: Boolean(packageManifest.public_package_policy),
       detail: `${packageManifest.pointer_only_items} pointer-only items; ${packageManifest.pointer_only_evidence_units} pointer-only evidence units`,
@@ -198,6 +206,7 @@ function buildGate({
       license_review: 'generated/license-review.json',
       license_impact: 'generated/license-impact.json',
       license_remediation_plan: 'generated/license-remediation-plan.json',
+      license_remediated_expansion_candidates: 'generated/license-remediated-expansion-candidates.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
     },
@@ -261,6 +270,7 @@ const gate = buildGate({
   licenseReview: readJson(inputs.licenseReview),
   licenseImpact: readJson(inputs.licenseImpact),
   licenseRemediationPlan: readJson(inputs.licenseRemediationPlan),
+  licenseRemediatedExpansionCandidates: readJson(inputs.licenseRemediatedExpansionCandidates),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageSummary: readJson(inputs.publicPackageSummary),
 })

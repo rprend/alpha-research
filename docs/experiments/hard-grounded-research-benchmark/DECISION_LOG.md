@@ -415,3 +415,11 @@ Decision: Generate a category-level replacement-versus-pointer-only plan for unk
 Rationale: Knowing which candidates are impacted is not sufficient to unblock a paper release. The benchmark needs an executable remediation policy that distinguishes categories with known-license replacement datasets from categories that must remain pointer-only until a replacement source is added.
 
 Consequence: `scripts/hard-grounded-research-license-remediation-plan.mjs` now emits `generated/license-remediation-plan.json` and `LICENSE_REMEDIATION_PLAN.md`; the release gate now records that the remediation plan exists.
+
+## 2026-06-26 — Materialize known-license replacement candidates
+
+Decision: Generate a separate license-remediated expansion candidate suite for remediation-plan categories with known-license replacement sources.
+
+Rationale: A remediation plan is not enough for a paper-ready benchmark if reviewers cannot inspect the replacement items. Materializing replacement-path candidates creates a concrete review target while preserving the original raw expansion candidates and keeping pointer-only categories explicit.
+
+Consequence: `scripts/hard-grounded-research-remediated-expansion-candidates.mjs` now emits `generated/license-remediated-expansion-candidates.json` and `LICENSE_REMEDIATED_EXPANSION_CANDIDATES.md`; the release gate records whether every replacement-path candidate has been materialized.
