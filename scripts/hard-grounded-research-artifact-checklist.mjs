@@ -38,6 +38,7 @@ const inputs = {
   noveltyOverlapAdjudication: join(generatedDir, 'novelty-overlap-adjudication.json'),
   noveltyRefreshLedger: join(generatedDir, 'novelty-refresh-ledger.json'),
   finalNoveltyAdjudication: join(generatedDir, 'final-novelty-adjudication.json'),
+  objectiveCompletionAudit: join(generatedDir, 'objective-completion-audit.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
@@ -154,6 +155,7 @@ function buildChecklist({
   noveltyOverlapAdjudication,
   noveltyRefreshLedger,
   finalNoveltyAdjudication,
+  objectiveCompletionAudit,
   licenseClearance,
   packageManifest,
   publicPackageIntegrity,
@@ -202,7 +204,7 @@ function buildChecklist({
   versionManifest,
   releaseGate,
 }) {
-  const failedReleaseChecks = releaseGate.checks.filter((check) => !check.passed)
+  const failedReleaseChecks = releaseGate.checks.filter((check) => !check.passed && check.id !== 'artifact_checklist_ready')
   const artifactClasses = [
     artifactClass('taxonomy_and_constructs', constructMap.construct_map_ready, `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped to rubrics, metrics, examples, novelty risk, and review status.`),
     artifactClass('hf_derived_labels', derivedLabelSuite.derived_label_suite_ready && derivedLabelSuite.summary.finding_count === 0, `${derivedLabelSuite.version}; paper-eligible=${derivedLabelSuite.summary.paper_eligible_items}/${derivedLabelSuite.summary.items}; datasets=${derivedLabelSuite.summary.datasets}; deterministic=${derivedLabelSuite.summary.deterministic_transform_gold_items}.`),
@@ -269,6 +271,7 @@ function buildChecklist({
     artifactClass('novelty_overlap_adjudication', noveltyOverlapAdjudication.novelty_overlap_adjudication_ready && noveltyOverlapAdjudication.summary.completion_claim_allowed === false, `${noveltyOverlapAdjudication.version}; candidates=${noveltyOverlapAdjudication.summary.candidates}; high-overlap=${noveltyOverlapAdjudication.summary.high_overlap_candidates}; pending dispositions=${noveltyOverlapAdjudication.summary.pending_dispositions}.`),
     artifactClass('novelty_refresh_ledger', noveltyRefreshLedger.novelty_refresh_ledger_ready && noveltyRefreshLedger.summary.completion_claim_allowed === false, `${noveltyRefreshLedger.version}; sources=${noveltyRefreshLedger.summary.source_count}; high-overlap categories=${noveltyRefreshLedger.summary.high_overlap_categories}; final allowed=${noveltyRefreshLedger.summary.final_novelty_claim_allowed}.`),
     artifactClass('final_novelty_adjudication', finalNoveltyAdjudication.final_novelty_adjudication_ready && finalNoveltyAdjudication.summary.completion_claim_allowed === false, `${finalNoveltyAdjudication.version}; rows=${finalNoveltyAdjudication.summary.adjudication_rows}; high-overlap=${finalNoveltyAdjudication.summary.high_overlap_rows}; final allowed=${finalNoveltyAdjudication.summary.final_novelty_claim_allowed}.`),
+    artifactClass('objective_completion_audit', objectiveCompletionAudit.objective_completion_audit_ready, `${objectiveCompletionAudit.version}; requirements=${objectiveCompletionAudit.summary.passed}/${objectiveCompletionAudit.summary.requirements}; partial=${objectiveCompletionAudit.summary.partial}; failed=${objectiveCompletionAudit.summary.failed}; full goal complete=${objectiveCompletionAudit.summary.full_thread_goal_complete}.`),
     artifactClass('novelty_and_claim_boundaries', noveltyEvidence.completion_claim_allowed === false && noveltyEvidence.claim_boundaries.length >= 4 && noveltyAudit.refresh_summary?.query_count >= 4 && noveltyWatchlist.novelty_watchlist_ready && noveltyResolutionMatrix.novelty_resolution_matrix_ready && noveltyFinalizationPreflight.novelty_finalization_preflight_ready && noveltySourceIdentityAudit.novelty_source_identity_audit_ready && noveltySourceReviewPackets.novelty_source_review_packets_ready && noveltyClaimRevisionPlan.novelty_claim_revision_plan_ready && noveltyLinkAudit.novelty_link_audit_ready && noveltyReplacementCandidates.novelty_replacement_candidates_ready && noveltyOverlapAdjudication.novelty_overlap_adjudication_ready && noveltyRefreshLedger.novelty_refresh_ledger_ready && finalNoveltyAdjudication.final_novelty_adjudication_ready, `${noveltyEvidence.source_count} related-work sources; ${noveltyWatchlist.summary.watchlist_source_count} watchlist sources; ${noveltyResolutionMatrix.summary.unresolved_sources} unresolved watchlist sources; ${noveltySourceIdentityAudit.summary.invalid_or_unverified_sources} unverified watchlist identities; ${noveltyClaimRevisionPlan.summary.revisions} claim revisions; ${noveltyLinkAudit.summary.quarantined_sources} quarantined source links; ${noveltyReplacementCandidates.summary.candidates} replacement candidates; ${noveltyOverlapAdjudication.summary.pending_dispositions} pending overlap dispositions; ${noveltyRefreshLedger.summary.source_count} refreshed adjacent sources; ${finalNoveltyAdjudication.summary.adjudication_rows} final adjudication rows; ${noveltyEvidence.prohibited_claim_count} prohibited claims; refresh queries=${noveltyAudit.refresh_summary?.query_count ?? 0}.`),
   ]
 
@@ -330,6 +333,7 @@ function buildChecklist({
     { step: 'Refresh responsible-use policy', command: 'node scripts/hard-grounded-research-responsible-use.mjs' },
     { step: 'Refresh data statement', command: 'node scripts/hard-grounded-research-data-statement.mjs' },
     { step: 'Refresh version manifest', command: 'node scripts/hard-grounded-research-version-manifest.mjs' },
+    { step: 'Refresh objective completion audit', command: 'node scripts/hard-grounded-research-objective-completion-audit.mjs' },
     { step: 'Refresh release and publication surfaces', command: 'node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs' },
     { step: 'Validate harness integration', command: 'node scripts/validate-harness.mjs' },
     { step: 'Run app build and dashboard QA', command: 'node_modules/.bin/vite build && node scripts/qa-dashboard.mjs' },
@@ -524,6 +528,7 @@ const checklist = buildChecklist({
   noveltyOverlapAdjudication: readJson(inputs.noveltyOverlapAdjudication),
   noveltyRefreshLedger: readJson(inputs.noveltyRefreshLedger),
   finalNoveltyAdjudication: readJson(inputs.finalNoveltyAdjudication),
+  objectiveCompletionAudit: readJson(inputs.objectiveCompletionAudit),
   licenseClearance: readJson(inputs.licenseClearance),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),

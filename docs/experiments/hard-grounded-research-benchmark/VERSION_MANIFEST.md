@@ -7,8 +7,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version manifest ready: true
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
-- Artifacts hashed: 101
-- Total bytes: 3227226
+- Artifacts hashed: 103
+- Total bytes: 3235705
 - Release checks: 103/103
 - Release blockers: 0
 - Completion claim allowed: false
@@ -27,7 +27,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
 | README.md | 20344 | 6e31916418476d61 |
-| DATASET_CARD.md | 31580 | 40e146ba734223f3 |
+| DATASET_CARD.md | 31591 | 67976b9e89deb913 |
 | DATA_STATEMENT.md | 3403 | e6957f46babf6096 |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
@@ -70,9 +70,10 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | NOVELTY_OVERLAP_ADJUDICATION.md | 4131 | ae45e5a0aa8015de |
 | NOVELTY_REFRESH_LEDGER.md | 7998 | 4ed316058f65ef29 |
 | FINAL_NOVELTY_ADJUDICATION.md | 6440 | ad5c6039921aa6fb |
+| OBJECTIVE_COMPLETION_AUDIT.md | 2973 | 74ff3728af84763f |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 96369 | 2aec0e7de3ef3042 |
+| PAPER_DRAFT.md | 96520 | aa4cab709df64f09 |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -124,6 +125,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/novelty-overlap-adjudication.json | 8187 | 6373acaba8205083 |
 | generated/novelty-refresh-ledger.json | 11598 | 8d8a690a9d608576 |
 | generated/final-novelty-adjudication.json | 13021 | df09cb23b2231c1c |
+| generated/objective-completion-audit.json | 5344 | c61eafe98614a5d7 |
 | generated/paper-claim-ledger.json | 5818 | 85745b3d5a927620 |
 
 ## Active Release Blockers

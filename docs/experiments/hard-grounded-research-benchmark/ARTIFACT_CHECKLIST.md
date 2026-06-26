@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 66/66
-- Reproduction commands: 61
+- Artifact classes ready: 67/67
+- Reproduction commands: 62
 - Release blockers: 0
 - Paper readiness status: paper_ready
 - Completion claim allowed: true
@@ -74,7 +74,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=101; bytes=3227226. |
+| version_manifest | ready | version-manifest-v1; artifacts=103; bytes=3235705. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=true. |
 | novelty_source_identity_audit | ready | novelty-source-identity-audit-v1; verified=0/4; invalid=4. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
@@ -84,6 +84,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | novelty_overlap_adjudication | ready | novelty-overlap-adjudication-v1; candidates=7; high-overlap=3; pending dispositions=7. |
 | novelty_refresh_ledger | ready | novelty-refresh-ledger-v1; sources=11; high-overlap categories=9; final allowed=false. |
 | final_novelty_adjudication | ready | final-novelty-adjudication-v1; rows=18; high-overlap=9; final allowed=false. |
+| objective_completion_audit | ready | objective-completion-audit-v1; requirements=9/10; partial=1; failed=0; full goal complete=false. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 unverified watchlist identities; 4 claim revisions; 4 quarantined source links; 7 replacement candidates; 7 pending overlap dispositions; 11 refreshed adjacent sources; 18 final adjudication rows; 5 prohibited claims; refresh queries=4. |
 
 ## Reproduction Commands
@@ -147,6 +148,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh responsible-use policy | `node scripts/hard-grounded-research-responsible-use.mjs` |
 | Refresh data statement | `node scripts/hard-grounded-research-data-statement.mjs` |
 | Refresh version manifest | `node scripts/hard-grounded-research-version-manifest.mjs` |
+| Refresh objective completion audit | `node scripts/hard-grounded-research-objective-completion-audit.mjs` |
 | Refresh release and publication surfaces | `node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs` |
 | Validate harness integration | `node scripts/validate-harness.mjs` |
 | Run app build and dashboard QA | `node_modules/.bin/vite build && node scripts/qa-dashboard.mjs` |

@@ -709,13 +709,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "66/66 artifact classes ready; reproduction_commands=61; release_blockers=1",
+      "detail": "67/67 artifact classes ready; reproduction_commands=62; release_blockers=0",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=101; blockers=1; bytes=3227226",
+      "detail": "version-manifest-v1; artifacts=103; blockers=0; bytes=3235705",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

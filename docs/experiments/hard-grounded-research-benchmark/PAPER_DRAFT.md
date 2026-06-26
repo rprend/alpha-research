@@ -393,9 +393,9 @@ The paper target is 30 HF-derived paper-eligible items per category (300 total).
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 61 reproduction commands and 66/66 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 62 reproduction commands and 67/67 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `release_ready`.
 
-The generated version manifest records SHA-256 digests for 101 package-critical artifacts totaling 3227226 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 103 package-critical artifacts totaling 3235705 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
 The generated reproduction capsule `reproduction-capsule-v1` records 60 reproduction commands, 3 validation commands, 97 artifact hashes, and 1 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
@@ -504,7 +504,7 @@ The generated control ablation plan `control-ablation-plan-v1` defines negative 
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=101; bytes=3228348. |
+| version_manifest | ready | version-manifest-v1; artifacts=103; bytes=3235725. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=true. |
 | novelty_source_identity_audit | ready | novelty-source-identity-audit-v1; verified=0/4; invalid=4. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
@@ -514,6 +514,7 @@ The generated control ablation plan `control-ablation-plan-v1` defines negative 
 | novelty_overlap_adjudication | ready | novelty-overlap-adjudication-v1; candidates=7; high-overlap=3; pending dispositions=7. |
 | novelty_refresh_ledger | ready | novelty-refresh-ledger-v1; sources=11; high-overlap categories=9; final allowed=false. |
 | final_novelty_adjudication | ready | final-novelty-adjudication-v1; rows=18; high-overlap=9; final allowed=false. |
+| objective_completion_audit | ready | objective-completion-audit-v1; requirements=9/10; partial=1; failed=0; full goal complete=false. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 unverified watchlist identities; 4 claim revisions; 4 quarantined source links; 7 replacement candidates; 7 pending overlap dispositions; 11 refreshed adjacent sources; 18 final adjudication rows; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
@@ -578,8 +579,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 - Unknown-license replacement candidates: 54
 - Unknown-license pointer-only candidates: 81
 - Pointer-only package items: 15
-- Release gate status: blocked
-- Release blockers: 1
+- Release gate status: release_ready
+- Release blockers: 0
 
 ## Release Gate Snapshot
 
@@ -685,8 +686,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |
-| artifact_checklist_ready | no | 66/66 artifact classes ready; reproduction_commands=61; release_blockers=0 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=101; blockers=0; bytes=3228348 |
+| artifact_checklist_ready | yes | 67/67 artifact classes ready; reproduction_commands=62; release_blockers=0 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=103; blockers=0; bytes=3235725 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

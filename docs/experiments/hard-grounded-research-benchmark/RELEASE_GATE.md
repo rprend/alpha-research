@@ -113,8 +113,8 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | source_lineage_ledger_ready | yes | source-lineage-ledger-v1; rows=276; datasets=6/6; source_rows=261 |  |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |  |
 | difficulty_mechanism_ledger_ready | yes | difficulty-mechanism-ledger-v1; mechanisms=20; failure_cases=116; reviewed_deficit=300; blocked_claim_categories=10 |  |
-| artifact_checklist_ready | yes | 66/66 artifact classes ready; reproduction_commands=61; release_blockers=1 |  |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=101; blockers=1; bytes=3227226 |  |
+| artifact_checklist_ready | yes | 67/67 artifact classes ready; reproduction_commands=62; release_blockers=0 |  |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=103; blockers=0; bytes=3235705 |  |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |  |
 
 ## Current Blockers

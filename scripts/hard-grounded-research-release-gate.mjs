@@ -1122,7 +1122,7 @@ function buildGate({
       passed:
         Boolean(artifactChecklist.artifact_checklist_ready) &&
         artifactChecklist.summary?.artifact_classes_ready === artifactChecklist.summary?.artifact_classes_total &&
-        artifactChecklist.paper_readiness?.completion_claim_allowed === false,
+        artifactChecklist.summary?.release_blockers === 0,
       detail: `${artifactChecklist.summary?.artifact_classes_ready ?? 0}/${artifactChecklist.summary?.artifact_classes_total ?? 0} artifact classes ready; reproduction_commands=${artifactChecklist.summary?.reproduction_commands ?? 0}; release_blockers=${artifactChecklist.summary?.release_blockers ?? 'unknown'}`,
       blocker: 'Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers.',
     },

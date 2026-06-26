@@ -80,9 +80,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 66,
-    "artifact_classes_total": 66,
-    "reproduction_commands": 61,
+    "artifact_classes_ready": 67,
+    "artifact_classes_total": 67,
+    "reproduction_commands": 62,
     "release_blockers": 0
   },
   "artifact_classes": [
@@ -475,7 +475,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=101; bytes=3227226.",
+      "evidence": "version-manifest-v1; artifacts=103; bytes=3235705.",
       "blockers": []
     },
     {
@@ -539,6 +539,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "final-novelty-adjudication-v1; rows=18; high-overlap=9; final allowed=false.",
+      "blockers": []
+    },
+    {
+      "id": "objective_completion_audit",
+      "status": "ready",
+      "ready": true,
+      "evidence": "objective-completion-audit-v1; requirements=9/10; partial=1; failed=0; full goal complete=false.",
       "blockers": []
     },
     {
@@ -777,6 +784,10 @@
     {
       "step": "Refresh version manifest",
       "command": "node scripts/hard-grounded-research-version-manifest.mjs"
+    },
+    {
+      "step": "Refresh objective completion audit",
+      "command": "node scripts/hard-grounded-research-objective-completion-audit.mjs"
     },
     {
       "step": "Refresh release and publication surfaces",

@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Add an objective-level completion audit
+
+Decision: Add a generated objective-completion audit that maps the original benchmark request to concrete repository evidence and separates release readiness from remaining paper-worthiness gaps.
+
+Rationale: The release gate is now green for the bounded HF-derived benchmark package, but the original request includes broader requirements: all ten hard-grounded categories, Hugging Face grounding, reproducibility, paper-worthy novelty, and working validation. A Stanford-level completion claim needs a requirement-by-requirement audit rather than a single release flag.
+
+Consequence: The benchmark will gain `OBJECTIVE_COMPLETION_AUDIT.md` and a generated JSON audit. Completion remains a bounded claim: the benchmark package is release-ready, while full paper completion is limited by repository-level pnpm build approval and any stale generated Markdown surfaces the audit identifies.
+
 ## 2026-06-26 — Promote only bounded novelty to final
 
 Decision: Replace the preliminary novelty-audit status with a final bounded novelty audit that allows only the unified HF-derived hard-grounded research-QA suite claim and keeps broad first-benchmark claims prohibited.
