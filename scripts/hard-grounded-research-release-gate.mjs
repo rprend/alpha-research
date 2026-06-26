@@ -31,6 +31,7 @@ const inputs = {
   expansionReviewMergeReport: join(generatedDir, 'expansion-review-merge-report.json'),
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   scalePlan: join(generatedDir, 'scale-plan.json'),
+  powerPlan: join(generatedDir, 'power-plan.json'),
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
@@ -105,6 +106,7 @@ function buildGate({
   expansionReviewMergeReport,
   reviewMergeReport,
   scalePlan,
+  powerPlan,
   itemQualityAudit,
   baselineAnalysis,
   baselineUncertainty,
@@ -253,6 +255,15 @@ function buildGate({
       blocker: 'Scale each category to the target reviewed item count before paper release.',
     },
     {
+      id: 'power_plan_ready',
+      passed:
+        Boolean(powerPlan.power_plan_ready) &&
+        powerPlan.assumptions?.target_reviewed_items_per_category === scalePlan.target_reviewed_items_per_category &&
+        powerPlan.assumptions?.target_reviewed_items_total === scalePlan.total_target_reviewed_items,
+      detail: `${powerPlan.assumptions?.target_reviewed_items_per_category ?? 'unknown'} reviewed items/category; ${powerPlan.assumptions?.target_reviewed_items_total ?? 'unknown'} total target; remaining=${powerPlan.current_state?.reviewed_items_remaining ?? 'unknown'}`,
+      blocker: 'Generate a statistical scale and sensitivity plan for paper-size category claims.',
+    },
+    {
       id: 'unknown_license_resolved',
       passed: licenseBlockers.length === 0 || Boolean(licenseClearance.public_redistribution_clearance_ready),
       detail: licenseBlockers.length
@@ -383,6 +394,7 @@ function buildGate({
       expansion_review_merge_report: 'generated/expansion-review-merge-report.json',
       review_merge_report: 'generated/review-merge-report.json',
       scale_plan: 'generated/scale-plan.json',
+      power_plan: 'generated/power-plan.json',
       item_quality_audit: 'generated/item-quality-audit.json',
       baseline_analysis: 'generated/baseline-analysis.json',
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
@@ -461,6 +473,7 @@ const gate = buildGate({
   expansionReviewMergeReport: readJson(inputs.expansionReviewMergeReport),
   reviewMergeReport: readJson(inputs.reviewMergeReport),
   scalePlan: readJson(inputs.scalePlan),
+  powerPlan: readJson(inputs.powerPlan),
   itemQualityAudit: readJson(inputs.itemQualityAudit),
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   baselineUncertainty: readJson(inputs.baselineUncertainty),

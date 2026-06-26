@@ -655,3 +655,11 @@ Decision: Put packet-level return requirements, expected row counts, required re
 Rationale: Human review is the main paper-readiness blocker, and file-level exports alone do not tell reviewers or operators how to know a returned packet is complete before import. A return-readiness checklist makes the review loop auditable without pretending that labels have already been collected.
 
 Consequence: `scripts/hard-grounded-research-annotation-export.mjs` now emits return-checklist metadata; `scripts/hard-grounded-research-reviewer-handoff.mjs` surfaces it in the reviewer packet; the release gate and harness validate that return readiness is available while gold and review-completion blockers remain active.
+
+## 2026-06-26 — Justify category scale with a statistical sensitivity plan
+
+Decision: Generate a scale and power plan that connects the 30-items-per-category target to descriptive confidence intervals, detectable paired deltas, and current review deficits.
+
+Rationale: A benchmark paper needs a defensible sample-size argument, not only a target item count. The plan should make clear what the current 30-item pilot can and cannot support, why 300 reviewed items is the minimum paper target, and how much uncertainty remains until human review completes.
+
+Consequence: `scripts/hard-grounded-research-power-plan.mjs` now emits `generated/power-plan.json` and `POWER_PLAN.md`; release, dataset-card, paper, and harness artifacts record the power-plan evidence while keeping category-scale and gold-review blockers active.

@@ -29,6 +29,7 @@ const requiredInputs = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
+  powerPlan: join(generatedDir, 'power-plan.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   reviewMergeReport: join(generatedDir, 'review-merge-report.json'),
   itemQualityAudit: join(generatedDir, 'item-quality-audit.json'),
@@ -112,6 +113,16 @@ function uncertaintyRows(baselineUncertainty) {
   )
 }
 
+function powerScenarioRows(powerPlan) {
+  return powerPlan.sample_size_scenarios.map((scenario) => [
+    scenario.scope,
+    String(scenario.planning_n),
+    String(scenario.ci95_half_width_worst_case),
+    String(scenario.conservative_detectable_paired_delta_80_power),
+    scenario.interpretation,
+  ])
+}
+
 function noveltyEvidenceRows(noveltyEvidence) {
   return noveltyEvidence.claim_guidance.map((claim) => [claim.claim, claim.status, claim.reason])
 }
@@ -164,7 +175,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, corpusAudit, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -243,6 +254,12 @@ ${markdownTable(
 ${markdownTable(['System', 'Metric', 'Mean', '95% CI'], uncertaintyRows(baselineUncertainty))}
 
 These intervals are descriptive task-level estimates over the current 30-item pilot, not final submission power estimates.
+
+## Scale And Power Plan
+
+The paper target is ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total). The current pilot remains diagnostic because it has ${powerPlan.current_state.current_pilot_items} pilot items and ${powerPlan.current_state.current_valid_reviewed_items} valid reviewed items. The generated plan uses conservative normal-approximation intervals for bounded task metrics and keeps category-scale claims blocked until review completes.
+
+${markdownTable(['Scope', 'Planning n', 'Worst-case 95% half-width', 'Detectable delta', 'Interpretation'], powerScenarioRows(powerPlan))}
 
 ## External Model Baselines
 
@@ -323,6 +340,7 @@ const draft = renderDraft({
   baselineAnalysis: readJson(requiredInputs.baselineAnalysis),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),
+  powerPlan: readJson(requiredInputs.powerPlan),
   noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   goldSummary: readJson(requiredInputs.goldSummary),
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),

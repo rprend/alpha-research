@@ -33,6 +33,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | expansion_review_merge_ready | no | 0/270 expansion merge-ready items | Resolve expansion reviewer disagreement before using scaled candidates for paper claims. |
 | review_merge_ready | no | 0/30 merge-ready items | Fill reviewer workbooks until strict review merge succeeds. |
 | category_scale_ready | no | 0/300 valid reviewed target items; 300 reviewed items still needed | Scale each category to the target reviewed item count before paper release. |
+| power_plan_ready | yes | 30 reviewed items/category; 300 total target; remaining=300 |  |
 | unknown_license_resolved | yes | tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true |  |
 | license_impact_clear | yes | 135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true |  |
 | license_remediation_plan_present | yes | 54 replacement-path candidates; 81 pointer-only candidates |  |

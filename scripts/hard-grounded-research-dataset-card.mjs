@@ -16,6 +16,7 @@ const inputPaths = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
+  powerPlan: join(generatedDir, 'power-plan.json'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
@@ -117,6 +118,7 @@ function renderCard({
   baselineAnalysis,
   modelRunIndex,
   corpusAudit,
+  powerPlan,
   licenseReview,
   licenseClearance,
   packageManifest,
@@ -146,6 +148,8 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source Hugging Face datasets: ${spec.datasets.length}
 - Scaled public source rows: ${corpusAudit.summary.scaled_public_source_rows}
 - Scaled public evidence units: ${corpusAudit.summary.scaled_public_evidence_units}
+- Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
+- Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Gold ready: ${goldSummary.gold_ready}
 - Valid reviewed items: ${goldSummary.valid_reviewed_items}/${goldSummary.total_items}
 - Release gate status: ${releaseGate.status}
@@ -206,6 +210,10 @@ ${markdownTable(['Challenge type', 'Pilot items'], challengeRows(pilotSuite))}
 
 The evaluator reports answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality. Challenge-type diagnostics are present for ${baselineAnalysis.systems.length} scored baseline systems in \`generated/baseline-analysis.json\`.
 
+## Statistical Scale Plan
+
+The current pilot supports diagnostic analysis only. The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
+
 ## External Model Baselines
 
 ${markdownTable(['System', 'Evaluation source', 'Tasks', 'Macro answer correct', 'Report present'], modelRows(modelRunIndex))}
@@ -237,6 +245,7 @@ Key release checks:
 - Adjudication readiness: ${checkDetail(releaseGate, 'adjudication_readiness_ready')}
 - Annotator agreement: ${checkDetail(releaseGate, 'annotator_agreement_ready')}
 - Corpus audit: ${checkDetail(releaseGate, 'corpus_audit_ready')}
+- Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
 - Annotation return readiness: ${checkDetail(releaseGate, 'annotation_return_readiness_ready')}
@@ -265,6 +274,7 @@ writeText(
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     corpusAudit: readJson(inputPaths.corpusAudit),
+    powerPlan: readJson(inputPaths.powerPlan),
     licenseReview: readJson(inputPaths.licenseReview),
     licenseClearance: readJson(inputPaths.licenseClearance),
     packageManifest: readJson(inputPaths.packageManifest),

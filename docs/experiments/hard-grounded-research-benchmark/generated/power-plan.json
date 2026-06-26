@@ -1,0 +1,209 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "power_plan_ready": true,
+  "generated_from": {
+    "scale_plan": "generated/scale-plan.json",
+    "baseline_uncertainty": "generated/baseline-uncertainty.json",
+    "review_progress": "generated/review-progress.json",
+    "corpus_audit": "generated/corpus-audit.json",
+    "gold_summary": "generated/gold-suite-summary.json"
+  },
+  "method": "Normal-approximation planning intervals for bounded task metrics. Detectable deltas are conservative independent-binomial approximations for two-sided alpha=0.05 and 80% power; paired model comparisons may be tighter once reviewed labels exist.",
+  "assumptions": {
+    "alpha": 0.05,
+    "power": 0.8,
+    "worst_case_metric_rate": 0.5,
+    "independent_reviews_per_item": 2,
+    "target_reviewed_items_per_category": 30,
+    "target_reviewed_items_total": 300
+  },
+  "current_state": {
+    "current_pilot_items": 30,
+    "current_valid_reviewed_items": 0,
+    "pilot_complete_review_rows": 0,
+    "expansion_complete_review_rows": 0,
+    "scaled_public_items": 270,
+    "reviewed_items_remaining": 300,
+    "category_scale_ready": false
+  },
+  "sample_size_scenarios": [
+    {
+      "scope": "current_pilot_overall",
+      "reviewed_items": 0,
+      "available_pilot_items": 30,
+      "planning_n": 30,
+      "ci95_half_width_worst_case": 0.1789,
+      "conservative_detectable_delta_80_power": 0.3615,
+      "interpretation": "Descriptive pilot diagnostics only; not enough for category-level paper claims."
+    },
+    {
+      "scope": "current_pilot_per_category",
+      "reviewed_items": 0,
+      "available_pilot_items": 3,
+      "planning_n": 3,
+      "ci95_half_width_worst_case": 0.5658,
+      "conservative_detectable_delta_80_power": 1.1431,
+      "interpretation": "Too wide for category-level claims; each category currently has only pilot seeds."
+    },
+    {
+      "scope": "paper_target_per_category",
+      "reviewed_items": 30,
+      "available_pilot_items": 30,
+      "planning_n": 30,
+      "ci95_half_width_worst_case": 0.1789,
+      "conservative_detectable_delta_80_power": 0.3615,
+      "interpretation": "Minimum category-level descriptive target; still reports uncertainty, not a fine-grained leaderboard."
+    },
+    {
+      "scope": "paper_target_overall",
+      "reviewed_items": 300,
+      "available_pilot_items": 300,
+      "planning_n": 300,
+      "ci95_half_width_worst_case": 0.0566,
+      "conservative_detectable_delta_80_power": 0.1143,
+      "interpretation": "Overall benchmark-level estimates become substantially tighter after all categories are reviewed."
+    }
+  ],
+  "metric_ranges_from_current_pilot": [
+    {
+      "metric": "answer_correct",
+      "min_mean": 0.1667,
+      "max_mean": 1,
+      "max_current_ci_half_width": 0.1783,
+      "systems": 5
+    },
+    {
+      "metric": "evidence_recall",
+      "min_mean": 0.2902,
+      "max_mean": 1,
+      "max_current_ci_half_width": 0.1331,
+      "systems": 5
+    },
+    {
+      "metric": "citation_precision",
+      "min_mean": 0.4333,
+      "max_mean": 1,
+      "max_current_ci_half_width": 0.1804,
+      "systems": 5
+    },
+    {
+      "metric": "citation_faithfulness",
+      "min_mean": 0.4,
+      "max_mean": 1,
+      "max_current_ci_half_width": 0.172,
+      "systems": 5
+    },
+    {
+      "metric": "conclusion_support",
+      "min_mean": 0.3,
+      "max_mean": 0.9,
+      "max_current_ci_half_width": 0.16,
+      "systems": 5
+    },
+    {
+      "metric": "abstention_quality",
+      "min_mean": 0.4333,
+      "max_mean": 1,
+      "max_current_ci_half_width": 0.1804,
+      "systems": 5
+    }
+  ],
+  "category_targets": [
+    {
+      "category": "multi-hop synthesis",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "table + text reasoning",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "source authority conflicts",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "entity disambiguation",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    },
+    {
+      "category": "cross-document contradiction",
+      "target_reviewed_items": 30,
+      "current_valid_reviewed_items": 0,
+      "reviewed_gap": 30,
+      "ci95_half_width_at_target": 0.1789,
+      "conservative_detectable_delta_at_target": 0.3615,
+      "scale_ready": false
+    }
+  ],
+  "paper_claim_guidance": [
+    "Use current 30-item pilot only for diagnostic examples, scorer checks, and baseline smoke comparisons.",
+    "Require 30 double-reviewed items per category before reporting category-level benchmark results.",
+    "Report confidence intervals for every metric and avoid fine-grained leaderboard rankings when intervals overlap.",
+    "Treat the 300-item reviewed target as the minimum paper release threshold, not as evidence that all small deltas are detectable."
+  ]
+}

@@ -146,6 +146,17 @@ Systems submit one answer per task with citation ids and abstention state. The s
 
 These intervals are descriptive task-level estimates over the current 30-item pilot, not final submission power estimates.
 
+## Scale And Power Plan
+
+The paper target is 30 double-reviewed items per category (300 total). The current pilot remains diagnostic because it has 30 pilot items and 0 valid reviewed items. The generated plan uses conservative normal-approximation intervals for bounded task metrics and keeps category-scale claims blocked until review completes.
+
+| Scope | Planning n | Worst-case 95% half-width | Detectable delta | Interpretation |
+| --- | --- | --- | --- | --- |
+| current_pilot_overall | 30 | 0.1789 | undefined | Descriptive pilot diagnostics only; not enough for category-level paper claims. |
+| current_pilot_per_category | 3 | 0.5658 | undefined | Too wide for category-level claims; each category currently has only pilot seeds. |
+| paper_target_per_category | 30 | 0.1789 | undefined | Minimum category-level descriptive target; still reports uncertainty, not a fine-grained leaderboard. |
+| paper_target_overall | 300 | 0.0566 | undefined | Overall benchmark-level estimates become substantially tighter after all categories are reviewed. |
+
 ## External Model Baselines
 
 Eligible external model baselines currently recorded by the model-run index: anthropic-grounded-baseline-v1, openai-grounded-baseline-v1.
@@ -212,6 +223,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | expansion_review_merge_ready | no | 0/270 expansion merge-ready items |
 | review_merge_ready | no | 0/30 merge-ready items |
 | category_scale_ready | no | 0/300 valid reviewed target items; 300 reviewed items still needed |
+| power_plan_ready | yes | 30 reviewed items/category; 300 total target; remaining=300 |
 | unknown_license_resolved | yes | tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true |
 | license_impact_clear | yes | 135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true |
 | license_remediation_plan_present | yes | 54 replacement-path candidates; 81 pointer-only candidates |

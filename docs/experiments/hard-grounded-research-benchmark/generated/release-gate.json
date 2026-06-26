@@ -25,6 +25,7 @@
     "expansion_review_merge_report": "generated/expansion-review-merge-report.json",
     "review_merge_report": "generated/review-merge-report.json",
     "scale_plan": "generated/scale-plan.json",
+    "power_plan": "generated/power-plan.json",
     "item_quality_audit": "generated/item-quality-audit.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
@@ -162,6 +163,12 @@
       "passed": false,
       "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
       "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "power_plan_ready",
+      "passed": true,
+      "detail": "30 reviewed items/category; 300 total target; remaining=300",
+      "blocker": "Generate a statistical scale and sensitivity plan for paper-size category claims."
     },
     {
       "id": "unknown_license_resolved",

@@ -62,6 +62,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `REVIEW_TRIAGE.md` and `generated/review-triage.json`: generated model-failure triage that ranks pilot review rows using eligible external baseline failures.
 - `ANNOTATION_ASSIGNMENTS.md` and `generated/annotation-assignments.json`: generated first-wave annotation assignment plan for pilot triage and balanced expansion review.
 - `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.
+- `POWER_PLAN.md` and `generated/power-plan.json`: generated statistical scale and sensitivity plan for paper-size category claims.
 - `EXPANSION_MANIFEST.md` and `generated/expansion-manifest.json`: generated per-batch item-generation contracts for scaling from pilot examples to reviewed paper-scale data.
 - `EXPANSION_CANDIDATES.md` and `generated/expansion-candidates.json`: generated machine expansion candidates that must pass review before any gold promotion.
 - `EXPANSION_REVIEW_WORKBOOKS.md` and `generated/expansion-review-workbooks/`: independent reviewer workbooks for expansion candidates.
