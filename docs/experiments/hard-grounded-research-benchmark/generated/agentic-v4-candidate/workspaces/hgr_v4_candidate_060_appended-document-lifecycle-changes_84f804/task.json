@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_060_appended-document-lifecycle-changes_84f804",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "appended document lifecycle changes",
+  "user_question": "For \"Identification of Indian Languages using Ghost-VLAD pooling\", inspect the original body and appended update; return the final controlling answer.",
+  "target": {
+    "native_question": "For \"Identification of Indian Languages using Ghost-VLAD pooling\", inspect the original body and appended update; return the final controlling answer.",
+    "source_row_keys": [
+      "allenai/qasper:2002.01664",
+      "allenai/qasper:1912.03804"
+    ],
+    "challenge": {
+      "type": "document_lifecycle_appendix",
+      "original_document_id": "v4:original_body:78db8e95",
+      "appendix_document_id": "v4:appendix_update:e7b87a13"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

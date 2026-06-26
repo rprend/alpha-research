@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_054_appended-document-lifecycle-changes_df08b3",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "appended document lifecycle changes",
+  "user_question": "For \"Active Learning for Speech Recognition: the Power of Gradients\", inspect the original body and appended update; return the final controlling answer.",
+  "target": {
+    "native_question": "For \"Active Learning for Speech Recognition: the Power of Gradients\", inspect the original body and appended update; return the final controlling answer.",
+    "source_row_keys": [
+      "allenai/qasper:1612.03226",
+      "allenai/qasper:2001.02284"
+    ],
+    "challenge": {
+      "type": "document_lifecycle_appendix",
+      "original_document_id": "v4:original_body:86fc227f",
+      "appendix_document_id": "v4:appendix_update:9adae991"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

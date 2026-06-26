@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_137_citation-supports-fact-but-not-conclusion_6941bb",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "citation supports fact but not conclusion",
+  "user_question": "The corpus has a source for \"Where did Luchia Yishak place in the 3000m in the 1991 All-Africa Games?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what...\"?",
+  "target": {
+    "native_question": "The corpus has a source for \"Where did Luchia Yishak place in the 3000m in the 1991 All-Africa Games?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what...\"?",
+    "source_row_keys": [
+      "DongfuJiang/FeTaQA:13701",
+      "hotpotqa/hotpot_qa:5ae0d4c9554299603e418468"
+    ],
+    "challenge": {
+      "type": "citation_overreach_probe",
+      "supported_fact": "Luchia Yishak was the runner-up in the 3000 m at the 1991 All-Africa Games.",
+      "unsupported_conclusion": "1969 until 1974"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

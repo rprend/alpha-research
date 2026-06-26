@@ -1,0 +1,35 @@
+{
+  "task_id": "hgr_v4_candidate_069_table-text-reasoning_4f0322",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "table + text reasoning",
+  "user_question": "Find the table or QA source labeled \"What countries did the World U-17 Hockey Challenge attract after 2016?\" and return its answer field together with its dataset as \"answer @ dataset\".",
+  "target": {
+    "native_question": "Find the table or QA source labeled \"What countries did the World U-17 Hockey Challenge attract after 2016?\" and return its answer field together with its dataset as \"answer @ dataset\".",
+    "source_row_keys": [
+      "DongfuJiang/FeTaQA:21016",
+      "danwakeem/wikitablequestions-wtq:nt-16"
+    ],
+    "challenge": {
+      "type": "table_text_join",
+      "required_fields": [
+        "answer",
+        "source_dataset"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

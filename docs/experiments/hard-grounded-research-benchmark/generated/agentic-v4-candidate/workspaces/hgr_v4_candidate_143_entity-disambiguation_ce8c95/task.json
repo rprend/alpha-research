@@ -1,0 +1,32 @@
+{
+  "task_id": "hgr_v4_candidate_143_entity-disambiguation_ce8c95",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "entity disambiguation",
+  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae4a3265542995ad6573de5\" whose label is \"Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?\".",
+  "target": {
+    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae4a3265542995ad6573de5\" whose label is \"Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?\".",
+    "source_row_keys": [
+      "hotpotqa/hotpot_qa:5ae4a3265542995ad6573de5",
+      "hotpotqa/hotpot_qa:5ac23ff0554299636651994d"
+    ],
+    "challenge": {
+      "type": "entity_disambiguation",
+      "exact_source_key": "hotpotqa/hotpot_qa:5ae4a3265542995ad6573de5"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

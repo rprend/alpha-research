@@ -1,0 +1,32 @@
+{
+  "task_id": "hgr_v4_candidate_146_entity-disambiguation_9a628a",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "entity disambiguation",
+  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:15775\" whose label is \"What were Usian Bolts record finishes in the 200 meter, 400 meter and 4 × 100 m race?\".",
+  "target": {
+    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:15775\" whose label is \"What were Usian Bolts record finishes in the 200 meter, 400 meter and 4 × 100 m race?\".",
+    "source_row_keys": [
+      "DongfuJiang/FeTaQA:15775",
+      "hotpotqa/hotpot_qa:5abd259d55429924427fcf1a"
+    ],
+    "challenge": {
+      "type": "entity_disambiguation",
+      "exact_source_key": "DongfuJiang/FeTaQA:15775"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

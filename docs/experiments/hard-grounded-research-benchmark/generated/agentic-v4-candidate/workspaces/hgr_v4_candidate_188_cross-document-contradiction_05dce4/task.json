@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_188_cross-document-contradiction_05dce4",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "cross-document contradiction",
+  "user_question": "Two same-authority documents disagree about \"What race track in the midwest hosts a 500 mile race eavery May?\". If they cannot be reconciled by date or authority, what should the answer be?",
+  "target": {
+    "native_question": "Two same-authority documents disagree about \"What race track in the midwest hosts a 500 mile race eavery May?\". If they cannot be reconciled by date or authority, what should the answer be?",
+    "source_row_keys": [
+      "hotpotqa/hotpot_qa:5a77724455429972597f153e",
+      "hotpotqa/hotpot_qa:5abc0a5d5542993f40c73c64"
+    ],
+    "challenge": {
+      "type": "cross_document_contradiction",
+      "document_a_id": "v4:document_a:2deacb36",
+      "document_b_id": "v4:document_b:2ceac9a3"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

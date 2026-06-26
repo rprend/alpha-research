@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_027_stale-vs-current-document-conflicts_f67a80",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "stale-vs-current document conflicts",
+  "user_question": "For \"11\", resolve the stale/current conflict and return the current controlling answer.",
+  "target": {
+    "native_question": "For \"11\", resolve the stale/current conflict and return the current controlling answer.",
+    "source_row_keys": [
+      "tdiggelm/climate_fever:11",
+      "tdiggelm/climate_fever:10"
+    ],
+    "challenge": {
+      "type": "stale_current_conflict",
+      "stale_document_id": "v4:stale:ad21005d",
+      "current_document_id": "v4:current:93beee55"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

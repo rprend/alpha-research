@@ -37,6 +37,10 @@ Fresh expanded-suite frontier-agent runs are missing. Historical 10-task runs ar
 
 Runs analyzed: 2. Aggregate answer membership: 40.5%. Aggregate evidence recall: 78.5%. See `AGENTIC_FAILURE_ANALYSIS.md`.
 
+## V4 Candidate Status
+
+A v4 candidate exists with 200 tasks and 200 unique native questions, but it is rejected: candidate_rejected_by_shallow_baseline. The shallow metadata baseline solves 180/200 tasks, so it cannot replace v3 until those tasks are rewritten or removed.
+
 ## Limitations
 
 - The current v3 suite has only 12/150 required distinct native questions; it is diagnostic, not sellable.

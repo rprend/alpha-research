@@ -1,0 +1,35 @@
+{
+  "task_id": "hgr_v4_candidate_005_multi-hop-synthesis_ac0e0a",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "multi-hop synthesis",
+  "user_question": "Using the corpus, identify the row answer field for the source titled \"How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings\" and the row answer field for the source titled \"Assessing BERT's Syntactic Abilities\", then return them as \"first => second\".",
+  "target": {
+    "native_question": "Using the corpus, identify the row answer field for the source titled \"How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings\" and the row answer field for the source titled \"Assessing BERT's Syntactic Abilities\", then return them as \"first => second\".",
+    "source_row_keys": [
+      "allenai/qasper:1909.00512",
+      "allenai/qasper:1901.05287"
+    ],
+    "challenge": {
+      "type": "two_source_join",
+      "required_order": [
+        "primary",
+        "secondary"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

@@ -1,0 +1,4759 @@
+{
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "warning": "Scoring only; withhold from agents.",
+  "tasks": [
+    {
+      "task_id": "hgr_v4_candidate_001_multi-hop-synthesis_6f2035",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Adversarial Learning for Chinese NER from Crowd Annotations => Knowledge Based Machine Reading Comprehension"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:3fddea0a",
+          "v4:secondary:7eb10d9d"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:2c17cfa8"
+        ],
+        "source_row_ids": [
+          "1801.05147",
+          "1809.04267"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_002_multi-hop-synthesis_12b4f8",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages => 3,677 seated"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:f17f07a3",
+          "v4:secondary:be4d7995"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:64bcb9e8"
+        ],
+        "source_row_ids": [
+          "1811.00383",
+          "5a87ab905542996e4f3088c1"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_003_multi-hop-synthesis_dac8e2",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "A Corpus for Automatic Readability Assessment and Text Simplification of German => from 1986 to 2013"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:dc026e52",
+          "v4:secondary:50613733"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:92efcc56"
+        ],
+        "source_row_ids": [
+          "1909.09067",
+          "5ab6d09255429954757d337d"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_004_multi-hop-synthesis_2c46cc",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Improved Neural Relation Detection for Knowledge Base Question Answering => Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:dd0a6afa",
+          "v4:secondary:163e9d16"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:513ec7cd"
+        ],
+        "source_row_ids": [
+          "1704.06194",
+          "2003.03106"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_005_multi-hop-synthesis_ac0e0a",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "How Contextual are Contextualized Word Representations? Comparing the Geometry of BERT, ELMo, and GPT-2 Embeddings => Assessing BERT's Syntactic Abilities"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:d21cbc12",
+          "v4:secondary:6addd8e5"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:e2b4f88e"
+        ],
+        "source_row_ids": [
+          "1909.00512",
+          "1901.05287"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_006_multi-hop-synthesis_db072f",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Sensitive Data Detection and Classification in Spanish Clinical Text: Experiments with BERT => Terry Richardson"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:73910445",
+          "v4:secondary:11543d5b"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:f5f7f96e"
+        ],
+        "source_row_ids": [
+          "2003.03106",
+          "5a7bbb64554299042af8f7cc"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_007_multi-hop-synthesis_9d015f",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Massively Multilingual Neural Grapheme-to-Phoneme Conversion => 9,984"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:d8d2f28e",
+          "v4:secondary:8ad002a2"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:745924f8"
+        ],
+        "source_row_ids": [
+          "1708.01464",
+          "5a75e05c55429976ec32bc5f"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_008_multi-hop-synthesis_d32cd2",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis => Massively Multilingual Neural Grapheme-to-Phoneme Conversion"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:f3ff1f74",
+          "v4:secondary:7144aaf4"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:19b6ff71"
+        ],
+        "source_row_ids": [
+          "2002.03407",
+          "1708.01464"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_009_multi-hop-synthesis_a088e9",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Extreme Language Model Compression with Optimal Subwords and Shared Projections => Stateology: State-Level Interactive Charting of Language, Feelings, and Values"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:3f223177",
+          "v4:secondary:5cabb089"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:8428390c"
+        ],
+        "source_row_ids": [
+          "1909.11687",
+          "1612.06685"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_010_multi-hop-synthesis_32db1e",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Stereotyping and Bias in the Flickr30K Dataset => yes"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:312b82c3",
+          "v4:secondary:06415fd5"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:2fef4ac3"
+        ],
+        "source_row_ids": [
+          "1605.06083",
+          "5a8db19d5542994ba4e3dd00"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_011_multi-hop-synthesis_215dbd",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Improving Implicit Discourse Relation Classification by Modeling Inter-dependencies of Discourse Units in a Paragraph => Adversarial Learning for Chinese NER from Crowd Annotations"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:48e59310",
+          "v4:secondary:c38ca608"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:88511de0"
+        ],
+        "source_row_ids": [
+          "1804.05918",
+          "1801.05147"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_012_multi-hop-synthesis_17e090",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Knowledge Based Machine Reading Comprehension => Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:004ff688",
+          "v4:secondary:dc17af72"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:3f319249"
+        ],
+        "source_row_ids": [
+          "1809.04267",
+          "2002.03407"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_013_multi-hop-synthesis_7b622f",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Assessing BERT's Syntactic Abilities => no"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:3680b861",
+          "v4:secondary:79216311"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:fb76203f"
+        ],
+        "source_row_ids": [
+          "1901.05287",
+          "5adbf0a255429947ff17385a"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_014_multi-hop-synthesis_c27a2e",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Stateology: State-Level Interactive Charting of Language, Feelings, and Values => Kansas Song"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:721f82aa",
+          "v4:secondary:c90f2ef5"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:100e8bb5"
+        ],
+        "source_row_ids": [
+          "1612.06685",
+          "5a7166395542994082a3e814"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_015_multi-hop-synthesis_540996",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "no => Addressing word-order Divergence in Multilingual Neural Machine Translation for extremely Low Resource Languages"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:5c82ac0a",
+          "v4:secondary:def2ba66"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:201fc7db"
+        ],
+        "source_row_ids": [
+          "5adbf0a255429947ff17385a",
+          "1811.00383"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_016_multi-hop-synthesis_cfcf69",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Greenwich Village, New York City => Extreme Language Model Compression with Optimal Subwords and Shared Projections"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:f67423fe",
+          "v4:secondary:efd0fc68"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:a88ca1c9"
+        ],
+        "source_row_ids": [
+          "5a8e3ea95542995a26add48d",
+          "1909.11687"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_017_multi-hop-synthesis_274c13",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "YG Entertainment => Greenwich Village, New York City"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:bd40918e",
+          "v4:secondary:7948c362"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:91d433ad"
+        ],
+        "source_row_ids": [
+          "5abd94525542992ac4f382d2",
+          "5a8e3ea95542995a26add48d"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_018_multi-hop-synthesis_eb7995",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Eenasul Fateh => David Weissman"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:8a553684",
+          "v4:secondary:93d4f7b4"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:9c2634f5"
+        ],
+        "source_row_ids": [
+          "5a85b2d95542997b5ce40028",
+          "5a877e5d5542993e715abf7d"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_019_multi-hop-synthesis_c6806e",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "3,677 seated => A Corpus for Automatic Readability Assessment and Text Simplification of German"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:a2337e2a",
+          "v4:secondary:b96381e2"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:ce6b980b"
+        ],
+        "source_row_ids": [
+          "5a87ab905542996e4f3088c1",
+          "1909.09067"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_020_multi-hop-synthesis_d7c7e3",
+      "category": "multi-hop synthesis",
+      "gold": {
+        "expected_answers": [
+          "Terry Richardson => Stereotyping and Bias in the Flickr30K Dataset"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:e641f36b",
+          "v4:secondary:09a07409"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:3ba53823"
+        ],
+        "source_row_ids": [
+          "5a7bbb64554299042af8f7cc",
+          "1605.06083"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_021_stale-vs-current-document-conflicts_04f894",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "57"
+        ],
+        "required_evidence_ids": [
+          "v4:current:6909ecf4"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:cdb97114",
+          "v4:near_distractor:6579fd45"
+        ],
+        "source_row_ids": [
+          "57",
+          "27"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_022_stale-vs-current-document-conflicts_1a569b",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "60"
+        ],
+        "required_evidence_ids": [
+          "v4:current:0c53a40e"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:800a953a",
+          "v4:near_distractor:409b13e1"
+        ],
+        "source_row_ids": [
+          "60",
+          "38"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_023_stale-vs-current-document-conflicts_4951ae",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "61"
+        ],
+        "required_evidence_ids": [
+          "v4:current:0411484a"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:5795adae",
+          "v4:near_distractor:ecb188ca"
+        ],
+        "source_row_ids": [
+          "61",
+          "60"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_024_stale-vs-current-document-conflicts_e32efa",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "65"
+        ],
+        "required_evidence_ids": [
+          "v4:current:a84dc826"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:d9e57dd2",
+          "v4:near_distractor:c7e6a410"
+        ],
+        "source_row_ids": [
+          "65",
+          "18"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_025_stale-vs-current-document-conflicts_ab0cb4",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "9"
+        ],
+        "required_evidence_ids": [
+          "v4:current:72f13e67"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:011de67b",
+          "v4:near_distractor:a6e5668c"
+        ],
+        "source_row_ids": [
+          "9",
+          "33"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_026_stale-vs-current-document-conflicts_78eed3",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "10"
+        ],
+        "required_evidence_ids": [
+          "v4:current:8ec76c08"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:22e0b680",
+          "v4:near_distractor:4915fdfa"
+        ],
+        "source_row_ids": [
+          "10",
+          "51"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_027_stale-vs-current-document-conflicts_f67a80",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "11"
+        ],
+        "required_evidence_ids": [
+          "v4:current:93beee55"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:ad21005d",
+          "v4:near_distractor:cb3236b7"
+        ],
+        "source_row_ids": [
+          "11",
+          "10"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_028_stale-vs-current-document-conflicts_a0763f",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "14"
+        ],
+        "required_evidence_ids": [
+          "v4:current:e0539693"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:52f8f1ff",
+          "v4:near_distractor:591c739b"
+        ],
+        "source_row_ids": [
+          "14",
+          "28"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_029_stale-vs-current-document-conflicts_6fe4e2",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "18"
+        ],
+        "required_evidence_ids": [
+          "v4:current:fb24d505"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:a355484d",
+          "v4:near_distractor:12184d8f"
+        ],
+        "source_row_ids": [
+          "18",
+          "41"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_030_stale-vs-current-document-conflicts_fddd37",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "19"
+        ],
+        "required_evidence_ids": [
+          "v4:current:34e94a19"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:a4fe0d89",
+          "v4:near_distractor:8aa83eff"
+        ],
+        "source_row_ids": [
+          "19",
+          "61"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_031_stale-vs-current-document-conflicts_b46bc4",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "21"
+        ],
+        "required_evidence_ids": [
+          "v4:current:b8106785"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:2e98f6cd",
+          "v4:near_distractor:4a9e23c9"
+        ],
+        "source_row_ids": [
+          "21",
+          "19"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_032_stale-vs-current-document-conflicts_3175e8",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "27"
+        ],
+        "required_evidence_ids": [
+          "v4:current:330654ca"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:8423c62e",
+          "v4:near_distractor:9dd0d98b"
+        ],
+        "source_row_ids": [
+          "27",
+          "35"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_033_stale-vs-current-document-conflicts_3f6f92",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "28"
+        ],
+        "required_evidence_ids": [
+          "v4:current:45350670"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:3f634c88",
+          "v4:near_distractor:a6cdafa5"
+        ],
+        "source_row_ids": [
+          "28",
+          "55"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_034_stale-vs-current-document-conflicts_16815f",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "30"
+        ],
+        "required_evidence_ids": [
+          "v4:current:07306456"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:e5a45f42",
+          "v4:near_distractor:41369e46"
+        ],
+        "source_row_ids": [
+          "30",
+          "11"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_035_stale-vs-current-document-conflicts_23ae6d",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "31"
+        ],
+        "required_evidence_ids": [
+          "v4:current:9347e1b7"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:8bc81e8b",
+          "v4:near_distractor:bfde1399"
+        ],
+        "source_row_ids": [
+          "31",
+          "30"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_036_stale-vs-current-document-conflicts_1c0462",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "33"
+        ],
+        "required_evidence_ids": [
+          "v4:current:e6c1e677"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:c6c18b4b",
+          "v4:near_distractor:b8938d15"
+        ],
+        "source_row_ids": [
+          "33",
+          "42"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_037_stale-vs-current-document-conflicts_1594e9",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "35"
+        ],
+        "required_evidence_ids": [
+          "v4:current:694ee287"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:ad9e749b",
+          "v4:near_distractor:d979f3ae"
+        ],
+        "source_row_ids": [
+          "35",
+          "65"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_038_stale-vs-current-document-conflicts_ca9616",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "36"
+        ],
+        "required_evidence_ids": [
+          "v4:current:e4076461"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:14846fd1",
+          "v4:near_distractor:18d64bb6"
+        ],
+        "source_row_ids": [
+          "36",
+          "21"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_039_stale-vs-current-document-conflicts_c24d84",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "38"
+        ],
+        "required_evidence_ids": [
+          "v4:current:d3e61be1"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:6b0b7b51",
+          "v4:near_distractor:d87b2fbc"
+        ],
+        "source_row_ids": [
+          "38",
+          "36"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_040_stale-vs-current-document-conflicts_cd33c8",
+      "category": "stale-vs-current document conflicts",
+      "gold": {
+        "expected_answers": [
+          "41"
+        ],
+        "required_evidence_ids": [
+          "v4:current:d2c9d65e"
+        ],
+        "rejected_evidence_ids": [
+          "v4:stale:56f5d30a",
+          "v4:near_distractor:45e22dda"
+        ],
+        "source_row_ids": [
+          "41",
+          "57"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_041_appended-document-lifecycle-changes_51f715",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Stochastic Answer Networks for SQuAD 2.0"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:81d7872f",
+          "v4:appendix_update:33b32e41"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:dfba68be"
+        ],
+        "source_row_ids": [
+          "1809.09194",
+          "2002.11910"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_042_appended-document-lifecycle-changes_906a3f",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Clustering Comparable Corpora of Russian and Ukrainian Academic Texts: Word Embeddings and Semantic Fingerprints"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:f9962d2c",
+          "v4:appendix_update:d30ba3be"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:2fdd8193"
+        ],
+        "source_row_ids": [
+          "1604.05372",
+          "1910.10781"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_043_appended-document-lifecycle-changes_23a85d",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "How To Avoid Being Eaten By a Grue: Exploration Strategies for Text-Adventure Agents"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:114427c5",
+          "v4:appendix_update:1b85ef43"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:c0a6cf2b"
+        ],
+        "source_row_ids": [
+          "2002.08795",
+          "1809.00540"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_044_appended-document-lifecycle-changes_749fa2",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Towards a Continuous Knowledge Learning Engine for Chatbots"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:69995378",
+          "v4:appendix_update:297ffa82"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:cec47a36"
+        ],
+        "source_row_ids": [
+          "1802.06024",
+          "2002.08795"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_045_appended-document-lifecycle-changes_2226a7",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Adaptive Semi-supervised Learning for Cross-domain Sentiment Classification"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:9c132936",
+          "v4:appendix_update:eaba3a5c"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:009ba078"
+        ],
+        "source_row_ids": [
+          "1809.00530",
+          "1909.09587"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_046_appended-document-lifecycle-changes_46faab",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "How big is big enough? Unsupervised word sense disambiguation using a very large corpus"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:74623573",
+          "v4:appendix_update:8e56e82d"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:9fd80fa4"
+        ],
+        "source_row_ids": [
+          "1710.07960",
+          "1603.09631"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_047_appended-document-lifecycle-changes_a62a98",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Women in ISIS Propaganda: A Natural Language Processing Analysis of Topics and Emotions in a Comparison with Mainstream Religious Group"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:decac235",
+          "v4:appendix_update:776de8b3"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:d574d3ac"
+        ],
+        "source_row_ids": [
+          "1912.03804",
+          "2004.03354"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_048_appended-document-lifecycle-changes_1cae19",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Going Beneath the Surface: Evaluating Image Captioning for Grammaticality, Truthfulness and Diversity"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:63d27741",
+          "v4:appendix_update:e300d837"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:42bace52"
+        ],
+        "source_row_ids": [
+          "1912.08960",
+          "1802.06024"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_049_appended-document-lifecycle-changes_02adba",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Integrating Boundary Assembling into a DNN Framework for Named Entity Recognition in Chinese Social Media Text"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:37dcc778",
+          "v4:appendix_update:f7c36e82"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:57cc3cd2"
+        ],
+        "source_row_ids": [
+          "2002.11910",
+          "1802.07862"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_050_appended-document-lifecycle-changes_2a6169",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Zero-shot Reading Comprehension by Cross-lingual Transfer Learning with Multi-lingual Language Representation Model"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:09ddeadf",
+          "v4:appendix_update:ae7996f1"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:46b9c49f"
+        ],
+        "source_row_ids": [
+          "1909.09587",
+          "1911.06964"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_051_appended-document-lifecycle-changes_957d15",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Multimodal Named Entity Recognition for Short Social Media Posts"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:b88e26e2",
+          "v4:appendix_update:b3254dd0"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:a98a2cf1"
+        ],
+        "source_row_ids": [
+          "1802.07862",
+          "1611.04798"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_052_appended-document-lifecycle-changes_11729d",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:8ca03748",
+          "v4:appendix_update:74491312"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:7b891c3c"
+        ],
+        "source_row_ids": [
+          "2004.01853",
+          "1809.00530"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_053_appended-document-lifecycle-changes_fc7f77",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "What does Attention in Neural Machine Translation Pay Attention to?"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:dce41d45",
+          "v4:appendix_update:e725e4c3"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:d6b18a4d"
+        ],
+        "source_row_ids": [
+          "1710.03348",
+          "2004.01853"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_054_appended-document-lifecycle-changes_df08b3",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Active Learning for Speech Recognition: the Power of Gradients"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:86fc227f",
+          "v4:appendix_update:9adae991"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:01b94107"
+        ],
+        "source_row_ids": [
+          "1612.03226",
+          "2001.02284"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_055_appended-document-lifecycle-changes_7b37af",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Medication Regimen Extraction From Clinical Conversations"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:ecb283c3",
+          "v4:appendix_update:7fcc4e7d"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:302e131a"
+        ],
+        "source_row_ids": [
+          "1912.04961",
+          "1912.13337"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_056_appended-document-lifecycle-changes_35081a",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Hierarchical Transformers for Long Document Classification"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:d8be5418",
+          "v4:appendix_update:b156b222"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:e3f99dee"
+        ],
+        "source_row_ids": [
+          "1910.10781",
+          "1710.07960"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_057_appended-document-lifecycle-changes_a953c0",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Data Collection for Interactive Learning through the Dialog"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:25554e12",
+          "v4:appendix_update:051d74c0"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:bd1fe190"
+        ],
+        "source_row_ids": [
+          "1603.09631",
+          "1710.03348"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_058_appended-document-lifecycle-changes_963d4d",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Learning Autocomplete Systems as a Communication Game"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:5a1cde74",
+          "v4:appendix_update:6fad12a6"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:1f91ccd9"
+        ],
+        "source_row_ids": [
+          "1911.06964",
+          "2002.01664"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_059_appended-document-lifecycle-changes_85f8d6",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Multipurpose Intelligent Process Automation via Conversational Assistant"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:42f67f9a",
+          "v4:appendix_update:a81230e8"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:195cecf2"
+        ],
+        "source_row_ids": [
+          "2001.02284",
+          "1809.01541"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_060_appended-document-lifecycle-changes_84f804",
+      "category": "appended document lifecycle changes",
+      "gold": {
+        "expected_answers": [
+          "Identification of Indian Languages using Ghost-VLAD pooling"
+        ],
+        "required_evidence_ids": [
+          "v4:original_body:78db8e95",
+          "v4:appendix_update:e7b87a13"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:30cb6924"
+        ],
+        "source_row_ids": [
+          "2002.01664",
+          "1912.03804"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_061_table-text-reasoning_190ceb",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Thompson prevailed in the 1982 Illinois gubernatorial election by a 5,074 vote margin. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:51b09c05"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:da217ef0"
+        ],
+        "source_row_ids": [
+          "18162",
+          "19186"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_062_table-text-reasoning_3a1468",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Michael Andretti finished with a run of 214.522 mph, faster than Mario. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:de70b5ef"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:ef2dbc50"
+        ],
+        "source_row_ids": [
+          "11292",
+          "nt-13"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_063_table-text-reasoning_314c5a",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "B'z The Best \"Pleasure\" sold more than 5 million copies in 1998 alone, making it a temporary best-selling album in Japanese music history, until being surpassed by Utada Hikaru's... @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:d5ee5263"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:6d63ba76"
+        ],
+        "source_row_ids": [
+          "11734",
+          "11292"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_064_table-text-reasoning_a731c8",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "The Tigerair Australia fleet consists of the following aircraft and Virgin Australia announced that the entire A320 fleet will be replaced with Boeing 737-800 aircraft. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:ebd648d4"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:ddcff60a"
+        ],
+        "source_row_ids": [
+          "12843",
+          "21016"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_065_table-text-reasoning_de801e",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "In 2016 and 2017, Platt played in Dear Evan Hansen on Broadway at the Music Box Theatre. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:7fd4ea8f"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:b05fe0c6"
+        ],
+        "source_row_ids": [
+          "14717",
+          "nt-10"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_066_table-text-reasoning_4f1a3f",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "EUTRAN has download rates of 299.6 Mbit/s and 150.8 Mbit/s. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:7b2dc45b"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:63412cdc"
+        ],
+        "source_row_ids": [
+          "16626",
+          "nt-19"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_067_table-text-reasoning_68a9d7",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Melina Kanakaredes played in television dramas as Dr. Sydney Hansen in Providence (1999–2002) and as Detective Stella Bonasera in CSI: NY (2004–2010), and in the Guiding Light as... @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:be47c33d"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:d609acd4"
+        ],
+        "source_row_ids": [
+          "13077",
+          "16626"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_068_table-text-reasoning_ca06f2",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "In the 2015–16 season, Austin Fyten spent within the Bears and ECHL affiliate, the South Carolina Stingrays. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:35a60a55"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:de1afaf3"
+        ],
+        "source_row_ids": [
+          "18369",
+          "nt-5"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_069_table-text-reasoning_4f0322",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "The World U-17 Hockey Challenge attracted U-17 teams from Russia, Finland, Sweden, the United States, Canada, and the Czech Republic after 2016. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:17b3a5c1"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:e59fee1d"
+        ],
+        "source_row_ids": [
+          "21016",
+          "nt-16"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_070_table-text-reasoning_256941",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "After playing with Partizani, Hyshmeri played with Tirana in the 2014–15 Albanian Superliga season. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:0c223b45"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:b46953ec"
+        ],
+        "source_row_ids": [
+          "17649",
+          "11734"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_071_table-text-reasoning_a7a3e2",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Klaus won the 1990 Civic Forum leadership election, receiving 115 votes compared to 52 votes. @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:a5c48015"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:a9b0bc7f"
+        ],
+        "source_row_ids": [
+          "20797",
+          "17649"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_072_table-text-reasoning_5defcc",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "John Nygren Republican defeated Joe Reinhard in the election (16,081–11,129). @ DongfuJiang/FeTaQA"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:9c056e42"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:2ad629f9"
+        ],
+        "source_row_ids": [
+          "19186",
+          "nt-11"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_073_table-text-reasoning_a41429",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Which name has been in the most parties? @ danwakeem/wikitablequestions-wtq"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:603e13a1"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:cfdbf499"
+        ],
+        "source_row_ids": [
+          "nt-5",
+          "nt-20"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_074_table-text-reasoning_1df802",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What was the score of the 84 tie no expressed as a ratio? @ danwakeem/wikitablequestions-wtq"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:17d9e8e1"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:96fca44a"
+        ],
+        "source_row_ids": [
+          "nt-6",
+          "13077"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_075_table-text-reasoning_29483d",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What is the average depth? @ danwakeem/wikitablequestions-wtq"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:305348f1"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:9f54e052"
+        ],
+        "source_row_ids": [
+          "nt-7",
+          "nt-6"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_076_table-text-reasoning_f4af44",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "Who had the most fastest lap? @ danwakeem/wikitablequestions-wtq"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:a1715836"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:ab279dbd"
+        ],
+        "source_row_ids": [
+          "nt-10",
+          "nt-17"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_077_table-text-reasoning_b912bc",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "How many total competions were there? @ danwakeem/wikitablequestions-wtq"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:9143ddda"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:55c51ba7"
+        ],
+        "source_row_ids": [
+          "nt-11",
+          "12843"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_078_table-text-reasoning_b079e0",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What is the first Prefecture? @ danwakeem/wikitablequestions-wtq"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:7afa674a"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:b8aff03b"
+        ],
+        "source_row_ids": [
+          "nt-12",
+          "20797"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_079_table-text-reasoning_b4436f",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What are all the classes in 1994-95? @ danwakeem/wikitablequestions-wtq"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:0086a726"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:4a359bb3"
+        ],
+        "source_row_ids": [
+          "nt-13",
+          "nt-12"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_080_table-text-reasoning_abc701",
+      "category": "table + text reasoning",
+      "gold": {
+        "expected_answers": [
+          "What is the average winning score? @ danwakeem/wikitablequestions-wtq"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:508340fc"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:0817f9ea"
+        ],
+        "source_row_ids": [
+          "nt-16",
+          "18162"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_081_source-authority-conflicts_ee8490",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "yzrnp"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:8a8d8b5e"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:9f7041e0",
+          "v4:near_distractor:e8c8f133"
+        ],
+        "source_row_ids": [
+          "yzrnp",
+          "77"
+        ],
+        "source_datasets": [
+          "Pavithree/eli5",
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_082_source-authority-conflicts_0364da",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "6vyxzk"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:42d463c8"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:c1070f1e",
+          "v4:near_distractor:27a79570"
+        ],
+        "source_row_ids": [
+          "6vyxzk",
+          "il49l"
+        ],
+        "source_datasets": [
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_083_source-authority-conflicts_76c46c",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "3i5it4"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:34ee30c6"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:9f5ed308",
+          "v4:near_distractor:f9b85f5c"
+        ],
+        "source_row_ids": [
+          "3i5it4",
+          "6vyxzk"
+        ],
+        "source_datasets": [
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_084_source-authority-conflicts_ff4694",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "16w1fk"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:c12c4453"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:ae742fef",
+          "v4:near_distractor:d9527b31"
+        ],
+        "source_row_ids": [
+          "16w1fk",
+          "74"
+        ],
+        "source_datasets": [
+          "Pavithree/eli5",
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_085_source-authority-conflicts_eb4c44",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "67"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:04bbac21"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:d9820839",
+          "v4:near_distractor:21e0363a"
+        ],
+        "source_row_ids": [
+          "67",
+          "86"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_086_source-authority-conflicts_cfc61f",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "69"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:e47cf9f9"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:c169cc11",
+          "v4:near_distractor:68385985"
+        ],
+        "source_row_ids": [
+          "69",
+          "6kl6q0"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_087_source-authority-conflicts_6bd1ce",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "71"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:f1416ab0"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:4182f466",
+          "v4:near_distractor:0cc17942"
+        ],
+        "source_row_ids": [
+          "71",
+          "69"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_088_source-authority-conflicts_bd865d",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "72"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:4c64b2d9"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:e5940771",
+          "v4:near_distractor:69cb7b1c"
+        ],
+        "source_row_ids": [
+          "72",
+          "79"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_089_source-authority-conflicts_eabe23",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "74"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:ba1fc93f"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:7c802f93",
+          "v4:near_distractor:7d9d5126"
+        ],
+        "source_row_ids": [
+          "74",
+          "cb13hn"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_090_source-authority-conflicts_00282a",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "75"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:9a2f1e88"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:d85964de",
+          "v4:near_distractor:94ff9c90"
+        ],
+        "source_row_ids": [
+          "75",
+          "3i5it4"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_091_source-authority-conflicts_175d31",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "76"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:235fc67f"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:0b6b41d3",
+          "v4:near_distractor:fda23575"
+        ],
+        "source_row_ids": [
+          "76",
+          "75"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_092_source-authority-conflicts_d6df14",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "77"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:11fc00d4"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:b957ca52",
+          "v4:near_distractor:9c0a1cdb"
+        ],
+        "source_row_ids": [
+          "77",
+          "4jhnli"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_093_source-authority-conflicts_7c9b48",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "79"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:9198bf5d"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:afa5247d",
+          "v4:near_distractor:a77ab9f4"
+        ],
+        "source_row_ids": [
+          "79",
+          "8mnqkv"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_094_source-authority-conflicts_e43d9a",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "82"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:84b0c4d9"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:85545d71",
+          "v4:near_distractor:881f2312"
+        ],
+        "source_row_ids": [
+          "82",
+          "71"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_095_source-authority-conflicts_3b578c",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "85"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:f8f103f0"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:68417fa6",
+          "v4:near_distractor:fc782a99"
+        ],
+        "source_row_ids": [
+          "85",
+          "82"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_096_source-authority-conflicts_b9a0d3",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "86"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:eed32724"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:b6cc5502",
+          "v4:near_distractor:63118f4d"
+        ],
+        "source_row_ids": [
+          "86",
+          "gw3n0"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever",
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_097_source-authority-conflicts_14dab6",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "4jhnli"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:fd031fcc"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:af8a70ca",
+          "v4:near_distractor:84755215"
+        ],
+        "source_row_ids": [
+          "4jhnli",
+          "16w1fk"
+        ],
+        "source_datasets": [
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_098_source-authority-conflicts_8c15d8",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "12xt91"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:fa74dc2c"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:e8373faa",
+          "v4:near_distractor:e400ecc2"
+        ],
+        "source_row_ids": [
+          "12xt91",
+          "76"
+        ],
+        "source_datasets": [
+          "Pavithree/eli5",
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_099_source-authority-conflicts_dcc07a",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "il49l"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:d8ff24a6"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:87ab2d68",
+          "v4:near_distractor:4ce1077b"
+        ],
+        "source_row_ids": [
+          "il49l",
+          "12xt91"
+        ],
+        "source_datasets": [
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_100_source-authority-conflicts_adcdc7",
+      "category": "source authority conflicts",
+      "gold": {
+        "expected_answers": [
+          "cb13hn"
+        ],
+        "required_evidence_ids": [
+          "v4:high_authority:9ccadb47"
+        ],
+        "rejected_evidence_ids": [
+          "v4:low_authority:479fd3fb",
+          "v4:near_distractor:f1162627"
+        ],
+        "source_row_ids": [
+          "cb13hn",
+          "yzrnp"
+        ],
+        "source_datasets": [
+          "Pavithree/eli5"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_101_evidence-insufficiency-abstention_78dd63",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:e6458f94",
+          "v4:near_distractor:d4b5fdad"
+        ],
+        "source_row_ids": [
+          "1908.06941",
+          "1706.08198"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_102_evidence-insufficiency-abstention_c016f4",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:08f547e5",
+          "v4:near_distractor:b387f5b2"
+        ],
+        "source_row_ids": [
+          "1702.03856",
+          "1904.10503"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_103_evidence-insufficiency-abstention_dd96c3",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:a44d6d96",
+          "v4:near_distractor:7875df8d"
+        ],
+        "source_row_ids": [
+          "1904.01548",
+          "1802.00396"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_104_evidence-insufficiency-abstention_491141",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:1682e550",
+          "v4:near_distractor:057051df"
+        ],
+        "source_row_ids": [
+          "1606.03676",
+          "1911.02855"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_105_evidence-insufficiency-abstention_9c9141",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:6159cc61",
+          "v4:near_distractor:c4cbbb8f"
+        ],
+        "source_row_ids": [
+          "1802.00396",
+          "1909.08089"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_106_evidence-insufficiency-abstention_fcad67",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:f20f84b8",
+          "v4:near_distractor:9797dfd7"
+        ],
+        "source_row_ids": [
+          "1909.04002",
+          "1912.01772"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_107_evidence-insufficiency-abstention_9e6af4",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:9aceb0c1",
+          "v4:near_distractor:f49e2134"
+        ],
+        "source_row_ids": [
+          "1911.03343",
+          "1909.04002"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_108_evidence-insufficiency-abstention_0daaef",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:7ebd8f2f",
+          "v4:near_distractor:50d3ef2a"
+        ],
+        "source_row_ids": [
+          "1712.00991",
+          "1906.01081"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_109_evidence-insufficiency-abstention_9f1023",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:0b8e99e8",
+          "v4:near_distractor:4dc6fd8a"
+        ],
+        "source_row_ids": [
+          "1809.02286",
+          "1910.09982"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_110_evidence-insufficiency-abstention_df7534",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:ba1a2960",
+          "v4:near_distractor:6f98f69b"
+        ],
+        "source_row_ids": [
+          "1809.01202",
+          "1603.01987"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_111_evidence-insufficiency-abstention_16f931",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:7d416525",
+          "v4:near_distractor:d0a4c9ae"
+        ],
+        "source_row_ids": [
+          "1909.02027",
+          "1911.03343"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_112_evidence-insufficiency-abstention_a2b49e",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:c964a926",
+          "v4:near_distractor:3a9a9fca"
+        ],
+        "source_row_ids": [
+          "1911.02855",
+          "1812.10479"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_113_evidence-insufficiency-abstention_c1d893",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:201bdfc5",
+          "v4:near_distractor:6bbd06c8"
+        ],
+        "source_row_ids": [
+          "1906.01081",
+          "1609.00559"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_114_evidence-insufficiency-abstention_f28bdd",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:a9d15c29",
+          "v4:near_distractor:0e86409c"
+        ],
+        "source_row_ids": [
+          "1812.10479",
+          "1908.06941"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_115_evidence-insufficiency-abstention_ceada8",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:fbb9f22b",
+          "v4:near_distractor:b8a0557c"
+        ],
+        "source_row_ids": [
+          "1611.01576",
+          "1712.00991"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_116_evidence-insufficiency-abstention_f43842",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:3b876712",
+          "v4:near_distractor:2b57c3bc"
+        ],
+        "source_row_ids": [
+          "1904.09535",
+          "1611.01576"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_117_evidence-insufficiency-abstention_2346f3",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:bf4c9846",
+          "v4:near_distractor:6f6fb4d3"
+        ],
+        "source_row_ids": [
+          "1911.03059",
+          "1604.00727"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_118_evidence-insufficiency-abstention_30ba8c",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:306e09cc",
+          "v4:near_distractor:9bdae504"
+        ],
+        "source_row_ids": [
+          "1706.08198",
+          "1702.03856"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_119_evidence-insufficiency-abstention_673a32",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:82402957",
+          "v4:near_distractor:0ba7e9b0"
+        ],
+        "source_row_ids": [
+          "1909.08089",
+          "1809.02286"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_120_evidence-insufficiency-abstention_6f1948",
+      "category": "evidence insufficiency / abstention",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:8ef25f1d",
+          "v4:near_distractor:c9f182ac"
+        ],
+        "source_row_ids": [
+          "1910.09982",
+          "1904.09535"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_121_citation-supports-fact-but-not-conclusion_9d9fa2",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:791b80eb",
+          "v4:secondary:05ccdd37",
+          "v4:near_distractor:d8cdea0b"
+        ],
+        "source_row_ids": [
+          "19005",
+          "17394"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_122_citation-supports-fact-but-not-conclusion_74d6c2",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:c581f801",
+          "v4:secondary:6c277cc5",
+          "v4:near_distractor:958ebb4f"
+        ],
+        "source_row_ids": [
+          "5ab3e45655429976abd1bcd4",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_123_citation-supports-fact-but-not-conclusion_bc3c8d",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:e9c8c909",
+          "v4:secondary:6ae43500",
+          "v4:near_distractor:d06b35a9"
+        ],
+        "source_row_ids": [
+          "5ab29c24554299449642c932",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_124_citation-supports-fact-but-not-conclusion_45f4e7",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:b2d86aa2",
+          "v4:secondary:683d07de",
+          "v4:near_distractor:58fd93d1"
+        ],
+        "source_row_ids": [
+          "5ae0d4c9554299603e418468",
+          "17394"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_125_citation-supports-fact-but-not-conclusion_79b0c4",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:b176fe70",
+          "v4:secondary:58fddd2a",
+          "v4:near_distractor:5161dc23"
+        ],
+        "source_row_ids": [
+          "5a8133725542995ce29dcbdb",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_126_citation-supports-fact-but-not-conclusion_2f6e1c",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:d7669002",
+          "v4:secondary:304d39e1",
+          "v4:near_distractor:20f79177"
+        ],
+        "source_row_ids": [
+          "5ae7a8175542993210983ed8",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_127_citation-supports-fact-but-not-conclusion_b231b5",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:199beb2b",
+          "v4:secondary:236a02d1",
+          "v4:near_distractor:e13abdaf"
+        ],
+        "source_row_ids": [
+          "1805.08241",
+          "17394"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_128_citation-supports-fact-but-not-conclusion_adf2ab",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:53052a52",
+          "v4:secondary:d66670b3",
+          "v4:near_distractor:21ad364a"
+        ],
+        "source_row_ids": [
+          "1907.04433",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_129_citation-supports-fact-but-not-conclusion_a8ae93",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:fee5acf5",
+          "v4:secondary:cbde1c16",
+          "v4:near_distractor:b17bce69"
+        ],
+        "source_row_ids": [
+          "2003.04642",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_130_citation-supports-fact-but-not-conclusion_e827a2",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:0e809291",
+          "v4:secondary:f5fe0758",
+          "v4:near_distractor:f996fb0d"
+        ],
+        "source_row_ids": [
+          "2001.09215",
+          "17394"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_131_citation-supports-fact-but-not-conclusion_1686ae",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:854cd656",
+          "v4:secondary:fa982e2b",
+          "v4:near_distractor:5f894912"
+        ],
+        "source_row_ids": [
+          "1909.07575",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "allenai/qasper",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_132_citation-supports-fact-but-not-conclusion_36c5c2",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:9ba1154c",
+          "v4:secondary:1dc021bc",
+          "v4:near_distractor:2fdee004"
+        ],
+        "source_row_ids": [
+          "1701.04056",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_133_citation-supports-fact-but-not-conclusion_fca018",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:bae1cfea",
+          "v4:secondary:0c3bcd64",
+          "v4:near_distractor:e11ab618"
+        ],
+        "source_row_ids": [
+          "nt-21",
+          "17394"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_134_citation-supports-fact-but-not-conclusion_a5f9b3",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:a4a55ab4",
+          "v4:secondary:7e6ccf22",
+          "v4:near_distractor:bcad4a9f"
+        ],
+        "source_row_ids": [
+          "nt-22",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:d9a9c67a",
+          "v4:secondary:1fbffb5f",
+          "v4:near_distractor:7efec9e2"
+        ],
+        "source_row_ids": [
+          "nt-23",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_136_citation-supports-fact-but-not-conclusion_0e7d95",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:eeba8663",
+          "v4:secondary:088b1f7d",
+          "v4:near_distractor:68a71074"
+        ],
+        "source_row_ids": [
+          "nt-25",
+          "17394"
+        ],
+        "source_datasets": [
+          "danwakeem/wikitablequestions-wtq",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_137_citation-supports-fact-but-not-conclusion_6941bb",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:f93649ab",
+          "v4:secondary:905acd3d",
+          "v4:near_distractor:a3722bf0"
+        ],
+        "source_row_ids": [
+          "13701",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_138_citation-supports-fact-but-not-conclusion_050747",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:4f3da05a",
+          "v4:secondary:82302606",
+          "v4:near_distractor:04c45dd7"
+        ],
+        "source_row_ids": [
+          "17394",
+          "1909.07575"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "allenai/qasper"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_139_citation-supports-fact-but-not-conclusion_a3ed29",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:655b6773",
+          "v4:secondary:4d5c918a",
+          "v4:near_distractor:f977a1d5"
+        ],
+        "source_row_ids": [
+          "7975",
+          "17394"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_140_citation-supports-fact-but-not-conclusion_469629",
+      "category": "citation supports fact but not conclusion",
+      "gold": {
+        "expected_answers": [
+          "ABSTAIN"
+        ],
+        "required_evidence_ids": [],
+        "rejected_evidence_ids": [
+          "v4:primary:de40b820",
+          "v4:secondary:eac9584c",
+          "v4:near_distractor:3588537c"
+        ],
+        "source_row_ids": [
+          "11305",
+          "5ae0d4c9554299603e418468"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_141_entity-disambiguation_07d16b",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Arena of Khazan"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:bf1f0e22"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:9e193648"
+        ],
+        "source_row_ids": [
+          "5a8a3e745542996c9b8d5e70",
+          "16489"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_142_entity-disambiguation_6a06da",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "2000"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:fa8b4c1d"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:13021b41"
+        ],
+        "source_row_ids": [
+          "5ac23ff0554299636651994d",
+          "5ae2070a5542994d89d5b313"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_143_entity-disambiguation_ce8c95",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Fujioka, Gunma"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:711a1659"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:ce0eb382"
+        ],
+        "source_row_ids": [
+          "5ae4a3265542995ad6573de5",
+          "5ac23ff0554299636651994d"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_144_entity-disambiguation_b9e35a",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Charles Eugène"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:fdbfcd6c"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:6e421576"
+        ],
+        "source_row_ids": [
+          "5ae0361155429925eb1afc2c",
+          "8076"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_145_entity-disambiguation_66d89e",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Ryan Kwanten appeared in the films Flicka (2006) and as Jamie Ashen in Dead Silence (2007)."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:5e8acab2"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:360f7371"
+        ],
+        "source_row_ids": [
+          "13738",
+          "18430"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_146_entity-disambiguation_9a628a",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In the boys' U-20 category, Usain Bolt from Jamaica records finishing the 200 meters in 20.43s, the 400 meters in 46.35s, and together with the Jamaican 4 × 100 m relay team in 39..."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:9827a864"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:04e0732b"
+        ],
+        "source_row_ids": [
+          "15775",
+          "5abd259d55429924427fcf1a"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_147_entity-disambiguation_6d136c",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "The 1986 champion was the #1 Advan Nova Porsche 962C driven by Kunimitsu Takahashi."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:2a840666"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:ab557464"
+        ],
+        "source_row_ids": [
+          "19172",
+          "15775"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_148_entity-disambiguation_bcfcff",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Philip I the Amorous, was King of the Franks from 1060 to 1108, the fourth from the House of Capet."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:f7cd65e8"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:1d9e9655"
+        ],
+        "source_row_ids": [
+          "19148",
+          "11968"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_149_entity-disambiguation_a346a1",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Kerala has 941 Grama panchayats, 152 Block Panchayats, 14 District Panchayats, 87 Municipalities, 6 Corporations and a total of 1200 Local Government."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:c1d79539"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:965224a7"
+        ],
+        "source_row_ids": [
+          "8076",
+          "5ae22b8d554299234fd0440f"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_150_entity-disambiguation_7cca6d",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Macedonian independence referendum was approved by 96.4% of votes, with a turnout of 75.7%."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:e261c2a2"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:79826dc8"
+        ],
+        "source_row_ids": [
+          "16435",
+          "5ae4a3265542995ad6573de5"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_151_entity-disambiguation_4dc112",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "For students entering University of Oregon 2014, 15,997 freshmen were accepted out of 21,359 applicants, a 74.9% acceptance rate, and 3,961 enrolled."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:becd669b"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:e8b5b186"
+        ],
+        "source_row_ids": [
+          "11453",
+          "16435"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_152_entity-disambiguation_35bd37",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Dwight Yorke made 147 appearances for Manchester United."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:0dc6799c"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:a8e56bd7"
+        ],
+        "source_row_ids": [
+          "16489",
+          "5ae6050f55429929b0807a5e"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_153_entity-disambiguation_11f0e5",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Jamal Walton won a gold medal at the 2017 Pan American U20 Championships with a record of 44.99."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:922788c0"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:ef85378e"
+        ],
+        "source_row_ids": [
+          "11968",
+          "5a828c8355429966c78a6a50"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_154_entity-disambiguation_349b94",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In Aosta Valley the Democratic Party was endorsed with 47.1% of the vote, followed by the Five Star Movement, second at 19.6%."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:ae4f3ece"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:aaad0747"
+        ],
+        "source_row_ids": [
+          "14630",
+          "19172"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_155_entity-disambiguation_983381",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "In the NCAA Division II season for Lincoln, Don Corbett led his teams to an eight-year 159–59 record, from 1971 to 1979."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:6f640b8d"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:0bf74f88"
+        ],
+        "source_row_ids": [
+          "13721",
+          "14630"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_156_entity-disambiguation_9bb4c4",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Wellington Central by-election in 1918 was won by Peter Fraser, Henry Okey of Taranaki died in 1918 and the by-election was won by Sydney Smith, and Alfred Hindmarsh of Wellington..."
+        ],
+        "required_evidence_ids": [
+          "v4:primary:9f28412e"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:f3e059a1"
+        ],
+        "source_row_ids": [
+          "18430",
+          "5a722b8655429971e9dc9329"
+        ],
+        "source_datasets": [
+          "DongfuJiang/FeTaQA",
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_157_entity-disambiguation_cb942d",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Sonic"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:ff023c67"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:d6e8383c"
+        ],
+        "source_row_ids": [
+          "5ae6050f55429929b0807a5e",
+          "5ae0361155429925eb1afc2c"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_158_entity-disambiguation_3acb74",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "keyboard function keys"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:b2554193"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:e576dab2"
+        ],
+        "source_row_ids": [
+          "5adddccd5542997dc7907069",
+          "11453"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa",
+          "DongfuJiang/FeTaQA"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_159_entity-disambiguation_32ab03",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "Badly Drawn Boy"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:50a42d84"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:973e8fd3"
+        ],
+        "source_row_ids": [
+          "5ae2070a5542994d89d5b313",
+          "5adddccd5542997dc7907069"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_160_entity-disambiguation_1dde3f",
+      "category": "entity disambiguation",
+      "gold": {
+        "expected_answers": [
+          "World's Best Goalkeeper"
+        ],
+        "required_evidence_ids": [
+          "v4:primary:40d901c9"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:9499aed7"
+        ],
+        "source_row_ids": [
+          "5ae22b8d554299234fd0440f",
+          "5a8a3e745542996c9b8d5e70"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_161_temporal-questions-as-of-date-x_6a6cc4",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "113"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:aa6cc467"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:fd673d79",
+          "v4:near_distractor:998c6a5c"
+        ],
+        "source_row_ids": [
+          "113",
+          "95"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_162_temporal-questions-as-of-date-x_b7022f",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "118"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:dc1d2706"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:db86d000",
+          "v4:near_distractor:7d01cedc"
+        ],
+        "source_row_ids": [
+          "118",
+          "102"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_163_temporal-questions-as-of-date-x_a8cb40",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "120"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:1304f972"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:d00c2a14",
+          "v4:near_distractor:2f370c59"
+        ],
+        "source_row_ids": [
+          "120",
+          "118"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_164_temporal-questions-as-of-date-x_9b3af0",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "123"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:fc31d800"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:21f09fb6",
+          "v4:near_distractor:592172d8"
+        ],
+        "source_row_ids": [
+          "123",
+          "87"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_165_temporal-questions-as-of-date-x_cd8cc2",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "126"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:b2070ab5"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:0684a1ab",
+          "v4:near_distractor:1836d992"
+        ],
+        "source_row_ids": [
+          "126",
+          "99"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_166_temporal-questions-as-of-date-x_c5d99b",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "127"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:4adc0fcd"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:827ba933",
+          "v4:near_distractor:62e09975"
+        ],
+        "source_row_ids": [
+          "127",
+          "108"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_167_temporal-questions-as-of-date-x_c5c6d1",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "128"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:1727a6a8"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:eda9c7ee",
+          "v4:near_distractor:b4e9c68f"
+        ],
+        "source_row_ids": [
+          "128",
+          "127"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_168_temporal-questions-as-of-date-x_e59411",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "129"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:7e4d7cc4"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:da8ac382",
+          "v4:near_distractor:17748d41"
+        ],
+        "source_row_ids": [
+          "129",
+          "96"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_169_temporal-questions-as-of-date-x_7b053c",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "87"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:3e43ef0c"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:95803b3a",
+          "v4:near_distractor:f7e1e956"
+        ],
+        "source_row_ids": [
+          "87",
+          "103"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_170_temporal-questions-as-of-date-x_837ac2",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "91"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:1c712522"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:e3dbfba4",
+          "v4:near_distractor:fd2d5d0a"
+        ],
+        "source_row_ids": [
+          "91",
+          "120"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_171_temporal-questions-as-of-date-x_4c83d7",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "93"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:4259b8b6"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:282a0b50",
+          "v4:near_distractor:c7ca2ebe"
+        ],
+        "source_row_ids": [
+          "93",
+          "91"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_172_temporal-questions-as-of-date-x_91dcc6",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "95"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:b9c46442"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:ae03d5c4",
+          "v4:near_distractor:da5b5c40"
+        ],
+        "source_row_ids": [
+          "95",
+          "100"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_173_temporal-questions-as-of-date-x_bf3aac",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "96"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:e96d3517"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:41501149",
+          "v4:near_distractor:c7add4d0"
+        ],
+        "source_row_ids": [
+          "96",
+          "109"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_174_temporal-questions-as-of-date-x_aa5306",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "97"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:e9806fb6"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:98411a50",
+          "v4:near_distractor:efb157e2"
+        ],
+        "source_row_ids": [
+          "97",
+          "128"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_175_temporal-questions-as-of-date-x_af1a9f",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "98"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:96273a6f"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:42caba91",
+          "v4:near_distractor:84401257"
+        ],
+        "source_row_ids": [
+          "98",
+          "97"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_176_temporal-questions-as-of-date-x_0b4e27",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "99"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:d31e4702"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:dd288084",
+          "v4:near_distractor:a11eb84b"
+        ],
+        "source_row_ids": [
+          "99",
+          "104"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_177_temporal-questions-as-of-date-x_5f7ecd",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "100"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:f76047b7"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:f7fe5ee9",
+          "v4:near_distractor:12d9b420"
+        ],
+        "source_row_ids": [
+          "100",
+          "123"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_178_temporal-questions-as-of-date-x_9a0b21",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "101"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:464bb5a5"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:10cad6fb",
+          "v4:near_distractor:64d9ff35"
+        ],
+        "source_row_ids": [
+          "101",
+          "93"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_179_temporal-questions-as-of-date-x_78a856",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "102"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:264cea6a"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:39492a7c",
+          "v4:near_distractor:a14e0e5f"
+        ],
+        "source_row_ids": [
+          "102",
+          "101"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_180_temporal-questions-as-of-date-x_d15410",
+      "category": "temporal questions: as of date X",
+      "gold": {
+        "expected_answers": [
+          "103"
+        ],
+        "required_evidence_ids": [
+          "v4:as_of_valid:941bf47c"
+        ],
+        "rejected_evidence_ids": [
+          "v4:future_update:6f791a4a",
+          "v4:near_distractor:2cc61988"
+        ],
+        "source_row_ids": [
+          "103",
+          "113"
+        ],
+        "source_datasets": [
+          "tdiggelm/climate_fever"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_181_cross-document-contradiction_2c1fd8",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:735204fe",
+          "v4:document_b:7252036b"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:286c2b7e"
+        ],
+        "source_row_ids": [
+          "5a7d54165542995f4f402256",
+          "5ae73acb5542991e8301cc07"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_182_cross-document-contradiction_72077f",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:018ea8c2",
+          "v4:document_b:008ea72f"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:bf202c01"
+        ],
+        "source_row_ids": [
+          "5ab859a955429934fafe6d7b",
+          "5a7571135542992d0ec05f98"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_183_cross-document-contradiction_66fa80",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:96edcce1",
+          "v4:document_b:93edc828"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:088790fc"
+        ],
+        "source_row_ids": [
+          "5add61d65542995b365fab21",
+          "5ab859a955429934fafe6d7b"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_184_cross-document-contradiction_1fb206",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:b0e8beac",
+          "v4:document_b:b3e8c365"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:afb328e0"
+        ],
+        "source_row_ids": [
+          "5a8e068b5542995085b37384",
+          "5a87c13f5542996e4f30890c"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_185_cross-document-contradiction_6d8e00",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:9d01de67",
+          "v4:document_b:9e01dffa"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:7df31428"
+        ],
+        "source_row_ids": [
+          "5abbf698554299114383a0b5",
+          "5a8ef2a75542995a26add583"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_186_cross-document-contradiction_aed033",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:c1f5eea3",
+          "v4:document_b:c2f5f036"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:3cf667c9"
+        ],
+        "source_row_ids": [
+          "5a8e1027554299653c1aa15f",
+          "5ab2d3df554299194fa9352c"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_187_cross-document-contradiction_179d3c",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:08a3c14b",
+          "v4:document_b:09a3c2de"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:23499b53"
+        ],
+        "source_row_ids": [
+          "5ab84bf555429916710eb01f",
+          "5a8e1027554299653c1aa15f"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_188_cross-document-contradiction_05dce4",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:2deacb36",
+          "v4:document_b:2ceac9a3"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:125d7537"
+        ],
+        "source_row_ids": [
+          "5a77724455429972597f153e",
+          "5abc0a5d5542993f40c73c64"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_189_cross-document-contradiction_00f929",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:dce1d7d6",
+          "v4:document_b:dbe1d643"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:c99dfe49"
+        ],
+        "source_row_ids": [
+          "5a87c13f5542996e4f30890c",
+          "5a7a0e1e5542990783324e1a"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_190_cross-document-contradiction_923d26",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:990794bc",
+          "v4:document_b:9c079975"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:dcec84f5"
+        ],
+        "source_row_ids": [
+          "5ab96ab755429970cfb8eacd",
+          "5add61d65542995b365fab21"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_191_cross-document-contradiction_7ecaa3",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:790b5bcb",
+          "v4:document_b:7a0b5d5e"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:b5fc3a01"
+        ],
+        "source_row_ids": [
+          "5a8a43eb5542996c9b8d5e82",
+          "5ab96ab755429970cfb8eacd"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_192_cross-document-contradiction_55fd6b",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:c893bace",
+          "v4:document_b:c793b93b"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:882ca0de"
+        ],
+        "source_row_ids": [
+          "5ae73acb5542991e8301cc07",
+          "5a80721b554299485f5985ef"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_193_cross-document-contradiction_8c0510",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:c8d4397e",
+          "v4:document_b:c7d437eb"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:5b1e76b4"
+        ],
+        "source_row_ids": [
+          "5abc0a5d5542993f40c73c64",
+          "5a760ab65542994ccc918697"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_194_cross-document-contradiction_f1697d",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:cf908357",
+          "v4:document_b:d09084ea"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:ace3410d"
+        ],
+        "source_row_ids": [
+          "5a7cc50e554299452d57ba3e",
+          "5ab84bf555429916710eb01f"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_195_cross-document-contradiction_5fc6a1",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:aaea7293",
+          "v4:document_b:abea7426"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:6f9eff23"
+        ],
+        "source_row_ids": [
+          "5abf63f15542997ec76fd3ea",
+          "5a7cc50e554299452d57ba3e"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_196_cross-document-contradiction_292714",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:2f483f31",
+          "v4:document_b:2c483a78"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:a944bc94"
+        ],
+        "source_row_ids": [
+          "5a8ef2a75542995a26add583",
+          "5a74106b55429979e288289e"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_197_cross-document-contradiction_bb5197",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:ad42d6ef",
+          "v4:document_b:ae42d882"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:b886b027"
+        ],
+        "source_row_ids": [
+          "5a80721b554299485f5985ef",
+          "5a8e068b5542995085b37384"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_198_cross-document-contradiction_0ab6d4",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:fe1d6e37",
+          "v4:document_b:ff1d6fca"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:b3a2e5f2"
+        ],
+        "source_row_ids": [
+          "5ab51dae5542991779162d82",
+          "5a8a43eb5542996c9b8d5e82"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_199_cross-document-contradiction_cba340",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:5a26f10e",
+          "v4:document_b:5926ef7b"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:08602d3a"
+        ],
+        "source_row_ids": [
+          "5a7571135542992d0ec05f98",
+          "5ab51dae5542991779162d82"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    },
+    {
+      "task_id": "hgr_v4_candidate_200_cross-document-contradiction_c7f908",
+      "category": "cross-document contradiction",
+      "gold": {
+        "expected_answers": [
+          "CONFLICT"
+        ],
+        "required_evidence_ids": [
+          "v4:document_a:d9629f0f",
+          "v4:document_b:da62a0a2"
+        ],
+        "rejected_evidence_ids": [
+          "v4:near_distractor:55ac673d"
+        ],
+        "source_row_ids": [
+          "5a7a0e1e5542990783324e1a",
+          "5a7d54165542995f4f402256"
+        ],
+        "source_datasets": [
+          "hotpotqa/hotpot_qa"
+        ],
+        "constant_time_scoring": true
+      }
+    }
+  ]
+}

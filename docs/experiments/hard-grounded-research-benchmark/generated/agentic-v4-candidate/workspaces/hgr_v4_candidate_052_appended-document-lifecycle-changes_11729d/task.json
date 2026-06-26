@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_052_appended-document-lifecycle-changes_11729d",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "appended document lifecycle changes",
+  "user_question": "For \"STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization\", inspect the original body and appended update; return the final controlling answer.",
+  "target": {
+    "native_question": "For \"STEP: Sequence-to-Sequence Transformer Pre-training for Document Summarization\", inspect the original body and appended update; return the final controlling answer.",
+    "source_row_keys": [
+      "allenai/qasper:2004.01853",
+      "allenai/qasper:1809.00530"
+    ],
+    "challenge": {
+      "type": "document_lifecycle_appendix",
+      "original_document_id": "v4:original_body:8ca03748",
+      "appendix_document_id": "v4:appendix_update:74491312"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

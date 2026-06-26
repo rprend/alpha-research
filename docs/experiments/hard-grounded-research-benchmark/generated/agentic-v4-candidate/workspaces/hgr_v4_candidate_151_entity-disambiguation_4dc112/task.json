@@ -1,0 +1,32 @@
+{
+  "task_id": "hgr_v4_candidate_151_entity-disambiguation_4dc112",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "entity disambiguation",
+  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:11453\" whose label is \"How many students were accepted from the 21,359 people who applied for the University of Oregon in 2014 and how many students enrolled?\".",
+  "target": {
+    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:11453\" whose label is \"How many students were accepted from the 21,359 people who applied for the University of Oregon in 2014 and how many students enrolled?\".",
+    "source_row_keys": [
+      "DongfuJiang/FeTaQA:11453",
+      "DongfuJiang/FeTaQA:16435"
+    ],
+    "challenge": {
+      "type": "entity_disambiguation",
+      "exact_source_key": "DongfuJiang/FeTaQA:11453"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

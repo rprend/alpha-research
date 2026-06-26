@@ -1,0 +1,34 @@
+{
+  "task_id": "hgr_v4_candidate_115_evidence-insufficiency-abstention_ceada8",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "evidence insufficiency / abstention",
+  "user_question": "Does the corpus provide independent confirmation that \"Quasi-Recurrent Neural Networks\" has final answer \"Quasi-Recurrent Neural Networks\"? Answer only if there are two independent confirming sources.",
+  "target": {
+    "native_question": "Does the corpus provide independent confirmation that \"Quasi-Recurrent Neural Networks\" has final answer \"Quasi-Recurrent Neural Networks\"? Answer only if there are two independent confirming sources.",
+    "source_row_keys": [
+      "allenai/qasper:1611.01576",
+      "allenai/qasper:1712.00991"
+    ],
+    "challenge": {
+      "type": "insufficiency_probe",
+      "missing_evidence": [
+        "second independent confirming source"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

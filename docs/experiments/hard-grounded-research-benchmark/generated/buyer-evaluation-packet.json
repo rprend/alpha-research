@@ -55,6 +55,18 @@
       "The most reused native question appears 28 times."
     ]
   },
+  "v4_candidate": {
+    "status": "candidate_rejected_by_shallow_baseline",
+    "task_count": 200,
+    "unique_native_questions": 200,
+    "shallow_baseline_solved_count": 180,
+    "shallow_baseline_solve_rate": 0.9,
+    "blockers": [
+      "Rewrite or remove 180 tasks solved by the shallow metadata baseline.",
+      "Audit evidence contracts for over-synthetic answer patterns before replacing v3.",
+      "Run current Codex CLI and Claude Code over the v4 candidate workspaces after shallow-baseline filtering."
+    ]
+  },
   "limitations": [
     "The current v3 suite has only 12/150 required distinct native questions; it is diagnostic, not sellable.",
     "Some gold labels are HF-derived or deterministic transforms and need targeted audit before a paid benchmark sale.",
@@ -78,7 +90,7 @@
       {
         "id": "buyer_ready_packet_ready",
         "status": "partial",
-        "evidence": "Buyer-grade audit ready_for_buyer_claim=false; blockers=Replace repeated templates until at least 150 distinct native questions exist across 200 tasks.; Run Codex CLI with the strongest available accepted model over all 200 no-gold workspaces.; Run Claude Code with the strongest available accepted model over all 200 no-gold workspaces.; Produce per-category failure analysis from fresh expanded-suite runs.; Perform live novelty and contamination review before claiming the benchmark does not already exist.",
+        "evidence": "Buyer-grade audit ready_for_buyer_claim=false; blockers=Replace repeated templates until at least 150 distinct native questions exist across 200 tasks.; Perform live novelty and contamination review before claiming the benchmark does not already exist.",
         "required_action": "Build the buyer packet after fresh frontier-agent runs and failure analysis exist."
       }
     ]

@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_135_citation-supports-fact-but-not-conclusion_aef978",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "citation supports fact but not conclusion",
+  "user_question": "The corpus has a source for \"How many names are from Kenya?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
+  "target": {
+    "native_question": "The corpus has a source for \"How many names are from Kenya?\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation\"?",
+    "source_row_keys": [
+      "danwakeem/wikitablequestions-wtq:nt-23",
+      "allenai/qasper:1909.07575"
+    ],
+    "challenge": {
+      "type": "citation_overreach_probe",
+      "supported_fact": "How many names are from Kenya?",
+      "unsupported_conclusion": "Bridging the Gap between Pre-Training and Fine-Tuning for End-to-End Speech Translation"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

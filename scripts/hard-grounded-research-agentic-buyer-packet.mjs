@@ -29,6 +29,8 @@ const noveltyAudit = readJson(join(generatedDir, 'novelty-audit.json'))
 const oracleReport = readJson(join(generatedDir, 'agentic-oracle-report.json'))
 const failureAnalysisPath = join(generatedDir, 'agentic-failure-analysis.json')
 const failureAnalysis = existsSync(failureAnalysisPath) ? readJson(failureAnalysisPath) : null
+const v4AuditPath = join(generatedDir, 'agentic-v4-candidate/audit.json')
+const v4Audit = existsSync(v4AuditPath) ? readJson(v4AuditPath) : null
 
 const packet = {
   packet_id: 'hard-grounded-agentic-buyer-evaluation-packet-v1',
@@ -60,6 +62,16 @@ const packet = {
         task_scores_analyzed: failureAnalysis.aggregate.task_score_count,
         aggregate_macro: failureAnalysis.aggregate.macro,
         structural_blockers: failureAnalysis.structural_blockers,
+      }
+    : null,
+  v4_candidate: v4Audit
+    ? {
+        status: v4Audit.status,
+        task_count: v4Audit.summary.task_count,
+        unique_native_questions: v4Audit.summary.unique_native_questions,
+        shallow_baseline_solved_count: v4Audit.shallow_baseline?.solved_count,
+        shallow_baseline_solve_rate: v4Audit.shallow_baseline?.solve_rate,
+        blockers: v4Audit.blockers,
       }
     : null,
   limitations: [
@@ -130,6 +142,10 @@ Fresh expanded-suite frontier-agent runs are missing. Historical 10-task runs ar
 ## Failure Analysis
 
 ${failureAnalysis ? `Runs analyzed: ${failureAnalysis.runs.length}. Aggregate answer membership: ${Math.round((failureAnalysis.aggregate.macro.answer_membership || 0) * 1000) / 10}%. Aggregate evidence recall: ${Math.round((failureAnalysis.aggregate.macro.required_evidence_recall || 0) * 1000) / 10}%. See \`AGENTIC_FAILURE_ANALYSIS.md\`.` : 'No scored agentic failure analysis is available yet.'}
+
+## V4 Candidate Status
+
+${v4Audit ? `A v4 candidate exists with ${v4Audit.summary.task_count} tasks and ${v4Audit.summary.unique_native_questions} unique native questions, but it is rejected: ${v4Audit.status}. The shallow metadata baseline solves ${v4Audit.shallow_baseline?.solved_count}/${v4Audit.summary.task_count} tasks, so it cannot replace v3 until those tasks are rewritten or removed.` : 'No v4 candidate has been generated yet.'}
 
 ## Limitations
 

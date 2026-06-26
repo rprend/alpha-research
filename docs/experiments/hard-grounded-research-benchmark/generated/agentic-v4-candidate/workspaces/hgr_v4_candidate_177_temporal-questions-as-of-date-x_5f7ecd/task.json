@@ -1,0 +1,34 @@
+{
+  "task_id": "hgr_v4_candidate_177_temporal-questions-as-of-date-x_5f7ecd",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "temporal questions: as of date X",
+  "user_question": "As of 2021-12-31, what is the controlling answer for \"100\"?",
+  "target": {
+    "native_question": "As of 2021-12-31, what is the controlling answer for \"100\"?",
+    "source_row_keys": [
+      "tdiggelm/climate_fever:100",
+      "tdiggelm/climate_fever:123"
+    ],
+    "challenge": {
+      "type": "as_of_date_constraint",
+      "as_of_date": "2021-12-31",
+      "valid_document_id": "v4:as_of_valid:f76047b7",
+      "excluded_future_document_id": "v4:future_update:f7fe5ee9"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "task_id": "hgr_v4_candidate_008_multi-hop-synthesis_d32cd2",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "multi-hop synthesis",
+  "user_question": "Using the corpus, identify the row answer field for the source titled \"Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis\" and the row answer field for the source titled \"Massively Multilingual Neural Grapheme-to-Phoneme Conversion\", then return them as \"first => second\".",
+  "target": {
+    "native_question": "Using the corpus, identify the row answer field for the source titled \"Abstractive Summarization for Low Resource Data using Domain Transfer and Data Synthesis\" and the row answer field for the source titled \"Massively Multilingual Neural Grapheme-to-Phoneme Conversion\", then return them as \"first => second\".",
+    "source_row_keys": [
+      "allenai/qasper:2002.03407",
+      "allenai/qasper:1708.01464"
+    ],
+    "challenge": {
+      "type": "two_source_join",
+      "required_order": [
+        "primary",
+        "secondary"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

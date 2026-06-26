@@ -1,0 +1,35 @@
+{
+  "task_id": "hgr_v4_candidate_071_table-text-reasoning_a7a3e2",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "table + text reasoning",
+  "user_question": "Find the table or QA source labeled \"Which candidate won the 1990 Civic Forum leadership election and how many votes did they receive compared to their competitor?\" and return its answer field together with its dataset as \"answer @ dataset\".",
+  "target": {
+    "native_question": "Find the table or QA source labeled \"Which candidate won the 1990 Civic Forum leadership election and how many votes did they receive compared to their competitor?\" and return its answer field together with its dataset as \"answer @ dataset\".",
+    "source_row_keys": [
+      "DongfuJiang/FeTaQA:20797",
+      "DongfuJiang/FeTaQA:17649"
+    ],
+    "challenge": {
+      "type": "table_text_join",
+      "required_fields": [
+        "answer",
+        "source_dataset"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

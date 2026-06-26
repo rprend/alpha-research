@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_130_citation-supports-fact-but-not-conclusion_e827a2",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "citation supports fact but not conclusion",
+  "user_question": "The corpus has a source for \"An Iterative Approach for Identifying Complaint Based Tweets in Social Media Platforms\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Who were the sponsors for the away shirts of Colchester United FC?\"?",
+  "target": {
+    "native_question": "The corpus has a source for \"An Iterative Approach for Identifying Complaint Based Tweets in Social Media Platforms\". Does that citation alone prove the broader comparative conclusion that it has the same answer as \"Who were the sponsors for the away shirts of Colchester United FC?\"?",
+    "source_row_keys": [
+      "allenai/qasper:2001.09215",
+      "DongfuJiang/FeTaQA:17394"
+    ],
+    "challenge": {
+      "type": "citation_overreach_probe",
+      "supported_fact": "An Iterative Approach for Identifying Complaint Based Tweets in Social Media Platforms",
+      "unsupported_conclusion": "Away shirt sponsorship has been provided by Ashby's (1999–2000), Ridley's (2000–2002), 188Trades.com (2005–2006), Smart Energy (2006–2009) and JobServe (2009–2010, 2012–)."
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

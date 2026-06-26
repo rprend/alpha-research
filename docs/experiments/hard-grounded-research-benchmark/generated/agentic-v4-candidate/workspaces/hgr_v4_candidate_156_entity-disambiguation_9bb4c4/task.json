@@ -1,0 +1,32 @@
+{
+  "task_id": "hgr_v4_candidate_156_entity-disambiguation_9bb4c4",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "entity disambiguation",
+  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:18430\" whose label is \"What was the result of the 1918 election and which politicians died in 1918?\".",
+  "target": {
+    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:18430\" whose label is \"What was the result of the 1918 election and which politicians died in 1918?\".",
+    "source_row_keys": [
+      "DongfuJiang/FeTaQA:18430",
+      "hotpotqa/hotpot_qa:5a722b8655429971e9dc9329"
+    ],
+    "challenge": {
+      "type": "entity_disambiguation",
+      "exact_source_key": "DongfuJiang/FeTaQA:18430"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

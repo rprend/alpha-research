@@ -1,0 +1,35 @@
+{
+  "task_id": "hgr_v4_candidate_017_multi-hop-synthesis_274c13",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "multi-hop synthesis",
+  "user_question": "Using the corpus, identify the row answer field for the source titled \"2014 S/S is the debut album of a South Korean boy group that was formed by who?\" and the row answer field for the source titled \"The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?\", then return them as \"first => second\".",
+  "target": {
+    "native_question": "Using the corpus, identify the row answer field for the source titled \"2014 S/S is the debut album of a South Korean boy group that was formed by who?\" and the row answer field for the source titled \"The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?\", then return them as \"first => second\".",
+    "source_row_keys": [
+      "hotpotqa/hotpot_qa:5abd94525542992ac4f382d2",
+      "hotpotqa/hotpot_qa:5a8e3ea95542995a26add48d"
+    ],
+    "challenge": {
+      "type": "two_source_join",
+      "required_order": [
+        "primary",
+        "secondary"
+      ]
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

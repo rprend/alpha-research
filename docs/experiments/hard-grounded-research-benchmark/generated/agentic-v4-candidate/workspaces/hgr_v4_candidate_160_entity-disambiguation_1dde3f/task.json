@@ -1,0 +1,32 @@
+{
+  "task_id": "hgr_v4_candidate_160_entity-disambiguation_1dde3f",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "entity disambiguation",
+  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae22b8d554299234fd0440f\" whose label is \"What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?\".",
+  "target": {
+    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"hotpotqa/hotpot_qa:5ae22b8d554299234fd0440f\" whose label is \"What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?\".",
+    "source_row_keys": [
+      "hotpotqa/hotpot_qa:5ae22b8d554299234fd0440f",
+      "hotpotqa/hotpot_qa:5a8a3e745542996c9b8d5e70"
+    ],
+    "challenge": {
+      "type": "entity_disambiguation",
+      "exact_source_key": "hotpotqa/hotpot_qa:5ae22b8d554299234fd0440f"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "task_id": "hgr_v4_candidate_153_entity-disambiguation_11f0e5",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "entity disambiguation",
+  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:11968\" whose label is \"What record time did Jamal Walton win gold for in the 2017 Pan American U20 championships?\".",
+  "target": {
+    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:11968\" whose label is \"What record time did Jamal Walton win gold for in the 2017 Pan American U20 championships?\".",
+    "source_row_keys": [
+      "DongfuJiang/FeTaQA:11968",
+      "hotpotqa/hotpot_qa:5a828c8355429966c78a6a50"
+    ],
+    "challenge": {
+      "type": "entity_disambiguation",
+      "exact_source_key": "DongfuJiang/FeTaQA:11968"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

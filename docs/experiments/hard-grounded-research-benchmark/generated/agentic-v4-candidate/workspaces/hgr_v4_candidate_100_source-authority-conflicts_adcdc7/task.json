@@ -1,0 +1,36 @@
+{
+  "task_id": "hgr_v4_candidate_100_source-authority-conflicts_adcdc7",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "source authority conflicts",
+  "user_question": "For \"cb13hn\", resolve the authority conflict and return the expert-reviewed answer.",
+  "target": {
+    "native_question": "For \"cb13hn\", resolve the authority conflict and return the expert-reviewed answer.",
+    "source_row_keys": [
+      "Pavithree/eli5:cb13hn",
+      "Pavithree/eli5:yzrnp"
+    ],
+    "challenge": {
+      "type": "authority_conflict",
+      "authority_order": [
+        "expert-reviewed source",
+        "community summary"
+      ],
+      "high_authority_document_id": "v4:high_authority:9ccadb47"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

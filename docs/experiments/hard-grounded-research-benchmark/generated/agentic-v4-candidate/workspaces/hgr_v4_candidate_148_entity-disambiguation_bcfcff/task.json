@@ -1,0 +1,32 @@
+{
+  "task_id": "hgr_v4_candidate_148_entity-disambiguation_bcfcff",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "entity disambiguation",
+  "user_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:19148\" whose label is \"What year did Philip I the Amorous become King of the Franks, what year did that run end, and what number king was he?\".",
+  "target": {
+    "native_question": "There are near-name sources in the corpus. Return the answer field for the exact source row \"DongfuJiang/FeTaQA:19148\" whose label is \"What year did Philip I the Amorous become King of the Franks, what year did that run end, and what number king was he?\".",
+    "source_row_keys": [
+      "DongfuJiang/FeTaQA:19148",
+      "DongfuJiang/FeTaQA:11968"
+    ],
+    "challenge": {
+      "type": "entity_disambiguation",
+      "exact_source_key": "DongfuJiang/FeTaQA:19148"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}

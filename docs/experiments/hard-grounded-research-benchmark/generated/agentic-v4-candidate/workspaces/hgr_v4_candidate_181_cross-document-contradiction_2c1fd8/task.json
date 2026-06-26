@@ -1,0 +1,33 @@
+{
+  "task_id": "hgr_v4_candidate_181_cross-document-contradiction_2c1fd8",
+  "suite_id": "agentic-large-corpus-research-v4-candidate",
+  "category": "cross-document contradiction",
+  "user_question": "Two same-authority documents disagree about \"A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?\". If they cannot be reconciled by date or authority, what should the answer be?",
+  "target": {
+    "native_question": "Two same-authority documents disagree about \"A medieval fortress in Dirleton, East Lothian, Scotland borders on the south side of what coastal area?\". If they cannot be reconciled by date or authority, what should the answer be?",
+    "source_row_keys": [
+      "hotpotqa/hotpot_qa:5a7d54165542995f4f402256",
+      "hotpotqa/hotpot_qa:5ae73acb5542991e8301cc07"
+    ],
+    "challenge": {
+      "type": "cross_document_contradiction",
+      "document_a_id": "v4:document_a:735204fe",
+      "document_b_id": "v4:document_b:7252036b"
+    },
+    "hidden_gold_withheld": true
+  },
+  "corpus": {
+    "document_count": 1000,
+    "corpus_file": "corpus.json",
+    "documents_embedded_in_task_json": false
+  },
+  "gold_withheld": true,
+  "submission_schema": {
+    "task_id": "must match this task id",
+    "answer": "string",
+    "cited_evidence_ids": "array of exact document_id values from corpus.json",
+    "rejected_evidence_ids": "array of exact document_id values inspected and rejected",
+    "search_trace": "non-empty array",
+    "evidence_assessment": "short explanation"
+  }
+}
