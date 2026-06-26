@@ -1,0 +1,66 @@
+{
+  "run_id": "abstention-support-error-analysis-support-contrast-gate-321-389-v1",
+  "generated_at": "2026-06-26T15:44:04.010Z",
+  "split": "extended_temporal_future_holdout",
+  "gate_run_id": "support-contrast-gate-direct-repair-0-240-val-240-320-to-321-389-v1",
+  "source_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+  "judge_run_id": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+  "eval_offset": 320,
+  "eval_examples": 69,
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "note": "This analysis reuses existing predictions and judgments. It makes no OpenAI API calls."
+  },
+  "counts": {
+    "source_answered": 53,
+    "source_supported_answers": 34,
+    "source_unsupported_answers": 19,
+    "gate_answered": 42,
+    "gate_abstained": 27,
+    "useful_suppressions": 3,
+    "unsupported_answerable_suppressions": 3,
+    "harmful_suppressions": 5,
+    "retained_supported_answers": 29,
+    "retained_unsupported_answers": 13,
+    "source_abstentions_on_answerable_rows": 2,
+    "source_abstentions_on_unanswerable_rows": 14
+  },
+  "rates": {
+    "source_answer_support_rate": 0.6415094339622641,
+    "gate_retained_answer_support_rate": 0.6904761904761905,
+    "gate_abstention_support_rate": 0.6296296296296297,
+    "inherited_overall_correct_rate": 0.6666666666666666
+  },
+  "error_diagnosis": {
+    "main_tradeoff": "The gate improves retained-answer support only by converting some answered rows to abstentions; those abstentions are harmful when the reference row is answerable.",
+    "dominant_remaining_errors": [
+      {
+        "category": "retained_unsupported_answer",
+        "count": 13,
+        "implication": "Need answer repair or stronger answer-support verifier."
+      },
+      {
+        "category": "suppressed_supported_answer",
+        "count": 5,
+        "implication": "Need abstention-support modeling before suppressing."
+      },
+      {
+        "category": "suppressed_unsupported_answerable",
+        "count": 3,
+        "implication": "Need repair/regeneration rather than abstention on answerable rows."
+      },
+      {
+        "category": "source_abstention_on_answerable",
+        "count": 2,
+        "implication": "Need answer recovery, not more suppression."
+      }
+    ],
+    "next_training_target": "Train or label a joint decision target: keep supported answer, repair unsupported answer, or abstain only when the evidence pack is actually insufficient."
+  },
+  "artifacts": {
+    "row_analysis_jsonl": "docs/experiments/grounded-qa-distillation/runs/abstention-support-error-analysis-support-contrast-gate-321-389-v1/row_analysis.jsonl",
+    "error_groups_json": "docs/experiments/grounded-qa-distillation/runs/abstention-support-error-analysis-support-contrast-gate-321-389-v1/error_groups.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/abstention-support-error-analysis-support-contrast-gate-321-389-v1/report.md"
+  }
+}

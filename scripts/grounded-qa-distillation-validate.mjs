@@ -58,6 +58,7 @@ if (!errors.length) {
   await validateLocalGenerativeContractGateRunsIfPresent();
   await validateSupportContrastPrepRunsIfPresent();
   await validateSupportContrastGateRunsIfPresent();
+  await validateAbstentionSupportErrorAnalysisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
 }
 
@@ -1080,6 +1081,61 @@ async function validateSupportContrastGateRunsIfPresent() {
           if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
         }
       }
+    }
+  }
+}
+
+async function validateAbstentionSupportErrorAnalysisRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("abstention-support-error-analysis-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const rowAnalysisPath = path.join(runsDir, entry.name, "row_analysis.jsonl");
+    const groupsPath = path.join(runsDir, entry.name, "error_groups.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let rows;
+    let groups;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      rows = await readJsonl(rowAnalysisPath);
+      groups = JSON.parse(await fs.readFile(groupsPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed abstention-support error analysis artifacts.`);
+      continue;
+    }
+
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0) {
+      errors.push(`${entry.name}: abstention-support error analysis must be zero-call and zero-cost.`);
+    }
+    if (result.eval_examples !== rows.length) errors.push(`${entry.name}: eval_examples does not match row analysis.`);
+    if (!result.gate_run_id || !result.source_run_id || !result.judge_run_id) {
+      errors.push(`${entry.name}: missing source run identifiers.`);
+    }
+    const categoryCounts = rows.reduce((counts, row) => {
+      counts[row.category] = (counts[row.category] ?? 0) + 1;
+      return counts;
+    }, {});
+    for (const [category, groupRows] of Object.entries(groups)) {
+      if (!Array.isArray(groupRows)) errors.push(`${entry.name}: group ${category} must be an array.`);
+      if ((categoryCounts[category] ?? 0) !== groupRows.length) {
+        errors.push(`${entry.name}: group ${category} count does not match row analysis.`);
+      }
+    }
+    const counted = Object.values(result.counts ?? {}).every((value) => Number.isFinite(Number(value)) && Number(value) >= 0);
+    if (!counted) errors.push(`${entry.name}: counts must be non-negative numbers.`);
+    for (const [index, row] of rows.entries()) {
+      const label = `${entry.name}.row_analysis:${index + 1}`;
+      if (!row.example_id || !row.category || !row.reference_answer_type) errors.push(`${label}: malformed row analysis.`);
+      if (row.source_answered && row.source_answer_supported == null) errors.push(`${label}: answered row missing support flag.`);
     }
   }
 }
