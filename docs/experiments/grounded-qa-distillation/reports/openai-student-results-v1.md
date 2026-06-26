@@ -26,6 +26,8 @@ Runs:
 - `risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1`: zero-call support-risk gate trained from claim-pruned teacher-label traces and evaluated on examples 161-240
 - `openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-160-240-v1`: stronger `gpt-4o` judge over the repaired direct baseline
 - `openai-judge-gpt4o-risk-gate-claim-pruner-mini-labels-direct-repair-future-holdout-160-240-v1`: stronger `gpt-4o` judge over the risk-gated predictions
+- `mini-verifier-gate-balanced-risk-gate-240-389-v1`: synthesis of cheap mini-verifier negatives plus the deterministic claim-entailment guard over balanced risk-gate transfer outputs
+- `teacher-combined-mini-det-guard-future-holdout-240-389-v1`: zero-new-call SFT and verifier-label export from the combined teacher policy
 
 Model:
 
@@ -37,9 +39,8 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 4438
-- Total spend so far: $5.25222705
-- Remaining budget: $94.74777295
+- Total spend so far: $5.57454550
+- Remaining budget: $94.42545450
 
 ## Prompt Contract Result
 
@@ -169,12 +170,16 @@ The teacher-demo scaffold is more conservative: it answers 23 of 40 examples ver
 | `exports/teacher-repair-temporal-test-0-132-v1.rejected.jsonl` | 23 | expanded rejected audit rows |
 | `exports/teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` | 33 | claim-pruned strict labels from the final temporal-test slice |
 | `exports/teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.rejected.jsonl` | 7 | rejected claim-pruned audit rows |
+| `exports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.sft.jsonl` | 125 | combined mini-negative and deterministic-guard teacher labels |
+| `exports/teacher-combined-mini-det-guard-future-holdout-240-389-v1.verifier.jsonl` | 149 | answer-support verifier labels with 119 keep and 30 suppress targets |
 
 The strict filter accepts answered labels only when the judge marks every claim supported, citation ids valid, and every cited id appears inline in the answer. This is stricter than the judge aggregate: 14 semantically supported answered labels are rejected because the repaired teacher still omitted inline citation markers, and 1 answered label is rejected as unsupported.
 
 The first-80 repaired teacher plus judge labeling cost is $0.5675848. Compared with the 80-120 demo scaffold's per-query cost premium over direct mini prompting, the offline packet breaks even after about 798 future queries if post-training keeps inference near direct mini-student cost. The expanded first-132 packet costs $0.9448423 and breaks even after about 1327 future queries under the same assumption. This is an amortization calculation, not a quality claim; a trained or fitted student still needs held-out evaluation.
 
 `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1` converts the stronger claim-pruned outputs into a smaller, stricter packet: 33 accepted labels from 40 examples, including 17 answered labels and 16 abstentions. Its full upstream cost is $0.150775, including the `gpt-4o` pruner and `gpt-4o` judge, and it breaks even against the in-context demo scaffold after about 212 future queries under the same direct-student inference-cost assumption. Because this packet is built from examples 133-172, it should be used for label-quality checks or future training only after creating a new later held-out snapshot.
+
+`teacher-combined-mini-det-guard-future-holdout-240-389-v1` exports the current best support-first teacher policy into model-facing labels. The export itself makes no OpenAI calls; it reuses the already ledgered 149 mini-verifier calls from D68, which cost $0.01805595. The resulting packet accepts 125 rows under the strong support-oracle conversion, rejects 24 audit rows, and exposes the underlying verifier target separately so a local verifier can learn `keep` versus `suppress` without treating mini positive judgments as calibrated truth.
 
 ## Teacher-Label Filter
 
