@@ -519,3 +519,11 @@ Decision: Add a broader source-backed novelty refresh covering text-table, legal
 Rationale: The benchmark's novelty case should be stress-tested against current adjacent benchmark work before any final claim; adding these sources makes overclaiming harder and sharpens the differentiator.
 
 Consequence: `scripts/hard-grounded-research-novelty-audit.mjs` and `scripts/hard-grounded-research-novelty-evidence.mjs` now include additional web-checked sources; regenerated `NOVELTY_AUDIT.md`, `NOVELTY_EVIDENCE.md`, and release artifacts keep `novelty_audit_final` blocked until human review and final audit.
+
+## 2026-06-26 — Export checksum-backed annotation packets
+
+Decision: Generate a first-wave annotation export from the assignment plan instead of asking reviewers to edit repo-internal workbook paths directly.
+
+Rationale: Human double review is the main remaining paper-readiness blocker. A stable export manifest with per-file checksums, reviewer-field-only rules, and row counts makes review handoff and later import auditable without pretending any labels are complete.
+
+Consequence: `scripts/hard-grounded-research-annotation-export.mjs` now emits `generated/annotation-export/manifest.json`, per-workbook export JSONL files, and `ANNOTATION_EXPORT.md`; validation and the release gate record export readiness while keeping all review-completion blockers active.

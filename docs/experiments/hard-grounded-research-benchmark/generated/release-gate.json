@@ -12,6 +12,7 @@
     "review_operations": "generated/review-operations.json",
     "review_triage": "generated/review-triage.json",
     "annotation_assignments": "generated/annotation-assignments.json",
+    "annotation_export": "generated/annotation-export/manifest.json",
     "expansion_review_preflight": "generated/expansion-review-preflight.json",
     "expansion_review_merge_report": "generated/expansion-review-merge-report.json",
     "review_merge_report": "generated/review-merge-report.json",
@@ -68,6 +69,12 @@
       "passed": true,
       "detail": "12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100",
       "blocker": "Generate concrete annotation assignments for pilot triage and paper-scale expansion review."
+    },
+    {
+      "id": "annotation_export_ready",
+      "passed": true,
+      "detail": "124 exported rows across 30 files; pilot=24; expansion=100",
+      "blocker": "Generate checksum-backed reviewer export files from the annotation assignment plan."
     },
     {
       "id": "expansion_review_preflight_ready",

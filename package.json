@@ -31,6 +31,7 @@
     "benchmark:hard-grounded:openai:calibration": "node scripts/hard-grounded-research-openai-baseline.mjs --calibration",
     "benchmark:hard-grounded:report": "node scripts/hard-grounded-research-report.mjs",
     "benchmark:hard-grounded:audit": "node scripts/hard-grounded-research-quality-audit.mjs",
+    "benchmark:hard-grounded:annotation-export": "node scripts/hard-grounded-research-annotation-export.mjs",
     "grounded-qa:distill": "node scripts/grounded-qa-distillation-build.mjs",
     "grounded-qa:run": "node scripts/grounded-qa-distillation-run.mjs",
     "grounded-qa:validate": "node scripts/grounded-qa-distillation-validate.mjs",
