@@ -43,6 +43,7 @@ const inputs = {
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
+  submissionContract: join(generatedDir, 'submission-contract.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
@@ -134,6 +135,7 @@ function buildGate({
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
+  submissionContract,
   corpusAudit,
   sourceDiversityPlan,
   sourceAcquisitionManifest,
@@ -437,6 +439,16 @@ function buildGate({
       blocker: 'Generate reproducible prompt packets for at least two non-fixture model baselines.',
     },
     {
+      id: 'submission_contract_ready',
+      passed:
+        Boolean(submissionContract.submission_contract_ready) &&
+        submissionContract.public_leaderboard_allowed === false &&
+        submissionContract.schema?.answer_required_fields?.includes('task_id') &&
+        submissionContract.schema?.answer_required_fields?.includes('evidence_assessment'),
+      detail: `${submissionContract.version}; pilot_tasks=${submissionContract.scoring_sources?.pilot?.task_count ?? 0}; leaderboard_allowed=${submissionContract.public_leaderboard_allowed}`,
+      blocker: 'Generate an external model submission schema and validation policy before accepting model results.',
+    },
+    {
       id: 'novelty_audit_final',
       passed: !novelty.preliminary && novelty.completion_claim_allowed,
       detail: `checked=${novelty.checked_date || 'unknown'} status=${noveltyAuditJson.status || 'unknown'} completion_claim_allowed=${novelty.completion_claim_allowed} high_risk_categories=${novelty.high_novelty_risk_categories ?? 'unknown'}`,
@@ -629,6 +641,7 @@ function buildGate({
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
+      submission_contract: 'generated/submission-contract.json',
       corpus_audit: 'generated/corpus-audit.json',
       source_diversity_plan: 'generated/source-diversity-plan.json',
       source_acquisition_manifest: 'generated/source-acquisition-manifest.json',
@@ -724,6 +737,7 @@ const gate = buildGate({
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
+  submissionContract: readJson(inputs.submissionContract),
   corpusAudit: readJson(inputs.corpusAudit),
   sourceDiversityPlan: readJson(inputs.sourceDiversityPlan),
   sourceAcquisitionManifest: readJson(inputs.sourceAcquisitionManifest),

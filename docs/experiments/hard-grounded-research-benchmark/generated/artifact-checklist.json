@@ -20,6 +20,7 @@
     "responsible_use": "generated/responsible-use.json",
     "scaled_public_package_summary": "generated/public-package/scaled-summary.json",
     "model_run_index": "generated/model-run-index.json",
+    "submission_contract": "generated/submission-contract.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
@@ -33,9 +34,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 20,
-    "artifact_classes_total": 20,
-    "reproduction_commands": 23,
+    "artifact_classes_ready": 21,
+    "artifact_classes_total": 21,
+    "reproduction_commands": 24,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -131,6 +132,13 @@
       "blockers": []
     },
     {
+      "id": "submission_contract",
+      "status": "ready",
+      "ready": true,
+      "evidence": "submission-contract-v1; pilot tasks=30; required fields=5.",
+      "blockers": []
+    },
+    {
       "id": "baselines_and_scoring",
       "status": "ready",
       "ready": true,
@@ -192,6 +200,10 @@
     {
       "step": "Run local non-oracle baselines",
       "command": "node scripts/hard-grounded-research-runner.mjs && node scripts/hard-grounded-research-lexical-baseline.mjs && node scripts/hard-grounded-research-citation-verifier.mjs"
+    },
+    {
+      "step": "Refresh submission contract",
+      "command": "node scripts/hard-grounded-research-submission-contract.mjs"
     },
     {
       "step": "Refresh aggregate baseline analysis",

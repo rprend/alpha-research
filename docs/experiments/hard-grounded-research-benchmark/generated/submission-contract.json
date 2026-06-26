@@ -1,0 +1,107 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "submission_contract_ready": true,
+  "version": "submission-contract-v1",
+  "scoring_sources": {
+    "pilot": {
+      "task_count": 30,
+      "source": "generated/pilot-suite.json",
+      "allowed_for_public_leaderboard": false
+    },
+    "gold": {
+      "task_count": 0,
+      "source": "generated/gold-suite.json",
+      "allowed_for_public_leaderboard": false,
+      "blocked_until": [
+        "gold_review_complete",
+        "review_merge_ready",
+        "category_scale_ready",
+        "novelty_audit_final"
+      ]
+    }
+  },
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json",
+    "pilot_suite": "generated/pilot-suite.json",
+    "model_baseline_packets": "generated/model-baseline-packets.json",
+    "responsible_use": "generated/responsible-use.json"
+  },
+  "schema": {
+    "top_level_required_fields": [
+      "system_id",
+      "answers"
+    ],
+    "answer_required_fields": [
+      "task_id",
+      "answer",
+      "citations",
+      "abstained",
+      "evidence_assessment"
+    ],
+    "answer_fields": [
+      {
+        "field": "task_id",
+        "type": "string",
+        "required": true,
+        "rule": "Must match exactly one released task id."
+      },
+      {
+        "field": "answer",
+        "type": "string",
+        "required": true,
+        "rule": "Natural language final answer or ABSTAIN."
+      },
+      {
+        "field": "citations",
+        "type": "array<string>",
+        "required": true,
+        "rule": "Citation ids must come from the task evidence units; empty only for abstention or invalid output."
+      },
+      {
+        "field": "abstained",
+        "type": "boolean",
+        "required": true,
+        "rule": "True only when the system intentionally refuses to answer due to insufficient or conflicting evidence."
+      },
+      {
+        "field": "confidence",
+        "type": "number",
+        "required": false,
+        "rule": "Optional calibrated confidence in [0, 1]."
+      },
+      {
+        "field": "evidence_assessment",
+        "type": "string",
+        "required": true,
+        "rule": "Short explanation of why the cited evidence supports the answer or why evidence is insufficient."
+      }
+    ],
+    "example": {
+      "system_id": "example-system-v1",
+      "answers": [
+        {
+          "task_id": "hgr_multi_hop_001_pilot_001",
+          "answer": "ABSTAIN",
+          "citations": [],
+          "abstained": true,
+          "confidence": 0,
+          "evidence_assessment": "The provided evidence is insufficient for the requested conclusion."
+        }
+      ]
+    }
+  },
+  "validation_rules": [
+    "Reject submissions with missing task ids, duplicate task ids, or task ids outside the scoring source.",
+    "Reject citation ids that are not present in the corresponding task evidence units.",
+    "Allow abstention with empty citations only when evidence_assessment explains insufficiency or conflict.",
+    "Score parse failures as invalid model outputs, not as missing benchmark labels.",
+    "Do not publish leaderboard rankings while responsible-use public_leaderboard_allowed is false."
+  ],
+  "packet_alignment": {
+    "packet_count": 2,
+    "scored_reports_ready": false,
+    "expected_output_template_present": true
+  },
+  "public_leaderboard_allowed": false,
+  "completion_claim_allowed": false
+}

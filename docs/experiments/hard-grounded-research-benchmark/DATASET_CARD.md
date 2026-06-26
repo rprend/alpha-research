@@ -23,7 +23,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: 492
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (20/20 artifact classes)
+- Artifact checklist ready: true (21/21 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -161,13 +161,15 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 23 reproduction commands, 20/20 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 24 reproduction commands, 21/21 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
 The generated threats-to-validity report tracks 8 risks across construct, internal, statistical, external, artifact, evaluation, novelty, and measurement validity. High-severity threats: 3. See `THREATS_TO_VALIDITY.md`.
 
 ## External Model Baselines
+
+The generated submission contract defines `submission-contract-v1` with 5 required answer fields and 5 validation rules. Public leaderboard use remains disallowed. See `SUBMISSION_CONTRACT.md`.
 
 | System | Evaluation source | Tasks | Macro answer correct | Report present |
 | --- | --- | --- | --- | --- |
@@ -215,11 +217,12 @@ Key release checks:
 - Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 19/19 artifact classes ready; reproduction_commands=22; release_blockers=7
+- Artifact checklist: pass - 20/20 artifact classes ready; reproduction_commands=23; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7
 - Analysis plan: pass - 4 hypotheses; 4 model families; reviewed=0/300
+- Submission contract: pass - submission-contract-v1; pilot_tasks=30; leaderboard_allowed=false
 - Power plan: pass - 30 reviewed items/category; 300 total target; remaining=300
 - Novelty refresh ledger: pass - 4 refresh queries; 10 related sources; completion_claim_allowed=false
 - Novelty claim boundaries: pass - 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims

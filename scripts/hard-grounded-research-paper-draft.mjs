@@ -18,6 +18,7 @@ const requiredInputs = {
   responsibleUse: join(generatedDir, 'responsible-use.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
+  submissionContract: join(generatedDir, 'submission-contract.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
   reviewCalibration: join(generatedDir, 'review-calibration.json'),
   annotationQualityControl: join(generatedDir, 'annotation-quality-control.json'),
@@ -241,7 +242,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, paperClaimLedger, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, releaseGate, modelRunIndex, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, paperClaimLedger, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, responsibleUse, releaseGate, modelRunIndex, submissionContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -393,6 +394,8 @@ ${markdownTable(['Threat', 'Type', 'Severity', 'Mitigation'], threatRows(threats
 
 Eligible external model baselines currently recorded by the model-run index: ${eligibleModelBaselines.length ? eligibleModelBaselines.join(', ') : 'none'}.
 
+The generated submission contract \`${submissionContract.version}\` defines ${submissionContract.schema.answer_required_fields.length} required answer fields and ${submissionContract.validation_rules.length} validation rules for external model outputs. It keeps pilot scoring separate from future reviewed gold scoring and disallows public leaderboard use while responsible-use gates remain closed.
+
 ${modelBaselineRows(modelRunIndex).length ? markdownTable(['Run', 'Manifest', 'Tasks', 'Answer', 'Scored report'], modelBaselineRows(modelRunIndex)) : 'No eligible external model baseline reports are currently present.'}
 
 ## Review Execution Readiness
@@ -497,6 +500,7 @@ const draft = renderDraft({
   responsibleUse: readJson(requiredInputs.responsibleUse),
   releaseGate: readJson(requiredInputs.releaseGate),
   modelRunIndex: readJson(requiredInputs.modelRunIndex),
+  submissionContract: readJson(requiredInputs.submissionContract),
   annotationExport: readJson(requiredInputs.annotationExport),
   reviewCalibration: readJson(requiredInputs.reviewCalibration),
   annotationQualityControl: readJson(requiredInputs.annotationQualityControl),

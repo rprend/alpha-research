@@ -19,6 +19,7 @@ const inputPaths = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
+  submissionContract: join(generatedDir, 'submission-contract.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   sourceAcquisitionManifest: join(generatedDir, 'source-acquisition-manifest.json'),
@@ -140,6 +141,7 @@ function renderCard({
   analysisPlan,
   paperClaimLedger,
   modelRunIndex,
+  submissionContract,
   corpusAudit,
   sourceDiversityPlan,
   sourceAcquisitionManifest,
@@ -316,6 +318,8 @@ The generated threats-to-validity report tracks ${threatsValidity.summary.threat
 
 ## External Model Baselines
 
+The generated submission contract defines \`${submissionContract.version}\` with ${submissionContract.schema.answer_required_fields.length} required answer fields and ${submissionContract.validation_rules.length} validation rules. Public leaderboard use remains ${submissionContract.public_leaderboard_allowed ? 'allowed' : 'disallowed'}. See \`SUBMISSION_CONTRACT.md\`.
+
 ${markdownTable(['System', 'Evaluation source', 'Tasks', 'Macro answer correct', 'Report present'], modelRows(modelRunIndex))}
 
 ## Data Provenance And Licensing Notes
@@ -364,6 +368,7 @@ Key release checks:
 - Failure atlas: ${checkDetail(releaseGate, 'failure_atlas_ready')}
 - Paper tables: ${checkDetail(releaseGate, 'paper_tables_ready')}
 - Analysis plan: ${checkDetail(releaseGate, 'analysis_plan_ready')}
+- Submission contract: ${checkDetail(releaseGate, 'submission_contract_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty refresh ledger: ${checkDetail(releaseGate, 'novelty_refresh_ledger_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
@@ -401,6 +406,7 @@ writeText(
     analysisPlan: readJson(inputPaths.analysisPlan),
     paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
+    submissionContract: readJson(inputPaths.submissionContract),
     corpusAudit: readJson(inputPaths.corpusAudit),
     sourceDiversityPlan: readJson(inputPaths.sourceDiversityPlan),
     sourceAcquisitionManifest: readJson(inputPaths.sourceAcquisitionManifest),

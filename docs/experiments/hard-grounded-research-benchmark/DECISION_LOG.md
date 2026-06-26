@@ -823,3 +823,11 @@ Decision: Generate a responsible-use and leaderboard policy for benchmark artifa
 Rationale: A hard-grounded research benchmark can be misused if pilot diagnostics are treated as rankings or if license-sensitive evidence is redistributed without constraints. The release package needs explicit public-use rules tied to current review, claim, and license gates.
 
 Consequence: `scripts/hard-grounded-research-responsible-use.mjs` emits `generated/responsible-use.json` and `RESPONSIBLE_USE.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the policy while public leaderboards and completion claims remain disallowed.
+
+## 2026-06-26 — Add external submission contract
+
+Decision: Generate a versioned external model submission contract for benchmark predictions.
+
+Rationale: Model comparisons are only reproducible if every system emits the same required answer, citation, abstention, confidence, and evidence-assessment fields against a declared scoring source. The contract also keeps pilot diagnostics separate from future reviewed-gold scoring and leaderboard use.
+
+Consequence: `scripts/hard-grounded-research-submission-contract.mjs` emits `generated/submission-contract.json` and `SUBMISSION_CONTRACT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the contract while public leaderboard use remains disabled.
