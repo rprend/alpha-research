@@ -5,6 +5,7 @@ const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchmark')
 const generatedDir = join(experimentDir, 'generated')
 const runsDir = join(experimentDir, 'runs')
+const modelBaselinePacketsPath = join(generatedDir, 'model-baseline-packets.json')
 const indexJsonPath = join(generatedDir, 'model-run-index.json')
 const indexMarkdownPath = join(experimentDir, 'MODEL_RUN_INDEX.md')
 
@@ -85,10 +86,19 @@ function discoverRuns() {
 function buildIndex() {
   const runs = discoverRuns()
   const eligibleRuns = runs.filter((run) => run.eligible_model_baseline)
+  const packetIndex = existsSync(modelBaselinePacketsPath) ? readJson(modelBaselinePacketsPath) : null
   return {
     benchmark_id: 'hard-grounded-research-benchmark',
     generated_from: 'docs/experiments/hard-grounded-research-benchmark/runs',
     heuristic_systems: [...heuristicSystems],
+    model_baseline_packets: packetIndex
+      ? {
+          packet_count: packetIndex.packet_count,
+          packets_ready: Boolean(packetIndex.packets_ready),
+          scored_reports_ready: Boolean(packetIndex.scored_reports_ready),
+          systems: packetIndex.packets.map((packet) => packet.system_id),
+        }
+      : null,
     run_count: runs.length,
     eligible_model_baseline_count: eligibleRuns.length,
     eligible_model_baselines: eligibleRuns.map((run) => run.run_id),
@@ -120,6 +130,7 @@ This generated index separates heuristic diagnostic systems from externally impo
 - Runs: ${index.run_count}
 - Eligible model baselines: ${index.eligible_model_baseline_count}
 - Ready: ${index.readiness.ready}
+- Model baseline packets ready: ${index.model_baseline_packets?.packets_ready ?? false}
 
 ## Runs
 

@@ -51,6 +51,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
 - `SCALED_PUBLIC_PACKAGE.md` and `generated/public-package/scaled-summary.json`: generated public-release view of scaled expansion candidates with remediated replacements and pointer-only text stripping.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
+- `MODEL_BASELINE_PACKETS.md` and `generated/model-baseline-packets.json`: generated release-baseline prompt packets for one frontier/API model and one open-weight/API-compatible model.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.
 - `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.
 - `SCALE_PLAN.md` and `generated/scale-plan.json`: generated category-level paper-scale target and current pilot/review gaps.

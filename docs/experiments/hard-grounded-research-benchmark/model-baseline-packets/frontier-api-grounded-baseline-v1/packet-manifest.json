@@ -1,0 +1,13 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "frontier-api-grounded-baseline-v1",
+  "target_family": "frontier_api",
+  "recommended_model": "gpt-5.5 or current frontier model",
+  "description": "Frontier model baseline using a high-accuracy API model with strict grounded JSON output.",
+  "suite": "pilot",
+  "prompt_count": 30,
+  "prompt_packet": "docs/experiments/hard-grounded-research-benchmark/model-baseline-packets/frontier-api-grounded-baseline-v1/prompt-packet.jsonl",
+  "expected_output_template": "docs/experiments/hard-grounded-research-benchmark/model-baseline-packets/frontier-api-grounded-baseline-v1/expected-output-template.jsonl",
+  "import_command": "node scripts/hard-grounded-research-import-model-results.mjs --system-id=frontier-api-grounded-baseline-v1 --input=docs/experiments/hard-grounded-research-benchmark/model-baseline-packets/frontier-api-grounded-baseline-v1/model-output.jsonl --suite=pilot",
+  "scored_report_required_for_release": true
+}

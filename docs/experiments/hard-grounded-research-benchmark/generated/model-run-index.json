@@ -6,6 +6,15 @@
     "lexical-evidence-baseline-v1",
     "citation-aware-verifier-v1"
   ],
+  "model_baseline_packets": {
+    "packet_count": 2,
+    "packets_ready": true,
+    "scored_reports_ready": false,
+    "systems": [
+      "frontier-api-grounded-baseline-v1",
+      "open-weight-grounded-baseline-v1"
+    ]
+  },
   "run_count": 6,
   "eligible_model_baseline_count": 0,
   "eligible_model_baselines": [],

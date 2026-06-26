@@ -1,0 +1,13 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "open-weight-grounded-baseline-v1",
+  "target_family": "open_weight_or_open_router",
+  "recommended_model": "current strong open-weight instruct model",
+  "description": "Open or locally hosted model baseline using the same grounded JSON output contract.",
+  "suite": "pilot",
+  "prompt_count": 30,
+  "prompt_packet": "docs/experiments/hard-grounded-research-benchmark/model-baseline-packets/open-weight-grounded-baseline-v1/prompt-packet.jsonl",
+  "expected_output_template": "docs/experiments/hard-grounded-research-benchmark/model-baseline-packets/open-weight-grounded-baseline-v1/expected-output-template.jsonl",
+  "import_command": "node scripts/hard-grounded-research-import-model-results.mjs --system-id=open-weight-grounded-baseline-v1 --input=docs/experiments/hard-grounded-research-benchmark/model-baseline-packets/open-weight-grounded-baseline-v1/model-output.jsonl --suite=pilot",
+  "scored_report_required_for_release": true
+}

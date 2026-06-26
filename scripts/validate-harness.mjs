@@ -223,7 +223,7 @@ for (const token of ['license-remediated-expansion-candidates.json', 'license_re
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'license-review.json', 'license-impact.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'license-review.json', 'license-impact.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'model-baseline-packets.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'model_baseline_packets_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')
@@ -246,9 +246,14 @@ const hardGroundedModelImportSource = readFileSync(join(root, 'scripts/hard-grou
 for (const token of ['--system-id', 'custom_id', 'raw_output_parse_error', 'hard-grounded-research-evaluate.mjs']) {
   assert(hardGroundedModelImportSource.includes(token), `Hard grounded model importer is missing token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-model-baseline-packets.mjs')), 'Missing hard grounded research model baseline packet builder.')
+const hardGroundedModelBaselinePacketsSource = readFileSync(join(root, 'scripts/hard-grounded-research-model-baseline-packets.mjs'), 'utf8')
+for (const token of ['model-baseline-packets.json', 'frontier-api-grounded-baseline-v1', 'open-weight-grounded-baseline-v1', 'expected-output-template.jsonl']) {
+  assert(hardGroundedModelBaselinePacketsSource.includes(token), `Hard grounded model baseline packet builder is missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-model-run-index.mjs')), 'Missing hard grounded research model run index.')
 const hardGroundedModelRunIndexSource = readFileSync(join(root, 'scripts/hard-grounded-research-model-run-index.mjs'), 'utf8')
-for (const token of ['model-run-index.json', 'eligible_model_baseline', 'import-manifest.json', 'run_requested', 'fixture']) {
+for (const token of ['model-run-index.json', 'model-baseline-packets.json', 'eligible_model_baseline', 'import-manifest.json', 'run_requested', 'fixture']) {
   assert(hardGroundedModelRunIndexSource.includes(token), `Hard grounded model run index is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-import-smoke.mjs')), 'Missing hard grounded research model import smoke.')

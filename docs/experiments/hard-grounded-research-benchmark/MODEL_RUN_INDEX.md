@@ -7,6 +7,7 @@ This generated index separates heuristic diagnostic systems from externally impo
 - Runs: 6
 - Eligible model baselines: 0
 - Ready: false
+- Model baseline packets ready: true
 
 ## Runs
 

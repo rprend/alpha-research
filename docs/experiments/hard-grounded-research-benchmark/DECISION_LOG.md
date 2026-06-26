@@ -431,3 +431,11 @@ Decision: Generate a scaled public expansion package that swaps in known-license
 Rationale: Reviewers and future benchmark users need to inspect the exact public artifact implied by the licensing policy. Keeping raw expansion candidates separate from the public package preserves provenance while proving that unknown-license text does not leak into the scaled release view.
 
 Consequence: `scripts/hard-grounded-research-scaled-public-package.mjs` now emits `generated/public-package/hard-grounded-research-scaled-public-suite.json`, JSONL, `generated/public-package/scaled-summary.json`, and `SCALED_PUBLIC_PACKAGE.md`; the release gate records whether the scaled public package exists and uses all remediated replacements.
+
+## 2026-06-26 — Prepare two real model baseline packets
+
+Decision: Generate release-baseline prompt packets for one frontier/API model and one open-weight/API-compatible model without counting dry-run packets as scored baselines.
+
+Rationale: The benchmark needs real model results before paper claims, but readiness should not be faked by local heuristics or empty manifests. A generated packet index gives external runners stable prompts, expected output shape, and import commands while preserving the release gate requirement for scored non-fixture reports.
+
+Consequence: `scripts/hard-grounded-research-model-baseline-packets.mjs` now emits two model-baseline packet directories, `generated/model-baseline-packets.json`, and `MODEL_BASELINE_PACKETS.md`; the release gate records packet readiness separately from scored model readiness.

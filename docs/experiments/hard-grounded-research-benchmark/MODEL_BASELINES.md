@@ -5,11 +5,17 @@ This benchmark separates prompt generation, external model execution, and scorin
 ## Generate Prompt Packets
 
 ```bash
+node scripts/hard-grounded-research-model-baseline-packets.mjs
 node scripts/hard-grounded-research-openai-baseline.mjs
 node scripts/hard-grounded-research-openai-baseline.mjs --calibration
 ```
 
-Each JSONL row contains a stable `custom_id` matching the benchmark task id. External batch runners should preserve that id in their output.
+`hard-grounded-research-model-baseline-packets.mjs` creates two required release-baseline packets:
+
+- `frontier-api-grounded-baseline-v1`
+- `open-weight-grounded-baseline-v1`
+
+Each JSONL row contains a stable `custom_id` matching the benchmark task id. External batch runners should preserve that id in their output. The packet generator also writes an `expected-output-template.jsonl`; copy that shape to `model-output.jsonl` after running a real model, then import it with the command in each packet manifest.
 
 ## Import External Model Output
 
