@@ -1,6 +1,6 @@
 {
   "run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:08:48.452Z",
+  "generated_at": "2026-06-26T22:55:24.431Z",
   "artifact_type": "prime_auth_price_gate",
   "status": "auth_or_price_blocked",
   "purpose": "Read-only Prime gate for the Qwen 3B smoke: verify auth, wallet access, live GPU availability/pricing, and budget before any pod creation.",
@@ -42,7 +42,7 @@
     {
       "id": "estimated_total_under_budget",
       "status": "pass",
-      "evidence": "Estimated total after GPU/hour estimate and judge: $10.360265 of $100."
+      "evidence": "Estimated total after GPU/hour estimate and judge: $10.363551 of $100."
     }
   ],
   "live_price": {
@@ -53,9 +53,9 @@
   },
   "budget_gate": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.8931000000000155,
+    "actual_total_spend_usd": 5.896385600000015,
     "actual_external_compute_spend_usd": 0,
-    "estimated_total_after_gpu_and_judge_usd": 10.360265000000014,
+    "estimated_total_after_gpu_and_judge_usd": 10.363550600000016,
     "within_budget": true
   },
   "next_step": "Do not create a pod. Repair Prime token permissions or billing, then rerun this gate.",

@@ -1259,3 +1259,13 @@ Reason: Prime auth is still unauthorized, but Hugging Face account discovery suc
 Result: The HF plan records an `a10g-large` two-hour estimate of `$3` with zero actual cost. Job creation failed before any backend job was created: Hugging Face returned `403 Forbidden` because the active token is missing `job.write` permission for namespace `rprendergast`. This incurred `$0` external compute spend. Current actual spend remains `$5.8963856`, with `$94.1036144` remaining under the cap.
 
 Tradeoff: This did not produce model predictions, but it sharpened the backend diagnosis. The current HF blocker is token permission, not proven insufficient balance; the Prime blocker remains unauthorized API key. The Qwen 3B smoke and paid grounded judge remain the two paper-readiness blockers.
+
+### D147. Add a backend-agnostic Qwen 3B launch gate
+
+Decision: Add `grounded-qa-distillation-remote-backend-readiness-gate.mjs`, materialize `remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1`, and wire it into the final evidence checklist, reviewer-risk audit, README, and validator.
+
+Reason: The final evidence checklist previously depended on the Prime-only auth/price gate even though Hugging Face Jobs is now a plausible fallback backend. The paper-critical Qwen 3B smoke should have one current, fail-closed launch predicate that combines current budget, Prime auth/live-price evidence, HF auth/permission evidence, and the `$100` cap before any paid compute can start.
+
+Result: The gate makes no model calls and creates no pods/jobs. It reports `remote_backend_blocked`: current tracked spend is `$5.8963856`, Prime CLI auth still fails with `API key unauthorized`, Hugging Face CLI auth passes as `rprendergast`, and the latest HF Jobs attempt still proves missing `job.write` permission. If either backend auth is repaired, both the Prime estimate (`$10.3635506` total with judge) and HF estimate (`$9.3635506` total with judge) remain under the `$100` cap.
+
+Tradeoff: This is operational evidence, not model evidence. It improves launch safety and diagnosis, but the Qwen 3B trained-student predictions and paid grounded-correctness judge remain required before paper-ready claims.

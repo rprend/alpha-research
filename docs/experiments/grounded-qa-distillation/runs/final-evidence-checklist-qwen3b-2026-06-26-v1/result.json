@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-26T22:49:46.355Z",
+  "generated_at": "2026-06-26T22:55:34.965Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -36,6 +36,7 @@
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
     "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+    "remote_backend_readiness_gate_run_id": "remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1",
     "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1"
   },
   "expected_artifacts": {
@@ -76,10 +77,10 @@
       "evidence": "Current status: ready_after_prime_auth_and_live_price."
     },
     {
-      "id": "auth_and_pricing_verified",
-      "requirement": "Prime/HF auth works and live GPU price keeps estimated total under $100.",
+      "id": "remote_backend_ready",
+      "requirement": "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.",
       "status": "fail",
-      "evidence": "Current Prime gate status: auth_or_price_blocked."
+      "evidence": "Current remote backend gate status: remote_backend_blocked. Prime: blocked; HF Jobs: blocked."
     },
     {
       "id": "smoke_artifacts_complete",
@@ -139,8 +140,8 @@
   "execution_sequence": [
     {
       "id": "refresh_auth_and_live_price",
-      "command": "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs",
-      "guard": "Do not create a pod unless estimated total spend remains under $100."
+      "command": "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs && node scripts/grounded-qa-distillation-remote-backend-readiness-gate.mjs",
+      "guard": "Do not create a pod or HF job unless the remote backend readiness gate reports remote_backend_ready_for_qwen3b_smoke."
     },
     {
       "id": "follow_prime_runbook",

@@ -80,6 +80,7 @@ if (!errors.length) {
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validatePrimeCliAuthRecheckRunsIfPresent();
   await validatePrimeAuthPriceGateRunsIfPresent();
+  await validateRemoteBackendReadinessGateRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
   await validateDragStyleComparisonRunsIfPresent();
@@ -2529,7 +2530,7 @@ async function validateFinalEvidenceChecklistRunsIfPresent() {
     if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
       errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
     }
-    for (const id of ["packet_quality_ready", "script_contract_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+    for (const id of ["packet_quality_ready", "script_contract_ready", "remote_backend_ready", "smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
       if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
     }
     if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {
@@ -3727,6 +3728,55 @@ async function validatePrimeAuthPriceGateRunsIfPresent() {
     }
     if (!report.includes("Prime Auth/Price Gate") || !report.includes("Budget Gate")) {
       errors.push(`${entry.name}: report must expose auth/price and budget gates.`);
+    }
+  }
+}
+
+async function validateRemoteBackendReadinessGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("remote-backend-readiness-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed remote backend readiness gate artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "remote_backend_readiness_gate") {
+      errors.push(`${entry.name}: unexpected artifact type.`);
+    }
+    if (!["remote_backend_ready_for_qwen3b_smoke", "remote_backend_blocked"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected remote backend readiness status.`);
+    }
+    const checks = result.checks ?? [];
+    for (const id of ["budget_under_cap_now", "prime_cli_authenticated_now", "prime_live_price_gate_verified", "hf_cli_authenticated_now", "hf_jobs_permission_verified", "any_backend_ready_for_qwen3b_smoke"]) {
+      if (!checks.some((row) => row.id === id)) errors.push(`${entry.name}: missing check ${id}.`);
+    }
+    if (Number(result.budget_gate?.max_budget_usd) !== 100 || Number(result.budget_gate?.actual_total_spend_usd) <= 0) {
+      errors.push(`${entry.name}: remote backend gate must preserve current $100 budget context.`);
+    }
+    if (result.status === "remote_backend_ready_for_qwen3b_smoke" && !checks.some((row) => row.id === "any_backend_ready_for_qwen3b_smoke" && row.status === "pass")) {
+      errors.push(`${entry.name}: ready status requires a ready backend check.`);
+    }
+    if (result.status === "remote_backend_blocked" && !checks.some((row) => row.status === "fail")) {
+      errors.push(`${entry.name}: blocked status must include at least one failing check.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: remote backend readiness gate must be zero actual cost.`);
+    }
+    if (!report.includes("Remote Backend Readiness Gate") || !report.includes("Backend Summary") || !report.includes("Budget Gate")) {
+      errors.push(`${entry.name}: report must expose backend and budget gates.`);
     }
   }
 }

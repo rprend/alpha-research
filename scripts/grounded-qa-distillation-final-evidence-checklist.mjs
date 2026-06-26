@@ -24,6 +24,7 @@ const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finaliz
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
+const remoteBackendGate = await readResult("remote-backend-readiness-gate-qwen3b-smoke-2026-06-26-v1");
 const remoteProvenanceGate = await readResult("qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1");
 
 const currentSpend = Number(budget.spend_usd.total_actual);
@@ -50,7 +51,7 @@ const acceptanceCriteria = [
   criterion("script_contract_ready", "Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names.", scriptContractAudit.status === "script_contract_ready_for_paid_smoke", `Current status: ${scriptContractAudit.status}.`),
   criterion("actual_compute_ledger_ready", "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.", smokeLedgerFinalizer.status === "waiting_for_smoke_artifacts" || smokeLedgerFinalizer.status === "artifacts_ready_for_actual_cost_record" || String(smokeLedgerFinalizer.status).startsWith("actual_"), `Current status: ${smokeLedgerFinalizer.status}; ledger action: ${smokeLedgerFinalizer.ledger?.action}.`),
   criterion("prime_runbook_ready", "Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed.", primeRunbook.status === "ready_after_prime_auth_and_live_price", `Current status: ${primeRunbook.status}.`),
-  criterion("auth_and_pricing_verified", "Prime/HF auth works and live GPU price keeps estimated total under $100.", primeAuthPriceGate.status === "auth_and_live_price_verified", `Current Prime gate status: ${primeAuthPriceGate.status}.`),
+  criterion("remote_backend_ready", "At least one remote backend has verified auth/permissions and stays under the $100 total budget for the Qwen 3B smoke plus judge.", remoteBackendGate.status === "remote_backend_ready_for_qwen3b_smoke", `Current remote backend gate status: ${remoteBackendGate.status}. Prime: ${remoteBackendGate.backends?.prime_intellect?.status}; HF Jobs: ${remoteBackendGate.backends?.huggingface_jobs?.status}.`),
   criterion("smoke_artifacts_complete", "Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest.", await allExist([
     path.join(expectedPredictionDir, "predictions.jsonl"),
     path.join(expectedPredictionDir, "result.json"),
@@ -102,6 +103,7 @@ const result = {
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
     prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
+    remote_backend_readiness_gate_run_id: remoteBackendGate.run_id,
     remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
   },
   expected_artifacts: expectedArtifacts,
@@ -109,8 +111,8 @@ const result = {
   execution_sequence: [
     {
       id: "refresh_auth_and_live_price",
-      command: "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs",
-      guard: "Do not create a pod unless estimated total spend remains under $100.",
+      command: "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs && node scripts/grounded-qa-distillation-remote-backend-readiness-gate.mjs",
+      guard: "Do not create a pod or HF job unless the remote backend readiness gate reports remote_backend_ready_for_qwen3b_smoke.",
     },
     {
       id: "follow_prime_runbook",
