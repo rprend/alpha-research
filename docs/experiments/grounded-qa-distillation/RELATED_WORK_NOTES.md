@@ -6,6 +6,10 @@ This is a living novelty log. It is not yet a complete literature review.
 
 2026-06-26
 
+## Current Structured Watchlist
+
+See `runs/novelty-watchlist-2026-06-26-v1/` for the current structured novelty-pressure artifact. It expands this preliminary note with close neighbors on RAG-to-SLM distillation, citation SFT, dynamic QA, grounded response/abstention, and evidence write-back amortization. The artifact is zero-cost and records claims the paper must avoid.
+
 ## Close Neighbors Found
 
 ### DRAG: Distilling RAG for SLMs from LLMs to Transfer Knowledge
@@ -47,6 +51,38 @@ Source: [Processes 2026](https://www.mdpi.com/2227-9717/14/1/99)
 Relevance: Builds domain QA examples with grounded reference answers and evidence spans.
 
 Novelty pressure: Medium. Dataset construction with evidence is not enough; the paper needs evolving-KB amortization and distillation experiments.
+
+### LongCite: Enabling LLMs to Generate Fine-grained Citations in Long-Context QA
+
+Source: [ACL Findings 2025](https://aclanthology.org/2025.findings-acl.264/)
+
+Relevance: Uses synthetic supervised data to teach fine-grained citation behavior in long-context QA.
+
+Novelty pressure: Very high for citation SFT. Our paper cannot claim citation-supervised QA examples as new; it must measure citation support under compact evidence packs, abstention, and update robustness.
+
+### DynaQuest: A Dynamic Question Answering Dataset Reflecting Real-World Knowledge Updates
+
+Source: [ACL Findings 2025](https://aclanthology.org/2025.findings-acl.1380/)
+
+Relevance: Dynamic QA benchmark targeting real-world knowledge updates.
+
+Novelty pressure: High for evolving QA. Our paper must claim amortized grounded-research training/evaluation over evolving private or domain KBs, not dynamic QA itself.
+
+### GRACE: Reinforcement Learning for Grounded Response and Abstention under Contextual Evidence
+
+Source: [arXiv 2026](https://arxiv.org/html/2601.04525v1)
+
+Relevance: Trains grounded response and abstention behavior under evidence sufficiency.
+
+Novelty pressure: Very high for the joint answer/abstain objective. Our joint-action packet should be framed as data construction and amortization over evolving KBs, not as the first grounded-abstention objective.
+
+### Training the Knowledge Base through Evidence Distillation and Write-Back Enrichment
+
+Source: [arXiv 2026](https://arxiv.org/abs/2603.25737)
+
+Relevance: Offline evidence distillation and write-back is another way to amortize expensive RAG behavior.
+
+Novelty pressure: High. The paper should compare against a KB write-back baseline or explicitly scope model/scaffold distillation as the amortization target.
 
 ## Current Novelty Hypothesis
 

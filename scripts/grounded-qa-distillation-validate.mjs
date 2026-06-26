@@ -66,6 +66,7 @@ if (!errors.length) {
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
+  await validateNoveltyWatchlistRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -1328,6 +1329,50 @@ async function validateTotalSpendBudgetIfPresent() {
   }
   if (Number(budget.spend_usd?.total_actual) > Number(budget.max_budget_usd)) {
     errors.push("Total spend exceeds the $100 experiment budget.");
+  }
+}
+
+async function validateNoveltyWatchlistRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("novelty-watchlist-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed novelty watchlist artifacts.`);
+      continue;
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: novelty watchlist must be zero-cost.`);
+    }
+    if (!Array.isArray(result.entries) || result.entries.length < 6) {
+      errors.push(`${entry.name}: novelty watchlist must include at least six close neighbors.`);
+      continue;
+    }
+    const highPressure = result.entries.filter((row) => ["high", "very_high"].includes(row.pressure)).length;
+    if (highPressure < 5) errors.push(`${entry.name}: novelty watchlist must include high-pressure related work.`);
+    for (const row of result.entries) {
+      if (!row.id || !row.title || !row.url || !Array.isArray(row.overlap_axes) || !row.implication) {
+        errors.push(`${entry.name}: malformed novelty entry.`);
+      }
+    }
+    if (!Array.isArray(result.synthesis?.claim_to_avoid) || result.synthesis.claim_to_avoid.length < 3) {
+      errors.push(`${entry.name}: novelty watchlist must record claims to avoid.`);
+    }
+    if (!Array.isArray(result.synthesis?.required_before_paper_claim) || result.synthesis.required_before_paper_claim.length < 3) {
+      errors.push(`${entry.name}: novelty watchlist must record required work before paper claims.`);
+    }
   }
 }
 
