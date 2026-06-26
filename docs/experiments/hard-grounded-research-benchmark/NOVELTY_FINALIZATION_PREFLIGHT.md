@@ -25,7 +25,7 @@ This generated preflight defines the work required before the novelty audit can 
 | unresolved_sources_identified | true | 4 unresolved sources; 1 high-risk unresolved sources |
 | source_identity_audit_blocks_unverified_sources | true | 4/4 watchlist sources unverified |
 | claim_boundaries_preserved | true | 5 evidence-registry prohibited claims; 1 ledger prohibited claims |
-| release_blocks_only_final_novelty_claims | true | 1 release blockers; 1 novelty blockers; 0 non-novelty blockers |
+| release_blocks_only_novelty_or_repair_claims | true | 1 release blockers; 1 novelty blockers; 0 unexpected non-novelty blockers |
 
 ## Finalization Requirements
 

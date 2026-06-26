@@ -606,20 +606,20 @@
     },
     {
       "id": "novelty_replacement_candidates_ready",
-      "passed": false,
-      "detail": "novelty-replacement-candidates-v1; candidates=6; verified=4; covered_quarantined=3",
+      "passed": true,
+      "detail": "novelty-replacement-candidates-v1; candidates=7; verified=5; covered_quarantined=4",
       "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
     },
     {
       "id": "novelty_overlap_adjudication_ready",
       "passed": true,
-      "detail": "novelty-overlap-adjudication-v1; candidates=6; high_overlap=2; pending=6",
+      "detail": "novelty-overlap-adjudication-v1; candidates=7; high_overlap=3; pending=7",
       "blocker": "Generate an overlap adjudication worksheet for verified related-work candidates before final novelty audit."
     },
     {
       "id": "novelty_refresh_ledger_ready",
       "passed": true,
-      "detail": "novelty-refresh-ledger-v1; sources=8; high_overlap_categories=6; final_allowed=false",
+      "detail": "novelty-refresh-ledger-v1; sources=11; high_overlap_categories=9; final_allowed=false",
       "blocker": "Generate and adjudicate a June 2026 novelty refresh ledger before final novelty claims."
     },
     {
@@ -702,14 +702,14 @@
     },
     {
       "id": "artifact_checklist_ready",
-      "passed": false,
-      "detail": "63/65 artifact classes ready; reproduction_commands=60; release_blockers=2",
+      "passed": true,
+      "detail": "65/65 artifact classes ready; reproduction_commands=60; release_blockers=1",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=99; blockers=2; bytes=3200829",
+      "detail": "version-manifest-v1; artifacts=99; blockers=1; bytes=3207205",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {
@@ -724,16 +724,6 @@
       "id": "novelty_audit_final",
       "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
       "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
-    },
-    {
-      "id": "novelty_replacement_candidates_ready",
-      "detail": "novelty-replacement-candidates-v1; candidates=6; verified=4; covered_quarantined=3",
-      "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
-    },
-    {
-      "id": "artifact_checklist_ready",
-      "detail": "63/65 artifact classes ready; reproduction_commands=60; release_blockers=2",
-      "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     }
   ]
 }

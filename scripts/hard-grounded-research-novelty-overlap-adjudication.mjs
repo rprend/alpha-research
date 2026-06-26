@@ -14,6 +14,17 @@ const inputs = {
 }
 
 const adjudicationRules = {
+  'rag-evaluation-survey-2025': {
+    overlap_scope: 'high',
+    affected_claim_ids: ['taxonomy_scope_claim', 'novelty_completion_claim'],
+    required_decision: 'must_cite_and_remove_generic_rag_novelty',
+    boundary_language:
+      'Cite the RAG evaluation survey as broad evaluation/taxonomy prior work and keep novelty limited to hard-grounded research-QA failure categories and HF-derived item construction.',
+    reviewer_questions: [
+      'Which RAG evaluation dimensions in the survey overlap with the hard-grounded category taxonomy?',
+      'Does the survey identify any benchmark that already combines lifecycle, authority, temporal, insufficiency, citation-overreach, entity, table/text, multi-hop, and contradiction tasks?',
+    ],
+  },
   'faithfulness-qa-2026-verified': {
     overlap_scope: 'medium',
     affected_claim_ids: ['taxonomy_scope_claim', 'novelty_completion_claim'],

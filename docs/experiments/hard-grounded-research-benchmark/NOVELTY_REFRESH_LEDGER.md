@@ -7,10 +7,10 @@ This generated ledger records the June 26, 2026 live-search refresh that must be
 - Ledger ready: true
 - Version: novelty-refresh-ledger-v1
 - Date checked: 2026-06-26
-- Queries: 4
-- Sources: 8
+- Queries: 6
+- Sources: 11
 - Category risks: 18
-- High-overlap categories: 6
+- High-overlap categories: 9
 - Final novelty claim allowed: false
 - Completion claim allowed: false
 
@@ -22,6 +22,8 @@ This generated ledger records the June 26, 2026 live-search refresh that must be
 | 2026 RAG benchmark evidence sufficiency abstention citation faithfulness large corpus QA | Refresh evidence sufficiency, abstention, and citation-faithfulness overlap. |
 | 2026 temporal RAG benchmark stale current documents as of date question answering | Refresh temporal, stale/current, and as-of-date overlap. |
 | 2026 source authority conflict citation benchmark RAG | Refresh source-authority, contradiction, and citation-traceability overlap. |
+| 2026 cited RAG evidence force benchmark citation supports claim conclusion | Refresh citation-support, evidence-force, and conclusion-overreach overlap. |
+| 2026 table text RAG benchmark abstention integration benchmark | Refresh table-text, integration, and abstention benchmark overlap. |
 
 ## Refreshed Adjacent Sources
 
@@ -35,6 +37,9 @@ This generated ledger records the June 26, 2026 live-search refresh that must be
 | globalqa-2025 | Towards Global Retrieval Augmented Generation: A Benchmark for Global QA (2025) | multi-hop synthesis<br>large-corpus QA<br>global information synthesis | Treat large-scale synthesis as adjacent; require contribution language to emphasize evidence semantics and controlled failure categories. |
 | ragchecker-2024 | RAGChecker: A Fine-grained Framework for Diagnosing Retrieval-Augmented Generation (2024) | citation faithfulness<br>retrieval diagnostics<br>answer support | Cite diagnostic metric work separately from benchmark construction; do not claim fine-grained RAG diagnosis as novel. |
 | ragbench-2024 | RAGBench: Explainable Benchmark for Retrieval-Augmented Generation Systems (2024) | large-corpus retrieval<br>domain-grounded documents<br>answer support | Use as older background for retrieval/context selection, not as a central novelty risk. |
+| lit-ragbench-2026 | LIT-RAGBench: A Benchmark for Evaluating Language Models as Integrated Tabular and Textual Retrieval-Augmented Generation Systems (2026) | table + text reasoning<br>evidence insufficiency / abstention<br>large-corpus research QA | Cite as a high-pressure integration and abstention comparator; preserve novelty only for the full hard-grounded research taxonomy and HF-derived lifecycle/authority/citation-overreach construction. |
+| forcebench-2026 | Is This Snippet Worth Citing? Towards Evidence Force in Cited-RAG (2026) | citation supports fact but not conclusion<br>evidence insufficiency / abstention<br>source authority conflicts | Treat evidence-force and citation-worthiness as crowded; narrow citation-overreach claims to conclusion-level support in multi-document research QA. |
+| t2-ragbench-2026 | T2-RAGBench: Benchmarking Retrieval-Augmented Generation over Text-and-Table Data (2026) | table + text reasoning<br>multi-hop synthesis<br>large-corpus research QA | Cite as a text-table RAG benchmark and avoid claiming table-text reasoning novelty except as one category in the broader hard-grounded research QA failure suite. |
 
 ## Category Risk Updates
 
@@ -42,16 +47,16 @@ This generated ledger records the June 26, 2026 live-search refresh that must be
 | --- | --- | --- |
 | cross-document contradiction | 2 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
 | stale-vs-current document conflicts | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
-| source authority conflicts | 2 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
-| evidence insufficiency / abstention | 2 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
-| citation supports fact but not conclusion | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
+| source authority conflicts | 3 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
+| evidence insufficiency / abstention | 4 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
+| citation supports fact but not conclusion | 2 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
 | citation faithfulness | 2 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
 | grounded evidence | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
 | answerability | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
 | retrieval sufficiency | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
-| multi-hop synthesis | 2 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
-| table + text reasoning | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
-| large-corpus research QA | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
+| multi-hop synthesis | 3 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
+| table + text reasoning | 3 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
+| large-corpus research QA | 3 | High overlap: claim only as part of the unified hard-grounded research taxonomy. |
 | large-corpus QA | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
 | global information synthesis | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |
 | retrieval diagnostics | 1 | Moderate overlap: keep category-specific novelty caveated until final source review. |

@@ -40,9 +40,9 @@
       "detail": "5 evidence-registry prohibited claims; 1 ledger prohibited claims"
     },
     {
-      "id": "release_blocks_only_final_novelty_claims",
+      "id": "release_blocks_only_novelty_or_repair_claims",
       "passed": true,
-      "detail": "1 release blockers; 1 novelty blockers; 0 non-novelty blockers"
+      "detail": "1 release blockers; 1 novelty blockers; 0 unexpected non-novelty blockers"
     }
   ],
   "finalization_requirements": [

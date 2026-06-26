@@ -26,6 +26,14 @@ const searchQueries = [
     query: '2026 source authority conflict citation benchmark RAG',
     purpose: 'Refresh source-authority, contradiction, and citation-traceability overlap.',
   },
+  {
+    query: '2026 cited RAG evidence force benchmark citation supports claim conclusion',
+    purpose: 'Refresh citation-support, evidence-force, and conclusion-overreach overlap.',
+  },
+  {
+    query: '2026 table text RAG benchmark abstention integration benchmark',
+    purpose: 'Refresh table-text, integration, and abstention benchmark overlap.',
+  },
 ]
 
 const sources = [
@@ -100,6 +108,33 @@ const sources = [
     overlap: ['large-corpus retrieval', 'domain-grounded documents', 'answer support'],
     novelty_action:
       'Use as older background for retrieval/context selection, not as a central novelty risk.',
+  },
+  {
+    id: 'lit-ragbench-2026',
+    title: 'LIT-RAGBench: A Benchmark for Evaluating Language Models as Integrated Tabular and Textual Retrieval-Augmented Generation Systems',
+    year: 2026,
+    url: 'https://arxiv.org/abs/2606.14079',
+    overlap: ['table + text reasoning', 'evidence insufficiency / abstention', 'large-corpus research QA'],
+    novelty_action:
+      'Cite as a high-pressure integration and abstention comparator; preserve novelty only for the full hard-grounded research taxonomy and HF-derived lifecycle/authority/citation-overreach construction.',
+  },
+  {
+    id: 'forcebench-2026',
+    title: 'Is This Snippet Worth Citing? Towards Evidence Force in Cited-RAG',
+    year: 2026,
+    url: 'https://arxiv.org/abs/2605.16117',
+    overlap: ['citation supports fact but not conclusion', 'evidence insufficiency / abstention', 'source authority conflicts'],
+    novelty_action:
+      'Treat evidence-force and citation-worthiness as crowded; narrow citation-overreach claims to conclusion-level support in multi-document research QA.',
+  },
+  {
+    id: 't2-ragbench-2026',
+    title: 'T2-RAGBench: Benchmarking Retrieval-Augmented Generation over Text-and-Table Data',
+    year: 2026,
+    url: 'https://aclanthology.org/2026.eacl-main.121/',
+    overlap: ['table + text reasoning', 'multi-hop synthesis', 'large-corpus research QA'],
+    novelty_action:
+      'Cite as a text-table RAG benchmark and avoid claiming table-text reasoning novelty except as one category in the broader hard-grounded research QA failure suite.',
   },
 ]
 

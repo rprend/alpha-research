@@ -1,5 +1,5 @@
 {
-  "novelty_replacement_candidates_ready": false,
+  "novelty_replacement_candidates_ready": true,
   "version": "novelty-replacement-candidates-v1",
   "checked_date": "2026-06-26",
   "completion_claim_allowed": false,
@@ -18,12 +18,12 @@
     {
       "id": "replacement_candidates_present",
       "passed": true,
-      "detail": "4 verified replacement/supplement candidates for 4 quarantined sources"
+      "detail": "5 verified replacement/supplement candidates for 4 quarantined sources"
     },
     {
       "id": "quarantined_sources_covered",
-      "passed": false,
-      "detail": "faithjudge-2026=2; faithfulness-qa-2026=1; dora-2026=1; hierarag-2026=0"
+      "passed": true,
+      "detail": "faithjudge-2026=2; faithfulness-qa-2026=1; dora-2026=1; hierarag-2026=1"
     },
     {
       "id": "final_claims_still_blocked",
@@ -98,6 +98,22 @@
       "required_review": "Determine whether legal-domain citation retrieval overlaps source-authority conflict tasks or remains domain-specific RAG."
     },
     {
+      "id": "rag-evaluation-survey-2025",
+      "title": "Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey",
+      "url": "https://arxiv.org/abs/2504.14891",
+      "primary_source_status": "verified_title_match",
+      "observed_title": "Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey",
+      "replaces_or_supplements": [
+        "hierarag-2026"
+      ],
+      "pressure_points": [
+        "generic RAG benchmark claim",
+        "benchmark taxonomy framing"
+      ],
+      "audit_role": "Use as the verified generic RAG evaluation survey comparator before making taxonomy novelty claims.",
+      "required_review": "Compare its RAG evaluation taxonomy against the hard-grounded category taxonomy and remove generic RAG-benchmark novelty language."
+    },
+    {
       "id": "finegrained-rag-2026",
       "title": "Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation",
       "url": "https://arxiv.org/abs/2605.07471",
@@ -133,10 +149,10 @@
   ],
   "summary": {
     "quarantined_sources": 4,
-    "candidates": 6,
-    "verified_title_match_candidates": 4,
+    "candidates": 7,
+    "verified_title_match_candidates": 5,
     "candidate_title_conflicts": 2,
-    "covered_quarantined_sources": 3,
+    "covered_quarantined_sources": 4,
     "final_novelty_claim_allowed": false,
     "completion_claim_allowed": false
   }

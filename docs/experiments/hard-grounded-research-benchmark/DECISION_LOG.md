@@ -1,5 +1,21 @@
 # Decision Log
 
+## 2026-06-26 — Add high-pressure June 2026 novelty comparators
+
+Decision: Add LIT-RAGBench, ForceBench, and T2-RAGBench to the June 2026 novelty refresh ledger as explicit adjacent benchmarks that must be cited or ruled out before any final novelty claim.
+
+Rationale: Live June 2026 search shows that integration/table/abstention RAG, cited-RAG evidence-force calibration, and text-table RAG are no longer safe to treat as uncovered background areas. The benchmark can still be novel, but only if the paper narrows the contribution to HF-derived large-corpus research QA items spanning lifecycle, authority, temporal, insufficiency, citation-overreach, entity, contradiction, table-text, and multi-hop failures.
+
+Consequence: The novelty refresh ledger will increase high-overlap pressure and keep completion blocked until the final paper cites or contrasts these works.
+
+## 2026-06-26 — Repair generic RAG novelty comparator
+
+Decision: Use `Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey` as the verified replacement comparator for the quarantined generic-RAG taxonomy watchlist source.
+
+Rationale: The high-risk `hierarag-2026` watchlist source and two proposed 2026 replacements had invalid or mismatched arXiv identities, leaving generic RAG benchmark/taxonomy novelty pressure unresolved. The verified arXiv source `2504.14891` gives the benchmark a real RAG-evaluation survey comparator without relying on bad links.
+
+Consequence: `scripts/hard-grounded-research-novelty-replacement-candidates.mjs` now adds `rag-evaluation-survey-2025` as a verified title-match replacement for `hierarag-2026`, while retaining the two mismatched 2026 candidates as title-conflict evidence.
+
 ## 2026-06-26 — Require live-verified novelty replacements
 
 Decision: Count novelty replacement candidates as covering quarantined watchlist sources only when a live source check confirms the URL title matches the intended related-work title.

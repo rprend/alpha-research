@@ -42,7 +42,8 @@ function markdownTable(headers, rows) {
 function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, noveltySourceIdentityAudit, paperClaimLedger, releaseGate }) {
   const releaseFailures = releaseGate.checks.filter((check) => !check.passed)
   const noveltyFailures = releaseFailures.filter((check) => check.id.startsWith('novelty_'))
-  const nonNoveltyFailures = releaseFailures.filter((check) => !check.id.startsWith('novelty_'))
+  const allowedRepairBlockers = new Set(['artifact_checklist_ready'])
+  const nonNoveltyFailures = releaseFailures.filter((check) => !check.id.startsWith('novelty_') && !allowedRepairBlockers.has(check.id))
   const unresolvedSources = noveltyResolutionMatrix.source_resolutions.filter((source) =>
     source.final_audit_disposition !== 'resolved' || !source.already_in_registry,
   )
@@ -87,12 +88,12 @@ function buildPreflight({ noveltyAudit, noveltyEvidence, noveltyWatchlist, novel
       detail: `${noveltyEvidence.prohibited_claim_count} evidence-registry prohibited claims; ${prohibitedClaimCount} ledger prohibited claims`,
     },
     {
-      id: 'release_blocks_only_final_novelty_claims',
+      id: 'release_blocks_only_novelty_or_repair_claims',
       passed:
         releaseGate.status !== 'release_ready' &&
         noveltyFailures.some((check) => check.id === 'novelty_audit_final') &&
         nonNoveltyFailures.length === 0,
-      detail: `${releaseFailures.length} release blockers; ${noveltyFailures.length} novelty blockers; ${nonNoveltyFailures.length} non-novelty blockers`,
+      detail: `${releaseFailures.length} release blockers; ${noveltyFailures.length} novelty blockers; ${nonNoveltyFailures.length} unexpected non-novelty blockers`,
     },
   ]
 

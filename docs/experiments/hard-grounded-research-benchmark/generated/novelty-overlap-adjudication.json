@@ -13,17 +13,17 @@
     {
       "id": "verified_candidates_loaded",
       "passed": true,
-      "detail": "6/6 replacement candidates loaded"
+      "detail": "7/7 replacement candidates loaded"
     },
     {
       "id": "all_candidates_mapped",
       "passed": true,
-      "detail": "6/6 candidates mapped to overlap scope"
+      "detail": "7/7 candidates mapped to overlap scope"
     },
     {
       "id": "claim_ids_exist",
       "passed": true,
-      "detail": "13 claim links checked"
+      "detail": "15 claim links checked"
     },
     {
       "id": "final_claims_still_blocked",
@@ -106,6 +106,24 @@
       "final_disposition": "pending_reviewer_overlap_adjudication"
     },
     {
+      "candidate_id": "rag-evaluation-survey-2025",
+      "title": "Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey",
+      "url": "https://arxiv.org/abs/2504.14891",
+      "primary_source_status": "verified_title_match",
+      "overlap_scope": "high",
+      "affected_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "required_decision": "must_cite_and_remove_generic_rag_novelty",
+      "boundary_language": "Cite the RAG evaluation survey as broad evaluation/taxonomy prior work and keep novelty limited to hard-grounded research-QA failure categories and HF-derived item construction.",
+      "reviewer_questions": [
+        "Which RAG evaluation dimensions in the survey overlap with the hard-grounded category taxonomy?",
+        "Does the survey identify any benchmark that already combines lifecycle, authority, temporal, insufficiency, citation-overreach, entity, table/text, multi-hop, and contradiction tasks?"
+      ],
+      "final_disposition": "pending_reviewer_overlap_adjudication"
+    },
+    {
       "candidate_id": "finegrained-rag-2026",
       "title": "Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation",
       "url": "https://arxiv.org/abs/2605.07471",
@@ -143,10 +161,10 @@
     }
   ],
   "summary": {
-    "candidates": 6,
-    "high_overlap_candidates": 2,
+    "candidates": 7,
+    "high_overlap_candidates": 3,
     "medium_overlap_candidates": 4,
-    "pending_dispositions": 6,
+    "pending_dispositions": 7,
     "affected_claims": 3,
     "final_novelty_claim_allowed": false,
     "completion_claim_allowed": false

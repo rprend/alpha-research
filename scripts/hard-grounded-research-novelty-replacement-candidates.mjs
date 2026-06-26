@@ -58,6 +58,17 @@ const verifiedCandidates = [
     required_review: 'Determine whether legal-domain citation retrieval overlaps source-authority conflict tasks or remains domain-specific RAG.',
   },
   {
+    id: 'rag-evaluation-survey-2025',
+    title: 'Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey',
+    url: 'https://arxiv.org/abs/2504.14891',
+    primary_source_status: 'verified_title_match',
+    observed_title: 'Retrieval Augmented Generation Evaluation in the Era of Large Language Models: A Comprehensive Survey',
+    replaces_or_supplements: ['hierarag-2026'],
+    pressure_points: ['generic RAG benchmark claim', 'benchmark taxonomy framing'],
+    audit_role: 'Use as the verified generic RAG evaluation survey comparator before making taxonomy novelty claims.',
+    required_review: 'Compare its RAG evaluation taxonomy against the hard-grounded category taxonomy and remove generic RAG-benchmark novelty language.',
+  },
+  {
     id: 'finegrained-rag-2026',
     title: 'Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation',
     url: 'https://arxiv.org/abs/2605.07471',

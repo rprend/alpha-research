@@ -11,18 +11,13 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 100,
+    "passing_checks": 101,
     "total_checks": 102,
     "blockers": [
       {
         "id": "novelty_audit_final",
         "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
         "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
-      },
-      {
-        "id": "novelty_replacement_candidates_ready",
-        "detail": "novelty-replacement-candidates-v1; candidates=6; verified=4; covered_quarantined=3",
-        "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
       }
     ],
     "completion_claim_allowed": false
@@ -51,8 +46,8 @@
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 31559,
-      "sha256": "1be2ba44775395e1573e208caf3c56b4384ec7efe4e185e63f45246c287a2185"
+      "bytes": 31561,
+      "sha256": "167a1c15731e2f911c9a1cd857cba6af13f24ae2e4df0f1e4a210b40b08d3d4f"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -221,8 +216,8 @@
     },
     {
       "path": "NOVELTY_FINALIZATION_PREFLIGHT.md",
-      "bytes": 3665,
-      "sha256": "6b42433d8d8db3267f58332dd28ec8f1049b3c6c50f3e108d3a65a5709cbb5e8"
+      "bytes": 3680,
+      "sha256": "e6decc331d76e766c019415d77d33e173fc4a0412685daba55d954a9974085b8"
     },
     {
       "path": "NOVELTY_SOURCE_IDENTITY_AUDIT.md",
@@ -246,18 +241,18 @@
     },
     {
       "path": "NOVELTY_REPLACEMENT_CANDIDATES.md",
-      "bytes": 2987,
-      "sha256": "67ecea6aef924eea4f6eb6594b63d8a3c1afc3aa8bb1519ad2804f6fd4de0262"
+      "bytes": 3296,
+      "sha256": "19149294595b053c1a8e256f961eea65ec7552fad7e1f6c55334e1e7f9735750"
     },
     {
       "path": "NOVELTY_OVERLAP_ADJUDICATION.md",
-      "bytes": 3605,
-      "sha256": "b4b815673834727ff5b741370ae125fcb98b8ff2877badfa2a194f1bcf0553f4"
+      "bytes": 4131,
+      "sha256": "ae45e5a0aa8015de0a059280fd649969cb5a72607702d139ad764ddf75b1128e"
     },
     {
       "path": "NOVELTY_REFRESH_LEDGER.md",
-      "bytes": 6552,
-      "sha256": "45222ac771ad8ad5015578fdf7b450a44fccf03eed0b5f2f892ce99f1fea40e6"
+      "bytes": 7998,
+      "sha256": "4ed316058f65ef2967871460519467b69a1e84cbb592f753fc5c2caf314b09f7"
     },
     {
       "path": "PUBLIC_PACKAGE_SCHEMA.md",
@@ -271,8 +266,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 96072,
-      "sha256": "5c1a0ec314046062f821630306014ddd4931936f721eb768b0274dc2675ee769"
+      "bytes": 96076,
+      "sha256": "9d13f9425b2f5ac16038eda213a32f03a2bc8bdfb5b5659244683371c7923248"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -486,8 +481,8 @@
     },
     {
       "path": "generated/novelty-finalization-preflight.json",
-      "bytes": 4700,
-      "sha256": "2a594a86fcee9ea02b5a806bc6255e059c5c5c47f4d2d1d2787cf4ab5638c1d2"
+      "bytes": 4715,
+      "sha256": "f3403b5978999b2380fa55e02bf7eba2f8dae9d838fb83106ca2a9c0ce4f9161"
     },
     {
       "path": "generated/novelty-source-identity-audit.json",
@@ -511,18 +506,18 @@
     },
     {
       "path": "generated/novelty-replacement-candidates.json",
-      "bytes": 6524,
-      "sha256": "dd03f9048ad4a1f48e8cbc3b529f0b0862e5d51bb14bbe4eceaa257d3c4e5624"
+      "bytes": 7391,
+      "sha256": "c39cedd80a09c82ea6c39186203933203b3b7cff21342463e2c7fad23f257ca1"
     },
     {
       "path": "generated/novelty-overlap-adjudication.json",
-      "bytes": 7075,
-      "sha256": "12faea587530b800225188bcc4bf9873b71e480c68ac634980bb8e94a5395379"
+      "bytes": 8187,
+      "sha256": "6373acaba82050832cd99ddcdca2653b5c0c9287716d1188f89f77cf6357356c"
     },
     {
       "path": "generated/novelty-refresh-ledger.json",
-      "bytes": 9518,
-      "sha256": "e12e618695572af791fa27298eb873ae511660578bc8e372ee77b36821123705"
+      "bytes": 11598,
+      "sha256": "3b73a92d4e46ba8ae73bce37208fd8d674e90b7e9b3b42303d3e805ad70d2dbe"
     },
     {
       "path": "generated/paper-claim-ledger.json",
@@ -532,8 +527,8 @@
   ],
   "summary": {
     "artifact_count": 99,
-    "total_bytes": 3200829,
-    "release_blockers": 2,
+    "total_bytes": 3207205,
+    "release_blockers": 1,
     "completion_claim_allowed": false
   }
 }
