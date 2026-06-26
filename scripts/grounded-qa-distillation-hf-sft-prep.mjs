@@ -187,15 +187,33 @@ function renderValidationScript() {
 
 import json
 import os
+from pathlib import Path
 from datasets import load_dataset
 
-DATA_URL_BASE = os.environ.get("DATA_URL_BASE", ${JSON.stringify(dataUrlBase)})
+LOCAL_DATASET_DIR = Path(__file__).resolve().parent / "hf_dataset_repo"
+DATA_URL_BASE = os.environ.get("DATA_URL_BASE")
+if DATA_URL_BASE:
+    data_files = {
+        "train": f"{DATA_URL_BASE}/train.jsonl",
+        "validation": f"{DATA_URL_BASE}/validation.jsonl",
+    }
+    eval_files = {"eval": f"{DATA_URL_BASE}/eval_prompts.jsonl"}
+elif LOCAL_DATASET_DIR.exists():
+    data_files = {
+        "train": str(LOCAL_DATASET_DIR / "train.jsonl"),
+        "validation": str(LOCAL_DATASET_DIR / "validation.jsonl"),
+    }
+    eval_files = {"eval": str(LOCAL_DATASET_DIR / "eval_prompts.jsonl")}
+else:
+    DATA_URL_BASE = ${JSON.stringify(dataUrlBase)}
+    data_files = {
+        "train": f"{DATA_URL_BASE}/train.jsonl",
+        "validation": f"{DATA_URL_BASE}/validation.jsonl",
+    }
+    eval_files = {"eval": f"{DATA_URL_BASE}/eval_prompts.jsonl"}
 
-dataset = load_dataset("json", data_files={
-    "train": f"{DATA_URL_BASE}/train.jsonl",
-    "validation": f"{DATA_URL_BASE}/validation.jsonl",
-})
-eval_dataset = load_dataset("json", data_files={"eval": f"{DATA_URL_BASE}/eval_prompts.jsonl"})["eval"]
+dataset = load_dataset("json", data_files=data_files)
+eval_dataset = load_dataset("json", data_files=eval_files)["eval"]
 
 errors = []
 for split, rows in dataset.items():

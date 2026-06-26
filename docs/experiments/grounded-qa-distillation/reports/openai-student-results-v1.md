@@ -162,10 +162,14 @@ The teacher-demo scaffold is more conservative: it answers 23 of 40 examples ver
 | `exports/teacher-repair-temporal-test-0-80-v1.rejected.jsonl` | 15 | audit rows rejected by the strict label filter |
 | `exports/teacher-repair-temporal-test-0-132-v1.sft.jsonl` | 109 | expanded strict judge-accepted SFT labels |
 | `exports/teacher-repair-temporal-test-0-132-v1.rejected.jsonl` | 23 | expanded rejected audit rows |
+| `exports/teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` | 33 | claim-pruned strict labels from the final temporal-test slice |
+| `exports/teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.rejected.jsonl` | 7 | rejected claim-pruned audit rows |
 
 The strict filter accepts answered labels only when the judge marks every claim supported, citation ids valid, and every cited id appears inline in the answer. This is stricter than the judge aggregate: 14 semantically supported answered labels are rejected because the repaired teacher still omitted inline citation markers, and 1 answered label is rejected as unsupported.
 
 The first-80 repaired teacher plus judge labeling cost is $0.5675848. Compared with the 80-120 demo scaffold's per-query cost premium over direct mini prompting, the offline packet breaks even after about 798 future queries if post-training keeps inference near direct mini-student cost. The expanded first-132 packet costs $0.9448423 and breaks even after about 1327 future queries under the same assumption. This is an amortization calculation, not a quality claim; a trained or fitted student still needs held-out evaluation.
+
+`teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1` converts the stronger claim-pruned outputs into a smaller, stricter packet: 33 accepted labels from 40 examples, including 17 answered labels and 16 abstentions. Its full upstream cost is $0.150775, including the `gpt-4o` pruner and `gpt-4o` judge, and it breaks even against the in-context demo scaffold after about 212 future queries under the same direct-student inference-cost assumption. Because this packet is built from examples 133-172, it should be used for label-quality checks or future training only after creating a new later held-out snapshot.
 
 ## Teacher-Label Filter
 
@@ -223,6 +227,22 @@ This is a negative result. The local scaffold preserves citation formatting but 
 | OpenAI calls | 0 |
 
 The generated job script uses TRL SFTTrainer, PEFT LoRA, and Trackio. It reads JSONL from a public gist because the local HF CLI token cannot create a Hugging Face dataset repo and the private GitHub raw files are not anonymously fetchable. The generated CPU validator passes against the public gist data base. Remote HF Jobs execution is blocked for now: the CLI token lacks `job.write`, and the MCP-authenticated account reports insufficient prepaid Jobs credits. This is not a quality result yet; it is the first launch-ready generative SFT path with the operational blockers isolated from the OpenAI budget.
+
+`hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1` prepares a second Qwen 0.5B LoRA packet from the claim-pruned labels:
+
+| Artifact | Rows / setting |
+| --- | ---: |
+| Train rows | 28 |
+| Validation rows | 5 |
+| Same-window eval prompts | 40 |
+| Base model | `Qwen/Qwen2.5-0.5B-Instruct` |
+| Target adapter repo | `rprendergast/grounded-qa-qasper-claim-pruned-qwen05b-lora-v1` |
+| HF job flavor | `t4-small` |
+| Timeout | 45m |
+| Estimated HF job cost | $0.5625 |
+| OpenAI calls | 0 |
+
+The generated validator passes against the local dataset folder. This packet is useful for overfit and label-quality checks, but it is not a paper-grade held-out setup because the eval prompts are from the same final temporal-test window used to build the labels.
 
 ## Teacher-Label Rubric Scaffold
 

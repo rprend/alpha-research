@@ -146,6 +146,15 @@ The expanded strict packet is:
 
 It contains 109 strict SFT labels from the first 132 repaired multi-step teacher examples and 23 rejected audit rows. Its offline labeling cost is $0.9448423, which breaks even against the in-context teacher-demo scaffold after about 1327 future queries if post-training inference can return to direct mini-student cost.
 
+The claim-pruned strict packet is:
+
+- `exports/teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl`
+- `exports/teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.rejected.jsonl`
+- `exports/teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.manifest.json`
+- `reports/teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.md`
+
+It contains 33 strict SFT labels from 40 `gpt-4o` claim-pruned examples: 17 answered labels, 16 abstentions, and 7 rejected answered rows. Its full upstream labeling cost is $0.150775 including the pruner and stronger judge, which breaks even against the in-context teacher-demo scaffold after about 212 future queries if inference returns to direct mini-student cost. Because it uses the final available temporal-test window, treat it as a teacher-label construction artifact, not a held-out generalization result.
+
 The first local policy test using this packet is `runs/teacher-label-filter-temporal-test-80-172-v1/`. It trains a zero-LLM logistic keep-answer gate, but the held-out result is negative: the gate improves citation precision and inline citation rate while hurting answer coverage, support, and answer quality. The next useful experiment should train or fine-tune answer generation rather than only suppressing risky answers.
 
 The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher-repair-0-80-v1/`. It writes OpenAI chat-format JSONL with 52 train rows and 13 validation rows from the strict teacher-label packet. The current estimate for 3 epochs of `gpt-4.1-mini-2025-04-14` is $0.85656, but the job is not launched until a runner can ledger file/job API calls and actual training spend.
@@ -157,6 +166,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 `runs/teacher-label-scaffold-temporal-test-132-172-v1/` repeats the local scaffold with the expanded 109-label packet and evaluates only on examples 133-172 to avoid train/eval overlap. It remains negative: 5 answered examples out of 40, 90.0% citation precision, 6.5% citation recall, and 4.1% answer F1. More strict labels alone did not make the hand-built extractor a viable amortized student.
 
 `runs/hf-sft-prep-teacher-repair-0-132-qwen05b-v1/` is the first generative student training packet. It prepares 92 train rows and 17 validation rows from `teacher-repair-temporal-test-0-132-v1`, preserves 40 future temporal-test prompts for evaluation, and emits a TRL/PEFT/Trackio Hugging Face Jobs script for `Qwen/Qwen2.5-0.5B-Instruct` LoRA SFT. The generated job uses a public gist data base because the local HF CLI token cannot create datasets and the private GitHub raw files are not anonymously fetchable. The generated CPU validator passes against `https://gist.github.com/rprend/6b46b4b77d7f328cd4e6964884013abe`. Remote HF Jobs execution is blocked until the account has `job.write` plus prepaid Jobs credits. The estimated `t4-small` job bound is $0.5625 for a 45-minute timeout and makes no OpenAI calls.
+
+`runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/` prepares a second Qwen 0.5B LoRA packet from the claim-pruned labels. It writes 28 train rows, 5 validation rows, and 40 same-window eval prompts. The local dataset validator passes without OpenAI calls. This is launch-ready for overfit and label-quality checks, but not a final held-out experiment because the packet is built from the last temporal-test slice.
 
 `runs/openai-student-teacher-rubric-temporal-test-132-172-v1/` is a runnable fallback while HF training is blocked. It distills the 109 strict teacher labels into a compact static rubric for the cheap `gpt-4o-mini` student. The rubric improves citation precision, inline citation rate, and judged support on examples 133-172, but it over-abstains and loses answer coverage versus direct mini prompting. It is a negative result for amortized quality, but a useful signal that teacher labels transfer citation discipline more easily than answer synthesis.
 
@@ -228,6 +239,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
 - train or fit a compact generative student on `teacher-repair-temporal-test-0-132-v1.sft.jsonl` and evaluate on future held-out examples,
+- create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,
 - evaluate cost/quality tradeoffs against a larger teacher,

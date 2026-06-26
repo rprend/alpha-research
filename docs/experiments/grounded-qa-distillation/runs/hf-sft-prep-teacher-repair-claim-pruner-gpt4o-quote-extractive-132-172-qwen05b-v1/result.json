@@ -1,0 +1,40 @@
+{
+  "run_id": "hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1",
+  "generated_at": "2026-06-26T07:43:00.804Z",
+  "teacher_label_prefix": "teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1",
+  "split": "temporal_test",
+  "data_url_base": "https://raw.githubusercontent.com/rprend/alpha-research/main/docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/hf_dataset_repo",
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "hub_model_id": "rprendergast/grounded-qa-qasper-claim-pruned-qwen05b-lora-v1",
+  "trackio_space_id": "rprendergast/trackio",
+  "hardware_flavor": "t4-small",
+  "timeout": "45m",
+  "train_fraction": 0.85,
+  "max_length": 1024,
+  "epochs": 3,
+  "learning_rate": 0.0002,
+  "lora_rank": 16,
+  "examples": {
+    "accepted_labels": 33,
+    "train": 28,
+    "validation": 5,
+    "eval_prompts": 40,
+    "eval_offset": 132
+  },
+  "estimated_hf_job_cost_usd": 0.5625,
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "note": "This prep and HF job packet make no OpenAI API calls. Hugging Face compute cost is tracked separately from the OpenAI key budget."
+  },
+  "artifacts": {
+    "train_jsonl": "docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/train.hf-sft.jsonl",
+    "validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/validation.hf-sft.jsonl",
+    "eval_prompts_jsonl": "docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/eval_prompts.jsonl",
+    "hf_dataset_repo_dir": "docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/hf_dataset_repo",
+    "validation_script": "docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/validate_dataset_uv.py",
+    "train_script": "docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/train_lora_sft_uv.py",
+    "job_spec": "docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/hf_job_spec.json",
+    "report": "docs/experiments/grounded-qa-distillation/runs/hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-qwen05b-v1/report.md"
+  }
+}

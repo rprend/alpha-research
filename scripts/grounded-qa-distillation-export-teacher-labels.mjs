@@ -11,6 +11,7 @@ const args = parseArgs(process.argv.slice(2));
 const split = args.split ?? "temporal_test";
 const teacherRunIds = listArg(args["teacher-runs"]);
 const judgeRunIds = listArg(args["judge-runs"]);
+const extraCostRunIds = listArg(args["extra-cost-runs"]);
 const outputPrefix = args["output-prefix"] ?? "teacher-repair-temporal-test-0-80-v1";
 const baselineRunId = args["baseline-run"] ?? "openai-student-temporal-test-full-v1";
 const demoRunId = args["demo-run"] ?? "openai-student-teacher-demo-temporal-test-80-120-v1";
@@ -79,7 +80,7 @@ const rejectedPath = path.join(exportDir, `${outputPrefix}.rejected.jsonl`);
 const manifestPath = path.join(exportDir, `${outputPrefix}.manifest.json`);
 const reportPath = path.join(reportDir, `${outputPrefix}.md`);
 
-const teacherCost = await sumRunCosts(teacherRunIds);
+const teacherCost = await sumRunCosts([...teacherRunIds, ...extraCostRunIds]);
 const judgeCost = await sumRunCosts(judgeRunIds);
 const baselineCostPerCall = await costPerCall(baselineRunId, { sliceOffset: 80, sliceLimit: 40 });
 const demoCostPerCall = await costPerCall(demoRunId);
@@ -90,6 +91,7 @@ const summary = {
   split,
   teacher_run_ids: teacherRunIds,
   judge_run_ids: judgeRunIds,
+  extra_cost_run_ids: extraCostRunIds,
   examples_seen: teacherRows.length,
   accepted_labels: accepted.length,
   rejected_labels: rejected.length,
@@ -219,6 +221,7 @@ function renderReport(summary, accepted, rejected) {
 
 - Teacher runs: ${summary.teacher_run_ids.map((id) => `\`${id}\``).join(", ")}
 - Judge runs: ${summary.judge_run_ids.map((id) => `\`${id}\``).join(", ")}
+${summary.extra_cost_run_ids.length ? `- Extra upstream cost runs: ${summary.extra_cost_run_ids.map((id) => `\`${id}\``).join(", ")}` : "- Extra upstream cost runs: none"}
 - Split: \`${summary.split}\`
 - Accepted SFT labels: \`${summary.artifacts.accepted_sft_jsonl}\`
 - Rejected audit rows: \`${summary.artifacts.rejected_jsonl}\`
@@ -235,7 +238,7 @@ The quality filter accepts answered labels only when the judge marks every claim
 
 | Component | Cost |
 | --- | ---: |
-| Repaired teacher runs | $${summary.teacher_cost_usd.toFixed(7)} |
+| Teacher/source runs, including extra upstream cost runs | $${summary.teacher_cost_usd.toFixed(7)} |
 | Judge runs | $${summary.judge_cost_usd.toFixed(7)} |
 | Total offline labeling | $${summary.total_labeling_cost_usd.toFixed(7)} |
 | Direct mini student per query | $${summary.baseline_cost_per_call_usd.toFixed(7)} |
