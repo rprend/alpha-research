@@ -1,0 +1,78 @@
+{
+  "run_id": "local-generative-sft-balanced-full-mini-negative-temporal-qwen05b-113train-2epoch-321-389-v1",
+  "generated_at": "2026-06-26T14:56:51Z",
+  "sft_prep_run_id": "hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1",
+  "packet_summary": {
+    "teacher_label_prefix": "teacher-mini-negative-future-holdout-160-389-v1",
+    "train_windows": [
+      "161-240",
+      "241-320"
+    ],
+    "eval_window": "321-389",
+    "train_rows_available": 113,
+    "train_rows_used": 113,
+    "validation_rows_available": 19,
+    "eval_prompts_used": 69,
+    "train_filter": "all",
+    "train_distribution": {
+      "rows": 113,
+      "answered": 57,
+      "abstained": 56,
+      "invalid": 0,
+      "answer_rate": 0.504424778761062
+    },
+    "eval_reference_distribution": {
+      "rows": 69,
+      "answered": 44,
+      "abstained": 25,
+      "invalid": 0,
+      "answer_rate": 0.6376811594202898
+    },
+    "train_eval_paper_overlap": 0,
+    "validation_eval_paper_overlap": 0
+  },
+  "method": {
+    "type": "local_lora_causal_lm_sft",
+    "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "loss_mask": "assistant_tokens_only",
+    "device": "mps",
+    "max_length": 768,
+    "max_new_tokens": 140,
+    "epochs": 2,
+    "batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.0002,
+    "use_lora": true,
+    "lora_rank": 8
+  },
+  "training": {
+    "optimizer_steps": 30,
+    "loss_count": 226,
+    "mean_loss": 0.8714957739333663,
+    "last_loss": 0.41302821040153503,
+    "train_seconds": 925.4041810035706,
+    "trainable_parameters": {
+      "trainable": 1081344,
+      "total": 495114112,
+      "fraction": 0.0021840298504761666
+    }
+  },
+  "eval": {
+    "examples": 69,
+    "answered": 0,
+    "abstained": 69,
+    "answer_rate": 0.0,
+    "answer_type_accuracy": 0.36231884057971014,
+    "citation_precision": 0.0,
+    "citation_recall": 0.0,
+    "answer_token_f1": 0.0,
+    "abstention_accuracy": 1.0,
+    "inline_citation_rate": 0.0,
+    "valid_json_rate": 0.9130434782608695
+  },
+  "cost": {
+    "llm_calls": 0,
+    "openai_cost_usd": 0,
+    "note": "Local SFT/eval only. No OpenAI API calls."
+  }
+}
