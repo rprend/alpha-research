@@ -163,6 +163,19 @@ The strict filter accepts answered labels only when the judge marks every claim 
 
 The first-80 repaired teacher plus judge labeling cost is $0.5675848. Compared with the 80-120 demo scaffold's per-query cost premium over direct mini prompting, the offline packet breaks even after about 798 future queries if post-training keeps inference near direct mini-student cost. This is an amortization calculation, not a quality claim; a trained or fitted student still needs held-out evaluation.
 
+## Teacher-Label Filter
+
+`teacher-label-filter-temporal-test-80-172-v1` is the first zero-additional-token policy trained from the offline label packet. It learns a local logistic gate over the direct mini student's output and either keeps the generated answer or converts it to an abstention. It cannot generate answers that the direct student missed.
+
+Held-out comparison on temporal-test examples 81-172:
+
+| Policy | Answered | Forced abstentions | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate | Kept-answer support | Hybrid support/gold-abstention |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini student | 65 | 0 | 80.4% | 76.9% | 63.5% | 22.6% | 82.1% | 92.3% | 84.8% |
+| Teacher-label filter | 58 | 7 | 77.2% | 78.4% | 56.5% | 19.8% | 92.0% | 91.4% | 79.3% |
+
+This is a negative result. The filter buys citation-format compliance by over-abstaining and loses the broader grounded-correctness screen. The offline teacher labels should be used to train generation/citation behavior directly, not only a post-hoc answer gate.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

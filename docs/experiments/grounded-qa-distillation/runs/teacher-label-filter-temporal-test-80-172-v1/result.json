@@ -1,0 +1,229 @@
+{
+  "run_id": "teacher-label-filter-temporal-test-80-172-v1",
+  "generated_at": "2026-06-26T04:37:15.851Z",
+  "split": "temporal_test",
+  "student_run_id": "openai-student-temporal-test-full-v1",
+  "judge_run_id": "openai-judge-student-temporal-test-full-v1",
+  "teacher_label_prefix": "teacher-repair-temporal-test-0-80-v1",
+  "train_examples_seen": 80,
+  "train_examples_used": 52,
+  "eval_offset": 80,
+  "eval_examples": 92,
+  "model": {
+    "type": "logistic_keep_answer_filter",
+    "feature_names": [
+      "bias",
+      "citation_count",
+      "inline_rate",
+      "valid_citation_rate",
+      "claim_count",
+      "answer_token_count",
+      "cited_question_overlap_mean",
+      "cited_question_overlap_max",
+      "answer_question_overlap",
+      "metadata_has_abstract"
+    ],
+    "weights": {
+      "bias": -2.148185377821455,
+      "citation_count": 3.0627083591279733,
+      "inline_rate": 3.241351680721306,
+      "valid_citation_rate": -2.148185377821455,
+      "claim_count": 2.2411852663553673,
+      "answer_token_count": 9.284997059467733,
+      "cited_question_overlap_mean": 1.1038518713752465,
+      "cited_question_overlap_max": 0.6965337387908399,
+      "answer_question_overlap": 4.672453504394655,
+      "metadata_has_abstract": -2.148185377821455
+    },
+    "epochs": 600,
+    "learning_rate": 0.08,
+    "selected_threshold": 0.15,
+    "threshold_grid": [
+      {
+        "threshold": 0.15,
+        "metrics": {
+          "examples": 80,
+          "answered": 48,
+          "abstained": 32,
+          "forced_abstentions": 4,
+          "answer_type_accuracy": 0.8375,
+          "citation_precision": 0.779513888888889,
+          "citation_recall": 0.6037735849056604,
+          "answer_token_f1": 0.1674578980243133,
+          "abstention_accuracy": 0.8375,
+          "inline_citation_rate": 0.9166666666666666,
+          "kept_answer_support_rate": 0.8958333333333334,
+          "hybrid_supported_or_gold_abstention_rate": 0.825
+        }
+      },
+      {
+        "threshold": 0.25,
+        "metrics": {
+          "examples": 80,
+          "answered": 47,
+          "abstained": 33,
+          "forced_abstentions": 5,
+          "answer_type_accuracy": 0.825,
+          "citation_precision": 0.7748226950354611,
+          "citation_recall": 0.5911949685534592,
+          "answer_token_f1": 0.1674578980243133,
+          "abstention_accuracy": 0.825,
+          "inline_citation_rate": 0.9361702127659575,
+          "kept_answer_support_rate": 0.8936170212765957,
+          "hybrid_supported_or_gold_abstention_rate": 0.8125
+        }
+      },
+      {
+        "threshold": 0.35,
+        "metrics": {
+          "examples": 80,
+          "answered": 44,
+          "abstained": 36,
+          "forced_abstentions": 8,
+          "answer_type_accuracy": 0.8125,
+          "citation_precision": 0.7821969696969698,
+          "citation_recall": 0.5628930817610064,
+          "answer_token_f1": 0.14248564497214908,
+          "abstention_accuracy": 0.8125,
+          "inline_citation_rate": 0.9545454545454546,
+          "kept_answer_support_rate": 0.8863636363636364,
+          "hybrid_supported_or_gold_abstention_rate": 0.7875
+        }
+      },
+      {
+        "threshold": 0.45,
+        "metrics": {
+          "examples": 80,
+          "answered": 41,
+          "abstained": 39,
+          "forced_abstentions": 11,
+          "answer_type_accuracy": 0.8,
+          "citation_precision": 0.7906504065040652,
+          "citation_recall": 0.5251572327044025,
+          "answer_token_f1": 0.1368252676136585,
+          "abstention_accuracy": 0.8,
+          "inline_citation_rate": 0.9512195121951219,
+          "kept_answer_support_rate": 0.8780487804878049,
+          "hybrid_supported_or_gold_abstention_rate": 0.7625
+        }
+      },
+      {
+        "threshold": 0.5,
+        "metrics": {
+          "examples": 80,
+          "answered": 38,
+          "abstained": 42,
+          "forced_abstentions": 14,
+          "answer_type_accuracy": 0.7625,
+          "citation_precision": 0.7741228070175439,
+          "citation_recall": 0.47798742138364786,
+          "answer_token_f1": 0.11956050007142147,
+          "abstention_accuracy": 0.7625,
+          "inline_citation_rate": 0.9473684210526315,
+          "kept_answer_support_rate": 0.868421052631579,
+          "hybrid_supported_or_gold_abstention_rate": 0.725
+        }
+      },
+      {
+        "threshold": 0.55,
+        "metrics": {
+          "examples": 80,
+          "answered": 35,
+          "abstained": 45,
+          "forced_abstentions": 17,
+          "answer_type_accuracy": 0.75,
+          "citation_precision": 0.7976190476190477,
+          "citation_recall": 0.44968553459119504,
+          "answer_token_f1": 0.11057577410556343,
+          "abstention_accuracy": 0.75,
+          "inline_citation_rate": 0.9428571428571428,
+          "kept_answer_support_rate": 0.8571428571428571,
+          "hybrid_supported_or_gold_abstention_rate": 0.7
+        }
+      },
+      {
+        "threshold": 0.65,
+        "metrics": {
+          "examples": 80,
+          "answered": 28,
+          "abstained": 52,
+          "forced_abstentions": 24,
+          "answer_type_accuracy": 0.6875,
+          "citation_precision": 0.8184523809523808,
+          "citation_recall": 0.37735849056603776,
+          "answer_token_f1": 0.10051288102380242,
+          "abstention_accuracy": 0.6875,
+          "inline_citation_rate": 0.9285714285714286,
+          "kept_answer_support_rate": 0.8214285714285714,
+          "hybrid_supported_or_gold_abstention_rate": 0.625
+        }
+      },
+      {
+        "threshold": 0.75,
+        "metrics": {
+          "examples": 80,
+          "answered": 21,
+          "abstained": 59,
+          "forced_abstentions": 31,
+          "answer_type_accuracy": 0.6,
+          "citation_precision": 0.8452380952380952,
+          "citation_recall": 0.3018867924528302,
+          "answer_token_f1": 0.07350791989250823,
+          "abstention_accuracy": 0.6,
+          "inline_citation_rate": 0.9523809523809523,
+          "kept_answer_support_rate": 0.9047619047619048,
+          "hybrid_supported_or_gold_abstention_rate": 0.575
+        }
+      },
+      {
+        "threshold": 0.85,
+        "metrics": {
+          "examples": 80,
+          "answered": 13,
+          "abstained": 67,
+          "forced_abstentions": 39,
+          "answer_type_accuracy": 0.5,
+          "citation_precision": 0.8653846153846154,
+          "citation_recall": 0.19811320754716982,
+          "answer_token_f1": 0.04480476403794877,
+          "abstention_accuracy": 0.5,
+          "inline_citation_rate": 0.9230769230769231,
+          "kept_answer_support_rate": 0.9230769230769231,
+          "hybrid_supported_or_gold_abstention_rate": 0.4875
+        }
+      }
+    ]
+  },
+  "baseline": {
+    "examples": 92,
+    "answered": 65,
+    "abstained": 27,
+    "forced_abstentions": 0,
+    "answer_type_accuracy": 0.8043478260869565,
+    "citation_precision": 0.7687179487179486,
+    "citation_recall": 0.6346153846153846,
+    "answer_token_f1": 0.22559093073032355,
+    "abstention_accuracy": 0.8043478260869565,
+    "inline_citation_rate": 0.8205128205128206,
+    "kept_answer_support_rate": 0.9230769230769231,
+    "hybrid_supported_or_gold_abstention_rate": 0.8478260869565217
+  },
+  "filtered": {
+    "examples": 92,
+    "answered": 58,
+    "abstained": 34,
+    "forced_abstentions": 7,
+    "answer_type_accuracy": 0.7717391304347826,
+    "citation_precision": 0.7839080459770114,
+    "citation_recall": 0.5653846153846154,
+    "answer_token_f1": 0.19804847318786598,
+    "abstention_accuracy": 0.7717391304347826,
+    "inline_citation_rate": 0.9195402298850575,
+    "kept_answer_support_rate": 0.9137931034482759,
+    "hybrid_supported_or_gold_abstention_rate": 0.7934782608695652
+  },
+  "interpretation": {
+    "cost_change": "No additional LLM calls. The filter runs locally after the direct mini student.",
+    "limitation": "The filter can only keep direct student answers or force abstention; it cannot recover answers the student already abstained on."
+  }
+}

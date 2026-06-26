@@ -137,6 +137,8 @@ The first judge-filtered repaired-teacher label packet is:
 
 It contains 65 strict SFT labels from the first 80 repaired multi-step teacher examples and 15 rejected audit rows. This is the first offline post-training object for amortized distillation; it is not yet evidence that a trained student improves.
 
+The first local policy test using this packet is `runs/teacher-label-filter-temporal-test-80-172-v1/`. It trains a zero-LLM logistic keep-answer gate, but the held-out result is negative: the gate improves citation precision and inline citation rate while hurting answer coverage, support, and answer quality. The next useful experiment should train or fine-tune answer generation rather than only suppressing risky answers.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:

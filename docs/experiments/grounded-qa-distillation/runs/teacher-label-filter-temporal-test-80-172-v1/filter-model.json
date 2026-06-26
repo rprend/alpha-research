@@ -1,0 +1,16 @@
+{
+  "weights": {
+    "bias": -2.148185377821455,
+    "citation_count": 3.0627083591279733,
+    "inline_rate": 3.241351680721306,
+    "valid_citation_rate": -2.148185377821455,
+    "claim_count": 2.2411852663553673,
+    "answer_token_count": 9.284997059467733,
+    "cited_question_overlap_mean": 1.1038518713752465,
+    "cited_question_overlap_max": 0.6965337387908399,
+    "answer_question_overlap": 4.672453504394655,
+    "metadata_has_abstract": -2.148185377821455
+  },
+  "epochs": 600,
+  "learningRate": 0.08
+}

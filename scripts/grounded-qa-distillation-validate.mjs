@@ -42,6 +42,7 @@ if (!errors.length) {
   await validateJudgeRunsIfPresent();
   await validateMultistepTeacherRunsIfPresent();
   await validateTeacherLabelExportsIfPresent();
+  await validateTeacherLabelFilterRunsIfPresent();
 }
 
 if (errors.length) {
@@ -302,6 +303,47 @@ async function validateTeacherLabelExportsIfPresent() {
 
     accepted.forEach((row, index) => validateTeacherLabel(row, `${entry.name}.accepted:${index + 1}`, true));
     rejected.forEach((row, index) => validateTeacherLabel(row, `${entry.name}.rejected:${index + 1}`, false));
+  }
+}
+
+async function validateTeacherLabelFilterRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("teacher-label-filter-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    let result;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed teacher-label filter artifacts.`);
+      continue;
+    }
+
+    if (result.filtered?.examples !== predictions.length) errors.push(`${entry.name}: filtered examples does not match predictions.`);
+    if (!result.model?.weights || typeof result.model.weights !== "object") errors.push(`${entry.name}: missing filter weights.`);
+    if (!Number.isFinite(Number(result.model?.selected_threshold))) errors.push(`${entry.name}: invalid selected threshold.`);
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores) {
+        errors.push(`${label}: missing prediction/reference/scores.`);
+      }
+      if (!["grounded_answer", "abstain"].includes(row.prediction?.answer_type)) {
+        errors.push(`${label}: invalid prediction answer_type.`);
+      }
+      if (row.metadata?.forced_abstain && row.prediction?.answer_type !== "abstain") {
+        errors.push(`${label}: forced abstention row must abstain.`);
+      }
+    }
   }
 }
 
