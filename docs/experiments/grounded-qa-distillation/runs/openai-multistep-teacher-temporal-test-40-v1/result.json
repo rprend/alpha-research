@@ -1,0 +1,45 @@
+{
+  "run_id": "openai-multistep-teacher-temporal-test-40-v1",
+  "generated_at": "2026-06-26T02:28:36.656Z",
+  "split": "temporal_test",
+  "planner_model": "gpt-4o",
+  "answer_model": "gpt-4o",
+  "examples_requested": 40,
+  "dry_run": false,
+  "calls_made": 56,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.18342000000000003,
+  "estimated_cost_usd": 0.5153474999999998,
+  "ledger_spend_before_usd": 0.7032991499999995,
+  "ledger_spend_after_usd": 0.8867191499999998,
+  "max_budget_usd": 100,
+  "prices": {
+    "planner": {
+      "inputPerMillion": 2.5,
+      "outputPerMillion": 10,
+      "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+    },
+    "answer": {
+      "inputPerMillion": 2.5,
+      "outputPerMillion": 10,
+      "source": "https://developers.openai.com/api/docs/models/gpt-4o"
+    }
+  },
+  "metrics": {
+    "examples_scored": 40,
+    "answer_type_accuracy": 0.7,
+    "citation_precision": 0.75,
+    "citation_recall": 0.3814102564102564,
+    "answer_token_f1": 0.10106749627105333,
+    "abstention_accuracy": 0.7,
+    "inline_citation_rate": 0.75
+  },
+  "trace_metrics": {
+    "examples_traced": 40,
+    "planner_sufficient_rate": 0.4,
+    "answer_stage_rate": 0.4,
+    "mean_selected_evidence_count": 1.275,
+    "planner_cost_usd": 0.11805750000000004,
+    "answer_cost_usd": 0.0653625
+  }
+}

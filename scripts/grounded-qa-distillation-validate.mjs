@@ -40,6 +40,7 @@ if (!errors.length) {
   await validateExportsIfPresent();
   await validateLlmBudgetIfPresent();
   await validateJudgeRunsIfPresent();
+  await validateMultistepTeacherRunsIfPresent();
 }
 
 if (errors.length) {
@@ -201,6 +202,57 @@ async function validateJudgeRunsIfPresent() {
       }
       if (!Number.isFinite(Number(row.cost_usd)) || Number(row.cost_usd) < 0) {
         errors.push(`${label}: invalid cost_usd.`);
+      }
+    }
+  }
+}
+
+async function validateMultistepTeacherRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("openai-multistep-teacher-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const tracesPath = path.join(runsDir, entry.name, "teacher_traces.jsonl");
+    let result;
+    let predictions;
+    let traces;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      traces = await readJsonl(tracesPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed multi-step teacher artifacts.`);
+      continue;
+    }
+
+    if (predictions.length !== traces.length) errors.push(`${entry.name}: predictions and traces row counts differ.`);
+    if (result.examples_requested !== predictions.length) errors.push(`${entry.name}: examples_requested does not match predictions.`);
+    const callsMade = traces.reduce((total, row) => total + (row.planner_usage ? 1 : 0) + (row.answer_usage ? 1 : 0), 0);
+    const runCost = predictions.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+    if (result.calls_made !== callsMade) errors.push(`${entry.name}: calls_made does not match traces.`);
+    if (Math.abs(Number(result.run_cost_usd ?? 0) - runCost) > 1e-9) {
+      errors.push(`${entry.name}: run_cost_usd does not match predictions.`);
+    }
+
+    for (const [index, trace] of traces.entries()) {
+      const label = `${entry.name}.teacher_traces:${index + 1}`;
+      if (!trace.example_id) errors.push(`${label}: missing example_id.`);
+      if (trace.skipped) continue;
+      if (!trace.plan || typeof trace.plan.sufficient !== "boolean") errors.push(`${label}: missing normalized plan.`);
+      if (!Array.isArray(trace.plan?.selected_evidence_ids)) errors.push(`${label}: plan selected_evidence_ids must be an array.`);
+      if (!Number.isFinite(Number(trace.planner_cost_usd)) || Number(trace.planner_cost_usd) < 0) {
+        errors.push(`${label}: invalid planner_cost_usd.`);
+      }
+      if (!Number.isFinite(Number(trace.answer_cost_usd)) || Number(trace.answer_cost_usd) < 0) {
+        errors.push(`${label}: invalid answer_cost_usd.`);
       }
     }
   }

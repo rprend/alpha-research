@@ -11,6 +11,8 @@ Runs:
 - `openai-teacher-temporal-test-full-v1`: all 172 `temporal_test` examples, same contract with `gpt-4o` as a larger hosted teacher
 - `openai-judge-student-temporal-test-full-v1`: all 172 `temporal_test` student predictions judged for support with `gpt-4o-mini`
 - `openai-judge-teacher-temporal-test-full-v1`: all 172 `temporal_test` teacher predictions judged for support with `gpt-4o-mini`
+- `openai-multistep-teacher-temporal-test-40-v1`: first 40 `temporal_test` examples with a `gpt-4o` planner/sufficiency stage and a `gpt-4o` answer stage
+- `openai-judge-multistep-teacher-temporal-test-40-v1`: first 40 multi-step teacher predictions judged for support with `gpt-4o-mini`
 
 Model:
 
@@ -22,9 +24,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 896
-- Total spend so far: $0.70329915
-- Remaining budget: $99.29670085
+- Calls made so far: 992
+- Total spend so far: $0.89209395
+- Remaining budget: $99.10790605
 
 ## Prompt Contract Result
 
@@ -76,6 +78,25 @@ Comparison on all 172 `temporal_test` examples:
 
 The larger hosted teacher is more precise and much better at putting cited evidence ids inline, but it is worse than the mini student on citation recall, answer token F1, and abstention accuracy under this prompt and compact-evidence setting. It is also about 16.4x more expensive per answer-type-correct example.
 
+## Multi-Step Teacher Pilot
+
+The first multi-step teacher explicitly separates:
+
+1. planner/sufficiency stage: select directly supporting evidence ids and decide whether the evidence pack is sufficient,
+2. answer stage: write the cited answer only from planner-selected evidence.
+
+On the first 40 `temporal_test` examples, the planner marked 40.0% of examples sufficient and therefore made answer-stage calls for only 16 of 40 examples. The run made 56 calls and cost $0.1834200.
+
+Same-slice comparison:
+
+| System | Citation precision | Citation recall | Answer token F1 | Abstention accuracy | Inline citation rate | Abstention rate | Run cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `openai-student-temporal-test-full-v1` first 40 | 68.5% | 53.2% | 13.6% | 77.5% | 87.0% | 42.5% | $0.0083419 |
+| `openai-teacher-temporal-test-full-v1` first 40 | 73.7% | 55.4% | 11.7% | 82.5% | 100.0% | 47.5% | $0.1348725 |
+| `openai-multistep-teacher-temporal-test-40-v1` | 75.0% | 38.1% | 10.1% | 70.0% | 75.0% | 60.0% | $0.1834200 |
+
+The explicit planner improves citation precision slightly over the prompt-matched teacher on this slice, but it over-abstains and loses citation recall, answer F1, abstention accuracy, and inline citation compliance. This is a useful negative result: decomposition alone is not a better teacher unless the planner is calibrated for recall and the answer stage is forced to preserve citations.
+
 ## Entailment Judge
 
 The OpenAI judge runner evaluates predictions against only the question, prediction, and supplied evidence. For answered predictions, it asks whether every factual claim is directly supported by cited evidence ids. For abstentions, it asks whether the full evidence pack is insufficient to answer the question. The judge uses `gpt-4o-mini`, writes each call to the shared ledger, and emits a separate `judgments.jsonl` artifact.
@@ -86,6 +107,7 @@ Full temporal-test judge results:
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `openai-student-temporal-test-full-v1` | `gpt-4o-mini` | 117 | 55 | 91.5% | 100.0% | 94.2% | 1.2% | $0.0203958 |
 | `openai-teacher-temporal-test-full-v1` | `gpt-4o-mini` | 99 | 73 | 90.9% | 100.0% | 94.8% | 0.6% | $0.0213821 |
+| `openai-multistep-teacher-temporal-test-40-v1` | `gpt-4o-mini` | 16 | 24 | 75.0% | 100.0% | 90.0% | 2.5% | $0.0053748 |
 
 The judge adds a more direct answer-support signal than lexical answer token F1. It also exposes that both hosted systems are usually grounded when they choose to answer, while the teacher abstains more often. This does not prove final grounded correctness: the judge is still an LLM, uses the same mini model family as the student baseline, and needs calibration against stronger independent or human judgments.
 
@@ -93,4 +115,4 @@ The judge adds a more direct answer-support signal than lexical answer token F1.
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.
 
-The result is not yet paper-grade because it uses hosted models and the larger teacher comparison is prompt-matched rather than a multi-step agentic RAG teacher. The next step is to calibrate the entailment judge and test whether teacher-generated post-training data improves the cheaper student beyond direct prompting.
+The result is not yet paper-grade because it uses hosted models and the first multi-step teacher is an over-conservative negative pilot rather than a strong agentic RAG teacher. The next step is to calibrate the planner for evidence recall, calibrate the entailment judge, and test whether teacher-generated post-training data improves the cheaper student beyond direct prompting.
