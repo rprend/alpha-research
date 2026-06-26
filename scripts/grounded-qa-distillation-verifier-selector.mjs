@@ -14,6 +14,7 @@ const evalOffset = numberArg(args["eval-offset"], 132, { allowZero: true });
 const evalLimit = numberArg(args["eval-limit"], 40);
 const rankAnswerBonus = numericArg(args["rank-answer-bonus"], 0.04);
 const rankInlinePenalty = numericArg(args["rank-inline-penalty"], -0.35);
+const rankDirectInlineBonus = numericArg(args["rank-direct-inline-bonus"], 0);
 const abstentionMarginArg = args["abstention-margin"] === "auto"
   ? "auto"
   : numericArg(args["abstention-margin"], Number.NaN);
@@ -111,6 +112,7 @@ const result = {
     train_loss: model.loss,
     rank_answer_bonus: rankAnswerBonus,
     rank_inline_penalty: rankInlinePenalty,
+    rank_direct_inline_bonus: rankDirectInlineBonus,
     abstention_margin: abstentionMargin,
   },
   answerability_guard: {
@@ -300,7 +302,8 @@ function applyAnswerabilityGuard(selected, scored, answerabilityScore, threshold
 function candidateRank(candidate) {
   const inlinePenalty = candidate.inline_complete ? 0 : rankInlinePenalty;
   const answerBonus = candidate.answered ? rankAnswerBonus : 0;
-  return candidate.verifier_score + inlinePenalty + answerBonus;
+  const directInlineBonus = candidate.policy === "direct" && candidate.inline_complete ? rankDirectInlineBonus : 0;
+  return candidate.verifier_score + inlinePenalty + answerBonus + directInlineBonus;
 }
 
 function featureVector(candidate, candidates, input) {

@@ -243,6 +243,7 @@ Same-slice comparison on temporal-test examples 133-172:
 | Recovery candidate pool selector | 29 | 87.5% | 85.1% | 68.5% | 24.0% | 100.0% | n/a | 87.5% inherited | $0 incremental after recovery labels |
 | Answerability-guarded selector | 25 | 82.5% | 84.7% | 61.3% | 20.7% | 100.0% | n/a | 97.5% inherited | $0 incremental |
 | Coverage-preserving answerability guard | 29 | 87.5% | 83.3% | 68.5% | 22.3% | 100.0% | n/a | 95.0% inherited | $0 incremental |
+| Direct-prior verifier selector | 29 | 87.5% | 83.3% | 68.5% | 22.4% | 100.0% | n/a | 95.0% inherited | $0 incremental |
 
 The strict rubric scaffold is a safety-formatting improvement, not an amortized answer-quality improvement. It transfers citation discipline and judged support from teacher labels, but mostly by abstaining on examples the direct mini student can answer. The balanced rubric recovers coverage and keeps perfect inline citation formatting, but loses citation precision, recall, and answer F1 versus direct mini prompting. Static teacher-label rubrics are therefore useful controls, not the final amortized student.
 
@@ -261,6 +262,8 @@ The strict rubric scaffold is a safety-formatting improvement, not an amortized 
 `verifier-selector-answerability-guard-temporal-test-80-132-to-132-172-v1` trains a zero-call row-level answerability guard on examples 81-132. It improves held-out inherited judged correctness to 97.5%, the best support result so far, but sacrifices coverage and answer quality. This gives a useful high-safety operating point, while confirming that the default paper direction still needs support improvements without heavy over-abstention.
 
 `verifier-selector-answerability-guard-coverage-preserving-temporal-test-80-132-to-132-172-v1` constrains the same guard to preserve 100% of the calibrated selector's train-window answer coverage. Under that constraint, the tuned guard is not selected and the held-out result matches the default calibrated selector. This rejects coverage-preserving row-level answerability gating as a support improvement on the current candidate pool.
+
+`verifier-selector-direct-prior-temporal-test-80-132-to-132-172-v1` gives inline-complete direct-mini candidates a small rank bonus after failure inspection showed direct-mini was frequently oracle-good. The ablation changes policy mix sharply, selecting direct-mini on 26 of 40 examples, but it leaves inherited judged correctness and target-good unchanged. This rejects a simple direct-mini prior as the missing router.
 
 ## Interpretation
 

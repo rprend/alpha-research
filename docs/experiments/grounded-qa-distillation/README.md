@@ -178,6 +178,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/verifier-selector-answerability-guard-coverage-preserving-temporal-test-80-132-to-132-172-v1/` repeats the answerability-guard calibration with a 100% train-window answer-coverage floor. The guard is not selected under that constraint, so the run reproduces the default calibrated selector: 29 of 40 answered, 95.0% inherited judged correctness, and 100.0% inline citation compliance. This is a negative result for coverage-preserving row gating.
 
+`runs/verifier-selector-direct-prior-temporal-test-80-132-to-132-172-v1/` adds a small rank bonus for inline-complete direct-mini candidates. It changes the selected policy mix substantially, but leaves held-out target-good and inherited judged correctness unchanged. This rules out a simple direct-mini prior as the missing support-preserving router.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
