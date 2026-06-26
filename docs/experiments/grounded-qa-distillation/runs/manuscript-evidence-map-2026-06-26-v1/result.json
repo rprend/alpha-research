@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:56:38.546Z",
+  "generated_at": "2026-06-26T21:08:48.532Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -158,6 +158,33 @@
       ],
       "interpretation": "The Prime handoff now has explicit auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps, but it still cannot run until Prime auth succeeds."
     },
+    "prime_auth_price_gate": {
+      "run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+      "status": "auth_or_price_blocked",
+      "checks": [
+        {
+          "id": "prime_whoami_authenticated",
+          "status": "fail"
+        },
+        {
+          "id": "prime_wallet_accessible",
+          "status": "fail"
+        },
+        {
+          "id": "prime_availability_accessible",
+          "status": "fail"
+        },
+        {
+          "id": "gpu_resource_available",
+          "status": "fail"
+        },
+        {
+          "id": "estimated_total_under_budget",
+          "status": "pass"
+        }
+      ],
+      "interpretation": "The live backend gate is now executable; it currently fails closed on Prime auth before wallet or GPU price can be verified."
+    },
     "qwen3b_result_integration_gate": {
       "run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
       "status": "waiting_for_qwen3b_predictions",
@@ -208,6 +235,7 @@
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
     "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+    "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

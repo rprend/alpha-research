@@ -1149,3 +1149,13 @@ Reason: After the Qwen 3B smoke and paid judge exist, the project needs an execu
 Result: The current artifact correctly reports `waiting_for_qwen3b_predictions`, makes zero OpenAI calls, launches no GPU jobs, and records no spend. The final-evidence checklist now fails explicitly on `qwen3b_result_integrated` until real Qwen predictions and a paid judge are available.
 
 Tradeoff: This does not remove the backend-auth blocker and does not add model evidence. It prevents future overclaiming by forcing the Qwen result to be classified as strong positive, minimum positive, or negative before updating the Pareto table or manuscript.
+
+### D136. Make Prime auth and live pricing an executable gate
+
+Decision: Add `grounded-qa-distillation-prime-auth-price-gate.mjs`, materialize `prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1`, validate it, and wire it into the final-evidence checklist, manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: The final checklist should not hardcode the Prime/HF auth blocker. After a valid secret is installed, the project needs a repeatable no-spend check that proves Prime identity, wallet access, live L4 availability/pricing, and total-budget headroom before creating any pod or recording external compute.
+
+Result: The current artifact fails closed with `auth_or_price_blocked`: `prime whoami` returns unauthorized, so wallet and live GPU pricing remain unverified. The estimated total budget check still passes under the `$100` cap. The gate makes zero OpenAI calls, launches no GPU jobs, and records no spend.
+
+Tradeoff: This is still not a trained-model result or a backend repair by itself. It makes the blocker auditable and gives the next valid-key attempt a deterministic pass/fail gate before any Prime spend.

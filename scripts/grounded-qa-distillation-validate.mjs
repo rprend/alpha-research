@@ -76,6 +76,7 @@ if (!errors.length) {
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validatePrimeCliAuthRecheckRunsIfPresent();
+  await validatePrimeAuthPriceGateRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
   await validateDragStyleComparisonRunsIfPresent();
@@ -3081,6 +3082,55 @@ async function validatePrimeCliAuthRecheckRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: Prime CLI auth recheck must be zero-cost.`);
+    }
+  }
+}
+
+async function validatePrimeAuthPriceGateRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("prime-auth-price-gate-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Prime auth/price gate artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "prime_auth_price_gate") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (!["auth_and_live_price_verified", "auth_or_price_blocked"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected Prime auth/price gate status.`);
+    }
+    const checks = result.checks ?? [];
+    for (const id of ["prime_whoami_authenticated", "prime_wallet_accessible", "prime_availability_accessible", "gpu_resource_available", "estimated_total_under_budget"]) {
+      if (!checks.some((row) => row.id === id)) errors.push(`${entry.name}: missing check ${id}.`);
+    }
+    if (result.status === "auth_and_live_price_verified" && !checks.every((row) => row.status === "pass")) {
+      errors.push(`${entry.name}: verified status requires all checks to pass.`);
+    }
+    if (Number(result.budget_gate?.max_budget_usd) !== 100) {
+      errors.push(`${entry.name}: gate must preserve the $100 budget cap.`);
+    }
+    if (Number(result.budget_gate?.estimated_total_after_gpu_and_judge_usd) > 100 && result.status === "auth_and_live_price_verified") {
+      errors.push(`${entry.name}: verified status must stay under budget.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: Prime auth/price gate must be zero actual cost.`);
+    }
+    if (!report.includes("Prime Auth/Price Gate") || !report.includes("Budget Gate")) {
+      errors.push(`${entry.name}: report must expose auth/price and budget gates.`);
     }
   }
 }

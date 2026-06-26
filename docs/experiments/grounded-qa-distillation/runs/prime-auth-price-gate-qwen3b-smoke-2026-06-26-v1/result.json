@@ -1,0 +1,68 @@
+{
+  "run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1",
+  "generated_at": "2026-06-26T21:08:48.452Z",
+  "artifact_type": "prime_auth_price_gate",
+  "status": "auth_or_price_blocked",
+  "purpose": "Read-only Prime gate for the Qwen 3B smoke: verify auth, wallet access, live GPU availability/pricing, and budget before any pod creation.",
+  "requested_gpu": {
+    "gpu_type": "L4",
+    "gpu_count": 1
+  },
+  "commands": {
+    "whoami": {
+      "command": "prime --plain whoami",
+      "status": 1,
+      "stdout": "Error: API key unauthorized. Please check that your API key has the correct \npermissions, generate a new one at \nhttps://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure\na new API key.",
+      "stderr": ""
+    },
+    "wallet": null,
+    "availability": null
+  },
+  "checks": [
+    {
+      "id": "prime_whoami_authenticated",
+      "status": "fail",
+      "evidence": "Failed: prime --plain whoami; Error: API key unauthorized. Please check that your API key has the correct permissions, generate a new one at https://app.primeintellect.ai/dashboard/tokens or run 'prime login' to configure a new API key."
+    },
+    {
+      "id": "prime_wallet_accessible",
+      "status": "fail",
+      "evidence": "Skipped because Prime auth failed."
+    },
+    {
+      "id": "prime_availability_accessible",
+      "status": "fail",
+      "evidence": "Skipped because Prime auth failed."
+    },
+    {
+      "id": "gpu_resource_available",
+      "status": "fail",
+      "evidence": "No available resource parsed."
+    },
+    {
+      "id": "estimated_total_under_budget",
+      "status": "pass",
+      "evidence": "Estimated total after GPU/hour estimate and judge: $10.360265 of $100."
+    }
+  ],
+  "live_price": {
+    "resources_returned": 0,
+    "cheapest_available_resource": null,
+    "planned_gpu_estimate_usd": 4,
+    "planned_judge_estimate_usd": 0.467165
+  },
+  "budget_gate": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "actual_external_compute_spend_usd": 0,
+    "estimated_total_after_gpu_and_judge_usd": 10.360265000000014,
+    "within_budget": true
+  },
+  "next_step": "Do not create a pod. Repair Prime token permissions or billing, then rerun this gate.",
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This gate runs read-only Prime CLI checks only. It does not launch compute."
+  }
+}

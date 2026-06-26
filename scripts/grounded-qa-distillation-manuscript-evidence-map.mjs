@@ -25,6 +25,7 @@ const scriptContractAudit = await readResult("joint-action-script-contract-audit
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
+const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -140,6 +141,12 @@ const result = {
       runbook_steps: primeRunbook.runbook_steps.map((row) => row.id),
       interpretation: "The Prime handoff now has explicit auth, live-price, pod-create, sync, bootstrap, fetch, cost-finalize, and terminate steps, but it still cannot run until Prime auth succeeds.",
     },
+    prime_auth_price_gate: {
+      run_id: primeAuthPriceGate.run_id,
+      status: primeAuthPriceGate.status,
+      checks: primeAuthPriceGate.checks.map((row) => ({ id: row.id, status: row.status })),
+      interpretation: "The live backend gate is now executable; it currently fails closed on Prime auth before wallet or GPU price can be verified.",
+    },
     qwen3b_result_integration_gate: {
       run_id: qwenResultIntegration.run_id,
       status: qwenResultIntegration.status,
@@ -177,6 +184,7 @@ const result = {
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
+    prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
     current_pipeline_status: qwenPipeline.conclusion.status,
     blocked_claims: [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

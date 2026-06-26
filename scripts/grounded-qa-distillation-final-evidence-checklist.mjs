@@ -23,6 +23,7 @@ const scriptContractAudit = await readResult("joint-action-script-contract-audit
 const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1");
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
+const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 
 const currentSpend = Number(budget.spend_usd.total_actual);
 const plannedGpuEstimate = Number(launchPlan.estimated_cost_usd ?? remotePlan.budget_context?.planned_gpu_estimate_usd ?? 4);
@@ -45,7 +46,7 @@ const acceptanceCriteria = [
   criterion("script_contract_ready", "Qwen 3B smoke scripts compile, validate the packet, preserve bounded settings, and emit judge-ready artifact names.", scriptContractAudit.status === "script_contract_ready_for_paid_smoke", `Current status: ${scriptContractAudit.status}.`),
   criterion("actual_compute_ledger_ready", "Post-smoke finalizer can record actual external compute cost only after smoke artifacts and budget gates pass.", smokeLedgerFinalizer.status === "waiting_for_smoke_artifacts" || smokeLedgerFinalizer.status === "artifacts_ready_for_actual_cost_record" || String(smokeLedgerFinalizer.status).startsWith("actual_"), `Current status: ${smokeLedgerFinalizer.status}; ledger action: ${smokeLedgerFinalizer.ledger?.action}.`),
   criterion("prime_runbook_ready", "Prime GPU smoke runbook and pod bootstrap are ready once auth and live pricing succeed.", primeRunbook.status === "ready_after_prime_auth_and_live_price", `Current status: ${primeRunbook.status}.`),
-  criterion("auth_and_pricing_verified", "Prime/HF auth works and live GPU price keeps estimated total under $100.", false, "Prime key is still unauthorized and HF credits are insufficient."),
+  criterion("auth_and_pricing_verified", "Prime/HF auth works and live GPU price keeps estimated total under $100.", primeAuthPriceGate.status === "auth_and_live_price_verified", `Current Prime gate status: ${primeAuthPriceGate.status}.`),
   criterion("smoke_artifacts_complete", "Bounded Qwen 3B smoke creates predictions, eval result, report, and smoke manifest.", await allExist([
     path.join(expectedPredictionDir, "predictions.jsonl"),
     path.join(expectedPredictionDir, "result.json"),
@@ -95,13 +96,14 @@ const result = {
     smoke_ledger_finalizer_run_id: smokeLedgerFinalizer.run_id,
     prime_runbook_run_id: primeRunbook.run_id,
     qwen_result_integration_run_id: qwenResultIntegration.run_id,
+    prime_auth_price_gate_run_id: primeAuthPriceGate.run_id,
   },
   expected_artifacts: expectedArtifacts,
   acceptance_criteria: acceptanceCriteria,
   execution_sequence: [
     {
       id: "refresh_auth_and_live_price",
-      command: "prime --plain whoami && prime --plain wallet && prime --plain availability list --gpu-type L4 --gpu-count 1 --output json",
+      command: "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs",
       guard: "Do not create a pod unless estimated total spend remains under $100.",
     },
     {

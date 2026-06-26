@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:56:38.245Z",
+  "generated_at": "2026-06-26T21:08:48.492Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -34,7 +34,8 @@
     "script_contract_audit_run_id": "joint-action-script-contract-audit-2026-06-26-v1",
     "smoke_ledger_finalizer_run_id": "joint-action-smoke-ledger-finalizer-joint-action-qwen3b-smoke-eval-v1",
     "prime_runbook_run_id": "prime-qwen3b-smoke-runbook-2026-06-26-v1",
-    "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1"
+    "qwen_result_integration_run_id": "qwen3b-result-integration-joint-action-smoke-2026-06-26-v1",
+    "prime_auth_price_gate_run_id": "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1"
   },
   "expected_artifacts": {
     "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
@@ -74,7 +75,7 @@
       "id": "auth_and_pricing_verified",
       "requirement": "Prime/HF auth works and live GPU price keeps estimated total under $100.",
       "status": "fail",
-      "evidence": "Prime key is still unauthorized and HF credits are insufficient."
+      "evidence": "Current Prime gate status: auth_or_price_blocked."
     },
     {
       "id": "smoke_artifacts_complete",
@@ -128,7 +129,7 @@
   "execution_sequence": [
     {
       "id": "refresh_auth_and_live_price",
-      "command": "prime --plain whoami && prime --plain wallet && prime --plain availability list --gpu-type L4 --gpu-count 1 --output json",
+      "command": "node scripts/grounded-qa-distillation-prime-auth-price-gate.mjs",
       "guard": "Do not create a pod unless estimated total spend remains under $100."
     },
     {
