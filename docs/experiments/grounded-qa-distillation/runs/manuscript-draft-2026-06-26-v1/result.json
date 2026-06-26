@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-draft-2026-06-26-v1",
-  "generated_at": "2026-06-26T23:42:40.081Z",
+  "generated_at": "2026-06-26T23:50:06.710Z",
   "artifact_type": "manuscript_draft",
   "title": "Amortized Grounded QA over Evolving Domain Knowledge Bases",
   "subtitle": "Draft skeleton generated from current artifacts; not submission-ready until the Qwen 3B joint-action result is complete",
@@ -42,7 +42,8 @@
         "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "versioned-kb-writeback-diagnostic-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
         "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
-        "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2"
+        "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+        "versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2"
       ]
     },
     {

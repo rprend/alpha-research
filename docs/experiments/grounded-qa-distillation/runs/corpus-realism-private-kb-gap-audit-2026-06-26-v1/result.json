@@ -1,6 +1,6 @@
 {
   "run_id": "corpus-realism-private-kb-gap-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T22:34:03.560Z",
+  "generated_at": "2026-06-26T23:50:06.644Z",
   "artifact_type": "corpus_realism_private_kb_gap_audit",
   "status": "public_dated_proxy_not_private_kb",
   "purpose": "Separate what the current QASPER/arXiv corpus proves from what would be required to claim behavior over evolving private knowledge bases.",
@@ -26,7 +26,8 @@
     },
     "versioned_domain_kb_extension_candidate_run_id": "versioned-private-kb-prototype-git-docs-2026-06-26-v1",
     "versioned_kb_naturalness_audit_run_id": "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1",
-    "versioned_kb_natural_questions_run_id": "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2"
+    "versioned_kb_natural_questions_run_id": "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2",
+    "versioned_kb_natural_question_eval_run_id": "versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2"
   },
   "checks": [
     {
@@ -70,6 +71,11 @@
       "evidence": "versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2 writes 30 natural-question probes with template rate 0.0% and prefix leakage 3.3%."
     },
     {
+      "id": "natural_question_stale_kb_eval",
+      "status": "pass",
+      "evidence": "versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2 keeps the natural-question stale-KB failure: naive copy overall 50.0%, lexical snapshot guard 96.7%."
+    },
+    {
       "id": "natural_versioned_kb_benchmark",
       "status": "fail",
       "evidence": "versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 reports natural benchmark support=false; template question rate 100.0% and prefix leakage 100.0%."
@@ -91,12 +97,13 @@
     }
   ],
   "scorecard": {
-    "checks_total": 12,
-    "passed": 8,
+    "checks_total": 13,
+    "passed": 9,
     "failed": 4,
     "supports_evolving_public_domain_kb_claim": true,
     "supports_versioned_domain_kb_extension_candidate": true,
     "supports_natural_question_wording_probe": true,
+    "supports_natural_question_stale_kb_eval": true,
     "supports_natural_versioned_kb_benchmark_claim": false,
     "supports_private_enterprise_kb_claim": false,
     "supports_writeback_memory_baseline_claim": false
@@ -106,6 +113,7 @@
     "The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.",
     "The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.",
     "A small ledgered natural-question probe reduces deterministic wording leakage while preserving source-derived labels.",
+    "A deterministic natural-question eval preserves the stale-snapshot failure mode after template wording is removed.",
     "The git-doc prototype is a deterministic snapshot diagnostic, not a natural versioned-KB benchmark.",
     "The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added."
   ],

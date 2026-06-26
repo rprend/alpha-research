@@ -18,6 +18,7 @@ const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2
 const versionedPrivateKbPrototype = await readResultIfPresent("versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedKbNaturalnessAudit = await readResultIfPresent("versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1");
 const versionedKbNaturalQuestions = await readResultIfPresent("versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2");
+const versionedKbNaturalQuestionEval = await readResultIfPresent("versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const checks = [
@@ -29,6 +30,7 @@ const checks = [
   check("counterfactual_insufficiency_cases", true, "Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision."),
   check("versioned_domain_kb_extension_candidate", versionedPrivateKbPrototype?.status === "versioned_domain_kb_candidate_ready", versionedPrivateKbPrototype ? `${versionedPrivateKbPrototype.run_id} emits ${versionedPrivateKbPrototype.examples.total} git-snapshot examples with stale-snapshot abstentions.` : "No versioned domain-KB extension candidate is present."),
   check("natural_question_wording_probe", versionedKbNaturalQuestions?.status === "natural_questions_generated" && Number(versionedKbNaturalQuestions.aggregate?.template_question_rate) <= 0.1, versionedKbNaturalQuestions ? `${versionedKbNaturalQuestions.run_id} writes ${versionedKbNaturalQuestions.examples_written} natural-question probes with template rate ${pct(versionedKbNaturalQuestions.aggregate.template_question_rate)} and prefix leakage ${pct(versionedKbNaturalQuestions.aggregate.prefix_leakage_rate)}.` : "No natural-question probe is present."),
+  check("natural_question_stale_kb_eval", versionedKbNaturalQuestionEval?.status === "versioned_kb_natural_question_eval_complete" && versionedKbNaturalQuestionEval.key_result?.naive_overanswers_stale_snapshots === true && versionedKbNaturalQuestionEval.key_result?.lexical_guard_handles_stale_snapshots === true, versionedKbNaturalQuestionEval ? `${versionedKbNaturalQuestionEval.run_id} keeps the natural-question stale-KB failure: naive copy overall ${pct(versionedKbNaturalQuestionEval.systems.find((row) => row.id === "copy_first_evidence")?.overall_correct_rate)}, lexical snapshot guard ${pct(versionedKbNaturalQuestionEval.systems.find((row) => row.id === "lexical_retriever_snapshot_guard")?.overall_correct_rate)}.` : "No natural-question stale-KB eval is present."),
   check("natural_versioned_kb_benchmark", versionedKbNaturalnessAudit?.scorecard?.supports_natural_versioned_kb_benchmark_claim === true, versionedKbNaturalnessAudit ? `${versionedKbNaturalnessAudit.run_id} reports natural benchmark support=${versionedKbNaturalnessAudit.scorecard.supports_natural_versioned_kb_benchmark_claim}; template question rate ${pct(versionedKbNaturalnessAudit.aggregate.template_question_rate)} and prefix leakage ${pct(versionedKbNaturalnessAudit.aggregate.prefix_leakage_rate)}.` : "No naturalness audit is present."),
   check("versioned_private_corpus", false, "No private or enterprise corpus snapshot is present."),
   check("mutable_access_controlled_kb", false, "No access-controlled KB, user/team permissions, or confidential document lifecycle is modeled."),
@@ -59,6 +61,7 @@ const result = {
     versioned_domain_kb_extension_candidate_run_id: versionedPrivateKbPrototype?.run_id ?? null,
     versioned_kb_naturalness_audit_run_id: versionedKbNaturalnessAudit?.run_id ?? null,
     versioned_kb_natural_questions_run_id: versionedKbNaturalQuestions?.run_id ?? null,
+    versioned_kb_natural_question_eval_run_id: versionedKbNaturalQuestionEval?.run_id ?? null,
   },
   checks,
   scorecard: {
@@ -68,6 +71,7 @@ const result = {
     supports_evolving_public_domain_kb_claim: true,
     supports_versioned_domain_kb_extension_candidate: versionedPrivateKbPrototype?.status === "versioned_domain_kb_candidate_ready",
     supports_natural_question_wording_probe: versionedKbNaturalQuestions?.status === "natural_questions_generated",
+    supports_natural_question_stale_kb_eval: versionedKbNaturalQuestionEval?.status === "versioned_kb_natural_question_eval_complete",
     supports_natural_versioned_kb_benchmark_claim: versionedKbNaturalnessAudit?.scorecard?.supports_natural_versioned_kb_benchmark_claim === true,
     supports_private_enterprise_kb_claim: false,
     supports_writeback_memory_baseline_claim: false,
@@ -77,6 +81,7 @@ const result = {
     "The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.",
     "The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.",
     "A small ledgered natural-question probe reduces deterministic wording leakage while preserving source-derived labels.",
+    "A deterministic natural-question eval preserves the stale-snapshot failure mode after template wording is removed.",
     "The git-doc prototype is a deterministic snapshot diagnostic, not a natural versioned-KB benchmark.",
     "The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added.",
   ],

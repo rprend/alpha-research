@@ -1309,3 +1309,13 @@ Reason: The local Qwen 3B base-control and deterministic citation-repair outputs
 Result: The audit invokes the production prediction-integrity and remote-provenance gates against both local control runs in temporary directories, observes `refuse_paid_judge_prediction_integrity_failed` and `waiting_for_smoke_artifacts`, then deletes the temporary directories. Both controls are rejected because they lack the canonical final smoke run id, trained adapter, full 69-example final window, smoke manifest, Prime pod status, remote environment, and remote bootstrap manifest. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is evidence-boundary hardening, not new model performance. It reduces the risk of overclaiming local control artifacts while keeping the project blocked on remote backend auth, the trained Qwen 3B smoke, and the paid grounded-correctness judge.
+
+### D152. Evaluate the natural-question versioned-KB diagnostic
+
+Decision: Add `grounded-qa-distillation-versioned-kb-natural-question-eval.mjs`, materialize `versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2`, validate it, and wire it into the corpus-realism audit, manuscript evidence map, manuscript draft, reviewer-risk audit, and README.
+
+Reason: D145 made the git-doc versioned-KB questions more natural, but the existing eval still relied on quoted target-prefix questions. The project needed to verify that the evolving-KB stale-snapshot failure mode survives after template/prefix leakage is removed.
+
+Result: The zero-call eval shows naive copy-first-evidence still has perfect inline citation syntax but only 50.0% overall correctness and 0.0% correctness on stale train-snapshot abstentions. A snapshot-aware copy baseline reaches 90.0% overall correctness, and a lexical snapshot-aware retriever reaches 96.7% overall correctness with 100.0% stale-snapshot abstention correctness and one stable-question retrieval miss. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This strengthens the evolving-KB diagnostic after natural-question rewriting, but it is still a 30-example repository-doc snapshot diagnostic. It does not prove private-enterprise KB behavior, replace a natural independently sourced benchmark, or unblock the trained Qwen 3B smoke and paid grounded-correctness judge.

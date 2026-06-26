@@ -1,6 +1,6 @@
 # Corpus Realism / Private-KB Gap Audit
 
-Generated: 2026-06-26T22:34:03.560Z
+Generated: 2026-06-26T23:50:06.644Z
 
 Status: `public_dated_proxy_not_private_kb`
 
@@ -16,6 +16,7 @@ Status: `public_dated_proxy_not_private_kb`
 | counterfactual_insufficiency_cases | pass | Builder adds same-question counterfactual insufficient-evidence packs for abstention supervision. |
 | versioned_domain_kb_extension_candidate | pass | versioned-private-kb-prototype-git-docs-2026-06-26-v1 emits 30 git-snapshot examples with stale-snapshot abstentions. |
 | natural_question_wording_probe | pass | versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2 writes 30 natural-question probes with template rate 0.0% and prefix leakage 3.3%. |
+| natural_question_stale_kb_eval | pass | versioned-kb-natural-question-eval-versioned-kb-natural-questions-versioned-private-kb-prototype-git-docs-2026-06-26-v2 keeps the natural-question stale-KB failure: naive copy overall 50.0%, lexical snapshot guard 96.7%. |
 | natural_versioned_kb_benchmark | fail | versioned-kb-naturalness-audit-versioned-private-kb-prototype-git-docs-2026-06-26-v1 reports natural benchmark support=false; template question rate 100.0% and prefix leakage 100.0%. |
 | versioned_private_corpus | fail | No private or enterprise corpus snapshot is present. |
 | mutable_access_controlled_kb | fail | No access-controlled KB, user/team permissions, or confidential document lifecycle is modeled. |
@@ -33,6 +34,7 @@ Allowed claims:
 - The protocol exercises document dates, compact retrieved evidence packs, citation grounding, abstention on insufficient evidence, and temporal train/eval separation.
 - The repository-local git-doc prototype is a versioned domain-KB extension candidate with immutable snapshots and stale-snapshot abstentions.
 - A small ledgered natural-question probe reduces deterministic wording leakage while preserving source-derived labels.
+- A deterministic natural-question eval preserves the stale-snapshot failure mode after template wording is removed.
 - The git-doc prototype is a deterministic snapshot diagnostic, not a natural versioned-KB benchmark.
 - The result should be framed as a public-domain proxy until a versioned private or enterprise-like corpus is added.
 

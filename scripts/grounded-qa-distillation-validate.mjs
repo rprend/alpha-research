@@ -93,6 +93,7 @@ if (!errors.length) {
   await validateVersionedKbWritebackDiagnosticRunsIfPresent();
   await validateVersionedKbNaturalnessAuditRunsIfPresent();
   await validateVersionedKbNaturalQuestionRunsIfPresent();
+  await validateVersionedKbNaturalQuestionEvalRunsIfPresent();
   await validateTrustedDatedSnapshotRunsIfPresent();
   await validateVersionedPrivateKbPrototypeRunsIfPresent();
   await validateVersionedPrivateKbEvalRunsIfPresent();
@@ -3299,6 +3300,70 @@ async function validateVersionedKbNaturalQuestionRunsIfPresent() {
       if (!row.output?.answer_type || !Array.isArray(row.input?.compact_retrieved_evidence_pack)) {
         errors.push(`${label}: natural example must preserve grounded-QA schema.`);
       }
+    }
+  }
+}
+
+async function validateVersionedKbNaturalQuestionEvalRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("versioned-kb-natural-question-eval-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    let result;
+    let report;
+    let predictions;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+      predictions = await readJsonl(predictionsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed natural-question eval artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "versioned_kb_natural_question_eval") {
+      errors.push(`${entry.name}: unexpected natural-question eval artifact type.`);
+    }
+    if (result.status !== "versioned_kb_natural_question_eval_complete") {
+      errors.push(`${entry.name}: natural-question eval should complete.`);
+    }
+    if (Number(result.examples_total) < 20 || predictions.length !== Number(result.examples_total) * Number(result.systems?.length ?? 0)) {
+      errors.push(`${entry.name}: prediction rows must equal examples times systems.`);
+    }
+    const systemIds = new Set((result.systems ?? []).map((row) => row.id));
+    for (const id of ["copy_first_evidence", "snapshot_aware_stale_guard", "lexical_retriever_snapshot_guard"]) {
+      if (!systemIds.has(id)) errors.push(`${entry.name}: missing system ${id}.`);
+    }
+    if (result.key_result?.natural_question_surface_preserved !== true) {
+      errors.push(`${entry.name}: source natural-question surface should preserve low template/prefix/snapshot leakage.`);
+    }
+    if (result.key_result?.naive_overanswers_stale_snapshots !== true || result.key_result?.lexical_guard_handles_stale_snapshots !== true) {
+      errors.push(`${entry.name}: natural-question eval must expose stale over-answering and snapshot-guard mitigation.`);
+    }
+    const naive = result.systems?.find((row) => row.id === "copy_first_evidence");
+    const lexical = result.systems?.find((row) => row.id === "lexical_retriever_snapshot_guard");
+    if (!(Number(naive?.by_type?.stale_snapshot_abstention?.overall_correct_rate) < 1)) {
+      errors.push(`${entry.name}: naive natural-question baseline should fail stale-snapshot cases.`);
+    }
+    if (Number(lexical?.by_type?.stale_snapshot_abstention?.overall_correct_rate) !== 1) {
+      errors.push(`${entry.name}: lexical snapshot guard should handle stale-snapshot cases.`);
+    }
+    if (result.claim_boundary?.supports_private_enterprise_kb_claim !== false || result.claim_boundary?.supports_final_trained_student_claim !== false) {
+      errors.push(`${entry.name}: natural-question eval must not claim private-KB or final-student evidence.`);
+    }
+    if (!report.includes("Versioned KB Natural Question Eval") || !report.includes("Naturalness Surface")) {
+      errors.push(`${entry.name}: natural-question eval report must expose title and naturalness surface.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: natural-question eval must be zero-cost.`);
     }
   }
 }
