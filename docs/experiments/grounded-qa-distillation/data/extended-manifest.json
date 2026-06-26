@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-06-26T07:49:49.875Z",
+  "source_dataset": "allenai/qasper",
+  "source_config": "qasper",
+  "source_url": "https://huggingface.co/datasets/allenai/qasper",
+  "dataset_viewer_api": "https://datasets-server.huggingface.co",
+  "purpose": "Post-training data for cheaper citation-grounded QA over an evolving domain knowledge base.",
+  "construction": {
+    "rows_per_split": 900,
+    "rows_offset": 0,
+    "output_prefix": "extended",
+    "max_examples_per_split": 2200,
+    "evidence_limit": 4,
+    "distractor_limit": 3,
+    "max_evidence_chars": 900,
+    "evidence_order": "stable-mixed",
+    "counterfactual_every": 3,
+    "evidence_policy": "Gold QASPER answer evidence and deterministic non-gold paper paragraphs are packed without exposing oracle roles or guaranteed gold-first ordering to the student input.",
+    "citation_policy": "Each output sentence cites evidence ids from input.evidence_pack. Abstentions cite no evidence and explain insufficiency."
+  },
+  "splits": {
+    "train": {
+      "rows_read": 888,
+      "source_split": "train",
+      "output_split": "extended_train",
+      "examples_written": 2200,
+      "output_path": "docs/experiments/grounded-qa-distillation/data/extended_train.jsonl",
+      "answerable_examples": 1401,
+      "abstention_examples": 799
+    },
+    "validation": {
+      "rows_read": 281,
+      "source_split": "validation",
+      "output_split": "extended_validation",
+      "examples_written": 1398,
+      "output_path": "docs/experiments/grounded-qa-distillation/data/extended_validation.jsonl",
+      "answerable_examples": 927,
+      "abstention_examples": 471
+    },
+    "test": {
+      "rows_read": 416,
+      "source_split": "test",
+      "output_split": "extended_test",
+      "examples_written": 2030,
+      "output_path": "docs/experiments/grounded-qa-distillation/data/extended_test.jsonl",
+      "answerable_examples": 1351,
+      "abstention_examples": 679
+    }
+  }
+}

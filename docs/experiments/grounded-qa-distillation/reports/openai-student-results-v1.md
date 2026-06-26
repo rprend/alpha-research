@@ -244,6 +244,25 @@ The generated job script uses TRL SFTTrainer, PEFT LoRA, and Trackio. It reads J
 
 The generated validator passes against the local dataset folder. This packet is useful for overfit and label-quality checks, but it is not a paper-grade held-out setup because the eval prompts are from the same final temporal-test window used to build the labels.
 
+`extended_temporal_future_holdout` fixes that immediate evaluation overlap. I expanded the QASPER source pull from 120 source rows to all 1,585 Dataset Viewer rows, temporalized the extended corpus, and carved March-April 2020 examples after excluding the 7 papers used by `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1`. The resulting holdout has 389 examples on 77 papers, with 254 answerable examples and 135 abstentions. It is exported as `exports/extended_temporal_future_holdout.sft.jsonl`.
+
+`hf-sft-prep-teacher-repair-claim-pruner-gpt4o-quote-extractive-future-holdout-qwen05b-v1` reuses the 33 claim-pruned labels for training and points evaluation at all 389 future-holdout prompts:
+
+| Artifact | Rows / setting |
+| --- | ---: |
+| Train rows | 28 |
+| Validation rows | 5 |
+| Future eval prompts | 389 |
+| Eval split | `extended_temporal_future_holdout` |
+| Base model | `Qwen/Qwen2.5-0.5B-Instruct` |
+| Target adapter repo | `rprendergast/grounded-qa-qasper-claim-pruned-future-qwen05b-lora-v1` |
+| HF job flavor | `t4-small` |
+| Timeout | 45m |
+| Estimated HF job cost | $0.5625 |
+| OpenAI calls | 0 |
+
+This creates a real paper-disjoint evaluation target for the claim-pruned SFT path, although it remains a QASPER/arXiv-date proxy rather than a true private-KB update stream.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.

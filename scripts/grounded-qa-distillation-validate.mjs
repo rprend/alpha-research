@@ -37,6 +37,7 @@ if (!errors.length) {
   }
 
   await validateTemporalSplitsIfPresent();
+  await validateFutureHoldoutsIfPresent();
   await validateExportsIfPresent();
   await validateLlmBudgetIfPresent();
   await validateOpenAiStudentRunsIfPresent();
@@ -50,6 +51,45 @@ if (!errors.length) {
   await validatePolicySelectorRunsIfPresent();
   await validateVerifierSelectorRunsIfPresent();
   await validateHfSftPrepRunsIfPresent();
+}
+
+async function validateFutureHoldoutsIfPresent() {
+  let entries = [];
+  try {
+    entries = await fs.readdir(dataDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isFile() || !entry.name.endsWith("future_holdout-manifest.json")) continue;
+    const manifestPath = path.join(dataDir, entry.name);
+    const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+    const split = manifest.output_split;
+    if (!split) {
+      errors.push(`${entry.name}: missing output_split.`);
+      continue;
+    }
+    const rows = await readJsonl(path.join(dataDir, `${split}.jsonl`));
+    if (rows.length !== manifest.examples_written) errors.push(`${entry.name}: examples_written does not match ${split}.jsonl.`);
+    if (!rows.length) errors.push(`${entry.name}: holdout split is empty.`);
+    rows.forEach((row, index) => validateExample(row, `${split}:${index + 1}`));
+
+    const papers = new Set(rows.map((row) => row.input.document_metadata.paper_id));
+    if (papers.size !== manifest.paper_count) errors.push(`${entry.name}: paper_count does not match ${split}.jsonl.`);
+    const minMonth = manifest.selection_policy?.min_month;
+    if (minMonth) {
+      const early = rows.find((row) => String(row.input.document_metadata.inferred_publication_month ?? "") < minMonth);
+      if (early) errors.push(`${entry.name}: ${early.example_id} is earlier than min_month ${minMonth}.`);
+    }
+
+    const excludedPrefix = manifest.selection_policy?.exclude_teacher_label_prefix;
+    if (excludedPrefix) {
+      const excludedPapers = await teacherLabelPapers(excludedPrefix);
+      const shared = intersection(papers, excludedPapers);
+      if (shared.length) errors.push(`${entry.name}: holdout shares excluded label papers: ${shared.slice(0, 5).join(", ")}.`);
+    }
+  }
 }
 
 if (errors.length) {
@@ -745,6 +785,20 @@ async function validateVerifierSelectorRunsIfPresent() {
 async function readJsonl(file) {
   const text = await fs.readFile(file, "utf8");
   return text.trim().split("\n").filter(Boolean).map((line) => JSON.parse(line));
+}
+
+async function teacherLabelPapers(prefix) {
+  const exportDir = path.join(experimentDir, "exports");
+  const rows = [];
+  for (const suffix of ["sft", "rejected"]) {
+    try {
+      rows.push(...await readJsonl(path.join(exportDir, `${prefix}.${suffix}.jsonl`)));
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+      errors.push(`Missing teacher-label ${suffix} file for holdout exclusion prefix ${prefix}.`);
+    }
+  }
+  return new Set(rows.map((row) => row.input?.document_metadata?.paper_id).filter(Boolean));
 }
 
 function validateExample(row, label) {

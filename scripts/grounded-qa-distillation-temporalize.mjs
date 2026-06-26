@@ -7,6 +7,7 @@ const dataDir = path.join(experimentDir, "data");
 const reportsDir = path.join(experimentDir, "reports");
 const args = parseArgs(process.argv.slice(2));
 const sourceSplits = (args["source-splits"] ?? "train,validation,test").split(",").map((value) => value.trim()).filter(Boolean);
+const outputPrefix = args["output-prefix"] ?? "temporal";
 const trainPaperFraction = numericArg(args["train-paper-fraction"], 0.7);
 const validationPaperFraction = numericArg(args["validation-paper-fraction"], 0.15);
 
@@ -44,9 +45,9 @@ const validationPapers = new Set(papers.filter((paper) => validationMonths.has(p
 const testPapers = new Set(papers.filter((paper) => testMonths.has(paper.paper_month)).map((paper) => paper.paperId));
 
 const splitDefs = [
-  ["temporal_train", trainPapers],
-  ["temporal_validation", validationPapers],
-  ["temporal_test", testPapers],
+  [`${outputPrefix}_train`, trainPapers],
+  [`${outputPrefix}_validation`, validationPapers],
+  [`${outputPrefix}_test`, testPapers],
 ];
 
 const manifest = {
@@ -57,6 +58,7 @@ const manifest = {
     date_source: "arXiv-style QASPER paper ids parsed as YYMM.",
     train_paper_fraction: trainPaperFraction,
     validation_paper_fraction: validationPaperFraction,
+    output_prefix: outputPrefix,
     split_policy: "Sort unique inferred paper_month values, assign earliest months to temporal_train, middle months to temporal_validation, and latest months to temporal_test. Keep all examples from a paper and all papers from a month in the same temporal split.",
   },
   source_examples_read: rows.length,
@@ -83,9 +85,10 @@ for (const [split, paperSet] of splitDefs) {
   };
 }
 
-const manifestPath = path.join(dataDir, "temporal-manifest.json");
+const manifestPath = path.join(dataDir, outputPrefix === "temporal" ? "temporal-manifest.json" : `${outputPrefix}-manifest.json`);
+const reportPath = path.join(reportsDir, outputPrefix === "temporal" ? "temporal-data-card.md" : `${outputPrefix}-data-card.md`);
 await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
-await fs.writeFile(path.join(reportsDir, "temporal-data-card.md"), renderTemporalDataCard(manifest));
+await fs.writeFile(reportPath, renderTemporalDataCard(manifest));
 
 console.log(JSON.stringify({
   manifest: path.relative(rootDir, manifestPath),
@@ -93,7 +96,7 @@ console.log(JSON.stringify({
 }, null, 2));
 
 function materializeTemporalExample(row, split) {
-  const temporalIndex = split.replace("temporal_", "");
+  const temporalIndex = split.replace(`${outputPrefix}_`, "");
   const { temporal, ...withoutTemporal } = row;
   return {
     ...withoutTemporal,

@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-06-26T07:51:33.300Z",
+  "purpose": "Model-facing post-training data for citation-grounded QA over evolving knowledge bases.",
+  "format": "jsonl chat-style supervised examples with question, compact evidence pack, metadata/dates, answer, citations, abstention, and claim table.",
+  "splits": {
+    "extended_temporal_future_holdout": {
+      "output_path": "docs/experiments/grounded-qa-distillation/exports/extended_temporal_future_holdout.sft.jsonl",
+      "examples_written": 389,
+      "grounded_answers": 254,
+      "abstentions": 135
+    }
+  }
+}

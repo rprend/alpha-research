@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-26T07:51:16.953Z",
+  "source_split": "extended_temporal_test",
+  "output_split": "extended_temporal_future_holdout",
+  "purpose": "Fresh paper-disjoint future holdout for grounded QA distillation after claim-pruned label construction.",
+  "selection_policy": {
+    "min_month": "2020-03",
+    "max_examples": null,
+    "exclude_teacher_label_prefix": "teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1",
+    "excluded_papers": 7,
+    "excluded_examples": 40,
+    "sort_order": "inferred publication month, paper id, example id"
+  },
+  "examples_written": 389,
+  "paper_count": 77,
+  "answerable_examples": 254,
+  "abstention_examples": 135,
+  "first_paper_month": "2020-03",
+  "last_paper_month": "2020-04",
+  "artifacts": {
+    "jsonl": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout.jsonl",
+    "manifest": "docs/experiments/grounded-qa-distillation/data/extended_temporal_future_holdout-manifest.json",
+    "report": "docs/experiments/grounded-qa-distillation/reports/extended_temporal_future_holdout-data-card.md"
+  }
+}

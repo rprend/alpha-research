@@ -7,6 +7,7 @@ const dataDir = path.join(experimentDir, "data");
 const exportDir = path.join(experimentDir, "exports");
 const args = parseArgs(process.argv.slice(2));
 const splits = (args.splits ?? "temporal_train,temporal_validation,temporal_test").split(",").map((value) => value.trim()).filter(Boolean);
+const manifestName = args["manifest-name"] ?? "manifest.json";
 
 await fs.mkdir(exportDir, { recursive: true });
 
@@ -30,7 +31,7 @@ for (const split of splits) {
   };
 }
 
-const manifestPath = path.join(exportDir, "manifest.json");
+const manifestPath = path.join(exportDir, manifestName);
 await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 
 console.log(JSON.stringify({

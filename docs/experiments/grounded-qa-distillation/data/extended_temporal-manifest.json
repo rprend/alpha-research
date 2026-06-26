@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-06-26T07:50:09.739Z",
+  "source_files": [
+    "docs/experiments/grounded-qa-distillation/data/extended_train.jsonl",
+    "docs/experiments/grounded-qa-distillation/data/extended_validation.jsonl",
+    "docs/experiments/grounded-qa-distillation/data/extended_test.jsonl"
+  ],
+  "purpose": "Chronological, paper-disjoint evaluation for grounded QA distillation over evolving knowledge bases.",
+  "temporal_policy": {
+    "date_source": "arXiv-style QASPER paper ids parsed as YYMM.",
+    "train_paper_fraction": 0.7,
+    "validation_paper_fraction": 0.15,
+    "output_prefix": "extended_temporal",
+    "split_policy": "Sort unique inferred paper_month values, assign earliest months to temporal_train, middle months to temporal_validation, and latest months to temporal_test. Keep all examples from a paper and all papers from a month in the same temporal split."
+  },
+  "source_examples_read": 5628,
+  "source_papers_read": 1142,
+  "source_months_read": 53,
+  "splits": {
+    "extended_temporal_train": {
+      "output_path": "docs/experiments/grounded-qa-distillation/data/extended_temporal_train.jsonl",
+      "paper_count": 469,
+      "examples_written": 2213,
+      "answerable_examples": 1448,
+      "abstention_examples": 765,
+      "first_paper_month": "2015-03",
+      "last_paper_month": "2018-12"
+    },
+    "extended_temporal_validation": {
+      "output_path": "docs/experiments/grounded-qa-distillation/data/extended_temporal_validation.jsonl",
+      "paper_count": 153,
+      "examples_written": 733,
+      "answerable_examples": 465,
+      "abstention_examples": 268,
+      "first_paper_month": "2019-01",
+      "last_paper_month": "2019-07"
+    },
+    "extended_temporal_test": {
+      "output_path": "docs/experiments/grounded-qa-distillation/data/extended_temporal_test.jsonl",
+      "paper_count": 520,
+      "examples_written": 2682,
+      "answerable_examples": 1766,
+      "abstention_examples": 916,
+      "first_paper_month": "2019-08",
+      "last_paper_month": "2020-04"
+    }
+  }
+}

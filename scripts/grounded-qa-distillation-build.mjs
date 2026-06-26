@@ -11,6 +11,8 @@ const config = "qasper";
 const defaultSplits = ["train", "validation", "test"];
 const args = parseArgs(process.argv.slice(2));
 const splits = args.splits ? args.splits.split(",").map((value) => value.trim()).filter(Boolean) : defaultSplits;
+const outputPrefix = args["output-prefix"] ?? "";
+const rowsOffset = numberArg(args["rows-offset"], 0, { allowZero: true });
 const rowsPerSplit = numberArg(args["rows-per-split"], 40);
 const maxExamplesPerSplit = numberArg(args["max-examples-per-split"], 240);
 const evidenceLimit = numberArg(args["evidence-limit"], 4);
@@ -32,6 +34,8 @@ const manifest = {
   purpose: "Post-training data for cheaper citation-grounded QA over an evolving domain knowledge base.",
   construction: {
     rows_per_split: rowsPerSplit,
+    rows_offset: rowsOffset,
+    output_prefix: outputPrefix,
     max_examples_per_split: maxExamplesPerSplit,
     evidence_limit: evidenceLimit,
     distractor_limit: distractorLimit,
@@ -45,7 +49,7 @@ const manifest = {
 };
 
 for (const split of splits) {
-  const sourceRows = await fetchRows(split, rowsPerSplit);
+  const sourceRows = await fetchRows(split, rowsOffset, rowsPerSplit);
   const examples = [];
   for (const sourceRow of sourceRows) {
     examples.push(...buildExamples(sourceRow, split));
@@ -53,10 +57,13 @@ for (const split of splits) {
   }
 
   const boundedExamples = examples.slice(0, maxExamplesPerSplit);
-  const outputPath = path.join(dataDir, `${split}.jsonl`);
+  const outputSplit = outputPrefix ? `${outputPrefix}_${split}` : split;
+  const outputPath = path.join(dataDir, `${outputSplit}.jsonl`);
   await writeJsonl(outputPath, boundedExamples);
   manifest.splits[split] = {
     rows_read: sourceRows.length,
+    source_split: split,
+    output_split: outputSplit,
     examples_written: boundedExamples.length,
     output_path: path.relative(rootDir, outputPath),
     answerable_examples: boundedExamples.filter((example) => example.output.answer_type !== "abstain").length,
@@ -64,9 +71,11 @@ for (const split of splits) {
   };
 }
 
-const manifestPath = path.join(dataDir, "manifest.json");
+const manifestName = outputPrefix ? `${outputPrefix}-manifest.json` : "manifest.json";
+const reportName = outputPrefix ? `${outputPrefix}-distillation-data-card.md` : "distillation-data-card.md";
+const manifestPath = path.join(dataDir, manifestName);
 await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
-await fs.writeFile(path.join(reportsDir, "distillation-data-card.md"), renderDataCard(manifest));
+await fs.writeFile(path.join(reportsDir, reportName), renderDataCard(manifest));
 
 console.log(JSON.stringify({
   generated_at: generatedAt,
@@ -373,20 +382,32 @@ function abstentionReason(answer) {
   return "The selected source answer did not include gold evidence spans, so the training example is safer as an insufficiency case.";
 }
 
-async function fetchRows(split, length) {
-  const url = new URL("https://datasets-server.huggingface.co/rows");
-  url.searchParams.set("dataset", dataset);
-  url.searchParams.set("config", config);
-  url.searchParams.set("split", split);
-  url.searchParams.set("offset", "0");
-  url.searchParams.set("length", String(length));
+async function fetchRows(split, offset, length) {
+  const rows = [];
+  let cursor = offset;
+  const pageSize = 100;
 
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`Hugging Face Dataset Viewer request failed for ${split}: ${response.status} ${response.statusText}`);
+  while (rows.length < length) {
+    const pageLength = Math.min(pageSize, length - rows.length);
+    const url = new URL("https://datasets-server.huggingface.co/rows");
+    url.searchParams.set("dataset", dataset);
+    url.searchParams.set("config", config);
+    url.searchParams.set("split", split);
+    url.searchParams.set("offset", String(cursor));
+    url.searchParams.set("length", String(pageLength));
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Hugging Face Dataset Viewer request failed for ${split}: ${response.status} ${response.statusText}`);
+    }
+    const payload = await response.json();
+    const pageRows = (payload.rows ?? []).map((entry) => entry.row);
+    rows.push(...pageRows);
+    if (!pageRows.length || pageRows.length < pageLength) break;
+    cursor += pageRows.length;
   }
-  const payload = await response.json();
-  return (payload.rows ?? []).map((entry) => entry.row);
+
+  return rows;
 }
 
 async function writeJsonl(file, rows) {
@@ -460,10 +481,11 @@ function stableHash(value) {
   return hash >>> 0;
 }
 
-function numberArg(value, fallback) {
+function numberArg(value, fallback, options = {}) {
   if (value == null) return fallback;
   const parsed = Number(value);
-  if (!Number.isFinite(parsed) || parsed <= 0) return fallback;
+  const valid = options.allowZero ? parsed >= 0 : parsed > 0;
+  if (!Number.isFinite(parsed) || !valid) return fallback;
   return Math.floor(parsed);
 }
 
