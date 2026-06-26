@@ -1,0 +1,141 @@
+{
+  "source_acquisition_audit_ready": true,
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": {
+    "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
+    "source_acquisition_packets": "generated/source-acquisition-packets.json",
+    "packet_dir": "generated/source-acquisition-packets/",
+    "release_gate": "generated/release-gate.json"
+  },
+  "summary": {
+    "packet_count": 15,
+    "audited_rows": 246,
+    "expected_rows": 246,
+    "finding_count": 0,
+    "missing_manifest_batches": 0,
+    "completion_claim_allowed": false
+  },
+  "missing_manifest_batches": [],
+  "packet_audits": [
+    {
+      "batch_id": "source_acq_001",
+      "packet_path": "generated/source-acquisition-packets/source_acq_001.jsonl",
+      "row_count": 14,
+      "expected_rows": 14,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_002",
+      "packet_path": "generated/source-acquisition-packets/source_acq_002.jsonl",
+      "row_count": 13,
+      "expected_rows": 13,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_003",
+      "packet_path": "generated/source-acquisition-packets/source_acq_003.jsonl",
+      "row_count": 24,
+      "expected_rows": 24,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_004",
+      "packet_path": "generated/source-acquisition-packets/source_acq_004.jsonl",
+      "row_count": 27,
+      "expected_rows": 27,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_005",
+      "packet_path": "generated/source-acquisition-packets/source_acq_005.jsonl",
+      "row_count": 24,
+      "expected_rows": 24,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_006",
+      "packet_path": "generated/source-acquisition-packets/source_acq_006.jsonl",
+      "row_count": 12,
+      "expected_rows": 12,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_007",
+      "packet_path": "generated/source-acquisition-packets/source_acq_007.jsonl",
+      "row_count": 12,
+      "expected_rows": 12,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_008",
+      "packet_path": "generated/source-acquisition-packets/source_acq_008.jsonl",
+      "row_count": 27,
+      "expected_rows": 27,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_009",
+      "packet_path": "generated/source-acquisition-packets/source_acq_009.jsonl",
+      "row_count": 7,
+      "expected_rows": 7,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_010",
+      "packet_path": "generated/source-acquisition-packets/source_acq_010.jsonl",
+      "row_count": 7,
+      "expected_rows": 7,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_011",
+      "packet_path": "generated/source-acquisition-packets/source_acq_011.jsonl",
+      "row_count": 7,
+      "expected_rows": 7,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_012",
+      "packet_path": "generated/source-acquisition-packets/source_acq_012.jsonl",
+      "row_count": 12,
+      "expected_rows": 12,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_013",
+      "packet_path": "generated/source-acquisition-packets/source_acq_013.jsonl",
+      "row_count": 12,
+      "expected_rows": 12,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_014",
+      "packet_path": "generated/source-acquisition-packets/source_acq_014.jsonl",
+      "row_count": 24,
+      "expected_rows": 24,
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "batch_id": "source_acq_015",
+      "packet_path": "generated/source-acquisition-packets/source_acq_015.jsonl",
+      "row_count": 24,
+      "expected_rows": 24,
+      "finding_count": 0,
+      "findings": []
+    }
+  ]
+}

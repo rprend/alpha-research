@@ -28,6 +28,8 @@ The source acquisition manifest converts this into 15 Hugging Face sampling batc
 
 The source acquisition packets materialize 15 JSONL queues with 246 target row slots. These packets define the next executable acquisition step, but acquired rows still require deduplication, task materialization, double review, and gold promotion before paper claims.
 
+The source acquisition audit validates 246/246 packet rows with 0 findings, so packet drift is caught before acquisition starts.
+
 | Dataset | License | Benchmark roles |
 | --- | --- | --- |
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | multi-hop synthesis<br>citation supports fact but not conclusion<br>entity disambiguation<br>cross-document contradiction |
@@ -214,7 +216,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 14 reproduction commands and 11/11 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 15 reproduction commands and 12/12 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -223,6 +225,7 @@ The generated artifact checklist records 14 reproduction commands and 11/11 read
 | source_diversity_expansion | ready | 15/300 target source rows; deficit=246. |
 | source_acquisition_manifest | ready | 15 acquisition batches; 246 target new source rows. |
 | source_acquisition_packets | ready | 15 packet files; 246 acquisition row slots. |
+| source_acquisition_audit | ready | 246/246 packet rows audited; findings=0. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
@@ -333,8 +336,9 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |
 | source_acquisition_manifest_ready | yes | 15 batches; target_rows=246; known_license_rows=174 |
 | source_acquisition_packets_ready | yes | 15 packets; target_rows=246 |
+| source_acquisition_audit_ready | yes | 246/246 packet rows audited; findings=0 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 11/11 artifact classes ready; reproduction_commands=14; release_blockers=7 |
+| artifact_checklist_ready | yes | 12/12 artifact classes ready; reproduction_commands=15; release_blockers=7 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

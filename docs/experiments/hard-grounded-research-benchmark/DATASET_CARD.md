@@ -17,8 +17,9 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition batches: 15
 - Source acquisition target rows: 246
 - Source acquisition packets: 15
+- Source acquisition audit findings: 0
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (11/11 artifact classes)
+- Artifact checklist ready: true (12/12 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -80,6 +81,8 @@ The generated source acquisition manifest converts that deficit into 15 Hugging 
 
 The generated acquisition packet set materializes 15 JSONL packet files with 246 target row slots under `generated/source-acquisition-packets/`. See `SOURCE_ACQUISITION_PACKETS.md`.
 
+The generated packet audit validates 246/246 packet rows with 0 findings. See `SOURCE_ACQUISITION_AUDIT.md`.
+
 ## Challenge-Type Coverage
 
 | Challenge type | Pilot items |
@@ -139,7 +142,7 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 14 reproduction commands, 11/11 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 15 reproduction commands, 12/12 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
@@ -182,8 +185,9 @@ Key release checks:
 - Source diversity: pass - 15/300 target source rows; deficit=246
 - Source acquisition: pass - 15 batches; target_rows=246; known_license_rows=174
 - Source acquisition packets: pass - 15 packets; target_rows=246
+- Source acquisition audit: pass - 246/246 packet rows audited; findings=0
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 11/11 artifact classes ready; reproduction_commands=14; release_blockers=7
+- Artifact checklist: pass - 12/12 artifact classes ready; reproduction_commands=15; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7

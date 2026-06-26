@@ -7,6 +7,7 @@
     "source_diversity_plan": "generated/source-diversity-plan.json",
     "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
     "source_acquisition_packets": "generated/source-acquisition-packets.json",
+    "source_acquisition_audit": "generated/source-acquisition-audit.json",
     "construct_map": "generated/construct-map.json",
     "power_plan": "generated/power-plan.json",
     "novelty_evidence": "generated/novelty-evidence.json",
@@ -23,9 +24,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 11,
-    "artifact_classes_total": 11,
-    "reproduction_commands": 14,
+    "artifact_classes_ready": 12,
+    "artifact_classes_total": 12,
+    "reproduction_commands": 15,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -62,6 +63,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "15 packet files; 246 acquisition row slots.",
+      "blockers": []
+    },
+    {
+      "id": "source_acquisition_audit",
+      "status": "ready",
+      "ready": true,
+      "evidence": "246/246 packet rows audited; findings=0.",
       "blockers": []
     },
     {
@@ -139,6 +147,10 @@
     {
       "step": "Refresh source acquisition packets",
       "command": "node scripts/hard-grounded-research-source-acquisition-packets.mjs"
+    },
+    {
+      "step": "Refresh source acquisition audit",
+      "command": "node scripts/hard-grounded-research-source-acquisition-audit.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

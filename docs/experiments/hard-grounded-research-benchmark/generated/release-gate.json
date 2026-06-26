@@ -38,6 +38,7 @@
     "source_diversity_plan": "generated/source-diversity-plan.json",
     "source_acquisition_manifest": "generated/source-acquisition-manifest.json",
     "source_acquisition_packets": "generated/source-acquisition-packets.json",
+    "source_acquisition_audit": "generated/source-acquisition-audit.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
     "threats_validity": "generated/threats-validity.json",
@@ -306,6 +307,12 @@
       "blocker": "Generate executable source acquisition packet JSONL files for the Hugging Face sampling batches."
     },
     {
+      "id": "source_acquisition_audit_ready",
+      "passed": true,
+      "detail": "246/246 packet rows audited; findings=0",
+      "blocker": "Audit source acquisition packet JSONL files against the manifest before using them for corpus expansion."
+    },
+    {
       "id": "construct_map_ready",
       "passed": true,
       "detail": "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5",
@@ -314,7 +321,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "11/11 artifact classes ready; reproduction_commands=14; release_blockers=7",
+      "detail": "12/12 artifact classes ready; reproduction_commands=15; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

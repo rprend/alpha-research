@@ -735,3 +735,11 @@ Decision: Generate executable JSONL source-acquisition packets from the Hugging 
 Rationale: A batch manifest still leaves room for inconsistent manual sampling. Packet files should give each target row slot a dataset, viewer parameters, source-row exclusions, packaging policy, and review status so future acquisition can be audited.
 
 Consequence: `scripts/hard-grounded-research-source-acquisition-packets.mjs` emits `generated/source-acquisition-packets.json`, `SOURCE_ACQUISITION_PACKETS.md`, and per-batch JSONL files under `generated/source-acquisition-packets/`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the packet set while acquisition, human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Audit source acquisition packets
+
+Decision: Generate a packet-level audit that validates source acquisition JSONL queues against the acquisition manifest.
+
+Rationale: Source acquisition packets are only useful if their row counts, batch ids, row slots, source-row exclusions, required next steps, and review statuses remain consistent. A generated audit catches packet drift before acquisition starts.
+
+Consequence: `scripts/hard-grounded-research-source-acquisition-audit.mjs` emits `generated/source-acquisition-audit.json` and `SOURCE_ACQUISITION_AUDIT.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the audit while acquisition, human-review, scale, and final novelty blockers remain active.
