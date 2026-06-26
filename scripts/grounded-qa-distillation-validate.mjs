@@ -81,6 +81,7 @@ if (!errors.length) {
   await validatePrimeCliAuthRecheckRunsIfPresent();
   await validatePrimeAuthPriceGateRunsIfPresent();
   await validateRemoteBackendReadinessGateRunsIfPresent();
+  await validateLocalQwen3bBaseControlRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
   await validateDragStyleComparisonRunsIfPresent();
@@ -920,10 +921,8 @@ async function validateLocalGenerativeContractGateRunsIfPresent() {
       if (!["grounded_answer", "abstain"].includes(row.prediction?.answer_type)) {
         errors.push(`${label}: invalid prediction answer_type.`);
       }
-      if (row.prediction?.answer_type === "grounded_answer") {
-        for (const citation of row.prediction.citations ?? []) {
-          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
-        }
+      if (row.prediction?.answer_type === "grounded_answer" && !Array.isArray(row.prediction.citations)) {
+        errors.push(`${label}: grounded predictions must expose a citations array, even when citation use is wrong.`);
       }
     }
   }
@@ -1125,8 +1124,11 @@ async function validateSupportContrastGateRunsIfPresent() {
       }
       if (Number(row.cost_usd) !== 0) errors.push(`${label}: support-contrast gate prediction must be zero-cost.`);
       if (row.prediction?.answer_type === "grounded_answer") {
-        for (const citation of row.prediction.citations ?? []) {
-          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        if (!Array.isArray(row.prediction.citations)) {
+          errors.push(`${label}: grounded predictions must expose a citations array, even when citation use is wrong.`);
+        }
+        if (!Number.isFinite(Number(row.scores.inline_citation_rate))) {
+          errors.push(`${label}: grounded predictions must record inline_citation_rate.`);
         }
       }
     }
@@ -2836,6 +2838,10 @@ async function validateModelScaleAdequacyAuditRunsIfPresent() {
     if (!qwen05b || Number(qwen05b.answer_support_rate) >= 0.1 || Number(qwen05b.inline_citation_rate) < 0.9) {
       errors.push(`${entry.name}: model-scale audit must capture the Qwen 0.5B citation/support gap.`);
     }
+    const qwen3bBase = result.systems?.find((row) => row.id === "local_qwen3b_base_control");
+    if (!qwen3bBase || qwen3bBase.verdict !== "scale_alone_not_contract_sufficient" || Number(qwen3bBase.inline_citation_rate) > 0.5 || Number(qwen3bBase.valid_json_rate) < 0.5) {
+      errors.push(`${entry.name}: model-scale audit must capture the local Qwen 3B base-control contract gap.`);
+    }
     if (!result.qwen3b_acceptance_target?.seventy_percent_operating_point || !String(result.qwen3b_acceptance_target?.minimum ?? "").includes("70")) {
       errors.push(`${entry.name}: model-scale audit must include the 70% coverage-constrained Qwen3B target.`);
     }
@@ -3817,8 +3823,11 @@ async function validateCitationContractRepairRunsIfPresent() {
       }
       if (Number(row.cost_usd) !== 0) errors.push(`${label}: citation contract repair prediction must be zero-cost.`);
       if (row.prediction?.answer_type === "grounded_answer") {
-        for (const citation of row.prediction.citations ?? []) {
-          if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        if (!Array.isArray(row.prediction.citations)) {
+          errors.push(`${label}: grounded predictions must expose a citations array, even when citation use is wrong.`);
+        }
+        if (!Number.isFinite(Number(row.scores.inline_citation_rate))) {
+          errors.push(`${label}: grounded predictions must record inline_citation_rate.`);
         }
       }
     }
@@ -3861,6 +3870,58 @@ async function validatePolicySelectorRunsIfPresent() {
       if (row.prediction?.answer_type === "grounded_answer") {
         for (const citation of row.prediction.citations ?? []) {
           if (!row.prediction.answer?.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
+        }
+      }
+    }
+  }
+}
+
+async function validateLocalQwen3bBaseControlRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("local-qwen3b-base-control-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const predictionsPath = path.join(runsDir, entry.name, "predictions.jsonl");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let predictions;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      predictions = await readJsonl(predictionsPath);
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed local Qwen 3B base-control artifacts.`);
+      continue;
+    }
+    if (result.control_type !== "local_qwen3b_base_no_training") errors.push(`${entry.name}: unexpected control_type.`);
+    if (result.trained_adapter !== null) errors.push(`${entry.name}: base control must not claim a trained adapter.`);
+    if (result.cost?.openai_calls !== 0 || Number(result.cost?.openai_cost_usd) !== 0 || Number(result.cost?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: local Qwen 3B base control must be zero-call and zero-cost.`);
+    }
+    if (result.eval?.examples !== predictions.length) errors.push(`${entry.name}: eval.examples does not match predictions.`);
+    if (!report.includes("not a substitute for the missing trained Qwen 3B smoke")) {
+      errors.push(`${entry.name}: report must preserve the trained-smoke caveat.`);
+    }
+    for (const [index, row] of predictions.entries()) {
+      const label = `${entry.name}.predictions:${index + 1}`;
+      if (!row.example_id || !row.prediction?.answer_type || !row.reference?.answer_type || !row.scores) {
+        errors.push(`${label}: missing prediction, reference, or scores.`);
+      }
+      if (row.metadata?.trained_adapter !== null) errors.push(`${label}: prediction metadata must not claim a trained adapter.`);
+      if (row.prediction?.answer_type === "grounded_answer") {
+        if (!Array.isArray(row.prediction.citations)) {
+          errors.push(`${label}: grounded predictions must expose a citations array, even when citation use is wrong.`);
+        }
+        if (!Number.isFinite(Number(row.scores.inline_citation_rate))) {
+          errors.push(`${label}: grounded predictions must record inline_citation_rate.`);
         }
       }
     }

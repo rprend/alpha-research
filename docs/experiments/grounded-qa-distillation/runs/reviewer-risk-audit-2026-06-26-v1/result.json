@@ -1,6 +1,6 @@
 {
   "run_id": "reviewer-risk-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T22:56:22.824Z",
+  "generated_at": "2026-06-26T23:15:27.466Z",
   "artifact_type": "reviewer_risk_audit",
   "status": "not_submission_ready",
   "purpose": "Name the most likely reviewer objections and required evidence before treating the grounded-QA distillation project as paper-ready.",
@@ -186,7 +186,7 @@
         "joint-action-packet-quality-audit-2026-06-26-v1",
         "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1"
       ],
-      "mitigation_done": "model-scale-adequacy-audit-2026-06-26-v1 compares direct mini RAG, zero-call gates, local distilled scaffolds, and Qwen 0.5B SFT. It records that Qwen 0.5B has high citation formatting but only 5.0% answer support, rejects tiny models as final students or ground-truth labelers, and selects a bounded Qwen 3B smoke as the next minimum credible trained-student experiment under the $100 cap.",
+      "mitigation_done": "model-scale-adequacy-audit-2026-06-26-v1 compares direct mini RAG, zero-call gates, local distilled scaffolds, Qwen 0.5B SFT, and the local Qwen 3B base-control. It records that Qwen 0.5B has high citation formatting but only 5.0% answer support, while Qwen 3B base inference answers many prompts but has weak inline-citation contract adherence. It rejects tiny/base-model outputs as final students or ground-truth labelers and selects a bounded Qwen 3B joint-action LoRA smoke as the next minimum credible trained-student experiment under the $100 cap.",
       "required_next_evidence": [
         "Run the bounded Qwen 3B smoke only after auth_and_live_price_verified.",
         "If Qwen 3B fails the 70% coverage-constrained target, report that negative result before escalating to a larger model.",

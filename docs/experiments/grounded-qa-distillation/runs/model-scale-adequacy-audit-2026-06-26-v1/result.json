@@ -1,6 +1,6 @@
 {
   "run_id": "model-scale-adequacy-audit-2026-06-26-v1",
-  "generated_at": "2026-06-26T21:15:41.315Z",
+  "generated_at": "2026-06-26T23:15:27.370Z",
   "artifact_type": "model_scale_adequacy_audit",
   "status": "qwen3b_gpu_smoke_still_required",
   "purpose": "Decide whether existing tiny/local models are adequate, or whether the bounded Qwen 3B GPU smoke remains necessary for the paper claim.",
@@ -8,6 +8,7 @@
     "drag-like-rag-distillation-comparison-2026-06-26-v1",
     "local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1",
     "local-generative-contract-gate-answer-repeat2-repair-qwen05b-321-389-v1",
+    "local-qwen3b-base-control-joint-action-12-v1",
     "coverage-constrained-support-frontier-2026-06-26-v1",
     "joint-action-packet-quality-audit-2026-06-26-v1",
     "prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1"
@@ -90,6 +91,20 @@
       "answer_token_f1": 0.0368188184364655,
       "verdict": "format_control_not_grounded_correctness_evidence",
       "implication": "Local contract gating controls output shape but does not prove support without a grounded judge."
+    },
+    {
+      "id": "local_qwen3b_base_control",
+      "role": "larger_base_model_no_training",
+      "source_run": "local-qwen3b-base-control-joint-action-12-v1",
+      "examples": 12,
+      "answer_rate": 0.8333333333333334,
+      "answer_support_rate": null,
+      "overall_judged_correct_rate": null,
+      "inline_citation_rate": 0.15,
+      "valid_json_rate": 0.8333333333333334,
+      "answer_token_f1": 0.20597779852681813,
+      "verdict": "scale_alone_not_contract_sufficient",
+      "implication": "The 3B base model can run locally and answer many prompts, but weak inline citation and JSON contract behavior show that the joint-action LoRA objective is still needed."
     }
   ],
   "qwen3b_acceptance_target": {
@@ -125,6 +140,7 @@
     "rationale": [
       "The tiny Qwen 0.5B SFT result has high inline citation compliance but only 5.0% judged answer support and 42.0% overall judged correctness on the final window.",
       "The compact local Qwen 0.5B SFT path collapses to all abstentions, so it cannot answer the support-preserving distillation question.",
+      "The local Qwen 3B base-control answers 83.3% of a 12-example future-window slice, but reaches only 15.0% inline citation rate and 83.3% valid JSON, so scale alone does not satisfy the grounded citation contract.",
       "The best zero-call scaffold improves support/correctness by reducing answer coverage, so the missing evidence is a trained student that can recover useful coverage.",
       "The Qwen 3B joint-action packet already encodes answer repair, abstention, citation placement, and support-risk contrast; the next credible paid step is the bounded Qwen 3B smoke, not a larger open-ended GPU experiment.",
       "Prime auth currently blocks execution before wallet or live price checks, so no pod should be created until the auth/price gate passes under the $100 total cap."
@@ -146,8 +162,8 @@
   },
   "budget": {
     "max_budget_usd": 100,
-    "actual_total_spend_usd": 5.8931000000000155,
-    "remaining_budget_usd": 94.10689999999998,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
     "external_compute_actual_usd": 0,
     "prime_auth_price_gate_status": "auth_or_price_blocked"
   },

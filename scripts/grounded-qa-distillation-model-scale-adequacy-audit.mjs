@@ -17,6 +17,7 @@ const contractQwen = await readResult("local-generative-contract-gate-answer-rep
 const frontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
 const packet = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const primeGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
+const localQwen3bBase = await readResult("local-qwen3b-base-control-joint-action-12-v1");
 
 const direct = drag.systems.find((row) => row.id === "direct_mini_rag_student");
 const riskGate = drag.systems.find((row) => row.id === "zero_call_risk_gate_over_direct_student");
@@ -67,6 +68,20 @@ const systems = [
     verdict: "format_control_not_grounded_correctness_evidence",
     implication: "Local contract gating controls output shape but does not prove support without a grounded judge.",
   },
+  {
+    id: "local_qwen3b_base_control",
+    role: "larger_base_model_no_training",
+    source_run: localQwen3bBase.run_id,
+    examples: localQwen3bBase.eval.examples,
+    answer_rate: localQwen3bBase.eval.answer_rate,
+    answer_support_rate: null,
+    overall_judged_correct_rate: null,
+    inline_citation_rate: localQwen3bBase.eval.inline_citation_rate,
+    valid_json_rate: localQwen3bBase.eval.valid_json_rate,
+    answer_token_f1: localQwen3bBase.eval.answer_token_f1,
+    verdict: "scale_alone_not_contract_sufficient",
+    implication: "The 3B base model can run locally and answer many prompts, but weak inline citation and JSON contract behavior show that the joint-action LoRA objective is still needed.",
+  },
 ];
 
 const qwen3bAcceptance = {
@@ -85,6 +100,7 @@ const result = {
     drag.run_id,
     compactQwen.run_id,
     contractQwen.run_id,
+    localQwen3bBase.run_id,
     frontier.run_id,
     packet.run_id,
     primeGate.run_id,
@@ -99,6 +115,7 @@ const result = {
     rationale: [
       "The tiny Qwen 0.5B SFT result has high inline citation compliance but only 5.0% judged answer support and 42.0% overall judged correctness on the final window.",
       "The compact local Qwen 0.5B SFT path collapses to all abstentions, so it cannot answer the support-preserving distillation question.",
+      "The local Qwen 3B base-control answers 83.3% of a 12-example future-window slice, but reaches only 15.0% inline citation rate and 83.3% valid JSON, so scale alone does not satisfy the grounded citation contract.",
       "The best zero-call scaffold improves support/correctness by reducing answer coverage, so the missing evidence is a trained student that can recover useful coverage.",
       "The Qwen 3B joint-action packet already encodes answer repair, abstention, citation placement, and support-risk contrast; the next credible paid step is the bounded Qwen 3B smoke, not a larger open-ended GPU experiment.",
       "Prime auth currently blocks execution before wallet or live price checks, so no pod should be created until the auth/price gate passes under the $100 total cap.",

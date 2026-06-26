@@ -1,6 +1,6 @@
 # Model Scale Adequacy Audit
 
-Generated: 2026-06-26T21:15:41.315Z
+Generated: 2026-06-26T23:15:27.370Z
 
 Status: `qwen3b_gpu_smoke_still_required`
 
@@ -14,6 +14,7 @@ Status: `qwen3b_gpu_smoke_still_required`
 | local_qwen05b_sft_answer_repeat2 | tiny_foundation_model | 58.0% | 5.0% | 42.0% | 97.5% | too_small_for_final_claim |
 | local_qwen05b_compact_sft_all_abstain | tiny_foundation_model | 0.0% | n/a | n/a | 0.0% | collapsed_to_abstention |
 | local_qwen05b_contract_gate | tiny_foundation_model_with_local_contract_gate | 21.7% | n/a | n/a | 100.0% | format_control_not_grounded_correctness_evidence |
+| local_qwen3b_base_control | larger_base_model_no_training | 83.3% | n/a | n/a | 15.0% | scale_alone_not_contract_sufficient |
 
 ## Decision
 
@@ -24,6 +25,7 @@ Status: `qwen3b_gpu_smoke_still_required`
 
 - The tiny Qwen 0.5B SFT result has high inline citation compliance but only 5.0% judged answer support and 42.0% overall judged correctness on the final window.
 - The compact local Qwen 0.5B SFT path collapses to all abstentions, so it cannot answer the support-preserving distillation question.
+- The local Qwen 3B base-control answers 83.3% of a 12-example future-window slice, but reaches only 15.0% inline citation rate and 83.3% valid JSON, so scale alone does not satisfy the grounded citation contract.
 - The best zero-call scaffold improves support/correctness by reducing answer coverage, so the missing evidence is a trained student that can recover useful coverage.
 - The Qwen 3B joint-action packet already encodes answer repair, abstention, citation placement, and support-risk contrast; the next credible paid step is the bounded Qwen 3B smoke, not a larger open-ended GPU experiment.
 - Prime auth currently blocks execution before wallet or live price checks, so no pod should be created until the auth/price gate passes under the $100 total cap.
@@ -35,4 +37,4 @@ Status: `qwen3b_gpu_smoke_still_required`
 
 ## Budget
 
-No OpenAI calls, no GPU jobs, and no new spend. Actual total spend remains $5.8931; Prime auth/price gate is `auth_or_price_blocked`.
+No OpenAI calls, no GPU jobs, and no new spend. Actual total spend remains $5.8964; Prime auth/price gate is `auth_or_price_blocked`.

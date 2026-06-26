@@ -132,9 +132,12 @@ const result = {
       status: modelScaleAudit.status,
       qwen05b_answer_support_rate: modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2")?.answer_support_rate,
       qwen05b_inline_citation_rate: modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2")?.inline_citation_rate,
+      qwen3b_base_answer_rate: modelScaleAudit.systems.find((row) => row.id === "local_qwen3b_base_control")?.answer_rate,
+      qwen3b_base_inline_citation_rate: modelScaleAudit.systems.find((row) => row.id === "local_qwen3b_base_control")?.inline_citation_rate,
+      qwen3b_base_valid_json_rate: modelScaleAudit.systems.find((row) => row.id === "local_qwen3b_base_control")?.valid_json_rate,
       rent_gpu_for_bounded_qwen3b_smoke: modelScaleAudit.decision.rent_gpu_for_bounded_qwen3b_smoke,
       rent_cutting_edge_large_gpu_model_now: modelScaleAudit.decision.rent_cutting_edge_large_gpu_model_now,
-      interpretation: "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. The next credible trained-student evidence is the bounded Qwen 3B joint-action smoke, not an open-ended larger GPU experiment.",
+      interpretation: "Tiny/local students are negative controls: they can learn citation shape or abstain, but they do not preserve support. Local Qwen 3B base inference is feasible but still weak on the citation/JSON contract. The next credible trained-student evidence is the bounded Qwen 3B joint-action LoRA smoke, not an open-ended larger GPU experiment.",
     },
     corpus_realism_private_kb_gap: {
       run_id: corpusRealism.run_id,

@@ -213,7 +213,7 @@ const risks = [
       packetQualityAudit.run_id,
       primeAuthPriceGate.run_id,
     ],
-    mitigation_done: `${modelScaleAudit.run_id} compares direct mini RAG, zero-call gates, local distilled scaffolds, and Qwen 0.5B SFT. It records that Qwen 0.5B has high citation formatting but only ${(100 * modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2").answer_support_rate).toFixed(1)}% answer support, rejects tiny models as final students or ground-truth labelers, and selects a bounded Qwen 3B smoke as the next minimum credible trained-student experiment under the $100 cap.`,
+    mitigation_done: `${modelScaleAudit.run_id} compares direct mini RAG, zero-call gates, local distilled scaffolds, Qwen 0.5B SFT, and the local Qwen 3B base-control. It records that Qwen 0.5B has high citation formatting but only ${(100 * modelScaleAudit.systems.find((row) => row.id === "local_qwen05b_sft_answer_repeat2").answer_support_rate).toFixed(1)}% answer support, while Qwen 3B base inference answers many prompts but has weak inline-citation contract adherence. It rejects tiny/base-model outputs as final students or ground-truth labelers and selects a bounded Qwen 3B joint-action LoRA smoke as the next minimum credible trained-student experiment under the $100 cap.`,
     required_next_evidence: [
       "Run the bounded Qwen 3B smoke only after auth_and_live_price_verified.",
       "If Qwen 3B fails the 70% coverage-constrained target, report that negative result before escalating to a larger model.",

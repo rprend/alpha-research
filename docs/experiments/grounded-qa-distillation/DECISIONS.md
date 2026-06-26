@@ -1269,3 +1269,13 @@ Reason: The final evidence checklist previously depended on the Prime-only auth/
 Result: The gate makes no model calls and creates no pods/jobs. It reports `remote_backend_blocked`: current tracked spend is `$5.8963856`, Prime CLI auth still fails with `API key unauthorized`, Hugging Face CLI auth passes as `rprendergast`, and the latest HF Jobs attempt still proves missing `job.write` permission. If either backend auth is repaired, both the Prime estimate (`$10.3635506` total with judge) and HF estimate (`$9.3635506` total with judge) remain under the `$100` cap.
 
 Tradeoff: This is operational evidence, not model evidence. It improves launch safety and diagnosis, but the Qwen 3B trained-student predictions and paid grounded-correctness judge remain required before paper-ready claims.
+
+### D148. Run a local Qwen 3B base-model control before spending GPU budget
+
+Decision: Add `grounded-qa-distillation-local-qwen3b-base-control.py`, materialize `local-qwen3b-base-control-joint-action-12-v1`, validate it, and fold it into `model-scale-adequacy-audit-2026-06-26-v1`.
+
+Reason: Prime and Hugging Face remote execution are still auth/permission blocked, but the user asked whether the current models are too small and whether we need GPU rental or cutting-edge models. The existing local probe only showed that Qwen 3B training is impractical on the Mac; it did not show whether Qwen 3B base inference can follow the joint-action evidence/JSON/citation contract before LoRA training.
+
+Result: Local MPS inference for `Qwen/Qwen2.5-3B-Instruct` completed on 12 future-window prompts in 150.1 seconds, about 12.5 seconds/example, with zero OpenAI calls and zero external compute spend. The base model answered 83.3% of prompts and reached 75.0% answer-type accuracy, but only 40.0% citation precision, 71.4% citation recall, 15.0% inline citation rate, and 83.3% valid JSON. The regenerated model-scale audit therefore keeps the bounded Qwen 3B joint-action LoRA smoke as the minimum credible next trained-student experiment and still rejects jumping directly to an open-ended cutting-edge GPU run.
+
+Tradeoff: This is base-model contract evidence, not trained-student evidence and not grounded-judge evidence. It reduces uncertainty about scale and local inference viability, but the paper remains blocked on remote auth, the trained Qwen 3B smoke artifacts, and the paid grounded-correctness judge.
