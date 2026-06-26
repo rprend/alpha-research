@@ -39,6 +39,7 @@ const inputs = {
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
+  paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
@@ -128,6 +129,7 @@ function buildGate({
   failureAtlas,
   paperTables,
   analysisPlan,
+  paperClaimLedger,
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
@@ -409,6 +411,15 @@ function buildGate({
       blocker: 'Generate a statistical analysis plan that pre-specifies hypotheses, contrasts, covariates, and claim gates.',
     },
     {
+      id: 'paper_claim_ledger_ready',
+      passed:
+        Boolean(paperClaimLedger.paper_claim_ledger_ready) &&
+        paperClaimLedger.completion_claim_allowed === false &&
+        paperClaimLedger.summary?.prohibited_claims >= 3,
+      detail: `${paperClaimLedger.summary?.claims ?? 0} claims; allowed=${paperClaimLedger.summary?.allowed_claims ?? 0}; diagnostic=${paperClaimLedger.summary?.diagnostic_only_claims ?? 0}; prohibited=${paperClaimLedger.summary?.prohibited_claims ?? 0}`,
+      blocker: 'Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers.',
+    },
+    {
       id: 'model_baseline_packets_present',
       passed: Boolean(modelBaselinePackets.packets_ready),
       detail: `${modelBaselinePackets.packet_count} prompt packets; scored_reports_ready=${modelBaselinePackets.scored_reports_ready}`,
@@ -603,6 +614,7 @@ function buildGate({
       failure_atlas: 'generated/failure-atlas.json',
       paper_tables: 'generated/paper-tables.json',
       analysis_plan: 'generated/analysis-plan.json',
+      paper_claim_ledger: 'generated/paper-claim-ledger.json',
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
@@ -696,6 +708,7 @@ const gate = buildGate({
   failureAtlas: readJson(inputs.failureAtlas),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),
+  paperClaimLedger: readJson(inputs.paperClaimLedger),
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),

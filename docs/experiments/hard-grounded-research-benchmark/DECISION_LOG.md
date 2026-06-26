@@ -807,3 +807,11 @@ Decision: Generate a pre-registered annotation quality-control policy for the be
 Rationale: A paper-worthy benchmark needs more than blank workbooks and calibration sentinels; it needs explicit rules for reviewer eligibility, blind overlap, citation-support validation, disagreement adjudication, and when agreement claims are allowed.
 
 Consequence: `scripts/hard-grounded-research-annotation-quality-control.mjs` emits `generated/annotation-quality-control.json` and `ANNOTATION_QUALITY_CONTROL.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the policy while human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Add a paper claim ledger
+
+Decision: Generate a claim-by-claim admissibility ledger for the benchmark paper.
+
+Rationale: The manuscript needs a precise boundary between claims supported by current artifacts, pilot-only diagnostic claims, and claims that remain prohibited until review, scale, and final novelty gates pass.
+
+Consequence: `scripts/hard-grounded-research-paper-claim-ledger.mjs` emits `generated/paper-claim-ledger.json` and `PAPER_CLAIM_LEDGER.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the ledger while category-effect, publishable-gold, and novelty-completion claims remain blocked.

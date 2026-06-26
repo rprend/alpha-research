@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 18/18
-- Reproduction commands: 21
+- Artifact classes ready: 19/19
+- Reproduction commands: 22
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -36,6 +36,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
+| paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims; refresh queries=4. |
 
 ## Reproduction Commands
@@ -59,6 +60,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh annotation quality-control policy | `node scripts/hard-grounded-research-annotation-quality-control.mjs` |
 | Refresh paper tables and figure data | `node scripts/hard-grounded-research-paper-tables.mjs` |
 | Refresh statistical analysis plan | `node scripts/hard-grounded-research-analysis-plan.mjs` |
+| Refresh paper claim ledger | `node scripts/hard-grounded-research-paper-claim-ledger.mjs` |
 | Refresh release and publication surfaces | `node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs` |
 | Validate harness integration | `node scripts/validate-harness.mjs` |
 | Run app build and dashboard QA | `node_modules/.bin/vite build && node scripts/qa-dashboard.mjs` |

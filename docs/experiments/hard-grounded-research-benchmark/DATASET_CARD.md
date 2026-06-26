@@ -23,7 +23,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source acquisition review rows: 492
 - Source acquisition complete review rows: 0/492
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (18/18 artifact classes)
+- Artifact checklist ready: true (19/19 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -151,13 +151,17 @@ The generated paper table pack materializes 6 synchronized tables for taxonomy, 
 
 The generated analysis plan pre-specifies 4 hypotheses, 4 model families, and 7 covariates for testing what makes grounded research hard beyond lookup. It keeps category-level and final novelty claims blocked until reviewed gold and final literature gates pass. See `ANALYSIS_PLAN.md`.
 
+## Paper Claim Ledger
+
+The generated claim ledger maps 8 manuscript claims to current evidence and release gates: 3 allowed, 2 diagnostic-only, and 3 prohibited until gates pass. See `PAPER_CLAIM_LEDGER.md`.
+
 ## Statistical Scale Plan
 
 The current pilot supports diagnostic analysis only. The generated power plan targets 30 double-reviewed items per category (300 total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is 0.1789; at the overall target it is 0.0566. See `POWER_PLAN.md`.
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 21 reproduction commands, 18/18 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 22 reproduction commands, 19/19 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
@@ -207,7 +211,7 @@ Key release checks:
 - Source acquisition review workbooks: pass - 20 workbooks; 492 review rows; pointer_only_rows=144
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 17/17 artifact classes ready; reproduction_commands=20; release_blockers=7
+- Artifact checklist: pass - 18/18 artifact classes ready; reproduction_commands=21; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7
@@ -224,4 +228,5 @@ Key release checks:
 - Expansion promotion smoke: pass - 270/270 fixture expansion items merge-ready; release_eligible=false
 - Public package clearance: pass - tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true
 - External model baselines: pass - anthropic-grounded-baseline-v1, openai-grounded-baseline-v1
+- Paper claim ledger: pass - 8 claims; allowed=3; diagnostic=2; prohibited=3
 - Novelty audit: block - checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5

@@ -54,6 +54,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `DATASET_CARD.md`: generated pilot dataset card with intended use, provenance, review status, scoring, limitations, and license caveats.
 - `RELEASE_GATE.md` and `generated/release-gate.json`: generated release-readiness gate for gold, license, model-baseline, repair, and novelty blockers.
 - `PAPER_DRAFT.md`: generated working paper scaffold tying taxonomy, datasets, baselines, review gates, and novelty position together.
+- `PAPER_CLAIM_LEDGER.md` and `generated/paper-claim-ledger.json`: generated claim-by-claim admissibility ledger for allowed, diagnostic-only, and prohibited manuscript claims.
 - `rubrics.json`: category-specific scoring dimensions, strong-answer criteria, near misses, and hard negatives.
 - `generated/seed-suite.json`: runnable seed task contract.
 - `generated/coverage-matrix.json`: category to dataset/task coverage.

@@ -1,0 +1,163 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "paper_claim_ledger_ready": true,
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "release_gate": "generated/release-gate.json",
+    "analysis_plan": "generated/analysis-plan.json",
+    "novelty_audit": "generated/novelty-audit.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "corpus_audit": "generated/corpus-audit.json",
+    "source_diversity_plan": "generated/source-diversity-plan.json",
+    "source_acquisition_fetched_rows": "generated/source-acquisition-fetched-rows.json",
+    "review_progress": "generated/review-progress.json",
+    "annotation_quality_control": "generated/annotation-quality-control.json",
+    "model_run_index": "generated/model-run-index.json",
+    "baseline_analysis": "generated/baseline-analysis.json"
+  },
+  "summary": {
+    "claims": 8,
+    "allowed_claims": 3,
+    "diagnostic_only_claims": 2,
+    "prohibited_claims": 3,
+    "blocked_claims": 0,
+    "failed_release_checks": 7
+  },
+  "claims": [
+    {
+      "id": "taxonomy_scope_claim",
+      "claim": "The benchmark operationalizes 10 hard-grounded research categories beyond simple fact lookup.",
+      "status": "allowed",
+      "completion_claim_allowed": true,
+      "evidence": [
+        "generated/construct-map.json",
+        "benchmark-spec.json",
+        "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5"
+      ],
+      "blocked_by": [],
+      "required_before_submission": []
+    },
+    {
+      "id": "hf_grounding_claim",
+      "claim": "The benchmark is grounded in Hugging Face datasets and fetched source rows rather than only hand-written toy examples.",
+      "status": "allowed",
+      "completion_claim_allowed": true,
+      "evidence": [
+        "6 source datasets",
+        "246 fetched acquisition source rows",
+        "246/246 distinct fetched source rows; known_license=174; pointer_only=72"
+      ],
+      "blocked_by": [],
+      "required_before_submission": []
+    },
+    {
+      "id": "large_corpus_design_claim",
+      "claim": "The current artifacts define a large-corpus source-diversity target and executable acquisition substrate.",
+      "status": "diagnostic_only",
+      "completion_claim_allowed": false,
+      "evidence": [
+        "15/300 target source rows before acquisition",
+        "0/492 review rows complete; preflight_ready=false"
+      ],
+      "blocked_by": [
+        "source acquisition reviews are not complete"
+      ],
+      "required_before_submission": [
+        "complete source-acquisition review preflight",
+        "merge/adjudicate source-acquisition candidates into paper-scale gold"
+      ]
+    },
+    {
+      "id": "baseline_diagnostic_claim",
+      "claim": "Pilot baselines expose qualitative failure modes that motivate the hard-grounded taxonomy.",
+      "status": "diagnostic_only",
+      "completion_claim_allowed": false,
+      "evidence": [
+        "5 scored systems",
+        "2 eligible external model baselines",
+        "116 failure cases; 8 failure modes; systems=5"
+      ],
+      "blocked_by": [
+        "pilot labels are not final reviewed gold"
+      ],
+      "required_before_submission": [
+        "rerun baselines on reviewed gold or clearly label pilot-only diagnostics"
+      ]
+    },
+    {
+      "id": "category_effect_claim",
+      "claim": "Category-level differences identify which grounded-research tasks are hardest.",
+      "status": "prohibited_until_gates_pass",
+      "completion_claim_allowed": false,
+      "evidence": [
+        "0/300 reviewed target items",
+        "0/300 valid reviewed target items; 300 reviewed items still needed"
+      ],
+      "blocked_by": [
+        "category_scale_ready",
+        "gold_review_complete",
+        "review_merge_ready"
+      ],
+      "required_before_submission": [
+        "30 reviewed items per category",
+        "double review complete",
+        "merge/adjudication complete"
+      ]
+    },
+    {
+      "id": "publishable_gold_claim",
+      "claim": "The benchmark has publishable gold labels for paper-scale evaluation.",
+      "status": "prohibited_until_gates_pass",
+      "completion_claim_allowed": false,
+      "evidence": [
+        "0/30 valid reviewed items",
+        "0/30 merge-ready items",
+        "300 reviewed items remaining"
+      ],
+      "blocked_by": [
+        "gold_review_complete",
+        "review_preflight_ready",
+        "review_merge_ready",
+        "expansion_review_preflight_ready",
+        "expansion_review_merge_ready"
+      ],
+      "required_before_submission": [
+        "complete reviewer workbooks",
+        "resolve disagreements",
+        "promote gold suite"
+      ]
+    },
+    {
+      "id": "annotation_quality_claim",
+      "claim": "The annotation workflow has pre-registered quality-control rules for reviewer eligibility and label admissibility.",
+      "status": "allowed",
+      "completion_claim_allowed": true,
+      "evidence": [
+        "5 QA rules",
+        "1092 governed review rows",
+        "1092 review rows governed; calibration_sentinels=10; completion_claim_allowed=false"
+      ],
+      "blocked_by": [],
+      "required_before_submission": []
+    },
+    {
+      "id": "novelty_completion_claim",
+      "claim": "The benchmark is genuinely novel as of June 2026 and ready for completion/submission.",
+      "status": "prohibited_until_gates_pass",
+      "completion_claim_allowed": false,
+      "evidence": [
+        "novelty status=refreshed_preliminary",
+        "22 related-work sources registered",
+        "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5"
+      ],
+      "blocked_by": [
+        "novelty_audit_final"
+      ],
+      "required_before_submission": [
+        "final June 2026 literature refresh",
+        "replace preliminary novelty gate",
+        "complete review and scale gates"
+      ]
+    }
+  ]
+}

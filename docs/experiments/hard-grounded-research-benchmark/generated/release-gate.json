@@ -33,6 +33,7 @@
     "failure_atlas": "generated/failure-atlas.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
@@ -277,6 +278,12 @@
       "blocker": "Generate a statistical analysis plan that pre-specifies hypotheses, contrasts, covariates, and claim gates."
     },
     {
+      "id": "paper_claim_ledger_ready",
+      "passed": true,
+      "detail": "8 claims; allowed=3; diagnostic=2; prohibited=3",
+      "blocker": "Generate a paper claim ledger that binds manuscript claims to current release evidence and blockers."
+    },
+    {
       "id": "model_baseline_packets_present",
       "passed": true,
       "detail": "2 prompt packets; scored_reports_ready=false",
@@ -375,7 +382,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "17/17 artifact classes ready; reproduction_commands=20; release_blockers=7",
+      "detail": "18/18 artifact classes ready; reproduction_commands=21; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

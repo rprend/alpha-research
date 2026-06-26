@@ -17,6 +17,7 @@ const inputPaths = {
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
+  paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
@@ -136,6 +137,7 @@ function renderCard({
   failureAtlas,
   paperTables,
   analysisPlan,
+  paperClaimLedger,
   modelRunIndex,
   corpusAudit,
   sourceDiversityPlan,
@@ -294,6 +296,10 @@ The generated paper table pack materializes ${paperTables.summary.table_count} s
 
 The generated analysis plan pre-specifies ${analysisPlan.summary.hypotheses} hypotheses, ${analysisPlan.summary.model_families} model families, and ${analysisPlan.summary.covariates} covariates for testing what makes grounded research hard beyond lookup. It keeps category-level and final novelty claims blocked until reviewed gold and final literature gates pass. See \`ANALYSIS_PLAN.md\`.
 
+## Paper Claim Ledger
+
+The generated claim ledger maps ${paperClaimLedger.summary.claims} manuscript claims to current evidence and release gates: ${paperClaimLedger.summary.allowed_claims} allowed, ${paperClaimLedger.summary.diagnostic_only_claims} diagnostic-only, and ${paperClaimLedger.summary.prohibited_claims} prohibited until gates pass. See \`PAPER_CLAIM_LEDGER.md\`.
+
 ## Statistical Scale Plan
 
 The current pilot supports diagnostic analysis only. The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
@@ -364,6 +370,7 @@ Key release checks:
 - Expansion promotion smoke: ${checkDetail(releaseGate, 'expansion_promotion_smoke_ready')}
 - Public package clearance: ${checkDetail(releaseGate, 'unknown_license_resolved')}
 - External model baselines: ${checkDetail(releaseGate, 'frontier_or_open_model_results_present')}
+- Paper claim ledger: ${checkDetail(releaseGate, 'paper_claim_ledger_ready')}
 - Novelty audit: ${checkDetail(releaseGate, 'novelty_audit_final')}
 `
 }
@@ -385,6 +392,7 @@ writeText(
     failureAtlas: readJson(inputPaths.failureAtlas),
     paperTables: readJson(inputPaths.paperTables),
     analysisPlan: readJson(inputPaths.analysisPlan),
+    paperClaimLedger: readJson(inputPaths.paperClaimLedger),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     corpusAudit: readJson(inputPaths.corpusAudit),
     sourceDiversityPlan: readJson(inputPaths.sourceDiversityPlan),
