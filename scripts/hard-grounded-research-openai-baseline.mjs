@@ -54,6 +54,7 @@ function buildPrompt(item) {
     text: unit.text,
   }))
   return {
+    custom_id: item.id || item.task_id,
     task_id: item.id || item.task_id,
     category: item.category,
     challenge_type: item.challenge?.type || 'native_row',

@@ -221,6 +221,11 @@ const hardGroundedPublicPackageSource = readFileSync(join(root, 'scripts/hard-gr
 for (const token of ['hard-grounded-research-public-suite.json', 'text_included_in_public_package', 'Pointer-only evidence leaked text']) {
   assert(hardGroundedPublicPackageSource.includes(token), `Hard grounded public package builder is missing packaging token: ${token}`)
 }
+assert(existsSync(join(root, 'scripts/hard-grounded-research-import-model-results.mjs')), 'Missing hard grounded research model result importer.')
+const hardGroundedModelImportSource = readFileSync(join(root, 'scripts/hard-grounded-research-import-model-results.mjs'), 'utf8')
+for (const token of ['--system-id', 'custom_id', 'raw_output_parse_error', 'hard-grounded-research-evaluate.mjs']) {
+  assert(hardGroundedModelImportSource.includes(token), `Hard grounded model importer is missing token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),

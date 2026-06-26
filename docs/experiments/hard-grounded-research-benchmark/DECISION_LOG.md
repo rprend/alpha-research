@@ -279,3 +279,11 @@ Decision: Generate a loadable public benchmark package that applies the pointer-
 Rationale: A manifest describes redistribution policy, but downstream users need a concrete artifact they can run without accidentally receiving unknown-license evidence text. Materializing the package makes the license-safe shape testable.
 
 Consequence: `scripts/hard-grounded-research-public-package.mjs` now emits `generated/public-package/hard-grounded-research-public-suite.json`, a JSONL companion, and a summary while asserting that pointer-only evidence units do not contain text.
+
+## 2026-06-26 — Add an import path for external model results
+
+Decision: Treat prompt packets and external model outputs as first-class artifacts with a scored importer.
+
+Rationale: The benchmark needs real frontier or open-model baselines, but those runs should not depend on hand-edited submissions or secrets in chat. A deterministic importer lets batch outputs become scored reports with provenance, while keeping dry-run prompt packets useful before credentials are available.
+
+Consequence: OpenAI prompt packets now carry stable custom ids, and `scripts/hard-grounded-research-import-model-results.mjs` converts model output JSONL into benchmark submissions and reports.
