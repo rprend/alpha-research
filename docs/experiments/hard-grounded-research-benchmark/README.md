@@ -4,6 +4,10 @@ This benchmark asks: **What tasks actually make grounded research hard, beyond s
 
 The working artifact is a seed suite for large-corpus grounded research QA. It is intentionally not another simple fact lookup benchmark: every item targets a failure where the answer may be easy to state but hard to justify with the right evidence.
 
+## Agentic Benchmark Pivot
+
+The current target is no longer satisfied by single-call model QA over preselected evidence. The agentic layer in `AGENTIC_RESEARCH_SUITE.md` wraps the 300-item HF-derived scale suite into 10 corpus-search tasks with 281-344 evidence documents per task. Eligible evidence now requires real tool-using frontier agent runs over `generated/agentic-research-suite.json`; the readiness gate in `AGENTIC_READINESS.md` correctly remains blocked until those runs exist.
+
 ## Hugging Face Grounding
 
 | Dataset | License | Benchmark role |
@@ -43,6 +47,9 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 ## Generated Files
 
 - `DECISION_LOG.md`: one-decision-per-iteration project decision log.
+- `AGENTIC_RESEARCH_SUITE.md` and `generated/agentic-research-suite.json`: corpus-search benchmark layer for frontier tool-using agents, with large HF-derived corpus shards, distractors, deterministic gold, and no single-call packet eligibility.
+- `AGENTIC_READINESS.md` and `generated/agentic-readiness.json`: gate that requires eligible Codex CLI / Claude Code / equivalent frontier agent runs before completion claims.
+- `generated/agentic-oracle-submission.json` and `generated/agentic-oracle-report.json`: hidden-gold scorer smoke fixture for the deterministic agentic evaluator; not an eligible benchmark run.
 - `NOVELTY_AUDIT.md`: current literature comparison and novelty release gate.
 - `NOVELTY_WATCHLIST.md` and `generated/novelty-watchlist.json`: generated live-search watchlist for related work that must be resolved before final novelty claims.
 - `NOVELTY_RESOLUTION_MATRIX.md` and `generated/novelty-resolution-matrix.json`: generated source-level resolution matrix for watchlist sources, claim impacts, and final-audit requirements.

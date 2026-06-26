@@ -1,0 +1,16 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "suite_id": "agentic-large-corpus-research-v1",
+  "task_count": 10,
+  "required_eligible_frontier_agent_runs": 2,
+  "eligible_frontier_agent_runs": 0,
+  "ready": false,
+  "completion_claim_allowed": false,
+  "run_manifest_count": 0,
+  "runs": [],
+  "blockers": [
+    "Run at least two eligible frontier tool-using agents over generated/agentic-research-suite.json.",
+    "Each eligible run must use the agentic corpus-search suite, not a single-call preselected evidence packet.",
+    "Each run manifest must prove hidden gold was unavailable and include a command transcript plus scored report."
+  ]
+}

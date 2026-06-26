@@ -99,6 +99,8 @@ function buildAudit() {
   const publicPackageSchema = readJson('generated/public-package-schema.json')
   const paperClaimLedger = readJson('generated/paper-claim-ledger.json')
   const modelRunIndex = readJson('generated/model-run-index.json')
+  const agenticSuite = readJson('generated/agentic-research-suite.json')
+  const agenticReadiness = readJson('generated/agentic-readiness.json')
   const datasetCard = readText('DATASET_CARD.md')
   const releaseGateMarkdown = readText('RELEASE_GATE.md')
 
@@ -190,14 +192,47 @@ function buildAudit() {
     modelRunIndex.eligible_model_baseline_count >= 2
       ? pass(
           'baseline_evidence_ready',
-          'Expose failures in large-corpus research QA with model/baseline evidence.',
+          'Expose failures in packet-level large-corpus research QA with model/baseline evidence.',
           `${modelRunIndex.eligible_model_baseline_count} eligible external model baselines and ${modelRunIndex.runs.length} total model/baseline runs indexed.`,
+          'These are diagnostic packet-level runs and do not satisfy the agentic goal.',
         )
       : partial(
           'baseline_evidence_ready',
-          'Expose failures in large-corpus research QA with model/baseline evidence.',
+          'Expose failures in packet-level large-corpus research QA with model/baseline evidence.',
           `${modelRunIndex.eligible_model_baseline_count} eligible external baselines.`,
           'Run additional current models before submission-quality empirical claims.',
+        ),
+    agenticSuite.task_count === 10 &&
+    agenticSuite.source_item_count === 300 &&
+    agenticSuite.primary_scoring?.constant_time_after_submission === true &&
+    agenticSuite.primary_scoring?.llm_judge_required === false
+      ? pass(
+          'agentic_suite_materialized',
+          'Create an agentic hard-grounded research suite over HF-derived corpora with deterministic scoring.',
+          `${agenticSuite.task_count} agentic corpus-search tasks generated from ${agenticSuite.source_item_count} HF-derived scale items; primary scoring is constant-time after submission and does not require an LLM judge.`,
+          'This proves the agentic task layer exists, not that frontier agents have been run.',
+        )
+      : fail(
+          'agentic_suite_materialized',
+          'Create an agentic hard-grounded research suite over HF-derived corpora with deterministic scoring.',
+          JSON.stringify({
+            task_count: agenticSuite.task_count,
+            source_item_count: agenticSuite.source_item_count,
+            primary_scoring: agenticSuite.primary_scoring,
+          }),
+          'Regenerate the agentic suite and deterministic scorer contract.',
+        ),
+    agenticReadiness.ready === true && agenticReadiness.eligible_frontier_agent_runs >= agenticReadiness.required_eligible_frontier_agent_runs
+      ? pass(
+          'frontier_agent_runs_ready',
+          'Run current frontier tool-using agents over the agentic suite and score them.',
+          `${agenticReadiness.eligible_frontier_agent_runs}/${agenticReadiness.required_eligible_frontier_agent_runs} eligible frontier agent runs present.`,
+        )
+      : partial(
+          'frontier_agent_runs_ready',
+          'Run current frontier tool-using agents over the agentic suite and score them.',
+          `${agenticReadiness.eligible_frontier_agent_runs}/${agenticReadiness.required_eligible_frontier_agent_runs} eligible frontier agent runs present.`,
+          'Run Codex CLI, Claude Code, or equivalent current-best tool-using agents over generated/agentic-research-suite.json with hidden gold unavailable.',
         ),
     paperClaimLedger.summary?.prohibited_claims >= 1 && paperClaimLedger.summary?.allowed_claims >= 1
       ? pass(
@@ -257,6 +292,8 @@ function buildAudit() {
       novelty_audit: 'generated/novelty-audit.json',
       final_novelty_adjudication: 'generated/final-novelty-adjudication.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
+      agentic_suite: 'generated/agentic-research-suite.json',
+      agentic_readiness: 'generated/agentic-readiness.json',
     },
     requirements,
     validation_evidence: validationEvidence,
@@ -274,6 +311,9 @@ function buildAudit() {
       benchmark_package_ready: benchmarkPackageReady,
       full_thread_goal_complete: fullThreadGoalComplete,
       completion_claim_allowed: fullThreadGoalComplete,
+      agentic_suite_ready: agenticSuite.readiness?.suite_materialized === true,
+      eligible_frontier_agent_runs: agenticReadiness.eligible_frontier_agent_runs,
+      required_frontier_agent_runs: agenticReadiness.required_eligible_frontier_agent_runs,
     },
   }
 }
@@ -307,6 +347,8 @@ This generated audit maps the original benchmark objective to repository evidenc
 - Categories: ${audit.summary.categories}
 - Final bounded novelty: ${audit.summary.final_bounded_novelty}
 - Benchmark package ready: ${audit.summary.benchmark_package_ready}
+- Agentic suite ready: ${audit.summary.agentic_suite_ready}
+- Frontier agent runs: ${audit.summary.eligible_frontier_agent_runs}/${audit.summary.required_frontier_agent_runs}
 - Full thread goal complete: ${audit.summary.full_thread_goal_complete}
 - Completion claim allowed: ${audit.summary.completion_claim_allowed}
 

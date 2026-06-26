@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Promote frontier agent runs to the benchmark target
+
+Decision: Add an agentic large-corpus layer and make completion depend on real frontier tool-using agent runs, not single-call model baselines over preselected evidence packets.
+
+Rationale: The previous pilot proved that packet QA and weak/small model baselines could be scored, but it did not test the user's actual target: Codex CLI, Claude Code, or equivalent agents using current best models must search a corpus, reject distractors, cite exact evidence, and still measurably fail on hard grounded research operations.
+
+Consequence: `scripts/hard-grounded-research-agentic-suite.mjs` now emits `generated/agentic-research-suite.json` and `AGENTIC_RESEARCH_SUITE.md`; `scripts/hard-grounded-research-agentic-readiness.mjs` blocks completion until eligible frontier agent runs exist; `scripts/hard-grounded-research-agentic-evaluate.mjs` provides deterministic no-LLM-judge scoring for agent submissions.
+
 ## 2026-06-26 — Resolve the repository build gate with React types
 
 Decision: Add the missing React type declaration package and keep strict TypeScript enabled, rather than weakening `tsconfig` or bypassing `tsc` in the build script.
