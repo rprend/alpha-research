@@ -8,6 +8,7 @@ const materializedPath = join(generatedDir, 'materialized-examples.json')
 const rubricsPath = join(experimentDir, 'rubrics.json')
 const baselineSubmissionPath = join(generatedDir, 'baseline-submission.json')
 const baselineReportPath = join(generatedDir, 'baseline-report.json')
+const baselineComparisonsPath = join(generatedDir, 'baseline-comparisons.json')
 
 function assert(condition, message) {
   if (!condition) throw new Error(message)
@@ -52,6 +53,34 @@ function buildBaselineSubmission(materialized) {
       task_id: task.task_id,
       answer: expectedAnswer(task),
       citations: unique(flattenRequiredEvidence(task).map((evidence) => evidence.id)),
+      abstained: normalize(expectedAnswer(task)) === 'abstain',
+    })),
+  }
+}
+
+function buildNoCitationBaseline(materialized) {
+  return {
+    benchmark_id: 'hard-grounded-research-benchmark',
+    system_id: 'answer-only-no-citation-baseline',
+    description: 'Diagnostic weak baseline that predicts the native answer but provides no citations.',
+    answers: materialized.task_examples.map((task) => ({
+      task_id: task.task_id,
+      answer: expectedAnswer(task),
+      citations: [],
+      abstained: normalize(expectedAnswer(task)) === 'abstain',
+    })),
+  }
+}
+
+function buildFirstCitationBaseline(materialized) {
+  return {
+    benchmark_id: 'hard-grounded-research-benchmark',
+    system_id: 'first-evidence-only-baseline',
+    description: 'Diagnostic weak baseline that predicts the native answer and cites only the first available evidence unit.',
+    answers: materialized.task_examples.map((task) => ({
+      task_id: task.task_id,
+      answer: expectedAnswer(task),
+      citations: unique(flattenRequiredEvidence(task).slice(0, 1).map((evidence) => evidence.id)),
       abstained: normalize(expectedAnswer(task)) === 'abstain',
     })),
   }
@@ -165,10 +194,24 @@ const submission = submissionPath ? readJson(join(root, submissionPath)) : build
 const report = scoreSubmission(materialized, rubrics, submission)
 
 if (!submissionPath) {
+  const baselineSubmissions = [
+    submission,
+    buildNoCitationBaseline(materialized),
+    buildFirstCitationBaseline(materialized),
+  ]
+  const comparisonReports = baselineSubmissions.map((baseline) => scoreSubmission(materialized, rubrics, baseline))
   writeJson(baselineSubmissionPath, submission)
   writeJson(baselineReportPath, report)
+  writeJson(baselineComparisonsPath, {
+    benchmark_id: 'hard-grounded-research-benchmark',
+    reports: comparisonReports.map((comparisonReport) => ({
+      system_id: comparisonReport.system_id,
+      summary: comparisonReport.summary,
+    })),
+  })
   console.log(`Wrote baseline submission to ${baselineSubmissionPath}`)
   console.log(`Wrote baseline report to ${baselineReportPath}`)
+  console.log(`Wrote baseline comparisons to ${baselineComparisonsPath}`)
 }
 
 console.log(`Scored ${report.summary.task_count} tasks for ${report.system_id}.`)

@@ -166,6 +166,10 @@ assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/baseline-report.json')),
   'Missing hard grounded research baseline report.',
 )
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/generated/baseline-comparisons.json')),
+  'Missing hard grounded research baseline comparisons.',
+)
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')
 assert(existsSync(join(root, 'scripts/gutenberg-pipeline-lib.mjs')), 'Missing shared Gutenberg high-recall pipeline library.')

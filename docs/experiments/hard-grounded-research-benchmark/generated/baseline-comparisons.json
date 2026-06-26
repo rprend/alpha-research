@@ -1,0 +1,263 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "reports": [
+    {
+      "system_id": "native-label-plus-all-evidence-baseline",
+      "summary": {
+        "task_count": 10,
+        "rubric_dimension_count": 30,
+        "macro": {
+          "answer_correct": 1,
+          "evidence_recall": 1,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "abstention_quality": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "table + text reasoning": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "source authority conflicts": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "entity disambiguation": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "cross-document contradiction": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          }
+        }
+      }
+    },
+    {
+      "system_id": "answer-only-no-citation-baseline",
+      "summary": {
+        "task_count": 10,
+        "rubric_dimension_count": 30,
+        "macro": {
+          "answer_correct": 1,
+          "evidence_recall": 0,
+          "citation_precision": 0,
+          "citation_faithfulness": 0,
+          "abstention_quality": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "table + text reasoning": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "source authority conflicts": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "entity disambiguation": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          },
+          "cross-document contradiction": {
+            "answer_correct": 1,
+            "evidence_recall": 0,
+            "citation_precision": 0,
+            "citation_faithfulness": 0,
+            "abstention_quality": 1
+          }
+        }
+      }
+    },
+    {
+      "system_id": "first-evidence-only-baseline",
+      "summary": {
+        "task_count": 10,
+        "rubric_dimension_count": 30,
+        "macro": {
+          "answer_correct": 1,
+          "evidence_recall": 0.45,
+          "citation_precision": 1,
+          "citation_faithfulness": 1,
+          "abstention_quality": 1
+        },
+        "by_category": {
+          "multi-hop synthesis": {
+            "answer_correct": 1,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "stale-vs-current document conflicts": {
+            "answer_correct": 1,
+            "evidence_recall": 0.3333,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "appended document lifecycle changes": {
+            "answer_correct": 1,
+            "evidence_recall": 1,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "table + text reasoning": {
+            "answer_correct": 1,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "source authority conflicts": {
+            "answer_correct": 1,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "evidence insufficiency / abstention": {
+            "answer_correct": 1,
+            "evidence_recall": 0.5,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "citation supports fact but not conclusion": {
+            "answer_correct": 1,
+            "evidence_recall": 0.25,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "entity disambiguation": {
+            "answer_correct": 1,
+            "evidence_recall": 0.3333,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "temporal questions: as of date X": {
+            "answer_correct": 1,
+            "evidence_recall": 0.3333,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          },
+          "cross-document contradiction": {
+            "answer_correct": 1,
+            "evidence_recall": 0.25,
+            "citation_precision": 1,
+            "citation_faithfulness": 1,
+            "abstention_quality": 1
+          }
+        }
+      }
+    }
+  ]
+}

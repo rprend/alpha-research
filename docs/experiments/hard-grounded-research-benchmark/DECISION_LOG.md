@@ -31,3 +31,11 @@ Decision: Promote the ten hard-research categories from labels into an explicit 
 Rationale: A larger benchmark would be weak if annotators and evaluators interpreted categories differently. The novelty audit also identified category-specific rubrics as required work before any paper-worthy claim.
 
 Consequence: `rubrics.json` now defines task goals, required dimensions, strong answers, near misses, and hard negatives for every category, and the evaluator includes rubric dimensions in score reports.
+
+## 2026-06-26 — Add diagnostic weak baselines
+
+Decision: Add deterministic non-oracle diagnostic baselines before integrating model runners.
+
+Rationale: The native-label baseline is useful only as an evaluator sanity check because it has access to gold answers and all required citations. A paper benchmark also needs simple systems that visibly fail on evidence recall and citation faithfulness, so the benchmark can show its scoring surface catches grounded-research failures.
+
+Consequence: `benchmark:hard-grounded:evaluate` now emits `baseline-comparisons.json` with oracle, answer-only/no-citation, and first-evidence-only systems.
