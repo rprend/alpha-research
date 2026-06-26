@@ -1,0 +1,189 @@
+{
+  "run_id": "drag-like-rag-distillation-comparison-2026-06-26-v1",
+  "generated_at": "2026-06-26T16:59:21.987Z",
+  "comparison_type": "drag_like_generic_rag_distillation_comparison",
+  "scope": "extended_temporal_future_holdout examples 321-389",
+  "related_work_framing": {
+    "close_neighbor": "DRAG-like RAG-to-small-language-model distillation.",
+    "comparable_axis": "A smaller or cheaper model/scaffold answers from a compact retrieved evidence pack.",
+    "non_comparable_axis": "This project requires dated/evolving-KB splits, inline evidence citations, support-aware abstention, and judged citation-grounded correctness rather than answer-only utility."
+  },
+  "systems": [
+    {
+      "id": "direct_mini_rag_student",
+      "comparison_role": "generic_rag_to_small_model_reference",
+      "source_run": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "judge_run": "openai-judge-gpt4o-citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "examples": 69,
+      "answered": 53,
+      "answer_rate": 0.7681159420289855,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.8115942028985508,
+        "citation_precision": 0.6823899371069182,
+        "citation_recall": 0.7727272727272727,
+        "answer_token_f1": 0.3216222076714647,
+        "abstention_accuracy": 0.8115942028985508,
+        "inline_citation_rate": 1
+      },
+      "support_metrics": {
+        "answer_support_rate": 0.6415094339622641,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7246376811594203,
+        "examples_judged": 69,
+        "answered_predictions": 53
+      },
+      "cost": {
+        "student_calls": 69,
+        "student_estimated_cost_usd": 0.02715315,
+        "local_scaffold_calls": 0,
+        "local_scaffold_cost_usd": 0,
+        "judge_calls": 69,
+        "judge_cost_usd": 0.133735
+      },
+      "interpretation": "Closest available generic direct-RAG student baseline: compact evidence pack in, answer with citations out, no support-aware post-training beyond local citation-contract repair."
+    },
+    {
+      "id": "zero_call_risk_gate_over_direct_student",
+      "comparison_role": "cheap_scaffold_over_generic_rag_student",
+      "source_run": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "judge_run": "openai-judge-gpt4o-risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "examples": 69,
+      "answered": 44,
+      "answer_rate": 0.6376811594202898,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.7391304347826086,
+        "citation_precision": 0.6628787878787878,
+        "citation_recall": 0.6136363636363636,
+        "answer_token_f1": 0.26451310465327077,
+        "abstention_accuracy": 0.7391304347826086,
+        "inline_citation_rate": 1
+      },
+      "support_metrics": {
+        "answer_support_rate": 0.7045454545454546,
+        "abstention_support_rate": 0.96,
+        "overall_judged_correct_rate": 0.7971014492753623,
+        "examples_judged": 69,
+        "answered_predictions": 44
+      },
+      "cost": {
+        "student_calls": 0,
+        "local_scaffold_calls": 0,
+        "local_scaffold_cost_usd": 0,
+        "judge_calls": 69,
+        "judge_cost_usd": 0.13975750000000003
+      },
+      "interpretation": "A cheap amortized scaffold can improve judged correctness over direct repair, but it does so by suppressing answers and losing answer/citation recall."
+    },
+    {
+      "id": "zero_call_extractive_distilled_scaffold",
+      "comparison_role": "local_distilled_rag_scaffold_floor",
+      "source_run": "temporal-packet-scaffold-mini-negative-161-320-to-321-389-v1",
+      "judge_run": null,
+      "examples": 69,
+      "answered": 22,
+      "answer_rate": 0.3188405797101449,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.6811594202898551,
+        "citation_precision": 0.6363636363636364,
+        "citation_recall": 0.2159090909090909,
+        "answer_token_f1": 0.061217275715911394,
+        "abstention_accuracy": 0.6811594202898551,
+        "inline_citation_rate": 1
+      },
+      "support_metrics": null,
+      "cost": {
+        "student_calls": 0,
+        "local_scaffold_calls": 0,
+        "local_scaffold_cost_usd": 0,
+        "judge_calls": 0,
+        "judge_cost_usd": 0
+      },
+      "interpretation": "A true zero-call local scaffold trained from distilled labels is cheap but underpowered on the final window: it over-abstains and has weak answer F1/recall."
+    },
+    {
+      "id": "zero_call_span_distilled_scaffold",
+      "comparison_role": "local_distilled_span_scaffold",
+      "source_run": "temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1",
+      "judge_run": "openai-judge-gpt4o-temporal-span-scaffold-mini-negative-161-320-to-321-389-v1",
+      "examples": 69,
+      "answered": 52,
+      "answer_rate": 0.7536231884057971,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.8840579710144928,
+        "citation_precision": 0.5961538461538461,
+        "citation_recall": 0.5795454545454546,
+        "answer_token_f1": 0.13812085121292028,
+        "abstention_accuracy": 0.2463768115942029,
+        "inline_citation_rate": 1
+      },
+      "support_metrics": {
+        "answer_support_rate": 0.19230769230769232,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.391304347826087,
+        "examples_judged": 69,
+        "answered_predictions": 52
+      },
+      "cost": {
+        "student_calls": 0,
+        "local_scaffold_calls": 0,
+        "local_scaffold_cost_usd": 0,
+        "judge_calls": 69,
+        "judge_cost_usd": 0.14113749999999997
+      },
+      "interpretation": "Distilling to a span selector improves coverage over the extractive floor, but judged answer support remains low because selected spans can be topically relevant without answering the question."
+    },
+    {
+      "id": "local_qwen05b_sft_answer_repeat2",
+      "comparison_role": "tiny_foundation_model_distillation_failure_mode",
+      "source_run": "citation-contract-repair-local-generative-sft-answer-repeat2-mini-negative-temporal-qwen05b-321-389-v1",
+      "judge_run": "openai-judge-gpt4o-local-generative-sft-answer-repeat2-repair-qwen05b-321-389-v1",
+      "examples": 69,
+      "answered": 40,
+      "answer_rate": 0.5797101449275363,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.5652173913043478,
+        "citation_precision": 0.3311965811965812,
+        "citation_recall": 0.3068181818181818,
+        "answer_token_f1": 0.1387280335952987,
+        "abstention_accuracy": 0.5652173913043478,
+        "inline_citation_rate": 0.975
+      },
+      "support_metrics": {
+        "answer_support_rate": 0.05,
+        "abstention_support_rate": 0.9310344827586207,
+        "overall_judged_correct_rate": 0.42028985507246375,
+        "examples_judged": 69,
+        "answered_predictions": 40
+      },
+      "cost": {
+        "student_calls": 0,
+        "local_scaffold_calls": 0,
+        "local_scaffold_cost_usd": 0,
+        "judge_calls": 69,
+        "judge_cost_usd": 0.15280499999999994
+      },
+      "interpretation": "Naive local SFT on compact RAG labels can learn to emit cited answers but does not preserve support, showing why the paper needs support-aware joint-action data rather than generic SFT."
+    }
+  ],
+  "synthesis": {
+    "headline": "Generic RAG distillation is an insufficient baseline unless it is judged on support and abstention under temporal update splits.",
+    "observations": [
+      "The direct-mini RAG student plus citation repair reaches 72.5% GPT-4o judged correctness and 64.2% answer support, but still leaves unsupported answered claims.",
+      "A zero-call risk gate improves overall judged correctness to 79.7% and answer support to 70.5%, but answers fewer examples and loses reference recall/F1.",
+      "Zero-call distilled local scaffolds are materially cheaper but not competitive: the extractive scaffold answers 22/69 with 6.1% answer F1, while the span scaffold answers 52/69 but only 19.2% of answered spans are judged supported.",
+      "The local Qwen 0.5B answer-repeat SFT result demonstrates the generic-SFT failure mode: 97.5% inline citation compliance with only 5.0% answer support."
+    ],
+    "conclusion_for_paper": "A DRAG-like comparison should be framed as a close baseline family, but the novel target is support-preserving data construction over evolving/private KBs. The next model result must show whether joint-action SFT/DPO improves support without relying on per-query teacher or verifier calls.",
+    "true_drag_reproduction_needed": [
+      "Implement DRAG's exact teacher/student protocol if a reviewer asks for apples-to-apples reproduction.",
+      "Evaluate it on the same final dated/private KB window with the same GPT-4o support judge.",
+      "Report answer support, abstention support, citation precision/recall, and total inference cost rather than answer F1 alone."
+    ]
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This comparison reuses existing prediction and judge artifacts; it makes no new API calls and creates no GPU job."
+  }
+}

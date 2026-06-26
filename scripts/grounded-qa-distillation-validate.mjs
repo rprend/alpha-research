@@ -67,6 +67,7 @@ if (!errors.length) {
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
   await validateNoveltyWatchlistRunsIfPresent();
+  await validateDragStyleComparisonRunsIfPresent();
   await validateCitationSftComparisonRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
 }
@@ -1466,6 +1467,53 @@ async function validateCitationSftComparisonRunsIfPresent() {
     });
     if (!syntaxSupportGap) {
       errors.push(`${entry.name}: citation-SFT comparison must demonstrate that high citation syntax compliance can coexist with low answer support.`);
+    }
+  }
+}
+
+async function validateDragStyleComparisonRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || (!entry.name.startsWith("drag-like-rag-distillation-comparison-") && !entry.name.startsWith("generic-rag-distill-comparison-"))) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed DRAG-style comparison artifacts.`);
+      continue;
+    }
+    if (result.comparison_type !== "drag_like_generic_rag_distillation_comparison") {
+      errors.push(`${entry.name}: comparison_type must be drag_like_generic_rag_distillation_comparison.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: DRAG-style comparison must be zero-cost.`);
+    }
+    if (!Array.isArray(result.systems) || result.systems.length < 4) {
+      errors.push(`${entry.name}: DRAG-style comparison must include generic, scaffold, and local student systems.`);
+      continue;
+    }
+    const roles = new Set(result.systems.map((row) => row.comparison_role));
+    for (const role of ["generic_rag_to_small_model_reference", "cheap_scaffold_over_generic_rag_student", "local_distilled_rag_scaffold_floor", "tiny_foundation_model_distillation_failure_mode"]) {
+      if (!roles.has(role)) errors.push(`${entry.name}: missing comparison role ${role}.`);
+    }
+    const judged = result.systems.filter((row) => row.support_metrics);
+    if (judged.length < 3) errors.push(`${entry.name}: DRAG-style comparison must include at least three judged systems.`);
+    const nonComparable = String(result.related_work_framing?.non_comparable_axis ?? "").toLowerCase();
+    if (!nonComparable.includes("evolving") || !nonComparable.includes("support")) {
+      errors.push(`${entry.name}: DRAG-style comparison must document evolving-KB/support non-comparability.`);
+    }
+    if (!Array.isArray(result.synthesis?.true_drag_reproduction_needed) || result.synthesis.true_drag_reproduction_needed.length < 2) {
+      errors.push(`${entry.name}: DRAG-style comparison must state what a true DRAG reproduction would require.`);
     }
   }
 }

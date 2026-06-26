@@ -831,3 +831,13 @@ Reason: LongCite-style citation SFT is a close related-work neighbor, so the pap
 Result: The paper-readiness gate now reports 7 of 12 requirements passing and 5 blockers remaining: no trained Qwen 3B joint-action eval result, no grounded-correctness judge pass for that student, no DRAG-like generic RAG distillation comparison, no WriteBack-RAG-style KB amortization baseline or scoped exclusion, and no trusted dated/private KB snapshot beyond inferred arXiv/paper-id temporalization.
 
 Tradeoff: This is a framing comparison, not a full LongCite reproduction. It is enough to retire the missing citation-SFT-comparison blocker, but it does not replace the needed Qwen 3B joint-action run or the stronger evolving-KB evidence requirement.
+
+### D104. Add a DRAG-like generic RAG distillation comparison
+
+Decision: Add `grounded-qa-distillation-drag-style-comparison.mjs`, run `drag-like-rag-distillation-comparison-2026-06-26-v1`, validate the artifact, and rerun `paper-readiness-gate-2026-06-26-v1`.
+
+Reason: DRAG-like RAG-to-small-language-model distillation is the closest broad related-work family. The comparison should not pretend to be a full DRAG reproduction, but it should make the generic-RAG baseline pressure explicit. The new artifact reuses existing final-window predictions and `gpt-4o` support judgments. The closest generic direct-mini RAG student plus citation repair reaches 72.5% judged correctness and 64.2% answer support. A zero-call risk gate over that student improves judged correctness to 79.7% and answer support to 70.5%, but suppresses answers and lowers reference recall/F1. The local extractive and span scaffolds are cheaper but underpowered, and the local Qwen 0.5B answer-repeat SFT run shows the generic-SFT failure mode: 97.5% inline citation compliance with only 5.0% answer support. This makes zero OpenAI calls, creates no GPU job, and leaves actual spend at $5.87832365.
+
+Result: The paper-readiness gate now reports 8 of 12 requirements passing and 4 blockers remaining: no trained Qwen 3B joint-action eval result, no grounded-correctness judge pass for that student, no WriteBack-RAG-style KB amortization baseline or scoped exclusion, and no trusted dated/private KB snapshot beyond inferred arXiv/paper-id temporalization.
+
+Tradeoff: This is a same-window framing and non-comparability artifact, not a faithful DRAG reproduction. It is enough to remove the missing generic-RAG-distillation comparison blocker, but a true DRAG reproduction may still be needed for a paper if reviewers demand apples-to-apples protocol matching.

@@ -19,6 +19,7 @@ const totalBudget = await readJsonIfPresent(path.join(spendDir, "budget.json"));
 const llmBudget = await readJsonIfPresent(path.join(llmDir, "budget.json"));
 const extendedTemporalManifest = await readJsonIfPresent(path.join(dataDir, "extended_temporal-manifest.json"));
 const futureHoldoutManifest = await readJsonIfPresent(path.join(dataDir, "extended_temporal_future_holdout-manifest.json"));
+const dragStyleComparisonRunId = findRun(runIds, [/drag/i, /generic-rag-distill/i]);
 const citationSftComparisonRunId = findRun(runIds, [/longcite/i, /citation-sft-comparison/i]);
 
 const requirements = [
@@ -33,7 +34,7 @@ const requirements = [
   req("budgeted_prime_launch_plan", "Budget-gated Prime smoke launch plan exists with planned zero-actual-cost spend row.", hasRun(runIds, "joint-action-launch-plan-prime-qwen3b-smoke-v1"), evidenceRun("joint-action-launch-plan-prime-qwen3b-smoke-v1")),
   req("qwen3b_joint_action_smoke_result", "A bounded Qwen 3B joint-action smoke has actually trained and produced eval predictions.", hasAny(runIds, [/joint-action.*qwen3b.*(trained|student-eval|model-eval|predictions)/, /qwen3b.*joint-action.*(trained|student-eval|model-eval|predictions)/], ["joint-action-launch-plan", "joint-action-launch-preflight", "joint-action-gpu-prep", "gpu-launch-attempt"]), missing("No trained Qwen 3B joint-action result/eval artifact is present.")),
   req("grounded_correctness_eval_for_student", "The trained joint-action student has grounded-correctness judging on the final future window.", hasAny(runIds, [/openai-judge.*qwen3b.*joint-action/, /judge.*joint-action.*qwen3b/]), missing("No judge run exists for a Qwen 3B joint-action student.")),
-  req("drag_like_rag_distillation_comparison", "A generic RAG-to-SLM distillation comparison or documented non-comparability result exists.", hasAny(runIds, [/drag/i, /generic-rag-distill/i]), missing("No DRAG-like/generic RAG distillation comparison artifact is present.")),
+  req("drag_like_rag_distillation_comparison", "A generic RAG-to-SLM distillation comparison or documented non-comparability result exists.", Boolean(dragStyleComparisonRunId), dragStyleComparisonRunId ? evidenceRun(dragStyleComparisonRunId) : missing("No DRAG-like/generic RAG distillation comparison artifact is present.")),
   req("longcite_style_citation_sft_comparison", "A LongCite-style citation-SFT framing is compared using support metrics, not just citation syntax.", Boolean(citationSftComparisonRunId), citationSftComparisonRunId ? evidenceRun(citationSftComparisonRunId) : missing("No LongCite-style citation-SFT comparison artifact is present.")),
   req("writeback_kb_amortization_baseline", "A KB write-back/evidence-distillation baseline exists or is explicitly scoped out with evidence.", hasAny(runIds, [/writeback/i, /kb-write/i, /evidence-distillation-baseline/i]), missing("No WriteBack-RAG-style KB amortization baseline or scoped exclusion artifact is present.")),
   req("trusted_dated_or_private_kb_snapshot", "Evaluation uses trusted dated/private KB snapshots beyond arXiv-id-inferred temporal splits.", hasTrustedTemporalSource({ extendedTemporalManifest, futureHoldoutManifest }), {
@@ -69,7 +70,7 @@ const result = {
   next_actions: [
     "Refresh Prime auth or add HF credits, then run the bounded Qwen 3B joint-action smoke.",
     "Judge the trained Qwen 3B outputs for answer support, citation support, and abstention support on the held-out future window.",
-    "Add DRAG-like and WriteBack-RAG-style comparisons or documented scoped exclusions.",
+    "Add a WriteBack-RAG-style comparison or documented scoped exclusion.",
     "Replace arXiv-id-inferred temporal splits with trusted dated/private KB snapshots before strong evolving-KB claims.",
   ],
   llm_budget: {
