@@ -1059,3 +1059,13 @@ Reason: The blind second-pass judge result is useful only if it changes the pape
 Result: The manuscript draft now contains the concrete second-pass reliability caveat instead of generic judge-risk language. The reviewer-risk audit now records abstention-boundary instability as an explicit remaining risk rather than hiding it behind the aggregate 76.2% agreement number.
 
 Tradeoff: This makes the claims narrower and more conservative. It improves paper defensibility but does not produce the missing trained-student result or human adjudication.
+
+### D127. Add a fail-closed final-evidence checklist
+
+Decision: Add `grounded-qa-distillation-final-evidence-checklist.mjs`, materialize `final-evidence-checklist-qwen3b-2026-06-26-v1`, validate it, and wire it into the reviewer-risk audit.
+
+Reason: The project now has a ready Qwen 3B packet, remote smoke command, post-smoke judge pipeline, budget tracking, and judge-reliability audits, but the final evidence path still needs a single fail-closed checklist that prevents a partial GPU run or partial judge run from being mistaken for a paper-ready result. The checklist recomputes current actual spend after the second-pass reliability work (`$5.8931`), adds the planned `$4` GPU smoke and `$0.467165` Qwen judge estimates, and confirms the final evidence path is still under the `$100` cap at about `$10.3603`. It lists the exact missing artifacts: Qwen predictions/result/report/smoke manifest, integrity gate, dry judge, paid judge, Pareto-table update, regenerated manuscript/risk artifacts, and final novelty refresh. This makes zero OpenAI calls and launches no GPU jobs.
+
+Result: The remaining blockers are now executable acceptance criteria rather than prose. The paper cannot claim a trained smaller model preserves citation-grounded correctness until this checklist passes.
+
+Tradeoff: This does not repair Prime auth or create the Qwen 3B result. It reduces the chance of wasting the next GPU/auth window on incomplete evidence.

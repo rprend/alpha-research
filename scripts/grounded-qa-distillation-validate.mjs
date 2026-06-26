@@ -87,6 +87,7 @@ if (!errors.length) {
   await validateJudgeReliabilitySecondPassPlanRunsIfPresent();
   await validateJudgeReliabilitySecondPassRunRunsIfPresent();
   await validateAbstentionBoundaryReliabilityAuditRunsIfPresent();
+  await validateFinalEvidenceChecklistRunsIfPresent();
   await validateCostCoverageParetoRunsIfPresent();
 }
 
@@ -2147,6 +2148,61 @@ async function validateAbstentionBoundaryReliabilityAuditRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: abstention-boundary audit must be zero new cost.`);
+    }
+  }
+}
+
+async function validateFinalEvidenceChecklistRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("final-evidence-checklist-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed final evidence checklist artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "final_evidence_checklist") {
+      errors.push(`${entry.name}: unexpected final evidence checklist type.`);
+    }
+    if (!["final_evidence_missing", "all_final_evidence_present"].includes(result.status)) {
+      errors.push(`${entry.name}: unexpected final evidence checklist status.`);
+    }
+    if (!Array.isArray(result.acceptance_criteria) || result.acceptance_criteria.length < 8) {
+      errors.push(`${entry.name}: final evidence checklist must include the full acceptance path.`);
+    }
+    for (const id of ["smoke_artifacts_complete", "integrity_gate_ready", "dry_judge_full_coverage", "paid_judge_complete", "qwen3b_on_pareto_table"]) {
+      if (!result.acceptance_criteria.some((row) => row.id === id)) errors.push(`${entry.name}: missing acceptance criterion ${id}.`);
+    }
+    if (result.status === "final_evidence_missing" && !result.acceptance_criteria.some((row) => row.status === "fail")) {
+      errors.push(`${entry.name}: missing-evidence status must include failing criteria.`);
+    }
+    if (Number(result.current_budget_context?.current_actual_spend_usd) <= 0 || result.current_budget_context?.within_budget !== true) {
+      errors.push(`${entry.name}: final evidence checklist must recompute an under-budget current spend.`);
+    }
+    if (!Array.isArray(result.execution_sequence) || result.execution_sequence.length < 4) {
+      errors.push(`${entry.name}: final evidence checklist must include executable sequence.`);
+    }
+    if (!Array.isArray(result.paper_claim_constraints) || !result.paper_claim_constraints.some((item) => String(item).includes("do not claim a trained smaller model"))) {
+      errors.push(`${entry.name}: final evidence checklist must constrain trained-model claims.`);
+    }
+    if (!report.includes("Acceptance Criteria") || !report.includes("Paper Claim Constraints")) {
+      errors.push(`${entry.name}: final evidence checklist report must expose acceptance criteria and claim constraints.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: final evidence checklist must be zero cost.`);
     }
   }
 }

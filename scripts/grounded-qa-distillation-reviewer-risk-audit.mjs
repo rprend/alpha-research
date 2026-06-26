@@ -23,6 +23,7 @@ const judgeSecondPassRun = await readResult("judge-reliability-second-pass-run-2
 const abstentionReliability = await readResult("abstention-boundary-reliability-audit-2026-06-26-v1");
 const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
+const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
 
 const risks = [
@@ -34,9 +35,10 @@ const risks = [
     current_evidence: [
       readiness.run_id,
       remoteSmoke.run_id,
+      finalEvidenceChecklist.run_id,
       evidenceMap.qwen3b_required_final_result.remote_smoke_plan_run_id,
     ],
-    mitigation_done: "The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated.",
+    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${finalEvidenceChecklist.run_id} now enumerates the exact final artifacts that must exist before this blocker can close.`,
     required_next_evidence: [
       "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
       "runs/joint-action-qwen3b-smoke-eval-v1/result.json",
@@ -51,6 +53,7 @@ const risks = [
     current_evidence: [
       readiness.run_id,
       postSmoke.run_id,
+      finalEvidenceChecklist.run_id,
       "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
     ],
     mitigation_done: "A fail-closed post-smoke pipeline now runs prediction integrity checks and dry judging before any paid OpenAI judge call.",
@@ -136,6 +139,7 @@ const risks = [
     current_evidence: [
       "prime-auth-diagnosis",
       primeCliAuthRecheck.run_id,
+      finalEvidenceChecklist.run_id,
       remoteSmoke.run_id,
       budget.generated_at,
     ],
