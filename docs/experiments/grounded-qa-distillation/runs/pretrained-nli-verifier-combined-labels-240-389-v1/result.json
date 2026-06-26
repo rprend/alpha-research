@@ -1,0 +1,195 @@
+{
+  "run_id": "pretrained-nli-verifier-combined-labels-240-389-v1",
+  "generated_at": "2026-06-26T11:09:42.784Z",
+  "label_prefix": "teacher-combined-mini-det-guard-future-holdout-240-389-v1",
+  "scope": "cross-window pretrained NLI verifier over balanced-gate candidate answers on extended_temporal_future_holdout examples 241-389",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "model": {
+    "model_id": "cross-encoder/nli-distilroberta-base",
+    "premise": "concatenated cited evidence text",
+    "hypotheses": "candidate answer plus individual claim-table claims",
+    "score": "minimum entailment probability across answer/claim hypotheses"
+  },
+  "data_summary": {
+    "examples": 149,
+    "answered": 90,
+    "abstained": 59,
+    "strong_keep": 119,
+    "strong_suppress": 30,
+    "answered_strong_keep": 63,
+    "answered_strong_suppress": 27
+  },
+  "baselines": {
+    "balanced_gate": {
+      "examples": 149,
+      "answered": 90,
+      "abstained": 59,
+      "answer_rate": 0.6040268456375839,
+      "support_oracle_correct": 119,
+      "support_oracle_correct_rate": 0.7986577181208053,
+      "answer_support_rate": 0.7,
+      "gate_fired": 0,
+      "suppressed_unsupported": 0,
+      "harmful_suppressed_supported": 0
+    },
+    "combined_teacher": {
+      "examples": 149,
+      "answered": 82,
+      "abstained": 67,
+      "answer_rate": 0.5503355704697986,
+      "support_oracle_correct": 125,
+      "support_oracle_correct_rate": 0.8389261744966443,
+      "answer_support_rate": 0.7560975609756098,
+      "gate_fired": 8,
+      "suppressed_unsupported": 7,
+      "harmful_suppressed_supported": 1
+    }
+  },
+  "aggregate": {
+    "policy_metrics": {
+      "examples": 149,
+      "answered": 87,
+      "abstained": 62,
+      "answer_rate": 0.5838926174496645,
+      "support_oracle_correct": 120,
+      "support_oracle_correct_rate": 0.8053691275167785,
+      "answer_support_rate": 0.7126436781609196,
+      "gate_fired": 3,
+      "suppressed_unsupported": 2,
+      "harmful_suppressed_supported": 1
+    },
+    "classification": {
+      "examples": 90,
+      "accuracy": 0.7111111111111111,
+      "keep_precision": 0.7126436781609196,
+      "keep_recall": 0.9841269841269841,
+      "suppress_precision": 0.6666666666666666,
+      "suppress_recall": 0.07407407407407407,
+      "true_keep": 62,
+      "true_suppress": 2,
+      "false_keep": 25,
+      "false_suppress": 1
+    },
+    "delta_vs_balanced_gate": {
+      "answered_delta": -3,
+      "support_oracle_correct_delta": 1,
+      "support_oracle_correct_rate_delta": 0.006711409395973145,
+      "answer_support_rate_delta": 0.012643678160919603,
+      "gate_fired_delta": 3
+    },
+    "delta_vs_combined_teacher": {
+      "answered_delta": 5,
+      "support_oracle_correct_delta": -5,
+      "support_oracle_correct_rate_delta": -0.033557046979865834,
+      "answer_support_rate_delta": -0.0434538828146902,
+      "gate_fired_delta": -5
+    }
+  },
+  "folds": [
+    {
+      "train_windows": [
+        "321-389"
+      ],
+      "eval_window": "241-320",
+      "train_examples": 44,
+      "eval_examples": 80,
+      "threshold": 0.005249153356999159,
+      "train_classification": {
+        "examples": 44,
+        "accuracy": 0.7272727272727273,
+        "keep_precision": 0.7209302325581395,
+        "keep_recall": 1,
+        "suppress_precision": 1,
+        "suppress_recall": 0.07692307692307693,
+        "true_keep": 31,
+        "true_suppress": 1,
+        "false_keep": 12,
+        "false_suppress": 0
+      },
+      "eval_classification": {
+        "examples": 46,
+        "accuracy": 0.6956521739130435,
+        "keep_precision": 0.6956521739130435,
+        "keep_recall": 1,
+        "suppress_precision": 0,
+        "suppress_recall": 0,
+        "true_keep": 32,
+        "true_suppress": 0,
+        "false_keep": 14,
+        "false_suppress": 0
+      },
+      "eval_policy_metrics": {
+        "examples": 80,
+        "answered": 46,
+        "abstained": 34,
+        "answer_rate": 0.575,
+        "support_oracle_correct": 64,
+        "support_oracle_correct_rate": 0.8,
+        "answer_support_rate": 0.6956521739130435,
+        "gate_fired": 0,
+        "suppressed_unsupported": 0,
+        "harmful_suppressed_supported": 0
+      },
+      "score_distribution": {
+        "min": 0.007739694323390722,
+        "median": 0.20351065695285797,
+        "max": 0.8767537474632263,
+        "supported_mean": 0.2956881859136047,
+        "unsupported_mean": 0.20851093677005597
+      }
+    },
+    {
+      "train_windows": [
+        "241-320"
+      ],
+      "eval_window": "321-389",
+      "train_examples": 46,
+      "eval_examples": 69,
+      "threshold": 0.007739694323390722,
+      "train_classification": {
+        "examples": 46,
+        "accuracy": 0.6956521739130435,
+        "keep_precision": 0.6956521739130435,
+        "keep_recall": 1,
+        "suppress_precision": 0,
+        "suppress_recall": 0,
+        "true_keep": 32,
+        "true_suppress": 0,
+        "false_keep": 14,
+        "false_suppress": 0
+      },
+      "eval_classification": {
+        "examples": 44,
+        "accuracy": 0.7272727272727273,
+        "keep_precision": 0.7317073170731707,
+        "keep_recall": 0.967741935483871,
+        "suppress_precision": 0.6666666666666666,
+        "suppress_recall": 0.15384615384615385,
+        "true_keep": 30,
+        "true_suppress": 2,
+        "false_keep": 11,
+        "false_suppress": 1
+      },
+      "eval_policy_metrics": {
+        "examples": 69,
+        "answered": 41,
+        "abstained": 28,
+        "answer_rate": 0.5942028985507246,
+        "support_oracle_correct": 56,
+        "support_oracle_correct_rate": 0.8115942028985508,
+        "answer_support_rate": 0.7317073170731707,
+        "gate_fired": 3,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 1
+      },
+      "score_distribution": {
+        "min": 0.0029498266521841288,
+        "median": 0.10896230489015579,
+        "max": 0.9304608702659607,
+        "supported_mean": 0.23402930196795252,
+        "unsupported_mean": 0.2610138692140866
+      }
+    }
+  ]
+}
