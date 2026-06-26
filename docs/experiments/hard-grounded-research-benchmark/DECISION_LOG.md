@@ -183,3 +183,11 @@ Decision: Generate per-batch, per-reviewer JSONL workbooks plus a workbook index
 Rationale: A double-review policy is not enough if reviewers still have to edit a shared raw queue. Independent workbook files make review assignment, completion, and later merge/adjudication auditable.
 
 Consequence: `benchmark:hard-grounded` now emits `generated/review-workbooks/*.jsonl`, `generated/review-workbooks/index.json`, and `REVIEW_WORKBOOKS.md` without marking any item reviewed.
+
+## 2026-06-26 — Validate workbook merge readiness
+
+Decision: Add a review-workbook merge validator that counts completed reviews, missing second reviews, disagreements, and invalid reviewer fields before queue merge.
+
+Rationale: Independent workbooks need a gate before they can affect adjudicated labels. The benchmark should prevent accidental gold promotion from incomplete, single-reviewed, or disagreeing rows.
+
+Consequence: `benchmark:hard-grounded:review-merge` now emits `generated/review-merge-report.json` and `REVIEW_MERGE_REPORT.md`; strict mode can fail until every item has two valid agreeing reviews.
