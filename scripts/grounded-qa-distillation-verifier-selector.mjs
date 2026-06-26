@@ -17,6 +17,9 @@ const rankInlinePenalty = numericArg(args["rank-inline-penalty"], -0.35);
 const abstentionMarginArg = args["abstention-margin"] === "auto"
   ? "auto"
   : numericArg(args["abstention-margin"], Number.NaN);
+const answerabilityGuardArg = args["answerability-guard"] === "auto"
+  ? "auto"
+  : numericArg(args["answerability-guard"], Number.NaN);
 const includeRecovery = args["include-recovery"] === "true" || args["recovery-run"] || args["recovery-eval-run"];
 const runId = args["run-id"] ?? `verifier-selector-${split}-${trainOffset}-${evalOffset}-v1`;
 const outputDir = path.join(runDir, runId);
@@ -72,9 +75,17 @@ const model = trainLogistic(trainExamples, { iterations: 2800, learningRate: 0.0
 const abstentionMargin = abstentionMarginArg === "auto"
   ? tuneAbstentionMargin(trainRows, model)
   : (Number.isFinite(abstentionMarginArg) ? abstentionMarginArg : null);
+const answerabilityFeatureNames = rowFeatureVector(trainRows[0], model).names;
+const answerabilityModel = trainLogistic(trainRows.map((row) => ({
+  x: rowFeatureVector(row, model).values,
+  y: row.reference.answer_type === "grounded_answer" ? 1 : 0,
+})), { iterations: 2200, learningRate: 0.08, l2: 0.03 });
+const answerabilityThreshold = answerabilityGuardArg === "auto"
+  ? tuneAnswerabilityThreshold(trainRows, model, abstentionMargin, answerabilityModel)
+  : (Number.isFinite(answerabilityGuardArg) ? answerabilityGuardArg : null);
 
-const selectedTrainRows = selectRows(trainRows, model, abstentionMargin);
-const selectedEvalRows = selectRows(evalRows, model, abstentionMargin);
+const selectedTrainRows = selectRows(trainRows, model, abstentionMargin, answerabilityModel, answerabilityThreshold);
+const selectedEvalRows = selectRows(evalRows, model, abstentionMargin, answerabilityModel, answerabilityThreshold);
 const result = {
   run_id: runId,
   generated_at: new Date().toISOString(),
@@ -100,6 +111,15 @@ const result = {
     rank_answer_bonus: rankAnswerBonus,
     rank_inline_penalty: rankInlinePenalty,
     abstention_margin: abstentionMargin,
+  },
+  answerability_guard: {
+    enabled: answerabilityThreshold != null,
+    target: "row is answerable on train examples",
+    feature_names: answerabilityFeatureNames,
+    weights: Object.fromEntries(answerabilityFeatureNames.map((name, index) => [name, answerabilityModel.weights[index]])),
+    bias: answerabilityModel.bias,
+    train_loss: answerabilityModel.loss,
+    threshold: answerabilityThreshold,
   },
   cost: {
     llm_calls: 0,
@@ -179,13 +199,12 @@ async function buildRows(referenceRows, role) {
   });
 }
 
-function selectRows(rows, model, abstentionMargin) {
+function selectRows(rows, model, abstentionMargin, answerabilityModel = null, answerabilityThreshold = null) {
   return rows.map((row) => {
-    const scored = Object.values(row.candidates).map((candidate) => ({
-      ...candidate,
-      verifier_score: predict(model, featureVector(candidate, row.candidates, row.input).values),
-    })).sort((a, b) => candidateRank(b) - candidateRank(a));
-    const selected = applyAbstentionOverride(scored, abstentionMargin);
+    const scored = scoreCandidates(row, model);
+    const marginSelected = applyAbstentionOverride(scored, abstentionMargin);
+    const answerabilityScore = answerabilityModel ? predict(answerabilityModel, rowFeatureVector(row, model).values) : null;
+    const selected = applyAnswerabilityGuard(marginSelected, scored, answerabilityScore, answerabilityThreshold);
     return {
       example_id: row.example_id,
       selected_policy: selected.policy,
@@ -198,8 +217,12 @@ function selectRows(rows, model, abstentionMargin) {
       target_good: selected.target_good,
       selection_metadata: {
         base_policy: scored[0].policy,
+        margin_policy: marginSelected.policy,
         abstention_margin: abstentionMargin,
+        answerability_score: answerabilityScore,
+        answerability_threshold: answerabilityThreshold,
         overridden_to_abstain: scored[0].policy !== selected.policy && selected.prediction.answer_type === "abstain",
+        answerability_guard_fired: marginSelected.policy !== selected.policy && selected.prediction.answer_type === "abstain",
       },
       candidate_summary: Object.fromEntries(scored.map((candidate) => [candidate.policy, {
         verifier_score: candidate.verifier_score,
@@ -215,15 +238,33 @@ function selectRows(rows, model, abstentionMargin) {
   });
 }
 
+function scoreCandidates(row, model) {
+  return Object.values(row.candidates).map((candidate) => ({
+    ...candidate,
+    verifier_score: predict(model, featureVector(candidate, row.candidates, row.input).values),
+  })).sort((a, b) => candidateRank(b) - candidateRank(a));
+}
+
 function tuneAbstentionMargin(rows, model) {
   const candidates = [-0.4, -0.3, -0.2, -0.15, -0.1, -0.05, 0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4];
-  let best = { margin: null, metrics: summarizeSelections(selectRows(rows, model, null)) };
+  let best = { margin: null, metrics: summarizeSelections(selectRows(rows, model, null, null, null)) };
   for (const margin of candidates) {
-    const selected = selectRows(rows, model, margin);
+    const selected = selectRows(rows, model, margin, null, null);
     const metrics = summarizeSelections(selected);
     if (marginBetter(metrics, best.metrics)) best = { margin, metrics };
   }
   return best.margin;
+}
+
+function tuneAnswerabilityThreshold(rows, model, abstentionMargin, answerabilityModel) {
+  const thresholds = [0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8];
+  let best = { threshold: null, metrics: summarizeSelections(selectRows(rows, model, abstentionMargin, null, null)) };
+  for (const threshold of thresholds) {
+    const selected = selectRows(rows, model, abstentionMargin, answerabilityModel, threshold);
+    const metrics = summarizeSelections(selected);
+    if (marginBetter(metrics, best.metrics)) best = { threshold, metrics };
+  }
+  return best.threshold;
 }
 
 function marginBetter(left, right) {
@@ -243,6 +284,12 @@ function applyAbstentionOverride(scored, abstentionMargin) {
   if (!abstainer) return top;
   const gap = candidateRank(top) - candidateRank(abstainer);
   return gap <= abstentionMargin ? abstainer : top;
+}
+
+function applyAnswerabilityGuard(selected, scored, answerabilityScore, threshold) {
+  if (threshold == null || answerabilityScore == null || selected.prediction.answer_type !== "grounded_answer") return selected;
+  if (answerabilityScore >= threshold) return selected;
+  return scored.find((candidate) => candidate.prediction.answer_type === "abstain") ?? selected;
 }
 
 function candidateRank(candidate) {
@@ -313,6 +360,44 @@ function featureVector(candidate, candidates, input) {
     evidenceFeatures.question_pack_max_overlap,
     evidenceFeatures.question_pack_mean_overlap,
     prediction.answer_type === "abstain" ? evidenceFeatures.question_pack_max_overlap : 0,
+  ];
+  return { names, values };
+}
+
+function rowFeatureVector(row, model) {
+  const scored = scoreCandidates(row, model);
+  const top = scored[0];
+  const abstainer = scored.find((candidate) => candidate.prediction.answer_type === "abstain");
+  const answerers = scored.filter((candidate) => candidate.prediction.answer_type === "grounded_answer");
+  const evidencePack = row.input?.evidence_pack ?? [];
+  const questionTokens = contentTokens(row.input?.question ?? "");
+  const evidenceOverlaps = evidencePack.map((evidence) => tokenCoverage(questionTokens, contentTokens(evidence.text)));
+  const topEvidenceFeatures = evidenceAlignmentFeatures(top.prediction, row.input);
+  const names = [
+    "top_answered",
+    "top_verifier_score",
+    "top_to_abstain_rank_gap",
+    "answered_candidate_rate",
+    "abstain_candidate_rate",
+    "max_question_evidence_overlap",
+    "mean_question_evidence_overlap",
+    "top_answer_cited_unigram_coverage",
+    "top_question_cited_overlap",
+    "top_same_type_policy_count",
+    "top_same_citation_policy_count",
+  ];
+  const values = [
+    top.prediction.answer_type === "grounded_answer" ? 1 : 0,
+    top.verifier_score,
+    abstainer ? candidateRank(top) - candidateRank(abstainer) : 1,
+    answerers.length / scored.length,
+    scored.filter((candidate) => candidate.prediction.answer_type === "abstain").length / scored.length,
+    evidenceOverlaps.length ? Math.max(...evidenceOverlaps) : 0,
+    mean(evidenceOverlaps),
+    topEvidenceFeatures.answer_cited_unigram_coverage,
+    topEvidenceFeatures.question_cited_overlap,
+    scored.filter((candidate) => candidate.prediction.answer_type === top.prediction.answer_type).length / scored.length,
+    scored.filter((candidate) => jaccard(candidate.prediction.citations, top.prediction.citations) >= 0.5).length / scored.length,
   ];
   return { names, values };
 }

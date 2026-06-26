@@ -174,6 +174,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/verifier-selector-recovery-pool-temporal-test-80-132-to-132-172-v1/` tests an answer-recovery candidate meant to address answerable examples where all previous policies abstain. The recovery candidate improves answer F1 but is unsafe: the recovery-pool selector over-selects it and drops held-out inherited judged correctness to 87.5%. Recovery is now an opt-in diagnostic candidate, not part of the default best scaffold.
 
+`runs/verifier-selector-answerability-guard-temporal-test-80-132-to-132-172-v1/` adds a row-level answerability guard over the best calibrated scaffold. It raises inherited judged correctness to 97.5%, but answers only 25 of 40 examples and loses answer F1. Treat this as a high-safety operating point, not the default balanced scaffold.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
