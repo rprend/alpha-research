@@ -114,6 +114,14 @@ function noveltyEvidenceRows(noveltyEvidence) {
   return noveltyEvidence.claim_guidance.map((claim) => [claim.claim, claim.status, claim.reason])
 }
 
+function noveltyComparisonRows(noveltyEvidence) {
+  return noveltyEvidence.comparison_dimensions.map((entry) => [
+    entry.dimension,
+    entry.closest_source_ids.join('<br>'),
+    entry.novelty_position,
+  ])
+}
+
 function topApproachRows(approachScores) {
   return approachScores.map((approach) => [
     approach.name,
@@ -266,9 +274,13 @@ ${markdownTable(['Check', 'Passed', 'Detail'], releaseCheckRows(releaseGate))}
 
 ## Novelty Position
 
-The novelty audit currently rejects broad claims such as "a RAG benchmark with citations" or "a contradiction benchmark." The defensible novelty position is the combined failure-mode bundle: document lifecycle, source authority, temporal validity, table/text interpretation, citation-overreach, insufficiency, disambiguation, and contradiction inside one executable grounded research QA harness.
+The novelty audit currently rejects broad claims such as "a RAG benchmark with citations" or "a contradiction benchmark." The defensible novelty position is the combined failure-mode bundle: document lifecycle, source authority, temporal validity, table/text interpretation, citation-overreach, insufficiency, disambiguation, and contradiction inside one executable grounded research QA harness. The current novelty evidence registry contains ${noveltyEvidence.source_count} sources and still disallows completion claims.
 
 ${markdownTable(['Claim', 'Status', 'Reason'], noveltyEvidenceRows(noveltyEvidence))}
+
+## Adversarial Related-Work Comparison
+
+${markdownTable(['Dimension', 'Closest source ids', 'Position to defend'], noveltyComparisonRows(noveltyEvidence))}
 
 ## Required Before Submission
 

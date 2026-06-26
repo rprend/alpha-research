@@ -575,3 +575,11 @@ Decision: Make the generated dataset card consume current release-gate, license-
 Rationale: The dataset card is the public-facing artifact a benchmark user will read first, so it must not lag behind the evidence used by the paper draft or release gate. It should clearly separate raw source-license blockers, packaged redistribution clearance, fixture-only workflow rehearsals, and true human-review blockers.
 
 Consequence: `scripts/hard-grounded-research-dataset-card.mjs` now emits review handoff readiness, import-path readiness, fixture promotion rehearsals, external model baseline rows, packaged license clearance, and key release-gate checks in `DATASET_CARD.md`.
+
+## 2026-06-26 — Stress-test novelty against closer 2025-2026 benchmarks
+
+Decision: Expand the novelty evidence registry with additional close work on step-level context faithfulness, RAG faithfulness metrics, temporal database QA, knowledge drift, claim-aware RAG, and entity ambiguity.
+
+Rationale: The paper should survive a skeptical related-work review, so the registry needs to identify nearby benchmarks and explicitly state which claims are not novel before making any positive contribution claim.
+
+Consequence: `scripts/hard-grounded-research-novelty-evidence.mjs` now emits a larger source registry plus an adversarial comparison table in `NOVELTY_EVIDENCE.md`; completion claims remain disabled until the final novelty audit and human-reviewed data are complete.

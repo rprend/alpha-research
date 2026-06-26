@@ -203,7 +203,7 @@ for (const token of ['challengeTypeSummary', 'by_challenge_type', 'Challenge-Typ
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs')), 'Missing hard grounded research paper draft builder.')
 const hardGroundedPaperDraftSource = readFileSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs'), 'utf8')
-for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'External Model Baselines', 'Review Execution Readiness', 'Release Gate Snapshot', 'license-clearance.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'Required Before Submission']) {
+for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'External Model Baselines', 'Review Execution Readiness', 'Release Gate Snapshot', 'Adversarial Related-Work Comparison', 'license-clearance.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'Required Before Submission']) {
   assert(hardGroundedPaperDraftSource.includes(token), `Hard grounded paper draft is missing manuscript token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-dataset-card.mjs')), 'Missing hard grounded research dataset card builder.')
@@ -278,7 +278,7 @@ for (const token of ['baseline-uncertainty.json', 'paired_comparisons', 'ci95_lo
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-novelty-evidence.mjs')), 'Missing hard grounded research novelty evidence builder.')
 const hardGroundedNoveltyEvidenceSource = readFileSync(join(root, 'scripts/hard-grounded-research-novelty-evidence.mjs'), 'utf8')
-for (const token of ['novelty-evidence.json', 'claim_guidance', 'plausibly_differentiated_pending_final_audit', 'completion_claim_allowed: false']) {
+for (const token of ['novelty-evidence.json', 'claim_guidance', 'comparison_dimensions', 'step-context-faithfulness-2026', 'tdbench-2025', 'knowledge-drift-2025', 'plausibly_differentiated_pending_final_audit', 'completion_claim_allowed: false']) {
   assert(hardGroundedNoveltyEvidenceSource.includes(token), `Hard grounded novelty evidence builder is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-model-run-index.mjs')), 'Missing hard grounded research model run index.')

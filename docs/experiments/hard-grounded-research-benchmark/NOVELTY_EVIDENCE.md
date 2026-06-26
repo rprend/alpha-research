@@ -5,7 +5,7 @@ This generated registry records related-work evidence checked for the benchmark 
 ## Summary
 
 - Date checked: 2026-06-26
-- Sources: 12
+- Sources: 18
 - Evidence status: preliminary_registry_not_final_completion_audit
 - Completion claim allowed: false
 
@@ -25,6 +25,12 @@ This generated registry records related-work evidence checked for the benchmark 
 | longbench-pro-2026 | [LongBench Pro: A More Realistic and Comprehensive Bilingual Long-Context Evaluation Benchmark](https://huggingface.co/datasets/caskcsg/LongBench-Pro) | 2026 | long-context evaluation<br>realistic reasoning tasks | Cite as close long-context evaluation work; use it to avoid overclaiming novelty from long inputs or hard examples alone. |
 | longcite-2024 | [LongCite and LongBench-Cite](https://github.com/THUDM/LongCite) | 2024 | citation supports fact but not conclusion<br>citation faithfulness<br>long-context QA | Cite as close citation benchmark; define our differentiator as conclusion support rather than citation presence or localized attribution alone. |
 | 100-longbench-2025 | [100-LongBench: Are de facto Long-Context Benchmarks Literally Evaluating Long-Context Ability?](https://aclanthology.org/2025.findings-acl.903/) | 2025 | long-context evaluation validity | Cite for benchmark-design caution; use to justify controlled hard-grounded failure modes rather than context length as the central axis. |
+| step-context-faithfulness-2026 | [A Benchmark for Evaluating Step-by-Step Context Faithfulness in Retrieval-Augmented Language Models](https://arxiv.org/html/2601.09414v2) | 2026 | citation supports fact but not conclusion<br>evidence insufficiency / abstention<br>intermediate-step faithfulness | Cite as close work on faithfulness of reasoning steps to retrieved context; distinguish our conclusion-overreach category by requiring citations that support a fact but not the final research conclusion. |
+| ragbench-leaderboard-2025 | [Evaluation of RAG Metrics for Question Answering in the Telecom Domain](https://arxiv.org/html/2503.06887v2) | 2025 | RAG faithfulness metrics<br>answer relevance<br>domain QA | Cite as evidence that RAG faithfulness and answer-quality metrics are already benchmarked; position our contribution as task construction for hard grounded research failures rather than another metric leaderboard. |
+| tdbench-2025 | [TDBench: A Benchmark for Temporal Database Question Answering](https://openreview.net/forum?id=qJmLk5mSZz) | 2025 | temporal questions: as of date X<br>temporal database QA<br>time-aware retrieval | Cite as close temporal QA work; distinguish hard-grounded as-of-date tasks by evidence snapshot validity, stale/current document conflict, and citation-grounded abstention rather than database temporal querying alone. |
+| knowledge-drift-2025 | [Has Your Knowledge Been Updated or Still Outdated? Understanding and Detecting Knowledge Drift in Large Language Models](https://arxiv.org/html/2504.08700v1) | 2025 | stale-vs-current document conflicts<br>knowledge drift<br>temporal validity | Cite as close knowledge-drift work; keep the benchmark claim focused on document-grounded conflict resolution where both stale and current evidence are visible. |
+| decaf-2025 | [Claim-Aware RAG: Truthful & Reliable Long-Form Generation with Dynamic Evidence Trees](https://arxiv.org/html/2502.20129v1) | 2025 | claim-level RAG<br>citation faithfulness<br>long-form grounded generation | Cite as close claim-aware RAG work; distinguish this benchmark by evaluating failure categories across research QA items rather than proposing a generation architecture. |
+| entitymatch-2025 | [EntityMatch: Evaluating Entity Ambiguity in Visual Language Models](https://openreview.net/forum?id=8mF1lKKDEi) | 2025 | entity disambiguation<br>ambiguous named entities | Cite as evidence that entity ambiguity is an active benchmark dimension; frame our entity-disambiguation tasks around textual corpus-grounded research QA and citation requirements. |
 
 ## Claim Guidance
 
@@ -39,13 +45,23 @@ This generated registry records related-work evidence checked for the benchmark 
 
 | Category | Novelty risk | Closest source ids |
 | --- | --- | --- |
-| multi-hop synthesis | high | occ-rag-2026<br>bridge-2026 |
-| stale-vs-current document conflicts | medium | chronoqa-2025 |
+| multi-hop synthesis | high | occ-rag-2026<br>bridge-2026<br>decaf-2025 |
+| stale-vs-current document conflicts | medium | chronoqa-2025<br>knowledge-drift-2025 |
 | appended document lifecycle changes | low | bridge-2026 |
 | table + text reasoning | high | bridge-2026<br>t2-ragbench-2026 |
-| source authority conflicts | medium | citation-closure-2026<br>legal-claim-rag-2026<br>lit-ragbench-2026 |
-| evidence insufficiency / abstention | high | occ-rag-2026<br>lit-ragbench-2026 |
-| citation supports fact but not conclusion | medium | longcite-2024 |
-| entity disambiguation | medium | occ-rag-2026 |
-| temporal questions: as of date X | high | chronoqa-2025 |
+| source authority conflicts | medium | citation-closure-2026<br>legal-claim-rag-2026<br>lit-ragbench-2026<br>decaf-2025 |
+| evidence insufficiency / abstention | high | occ-rag-2026<br>lit-ragbench-2026<br>step-context-faithfulness-2026 |
+| citation supports fact but not conclusion | medium | longcite-2024<br>step-context-faithfulness-2026<br>ragbench-leaderboard-2025 |
+| entity disambiguation | medium | occ-rag-2026<br>entitymatch-2025 |
+| temporal questions: as of date X | high | chronoqa-2025<br>tdbench-2025<br>knowledge-drift-2025 |
 | cross-document contradiction | high | lit-ragbench-2026<br>legal-claim-rag-2026 |
+
+## Adversarial Novelty Comparison
+
+| Dimension | Closest source ids | Position to defend |
+| --- | --- | --- |
+| Context length or corpus realism | corpusqa-2026<br>longbench-pro-2026<br>enterprise-rag-bench-2026 | Not novel alone; use these sources to avoid overclaiming scale and to motivate controlled failure categories inside large-corpus research QA. |
+| Temporal validity | chronoqa-2025<br>tdbench-2025<br>knowledge-drift-2025 | Not novel alone; hard-grounded research should focus on as-of-date citation semantics, stale/current document conflict, and visible evidence-state changes. |
+| Citation faithfulness | longcite-2024<br>step-context-faithfulness-2026<br>ragbench-leaderboard-2025 | Not novel alone; the benchmark must test whether citations support the final conclusion, not merely whether cited spans are relevant to local facts. |
+| Source authority and claim-level evidence | citation-closure-2026<br>legal-claim-rag-2026<br>decaf-2025 | Partly covered elsewhere; the defensible angle is combining authority conflicts with lifecycle, temporal, insufficiency, and contradiction tasks under one annotation protocol. |
+| Entity ambiguity | entitymatch-2025<br>occ-rag-2026 | Not novel as a standalone phenomenon; include it because large-corpus research QA frequently fails by citing the right-looking source for the wrong entity. |

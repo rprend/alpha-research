@@ -189,11 +189,11 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | baseline_uncertainty_present | yes | 3 systems with descriptive task-level intervals |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
 | novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 |
-| novelty_evidence_registry_present | yes | 12 related-work sources registered; completion_claim_allowed=false |
+| novelty_evidence_registry_present | yes | 18 related-work sources registered; completion_claim_allowed=false |
 
 ## Novelty Position
 
-The novelty audit currently rejects broad claims such as "a RAG benchmark with citations" or "a contradiction benchmark." The defensible novelty position is the combined failure-mode bundle: document lifecycle, source authority, temporal validity, table/text interpretation, citation-overreach, insufficiency, disambiguation, and contradiction inside one executable grounded research QA harness.
+The novelty audit currently rejects broad claims such as "a RAG benchmark with citations" or "a contradiction benchmark." The defensible novelty position is the combined failure-mode bundle: document lifecycle, source authority, temporal validity, table/text interpretation, citation-overreach, insufficiency, disambiguation, and contradiction inside one executable grounded research QA harness. The current novelty evidence registry contains 18 sources and still disallows completion claims.
 
 | Claim | Status | Reason |
 | --- | --- | --- |
@@ -201,6 +201,16 @@ The novelty audit currently rejects broad claims such as "a RAG benchmark with c
 | Temporal QA benchmark | not_novel_alone | ChronoQA already targets temporal-sensitive RAG. |
 | Citation faithfulness benchmark | not_novel_alone | LongCite and related citation benchmarks cover attribution quality. |
 | Unified hard-grounded research failure taxonomy | plausibly_differentiated_pending_final_audit | The combined bundle of lifecycle changes, authority hierarchy, stale/current snapshots, conclusion-overreach, insufficiency, disambiguation, and contradiction remains the defensible contribution if supported by reviewed data. |
+
+## Adversarial Related-Work Comparison
+
+| Dimension | Closest source ids | Position to defend |
+| --- | --- | --- |
+| Context length or corpus realism | corpusqa-2026<br>longbench-pro-2026<br>enterprise-rag-bench-2026 | Not novel alone; use these sources to avoid overclaiming scale and to motivate controlled failure categories inside large-corpus research QA. |
+| Temporal validity | chronoqa-2025<br>tdbench-2025<br>knowledge-drift-2025 | Not novel alone; hard-grounded research should focus on as-of-date citation semantics, stale/current document conflict, and visible evidence-state changes. |
+| Citation faithfulness | longcite-2024<br>step-context-faithfulness-2026<br>ragbench-leaderboard-2025 | Not novel alone; the benchmark must test whether citations support the final conclusion, not merely whether cited spans are relevant to local facts. |
+| Source authority and claim-level evidence | citation-closure-2026<br>legal-claim-rag-2026<br>decaf-2025 | Partly covered elsewhere; the defensible angle is combining authority conflicts with lifecycle, temporal, insufficiency, and contradiction tasks under one annotation protocol. |
+| Entity ambiguity | entitymatch-2025<br>occ-rag-2026 | Not novel as a standalone phenomenon; include it because large-corpus research QA frequently fails by citing the right-looking source for the wrong entity. |
 
 ## Required Before Submission
 

@@ -142,6 +142,72 @@ const sources = [
     paper_use:
       'Cite for benchmark-design caution; use to justify controlled hard-grounded failure modes rather than context length as the central axis.',
   },
+  {
+    id: 'step-context-faithfulness-2026',
+    title: 'A Benchmark for Evaluating Step-by-Step Context Faithfulness in Retrieval-Augmented Language Models',
+    year: 2026,
+    url: 'https://arxiv.org/html/2601.09414v2',
+    source_type: 'paper',
+    evidence_status: 'web_checked_2026_06_26',
+    benchmark_overlap: ['citation supports fact but not conclusion', 'evidence insufficiency / abstention', 'intermediate-step faithfulness'],
+    paper_use:
+      'Cite as close work on faithfulness of reasoning steps to retrieved context; distinguish our conclusion-overreach category by requiring citations that support a fact but not the final research conclusion.',
+  },
+  {
+    id: 'ragbench-leaderboard-2025',
+    title: 'Evaluation of RAG Metrics for Question Answering in the Telecom Domain',
+    year: 2025,
+    url: 'https://arxiv.org/html/2503.06887v2',
+    source_type: 'paper',
+    evidence_status: 'web_checked_2026_06_26',
+    benchmark_overlap: ['RAG faithfulness metrics', 'answer relevance', 'domain QA'],
+    paper_use:
+      'Cite as evidence that RAG faithfulness and answer-quality metrics are already benchmarked; position our contribution as task construction for hard grounded research failures rather than another metric leaderboard.',
+  },
+  {
+    id: 'tdbench-2025',
+    title: 'TDBench: A Benchmark for Temporal Database Question Answering',
+    year: 2025,
+    url: 'https://openreview.net/forum?id=qJmLk5mSZz',
+    source_type: 'paper',
+    evidence_status: 'web_checked_2026_06_26',
+    benchmark_overlap: ['temporal questions: as of date X', 'temporal database QA', 'time-aware retrieval'],
+    paper_use:
+      'Cite as close temporal QA work; distinguish hard-grounded as-of-date tasks by evidence snapshot validity, stale/current document conflict, and citation-grounded abstention rather than database temporal querying alone.',
+  },
+  {
+    id: 'knowledge-drift-2025',
+    title: 'Has Your Knowledge Been Updated or Still Outdated? Understanding and Detecting Knowledge Drift in Large Language Models',
+    year: 2025,
+    url: 'https://arxiv.org/html/2504.08700v1',
+    source_type: 'paper',
+    evidence_status: 'web_checked_2026_06_26',
+    benchmark_overlap: ['stale-vs-current document conflicts', 'knowledge drift', 'temporal validity'],
+    paper_use:
+      'Cite as close knowledge-drift work; keep the benchmark claim focused on document-grounded conflict resolution where both stale and current evidence are visible.',
+  },
+  {
+    id: 'decaf-2025',
+    title: 'Claim-Aware RAG: Truthful & Reliable Long-Form Generation with Dynamic Evidence Trees',
+    year: 2025,
+    url: 'https://arxiv.org/html/2502.20129v1',
+    source_type: 'paper',
+    evidence_status: 'web_checked_2026_06_26',
+    benchmark_overlap: ['claim-level RAG', 'citation faithfulness', 'long-form grounded generation'],
+    paper_use:
+      'Cite as close claim-aware RAG work; distinguish this benchmark by evaluating failure categories across research QA items rather than proposing a generation architecture.',
+  },
+  {
+    id: 'entitymatch-2025',
+    title: 'EntityMatch: Evaluating Entity Ambiguity in Visual Language Models',
+    year: 2025,
+    url: 'https://openreview.net/forum?id=8mF1lKKDEi',
+    source_type: 'paper',
+    evidence_status: 'web_checked_2026_06_26',
+    benchmark_overlap: ['entity disambiguation', 'ambiguous named entities'],
+    paper_use:
+      'Cite as evidence that entity ambiguity is an active benchmark dimension; frame our entity-disambiguation tasks around textual corpus-grounded research QA and citation requirements.',
+  },
 ]
 
 const claimGuidance = [
@@ -169,21 +235,54 @@ const claimGuidance = [
 ]
 
 const categoryEvidence = [
-  ['multi-hop synthesis', ['occ-rag-2026', 'bridge-2026'], 'high'],
-  ['stale-vs-current document conflicts', ['chronoqa-2025'], 'medium'],
+  ['multi-hop synthesis', ['occ-rag-2026', 'bridge-2026', 'decaf-2025'], 'high'],
+  ['stale-vs-current document conflicts', ['chronoqa-2025', 'knowledge-drift-2025'], 'medium'],
   ['appended document lifecycle changes', ['bridge-2026'], 'low'],
   ['table + text reasoning', ['bridge-2026', 't2-ragbench-2026'], 'high'],
-  ['source authority conflicts', ['citation-closure-2026', 'legal-claim-rag-2026', 'lit-ragbench-2026'], 'medium'],
-  ['evidence insufficiency / abstention', ['occ-rag-2026', 'lit-ragbench-2026'], 'high'],
-  ['citation supports fact but not conclusion', ['longcite-2024'], 'medium'],
-  ['entity disambiguation', ['occ-rag-2026'], 'medium'],
-  ['temporal questions: as of date X', ['chronoqa-2025'], 'high'],
+  ['source authority conflicts', ['citation-closure-2026', 'legal-claim-rag-2026', 'lit-ragbench-2026', 'decaf-2025'], 'medium'],
+  ['evidence insufficiency / abstention', ['occ-rag-2026', 'lit-ragbench-2026', 'step-context-faithfulness-2026'], 'high'],
+  ['citation supports fact but not conclusion', ['longcite-2024', 'step-context-faithfulness-2026', 'ragbench-leaderboard-2025'], 'medium'],
+  ['entity disambiguation', ['occ-rag-2026', 'entitymatch-2025'], 'medium'],
+  ['temporal questions: as of date X', ['chronoqa-2025', 'tdbench-2025', 'knowledge-drift-2025'], 'high'],
   ['cross-document contradiction', ['lit-ragbench-2026', 'legal-claim-rag-2026'], 'high'],
 ].map(([category, sourceIds, noveltyRisk]) => ({
   category,
   source_ids: sourceIds,
   novelty_risk: noveltyRisk,
 }))
+
+const comparisonDimensions = [
+  {
+    dimension: 'Context length or corpus realism',
+    closest_source_ids: ['corpusqa-2026', 'longbench-pro-2026', 'enterprise-rag-bench-2026'],
+    novelty_position:
+      'Not novel alone; use these sources to avoid overclaiming scale and to motivate controlled failure categories inside large-corpus research QA.',
+  },
+  {
+    dimension: 'Temporal validity',
+    closest_source_ids: ['chronoqa-2025', 'tdbench-2025', 'knowledge-drift-2025'],
+    novelty_position:
+      'Not novel alone; hard-grounded research should focus on as-of-date citation semantics, stale/current document conflict, and visible evidence-state changes.',
+  },
+  {
+    dimension: 'Citation faithfulness',
+    closest_source_ids: ['longcite-2024', 'step-context-faithfulness-2026', 'ragbench-leaderboard-2025'],
+    novelty_position:
+      'Not novel alone; the benchmark must test whether citations support the final conclusion, not merely whether cited spans are relevant to local facts.',
+  },
+  {
+    dimension: 'Source authority and claim-level evidence',
+    closest_source_ids: ['citation-closure-2026', 'legal-claim-rag-2026', 'decaf-2025'],
+    novelty_position:
+      'Partly covered elsewhere; the defensible angle is combining authority conflicts with lifecycle, temporal, insufficiency, and contradiction tasks under one annotation protocol.',
+  },
+  {
+    dimension: 'Entity ambiguity',
+    closest_source_ids: ['entitymatch-2025', 'occ-rag-2026'],
+    novelty_position:
+      'Not novel as a standalone phenomenon; include it because large-corpus research QA frequently fails by citing the right-looking source for the wrong entity.',
+  },
+]
 
 function writeJson(path, value) {
   mkdirSync(dirname(path), { recursive: true })
@@ -213,6 +312,7 @@ function buildEvidence() {
     sources,
     claim_guidance: claimGuidance,
     category_evidence: categoryEvidence,
+    comparison_dimensions: comparisonDimensions,
   }
 }
 
@@ -229,6 +329,11 @@ function renderMarkdown(evidence) {
     entry.category,
     entry.novelty_risk,
     entry.source_ids.join('<br>'),
+  ])
+  const comparisonRows = evidence.comparison_dimensions.map((entry) => [
+    entry.dimension,
+    entry.closest_source_ids.join('<br>'),
+    entry.novelty_position,
   ])
 
   return `# Hard Grounded Research Novelty Evidence
@@ -253,6 +358,10 @@ ${markdownTable(['Claim', 'Status', 'Reason'], claimRows)}
 ## Category Evidence Map
 
 ${markdownTable(['Category', 'Novelty risk', 'Closest source ids'], categoryRows)}
+
+## Adversarial Novelty Comparison
+
+${markdownTable(['Dimension', 'Closest source ids', 'Position to defend'], comparisonRows)}
 `
 }
 
