@@ -14,6 +14,7 @@
     "annotation_assignments": "generated/annotation-assignments.json",
     "reviewer_handoff": "generated/reviewer-handoff.json",
     "review_progress": "generated/review-progress.json",
+    "adjudication_readiness": "generated/adjudication-readiness.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "annotation_import_smoke": "generated/annotation-import-smoke/report.json",
     "annotation_import": "generated/annotation-import/report.json",
@@ -87,6 +88,12 @@
       "passed": true,
       "detail": "0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300",
       "blocker": "Generate a review progress report from preflight, merge, assignment, handoff, and scale artifacts."
+    },
+    {
+      "id": "adjudication_readiness_ready",
+      "passed": true,
+      "detail": "pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false",
+      "blocker": "Generate an adjudication readiness report that ties merge outputs to resolution queues and promotion preconditions."
     },
     {
       "id": "annotation_export_ready",

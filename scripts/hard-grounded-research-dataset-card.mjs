@@ -20,6 +20,7 @@ const inputPaths = {
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
+  adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
   annotationImport: join(generatedDir, 'annotation-import/report.json'),
   annotationImportSmoke: join(generatedDir, 'annotation-import-smoke/report.json'),
@@ -118,6 +119,7 @@ function renderCard({
   packageManifest,
   releaseGate,
   annotationProtocol,
+  adjudicationReadiness,
   annotationExport,
   annotationImport,
   annotationImportSmoke,
@@ -177,6 +179,7 @@ ${markdownTable(['Challenge type', 'Pilot items'], challengeRows(pilotSuite))}
 - Annotation export: ${annotationExport.export_ready ? 'ready' : 'not ready'} (${annotationExport.totals.row_count} rows across ${annotationExport.totals.file_count} files)
 - Annotation import path: ${annotationImport.annotation_import_ready ? 'ready' : 'not ready'} (${annotationImport.rows_importable}/${annotationImport.rows_checked} fixture rows importable; applied=${annotationImport.applied_to_workbooks})
 - Annotation import smoke: ${annotationImportSmoke.annotation_import_smoke_ready ? 'ready' : 'not ready'} (${annotationImportSmoke.rows_checked} returned fixture rows checked; findings=${annotationImportSmoke.finding_count})
+- Adjudication readiness: ${adjudicationReadiness.adjudication_readiness_ready ? 'ready' : 'not ready'} (pilot queue=${adjudicationReadiness.summary.pilot_resolution_queue_items}; expansion queue=${adjudicationReadiness.summary.expansion_resolution_queue_items}; promotion_allowed=${adjudicationReadiness.release_promotion_allowed})
 - Independent reviews required per item: 2
 - Required reviewer fields: ${annotationProtocol.required_reviewer_fields.map((field) => `\`${field}\``).join(', ')}
 - Missing-review items: ${reviewMergeReport.missing_review_items}
@@ -224,6 +227,7 @@ Key release checks:
 - Review preflight: ${checkDetail(releaseGate, 'review_preflight_ready')}
 - Reviewer handoff: ${checkDetail(releaseGate, 'reviewer_handoff_ready')}
 - Review progress: ${checkDetail(releaseGate, 'review_progress_ready')}
+- Adjudication readiness: ${checkDetail(releaseGate, 'adjudication_readiness_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
 - Annotation import path: ${checkDetail(releaseGate, 'annotation_import_path_ready')}
 - Pilot promotion smoke: ${checkDetail(releaseGate, 'gold_promotion_smoke_ready')}
@@ -254,6 +258,7 @@ writeText(
     packageManifest: readJson(inputPaths.packageManifest),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),
+    adjudicationReadiness: readJson(inputPaths.adjudicationReadiness),
     annotationExport: readJson(inputPaths.annotationExport),
     annotationImport: readJson(inputPaths.annotationImport),
     annotationImportSmoke: readJson(inputPaths.annotationImportSmoke),

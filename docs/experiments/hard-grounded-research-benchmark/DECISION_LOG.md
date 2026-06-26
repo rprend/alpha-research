@@ -607,3 +607,11 @@ Decision: Validate reviewer labels, citation ids, insufficiency/conflict flags, 
 Rationale: Import is the last boundary before reviewer fields are written into workbooks. Bad non-empty values should fail before `--apply`, not only later during merge, so returned human packets cannot partially corrupt review state.
 
 Consequence: `scripts/hard-grounded-research-import-annotations.mjs` now rejects invalid reviewer schemas at import time; the fixture import report remains clean only if returned rows satisfy the same semantic rules expected by merge.
+
+## 2026-06-26 — Generate adjudication readiness from resolution queues
+
+Decision: Add a generated adjudication readiness report that connects pilot and expansion merge outputs to their resolution queues, required adjudicator fields, and promotion preconditions.
+
+Rationale: Empty resolution queues are ambiguous before reviewers have completed workbooks; they can mean no disagreements exist yet or simply that no double-review evidence has been produced. A readiness artifact should make that distinction explicit and keep promotion blocked until review, disagreement resolution, and gold summary conditions are all satisfied.
+
+Consequence: `scripts/hard-grounded-research-adjudication-readiness.mjs` now emits `generated/adjudication-readiness.json` and `ADJUDICATION_READINESS.md`; the release gate records `adjudication_readiness_ready` while preserving the real human-review and gold-promotion blockers.

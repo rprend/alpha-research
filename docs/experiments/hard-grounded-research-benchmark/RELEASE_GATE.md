@@ -21,6 +21,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |  |
 | reviewer_handoff_ready | yes | 124 handoff rows across 30 files; gates=5/5 |  |
 | review_progress_ready | yes | 0/60 pilot rows and 0/540 expansion rows complete; target_remaining=300 |  |
+| adjudication_readiness_ready | yes | pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false |  |
 | annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |  |
 | annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |  |
 | annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |  |

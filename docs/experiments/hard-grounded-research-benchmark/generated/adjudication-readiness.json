@@ -1,0 +1,95 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "adjudication_readiness_ready": true,
+  "generated_from": {
+    "gold_summary": "generated/gold-suite-summary.json",
+    "adjudication_summary": "generated/adjudication-summary.json",
+    "review_progress": "generated/review-progress.json",
+    "review_merge": "generated/review-merge-report.json",
+    "review_resolution_queue": "generated/review-resolution-queue.jsonl",
+    "expansion_review_merge": "generated/expansion-review-merge-report.json",
+    "expansion_review_resolution_queue": "generated/expansion-review-resolution-queue.jsonl"
+  },
+  "summary": {
+    "gold_ready": false,
+    "pilot_reviewed_items": 0,
+    "pilot_total_items": 30,
+    "pilot_resolution_queue_items": 0,
+    "expansion_resolution_queue_items": 0,
+    "reviewed_items_remaining": 300,
+    "adjudication_queue_items": 30,
+    "adjudication_queue_reviewed": 0
+  },
+  "pilot": {
+    "track": "pilot_gold",
+    "unique_items": 30,
+    "completed_reviews": 0,
+    "merge_ready_items": 0,
+    "merge_ready": false,
+    "missing_review_items": 30,
+    "disagreement_items": 0,
+    "resolution_queue_count": 0,
+    "resolution_queue_status": "empty_before_review",
+    "required_adjudicator_fields": [
+      "final_label",
+      "final_answer",
+      "required_citation_ids",
+      "insufficient_or_conflicting_evidence",
+      "notes"
+    ]
+  },
+  "expansion": {
+    "track": "scaled_expansion",
+    "unique_items": 270,
+    "completed_reviews": 0,
+    "merge_ready_items": 0,
+    "merge_ready": false,
+    "missing_review_items": 270,
+    "disagreement_items": 0,
+    "resolution_queue_count": 0,
+    "resolution_queue_status": "empty_before_review",
+    "required_adjudicator_fields": [
+      "final_label",
+      "final_answer",
+      "required_citation_ids",
+      "insufficient_or_conflicting_evidence",
+      "notes",
+      "category_fit",
+      "generation_defect"
+    ]
+  },
+  "promotion_preconditions": [
+    {
+      "id": "pilot_double_review_complete",
+      "passed": false,
+      "detail": "0/30 pilot items have two complete reviews"
+    },
+    {
+      "id": "pilot_disagreements_resolved",
+      "passed": true,
+      "detail": "0 pilot disagreement items; queue=0"
+    },
+    {
+      "id": "expansion_double_review_complete",
+      "passed": false,
+      "detail": "0/270 expansion items have two complete reviews"
+    },
+    {
+      "id": "expansion_disagreements_resolved",
+      "passed": true,
+      "detail": "0 expansion disagreement items; queue=0"
+    },
+    {
+      "id": "gold_summary_ready",
+      "passed": false,
+      "detail": "0/30 valid reviewed pilot items"
+    }
+  ],
+  "release_promotion_allowed": false,
+  "next_actions": [
+    "Complete independent pilot and expansion reviewer workbooks.",
+    "Run strict preflight and merge for both pilot and expansion review tracks.",
+    "Resolve any non-empty resolution queue with the required adjudicator fields.",
+    "Rerun adjudication and release-gate generators before making paper claims."
+  ]
+}
