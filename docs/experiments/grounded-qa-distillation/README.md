@@ -108,6 +108,24 @@ Current run summaries:
 - `reports/calibrated-results-v1.md`: counterfactual insufficiency, sufficiency calibration, and corrected metrics.
 - `reports/compressed-results-v1.md`: phrase-ranked answer compression ablation.
 - `reports/temporal-results-v1.md`: month-disjoint evolving-KB proxy evaluation.
+- `reports/span-export-results-v1.md`: model-facing SFT export and supervised span-selector ablation.
+
+## Model-Facing Export
+
+Run:
+
+```bash
+node scripts/grounded-qa-distillation-export.mjs
+```
+
+The export writes chat-style supervised examples for model post-training:
+
+- `exports/temporal_train.sft.jsonl`
+- `exports/temporal_validation.sft.jsonl`
+- `exports/temporal_test.sft.jsonl`
+- `exports/manifest.json`
+
+Each row includes `messages` for SFT-compatible trainers plus structured `input` and `target` fields for custom student training.
 
 ## Evaluation Plan
 
@@ -130,9 +148,8 @@ Primary metrics:
 This project is not paper-complete. Current artifacts cover deterministic data construction, leakage removal, and cheap scaffold baselines. Required next work:
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
-- add a model-facing fine-tuning export,
 - train or call a genuinely cheaper generative student,
-- replace the failed phrase-ranked answer compressor with a supervised span generator or small generative student,
+- replace the failed phrase-ranked and supervised-span answerers with a small generative student,
 - add an entailment-style citation judge beyond lexical answer overlap,
 - evaluate cost/quality tradeoffs against a larger teacher,
 - write the paper and threat model.

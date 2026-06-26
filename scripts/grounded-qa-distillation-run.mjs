@@ -30,6 +30,7 @@ const trainExamples = await readJsonl(path.join(dataDir, `${trainSplit}.jsonl`))
 const learnedSelector = trainEvidenceSelector(trainExamples);
 const sufficiencyCalibrator = trainSufficiencyCalibrator(trainExamples, learnedSelector);
 const answerCompressor = trainAnswerCompressor(trainExamples);
+const spanAnswerer = trainSpanAnswerer(trainExamples);
 const systems = [
   evaluateSystem("retrieval_rank_1", examples, predictRankOne),
   ...thresholdGrid.map((threshold) => evaluateSystem(`lexical_overlap_t${formatThreshold(threshold)}`, examples, (example) => predictLexical(example, threshold))),
@@ -37,6 +38,7 @@ const systems = [
   ...learnedThresholdGrid.map((threshold) => evaluateSystem(`learned_selector_top2_t${formatThreshold(threshold)}`, examples, (example) => predictLearned(example, learnedSelector, { topK: 2, threshold }))),
   ...sufficiencyThresholdGrid.map((threshold) => evaluateSystem(`suff_calibrated_top2_t${formatThreshold(threshold)}`, examples, (example) => predictSufficiencyCalibrated(example, learnedSelector, sufficiencyCalibrator, { topK: 2, threshold }))),
   ...sufficiencyThresholdGrid.map((threshold) => evaluateSystem(`suff_compressed_top2_t${formatThreshold(threshold)}`, examples, (example) => predictSufficiencyCalibrated(example, learnedSelector, sufficiencyCalibrator, { topK: 2, threshold, compressor: answerCompressor }))),
+  ...sufficiencyThresholdGrid.map((threshold) => evaluateSystem(`suff_span_top2_t${formatThreshold(threshold)}`, examples, (example) => predictSufficiencyCalibrated(example, learnedSelector, sufficiencyCalibrator, { topK: 2, threshold, spanAnswerer }))),
 ];
 const run = {
   run_id: runId,
@@ -73,6 +75,14 @@ const run = {
     positive_tokens: answerCompressor.positiveTokens,
     negative_tokens: answerCompressor.negativeTokens,
   },
+  span_answerer: {
+    training_examples: trainExamples.length,
+    train_split: trainSplit,
+    candidate_count: spanAnswerer.candidateCount,
+    positive_candidates: spanAnswerer.positiveCandidates,
+    negative_candidates: spanAnswerer.negativeCandidates,
+    training_accuracy: spanAnswerer.trainingAccuracy,
+  },
   examples: examples.length,
   systems: systems.map(({ predictions, ...summary }) => summary),
 };
@@ -84,6 +94,7 @@ await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(run, n
 await fs.writeFile(path.join(outputDir, "learned-selector-model.json"), `${JSON.stringify(learnedSelector, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "sufficiency-calibrator-model.json"), `${JSON.stringify(sufficiencyCalibrator, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "answer-compressor-model.json"), `${JSON.stringify(answerCompressor, null, 2)}\n`);
+await fs.writeFile(path.join(outputDir, "span-answerer-model.json"), `${JSON.stringify(spanAnswerer, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "report.md"), renderReport(run));
 
 console.log(JSON.stringify({
@@ -170,7 +181,7 @@ function predictLearned(example, model, { topK, threshold }) {
   );
 }
 
-function predictSufficiencyCalibrated(example, selectorModel, sufficiencyModel, { topK, threshold, compressor = null }) {
+function predictSufficiencyCalibrated(example, selectorModel, sufficiencyModel, { topK, threshold, compressor = null, spanAnswerer = null }) {
   const ranked = rankEvidence(example, selectorModel);
   const selected = ranked.slice(0, topK);
   const probability = sigmoid(scoreFeatures(sufficiencyModel.weights, sufficiencyFeatures(example, selected)));
@@ -178,6 +189,9 @@ function predictSufficiencyCalibrated(example, selectorModel, sufficiencyModel, 
     return abstain(`sufficiency probability ${probability.toFixed(3)} below threshold ${threshold}`);
   }
   const rationale = `sufficiency-calibrated selector chose ${selected.length} item(s), sufficiency probability ${probability.toFixed(3)}`;
+  if (spanAnswerer) {
+    return spanAnswerFromEvidenceSet(example, selected.map((item) => item.evidence), spanAnswerer, rationale);
+  }
   if (compressor) {
     return compressedAnswerFromEvidenceSet(example, selected.map((item) => item.evidence), compressor, rationale);
   }
@@ -223,6 +237,19 @@ function compressedAnswerFromEvidenceSet(example, evidenceItems, compressor, rat
     answer: parts.join("; "),
     citations: evidenceItems.map((evidence) => evidence.evidence_id),
     rationale: `${rationale}; compressed selected evidence`,
+  };
+}
+
+function spanAnswerFromEvidenceSet(example, evidenceItems, model, rationale) {
+  const selected = evidenceItems.map((evidence) => {
+    const span = selectAnswerSpan(example, evidence, model);
+    return `${span || firstUsefulSentence(evidence.text)} [${evidence.evidence_id}]`;
+  });
+  return {
+    answer_type: "grounded_answer",
+    answer: selected.join("; "),
+    citations: evidenceItems.map((evidence) => evidence.evidence_id),
+    rationale: `${rationale}; supervised span answerer selected answer-like spans`,
   };
 }
 
@@ -407,6 +434,68 @@ function trainAnswerCompressor(examples) {
   };
 }
 
+function trainSpanAnswerer(examples) {
+  const candidates = [];
+  for (const example of examples) {
+    if (example.output.answer_type !== "grounded_answer") continue;
+    const answer = stripCitations(example.output.answer);
+    const goldEvidence = example.input.compact_retrieved_evidence_pack
+      .filter((evidence) => example.teacher_trace.evidence_roles[evidence.evidence_id] === "gold_evidence");
+    for (const evidence of goldEvidence) {
+      const spans = candidateAnswerSpans(evidence.text);
+      if (!spans.length) continue;
+      const scored = spans.map((span) => ({
+        span,
+        labelScore: tokenF1(span, answer),
+      }));
+      const bestScore = Math.max(...scored.map((span) => span.labelScore));
+      for (const item of scored) {
+        candidates.push({
+          features: spanFeatures(example, evidence, item.span),
+          label: bestScore > 0 && item.labelScore >= Math.max(0.18, bestScore * 0.72) ? 1 : 0,
+        });
+      }
+    }
+  }
+
+  const weights = {};
+  const epochs = numberArg(args["span-epochs"], 80);
+  const learningRate = Number(args["span-learning-rate"] ?? 0.14);
+  const l2 = Number(args["span-l2"] ?? 0.0007);
+  const positiveCount = candidates.filter((candidate) => candidate.label === 1).length;
+  const negativeCount = candidates.length - positiveCount;
+  const positiveWeight = positiveCount ? candidates.length / (2 * positiveCount) : 1;
+  const negativeWeight = negativeCount ? candidates.length / (2 * negativeCount) : 1;
+
+  for (let epoch = 0; epoch < epochs; epoch += 1) {
+    for (const candidate of candidates) {
+      const prediction = sigmoid(scoreFeatures(weights, candidate.features));
+      const classWeight = candidate.label === 1 ? positiveWeight : negativeWeight;
+      const error = (candidate.label - prediction) * classWeight;
+      for (const [name, value] of Object.entries(candidate.features)) {
+        weights[name] = (weights[name] ?? 0) * (1 - learningRate * l2) + learningRate * error * value;
+      }
+    }
+  }
+
+  const correct = candidates.filter((candidate) => {
+    const prediction = sigmoid(scoreFeatures(weights, candidate.features)) >= 0.5 ? 1 : 0;
+    return prediction === candidate.label;
+  }).length;
+
+  return {
+    model_type: "weighted-logistic-answer-span-selector",
+    epochs,
+    learningRate,
+    l2,
+    candidateCount: candidates.length,
+    positiveCandidates: positiveCount,
+    negativeCandidates: negativeCount,
+    trainingAccuracy: candidates.length ? correct / candidates.length : 0,
+    weights,
+  };
+}
+
 function compressEvidenceText(example, evidence, compressor) {
   const candidates = candidateAnswerSpans(evidence.text);
   if (!candidates.length) return "";
@@ -432,6 +521,58 @@ function compressEvidenceText(example, evidence, compressor) {
   }).sort((a, b) => b.score - a.score || a.index - b.index);
 
   return truncateAtWord(scored[0].span, maxChars);
+}
+
+function selectAnswerSpan(example, evidence, model) {
+  const spans = candidateAnswerSpans(evidence.text);
+  if (!spans.length) return "";
+  const maxChars = numberArg(args["span-max-chars"], 220);
+  const scored = spans
+    .map((span, index) => ({
+      span,
+      index,
+      probability: sigmoid(scoreFeatures(model.weights, spanFeatures(example, evidence, span))),
+    }))
+    .sort((a, b) => b.probability - a.probability || a.index - b.index);
+  return truncateAtWord(scored[0].span, maxChars);
+}
+
+function spanFeatures(example, evidence, span) {
+  const questionTokens = contentTokens(example.input.question);
+  const spanTokens = contentTokens(span);
+  const evidenceTokens = contentTokens(evidence.text);
+  const sectionTokens = contentTokens(evidence.section);
+  const questionTokenSet = new Set(questionTokens);
+  const spanTokenSet = new Set(spanTokens);
+  const overlapCount = [...questionTokenSet].filter((token) => spanTokenSet.has(token)).length;
+  const questionHasNumberIntent = /\b(how many|how much|how big|number|size|large|results?|score|accuracy|percentage|percent|count)\b/i.test(example.input.question);
+  const yesNoQuestion = /^(do|does|did|is|are|was|were|can|could|will|would|has|have)\b/i.test(example.input.question);
+  const spanHasNumber = /\d/.test(span);
+  const spanLooksMetric = /result|accuracy|score|baseline|dataset|table|figure|percent|percentage|human|annotat/i.test(span);
+  const startsWithAnswerCue = /^(yes|no|we|our|the|this|these)\b/i.test(span.trim());
+
+  const features = {
+    bias: 1,
+    question_jaccard: jaccard(questionTokens, spanTokens),
+    question_coverage: questionTokens.length ? overlapCount / questionTokenSet.size : 0,
+    evidence_coverage: evidenceTokens.length ? spanTokens.length / evidenceTokens.length : 0,
+    section_jaccard: jaccard(questionTokens, sectionTokens),
+    token_length: Math.min(1, spanTokens.length / 48),
+    short_span: spanTokens.length <= 18 ? 1 : 0,
+    medium_span: spanTokens.length > 18 && spanTokens.length <= 42 ? 1 : 0,
+    long_span: spanTokens.length > 42 ? 1 : 0,
+    number_match: questionHasNumberIntent && spanHasNumber ? 1 : 0,
+    number_without_intent: !questionHasNumberIntent && spanHasNumber ? 1 : 0,
+    yes_no_question: yesNoQuestion ? 1 : 0,
+    yes_no_answer_cue: yesNoQuestion && /^(yes|no)\b/i.test(span.trim()) ? 1 : 0,
+    metric_like: spanLooksMetric ? 1 : 0,
+    starts_with_answer_cue: startsWithAnswerCue ? 1 : 0,
+  };
+
+  for (const token of questionTokens.slice(0, 24)) {
+    if (spanTokenSet.has(token)) features[`span_qtok:${token}`] = 1;
+  }
+  return features;
 }
 
 function evidenceFeatures(example, evidence) {
@@ -595,6 +736,7 @@ Examples: ${run.examples}
 - \`learned_selector_*\`: logistic evidence selector trained on \`train.jsonl\` teacher roles. Training accuracy: ${pct(run.learned_selector.training_accuracy)} over ${run.learned_selector.positive_candidates} positive and ${run.learned_selector.negative_candidates} negative candidates.
 - \`suff_calibrated_*\`: learned selector plus separate sufficiency calibrator. Training accuracy: ${pct(run.sufficiency_calibrator.training_accuracy)} over ${run.sufficiency_calibrator.positive_examples} answerable and ${run.sufficiency_calibrator.negative_examples} insufficient examples.
 - \`suff_compressed_*\`: sufficiency-calibrated selector plus phrase-ranked token-salience answer compressor. Compressor vocabulary: ${run.answer_compressor.vocabulary_size} tokens.
+- \`suff_span_*\`: sufficiency-calibrated selector plus supervised logistic answer-span selector. Training accuracy: ${pct(run.span_answerer.training_accuracy)} over ${run.span_answerer.positive_candidates} positive and ${run.span_answerer.negative_candidates} negative span candidates.
 
 ## Metrics
 
@@ -614,6 +756,7 @@ function decide(run) {
   const learnedSystems = run.systems.filter((system) => system.system.startsWith("learned_selector_"));
   const sufficiencySystems = run.systems.filter((system) => system.system.startsWith("suff_calibrated_"));
   const compressedSystems = run.systems.filter((system) => system.system.startsWith("suff_compressed_"));
+  const spanSystems = run.systems.filter((system) => system.system.startsWith("suff_span_"));
   const bestLexical = lexicalSystems
     .map((system) => ({ ...system, score: system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
     .sort((a, b) => b.score - a.score)[0];
@@ -626,7 +769,13 @@ function decide(run) {
   const bestCompressed = compressedSystems
     .map((system) => ({ ...system, score: system.metrics.citation_precision + system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
     .sort((a, b) => b.score - a.score)[0];
-  if (!rankOne || !bestLexical || !bestLearned || !bestSufficiency || !bestCompressed) return "No decision: missing system metrics.";
+  const bestSpan = spanSystems
+    .map((system) => ({ ...system, score: system.metrics.citation_precision + system.metrics.citation_recall + system.metrics.answer_token_f1 + system.metrics.abstention_accuracy }))
+    .sort((a, b) => b.score - a.score)[0];
+  if (!rankOne || !bestLexical || !bestLearned || !bestSufficiency || !bestCompressed || !bestSpan) return "No decision: missing system metrics.";
+  if (bestSpan.metrics.answer_token_f1 > bestSufficiency.metrics.answer_token_f1 && bestSpan.metrics.citation_recall >= bestSufficiency.metrics.citation_recall) {
+    return `Promote \`${bestSpan.system}\` as the current answer-synthesis scaffold: supervised span selection improves answer F1 without losing citation recall.`;
+  }
   if (bestCompressed.metrics.answer_token_f1 > bestSufficiency.metrics.answer_token_f1 && bestCompressed.metrics.citation_recall >= bestSufficiency.metrics.citation_recall) {
     return `Promote \`${bestCompressed.system}\` as the current constrained student: compression improves answer F1 without losing citation recall.`;
   }

@@ -37,6 +37,7 @@ if (!errors.length) {
   }
 
   await validateTemporalSplitsIfPresent();
+  await validateExportsIfPresent();
 }
 
 if (errors.length) {
@@ -89,6 +90,37 @@ async function validateTemporalSplitsIfPresent() {
   }
   if (lastValidation && firstTest && lastValidation >= firstTest) {
     errors.push("temporal_validation must end before temporal_test starts.");
+  }
+}
+
+async function validateExportsIfPresent() {
+  const exportDir = path.join(experimentDir, "exports");
+  const manifestPath = path.join(exportDir, "manifest.json");
+  try {
+    await fs.access(manifestPath);
+  } catch {
+    return;
+  }
+
+  const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+  for (const [split, stats] of Object.entries(manifest.splits ?? {})) {
+    const outputPath = path.join(rootDir, stats.output_path);
+    const rows = await readJsonl(outputPath);
+    if (rows.length !== stats.examples_written) errors.push(`${split} export row count does not match manifest.`);
+    rows.forEach((row, index) => {
+      const label = `${split}.sft:${index + 1}`;
+      if (!row.example_id) errors.push(`${label}: missing example_id.`);
+      if (row.task !== "citation_grounded_domain_qa_sft") errors.push(`${label}: unexpected export task.`);
+      if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three chat messages.`);
+      if (!row.input?.question) errors.push(`${label}: missing input.question.`);
+      if (!Array.isArray(row.input?.compact_retrieved_evidence_pack) || !row.input.compact_retrieved_evidence_pack.length) {
+        errors.push(`${label}: missing exported evidence pack.`);
+      }
+      if (!row.target?.answer_type || !row.target?.answer) errors.push(`${label}: missing target answer.`);
+      if (row.target.answer_type === "grounded_answer" && !row.target.citations?.length) {
+        errors.push(`${label}: grounded export target needs citations.`);
+      }
+    });
   }
 }
 
