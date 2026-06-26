@@ -269,6 +269,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1/` is the first local generative SFT diagnostic after HF Jobs and OpenAI hosted fine-tuning blockers. It proves the local `uv`/MPS/LoRA path is executable without OpenAI calls, but the bounded run is negative: the Qwen 0.5B adapter answers 0 of 69 final-window prompts, reaches only 36.2% answer-type accuracy, and produces valid JSON on 53.6% of examples. Treat this as infrastructure progress and an undertraining failure, not as evidence against generative SFT.
 
+`runs/local-generative-sft-answered-only-mini-negative-temporal-qwen05b-161-320-to-321-389-v1/` isolates answer synthesis by training only on answered labels. It answers 36 of 69 final-window prompts, so the local model can move beyond abstention collapse, but it is not judge-ready: only 53.6% valid JSON, 22.2% inline citation compliance, 21.8% citation precision, and 13.1% citation recall. The next local SFT step should improve format/citation control before spending `gpt-4o` judge budget.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -310,6 +312,7 @@ This project is not paper-complete. Current artifacts cover deterministic data c
 - use `runs/temporal-window-comparison-321-389-v1/` as the fixed comparison target for the next temporal SFT adapter or equivalent generative backend,
 - do not treat extractive span selection as the main amortized system; the `temporal-span-scaffold-*` run shows reference overlap can improve while judged support collapses,
 - continue the local generative SFT path with checkpoint/progress output, faster bounded generation, and either longer training or a smaller iteration model before making any conclusion about SFT quality,
+- add constrained JSON/citation decoding or stronger format supervision for local generative SFT before judging its support with `gpt-4o`,
 - create a later temporal/private-KB snapshot before using `teacher-repair-claim-pruner-gpt4o-quote-extractive-132-172-v1.sft.jsonl` for generalization claims,
 - run the prepared Hugging Face LoRA SFT packet after remote CPU validation, then evaluate the trained adapter on held-out future examples,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,

@@ -488,6 +488,8 @@ The balanced local risk gate is the best zero-call support/coverage tradeoff cur
 
 `local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1` is the first locally executable generative SFT diagnostic. It uses compact prompts, Qwen 0.5B, LoRA, and assistant-token loss masking on the temporal mini-negative packet, then evaluates all 69 final-window prompts without OpenAI calls. The bounded run is not a successful student: it answers zero examples, gets 36.2% answer-type accuracy by abstaining, and has 53.6% valid JSON output. This is useful infrastructure evidence, but the next run needs longer training/checkpointing or a smaller iteration model before SFT quality can be judged.
 
+`local-generative-sft-answered-only-mini-negative-temporal-qwen05b-161-320-to-321-389-v1` trains the same local path only on answered labels to isolate answer synthesis. It answers 36 of 69 final-window prompts, but the result is not worth a stronger-judge pass yet: valid JSON remains 53.6%, inline citation compliance is 22.2%, citation precision is 21.8%, and citation recall is 13.1%. The local model can generate answer-like text, but it has not learned the output contract or grounded citation discipline.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

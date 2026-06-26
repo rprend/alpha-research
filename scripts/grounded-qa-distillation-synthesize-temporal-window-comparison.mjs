@@ -24,6 +24,7 @@ const temporalScaffold = await readResult("temporal-packet-scaffold-mini-negativ
 const temporalSpanScaffold = await readResult("temporal-span-scaffold-hf-sft-temporal-prep-mini-negative-161-320-to-321-389-qwen05b-v1");
 const temporalSpanJudge = await readResult("openai-judge-gpt4o-temporal-span-scaffold-mini-negative-161-320-to-321-389-v1");
 const localGenerativeSft = await readResult("local-generative-sft-compact-mini-negative-temporal-qwen05b-64train-321-389-v1");
+const localGenerativeAnsweredOnly = await readResult("local-generative-sft-answered-only-mini-negative-temporal-qwen05b-161-320-to-321-389-v1");
 
 const miniWindow = miniVerifier.windows.find((window) => window.label === "321-389");
 const sequenceRows = sequenceVerifier.objectives.map((objective) => {
@@ -145,6 +146,18 @@ const systems = [
       inference_cost_usd: localGenerativeSft.cost?.openai_cost_usd ?? 0,
     },
   }),
+  referenceMetricSystem({
+    id: "local_generative_sft_qwen05b_answered_only",
+    label: "Local Qwen 0.5B LoRA SFT (answered-only)",
+    source_run_id: localGenerativeAnsweredOnly.run_id,
+    source_metric_family: "reference_overlap",
+    notes: "Bounded local generative SFT diagnostic trained only on answered temporal labels to isolate answer-synthesis capability.",
+    metrics: localGenerativeAnsweredOnly.eval,
+    cost: {
+      openai_calls: localGenerativeAnsweredOnly.cost?.llm_calls ?? 0,
+      inference_cost_usd: localGenerativeAnsweredOnly.cost?.openai_cost_usd ?? 0,
+    },
+  }),
 ];
 
 const result = {
@@ -165,6 +178,7 @@ const result = {
     "The temporal extractive scaffold is a weak zero-call floor: 31.9% answer rate, 6.1% answer F1, and 21.6% citation recall.",
     "The temporal answer-span scaffold improves the extractive floor's answer rate and answer F1, but GPT-4o judges only 19.2% of answered spans supported because selected spans are often relevant text that does not answer the question.",
     "The first bounded local Qwen LoRA SFT diagnostic is runnable but collapses to all abstentions on the final window, so the local generative path needs more training budget, better formatting, or a different backend before it can be a paper system.",
+    "Answered-only Qwen LoRA training proves the local model can emit some answers, but format and citation control remain weak: only 53.6% valid JSON, 22.2% inline citation compliance, and 21.8% citation precision.",
   ],
 };
 

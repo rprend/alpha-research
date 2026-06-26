@@ -39,6 +39,7 @@ def main():
     train_rows = read_jsonl(packet_dir / "train.hf-sft.jsonl")
     validation_rows = read_jsonl(packet_dir / "validation.hf-sft.jsonl")
     eval_rows = read_jsonl(packet_dir / "eval_prompts.jsonl")
+    train_rows = filter_training_rows(train_rows, args.train_filter)
     if args.max_train_rows:
         train_rows = train_rows[: args.max_train_rows]
     if args.max_eval_rows:
@@ -124,6 +125,9 @@ def main():
             "train_rows_used": len(train_rows),
             "validation_rows_available": len(validation_rows),
             "eval_prompts_used": len(eval_rows),
+            "train_filter": args.train_filter,
+            "train_distribution": output_distribution(train_rows, from_training=True),
+            "eval_reference_distribution": output_distribution(eval_rows, from_training=False),
             "train_eval_paper_overlap": packet.get("leakage_checks", {}).get("train_eval_paper_overlap"),
             "validation_eval_paper_overlap": packet.get("leakage_checks", {}).get("validation_eval_paper_overlap"),
         },
@@ -320,6 +324,45 @@ def normalize_output(output):
     }
 
 
+def filter_training_rows(rows, train_filter):
+    if train_filter == "all":
+        return rows
+    filtered = []
+    for row in rows:
+        output = json.loads(row["messages"][-1]["content"])
+        answer_type = output.get("answer_type")
+        if train_filter == "answered" and answer_type == "grounded_answer":
+            filtered.append(row)
+        elif train_filter == "abstain" and answer_type != "grounded_answer":
+            filtered.append(row)
+    if not filtered:
+        raise ValueError(f"--train-filter={train_filter} produced zero rows")
+    return filtered
+
+
+def output_distribution(rows, from_training):
+    answered = 0
+    abstained = 0
+    invalid = 0
+    for row in rows:
+        try:
+            output = json.loads(row["messages"][-1]["content"]) if from_training else row["reference"]
+            if output.get("answer_type") == "grounded_answer":
+                answered += 1
+            else:
+                abstained += 1
+        except Exception:
+            invalid += 1
+    total = answered + abstained + invalid
+    return {
+        "rows": total,
+        "answered": answered,
+        "abstained": abstained,
+        "invalid": invalid,
+        "answer_rate": answered / total if total else 0,
+    }
+
+
 def score_prediction(prediction, reference):
     answered = prediction["answer_type"] == "grounded_answer"
     answerable = reference["answer_type"] == "grounded_answer"
@@ -422,6 +465,7 @@ Run a bounded local LoRA SFT student on the leakage-safe temporal packet. This i
 | Base model | `{result['method']['base_model']}` |
 | Device | `{result['method']['device']}` |
 | Train rows used | {result['packet_summary']['train_rows_used']} |
+| Train filter | `{result['packet_summary']['train_filter']}` |
 | Eval prompts used | {result['packet_summary']['eval_prompts_used']} |
 | Epochs | {result['method']['epochs']} |
 | LoRA rank | {result['method']['lora_rank']} |
@@ -483,6 +527,7 @@ def parse_args():
     parser.add_argument("--max-new-tokens", type=int, default=220)
     parser.add_argument("--max-train-rows", type=int, default=0)
     parser.add_argument("--max-eval-rows", type=int, default=0)
+    parser.add_argument("--train-filter", choices=["all", "answered", "abstain"], default="all")
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--use-lora", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--lora-rank", type=int, default=8)

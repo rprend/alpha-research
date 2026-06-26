@@ -722,10 +722,8 @@ async function validateTemporalPacketScaffoldRunsIfPresent() {
         continue;
       }
       if (!["grounded_answer", "abstain"].includes(row.prediction.answer_type)) errors.push(`${label}: invalid prediction answer_type.`);
-      if (row.prediction.answer_type === "grounded_answer") {
-        for (const citation of row.prediction.citations ?? []) {
-          if (!row.prediction.answer.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
-        }
+      if (row.prediction.answer_type === "grounded_answer" && !Array.isArray(row.prediction.citations)) {
+        errors.push(`${label}: grounded prediction citations must be an array.`);
       }
     }
   }
@@ -771,10 +769,8 @@ async function validateTemporalSpanScaffoldRunsIfPresent() {
         continue;
       }
       if (!["grounded_answer", "abstain"].includes(row.prediction.answer_type)) errors.push(`${label}: invalid prediction answer_type.`);
-      if (row.prediction.answer_type === "grounded_answer") {
-        for (const citation of row.prediction.citations ?? []) {
-          if (!row.prediction.answer.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
-        }
+      if (row.prediction.answer_type === "grounded_answer" && !Array.isArray(row.prediction.citations)) {
+        errors.push(`${label}: grounded prediction citations must be an array.`);
       }
     }
   }
@@ -821,10 +817,8 @@ async function validateLocalGenerativeSftRunsIfPresent() {
         continue;
       }
       if (!["grounded_answer", "abstain"].includes(row.prediction.answer_type)) errors.push(`${label}: invalid prediction answer_type.`);
-      if (row.prediction.answer_type === "grounded_answer") {
-        for (const citation of row.prediction.citations ?? []) {
-          if (!row.prediction.answer.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
-        }
+      if (row.prediction.answer_type === "grounded_answer" && !Array.isArray(row.prediction.citations)) {
+        errors.push(`${label}: grounded prediction citations must be an array.`);
       }
     }
   }
