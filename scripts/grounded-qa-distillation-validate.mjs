@@ -61,6 +61,7 @@ if (!errors.length) {
   await validateSupportContrastGateRunsIfPresent();
   await validateAbstentionSupportErrorAnalysisRunsIfPresent();
   await validateJointActionGpuPrepRunsIfPresent();
+  await validateJointActionLaunchPreflightRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
   await validateTemporalWindowComparisonRunsIfPresent();
@@ -1179,6 +1180,16 @@ async function validateJointActionGpuPrepRunsIfPresent() {
       errors.push(`${entry.name}: missing or malformed joint-action GPU prep artifacts.`);
       continue;
     }
+    const trainScript = await fs.readFile(path.join(runPath, "train_joint_action_lora_uv.py"), "utf8");
+    if (!trainScript.includes("MAX_SFT_STEPS") || !trainScript.includes("MAX_DPO_STEPS")) {
+      errors.push(`${entry.name}: joint-action training script must expose bounded smoke step caps.`);
+    }
+    if (!trainScript.includes('PUSH_TO_HUB = os.environ.get("PUSH_TO_HUB", "false")')) {
+      errors.push(`${entry.name}: joint-action training script must default hub push off.`);
+    }
+    if (trainScript.includes("\ndpo.push_to_hub()\n")) {
+      errors.push(`${entry.name}: joint-action training script must not push to hub unconditionally.`);
+    }
     if (result.budget?.openai_calls !== 0 || Number(result.budget?.openai_cost_usd) !== 0) {
       errors.push(`${entry.name}: joint-action GPU prep must make no OpenAI calls.`);
     }
@@ -1204,6 +1215,48 @@ async function validateJointActionGpuPrepRunsIfPresent() {
           errors.push(`${label}: ${key} must be JSON.`);
         }
       }
+    }
+  }
+}
+
+async function validateJointActionLaunchPreflightRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-launch-preflight-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action launch preflight artifacts.`);
+      continue;
+    }
+    if (!result.packet_run_id) errors.push(`${entry.name}: missing packet_run_id.`);
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: joint-action launch preflight must be zero-cost.`);
+    }
+    if (!result.checks?.dataset_validation?.passed) errors.push(`${entry.name}: dataset validation must pass.`);
+    if (!result.checks?.train_script_compile?.passed) errors.push(`${entry.name}: train script compile must pass.`);
+    const safety = result.checks?.launch_safety ?? {};
+    for (const key of ["supports_max_sft_steps", "supports_max_dpo_steps", "push_to_hub_default_false", "report_to_default_none", "unconditional_push_removed"]) {
+      if (safety[key] !== true) errors.push(`${entry.name}: launch safety check failed: ${key}.`);
+    }
+    const profile = result.checks?.prompt_profile ?? {};
+    if (Number(profile.sft_full?.rows_over_limit) !== 0 || Number(profile.dpo_prompt?.rows_over_limit) !== 0 || Number(profile.dpo_full?.rows_over_limit) !== 0) {
+      errors.push(`${entry.name}: train prompt profile has rows over configured limits.`);
+    }
+    const status = result.conclusion?.status;
+    if (!["ready_for_bounded_gpu_smoke", "remote_training_ready_local_runtime_incomplete", "needs_length_mitigation_before_full_run"].includes(status)) {
+      errors.push(`${entry.name}: invalid launch preflight conclusion status.`);
     }
   }
 }

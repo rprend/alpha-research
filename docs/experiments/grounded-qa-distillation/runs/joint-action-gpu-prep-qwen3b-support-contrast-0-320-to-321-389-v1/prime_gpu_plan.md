@@ -23,7 +23,7 @@ Launch options:
 
 ```bash
 uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/validate_joint_action_dataset_uv.py
-HF_TOKEN=... uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/train_joint_action_lora_uv.py
+MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none HF_TOKEN=... uv run docs/experiments/grounded-qa-distillation/runs/joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1/train_joint_action_lora_uv.py
 ```
 
 Do not start the pod if the estimated total spend exceeds the remaining experiment budget.

@@ -282,6 +282,10 @@ from trl import DPOConfig, DPOTrainer, SFTConfig, SFTTrainer
 BASE_MODEL = os.environ.get("BASE_MODEL", ${JSON.stringify(baseModel)})
 HUB_MODEL_ID = os.environ.get("HUB_MODEL_ID", ${JSON.stringify(hubModelId)})
 DATASET_DIR = Path(os.environ.get("DATASET_DIR", Path(__file__).resolve().parent / "dataset"))
+MAX_SFT_STEPS = int(os.environ.get("MAX_SFT_STEPS", "0"))
+MAX_DPO_STEPS = int(os.environ.get("MAX_DPO_STEPS", "0"))
+PUSH_TO_HUB = os.environ.get("PUSH_TO_HUB", "false").lower() == "true"
+REPORT_TO = os.environ.get("REPORT_TO", "none")
 
 def read_jsonl(name):
     with (DATASET_DIR / name).open() as f:
@@ -313,9 +317,10 @@ sft = SFTTrainer(
         learning_rate=2e-4,
         max_length=1536,
         gradient_checkpointing=True,
+        max_steps=MAX_SFT_STEPS if MAX_SFT_STEPS > 0 else -1,
         eval_strategy="epoch",
         save_strategy="epoch",
-        report_to="trackio",
+        report_to=REPORT_TO,
         project="grounded-qa-distillation",
         run_name="joint-action-sft-qwen3b",
     ),
@@ -338,17 +343,19 @@ dpo = DPOTrainer(
         max_prompt_length=1280,
         beta=0.1,
         gradient_checkpointing=True,
+        max_steps=MAX_DPO_STEPS if MAX_DPO_STEPS > 0 else -1,
         eval_strategy="epoch",
         save_strategy="epoch",
-        push_to_hub=True,
+        push_to_hub=PUSH_TO_HUB,
         hub_model_id=HUB_MODEL_ID,
-        report_to="trackio",
+        report_to=REPORT_TO,
         project="grounded-qa-distillation",
         run_name="joint-action-dpo-qwen3b",
     ),
 )
 dpo.train()
-dpo.push_to_hub()
+if PUSH_TO_HUB:
+    dpo.push_to_hub()
 `;
 }
 
@@ -378,7 +385,7 @@ Launch options:
 
 \`\`\`bash
 uv run docs/experiments/grounded-qa-distillation/runs/${result.run_id}/validate_joint_action_dataset_uv.py
-HF_TOKEN=... uv run docs/experiments/grounded-qa-distillation/runs/${result.run_id}/train_joint_action_lora_uv.py
+MAX_SFT_STEPS=20 MAX_DPO_STEPS=10 PUSH_TO_HUB=false REPORT_TO=none HF_TOKEN=... uv run docs/experiments/grounded-qa-distillation/runs/${result.run_id}/train_joint_action_lora_uv.py
 \`\`\`
 
 Do not start the pod if the estimated total spend exceeds the remaining experiment budget.
