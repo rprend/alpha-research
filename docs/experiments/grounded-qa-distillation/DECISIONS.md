@@ -1289,3 +1289,13 @@ Reason: D148 showed weak inline-citation behavior from the local Qwen 3B base mo
 Result: The zero-call repair changed 9 of 12 rows, appended 13 missing inline citation ids, and raised inline citation rate from 15.0% to 100.0%. It did not change answer type, cited evidence ids, citation precision, citation recall, or support risk; citation precision remains 40.0%, citation recall remains 71.4%, answer-type accuracy remains 75.0%, and answer F1 remains weak. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
 
 Tradeoff: This is a useful negative control, not a model improvement. It strengthens the manuscript claim discipline around citation formatting versus support, but the trained Qwen 3B joint-action smoke and paid grounded-correctness judge remain required before any support-preserving distillation claim.
+
+### D150. Fixture-test that perfect citation syntax cannot pass the Qwen integration gate
+
+Decision: Add `grounded-qa-distillation-qwen3b-syntax-only-rejection-audit.mjs`, materialize `qwen3b-syntax-only-rejection-audit-2026-06-26-v1`, validate it, and wire it into the manuscript evidence map, reviewer-risk audit, and README.
+
+Reason: D149 proved deterministic repair can raise inline citation rate to 100.0% without improving support. The post-smoke integration gate therefore needs an explicit regression test that perfect citation syntax is insufficient for a positive Qwen result. Otherwise, future manuscript updates could accidentally treat citation formatting as grounded correctness.
+
+Result: The audit creates temporary local prediction and judge fixtures from the repaired local Qwen 3B base-control metrics, sets inline citation rate to 100.0% while keeping synthetic support/correctness weak, invokes the production `grounded-qa-distillation-qwen3b-result-integration.mjs`, observes `qwen3b_negative_ready_for_pareto_update`, and deletes the temporary fixture directories. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8963856`.
+
+Tradeoff: This is a gate-logic test, not a real judge result. It strengthens failure-mode discipline before the paid Qwen run, but it does not replace the trained Qwen 3B smoke or grounded-correctness judge.

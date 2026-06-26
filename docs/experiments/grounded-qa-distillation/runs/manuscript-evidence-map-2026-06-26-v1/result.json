@@ -1,6 +1,6 @@
 {
   "run_id": "manuscript-evidence-map-2026-06-26-v1",
-  "generated_at": "2026-06-26T23:23:31.021Z",
+  "generated_at": "2026-06-26T23:29:50.144Z",
   "artifact_type": "manuscript_evidence_map",
   "purpose": "Map current grounded-QA distillation artifacts to manuscript claims, tables, and blocked claims without overclaiming missing Qwen 3B results.",
   "readiness": {
@@ -536,7 +536,9 @@
       "qwen_metrics_available": false,
       "fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
       "fixture_audit_status": "integration_status_logic_verified",
-      "interpretation": "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim."
+      "syntax_only_rejection_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
+      "syntax_only_rejection_status": "syntax_only_result_rejected",
+      "interpretation": "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim. A 100% inline-citation syntax-only fixture is explicitly rejected."
     },
     "qwen3b_remote_provenance_gate": {
       "run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
@@ -602,6 +604,7 @@
     "remote_provenance_gate_run_id": "qwen3b-remote-provenance-gate-joint-action-qwen3b-smoke-eval-v1",
     "model_scale_audit_run_id": "model-scale-adequacy-audit-2026-06-26-v1",
     "qwen_integration_fixture_audit_run_id": "qwen3b-integration-fixture-audit-2026-06-26-v1",
+    "qwen_syntax_only_rejection_audit_run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
     "current_pipeline_status": "waiting_for_qwen3b_predictions",
     "blocked_claims": [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

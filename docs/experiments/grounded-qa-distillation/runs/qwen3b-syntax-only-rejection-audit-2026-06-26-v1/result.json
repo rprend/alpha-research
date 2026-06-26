@@ -1,0 +1,74 @@
+{
+  "run_id": "qwen3b-syntax-only-rejection-audit-2026-06-26-v1",
+  "generated_at": "2026-06-26T23:27:50.099Z",
+  "artifact_type": "qwen3b_syntax_only_rejection_audit",
+  "status": "syntax_only_result_rejected",
+  "purpose": "Prove the Qwen 3B result-integration gate cannot be satisfied by perfect inline citation syntax when support/correctness metrics remain below target.",
+  "source_repair_run_id": "local-qwen3b-citation-repair-local-qwen3b-base-control-joint-action-12-v1",
+  "fixture": {
+    "prediction_run_id": ".tmp-qwen-syntax-only-pred",
+    "judge_run_id": ".tmp-qwen-syntax-only-judge",
+    "integration_run_id": ".tmp-qwen-syntax-only-integration",
+    "expected_status": "qwen3b_negative_ready_for_pareto_update",
+    "observed_status": "qwen3b_negative_ready_for_pareto_update",
+    "integration_exit_status": 0,
+    "cleanup_removed": true
+  },
+  "metrics_used": {
+    "examples": 12,
+    "answered": 10,
+    "answer_rate": 0.8333333333333334,
+    "inline_citation_rate": 1,
+    "citation_precision": 0.4,
+    "citation_recall": 0.7142857142857143,
+    "synthetic_answer_support_rate": 0.4,
+    "synthetic_overall_judged_correct_rate": 0.30000000000000004,
+    "note": "The synthetic judge fixture deliberately maps syntax-repaired citation precision to support and combines answer-type accuracy with citation precision for overall correctness. It is a gate logic test, not a real judge result."
+  },
+  "observed_integration": {
+    "status": "qwen3b_negative_ready_for_pareto_update",
+    "qwen_metrics": {
+      "examples": 12,
+      "answered": 10,
+      "abstained": 2,
+      "answer_rate": 0.8333333333333334,
+      "answer_support_rate": 0.4,
+      "abstention_support_rate": 0.75,
+      "overall_judged_correct_rate": 0.30000000000000004,
+      "invalid_judgment_rate": 0,
+      "citation_precision": 0.4,
+      "citation_recall": 0.7142857142857143,
+      "answer_token_f1": 0.17853335837835266,
+      "inline_citation_rate": 1,
+      "judge_cost_usd": 0
+    },
+    "target_comparison": {
+      "meets_minimum_acceptance": false,
+      "beats_70pct_frontier": false,
+      "direct_baseline_deltas": {
+        "answer_rate": 0.042940320232896734,
+        "answer_support_rate": -0.25193370165745854,
+        "overall_judged_correct_rate": -0.4248908296943231
+      },
+      "seventy_percent_frontier_deltas": {
+        "answer_rate": 0.11280931586608445,
+        "answer_support_rate": -0.2848484848484848,
+        "overall_judged_correct_rate": -0.4729257641921397
+      },
+      "interpretation": "Negative or inconclusive: does not meet the minimum support-preserving target."
+    }
+  },
+  "conclusion": "The integration gate rejected a fixture with 100% inline citation rate because support/correctness failed the direct-baseline target.",
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.896385600000015,
+    "remaining_budget_usd": 94.10361439999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit creates local synthetic fixtures and invokes the integration script only."
+  }
+}

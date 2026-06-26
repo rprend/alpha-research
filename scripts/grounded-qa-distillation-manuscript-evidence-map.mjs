@@ -33,6 +33,7 @@ const smokeLedgerFinalizer = await readResult("joint-action-smoke-ledger-finaliz
 const primeRunbook = await readResult("prime-qwen3b-smoke-runbook-2026-06-26-v1");
 const qwenResultIntegration = await readResult("qwen3b-result-integration-joint-action-smoke-2026-06-26-v1");
 const qwenIntegrationFixtureAudit = await readResult("qwen3b-integration-fixture-audit-2026-06-26-v1");
+const qwenSyntaxOnlyRejectionAudit = await readResult("qwen3b-syntax-only-rejection-audit-2026-06-26-v1");
 const primeAuthPriceGate = await readResult("prime-auth-price-gate-qwen3b-smoke-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
@@ -240,7 +241,9 @@ const result = {
       qwen_metrics_available: Boolean(qwenResultIntegration.qwen_metrics),
       fixture_audit_run_id: qwenIntegrationFixtureAudit.run_id,
       fixture_audit_status: qwenIntegrationFixtureAudit.status,
-      interpretation: "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim.",
+      syntax_only_rejection_run_id: qwenSyntaxOnlyRejectionAudit.run_id,
+      syntax_only_rejection_status: qwenSyntaxOnlyRejectionAudit.status,
+      interpretation: "The final Qwen result now has a fail-closed integration gate that will compare it against the direct baseline and 70% coverage-constrained frontier before any Pareto or paper claim. A 100% inline-citation syntax-only fixture is explicitly rejected.",
     },
     qwen3b_remote_provenance_gate: {
       run_id: remoteProvenanceGate.run_id,
@@ -288,6 +291,7 @@ const result = {
     remote_provenance_gate_run_id: remoteProvenanceGate.run_id,
     model_scale_audit_run_id: modelScaleAudit.run_id,
     qwen_integration_fixture_audit_run_id: qwenIntegrationFixtureAudit.run_id,
+    qwen_syntax_only_rejection_audit_run_id: qwenSyntaxOnlyRejectionAudit.run_id,
     current_pipeline_status: qwenPipeline.conclusion.status,
     blocked_claims: [
       "A trained Qwen 3B joint-action student improves citation-grounded correctness.",

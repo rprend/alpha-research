@@ -75,6 +75,7 @@ if (!errors.length) {
   await validatePrimeQwen3bSmokeRunbookRunsIfPresent();
   await validateQwen3bResultIntegrationRunsIfPresent();
   await validateQwen3bIntegrationFixtureAuditRunsIfPresent();
+  await validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent();
   await validateGpuLaunchAttemptRunsIfPresent();
   await validateHuggingFaceQwen3bSmokeLaunchAttemptRunsIfPresent();
   await validatePrimeAuthDiagnosisRunsIfPresent();
@@ -3532,6 +3533,55 @@ async function validateVersionedPrivateKbEvalRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: versioned private-KB eval must be zero-cost.`);
+    }
+  }
+}
+
+async function validateQwen3bSyntaxOnlyRejectionAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("qwen3b-syntax-only-rejection-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    let report;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      report = await fs.readFile(reportPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed Qwen3B syntax-only rejection audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "qwen3b_syntax_only_rejection_audit") {
+      errors.push(`${entry.name}: unexpected syntax-only rejection audit artifact type.`);
+    }
+    if (result.status !== "syntax_only_result_rejected") {
+      errors.push(`${entry.name}: syntax-only fixture must be rejected.`);
+    }
+    if (result.fixture?.expected_status !== "qwen3b_negative_ready_for_pareto_update" || result.fixture?.observed_status !== result.fixture.expected_status) {
+      errors.push(`${entry.name}: syntax-only fixture must observe the negative integration status.`);
+    }
+    if (result.fixture?.cleanup_removed !== true) {
+      errors.push(`${entry.name}: syntax-only audit must remove temporary fixture directories.`);
+    }
+    if (Number(result.metrics_used?.inline_citation_rate) < 0.99 || Number(result.metrics_used?.synthetic_answer_support_rate) >= 0.65) {
+      errors.push(`${entry.name}: syntax-only audit must combine perfect syntax with weak support.`);
+    }
+    if (result.observed_integration?.target_comparison?.meets_minimum_acceptance !== false) {
+      errors.push(`${entry.name}: syntax-only audit must prove minimum acceptance is false.`);
+    }
+    if (!report.includes("Qwen 3B Syntax-Only Rejection Audit") || !report.includes("100.0%")) {
+      errors.push(`${entry.name}: syntax-only audit report must expose the perfect syntax negative case.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: syntax-only audit must be zero cost.`);
     }
   }
 }
