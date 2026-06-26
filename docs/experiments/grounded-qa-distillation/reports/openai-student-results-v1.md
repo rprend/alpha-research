@@ -150,6 +150,19 @@ Same-slice comparison on temporal-test examples 81-120:
 
 The teacher-demo scaffold is more conservative: it answers 23 of 40 examples versus 27 of 40 for the direct student. It improves citation precision, inline citation compliance, answer support, and overall judged correctness, but loses citation recall and answer token F1 while costing about 4.1x more than the prompt-only mini baseline on the same slice. This is a useful scaffold diagnostic, but not yet an amortized win. The next post-training-data experiment should use repaired teacher outputs to train or filter a cheaper policy, then measure whether the extra teacher-label cost is amortized over repeated inference.
 
+## Offline Teacher-Label Packet
+
+`teacher-repair-temporal-test-0-80-v1` converts the first 80 repaired multi-step teacher outputs into a reusable post-training packet:
+
+| Artifact | Rows | Purpose |
+| --- | ---: | --- |
+| `exports/teacher-repair-temporal-test-0-80-v1.sft.jsonl` | 65 | strict judge-accepted SFT labels |
+| `exports/teacher-repair-temporal-test-0-80-v1.rejected.jsonl` | 15 | audit rows rejected by the strict label filter |
+
+The strict filter accepts answered labels only when the judge marks every claim supported, citation ids valid, and every cited id appears inline in the answer. This is stricter than the judge aggregate: 14 semantically supported answered labels are rejected because the repaired teacher still omitted inline citation markers, and 1 answered label is rejected as unsupported.
+
+The first-80 repaired teacher plus judge labeling cost is $0.5675848. Compared with the 80-120 demo scaffold's per-query cost premium over direct mini prompting, the offline packet breaks even after about 798 future queries if post-training keeps inference near direct mini-student cost. This is an amortization calculation, not a quality claim; a trained or fitted student still needs held-out evaluation.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

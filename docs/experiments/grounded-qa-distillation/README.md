@@ -128,6 +128,15 @@ The export writes chat-style supervised examples for model post-training:
 
 Each row includes `messages` for SFT-compatible trainers plus structured `input` and `target` fields for custom student training.
 
+The first judge-filtered repaired-teacher label packet is:
+
+- `exports/teacher-repair-temporal-test-0-80-v1.sft.jsonl`
+- `exports/teacher-repair-temporal-test-0-80-v1.rejected.jsonl`
+- `exports/teacher-repair-temporal-test-0-80-v1.manifest.json`
+- `reports/teacher-repair-temporal-test-0-80-v1.md`
+
+It contains 65 strict SFT labels from the first 80 repaired multi-step teacher examples and 15 rejected audit rows. This is the first offline post-training object for amortized distillation; it is not yet evidence that a trained student improves.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:
@@ -165,7 +174,7 @@ Primary metrics:
 This project is not paper-complete. Current artifacts cover deterministic data construction, leakage removal, and cheap scaffold baselines. Required next work:
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
-- convert repaired multi-step teacher outputs into trainable or filterable post-training labels instead of relying on costly in-context demonstrations,
+- train or fit a compact student/filter on `teacher-repair-temporal-test-0-80-v1.sft.jsonl` and evaluate on held-out examples 81-172,
 - scale the best multi-step teacher recipe beyond the first 80 examples only if the label-quality filter is useful,
 - calibrate the entailment-style citation judge against stronger independent or human judgments,
 - evaluate cost/quality tradeoffs against a larger teacher,

@@ -41,6 +41,7 @@ if (!errors.length) {
   await validateLlmBudgetIfPresent();
   await validateJudgeRunsIfPresent();
   await validateMultistepTeacherRunsIfPresent();
+  await validateTeacherLabelExportsIfPresent();
 }
 
 if (errors.length) {
@@ -267,6 +268,43 @@ async function validateMultistepTeacherRunsIfPresent() {
   }
 }
 
+async function validateTeacherLabelExportsIfPresent() {
+  const exportDir = path.join(experimentDir, "exports");
+  let entries = [];
+  try {
+    entries = await fs.readdir(exportDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isFile() || !entry.name.startsWith("teacher-repair-") || !entry.name.endsWith(".manifest.json")) continue;
+    const manifestPath = path.join(exportDir, entry.name);
+    const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+    const acceptedPath = path.join(rootDir, manifest.artifacts?.accepted_sft_jsonl ?? "");
+    const rejectedPath = path.join(rootDir, manifest.artifacts?.rejected_jsonl ?? "");
+    let accepted;
+    let rejected;
+    try {
+      accepted = await readJsonl(acceptedPath);
+      rejected = await readJsonl(rejectedPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed teacher-label export artifacts.`);
+      continue;
+    }
+
+    if (accepted.length !== manifest.accepted_labels) errors.push(`${entry.name}: accepted label count does not match manifest.`);
+    if (rejected.length !== manifest.rejected_labels) errors.push(`${entry.name}: rejected label count does not match manifest.`);
+    if (accepted.length + rejected.length !== manifest.examples_seen) errors.push(`${entry.name}: accepted plus rejected count does not match examples_seen.`);
+    if (!Number.isFinite(Number(manifest.total_labeling_cost_usd)) || Number(manifest.total_labeling_cost_usd) < 0) {
+      errors.push(`${entry.name}: invalid total_labeling_cost_usd.`);
+    }
+
+    accepted.forEach((row, index) => validateTeacherLabel(row, `${entry.name}.accepted:${index + 1}`, true));
+    rejected.forEach((row, index) => validateTeacherLabel(row, `${entry.name}.rejected:${index + 1}`, false));
+  }
+}
+
 async function readJsonl(file) {
   const text = await fs.readFile(file, "utf8");
   return text.trim().split("\n").filter(Boolean).map((line) => JSON.parse(line));
@@ -307,6 +345,39 @@ function validateExample(row, label) {
   for (const citation of citations) {
     if (!row.output.answer.includes(`[${citation.evidence_id}]`)) {
       errors.push(`${label}: output.answer does not include inline citation [${citation.evidence_id}].`);
+    }
+  }
+}
+
+function validateTeacherLabel(row, label, accepted) {
+  if (!row.example_id) errors.push(`${label}: missing example_id.`);
+  if (row.task !== "citation_grounded_domain_qa_teacher_label_sft") errors.push(`${label}: unexpected task.`);
+  if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three chat messages.`);
+  if (!row.input?.question) errors.push(`${label}: missing input.question.`);
+  if (!Array.isArray(row.input?.compact_retrieved_evidence_pack) || !row.input.compact_retrieved_evidence_pack.length) {
+    errors.push(`${label}: missing evidence pack.`);
+    return;
+  }
+  if (!row.teacher_output?.answer_type) errors.push(`${label}: missing teacher_output.answer_type.`);
+  if (accepted && row.label_source?.quality_tier !== "judge_accepted") errors.push(`${label}: accepted label must have judge_accepted quality tier.`);
+  if (!accepted && !row.rejection_reason) errors.push(`${label}: rejected label needs rejection_reason.`);
+
+  const evidenceIds = new Set(row.input.compact_retrieved_evidence_pack.map((item) => item.evidence_id));
+  const citations = row.teacher_output?.citations ?? [];
+  if (row.teacher_output?.answer_type === "abstain") {
+    if (citations.length) errors.push(`${label}: accepted/rejected abstention must not cite evidence.`);
+    if (accepted && row.teacher_trace?.judgment?.verdict !== "correct_abstention") {
+      errors.push(`${label}: accepted abstention must have correct_abstention judgment.`);
+    }
+    return;
+  }
+
+  if (accepted && row.teacher_trace?.judgment?.verdict !== "supported") errors.push(`${label}: accepted answer must have supported judgment.`);
+  if (accepted && !citations.length) errors.push(`${label}: accepted answer needs citations.`);
+  for (const id of citations) {
+    if (!evidenceIds.has(id)) errors.push(`${label}: citation ${id} is not in evidence pack.`);
+    if (accepted && !row.teacher_output.answer.includes(`[${id}]`)) {
+      errors.push(`${label}: accepted answer missing inline citation [${id}].`);
     }
   }
 }
