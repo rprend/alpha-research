@@ -223,6 +223,8 @@ The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher
 
 `runs/sequence-verifier-from-mini-negative-labels-160-389-v1/` tests that stronger model-class direction with a frozen `cross-encoder/nli-distilroberta-base` sequence representation over cited evidence and candidate answers. It still fails: the best objective reaches 182/229 support-oracle correct, below the balanced gate's 185/229 and far below the mini-negative teacher's 192/229. Frozen sequence embeddings catch some unsupported answers but add too many harmful suppressions.
 
+`runs/finetuned-sequence-verifier-from-mini-negative-labels-160-389-v1/` tests whether actual supervised sequence-classifier fine-tuning fixes the frozen-representation failure without any OpenAI calls. It is a modest diagnostic improvement, not the final amortized scaffold: the strong-support objective reaches 186/229 support-oracle correct versus the balanced gate's 185/229, but it suppresses 19 answers with 10 useful and 9 harmful suppressions and still trails the mini-negative teacher's 192/229. The teacher-policy objective falls below balanced at 184/229. The current verifier-label corpus is too sparse for robust teacher imitation.
+
 `runs/openai-student-teacher-rubric-temporal-test-132-172-v1/` is a runnable fallback while HF training is blocked. It distills the 109 strict teacher labels into a compact static rubric for the cheap `gpt-4o-mini` student. The rubric improves citation precision, inline citation rate, and judged support on examples 133-172, but it over-abstains and loses answer coverage versus direct mini prompting. It is a negative result for amortized quality, but a useful signal that teacher labels transfer citation discipline more easily than answer synthesis.
 
 `runs/openai-student-teacher-balanced-rubric-temporal-test-132-172-v1/` tests a less conservative variant of the same static rubric. It recovers answer coverage and preserves 100.0% inline citation rate and 95.0% overall judged correctness, but still trails direct mini prompting on answer-type accuracy, citation recall, and answer F1. Static rubric distillation is now a citation-format control, not the final student.
@@ -269,7 +271,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $5.57454550, leaving $94.42545450 under the $100 cap.
+Current ledgered spend is $5.58438115, leaving $94.41561885 under the $100 cap.
 
 ## Evaluation Plan
 
