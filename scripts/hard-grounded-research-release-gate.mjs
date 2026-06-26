@@ -26,6 +26,7 @@ const inputs = {
   licenseRemediatedExpansionCandidates: join(generatedDir, 'license-remediated-expansion-candidates.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   publicPackageSummary: join(generatedDir, 'public-package/summary.json'),
+  scaledPublicPackageSummary: join(generatedDir, 'public-package/scaled-summary.json'),
 }
 
 function assert(condition, message) {
@@ -86,6 +87,7 @@ function buildGate({
   licenseRemediatedExpansionCandidates,
   packageManifest,
   publicPackageSummary,
+  scaledPublicPackageSummary,
 }) {
   const licenseBlockers = licenseReview.blockers || []
   const scoredModelRuns = modelRunIndex.eligible_model_baselines || []
@@ -168,6 +170,14 @@ function buildGate({
       blocker: 'Generate a sanitized public suite that applies the public package manifest.',
     },
     {
+      id: 'scaled_public_package_present',
+      passed:
+        scaledPublicPackageSummary.item_count === licenseImpact.expansion_candidate_count &&
+        scaledPublicPackageSummary.replacement_originals_skipped === licenseRemediationPlan.replace_candidate_count,
+      detail: `${scaledPublicPackageSummary.item_count} scaled public items; ${scaledPublicPackageSummary.replacement_originals_skipped} remediated replacements; ${scaledPublicPackageSummary.pointer_only_items} pointer-only items`,
+      blocker: 'Generate a scaled public package that applies remediated replacements and pointer-only text stripping.',
+    },
+    {
       id: 'repair_queue_clear',
       passed: itemQualityAudit.repair_before_gold === 0,
       detail: `${itemQualityAudit.repair_before_gold} repair-before-gold items`,
@@ -209,6 +219,7 @@ function buildGate({
       license_remediated_expansion_candidates: 'generated/license-remediated-expansion-candidates.json',
       public_package_manifest: 'generated/public-package-manifest.json',
       sanitized_public_suite: 'generated/public-package/hard-grounded-research-public-suite.json',
+      scaled_public_package: 'generated/public-package/hard-grounded-research-scaled-public-suite.json',
     },
     pilot_item_count: goldSummary.total_items,
     scored_system_count: baselineAnalysis.systems.length,
@@ -273,6 +284,7 @@ const gate = buildGate({
   licenseRemediatedExpansionCandidates: readJson(inputs.licenseRemediatedExpansionCandidates),
   packageManifest: readJson(inputs.packageManifest),
   publicPackageSummary: readJson(inputs.publicPackageSummary),
+  scaledPublicPackageSummary: readJson(inputs.scaledPublicPackageSummary),
 })
 
 writeJson(releaseGateJsonPath, gate)

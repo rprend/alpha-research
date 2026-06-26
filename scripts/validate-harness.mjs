@@ -223,7 +223,7 @@ for (const token of ['license-remediated-expansion-candidates.json', 'license_re
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs')), 'Missing hard grounded research release gate builder.')
 const hardGroundedReleaseGateSource = readFileSync(join(root, 'scripts/hard-grounded-research-release-gate.mjs'), 'utf8')
-for (const token of ['release-gate.json', 'license-review.json', 'license-impact.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
+for (const token of ['release-gate.json', 'license-review.json', 'license-impact.json', 'license-remediation-plan.json', 'license-remediated-expansion-candidates.json', 'public-package-manifest.json', 'scaled-summary.json', 'review_preflight_ready', 'expansion_review_preflight_ready', 'expansion_review_merge_ready', 'license_impact_clear', 'license_remediation_plan_present', 'license_remediated_expansion_candidates_present', 'scaled_public_package_present', 'sanitized_public_suite_present', 'unknown_license_resolved', 'novelty_audit_json', 'completion_claim_allowed', 'novelty_audit_final']) {
   assert(hardGroundedReleaseGateSource.includes(token), `Hard grounded release gate is missing release token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-package-manifest.mjs')), 'Missing hard grounded research package manifest builder.')
@@ -235,6 +235,11 @@ assert(existsSync(join(root, 'scripts/hard-grounded-research-public-package.mjs'
 const hardGroundedPublicPackageSource = readFileSync(join(root, 'scripts/hard-grounded-research-public-package.mjs'), 'utf8')
 for (const token of ['hard-grounded-research-public-suite.json', 'text_included_in_public_package', 'Pointer-only evidence leaked text']) {
   assert(hardGroundedPublicPackageSource.includes(token), `Hard grounded public package builder is missing packaging token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-scaled-public-package.mjs')), 'Missing hard grounded research scaled public package builder.')
+const hardGroundedScaledPublicPackageSource = readFileSync(join(root, 'scripts/hard-grounded-research-scaled-public-package.mjs'), 'utf8')
+for (const token of ['hard-grounded-research-scaled-public-suite.json', 'license_remediated_replacement', 'pointer_only_unknown_license_evidence', 'Pointer-only evidence leaked text']) {
+  assert(hardGroundedScaledPublicPackageSource.includes(token), `Hard grounded scaled public package builder is missing packaging token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-import-model-results.mjs')), 'Missing hard grounded research model result importer.')
 const hardGroundedModelImportSource = readFileSync(join(root, 'scripts/hard-grounded-research-import-model-results.mjs'), 'utf8')

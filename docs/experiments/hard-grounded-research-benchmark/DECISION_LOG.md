@@ -423,3 +423,11 @@ Decision: Generate a separate license-remediated expansion candidate suite for r
 Rationale: A remediation plan is not enough for a paper-ready benchmark if reviewers cannot inspect the replacement items. Materializing replacement-path candidates creates a concrete review target while preserving the original raw expansion candidates and keeping pointer-only categories explicit.
 
 Consequence: `scripts/hard-grounded-research-remediated-expansion-candidates.mjs` now emits `generated/license-remediated-expansion-candidates.json` and `LICENSE_REMEDIATED_EXPANSION_CANDIDATES.md`; the release gate records whether every replacement-path candidate has been materialized.
+
+## 2026-06-26 — Package scaled candidates for public release
+
+Decision: Generate a scaled public expansion package that swaps in known-license replacement candidates and strips text for pointer-only evidence.
+
+Rationale: Reviewers and future benchmark users need to inspect the exact public artifact implied by the licensing policy. Keeping raw expansion candidates separate from the public package preserves provenance while proving that unknown-license text does not leak into the scaled release view.
+
+Consequence: `scripts/hard-grounded-research-scaled-public-package.mjs` now emits `generated/public-package/hard-grounded-research-scaled-public-suite.json`, JSONL, `generated/public-package/scaled-summary.json`, and `SCALED_PUBLIC_PACKAGE.md`; the release gate records whether the scaled public package exists and uses all remediated replacements.

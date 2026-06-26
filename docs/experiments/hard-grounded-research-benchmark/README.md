@@ -49,6 +49,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `LICENSE_REMEDIATED_EXPANSION_CANDIDATES.md` and `generated/license-remediated-expansion-candidates.json`: generated known-license replacement candidate suite for remediation-plan categories with a replacement path.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
 - `generated/public-package/`: sanitized public suite artifacts that apply the manifest and omit text for pointer-only evidence.
+- `SCALED_PUBLIC_PACKAGE.md` and `generated/public-package/scaled-summary.json`: generated public-release view of scaled expansion candidates with remediated replacements and pointer-only text stripping.
 - `MODEL_BASELINES.md`: reproducible prompt-packet and external model-output import workflow for frontier/open-model baselines.
 - `MODEL_RUN_INDEX.md` and `generated/model-run-index.json`: generated scored-run inventory that separates heuristic diagnostics from eligible model baselines.
 - `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.

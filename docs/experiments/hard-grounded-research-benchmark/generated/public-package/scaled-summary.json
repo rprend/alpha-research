@@ -1,0 +1,15 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "item_count": 270,
+  "package_ready_items": 189,
+  "pointer_only_items": 81,
+  "pointer_only_evidence_units": 108,
+  "replacement_originals_skipped": 54,
+  "package_mode_counts": {
+    "license_remediated_replacement": 54,
+    "pointer_only_unknown_license_evidence": 81,
+    "redistributable_known_license_evidence": 135
+  },
+  "public_suite": "generated/public-package/hard-grounded-research-scaled-public-suite.json",
+  "public_jsonl": "generated/public-package/hard-grounded-research-scaled-public-suite.jsonl"
+}

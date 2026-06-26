@@ -25,6 +25,7 @@ This generated gate is intentionally conservative. It prevents the pilot benchma
 | license_remediated_expansion_candidates_present | yes | 54/54 replacement-path candidates materialized |  |
 | public_package_manifest_present | yes | 15 pointer-only items; 18 pointer-only evidence units |  |
 | sanitized_public_suite_present | yes | 30 sanitized items; 18 pointer-only evidence units |  |
+| scaled_public_package_present | yes | 270 scaled public items; 54 remediated replacements; 81 pointer-only items |  |
 | repair_queue_clear | yes | 0 repair-before-gold items |  |
 | frontier_or_open_model_results_present | no | no scored model reports present | Run and score at least two frontier or open model baselines over the release scoring source. |
 | novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |

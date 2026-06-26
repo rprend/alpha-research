@@ -19,7 +19,8 @@
     "license_remediation_plan": "generated/license-remediation-plan.json",
     "license_remediated_expansion_candidates": "generated/license-remediated-expansion-candidates.json",
     "public_package_manifest": "generated/public-package-manifest.json",
-    "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json"
+    "sanitized_public_suite": "generated/public-package/hard-grounded-research-public-suite.json",
+    "scaled_public_package": "generated/public-package/hard-grounded-research-scaled-public-suite.json"
   },
   "pilot_item_count": 30,
   "scored_system_count": 3,
@@ -95,6 +96,12 @@
       "passed": true,
       "detail": "30 sanitized items; 18 pointer-only evidence units",
       "blocker": "Generate a sanitized public suite that applies the public package manifest."
+    },
+    {
+      "id": "scaled_public_package_present",
+      "passed": true,
+      "detail": "270 scaled public items; 54 remediated replacements; 81 pointer-only items",
+      "blocker": "Generate a scaled public package that applies remediated replacements and pointer-only text stripping."
     },
     {
       "id": "repair_queue_clear",
