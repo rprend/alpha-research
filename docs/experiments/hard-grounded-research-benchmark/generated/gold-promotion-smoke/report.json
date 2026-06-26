@@ -1,0 +1,452 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "smoke_id": "gold-promotion-smoke-2026-06-26",
+  "source_workbooks": "generated/review-workbooks/index.json",
+  "fixture_not_human_review": true,
+  "fixture_release_eligible": false,
+  "reviewer_fields_only_rehearsal": true,
+  "gold_promotion_smoke_ready": true,
+  "workbook_count": 20,
+  "fixture_workbooks": [
+    {
+      "workbook_id": "hgr_review_batch_01.reviewer_a",
+      "batch_id": "hgr_review_batch_01",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_01.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_01.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_01.reviewer_b",
+      "batch_id": "hgr_review_batch_01",
+      "category": "multi-hop synthesis",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_01.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_01.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_02.reviewer_a",
+      "batch_id": "hgr_review_batch_02",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_02.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_02.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_02.reviewer_b",
+      "batch_id": "hgr_review_batch_02",
+      "category": "stale-vs-current document conflicts",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_02.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_02.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_03.reviewer_a",
+      "batch_id": "hgr_review_batch_03",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_03.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_03.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_03.reviewer_b",
+      "batch_id": "hgr_review_batch_03",
+      "category": "appended document lifecycle changes",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_03.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_03.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_04.reviewer_a",
+      "batch_id": "hgr_review_batch_04",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_04.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_04.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_04.reviewer_b",
+      "batch_id": "hgr_review_batch_04",
+      "category": "table + text reasoning",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_04.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_04.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_05.reviewer_a",
+      "batch_id": "hgr_review_batch_05",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_05.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_05.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_05.reviewer_b",
+      "batch_id": "hgr_review_batch_05",
+      "category": "source authority conflicts",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_05.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_05.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_06.reviewer_a",
+      "batch_id": "hgr_review_batch_06",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_06.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_06.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_06.reviewer_b",
+      "batch_id": "hgr_review_batch_06",
+      "category": "evidence insufficiency / abstention",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_06.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_06.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_07.reviewer_a",
+      "batch_id": "hgr_review_batch_07",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_07.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_07.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_07.reviewer_b",
+      "batch_id": "hgr_review_batch_07",
+      "category": "citation supports fact but not conclusion",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_07.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_07.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_08.reviewer_a",
+      "batch_id": "hgr_review_batch_08",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_08.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_08.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_08.reviewer_b",
+      "batch_id": "hgr_review_batch_08",
+      "category": "entity disambiguation",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_08.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_08.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_09.reviewer_a",
+      "batch_id": "hgr_review_batch_09",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_09.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_09.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_09.reviewer_b",
+      "batch_id": "hgr_review_batch_09",
+      "category": "temporal questions: as of date X",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_09.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_09.reviewer_b.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_10.reviewer_a",
+      "batch_id": "hgr_review_batch_10",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_a",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_10.reviewer_a.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_10.reviewer_a.fixture.jsonl"
+    },
+    {
+      "workbook_id": "hgr_review_batch_10.reviewer_b",
+      "batch_id": "hgr_review_batch_10",
+      "category": "cross-document contradiction",
+      "reviewer_slot": "reviewer_b",
+      "item_count": 3,
+      "path": "generated/review-workbooks/hgr_review_batch_10.reviewer_b.jsonl",
+      "fixture_path": "generated/gold-promotion-smoke/review-workbooks/hgr_review_batch_10.reviewer_b.fixture.jsonl"
+    }
+  ],
+  "merge": {
+    "unique_items": 30,
+    "total_review_rows": 60,
+    "completed_reviews": 60,
+    "validation_error_count": 0,
+    "missing_review_items": 0,
+    "disagreement_items": 0,
+    "merge_ready_items": 30,
+    "merge_ready": true,
+    "item_summaries": [
+      {
+        "item_id": "hgr_multi_hop_001_pilot_001",
+        "category": "multi-hop synthesis",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_multi_hop_001_pilot_002",
+        "category": "multi-hop synthesis",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_multi_hop_001_pilot_003",
+        "category": "multi-hop synthesis",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_stale_current_001_pilot_001",
+        "category": "stale-vs-current document conflicts",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_stale_current_001_pilot_002",
+        "category": "stale-vs-current document conflicts",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_stale_current_001_pilot_003",
+        "category": "stale-vs-current document conflicts",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_appendix_lifecycle_001_pilot_001",
+        "category": "appended document lifecycle changes",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_appendix_lifecycle_001_pilot_002",
+        "category": "appended document lifecycle changes",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_appendix_lifecycle_001_pilot_003",
+        "category": "appended document lifecycle changes",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_table_text_001_pilot_001",
+        "category": "table + text reasoning",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_table_text_001_pilot_002",
+        "category": "table + text reasoning",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_table_text_001_pilot_003",
+        "category": "table + text reasoning",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_authority_conflict_001_pilot_001",
+        "category": "source authority conflicts",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_authority_conflict_001_pilot_002",
+        "category": "source authority conflicts",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_authority_conflict_001_pilot_003",
+        "category": "source authority conflicts",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_abstain_001_pilot_001",
+        "category": "evidence insufficiency / abstention",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_abstain_001_pilot_002",
+        "category": "evidence insufficiency / abstention",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_abstain_001_pilot_003",
+        "category": "evidence insufficiency / abstention",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_citation_overreach_001_pilot_001",
+        "category": "citation supports fact but not conclusion",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_citation_overreach_001_pilot_002",
+        "category": "citation supports fact but not conclusion",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_citation_overreach_001_pilot_003",
+        "category": "citation supports fact but not conclusion",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_entity_disambiguation_001_pilot_001",
+        "category": "entity disambiguation",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_entity_disambiguation_001_pilot_002",
+        "category": "entity disambiguation",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_entity_disambiguation_001_pilot_003",
+        "category": "entity disambiguation",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_as_of_date_001_pilot_001",
+        "category": "temporal questions: as of date X",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_as_of_date_001_pilot_002",
+        "category": "temporal questions: as of date X",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_as_of_date_001_pilot_003",
+        "category": "temporal questions: as of date X",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_contradiction_001_pilot_001",
+        "category": "cross-document contradiction",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_contradiction_001_pilot_002",
+        "category": "cross-document contradiction",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      },
+      {
+        "item_id": "hgr_contradiction_001_pilot_003",
+        "category": "cross-document contradiction",
+        "assigned_reviews": 2,
+        "completed_reviews": 2,
+        "missing_reviews": 0,
+        "has_disagreement": false
+      }
+    ],
+    "validation_errors": []
+  },
+  "gold_summary": {
+    "gold_ready": true,
+    "gold_items": 30,
+    "valid_reviewed_items": 30,
+    "total_items": 30,
+    "fixture_only": true
+  }
+}

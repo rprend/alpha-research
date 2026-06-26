@@ -543,3 +543,11 @@ Decision: Add a reusable annotation-return importer with dry-run validation by d
 Rationale: A paper-grade review workflow needs more than export and smoke artifacts; it needs a deterministic path from returned reviewer JSONL files back into the workbooks used by preflight, merge, and gold promotion. The importer must protect immutable benchmark fields and reject fixture annotations unless the run is explicitly marked as smoke validation.
 
 Consequence: `scripts/hard-grounded-research-import-annotations.mjs` now validates returned annotation packets, writes `generated/annotation-import/report.json` and `ANNOTATION_IMPORT.md`, rejects fixture rows by default, and updates workbooks only when `--apply` is requested on clean non-fixture input.
+
+## 2026-06-26 — Rehearse gold promotion with isolated fixture workbooks
+
+Decision: Add a fixture-only gold-promotion rehearsal that completes copied reviewer workbooks and verifies merge-ready gold shape without touching real review state.
+
+Rationale: The benchmark should prove the end-to-end promotion machinery can work before human annotations arrive. A separate rehearsal catches schema or merge failures while preserving the release rule that only real double review can clear gold blockers.
+
+Consequence: `scripts/hard-grounded-research-gold-promotion-smoke.mjs` now emits `generated/gold-promotion-smoke/report.json`, fixture completed workbooks, a fixture gold suite, and `GOLD_PROMOTION_SMOKE.md`; the release gate records the smoke result while real review blockers remain active.

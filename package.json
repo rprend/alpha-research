@@ -34,6 +34,7 @@
     "benchmark:hard-grounded:annotation-export": "node scripts/hard-grounded-research-annotation-export.mjs",
     "benchmark:hard-grounded:annotation-import-smoke": "node scripts/hard-grounded-research-annotation-import-smoke.mjs",
     "benchmark:hard-grounded:import-annotations": "node scripts/hard-grounded-research-import-annotations.mjs",
+    "benchmark:hard-grounded:gold-promotion-smoke": "node scripts/hard-grounded-research-gold-promotion-smoke.mjs",
     "grounded-qa:distill": "node scripts/grounded-qa-distillation-build.mjs",
     "grounded-qa:run": "node scripts/grounded-qa-distillation-run.mjs",
     "grounded-qa:validate": "node scripts/grounded-qa-distillation-validate.mjs",
