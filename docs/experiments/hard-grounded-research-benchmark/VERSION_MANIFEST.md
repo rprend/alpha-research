@@ -7,9 +7,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version manifest ready: true
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
-- Artifacts hashed: 41
-- Total bytes: 555410
-- Release checks: 67/74
+- Artifacts hashed: 43
+- Total bytes: 568067
+- Release checks: 68/75
 - Release blockers: 7
 - Completion claim allowed: false
 
@@ -26,8 +26,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | --- | --- | --- |
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
-| README.md | 13921 | 99445009a0819f1b |
-| DATASET_CARD.md | 21401 | 9fca9a2a02a489f4 |
+| README.md | 14111 | 217f34667b8b5fe6 |
+| DATASET_CARD.md | 21915 | 8338f9720015387b |
 | DATA_STATEMENT.md | 3406 | 53c0fdb92d59d44e |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
@@ -37,12 +37,13 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | REVIEW_RETURN_CONTRACT.md | 6890 | d5dbe181dbe30ae5 |
 | REVIEW_RETURN_PREFLIGHT.md | 6150 | 1bb214c840afd64d |
 | REVIEW_RETURN_CHECKLIST.md | 6986 | cffb60c3ab24d250 |
-| REPRODUCTION_CAPSULE.md | 6612 | eba779f9930a8fc5 |
-| CITATION.md | 1454 | a75cb68589852ce1 |
+| REPRODUCTION_CAPSULE.md | 7710 | 4c8e9a5319f17581 |
+| CITATION.md | 1455 | c53fa6ffc381546d |
 | NOVELTY_WATCHLIST.md | 2722 | 7325218e12417dc3 |
+| NOVELTY_RESOLUTION_MATRIX.md | 2883 | ca283b8ffed7d883 |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 48043 | fd498fd4f5c1a902 |
+| PAPER_DRAFT.md | 48885 | 7e0bc00ff70d2f49 |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -58,12 +59,13 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/review-return-contract.json | 23834 | 7f2e5bf2e0ca118f |
 | generated/review-return-preflight.json | 17051 | 96e6e30eec863d3f |
 | generated/review-return-checklist.json | 34094 | 500c7d8bba1fbb8a |
-| generated/reproduction-capsule.json | 11290 | ed4d15fa2e723e72 |
-| generated/citation-metadata.json | 2115 | 124dcf255cc742e3 |
+| generated/reproduction-capsule.json | 12758 | 814785b06c8c41e4 |
+| generated/citation-metadata.json | 2283 | 6011c3caed97435a |
 | generated/error-codebook.json | 9822 | 33155f5500c0aa0b |
 | generated/novelty-audit.json | 17230 | 2ac5ea3b44cc798c |
 | generated/novelty-evidence.json | 22604 | 3775abdf9a18f353 |
 | generated/novelty-watchlist.json | 4007 | 0dda2e5938e2009d |
+| generated/novelty-resolution-matrix.json | 5493 | b638489c4d3b1aca |
 | generated/paper-claim-ledger.json | 5879 | b13efb36673002bd |
 
 ## Active Release Blockers

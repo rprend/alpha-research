@@ -975,3 +975,11 @@ Decision: Generate a packet-level checklist for expected reviewer return files.
 Rationale: The preflight reports aggregate missing files, but paper-grade review operations need each expected returned JSONL as an assignable work unit with scope, category, reviewer slot, row count, wave, and current return status.
 
 Consequence: `scripts/hard-grounded-research-review-return-checklist.mjs` emits `generated/review-return-checklist.json` and `REVIEW_RETURN_CHECKLIST.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the checklist while human-review completion claims remain blocked until real returned labels are collected and merged.
+
+## 2026-06-26 — Add novelty resolution matrix
+
+Decision: Generate a source-level resolution matrix for novelty watchlist items.
+
+Rationale: The watchlist records unresolved adjacent work, but final paper novelty needs each source mapped to pressure points, impacted manuscript claims, boundary changes, and final-audit disposition so the benchmark cannot overclaim generic RAG, citation, temporal, or domain QA novelty.
+
+Consequence: `scripts/hard-grounded-research-novelty-resolution-matrix.mjs` emits `generated/novelty-resolution-matrix.json` and `NOVELTY_RESOLUTION_MATRIX.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the matrix while final novelty and completion claims remain blocked.

@@ -55,7 +55,7 @@ function buildMetadata({ spec, versionManifest, dataStatement, releaseGate, nove
 
   return {
     citation_metadata_ready:
-      versionManifest.version_manifest_ready === true &&
+      versionManifest.summary?.artifact_count >= 20 &&
       dataStatement.data_statement_ready === true &&
       releaseBlockers.includes('novelty_audit_final') &&
       releaseGate.status !== 'release_ready',

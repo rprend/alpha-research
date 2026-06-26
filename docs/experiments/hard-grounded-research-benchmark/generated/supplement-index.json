@@ -7,6 +7,7 @@
     "paper_tables": "generated/paper-tables.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
     "novelty_watchlist": "generated/novelty-watchlist.json",
+    "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
     "data_statement": "generated/data-statement.json",
     "public_package_integrity": "generated/public-package-integrity.json",
     "public_package_schema": "generated/public-package-schema.json",
@@ -60,6 +61,7 @@
       "files": [
         "PAPER_TABLES.md",
         "PAPER_CLAIM_LEDGER.md",
+        "NOVELTY_RESOLUTION_MATRIX.md",
         "ANALYSIS_PLAN.md",
         "POWER_PLAN.md"
       ],
@@ -209,8 +211,8 @@
   ],
   "release_state": {
     "status": "blocked",
-    "passing_checks": 67,
-    "total_checks": 74,
+    "passing_checks": 68,
+    "total_checks": 75,
     "blockers": [
       "gold_review_complete",
       "review_preflight_ready",
@@ -227,7 +229,9 @@
     "paper_tables": 6,
     "claims": 8,
     "novelty_watchlist_sources": 4,
-    "artifact_hashes": 41,
+    "novelty_resolution_sources": 4,
+    "novelty_resolution_unresolved_sources": 4,
+    "artifact_hashes": 43,
     "public_package_findings": 0,
     "public_package_schema_violations": 0,
     "artifact_classes": 37,
@@ -238,7 +242,7 @@
     "review_return_findings": 0,
     "review_return_missing_files": 30,
     "review_return_checklist_packets": 30,
-    "reproduction_commands": 41,
+    "reproduction_commands": 42,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

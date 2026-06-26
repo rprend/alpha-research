@@ -10,7 +10,7 @@ This generated checklist makes the benchmark package auditable as a research art
 - Pilot items: 30
 - Scaled public items: 270
 - Artifact classes ready: 37/37
-- Reproduction commands: 41
+- Reproduction commands: 42
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -49,13 +49,13 @@ This generated checklist makes the benchmark package auditable as a research art
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=41; validations=3; hashes=41. |
-| citation_metadata | ready | citation-metadata-v1; caveats=4; artifact hashes=41; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=42; validations=3; hashes=43. |
+| citation_metadata | ready | citation-metadata-v1; caveats=4; artifact hashes=43; blockers=12. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=41; bytes=555117. |
-| novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 5 prohibited claims; refresh queries=4. |
+| version_manifest | ready | version-manifest-v1; artifacts=43; bytes=568071. |
+| novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 5 prohibited claims; refresh queries=4. |
 
 ## Reproduction Commands
 
@@ -70,6 +70,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Refresh aggregate baseline analysis | `node scripts/hard-grounded-research-report.mjs` |
 | Refresh corpus, construct, and power artifacts | `node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs` |
 | Refresh novelty watchlist | `node scripts/hard-grounded-research-novelty-watchlist.mjs` |
+| Refresh novelty resolution matrix | `node scripts/hard-grounded-research-novelty-resolution-matrix.mjs` |
 | Refresh public package integrity | `node scripts/hard-grounded-research-public-package-integrity.mjs` |
 | Refresh public package schema | `node scripts/hard-grounded-research-public-package-schema.mjs` |
 | Refresh source diversity plan | `node scripts/hard-grounded-research-source-diversity-plan.mjs` |

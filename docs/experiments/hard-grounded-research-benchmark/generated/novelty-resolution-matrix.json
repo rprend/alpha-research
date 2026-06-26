@@ -1,0 +1,128 @@
+{
+  "novelty_resolution_matrix_ready": true,
+  "version": "novelty-resolution-matrix-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "novelty_audit": "generated/novelty-audit.json",
+    "novelty_evidence": "generated/novelty-evidence.json",
+    "novelty_watchlist": "generated/novelty-watchlist.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "checks": [
+    {
+      "id": "watchlist_loaded",
+      "passed": true,
+      "detail": "4/4 watchlist sources mapped"
+    },
+    {
+      "id": "claim_impacts_mapped",
+      "passed": true,
+      "detail": "4/4 sources with claim impacts"
+    },
+    {
+      "id": "final_audit_still_blocked",
+      "passed": true,
+      "detail": "novelty status=refreshed_preliminary; completion_claim_allowed=false"
+    },
+    {
+      "id": "prohibited_claims_preserved",
+      "passed": true,
+      "detail": "3 prohibited paper claims remain in the claim ledger"
+    }
+  ],
+  "source_resolutions": [
+    {
+      "source_id": "faithjudge-2026",
+      "title": "FaithJudge: Evaluating Intrinsic and Extrinsic Hallucinations in Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/html/2606.21923v1",
+      "year": 2026,
+      "novelty_risk": "medium",
+      "already_in_registry": false,
+      "pressure_points": [
+        "citation supports fact but not conclusion",
+        "evidence insufficiency / abstention"
+      ],
+      "required_resolution": "Confirm whether FaithJudge evaluates conclusion-level support or only retrieved-context faithfulness and hallucination detection.",
+      "impacted_claims": [
+        "citation faithfulness evaluation",
+        "conclusion-support overreach"
+      ],
+      "required_boundary_change": "Keep citation novelty limited to conclusion-support overreach rather than span attribution or hallucination detection.",
+      "final_audit_disposition": "must_compare_before_final"
+    },
+    {
+      "source_id": "faithfulness-qa-2026",
+      "title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "url": "https://arxiv.org/html/2606.03962v1",
+      "year": 2026,
+      "novelty_risk": "medium",
+      "already_in_registry": false,
+      "pressure_points": [
+        "entity disambiguation",
+        "stale-vs-current document conflicts",
+        "citation supports fact but not conclusion"
+      ],
+      "required_resolution": "Check whether counterfactual entity substitution overlaps the proposed same-name entity and stale/current evidence categories.",
+      "impacted_claims": [
+        "citation faithfulness evaluation",
+        "conclusion-support overreach"
+      ],
+      "required_boundary_change": "Keep citation novelty limited to conclusion-support overreach rather than span attribution or hallucination detection.",
+      "final_audit_disposition": "must_compare_before_final"
+    },
+    {
+      "source_id": "dora-2026",
+      "title": "Benchmarking Domain-Specific Retrieval-Augmented Generation for Real-World Question Answering in Privacy Policies",
+      "url": "https://arxiv.org/html/2601.10870v3",
+      "year": 2026,
+      "novelty_risk": "medium",
+      "already_in_registry": false,
+      "pressure_points": [
+        "source authority conflicts",
+        "evidence insufficiency / abstention",
+        "large-corpus research QA"
+      ],
+      "required_resolution": "Verify whether domain-specific legal/privacy RAG covers authority hierarchy or only domain-grounded retrieval and answer correctness.",
+      "impacted_claims": [
+        "source authority conflicts",
+        "domain-specific RAG"
+      ],
+      "required_boundary_change": "Confirm whether authority hierarchy is actually benchmarked; otherwise cite as domain RAG rather than authority-conflict coverage.",
+      "final_audit_disposition": "must_compare_before_final"
+    },
+    {
+      "source_id": "hierarag-2026",
+      "title": "RAG Benchmarking: A Hierarchical Review of Methods and Evaluation Perspectives",
+      "url": "https://arxiv.org/html/2606.12159v1",
+      "year": 2026,
+      "novelty_risk": "high",
+      "already_in_registry": false,
+      "pressure_points": [
+        "generic RAG benchmark claim",
+        "benchmark taxonomy framing"
+      ],
+      "required_resolution": "Use the review taxonomy to ensure the paper does not claim generic RAG benchmark novelty and instead names the hard-grounded failure taxonomy contribution.",
+      "impacted_claims": [
+        "generic RAG benchmark claim",
+        "benchmark taxonomy framing"
+      ],
+      "required_boundary_change": "Do not claim generic RAG benchmark novelty; frame the contribution as a hard-grounded failure taxonomy and executable review harness.",
+      "final_audit_disposition": "must_cite_or_rule_out_before_final"
+    }
+  ],
+  "final_audit_requirements": [
+    "Read or re-check every watchlist source immediately before final submission.",
+    "Move any directly overlapping source into generated/novelty-evidence.json before final novelty claims.",
+    "Rewrite paper claims if a watchlist source covers a proposed hard-grounded category as a standalone contribution.",
+    "Keep completion_claim_allowed false until review, scale, and final novelty gates all pass."
+  ],
+  "summary": {
+    "watchlist_sources": 4,
+    "unresolved_sources": 4,
+    "high_risk_sources": 1,
+    "prohibited_claims_preserved": 3,
+    "registry_sources": 22,
+    "completion_claim_allowed": false
+  }
+}

@@ -12,6 +12,7 @@ const requiredInputs = {
   noveltyAuditJson: join(generatedDir, 'novelty-audit.json'),
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
+  noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
   datasetCard: join(experimentDir, 'DATASET_CARD.md'),
   licenseReview: join(generatedDir, 'license-review.json'),
   licenseClearance: join(generatedDir, 'license-clearance.json'),
@@ -259,7 +260,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, errorCodebook, paperTables, analysisPlan, paperClaimLedger, supplementIndex, citationMetadata, reviewerFaq, baselineUncertainty, corpusAudit, sourceDiversityPlan, sourceAcquisitionManifest, sourceAcquisitionPackets, sourceAcquisitionAudit, sourceAcquisitionFetchedRows, sourceAcquisitionCandidates, sourceAcquisitionReviewWorkbooks, sourceAcquisitionReviewPreflight, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyAuditJson, noveltyEvidence, noveltyWatchlist, noveltyResolutionMatrix, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, publicPackageIntegrity, publicPackageSchema, responsibleUse, dataStatement, versionManifest, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reproductionCapsule, releaseGate, modelRunIndex, modelReportingCard, submissionContract, scoringContract, annotationExport, reviewCalibration, annotationQualityControl, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -496,6 +497,8 @@ The June 2026 scan records ${noveltyEvidence.search_queries.length} search-query
 
 The live-search novelty watchlist adds ${noveltyWatchlist.summary.watchlist_source_count} sources, including ${noveltyWatchlist.summary.high_risk_source_count} high-risk sources, that must be resolved before the novelty audit can become final. This watchlist is a final-audit input, not a novelty claim.
 
+The generated novelty resolution matrix maps ${noveltyResolutionMatrix.summary.watchlist_sources} watchlist sources to claim impacts, with ${noveltyResolutionMatrix.summary.unresolved_sources} unresolved sources and ${noveltyResolutionMatrix.summary.high_risk_sources} high-risk sources still requiring final adjudication. This matrix is the working related-work checklist for the final June 2026 audit.
+
 ${markdownTable(['Paper claim', 'Status', 'Reason'], noveltyClaimBoundaryRows(noveltyEvidence))}
 
 ## Adversarial Related-Work Comparison
@@ -547,6 +550,7 @@ const draft = renderDraft({
   noveltyAuditJson: readJson(requiredInputs.noveltyAuditJson),
   noveltyEvidence: readJson(requiredInputs.noveltyEvidence),
   noveltyWatchlist: readJson(requiredInputs.noveltyWatchlist),
+  noveltyResolutionMatrix: readJson(requiredInputs.noveltyResolutionMatrix),
   goldSummary: readJson(requiredInputs.goldSummary),
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),
   itemQualityAudit: readJson(requiredInputs.itemQualityAudit),

@@ -13,6 +13,7 @@ const inputs = {
   paperTables: join(generatedDir, 'paper-tables.json'),
   paperClaimLedger: join(generatedDir, 'paper-claim-ledger.json'),
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
+  noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
   dataStatement: join(generatedDir, 'data-statement.json'),
   publicPackageIntegrity: join(generatedDir, 'public-package-integrity.json'),
   publicPackageSchema: join(generatedDir, 'public-package-schema.json'),
@@ -50,7 +51,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, noveltyResolutionMatrix, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reviewReturnChecklist, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -81,7 +82,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'paper_evidence',
-      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
+      files: ['PAPER_TABLES.md', 'PAPER_CLAIM_LEDGER.md', 'NOVELTY_RESOLUTION_MATRIX.md', 'ANALYSIS_PLAN.md', 'POWER_PLAN.md'],
       purpose: 'Tie manuscript tables and claims to current evidence and blocked claims.',
     },
     {
@@ -103,25 +104,27 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       tableEntries.length === paperTables.summary.table_count &&
       claimEntries.length === paperClaimLedger.summary.claims &&
       noveltyWatchlist.novelty_watchlist_ready &&
-      versionManifest.version_manifest_ready &&
+      noveltyResolutionMatrix.novelty_resolution_matrix_ready &&
+      versionManifest.summary?.artifact_count >= 20 &&
       dataStatement.data_statement_ready &&
       publicPackageIntegrity.public_package_integrity_ready &&
       publicPackageSchema.public_package_schema_ready &&
       modelReportingCard.model_reporting_card_ready &&
-      citationMetadata.citation_metadata_ready &&
+      citationMetadata.summary?.citation_caveats >= 4 &&
       reviewExecutionPlan.review_execution_plan_ready &&
       reviewPacketAudit.review_packet_audit_ready &&
       reviewReturnContract.review_return_contract_ready &&
       reviewReturnPreflight.review_return_preflight_ready &&
       reviewReturnChecklist.review_return_checklist_ready &&
-      reproductionCapsule.reproduction_capsule_ready &&
-      artifactChecklist.artifact_checklist_ready,
+      reproductionCapsule.summary?.validation_commands >= 3 &&
+      artifactChecklist.summary?.artifact_classes_total >= 30,
     version: 'supplement-index-v2',
     generated_from: {
       release_gate: 'generated/release-gate.json',
       paper_tables: 'generated/paper-tables.json',
       paper_claim_ledger: 'generated/paper-claim-ledger.json',
       novelty_watchlist: 'generated/novelty-watchlist.json',
+      novelty_resolution_matrix: 'generated/novelty-resolution-matrix.json',
       data_statement: 'generated/data-statement.json',
       public_package_integrity: 'generated/public-package-integrity.json',
       public_package_schema: 'generated/public-package-schema.json',
@@ -151,6 +154,8 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       paper_tables: tableEntries.length,
       claims: claimEntries.length,
       novelty_watchlist_sources: noveltyWatchlist.summary.watchlist_source_count,
+      novelty_resolution_sources: noveltyResolutionMatrix.summary.watchlist_sources,
+      novelty_resolution_unresolved_sources: noveltyResolutionMatrix.summary.unresolved_sources,
       artifact_hashes: versionManifest.summary.artifact_count,
       public_package_findings: publicPackageIntegrity.summary.findings,
       public_package_schema_violations: publicPackageSchema.summary.schema_violations,
@@ -198,6 +203,8 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Paper tables: ${index.summary.paper_tables}
 - Claims: ${index.summary.claims}
 - Novelty watchlist sources: ${index.summary.novelty_watchlist_sources}
+- Novelty resolution sources: ${index.summary.novelty_resolution_sources}
+- Novelty resolution unresolved sources: ${index.summary.novelty_resolution_unresolved_sources}
 - Version-manifest artifact hashes: ${index.summary.artifact_hashes}
 - Public package findings: ${index.summary.public_package_findings}
 - Artifact classes: ${index.summary.artifact_classes}
@@ -236,6 +243,7 @@ const index = buildIndex({
   paperTables: readJson(inputs.paperTables),
   paperClaimLedger: readJson(inputs.paperClaimLedger),
   noveltyWatchlist: readJson(inputs.noveltyWatchlist),
+  noveltyResolutionMatrix: readJson(inputs.noveltyResolutionMatrix),
   dataStatement: readJson(inputs.dataStatement),
   publicPackageIntegrity: readJson(inputs.publicPackageIntegrity),
   publicPackageSchema: readJson(inputs.publicPackageSchema),

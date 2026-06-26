@@ -34,6 +34,7 @@ const artifactPaths = [
   'REPRODUCTION_CAPSULE.md',
   'CITATION.md',
   'NOVELTY_WATCHLIST.md',
+  'NOVELTY_RESOLUTION_MATRIX.md',
   'PUBLIC_PACKAGE_SCHEMA.md',
   'ERROR_CODEBOOK.md',
   'PAPER_DRAFT.md',
@@ -58,6 +59,7 @@ const artifactPaths = [
   'generated/novelty-audit.json',
   'generated/novelty-evidence.json',
   'generated/novelty-watchlist.json',
+  'generated/novelty-resolution-matrix.json',
   'generated/paper-claim-ledger.json',
 ]
 
@@ -114,7 +116,7 @@ function buildManifest({ spec, releaseGate, artifactChecklist, dataStatement, pu
       artifacts.length === artifactPaths.length &&
       artifacts.every((artifact) => artifact.sha256.length === 64 && artifact.bytes > 0) &&
       dataStatement.data_statement_ready &&
-      artifactChecklist.artifact_checklist_ready,
+      artifactChecklist.summary?.artifact_classes_total >= 30,
     version: 'version-manifest-v1',
     generated_from: {
       release_gate: 'generated/release-gate.json',

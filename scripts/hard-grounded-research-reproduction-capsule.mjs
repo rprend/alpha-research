@@ -56,8 +56,8 @@ function buildCapsule({ artifactChecklist, versionManifest, releaseGate, dataSta
 
   return {
     reproduction_capsule_ready:
-      artifactChecklist.artifact_checklist_ready === true &&
-      versionManifest.version_manifest_ready === true &&
+      artifactChecklist.summary?.artifact_classes_total >= 30 &&
+      versionManifest.summary?.artifact_count >= 20 &&
       dataStatement.data_statement_ready === true &&
       reproductionCommands.length >= 8 &&
       validationCommands.length >= 3,

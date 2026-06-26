@@ -13,6 +13,7 @@ const inputs = {
   noveltyAuditJson: join(generatedDir, 'novelty-audit.json'),
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   noveltyWatchlist: join(generatedDir, 'novelty-watchlist.json'),
+  noveltyResolutionMatrix: join(generatedDir, 'novelty-resolution-matrix.json'),
   goldSummary: join(generatedDir, 'gold-suite-summary.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
   reviewPreflight: join(generatedDir, 'review-preflight.json'),
@@ -129,6 +130,7 @@ function buildGate({
   noveltyAuditJson,
   noveltyEvidence,
   noveltyWatchlist,
+  noveltyResolutionMatrix,
   goldSummary,
   annotationProtocol,
   reviewPreflight,
@@ -666,6 +668,15 @@ function buildGate({
       blocker: 'Record live-search novelty watchlist sources before final novelty adjudication.',
     },
     {
+      id: 'novelty_resolution_matrix_ready',
+      passed:
+        Boolean(noveltyResolutionMatrix.novelty_resolution_matrix_ready) &&
+        noveltyResolutionMatrix.summary?.watchlist_sources === noveltyWatchlist.summary?.watchlist_source_count &&
+        noveltyResolutionMatrix.summary?.completion_claim_allowed === false,
+      detail: `${noveltyResolutionMatrix.version}; sources=${noveltyResolutionMatrix.summary?.watchlist_sources ?? 0}; unresolved=${noveltyResolutionMatrix.summary?.unresolved_sources ?? 'unknown'}; high_risk=${noveltyResolutionMatrix.summary?.high_risk_sources ?? 'unknown'}`,
+      blocker: 'Generate a source-level novelty resolution matrix before the final literature audit.',
+    },
+    {
       id: 'corpus_audit_ready',
       passed: Boolean(corpusAudit.corpus_audit_ready) && Boolean(corpusAudit.summary.package_policy_matches_summaries),
       detail: `${corpusAudit.summary.source_dataset_count} source datasets; ${corpusAudit.summary.scaled_public_items} scaled public items; ${corpusAudit.summary.scaled_public_evidence_units} scaled evidence units; pointer_only=${corpusAudit.summary.scaled_public_pointer_only_evidence_units}`,
@@ -803,6 +814,7 @@ function buildGate({
       novelty_audit_json: 'generated/novelty-audit.json',
       novelty_evidence: 'generated/novelty-evidence.json',
       novelty_watchlist: 'generated/novelty-watchlist.json',
+      novelty_resolution_matrix: 'generated/novelty-resolution-matrix.json',
       gold_summary: 'generated/gold-suite-summary.json',
       annotation_protocol: 'generated/annotation-protocol.json',
       review_preflight: 'generated/review-preflight.json',
@@ -922,6 +934,7 @@ const gate = buildGate({
   noveltyAuditJson: readJson(inputs.noveltyAuditJson),
   noveltyEvidence: readJson(inputs.noveltyEvidence),
   noveltyWatchlist: readJson(inputs.noveltyWatchlist),
+  noveltyResolutionMatrix: readJson(inputs.noveltyResolutionMatrix),
   goldSummary: readJson(inputs.goldSummary),
   annotationProtocol: readJson(inputs.annotationProtocol),
   reviewPreflight: readJson(inputs.reviewPreflight),
