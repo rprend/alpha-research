@@ -155,6 +155,10 @@ assert(existsSync(join(root, 'data/knowledge-base/config/department-pages.json')
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-benchmark.mjs')), 'Missing hard grounded research benchmark runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs')), 'Missing hard grounded research benchmark evaluator.')
+const hardGroundedEvaluatorSource = readFileSync(join(root, 'scripts/hard-grounded-research-evaluate.mjs'), 'utf8')
+for (const token of ['conclusion_support', 'citation_overreach_probe']) {
+  assert(hardGroundedEvaluatorSource.includes(token), `Hard grounded evaluator is missing conclusion-support token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-runner.mjs')), 'Missing hard grounded research benchmark local runner.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-adjudicate.mjs')), 'Missing hard grounded research adjudication builder.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-calibration-suite.mjs')), 'Missing hard grounded research calibration suite builder.')

@@ -46,6 +46,7 @@ function sortedWeakestCategories(report) {
       category,
       answer_correct: metrics.answer_correct,
       citation_faithfulness: metrics.citation_faithfulness,
+      conclusion_support: metrics.conclusion_support,
       evidence_recall: metrics.evidence_recall,
       abstention_quality: metrics.abstention_quality,
     }))
@@ -68,6 +69,7 @@ function failureReasons(score) {
   if (score.answer_correct < 1) reasons.push('wrong_answer')
   if (score.evidence_recall < 1) reasons.push('missing_required_evidence')
   if (score.citation_faithfulness < 1) reasons.push('unfaithful_or_overbroad_citation')
+  if (score.conclusion_support < 1) reasons.push('unsupported_conclusion')
   if (score.abstention_quality < 1) reasons.push('bad_abstention_behavior')
   return reasons
 }
@@ -91,6 +93,7 @@ function buildFailureAnalysis(report, pilotSuite) {
           answer_correct: score.answer_correct,
           evidence_recall: score.evidence_recall,
           citation_faithfulness: score.citation_faithfulness,
+          conclusion_support: score.conclusion_support,
           abstention_quality: score.abstention_quality,
         },
       }
@@ -195,6 +198,9 @@ function buildReport(scoredReports, goldSummary, openAiManifest, openAiCalibrati
             verifier_abstention_quality_delta_vs_lexical: verifier
               ? metricDelta(verifier.summary.macro.abstention_quality, lexical.summary.macro.abstention_quality)
               : null,
+            verifier_conclusion_support_delta_vs_lexical: verifier
+              ? metricDelta(verifier.summary.macro.conclusion_support, lexical.summary.macro.conclusion_support)
+              : null,
           }
         : {},
   }
@@ -208,6 +214,7 @@ function renderMarkdown(report) {
     metric(system.macro.evidence_recall),
     metric(system.macro.citation_precision),
     metric(system.macro.citation_faithfulness),
+    metric(system.macro.conclusion_support),
     metric(system.macro.abstention_quality),
   ])
   const lexical = report.systems.find((system) => system.system_id === 'lexical-evidence-baseline-v1')
@@ -216,6 +223,7 @@ function renderMarkdown(report) {
     metric(category.answer_correct),
     metric(category.evidence_recall),
     metric(category.citation_faithfulness),
+    metric(category.conclusion_support),
     metric(category.abstention_quality),
   ])
   const failureRows = Object.entries(report.failure_analysis?.by_category || {})
@@ -271,6 +279,7 @@ ${markdownTable(
     'Evidence recall',
     'Citation precision',
     'Citation faithfulness',
+    'Conclusion support',
     'Abstention quality',
   ],
   summaryRows,
@@ -279,7 +288,7 @@ ${markdownTable(
 ## Lexical Baseline Weakest Categories
 
 ${markdownTable(
-  ['Category', 'Answer correct', 'Evidence recall', 'Citation faithfulness', 'Abstention quality'],
+  ['Category', 'Answer correct', 'Evidence recall', 'Citation faithfulness', 'Conclusion support', 'Abstention quality'],
   weakestRows,
 )}
 
@@ -299,6 +308,7 @@ ${representativeFailures}
 - Citation-aware verifier answer-correct delta vs lexical: ${metric(report.headline_contrasts.verifier_answer_correct_delta_vs_lexical ?? 0)}
 - Citation-aware verifier citation-precision delta vs lexical: ${metric(report.headline_contrasts.verifier_citation_precision_delta_vs_lexical ?? 0)}
 - Citation-aware verifier citation-faithfulness delta vs lexical: ${metric(report.headline_contrasts.verifier_citation_faithfulness_delta_vs_lexical ?? 0)}
+- Citation-aware verifier conclusion-support delta vs lexical: ${metric(report.headline_contrasts.verifier_conclusion_support_delta_vs_lexical ?? 0)}
 - Citation-aware verifier abstention-quality delta vs lexical: ${metric(report.headline_contrasts.verifier_abstention_quality_delta_vs_lexical ?? 0)}
 
 ## Interpretation

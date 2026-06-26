@@ -159,3 +159,11 @@ Decision: Make the OpenAI-compatible baseline runner choose among pilot, provisi
 Rationale: Paper tables need model baselines over the same label source being reported. A pilot-only model harness would force manual rewiring once calibration or adjudicated gold is available.
 
 Consequence: `benchmark:hard-grounded:openai:calibration` now emits an auditable calibration prompt packet under `runs/openai-grounded-baseline-v1-calibration/`, while `--gold` is already wired to score future reviewed gold without changing code.
+
+## 2026-06-26 — Score conclusion support separately
+
+Decision: Add `conclusion_support` as an explicit evaluator metric that penalizes citation-overreach probes unless the system abstains.
+
+Rationale: Citation precision only checks whether cited ids are in the expected set; it cannot distinguish evidence that supports a true premise from evidence that supports the submitted conclusion. The benchmark's overreach category needs a visible diagnostic for that failure mode.
+
+Consequence: All score reports now include `conclusion_support`, baseline analysis tables expose it, and validation checks keep the overreach diagnostic in the evaluator contract.

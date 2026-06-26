@@ -23,6 +23,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1
     },
     "by_category": {
@@ -31,6 +32,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "stale-vs-current document conflicts": {
@@ -38,6 +40,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "appended document lifecycle changes": {
@@ -45,6 +48,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "table + text reasoning": {
@@ -52,6 +56,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "source authority conflicts": {
@@ -59,6 +64,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "evidence insufficiency / abstention": {
@@ -66,6 +72,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "citation supports fact but not conclusion": {
@@ -73,6 +80,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "entity disambiguation": {
@@ -80,6 +88,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "temporal questions: as of date X": {
@@ -87,6 +96,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       },
       "cross-document contradiction": {
@@ -94,6 +104,7 @@
         "evidence_recall": 1,
         "citation_precision": 1,
         "citation_faithfulness": 1,
+        "conclusion_support": 1,
         "abstention_quality": 1
       }
     }
@@ -113,6 +124,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "5a8b57f25542995d1e6f1371:support:0",
@@ -137,6 +149,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "5a8c7595554299585d9e36b6:support:0",
@@ -163,6 +176,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "5a85ea095542994775f606a8:support:0",
@@ -193,6 +207,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Extinction risk from global warming:170"
@@ -215,6 +230,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Famine:386"
@@ -237,6 +253,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Polar bear:1332"
@@ -259,6 +276,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0",
@@ -283,6 +301,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0",
@@ -307,6 +326,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0",
@@ -331,6 +351,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "nt-0:table",
@@ -355,6 +376,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "nt-1:table",
@@ -379,6 +401,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "nt-4:table",
@@ -403,6 +426,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Extinction risk from global warming:170"
@@ -425,6 +449,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Famine:386"
@@ -447,6 +472,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Polar bear:1332"
@@ -469,6 +495,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [],
       "submitted_citations": []
@@ -487,6 +514,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [],
       "submitted_citations": []
@@ -505,6 +533,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [],
       "submitted_citations": []
@@ -523,6 +552,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [],
       "submitted_citations": []
@@ -541,6 +571,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [],
       "submitted_citations": []
@@ -559,6 +590,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [],
       "submitted_citations": []
@@ -577,6 +609,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "5a8b57f25542995d1e6f1371:support:0",
@@ -603,6 +636,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "5a8c7595554299585d9e36b6:support:0",
@@ -631,6 +665,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "5a85ea095542994775f606a8:support:0",
@@ -663,6 +698,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Extinction risk from global warming:170"
@@ -685,6 +721,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Famine:386"
@@ -707,6 +744,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Polar bear:1332"
@@ -729,6 +767,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Extinction risk from global warming:170",
@@ -753,6 +792,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Famine:386",
@@ -777,6 +817,7 @@
       "evidence_recall": 1,
       "citation_precision": 1,
       "citation_faithfulness": 1,
+      "conclusion_support": 1,
       "abstention_quality": 1,
       "required_citations": [
         "Polar bear:1332",

@@ -14,36 +14,36 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 
 ## Macro Results
 
-| System | Tasks | Answer correct | Evidence recall | Citation precision | Citation faithfulness | Abstention quality |
-| --- | --- | --- | --- | --- | --- | --- |
-| local-rule-agent-v1 | 30 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
-| lexical-evidence-baseline-v1 | 30 | 0.2000 | 0.6979 | 1.0000 | 0.6000 | 0.7000 |
-| citation-aware-verifier-v1 | 30 | 0.1667 | 0.4979 | 1.0000 | 0.5833 | 0.6000 |
+| System | Tasks | Answer correct | Evidence recall | Citation precision | Citation faithfulness | Conclusion support | Abstention quality |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| local-rule-agent-v1 | 30 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.9000 | 1.0000 |
+| lexical-evidence-baseline-v1 | 30 | 0.2000 | 0.6979 | 1.0000 | 0.6000 | 0.5333 | 0.7000 |
+| citation-aware-verifier-v1 | 30 | 0.1667 | 0.4979 | 1.0000 | 0.5833 | 0.6333 | 0.6000 |
 
 ## Lexical Baseline Weakest Categories
 
-| Category | Answer correct | Evidence recall | Citation faithfulness | Abstention quality |
-| --- | --- | --- | --- | --- |
-| cross-document contradiction | 0.0000 | 0.3952 | 0.5000 | 1.0000 |
-| appended document lifecycle changes | 0.0000 | 1.0000 | 0.5000 | 1.0000 |
-| evidence insufficiency / abstention | 0.0000 | 1.0000 | 0.5000 | 0.0000 |
-| table + text reasoning | 0.0000 | 1.0000 | 0.5000 | 1.0000 |
-| citation supports fact but not conclusion | 0.3333 | 0.3952 | 0.6667 | 1.0000 |
+| Category | Answer correct | Evidence recall | Citation faithfulness | Conclusion support | Abstention quality |
+| --- | --- | --- | --- | --- | --- |
+| cross-document contradiction | 0.0000 | 0.3952 | 0.5000 | 0.5000 | 1.0000 |
+| appended document lifecycle changes | 0.0000 | 1.0000 | 0.5000 | 0.5000 | 1.0000 |
+| evidence insufficiency / abstention | 0.0000 | 1.0000 | 0.5000 | 0.5000 | 0.0000 |
+| table + text reasoning | 0.0000 | 1.0000 | 0.5000 | 0.5000 | 1.0000 |
+| citation supports fact but not conclusion | 0.3333 | 0.3952 | 0.6667 | 0.0000 | 1.0000 |
 
 ## Lexical Failure Taxonomy
 
 | Category | Failures | Failure rate | Reason counts |
 | --- | --- | --- | --- |
-| multi-hop synthesis | 3/3 | 1.0000 | wrong_answer:2<br>unfaithful_or_overbroad_citation:2<br>missing_required_evidence:2 |
-| stale-vs-current document conflicts | 3/3 | 1.0000 | wrong_answer:2<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:2<br>bad_abstention_behavior:2 |
-| appended document lifecycle changes | 3/3 | 1.0000 | wrong_answer:3<br>unfaithful_or_overbroad_citation:3 |
-| table + text reasoning | 3/3 | 1.0000 | wrong_answer:3<br>unfaithful_or_overbroad_citation:3 |
-| evidence insufficiency / abstention | 3/3 | 1.0000 | wrong_answer:3<br>unfaithful_or_overbroad_citation:3<br>bad_abstention_behavior:3 |
-| citation supports fact but not conclusion | 3/3 | 1.0000 | wrong_answer:2<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:2 |
-| entity disambiguation | 3/3 | 1.0000 | wrong_answer:2<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:2 |
-| temporal questions: as of date X | 3/3 | 1.0000 | wrong_answer:2<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:2<br>bad_abstention_behavior:2 |
-| cross-document contradiction | 3/3 | 1.0000 | wrong_answer:3<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:3 |
-| source authority conflicts | 2/3 | 0.6667 | wrong_answer:2<br>unfaithful_or_overbroad_citation:2<br>bad_abstention_behavior:2 |
+| multi-hop synthesis | 3/3 | 1.0000 | wrong_answer:2<br>unfaithful_or_overbroad_citation:2<br>unsupported_conclusion:2<br>missing_required_evidence:2 |
+| stale-vs-current document conflicts | 3/3 | 1.0000 | wrong_answer:2<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:2<br>unsupported_conclusion:2<br>bad_abstention_behavior:2 |
+| appended document lifecycle changes | 3/3 | 1.0000 | wrong_answer:3<br>unfaithful_or_overbroad_citation:3<br>unsupported_conclusion:3 |
+| table + text reasoning | 3/3 | 1.0000 | wrong_answer:3<br>unfaithful_or_overbroad_citation:3<br>unsupported_conclusion:3 |
+| evidence insufficiency / abstention | 3/3 | 1.0000 | wrong_answer:3<br>unfaithful_or_overbroad_citation:3<br>unsupported_conclusion:3<br>bad_abstention_behavior:3 |
+| citation supports fact but not conclusion | 3/3 | 1.0000 | wrong_answer:2<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:2<br>unsupported_conclusion:3 |
+| entity disambiguation | 3/3 | 1.0000 | wrong_answer:2<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:2<br>unsupported_conclusion:2 |
+| temporal questions: as of date X | 3/3 | 1.0000 | wrong_answer:2<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:2<br>unsupported_conclusion:2<br>bad_abstention_behavior:2 |
+| cross-document contradiction | 3/3 | 1.0000 | wrong_answer:3<br>missing_required_evidence:3<br>unfaithful_or_overbroad_citation:3<br>unsupported_conclusion:3 |
+| source authority conflicts | 2/3 | 0.6667 | wrong_answer:2<br>unfaithful_or_overbroad_citation:2<br>unsupported_conclusion:2<br>bad_abstention_behavior:2 |
 
 ## Representative Lexical Failures
 
@@ -51,7 +51,7 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 
 - Category: multi-hop synthesis
 - Challenge: native_row
-- Reasons: wrong_answer, unfaithful_or_overbroad_citation
+- Reasons: wrong_answer, unfaithful_or_overbroad_citation, unsupported_conclusion
 - Expected: yes
 - Submitted: Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer.
 - Missing required citations: none
@@ -60,7 +60,7 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 
 - Category: stale-vs-current document conflicts
 - Challenge: stale_current_conflict
-- Reasons: wrong_answer, missing_required_evidence, unfaithful_or_overbroad_citation, bad_abstention_behavior
+- Reasons: wrong_answer, missing_required_evidence, unfaithful_or_overbroad_citation, unsupported_conclusion, bad_abstention_behavior
 - Expected: SUPPORTS
 - Submitted: ABSTAIN
 - Missing required citations: 5a8b57f25542995d1e6f1371:support:1
@@ -69,7 +69,7 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 
 - Category: appended document lifecycle changes
 - Challenge: document_lifecycle_appendix
-- Reasons: wrong_answer, unfaithful_or_overbroad_citation
+- Reasons: wrong_answer, unfaithful_or_overbroad_citation, unsupported_conclusion
 - Expected: BIBREF19
 - Submitted: Appendix Z, dated 2018-06-30, supersedes the original body for this question.
 - Missing required citations: none
@@ -78,7 +78,7 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 
 - Category: table + text reasoning
 - Challenge: native_row
-- Reasons: wrong_answer, unfaithful_or_overbroad_citation
+- Reasons: wrong_answer, unfaithful_or_overbroad_citation, unsupported_conclusion
 - Expected: 36755
 - Submitted: header: Year | Division | League | Regular Season | Playoffs | Open Cup | Avg.
 - Missing required citations: none
@@ -87,7 +87,7 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 
 - Category: source authority conflicts
 - Challenge: authority_conflict
-- Reasons: wrong_answer, unfaithful_or_overbroad_citation, bad_abstention_behavior
+- Reasons: wrong_answer, unfaithful_or_overbroad_citation, unsupported_conclusion, bad_abstention_behavior
 - Expected: SUPPORTS
 - Submitted: ABSTAIN
 - Missing required citations: none
@@ -101,6 +101,7 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 - Citation-aware verifier answer-correct delta vs lexical: -0.0333
 - Citation-aware verifier citation-precision delta vs lexical: 0.0000
 - Citation-aware verifier citation-faithfulness delta vs lexical: -0.0167
+- Citation-aware verifier conclusion-support delta vs lexical: 0.1000
 - Citation-aware verifier abstention-quality delta vs lexical: -0.1000
 
 ## Interpretation

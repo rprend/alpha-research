@@ -133,6 +133,12 @@ function scoreAnswer(taskExample, submitted, rubric) {
       : submittedCitationIds.filter((id) => requiredCitationSet.has(id)).length / submittedCitationIds.length
   const abstentionQuality = abstainExpected ? (abstained ? 1 : 0) : abstained ? 0 : 1
   const citationFaithfulness = answerCorrect ? citationPrecision : Math.min(citationPrecision, 0.5)
+  const conclusionSupport =
+    taskExample.challenge?.type === 'citation_overreach_probe'
+      ? abstained
+        ? 1
+        : 0
+      : citationFaithfulness
 
   return {
     task_id: taskExample.task_id,
@@ -144,6 +150,7 @@ function scoreAnswer(taskExample, submitted, rubric) {
     evidence_recall: Number(evidenceRecall.toFixed(4)),
     citation_precision: Number(citationPrecision.toFixed(4)),
     citation_faithfulness: Number(citationFaithfulness.toFixed(4)),
+    conclusion_support: Number(conclusionSupport.toFixed(4)),
     abstention_quality: abstentionQuality,
     required_citations: requiredCitationIds,
     submitted_citations: submittedCitationIds,
@@ -156,6 +163,7 @@ function summarize(scores) {
     'evidence_recall',
     'citation_precision',
     'citation_faithfulness',
+    'conclusion_support',
     'abstention_quality',
   ]
   const macro = Object.fromEntries(
