@@ -30,6 +30,7 @@ const requiredPackageScripts = [
   'benchmark:gutenberg:high-recall:synthesize',
   'benchmark:gutenberg:high-recall:smoke',
   'benchmark:gutenberg:high-recall:mock-openai',
+  'benchmark:hard-grounded',
   'smoke:infra:live',
   'kb:validate',
   'kb:status',
@@ -142,6 +143,11 @@ assert(existsSync(join(root, 'scripts/kb-search-semantic.mjs')), 'Missing local 
 assert(existsSync(join(root, 'scripts/kb-refresh.mjs')), 'Missing local humanities KB refresh script.')
 assert(existsSync(join(root, 'data/knowledge-base/config/department-pages.json')), 'Missing local humanities KB department page targets.')
 assert(existsSync(join(root, 'scripts/gutenberg-semantic-benchmark.mjs')), 'Missing Gutenberg semantic benchmark runner.')
+assert(existsSync(join(root, 'scripts/hard-grounded-research-benchmark.mjs')), 'Missing hard grounded research benchmark runner.')
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/benchmark-spec.json')),
+  'Missing hard grounded research benchmark spec.',
+)
 assert(existsSync(join(root, 'scripts/gutenberg-acquire-corpus.mjs')), 'Missing real Gutenberg corpus acquisition script.')
 assert(existsSync(join(root, 'scripts/gutenberg-real-benchmark.mjs')), 'Missing real Gutenberg medium benchmark runner.')
 assert(existsSync(join(root, 'scripts/gutenberg-pipeline-lib.mjs')), 'Missing shared Gutenberg high-recall pipeline library.')

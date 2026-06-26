@@ -1,0 +1,348 @@
+{
+  "id": "hard-grounded-research-benchmark",
+  "title": "Benchmarks for Hard Grounded Research",
+  "paper_question": "What tasks actually make grounded research hard, beyond simple fact lookup?",
+  "version": "0.1.0",
+  "categories": [
+    "multi-hop synthesis",
+    "stale-vs-current document conflicts",
+    "appended document lifecycle changes",
+    "table + text reasoning",
+    "source authority conflicts",
+    "evidence insufficiency / abstention",
+    "citation supports fact but not conclusion",
+    "entity disambiguation",
+    "temporal questions: as of date X",
+    "cross-document contradiction"
+  ],
+  "approaches": [
+    {
+      "id": "reuse_native_labels",
+      "name": "Reuse existing QA and evidence labels",
+      "description": "Convert native dataset questions, answers, evidence spans, tables, and unanswerable labels into grounded research QA items.",
+      "strengths": [
+        "Fastest path to a working public benchmark.",
+        "Keeps provenance and licensing clean.",
+        "Provides immediate baseline comparability."
+      ],
+      "risks": [
+        "Native labels often reward answer extraction rather than research judgment.",
+        "Some failure modes need synthetic perturbations."
+      ]
+    },
+    {
+      "id": "adversarial_transform",
+      "name": "Adversarially transform existing rows",
+      "description": "Inject stale/current snapshots, distractor authority conflicts, appended updates, and conclusion-overreach traps around existing evidence-labeled examples.",
+      "strengths": [
+        "Directly targets grounded-research failure modes.",
+        "Can generate controlled hard negatives from public corpora."
+      ],
+      "risks": [
+        "Requires review so synthetic conflicts remain realistic.",
+        "Must track which documents are original versus benchmark wrappers."
+      ]
+    },
+    {
+      "id": "composed_corpus_suite",
+      "name": "Compose multi-source suites",
+      "description": "Pair rows across complementary datasets so an agent must choose between scientific papers, Wikipedia evidence, table evidence, claims, and long-form explanations.",
+      "strengths": [
+        "Closest to large-corpus research workflows.",
+        "Exposes source authority and cross-document contradiction."
+      ],
+      "risks": [
+        "More complex packaging and scoring.",
+        "Needs careful entity normalization."
+      ]
+    }
+  ],
+  "datasets": [
+    {
+      "id": "hotpotqa/hotpot_qa",
+      "url": "https://hf.co/datasets/hotpotqa/hotpot_qa",
+      "viewer": {
+        "config": "distractor",
+        "split": "validation"
+      },
+      "license": "cc-by-sa-4.0",
+      "native_signals": [
+        "multi-hop Wikipedia questions",
+        "supporting_facts",
+        "distractor documents",
+        "comparison and bridge question types"
+      ],
+      "covers": [
+        "multi-hop synthesis",
+        "citation supports fact but not conclusion",
+        "entity disambiguation",
+        "cross-document contradiction"
+      ],
+      "construction_role": "Primary source for multi-hop synthesis, distractor evidence, and citation-overreach traps."
+    },
+    {
+      "id": "allenai/qasper",
+      "url": "https://hf.co/datasets/allenai/qasper",
+      "viewer": {
+        "config": "qasper",
+        "split": "validation"
+      },
+      "license": "cc-by-4.0",
+      "native_signals": [
+        "NLP paper full text",
+        "reader questions",
+        "extractive evidence",
+        "free-form answers",
+        "unanswerable flags"
+      ],
+      "covers": [
+        "multi-hop synthesis",
+        "evidence insufficiency / abstention",
+        "citation supports fact but not conclusion",
+        "appended document lifecycle changes"
+      ],
+      "construction_role": "Primary source for long-document research QA, abstention, and appendix/update lifecycle perturbations."
+    },
+    {
+      "id": "stanfordnlp/wikitablequestions",
+      "url": "https://hf.co/datasets/stanfordnlp/wikitablequestions",
+      "viewer": {
+        "config": "random-split-1",
+        "split": "validation"
+      },
+      "license": "cc-by-4.0",
+      "native_signals": [
+        "semi-structured tables",
+        "natural language questions",
+        "denotation answers"
+      ],
+      "covers": [
+        "table + text reasoning",
+        "entity disambiguation",
+        "citation supports fact but not conclusion"
+      ],
+      "construction_role": "Primary source for table lookups that must be paired with surrounding text or metadata."
+    },
+    {
+      "id": "tdiggelm/climate_fever",
+      "url": "https://hf.co/datasets/tdiggelm/climate_fever",
+      "viewer": {
+        "config": "default",
+        "split": "test"
+      },
+      "license": "unknown",
+      "native_signals": [
+        "real-world climate claims",
+        "Wikipedia evidence",
+        "support/refute/not enough info labels",
+        "evidence similarity scores"
+      ],
+      "covers": [
+        "source authority conflicts",
+        "evidence insufficiency / abstention",
+        "cross-document contradiction",
+        "stale-vs-current document conflicts",
+        "temporal questions: as of date X"
+      ],
+      "construction_role": "Claim verification source for contradiction, insufficiency, and authority conflict tasks."
+    },
+    {
+      "id": "defunct-datasets/eli5",
+      "url": "https://hf.co/datasets/defunct-datasets/eli5",
+      "viewer": {
+        "config": "LFQA_reddit",
+        "split": "validation_eli5"
+      },
+      "license": "unknown",
+      "native_signals": [
+        "long-form explanatory questions",
+        "multiple community answers",
+        "source URLs in some examples"
+      ],
+      "covers": [
+        "multi-hop synthesis",
+        "source authority conflicts",
+        "citation supports fact but not conclusion"
+      ],
+      "construction_role": "Optional stress source for synthesis over noisy, unevenly authoritative explanations."
+    }
+  ],
+  "seed_tasks": [
+    {
+      "id": "hgr_multi_hop_001",
+      "category": "multi-hop synthesis",
+      "dataset_ids": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "question_template": "Using only the cited documents, answer the bridge question and name both supporting pages. Do not cite a page unless it supplies one required hop.",
+      "expected_failure": "The agent answers from one page and cites a second page that is topically related but not required for the inference.",
+      "scoring_focus": [
+        "answer_exactness",
+        "required_hop_coverage",
+        "citation_minimality"
+      ]
+    },
+    {
+      "id": "hgr_stale_current_001",
+      "category": "stale-vs-current document conflicts",
+      "dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "question_template": "Given an older claim document and a newer evidence document, answer as of the newer document date and explicitly mark stale statements.",
+      "expected_failure": "The agent treats stale evidence as current or blends incompatible snapshots.",
+      "scoring_focus": [
+        "temporal_grounding",
+        "stale_evidence_rejection",
+        "citation_date_use"
+      ]
+    },
+    {
+      "id": "hgr_appendix_lifecycle_001",
+      "category": "appended document lifecycle changes",
+      "dataset_ids": [
+        "allenai/qasper"
+      ],
+      "question_template": "Answer the paper question after an appended erratum/appendix section changes the method description. Distinguish original-body evidence from appended evidence.",
+      "expected_failure": "The agent cites the original paper body for a conclusion superseded by the appended section.",
+      "scoring_focus": [
+        "document_lifecycle_awareness",
+        "supersession_handling",
+        "section_provenance"
+      ]
+    },
+    {
+      "id": "hgr_table_text_001",
+      "category": "table + text reasoning",
+      "dataset_ids": [
+        "stanfordnlp/wikitablequestions",
+        "allenai/qasper"
+      ],
+      "question_template": "Compute the answer from a table, then verify that the surrounding text supports the interpretation of the table column.",
+      "expected_failure": "The agent extracts the correct table cell but draws a conclusion the caption or text does not support.",
+      "scoring_focus": [
+        "table_denotation",
+        "textual_support",
+        "calculation_trace"
+      ]
+    },
+    {
+      "id": "hgr_authority_conflict_001",
+      "category": "source authority conflicts",
+      "dataset_ids": [
+        "tdiggelm/climate_fever",
+        "defunct-datasets/eli5"
+      ],
+      "question_template": "Resolve a conflict between a crowd explanation, a claim page, and an evidence page. Prefer the highest-authority source and explain why.",
+      "expected_failure": "The agent quotes the clearest prose rather than the most authoritative source.",
+      "scoring_focus": [
+        "authority_ranking",
+        "conflict_resolution",
+        "source_type_transparency"
+      ]
+    },
+    {
+      "id": "hgr_abstain_001",
+      "category": "evidence insufficiency / abstention",
+      "dataset_ids": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "question_template": "Answer only if the provided evidence establishes the claim. Otherwise abstain and list the missing evidence.",
+      "expected_failure": "The agent supplies a plausible answer despite unanswerable or not-enough-info labels.",
+      "scoring_focus": [
+        "abstention_precision",
+        "missing_evidence_identification",
+        "hallucination_avoidance"
+      ]
+    },
+    {
+      "id": "hgr_citation_overreach_001",
+      "category": "citation supports fact but not conclusion",
+      "dataset_ids": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "stanfordnlp/wikitablequestions"
+      ],
+      "question_template": "Return an answer only if every conclusion sentence is directly supported by the cited evidence, not merely by a related fact.",
+      "expected_failure": "The citation supports a premise, but the agent adds an unsupported causal or comparative conclusion.",
+      "scoring_focus": [
+        "claim_citation_alignment",
+        "unsupported_inference_detection",
+        "sentence_level_support"
+      ]
+    },
+    {
+      "id": "hgr_entity_disambiguation_001",
+      "category": "entity disambiguation",
+      "dataset_ids": [
+        "hotpotqa/hotpot_qa",
+        "stanfordnlp/wikitablequestions"
+      ],
+      "question_template": "Answer about the requested entity when distractor documents or table rows contain same-name or near-name entities.",
+      "expected_failure": "The agent merges entities that share a name, title, place, or abbreviation.",
+      "scoring_focus": [
+        "entity_resolution",
+        "distractor_rejection",
+        "citation_entity_match"
+      ]
+    },
+    {
+      "id": "hgr_as_of_date_001",
+      "category": "temporal questions: as of date X",
+      "dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa"
+      ],
+      "question_template": "Answer as of a specified date X, treating later documents as unavailable and earlier documents as possibly stale.",
+      "expected_failure": "The agent leaks future evidence into an as-of answer or ignores the date constraint.",
+      "scoring_focus": [
+        "as_of_filtering",
+        "time_bounded_citations",
+        "answer_date_qualification"
+      ]
+    },
+    {
+      "id": "hgr_contradiction_001",
+      "category": "cross-document contradiction",
+      "dataset_ids": [
+        "tdiggelm/climate_fever",
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper"
+      ],
+      "question_template": "Identify whether the documents agree, conflict, or are insufficient; do not collapse contradictory evidence into a single synthesized answer.",
+      "expected_failure": "The agent averages or paraphrases conflicting evidence into a false consensus.",
+      "scoring_focus": [
+        "contradiction_detection",
+        "evidence_set_partitioning",
+        "uncertainty_calibration"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "answer_correctness",
+      "description": "Final answer matches the gold answer or correctly abstains."
+    },
+    {
+      "id": "evidence_recall",
+      "description": "All required evidence units are cited."
+    },
+    {
+      "id": "citation_precision",
+      "description": "Cited evidence directly supports the answer sentence it is attached to."
+    },
+    {
+      "id": "conflict_handling",
+      "description": "The answer detects stale, contradictory, or lower-authority documents instead of blending them."
+    },
+    {
+      "id": "temporal_validity",
+      "description": "The answer respects as-of dates and document lifecycle boundaries."
+    },
+    {
+      "id": "abstention_quality",
+      "description": "The answer refuses when evidence is insufficient and names what evidence would be needed."
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+[
+  {
+    "category": "multi-hop synthesis",
+    "dataset_count": 3,
+    "datasets": [
+      "hotpotqa/hotpot_qa",
+      "allenai/qasper",
+      "defunct-datasets/eli5"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_multi_hop_001"
+    ]
+  },
+  {
+    "category": "stale-vs-current document conflicts",
+    "dataset_count": 1,
+    "datasets": [
+      "tdiggelm/climate_fever"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_stale_current_001"
+    ]
+  },
+  {
+    "category": "appended document lifecycle changes",
+    "dataset_count": 1,
+    "datasets": [
+      "allenai/qasper"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_appendix_lifecycle_001"
+    ]
+  },
+  {
+    "category": "table + text reasoning",
+    "dataset_count": 1,
+    "datasets": [
+      "stanfordnlp/wikitablequestions"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_table_text_001"
+    ]
+  },
+  {
+    "category": "source authority conflicts",
+    "dataset_count": 2,
+    "datasets": [
+      "tdiggelm/climate_fever",
+      "defunct-datasets/eli5"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_authority_conflict_001"
+    ]
+  },
+  {
+    "category": "evidence insufficiency / abstention",
+    "dataset_count": 2,
+    "datasets": [
+      "allenai/qasper",
+      "tdiggelm/climate_fever"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_abstain_001"
+    ]
+  },
+  {
+    "category": "citation supports fact but not conclusion",
+    "dataset_count": 4,
+    "datasets": [
+      "hotpotqa/hotpot_qa",
+      "allenai/qasper",
+      "stanfordnlp/wikitablequestions",
+      "defunct-datasets/eli5"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_citation_overreach_001"
+    ]
+  },
+  {
+    "category": "entity disambiguation",
+    "dataset_count": 2,
+    "datasets": [
+      "hotpotqa/hotpot_qa",
+      "stanfordnlp/wikitablequestions"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_entity_disambiguation_001"
+    ]
+  },
+  {
+    "category": "temporal questions: as of date X",
+    "dataset_count": 1,
+    "datasets": [
+      "tdiggelm/climate_fever"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_as_of_date_001"
+    ]
+  },
+  {
+    "category": "cross-document contradiction",
+    "dataset_count": 2,
+    "datasets": [
+      "hotpotqa/hotpot_qa",
+      "tdiggelm/climate_fever"
+    ],
+    "task_count": 1,
+    "tasks": [
+      "hgr_contradiction_001"
+    ]
+  }
+]

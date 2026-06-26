@@ -19,6 +19,7 @@
     "benchmark:gutenberg:high-recall:synthesize": "node scripts/gutenberg-synthesize-high-recall-results.mjs",
     "benchmark:gutenberg:high-recall:smoke": "node scripts/gutenberg-high-recall-candidates.mjs --run-id=smoke-high-recall --max-works=25 --per-task=8 --top-k=12 --smoke && node scripts/gutenberg-openai-label-candidates.mjs --input=docs/experiments/gutenberg-semantic-benchmark/high_recall/smoke-high-recall/candidate_pool.jsonl --output=docs/experiments/gutenberg-semantic-benchmark/high_recall/smoke-high-recall/llm_labels.jsonl --limit=20 --dry-run && node scripts/gutenberg-openai-verify-labels.mjs --labels=docs/experiments/gutenberg-semantic-benchmark/high_recall/smoke-high-recall/llm_labels.jsonl --candidates=docs/experiments/gutenberg-semantic-benchmark/high_recall/smoke-high-recall/candidate_pool.jsonl --limit=20 --dry-run && node scripts/gutenberg-synthesize-high-recall-results.mjs --run-dir=docs/experiments/gutenberg-semantic-benchmark/high_recall/smoke-high-recall",
     "benchmark:gutenberg:high-recall:mock-openai": "node scripts/gutenberg-openai-mock-smoke.mjs",
+    "benchmark:hard-grounded": "node scripts/hard-grounded-research-benchmark.mjs",
     "grounded-qa:distill": "node scripts/grounded-qa-distillation-build.mjs",
     "grounded-qa:validate": "node scripts/grounded-qa-distillation-validate.mjs",
     "tiktok:creative": "node docs/experiments/tiktok-creative-creator-graph/scripts/run-pipeline.mjs",

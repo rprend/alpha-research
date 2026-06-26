@@ -1,0 +1,54 @@
+[
+  {
+    "id": "reuse_native_labels",
+    "name": "Reuse existing QA and evidence labels",
+    "covered_categories": [
+      "multi-hop synthesis",
+      "stale-vs-current document conflicts",
+      "appended document lifecycle changes",
+      "table + text reasoning",
+      "source authority conflicts",
+      "evidence insufficiency / abstention",
+      "citation supports fact but not conclusion",
+      "entity disambiguation",
+      "temporal questions: as of date X",
+      "cross-document contradiction"
+    ],
+    "coverage_count": 10,
+    "coverage_rate": 1,
+    "seed_task_count": 10
+  },
+  {
+    "id": "composed_corpus_suite",
+    "name": "Compose multi-source suites",
+    "covered_categories": [
+      "stale-vs-current document conflicts",
+      "table + text reasoning",
+      "source authority conflicts",
+      "evidence insufficiency / abstention",
+      "citation supports fact but not conclusion",
+      "entity disambiguation",
+      "temporal questions: as of date X",
+      "cross-document contradiction"
+    ],
+    "coverage_count": 8,
+    "coverage_rate": 0.8,
+    "seed_task_count": 8
+  },
+  {
+    "id": "adversarial_transform",
+    "name": "Adversarially transform existing rows",
+    "covered_categories": [
+      "stale-vs-current document conflicts",
+      "appended document lifecycle changes",
+      "source authority conflicts",
+      "evidence insufficiency / abstention",
+      "citation supports fact but not conclusion",
+      "temporal questions: as of date X",
+      "cross-document contradiction"
+    ],
+    "coverage_count": 7,
+    "coverage_rate": 0.7,
+    "seed_task_count": 7
+  }
+]
