@@ -56,9 +56,11 @@ function discoverRuns() {
       const manifest = manifestForRun(runDir)
       const report = existsSync(reportPath) ? readJson(reportPath) : null
       const systemId = report?.system_id || manifest?.manifest?.system_id || runId
+      const fixtureRun = Boolean(manifest?.manifest?.fixture)
       const eligibleModelBaseline =
         Boolean(report) &&
         Boolean(manifest) &&
+        !fixtureRun &&
         !heuristicSystems.has(systemId) &&
         (manifest.type === 'import_manifest' || manifest.manifest?.run_requested === true)
 
@@ -71,6 +73,7 @@ function discoverRuns() {
         manifest_path: manifest ? relativePath(manifest.path) : null,
         report_path: existsSync(reportPath) ? relativePath(reportPath) : null,
         evaluation_source: report?.evaluation_source || manifest?.manifest?.suite || manifest?.manifest?.evaluation_source || 'unknown',
+        fixture: fixtureRun,
         task_count: report?.summary?.task_count || 0,
         macro_answer_correct: report?.summary?.macro?.answer_correct ?? null,
         eligible_model_baseline: eligibleModelBaseline,
@@ -104,6 +107,7 @@ function renderMarkdown(index) {
     run.report_present ? 'yes' : 'no',
     run.manifest_type,
     run.evaluation_source,
+    run.fixture ? 'yes' : 'no',
     run.eligible_model_baseline ? 'yes' : 'no',
   ])
 
@@ -119,7 +123,7 @@ This generated index separates heuristic diagnostic systems from externally impo
 
 ## Runs
 
-${markdownTable(['Run', 'System', 'Report', 'Manifest', 'Evaluation source', 'Eligible model baseline'], rows)}
+${markdownTable(['Run', 'System', 'Report', 'Manifest', 'Evaluation source', 'Fixture', 'Eligible model baseline'], rows)}
 `
 }
 

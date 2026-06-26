@@ -327,3 +327,11 @@ Decision: Count frontier/open model baselines from scored run reports with prove
 Rationale: The benchmark should accept OpenAI, open-weight, or externally imported batch results as long as they are scored and reproducible. A fixed OpenAI-only release check would make the paper pipeline brittle and would not support the requested open-model comparison path.
 
 Consequence: `scripts/hard-grounded-research-model-run-index.mjs` now emits `generated/model-run-index.json` and `MODEL_RUN_INDEX.md`; release readiness can distinguish heuristic diagnostics from eligible model baselines.
+
+## 2026-06-26 — Add non-release import smoke fixture
+
+Decision: Add a fixture-backed smoke test for external model-result import without counting it as a model baseline.
+
+Rationale: The importer is part of the paper pipeline, so it needs a local contract test that proves JSONL model outputs can be parsed, scored, indexed, and excluded from release eligibility when they are synthetic fixtures.
+
+Consequence: `scripts/hard-grounded-research-import-smoke.mjs` now generates a full-suite fixture output, imports it, scores it, marks the run as a fixture, refreshes the model-run index, and asserts the fixture is not eligible for the frontier/open-model release gate.

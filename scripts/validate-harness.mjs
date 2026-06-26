@@ -228,8 +228,13 @@ for (const token of ['--system-id', 'custom_id', 'raw_output_parse_error', 'hard
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-model-run-index.mjs')), 'Missing hard grounded research model run index.')
 const hardGroundedModelRunIndexSource = readFileSync(join(root, 'scripts/hard-grounded-research-model-run-index.mjs'), 'utf8')
-for (const token of ['model-run-index.json', 'eligible_model_baseline', 'import-manifest.json', 'run_requested']) {
+for (const token of ['model-run-index.json', 'eligible_model_baseline', 'import-manifest.json', 'run_requested', 'fixture']) {
   assert(hardGroundedModelRunIndexSource.includes(token), `Hard grounded model run index is missing token: ${token}`)
+}
+assert(existsSync(join(root, 'scripts/hard-grounded-research-import-smoke.mjs')), 'Missing hard grounded research model import smoke.')
+const hardGroundedImportSmokeSource = readFileSync(join(root, 'scripts/hard-grounded-research-import-smoke.mjs'), 'utf8')
+for (const token of ['fixture-model-import-smoke', 'fixture: true', 'eligible_model_baseline', 'Hard grounded model import smoke passed']) {
+  assert(hardGroundedImportSmokeSource.includes(token), `Hard grounded model import smoke is missing token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-review-preflight.mjs')), 'Missing hard grounded research review preflight.')
 const hardGroundedReviewPreflightSource = readFileSync(join(root, 'scripts/hard-grounded-research-review-preflight.mjs'), 'utf8')

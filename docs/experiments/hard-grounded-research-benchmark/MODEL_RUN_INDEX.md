@@ -4,16 +4,17 @@ This generated index separates heuristic diagnostic systems from externally impo
 
 ## Summary
 
-- Runs: 5
+- Runs: 6
 - Eligible model baselines: 0
 - Ready: false
 
 ## Runs
 
-| Run | System | Report | Manifest | Evaluation source | Eligible model baseline |
-| --- | --- | --- | --- | --- | --- |
-| citation-aware-verifier-v1 | citation-aware-verifier-v1 | yes | none | pilot-suite | no |
-| lexical-evidence-baseline-v1 | lexical-evidence-baseline-v1 | yes | none | pilot-suite | no |
-| local-rule-agent-v1 | local-rule-agent-v1 | yes | none | pilot-suite | no |
-| openai-grounded-baseline-v1 | openai-grounded-baseline-v1 | no | run_manifest | pilot-suite | no |
-| openai-grounded-baseline-v1-calibration | openai-grounded-baseline-v1 | no | run_manifest | calibration-suite | no |
+| Run | System | Report | Manifest | Evaluation source | Fixture | Eligible model baseline |
+| --- | --- | --- | --- | --- | --- | --- |
+| citation-aware-verifier-v1 | citation-aware-verifier-v1 | yes | none | pilot-suite | no | no |
+| fixture-model-import-smoke | fixture-model-import-smoke | yes | import_manifest | pilot-suite | yes | no |
+| lexical-evidence-baseline-v1 | lexical-evidence-baseline-v1 | yes | none | pilot-suite | no | no |
+| local-rule-agent-v1 | local-rule-agent-v1 | yes | none | pilot-suite | no | no |
+| openai-grounded-baseline-v1 | openai-grounded-baseline-v1 | no | run_manifest | pilot-suite | no | no |
+| openai-grounded-baseline-v1-calibration | openai-grounded-baseline-v1 | no | run_manifest | calibration-suite | no | no |

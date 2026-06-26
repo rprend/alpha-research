@@ -6,7 +6,7 @@
     "lexical-evidence-baseline-v1",
     "citation-aware-verifier-v1"
   ],
-  "run_count": 5,
+  "run_count": 6,
   "eligible_model_baseline_count": 0,
   "eligible_model_baselines": [],
   "readiness": {
@@ -23,8 +23,23 @@
       "manifest_path": null,
       "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json",
       "evaluation_source": "pilot-suite",
+      "fixture": false,
       "task_count": 30,
       "macro_answer_correct": 0.1667,
+      "eligible_model_baseline": false
+    },
+    {
+      "run_id": "fixture-model-import-smoke",
+      "system_id": "fixture-model-import-smoke",
+      "report_present": true,
+      "submission_present": true,
+      "manifest_type": "import_manifest",
+      "manifest_path": "docs/experiments/hard-grounded-research-benchmark/runs/fixture-model-import-smoke/import-manifest.json",
+      "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/fixture-model-import-smoke/report.json",
+      "evaluation_source": "pilot-suite",
+      "fixture": true,
+      "task_count": 30,
+      "macro_answer_correct": 1,
       "eligible_model_baseline": false
     },
     {
@@ -36,6 +51,7 @@
       "manifest_path": null,
       "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json",
       "evaluation_source": "pilot-suite",
+      "fixture": false,
       "task_count": 30,
       "macro_answer_correct": 0.2,
       "eligible_model_baseline": false
@@ -49,6 +65,7 @@
       "manifest_path": null,
       "report_path": "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
       "evaluation_source": "pilot-suite",
+      "fixture": false,
       "task_count": 30,
       "macro_answer_correct": 1,
       "eligible_model_baseline": false
@@ -62,6 +79,7 @@
       "manifest_path": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/run-manifest.json",
       "report_path": null,
       "evaluation_source": "pilot-suite",
+      "fixture": false,
       "task_count": 0,
       "macro_answer_correct": null,
       "eligible_model_baseline": false
@@ -75,6 +93,7 @@
       "manifest_path": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1-calibration/run-manifest.json",
       "report_path": null,
       "evaluation_source": "calibration-suite",
+      "fixture": false,
       "task_count": 0,
       "macro_answer_correct": null,
       "eligible_model_baseline": false

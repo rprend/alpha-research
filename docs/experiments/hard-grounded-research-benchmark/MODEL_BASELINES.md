@@ -29,3 +29,11 @@ The importer writes:
 - `runs/<system-id>/import-manifest.json`
 
 Invalid model JSON is scored as `ABSTAIN` and counted in the import manifest.
+
+## Import Smoke
+
+```bash
+node scripts/hard-grounded-research-import-smoke.mjs
+```
+
+The smoke test creates a synthetic fixture run named `fixture-model-import-smoke`, scores it, marks its import manifest with `fixture: true`, and verifies that `generated/model-run-index.json` excludes it from eligible model baselines.

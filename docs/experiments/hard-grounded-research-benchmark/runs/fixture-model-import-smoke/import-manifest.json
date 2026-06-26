@@ -1,0 +1,12 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "fixture-model-import-smoke",
+  "suite": "pilot",
+  "input": "docs/experiments/hard-grounded-research-benchmark/generated/fixtures/model-import-smoke.jsonl",
+  "submission": "docs/experiments/hard-grounded-research-benchmark/runs/fixture-model-import-smoke/submission.json",
+  "report": "docs/experiments/hard-grounded-research-benchmark/runs/fixture-model-import-smoke/report.json",
+  "row_count": 30,
+  "parse_error_count": 0,
+  "fixture": true,
+  "fixture_purpose": "non-release smoke test for imported model output parsing and scoring"
+}
