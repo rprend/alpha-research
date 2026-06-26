@@ -9,7 +9,7 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 57/57
+- Artifact classes ready: 58/58
 - Reproduction commands: 60
 - Release blockers: 7
 - Paper readiness status: blocked
@@ -56,18 +56,19 @@ This generated checklist makes the benchmark package auditable as a research art
 | result_interpretation_guide | ready | result-interpretation-guide-v1; rules=30; target reviewed items=300; blocked gates=4. |
 | evidence_sufficiency_audit | ready | evidence-sufficiency-audit-v1; items=30; evidence contracts=30; insufficiency=3; overreach=3. |
 | estimand_registry | ready | estimand-registry-v1; estimands=10; target reviewed items=300; blocked gates=4. |
+| sensitivity_analysis_plan | ready | sensitivity-analysis-plan-v1; checks=6; required metrics=6; blocked gates=4. |
 | model_reporting_card | ready | model-reporting-card-v1; systems=7; eligible=2; required fields=11. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=83. |
-| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=83; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=60; validations=3; hashes=85. |
+| citation_metadata | ready | citation-metadata-v1; caveats=6; artifact hashes=85; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=83; bytes=1109588. |
+| version_manifest | ready | version-manifest-v1; artifacts=85; bytes=1125547. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |

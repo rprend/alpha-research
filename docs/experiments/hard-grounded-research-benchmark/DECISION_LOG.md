@@ -1151,3 +1151,11 @@ Decision: Generate a statistical estimand registry for every category hypothesis
 Rationale: A paper-worthy benchmark needs more than named hypotheses and power targets: it must state the target population, analysis unit, contrast, metrics, estimator, uncertainty method, missing-data policy, multiplicity policy, minimum sample, and claim gates before reviewed results are interpreted.
 
 Consequence: `scripts/hard-grounded-research-estimand-registry.mjs` emits `generated/estimand-registry.json` and `ESTIMAND_REGISTRY.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the registry while all confirmatory mechanism claims remain diagnostic-only until review scale and final novelty gates clear.
+
+## 2026-06-26 — Add sensitivity analysis plan
+
+Decision: Generate a sensitivity analysis plan for robustness of benchmark result claims.
+
+Rationale: A paper-grade benchmark needs pre-registered robustness checks before interpreting results, especially when conclusions could depend on citation strictness, abstention policy, aggregation weights, model eligibility, missing reviews, or multiple-testing assumptions.
+
+Consequence: `scripts/hard-grounded-research-sensitivity-analysis-plan.mjs` emits `generated/sensitivity-analysis-plan.json` and `SENSITIVITY_ANALYSIS_PLAN.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the plan while result claims remain exploratory whenever sensitivity checks change the interpretation.

@@ -42,6 +42,7 @@
     "result_interpretation_guide": "generated/result-interpretation-guide.json",
     "evidence_sufficiency_audit": "generated/evidence-sufficiency-audit.json",
     "estimand_registry": "generated/estimand-registry.json",
+    "sensitivity_analysis_plan": "generated/sensitivity-analysis-plan.json",
     "paper_tables": "generated/paper-tables.json",
     "analysis_plan": "generated/analysis-plan.json",
     "paper_claim_ledger": "generated/paper-claim-ledger.json",
@@ -72,8 +73,8 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 57,
-    "artifact_classes_total": 57,
+    "artifact_classes_ready": 58,
+    "artifact_classes_total": 58,
     "reproduction_commands": 60,
     "release_blockers": 7
   },
@@ -338,6 +339,13 @@
       "blockers": []
     },
     {
+      "id": "sensitivity_analysis_plan",
+      "status": "ready",
+      "ready": true,
+      "evidence": "sensitivity-analysis-plan-v1; checks=6; required metrics=6; blocked gates=4.",
+      "blockers": []
+    },
+    {
       "id": "model_reporting_card",
       "status": "ready",
       "ready": true,
@@ -383,14 +391,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=83.",
+      "evidence": "reproduction-capsule-v1; commands=60; validations=3; hashes=85.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=83; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=6; artifact hashes=85; blockers=7.",
       "blockers": []
     },
     {
@@ -418,7 +426,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=83; bytes=1109588.",
+      "evidence": "version-manifest-v1; artifacts=85; bytes=1125547.",
       "blockers": []
     },
     {

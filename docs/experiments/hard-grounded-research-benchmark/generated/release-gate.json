@@ -417,6 +417,12 @@
       "blocker": "Generate a statistical estimand registry before treating category hypotheses as paper-ready analysis claims."
     },
     {
+      "id": "sensitivity_analysis_plan_ready",
+      "passed": true,
+      "detail": "sensitivity-analysis-plan-v1; checks=6; metrics=6; blocked_gates=4",
+      "blocker": "Generate a sensitivity analysis plan before interpreting benchmark result claims as robust."
+    },
+    {
       "id": "error_codebook_ready",
       "passed": true,
       "detail": "error-codebook-v1; codes=8; categories=10; observed_cases=116",
@@ -449,13 +455,13 @@
     {
       "id": "reproduction_capsule_ready",
       "passed": true,
-      "detail": "reproduction-capsule-v1; commands=60; hashes=83; blockers=7",
+      "detail": "reproduction-capsule-v1; commands=60; hashes=85; blockers=7",
       "blocker": "Generate a start-here reproduction capsule before sending the benchmark package to reviewers."
     },
     {
       "id": "citation_metadata_ready",
       "passed": true,
-      "detail": "citation-metadata-v1; artifact_hashes=83; caveats=6; release_blockers=7",
+      "detail": "citation-metadata-v1; artifact_hashes=85; caveats=6; release_blockers=7",
       "blocker": "Generate package citation metadata before sharing benchmark artifacts outside the repository."
     },
     {
@@ -653,13 +659,13 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "57/57 artifact classes ready; reproduction_commands=60; release_blockers=7",
+      "detail": "58/58 artifact classes ready; reproduction_commands=60; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=83; blockers=7; bytes=1109588",
+      "detail": "version-manifest-v1; artifacts=85; blockers=7; bytes=1125547",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

@@ -11,8 +11,8 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 88,
-    "total_checks": 95,
+    "passing_checks": 89,
+    "total_checks": 96,
     "blockers": [
       {
         "id": "gold_review_complete",
@@ -71,13 +71,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 18418,
-      "sha256": "0581284083e10c694af98201bea121730d2a7e06e09799d0dd1f4090178e41b9"
+      "bytes": 18654,
+      "sha256": "a7fccf35f11113ce8ef5a61310b1705941efb77c6634f530e45d6688d89f7db2"
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 28435,
-      "sha256": "e1ff061292c1edc8118ad897c64ba6c8161b36ec9cdfaa34c145cfda27b1d1d8"
+      "bytes": 28918,
+      "sha256": "942a0bb0a487256cc492109c06a638eb3e5391f30e4539d9134e199449b21512"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -190,14 +190,19 @@
       "sha256": "c183ec8e0be774a52093ba576dd3fa63a13a28a3f9668b84c4b4e1e90def4098"
     },
     {
+      "path": "SENSITIVITY_ANALYSIS_PLAN.md",
+      "bytes": 4553,
+      "sha256": "b422ef7c2dabbe748c1782fd44569597e08a46f9f96cae35e2e50c114bb63296"
+    },
+    {
       "path": "REPRODUCTION_CAPSULE.md",
       "bytes": 8691,
-      "sha256": "873eb5d43ac05d7be8806ba3656d8a1cf2fdcf00fd356d1b5a7cad0de714bedb"
+      "sha256": "3d8031c0494407f74a10affa9fc894f63076d40d8a9bf875b4fa2625e99ec507"
     },
     {
       "path": "CITATION.md",
       "bytes": 1739,
-      "sha256": "e290a769828b8d16570228c7c179706c8b7f502849f67e7850bdbd3db74033c2"
+      "sha256": "0b50184016ca8b701bb44384ef916d8bec0485b224200ed93f0fdfb6028a7598"
     },
     {
       "path": "NOVELTY_WATCHLIST.md",
@@ -256,8 +261,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 73574,
-      "sha256": "05d18557b8cb590a760a464cec71656e6f3a7407bd8365f2904ad9b84aea13c2"
+      "bytes": 78162,
+      "sha256": "dbaa5586d549359a7cb02c37dfe8e808acc2c14b31a3620bdadd24dd1fd51eb0"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -400,14 +405,19 @@
       "sha256": "fadf40723d21ee3cfad628c54d2c3902b1f23731aab3b166d0c72ce75deff85c"
     },
     {
+      "path": "generated/sensitivity-analysis-plan.json",
+      "bytes": 6099,
+      "sha256": "4c5310efbbf421320601a44b6118a9b8e3a89faaadb149bd4bf5a7aa4d7b2373"
+    },
+    {
       "path": "generated/reproduction-capsule.json",
       "bytes": 14871,
-      "sha256": "139e31a534b56b42ac418c793986f1ba09b00de73a85f50139bd36bd728cc3a3"
+      "sha256": "fa60e6af68c2e4f9691863fd4db45eb09b8531c51be942c606597288d6e10736"
     },
     {
       "path": "generated/citation-metadata.json",
       "bytes": 2621,
-      "sha256": "5b2aa25f1b5c66b8f6d43cd2c7d5437f0002190fe32f2c6b9f240cf4c0f0b811"
+      "sha256": "bf920ee767663f8d3de082bc8cd79fe5d6f002c7e2acc976d12ebf53c2e4784e"
     },
     {
       "path": "generated/error-codebook.json",
@@ -476,8 +486,8 @@
     }
   ],
   "summary": {
-    "artifact_count": 83,
-    "total_bytes": 1109588,
+    "artifact_count": 85,
+    "total_bytes": 1125547,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

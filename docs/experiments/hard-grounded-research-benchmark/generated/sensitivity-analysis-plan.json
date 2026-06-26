@@ -1,0 +1,149 @@
+{
+  "sensitivity_analysis_plan_ready": true,
+  "version": "sensitivity-analysis-plan-v1",
+  "completion_claim_allowed": false,
+  "generated_from": {
+    "scoring_contract": "generated/scoring-contract.json",
+    "model_reporting_card": "generated/model-reporting-card.json",
+    "estimand_registry": "generated/estimand-registry.json",
+    "analysis_plan": "generated/analysis-plan.json",
+    "power_plan": "generated/power-plan.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "checks": [
+    {
+      "id": "all_required_metric_families_have_sensitivity_checks",
+      "passed": true,
+      "detail": "6 required metrics covered across 6 sensitivity checks"
+    },
+    {
+      "id": "estimands_linked_to_sensitivity_checks",
+      "passed": true,
+      "detail": "10 estimands; 6 checks with estimand links"
+    },
+    {
+      "id": "model_reporting_limits_respected",
+      "passed": true,
+      "detail": "2 eligible baselines; public_leaderboard_allowed=false"
+    },
+    {
+      "id": "claims_remain_gated",
+      "passed": true,
+      "detail": "4/4 confirmatory gates blocked; reviewed=0/300"
+    }
+  ],
+  "sensitivity_checks": [
+    {
+      "id": "metric_strictness",
+      "perturbation": "Recompute headline and category metrics under strict citation faithfulness: any unsupported cited sentence sets citation_faithfulness and conclusion_support to 0.",
+      "affected_metrics": [
+        "citation_faithfulness",
+        "conclusion_support"
+      ],
+      "estimand_link": "All category estimands with citation or conclusion metrics.",
+      "decision_rule": "If a qualitative conclusion changes sign or interval interpretation under strict support, report the claim as sensitivity-dependent."
+    },
+    {
+      "id": "abstention_policy",
+      "perturbation": "Score false abstentions as answer errors and compare with a lenient policy that gives partial credit only on reviewed insufficiency or irreconcilable conflict items.",
+      "affected_metrics": [
+        "answer_correctness",
+        "abstention_quality"
+      ],
+      "estimand_link": "Evidence insufficiency, cross-document contradiction, and temporal estimands.",
+      "decision_rule": "Claims about abstention quality require the same direction under strict and lenient policies."
+    },
+    {
+      "id": "aggregation_weighting",
+      "perturbation": "Compare unweighted category macro averages with item-weighted overall averages and source-dataset stratified averages.",
+      "affected_metrics": [
+        "answer_correctness",
+        "evidence_recall",
+        "citation_precision",
+        "citation_faithfulness",
+        "conclusion_support",
+        "abstention_quality"
+      ],
+      "estimand_link": "All benchmark-level and category-level estimands.",
+      "decision_rule": "Benchmark-level claims must disclose when category weighting changes model ordering or effect magnitude by more than the planned uncertainty interval."
+    },
+    {
+      "id": "model_eligibility",
+      "perturbation": "Run headline contrasts on eligible external model baselines only, then separately on all diagnostic systems.",
+      "affected_metrics": [
+        "answer_correctness",
+        "evidence_recall",
+        "citation_precision",
+        "citation_faithfulness",
+        "conclusion_support",
+        "abstention_quality"
+      ],
+      "estimand_link": "System comparison estimands and reporting-card claims.",
+      "decision_rule": "Do not promote a model comparison claim if it appears only after adding diagnostic systems excluded by the reporting card."
+    },
+    {
+      "id": "missing_review_data",
+      "perturbation": "Treat missing or non-merge-ready reviewed items as excluded in the primary analysis and as worst-case failures in a conservative bound.",
+      "affected_metrics": [
+        "answer_correctness",
+        "evidence_recall",
+        "citation_precision",
+        "citation_faithfulness",
+        "conclusion_support",
+        "abstention_quality"
+      ],
+      "estimand_link": "All confirmatory reviewed-data estimands.",
+      "decision_rule": "No category claim is allowed when worst-case missing-review bounds cross the null or contradict the primary direction."
+    },
+    {
+      "id": "multiple_testing",
+      "perturbation": "Report unadjusted intervals plus family-level false-discovery or Holm-style sensitivity for the ten category hypotheses.",
+      "affected_metrics": [
+        "answer_correct",
+        "evidence_recall",
+        "citation_faithfulness",
+        "conclusion_support",
+        "abstention_quality"
+      ],
+      "estimand_link": "All category hypotheses in the estimand registry.",
+      "decision_rule": "Treat claims that survive only unadjusted intervals as exploratory, not confirmatory."
+    }
+  ],
+  "claim_gates": [
+    {
+      "id": "gold_review_complete",
+      "passed": false,
+      "detail": "0/30 valid reviewed items",
+      "blocker": "Complete double review, resolve disagreements, and promote reviewed gold."
+    },
+    {
+      "id": "review_merge_ready",
+      "passed": false,
+      "detail": "0/30 merge-ready items",
+      "blocker": "Fill reviewer workbooks until strict review merge succeeds."
+    },
+    {
+      "id": "category_scale_ready",
+      "passed": false,
+      "detail": "0/300 valid reviewed target items; 300 reviewed items still needed",
+      "blocker": "Scale each category to the target reviewed item count before paper release."
+    },
+    {
+      "id": "novelty_audit_final",
+      "passed": false,
+      "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
+      "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    }
+  ],
+  "summary": {
+    "sensitivity_checks": 6,
+    "required_metrics": 6,
+    "estimands": 10,
+    "eligible_model_baselines": 2,
+    "blocked_claim_gates": 4,
+    "reviewed_items_current": 0,
+    "reviewed_items_target": 300,
+    "completion_claim_allowed": false
+  }
+}

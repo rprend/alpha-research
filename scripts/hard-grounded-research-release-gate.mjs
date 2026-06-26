@@ -63,6 +63,7 @@ const inputs = {
   resultInterpretationGuide: join(generatedDir, 'result-interpretation-guide.json'),
   evidenceSufficiencyAudit: join(generatedDir, 'evidence-sufficiency-audit.json'),
   estimandRegistry: join(generatedDir, 'estimand-registry.json'),
+  sensitivityAnalysisPlan: join(generatedDir, 'sensitivity-analysis-plan.json'),
   errorCodebook: join(generatedDir, 'error-codebook.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
@@ -193,6 +194,7 @@ function buildGate({
   resultInterpretationGuide,
   evidenceSufficiencyAudit,
   estimandRegistry,
+  sensitivityAnalysisPlan,
   errorCodebook,
   paperTables,
   analysisPlan,
@@ -644,6 +646,15 @@ function buildGate({
         estimandRegistry.summary?.completion_claim_allowed === false,
       detail: `${estimandRegistry.version}; estimands=${estimandRegistry.summary?.estimands ?? 0}; target_n=${estimandRegistry.summary?.target_reviewed_items_total ?? 'unknown'}; blocked_gates=${estimandRegistry.summary?.blocked_claim_gates ?? 'unknown'}`,
       blocker: 'Generate a statistical estimand registry before treating category hypotheses as paper-ready analysis claims.',
+    },
+    {
+      id: 'sensitivity_analysis_plan_ready',
+      passed:
+        Boolean(sensitivityAnalysisPlan.sensitivity_analysis_plan_ready) &&
+        sensitivityAnalysisPlan.summary?.sensitivity_checks >= 6 &&
+        sensitivityAnalysisPlan.summary?.completion_claim_allowed === false,
+      detail: `${sensitivityAnalysisPlan.version}; checks=${sensitivityAnalysisPlan.summary?.sensitivity_checks ?? 0}; metrics=${sensitivityAnalysisPlan.summary?.required_metrics ?? 'unknown'}; blocked_gates=${sensitivityAnalysisPlan.summary?.blocked_claim_gates ?? 'unknown'}`,
+      blocker: 'Generate a sensitivity analysis plan before interpreting benchmark result claims as robust.',
     },
     {
       id: 'error_codebook_ready',
@@ -1221,6 +1232,7 @@ const gate = buildGate({
   resultInterpretationGuide: readJson(inputs.resultInterpretationGuide),
   evidenceSufficiencyAudit: readJson(inputs.evidenceSufficiencyAudit),
   estimandRegistry: readJson(inputs.estimandRegistry),
+  sensitivityAnalysisPlan: readJson(inputs.sensitivityAnalysisPlan),
   errorCodebook: readJson(inputs.errorCodebook),
   paperTables: readJson(inputs.paperTables),
   analysisPlan: readJson(inputs.analysisPlan),

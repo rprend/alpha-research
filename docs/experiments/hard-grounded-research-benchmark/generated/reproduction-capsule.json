@@ -12,10 +12,10 @@
   "package_identity": {
     "benchmark_id": "hard-grounded-research-benchmark",
     "release_status": "blocked",
-    "release_checks": "88/95",
+    "release_checks": "89/96",
     "version_manifest": "version-manifest-v1",
-    "artifact_hashes": 83,
-    "total_bytes": 1109588
+    "artifact_hashes": 85,
+    "total_bytes": 1125547
   },
   "package_contents": {
     "public_package_items": 30,
@@ -451,7 +451,7 @@
   "summary": {
     "reproduction_commands": 60,
     "validation_commands": 3,
-    "artifact_hashes": 83,
+    "artifact_hashes": 85,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }
