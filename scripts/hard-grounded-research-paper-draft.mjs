@@ -29,6 +29,7 @@ const requiredInputs = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
+  analysisPlan: join(generatedDir, 'analysis-plan.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
@@ -227,7 +228,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -324,6 +325,10 @@ These intervals are descriptive task-level estimates over the current 30-item pi
 ## Paper Tables And Figure Data
 
 The generated paper table pack contains ${paperTables.summary.table_count} synchronized tables covering taxonomy constructs, macro results, challenge diagnostics, failure modes, novelty claim boundaries, and remaining paper-readiness blockers. The manuscript should cite \`PAPER_TABLES.md\` and \`generated/paper-tables.json\` as the source for copied tables to avoid drift from benchmark artifacts.
+
+## Statistical Analysis Plan
+
+The generated analysis plan pre-specifies ${analysisPlan.summary.hypotheses} hypotheses, ${analysisPlan.summary.model_families} model families, ${analysisPlan.summary.covariates} covariates, and ${analysisPlan.summary.claim_gates} claim gates for answering the central paper question. It allows pilot diagnostics now, but blocks category-level conclusions until ${analysisPlan.summary.reviewed_items_target} reviewed target items and final novelty checks are available.
 
 ## Scale And Power Plan
 
@@ -422,6 +427,7 @@ const draft = renderDraft({
   baselineAnalysis: readJson(requiredInputs.baselineAnalysis),
   failureAtlas: readJson(requiredInputs.failureAtlas),
   paperTables: readJson(requiredInputs.paperTables),
+  analysisPlan: readJson(requiredInputs.analysisPlan),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),
   constructMap: readJson(requiredInputs.constructMap),

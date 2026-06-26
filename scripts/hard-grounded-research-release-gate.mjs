@@ -36,6 +36,7 @@ const inputs = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
+  analysisPlan: join(generatedDir, 'analysis-plan.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
@@ -116,6 +117,7 @@ function buildGate({
   baselineAnalysis,
   failureAtlas,
   paperTables,
+  analysisPlan,
   baselineUncertainty,
   modelRunIndex,
   modelBaselinePackets,
@@ -358,6 +360,15 @@ function buildGate({
       blocker: 'Generate synchronized paper tables and figure data from canonical benchmark artifacts.',
     },
     {
+      id: 'analysis_plan_ready',
+      passed:
+        Boolean(analysisPlan.analysis_plan_ready) &&
+        analysisPlan.summary?.hypotheses >= 4 &&
+        analysisPlan.summary?.completion_claim_allowed === false,
+      detail: `${analysisPlan.summary?.hypotheses ?? 0} hypotheses; ${analysisPlan.summary?.model_families ?? 0} model families; reviewed=${analysisPlan.summary?.reviewed_items_current ?? 0}/${analysisPlan.summary?.reviewed_items_target ?? 0}`,
+      blocker: 'Generate a statistical analysis plan that pre-specifies hypotheses, contrasts, covariates, and claim gates.',
+    },
+    {
       id: 'model_baseline_packets_present',
       passed: Boolean(modelBaselinePackets.packets_ready),
       detail: `${modelBaselinePackets.packet_count} prompt packets; scored_reports_ready=${modelBaselinePackets.scored_reports_ready}`,
@@ -451,6 +462,7 @@ function buildGate({
       baseline_analysis: 'generated/baseline-analysis.json',
       failure_atlas: 'generated/failure-atlas.json',
       paper_tables: 'generated/paper-tables.json',
+      analysis_plan: 'generated/analysis-plan.json',
       baseline_uncertainty: 'generated/baseline-uncertainty.json',
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
@@ -535,6 +547,7 @@ const gate = buildGate({
   baselineAnalysis: readJson(inputs.baselineAnalysis),
   failureAtlas: readJson(inputs.failureAtlas),
   paperTables: readJson(inputs.paperTables),
+  analysisPlan: readJson(inputs.analysisPlan),
   baselineUncertainty: readJson(inputs.baselineUncertainty),
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),

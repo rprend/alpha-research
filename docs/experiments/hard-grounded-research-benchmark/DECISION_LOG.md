@@ -703,3 +703,11 @@ Decision: Generate a paper table and figure-data pack from the benchmark's canon
 Rationale: A paper-worthy benchmark should not rely on manually copied tables that can drift from the scorer, release gate, novelty registry, or failure atlas. Tables for taxonomy, baseline results, challenge diagnostics, failure modes, novelty boundaries, and blockers need to be reproducible.
 
 Consequence: `scripts/hard-grounded-research-paper-tables.mjs` emits `generated/paper-tables.json` and `PAPER_TABLES.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the pack while human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Pre-specify the benchmark analysis plan
+
+Decision: Generate a statistical analysis plan that pre-specifies hypotheses, model families, covariates, contrasts, and claim gates for the hard-grounded benchmark paper.
+
+Rationale: The paper question asks what makes grounded research hard beyond lookup, which requires more than score tables. A reproducible analysis plan keeps pilot diagnostics separate from future category-level claims and makes the intended statistical tests inspectable before human-reviewed gold exists.
+
+Consequence: `scripts/hard-grounded-research-analysis-plan.mjs` emits `generated/analysis-plan.json` and `ANALYSIS_PLAN.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the plan while human-review, scale, and final novelty blockers remain active.

@@ -30,6 +30,7 @@
     "baseline_analysis": "generated/baseline-analysis.json",
     "failure_atlas": "generated/failure-atlas.json",
     "paper_tables": "generated/paper-tables.json",
+    "analysis_plan": "generated/analysis-plan.json",
     "baseline_uncertainty": "generated/baseline-uncertainty.json",
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
@@ -248,6 +249,12 @@
       "blocker": "Generate synchronized paper tables and figure data from canonical benchmark artifacts."
     },
     {
+      "id": "analysis_plan_ready",
+      "passed": true,
+      "detail": "4 hypotheses; 4 model families; reviewed=0/300",
+      "blocker": "Generate a statistical analysis plan that pre-specifies hypotheses, contrasts, covariates, and claim gates."
+    },
+    {
       "id": "model_baseline_packets_present",
       "passed": true,
       "detail": "2 prompt packets; scored_reports_ready=false",
@@ -286,7 +293,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "7/7 artifact classes ready; reproduction_commands=10; release_blockers=7",
+      "detail": "8/8 artifact classes ready; reproduction_commands=11; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

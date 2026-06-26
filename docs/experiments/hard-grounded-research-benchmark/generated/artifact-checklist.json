@@ -12,6 +12,7 @@
     "model_run_index": "generated/model-run-index.json",
     "baseline_analysis": "generated/baseline-analysis.json",
     "paper_tables": "generated/paper-tables.json",
+    "analysis_plan": "generated/analysis-plan.json",
     "annotation_export": "generated/annotation-export/manifest.json",
     "review_progress": "generated/review-progress.json"
   },
@@ -19,9 +20,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 7,
-    "artifact_classes_total": 7,
-    "reproduction_commands": 10,
+    "artifact_classes_ready": 8,
+    "artifact_classes_total": 8,
+    "reproduction_commands": 11,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -68,6 +69,13 @@
       "blockers": []
     },
     {
+      "id": "analysis_plan",
+      "status": "ready",
+      "ready": true,
+      "evidence": "4 hypotheses; 4 model families; 7 covariates.",
+      "blockers": []
+    },
+    {
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
@@ -99,6 +107,10 @@
     {
       "step": "Refresh paper tables and figure data",
       "command": "node scripts/hard-grounded-research-paper-tables.mjs"
+    },
+    {
+      "step": "Refresh statistical analysis plan",
+      "command": "node scripts/hard-grounded-research-analysis-plan.mjs"
     },
     {
       "step": "Refresh release and publication surfaces",

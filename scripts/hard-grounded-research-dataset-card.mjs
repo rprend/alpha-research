@@ -16,6 +16,7 @@ const inputPaths = {
   baselineAnalysis: join(generatedDir, 'baseline-analysis.json'),
   failureAtlas: join(generatedDir, 'failure-atlas.json'),
   paperTables: join(generatedDir, 'paper-tables.json'),
+  analysisPlan: join(generatedDir, 'analysis-plan.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
@@ -123,6 +124,7 @@ function renderCard({
   baselineAnalysis,
   failureAtlas,
   paperTables,
+  analysisPlan,
   modelRunIndex,
   corpusAudit,
   constructMap,
@@ -163,6 +165,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Threats-to-validity ready: ${threatsValidity.threats_validity_ready} (${threatsValidity.summary.threat_count} threats; ${threatsValidity.summary.high_severity_count} high severity)
 - Failure atlas ready: ${failureAtlas.failure_atlas_ready} (${failureAtlas.summary.failure_case_count} cases; ${failureAtlas.summary.failure_mode_count} modes)
 - Paper tables ready: ${paperTables.paper_tables_ready} (${paperTables.summary.table_count} tables)
+- Analysis plan ready: ${analysisPlan.analysis_plan_ready} (${analysisPlan.summary.hypotheses} hypotheses; ${analysisPlan.summary.model_families} model families)
 - Paper target reviewed items/category: ${powerPlan.assumptions.target_reviewed_items_per_category}
 - Paper target reviewed items total: ${powerPlan.assumptions.target_reviewed_items_total}
 - Gold ready: ${goldSummary.gold_ready}
@@ -235,6 +238,10 @@ The generated failure atlas summarizes ${failureAtlas.summary.failure_case_count
 
 The generated paper table pack materializes ${paperTables.summary.table_count} synchronized tables for taxonomy, baseline results, challenge diagnostics, failure modes, novelty boundaries, and release blockers. See \`PAPER_TABLES.md\` and \`generated/paper-tables.json\`.
 
+## Analysis Plan
+
+The generated analysis plan pre-specifies ${analysisPlan.summary.hypotheses} hypotheses, ${analysisPlan.summary.model_families} model families, and ${analysisPlan.summary.covariates} covariates for testing what makes grounded research hard beyond lookup. It keeps category-level and final novelty claims blocked until reviewed gold and final literature gates pass. See \`ANALYSIS_PLAN.md\`.
+
 ## Statistical Scale Plan
 
 The current pilot supports diagnostic analysis only. The generated power plan targets ${powerPlan.assumptions.target_reviewed_items_per_category} double-reviewed items per category (${powerPlan.assumptions.target_reviewed_items_total} total) before category-level paper claims. At the category target, the worst-case 95% half-width for bounded task metrics is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_per_category')?.ci95_half_width_worst_case}; at the overall target it is ${powerPlan.sample_size_scenarios.find((scenario) => scenario.scope === 'paper_target_overall')?.ci95_half_width_worst_case}. See \`POWER_PLAN.md\`.
@@ -283,6 +290,7 @@ Key release checks:
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
 - Failure atlas: ${checkDetail(releaseGate, 'failure_atlas_ready')}
 - Paper tables: ${checkDetail(releaseGate, 'paper_tables_ready')}
+- Analysis plan: ${checkDetail(releaseGate, 'analysis_plan_ready')}
 - Power plan: ${checkDetail(releaseGate, 'power_plan_ready')}
 - Novelty claim boundaries: ${checkDetail(releaseGate, 'novelty_claim_boundaries_ready')}
 - Annotation export: ${checkDetail(releaseGate, 'annotation_export_ready')}
@@ -312,6 +320,7 @@ writeText(
     baselineAnalysis: readJson(inputPaths.baselineAnalysis),
     failureAtlas: readJson(inputPaths.failureAtlas),
     paperTables: readJson(inputPaths.paperTables),
+    analysisPlan: readJson(inputPaths.analysisPlan),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     corpusAudit: readJson(inputPaths.corpusAudit),
     constructMap: readJson(inputPaths.constructMap),

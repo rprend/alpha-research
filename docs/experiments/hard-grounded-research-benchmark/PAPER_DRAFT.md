@@ -191,6 +191,10 @@ These intervals are descriptive task-level estimates over the current 30-item pi
 
 The generated paper table pack contains 6 synchronized tables covering taxonomy constructs, macro results, challenge diagnostics, failure modes, novelty claim boundaries, and remaining paper-readiness blockers. The manuscript should cite `PAPER_TABLES.md` and `generated/paper-tables.json` as the source for copied tables to avoid drift from benchmark artifacts.
 
+## Statistical Analysis Plan
+
+The generated analysis plan pre-specifies 4 hypotheses, 4 model families, 7 covariates, and 3 claim gates for answering the central paper question. It allows pilot diagnostics now, but blocks category-level conclusions until 300 reviewed target items and final novelty checks are available.
+
 ## Scale And Power Plan
 
 The paper target is 30 double-reviewed items per category (300 total). The current pilot remains diagnostic because it has 30 pilot items and 0 valid reviewed items. The generated plan uses conservative normal-approximation intervals for bounded task metrics and keeps category-scale claims blocked until review completes.
@@ -204,7 +208,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 10 reproduction commands and 7/7 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 11 reproduction commands and 8/8 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
@@ -214,6 +218,7 @@ The generated artifact checklist records 10 reproduction commands and 7/7 ready 
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
 | paper_tables_and_figures | ready | 6 paper tables; 40 challenge rows; 8 failure modes. |
+| analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 1 allowed claims; 5 prohibited claims. |
 
 ## Threats To Validity
@@ -310,13 +315,14 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | baseline_uncertainty_present | yes | 5 systems with descriptive task-level intervals |
 | failure_atlas_ready | yes | 116 failure cases; 8 failure modes; systems=5 |
 | paper_tables_ready | yes | 6 paper tables; systems=5; blockers=7 |
+| analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
 | novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 |
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |
 | corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 7/7 artifact classes ready; reproduction_commands=10; release_blockers=7 |
+| artifact_checklist_ready | yes | 8/8 artifact classes ready; reproduction_commands=11; release_blockers=7 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position

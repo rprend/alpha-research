@@ -58,6 +58,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `BASELINE_UNCERTAINTY.md` and `generated/baseline-uncertainty.json`: generated descriptive uncertainty intervals for current task-level baseline metrics and paired deltas.
 - `FAILURE_ATLAS.md` and `generated/failure-atlas.json`: generated cross-system qualitative failure atlas from scored pilot reports.
 - `PAPER_TABLES.md` and `generated/paper-tables.json`: generated paper-facing tables and figure data from canonical benchmark artifacts.
+- `ANALYSIS_PLAN.md` and `generated/analysis-plan.json`: generated statistical analysis plan with hypotheses, model families, covariates, contrasts, and claim gates.
 - `ANNOTATION_PROTOCOL.md` and `generated/annotation-protocol.json`: generated reviewer instruction protocol covering labels, citation rules, expansion category fit, generation defects, and adjudication.
 - `REVIEW_PREFLIGHT.md` and `generated/review-preflight.json`: generated reviewer completion work queue before gold merge.
 - `REVIEW_OPERATIONS.md` and `generated/review-operations.json`: generated pilot plus expansion review operations queue and category progress dashboard.
