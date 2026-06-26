@@ -606,8 +606,8 @@
     },
     {
       "id": "novelty_replacement_candidates_ready",
-      "passed": true,
-      "detail": "novelty-replacement-candidates-v1; candidates=6; verified=6; covered_quarantined=4",
+      "passed": false,
+      "detail": "novelty-replacement-candidates-v1; candidates=6; verified=4; covered_quarantined=3",
       "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
     },
     {
@@ -702,14 +702,14 @@
     },
     {
       "id": "artifact_checklist_ready",
-      "passed": true,
-      "detail": "65/65 artifact classes ready; reproduction_commands=60; release_blockers=1",
+      "passed": false,
+      "detail": "63/65 artifact classes ready; reproduction_commands=60; release_blockers=2",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=99; blockers=1; bytes=3199312",
+      "detail": "version-manifest-v1; artifacts=99; blockers=2; bytes=3200829",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {
@@ -724,6 +724,16 @@
       "id": "novelty_audit_final",
       "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
       "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+    },
+    {
+      "id": "novelty_replacement_candidates_ready",
+      "detail": "novelty-replacement-candidates-v1; candidates=6; verified=4; covered_quarantined=3",
+      "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
+    },
+    {
+      "id": "artifact_checklist_ready",
+      "detail": "63/65 artifact classes ready; reproduction_commands=60; release_blockers=2",
+      "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     }
   ]
 }

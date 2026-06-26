@@ -1,5 +1,13 @@
 # Decision Log
 
+## 2026-06-26 — Require live-verified novelty replacements
+
+Decision: Count novelty replacement candidates as covering quarantined watchlist sources only when a live source check confirms the URL title matches the intended related-work title.
+
+Rationale: Replacement candidates can reproduce the same failure mode as the bad watchlist links if they are accepted by title string alone. Live checks showed two supposed 2026 RAG replacements pointed to unrelated physics or high-energy-physics papers, so final novelty repair needs verified title matches and explicit title-conflict accounting.
+
+Consequence: `scripts/hard-grounded-research-novelty-replacement-candidates.mjs` now records observed titles, marks title conflicts as `candidate_title_conflict`, and excludes conflicted candidates from quarantined-source coverage counts.
+
 ## 2026-06-26 — Verify novelty watchlist source identity
 
 Decision: Add a source-identity audit for live novelty watchlist entries before any watchlist source can drive final novelty adjudication.

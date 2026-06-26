@@ -11,13 +11,18 @@
   },
   "release_state": {
     "status": "blocked",
-    "passing_checks": 101,
+    "passing_checks": 100,
     "total_checks": 102,
     "blockers": [
       {
         "id": "novelty_audit_final",
         "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
         "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+      },
+      {
+        "id": "novelty_replacement_candidates_ready",
+        "detail": "novelty-replacement-candidates-v1; candidates=6; verified=4; covered_quarantined=3",
+        "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
       }
     ],
     "completion_claim_allowed": false
@@ -47,7 +52,7 @@
     {
       "path": "DATASET_CARD.md",
       "bytes": 31559,
-      "sha256": "bcd2d54b1ba80d0504d8ffe32265ee1c994b00ef3c7f185c642ae6bb8feac1fa"
+      "sha256": "1be2ba44775395e1573e208caf3c56b4384ec7efe4e185e63f45246c287a2185"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -241,8 +246,8 @@
     },
     {
       "path": "NOVELTY_REPLACEMENT_CANDIDATES.md",
-      "bytes": 2434,
-      "sha256": "5d1c92d0c588c7e143b20326f530d393bcfb24cbbbe9b06b9246df32f7d27e56"
+      "bytes": 2987,
+      "sha256": "67ecea6aef924eea4f6eb6594b63d8a3c1afc3aa8bb1519ad2804f6fd4de0262"
     },
     {
       "path": "NOVELTY_OVERLAP_ADJUDICATION.md",
@@ -266,8 +271,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 95814,
-      "sha256": "8626b381429ca78624e8cfaf708112a9ecc0accf43db369bc9f88b40c680ec3f"
+      "bytes": 96072,
+      "sha256": "5c1a0ec314046062f821630306014ddd4931936f721eb768b0274dc2675ee769"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -506,13 +511,13 @@
     },
     {
       "path": "generated/novelty-replacement-candidates.json",
-      "bytes": 5834,
-      "sha256": "f85ea160d6322046a5723958d196b9dc283b1978a29e18b9d216f42d3cc72e4f"
+      "bytes": 6524,
+      "sha256": "dd03f9048ad4a1f48e8cbc3b529f0b0862e5d51bb14bbe4eceaa257d3c4e5624"
     },
     {
       "path": "generated/novelty-overlap-adjudication.json",
-      "bytes": 7059,
-      "sha256": "6df5080051b1da024f6288f1942f67784abb96694b9267da4cbd74b06473437b"
+      "bytes": 7075,
+      "sha256": "12faea587530b800225188bcc4bf9873b71e480c68ac634980bb8e94a5395379"
     },
     {
       "path": "generated/novelty-refresh-ledger.json",
@@ -527,8 +532,8 @@
   ],
   "summary": {
     "artifact_count": 99,
-    "total_bytes": 3199312,
-    "release_blockers": 1,
+    "total_bytes": 3200829,
+    "release_blockers": 2,
     "completion_claim_allowed": false
   }
 }

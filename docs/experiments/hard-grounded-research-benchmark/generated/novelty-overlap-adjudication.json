@@ -34,7 +34,7 @@
   "adjudication_rows": [
     {
       "candidate_id": "faithfulness-qa-2026-verified",
-      "title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "title": "Faithfulness-QA: A Counterfactual Entity Substitution Dataset for Training Context-Faithful RAG Models",
       "url": "https://arxiv.org/abs/2604.25313",
       "primary_source_status": "verified_title_match",
       "overlap_scope": "medium",
@@ -109,7 +109,7 @@
       "candidate_id": "finegrained-rag-2026",
       "title": "Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation",
       "url": "https://arxiv.org/abs/2605.07471",
-      "primary_source_status": "verified_title_match",
+      "primary_source_status": "candidate_title_conflict",
       "overlap_scope": "high",
       "affected_claim_ids": [
         "taxonomy_scope_claim",
@@ -127,7 +127,7 @@
       "candidate_id": "grace-2026",
       "title": "GRACE: A Diagnostic Benchmark for Contextual Reasoning in Retrieval-Augmented Generation",
       "url": "https://arxiv.org/abs/2606.11418",
-      "primary_source_status": "verified_title_match",
+      "primary_source_status": "candidate_title_conflict",
       "overlap_scope": "high",
       "affected_claim_ids": [
         "taxonomy_scope_claim",

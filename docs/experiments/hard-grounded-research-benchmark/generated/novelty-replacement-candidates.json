@@ -1,5 +1,5 @@
 {
-  "novelty_replacement_candidates_ready": true,
+  "novelty_replacement_candidates_ready": false,
   "version": "novelty-replacement-candidates-v1",
   "checked_date": "2026-06-26",
   "completion_claim_allowed": false,
@@ -18,12 +18,12 @@
     {
       "id": "replacement_candidates_present",
       "passed": true,
-      "detail": "6 replacement/supplement candidates for 4 quarantined sources"
+      "detail": "4 verified replacement/supplement candidates for 4 quarantined sources"
     },
     {
       "id": "quarantined_sources_covered",
-      "passed": true,
-      "detail": "faithjudge-2026=2; faithfulness-qa-2026=1; dora-2026=1; hierarag-2026=2"
+      "passed": false,
+      "detail": "faithjudge-2026=2; faithfulness-qa-2026=1; dora-2026=1; hierarag-2026=0"
     },
     {
       "id": "final_claims_still_blocked",
@@ -34,9 +34,10 @@
   "candidates": [
     {
       "id": "faithfulness-qa-2026-verified",
-      "title": "Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts",
+      "title": "Faithfulness-QA: A Counterfactual Entity Substitution Dataset for Training Context-Faithful RAG Models",
       "url": "https://arxiv.org/abs/2604.25313",
       "primary_source_status": "verified_title_match",
+      "observed_title": "Faithfulness-QA: A Counterfactual Entity Substitution Dataset for Training Context-Faithful RAG Models",
       "replaces_or_supplements": [
         "faithfulness-qa-2026"
       ],
@@ -53,6 +54,7 @@
       "title": "FaithEval: Can Your Language Model Stay Faithful to Context, Even If Context Is Noisy?",
       "url": "https://arxiv.org/abs/2410.03727",
       "primary_source_status": "verified_title_match",
+      "observed_title": "FaithEval: Can Your Language Model Stay Faithful to Context, Even If \"The Moon is Made of Marshmallows\"",
       "replaces_or_supplements": [
         "faithjudge-2026"
       ],
@@ -68,6 +70,7 @@
       "title": "Context-DPO: Aligning Language Models for Context-Faithfulness",
       "url": "https://arxiv.org/abs/2412.15280",
       "primary_source_status": "verified_title_match",
+      "observed_title": "Context-DPO: Aligning Language Models for Context-Faithfulness",
       "replaces_or_supplements": [
         "faithjudge-2026"
       ],
@@ -83,6 +86,7 @@
       "title": "LegalBench-RAG: A Benchmark for Retrieval-Augmented Generation in the Legal Domain",
       "url": "https://arxiv.org/abs/2408.10343",
       "primary_source_status": "verified_title_match",
+      "observed_title": "LegalBench-RAG: A Benchmark for Retrieval-Augmented Generation in the Legal Domain",
       "replaces_or_supplements": [
         "dora-2026"
       ],
@@ -97,7 +101,8 @@
       "id": "finegrained-rag-2026",
       "title": "Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation",
       "url": "https://arxiv.org/abs/2605.07471",
-      "primary_source_status": "verified_title_match",
+      "primary_source_status": "candidate_title_conflict",
+      "observed_title": "Transfer Learning Across Fast- and Full-Simulation Domains in High-Energy Physics",
       "replaces_or_supplements": [
         "hierarag-2026"
       ],
@@ -112,7 +117,8 @@
       "id": "grace-2026",
       "title": "GRACE: A Diagnostic Benchmark for Contextual Reasoning in Retrieval-Augmented Generation",
       "url": "https://arxiv.org/abs/2606.11418",
-      "primary_source_status": "verified_title_match",
+      "primary_source_status": "candidate_title_conflict",
+      "observed_title": "Classification of rotational zero modes in 2D micropolar solids",
       "replaces_or_supplements": [
         "hierarag-2026"
       ],
@@ -128,9 +134,9 @@
   "summary": {
     "quarantined_sources": 4,
     "candidates": 6,
-    "verified_title_match_candidates": 6,
-    "candidate_title_conflicts": 0,
-    "covered_quarantined_sources": 4,
+    "verified_title_match_candidates": 4,
+    "candidate_title_conflicts": 2,
+    "covered_quarantined_sources": 3,
     "final_novelty_claim_allowed": false,
     "completion_claim_allowed": false
   }

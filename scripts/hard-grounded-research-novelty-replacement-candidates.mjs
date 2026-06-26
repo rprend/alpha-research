@@ -15,9 +15,10 @@ const inputs = {
 const verifiedCandidates = [
   {
     id: 'faithfulness-qa-2026-verified',
-    title: 'Faithfulness-QA: Evaluating Long-Context Large Language Models Through Counterfactual Contexts',
+    title: 'Faithfulness-QA: A Counterfactual Entity Substitution Dataset for Training Context-Faithful RAG Models',
     url: 'https://arxiv.org/abs/2604.25313',
     primary_source_status: 'verified_title_match',
+    observed_title: 'Faithfulness-QA: A Counterfactual Entity Substitution Dataset for Training Context-Faithful RAG Models',
     replaces_or_supplements: ['faithfulness-qa-2026'],
     pressure_points: ['entity disambiguation', 'stale-vs-current document conflicts', 'citation supports fact but not conclusion'],
     audit_role: 'Replace the mismatched Faithfulness-QA URL before claim revision or citation.',
@@ -28,6 +29,7 @@ const verifiedCandidates = [
     title: 'FaithEval: Can Your Language Model Stay Faithful to Context, Even If Context Is Noisy?',
     url: 'https://arxiv.org/abs/2410.03727',
     primary_source_status: 'verified_title_match',
+    observed_title: 'FaithEval: Can Your Language Model Stay Faithful to Context, Even If "The Moon is Made of Marshmallows"',
     replaces_or_supplements: ['faithjudge-2026'],
     pressure_points: ['citation supports fact but not conclusion', 'evidence insufficiency / abstention'],
     audit_role: 'Use as a verified faithfulness/noisy-context adjacent benchmark if FaithJudge remains unverified.',
@@ -38,6 +40,7 @@ const verifiedCandidates = [
     title: 'Context-DPO: Aligning Language Models for Context-Faithfulness',
     url: 'https://arxiv.org/abs/2412.15280',
     primary_source_status: 'verified_title_match',
+    observed_title: 'Context-DPO: Aligning Language Models for Context-Faithfulness',
     replaces_or_supplements: ['faithjudge-2026'],
     pressure_points: ['evidence insufficiency / abstention', 'citation supports fact but not conclusion'],
     audit_role: 'Use as a verified QA hallucination-control comparator for abstention and unsupported-answer claims.',
@@ -48,6 +51,7 @@ const verifiedCandidates = [
     title: 'LegalBench-RAG: A Benchmark for Retrieval-Augmented Generation in the Legal Domain',
     url: 'https://arxiv.org/abs/2408.10343',
     primary_source_status: 'verified_title_match',
+    observed_title: 'LegalBench-RAG: A Benchmark for Retrieval-Augmented Generation in the Legal Domain',
     replaces_or_supplements: ['dora-2026'],
     pressure_points: ['source authority conflicts', 'large-corpus research QA'],
     audit_role: 'Use as a verified legal-domain RAG comparator for domain-specific QA and source-grounded citation behavior.',
@@ -57,7 +61,8 @@ const verifiedCandidates = [
     id: 'finegrained-rag-2026',
     title: 'Benchmarking Fine-Grained RAG: Granular Assessment and Error Analysis in Retrieval-Augmented Generation',
     url: 'https://arxiv.org/abs/2605.07471',
-    primary_source_status: 'verified_title_match',
+    primary_source_status: 'candidate_title_conflict',
+    observed_title: 'Transfer Learning Across Fast- and Full-Simulation Domains in High-Energy Physics',
     replaces_or_supplements: ['hierarag-2026'],
     pressure_points: ['generic RAG benchmark claim', 'benchmark taxonomy framing'],
     audit_role: 'Use as a verified generic/fine-grained RAG benchmark comparator before making taxonomy novelty claims.',
@@ -67,7 +72,8 @@ const verifiedCandidates = [
     id: 'grace-2026',
     title: 'GRACE: A Diagnostic Benchmark for Contextual Reasoning in Retrieval-Augmented Generation',
     url: 'https://arxiv.org/abs/2606.11418',
-    primary_source_status: 'verified_title_match',
+    primary_source_status: 'candidate_title_conflict',
+    observed_title: 'Classification of rotational zero modes in 2D micropolar solids',
     replaces_or_supplements: ['hierarag-2026'],
     pressure_points: ['multi-hop synthesis', 'cross-document contradiction', 'temporal questions: as of date X'],
     audit_role: 'Use as a verified contextual-reasoning RAG comparator before finalizing hard-grounded reasoning novelty claims.',
@@ -101,6 +107,7 @@ function buildReport({ noveltyLinkAudit, noveltyClaimRevisionPlan }) {
   const quarantinedIds = new Set(noveltyLinkAudit.sources.filter((source) => source.quarantined).map((source) => source.source_id))
   const replacementCoverage = new Map([...quarantinedIds].map((id) => [id, 0]))
   for (const candidate of verifiedCandidates) {
+    if (candidate.primary_source_status !== 'verified_title_match') continue
     for (const sourceId of candidate.replaces_or_supplements) {
       if (replacementCoverage.has(sourceId)) replacementCoverage.set(sourceId, replacementCoverage.get(sourceId) + 1)
     }
@@ -113,8 +120,8 @@ function buildReport({ noveltyLinkAudit, noveltyClaimRevisionPlan }) {
     },
     {
       id: 'replacement_candidates_present',
-      passed: verifiedCandidates.length >= quarantinedIds.size,
-      detail: `${verifiedCandidates.length} replacement/supplement candidates for ${quarantinedIds.size} quarantined sources`,
+      passed: verifiedCandidates.filter((candidate) => candidate.primary_source_status === 'verified_title_match').length >= quarantinedIds.size,
+      detail: `${verifiedCandidates.filter((candidate) => candidate.primary_source_status === 'verified_title_match').length} verified replacement/supplement candidates for ${quarantinedIds.size} quarantined sources`,
     },
     {
       id: 'quarantined_sources_covered',
@@ -157,6 +164,7 @@ function renderMarkdown(report) {
   const candidateRows = report.candidates.map((candidate) => [
     candidate.id,
     candidate.primary_source_status,
+    candidate.observed_title,
     candidate.replaces_or_supplements.join('<br>'),
     candidate.url,
     candidate.audit_role,
@@ -184,7 +192,7 @@ ${markdownTable(['Check', 'Passed', 'Detail'], checkRows)}
 
 ## Candidates
 
-${markdownTable(['Candidate', 'Primary-source status', 'Replaces or supplements', 'URL', 'Audit role'], candidateRows)}
+${markdownTable(['Candidate', 'Primary-source status', 'Observed title', 'Replaces or supplements', 'URL', 'Audit role'], candidateRows)}
 `
 }
 

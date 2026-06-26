@@ -8,9 +8,9 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 - Version: version-manifest-v1
 - Benchmark id: `hard-grounded-research-benchmark`
 - Artifacts hashed: 99
-- Total bytes: 3199312
-- Release checks: 101/102
-- Release blockers: 1
+- Total bytes: 3200829
+- Release checks: 100/102
+- Release blockers: 2
 - Completion claim allowed: false
 
 ## Package State
@@ -27,7 +27,7 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | benchmark-spec.json | 13787 | ce28290a0e7e1329 |
 | rubrics.json | 7454 | b56e897003bbe7c4 |
 | README.md | 20344 | 6e31916418476d61 |
-| DATASET_CARD.md | 31559 | bcd2d54b1ba80d05 |
+| DATASET_CARD.md | 31559 | 1be2ba44775395e1 |
 | DATA_STATEMENT.md | 3403 | e6957f46babf6096 |
 | SUBMISSION_CONTRACT.md | 1909 | e42938a388ca958c |
 | SCORING_CONTRACT.md | 4651 | 7efab9f885c49129 |
@@ -66,12 +66,12 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | NOVELTY_SOURCE_REVIEW_PACKETS.md | 4220 | caa802667e7bce45 |
 | NOVELTY_CLAIM_REVISION_PLAN.md | 1886 | 53682345ae12c720 |
 | NOVELTY_LINK_AUDIT.md | 1542 | 83b2de30b901bafc |
-| NOVELTY_REPLACEMENT_CANDIDATES.md | 2434 | 5d1c92d0c588c7e1 |
+| NOVELTY_REPLACEMENT_CANDIDATES.md | 2987 | 67ecea6aef924eea |
 | NOVELTY_OVERLAP_ADJUDICATION.md | 3605 | b4b815673834727f |
 | NOVELTY_REFRESH_LEDGER.md | 6552 | 45222ac771ad8ad5 |
 | PUBLIC_PACKAGE_SCHEMA.md | 1335 | 481ac48a47e7bdd8 |
 | ERROR_CODEBOOK.md | 5880 | 2f803c3a1909f118 |
-| PAPER_DRAFT.md | 95814 | 8626b381429ca786 |
+| PAPER_DRAFT.md | 96072 | 5c1a0ec314046062 |
 | generated/pilot-suite.json | 129445 | b656e9340b010da6 |
 | generated/public-package/summary.json | 346 | 9590d9997c4ac185 |
 | generated/public-package/scaled-summary.json | 575 | 498a5ecf2436c0c8 |
@@ -119,8 +119,8 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | generated/novelty-source-review-packets.json | 9792 | f41dd32190533f85 |
 | generated/novelty-claim-revision-plan.json | 4890 | f681098c3d9d87e0 |
 | generated/novelty-link-audit.json | 4399 | 987e039501286060 |
-| generated/novelty-replacement-candidates.json | 5834 | f85ea160d6322046 |
-| generated/novelty-overlap-adjudication.json | 7059 | 6df5080051b1da02 |
+| generated/novelty-replacement-candidates.json | 6524 | dd03f9048ad4a1f4 |
+| generated/novelty-overlap-adjudication.json | 7075 | 12faea587530b800 |
 | generated/novelty-refresh-ledger.json | 9518 | e12e618695572af7 |
 | generated/paper-claim-ledger.json | 5846 | abd166ed4bf2a424 |
 
@@ -129,3 +129,4 @@ This generated manifest records the package-critical artifacts and SHA-256 diges
 | Check | Detail | Required action |
 | --- | --- | --- |
 | novelty_audit_final | checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5 | Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion. |
+| novelty_replacement_candidates_ready | novelty-replacement-candidates-v1; candidates=6; verified=4; covered_quarantined=3 | Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication. |

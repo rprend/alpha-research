@@ -1,5 +1,5 @@
 {
-  "artifact_checklist_ready": true,
+  "artifact_checklist_ready": false,
   "benchmark_id": "hard-grounded-research-benchmark",
   "generated_from": {
     "release_gate": "generated/release-gate.json",
@@ -80,10 +80,10 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 65,
+    "artifact_classes_ready": 63,
     "artifact_classes_total": 65,
     "reproduction_commands": 60,
-    "release_blockers": 1
+    "release_blockers": 2
   },
   "artifact_classes": [
     {
@@ -475,7 +475,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=97; bytes=3190654.",
+      "evidence": "version-manifest-v1; artifacts=99; bytes=3199312.",
       "blockers": []
     },
     {
@@ -515,9 +515,9 @@
     },
     {
       "id": "novelty_replacement_candidates",
-      "status": "ready",
-      "ready": true,
-      "evidence": "novelty-replacement-candidates-v1; candidates=6; verified=6; covered quarantined=4.",
+      "status": "blocked",
+      "ready": false,
+      "evidence": "novelty-replacement-candidates-v1; candidates=6; verified=4; covered quarantined=3.",
       "blockers": []
     },
     {
@@ -536,8 +536,8 @@
     },
     {
       "id": "novelty_and_claim_boundaries",
-      "status": "ready",
-      "ready": true,
+      "status": "blocked",
+      "ready": false,
       "evidence": "22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 unverified watchlist identities; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 6 pending overlap dispositions; 8 refreshed adjacent sources; 5 prohibited claims; refresh queries=4.",
       "blockers": []
     }
@@ -794,6 +794,11 @@
         "id": "novelty_audit_final",
         "detail": "checked=2026-06-26 status=refreshed_preliminary completion_claim_allowed=false high_risk_categories=5",
         "blocker": "Refresh the June 2026 literature scan and replace the preliminary novelty gate before claiming completion."
+      },
+      {
+        "id": "novelty_replacement_candidates_ready",
+        "detail": "novelty-replacement-candidates-v1; candidates=6; verified=4; covered_quarantined=3",
+        "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
       }
     ]
   }
