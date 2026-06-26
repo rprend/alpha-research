@@ -7,6 +7,7 @@ Runs:
 - `openai-student-temporal-test-v1`: first 20 `temporal_test` examples, initial prompt contract
 - `openai-student-temporal-test-v2`: first 20 `temporal_test` examples, tightened JSON/citation contract
 - `openai-student-temporal-test-full-v1`: all 172 `temporal_test` examples, tightened JSON/citation contract
+- `openai-student-temporal-validation-full-v1`: all 168 `temporal_validation` examples, tightened JSON/citation contract
 
 Model:
 
@@ -18,9 +19,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 212
-- Total spend so far: $0.0453234
-- Remaining budget: $99.9546766
+- Calls made so far: 380
+- Total spend so far: $0.0822663
+- Remaining budget: $99.9177337
 
 ## Prompt Contract Result
 
@@ -44,17 +45,24 @@ The tightened `gpt-4o-mini` student improves citation recall, citation precision
 
 ## Full Temporal Test
 
-Comparison on all 172 `temporal_test` examples:
+Comparison on all held-out temporal examples:
 
-| System | Citation precision | Citation recall | Answer token F1 | Abstention accuracy | Abstention rate / inline citation rate |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| `suff_calibrated_top2_t0p35` | 49.5% | 45.1% | 6.6% | 68.6% | 40.7% abstain |
-| `openai_student_gpt4o_mini_full_v1` | 77.3% | 64.6% | 21.1% | 83.1% | 83.2% inline cited |
+| Split | System | Citation precision | Citation recall | Answer token F1 | Abstention accuracy | Abstention rate / inline citation rate |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| validation | `suff_calibrated_top2_t0p35` | 48.3% | 40.0% | 8.0% | 67.3% | 46.4% abstain |
+| validation | `openai_student_gpt4o_mini_full_v1` | 70.2% | 67.7% | 26.2% | 79.8% | 79.6% inline cited |
+| test | `suff_calibrated_top2_t0p35` | 49.5% | 45.1% | 6.6% | 68.6% | 40.7% abstain |
+| test | `openai_student_gpt4o_mini_full_v1` | 77.3% | 64.6% | 21.1% | 83.1% | 83.2% inline cited |
 
-The full-test run made 172 calls and cost $0.0369291 for the run, bringing total ledgered project spend to $0.0453234.
+The full-test run made 172 calls and cost $0.0369291. The full-validation run made 168 calls and cost $0.0369429. Total ledgered project spend is $0.0822663.
+
+Approximate cost per answer-type-correct held-out example:
+
+- validation: $0.0002757
+- test: $0.0002582
 
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.
 
-The result is not yet paper-grade because it uses a hosted model rather than a trained local small model, and there is not yet a larger teacher comparison. The next step is to run temporal validation, estimate cost per accepted grounded answer, and compare against a larger teacher or agentic RAG teacher under the same ledger.
+The result is not yet paper-grade because it uses a hosted model rather than a trained local small model, and there is not yet a larger teacher comparison. The next step is to compare against a larger teacher or agentic RAG teacher under the same ledger and add an entailment-style citation judge.

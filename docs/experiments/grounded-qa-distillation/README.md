@@ -142,7 +142,7 @@ set -a; source ~/.codex/secrets.env; set +a
 node scripts/grounded-qa-distillation-openai-student.mjs --split=temporal_test --limit=20 --max-budget-usd=100
 ```
 
-Current ledgered spend is $0.0453234 across 212 `gpt-4o-mini` calls.
+Current ledgered spend is $0.0822663 across 380 `gpt-4o-mini` calls.
 
 ## Evaluation Plan
 
@@ -165,7 +165,6 @@ Primary metrics:
 This project is not paper-complete. Current artifacts cover deterministic data construction, leakage removal, and cheap scaffold baselines. Required next work:
 
 - replace arXiv-id-inferred temporal splits with trusted dated KB snapshots,
-- run the budget-tracked generative student on the full temporal validation split,
 - compare the small generative student against a larger teacher under the same budget ledger,
 - replace the failed phrase-ranked and supervised-span answerers with a small generative student,
 - add an entailment-style citation judge beyond lexical answer overlap,
