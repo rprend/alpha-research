@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-06-26T00:52:57.138Z",
+  "source_dataset": "allenai/qasper",
+  "source_config": "qasper",
+  "source_url": "https://huggingface.co/datasets/allenai/qasper",
+  "dataset_viewer_api": "https://datasets-server.huggingface.co",
+  "purpose": "Post-training data for cheaper citation-grounded QA over an evolving domain knowledge base.",
+  "construction": {
+    "rows_per_split": 8,
+    "max_examples_per_split": 48,
+    "evidence_limit": 4,
+    "distractor_limit": 3,
+    "max_evidence_chars": 900,
+    "evidence_policy": "Gold QASPER answer evidence is packed first; deterministic non-gold paper paragraphs are added as hard negatives.",
+    "citation_policy": "Each output sentence cites evidence ids from input.evidence_pack. Abstentions cite no evidence and explain insufficiency."
+  },
+  "splits": {
+    "train": {
+      "rows_read": 8,
+      "examples_written": 45,
+      "output_path": "docs/experiments/grounded-qa-distillation/data/train.jsonl",
+      "answerable_examples": 40,
+      "abstention_examples": 5
+    },
+    "validation": {
+      "rows_read": 8,
+      "examples_written": 22,
+      "output_path": "docs/experiments/grounded-qa-distillation/data/validation.jsonl",
+      "answerable_examples": 22,
+      "abstention_examples": 0
+    }
+  }
+}
