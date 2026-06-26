@@ -1,0 +1,30 @@
+{
+  "run_id": "openai-judge-teacher-temporal-test-full-v1",
+  "generated_at": "2026-06-26T02:20:58.367Z",
+  "split": "temporal_test",
+  "prediction_run": "openai-teacher-temporal-test-full-v1",
+  "model": "gpt-4o-mini",
+  "examples_requested": 172,
+  "dry_run": false,
+  "calls_made": 172,
+  "calls_skipped": 0,
+  "run_cost_usd": 0.021382050000000007,
+  "estimated_cost_usd": 0.07124384999999997,
+  "ledger_spend_before_usd": 0.6615213,
+  "ledger_spend_after_usd": 0.7032991499999995,
+  "max_budget_usd": 100,
+  "price": {
+    "inputPerMillion": 0.15,
+    "outputPerMillion": 0.6,
+    "source": "https://developers.openai.com/api/docs/models/gpt-4o-mini"
+  },
+  "metrics": {
+    "examples_judged": 172,
+    "answered_predictions": 99,
+    "abstained_predictions": 73,
+    "answer_support_rate": 0.9090909090909091,
+    "abstention_support_rate": 1,
+    "overall_judged_correct_rate": 0.9476744186046512,
+    "invalid_judgment_rate": 0.005813953488372093
+  }
+}

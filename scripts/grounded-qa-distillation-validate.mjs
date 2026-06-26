@@ -39,6 +39,7 @@ if (!errors.length) {
   await validateTemporalSplitsIfPresent();
   await validateExportsIfPresent();
   await validateLlmBudgetIfPresent();
+  await validateJudgeRunsIfPresent();
 }
 
 if (errors.length) {
@@ -154,6 +155,55 @@ async function validateLlmBudgetIfPresent() {
     if (!Number.isFinite(Number(row.cost_usd)) || Number(row.cost_usd) < 0) errors.push(`${label}: invalid cost_usd.`);
     if (!Number.isFinite(Number(row.total_tokens)) || Number(row.total_tokens) <= 0) errors.push(`${label}: invalid total_tokens.`);
   });
+}
+
+async function validateJudgeRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("openai-judge-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const judgmentsPath = path.join(runsDir, entry.name, "judgments.jsonl");
+    let result;
+    let judgments;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      judgments = await readJsonl(judgmentsPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed judge result artifacts.`);
+      continue;
+    }
+
+    const callsMade = judgments.filter((row) => !row.skipped).length;
+    const callsSkipped = judgments.filter((row) => row.skipped).length;
+    const runCost = judgments.reduce((total, row) => total + Number(row.cost_usd ?? 0), 0);
+    if (result.calls_made !== callsMade) errors.push(`${entry.name}: calls_made does not match judgments.`);
+    if (result.calls_skipped !== callsSkipped) errors.push(`${entry.name}: calls_skipped does not match judgments.`);
+    if (Math.abs(Number(result.run_cost_usd ?? 0) - runCost) > 1e-9) {
+      errors.push(`${entry.name}: run_cost_usd does not match judgments.`);
+    }
+
+    for (const [index, row] of judgments.entries()) {
+      const label = `${entry.name}.judgments:${index + 1}`;
+      if (!row.example_id || row.prediction_run !== result.prediction_run || row.model !== result.model) {
+        errors.push(`${label}: missing or inconsistent example/prediction/model fields.`);
+      }
+      if (row.skipped) continue;
+      const verdict = row.judgment?.verdict;
+      if (!["supported", "partial", "unsupported", "correct_abstention", "incorrect_abstention", "invalid"].includes(verdict)) {
+        errors.push(`${label}: invalid judgment verdict.`);
+      }
+      if (!Number.isFinite(Number(row.cost_usd)) || Number(row.cost_usd) < 0) {
+        errors.push(`${label}: invalid cost_usd.`);
+      }
+    }
+  }
 }
 
 async function readJsonl(file) {

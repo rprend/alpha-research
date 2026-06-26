@@ -146,7 +146,7 @@ Tradeoff: The result argues against more deterministic span scoring. The next an
 
 Decision: Add an API-call ledger and budget summary for grounded-QA LLM calls, with a hard maximum budget of $100.
 
-Reason: The project now requires tracking all LLM API calls made with the user's key. The OpenAI student runner records model, run id, split, example id, token usage, cost, and price source for every successful call. It refuses runs whose estimated cost plus ledgered spend would exceed the budget. Current ledgered spend is $0.6615213 across 552 OpenAI calls.
+Reason: The project now requires tracking all LLM API calls made with the user's key. The OpenAI student and judge runners record model, run id, split, example id, token usage, cost, and price source for every successful call. They refuse runs whose estimated cost plus ledgered spend would exceed the budget. Current ledgered spend is $0.70329915 across 896 OpenAI calls.
 
 Tradeoff: Cost accounting depends on the runner's price table matching current provider prices. The table must be revisited when changing models or before paper-scale runs.
 
@@ -181,3 +181,11 @@ Decision: Keep `openai-teacher-temporal-test-full-v1` as a larger hosted model c
 Reason: On the full 172-example `temporal_test` split, `gpt-4o` improves citation precision over `gpt-4o-mini` (82.8% vs. 77.3%) and inline citation rate (96.6% vs. 83.2%), but it underperforms on citation recall (57.2% vs. 64.6%), answer token F1 (17.4% vs. 21.1%), and abstention accuracy (79.7% vs. 83.1%). The teacher run cost $0.579255, about 16.4x the mini student's test-run cost per answer-type-correct example.
 
 Tradeoff: This is a useful control showing that “larger model” is not automatically a better teacher under the same compact-evidence prompt. The paper still needs an expensive multi-step teacher or agentic RAG teacher, plus an entailment-style citation judge, before claiming successful distillation from expensive behavior.
+
+### D23. Add a budget-tracked entailment judge before optimizing more teachers
+
+Decision: Add `grounded-qa-distillation-openai-judge.mjs` and judge the full temporal-test student and teacher predictions with `gpt-4o-mini`.
+
+Reason: Lexical answer overlap and gold-evidence citation matching are useful but too weak for the paper's grounded-correctness claim. The judge evaluates whether answered predictions are directly supported by cited evidence and whether abstentions are warranted by the supplied evidence pack. On the 172-example temporal test split, the mini student has 91.5% judged answer support and 94.2% overall judged correctness; the larger prompt-matched teacher has 90.9% judged answer support and 94.8% overall judged correctness. The two judge runs cost $0.04177785 total.
+
+Tradeoff: This judge is still a hosted LLM and can be biased or over-lenient, especially because it uses `gpt-4o-mini` to judge `gpt-4o-mini` outputs. It is better evidence than token overlap, but final paper claims need calibration against human/annotation gold or a stronger independent judge, plus the still-missing multi-step teacher.

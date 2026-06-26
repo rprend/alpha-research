@@ -9,6 +9,8 @@ Runs:
 - `openai-student-temporal-test-full-v1`: all 172 `temporal_test` examples, tightened JSON/citation contract
 - `openai-student-temporal-validation-full-v1`: all 168 `temporal_validation` examples, tightened JSON/citation contract
 - `openai-teacher-temporal-test-full-v1`: all 172 `temporal_test` examples, same contract with `gpt-4o` as a larger hosted teacher
+- `openai-judge-student-temporal-test-full-v1`: all 172 `temporal_test` student predictions judged for support with `gpt-4o-mini`
+- `openai-judge-teacher-temporal-test-full-v1`: all 172 `temporal_test` teacher predictions judged for support with `gpt-4o-mini`
 
 Model:
 
@@ -20,9 +22,9 @@ Budget ledger:
 - Ledger path: `llm-calls/ledger.jsonl`
 - Budget summary: `llm-calls/budget.json`
 - Maximum budget: $100.00
-- Calls made so far: 552
-- Total spend so far: $0.6615213
-- Remaining budget: $99.3384787
+- Calls made so far: 896
+- Total spend so far: $0.70329915
+- Remaining budget: $99.29670085
 
 ## Prompt Contract Result
 
@@ -74,8 +76,21 @@ Comparison on all 172 `temporal_test` examples:
 
 The larger hosted teacher is more precise and much better at putting cited evidence ids inline, but it is worse than the mini student on citation recall, answer token F1, and abstention accuracy under this prompt and compact-evidence setting. It is also about 16.4x more expensive per answer-type-correct example.
 
+## Entailment Judge
+
+The OpenAI judge runner evaluates predictions against only the question, prediction, and supplied evidence. For answered predictions, it asks whether every factual claim is directly supported by cited evidence ids. For abstentions, it asks whether the full evidence pack is insufficient to answer the question. The judge uses `gpt-4o-mini`, writes each call to the shared ledger, and emits a separate `judgments.jsonl` artifact.
+
+Full temporal-test judge results:
+
+| Judged prediction run | Judge model | Answered predictions | Abstained predictions | Answer support rate | Abstention support rate | Overall judged correct | Invalid judgment rate | Judge run cost |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `openai-student-temporal-test-full-v1` | `gpt-4o-mini` | 117 | 55 | 91.5% | 100.0% | 94.2% | 1.2% | $0.0203958 |
+| `openai-teacher-temporal-test-full-v1` | `gpt-4o-mini` | 99 | 73 | 90.9% | 100.0% | 94.8% | 0.6% | $0.0213821 |
+
+The judge adds a more direct answer-support signal than lexical answer token F1. It also exposes that both hosted systems are usually grounded when they choose to answer, while the teacher abstains more often. This does not prove final grounded correctness: the judge is still an LLM, uses the same mini model family as the student baseline, and needs calibration against stronger independent or human judgments.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.
 
-The result is not yet paper-grade because it uses hosted models and the larger teacher comparison is prompt-matched rather than a multi-step agentic RAG teacher. The next step is to add an entailment-style citation judge and test whether teacher-generated post-training data improves the cheaper student beyond direct prompting.
+The result is not yet paper-grade because it uses hosted models and the larger teacher comparison is prompt-matched rather than a multi-step agentic RAG teacher. The next step is to calibrate the entailment judge and test whether teacher-generated post-training data improves the cheaper student beyond direct prompting.
