@@ -12,8 +12,15 @@ const requiredInputs = {
   noveltyEvidence: join(generatedDir, 'novelty-evidence.json'),
   datasetCard: join(experimentDir, 'DATASET_CARD.md'),
   licenseReview: join(generatedDir, 'license-review.json'),
+  licenseClearance: join(generatedDir, 'license-clearance.json'),
   packageManifest: join(generatedDir, 'public-package-manifest.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
+  modelRunIndex: join(generatedDir, 'model-run-index.json'),
+  annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
+  annotationImport: join(generatedDir, 'annotation-import/report.json'),
+  annotationImportSmoke: join(generatedDir, 'annotation-import-smoke/report.json'),
+  goldPromotionSmoke: join(generatedDir, 'gold-promotion-smoke/report.json'),
+  expansionPromotionSmoke: join(generatedDir, 'expansion-promotion-smoke/report.json'),
   spec: join(experimentDir, 'benchmark-spec.json'),
   pilotSuite: join(generatedDir, 'pilot-suite.json'),
   coverageMatrix: join(generatedDir, 'coverage-matrix.json'),
@@ -115,7 +122,31 @@ function topApproachRows(approachScores) {
   ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, packageManifest, releaseGate }) {
+function releaseCheckRows(releaseGate) {
+  return releaseGate.checks.map((check) => [
+    check.id,
+    check.passed ? 'yes' : 'no',
+    check.detail,
+  ])
+}
+
+function readinessCheck(releaseGate, id) {
+  return releaseGate.checks.find((check) => check.id === id)
+}
+
+function modelBaselineRows(modelRunIndex) {
+  return (modelRunIndex.runs || [])
+    .filter((run) => run.eligible_model_baseline)
+    .map((run) => [
+      run.run_id,
+      run.manifest_type || '',
+      String(run.task_count || ''),
+      metric(run.macro_answer_correct),
+      run.report_present ? 'yes' : 'no',
+    ])
+}
+
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, baselineUncertainty, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -123,6 +154,11 @@ function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselin
   const reviewTotal = goldSummary.total_items
   const repairBeforeGold = itemQualityAudit.repair_before_gold
   const challengeTypeCount = new Set(pilotSuite.items.map((item) => item.challenge?.type || 'native_row')).size
+  const eligibleModelBaselines = modelRunIndex.eligible_model_baselines || []
+  const licenseClear = Boolean(licenseClearance.public_redistribution_clearance_ready)
+  const annotationImportCheck = readinessCheck(releaseGate, 'annotation_import_path_ready')
+  const goldSmokeCheck = readinessCheck(releaseGate, 'gold_promotion_smoke_ready')
+  const expansionSmokeCheck = readinessCheck(releaseGate, 'expansion_promotion_smoke_ready')
 
   return `# Benchmarks for Hard Grounded Research: Paper Draft
 
@@ -141,8 +177,8 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 1. A taxonomy of ${categoryCount} hard grounded research failure modes beyond simple lookup.
 2. A Hugging Face-grounded pilot suite spanning ${datasetCount} public datasets and ${challengeTypeCount} challenge types.
 3. A scoring contract with answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality.
-4. A review workflow with double review, disagreement queues, reviewer agreement metrics, quality hints, and strict gold promotion gates.
-5. A baseline analysis that reports macro, category, and challenge-type failures for oracle sanity, lexical, and citation-aware verifier systems.
+4. A review workflow with double review, disagreement queues, reviewer agreement metrics, quality hints, annotation import/export checks, and strict gold promotion gates.
+5. A baseline analysis that reports macro, category, and challenge-type failures for oracle sanity, lexical, citation-aware verifier, and external model systems.
 
 ## Dataset Grounding
 
@@ -187,6 +223,25 @@ ${markdownTable(['System', 'Metric', 'Mean', '95% CI'], uncertaintyRows(baseline
 
 These intervals are descriptive task-level estimates over the current 30-item pilot, not final submission power estimates.
 
+## External Model Baselines
+
+Eligible external model baselines currently recorded by the model-run index: ${eligibleModelBaselines.length ? eligibleModelBaselines.join(', ') : 'none'}.
+
+${modelBaselineRows(modelRunIndex).length ? markdownTable(['Run', 'Manifest', 'Tasks', 'Answer', 'Scored report'], modelBaselineRows(modelRunIndex)) : 'No eligible external model baseline reports are currently present.'}
+
+## Review Execution Readiness
+
+These checks prove the mechanics around review handoff, import, merge, and gold-shape promotion. They do not substitute for real human review.
+
+- Annotation export ready: ${annotationExport.export_ready} (${annotationExport.totals.row_count} rows across ${annotationExport.totals.file_count} files)
+- Annotation import smoke ready: ${annotationImportSmoke.annotation_import_smoke_ready} (${annotationImportSmoke.rows_checked} fixture rows, findings=${annotationImportSmoke.finding_count})
+- Annotation import path ready: ${annotationImport.annotation_import_ready} (${annotationImport.rows_importable}/${annotationImport.rows_checked} rows importable; applied=${annotationImport.applied_to_workbooks})
+- Release-gate annotation import check: ${annotationImportCheck?.passed ? 'yes' : 'no'} (${annotationImportCheck?.detail || 'missing'})
+- Pilot gold promotion smoke ready: ${goldPromotionSmoke.gold_promotion_smoke_ready} (${goldPromotionSmoke.gold_summary.gold_items}/${goldPromotionSmoke.gold_summary.total_items} fixture gold items; release eligible=${goldPromotionSmoke.fixture_release_eligible})
+- Release-gate pilot smoke check: ${goldSmokeCheck?.passed ? 'yes' : 'no'} (${goldSmokeCheck?.detail || 'missing'})
+- Expansion promotion smoke ready: ${expansionPromotionSmoke.expansion_promotion_smoke_ready} (${expansionPromotionSmoke.merge.merge_ready_items}/${expansionPromotionSmoke.merge.unique_items} fixture expansion items; release eligible=${expansionPromotionSmoke.fixture_release_eligible})
+- Release-gate expansion smoke check: ${expansionSmokeCheck?.passed ? 'yes' : 'no'} (${expansionSmokeCheck?.detail || 'missing'})
+
 ## Gold Data Gate
 
 - Gold ready: ${goldSummary.gold_ready}
@@ -198,9 +253,16 @@ These intervals are descriptive task-level estimates over the current 30-item pi
 - Repair-before-gold items: ${repairBeforeGold}
 - License review status: ${licenseReview.status}
 - License blockers: ${licenseReview.blockers.length}
+- Packaged license clearance ready: ${licenseClear}
+- Unknown-license replacement candidates: ${licenseClearance.remediated_replacement_count}
+- Unknown-license pointer-only candidates: ${licenseClearance.pointer_only_candidate_count}
 - Pointer-only package items: ${packageManifest.pointer_only_items}
 - Release gate status: ${releaseGate.status}
 - Release blockers: ${releaseGate.blockers.length}
+
+## Release Gate Snapshot
+
+${markdownTable(['Check', 'Passed', 'Detail'], releaseCheckRows(releaseGate))}
 
 ## Novelty Position
 
@@ -234,8 +296,15 @@ const draft = renderDraft({
   reviewMergeReport: readJson(requiredInputs.reviewMergeReport),
   itemQualityAudit: readJson(requiredInputs.itemQualityAudit),
   licenseReview: readJson(requiredInputs.licenseReview),
+  licenseClearance: readJson(requiredInputs.licenseClearance),
   packageManifest: readJson(requiredInputs.packageManifest),
   releaseGate: readJson(requiredInputs.releaseGate),
+  modelRunIndex: readJson(requiredInputs.modelRunIndex),
+  annotationExport: readJson(requiredInputs.annotationExport),
+  annotationImport: readJson(requiredInputs.annotationImport),
+  annotationImportSmoke: readJson(requiredInputs.annotationImportSmoke),
+  goldPromotionSmoke: readJson(requiredInputs.goldPromotionSmoke),
+  expansionPromotionSmoke: readJson(requiredInputs.expansionPromotionSmoke),
 })
 
 writeText(draftPath, draft)

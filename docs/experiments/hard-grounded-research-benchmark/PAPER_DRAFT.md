@@ -15,8 +15,8 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 1. A taxonomy of 10 hard grounded research failure modes beyond simple lookup.
 2. A Hugging Face-grounded pilot suite spanning 5 public datasets and 8 challenge types.
 3. A scoring contract with answer correctness, evidence recall, citation precision, citation faithfulness, conclusion support, and abstention quality.
-4. A review workflow with double review, disagreement queues, reviewer agreement metrics, quality hints, and strict gold promotion gates.
-5. A baseline analysis that reports macro, category, and challenge-type failures for oracle sanity, lexical, and citation-aware verifier systems.
+4. A review workflow with double review, disagreement queues, reviewer agreement metrics, quality hints, annotation import/export checks, and strict gold promotion gates.
+5. A baseline analysis that reports macro, category, and challenge-type failures for oracle sanity, lexical, citation-aware verifier, and external model systems.
 
 ## Dataset Grounding
 
@@ -118,6 +118,28 @@ Systems submit one answer per task with citation ids and abstention state. The s
 
 These intervals are descriptive task-level estimates over the current 30-item pilot, not final submission power estimates.
 
+## External Model Baselines
+
+Eligible external model baselines currently recorded by the model-run index: anthropic-grounded-baseline-v1, openai-grounded-baseline-v1.
+
+| Run | Manifest | Tasks | Answer | Scored report |
+| --- | --- | --- | --- | --- |
+| anthropic-grounded-baseline-v1 | run_manifest | 30 | 0.3667 | yes |
+| openai-grounded-baseline-v1 | run_manifest | 30 | 0.4000 | yes |
+
+## Review Execution Readiness
+
+These checks prove the mechanics around review handoff, import, merge, and gold-shape promotion. They do not substitute for real human review.
+
+- Annotation export ready: true (124 rows across 30 files)
+- Annotation import smoke ready: true (124 fixture rows, findings=0)
+- Annotation import path ready: true (124/124 rows importable; applied=false)
+- Release-gate annotation import check: yes (124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false)
+- Pilot gold promotion smoke ready: true (30/30 fixture gold items; release eligible=false)
+- Release-gate pilot smoke check: yes (30/30 fixture gold items; release_eligible=false)
+- Expansion promotion smoke ready: true (270/270 fixture expansion items; release eligible=false)
+- Release-gate expansion smoke check: yes (270/270 fixture expansion items merge-ready; release_eligible=false)
+
 ## Gold Data Gate
 
 - Gold ready: false
@@ -129,9 +151,45 @@ These intervals are descriptive task-level estimates over the current 30-item pi
 - Repair-before-gold items: 0
 - License review status: blocked
 - License blockers: 2
+- Packaged license clearance ready: true
+- Unknown-license replacement candidates: 54
+- Unknown-license pointer-only candidates: 81
 - Pointer-only package items: 15
 - Release gate status: blocked
 - Release blockers: 7
+
+## Release Gate Snapshot
+
+| Check | Passed | Detail |
+| --- | --- | --- |
+| gold_review_complete | no | 0/30 valid reviewed items |
+| annotation_protocol_present | yes | 60 pilot review rows; 540 expansion review rows |
+| review_preflight_ready | no | 0/60 complete review rows |
+| review_operations_ready | yes | 60 pilot incomplete rows; 540 expansion incomplete rows |
+| review_triage_present | yes | 23 urgent/high pilot items ranked from 2 model baselines |
+| annotation_assignment_plan_present | yes | 12 pilot assignments; 10 expansion assignments; first-wave expansion rows=100 |
+| annotation_export_ready | yes | 124 exported rows across 30 files; pilot=24; expansion=100 |
+| annotation_import_smoke_ready | yes | 124 returned fixture rows checked across 30 files; findings=0 |
+| annotation_import_path_ready | yes | 124/124 importable returned rows; files=30/30; fixture_allowed=true; applied=false |
+| gold_promotion_smoke_ready | yes | 30/30 fixture gold items; release_eligible=false |
+| expansion_promotion_smoke_ready | yes | 270/270 fixture expansion items merge-ready; release_eligible=false |
+| expansion_review_preflight_ready | no | 0/540 complete expansion review rows |
+| expansion_review_merge_ready | no | 0/270 expansion merge-ready items |
+| review_merge_ready | no | 0/30 merge-ready items |
+| category_scale_ready | no | 0/300 valid reviewed target items; 300 reviewed items still needed |
+| unknown_license_resolved | yes | tdiggelm/climate_fever, Pavithree/eli5; packaged clearance=true |
+| license_impact_clear | yes | 135/270 expansion candidates depend on unknown-license sources; 54 replaced; 81 pointer-only; packaged clearance=true |
+| license_remediation_plan_present | yes | 54 replacement-path candidates; 81 pointer-only candidates |
+| license_remediated_expansion_candidates_present | yes | 54/54 replacement-path candidates materialized |
+| public_package_manifest_present | yes | 15 pointer-only items; 18 pointer-only evidence units |
+| sanitized_public_suite_present | yes | 30 sanitized items; 18 pointer-only evidence units |
+| scaled_public_package_present | yes | 270 scaled public items; 54 remediated replacements; 81 pointer-only items |
+| repair_queue_clear | yes | 0 repair-before-gold items |
+| frontier_or_open_model_results_present | yes | anthropic-grounded-baseline-v1, openai-grounded-baseline-v1 |
+| baseline_uncertainty_present | yes | 3 systems with descriptive task-level intervals |
+| model_baseline_packets_present | yes | 2 prompt packets; scored_reports_ready=false |
+| novelty_audit_final | no | checked=2026-06-26 status=preliminary completion_claim_allowed=false high_risk_categories=5 |
+| novelty_evidence_registry_present | yes | 12 related-work sources registered; completion_claim_allowed=false |
 
 ## Novelty Position
 

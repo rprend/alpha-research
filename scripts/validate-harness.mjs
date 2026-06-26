@@ -203,7 +203,7 @@ for (const token of ['challengeTypeSummary', 'by_challenge_type', 'Challenge-Typ
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs')), 'Missing hard grounded research paper draft builder.')
 const hardGroundedPaperDraftSource = readFileSync(join(root, 'scripts/hard-grounded-research-paper-draft.mjs'), 'utf8')
-for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'Required Before Submission']) {
+for (const token of ['PAPER_DRAFT.md', 'Challenge-Type Results', 'External Model Baselines', 'Review Execution Readiness', 'Release Gate Snapshot', 'license-clearance.json', 'gold-promotion-smoke/report.json', 'expansion-promotion-smoke/report.json', 'Required Before Submission']) {
   assert(hardGroundedPaperDraftSource.includes(token), `Hard grounded paper draft is missing manuscript token: ${token}`)
 }
 assert(existsSync(join(root, 'scripts/hard-grounded-research-dataset-card.mjs')), 'Missing hard grounded research dataset card builder.')

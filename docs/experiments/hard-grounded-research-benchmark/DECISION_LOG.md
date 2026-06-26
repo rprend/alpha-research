@@ -559,3 +559,11 @@ Decision: Add a fixture-only expansion promotion rehearsal that completes copied
 Rationale: The pilot gold smoke proves the 30-item path, but the paper target also depends on scaled per-category review. The expansion path has extra reviewer fields and more workbooks, so it needs its own isolated proof before real annotation begins.
 
 Consequence: `scripts/hard-grounded-research-expansion-promotion-smoke.mjs` now emits `generated/expansion-promotion-smoke/report.json`, fixture expansion workbooks, and `EXPANSION_PROMOTION_SMOKE.md`; the release gate records scaled-path smoke readiness while expansion review blockers remain active.
+
+## 2026-06-26 — Synchronize paper draft with release evidence
+
+Decision: Make the generated paper draft consume current release-gate, license-clearance, model-baseline, annotation-import, and promotion-smoke artifacts.
+
+Rationale: A paper scaffold is actively harmful if it lags behind the benchmark evidence or repeats stale blocker status. The manuscript draft should summarize the exact current state of review mechanics, external baselines, packaged license clearance, and remaining release blockers from generated artifacts.
+
+Consequence: `scripts/hard-grounded-research-paper-draft.mjs` now emits a paper draft with external model baseline rows, review execution readiness, fixture promotion smoke summaries, packaged license clearance, and a release-gate snapshot sourced from current JSON artifacts.
