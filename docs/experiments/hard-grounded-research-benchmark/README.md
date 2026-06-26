@@ -48,6 +48,7 @@ The current recommendation is to ship the composed corpus suite as the paper ben
 - `NOVELTY_RESOLUTION_MATRIX.md` and `generated/novelty-resolution-matrix.json`: generated source-level resolution matrix for watchlist sources, claim impacts, and final-audit requirements.
 - `NOVELTY_FINALIZATION_PREFLIGHT.md` and `generated/novelty-finalization-preflight.json`: generated final-audit preflight for unresolved related-work sources, claim boundaries, and final novelty blockers.
 - `NOVELTY_SOURCE_REVIEW_PACKETS.md` and `generated/novelty-source-review-packets.json`: generated source-level review packets for unresolved related-work adjudication.
+- `NOVELTY_CLAIM_REVISION_PLAN.md` and `generated/novelty-claim-revision-plan.json`: generated claim-level revision plan that maps unresolved related-work packets to manuscript boundary language and required dispositions.
 - `LICENSE_REVIEW.md` and `generated/license-review.json`: generated upstream dataset license/provenance review and redistribution blocker list.
 - `PUBLIC_PACKAGE_MANIFEST.md` and `generated/public-package-manifest.json`: generated item-level public packaging policy that strips text for unknown-license evidence and keeps pointers plus hashes.
 - `PUBLIC_PACKAGE_INTEGRITY.md` and `generated/public-package-integrity.json`: generated integrity report for public JSON/JSONL parity, pointer-only stripping, hashes, and package findings.

@@ -20,6 +20,7 @@
     "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
     "novelty_finalization_preflight": "generated/novelty-finalization-preflight.json",
     "novelty_source_review_packets": "generated/novelty-source-review-packets.json",
+    "novelty_claim_revision_plan": "generated/novelty-claim-revision-plan.json",
     "public_package_manifest": "generated/public-package-manifest.json",
     "public_package_integrity": "generated/public-package-integrity.json",
     "public_package_schema": "generated/public-package-schema.json",
@@ -57,9 +58,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 42,
-    "artifact_classes_total": 42,
-    "reproduction_commands": 47,
+    "artifact_classes_ready": 43,
+    "artifact_classes_total": 43,
+    "reproduction_commands": 48,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -298,14 +299,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=47; validations=3; hashes=53.",
+      "evidence": "reproduction-capsule-v1; commands=48; validations=3; hashes=55.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=53; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=5; artifact hashes=55; blockers=7.",
       "blockers": []
     },
     {
@@ -333,7 +334,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=53; bytes=702368.",
+      "evidence": "version-manifest-v1; artifacts=55; bytes=710421.",
       "blockers": []
     },
     {
@@ -351,10 +352,17 @@
       "blockers": []
     },
     {
+      "id": "novelty_claim_revision_plan",
+      "status": "ready",
+      "ready": true,
+      "evidence": "novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3.",
+      "blockers": []
+    },
+    {
       "id": "novelty_and_claim_boundaries",
       "status": "ready",
       "ready": true,
-      "evidence": "22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 5 prohibited claims; refresh queries=4.",
+      "evidence": "22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 5 prohibited claims; refresh queries=4.",
       "blockers": []
     }
   ],
@@ -406,6 +414,10 @@
     {
       "step": "Refresh novelty source review packets",
       "command": "node scripts/hard-grounded-research-novelty-source-review-packets.mjs"
+    },
+    {
+      "step": "Refresh novelty claim revision plan",
+      "command": "node scripts/hard-grounded-research-novelty-claim-revision-plan.mjs"
     },
     {
       "step": "Refresh public package integrity",

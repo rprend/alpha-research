@@ -1023,3 +1023,11 @@ Decision: Generate source-level review packets for unresolved novelty watchlist 
 Rationale: The final novelty gate is blocked by unresolved adjacent work, but the benchmark needs executable related-work review tasks that require overlap assessment, claim-boundary updates, citation actions, evidence-registry actions, and final dispositions for each source.
 
 Consequence: `scripts/hard-grounded-research-novelty-source-review-packets.mjs` emits `generated/novelty-source-review-packets.json` and `NOVELTY_SOURCE_REVIEW_PACKETS.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the packets while final novelty and completion claims remain blocked.
+
+## 2026-06-26 — Add novelty claim revision plan
+
+Decision: Generate a claim-level revision plan for unresolved novelty sources.
+
+Rationale: The novelty source packets identify source-review tasks, but final paper novelty also needs every unresolved source mapped to manuscript claims, claim statuses, boundary language, and required citation/removal actions before the final audit can pass.
+
+Consequence: `scripts/hard-grounded-research-novelty-claim-revision-plan.mjs` emits `generated/novelty-claim-revision-plan.json` and `NOVELTY_CLAIM_REVISION_PLAN.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the plan while final novelty and completion claims remain blocked.

@@ -1,0 +1,143 @@
+{
+  "novelty_claim_revision_plan_ready": true,
+  "version": "novelty-claim-revision-plan-v1",
+  "checked_date": "2026-06-26",
+  "completion_claim_allowed": false,
+  "final_novelty_claim_allowed": false,
+  "generated_from": {
+    "novelty_source_review_packets": "generated/novelty-source-review-packets.json",
+    "novelty_resolution_matrix": "generated/novelty-resolution-matrix.json",
+    "novelty_finalization_preflight": "generated/novelty-finalization-preflight.json",
+    "paper_claim_ledger": "generated/paper-claim-ledger.json"
+  },
+  "checks": [
+    {
+      "id": "packets_loaded",
+      "passed": true,
+      "detail": "4/4 source packets mapped to claim revisions"
+    },
+    {
+      "id": "unresolved_sources_matched",
+      "passed": true,
+      "detail": "4/4 unresolved sources matched"
+    },
+    {
+      "id": "claim_ids_exist",
+      "passed": true,
+      "detail": "9 claim links checked"
+    },
+    {
+      "id": "final_claims_still_blocked",
+      "passed": true,
+      "detail": "final_allowed=false; prohibited_claims=3"
+    }
+  ],
+  "revisions": [
+    {
+      "packet_id": "novelty_source_review_01",
+      "source_id": "faithjudge-2026",
+      "novelty_risk": "medium",
+      "impacted_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "impacted_claim_statuses": [
+        "allowed",
+        "prohibited_until_gates_pass"
+      ],
+      "manuscript_action": "Compare against faithfulness/citation work and keep the claim to conclusion-support overreach.",
+      "required_boundary_language": "The category tests cases where cited evidence supports an intermediate fact but not the answer-level conclusion.",
+      "disposition_required": "cite_and_narrow",
+      "source_review_required_outputs": [
+        "overlap_assessment",
+        "claim_boundary_update",
+        "citation_action",
+        "evidence_registry_action",
+        "final_disposition",
+        "notes"
+      ]
+    },
+    {
+      "packet_id": "novelty_source_review_02",
+      "source_id": "faithfulness-qa-2026",
+      "novelty_risk": "medium",
+      "impacted_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "impacted_claim_statuses": [
+        "allowed",
+        "prohibited_until_gates_pass"
+      ],
+      "manuscript_action": "Compare against faithfulness/citation work and keep the claim to conclusion-support overreach.",
+      "required_boundary_language": "The category tests cases where cited evidence supports an intermediate fact but not the answer-level conclusion.",
+      "disposition_required": "cite_and_narrow",
+      "source_review_required_outputs": [
+        "overlap_assessment",
+        "claim_boundary_update",
+        "citation_action",
+        "evidence_registry_action",
+        "final_disposition",
+        "notes"
+      ]
+    },
+    {
+      "packet_id": "novelty_source_review_03",
+      "source_id": "dora-2026",
+      "novelty_risk": "medium",
+      "impacted_claim_ids": [
+        "taxonomy_scope_claim",
+        "hf_grounding_claim",
+        "novelty_completion_claim"
+      ],
+      "impacted_claim_statuses": [
+        "allowed",
+        "allowed",
+        "prohibited_until_gates_pass"
+      ],
+      "manuscript_action": "Cite as domain RAG unless it explicitly tests authority hierarchy among conflicting sources.",
+      "required_boundary_language": "Authority-conflict novelty requires source hierarchy or authority disagreement, not only domain-specific retrieval.",
+      "disposition_required": "cite_no_overlap_or_narrow",
+      "source_review_required_outputs": [
+        "overlap_assessment",
+        "claim_boundary_update",
+        "citation_action",
+        "evidence_registry_action",
+        "final_disposition",
+        "notes"
+      ]
+    },
+    {
+      "packet_id": "novelty_source_review_04",
+      "source_id": "hierarag-2026",
+      "novelty_risk": "high",
+      "impacted_claim_ids": [
+        "taxonomy_scope_claim",
+        "novelty_completion_claim"
+      ],
+      "impacted_claim_statuses": [
+        "allowed",
+        "prohibited_until_gates_pass"
+      ],
+      "manuscript_action": "Cite as a broad RAG benchmarking review and remove any generic RAG benchmark novelty framing.",
+      "required_boundary_language": "Novelty is limited to the hard-grounded failure taxonomy and executable review harness, not to RAG benchmarking in general.",
+      "disposition_required": "cite_and_narrow",
+      "source_review_required_outputs": [
+        "overlap_assessment",
+        "claim_boundary_update",
+        "citation_action",
+        "evidence_registry_action",
+        "final_disposition",
+        "notes"
+      ]
+    }
+  ],
+  "summary": {
+    "revisions": 4,
+    "high_risk_revisions": 1,
+    "linked_claims": 3,
+    "prohibited_claims_preserved": 3,
+    "final_novelty_claim_allowed": false,
+    "completion_claim_allowed": false
+  }
+}

@@ -249,13 +249,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 47 reproduction commands and 42/42 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 48 reproduction commands and 43/43 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 53 package-critical artifacts totaling 702685 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 55 package-critical artifacts totaling 710730 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
-The generated reproduction capsule `reproduction-capsule-v1` records 47 reproduction commands, 3 validation commands, 53 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
+The generated reproduction capsule `reproduction-capsule-v1` records 48 reproduction commands, 3 validation commands, 55 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
-The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 5 citation caveats. It ties citation text to 53 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
+The generated citation metadata `citation-metadata-v1` defines the provisional citation key `hard_grounded_research_benchmark_2026` and 5 citation caveats. It ties citation text to 55 package hashes and explicitly prevents final novelty, completion, or leaderboard claims from being inferred from the citation.
 
 The generated review execution plan records 600 remaining reviewer rows and an estimated 74.4 reviewer-hours including adjudication reserve. It turns the current review blockers into 2 waves with explicit acceptance gates, but it does not count as completed review.
 
@@ -308,15 +308,16 @@ The generated scale adjudication plan makes the category-scale blocker batch-lev
 | analysis_plan | ready | 4 hypotheses; 4 model families; 7 covariates. |
 | paper_claim_ledger | ready | 8 claims mapped to evidence; prohibited=3; diagnostic=2. |
 | supplement_index | ready | supplement-index-v2; sections=6; tables=6; claims=8. |
-| reproduction_capsule | ready | reproduction-capsule-v1; commands=47; validations=3; hashes=53. |
-| citation_metadata | ready | citation-metadata-v1; caveats=5; artifact hashes=53; blockers=7. |
+| reproduction_capsule | ready | reproduction-capsule-v1; commands=48; validations=3; hashes=55. |
+| citation_metadata | ready | citation-metadata-v1; caveats=5; artifact hashes=55; blockers=7. |
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=53; bytes=702368. |
+| version_manifest | ready | version-manifest-v1; artifacts=55; bytes=710421. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
-| novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 5 prohibited claims; refresh queries=4. |
+| novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
+| novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
 
@@ -436,8 +437,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | analysis_plan_ready | yes | 4 hypotheses; 4 model families; reviewed=0/300 |
 | paper_claim_ledger_ready | yes | 8 claims; allowed=3; diagnostic=2; prohibited=3 |
 | supplement_index_ready | yes | supplement-index-v2; sections=6; tables=6; claims=8 |
-| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=47; hashes=53; blockers=7 |
-| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=53; caveats=5; release_blockers=7 |
+| reproduction_capsule_ready | yes | reproduction-capsule-v1; commands=48; hashes=55; blockers=7 |
+| citation_metadata_ready | yes | citation-metadata-v1; artifact_hashes=55; caveats=5; release_blockers=7 |
 | reviewer_faq_ready | yes | reviewer-faq-v1; questions=6; blockers=7; prohibited_claims=3 |
 | responsible_use_ready | yes | 6 policy rules; active_restrictions=2; public_leaderboard_allowed=false |
 | data_statement_ready | yes | data-statement-v1; source_datasets=6; scaled_items=270; pointer_only_items=15 |
@@ -453,6 +454,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | novelty_resolution_matrix_ready | yes | novelty-resolution-matrix-v1; sources=4; unresolved=4; high_risk=1 |
 | novelty_finalization_preflight_ready | yes | novelty-finalization-preflight-v1; unresolved=4; high_risk_unresolved=1; final_allowed=false |
 | novelty_source_review_packets_ready | yes | novelty-source-review-packets-v1; packets=4; high_risk=1; final_allowed=false |
+| novelty_claim_revision_plan_ready | yes | novelty-claim-revision-plan-v1; revisions=4; high_risk=1; linked_claims=3 |
 | corpus_audit_ready | yes | 6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
 | source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |
 | source_acquisition_manifest_ready | yes | 17 batches; target_rows=246; known_license_rows=174 |
@@ -464,8 +466,8 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_workbooks_ready | yes | 20 workbooks; 492 review rows; pointer_only_rows=144 |
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 42/42 artifact classes ready; reproduction_commands=47; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=53; blockers=7; bytes=702368 |
+| artifact_checklist_ready | yes | 43/43 artifact classes ready; reproduction_commands=48; release_blockers=7 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=55; blockers=7; bytes=710421 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position
@@ -489,6 +491,8 @@ The generated novelty resolution matrix maps 4 watchlist sources to claim impact
 The generated novelty finalization preflight keeps the final audit operational rather than rhetorical: it records 4 unresolved watchlist sources, 1 high-risk unresolved sources, and 6 review or scale blockers that must clear before any final novelty or completion claim.
 
 The generated novelty source review packets turn those unresolved sources into 4 related-work adjudication tasks, including 1 high-risk task, each requiring overlap assessment, citation action, evidence-registry action, and final disposition.
+
+The generated novelty claim revision plan maps the unresolved packets to 4 manuscript revision actions across 3 linked claims, with required boundary language and dispositions before any final novelty claim can be made.
 
 | Paper claim | Status | Reason |
 | --- | --- | --- |
