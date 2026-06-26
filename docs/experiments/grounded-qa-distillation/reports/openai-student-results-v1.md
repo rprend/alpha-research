@@ -176,6 +176,17 @@ Held-out comparison on temporal-test examples 81-172:
 
 This is a negative result. The filter buys citation-format compliance by over-abstaining and loses the broader grounded-correctness screen. The offline teacher labels should be used to train generation/citation behavior directly, not only a post-hoc answer gate.
 
+## Fine-Tune Preparation
+
+`openai-finetune-prep-teacher-repair-0-80-v1` prepares the strict teacher-label packet for hosted supervised fine-tuning:
+
+| File | Rows | Approx tokens |
+| --- | ---: | ---: |
+| `runs/openai-finetune-prep-teacher-repair-0-80-v1/train.openai.jsonl` | 52 | 57,104 |
+| `runs/openai-finetune-prep-teacher-repair-0-80-v1/validation.openai.jsonl` | 13 | 10,429 |
+
+At 3 epochs, the estimated `gpt-4.1-mini-2025-04-14` training cost is $0.85656 under the current OpenAI fine-tuning price of $5 / 1M training tokens. The job was not launched in this run. Before launching, the project needs a controller that uploads files, creates the fine-tune job, polls status, records job ids, and writes actual training spend or a conservative reserved spend to the shared ledger.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

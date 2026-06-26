@@ -139,6 +139,8 @@ It contains 65 strict SFT labels from the first 80 repaired multi-step teacher e
 
 The first local policy test using this packet is `runs/teacher-label-filter-temporal-test-80-172-v1/`. It trains a zero-LLM logistic keep-answer gate, but the held-out result is negative: the gate improves citation precision and inline citation rate while hurting answer coverage, support, and answer quality. The next useful experiment should train or fine-tune answer generation rather than only suppressing risky answers.
 
+The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher-repair-0-80-v1/`. It writes OpenAI chat-format JSONL with 52 train rows and 13 validation rows from the strict teacher-label packet. The current estimate for 3 epochs of `gpt-4.1-mini-2025-04-14` is $0.85656, but the job is not launched until a runner can ledger file/job API calls and actual training spend.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:

@@ -43,6 +43,7 @@ if (!errors.length) {
   await validateMultistepTeacherRunsIfPresent();
   await validateTeacherLabelExportsIfPresent();
   await validateTeacherLabelFilterRunsIfPresent();
+  await validateFineTunePrepRunsIfPresent();
 }
 
 if (errors.length) {
@@ -343,6 +344,53 @@ async function validateTeacherLabelFilterRunsIfPresent() {
       if (row.metadata?.forced_abstain && row.prediction?.answer_type !== "abstain") {
         errors.push(`${label}: forced abstention row must abstain.`);
       }
+    }
+  }
+}
+
+async function validateFineTunePrepRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("openai-finetune-prep-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+    } catch {
+      errors.push(`${entry.name}: missing or malformed fine-tune prep result.`);
+      continue;
+    }
+    const trainPath = path.join(rootDir, result.artifacts?.train_jsonl ?? "");
+    const validationPath = path.join(rootDir, result.artifacts?.validation_jsonl ?? "");
+    let trainRows;
+    let validationRows;
+    try {
+      trainRows = await readJsonl(trainPath);
+      validationRows = await readJsonl(validationPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed OpenAI fine-tune JSONL files.`);
+      continue;
+    }
+    if (trainRows.length !== result.examples?.train) errors.push(`${entry.name}: train row count does not match result.`);
+    if (validationRows.length !== result.examples?.validation) errors.push(`${entry.name}: validation row count does not match result.`);
+    if (result.launch_performed) errors.push(`${entry.name}: launch_performed should be false unless validator learns job ledger checks.`);
+    if (!Number.isFinite(Number(result.budget?.estimated_training_cost_usd)) || Number(result.budget.estimated_training_cost_usd) < 0) {
+      errors.push(`${entry.name}: invalid estimated_training_cost_usd.`);
+    }
+    for (const [index, row] of [...trainRows, ...validationRows].entries()) {
+      const label = `${entry.name}.openai_jsonl:${index + 1}`;
+      if (!Array.isArray(row.messages) || row.messages.length !== 3) errors.push(`${label}: expected three messages.`);
+      if (row.messages?.[0]?.role !== "system" || row.messages?.[1]?.role !== "user" || row.messages?.[2]?.role !== "assistant") {
+        errors.push(`${label}: expected system/user/assistant roles.`);
+      }
+      if (!row.metadata?.example_id) errors.push(`${label}: missing metadata.example_id.`);
     }
   }
 }
