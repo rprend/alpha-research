@@ -959,3 +959,11 @@ Decision: Generate a real reviewer-return contract for first-wave annotation pac
 Rationale: The benchmark has exported reviewer packets, an import path, and a packet audit, but paper-grade human review needs an explicit contract for returned filenames, row counts, editable fields, rejection rules, and dry-run/apply commands before any real labels are accepted.
 
 Consequence: `scripts/hard-grounded-research-review-return-contract.mjs` emits `generated/review-return-contract.json` and `REVIEW_RETURN_CONTRACT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and harness artifacts require a clean return contract while human-review completion claims remain blocked.
+
+## 2026-06-26 — Add review return preflight
+
+Decision: Generate a preflight report for real returned reviewer packets before import/apply.
+
+Rationale: The return contract defines the expected files, but reviewers and maintainers also need an executable status surface that says whether the actual return directory exists, which returned JSONL files are present or missing, and whether the latest import report matches the files on disk.
+
+Consequence: `scripts/hard-grounded-research-review-return-preflight.mjs` emits `generated/review-return-preflight.json` and `REVIEW_RETURN_PREFLIGHT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the preflight while human-review completion claims remain blocked until real returned labels are collected and merged.

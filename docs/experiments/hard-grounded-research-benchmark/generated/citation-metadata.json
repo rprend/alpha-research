@@ -19,12 +19,12 @@
   "year": 2026,
   "benchmark_id": "hard-grounded-research-benchmark",
   "package_version": "version-manifest-v1",
-  "artifact_hashes": 37,
+  "artifact_hashes": 39,
   "source_dataset_count": 6,
   "release_state": {
     "status": "blocked",
-    "passing_checks": 65,
-    "total_checks": 72,
+    "passing_checks": 66,
+    "total_checks": 73,
     "blockers": [
       "gold_review_complete",
       "review_preflight_ready",
@@ -46,10 +46,10 @@
     "Use VERSION_MANIFEST.md and generated/version-manifest.json to identify the exact package state.",
     "Respect pointer-only package rules for unknown-license upstream evidence."
   ],
-  "bibtex": "@misc{hard_grounded_research_benchmark_2026,\n  title = {Benchmarks for Hard Grounded Research},\n  author = {{Alpha Research Contributors}},\n  year = {2026},\n  note = {Pilot benchmark package; completion, leaderboard, and novelty claims are gated. Version manifest: version-manifest-v1; artifact hashes: 37.}\n}",
+  "bibtex": "@misc{hard_grounded_research_benchmark_2026,\n  title = {Benchmarks for Hard Grounded Research},\n  author = {{Alpha Research Contributors}},\n  year = {2026},\n  note = {Pilot benchmark package; completion, leaderboard, and novelty claims are gated. Version manifest: version-manifest-v1; artifact hashes: 39.}\n}",
   "summary": {
     "citation_caveats": 4,
-    "artifact_hashes": 37,
+    "artifact_hashes": 39,
     "source_datasets": 6,
     "release_blockers": 7,
     "completion_claim_allowed": false

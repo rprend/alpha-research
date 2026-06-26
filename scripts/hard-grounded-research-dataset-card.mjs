@@ -52,6 +52,7 @@ const inputPaths = {
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
   reviewPacketAudit: join(generatedDir, 'review-packet-audit.json'),
   reviewReturnContract: join(generatedDir, 'review-return-contract.json'),
+  reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   releaseGate: join(generatedDir, 'release-gate.json'),
   annotationProtocol: join(generatedDir, 'annotation-protocol.json'),
@@ -189,6 +190,7 @@ function renderCard({
   reviewExecutionPlan,
   reviewPacketAudit,
   reviewReturnContract,
+  reviewReturnPreflight,
   reproductionCapsule,
   releaseGate,
   annotationProtocol,
@@ -250,6 +252,7 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Review execution plan ready: ${reviewExecutionPlan.review_execution_plan_ready}
 - Review packet audit ready: ${reviewPacketAudit.review_packet_audit_ready}
 - Review return contract ready: ${reviewReturnContract.review_return_contract_ready}
+- Review return preflight ready: ${reviewReturnPreflight.review_return_preflight_ready} (${reviewReturnPreflight.summary.present_return_files}/${reviewReturnPreflight.summary.expected_return_files} returned files present)
 
 ## Intended Uses
 
@@ -374,6 +377,8 @@ The generated review execution plan records ${reviewExecutionPlan.summary.total_
 The generated review packet audit checks ${reviewPacketAudit.summary.files_checked} first-wave export files, ${reviewPacketAudit.summary.rows_checked} reviewer rows, and ${reviewPacketAudit.summary.categories_with_expansion_first_wave} expansion categories before returned annotations are collected. Current packet findings: ${reviewPacketAudit.summary.finding_count}. See \`REVIEW_PACKET_AUDIT.md\`.
 
 The generated review return contract defines ${reviewReturnContract.summary.expected_return_files} expected returned files, ${reviewReturnContract.summary.expected_return_rows} rows, and ${reviewReturnContract.summary.rejection_rule_count} rejection rules for real reviewer annotations. Current return-contract findings: ${reviewReturnContract.summary.finding_count}. See \`REVIEW_RETURN_CONTRACT.md\`.
+
+The generated review return preflight checks the real returns directory before import/apply. Current returned packets present: ${reviewReturnPreflight.summary.present_return_files}/${reviewReturnPreflight.summary.expected_return_files}; missing files: ${reviewReturnPreflight.summary.missing_return_files}; latest import ready: ${reviewReturnPreflight.summary.latest_import_ready}. See \`REVIEW_RETURN_PREFLIGHT.md\`.
 
 ## Threats To Validity
 
@@ -524,6 +529,7 @@ writeText(
     reviewExecutionPlan: readJson(inputPaths.reviewExecutionPlan),
     reviewPacketAudit: readJson(inputPaths.reviewPacketAudit),
     reviewReturnContract: readJson(inputPaths.reviewReturnContract),
+    reviewReturnPreflight: readJson(inputPaths.reviewReturnPreflight),
     reproductionCapsule: readJson(inputPaths.reproductionCapsule),
     releaseGate: readJson(inputPaths.releaseGate),
     annotationProtocol: readJson(inputPaths.annotationProtocol),

@@ -42,6 +42,7 @@
     "review_execution_plan": "generated/review-execution-plan.json",
     "review_packet_audit": "generated/review-packet-audit.json",
     "review_return_contract": "generated/review-return-contract.json",
+    "review_return_preflight": "generated/review-return-preflight.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json"
   },
@@ -49,9 +50,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 35,
-    "artifact_classes_total": 35,
-    "reproduction_commands": 39,
+    "artifact_classes_ready": 36,
+    "artifact_classes_total": 36,
+    "reproduction_commands": 40,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -182,6 +183,13 @@
       "blockers": []
     },
     {
+      "id": "review_return_preflight",
+      "status": "ready",
+      "ready": true,
+      "evidence": "review-return-preflight-v1; present=0/30; missing=30; latest import ready=true.",
+      "blockers": []
+    },
+    {
       "id": "submission_contract",
       "status": "ready",
       "ready": true,
@@ -255,14 +263,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=39; validations=3; hashes=37.",
+      "evidence": "reproduction-capsule-v1; commands=40; validations=3; hashes=39.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=37; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=39; blockers=7.",
       "blockers": []
     },
     {
@@ -290,7 +298,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=37; bytes=488479.",
+      "evidence": "version-manifest-v1; artifacts=39; bytes=512810.",
       "blockers": []
     },
     {
@@ -397,6 +405,10 @@
     {
       "step": "Refresh review return contract",
       "command": "node scripts/hard-grounded-research-review-return-contract.mjs"
+    },
+    {
+      "step": "Refresh review return preflight",
+      "command": "node scripts/hard-grounded-research-review-return-preflight.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

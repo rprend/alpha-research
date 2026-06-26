@@ -24,6 +24,7 @@ const inputs = {
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
   reviewPacketAudit: join(generatedDir, 'review-packet-audit.json'),
   reviewReturnContract: join(generatedDir, 'review-return-contract.json'),
+  reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   adjudicationReadiness: join(generatedDir, 'adjudication-readiness.json'),
   annotatorAgreement: join(generatedDir, 'annotator-agreement.json'),
   annotationExport: join(generatedDir, 'annotation-export/manifest.json'),
@@ -138,6 +139,7 @@ function buildGate({
   reviewExecutionPlan,
   reviewPacketAudit,
   reviewReturnContract,
+  reviewReturnPreflight,
   adjudicationReadiness,
   annotatorAgreement,
   expansionReviewPreflight,
@@ -273,6 +275,15 @@ function buildGate({
         reviewReturnContract.summary?.expected_return_rows === reviewPacketAudit.summary?.rows_checked,
       detail: `${reviewReturnContract.version}; files=${reviewReturnContract.summary?.expected_return_files ?? 0}; rows=${reviewReturnContract.summary?.expected_return_rows ?? 0}; findings=${reviewReturnContract.summary?.finding_count ?? 'unknown'}`,
       blocker: 'Generate the real returned-reviewer packet contract before accepting annotations.',
+    },
+    {
+      id: 'review_return_preflight_ready',
+      passed:
+        Boolean(reviewReturnPreflight.review_return_preflight_ready) &&
+        reviewReturnPreflight.summary?.expected_return_files === reviewReturnContract.summary?.expected_return_files &&
+        reviewReturnPreflight.summary?.expected_return_rows === reviewReturnContract.summary?.expected_return_rows,
+      detail: `${reviewReturnPreflight.version}; present=${reviewReturnPreflight.summary?.present_return_files ?? 0}/${reviewReturnPreflight.summary?.expected_return_files ?? 0}; missing=${reviewReturnPreflight.summary?.missing_return_files ?? 'unknown'}; latest_import_ready=${reviewReturnPreflight.summary?.latest_import_ready}`,
+      blocker: 'Generate a real-return preflight report before running reviewer import apply.',
     },
     {
       id: 'adjudication_readiness_ready',
@@ -790,9 +801,10 @@ function buildGate({
       reviewer_handoff: 'generated/reviewer-handoff.json',
       review_progress: 'generated/review-progress.json',
       review_execution_plan: 'generated/review-execution-plan.json',
-      review_packet_audit: 'generated/review-packet-audit.json',
-      review_return_contract: 'generated/review-return-contract.json',
-      adjudication_readiness: 'generated/adjudication-readiness.json',
+    review_packet_audit: 'generated/review-packet-audit.json',
+    review_return_contract: 'generated/review-return-contract.json',
+    review_return_preflight: 'generated/review-return-preflight.json',
+    adjudication_readiness: 'generated/adjudication-readiness.json',
       annotator_agreement: 'generated/annotator-agreement.json',
       annotation_export: 'generated/annotation-export/manifest.json',
       annotation_import_smoke: 'generated/annotation-import-smoke/report.json',
@@ -909,6 +921,7 @@ const gate = buildGate({
   reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
   reviewPacketAudit: readJson(inputs.reviewPacketAudit),
   reviewReturnContract: readJson(inputs.reviewReturnContract),
+  reviewReturnPreflight: readJson(inputs.reviewReturnPreflight),
   adjudicationReadiness: readJson(inputs.adjudicationReadiness),
   annotatorAgreement: readJson(inputs.annotatorAgreement),
   expansionReviewPreflight: readJson(inputs.expansionReviewPreflight),

@@ -22,6 +22,7 @@ const inputs = {
   reviewExecutionPlan: join(generatedDir, 'review-execution-plan.json'),
   reviewPacketAudit: join(generatedDir, 'review-packet-audit.json'),
   reviewReturnContract: join(generatedDir, 'review-return-contract.json'),
+  reviewReturnPreflight: join(generatedDir, 'review-return-preflight.json'),
   reproductionCapsule: join(generatedDir, 'reproduction-capsule.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
 }
@@ -48,7 +49,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reproductionCapsule, artifactChecklist }) {
+function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyWatchlist, dataStatement, publicPackageIntegrity, publicPackageSchema, versionManifest, modelReportingCard, citationMetadata, reviewExecutionPlan, reviewPacketAudit, reviewReturnContract, reviewReturnPreflight, reproductionCapsule, artifactChecklist }) {
   const tableEntries = paperTables.tables.map((table) => ({
     id: table.id,
     title: table.title,
@@ -84,7 +85,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
     },
     {
       id: 'review_and_release_gates',
-      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
+      files: ['ANNOTATION_PROTOCOL.md', 'REVIEWER_HANDOFF.md', 'REVIEW_EXECUTION_PLAN.md', 'REVIEW_RETURN_PREFLIGHT.md', 'RELEASE_GATE.md', 'THREATS_TO_VALIDITY.md'],
       purpose: 'Expose reviewer workflow, remaining workload, acceptance gates, blockers, and validity risks.',
     },
     {
@@ -110,6 +111,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       reviewExecutionPlan.review_execution_plan_ready &&
       reviewPacketAudit.review_packet_audit_ready &&
       reviewReturnContract.review_return_contract_ready &&
+      reviewReturnPreflight.review_return_preflight_ready &&
       reproductionCapsule.reproduction_capsule_ready &&
       artifactChecklist.artifact_checklist_ready,
     version: 'supplement-index-v2',
@@ -127,6 +129,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       review_execution_plan: 'generated/review-execution-plan.json',
       review_packet_audit: 'generated/review-packet-audit.json',
       review_return_contract: 'generated/review-return-contract.json',
+      review_return_preflight: 'generated/review-return-preflight.json',
       reproduction_capsule: 'generated/reproduction-capsule.json',
       artifact_checklist: 'generated/artifact-checklist.json',
     },
@@ -154,6 +157,7 @@ function buildIndex({ spec, releaseGate, paperTables, paperClaimLedger, noveltyW
       review_rows_remaining: reviewExecutionPlan.summary.total_rows_remaining,
       review_packet_findings: reviewPacketAudit.summary.finding_count,
       review_return_findings: reviewReturnContract.summary.finding_count,
+      review_return_missing_files: reviewReturnPreflight.summary.missing_return_files,
       reproduction_commands: reproductionCapsule.summary.reproduction_commands,
       release_blockers: releaseGate.checks.filter((check) => !check.passed).length,
       completion_claim_allowed: false,
@@ -198,6 +202,7 @@ This generated index maps the manuscript-facing supplement to source artifacts, 
 - Review rows remaining: ${index.summary.review_rows_remaining}
 - Review packet findings: ${index.summary.review_packet_findings}
 - Review return findings: ${index.summary.review_return_findings}
+- Review return missing files: ${index.summary.review_return_missing_files}
 - Reproduction commands: ${index.summary.reproduction_commands}
 - Release checks: ${index.release_state.passing_checks}/${index.release_state.total_checks}
 - Completion claim allowed: ${index.summary.completion_claim_allowed}
@@ -235,6 +240,7 @@ const index = buildIndex({
   reviewExecutionPlan: readJson(inputs.reviewExecutionPlan),
   reviewPacketAudit: readJson(inputs.reviewPacketAudit),
   reviewReturnContract: readJson(inputs.reviewReturnContract),
+  reviewReturnPreflight: readJson(inputs.reviewReturnPreflight),
   reproductionCapsule: readJson(inputs.reproductionCapsule),
   artifactChecklist: readJson(inputs.artifactChecklist),
 })
