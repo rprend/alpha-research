@@ -478,6 +478,12 @@ The stronger judge finds overclaims that the mini judge accepted, especially ans
 
 `openai-claim-pruner-mini-quote-extractive-temporal-test-132-172-v1` and `openai-claim-pruner-gpt4o-quote-extractive-temporal-test-132-172-v1` test claim-level repair over the quote-extractive candidate. The mini pruner slightly improves stronger-judge support to 80.0% overall after citation repair. The `gpt-4o` pruner improves answer F1 to 26.4%, citation precision to 90.3%, and stronger-judge overall correctness to 82.5%, matching the calibrated selector but still below the high-safety guard. Claim pruning is therefore useful for teacher-label construction and failure analysis, but not yet the deployable amortized scaffold.
 
+## Final Temporal Window Synthesis
+
+`temporal-window-comparison-321-389-v1` compares the current candidates on the same final 69-example temporal window without making new LLM calls. Direct mini plus citation repair remains the strongest answer-quality baseline: 53 answered examples, 77.3% citation recall, 32.2% answer F1, and 100.0% inline citation compliance after repair. Under the existing `gpt-4o` judge, though, it reaches only 72.5% overall correctness and 64.2% answer support.
+
+The balanced local risk gate is the best zero-call support/coverage tradeoff currently deployed on that window: 79.7% `gpt-4o` judged correctness and 70.5% answer support, but only 44 answered examples and lower answer F1. The mini-negative verifier teacher reaches 82.6% support-oracle correctness with two useful and zero harmful suppressions, which confirms its value as a label-construction signal. The learned/local distillers still do not recover it: the best sequence-verifier policy reaches 81.2% support-oracle correctness, while the temporal extractive scaffold is a weak floor at 31.9% answer rate and 6.1% answer F1.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.

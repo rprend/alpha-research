@@ -1,0 +1,210 @@
+{
+  "run_id": "temporal-window-comparison-321-389-v1",
+  "generated_at": "2026-06-26T13:23:37.785Z",
+  "scope": "extended_temporal_future_holdout examples 321-389",
+  "purpose": "Compare same-window grounded-QA distillation candidates across reference-overlap metrics, GPT-4o support judgments, and inherited support-oracle metrics.",
+  "llm_calls": 0,
+  "run_cost_usd": 0,
+  "source_cost_note": "This synthesis makes no LLM calls. Some source systems were produced or judged by previously ledgered OpenAI calls.",
+  "comparability_note": "Reference-overlap metrics, GPT-4o judge metrics, and support-oracle metrics answer different questions and should not be averaged together.",
+  "systems": [
+    {
+      "id": "direct_mini_raw",
+      "label": "Direct gpt-4o-mini student",
+      "source_run_id": "openai-student-direct-mini-extended-future-holdout-320-389-v1",
+      "source_metric_family": "reference_overlap",
+      "notes": "Raw direct mini predictions before local citation-contract repair.",
+      "examples": 69,
+      "answered": null,
+      "abstained": null,
+      "answer_rate": null,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.8115942028985508,
+        "citation_precision": 0.6823899371069182,
+        "citation_recall": 0.7727272727272727,
+        "answer_token_f1": 0.3216222076714647,
+        "abstention_accuracy": 0.8115942028985508,
+        "inline_citation_rate": 0.8113207547169812
+      },
+      "gpt4o_judge_metrics": null,
+      "support_oracle_metrics": null,
+      "cost": {
+        "openai_calls": 69,
+        "inference_cost_usd": 0.02715315
+      }
+    },
+    {
+      "id": "citation_contract_repair",
+      "label": "Direct mini + citation repair",
+      "source_run_id": "citation-contract-repair-direct-mini-extended-future-holdout-320-389-v1",
+      "source_metric_family": "reference_overlap_and_gpt4o_judge",
+      "notes": "Zero-call local citation repair over direct mini outputs.",
+      "examples": 69,
+      "answered": 53,
+      "abstained": 16,
+      "answer_rate": 0.7681159420289855,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.8115942028985508,
+        "citation_precision": 0.6823899371069182,
+        "citation_recall": 0.7727272727272727,
+        "answer_token_f1": 0.3216222076714647,
+        "abstention_accuracy": 0.8115942028985508,
+        "inline_citation_rate": 1
+      },
+      "gpt4o_judge_metrics": {
+        "answer_support_rate": 0.6415094339622641,
+        "abstention_support_rate": 1,
+        "overall_judged_correct_rate": 0.7246376811594203,
+        "examples_judged": 69
+      },
+      "support_oracle_metrics": null,
+      "cost": {
+        "openai_calls": 0,
+        "inference_cost_usd": 0,
+        "source_judge_calls": 69,
+        "source_judge_cost_usd": 0.133735
+      }
+    },
+    {
+      "id": "balanced_risk_gate",
+      "label": "Balanced claim-pruner-label risk gate",
+      "source_run_id": "risk-gate-balanced-claim-pruner-mini-labels-direct-repair-future-holdout-320-389-v1",
+      "source_metric_family": "reference_overlap_and_gpt4o_judge",
+      "notes": "Zero-call local risk gate fitted on earlier claim-pruner labels and applied to repaired direct mini outputs.",
+      "examples": 69,
+      "answered": 44,
+      "abstained": 25,
+      "answer_rate": 0.6376811594202898,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.7391304347826086,
+        "citation_precision": 0.6628787878787878,
+        "citation_recall": 0.6136363636363636,
+        "answer_token_f1": 0.26451310465327077,
+        "abstention_accuracy": 0.7391304347826086,
+        "inline_citation_rate": 1
+      },
+      "gpt4o_judge_metrics": {
+        "answer_support_rate": 0.7045454545454546,
+        "abstention_support_rate": 0.96,
+        "overall_judged_correct_rate": 0.7971014492753623,
+        "examples_judged": 69
+      },
+      "support_oracle_metrics": null,
+      "cost": {
+        "openai_calls": 0,
+        "inference_cost_usd": 0,
+        "source_judge_calls": 69,
+        "source_judge_cost_usd": 0.13975750000000003
+      }
+    },
+    {
+      "id": "mini_negative_verifier_teacher",
+      "label": "Mini-negative verifier teacher",
+      "source_run_id": "mini-verifier-gate-balanced-risk-gate-160-389-v1",
+      "source_metric_family": "support_oracle",
+      "notes": "Uses existing gpt-4o-mini negative judgments as a verifier signal; useful as a teacher, not as final amortized inference.",
+      "examples": 69,
+      "answered": 42,
+      "abstained": 27,
+      "answer_rate": 0.6086956521739131,
+      "reference_metrics": null,
+      "gpt4o_judge_metrics": null,
+      "support_oracle_metrics": {
+        "support_oracle_correct": 57,
+        "support_oracle_correct_rate": 0.8260869565217391,
+        "answer_support_rate": null,
+        "gate_fired": 2,
+        "suppressed_unsupported": 2,
+        "harmful_suppressed_supported": 0
+      },
+      "cost": {
+        "openai_calls": 0,
+        "run_cost_usd": 0,
+        "source_teacher_calls": 229,
+        "source_teacher_cost_usd": 0.027891600000000003
+      }
+    },
+    {
+      "id": "sequence_verifier_strong_support_target",
+      "label": "Frozen sequence verifier (Strong support target)",
+      "source_run_id": "sequence-verifier-from-mini-negative-labels-160-389-v1",
+      "source_metric_family": "support_oracle",
+      "notes": "Leave-window-out local sequence verifier trained on two judged windows and evaluated on 321-389.",
+      "examples": 69,
+      "answered": 35,
+      "abstained": 34,
+      "answer_rate": 0.5072463768115942,
+      "reference_metrics": null,
+      "gpt4o_judge_metrics": null,
+      "support_oracle_metrics": {
+        "support_oracle_correct": 52,
+        "support_oracle_correct_rate": 0.7536231884057971,
+        "answer_support_rate": 0.7142857142857143,
+        "gate_fired": 9,
+        "suppressed_unsupported": 3,
+        "harmful_suppressed_supported": 6
+      },
+      "cost": {
+        "openai_calls": 0,
+        "run_cost_usd": 0
+      }
+    },
+    {
+      "id": "sequence_verifier_teacher_policy_action",
+      "label": "Frozen sequence verifier (Exported policy action)",
+      "source_run_id": "sequence-verifier-from-mini-negative-labels-160-389-v1",
+      "source_metric_family": "support_oracle",
+      "notes": "Leave-window-out local sequence verifier trained on two judged windows and evaluated on 321-389.",
+      "examples": 69,
+      "answered": 43,
+      "abstained": 26,
+      "answer_rate": 0.6231884057971014,
+      "reference_metrics": null,
+      "gpt4o_judge_metrics": null,
+      "support_oracle_metrics": {
+        "support_oracle_correct": 56,
+        "support_oracle_correct_rate": 0.8115942028985508,
+        "answer_support_rate": 0.7209302325581395,
+        "gate_fired": 1,
+        "suppressed_unsupported": 1,
+        "harmful_suppressed_supported": 0
+      },
+      "cost": {
+        "openai_calls": 0,
+        "run_cost_usd": 0
+      }
+    },
+    {
+      "id": "temporal_packet_extractive_scaffold",
+      "label": "Temporal packet extractive scaffold",
+      "source_run_id": "temporal-packet-scaffold-mini-negative-161-320-to-321-389-v1",
+      "source_metric_family": "reference_overlap",
+      "notes": "Zero-LLM local extractive scaffold trained only on the temporal SFT packet's 161-320 rows and evaluated on 321-389 prompts.",
+      "examples": 69,
+      "answered": 22,
+      "abstained": 47,
+      "answer_rate": 0.3188405797101449,
+      "reference_metrics": {
+        "answer_type_accuracy": 0.6811594202898551,
+        "citation_precision": 0.6363636363636364,
+        "citation_recall": 0.2159090909090909,
+        "answer_token_f1": 0.061217275715911394,
+        "abstention_accuracy": 0.6811594202898551,
+        "inline_citation_rate": 1
+      },
+      "gpt4o_judge_metrics": null,
+      "support_oracle_metrics": null,
+      "cost": {
+        "openai_calls": 0,
+        "inference_cost_usd": 0
+      }
+    }
+  ],
+  "conclusions": [
+    "Direct mini plus citation repair remains the strongest answer-quality baseline on 321-389, but GPT-4o support correctness is only 72.5%.",
+    "The balanced local risk gate raises GPT-4o judged correctness to 79.7% and answer support to 70.5%, but reduces answered rows from 53 to 44 and lowers reference recall/F1.",
+    "The mini-negative verifier teacher reaches 82.6% support-oracle correctness with two useful and zero harmful suppressions on this window, making it a strong label-construction signal but not yet amortized because the source verifier uses mini calls.",
+    "Current learned/local verifier attempts fail to close that gap reliably; the best 321-389 sequence-verifier policy reaches 81.2% support-oracle correctness while the strong-support objective falls to 75.4%.",
+    "The temporal extractive scaffold is a weak zero-call floor: 31.9% answer rate, 6.1% answer F1, and 21.6% citation recall."
+  ]
+}

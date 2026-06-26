@@ -53,6 +53,7 @@ if (!errors.length) {
   await validateHfSftPrepRunsIfPresent();
   await validateHfSftLaunchPreflightRunsIfPresent();
   await validateTemporalPacketScaffoldRunsIfPresent();
+  await validateTemporalWindowComparisonRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -723,6 +724,56 @@ async function validateTemporalPacketScaffoldRunsIfPresent() {
         for (const citation of row.prediction.citations ?? []) {
           if (!row.prediction.answer.includes(`[${citation}]`)) errors.push(`${label}: missing inline citation [${citation}].`);
         }
+      }
+    }
+  }
+}
+
+async function validateTemporalWindowComparisonRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("temporal-window-comparison-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const runReportPath = path.join(runsDir, entry.name, "report.md");
+    const summaryReportPath = path.join(experimentDir, "reports", `${entry.name}.md`);
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(runReportPath);
+      await fs.access(summaryReportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed temporal window comparison artifacts.`);
+      continue;
+    }
+
+    if (result.llm_calls !== 0 || Number(result.run_cost_usd) !== 0) {
+      errors.push(`${entry.name}: temporal window comparison synthesis must be zero-call and zero-cost.`);
+    }
+    if (!Array.isArray(result.systems) || result.systems.length < 5) {
+      errors.push(`${entry.name}: expected multiple compared systems.`);
+      continue;
+    }
+    if (!result.comparability_note) errors.push(`${entry.name}: missing comparability note.`);
+    const referenceSystems = result.systems.filter((system) => system.reference_metrics);
+    const supportOracleSystems = result.systems.filter((system) => system.support_oracle_metrics);
+    if (!referenceSystems.length) errors.push(`${entry.name}: missing reference-metric systems.`);
+    if (!supportOracleSystems.length) errors.push(`${entry.name}: missing support-oracle systems.`);
+    for (const system of result.systems) {
+      if (!system.id || !system.label || !system.source_run_id) errors.push(`${entry.name}: malformed system identity.`);
+      if (system.examples !== 69) errors.push(`${entry.name}: ${system.id} must compare the 69-example 321-389 window.`);
+      if (!system.source_metric_family) errors.push(`${entry.name}: ${system.id} missing source metric family.`);
+      if (system.reference_metrics && !Number.isFinite(Number(system.reference_metrics.inline_citation_rate))) {
+        errors.push(`${entry.name}: ${system.id} missing inline citation metric.`);
+      }
+      if (system.support_oracle_metrics && !Number.isFinite(Number(system.support_oracle_metrics.support_oracle_correct_rate))) {
+        errors.push(`${entry.name}: ${system.id} missing support-oracle correctness.`);
       }
     }
   }
