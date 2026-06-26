@@ -4,6 +4,7 @@
   "generated_from": {
     "release_gate": "generated/release-gate.json",
     "corpus_audit": "generated/corpus-audit.json",
+    "source_diversity_plan": "generated/source-diversity-plan.json",
     "construct_map": "generated/construct-map.json",
     "power_plan": "generated/power-plan.json",
     "novelty_evidence": "generated/novelty-evidence.json",
@@ -20,9 +21,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 8,
-    "artifact_classes_total": 8,
-    "reproduction_commands": 11,
+    "artifact_classes_ready": 9,
+    "artifact_classes_total": 9,
+    "reproduction_commands": 12,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -38,6 +39,13 @@
       "status": "ready",
       "ready": true,
       "evidence": "270 scaled public items; 891 evidence units; 108 pointer-only evidence units.",
+      "blockers": []
+    },
+    {
+      "id": "source_diversity_expansion",
+      "status": "ready",
+      "ready": true,
+      "evidence": "15/300 target source rows; deficit=246.",
       "blockers": []
     },
     {
@@ -103,6 +111,10 @@
     {
       "step": "Refresh corpus, construct, and power artifacts",
       "command": "node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs"
+    },
+    {
+      "step": "Refresh source diversity plan",
+      "command": "node scripts/hard-grounded-research-source-diversity-plan.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

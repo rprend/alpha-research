@@ -1,0 +1,231 @@
+{
+  "source_diversity_plan_ready": true,
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "generated_from": {
+    "benchmark_spec": "benchmark-spec.json",
+    "corpus_audit": "generated/corpus-audit.json",
+    "scaled_public_suite": "generated/public-package/hard-grounded-research-scaled-public-suite.json",
+    "license_clearance": "generated/license-clearance.json",
+    "power_plan": "generated/power-plan.json",
+    "release_gate": "generated/release-gate.json"
+  },
+  "summary": {
+    "categories": 10,
+    "scaled_public_items": 270,
+    "current_distinct_source_rows": 15,
+    "target_distinct_source_rows_per_category": 30,
+    "target_distinct_source_rows_total": 300,
+    "source_row_deficit_total": 246,
+    "category_source_targets_met": 0,
+    "dataset_targets_met": 7,
+    "known_license_source_datasets": 3,
+    "unknown_license_source_datasets": 2,
+    "completion_claim_allowed": false
+  },
+  "acquisition_policy": [
+    {
+      "id": "prefer_known_license_sources",
+      "rule": "Prefer additional rows from known-license Hugging Face datasets before using unknown-license sources.",
+      "current_evidence": "3/5 current source datasets have known licenses."
+    },
+    {
+      "id": "preserve_pointer_only_fallback",
+      "rule": "If an unknown-license source is necessary for a construct, package only pointers, locators, hashes, and transforms until clearance is explicit.",
+      "current_evidence": "81 pointer-only candidates remain in the public package clearance view."
+    },
+    {
+      "id": "avoid_seed_row_cloning",
+      "rule": "Final category claims require distinct source rows, not multiple transformed copies of the same seed row.",
+      "current_evidence": "270 scaled items currently derive from 15 source rows."
+    }
+  ],
+  "category_source_plan": [
+    {
+      "category": "multi-hop synthesis",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 3,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 27,
+      "current_source_datasets": [
+        "hotpotqa/hotpot_qa"
+      ],
+      "candidate_source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "Pavithree/eli5"
+      ],
+      "current_dataset_count": 1,
+      "target_dataset_count": 2,
+      "dataset_deficit": 1,
+      "recommended_action": "sample_27_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "stale-vs-current document conflicts",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 6,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 24,
+      "current_source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "tdiggelm/climate_fever"
+      ],
+      "candidate_source_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "current_dataset_count": 2,
+      "target_dataset_count": 2,
+      "dataset_deficit": 0,
+      "recommended_action": "sample_24_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "appended document lifecycle changes",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 3,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 27,
+      "current_source_datasets": [
+        "allenai/qasper"
+      ],
+      "candidate_source_datasets": [
+        "allenai/qasper"
+      ],
+      "current_dataset_count": 1,
+      "target_dataset_count": 2,
+      "dataset_deficit": 1,
+      "recommended_action": "sample_27_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "table + text reasoning",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 6,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 24,
+      "current_source_datasets": [
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "candidate_source_datasets": [
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "current_dataset_count": 2,
+      "target_dataset_count": 2,
+      "dataset_deficit": 0,
+      "recommended_action": "sample_24_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "source authority conflicts",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 6,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 24,
+      "current_source_datasets": [
+        "Pavithree/eli5",
+        "tdiggelm/climate_fever"
+      ],
+      "candidate_source_datasets": [
+        "tdiggelm/climate_fever",
+        "Pavithree/eli5"
+      ],
+      "current_dataset_count": 2,
+      "target_dataset_count": 2,
+      "dataset_deficit": 0,
+      "recommended_action": "sample_24_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "evidence insufficiency / abstention",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 3,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 27,
+      "current_source_datasets": [
+        "allenai/qasper"
+      ],
+      "candidate_source_datasets": [
+        "allenai/qasper",
+        "tdiggelm/climate_fever"
+      ],
+      "current_dataset_count": 1,
+      "target_dataset_count": 2,
+      "dataset_deficit": 1,
+      "recommended_action": "sample_27_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "citation supports fact but not conclusion",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 9,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 21,
+      "current_source_datasets": [
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq",
+        "hotpotqa/hotpot_qa"
+      ],
+      "candidate_source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "allenai/qasper",
+        "danwakeem/wikitablequestions-wtq",
+        "Pavithree/eli5"
+      ],
+      "current_dataset_count": 3,
+      "target_dataset_count": 2,
+      "dataset_deficit": 0,
+      "recommended_action": "sample_21_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "entity disambiguation",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 6,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 24,
+      "current_source_datasets": [
+        "danwakeem/wikitablequestions-wtq",
+        "hotpotqa/hotpot_qa"
+      ],
+      "candidate_source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "danwakeem/wikitablequestions-wtq"
+      ],
+      "current_dataset_count": 2,
+      "target_dataset_count": 2,
+      "dataset_deficit": 0,
+      "recommended_action": "sample_24_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "temporal questions: as of date X",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 6,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 24,
+      "current_source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "tdiggelm/climate_fever"
+      ],
+      "candidate_source_datasets": [
+        "tdiggelm/climate_fever"
+      ],
+      "current_dataset_count": 2,
+      "target_dataset_count": 2,
+      "dataset_deficit": 0,
+      "recommended_action": "sample_24_additional_distinct_rows_before_final_category_claim"
+    },
+    {
+      "category": "cross-document contradiction",
+      "scaled_items": 27,
+      "current_distinct_source_rows": 6,
+      "target_distinct_source_rows": 30,
+      "source_row_deficit": 24,
+      "current_source_datasets": [
+        "allenai/qasper",
+        "hotpotqa/hotpot_qa"
+      ],
+      "candidate_source_datasets": [
+        "hotpotqa/hotpot_qa",
+        "tdiggelm/climate_fever"
+      ],
+      "current_dataset_count": 2,
+      "target_dataset_count": 2,
+      "dataset_deficit": 0,
+      "recommended_action": "sample_24_additional_distinct_rows_before_final_category_claim"
+    }
+  ]
+}

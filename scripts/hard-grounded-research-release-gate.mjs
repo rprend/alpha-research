@@ -41,6 +41,7 @@ const inputs = {
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   modelBaselinePackets: join(generatedDir, 'model-baseline-packets.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
+  sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -122,6 +123,7 @@ function buildGate({
   modelRunIndex,
   modelBaselinePackets,
   corpusAudit,
+  sourceDiversityPlan,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -405,6 +407,15 @@ function buildGate({
       blocker: 'Generate a corpus audit that makes large-corpus grounding, coverage, and packaging scope inspectable.',
     },
     {
+      id: 'source_diversity_plan_ready',
+      passed:
+        Boolean(sourceDiversityPlan.source_diversity_plan_ready) &&
+        sourceDiversityPlan.summary?.source_row_deficit_total > 0 &&
+        sourceDiversityPlan.summary?.completion_claim_allowed === false,
+      detail: `${sourceDiversityPlan.summary?.current_distinct_source_rows ?? 0}/${sourceDiversityPlan.summary?.target_distinct_source_rows_total ?? 0} target source rows; deficit=${sourceDiversityPlan.summary?.source_row_deficit_total ?? 0}`,
+      blocker: 'Generate a source-diversity plan that prevents large-corpus claims from relying on cloned seed rows.',
+    },
+    {
       id: 'construct_map_ready',
       passed: Boolean(constructMap.construct_map_ready) && constructMap.summary.ready_constructs === spec.categories.length,
       detail: `${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs mapped; reviewed_gold_constructs=${constructMap.summary.constructs_with_reviewed_gold}; high_risk=${constructMap.summary.high_novelty_risk_constructs}`,
@@ -467,6 +478,7 @@ function buildGate({
       model_run_index: 'generated/model-run-index.json',
       model_baseline_packets: 'generated/model-baseline-packets.json',
       corpus_audit: 'generated/corpus-audit.json',
+      source_diversity_plan: 'generated/source-diversity-plan.json',
       construct_map: 'generated/construct-map.json',
       artifact_checklist: 'generated/artifact-checklist.json',
       threats_validity: 'generated/threats-validity.json',
@@ -552,6 +564,7 @@ const gate = buildGate({
   modelRunIndex: readJson(inputs.modelRunIndex),
   modelBaselinePackets: readJson(inputs.modelBaselinePackets),
   corpusAudit: readJson(inputs.corpusAudit),
+  sourceDiversityPlan: readJson(inputs.sourceDiversityPlan),
   constructMap: readJson(inputs.constructMap),
   artifactChecklist: readJson(inputs.artifactChecklist),
   threatsValidity: readJson(inputs.threatsValidity),

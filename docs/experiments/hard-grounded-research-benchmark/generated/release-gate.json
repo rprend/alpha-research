@@ -35,6 +35,7 @@
     "model_run_index": "generated/model-run-index.json",
     "model_baseline_packets": "generated/model-baseline-packets.json",
     "corpus_audit": "generated/corpus-audit.json",
+    "source_diversity_plan": "generated/source-diversity-plan.json",
     "construct_map": "generated/construct-map.json",
     "artifact_checklist": "generated/artifact-checklist.json",
     "threats_validity": "generated/threats-validity.json",
@@ -285,6 +286,12 @@
       "blocker": "Generate a corpus audit that makes large-corpus grounding, coverage, and packaging scope inspectable."
     },
     {
+      "id": "source_diversity_plan_ready",
+      "passed": true,
+      "detail": "15/300 target source rows; deficit=246",
+      "blocker": "Generate a source-diversity plan that prevents large-corpus claims from relying on cloned seed rows."
+    },
+    {
       "id": "construct_map_ready",
       "passed": true,
       "detail": "10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5",
@@ -293,7 +300,7 @@
     {
       "id": "artifact_checklist_ready",
       "passed": true,
-      "detail": "8/8 artifact classes ready; reproduction_commands=11; release_blockers=7",
+      "detail": "9/9 artifact classes ready; reproduction_commands=12; release_blockers=7",
       "blocker": "Generate a reproducibility artifact checklist that exposes commands, artifact classes, and remaining paper-readiness blockers."
     },
     {

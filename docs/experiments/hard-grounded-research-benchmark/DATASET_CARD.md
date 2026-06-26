@@ -12,8 +12,10 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source Hugging Face datasets: 5
 - Scaled public source rows: 15
 - Scaled public evidence units: 891
+- Source diversity target rows: 15/300
+- Source diversity deficit: 246
 - Construct map ready: true (10/10 constructs)
-- Artifact checklist ready: true (8/8 artifact classes)
+- Artifact checklist ready: true (9/9 artifact classes)
 - Threats-to-validity ready: true (8 threats; 3 high severity)
 - Failure atlas ready: true (116 cases; 8 modes)
 - Paper tables ready: true (6 tables)
@@ -66,6 +68,10 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 | cross-document contradiction | 2 | 1 | hotpotqa/hotpot_qa<br>tdiggelm/climate_fever |
 
 The generated construct map links each category to rubric dimensions, pilot examples, challenge payloads, scoring metrics, novelty risk, and review status. High novelty-risk constructs: 5; constructs with reviewed gold: 0. See `CONSTRUCT_MAP.md`.
+
+## Source Diversity
+
+The current scaled public package has 15 distinct source rows against a paper target of 300. The generated source-diversity plan records a 246-row deficit and category-level acquisition targets so large-corpus claims cannot rely on cloned seed rows. See `SOURCE_DIVERSITY_PLAN.md`.
 
 ## Challenge-Type Coverage
 
@@ -126,7 +132,7 @@ The current pilot supports diagnostic analysis only. The generated power plan ta
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 11 reproduction commands, 8/8 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
+The generated artifact checklist records 12 reproduction commands, 9/9 ready artifact classes, and 7 release blockers. It keeps completion claims blocked while release status is `blocked`. See `ARTIFACT_CHECKLIST.md`.
 
 ## Threats To Validity
 
@@ -166,8 +172,9 @@ Key release checks:
 - Adjudication readiness: pass - pilot_queue=0; expansion_queue=0; gold_ready=false; promotion_allowed=false
 - Annotator agreement: pass - completed_metric_pairs=0; agreement_claim_allowed=false
 - Corpus audit: pass - 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108
+- Source diversity: pass - 15/300 target source rows; deficit=246
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
-- Artifact checklist: pass - 8/8 artifact classes ready; reproduction_commands=11; release_blockers=7
+- Artifact checklist: pass - 9/9 artifact classes ready; reproduction_commands=12; release_blockers=7
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Paper tables: pass - 6 paper tables; systems=5; blockers=7

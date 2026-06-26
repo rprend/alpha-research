@@ -32,6 +32,7 @@ const requiredInputs = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   baselineUncertainty: join(generatedDir, 'baseline-uncertainty.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
+  sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -228,7 +229,7 @@ function modelBaselineRows(modelRunIndex) {
     ])
 }
 
-function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
+function renderDraft({ spec, pilotSuite, coverageMatrix, approachScores, baselineAnalysis, failureAtlas, paperTables, analysisPlan, baselineUncertainty, corpusAudit, sourceDiversityPlan, constructMap, artifactChecklist, threatsValidity, powerPlan, noveltyEvidence, goldSummary, reviewMergeReport, itemQualityAudit, licenseReview, licenseClearance, packageManifest, releaseGate, modelRunIndex, annotationExport, annotationImport, annotationImportSmoke, annotatorAgreement, goldPromotionSmoke, expansionPromotionSmoke }) {
   const categoryCount = spec.categories.length
   const datasetCount = spec.datasets.length
   const pilotItemCount = pilotSuite.items.length
@@ -266,6 +267,8 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 ## Dataset Grounding
 
 The scaled public package currently contains ${corpusAudit.summary.scaled_public_items} review-pending items, ${corpusAudit.summary.scaled_public_source_rows} distinct source rows, and ${corpusAudit.summary.scaled_public_evidence_units} evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for human-reviewed gold labels.
+
+The generated source-diversity plan sets a paper target of ${sourceDiversityPlan.summary.target_distinct_source_rows_per_category} distinct source rows per category (${sourceDiversityPlan.summary.target_distinct_source_rows_total} total). Current scaled artifacts cover ${sourceDiversityPlan.summary.current_distinct_source_rows} distinct source rows, leaving a ${sourceDiversityPlan.summary.source_row_deficit_total}-row deficit before large-corpus category claims are defensible.
 
 ${markdownTable(['Dataset', 'License', 'Benchmark roles'], datasetRows(spec))}
 
@@ -430,6 +433,7 @@ const draft = renderDraft({
   analysisPlan: readJson(requiredInputs.analysisPlan),
   baselineUncertainty: readJson(requiredInputs.baselineUncertainty),
   corpusAudit: readJson(requiredInputs.corpusAudit),
+  sourceDiversityPlan: readJson(requiredInputs.sourceDiversityPlan),
   constructMap: readJson(requiredInputs.constructMap),
   artifactChecklist: readJson(requiredInputs.artifactChecklist),
   threatsValidity: readJson(requiredInputs.threatsValidity),

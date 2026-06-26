@@ -711,3 +711,11 @@ Decision: Generate a statistical analysis plan that pre-specifies hypotheses, mo
 Rationale: The paper question asks what makes grounded research hard beyond lookup, which requires more than score tables. A reproducible analysis plan keeps pilot diagnostics separate from future category-level claims and makes the intended statistical tests inspectable before human-reviewed gold exists.
 
 Consequence: `scripts/hard-grounded-research-analysis-plan.mjs` emits `generated/analysis-plan.json` and `ANALYSIS_PLAN.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the plan while human-review, scale, and final novelty blockers remain active.
+
+## 2026-06-26 — Make source-row diversity a paper gate
+
+Decision: Generate a source-diversity expansion plan that measures distinct source-row coverage per category and records the deficit against paper-scale targets.
+
+Rationale: A large-corpus benchmark cannot rely on many transformed items from a small number of seed rows. The corpus audit exposed this weakness; the benchmark needs an explicit source-row acquisition plan so future category claims require broader Hugging Face grounding rather than cloned examples.
+
+Consequence: `scripts/hard-grounded-research-source-diversity-plan.mjs` emits `generated/source-diversity-plan.json` and `SOURCE_DIVERSITY_PLAN.md`; release, dataset-card, paper, artifact-checklist, README, and harness artifacts require the plan while source-row, human-review, scale, and final novelty blockers remain active.

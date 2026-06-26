@@ -19,6 +19,7 @@ const inputPaths = {
   analysisPlan: join(generatedDir, 'analysis-plan.json'),
   modelRunIndex: join(generatedDir, 'model-run-index.json'),
   corpusAudit: join(generatedDir, 'corpus-audit.json'),
+  sourceDiversityPlan: join(generatedDir, 'source-diversity-plan.json'),
   constructMap: join(generatedDir, 'construct-map.json'),
   artifactChecklist: join(generatedDir, 'artifact-checklist.json'),
   threatsValidity: join(generatedDir, 'threats-validity.json'),
@@ -127,6 +128,7 @@ function renderCard({
   analysisPlan,
   modelRunIndex,
   corpusAudit,
+  sourceDiversityPlan,
   constructMap,
   artifactChecklist,
   threatsValidity,
@@ -160,6 +162,8 @@ Hard Grounded Research is a pilot benchmark for grounded research QA failure mod
 - Source Hugging Face datasets: ${spec.datasets.length}
 - Scaled public source rows: ${corpusAudit.summary.scaled_public_source_rows}
 - Scaled public evidence units: ${corpusAudit.summary.scaled_public_evidence_units}
+- Source diversity target rows: ${sourceDiversityPlan.summary.current_distinct_source_rows}/${sourceDiversityPlan.summary.target_distinct_source_rows_total}
+- Source diversity deficit: ${sourceDiversityPlan.summary.source_row_deficit_total}
 - Construct map ready: ${constructMap.construct_map_ready} (${constructMap.summary.ready_constructs}/${constructMap.summary.category_count} constructs)
 - Artifact checklist ready: ${artifactChecklist.artifact_checklist_ready} (${artifactChecklist.summary.artifact_classes_ready}/${artifactChecklist.summary.artifact_classes_total} artifact classes)
 - Threats-to-validity ready: ${threatsValidity.threats_validity_ready} (${threatsValidity.summary.threat_count} threats; ${threatsValidity.summary.high_severity_count} high severity)
@@ -197,6 +201,10 @@ ${markdownTable(['Dataset', 'License', 'HF URL', 'Benchmark roles'], datasetRows
 ${markdownTable(['Category', 'Datasets', 'Seed tasks', 'Dataset ids'], categoryRows(coverageMatrix))}
 
 The generated construct map links each category to rubric dimensions, pilot examples, challenge payloads, scoring metrics, novelty risk, and review status. High novelty-risk constructs: ${constructMap.summary.high_novelty_risk_constructs}; constructs with reviewed gold: ${constructMap.summary.constructs_with_reviewed_gold}. See \`CONSTRUCT_MAP.md\`.
+
+## Source Diversity
+
+The current scaled public package has ${sourceDiversityPlan.summary.current_distinct_source_rows} distinct source rows against a paper target of ${sourceDiversityPlan.summary.target_distinct_source_rows_total}. The generated source-diversity plan records a ${sourceDiversityPlan.summary.source_row_deficit_total}-row deficit and category-level acquisition targets so large-corpus claims cannot rely on cloned seed rows. See \`SOURCE_DIVERSITY_PLAN.md\`.
 
 ## Challenge-Type Coverage
 
@@ -285,6 +293,7 @@ Key release checks:
 - Adjudication readiness: ${checkDetail(releaseGate, 'adjudication_readiness_ready')}
 - Annotator agreement: ${checkDetail(releaseGate, 'annotator_agreement_ready')}
 - Corpus audit: ${checkDetail(releaseGate, 'corpus_audit_ready')}
+- Source diversity: ${checkDetail(releaseGate, 'source_diversity_plan_ready')}
 - Construct map: ${checkDetail(releaseGate, 'construct_map_ready')}
 - Artifact checklist: ${checkDetail(releaseGate, 'artifact_checklist_ready')}
 - Threats to validity: ${checkDetail(releaseGate, 'threats_validity_ready')}
@@ -323,6 +332,7 @@ writeText(
     analysisPlan: readJson(inputPaths.analysisPlan),
     modelRunIndex: readJson(inputPaths.modelRunIndex),
     corpusAudit: readJson(inputPaths.corpusAudit),
+    sourceDiversityPlan: readJson(inputPaths.sourceDiversityPlan),
     constructMap: readJson(inputPaths.constructMap),
     artifactChecklist: readJson(inputPaths.artifactChecklist),
     threatsValidity: readJson(inputPaths.threatsValidity),

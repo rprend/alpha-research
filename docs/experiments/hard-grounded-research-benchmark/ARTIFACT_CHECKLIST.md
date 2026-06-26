@@ -9,8 +9,8 @@ This generated checklist makes the benchmark package auditable as a research art
 - Categories: 10
 - Pilot items: 30
 - Scaled public items: 270
-- Artifact classes ready: 8/8
-- Reproduction commands: 11
+- Artifact classes ready: 9/9
+- Reproduction commands: 12
 - Release blockers: 7
 - Paper readiness status: blocked
 - Completion claim allowed: false
@@ -21,6 +21,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | --- | --- | --- |
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
 | corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
+| source_diversity_expansion | ready | 15/300 target source rows; deficit=246. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
@@ -37,6 +38,7 @@ This generated checklist makes the benchmark package auditable as a research art
 | Run local non-oracle baselines | `node scripts/hard-grounded-research-runner.mjs && node scripts/hard-grounded-research-lexical-baseline.mjs && node scripts/hard-grounded-research-citation-verifier.mjs` |
 | Refresh aggregate baseline analysis | `node scripts/hard-grounded-research-report.mjs` |
 | Refresh corpus, construct, and power artifacts | `node scripts/hard-grounded-research-corpus-audit.mjs && node scripts/hard-grounded-research-construct-map.mjs && node scripts/hard-grounded-research-power-plan.mjs` |
+| Refresh source diversity plan | `node scripts/hard-grounded-research-source-diversity-plan.mjs` |
 | Refresh paper tables and figure data | `node scripts/hard-grounded-research-paper-tables.mjs` |
 | Refresh statistical analysis plan | `node scripts/hard-grounded-research-analysis-plan.mjs` |
 | Refresh release and publication surfaces | `node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs` |

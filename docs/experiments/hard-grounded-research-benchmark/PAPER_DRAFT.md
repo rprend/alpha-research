@@ -22,6 +22,8 @@ The benchmark should not be framed as another RAG or long-context leaderboard. T
 
 The scaled public package currently contains 270 review-pending items, 15 distinct source rows, and 891 evidence units after license remediation and pointer-only packaging. This corpus audit is evidence for benchmark construction scope, not a substitute for human-reviewed gold labels.
 
+The generated source-diversity plan sets a paper target of 30 distinct source rows per category (300 total). Current scaled artifacts cover 15 distinct source rows, leaving a 246-row deficit before large-corpus category claims are defensible.
+
 | Dataset | License | Benchmark roles |
 | --- | --- | --- |
 | hotpotqa/hotpot_qa | cc-by-sa-4.0 | multi-hop synthesis<br>citation supports fact but not conclusion<br>entity disambiguation<br>cross-document contradiction |
@@ -208,12 +210,13 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 ## Reproducibility Artifact Checklist
 
-The generated artifact checklist records 11 reproduction commands and 8/8 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
+The generated artifact checklist records 12 reproduction commands and 9/9 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
 | Artifact class | Status | Evidence |
 | --- | --- | --- |
 | taxonomy_and_constructs | ready | 10/10 constructs mapped to rubrics, metrics, examples, novelty risk, and review status. |
 | corpus_and_public_package | ready | 270 scaled public items; 891 evidence units; 108 pointer-only evidence units. |
+| source_diversity_expansion | ready | 15/300 target source rows; deficit=246. |
 | annotation_and_review_workflow | ready | 124 exported review rows; 300 reviewed target items remaining. |
 | baselines_and_scoring | ready | 5 scored systems; 2 eligible external model baselines. |
 | statistics_and_scale | ready | 30 target reviewed items/category; 300 reviewed items remaining. |
@@ -321,8 +324,9 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | novelty_evidence_registry_present | yes | 22 related-work sources registered; completion_claim_allowed=false |
 | novelty_claim_boundaries_ready | yes | 6 search queries; 1 allowed claims; 5 prohibited/unsupported claims |
 | corpus_audit_ready | yes | 5 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
+| source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
-| artifact_checklist_ready | yes | 8/8 artifact classes ready; reproduction_commands=11; release_blockers=7 |
+| artifact_checklist_ready | yes | 9/9 artifact classes ready; reproduction_commands=12; release_blockers=7 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position
