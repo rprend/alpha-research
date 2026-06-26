@@ -79,6 +79,7 @@ if (!errors.length) {
   await validateTrustedDatedSnapshotRunsIfPresent();
   await validatePaperReadinessGateRunsIfPresent();
   await validateManuscriptEvidenceMapRunsIfPresent();
+  await validateManuscriptDraftRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -1716,6 +1717,54 @@ async function validateManuscriptEvidenceMapRunsIfPresent() {
     }
     if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
       errors.push(`${entry.name}: manuscript evidence map must be zero actual cost.`);
+    }
+  }
+}
+
+async function validateManuscriptDraftRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("manuscript-draft-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    const manuscriptPath = path.join(runsDir, entry.name, "manuscript.md");
+    let result;
+    let manuscript;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+      manuscript = await fs.readFile(manuscriptPath, "utf8");
+    } catch {
+      errors.push(`${entry.name}: missing or malformed manuscript draft artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "manuscript_draft") {
+      errors.push(`${entry.name}: unexpected manuscript draft type.`);
+    }
+    if (result.paper_ready !== false || result.readiness_summary?.current_status !== "not_paper_ready") {
+      errors.push(`${entry.name}: manuscript draft must remain not submission-ready until readiness passes.`);
+    }
+    if (!Array.isArray(result.submission_blockers) || !result.submission_blockers.includes("qwen3b_joint_action_smoke_result") || !result.submission_blockers.includes("grounded_correctness_eval_for_student")) {
+      errors.push(`${entry.name}: manuscript draft must preserve Qwen3B submission blockers.`);
+    }
+    if (!Array.isArray(result.sections) || result.sections.length < 6) {
+      errors.push(`${entry.name}: manuscript draft must include core paper sections.`);
+    }
+    if (!Array.isArray(result.tables) || !result.tables.some((table) => table.id === "qwen3b_todo" && table.status === "blocked")) {
+      errors.push(`${entry.name}: manuscript draft must include a blocked Qwen3B result table.`);
+    }
+    if (!manuscript.includes("not submission-ready") || !manuscript.includes("Claims To Avoid Until Qwen 3B Completes")) {
+      errors.push(`${entry.name}: manuscript markdown must visibly warn against premature submission/claims.`);
+    }
+    if (Number(result.llm_budget?.openai_llm_calls) !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: manuscript draft must be zero actual cost.`);
     }
   }
 }

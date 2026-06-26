@@ -959,3 +959,13 @@ Reason: The project now has many result and comparison artifacts, but a paper dr
 Result: A manuscript can now be drafted against an evidence map that reports 10/12 readiness requirements passing, identifies the two missing Qwen 3B artifacts, and preserves the public-dated-KB caveat rather than claiming private-KB proof.
 
 Tradeoff: This is a paper-readiness and claim-control artifact, not a new empirical result. It does not replace the remote Qwen 3B smoke or the required grounded-correctness judge.
+
+### D117. Generate a conservative manuscript draft skeleton
+
+Decision: Add `grounded-qa-distillation-manuscript-draft.mjs`, materialize `manuscript-draft-2026-06-26-v1`, and validate the draft as a zero-cost not-submission-ready artifact.
+
+Reason: The evidence map makes claim boundaries explicit, but the project also needs an actual manuscript scaffold that can absorb the final Qwen 3B result once it exists. The draft generator reads the evidence map and readiness gate, then writes `manuscript.md`, `report.md`, and `result.json` with sections for introduction, task/protocol, data construction, experiments, related work, and limitations. It includes current scaffold-result tables and Qwen 3B TODO tables, but marks the abstract/final result as blocked and repeats the claims-to-avoid list. This makes zero OpenAI calls, launches no GPU jobs, and leaves total actual spend at $5.87832365 with $0 external compute.
+
+Result: The paper is easier to finish once the remote Qwen 3B smoke and judge artifacts exist, while the generated draft itself cannot be mistaken for a completed NeurIPS-ready manuscript.
+
+Tradeoff: This is writing infrastructure, not evidence of trained-student success. It should not be used to claim completion until the readiness gate passes and the final novelty audit is refreshed.
