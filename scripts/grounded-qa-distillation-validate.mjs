@@ -91,6 +91,7 @@ if (!errors.length) {
   await validateCostCoverageParetoRunsIfPresent();
   await validatePostTrainingPolicyAblationRunsIfPresent();
   await validateCoverageConstrainedFrontierRunsIfPresent();
+  await validateJointActionPacketQualityAuditRunsIfPresent();
 }
 
 async function validateFutureHoldoutsIfPresent() {
@@ -2446,6 +2447,60 @@ async function validateCoverageConstrainedFrontierRunsIfPresent() {
     }
     if (!Array.isArray(result.conclusions) || result.conclusions.length < 3) {
       errors.push(`${entry.name}: frontier must include conclusions.`);
+    }
+  }
+}
+
+async function validateJointActionPacketQualityAuditRunsIfPresent() {
+  const runsDir = path.join(experimentDir, "runs");
+  let entries = [];
+  try {
+    entries = await fs.readdir(runsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory() || !entry.name.startsWith("joint-action-packet-quality-audit-")) continue;
+    const resultPath = path.join(runsDir, entry.name, "result.json");
+    const reportPath = path.join(runsDir, entry.name, "report.md");
+    let result;
+    try {
+      result = JSON.parse(await fs.readFile(resultPath, "utf8"));
+      await fs.access(reportPath);
+    } catch {
+      errors.push(`${entry.name}: missing or malformed joint-action packet quality audit artifacts.`);
+      continue;
+    }
+    if (result.artifact_type !== "joint_action_packet_quality_audit") {
+      errors.push(`${entry.name}: unexpected artifact_type.`);
+    }
+    if (result.status !== "ready_for_bounded_qwen3b_smoke") {
+      errors.push(`${entry.name}: packet audit must pass before being used as launch evidence.`);
+    }
+    if (result.llm_budget?.openai_llm_calls !== 0 || Number(result.llm_budget?.openai_cost_usd) !== 0 || Number(result.llm_budget?.external_compute_cost_usd) !== 0) {
+      errors.push(`${entry.name}: packet quality audit must be zero-cost.`);
+    }
+    const checks = result.checks ?? [];
+    if (!Array.isArray(checks) || checks.length < 7) {
+      errors.push(`${entry.name}: expected packet quality checks.`);
+    }
+    for (const check of checks) {
+      if (check.status !== "pass") errors.push(`${entry.name}: check ${check.id} did not pass.`);
+    }
+    const sft = result.aggregate?.sft;
+    const dpo = result.aggregate?.dpo;
+    if (!sft || sft.grounded_answer_rows <= 0 || sft.abstain_rows <= 0 || sft.grounded_missing_inline_citation_rows !== 0) {
+      errors.push(`${entry.name}: malformed SFT aggregate.`);
+    }
+    if (!dpo || dpo.chosen_grounded_answer_rows <= 0 || dpo.chosen_abstain_rows <= 0 || dpo.rejected_grounded_answer_rows !== dpo.rows) {
+      errors.push(`${entry.name}: malformed DPO aggregate.`);
+    }
+    if (!result.coverage_frontier_context?.seventy_percent_operating_point || !result.coverage_frontier_context?.recommended_minimum) {
+      errors.push(`${entry.name}: missing coverage-frontier context.`);
+    }
+    if (!Array.isArray(result.aggregate?.train_eval_paper_overlap) || result.aggregate.train_eval_paper_overlap.length !== 0) {
+      errors.push(`${entry.name}: train/eval paper overlap must be empty.`);
     }
   }
 }

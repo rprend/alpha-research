@@ -20,6 +20,7 @@ const longcite = await readResult("longcite-style-citation-sft-comparison-2026-0
 const writeback = await readResult("writeback-kb-amortization-scoped-exclusion-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
+const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const qwenLaunch = await readResult("joint-action-launch-plan-prime-qwen3b-smoke-v1");
 const qwenRemote = await readResult("joint-action-remote-smoke-plan-joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1");
 const qwenPipeline = await readResult("qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1");
@@ -103,6 +104,16 @@ const result = {
       qwen3b_recommended_minimum: coverageFrontier.qwen3b_acceptance_target.recommended_minimum,
       interpretation: "The support/coverage tradeoff is binding; Qwen 3B should be compared against a 70% answer-rate frontier, not only against the low-coverage support-first gate.",
     },
+    joint_action_packet_quality: {
+      run_id: packetQualityAudit.run_id,
+      status: packetQualityAudit.status,
+      sft_rows: packetQualityAudit.aggregate.sft.rows,
+      dpo_rows: packetQualityAudit.aggregate.dpo.rows,
+      dpo_chosen_grounded_answer_rows: packetQualityAudit.aggregate.dpo.chosen_grounded_answer_rows,
+      dpo_chosen_abstain_rows: packetQualityAudit.aggregate.dpo.chosen_abstain_rows,
+      train_eval_paper_overlap: packetQualityAudit.aggregate.train_eval_paper_overlap.length,
+      interpretation: "The Qwen 3B packet passes a zero-cost pre-launch audit for repair/abstain preference coverage, inline citations, and train/eval paper separation.",
+    },
   },
   related_work_positioning: {
     drag_like: {
@@ -165,7 +176,7 @@ const result = {
     },
     {
       section: "Post-Training Data Construction",
-      evidence: ["teacher/repaired label exports", policyAblation.run_id, coverageFrontier.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
+      evidence: ["teacher/repaired label exports", policyAblation.run_id, coverageFrontier.run_id, packetQualityAudit.run_id, "support-contrast-prep-judge-support-direct-repair-0-320-to-321-389-v1", qwenLaunch.packet_run_id],
       current_status: "draftable",
     },
     {

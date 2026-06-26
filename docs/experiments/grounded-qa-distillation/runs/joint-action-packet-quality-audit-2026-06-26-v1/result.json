@@ -1,0 +1,203 @@
+{
+  "run_id": "joint-action-packet-quality-audit-2026-06-26-v1",
+  "generated_at": "2026-06-26T20:26:08.029Z",
+  "artifact_type": "joint_action_packet_quality_audit",
+  "status": "ready_for_bounded_qwen3b_smoke",
+  "packet_run_id": "joint-action-gpu-prep-qwen3b-support-contrast-0-320-to-321-389-v1",
+  "frontier_run_id": "coverage-constrained-support-frontier-2026-06-26-v1",
+  "purpose": "Audit whether the Qwen 3B joint-action training packet encodes the support-risk and answer/abstain supervision needed to beat the 70% coverage-constrained frontier.",
+  "packet_summary": {
+    "sft_train": 185,
+    "sft_validation": 59,
+    "dpo_train": 59,
+    "dpo_validation": 21,
+    "eval_prompts": 69,
+    "train_repair_or_abstain_rows": 59,
+    "validation_repair_or_abstain_rows": 21,
+    "dpo_chosen_grounded_train": 41,
+    "dpo_chosen_abstain_train": 18
+  },
+  "split_summary": {
+    "sft_train": {
+      "rows": 185,
+      "grounded_answer_rows": 167,
+      "abstain_rows": 18,
+      "grounded_missing_inline_citation_rows": 0,
+      "label_types": {
+        "supported_answer_sft": 126,
+        "repair_unsupported_answer_with_reference": 41,
+        "abstain_on_insufficient_evidence": 18
+      }
+    },
+    "sft_validation": {
+      "rows": 59,
+      "grounded_answer_rows": 53,
+      "abstain_rows": 6,
+      "grounded_missing_inline_citation_rows": 0,
+      "label_types": {
+        "supported_answer_sft": 38,
+        "repair_unsupported_answer_with_reference": 15,
+        "abstain_on_insufficient_evidence": 6
+      }
+    },
+    "dpo_train": {
+      "rows": 59,
+      "chosen_grounded_answer_rows": 41,
+      "chosen_abstain_rows": 18,
+      "rejected_grounded_answer_rows": 59,
+      "rejected_abstain_rows": 0,
+      "chosen_grounded_missing_inline_citation_rows": 0,
+      "label_types": {
+        "prefer_reference_repair_over_unsupported_answer": 41,
+        "prefer_abstention_over_unsupported_answer": 18
+      }
+    },
+    "dpo_validation": {
+      "rows": 21,
+      "chosen_grounded_answer_rows": 15,
+      "chosen_abstain_rows": 6,
+      "rejected_grounded_answer_rows": 21,
+      "rejected_abstain_rows": 0,
+      "chosen_grounded_missing_inline_citation_rows": 0,
+      "label_types": {
+        "prefer_reference_repair_over_unsupported_answer": 15,
+        "prefer_abstention_over_unsupported_answer": 6
+      }
+    },
+    "eval_prompts": {
+      "rows": 69,
+      "reference_grounded_answer_rows": 44,
+      "reference_abstain_rows": 25,
+      "papers": 12
+    }
+  },
+  "aggregate": {
+    "sft": {
+      "rows": 244,
+      "grounded_answer_rows": 220,
+      "abstain_rows": 24,
+      "grounded_missing_inline_citation_rows": 0,
+      "label_types": {
+        "supported_answer_sft": 164,
+        "repair_unsupported_answer_with_reference": 56,
+        "abstain_on_insufficient_evidence": 24
+      }
+    },
+    "dpo": {
+      "rows": 80,
+      "chosen_grounded_answer_rows": 56,
+      "chosen_abstain_rows": 24,
+      "rejected_grounded_answer_rows": 80,
+      "rejected_abstain_rows": 0,
+      "chosen_grounded_missing_inline_citation_rows": 0,
+      "label_types": {
+        "prefer_reference_repair_over_unsupported_answer": 56,
+        "prefer_abstention_over_unsupported_answer": 24
+      }
+    },
+    "train_papers": 50,
+    "validation_papers": 15,
+    "eval_papers": 12,
+    "train_eval_paper_overlap": [],
+    "validation_eval_paper_overlap": []
+  },
+  "coverage_frontier_context": {
+    "direct_baseline": {
+      "threshold": 0,
+      "answer_rate": 0.7903930131004366,
+      "answer_support_rate": 0.6519337016574586,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7248908296943232,
+      "answered": 181,
+      "abstained": 48,
+      "unsupported_answers": 63,
+      "unsupported_abstentions": 0
+    },
+    "seventy_percent_operating_point": {
+      "threshold": 0.55,
+      "answer_rate": 0.7205240174672489,
+      "answer_support_rate": 0.6848484848484848,
+      "abstention_support_rate": 1,
+      "overall_judged_correct_rate": 0.7729257641921398,
+      "answered": 165,
+      "abstained": 64,
+      "unsupported_answers": 52,
+      "unsupported_abstentions": 0
+    },
+    "support_first_gate_floor": {
+      "threshold": 0.65,
+      "answer_rate": 0.6026200873362445,
+      "answer_support_rate": 0.7318840579710145,
+      "abstention_support_rate": 0.9560439560439561,
+      "overall_judged_correct_rate": 0.8209606986899564,
+      "answered": 138,
+      "abstained": 91,
+      "unsupported_answers": 37,
+      "unsupported_abstentions": 4
+    },
+    "recommended_minimum": "Beat the direct baseline on answer support and overall judged correctness while keeping answer rate above 70%; if that is not possible, report the exact coverage/support frontier instead of claiming support-preserving distillation."
+  },
+  "checks": [
+    {
+      "id": "dataset_files_present",
+      "status": "pass",
+      "evidence": "All SFT/DPO/eval JSONL files are non-empty."
+    },
+    {
+      "id": "sft_has_grounded_and_abstain_targets",
+      "status": "pass",
+      "evidence": "SFT contains both grounded answers and abstentions."
+    },
+    {
+      "id": "dpo_has_repair_and_abstain_preferences",
+      "status": "pass",
+      "evidence": "DPO contains both repair/regenerate and abstain choices."
+    },
+    {
+      "id": "dpo_rejects_grounded_answers",
+      "status": "pass",
+      "evidence": "Every DPO rejected output is an attempted grounded answer."
+    },
+    {
+      "id": "grounded_targets_have_inline_citations",
+      "status": "pass",
+      "evidence": "Grounded chosen/SFT targets include inline citations."
+    },
+    {
+      "id": "train_eval_paper_disjoint",
+      "status": "pass",
+      "evidence": "Training rows share no papers with final eval prompts."
+    },
+    {
+      "id": "eval_matches_final_window",
+      "status": "pass",
+      "evidence": "Eval prompt count matches the final Qwen smoke window."
+    },
+    {
+      "id": "coverage_frontier_target_available",
+      "status": "pass",
+      "evidence": "Coverage-constrained acceptance target is available."
+    }
+  ],
+  "conclusions": [
+    "The packet is aligned with the new acceptance target if it contains both repair/regenerate and abstain supervision, not only citation-format SFT.",
+    "The DPO rows directly prefer supported reference repairs or abstentions over judged unsupported grounded answers, which targets the observed frontier failure mode.",
+    "The final smoke should still be treated as empirical evidence only after prediction integrity and grounded-correctness judging; this audit proves packet readiness, not model quality."
+  ],
+  "next_actions": [
+    "Use this audit as a pre-launch gate before spending GPU budget.",
+    "After Qwen 3B predictions exist, compare its answer rate/support/correctness against the direct baseline and 70% coverage-constrained frontier."
+  ],
+  "budget": {
+    "max_budget_usd": 100,
+    "actual_total_spend_usd": 5.8931000000000155,
+    "remaining_budget_usd": 94.10689999999998,
+    "external_compute_actual_usd": 0
+  },
+  "llm_budget": {
+    "openai_llm_calls": 0,
+    "openai_cost_usd": 0,
+    "external_compute_cost_usd": 0,
+    "note": "This audit reads local packet and frontier artifacts only."
+  }
+}

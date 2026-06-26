@@ -1,6 +1,6 @@
 {
   "run_id": "final-evidence-checklist-qwen3b-2026-06-26-v1",
-  "generated_at": "2026-06-26T20:21:47.832Z",
+  "generated_at": "2026-06-26T20:27:25.345Z",
   "artifact_type": "final_evidence_checklist",
   "status": "final_evidence_missing",
   "purpose": "Make the remaining Qwen 3B and paper-readiness evidence requirements executable and fail-closed before any NeurIPS-ready claim.",
@@ -29,7 +29,8 @@
     "judge_plan_run_id": "joint-action-judge-plan-joint-action-qwen3b-smoke-eval-v1",
     "integrity_gate_run_id": "qwen3b-prediction-integrity-gate-joint-action-qwen3b-smoke-eval-v1",
     "post_smoke_pipeline_run_id": "qwen3b-post-smoke-judge-pipeline-joint-action-qwen3b-smoke-eval-v1",
-    "abstention_boundary_audit_run_id": "abstention-boundary-reliability-audit-2026-06-26-v1"
+    "abstention_boundary_audit_run_id": "abstention-boundary-reliability-audit-2026-06-26-v1",
+    "packet_quality_audit_run_id": "joint-action-packet-quality-audit-2026-06-26-v1"
   },
   "expected_artifacts": {
     "predictions_jsonl": "docs/experiments/grounded-qa-distillation/runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
@@ -41,6 +42,12 @@
     "paid_judge_result_json": "docs/experiments/grounded-qa-distillation/runs/openai-judge-gpt4o-joint-action-qwen3b-smoke-eval-v1/result.json"
   },
   "acceptance_criteria": [
+    {
+      "id": "packet_quality_ready",
+      "requirement": "Qwen 3B joint-action packet passes support-risk, citation, DPO, and leakage checks.",
+      "status": "pass",
+      "evidence": "Current status: ready_for_bounded_qwen3b_smoke."
+    },
     {
       "id": "auth_and_pricing_verified",
       "requirement": "Prime/HF auth works and live GPU price keeps estimated total under $100.",

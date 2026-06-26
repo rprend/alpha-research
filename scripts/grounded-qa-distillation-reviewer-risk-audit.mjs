@@ -24,6 +24,7 @@ const abstentionReliability = await readResult("abstention-boundary-reliability-
 const costCoveragePareto = await readResult("cost-coverage-support-pareto-2026-06-26-v1");
 const policyAblation = await readResult("post-training-policy-ablation-2026-06-26-v1");
 const coverageFrontier = await readResult("coverage-constrained-support-frontier-2026-06-26-v1");
+const packetQualityAudit = await readResult("joint-action-packet-quality-audit-2026-06-26-v1");
 const primeCliAuthRecheck = await readResult("prime-cli-upgrade-auth-recheck-2026-06-26-v1");
 const finalEvidenceChecklist = await readResult("final-evidence-checklist-qwen3b-2026-06-26-v1");
 const budget = await readJson(path.join(experimentDir, "spend", "budget.json"));
@@ -37,10 +38,11 @@ const risks = [
     current_evidence: [
       readiness.run_id,
       remoteSmoke.run_id,
+      packetQualityAudit.run_id,
       finalEvidenceChecklist.run_id,
       evidenceMap.qwen3b_required_final_result.remote_smoke_plan_run_id,
     ],
-    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${finalEvidenceChecklist.run_id} now enumerates the exact final artifacts that must exist before this blocker can close.`,
+    mitigation_done: `The dataset packet, bounded GPU runner, adapter eval, smoke manifest, and budgeted launch command are prepared and validated. ${packetQualityAudit.run_id} verifies ${packetQualityAudit.aggregate.sft.rows} SFT rows and ${packetQualityAudit.aggregate.dpo.rows} DPO rows with both repair and abstain preferences, no missing inline citations in grounded targets, and no train/eval paper overlap. ${finalEvidenceChecklist.run_id} enumerates the exact final artifacts that must exist before this blocker can close.`,
     required_next_evidence: [
       "runs/joint-action-qwen3b-smoke-eval-v1/predictions.jsonl",
       "runs/joint-action-qwen3b-smoke-eval-v1/result.json",

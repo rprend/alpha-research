@@ -1099,3 +1099,13 @@ Reason: The policy ablation showed support-risk gating is the best current direc
 Result: The direct baseline answers 79.0% of rows with 65.2% answer support and 72.5% overall judged correctness. The best 70% answer-rate operating point is threshold `0.55`, answering 72.1% of rows with 68.5% answer support and 77.3% judged correctness. The support-first `0.65` threshold reaches 82.1% judged correctness, but answers only 60.3% of rows. The Qwen 3B joint-action student should therefore be judged against both the direct baseline and the 70% coverage-constrained frontier.
 
 Tradeoff: This is an inherited-judgment replay, not a fresh judge pass. It is appropriate for setting acceptance targets and reviewer-risk controls, but it does not replace the missing Qwen 3B training run or final paid grounded-correctness evaluation. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
+
+### D131. Add a Qwen 3B joint-action packet quality audit
+
+Decision: Add `grounded-qa-distillation-joint-action-packet-quality-audit.mjs`, materialize `joint-action-packet-quality-audit-2026-06-26-v1`, validate it, and wire it into the final-evidence checklist, manuscript evidence map, and reviewer-risk audit.
+
+Reason: Before spending any GPU budget, the paper-critical Qwen 3B packet needed an explicit pre-launch audit tied to the new 70% coverage-constrained frontier. The packet should not merely contain citation-format SFT rows; it must encode both supported answer repair/regeneration and abstention preferences over judged unsupported answers, while preserving final-window paper separation.
+
+Result: The audit passes. It verifies 244 SFT rows and 80 DPO rows; SFT includes 220 grounded-answer targets and 24 abstentions; DPO includes 56 chosen grounded repairs and 24 chosen abstentions; all 80 rejected DPO outputs are grounded answers; grounded chosen/SFT targets have no missing inline citations; and train/eval paper overlap is zero. The final-evidence checklist now has a passed `packet_quality_ready` criterion, while auth/pricing, smoke artifacts, integrity, dry judge, paid judge, Pareto update, manuscript regeneration, and final novelty refresh remain failing until the actual Qwen 3B run exists.
+
+Tradeoff: This proves launch readiness of the packet, not model quality. It does not remove the Prime/HF auth blocker and does not justify any trained-student claim. This made zero OpenAI calls, launched no GPU jobs, and leaves actual spend at `$5.8931`.
