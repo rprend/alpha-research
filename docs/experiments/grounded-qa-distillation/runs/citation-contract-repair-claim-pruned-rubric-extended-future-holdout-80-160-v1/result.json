@@ -1,0 +1,33 @@
+{
+  "run_id": "citation-contract-repair-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+  "generated_at": "2026-06-26T08:24:32.514Z",
+  "split": "extended_temporal_future_holdout",
+  "source_run_id": "openai-student-claim-pruned-rubric-extended-future-holdout-80-160-v1",
+  "eval_offset": 80,
+  "eval_examples": 80,
+  "predictions_seen": 80,
+  "scaffold": "citation_contract_repair",
+  "calls_made": 0,
+  "run_cost_usd": 0,
+  "metrics": {
+    "examples": 80,
+    "answered": 57,
+    "abstained": 23,
+    "answer_type_accuracy": 0.85,
+    "citation_precision": 0.6929824561403509,
+    "citation_recall": 0.6274509803921569,
+    "answer_token_f1": 0.23655659178485955,
+    "abstention_accuracy": 0.85,
+    "inline_citation_rate": 1
+  },
+  "repair_summary": {
+    "answered": 57,
+    "rows_changed": 2,
+    "missing_inline_citations_before": 2,
+    "repaired_inline_citations": 2
+  },
+  "interpretation": {
+    "cost_change": "No additional LLM calls. This is a local output-contract repair over an existing direct student run.",
+    "limitation": "The repair only enforces that cited ids appear inline in the answer. It does not change which evidence ids are cited or whether claims are actually supported."
+  }
+}

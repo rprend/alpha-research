@@ -25,8 +25,9 @@ const answerabilityCoverageFloor = numericArg(args["answerability-coverage-floor
 const includeRecovery = args["include-recovery"] === "true" || args["recovery-run"] || args["recovery-eval-run"];
 const runId = args["run-id"] ?? `verifier-selector-${split}-${trainOffset}-${evalOffset}-v1`;
 const outputDir = path.join(runDir, runId);
+const requestedPolicySet = listArg(args["policy-set"]);
 
-const policies = {
+const basePolicies = {
   direct: {
     predictionRun: args["direct-run"] ?? "openai-student-temporal-test-full-v1",
     judgeRun: args["direct-judge-run"] ?? "openai-judge-student-temporal-test-full-v1",
@@ -54,12 +55,24 @@ const policies = {
 };
 
 if (includeRecovery) {
-  policies.answer_recovery = {
+  basePolicies.answer_recovery = {
     predictionRun: args["recovery-run"] ?? "citation-contract-repair-answer-recovery-temporal-test-80-132-v1",
     judgeRun: args["recovery-judge-run"] ?? "openai-judge-citation-contract-repair-answer-recovery-temporal-test-80-132-v1",
     evalPredictionRun: args["recovery-eval-run"] ?? "citation-contract-repair-answer-recovery-temporal-test-132-172-v1",
     evalJudgeRun: args["recovery-eval-judge-run"] ?? "openai-judge-citation-contract-repair-answer-recovery-temporal-test-132-172-v1",
   };
+}
+
+const policies = requestedPolicySet.length
+  ? Object.fromEntries(requestedPolicySet.map((policy) => [policy, basePolicies[policy]]).filter(([, config]) => config))
+  : basePolicies;
+
+const missingPolicies = requestedPolicySet.filter((policy) => !basePolicies[policy]);
+if (missingPolicies.length) {
+  throw new Error(`Unknown policies in --policy-set: ${missingPolicies.join(", ")}`);
+}
+if (Object.keys(policies).length < 2) {
+  throw new Error("Verifier selector requires at least two candidate policies.");
 }
 
 await fs.mkdir(outputDir, { recursive: true });
@@ -801,6 +814,14 @@ function numericArg(value, fallback) {
   if (value == null) return fallback;
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function listArg(value) {
+  if (!value) return [];
+  return String(value)
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
 
 function parseArgs(values) {

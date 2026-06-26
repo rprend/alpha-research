@@ -274,6 +274,20 @@ The first bounded run on `extended_temporal_future_holdout` compares direct mini
 
 This is a negative result for static rubric distillation on the paper-disjoint future holdout. The rubric transfers output-format discipline but does not improve support, and it loses answer quality versus direct mini. The next future-holdout experiment should use a trained/fitted student or verifier rather than a prompt summary of the label packet.
 
+### Disjoint Future-Holdout Selector Check
+
+HF Jobs could not launch the prepared Qwen 0.5B LoRA job because the account returned `402 Payment Required` for insufficient prepaid Jobs credits. As the next available fitted-object test, I trained a zero-call selector on the first future-holdout window and evaluated on a disjoint second window.
+
+Train window: `extended_temporal_future_holdout` examples 1-80. Eval window: examples 81-160. Candidate generation and judging for the second window added 320 ledgered OpenAI calls and $0.341271.
+
+| Policy | Answered | Answer-type acc. | Citation precision | Citation recall | Answer F1 | Inline citation rate | GPT-4o answer support | GPT-4o overall judged correct | Incremental cost |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Direct mini + citation repair | 58 | 86.3% | 69.0% | 73.0% | 23.9% | 100.0% | 70.7% | 78.8% | $0.0168663 + $0.1547150 |
+| Claim-pruned rubric + citation repair | 57 | 85.0% | 69.3% | 62.7% | 23.7% | 100.0% | 61.4% | 72.5% | $0.0199197 + $0.1497700 |
+| Two-policy learned selector | 56 | 88.8% | 70.5% | 73.0% | 24.6% | 100.0% | inherited | 77.5% inherited | $0 after candidate labels |
+
+The selector chooses direct mini on 71 examples and the balanced rubric on 9. It slightly improves answer-type accuracy and answer F1 versus direct-only, but it loses stronger-judged correctness. The oracle target-good rate over this two-policy candidate pool is only 78.75%, so the current pool has little routing headroom. This rejects the two-policy future-holdout selector as the fitted verifier.
+
 ## Teacher-Label Rubric Scaffold
 
 `openai-student-teacher-rubric-temporal-test-132-172-v1` distills the 109 strict teacher labels into a compact static rubric: prefer abstention without directly answering evidence, use one or two citations for most answers, require every cited id to appear inline, and keep claim tables short. It uses no per-query demonstrations and no teacher calls at inference time.
