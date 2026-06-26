@@ -76,8 +76,8 @@
     },
     {
       "path": "DATASET_CARD.md",
-      "bytes": 24012,
-      "sha256": "167dcffe61088f99be84bbb7e1f20eb40dd6630b5b07a907a175341373b4ad5f"
+      "bytes": 24297,
+      "sha256": "f7117aaf5cb38612b44cd0ceb87bef387cdbd88e521a46e42a3d92b285f1718d"
     },
     {
       "path": "DATA_STATEMENT.md",
@@ -181,8 +181,8 @@
     },
     {
       "path": "NOVELTY_REPLACEMENT_CANDIDATES.md",
-      "bytes": 2459,
-      "sha256": "447d0c2794ad6b25269c01709f52aca181ce8ecd904d092303974a6b61d1b0d9"
+      "bytes": 2434,
+      "sha256": "5d1c92d0c588c7e143b20326f530d393bcfb24cbbbe9b06b9246df32f7d27e56"
     },
     {
       "path": "PUBLIC_PACKAGE_SCHEMA.md",
@@ -196,8 +196,8 @@
     },
     {
       "path": "PAPER_DRAFT.md",
-      "bytes": 52380,
-      "sha256": "77bef71417361f5f75786ed4ddbd9c410925da759a9fda09fb8c7bd7939a003f"
+      "bytes": 52883,
+      "sha256": "5c9cca5cecefbc5f5ff30bd9ef8501999ec5d38b403e191d42772abac3be7381"
     },
     {
       "path": "generated/pilot-suite.json",
@@ -292,7 +292,7 @@
     {
       "path": "generated/reproduction-capsule.json",
       "bytes": 13008,
-      "sha256": "2344a3563a80158984bdb05449b991f36399a693535559be3bf2a8ae94f4d81d"
+      "sha256": "8fbe7e9a404e4f6ba06f020ae7ec6b74f6308533aaed74a3cca312b24b9a6469"
     },
     {
       "path": "generated/citation-metadata.json",
@@ -346,8 +346,8 @@
     },
     {
       "path": "generated/novelty-replacement-candidates.json",
-      "bytes": 5827,
-      "sha256": "f02f4afb820c8266f61ffa0f6cfaba800d73f0b90647598674af383cb965b6f9"
+      "bytes": 5834,
+      "sha256": "f85ea160d6322046a5723958d196b9dc283b1978a29e18b9d216f42d3cc72e4f"
     },
     {
       "path": "generated/paper-claim-ledger.json",
@@ -357,7 +357,7 @@
   ],
   "summary": {
     "artifact_count": 59,
-    "total_bytes": 727586,
+    "total_bytes": 728356,
     "release_blockers": 7,
     "completion_claim_allowed": false
   }

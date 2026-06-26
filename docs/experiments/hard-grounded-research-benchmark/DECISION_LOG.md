@@ -1047,3 +1047,11 @@ Decision: Generate verified related-work replacement candidates for quarantined 
 Rationale: The link audit correctly blocks final novelty on invalid or unverified URLs, but reviewers need a concrete path from quarantine to adjudication. A replacement-candidate report should map each quarantined source to verified or explicitly caveated primary-source candidates before claim-boundary revisions can be finalized.
 
 Consequence: `scripts/hard-grounded-research-novelty-replacement-candidates.mjs` emits `generated/novelty-replacement-candidates.json` and `NOVELTY_REPLACEMENT_CANDIDATES.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the candidates while final novelty and completion claims remain blocked until reviewers adjudicate overlap.
+
+## 2026-06-26 — Verify novelty replacement primary sources
+
+Decision: Correct and verify the primary-source URLs for novelty replacement candidates.
+
+Rationale: The previous replacement-candidate report preserved one title conflict because the ConFiQA/Context-DPO and LegalBench-RAG URLs were conflated. Final related-work review needs candidate records whose titles and arXiv IDs match before reviewers can adjudicate overlap rather than cleaning bibliographic errors.
+
+Consequence: `scripts/hard-grounded-research-novelty-replacement-candidates.mjs` now records Context-DPO at `2412.15280` and LegalBench-RAG at `2408.10343`, reducing replacement-candidate title conflicts to zero while final novelty and completion claims remain blocked until source-overlap review is complete.

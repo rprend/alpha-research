@@ -499,7 +499,7 @@
     {
       "id": "novelty_replacement_candidates_ready",
       "passed": true,
-      "detail": "novelty-replacement-candidates-v1; candidates=6; verified=5; covered_quarantined=4",
+      "detail": "novelty-replacement-candidates-v1; candidates=6; verified=6; covered_quarantined=4",
       "blocker": "Generate verified replacement candidates for quarantined novelty sources before final related-work adjudication."
     },
     {
@@ -577,7 +577,7 @@
     {
       "id": "version_manifest_ready",
       "passed": true,
-      "detail": "version-manifest-v1; artifacts=59; blockers=7; bytes=727265",
+      "detail": "version-manifest-v1; artifacts=59; blockers=7; bytes=728356",
       "blocker": "Generate a checksum-backed version manifest before publishing a reproducible benchmark package."
     },
     {

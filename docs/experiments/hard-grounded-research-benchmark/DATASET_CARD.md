@@ -183,7 +183,7 @@ The generated novelty claim revision plan maps those packets into 4 manuscript r
 
 The generated novelty link audit quarantines 4/4 unresolved related-work links whose recorded URL is missing, mismatched, or not verified as a primary source. See `NOVELTY_LINK_AUDIT.md`.
 
-The generated novelty replacement-candidate report maps quarantined sources to 6 related-work candidates, including 5 verified title matches and 1 explicitly caveated title conflict. See `NOVELTY_REPLACEMENT_CANDIDATES.md`.
+The generated novelty replacement-candidate report maps quarantined sources to 6 related-work candidates, including 6 verified title matches and 0 explicitly caveated title conflict. See `NOVELTY_REPLACEMENT_CANDIDATES.md`.
 
 ## Paper Claim Ledger
 
@@ -300,7 +300,7 @@ Key release checks:
 - Source acquisition review preflight: pass - 0/492 review rows complete; preflight_ready=false
 - Construct map: pass - 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5
 - Artifact checklist: pass - 45/45 artifact classes ready; reproduction_commands=50; release_blockers=7
-- Version manifest: pass - version-manifest-v1; artifacts=59; blockers=7; bytes=727265
+- Version manifest: pass - version-manifest-v1; artifacts=59; blockers=7; bytes=728356
 - Threats to validity: pass - 8 threats tracked; high_severity=3; completion_claim_allowed=false
 - Failure atlas: pass - 116 failure cases; 8 failure modes; systems=5
 - Error codebook: pass - error-codebook-v1; codes=8; categories=10; observed_cases=116

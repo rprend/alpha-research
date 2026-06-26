@@ -65,8 +65,8 @@
     },
     {
       "id": "confiqua-context-dpo-2024",
-      "title": "ConFiQA and Context-DPO: Controlling Hallucination in Question Answering",
-      "url": "https://arxiv.org/abs/2408.10343",
+      "title": "Context-DPO: Aligning Language Models for Context-Faithfulness",
+      "url": "https://arxiv.org/abs/2412.15280",
       "primary_source_status": "verified_title_match",
       "replaces_or_supplements": [
         "faithjudge-2026"
@@ -82,7 +82,7 @@
       "id": "legalbench-rag-2024",
       "title": "LegalBench-RAG: A Benchmark for Retrieval-Augmented Generation in the Legal Domain",
       "url": "https://arxiv.org/abs/2408.10343",
-      "primary_source_status": "candidate_title_conflict",
+      "primary_source_status": "verified_title_match",
       "replaces_or_supplements": [
         "dora-2026"
       ],
@@ -90,8 +90,8 @@
         "source authority conflicts",
         "large-corpus research QA"
       ],
-      "audit_role": "Use only after primary-source URL correction; current URL collides with ConFiQA search result and must not be cited as verified.",
-      "required_review": "Find and verify the primary source before using this as a domain-RAG comparator."
+      "audit_role": "Use as a verified legal-domain RAG comparator for domain-specific QA and source-grounded citation behavior.",
+      "required_review": "Determine whether legal-domain citation retrieval overlaps source-authority conflict tasks or remains domain-specific RAG."
     },
     {
       "id": "finegrained-rag-2026",
@@ -128,8 +128,8 @@
   "summary": {
     "quarantined_sources": 4,
     "candidates": 6,
-    "verified_title_match_candidates": 5,
-    "candidate_title_conflicts": 1,
+    "verified_title_match_candidates": 6,
+    "candidate_title_conflicts": 0,
     "covered_quarantined_sources": 4,
     "final_novelty_claim_allowed": false,
     "completion_claim_allowed": false

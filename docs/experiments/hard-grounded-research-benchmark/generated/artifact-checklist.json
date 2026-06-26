@@ -336,7 +336,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=59; bytes=727265.",
+      "evidence": "version-manifest-v1; artifacts=59; bytes=728356.",
       "blockers": []
     },
     {
@@ -371,7 +371,7 @@
       "id": "novelty_replacement_candidates",
       "status": "ready",
       "ready": true,
-      "evidence": "novelty-replacement-candidates-v1; candidates=6; verified=5; covered quarantined=4.",
+      "evidence": "novelty-replacement-candidates-v1; candidates=6; verified=6; covered quarantined=4.",
       "blockers": []
     },
     {

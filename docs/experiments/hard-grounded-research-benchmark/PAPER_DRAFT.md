@@ -251,7 +251,7 @@ The paper target is 30 double-reviewed items per category (300 total). The curre
 
 The generated artifact checklist records 50 reproduction commands and 45/45 ready artifact classes. It also carries the release blockers into the manuscript surface, so the paper cannot imply completion while the release gate remains `blocked`.
 
-The generated version manifest records SHA-256 digests for 59 package-critical artifacts totaling 727586 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
+The generated version manifest records SHA-256 digests for 59 package-critical artifacts totaling 728356 bytes. A submitted manuscript should cite `VERSION_MANIFEST.md` and `generated/version-manifest.json` so reviewers can identify the exact benchmark state behind the tables and claims.
 
 The generated reproduction capsule `reproduction-capsule-v1` records 50 reproduction commands, 3 validation commands, 59 artifact hashes, and 7 expected release blockers. It is the reviewer start-here artifact for reproducing the current package state.
 
@@ -313,12 +313,12 @@ The generated scale adjudication plan makes the category-scale blocker batch-lev
 | reviewer_faq | ready | reviewer-faq-v1; questions=6; prohibited claims=3. |
 | responsible_use | ready | 6 policy rules; active restrictions=2; public leaderboard allowed=false. |
 | data_statement | ready | data-statement-v1; source datasets=6; scaled items=270; pointer-only items=15. |
-| version_manifest | ready | version-manifest-v1; artifacts=59; bytes=727265. |
+| version_manifest | ready | version-manifest-v1; artifacts=59; bytes=728356. |
 | novelty_finalization_preflight | ready | novelty-finalization-preflight-v1; unresolved=4; high-risk unresolved=1; final allowed=false. |
 | novelty_source_review_packets | ready | novelty-source-review-packets-v1; packets=4; high-risk=1; final allowed=false. |
 | novelty_claim_revision_plan | ready | novelty-claim-revision-plan-v1; revisions=4; high-risk=1; linked claims=3. |
 | novelty_link_audit | ready | novelty-link-audit-v1; checked=4; quarantined=4; title mismatches=1. |
-| novelty_replacement_candidates | ready | novelty-replacement-candidates-v1; candidates=6; verified=5; covered quarantined=4. |
+| novelty_replacement_candidates | ready | novelty-replacement-candidates-v1; candidates=6; verified=6; covered quarantined=4. |
 | novelty_and_claim_boundaries | ready | 22 related-work sources; 4 watchlist sources; 4 unresolved watchlist sources; 4 claim revisions; 4 quarantined source links; 6 replacement candidates; 5 prohibited claims; refresh queries=4. |
 
 ## Threats To Validity
@@ -458,7 +458,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | novelty_source_review_packets_ready | yes | novelty-source-review-packets-v1; packets=4; high_risk=1; final_allowed=false |
 | novelty_claim_revision_plan_ready | yes | novelty-claim-revision-plan-v1; revisions=4; high_risk=1; linked_claims=3 |
 | novelty_link_audit_ready | yes | novelty-link-audit-v1; checked=4; quarantined=4; title_mismatches=1 |
-| novelty_replacement_candidates_ready | yes | novelty-replacement-candidates-v1; candidates=6; verified=5; covered_quarantined=4 |
+| novelty_replacement_candidates_ready | yes | novelty-replacement-candidates-v1; candidates=6; verified=6; covered_quarantined=4 |
 | corpus_audit_ready | yes | 6 source datasets; 270 scaled public items; 891 scaled evidence units; pointer_only=108 |
 | source_diversity_plan_ready | yes | 15/300 target source rows; deficit=246 |
 | source_acquisition_manifest_ready | yes | 17 batches; target_rows=246; known_license_rows=174 |
@@ -471,7 +471,7 @@ These checks prove the mechanics around review handoff, import, merge, and gold-
 | source_acquisition_review_preflight_report_ready | yes | 0/492 review rows complete; preflight_ready=false |
 | construct_map_ready | yes | 10/10 constructs mapped; reviewed_gold_constructs=0; high_risk=5 |
 | artifact_checklist_ready | yes | 45/45 artifact classes ready; reproduction_commands=50; release_blockers=7 |
-| version_manifest_ready | yes | version-manifest-v1; artifacts=59; blockers=7; bytes=727265 |
+| version_manifest_ready | yes | version-manifest-v1; artifacts=59; blockers=7; bytes=728356 |
 | threats_validity_ready | yes | 8 threats tracked; high_severity=3; completion_claim_allowed=false |
 
 ## Novelty Position
@@ -500,7 +500,7 @@ The generated novelty claim revision plan maps the unresolved packets to 4 manus
 
 The generated novelty link audit currently quarantines 4/4 unresolved related-work links because the recorded URL is missing, mismatched, or not verified as a primary source. These quarantines must be cleared before the related-work review can support a final novelty claim.
 
-The generated novelty replacement-candidate report supplies 6 primary-source candidates for those quarantined links, including 5 verified title matches and 1 source that remains explicitly caveated before citation.
+The generated novelty replacement-candidate report supplies 6 primary-source candidates for those quarantined links, including 6 verified title matches and 0 source that remains explicitly caveated before citation.
 
 | Paper claim | Status | Reason |
 | --- | --- | --- |

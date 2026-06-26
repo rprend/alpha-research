@@ -9,8 +9,8 @@ This generated report lists verified or explicitly caveated related-work candida
 - Date checked: 2026-06-26
 - Quarantined sources: 4
 - Candidates: 6
-- Verified title-match candidates: 5
-- Candidate title conflicts: 1
+- Verified title-match candidates: 6
+- Candidate title conflicts: 0
 - Covered quarantined sources: 4
 - Final novelty claim allowed: false
 - Completion claim allowed: false
@@ -30,7 +30,7 @@ This generated report lists verified or explicitly caveated related-work candida
 | --- | --- | --- | --- | --- |
 | faithfulness-qa-2026-verified | verified_title_match | faithfulness-qa-2026 | https://arxiv.org/abs/2604.25313 | Replace the mismatched Faithfulness-QA URL before claim revision or citation. |
 | faitheval-2024 | verified_title_match | faithjudge-2026 | https://arxiv.org/abs/2410.03727 | Use as a verified faithfulness/noisy-context adjacent benchmark if FaithJudge remains unverified. |
-| confiqua-context-dpo-2024 | verified_title_match | faithjudge-2026 | https://arxiv.org/abs/2408.10343 | Use as a verified QA hallucination-control comparator for abstention and unsupported-answer claims. |
-| legalbench-rag-2024 | candidate_title_conflict | dora-2026 | https://arxiv.org/abs/2408.10343 | Use only after primary-source URL correction; current URL collides with ConFiQA search result and must not be cited as verified. |
+| confiqua-context-dpo-2024 | verified_title_match | faithjudge-2026 | https://arxiv.org/abs/2412.15280 | Use as a verified QA hallucination-control comparator for abstention and unsupported-answer claims. |
+| legalbench-rag-2024 | verified_title_match | dora-2026 | https://arxiv.org/abs/2408.10343 | Use as a verified legal-domain RAG comparator for domain-specific QA and source-grounded citation behavior. |
 | finegrained-rag-2026 | verified_title_match | hierarag-2026 | https://arxiv.org/abs/2605.07471 | Use as a verified generic/fine-grained RAG benchmark comparator before making taxonomy novelty claims. |
 | grace-2026 | verified_title_match | hierarag-2026 | https://arxiv.org/abs/2606.11418 | Use as a verified contextual-reasoning RAG comparator before finalizing hard-grounded reasoning novelty claims. |
