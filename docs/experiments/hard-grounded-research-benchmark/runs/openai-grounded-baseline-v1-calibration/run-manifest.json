@@ -1,0 +1,13 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "openai-grounded-baseline-v1",
+  "evaluation_source": "calibration-suite",
+  "model": "gpt-5.5",
+  "base_url": "https://api.openai.com/v1",
+  "suite_path": "docs/experiments/hard-grounded-research-benchmark/generated/calibration-suite.json",
+  "prompt_packet": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1-calibration/prompt-packet.jsonl",
+  "prompt_count": 30,
+  "default_mode": "dry_run",
+  "run_requested": false,
+  "api_key_present": false
+}

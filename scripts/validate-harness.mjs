@@ -38,6 +38,7 @@ const requiredPackageScripts = [
   'benchmark:hard-grounded:lexical',
   'benchmark:hard-grounded:verify-citations',
   'benchmark:hard-grounded:openai',
+  'benchmark:hard-grounded:openai:calibration',
   'benchmark:hard-grounded:report',
   'benchmark:hard-grounded:audit',
   'smoke:infra:live',
@@ -163,6 +164,10 @@ assert(
   'Missing hard grounded research citation-aware verifier baseline.',
 )
 assert(existsSync(join(root, 'scripts/hard-grounded-research-openai-baseline.mjs')), 'Missing hard grounded research OpenAI baseline.')
+const openAiBaselineSource = readFileSync(join(root, 'scripts/hard-grounded-research-openai-baseline.mjs'), 'utf8')
+for (const token of ['--calibration', '--gold', 'calibration-suite.json', 'gold-suite.json']) {
+  assert(openAiBaselineSource.includes(token), `Hard grounded OpenAI baseline is missing source-aware token: ${token}`)
+}
 assert(existsSync(join(root, 'scripts/hard-grounded-research-report.mjs')), 'Missing hard grounded research baseline report builder.')
 assert(existsSync(join(root, 'scripts/hard-grounded-research-quality-audit.mjs')), 'Missing hard grounded research item quality audit.')
 assert(
@@ -232,6 +237,10 @@ assert(
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/prompt-packet.jsonl')),
   'Missing hard grounded research OpenAI prompt packet.',
+)
+assert(
+  existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1-calibration/prompt-packet.jsonl')),
+  'Missing hard grounded research OpenAI calibration prompt packet.',
 )
 assert(
   existsSync(join(root, 'docs/experiments/hard-grounded-research-benchmark/BASELINE_ANALYSIS.md')),

@@ -7,7 +7,8 @@
       "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json"
     ],
     "gold_summary": "docs/experiments/hard-grounded-research-benchmark/generated/gold-suite-summary.json",
-    "openai_manifest": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/run-manifest.json"
+    "openai_manifest": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/run-manifest.json",
+    "openai_calibration_manifest": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1-calibration/run-manifest.json"
   },
   "gold_readiness": {
     "gold_ready": false,
@@ -19,7 +20,10 @@
     "openai_prompt_count": 30,
     "openai_default_mode": "dry_run",
     "openai_run_requested": false,
-    "openai_scored_report_present": false
+    "openai_scored_report_present": false,
+    "openai_calibration_prompt_count": 30,
+    "openai_calibration_run_requested": false,
+    "openai_calibration_scored_report_present": false
   },
   "failure_analysis": {
     "system_id": "lexical-evidence-baseline-v1",

@@ -151,3 +151,11 @@ Decision: Add a mechanically labeled calibration suite that reuses the future go
 Rationale: The benchmark needs end-to-end gold-style scoring before human adjudication is complete, but publishing machine-derived labels as gold would corrupt the paper claim. A provisional calibration suite exercises final-answer and required-citation scoring while preserving the all-reviewed gold gate.
 
 Consequence: `benchmark:hard-grounded:calibrate` now emits `generated/calibration-suite.json` and `calibration-suite-summary.json`, and `hard-grounded-research-evaluate.mjs --calibration` scores against those provisional labels without overwriting pilot baseline artifacts.
+
+## 2026-06-26 — Make model baselines source-aware
+
+Decision: Make the OpenAI-compatible baseline runner choose among pilot, provisional calibration, and future gold suites with separate output directories and matching evaluator flags.
+
+Rationale: Paper tables need model baselines over the same label source being reported. A pilot-only model harness would force manual rewiring once calibration or adjudicated gold is available.
+
+Consequence: `benchmark:hard-grounded:openai:calibration` now emits an auditable calibration prompt packet under `runs/openai-grounded-baseline-v1-calibration/`, while `--gold` is already wired to score future reviewed gold without changing code.

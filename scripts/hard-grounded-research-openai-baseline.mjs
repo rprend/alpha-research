@@ -6,7 +6,18 @@ const root = process.cwd()
 const experimentDir = join(root, 'docs/experiments/hard-grounded-research-benchmark')
 const generatedDir = join(experimentDir, 'generated')
 const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
-const outputDir = join(experimentDir, 'runs/openai-grounded-baseline-v1')
+const calibrationSuitePath = join(generatedDir, 'calibration-suite.json')
+const goldSuitePath = join(generatedDir, 'gold-suite.json')
+const useCalibration = process.argv.includes('--calibration')
+const useGold = process.argv.includes('--gold')
+if (useCalibration && useGold) throw new Error('Use only one OpenAI baseline source: --calibration or --gold.')
+const evaluationSource = useGold ? 'gold-suite' : useCalibration ? 'calibration-suite' : 'pilot-suite'
+const suitePath = useGold ? goldSuitePath : useCalibration ? calibrationSuitePath : pilotSuitePath
+const outputDir = join(
+  experimentDir,
+  'runs',
+  useGold ? 'openai-grounded-baseline-v1-gold' : useCalibration ? 'openai-grounded-baseline-v1-calibration' : 'openai-grounded-baseline-v1',
+)
 const promptPacketPath = join(outputDir, 'prompt-packet.jsonl')
 const runManifestPath = join(outputDir, 'run-manifest.json')
 const submissionPath = join(outputDir, 'submission.json')
@@ -31,7 +42,8 @@ function writeJsonl(path, rows) {
 }
 
 function evidenceUnits(item) {
-  return item.source_examples.flatMap((source) => source.evidence_units || [])
+  if (Array.isArray(item.evidence_units)) return item.evidence_units
+  return (item.source_examples || []).flatMap((source) => source.evidence_units || [])
 }
 
 function buildPrompt(item) {
@@ -42,9 +54,10 @@ function buildPrompt(item) {
     text: unit.text,
   }))
   return {
-    task_id: item.id,
+    task_id: item.id || item.task_id,
     category: item.category,
     challenge_type: item.challenge?.type || 'native_row',
+    evaluation_source: evaluationSource,
     system:
       'You are evaluating a grounded research QA benchmark. Use only the supplied evidence. Return strict JSON and do not include markdown.',
     user: {
@@ -136,15 +149,22 @@ async function callResponsesApi(prompt) {
   return parseAnswer(prompt.task_id, text)
 }
 
-const pilotSuite = readJson(pilotSuitePath)
-const prompts = pilotSuite.items.map(buildPrompt)
+if (!existsSync(suitePath)) {
+  throw new Error(`Missing ${evaluationSource}: ${suitePath}`)
+}
+
+const suite = readJson(suitePath)
+const tasks = suite.task_examples || suite.items
+const prompts = tasks.map(buildPrompt)
 writeJsonl(promptPacketPath, prompts)
 
 const manifest = {
   benchmark_id: 'hard-grounded-research-benchmark',
   system_id: 'openai-grounded-baseline-v1',
+  evaluation_source: evaluationSource,
   model,
   base_url: baseUrl,
+  suite_path: relative(root, suitePath),
   prompt_packet: relative(root, promptPacketPath),
   prompt_count: prompts.length,
   default_mode: 'dry_run',
@@ -178,7 +198,12 @@ writeJson(submissionPath, {
 
 const scorer = spawnSync(
   process.execPath,
-  ['scripts/hard-grounded-research-evaluate.mjs', `--submission=${relative(root, submissionPath)}`, `--report=${relative(root, reportPath)}`],
+  [
+    'scripts/hard-grounded-research-evaluate.mjs',
+    ...(useGold ? ['--gold'] : useCalibration ? ['--calibration'] : []),
+    `--submission=${relative(root, submissionPath)}`,
+    `--report=${relative(root, reportPath)}`,
+  ],
   {
     cwd: root,
     encoding: 'utf8',

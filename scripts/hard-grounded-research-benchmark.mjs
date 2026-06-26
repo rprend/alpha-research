@@ -751,6 +751,7 @@ ${matrixLines}
 - \`runs/lexical-evidence-baseline-v1/submission.json\` and \`runs/lexical-evidence-baseline-v1/report.json\`: non-oracle lexical evidence baseline that does not read gold answers.
 - \`runs/citation-aware-verifier-v1/submission.json\` and \`runs/citation-aware-verifier-v1/report.json\`: non-oracle verifier baseline that abstains when selected citations do not support the answer.
 - \`runs/openai-grounded-baseline-v1/prompt-packet.jsonl\`: dry-run prompt packet for an auditable OpenAI-compatible model baseline; scored reports are emitted only when run with \`--run\`.
+- \`runs/openai-grounded-baseline-v1-calibration/prompt-packet.jsonl\`: dry-run prompt packet for the same model baseline against provisional calibration labels.
 - \`BASELINE_ANALYSIS.md\` and \`generated/baseline-analysis.json\`: reproducible pilot results and failure-analysis summary across scored runs, gold readiness, and model-baseline readiness.
 - \`ITEM_QUALITY_AUDIT.md\` and \`generated/item-quality-audit.json\`: pre-adjudication item repair queue for machine-seeded pilot examples.
 
@@ -765,6 +766,7 @@ pnpm run benchmark:hard-grounded:run
 pnpm run benchmark:hard-grounded:lexical
 pnpm run benchmark:hard-grounded:verify-citations
 pnpm run benchmark:hard-grounded:openai
+pnpm run benchmark:hard-grounded:openai:calibration
 pnpm run benchmark:hard-grounded:report
 pnpm run benchmark:hard-grounded:audit
 \`\`\`

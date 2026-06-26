@@ -27,6 +27,7 @@
     "benchmark:hard-grounded:lexical": "node scripts/hard-grounded-research-lexical-baseline.mjs",
     "benchmark:hard-grounded:verify-citations": "node scripts/hard-grounded-research-citation-verifier.mjs",
     "benchmark:hard-grounded:openai": "node scripts/hard-grounded-research-openai-baseline.mjs",
+    "benchmark:hard-grounded:openai:calibration": "node scripts/hard-grounded-research-openai-baseline.mjs --calibration",
     "benchmark:hard-grounded:report": "node scripts/hard-grounded-research-report.mjs",
     "benchmark:hard-grounded:audit": "node scripts/hard-grounded-research-quality-audit.mjs",
     "grounded-qa:distill": "node scripts/grounded-qa-distillation-build.mjs",

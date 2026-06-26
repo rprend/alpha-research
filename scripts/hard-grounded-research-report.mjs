@@ -14,6 +14,7 @@ const scoredRunPaths = [
   join(runsDir, 'citation-aware-verifier-v1/report.json'),
 ]
 const openAiManifestPath = join(runsDir, 'openai-grounded-baseline-v1/run-manifest.json')
+const openAiCalibrationManifestPath = join(runsDir, 'openai-grounded-baseline-v1-calibration/run-manifest.json')
 const goldSummaryPath = join(generatedDir, 'gold-suite-summary.json')
 const pilotSuitePath = join(generatedDir, 'pilot-suite.json')
 
@@ -131,7 +132,7 @@ function markdownTable(headers, rows) {
   ].join('\n')
 }
 
-function buildReport(scoredReports, goldSummary, openAiManifest, pilotSuite) {
+function buildReport(scoredReports, goldSummary, openAiManifest, openAiCalibrationManifest, pilotSuite) {
   const oracle = scoredReports.find((report) => report.system_id === 'local-rule-agent-v1')
   const lexical = scoredReports.find((report) => report.system_id === 'lexical-evidence-baseline-v1')
   const verifier = scoredReports.find((report) => report.system_id === 'citation-aware-verifier-v1')
@@ -148,6 +149,7 @@ function buildReport(scoredReports, goldSummary, openAiManifest, pilotSuite) {
       scored_runs: scoredRunPaths.map((path) => path.replace(`${root}/`, '')),
       gold_summary: goldSummaryPath.replace(`${root}/`, ''),
       openai_manifest: openAiManifestPath.replace(`${root}/`, ''),
+      openai_calibration_manifest: openAiCalibrationManifestPath.replace(`${root}/`, ''),
     },
     gold_readiness: {
       gold_ready: goldSummary.gold_ready,
@@ -160,6 +162,9 @@ function buildReport(scoredReports, goldSummary, openAiManifest, pilotSuite) {
       openai_default_mode: openAiManifest.default_mode,
       openai_run_requested: openAiManifest.run_requested,
       openai_scored_report_present: existsSync(join(runsDir, 'openai-grounded-baseline-v1/report.json')),
+      openai_calibration_prompt_count: openAiCalibrationManifest?.prompt_count || 0,
+      openai_calibration_run_requested: Boolean(openAiCalibrationManifest?.run_requested),
+      openai_calibration_scored_report_present: existsSync(join(runsDir, 'openai-grounded-baseline-v1-calibration/report.json')),
     },
     failure_analysis: lexical ? buildFailureAnalysis(lexical, pilotSuite) : null,
     systems,
@@ -253,6 +258,8 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 - Unreviewed items: ${report.gold_readiness.unreviewed_items}
 - OpenAI prompt packet rows: ${report.model_readiness.openai_prompt_count}
 - OpenAI scored report present: ${report.model_readiness.openai_scored_report_present}
+- OpenAI calibration prompt packet rows: ${report.model_readiness.openai_calibration_prompt_count}
+- OpenAI calibration scored report present: ${report.model_readiness.openai_calibration_scored_report_present}
 
 ## Macro Results
 
@@ -309,8 +316,9 @@ for (const path of [...scoredRunPaths, goldSummaryPath, openAiManifestPath, pilo
 const scoredReports = scoredRunPaths.map(readJson)
 const goldSummary = readJson(goldSummaryPath)
 const openAiManifest = readJson(openAiManifestPath)
+const openAiCalibrationManifest = existsSync(openAiCalibrationManifestPath) ? readJson(openAiCalibrationManifestPath) : null
 const pilotSuite = readJson(pilotSuitePath)
-const report = buildReport(scoredReports, goldSummary, openAiManifest, pilotSuite)
+const report = buildReport(scoredReports, goldSummary, openAiManifest, openAiCalibrationManifest, pilotSuite)
 writeJson(reportJsonPath, report)
 writeText(reportMarkdownPath, renderMarkdown(report))
 

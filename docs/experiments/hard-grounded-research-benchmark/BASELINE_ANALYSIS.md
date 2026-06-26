@@ -9,6 +9,8 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 - Unreviewed items: 30
 - OpenAI prompt packet rows: 30
 - OpenAI scored report present: false
+- OpenAI calibration prompt packet rows: 30
+- OpenAI calibration scored report present: false
 
 ## Macro Results
 
