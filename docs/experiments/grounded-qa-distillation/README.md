@@ -141,6 +141,8 @@ The first local policy test using this packet is `runs/teacher-label-filter-temp
 
 The first hosted fine-tune preparation run is `runs/openai-finetune-prep-teacher-repair-0-80-v1/`. It writes OpenAI chat-format JSONL with 52 train rows and 13 validation rows from the strict teacher-label packet. The current estimate for 3 epochs of `gpt-4.1-mini-2025-04-14` is $0.85656, but the job is not launched until a runner can ledger file/job API calls and actual training spend.
 
+`runs/openai-finetune-teacher-repair-0-80-v1/` is the first launch attempt. OpenAI accepted file uploads but rejected job creation with `training_not_available` for this organization. No job was created, no training spend was ledgered, and the uploaded files were deleted after failure. The next training path should use a local or Hugging Face supervised fine-tuning backend.
+
 ## LLM Call Budget
 
 Any API-backed student or teacher run must write to:

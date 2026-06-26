@@ -8,6 +8,7 @@ const runDir = path.join(experimentDir, "runs");
 const ledgerDir = path.join(experimentDir, "llm-calls");
 const args = parseArgs(process.argv.slice(2));
 
+const split = args.split ?? "temporal_test";
 const teacherLabelPrefix = args["teacher-label-prefix"] ?? "teacher-repair-temporal-test-0-80-v1";
 const runId = args["run-id"] ?? `openai-finetune-prep-${teacherLabelPrefix}`;
 const outputDir = path.join(runDir, runId);
@@ -20,6 +21,8 @@ const allowLegacyFineTune = args["allow-legacy-finetune"] === "true";
 const fineTuneModel = args.model ?? "gpt-4.1-mini-2025-04-14";
 const trainingDollarsPerHour = Number(args["training-dollars-per-hour"] ?? 100);
 const trainingDollarsPerMillion = Number(args["training-dollars-per-million"] ?? trainingPricePerMillion(fineTuneModel));
+const pollTimeoutMs = Math.max(0, Math.floor(Number(args["poll-timeout-ms"] ?? 0)));
+const pollIntervalMs = Math.max(1000, Math.floor(Number(args["poll-interval-ms"] ?? 30000)));
 const apiDocs = {
   supervisedFineTuning: "https://developers.openai.com/api/docs/guides/supervised-fine-tuning",
   pricing: "https://developers.openai.com/api/docs/pricing",
@@ -34,20 +37,20 @@ const trainRows = sorted.slice(0, trainCount).map(toOpenAiRow);
 const validationRows = sorted.slice(trainCount).map(toOpenAiRow);
 const trainPath = path.join(outputDir, "train.openai.jsonl");
 const validationPath = path.join(outputDir, "validation.openai.jsonl");
+const ledgerPath = path.join(ledgerDir, "ledger.jsonl");
+const budgetPath = path.join(ledgerDir, "budget.json");
+const eventsPath = path.join(outputDir, "fine_tune_events.jsonl");
 const priorSpend = await ledgerSpend(path.join(ledgerDir, "ledger.jsonl"));
 const trainApproxTokens = approxTokens(trainRows);
 const validationApproxTokens = approxTokens(validationRows);
 const totalApproxTokens = trainApproxTokens + validationApproxTokens;
 const tokenTrainingCostUsd = (trainApproxTokens * epochs / 1_000_000) * trainingDollarsPerMillion;
-const hourlyTrainingCostUsd = maxTrainingHours > 0 ? maxTrainingHours * trainingDollarsPerHour : 0;
+const hourlyTrainingCostUsd = trainingDollarsPerMillion === 0 && maxTrainingHours > 0 ? maxTrainingHours * trainingDollarsPerHour : 0;
 const estimatedTrainingCostUsd = tokenTrainingCostUsd + hourlyTrainingCostUsd;
 const refusalReasons = [];
 
-if (launch && !allowLegacyFineTune) {
-  refusalReasons.push("launch requested without --allow-legacy-finetune=true; current OpenAI docs describe fine-tuning as a winding-down legacy platform.");
-}
 if (launch && (!Number.isFinite(maxTrainingHours) || maxTrainingHours <= 0)) {
-  refusalReasons.push("launch requested without a positive --max-training-hours bound.");
+  refusalReasons.push("launch requested without a positive --max-training-hours bound for cancellation/polling discipline.");
 }
 if (launch && priorSpend + estimatedTrainingCostUsd > maxBudgetUsd) {
   refusalReasons.push(`launch would exceed budget: ledger $${priorSpend.toFixed(6)} + estimated training $${estimatedTrainingCostUsd.toFixed(6)} > $${maxBudgetUsd.toFixed(2)}.`);
@@ -55,18 +58,28 @@ if (launch && priorSpend + estimatedTrainingCostUsd > maxBudgetUsd) {
 if (launch && !process.env.OPENAI_API_KEY) {
   refusalReasons.push("launch requested but OPENAI_API_KEY is missing.");
 }
-if (launch) {
-  refusalReasons.push("launch path is intentionally disabled until a poll-and-cancel controller can enforce the training-hour cap against live job status.");
-}
+
+let launchState = {
+  train_file_id: null,
+  validation_file_id: null,
+  fine_tune_job_id: null,
+  status: launch ? "not_started" : "not_requested",
+  fine_tuned_model: null,
+  last_error: null,
+  ledger_reserved_training_cost: false,
+  uploaded_files_deleted: false,
+};
 
 const summary = {
   run_id: runId,
   generated_at: new Date().toISOString(),
   teacher_label_prefix: teacherLabelPrefix,
+  split,
   fine_tune_model: fineTuneModel,
   launch_requested: launch,
   launch_performed: false,
   refusal_reasons: refusalReasons,
+  launch_state: launchState,
   docs_checked: apiDocs,
   docs_assumption: "OpenAI fine-tuning is currently described as a legacy/winding-down platform; SFT support and pricing must be rechecked before launch.",
   examples: {
@@ -97,11 +110,19 @@ const summary = {
     validation_jsonl: path.relative(rootDir, validationPath),
     result_json: path.relative(rootDir, path.join(outputDir, "result.json")),
     report_md: path.relative(rootDir, path.join(outputDir, "report.md")),
+    events_jsonl: path.relative(rootDir, eventsPath),
   },
 };
 
 await writeJsonl(trainPath, trainRows);
 await writeJsonl(validationPath, validationRows);
+
+if (launch && !refusalReasons.length) {
+  launchState = await launchFineTune({ trainPath, validationPath, summary });
+  summary.launch_state = launchState;
+  summary.launch_performed = Boolean(launchState.fine_tune_job_id);
+}
+
 await fs.writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(summary, null, 2)}\n`);
 await fs.writeFile(path.join(outputDir, "report.md"), renderReport(summary));
 
@@ -137,6 +158,9 @@ function renderReport(summary) {
 - Teacher label packet: \`${summary.teacher_label_prefix}\`
 - Train rows: ${summary.examples.train}
 - Validation rows: ${summary.examples.validation}
+- Fine-tune job id: ${summary.launch_state.fine_tune_job_id ? `\`${summary.launch_state.fine_tune_job_id}\`` : "n/a"}
+- Fine-tune status: \`${summary.launch_state.status}\`
+- Fine-tuned model: ${summary.launch_state.fine_tuned_model ? `\`${summary.launch_state.fine_tuned_model}\`` : "n/a"}
 
 ## Budget Gate
 
@@ -164,8 +188,171 @@ function renderReport(summary) {
 
 ${summary.refusal_reasons.length ? summary.refusal_reasons.map((reason) => `- ${reason}`).join("\n") : "- No refusal reasons recorded."}
 
-The prepared files are OpenAI chat-format JSONL, but the job is not launched by default. A live launch needs file upload, job polling, and ledger rows for upload/job/status calls plus a hard stop that can enforce the project-wide $100 key budget.
+The prepared files are OpenAI chat-format JSONL. When launch is requested, the script uploads files, creates a fine-tune job, records fine-tune events, and writes a conservative reserved training-cost row to the shared LLM ledger after job creation.
 `;
+}
+
+async function launchFineTune({ trainPath, validationPath, summary }) {
+  const state = {
+    train_file_id: null,
+    validation_file_id: null,
+    fine_tune_job_id: null,
+    status: "uploading_files",
+    fine_tuned_model: null,
+    last_error: null,
+    ledger_reserved_training_cost: false,
+    uploaded_files_deleted: false,
+  };
+  try {
+    const trainFile = await uploadFile(trainPath, "fine-tune");
+    state.train_file_id = trainFile.id;
+    await appendEvent({ event: "train_file_uploaded", file_id: trainFile.id, bytes: trainFile.bytes ?? null });
+    const validationFile = await uploadFile(validationPath, "fine-tune");
+    state.validation_file_id = validationFile.id;
+    await appendEvent({ event: "validation_file_uploaded", file_id: validationFile.id, bytes: validationFile.bytes ?? null });
+
+    state.status = "creating_job";
+    const job = await createFineTuneJob({
+      model: fineTuneModel,
+      trainingFile: state.train_file_id,
+      validationFile: state.validation_file_id,
+      nEpochs: epochs,
+      suffix: "grounded-qa-repair-0-80",
+    });
+    state.fine_tune_job_id = job.id;
+    state.status = job.status ?? "created";
+    state.fine_tuned_model = job.fine_tuned_model ?? null;
+    await appendEvent({ event: "fine_tune_job_created", job });
+    await reserveTrainingCost(summary, state);
+    state.ledger_reserved_training_cost = true;
+
+    if (pollTimeoutMs > 0) {
+      const deadline = Date.now() + pollTimeoutMs;
+      while (Date.now() < deadline && !terminalStatus(state.status)) {
+        await sleep(pollIntervalMs);
+        const nextJob = await getFineTuneJob(state.fine_tune_job_id);
+        state.status = nextJob.status ?? state.status;
+        state.fine_tuned_model = nextJob.fine_tuned_model ?? state.fine_tuned_model;
+        state.last_error = nextJob.error ?? null;
+        await appendEvent({ event: "fine_tune_job_polled", job: nextJob });
+      }
+    }
+    return state;
+  } catch (error) {
+    state.status = "launch_error";
+    state.last_error = { message: error.message };
+    state.uploaded_files_deleted = await cleanupUploadedFiles([state.train_file_id, state.validation_file_id].filter(Boolean));
+    await appendEvent({ event: "launch_error", error: error.message, state });
+    return state;
+  }
+}
+
+async function uploadFile(filePath, purpose) {
+  const form = new FormData();
+  const blob = new Blob([await fs.readFile(filePath)], { type: "application/jsonl" });
+  form.append("purpose", purpose);
+  form.append("file", blob, path.basename(filePath));
+  return openaiFetch("https://api.openai.com/v1/files", {
+    method: "POST",
+    body: form,
+  });
+}
+
+async function createFineTuneJob({ model, trainingFile, validationFile, nEpochs, suffix }) {
+  return openaiFetch("https://api.openai.com/v1/fine_tuning/jobs", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model,
+      training_file: trainingFile,
+      validation_file: validationFile,
+      suffix,
+      hyperparameters: {
+        n_epochs: nEpochs,
+      },
+    }),
+  });
+}
+
+async function getFineTuneJob(jobId) {
+  return openaiFetch(`https://api.openai.com/v1/fine_tuning/jobs/${jobId}`, {
+    method: "GET",
+  });
+}
+
+async function cleanupUploadedFiles(fileIds) {
+  let allDeleted = true;
+  for (const fileId of fileIds) {
+    try {
+      const deleted = await openaiFetch(`https://api.openai.com/v1/files/${fileId}`, {
+        method: "DELETE",
+      });
+      await appendEvent({ event: "uploaded_file_deleted", file_id: fileId, deleted: deleted.deleted ?? null });
+      allDeleted = allDeleted && deleted.deleted === true;
+    } catch (error) {
+      allDeleted = false;
+      await appendEvent({ event: "uploaded_file_delete_error", file_id: fileId, error: error.message });
+    }
+  }
+  return allDeleted;
+}
+
+async function openaiFetch(url, options) {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+      ...(options.headers ?? {}),
+    },
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(`OpenAI API failed ${response.status}: ${JSON.stringify(payload).slice(0, 800)}`);
+  }
+  return payload;
+}
+
+async function reserveTrainingCost(summary, state) {
+  await appendLedger(ledgerPath, {
+    ts: new Date().toISOString(),
+    provider: "openai",
+    model: fineTuneModel,
+    task: "grounded_qa_fine_tune_training_reserved",
+    run_id: runId,
+    fine_tune_job_id: state.fine_tune_job_id,
+    split,
+    example_id: "__fine_tune_training__",
+    prompt_tokens: trainApproxTokens * epochs,
+    completion_tokens: 0,
+    total_tokens: trainApproxTokens * epochs,
+    cost_usd: tokenTrainingCostUsd,
+    price_source: apiDocs.pricing,
+    note: "Conservative reserved training spend. Reconcile with provider billing/job result before final paper accounting.",
+  });
+  const actualSpend = await ledgerSpend(ledgerPath);
+  await fs.writeFile(budgetPath, `${JSON.stringify({
+    max_budget_usd: maxBudgetUsd,
+    ledger_spend_usd: actualSpend,
+    remaining_budget_usd: Math.max(0, maxBudgetUsd - actualSpend),
+    ledger_path: path.relative(rootDir, ledgerPath),
+    last_updated: new Date().toISOString(),
+  }, null, 2)}\n`);
+}
+
+async function appendEvent(row) {
+  await fs.appendFile(eventsPath, `${JSON.stringify({ ts: new Date().toISOString(), ...row })}\n`);
+}
+
+async function appendLedger(file, row) {
+  await fs.appendFile(file, `${JSON.stringify(row)}\n`);
+}
+
+function terminalStatus(status) {
+  return ["succeeded", "failed", "cancelled"].includes(status);
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function approxTokens(rows) {

@@ -1,0 +1,57 @@
+{
+  "run_id": "openai-finetune-teacher-repair-0-80-v1",
+  "generated_at": "2026-06-26T04:47:50.163Z",
+  "teacher_label_prefix": "teacher-repair-temporal-test-0-80-v1",
+  "split": "temporal_test",
+  "fine_tune_model": "gpt-4.1-mini-2025-04-14",
+  "launch_requested": true,
+  "launch_performed": false,
+  "refusal_reasons": [],
+  "launch_state": {
+    "train_file_id": "file-5AEVCfpqi1rpr4AzJupQGG",
+    "validation_file_id": "file-395K17JnxeuC8oyRzV9UvK",
+    "fine_tune_job_id": null,
+    "status": "launch_error",
+    "fine_tuned_model": null,
+    "last_error": {
+      "message": "OpenAI API failed 403: {\"error\":{\"message\":\"OpenAI is winding down the fine-tuning platform and your organization is no longer able to create new fine-tuning training jobs. Learn more https://developers.openai.com/api/docs/deprecations#update-to-openais-self-serve-fine-tuning\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"training_not_available\"}}"
+    },
+    "ledger_reserved_training_cost": false,
+    "uploaded_files_deleted": true
+  },
+  "docs_checked": {
+    "supervisedFineTuning": "https://developers.openai.com/api/docs/guides/supervised-fine-tuning",
+    "pricing": "https://developers.openai.com/api/docs/pricing"
+  },
+  "docs_assumption": "OpenAI fine-tuning is currently described as a legacy/winding-down platform; SFT support and pricing must be rechecked before launch.",
+  "examples": {
+    "accepted_labels": 65,
+    "train": 52,
+    "validation": 13
+  },
+  "token_estimates": {
+    "train_approx_tokens": 57104,
+    "validation_approx_tokens": 10429,
+    "total_approx_tokens": 67533,
+    "epochs": 3
+  },
+  "budget": {
+    "max_budget_usd": 100,
+    "ledger_spend_before_usd": 1.7118450500000002,
+    "remaining_budget_before_usd": 98.28815495,
+    "training_dollars_per_million_tokens": 5,
+    "training_dollars_per_hour": 100,
+    "max_training_hours": 1,
+    "token_training_cost_usd": 0.85656,
+    "hourly_training_cost_usd": 0,
+    "estimated_training_cost_usd": 0.85656,
+    "estimated_spend_after_usd": 2.56840505
+  },
+  "artifacts": {
+    "train_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-finetune-teacher-repair-0-80-v1/train.openai.jsonl",
+    "validation_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-finetune-teacher-repair-0-80-v1/validation.openai.jsonl",
+    "result_json": "docs/experiments/grounded-qa-distillation/runs/openai-finetune-teacher-repair-0-80-v1/result.json",
+    "report_md": "docs/experiments/grounded-qa-distillation/runs/openai-finetune-teacher-repair-0-80-v1/report.md",
+    "events_jsonl": "docs/experiments/grounded-qa-distillation/runs/openai-finetune-teacher-repair-0-80-v1/fine_tune_events.jsonl"
+  }
+}

@@ -187,6 +187,8 @@ This is a negative result. The filter buys citation-format compliance by over-ab
 
 At 3 epochs, the estimated `gpt-4.1-mini-2025-04-14` training cost is $0.85656 under the current OpenAI fine-tuning price of $5 / 1M training tokens. The job was not launched in this run. Before launching, the project needs a controller that uploads files, creates the fine-tune job, polls status, records job ids, and writes actual training spend or a conservative reserved spend to the shared ledger.
 
+`openai-finetune-teacher-repair-0-80-v1` adds that upload/create controller and attempts a launch. File uploads succeeded, but job creation failed with OpenAI `training_not_available`, indicating this organization can no longer create self-serve fine-tuning jobs. No job id was created, no training spend was reserved, and the uploaded files were deleted. The OpenAI-hosted SFT path is therefore unavailable on this account; the strict teacher-label packet should be used with a local/Hugging Face SFT backend next.
+
 ## Interpretation
 
 This is the first positive answer-synthesis result. It supports the hypothesis that model-facing post-training examples are the right path after deterministic extraction failed. The student improves citation precision, citation recall, answer overlap, and abstention accuracy over the deterministic temporal scaffold.
