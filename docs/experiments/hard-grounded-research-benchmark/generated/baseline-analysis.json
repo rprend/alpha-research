@@ -3,7 +3,8 @@
   "generated_from": {
     "scored_runs": [
       "docs/experiments/hard-grounded-research-benchmark/runs/local-rule-agent-v1/report.json",
-      "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json"
+      "docs/experiments/hard-grounded-research-benchmark/runs/lexical-evidence-baseline-v1/report.json",
+      "docs/experiments/hard-grounded-research-benchmark/runs/citation-aware-verifier-v1/report.json"
     ],
     "gold_summary": "docs/experiments/hard-grounded-research-benchmark/generated/gold-suite-summary.json",
     "openai_manifest": "docs/experiments/hard-grounded-research-benchmark/runs/openai-grounded-baseline-v1/run-manifest.json"
@@ -746,11 +747,63 @@
           "abstention_quality": 1
         }
       ]
+    },
+    {
+      "system_id": "citation-aware-verifier-v1",
+      "task_count": 30,
+      "macro": {
+        "answer_correct": 0.1667,
+        "evidence_recall": 0.4979,
+        "citation_precision": 1,
+        "citation_faithfulness": 0.5833,
+        "abstention_quality": 0.6
+      },
+      "weakest_categories": [
+        {
+          "category": "citation supports fact but not conclusion",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 0.3952,
+          "abstention_quality": 0
+        },
+        {
+          "category": "cross-document contradiction",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 0.3952,
+          "abstention_quality": 1
+        },
+        {
+          "category": "appended document lifecycle changes",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 0.5,
+          "abstention_quality": 1
+        },
+        {
+          "category": "evidence insufficiency / abstention",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 0.5,
+          "abstention_quality": 0
+        },
+        {
+          "category": "table + text reasoning",
+          "answer_correct": 0,
+          "citation_faithfulness": 0.5,
+          "evidence_recall": 1,
+          "abstention_quality": 1
+        }
+      ]
     }
   ],
   "headline_contrasts": {
     "lexical_answer_correct_gap_vs_oracle": 0.8,
     "lexical_citation_faithfulness_gap_vs_oracle": 0.4,
-    "lexical_evidence_recall_gap_vs_oracle": 0.3021
+    "lexical_evidence_recall_gap_vs_oracle": 0.3021,
+    "verifier_answer_correct_delta_vs_lexical": -0.0333,
+    "verifier_citation_faithfulness_delta_vs_lexical": -0.0167,
+    "verifier_citation_precision_delta_vs_lexical": 0,
+    "verifier_abstention_quality_delta_vs_lexical": -0.1
   }
 }

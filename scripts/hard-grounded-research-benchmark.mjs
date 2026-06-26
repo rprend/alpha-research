@@ -747,6 +747,7 @@ ${matrixLines}
 - \`scripts/hard-grounded-research-evaluate.mjs --gold\`: gold-aware scorer mode that uses adjudicated \`final_answer\` and \`required_citation_ids\` from \`generated/gold-suite.json\` once human review is complete.
 - \`runs/local-rule-agent-v1/submission.json\` and \`runs/local-rule-agent-v1/report.json\`: reproducible local runner output using the same external submission contract expected from model systems.
 - \`runs/lexical-evidence-baseline-v1/submission.json\` and \`runs/lexical-evidence-baseline-v1/report.json\`: non-oracle lexical evidence baseline that does not read gold answers.
+- \`runs/citation-aware-verifier-v1/submission.json\` and \`runs/citation-aware-verifier-v1/report.json\`: non-oracle verifier baseline that abstains when selected citations do not support the answer.
 - \`runs/openai-grounded-baseline-v1/prompt-packet.jsonl\`: dry-run prompt packet for an auditable OpenAI-compatible model baseline; scored reports are emitted only when run with \`--run\`.
 - \`BASELINE_ANALYSIS.md\` and \`generated/baseline-analysis.json\`: reproducible pilot results and failure-analysis summary across scored runs, gold readiness, and model-baseline readiness.
 - \`ITEM_QUALITY_AUDIT.md\` and \`generated/item-quality-audit.json\`: pre-adjudication item repair queue for machine-seeded pilot examples.
@@ -759,6 +760,7 @@ pnpm run benchmark:hard-grounded:adjudicate
 pnpm run benchmark:hard-grounded:evaluate
 pnpm run benchmark:hard-grounded:run
 pnpm run benchmark:hard-grounded:lexical
+pnpm run benchmark:hard-grounded:verify-citations
 pnpm run benchmark:hard-grounded:openai
 pnpm run benchmark:hard-grounded:report
 pnpm run benchmark:hard-grounded:audit

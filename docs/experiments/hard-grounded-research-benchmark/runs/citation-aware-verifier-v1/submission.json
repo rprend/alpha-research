@@ -1,0 +1,323 @@
+{
+  "benchmark_id": "hard-grounded-research-benchmark",
+  "system_id": "citation-aware-verifier-v1",
+  "description": "Non-oracle verifier baseline that post-checks lexical answers against their cited evidence and abstains when citations do not support the conclusion.",
+  "base_system_id": "lexical-evidence-baseline-v1",
+  "answers": [
+    {
+      "task_id": "hgr_multi_hop_001_pilot_001",
+      "answer": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer.",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_002",
+      "answer": "Kiss and Tell is a 1945 American comedy film starring then 17-year-old Shirley Temple as Corliss Archer.",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_multi_hop_001_pilot_003",
+      "answer": "Animorphs is a science fantasy series of young adult books written by Katherine Applegate and her husband Michael Grant, writing together under the name K.",
+      "citations": [
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": true,
+      "confidence": 0.44,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_002",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_stale_current_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": true,
+      "confidence": 0.35,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_001",
+      "answer": "Appendix Z, dated 2018-06-30, supersedes the original body for this question.",
+      "citations": [
+        "1912.01214:appendix-update:0"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_002",
+      "answer": "Appendix Z, dated 2019-06-30, supersedes the original body for this question.",
+      "citations": [
+        "1810.08699:appendix-update:1"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_appendix_lifecycle_001_pilot_003",
+      "answer": "Appendix Z, dated 2020-06-30, supersedes the original body for this question.",
+      "citations": [
+        "1609.00425:appendix-update:2"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_001",
+      "answer": "header: Year | Division | League | Regular Season | Playoffs | Open Cup | Avg.",
+      "citations": [
+        "nt-0:table",
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_002",
+      "answer": "header: Year | Competition | Venue | Position | Event | Notes / row: 2001 | World Youth Championships | Debrecen, Hungary | 2nd | 400 m | 47.12 / row: 2001 | World Youth Champio...",
+      "citations": [
+        "nt-1:table",
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=0.941)."
+    },
+    {
+      "task_id": "hgr_table_text_001_pilot_003",
+      "answer": "header: Date | Opponent | Venue | Result | Attendance | Scorers / row: 15 August 1987 | Derby County | Away | 0–1 | 17,204 | — / row: 18 August 1987 | Coventry City | Home | 0–1...",
+      "citations": [
+        "nt-4:table",
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": true,
+      "confidence": 0.417,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_002",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_authority_conflict_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": true,
+      "confidence": 0.337,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "1912.01214:b6f15fb6279b82e34a5bf4828b7b5ddabfdf1d54:evidence:0"
+      ],
+      "abstained": true,
+      "confidence": 0.438,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [
+        "1810.08699:18c5d366b1da8447b5404eab71f4cc658ba12e6f:evidence:0"
+      ],
+      "abstained": true,
+      "confidence": 0.375,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_abstain_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "1609.00425:b6ae8e10c6a0d34c834f18f66ab730b670fb528c:evidence:0"
+      ],
+      "abstained": true,
+      "confidence": 0.317,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": true,
+      "confidence": 0.25,
+      "evidence_assessment": "Verifier abstained because the challenge marks the cited fact as insufficient support for the broader conclusion."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_002",
+      "answer": "ABSTAIN",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "5a8c7595554299585d9e36b6:support:1"
+      ],
+      "abstained": true,
+      "confidence": 0.25,
+      "evidence_assessment": "Verifier abstained because the challenge marks the cited fact as insufficient support for the broader conclusion."
+    },
+    {
+      "task_id": "hgr_citation_overreach_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "abstained": true,
+      "confidence": 0.25,
+      "evidence_assessment": "Verifier abstained because the challenge marks the cited fact as insufficient support for the broader conclusion."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_001",
+      "answer": "Scott Derrickson (born July 16, 1966) is an American director, screenwriter and producer.",
+      "citations": [
+        "5a8b57f25542995d1e6f1371:support:0",
+        "5a8b57f25542995d1e6f1371:support:1"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_002",
+      "answer": "Kiss and Tell is a 1945 American comedy film starring then 17-year-old Shirley Temple as Corliss Archer.",
+      "citations": [
+        "5a8c7595554299585d9e36b6:support:0",
+        "nt-1:table"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_entity_disambiguation_001_pilot_003",
+      "answer": "Animorphs is a science fantasy series of young adult books written by Katherine Applegate and her husband Michael Grant, writing together under the name K.",
+      "citations": [
+        "5a85ea095542994775f606a8:support:3",
+        "5a85ea095542994775f606a8:support:4"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_001",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Extinction risk from global warming:170"
+      ],
+      "abstained": true,
+      "confidence": 0.44,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_002",
+      "answer": "SUPPORTS",
+      "citations": [
+        "Famine:386"
+      ],
+      "abstained": false,
+      "confidence": 0.85,
+      "evidence_assessment": "Verifier preserved answer because cited evidence lexically supported the conclusion (support=1.000)."
+    },
+    {
+      "task_id": "hgr_as_of_date_001_pilot_003",
+      "answer": "ABSTAIN",
+      "citations": [
+        "Polar bear:1332"
+      ],
+      "abstained": true,
+      "confidence": 0.35,
+      "evidence_assessment": "Verifier preserved abstention; no positive conclusion required citation support."
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_001",
+      "answer": "CONFLICT",
+      "citations": [
+        "Extinction risk from global warming:170",
+        "5a8b57f25542995d1e6f1371:support:0"
+      ],
+      "abstained": false,
+      "confidence": 0.45,
+      "evidence_assessment": "Verifier preserved CONFLICT because cited evidence spans multiple documents for a contradiction task."
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_002",
+      "answer": "CONFLICT",
+      "citations": [
+        "Famine:386",
+        "5a8c7595554299585d9e36b6:support:0"
+      ],
+      "abstained": false,
+      "confidence": 0.35,
+      "evidence_assessment": "Verifier preserved CONFLICT because cited evidence spans multiple documents for a contradiction task."
+    },
+    {
+      "task_id": "hgr_contradiction_001_pilot_003",
+      "answer": "CONFLICT",
+      "citations": [
+        "Polar bear:1332",
+        "5a85ea095542994775f606a8:support:3"
+      ],
+      "abstained": false,
+      "confidence": 0.375,
+      "evidence_assessment": "Verifier preserved CONFLICT because cited evidence spans multiple documents for a contradiction task."
+    }
+  ]
+}

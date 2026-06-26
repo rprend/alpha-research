@@ -12,10 +12,11 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 
 ## Macro Results
 
-| System | Tasks | Answer correct | Evidence recall | Citation faithfulness | Abstention quality |
-| --- | --- | --- | --- | --- | --- |
-| local-rule-agent-v1 | 30 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
-| lexical-evidence-baseline-v1 | 30 | 0.2000 | 0.6979 | 0.6000 | 0.7000 |
+| System | Tasks | Answer correct | Evidence recall | Citation precision | Citation faithfulness | Abstention quality |
+| --- | --- | --- | --- | --- | --- | --- |
+| local-rule-agent-v1 | 30 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| lexical-evidence-baseline-v1 | 30 | 0.2000 | 0.6979 | 1.0000 | 0.6000 | 0.7000 |
+| citation-aware-verifier-v1 | 30 | 0.1667 | 0.4979 | 1.0000 | 0.5833 | 0.6000 |
 
 ## Lexical Baseline Weakest Categories
 
@@ -95,9 +96,13 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 - Lexical answer-correct gap vs oracle sanity runner: 0.8000
 - Lexical citation-faithfulness gap vs oracle sanity runner: 0.4000
 - Lexical evidence-recall gap vs oracle sanity runner: 0.3021
+- Citation-aware verifier answer-correct delta vs lexical: -0.0333
+- Citation-aware verifier citation-precision delta vs lexical: 0.0000
+- Citation-aware verifier citation-faithfulness delta vs lexical: -0.0167
+- Citation-aware verifier abstention-quality delta vs lexical: -0.1000
 
 ## Interpretation
 
-The lexical baseline is intentionally non-oracle: it does not read native answers or gold citation ids. Its weakest categories are a first operational signal for the paper question: hard grounded research failures are not just lookup misses; they include answer selection under insufficiency, table/text interpretation, contradiction handling, and citation support for conclusions.
+The lexical and citation-aware verifier baselines are intentionally non-oracle: they do not read native answers or gold citation ids. Their weakest categories are a first operational signal for the paper question: hard grounded research failures are not just lookup misses; they include answer selection under insufficiency, table/text interpretation, contradiction handling, and citation support for conclusions.
 
 This report remains preliminary until the adjudication queue is reviewed and at least one API or open-model baseline has a scored report.

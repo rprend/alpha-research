@@ -11,6 +11,7 @@ const reportMarkdownPath = join(experimentDir, 'BASELINE_ANALYSIS.md')
 const scoredRunPaths = [
   join(runsDir, 'local-rule-agent-v1/report.json'),
   join(runsDir, 'lexical-evidence-baseline-v1/report.json'),
+  join(runsDir, 'citation-aware-verifier-v1/report.json'),
 ]
 const openAiManifestPath = join(runsDir, 'openai-grounded-baseline-v1/run-manifest.json')
 const goldSummaryPath = join(generatedDir, 'gold-suite-summary.json')
@@ -133,6 +134,7 @@ function markdownTable(headers, rows) {
 function buildReport(scoredReports, goldSummary, openAiManifest, pilotSuite) {
   const oracle = scoredReports.find((report) => report.system_id === 'local-rule-agent-v1')
   const lexical = scoredReports.find((report) => report.system_id === 'lexical-evidence-baseline-v1')
+  const verifier = scoredReports.find((report) => report.system_id === 'citation-aware-verifier-v1')
   const systems = scoredReports.map((report) => ({
     system_id: report.system_id,
     task_count: report.summary.task_count,
@@ -176,6 +178,18 @@ function buildReport(scoredReports, goldSummary, openAiManifest, pilotSuite) {
               oracle.summary.macro.evidence_recall,
               lexical.summary.macro.evidence_recall,
             ),
+            verifier_answer_correct_delta_vs_lexical: verifier
+              ? metricDelta(verifier.summary.macro.answer_correct, lexical.summary.macro.answer_correct)
+              : null,
+            verifier_citation_faithfulness_delta_vs_lexical: verifier
+              ? metricDelta(verifier.summary.macro.citation_faithfulness, lexical.summary.macro.citation_faithfulness)
+              : null,
+            verifier_citation_precision_delta_vs_lexical: verifier
+              ? metricDelta(verifier.summary.macro.citation_precision, lexical.summary.macro.citation_precision)
+              : null,
+            verifier_abstention_quality_delta_vs_lexical: verifier
+              ? metricDelta(verifier.summary.macro.abstention_quality, lexical.summary.macro.abstention_quality)
+              : null,
           }
         : {},
   }
@@ -187,6 +201,7 @@ function renderMarkdown(report) {
     String(system.task_count),
     metric(system.macro.answer_correct),
     metric(system.macro.evidence_recall),
+    metric(system.macro.citation_precision),
     metric(system.macro.citation_faithfulness),
     metric(system.macro.abstention_quality),
   ])
@@ -242,7 +257,15 @@ This report is generated from checked-in run artifacts. It is a pilot result sum
 ## Macro Results
 
 ${markdownTable(
-  ['System', 'Tasks', 'Answer correct', 'Evidence recall', 'Citation faithfulness', 'Abstention quality'],
+  [
+    'System',
+    'Tasks',
+    'Answer correct',
+    'Evidence recall',
+    'Citation precision',
+    'Citation faithfulness',
+    'Abstention quality',
+  ],
   summaryRows,
 )}
 
@@ -266,10 +289,14 @@ ${representativeFailures}
 - Lexical answer-correct gap vs oracle sanity runner: ${metric(report.headline_contrasts.lexical_answer_correct_gap_vs_oracle ?? 0)}
 - Lexical citation-faithfulness gap vs oracle sanity runner: ${metric(report.headline_contrasts.lexical_citation_faithfulness_gap_vs_oracle ?? 0)}
 - Lexical evidence-recall gap vs oracle sanity runner: ${metric(report.headline_contrasts.lexical_evidence_recall_gap_vs_oracle ?? 0)}
+- Citation-aware verifier answer-correct delta vs lexical: ${metric(report.headline_contrasts.verifier_answer_correct_delta_vs_lexical ?? 0)}
+- Citation-aware verifier citation-precision delta vs lexical: ${metric(report.headline_contrasts.verifier_citation_precision_delta_vs_lexical ?? 0)}
+- Citation-aware verifier citation-faithfulness delta vs lexical: ${metric(report.headline_contrasts.verifier_citation_faithfulness_delta_vs_lexical ?? 0)}
+- Citation-aware verifier abstention-quality delta vs lexical: ${metric(report.headline_contrasts.verifier_abstention_quality_delta_vs_lexical ?? 0)}
 
 ## Interpretation
 
-The lexical baseline is intentionally non-oracle: it does not read native answers or gold citation ids. Its weakest categories are a first operational signal for the paper question: hard grounded research failures are not just lookup misses; they include answer selection under insufficiency, table/text interpretation, contradiction handling, and citation support for conclusions.
+The lexical and citation-aware verifier baselines are intentionally non-oracle: they do not read native answers or gold citation ids. Their weakest categories are a first operational signal for the paper question: hard grounded research failures are not just lookup misses; they include answer selection under insufficiency, table/text interpretation, contradiction handling, and citation support for conclusions.
 
 This report remains preliminary until the adjudication queue is reviewed and at least one API or open-model baseline has a scored report.
 `

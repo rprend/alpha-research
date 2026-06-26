@@ -135,3 +135,11 @@ Decision: Add a gold-aware evaluation path that uses `generated/gold-suite.json`
 Rationale: The pilot scorer is useful before review, but paper results must be computed from adjudicated labels rather than native or machine-seeded answers.
 
 Consequence: `hard-grounded-research-evaluate.mjs --gold` now refuses to run until gold exists, then scores external submissions against adjudicated answers and citation requirements.
+
+## 2026-06-26 — Add a non-oracle citation verifier baseline
+
+Decision: Add a citation-aware verifier baseline that post-checks lexical answers against their cited evidence and abstains when citations do not support the conclusion.
+
+Rationale: The novelty audit requires a third non-oracle baseline beyond lexical retrieval and prompt-auditable model runs. A verifier baseline isolates whether citation checking improves groundedness or merely trades answer coverage for abstention.
+
+Consequence: `benchmark:hard-grounded:verify-citations` now emits `runs/citation-aware-verifier-v1/submission.json` and `report.json`, and the baseline analysis compares verifier deltas against the lexical baseline.
