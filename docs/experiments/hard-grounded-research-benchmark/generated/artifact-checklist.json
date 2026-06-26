@@ -43,6 +43,7 @@
     "review_packet_audit": "generated/review-packet-audit.json",
     "review_return_contract": "generated/review-return-contract.json",
     "review_return_preflight": "generated/review-return-preflight.json",
+    "review_return_checklist": "generated/review-return-checklist.json",
     "reproduction_capsule": "generated/reproduction-capsule.json",
     "version_manifest": "generated/version-manifest.json"
   },
@@ -50,9 +51,9 @@
     "categories": 10,
     "pilot_items": 30,
     "scaled_public_items": 270,
-    "artifact_classes_ready": 36,
-    "artifact_classes_total": 36,
-    "reproduction_commands": 40,
+    "artifact_classes_ready": 37,
+    "artifact_classes_total": 37,
+    "reproduction_commands": 41,
     "release_blockers": 7
   },
   "artifact_classes": [
@@ -190,6 +191,13 @@
       "blockers": []
     },
     {
+      "id": "review_return_checklist",
+      "status": "ready",
+      "ready": true,
+      "evidence": "review-return-checklist-v1; packets=30; rows=124; missing=30.",
+      "blockers": []
+    },
+    {
       "id": "submission_contract",
       "status": "ready",
       "ready": true,
@@ -263,14 +271,14 @@
       "id": "reproduction_capsule",
       "status": "ready",
       "ready": true,
-      "evidence": "reproduction-capsule-v1; commands=40; validations=3; hashes=39.",
+      "evidence": "reproduction-capsule-v1; commands=41; validations=3; hashes=41.",
       "blockers": []
     },
     {
       "id": "citation_metadata",
       "status": "ready",
       "ready": true,
-      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=39; blockers=7.",
+      "evidence": "citation-metadata-v1; caveats=4; artifact hashes=41; blockers=7.",
       "blockers": []
     },
     {
@@ -298,7 +306,7 @@
       "id": "version_manifest",
       "status": "ready",
       "ready": true,
-      "evidence": "version-manifest-v1; artifacts=39; bytes=512810.",
+      "evidence": "version-manifest-v1; artifacts=41; bytes=555117.",
       "blockers": []
     },
     {
@@ -409,6 +417,10 @@
     {
       "step": "Refresh review return preflight",
       "command": "node scripts/hard-grounded-research-review-return-preflight.mjs"
+    },
+    {
+      "step": "Refresh review return checklist",
+      "command": "node scripts/hard-grounded-research-review-return-checklist.mjs"
     },
     {
       "step": "Refresh paper tables and figure data",

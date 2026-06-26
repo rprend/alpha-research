@@ -967,3 +967,11 @@ Decision: Generate a preflight report for real returned reviewer packets before 
 Rationale: The return contract defines the expected files, but reviewers and maintainers also need an executable status surface that says whether the actual return directory exists, which returned JSONL files are present or missing, and whether the latest import report matches the files on disk.
 
 Consequence: `scripts/hard-grounded-research-review-return-preflight.mjs` emits `generated/review-return-preflight.json` and `REVIEW_RETURN_PREFLIGHT.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the preflight while human-review completion claims remain blocked until real returned labels are collected and merged.
+
+## 2026-06-26 — Add review return checklist
+
+Decision: Generate a packet-level checklist for expected reviewer return files.
+
+Rationale: The preflight reports aggregate missing files, but paper-grade review operations need each expected returned JSONL as an assignable work unit with scope, category, reviewer slot, row count, wave, and current return status.
+
+Consequence: `scripts/hard-grounded-research-review-return-checklist.mjs` emits `generated/review-return-checklist.json` and `REVIEW_RETURN_CHECKLIST.md`; release, dataset-card, paper, supplement, artifact-checklist, README, version-manifest, and reproduction artifacts require the checklist while human-review completion claims remain blocked until real returned labels are collected and merged.

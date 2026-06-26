@@ -8,9 +8,9 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 - Version: reproduction-capsule-v1
 - Benchmark id: `hard-grounded-research-benchmark`
 - Release status: blocked
-- Release checks: 66/73
-- Artifact hashes: 39
-- Reproduction commands: 40
+- Release checks: 67/74
+- Artifact hashes: 41
+- Reproduction commands: 41
 - Validation commands: 3
 - Completion claim allowed: false
 
@@ -51,21 +51,22 @@ This generated capsule is the reviewer start-here artifact for reproducing the c
 | 23 | Refresh review packet audit | node scripts/hard-grounded-research-review-packet-audit.mjs |
 | 24 | Refresh review return contract | node scripts/hard-grounded-research-review-return-contract.mjs |
 | 25 | Refresh review return preflight | node scripts/hard-grounded-research-review-return-preflight.mjs |
-| 26 | Refresh paper tables and figure data | node scripts/hard-grounded-research-paper-tables.mjs |
-| 27 | Refresh statistical analysis plan | node scripts/hard-grounded-research-analysis-plan.mjs |
-| 28 | Refresh model reporting card | node scripts/hard-grounded-research-model-reporting-card.mjs |
-| 29 | Refresh paper claim ledger | node scripts/hard-grounded-research-paper-claim-ledger.mjs |
-| 30 | Refresh supplement index | node scripts/hard-grounded-research-supplement-index.mjs |
-| 31 | Refresh reproduction capsule | node scripts/hard-grounded-research-reproduction-capsule.mjs |
-| 32 | Refresh citation metadata | node scripts/hard-grounded-research-citation-metadata.mjs |
-| 33 | Refresh reviewer FAQ | node scripts/hard-grounded-research-reviewer-faq.mjs |
-| 34 | Refresh responsible-use policy | node scripts/hard-grounded-research-responsible-use.mjs |
-| 35 | Refresh data statement | node scripts/hard-grounded-research-data-statement.mjs |
-| 36 | Refresh version manifest | node scripts/hard-grounded-research-version-manifest.mjs |
-| 37 | Refresh release and publication surfaces | node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs |
-| 38 | Validate harness integration | node scripts/validate-harness.mjs |
-| 39 | Run app build and dashboard QA | node_modules/.bin/vite build && node scripts/qa-dashboard.mjs |
-| 40 | Run full repository gates | pnpm build && pnpm test<br>Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd. |
+| 26 | Refresh review return checklist | node scripts/hard-grounded-research-review-return-checklist.mjs |
+| 27 | Refresh paper tables and figure data | node scripts/hard-grounded-research-paper-tables.mjs |
+| 28 | Refresh statistical analysis plan | node scripts/hard-grounded-research-analysis-plan.mjs |
+| 29 | Refresh model reporting card | node scripts/hard-grounded-research-model-reporting-card.mjs |
+| 30 | Refresh paper claim ledger | node scripts/hard-grounded-research-paper-claim-ledger.mjs |
+| 31 | Refresh supplement index | node scripts/hard-grounded-research-supplement-index.mjs |
+| 32 | Refresh reproduction capsule | node scripts/hard-grounded-research-reproduction-capsule.mjs |
+| 33 | Refresh citation metadata | node scripts/hard-grounded-research-citation-metadata.mjs |
+| 34 | Refresh reviewer FAQ | node scripts/hard-grounded-research-reviewer-faq.mjs |
+| 35 | Refresh responsible-use policy | node scripts/hard-grounded-research-responsible-use.mjs |
+| 36 | Refresh data statement | node scripts/hard-grounded-research-data-statement.mjs |
+| 37 | Refresh version manifest | node scripts/hard-grounded-research-version-manifest.mjs |
+| 38 | Refresh release and publication surfaces | node scripts/hard-grounded-research-release-gate.mjs && node scripts/hard-grounded-research-dataset-card.mjs && node scripts/hard-grounded-research-paper-draft.mjs |
+| 39 | Validate harness integration | node scripts/validate-harness.mjs |
+| 40 | Run app build and dashboard QA | node_modules/.bin/vite build && node scripts/qa-dashboard.mjs |
+| 41 | Run full repository gates | pnpm build && pnpm test<br>Currently blocked in this workspace by pnpm ignored-build approvals for esbuild, sharp, and workerd. |
 
 ## Expected Blockers
 
